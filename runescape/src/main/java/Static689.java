@@ -50,6 +50,6 @@ public final class Static689 {
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(ILjava/lang/String;)Lclient!dm;")
     public static FileOnDisk method8983(@OriginalArg(1) String arg0) {
-        return method8980(SignLink.gameName, SignLink.cacheId, arg0);
+        return method8980(SignLink.game, SignLink.storeId, arg0);
     }
 }

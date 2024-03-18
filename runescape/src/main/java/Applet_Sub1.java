@@ -82,7 +82,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
         }
         if (Static446.aSignLink_6 != null) {
             try {
-                Static446.aSignLink_6.method8985();
+                Static446.aSignLink_6.stop();
             } catch (@Pc(76) Exception local76) {
             }
         }

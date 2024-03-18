@@ -88,6 +88,28 @@ public final class FileCache {
         throw new RuntimeException();
     }
 
+    @OriginalMember(owner = "client!uia", name = "a", descriptor = "(ILjava/lang/String;I)V")
+    public static void initialize(@OriginalArg(0) int storeId, @OriginalArg(1) String game) {
+        FileCache.storeId = storeId;
+        FileCache.game = game;
+
+        try {
+            homeDir = System.getProperty("user.home");
+
+            if (homeDir != null) {
+                homeDir = homeDir + "/";
+            }
+        } catch (@Pc(26) Exception ignored) {
+            /* empty */
+        }
+
+        if (homeDir == null) {
+            homeDir = "~/";
+        }
+
+        initialized = true;
+    }
+
     private FileCache() {
         /* empty */
     }

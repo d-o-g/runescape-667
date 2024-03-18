@@ -244,7 +244,7 @@ public final class Class243 {
     @OriginalMember(owner = "client!mj", name = "d", descriptor = "(I)V")
     public void method5566() throws IOException {
         this.method5567();
-        this.aFileOnDisk_1.method2158();
+        this.aFileOnDisk_1.close();
     }
 
     @OriginalMember(owner = "client!mj", name = "a", descriptor = "(Z)V")

@@ -31,7 +31,7 @@ public final class Static666 {
         }
         try {
             if (local5 != null) {
-                local5.method2158();
+                local5.close();
             }
         } catch (@Pc(58) Exception local58) {
         }

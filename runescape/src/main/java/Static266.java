@@ -148,7 +148,7 @@ public final class Static266 {
         }
         try {
             if (local5 != null) {
-                local5.method2158();
+                local5.close();
             }
         } catch (@Pc(74) Exception local74) {
         }

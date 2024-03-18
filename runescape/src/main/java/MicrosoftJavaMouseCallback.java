@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 @OriginalClass("client!ow")
-public final class Callback_Sub1 extends Callback {
+public final class MicrosoftJavaMouseCallback extends Callback {
 
     @OriginalMember(owner = "client!ow", name = "e", descriptor = "I")
     public volatile int anInt7154;
@@ -55,40 +55,46 @@ public final class Callback_Sub1 extends Callback {
     }
 
     @OriginalMember(owner = "client!ow", name = "a", descriptor = "(III)V")
-    public void method6431(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        User32.SetCursorPos(arg0, arg1);
+    public void movemouse(@OriginalArg(0) int x, @OriginalArg(2) int y) {
+        User32.SetCursorPos(x, y);
     }
 
     @OriginalMember(owner = "client!ow", name = "a", descriptor = "(ZLjava/awt/Component;B)V")
-    public void method6432(@OriginalArg(0) boolean arg0, @OriginalArg(1) Component arg1) {
+    public void showcursor(@OriginalArg(0) boolean delete, @OriginalArg(1) Component component) {
         try {
             Method getPeer = Component.class.getDeclaredMethod("getPeer");
             getPeer.setAccessible(true);
-            @Pc(3) WComponentPeer local3 = (WComponentPeer) getPeer.invoke(arg1);
-            @Pc(6) int local6 = local3.getTopHwnd();
-            if (local6 == this.anInt7155 && arg0 == this.aBoolean540) {
+            @Pc(3) WComponentPeer peer = (WComponentPeer) getPeer.invoke(component);
+            @Pc(6) int wnd = peer.getTopHwnd();
+
+            if (wnd == this.anInt7155 && delete == this.aBoolean540) {
                 return;
             }
+
             if (!this.aBoolean541) {
                 this.anInt7156 = User32.LoadCursor(0, 32512);
                 Root.alloc(this);
                 this.aBoolean541 = true;
             }
-            if (this.anInt7155 != local6) {
+
+            if (this.anInt7155 != wnd) {
                 if (this.anInt7155 != 0) {
                     this.aBoolean540 = true;
-                    User32.SendMessage(local6, 101024, 0, 0);
+                    User32.SendMessage(wnd, 101024, 0, 0);
+
                     synchronized (this) {
                         User32.SetWindowLong(this.anInt7155, -4, this.anInt7154);
                     }
                 }
+
                 synchronized (this) {
-                    this.anInt7155 = local6;
+                    this.anInt7155 = wnd;
                     this.anInt7154 = User32.SetWindowLong(this.anInt7155, -4, this);
                 }
             }
-            this.aBoolean540 = arg0;
-            User32.SendMessage(local6, 101024, 0, 0);
+
+            this.aBoolean540 = delete;
+            User32.SendMessage(wnd, 101024, 0, 0);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex) {
             throw new RuntimeException(ex);
         }

@@ -59,7 +59,7 @@ public final class SignLink implements Runnable {
     public static String javaVersion;
 
     @OriginalMember(owner = "client!vq", name = "f", descriptor = "Ljava/lang/String;")
-    public static String gameName;
+    public static String game;
     @OriginalMember(owner = "client!vq", name = "z", descriptor = "Ljava/lang/String;")
     public static String osNameRaw;
     @OriginalMember(owner = "client!vq", name = "y", descriptor = "Ljava/lang/String;")
@@ -75,7 +75,7 @@ public final class SignLink implements Runnable {
     @OriginalMember(owner = "client!vq", name = "v", descriptor = "Ljava/lang/reflect/Method;")
     public static Method setFocusCycleRoot;
     @OriginalMember(owner = "client!vq", name = "w", descriptor = "I")
-    public static int cacheId;
+    public static int storeId;
 
     @OriginalMember(owner = "client!vq", name = "m", descriptor = "Lclient!dm;")
     public FileOnDisk cacheDat = null;
@@ -84,7 +84,7 @@ public final class SignLink implements Runnable {
     public SignedResource current = null;
 
     @OriginalMember(owner = "client!vq", name = "F", descriptor = "Z")
-    public boolean aBoolean780 = false;
+    public boolean stopped = false;
 
     @OriginalMember(owner = "client!vq", name = "h", descriptor = "Lclient!oba;")
     public SignedResource last = null;
@@ -114,25 +114,25 @@ public final class SignLink implements Runnable {
     public Class15 aClass15_1;
 
     @OriginalMember(owner = "client!vq", name = "r", descriptor = "Ljava/lang/Object;")
-    public Object anObject19;
+    public Object fullscreenAdapter;
 
     @OriginalMember(owner = "client!vq", name = "k", descriptor = "Lclient!ow;")
-    public Callback_Sub1 aCallback_Sub1_1;
+    public MicrosoftJavaMouseCallback mouseCallback;
 
     @OriginalMember(owner = "client!vq", name = "n", descriptor = "Ljava/lang/Object;")
-    public Object anObject20;
+    public Object mouseAdapter;
 
     @OriginalMember(owner = "client!vq", name = "o", descriptor = "Ljava/lang/Thread;")
-    public final Thread aThread7;
+    public final Thread thread;
 
     @OriginalMember(owner = "client!vq", name = "<init>", descriptor = "(ILjava/lang/String;IZ)V")
-    public SignLink(@OriginalArg(0) int cacheId, @OriginalArg(1) String gameName, @OriginalArg(2) int arg2, @OriginalArg(3) boolean signed) throws Exception {
-        SignLink.gameName = gameName;
+    public SignLink(@OriginalArg(0) int storeId, @OriginalArg(1) String game, @OriginalArg(2) int archiveCount, @OriginalArg(3) boolean signed) throws Exception {
+        SignLink.game = game;
         SignLink.javaVersion = "1.1";
         SignLink.javaVendor = "Unknown";
 
         this.signed = signed;
-        SignLink.cacheId = cacheId;
+        SignLink.storeId = storeId;
 
         try {
             javaVendor = System.getProperty("java.vendor");
@@ -199,61 +199,67 @@ public final class SignLink implements Runnable {
             }
         }
 
-        Static649.iniailize(SignLink.cacheId, SignLink.gameName);
+        FileCache.initialize(SignLink.storeId, SignLink.game);
 
         if (this.signed) {
-            this.uidFile = new FileOnDisk(FileCache.get(null, SignLink.cacheId, UIDFileName), "rw", 25L);
+            this.uidFile = new FileOnDisk(FileCache.get(null, SignLink.storeId, UIDFileName), "rw", 25L);
             this.cacheDat = new FileOnDisk(FileCache.get(cacheDatFilename), "rw", 314572800L);
             this.masterIndex = new FileOnDisk(FileCache.get(cacheMasterIndexFilename), "rw", 1048576L);
-            this.cacheIndex = new FileOnDisk[arg2];
+            this.cacheIndex = new FileOnDisk[archiveCount];
 
-            for (@Pc(226) int local226 = 0; local226 < arg2; local226++) {
-                this.cacheIndex[local226] = new FileOnDisk(FileCache.get("main_file_cache.idx" + local226), "rw", 1048576L);
+            for (@Pc(226) int i = 0; i < archiveCount; i++) {
+                this.cacheIndex[i] = new FileOnDisk(FileCache.get(cacheIndexFilename + i), "rw", 1048576L);
             }
+
             if (this.microsoftjava) {
                 try {
                     this.anObject21 = Class.forName("Class183").getDeclaredConstructor().newInstance();
-                } catch (@Pc(267) Throwable local267) {
+                } catch (@Pc(267) Throwable ignored) {
+                    /* empty */
                 }
             }
+
             try {
                 if (this.microsoftjava) {
                     this.aClass15_1 = new Class15();
                 } else {
-                    this.anObject19 = Class.forName("Class66").getDeclaredConstructor().newInstance();
+                    this.fullscreenAdapter = Class.forName("com.jagex.graphics.FullscreenAdapter").getDeclaredConstructor().newInstance();
                 }
-            } catch (@Pc(287) Throwable local287) {
+            } catch (@Pc(287) Throwable ignored) {
+                /* empty */
             }
+
             try {
                 if (this.microsoftjava) {
-                    this.aCallback_Sub1_1 = new Callback_Sub1();
+                    this.mouseCallback = new MicrosoftJavaMouseCallback();
                 } else {
-                    this.anObject20 = Class.forName("Class238").getDeclaredConstructor().newInstance();
+                    this.mouseAdapter = Class.forName("MouseAdapter").getDeclaredConstructor().newInstance();
                 }
-            } catch (@Pc(306) Throwable local306) {
+            } catch (@Pc(306) Throwable ignored) {
+                /* empty */
             }
         }
 
         if (this.signed && !this.microsoftjava) {
-            @Pc(318) ThreadGroup local318 = Thread.currentThread().getThreadGroup();
-            for (@Pc(321) ThreadGroup local321 = local318.getParent(); local321 != null; local321 = local321.getParent()) {
-                local318 = local321;
+            @Pc(318) ThreadGroup group = Thread.currentThread().getThreadGroup();
+            for (@Pc(321) ThreadGroup parent = group.getParent(); parent != null; parent = parent.getParent()) {
+                group = parent;
             }
 
-            @Pc(332) Thread[] local332 = new Thread[1000];
-            local318.enumerate(local332);
-            for (@Pc(338) int local338 = 0; local338 < local332.length; local338++) {
-                if (local332[local338] != null && local332[local338].getName().startsWith("AWT")) {
-                    local332[local338].setPriority(1);
+            @Pc(332) Thread[] threads = new Thread[1000];
+            group.enumerate(threads);
+            for (@Pc(338) int i = 0; i < threads.length; i++) {
+                if (threads[i] != null && threads[i].getName().startsWith("AWT")) {
+                    threads[i].setPriority(1);
                 }
             }
         }
 
-        this.aBoolean780 = false;
-        this.aThread7 = new Thread(this);
-        this.aThread7.setPriority(10);
-        this.aThread7.setDaemon(true);
-        this.aThread7.start();
+        this.stopped = false;
+        this.thread = new Thread(this);
+        this.thread.setPriority(10);
+        this.thread.setDaemon(true);
+        this.thread.start();
     }
 
     @OriginalMember(owner = "client!vq", name = "c", descriptor = "(B)Ljava/lang/Object;")
@@ -292,41 +298,51 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "b", descriptor = "(I)V")
-    public void method8985() {
+    public void stopb() {
         synchronized (this) {
-            this.aBoolean780 = true;
+            this.stopped = true;
             this.notifyAll();
         }
+
         try {
-            this.aThread7.join();
-        } catch (@Pc(25) InterruptedException local25) {
+            this.thread.join();
+        } catch (@Pc(25) InterruptedException ignored) {
+            /* empty */
         }
+
         if (this.cacheDat != null) {
             try {
-                this.cacheDat.method2158();
-            } catch (@Pc(35) IOException local35) {
+                this.cacheDat.close();
+            } catch (@Pc(35) IOException ignored) {
+                /* empty */
             }
         }
+
         if (this.masterIndex != null) {
             try {
-                this.masterIndex.method2158();
-            } catch (@Pc(46) IOException local46) {
+                this.masterIndex.close();
+            } catch (@Pc(46) IOException ignored) {
+                /* empty */
             }
         }
+
         if (this.cacheIndex != null) {
-            for (@Pc(52) int local52 = 0; local52 < this.cacheIndex.length; local52++) {
-                if (this.cacheIndex[local52] != null) {
+            for (@Pc(52) int i = 0; i < this.cacheIndex.length; i++) {
+                if (this.cacheIndex[i] != null) {
                     try {
-                        this.cacheIndex[local52].method2158();
-                    } catch (@Pc(67) IOException local67) {
+                        this.cacheIndex[i].close();
+                    } catch (@Pc(67) IOException ignored) {
+                        /* empty */
                     }
                 }
             }
         }
+
         if (this.uidFile != null) {
             try {
-                this.uidFile.method2158();
-            } catch (@Pc(90) IOException local90) {
+                this.uidFile.close();
+            } catch (@Pc(90) IOException ignored) {
+                /* empty */
             }
         }
     }
@@ -365,7 +381,7 @@ public final class SignLink implements Runnable {
         } else if (this.microsoftjava) {
             return this.aClass15_1 != null;
         } else {
-            return this.anObject19 != null;
+            return this.fullscreenAdapter != null;
         }
     }
 
@@ -415,7 +431,7 @@ public final class SignLink implements Runnable {
             @Pc(15) SignedResource local15;
             synchronized (this) {
                 while (true) {
-                    if (this.aBoolean780) {
+                    if (this.stopped) {
                         return;
                     }
                     if (this.current != null) {
@@ -498,7 +514,7 @@ public final class SignLink implements Runnable {
                             if (this.microsoftjava) {
                                 local15.result = this.aClass15_1.method250();
                             } else {
-                                local15.result = Class.forName("Class66").getMethod("listmodes").invoke(this.anObject19);
+                                local15.result = Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("listmodes").invoke(this.fullscreenAdapter);
                             }
                         } else if (local42 == 6) {
                             @Pc(268) Frame local268 = new Frame("Jagex Full Screen");
@@ -507,35 +523,35 @@ public final class SignLink implements Runnable {
                             if (this.microsoftjava) {
                                 this.aClass15_1.method248(local268, local15.anInt6787 >> 16, local15.anInt6787 & 0xFFFF, local15.anInt6788 & 0xFFFF, local15.anInt6788 >>> 16);
                             } else {
-                                Class.forName("Class66").getMethod("enter", Static689.aClass24 == null ? (Static689.aClass24 = Class.forName("java.awt.Frame")) : Static689.aClass24, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE).invoke(this.anObject19, local268, Integer.valueOf(local15.anInt6788 >>> 16), new Integer(local15.anInt6788 & 0xFFFF), Integer.valueOf(local15.anInt6787 >> 16), new Integer(local15.anInt6787 & 0xFFFF));
+                                Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("enter", Static689.aClass24 == null ? (Static689.aClass24 = Class.forName("java.awt.Frame")) : Static689.aClass24, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE).invoke(this.fullscreenAdapter, local268, Integer.valueOf(local15.anInt6788 >>> 16), new Integer(local15.anInt6788 & 0xFFFF), Integer.valueOf(local15.anInt6787 >> 16), new Integer(local15.anInt6787 & 0xFFFF));
                             }
                         } else if (local42 != 7) {
                             @Pc(438) FileOnDisk local438;
                             if (local42 == 12) {
-                                local438 = Static689.method8980(gameName, cacheId, (String) local15.objectData);
+                                local438 = Static689.method8980(game, storeId, (String) local15.objectData);
                                 local15.result = local438;
                             } else if (local42 == 13) {
-                                local438 = Static689.method8980("", cacheId, (String) local15.objectData);
+                                local438 = Static689.method8980("", storeId, (String) local15.objectData);
                                 local15.result = local438;
                             } else if (this.signed && local42 == 14) {
                                 @Pc(460) int local460 = local15.anInt6788;
                                 @Pc(463) int local463 = local15.anInt6787;
                                 if (this.microsoftjava) {
-                                    this.aCallback_Sub1_1.method6431(local460, local463);
+                                    this.mouseCallback.movemouse(local460, local463);
                                 } else {
-                                    Class.forName("Class238").getDeclaredMethod("movemouse", Integer.TYPE, Integer.TYPE).invoke(this.anObject20, Integer.valueOf(local460), new Integer(local463));
+                                    Class.forName("MouseAdapter").getDeclaredMethod("movemouse", Integer.TYPE, Integer.TYPE).invoke(this.mouseAdapter, Integer.valueOf(local460), new Integer(local463));
                                 }
                             } else if (this.signed && local42 == 15) {
                                 @Pc(534) boolean local534 = local15.anInt6788 != 0;
                                 @Pc(538) Component local538 = (Component) local15.objectData;
                                 if (this.microsoftjava) {
-                                    this.aCallback_Sub1_1.method6432(local534, local538);
+                                    this.mouseCallback.showcursor(local534, local538);
                                 } else {
-                                    Class.forName("Class238").getDeclaredMethod("showcursor", Static689.aClass25 == null ? (Static689.aClass25 = Class.forName("java.awt.Component")) : Static689.aClass25, Boolean.TYPE).invoke(this.anObject20, local538, Boolean.valueOf(local534));
+                                    Class.forName("MouseAdapter").getDeclaredMethod("showcursor", Static689.aClass25 == null ? (Static689.aClass25 = Class.forName("java.awt.Component")) : Static689.aClass25, Boolean.TYPE).invoke(this.mouseAdapter, local538, Boolean.valueOf(local534));
                                 }
                             } else if (!this.microsoftjava && local42 == 17) {
                                 local102 = (Object[]) local15.objectData;
-                                Class.forName("Class238").getDeclaredMethod("setcustomcursor", Static689.aClass25 == null ? (Static689.aClass25 = Class.forName("java.awt.Component")) : Static689.aClass25, Static689.aClass26 == null ? (Static689.aClass26 = Class.forName("[I")) : Static689.aClass26, Integer.TYPE, Integer.TYPE, Static689.aClass27 == null ? (Static689.aClass27 = Class.forName("java.awt.Point")) : Static689.aClass27).invoke(this.anObject20, (Component) local102[0], (int[]) local102[1], Integer.valueOf(local15.anInt6788), new Integer(local15.anInt6787), (Point) local102[2]);
+                                Class.forName("MouseAdapter").getDeclaredMethod("setcustomcursor", Static689.aClass25 == null ? (Static689.aClass25 = Class.forName("java.awt.Component")) : Static689.aClass25, Static689.aClass26 == null ? (Static689.aClass26 = Class.forName("[I")) : Static689.aClass26, Integer.TYPE, Integer.TYPE, Static689.aClass27 == null ? (Static689.aClass27 = Class.forName("java.awt.Point")) : Static689.aClass27).invoke(this.mouseAdapter, (Component) local102[0], (int[]) local102[1], Integer.valueOf(local15.anInt6788), new Integer(local15.anInt6787), (Point) local102[2]);
                             } else if (local42 == 16) {
                                 try {
                                     if (!osNameLower.startsWith("win")) {
@@ -563,7 +579,7 @@ public final class SignLink implements Runnable {
                         } else if (this.microsoftjava) {
                             this.aClass15_1.method249((Frame) local15.objectData);
                         } else {
-                            Class.forName("Class66").getMethod("exit").invoke(this.anObject19);
+                            Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("exit").invoke(this.fullscreenAdapter);
                         }
                     } else {
                         throw new Exception("");

@@ -66,7 +66,7 @@ public final class Class227 {
     }
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(BZILclient!gu;Lclient!s;BILclient!s;IILclient!ha;)Lclient!ka;")
-    public Model method5249(@OriginalArg(0) byte arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class152 arg3, @OriginalArg(4) Ground arg4, @OriginalArg(6) int arg5, @OriginalArg(7) Ground arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Toolkit arg9) {
+    public Model method5249(@OriginalArg(0) byte arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Animator arg3, @OriginalArg(4) Ground arg4, @OriginalArg(6) int arg5, @OriginalArg(7) Ground arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Toolkit arg9) {
         @Pc(13) boolean local13 = arg1 & this.aByte96 != 0;
         @Pc(15) int local15 = arg7;
         if (arg3 != null) {
@@ -207,7 +207,7 @@ public final class Class227 {
     }
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Lclient!gu;BIBLclient!ha;)Lclient!ka;")
-    public Model method5252(@OriginalArg(0) Class152 arg0, @OriginalArg(1) byte arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Toolkit arg3) {
+    public Model method5252(@OriginalArg(0) Animator arg0, @OriginalArg(1) byte arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Toolkit arg3) {
         return this.method5249(arg1, false, 0, arg0, (Ground) null, 0, (Ground) null, arg2, 0, arg3);
     }
 }

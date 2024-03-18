@@ -601,7 +601,7 @@ public final class ObjType {
         scratchToolkit.ya();
         scratchToolkit.la();
         scratchToolkit.aa(0, 0, 36, 32, 0, 0);
-        model.render(scratch, (PickingCylinder) null, 1);
+        model.render(scratch, null, 1);
         scratchToolkit.f(zNear, zFar);
 
         @Pc(515) int[] image = scratchToolkit.na(0, 0, 36, 32);
@@ -625,17 +625,21 @@ public final class ObjType {
         } else if (this.boughttemplate != -1) {
             sprite.render(0, 0);
         }
-        if (objNumMode == 1 || objNumMode == 2 && (this.stackable == 1 || invCount != 1) && invCount != -1) {
-            font.method8829(0, 9, this.method8803(invCount), -16777215, -256);
+
+        if (objNumMode == SHOWCOUNT_ALWAYS || objNumMode == SHOWCOUNT_IFNOT1 && (this.stackable == OBJ_STACKABILITY_ALWAYS || invCount != 1) && invCount != -1) {
+            font.method8829(0, 9, this.formatAmount(invCount), 0xFF000001, 0xFFFFFF00);
         }
+
         image = scratchToolkit.na(0, 0, 36, 32);
-        for (@Pc(652) int local652 = 0; local652 < image.length; local652++) {
-            if ((image[local652] & 0xFFFFFF) == 0) {
-                image[local652] = 0;
+
+        for (@Pc(652) int j = 0; j < image.length; j++) {
+            if ((image[j] & 0xFFFFFF) == 0) {
+                image[j] = 0;
             } else {
-                image[local652] |= 0xFF000000;
+                image[j] |= 0xFF000000;
             }
         }
+
         return image;
     }
 
@@ -831,7 +835,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "c", descriptor = "(II)Ljava/lang/String;")
-    public String method8803(@OriginalArg(1) int arg0) {
+    public String formatAmount(@OriginalArg(1) int arg0) {
         if (arg0 < 100000) {
             return "<col=ffff00>" + arg0 + "</col>";
         } else if (arg0 < 10000000) {
@@ -855,7 +859,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!gu;ILclient!ju;ILclient!ha;I)Lclient!ka;")
-    public Model method8805(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class201 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit arg4) {
+    public Model getModel(@OriginalArg(0) Animator arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class201 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit arg4) {
         @Pc(17) int local17;
         if (this.countobj != null && arg3 > 1) {
             local17 = -1;
@@ -865,7 +869,7 @@ public final class ObjType {
                 }
             }
             if (local17 != -1) {
-                return this.myList.list(local17).method8805(arg0, arg1, arg2, 1, arg4);
+                return this.myList.list(local17).getModel(arg0, arg1, arg2, 1, arg4);
             }
         }
         local17 = arg1;

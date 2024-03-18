@@ -25,7 +25,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
     public final int anInt7402;
 
     @OriginalMember(owner = "client!pja", name = "V", descriptor = "Lclient!gu;")
-    public Class152 aClass152_8;
+    public Animator aAnimator_8;
 
     @OriginalMember(owner = "client!pja", name = "<init>", descriptor = "(IIIIIIIIIIIIZ)V")
     public Class8_Sub2_Sub1_Sub5(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) boolean arg12) {
@@ -35,12 +35,12 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
         @Pc(36) Class227 local36 = Static23.aClass128_1.method2694(this.anInt7402);
         @Pc(39) int local39 = local36.anInt5842;
         if (local39 != -1) {
-            this.aClass152_8 = new Class152_Sub2(this, false);
+            this.aAnimator_8 = new Animator_Sub2(this, false);
             @Pc(59) int local59 = local36.aBoolean448 ? 0 : 2;
             if (arg12) {
                 local59 = 1;
             }
-            this.aClass152_8.method9092(local39, arg1, local59, false);
+            this.aAnimator_8.method9092(local39, arg1, local59, false);
         }
     }
 
@@ -63,7 +63,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
         @Pc(8) Class227 local8 = Static23.aClass128_1.method2694(arg0);
         @Pc(22) Ground local22 = Static706.aGroundArray3[super.aByte144];
         @Pc(36) Ground local36 = super.aByte143 < 3 ? Static706.aGroundArray3[super.aByte143 + 1] : null;
-        return this.aClass152_8 == null || this.aClass152_8.method9102() ? local8.method5249((byte) 2, true, super.anInt10694, (Class152) null, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.anInt10694, this.aClass152_8, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1);
+        return this.aAnimator_8 == null || this.aAnimator_8.method9102() ? local8.method5249((byte) 2, true, super.anInt10694, (Animator) null, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.anInt10694, this.aAnimator_8, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1);
     }
 
     @OriginalMember(owner = "client!pja", name = "finalize", descriptor = "()V")
@@ -99,7 +99,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(I)Z")
     public boolean method6595() {
-        return this.aClass152_8 != null && !this.aClass152_8.method9106();
+        return this.aAnimator_8 != null && !this.aAnimator_8.method9106();
     }
 
     @OriginalMember(owner = "client!pja", name = "j", descriptor = "(I)V")
@@ -130,8 +130,8 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(II)V")
     public void method6598() {
-        if (this.aClass152_8 != null && !this.aClass152_8.method9102()) {
-            this.aClass152_8.method9112(1);
+        if (this.aAnimator_8 != null && !this.aAnimator_8.method9102()) {
+            this.aAnimator_8.method9112(1);
         }
     }
 
@@ -216,6 +216,6 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "d", descriptor = "(I)Z")
     public boolean method6603() {
-        return this.aClass152_8 == null || this.aClass152_8.method9102();
+        return this.aAnimator_8 == null || this.aAnimator_8.method9102();
     }
 }

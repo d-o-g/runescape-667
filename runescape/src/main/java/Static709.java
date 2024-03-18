@@ -375,12 +375,12 @@ public final class Static709 {
                         local1143 = Static145.method2412((int) local660);
                         if (local1143.anInt3789 != local1099.anInt197) {
                             if (local1099.anInt197 == -1) {
-                                local1143.aClass152_6 = null;
+                                local1143.aAnimator_6 = null;
                             } else {
-                                if (local1143.aClass152_6 == null) {
-                                    local1143.aClass152_6 = new Class152_Sub1();
+                                if (local1143.aAnimator_6 == null) {
+                                    local1143.aAnimator_6 = new Animator_Sub1();
                                 }
-                                local1143.aClass152_6.method9113(true, local1099.anInt197);
+                                local1143.aAnimator_6.method9113(true, local1099.anInt197);
                             }
                             local1143.anInt3789 = local1099.anInt197;
                             Static178.method2729(local1143);

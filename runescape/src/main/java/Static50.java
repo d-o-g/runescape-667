@@ -118,7 +118,7 @@ public final class Static50 {
 
     @OriginalMember(owner = "client!bm", name = "a", descriptor = "(Lclient!cg;B)V")
     public static void method6638(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
-        @Pc(8) Class152 local8 = arg0.aClass152_10;
+        @Pc(8) Animator local8 = arg0.aAnimator_10;
         if (local8.method9109() && local8.method9112(1) && local8.method9102()) {
             if (arg0.aBoolean817) {
                 local8.method9113(true, arg0.method9317().method6477());
@@ -126,10 +126,10 @@ public final class Static50 {
             }
             local8.method9099();
         }
-        @Pc(75) Class152 local75;
+        @Pc(75) Animator local75;
         for (@Pc(50) int local50 = 0; local50 < arg0.aClass199Array3.length; local50++) {
             if (arg0.aClass199Array3[local50].anInt4930 != -1) {
-                local75 = arg0.aClass199Array3[local50].aClass152_7;
+                local75 = arg0.aClass199Array3[local50].aAnimator_7;
                 if (local75.method9106()) {
                     @Pc(88) Class227 local88 = Static23.aClass128_1.method2694(arg0.aClass199Array3[local50].anInt4930);
                     @Pc(92) Class69 local92 = local75.method9107();
@@ -151,7 +151,7 @@ public final class Static50 {
                 }
             }
         }
-        local75 = arg0.aClass152_11;
+        local75 = arg0.aAnimator_11;
         if (local75.method9109()) {
             label83:
             {
@@ -176,7 +176,7 @@ public final class Static50 {
             }
         }
         for (@Pc(313) int local313 = 0; local313 < arg0.aClass152_Sub2_Sub1Array3.length; local313++) {
-            @Pc(320) Class152_Sub2_Sub1 local320 = arg0.aClass152_Sub2_Sub1Array3[local313];
+            @Pc(320) Animator_Sub2_Sub1 local320 = arg0.aClass152_Sub2_Sub1Array3[local313];
             if (local320 != null) {
                 if (local320.anInt10508 > 0) {
                     local320.anInt10508--;

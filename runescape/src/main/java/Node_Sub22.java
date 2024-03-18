@@ -33,7 +33,7 @@ public final class Node_Sub22 extends Node {
     }
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(IILclient!ha;IZLclient!gu;Lclient!ju;)Lclient!ka;")
-    public Model method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(4) boolean arg2, @OriginalArg(5) Class152 arg3, @OriginalArg(6) Class201 arg4) {
+    public Model method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(4) boolean arg2, @OriginalArg(5) Animator arg3, @OriginalArg(6) Class201 arg4) {
         @Pc(7) Model local7 = null;
         @Pc(9) int local9 = 2048;
         @Pc(11) Class289 local11 = null;

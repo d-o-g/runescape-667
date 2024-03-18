@@ -372,15 +372,15 @@ public final class Static523 {
         arg0.anInt3823 = 5;
         arg0.anInt3831 = Static312.anInt5000;
         arg0.anInt3738 = Static214.method3157(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9);
-        @Pc(55) Class152 local55 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aClass152_10;
+        @Pc(55) Animator local55 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aAnimator_10;
         if (local55 == null) {
-            arg0.aClass152_6 = null;
+            arg0.aAnimator_6 = null;
             return;
         }
-        if (arg0.aClass152_6 == null) {
-            arg0.aClass152_6 = new Class152_Sub1();
+        if (arg0.aAnimator_6 == null) {
+            arg0.aAnimator_6 = new Animator_Sub1();
         }
         arg0.anInt3789 = local55.method9114();
-        arg0.aClass152_6.method9096(local55);
+        arg0.aAnimator_6.method9096(local55);
     }
 }

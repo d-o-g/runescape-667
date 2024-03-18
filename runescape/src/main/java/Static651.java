@@ -29,7 +29,7 @@ public final class Static651 {
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
     public static void method8513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Class8_Sub2_Sub1_Sub2 arg3) {
         @Pc(9) Class289 local9 = arg3.method9317();
-        @Pc(19) Class152 local19 = arg3.aClass152_10;
+        @Pc(19) Animator local19 = arg3.aAnimator_10;
         @Pc(29) int local29 = arg3.anInt10756 - arg3.aClass126_7.anInt2889 & 0x3FFF;
         if (arg0 == -1) {
             if (local29 == 0 && arg3.anInt10749 <= 25) {
@@ -45,7 +45,7 @@ public final class Static651 {
                 arg3.aBoolean817 = false;
             } else if (!arg3.aBoolean817 || !local9.method6479(local19.method9114())) {
                 local19.method9113(true, local9.method6477());
-                arg3.aBoolean817 = arg3.aClass152_10.method9109();
+                arg3.aBoolean817 = arg3.aAnimator_10.method9109();
             }
         } else if (arg3.anInt10722 != -1 && (local29 >= 10240 || local29 <= 2048)) {
             @Pc(172) int local172 = Static464.anIntArray561[arg2] - arg3.aClass126_7.anInt2889 & 0x3FFF;
@@ -128,9 +128,9 @@ public final class Static651 {
                     break;
                 }
             }
-            @Pc(31) Class152 local31 = arg3.aClass152_11;
+            @Pc(31) Animator local31 = arg3.aAnimator_11;
             if (local8 && local31.method9109()) {
-                @Pc(44) Class69 local44 = arg3.aClass152_11.method9107();
+                @Pc(44) Class69 local44 = arg3.aAnimator_11.method9107();
                 @Pc(47) int local47 = local44.anInt1646;
                 if (local47 == 1) {
                     local31.method9093(arg1);
@@ -147,7 +147,7 @@ public final class Static651 {
             }
             if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.aClass50_1.method1162(arg0[local10]).anInt1649 >= Static25.aClass50_1.method1162(arg3.anIntArray869[local10]).anInt1649) {
                 arg3.anIntArray869 = arg0;
-                arg3.aClass152_11.method9091(arg1);
+                arg3.aAnimator_11.method9091(arg1);
                 if (arg2) {
                     arg3.anInt10762 = arg3.anInt10764;
                 }
@@ -157,7 +157,7 @@ public final class Static651 {
             return;
         }
         arg3.anIntArray869 = arg0;
-        arg3.aClass152_11.method9091(arg1);
+        arg3.aAnimator_11.method9091(arg1);
         if (arg2) {
             arg3.anInt10762 = arg3.anInt10764;
             return;

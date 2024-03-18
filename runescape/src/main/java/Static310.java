@@ -21,7 +21,7 @@ public final class Static310 {
                     } else {
                         @Pc(60) Class69 local60 = Static25.aClass50_1.method1162(local20);
                         @Pc(63) int local63 = local60.anInt1646;
-                        @Pc(68) Class152_Sub2_Sub1 local68 = arg3.aClass152_Sub2_Sub1Array3[local30];
+                        @Pc(68) Animator_Sub2_Sub1 local68 = arg3.aClass152_Sub2_Sub1Array3[local30];
                         if (local68 != null && local68.method9109()) {
                             if (local20 == local68.method9114()) {
                                 if (local63 == 0) {
@@ -37,7 +37,7 @@ public final class Static310 {
                             }
                         }
                         if (local68 == null || !local68.method9109()) {
-                            local68 = arg3.aClass152_Sub2_Sub1Array3[local30] = new Class152_Sub2_Sub1(arg3);
+                            local68 = arg3.aClass152_Sub2_Sub1Array3[local30] = new Animator_Sub2_Sub1(arg3);
                             local68.method9113(true, local20);
                             local68.anInt10508 = local28;
                         }

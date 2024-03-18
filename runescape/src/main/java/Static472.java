@@ -463,12 +463,12 @@ public final class Static472 {
                         local21 = anIntArray578[--anInt7142];
                         if (local21 != local220.anInt3789) {
                             if (local21 == -1) {
-                                local220.aClass152_6 = null;
+                                local220.aAnimator_6 = null;
                             } else {
-                                if (local220.aClass152_6 == null) {
-                                    local220.aClass152_6 = new Class152_Sub1();
+                                if (local220.aAnimator_6 == null) {
+                                    local220.aAnimator_6 = new Animator_Sub1();
                                 }
-                                local220.aClass152_6.method9113(true, local21);
+                                local220.aAnimator_6.method9113(true, local21);
                             }
                             local220.anInt3789 = local21;
                             Static178.method2729(local220);

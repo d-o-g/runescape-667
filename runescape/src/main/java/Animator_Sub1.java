@@ -3,10 +3,10 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!js")
-public final class Class152_Sub1 extends Class152 {
+public final class Animator_Sub1 extends Animator {
 
     @OriginalMember(owner = "client!js", name = "<init>", descriptor = "()V")
-    public Class152_Sub1() {
+    public Animator_Sub1() {
         super(true);
     }
 

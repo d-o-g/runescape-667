@@ -143,10 +143,10 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public int anInt10747;
 
     @OriginalMember(owner = "client!cg", name = "qc", descriptor = "Lclient!gu;")
-    public final Class152 aClass152_10;
+    public final Animator aAnimator_10;
 
     @OriginalMember(owner = "client!cg", name = "Ab", descriptor = "Lclient!gu;")
-    public final Class152 aClass152_11;
+    public final Animator aAnimator_11;
 
     @OriginalMember(owner = "client!cg", name = "Zb", descriptor = "I")
     public int anInt10749;
@@ -209,7 +209,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public final Model[] aModelArray3;
 
     @OriginalMember(owner = "client!cg", name = "cb", descriptor = "[Lclient!wb;")
-    public final Class152_Sub2_Sub1[] aClass152_Sub2_Sub1Array3;
+    public final Animator_Sub2_Sub1[] aClass152_Sub2_Sub1Array3;
 
     @OriginalMember(owner = "client!cg", name = "<init>", descriptor = "(I)V")
     public Class8_Sub2_Sub1_Sub2(@OriginalArg(0) int arg0) {
@@ -235,8 +235,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         this.anIntArray873 = new int[Static65.aClass3_1.anInt86];
         this.anInt10748 = -32768;
         this.anInt10747 = -1000;
-        this.aClass152_10 = new Class152_Sub2(this, false);
-        this.aClass152_11 = new Class152_Sub2(this, false);
+        this.aAnimator_10 = new Animator_Sub2(this, false);
+        this.aAnimator_11 = new Animator_Sub2(this, false);
         this.anInt10749 = 0;
         this.anInt10757 = 256;
         this.anInt10752 = -1;
@@ -260,7 +260,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         for (@Pc(174) int local174 = 0; local174 < 4; local174++) {
             this.aClass199Array3[local174] = new Class199(this);
         }
-        this.aClass152_Sub2_Sub1Array3 = new Class152_Sub2_Sub1[Static125.aClass388_1.anIntArray821.length];
+        this.aClass152_Sub2_Sub1Array3 = new Animator_Sub2_Sub1[Static125.aClass388_1.anIntArray821.length];
     }
 
     @OriginalMember(owner = "client!cg", name = "<init>", descriptor = "()V")
@@ -292,7 +292,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                 local16 = 7;
             }
             @Pc(50) Class199 local50 = this.aClass199Array3[local13];
-            if (local50.anInt4930 == -1 || local50.aClass152_7.method9106()) {
+            if (local50.anInt4930 == -1 || local50.aAnimator_7.method9106()) {
                 this.aModelArray3[local13 + 1] = null;
             } else {
                 @Pc(76) Class227 local76 = Static23.aClass128_1.method2694(local50.anInt4930);
@@ -311,7 +311,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                         local97 |= 0x7;
                     }
                 }
-                @Pc(146) Model local146 = this.aModelArray3[local13 + 1] = local76.method5252(local50.aClass152_7, local16, local97, arg2);
+                @Pc(146) Model local146 = this.aModelArray3[local13 + 1] = local76.method5252(local50.aAnimator_7, local16, local97, arg2);
                 if (local146 != null) {
                     if (local50.anInt4928 >= 0 && arg3.anIntArrayArray181 != null && arg3.anIntArrayArray181[local50.anInt4928] != null) {
                         @Pc(171) int local171 = 0;
@@ -650,7 +650,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                         return;
                     }
                     if (local57 == 2) {
-                        local16.aClass152_7.method9115();
+                        local16.aAnimator_7.method9115();
                         return;
                     }
                 }
@@ -677,7 +677,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         if (arg5 != -1 && arg2) {
             local118 = 1;
         }
-        local16.aClass152_7.method9092(arg5 == -1 ? -1 : Static23.aClass128_1.method2694(arg5).anInt5842, arg3 & 0xFFFF, local118, false);
+        local16.aAnimator_7.method9092(arg5 == -1 ? -1 : Static23.aClass128_1.method2694(arg5).anInt5842, arg3 & 0xFFFF, local118, false);
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(II)V")

@@ -42,8 +42,8 @@ public final class Static256 {
             Static521.anInt7756 = -1;
             return;
         }
-        if (arg0.aClass152_11.method9109() && !arg0.aClass152_11.method9106()) {
-            @Pc(41) Class69 local41 = arg0.aClass152_11.method9107();
+        if (arg0.aAnimator_11.method9109() && !arg0.aAnimator_11.method9106()) {
+            @Pc(41) Class69 local41 = arg0.aAnimator_11.method9107();
             if (arg0.anInt10762 > 0 && local41.anInt1642 == 0) {
                 Static524.anInt8042 = 0;
                 Static521.anInt7756 = -1;
@@ -58,7 +58,7 @@ public final class Static256 {
             }
         }
         for (@Pc(86) int local86 = 0; local86 < arg0.aClass199Array3.length; local86++) {
-            if (arg0.aClass199Array3[local86].anInt4930 != -1 && arg0.aClass199Array3[local86].aClass152_7.method9106()) {
+            if (arg0.aClass199Array3[local86].anInt4930 != -1 && arg0.aClass199Array3[local86].aAnimator_7.method9106()) {
                 @Pc(117) Class227 local117 = Static23.aClass128_1.method2694(arg0.aClass199Array3[local86].anInt4930);
                 if (local117.aBoolean448 && local117.anInt5842 != -1) {
                     @Pc(133) Class69 local133 = Static25.aClass50_1.method1162(local117.anInt5842);

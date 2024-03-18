@@ -86,7 +86,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
     public final int anInt709;
 
     @OriginalMember(owner = "client!b", name = "N", descriptor = "Lclient!gu;")
-    public final Class152 aClass152_1;
+    public final Animator aAnimator_1;
 
     @OriginalMember(owner = "client!b", name = "<init>", descriptor = "(IIIIIIIIIIIIIZI)V")
     public Class8_Sub2_Sub1_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) boolean arg13, @OriginalArg(14) int arg14) {
@@ -104,8 +104,8 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         this.anInt705 = arg8;
         this.anInt709 = arg9;
         @Pc(82) int local82 = Static23.aClass128_1.method2694(this.anInt715).anInt5842;
-        this.aClass152_1 = new Class152_Sub2(this, false);
-        this.aClass152_1.method9113(true, local82);
+        this.aAnimator_1 = new Animator_Sub2(this, false);
+        this.aAnimator_1.method9113(true, local82);
     }
 
     @OriginalMember(owner = "client!b", name = "k", descriptor = "(I)I")
@@ -182,7 +182,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;I)Lclient!ka;")
     public Model method814(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2) {
         @Pc(17) Class227 local17 = Static23.aClass128_1.method2694(this.anInt715);
-        return local17.method5252(this.aClass152_1, (byte) 2, arg0, arg1);
+        return local17.method5252(this.aAnimator_1, (byte) 2, arg0, arg1);
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(I)V")
@@ -375,8 +375,8 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         }
         this.anInt694 = (int) (Math.atan2(this.aDouble7, this.aDouble2) * 2607.5945876176133D) + 8192 & 0x3FFF;
         this.anInt703 = (int) (Math.atan2(this.aDouble1, this.aDouble6) * 2607.5945876176133D) & 0x3FFF;
-        if (this.aClass152_1.method9112(1) && this.aClass152_1.method9102()) {
-            this.aClass152_1.method9099();
+        if (this.aAnimator_1.method9112(1) && this.aAnimator_1.method9102()) {
+            this.aAnimator_1.method9099();
         }
     }
 }

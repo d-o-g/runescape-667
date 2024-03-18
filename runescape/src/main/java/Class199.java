@@ -18,10 +18,10 @@ public final class Class199 {
     public int anInt4930 = -1;
 
     @OriginalMember(owner = "client!jq", name = "c", descriptor = "Lclient!gu;")
-    public final Class152 aClass152_7;
+    public final Animator aAnimator_7;
 
     @OriginalMember(owner = "client!jq", name = "<init>", descriptor = "(Lclient!cg;)V")
     public Class199(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
-        this.aClass152_7 = new Class152_Sub2(arg0, false);
+        this.aAnimator_7 = new Animator_Sub2(arg0, false);
     }
 }

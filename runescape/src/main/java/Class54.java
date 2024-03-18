@@ -841,7 +841,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(IIIILclient!s;Lclient!gu;ILclient!ha;Lclient!s;Lclient!gp;II)Lclient!ka;")
-    public Model method1311(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Ground arg4, @OriginalArg(5) Class152 arg5, @OriginalArg(7) Toolkit arg6, @OriginalArg(8) Ground arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public Model method1311(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Ground arg4, @OriginalArg(5) Animator arg5, @OriginalArg(7) Toolkit arg6, @OriginalArg(8) Ground arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         if (Static449.method6117(arg2)) {
             arg2 = 4;
         }

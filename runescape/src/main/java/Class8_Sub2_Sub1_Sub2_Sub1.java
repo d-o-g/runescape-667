@@ -307,8 +307,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (Static400.aClass2_Sub34_28.aClass57_Sub7_1.method2905() == 1) {
             @Pc(126) Class289 local126 = this.method9317();
             if (local126.aBoolean545 && (this.aClass201_1.anInt5012 == -1 || Static690.aClass308_2.method7092(this.aClass201_1.anInt5012).aBoolean506)) {
-                @Pc(166) Class152 local166 = super.aClass152_11.method9109() && super.aClass152_11.method9106() ? super.aClass152_11 : null;
-                @Pc(186) Class152 local186 = super.aClass152_10.method9109() && (!super.aBoolean817 || local166 == null) ? super.aClass152_10 : null;
+                @Pc(166) Animator local166 = super.aAnimator_11.method9109() && super.aAnimator_11.method9106() ? super.aAnimator_11 : null;
+                @Pc(186) Animator local186 = super.aAnimator_10.method9109() && (!super.aBoolean817 || local166 == null) ? super.aAnimator_10 : null;
                 @Pc(212) Model local212 = Static618.method8320(240, super.aModelArray3[0], super.anInt10742, 0, super.anInt10716, 1, arg0, 160, local186 == null ? local166 : local186, super.anInt10746, local27, 0);
                 if (local212 != null) {
                     local114 = Static642.method8441(true, super.aModelArray3.length + 1);
@@ -547,12 +547,12 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (super.aClass8_Sub5_8 != null) {
             super.aClass8_Sub5_8.method3656();
         }
-        if (!super.aClass152_10.method9109() || !super.aBoolean817) {
+        if (!super.aAnimator_10.method9109() || !super.aBoolean817) {
             return;
         }
         @Pc(717) Class289 local717 = this.method9317();
-        if (!local717.method6479(super.aClass152_10.method9114())) {
-            super.aClass152_10.method9113(true, -1);
+        if (!local717.method6479(super.aAnimator_10.method9114())) {
+            super.aAnimator_10.method9113(true, -1);
             super.aBoolean817 = false;
             return;
         }
@@ -562,8 +562,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
     public boolean method1421(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(5) int local5 = arg0;
         @Pc(15) Class289 local15 = this.method9317();
-        @Pc(33) Class152 local33 = super.aClass152_11.method9109() && !super.aClass152_11.method9106() ? super.aClass152_11 : null;
-        @Pc(58) Class152 local58 = !super.aClass152_10.method9109() || this.aBoolean129 || super.aBoolean817 && local33 != null ? null : super.aClass152_10;
+        @Pc(33) Animator local33 = super.aAnimator_11.method9109() && !super.aAnimator_11.method9106() ? super.aAnimator_11 : null;
+        @Pc(58) Animator local58 = !super.aAnimator_10.method9109() || this.aBoolean129 || super.aBoolean817 && local33 != null ? null : super.aAnimator_10;
         @Pc(61) int local61 = local15.anInt7234;
         @Pc(64) int local64 = local15.anInt7238;
         if (local61 != 0 || local64 != 0 || local15.anInt7224 != 0 || local15.anInt7252 != 0) {
@@ -683,15 +683,15 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!ca", name = "b", descriptor = "(IIIB)V")
     public void method1425(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) byte arg2) {
-        if (super.aClass152_11.method9109() && super.aClass152_11.method9107().anInt1654 == 1) {
+        if (super.aAnimator_11.method9109() && super.aAnimator_11.method9107().anInt1654 == 1) {
             super.anIntArray869 = null;
-            super.aClass152_11.method9113(true, -1);
+            super.aAnimator_11.method9113(true, -1);
         }
         for (@Pc(33) int local33 = 0; local33 < super.aClass199Array3.length; local33++) {
             if (super.aClass199Array3[local33].anInt4930 != -1) {
                 @Pc(56) Class227 local56 = Static23.aClass128_1.method2694(super.aClass199Array3[local33].anInt4930);
                 if (local56.aBoolean448 && local56.anInt5842 != -1 && Static25.aClass50_1.method1162(local56.anInt5842).anInt1654 == 1) {
-                    super.aClass199Array3[local33].aClass152_7.method9113(true, -1);
+                    super.aClass199Array3[local33].aAnimator_7.method9113(true, -1);
                     super.aClass199Array3[local33].anInt4930 = -1;
                 }
             }

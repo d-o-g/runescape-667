@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gu")
-public class Class152 {
+public class Animator {
 
     @OriginalMember(owner = "client!gu", name = "L", descriptor = "Lclient!cka;")
     public Class69 aClass69_4;
@@ -40,7 +40,7 @@ public class Class152 {
     public final Class257 aClass257_7;
 
     @OriginalMember(owner = "client!gu", name = "<init>", descriptor = "(Z)V")
-    protected Class152(@OriginalArg(0) boolean arg0) {
+    protected Animator(@OriginalArg(0) boolean arg0) {
         this.aBoolean790 = arg0;
         this.aClass257_8 = new Class257();
         if (this.aBoolean790) {
@@ -132,7 +132,7 @@ public class Class152 {
     }
 
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(ILclient!gu;)V")
-    public final void method9096(@OriginalArg(1) Class152 arg0) {
+    public final void method9096(@OriginalArg(1) Animator arg0) {
         this.aClass69_4 = arg0.aClass69_4;
         this.aBoolean790 = arg0.aBoolean790;
         this.aBoolean791 = arg0.aBoolean791;

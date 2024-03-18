@@ -64,7 +64,7 @@ public final class Class337 {
     public final boolean aBoolean661;
 
     @OriginalMember(owner = "client!sh", name = "v", descriptor = "Lclient!gu;")
-    public final Class152 aClass152_9;
+    public final Animator aAnimator_9;
 
     @OriginalMember(owner = "client!sh", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIILclient!eo;ZI)V")
     public Class337(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8) {
@@ -77,7 +77,7 @@ public final class Class337 {
         this.aClass8_Sub2_21 = arg6;
         this.aBoolean660 = arg7;
         this.aBoolean661 = arg0.method8006() && arg1.aBoolean89 && !this.aBoolean660;
-        this.aClass152_9 = new Class152_Sub2(arg6, false);
+        this.aAnimator_9 = new Animator_Sub2(arg6, false);
         this.method7676(1, arg8, false);
     }
 
@@ -139,7 +139,7 @@ public final class Class337 {
                 local23 = null;
             }
             if (local21.method1300()) {
-                if (arg2 && this.aClass152_9.method9109() && local21.method1298(this.aClass152_9.method9114())) {
+                if (arg2 && this.aAnimator_9.method9109() && local21.method1298(this.aAnimator_9.method9114())) {
                     return;
                 }
                 if (this.anInt8647 != local21.anInt1256) {
@@ -152,7 +152,7 @@ public final class Class337 {
                     arg0 = 1;
                 }
             } else if (local23 != null && local23.method1300()) {
-                if (arg2 && this.aClass152_9.method9109() && local23.method1298(this.aClass152_9.method9114())) {
+                if (arg2 && this.aAnimator_9.method9109() && local23.method1298(this.aAnimator_9.method9114())) {
                     return;
                 }
                 if (this.anInt8647 != local21.anInt1256) {
@@ -167,9 +167,9 @@ public final class Class337 {
             }
         }
         if (local10 == -1) {
-            this.aClass152_9.method9104(false, -1, 838828768);
+            this.aAnimator_9.method9104(false, -1, 838828768);
         } else {
-            this.aClass152_9.method9092(local10, 0, arg0, local12);
+            this.aAnimator_9.method9092(local10, 0, arg0, local12);
             this.aModel_8 = null;
             this.aBoolean662 = false;
             this.anInt8643 = Static333.anInt5455;
@@ -212,11 +212,11 @@ public final class Class337 {
             local163 = this.aByte133 >= 3 ? null : Static246.aGroundArray1[this.aByte133 + 1];
         }
         @Pc(171) Model local171 = null;
-        if (this.aClass152_9.method9109()) {
+        if (this.aAnimator_9.method9109()) {
             if (arg3) {
                 arg4 |= 0x40000;
             }
-            local171 = local11.method1311(this.anInt8645 == 11 ? this.anInt8663 + 4 : this.anInt8663, this.aClass8_Sub2_21.anInt10694, this.anInt8645 == 11 ? 10 : this.anInt8645, this.aClass8_Sub2_21.anInt10690, local163, this.aClass152_9, arg0, local142, this.aClass150_2, arg4, local142.method7878(this.aClass8_Sub2_21.anInt10694, this.aClass8_Sub2_21.anInt10690));
+            local171 = local11.method1311(this.anInt8645 == 11 ? this.anInt8663 + 4 : this.anInt8663, this.aClass8_Sub2_21.anInt10694, this.anInt8645 == 11 ? 10 : this.anInt8645, this.aClass8_Sub2_21.anInt10690, local163, this.aAnimator_9, arg0, local142, this.aClass150_2, arg4, local142.method7878(this.aClass8_Sub2_21.anInt10694, this.aClass8_Sub2_21.anInt10690));
             if (local171 == null) {
                 this.aBooleanArray27 = null;
                 this.aClass2_Sub2_Sub9_6 = null;
@@ -281,14 +281,14 @@ public final class Class337 {
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!eo;Z)V")
     public void method7680(@OriginalArg(0) Class8_Sub2 arg0, @OriginalArg(1) boolean arg1) {
-        if (!this.aClass152_9.method9109()) {
+        if (!this.aAnimator_9.method9109()) {
             this.method7676(0, -1, false);
-        } else if (this.aClass152_9.method9112(Static333.anInt5455 - this.anInt8643)) {
+        } else if (this.aAnimator_9.method9112(Static333.anInt5455 - this.anInt8643)) {
             if (Static400.aClass2_Sub34_28.aClass57_Sub12_1.method4364() == 2) {
                 this.aBoolean662 = false;
             }
-            if (this.aClass152_9.method9102()) {
-                this.aClass152_9.method9113(arg1, -1);
+            if (this.aAnimator_9.method9102()) {
+                this.aAnimator_9.method9113(arg1, -1);
                 this.aBoolean659 = false;
                 this.method7676(0, -1, false);
             }

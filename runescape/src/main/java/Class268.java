@@ -493,7 +493,7 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(ILclient!gu;Lclient!vk;ILclient!ha;Lclient!uk;)Lclient!ka;")
-    public Model method5992(@OriginalArg(1) Class152 arg0, @OriginalArg(2) Class386 arg1, @OriginalArg(4) Toolkit arg2, @OriginalArg(5) Interface23 arg3) {
+    public Model method5992(@OriginalArg(1) Animator arg0, @OriginalArg(2) Class386 arg1, @OriginalArg(4) Toolkit arg2, @OriginalArg(5) Interface23 arg3) {
         if (this.anIntArray532 != null) {
             @Pc(15) Class268 local15 = this.method5985(65535, arg3);
             return local15 == null ? null : local15.method5992(arg0, arg1, arg2, arg3);
@@ -609,7 +609,7 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(Lclient!uk;Lclient!ha;Lclient!qp;BLclient!gu;I[ILclient!vk;Lclient!gu;I[Lclient!gu;)Lclient!ka;")
-    public Model method5993(@OriginalArg(0) Interface23 arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(4) Class152 arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int[] arg5, @OriginalArg(7) Class386 arg6, @OriginalArg(8) Class152 arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Class152[] arg9) {
+    public Model method5993(@OriginalArg(0) Interface23 arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(4) Animator arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int[] arg5, @OriginalArg(7) Class386 arg6, @OriginalArg(8) Animator arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Animator[] arg9) {
         if (this.anIntArray532 != null) {
             @Pc(11) Class268 local11 = this.method5985(65535, arg0);
             return local11 == null ? null : local11.method5993(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);

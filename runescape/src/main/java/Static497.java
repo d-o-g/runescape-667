@@ -30,7 +30,7 @@ public final class Static497 {
         }
         @Pc(22) int local22 = local6.anInt6711;
         @Pc(32) Class289 local32 = arg0.method9317();
-        @Pc(37) int local37 = arg0.aClass152_10.method9114();
+        @Pc(37) int local37 = arg0.aAnimator_10.method9114();
         if (local37 == -1 || arg0.aBoolean817) {
             local22 = local6.anInt6714;
         } else if (local32.anInt7226 == local37 || local32.anInt7241 == local37 || local32.anInt7260 == local37 || local37 == local32.anInt7240) {

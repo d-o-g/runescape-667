@@ -103,7 +103,7 @@ public final class Class201 {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!es;Lclient!gu;IZLclient!qp;Lclient!bp;I[ILclient!vl;Lclient!kr;Lclient!ha;Lclient!ql;[Lclient!gu;ILclient!gu;Lclient!uk;)Lclient!ka;")
-    public Model method4546(@OriginalArg(0) ObjTypeList arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(4) Class310 arg2, @OriginalArg(5) Class50 arg3, @OriginalArg(6) int arg4, @OriginalArg(7) int[] arg5, @OriginalArg(8) Class388 arg6, @OriginalArg(9) Class215 arg7, @OriginalArg(10) Toolkit arg8, @OriginalArg(11) Class308 arg9, @OriginalArg(12) Class152[] arg10, @OriginalArg(13) int arg11, @OriginalArg(14) Class152 arg12, @OriginalArg(15) Interface23 arg13) {
+    public Model method4546(@OriginalArg(0) ObjTypeList arg0, @OriginalArg(1) Animator arg1, @OriginalArg(4) Class310 arg2, @OriginalArg(5) Class50 arg3, @OriginalArg(6) int arg4, @OriginalArg(7) int[] arg5, @OriginalArg(8) Class388 arg6, @OriginalArg(9) Class215 arg7, @OriginalArg(10) Toolkit arg8, @OriginalArg(11) Class308 arg9, @OriginalArg(12) Animator[] arg10, @OriginalArg(13) int arg11, @OriginalArg(14) Animator arg12, @OriginalArg(15) Interface23 arg13) {
         if (this.anInt5012 != -1) {
             return arg9.method7092(this.anInt5012).method5993(arg13, arg8, arg2, arg1, arg11, arg5, (Class386) null, arg12, arg4, arg10);
         }
@@ -394,7 +394,7 @@ public final class Class201 {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!gu;IILclient!bp;Lclient!ha;BLclient!kr;II)Lclient!ka;")
-    public Model method4550(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class50 arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(6) Class215 arg5, @OriginalArg(7) int arg6) {
+    public Model method4550(@OriginalArg(0) Animator arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class50 arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(6) Class215 arg5, @OriginalArg(7) int arg6) {
         @Pc(16) int local16 = arg0 == null ? 2048 : arg0.method9101() | 0x800;
         @Pc(29) long local29 = (long) arg1 | (long) arg2 << 32 | (long) (arg6 << 16);
         @Pc(31) Class82 local31 = Static54.aClass82_25;
@@ -460,7 +460,7 @@ public final class Class201 {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!kr;BLclient!bp;Lclient!uk;Lclient!gu;Lclient!es;Lclient!ql;Lclient!ha;I)Lclient!ka;")
-    public Model method4552(@OriginalArg(0) Class215 arg0, @OriginalArg(2) Class50 arg1, @OriginalArg(3) Interface23 arg2, @OriginalArg(4) Class152 arg3, @OriginalArg(5) ObjTypeList arg4, @OriginalArg(6) Class308 arg5, @OriginalArg(7) Toolkit arg6) {
+    public Model method4552(@OriginalArg(0) Class215 arg0, @OriginalArg(2) Class50 arg1, @OriginalArg(3) Interface23 arg2, @OriginalArg(4) Animator arg3, @OriginalArg(5) ObjTypeList arg4, @OriginalArg(6) Class308 arg5, @OriginalArg(7) Toolkit arg6) {
         if (this.anInt5012 != -1) {
             return arg5.method7092(this.anInt5012).method5992(arg3, (Class386) null, arg6, arg2);
         }

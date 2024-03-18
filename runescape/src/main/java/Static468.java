@@ -120,7 +120,7 @@ public final class Static468 {
     }
 
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(Lclient!gu;Lclient!ka;Lclient!gu;B)V")
-    public static void method7645(@OriginalArg(0) Class152 arg0, @OriginalArg(1) Model arg1, @OriginalArg(2) Class152 arg2) {
+    public static void method7645(@OriginalArg(0) Animator arg0, @OriginalArg(1) Model arg1, @OriginalArg(2) Animator arg2) {
         if (arg0.method9111() && arg2.method9111()) {
             @Pc(12) Class69 local12 = arg0.aClass69_4;
             @Pc(15) Class69 local15 = arg2.aClass69_4;

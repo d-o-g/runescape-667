@@ -70,7 +70,7 @@ public final class Class158 {
     public Object[] anObjectArray11;
 
     @OriginalMember(owner = "client!hda", name = "s", descriptor = "Lclient!gu;")
-    public Class152 aClass152_6;
+    public Animator aAnimator_6;
 
     @OriginalMember(owner = "client!hda", name = "hd", descriptor = "[Ljava/lang/Object;")
     public Object[] anObjectArray12;
@@ -985,7 +985,7 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!gu;Lclient!qp;Lclient!kr;BLclient!bp;Lclient!ju;Lclient!uk;Lclient!ql;Lclient!es;ILclient!vk;)Lclient!ka;")
-    public Model method3401(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(3) Class215 arg3, @OriginalArg(5) Class50 arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Interface23 arg6, @OriginalArg(8) Class308 arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
+    public Model method3401(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Animator arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(3) Class215 arg3, @OriginalArg(5) Class50 arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Interface23 arg6, @OriginalArg(8) Class308 arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
         Static544.aBoolean624 = false;
         if (this.anInt3823 == 0) {
             return null;
@@ -1073,7 +1073,7 @@ public final class Class158 {
                 }
             } else if (this.anInt3823 == 4) {
                 @Pc(489) ObjType local489 = arg8.list(this.anInt3831);
-                @Pc(498) Model local498 = local489.method8805(arg1, 2048, arg5, 10, arg0);
+                @Pc(498) Model local498 = local489.getModel(arg1, 2048, arg5, 10, arg0);
                 if (local498 == null) {
                     Static544.aBoolean624 = true;
                     return null;
@@ -1081,7 +1081,7 @@ public final class Class158 {
                     return local498;
                 }
             } else if (this.anInt3823 == 6) {
-                local438 = arg7.method7092(this.anInt3831).method5993(arg6, arg0, arg2, arg1, 0, (int[]) null, arg10, (Class152) null, 2048, (Class152[]) null);
+                local438 = arg7.method7092(this.anInt3831).method5993(arg6, arg0, arg2, arg1, 0, (int[]) null, arg10, (Animator) null, 2048, (Animator[]) null);
                 if (local438 == null) {
                     Static544.aBoolean624 = true;
                     return null;

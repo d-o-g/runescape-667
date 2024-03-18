@@ -13,7 +13,7 @@ public final class Static61 {
             return;
         }
         local4.aClass8_Sub2_Sub2_1 = arg3;
-        @Pc(19) int local19 = Static246.aClass178Array1 == Static693.aClass178Array2 ? 1 : 0;
+        @Pc(19) int local19 = Static246.aGroundArray1 == Static693.aGroundArray2 ? 1 : 0;
         if (arg3.method9283()) {
             if (arg3.method9282(0)) {
                 arg3.aClass8_Sub2_25 = Static398.aClass8_Sub2Array7[local19];

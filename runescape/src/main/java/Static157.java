@@ -26,7 +26,7 @@ public final class Static157 {
         arg4.anInt10691 = arg3;
         arg4.anInt10694 = (arg2 << Static52.anInt1066) + Static247.anInt3993;
         local4.aClass8_Sub2_Sub5_1 = arg4;
-        @Pc(36) int local36 = Static246.aClass178Array1 == Static693.aClass178Array2 ? 1 : 0;
+        @Pc(36) int local36 = Static246.aGroundArray1 == Static693.aGroundArray2 ? 1 : 0;
         if (arg4.method9283()) {
             if (arg4.method9282(0)) {
                 arg4.aClass8_Sub2_25 = Static398.aClass8_Sub2Array7[local36];

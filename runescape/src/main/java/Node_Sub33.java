@@ -11,7 +11,7 @@ public final class Node_Sub33 extends Node {
     public int anInt5452;
 
     @OriginalMember(owner = "client!kia", name = "F", descriptor = "Lclient!pn;")
-    public final Class178_Sub2 aClass178_Sub2_2;
+    public final Ground_Sub2 aClass178_Sub2_2;
 
     @OriginalMember(owner = "client!kia", name = "o", descriptor = "Lclient!lca;")
     public final Node_Sub7 aClass2_Sub7_2;
@@ -65,7 +65,7 @@ public final class Node_Sub33 extends Node {
     public HashTable aHashTable_26;
 
     @OriginalMember(owner = "client!kia", name = "<init>", descriptor = "(Lclient!qha;Lclient!pn;Lclient!lca;[I)V")
-    public Node_Sub33(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Class178_Sub2 arg1, @OriginalArg(2) Node_Sub7 arg2, @OriginalArg(3) int[] arg3) {
+    public Node_Sub33(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Ground_Sub2 arg1, @OriginalArg(2) Node_Sub7 arg2, @OriginalArg(3) int[] arg3) {
         this.aClass178_Sub2_2 = arg1;
         this.aClass2_Sub7_2 = arg2;
         this.aClass19_Sub3_23 = arg0;

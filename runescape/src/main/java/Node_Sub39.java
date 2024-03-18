@@ -19,7 +19,7 @@ public final class Node_Sub39 extends Node {
     public Stream aStream5;
 
     @OriginalMember(owner = "client!nm", name = "z", descriptor = "Lclient!pn;")
-    public final Class178_Sub2 aClass178_Sub2_3;
+    public final Ground_Sub2 aClass178_Sub2_3;
 
     @OriginalMember(owner = "client!nm", name = "n", descriptor = "Lclient!qha;")
     public final Class19_Sub3 aClass19_Sub3_31;
@@ -46,7 +46,7 @@ public final class Node_Sub39 extends Node {
     public final Class134_Sub2 aClass134_Sub2_1;
 
     @OriginalMember(owner = "client!nm", name = "<init>", descriptor = "(Lclient!pn;IIIII)V")
-    public Node_Sub39(@OriginalArg(0) Class178_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Node_Sub39(@OriginalArg(0) Ground_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass178_Sub2_3 = arg0;
         this.aClass19_Sub3_31 = this.aClass178_Sub2_3.aClass19_Sub3_33;
         this.anInt6595 = arg4;

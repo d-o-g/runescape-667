@@ -22,7 +22,7 @@ public final class Node_Sub58 extends Node {
     public int anInt10871 = 0;
 
     @OriginalMember(owner = "client!wr", name = "A", descriptor = "Lclient!iga;")
-    public final Class178_Sub1 aClass178_Sub1_3;
+    public final Ground_Sub1 aClass178_Sub1_3;
 
     @OriginalMember(owner = "client!wr", name = "C", descriptor = "I")
     public final int anInt10863;
@@ -46,7 +46,7 @@ public final class Node_Sub58 extends Node {
     public final int[] anIntArray884;
 
     @OriginalMember(owner = "client!wr", name = "<init>", descriptor = "(Lclient!iga;IIIII)V")
-    public Node_Sub58(@OriginalArg(0) Class178_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Node_Sub58(@OriginalArg(0) Ground_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass178_Sub1_3 = arg0;
         this.anInt10863 = arg3;
         this.aClass19_Sub1_23 = this.aClass178_Sub1_3.aClass19_Sub1_9;

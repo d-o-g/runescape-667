@@ -61,8 +61,8 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IILclient!ha;I)Lclient!ka;")
     public Model method6594(@OriginalArg(1) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2) {
         @Pc(8) Class227 local8 = Static23.aClass128_1.method2694(arg0);
-        @Pc(22) Class178 local22 = Static706.aClass178Array3[super.aByte144];
-        @Pc(36) Class178 local36 = super.aByte143 < 3 ? Static706.aClass178Array3[super.aByte143 + 1] : null;
+        @Pc(22) Ground local22 = Static706.aGroundArray3[super.aByte144];
+        @Pc(36) Ground local36 = super.aByte143 < 3 ? Static706.aGroundArray3[super.aByte143 + 1] : null;
         return this.aClass152_8 == null || this.aClass152_8.method9102() ? local8.method5249((byte) 2, true, super.anInt10694, (Class152) null, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.anInt10694, this.aClass152_8, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1);
     }
 

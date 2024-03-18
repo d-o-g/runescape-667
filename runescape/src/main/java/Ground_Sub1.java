@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!iga")
-public final class Class178_Sub1 extends Class178 {
+public final class Ground_Sub1 extends Ground {
 
     @OriginalMember(owner = "client!iga", name = "L", descriptor = "[[[I")
     public int[][][] anIntArrayArrayArray4;
@@ -100,7 +100,7 @@ public final class Class178_Sub1 extends Class178 {
     public Class293 aClass293_1;
 
     @OriginalMember(owner = "client!iga", name = "<init>", descriptor = "(Lclient!am;IIII[[I[[II)V")
-    public Class178_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[][] arg5, @OriginalArg(6) int[][] arg6, @OriginalArg(7) int arg7) {
+    public Ground_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[][] arg5, @OriginalArg(6) int[][] arg6, @OriginalArg(7) int arg7) {
         super(arg3, arg4, arg7, arg5);
         this.aClass19_Sub1_9 = arg0;
         this.anInt4308 = super.anInt8895 - 2;

@@ -111,7 +111,7 @@ public final class Static358 {
                     local32++;
                 }
                 Static279.aBooleanArray11[local1] = true;
-                Static246.aClass178Array1[local16].method7868(local13, local37);
+                Static246.aGroundArray1[local16].method7868(local13, local37);
             }
         }
     }

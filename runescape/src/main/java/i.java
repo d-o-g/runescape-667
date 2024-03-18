@@ -68,7 +68,7 @@ public final class i extends Model implements Interface5 {
     }
 
     @OriginalMember(owner = "client!i", name = "p", descriptor = "(IILclient!s;Lclient!s;III)V")
-    public native void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Class178 floor, @OriginalArg(3) Class178 ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z);
+    public native void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Ground floor, @OriginalArg(3) Ground ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z);
 
     @OriginalMember(owner = "client!i", name = "LA", descriptor = "(I)V")
     public native void LA(@OriginalArg(0) int arg0);

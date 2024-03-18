@@ -10,10 +10,10 @@ public final class Static630 {
     @OriginalMember(owner = "client!tv", name = "a", descriptor = "(Lclient!r;III[Z)Z")
     public static boolean method8357(@OriginalArg(0) Node_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean[] arg4) {
         @Pc(1) boolean local1 = false;
-        if (Static246.aClass178Array1 != Static693.aClass178Array2) {
-            @Pc(12) int local12 = Static706.aClass178Array3[arg1].method7878(arg3, arg2);
+        if (Static246.aGroundArray1 != Static693.aGroundArray2) {
+            @Pc(12) int local12 = Static706.aGroundArray3[arg1].method7878(arg3, arg2);
             for (@Pc(14) int local14 = 0; local14 <= arg1; local14++) {
-                @Pc(19) Class178 local19 = Static706.aClass178Array3[local14];
+                @Pc(19) Ground local19 = Static706.aGroundArray3[local14];
                 if (local19 != null) {
                     @Pc(29) int local29 = local12 - local19.method7878(arg3, arg2);
                     if (arg4 != null) {

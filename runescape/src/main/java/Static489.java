@@ -272,7 +272,7 @@ public final class Static489 {
             Static358.method9191();
         }
         Static314.method4568(true);
-        Static2.aClass306_Sub1_1.method7888(Static163.aClass19_17, local430 ? Static693.aClass178Array2[0] : null, (Class178) null);
+        Static2.aClass306_Sub1_1.method7888(Static163.aClass19_17, local430 ? Static693.aGroundArray2[0] : null, (Ground) null);
         Static2.aClass306_Sub1_1.method7898(false, Static163.aClass19_17);
         Static314.method4568(true);
         if (local430) {
@@ -285,7 +285,7 @@ public final class Static489 {
             }
             Static352.method5180();
             Static314.method4568(true);
-            Static134.aClass306_Sub1_3.method7888(Static163.aClass19_17, (Class178) null, Static706.aClass178Array3[0]);
+            Static134.aClass306_Sub1_3.method7888(Static163.aClass19_17, (Ground) null, Static706.aGroundArray3[0]);
             Static134.aClass306_Sub1_3.method7898(true, Static163.aClass19_17);
             Static314.method4568(true);
             Static379.method5355(false);

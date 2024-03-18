@@ -62,8 +62,8 @@ public final class Static283 {
                     if (local112 >= 0 && local118 >= 0 && local112 < Static619.anInt1566 && local118 < Static662.anInt9843) {
                         local138 = local112 << Static52.anInt1066;
                         @Pc(142) int local142 = local118 << Static52.anInt1066;
-                        @Pc(159) int local159 = Static706.aClass178Array3[Static706.aClass178Array3.length - 1].method7869(local118, local112) - (0x3E8 << Static52.anInt1066 - 7);
-                        @Pc(188) int local188 = (Static693.aClass178Array2 == null ? Static706.aClass178Array3[0].method7869(local118, local112) + Static340.anInt5586 : Static693.aClass178Array2[0].method7869(local118, local112) + Static340.anInt5586) + (0x3E8 << Static52.anInt1066 - 7);
+                        @Pc(159) int local159 = Static706.aGroundArray3[Static706.aGroundArray3.length - 1].method7869(local118, local112) - (0x3E8 << Static52.anInt1066 - 7);
+                        @Pc(188) int local188 = (Static693.aGroundArray2 == null ? Static706.aGroundArray3[0].method7869(local118, local112) + Static340.anInt5586 : Static693.aGroundArray2[0].method7869(local118, local112) + Static340.anInt5586) + (0x3E8 << Static52.anInt1066 - 7);
                         local90 = arg15 >= 0 ? Static665.aClass19_15.r(local138, local159, local142, local138, local188, local142, arg15) : Static665.aClass19_15.JA(local138, local159, local142, local138, local188, local142);
                         Static142.aBooleanArrayArray1[local85][local92] = local90 == 0;
                     } else {

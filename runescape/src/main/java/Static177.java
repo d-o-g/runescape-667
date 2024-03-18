@@ -49,8 +49,8 @@ public final class Static177 {
             local26 = local22 - Static340.anInt5586;
             local30 = arg2 << Static52.anInt1066;
             local34 = local30 + Static340.anInt5586;
-            local42 = Static706.aClass178Array3[arg4].method7869(arg2, arg3 + 1);
-            local54 = Static706.aClass178Array3[arg4].method7869(arg2 + 1, arg3);
+            local42 = Static706.aGroundArray3[arg4].method7869(arg2, arg3 + 1);
+            local54 = Static706.aGroundArray3[arg4].method7869(arg2 + 1, arg3);
             Static285.aClass75Array1[Static150.anInt2634++] = new Class75(arg0, arg4, local22, local26, local26, local22, local42, local54, local54 - arg5, local42 - arg5, local30, local34, local34, local30);
             return;
         }
@@ -58,8 +58,8 @@ public final class Static177 {
         local26 = Static340.anInt5586 + local22;
         local30 = arg2 << Static52.anInt1066;
         local34 = local30 + Static340.anInt5586;
-        local42 = Static706.aClass178Array3[arg4].method7869(arg2, arg3);
-        local54 = Static706.aClass178Array3[arg4].method7869(arg2 + 1, arg3 - -1);
+        local42 = Static706.aGroundArray3[arg4].method7869(arg2, arg3);
+        local54 = Static706.aGroundArray3[arg4].method7869(arg2 + 1, arg3 - -1);
         Static285.aClass75Array1[Static150.anInt2634++] = new Class75(arg0, arg4, local22, local26, local26, local22, local42, local54, local54 - arg5, -arg5 + local42, local30, local34, local34, local30);
     }
 
@@ -71,7 +71,7 @@ public final class Static177 {
         }
         local4.aClass8_Sub2_Sub4_1 = arg3;
         local4.aClass8_Sub2_Sub4_2 = arg4;
-        @Pc(22) int local22 = Static246.aClass178Array1 == Static693.aClass178Array2 ? 1 : 0;
+        @Pc(22) int local22 = Static246.aGroundArray1 == Static693.aGroundArray2 ? 1 : 0;
         if (!arg3.method9283()) {
             arg3.aClass8_Sub2_25 = Static468.aClass8_Sub2Array10[local22];
             Static468.aClass8_Sub2Array10[local22] = arg3;

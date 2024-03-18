@@ -286,7 +286,7 @@ public final class Class306_Sub1 extends Class306 {
             local123 = arg3 + (local68 >> 1);
             local121 = arg3 + (local68 + 1 >> 1);
         }
-        @Pc(143) Class178 local143 = Static246.aClass178Array1[arg7];
+        @Pc(143) Ground local143 = Static246.aGroundArray1[arg7];
         @Pc(170) int local170 = local143.method7869(local123, local100) + local143.method7869(local123, local94) + local143.method7869(local121, local100) + local143.method7869(local121, local94) >> 2;
         @Pc(179) int local179 = (arg5 << 9) + (local65 << 8);
         @Pc(187) int local187 = (local68 << 8) + (arg3 << 9);

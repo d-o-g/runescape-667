@@ -20,7 +20,7 @@ public final class Static658 {
             local6 = arg0.method9288(arg1);
             Static665.aClass19_15.method8009(local6, arg1);
         }
-        if (Static693.aClass178Array2 == Static246.aClass178Array1) {
+        if (Static693.aGroundArray2 == Static246.aGroundArray1) {
             @Pc(28) int local28;
             if (arg0 instanceof Class8_Sub2_Sub1) {
                 local6 = ((Class8_Sub2_Sub1) arg0).aShort131;
@@ -29,7 +29,7 @@ public final class Static658 {
                 local6 = arg0.anInt10690 >> Static52.anInt1066;
                 local28 = arg0.anInt10694 >> Static52.anInt1066;
             }
-            Static665.aClass19_15.EA(Static706.aClass178Array3[0].method7878(arg0.anInt10694, arg0.anInt10690), Static100.method1987(local6, local28), Static350.method5124(local6, local28), Static339.method5005(local6, local28));
+            Static665.aClass19_15.EA(Static706.aGroundArray3[0].method7878(arg0.anInt10694, arg0.anInt10690), Static100.method1987(local6, local28), Static350.method5124(local6, local28), Static339.method5005(local6, local28));
         }
         @Pc(64) Class8_Sub7 local64 = arg0.method9276(Static665.aClass19_15);
         if (local64 == null) {

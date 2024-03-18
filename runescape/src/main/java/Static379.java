@@ -13,10 +13,10 @@ public final class Static379 {
     public static void method5355(@OriginalArg(0) boolean arg0) {
         if (arg0) {
             Static334.aClass291ArrayArrayArray1 = Static420.aClass291ArrayArrayArray2;
-            Static246.aClass178Array1 = Static693.aClass178Array2;
+            Static246.aGroundArray1 = Static693.aGroundArray2;
         } else {
             Static334.aClass291ArrayArrayArray1 = Static478.aClass291ArrayArrayArray3;
-            Static246.aClass178Array1 = Static706.aClass178Array3;
+            Static246.aGroundArray1 = Static706.aGroundArray3;
         }
         Static299.anInt4824 = Static334.aClass291ArrayArrayArray1.length;
     }

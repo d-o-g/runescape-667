@@ -153,7 +153,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         @Pc(94) Class73 local94 = arg0.method7985();
         local94.method7133();
         if (this.anInt8885 == 0) {
-            @Pc(110) Class178 local110 = Static246.aClass178Array1[super.aByte143];
+            @Pc(110) Ground local110 = Static246.aGroundArray1[super.aByte143];
             @Pc(115) int local115 = this.anInt8879 << 1;
             @Pc(122) int local122 = -local115 / 2;
             @Pc(127) int local127 = -local115 / 2;

@@ -27,19 +27,19 @@ public final class Static21 {
         Static272.aClass13_1 = Static167.method2632();
         Static276.method3986();
         Static478.aClass291ArrayArrayArray3 = new Class291[4][Static619.anInt1566][Static662.anInt9843];
-        Static706.aClass178Array3 = new Class178[4];
+        Static706.aGroundArray3 = new Ground[4];
         if (arg5) {
             Static62.anIntArrayArray33 = new int[Static619.anInt1566][Static662.anInt9843];
             Static421.aByteArrayArray20 = new byte[Static619.anInt1566][Static662.anInt9843];
             Static272.aShortArrayArray5 = new short[Static619.anInt1566][Static662.anInt9843];
             Static420.aClass291ArrayArrayArray2 = new Class291[1][Static619.anInt1566][Static662.anInt9843];
-            Static693.aClass178Array2 = new Class178[1];
+            Static693.aGroundArray2 = new Ground[1];
         } else {
             Static62.anIntArrayArray33 = null;
             Static421.aByteArrayArray20 = null;
             Static272.aShortArrayArray5 = null;
             Static420.aClass291ArrayArrayArray2 = null;
-            Static693.aClass178Array2 = null;
+            Static693.aGroundArray2 = null;
         }
         if (arg6) {
             Static161.aLongArrayArrayArray1 = new long[4][arg2][arg3];

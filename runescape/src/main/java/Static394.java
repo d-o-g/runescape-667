@@ -27,7 +27,7 @@ public final class Static394 {
                 if (local104 < 3 && (Static280.aByteArrayArrayArray3[1][local70][local75] & 0x2) != 0) {
                     local104++;
                 }
-                @Pc(135) int local135 = Static706.aClass178Array3[local104].method7878((int) local65, (int) local53);
+                @Pc(135) int local135 = Static706.aGroundArray3[local104].method7878((int) local65, (int) local53);
                 if (local59 > (float) local135) {
                     if (arg2 < 2) {
                         return local7;

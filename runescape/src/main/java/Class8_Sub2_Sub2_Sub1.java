@@ -150,17 +150,17 @@ public final class Class8_Sub2_Sub2_Sub1 extends Class8_Sub2_Sub2 implements Int
         if (arg1 != 20) {
             this.aShort20 = -113;
         }
-        @Pc(29) Class178 local29;
-        @Pc(35) Class178 local35;
+        @Pc(29) Ground local29;
+        @Pc(35) Ground local35;
         if (this.aBoolean183) {
-            local29 = Static693.aClass178Array2[super.aByte143];
-            local35 = Static706.aClass178Array3[0];
+            local29 = Static693.aGroundArray2[super.aByte143];
+            local35 = Static706.aGroundArray3[0];
         } else {
-            local29 = Static706.aClass178Array3[super.aByte143];
+            local29 = Static706.aGroundArray3[super.aByte143];
             if (super.aByte143 >= 3) {
                 local35 = null;
             } else {
-                local35 = Static706.aClass178Array3[super.aByte143 + 1];
+                local35 = Static706.aGroundArray3[super.aByte143 + 1];
             }
         }
         return local13.method1309(this.aByte38, super.anInt10694, super.anInt10690, local29, arg3, super.anInt10691, 22, arg2, (Class150) null, arg0, local35);

@@ -90,7 +90,7 @@ public final class Class46 implements Runnable {
                 } else {
                     @Pc(62) int local62 = ((Class8_Sub9) local23).anInt8501;
                     if (local62 >= 1 && local62 <= 4) {
-                        @Pc(76) Class178 local76 = Static246.aClass178Array1[local62 - 1];
+                        @Pc(76) Ground local76 = Static246.aGroundArray1[local62 - 1];
                         for (@Pc(78) int local78 = 0; local78 < Static35.anInt813 + Static35.anInt813; local78++) {
                             for (@Pc(81) int local81 = 0; local81 < Static35.anInt813 + Static35.anInt813; local81++) {
                                 if (Static433.aBooleanArrayArrayArray5[local62 - 1][local78][local81]) {

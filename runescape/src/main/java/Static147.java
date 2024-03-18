@@ -64,7 +64,7 @@ public final class Static147 {
         @Pc(317) int local317;
         @Pc(140) int local140;
         @Pc(370) int local370;
-        if (Static706.aClass178Array3 != null && (!Static156.aBoolean223 || (Static717.anInt10822 & 0x40) != 0)) {
+        if (Static706.aGroundArray3 != null && (!Static156.aBoolean223 || (Static717.anInt10822 & 0x40) != 0)) {
             local140 = -1;
             @Pc(142) int local142 = -1;
             @Pc(145) int local145 = arg2.i();

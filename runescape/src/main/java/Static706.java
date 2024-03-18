@@ -8,7 +8,7 @@ public final class Static706 {
     public static float aFloat217;
 
     @OriginalMember(owner = "client!wfa", name = "U", descriptor = "[Lclient!s;")
-    public static Class178[] aClass178Array3;
+    public static Ground[] aGroundArray3;
 
     @OriginalMember(owner = "client!wfa", name = "T", descriptor = "I")
     public static int anInt10633;

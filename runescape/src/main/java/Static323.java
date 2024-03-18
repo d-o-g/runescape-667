@@ -90,7 +90,7 @@ public final class Static323 {
 
     @OriginalMember(owner = "client!kda", name = "a", descriptor = "(IIBIII)I")
     public static int method4626(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        if (Static246.aClass178Array1 == null) {
+        if (Static246.aGroundArray1 == null) {
             return 0;
         } else if (arg1 < 3) {
             @Pc(24) int local24 = arg4 >> 9;
@@ -118,12 +118,12 @@ public final class Static323 {
                 if (local108) {
                     arg1++;
                 }
-                return Static246.aClass178Array1[arg1].method7878(arg0, arg4);
+                return Static246.aGroundArray1[arg1].method7878(arg0, arg4);
             } else {
                 return 0;
             }
         } else {
-            return Static246.aClass178Array1[arg1].method7878(arg0, arg4);
+            return Static246.aGroundArray1[arg1].method7878(arg0, arg4);
         }
     }
 }

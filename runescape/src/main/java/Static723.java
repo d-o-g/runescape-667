@@ -62,8 +62,8 @@ public final class Static723 {
                     if (Static2.aClass306_Sub1_1.aByteArrayArrayArray12 != null && Static2.aClass306_Sub1_1.aByteArrayArrayArray12[local117] != null) {
                         local132 = (Static2.aClass306_Sub1_1.aByteArrayArrayArray12[local117][local109][local114] & 0xFF) * 8 << 2;
                     }
-                    if (Static246.aClass178Array1 != null && Static246.aClass178Array1[local117] != null) {
-                        @Pc(177) int local177 = local132 + local77 - Static246.aClass178Array1[local117].method7869(local114, local109);
+                    if (Static246.aGroundArray1 != null && Static246.aGroundArray1[local117] != null) {
+                        @Pc(177) int local177 = local132 + local77 - Static246.aGroundArray1[local117].method7869(local114, local109);
                         if (local79 < local177) {
                             local79 = local177;
                         }

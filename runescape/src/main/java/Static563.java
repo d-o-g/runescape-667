@@ -33,7 +33,7 @@ public final class Static563 {
             }
         }
         Static478.aClass291ArrayArrayArray3 = null;
-        Static706.aClass178Array3 = null;
+        Static706.aGroundArray3 = null;
         if (Static420.aClass291ArrayArrayArray2 != null) {
             for (local3 = 0; local3 < Static420.aClass291ArrayArrayArray2.length; local3++) {
                 for (local6 = 0; local6 < Static619.anInt1566; local6++) {
@@ -47,9 +47,9 @@ public final class Static563 {
             }
         }
         Static420.aClass291ArrayArrayArray2 = null;
-        Static693.aClass178Array2 = null;
+        Static693.aGroundArray2 = null;
         Static334.aClass291ArrayArrayArray1 = null;
-        Static246.aClass178Array1 = null;
+        Static246.aGroundArray1 = null;
         Static258.aBooleanArrayArray3 = null;
         Static142.aBooleanArrayArray1 = null;
         Static102.anIntArray184 = null;

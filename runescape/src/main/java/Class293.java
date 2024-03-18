@@ -12,7 +12,7 @@ public final class Class293 {
     public Class274[][] aClass274ArrayArray1;
 
     @OriginalMember(owner = "client!pk", name = "p", descriptor = "Lclient!iga;")
-    public final Class178_Sub1 aClass178_Sub1_2;
+    public final Ground_Sub1 aClass178_Sub1_2;
 
     @OriginalMember(owner = "client!pk", name = "q", descriptor = "Lclient!am;")
     public final Class19_Sub1 aClass19_Sub1_17;
@@ -36,7 +36,7 @@ public final class Class293 {
     public final int anInt7426;
 
     @OriginalMember(owner = "client!pk", name = "<init>", descriptor = "(Lclient!am;Lclient!iga;)V")
-    public Class293(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Class178_Sub1 arg1) {
+    public Class293(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Ground_Sub1 arg1) {
         this.aClass178_Sub1_2 = arg1;
         this.aClass19_Sub1_17 = arg0;
         this.anInt7428 = (this.aClass178_Sub1_2.anInt8894 * this.aClass178_Sub1_2.anInt8888 >> this.aClass19_Sub1_17.anInt9173) + 2;

@@ -204,12 +204,12 @@ public final class Class337 {
             Static292.method4618(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aClass8_Sub2_21.anInt10690, this.aClass8_Sub2_21.anInt10694, this.aBooleanArray27);
             this.aBoolean662 = false;
         }
-        @Pc(142) Class178 local142 = Static246.aClass178Array1[this.aByte133];
-        @Pc(163) Class178 local163;
+        @Pc(142) Ground local142 = Static246.aGroundArray1[this.aByte133];
+        @Pc(163) Ground local163;
         if (this.aBoolean660) {
-            local163 = Static706.aClass178Array3[0];
+            local163 = Static706.aGroundArray3[0];
         } else {
-            local163 = this.aByte133 >= 3 ? null : Static246.aClass178Array1[this.aByte133 + 1];
+            local163 = this.aByte133 >= 3 ? null : Static246.aGroundArray1[this.aByte133 + 1];
         }
         @Pc(171) Model local171 = null;
         if (this.aClass152_9.method9109()) {

@@ -276,17 +276,17 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(Lclient!ha;BZI)Lclient!od;")
     public Class272 method4223(@OriginalArg(0) Class19 arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
         @Pc(11) Class54 local11 = Static354.aClass142_4.method3063(this.aShort57 & 0xFFFF, 73);
-        @Pc(27) Class178 local27;
-        @Pc(33) Class178 local33;
+        @Pc(27) Ground local27;
+        @Pc(33) Ground local33;
         if (this.aBoolean363) {
-            local27 = Static693.aClass178Array2[super.aByte143];
-            local33 = Static706.aClass178Array3[0];
+            local27 = Static693.aGroundArray2[super.aByte143];
+            local33 = Static706.aGroundArray3[0];
         } else {
-            local27 = Static706.aClass178Array3[super.aByte143];
+            local27 = Static706.aGroundArray3[super.aByte143];
             if (super.aByte143 >= 3) {
                 local33 = null;
             } else {
-                local33 = Static706.aClass178Array3[super.aByte143 + 1];
+                local33 = Static706.aGroundArray3[super.aByte143 + 1];
             }
         }
         return local11.method1309(this.aByte84 == 11 ? this.aByte83 + 4 : this.aByte83, super.anInt10694, super.anInt10690, local27, arg1, super.anInt10691, this.aByte84 == 11 ? 10 : this.aByte84, arg0, (Class150) null, arg2, local33);

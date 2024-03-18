@@ -4369,7 +4369,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "p", descriptor = "(IILclient!s;Lclient!s;III)V")
     @Override
-    public void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Class178 floor, @OriginalArg(3) Class178 ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z) {
+    public void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Ground floor, @OriginalArg(3) Ground ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z) {
         if (hillType == 3) {
             if ((this.anInt8489 & 0x7) != 7) {
                 throw new IllegalStateException();
@@ -4387,10 +4387,10 @@ public final class Model_Sub3 extends Model {
         if (hillType != 4 && (local38 < 0 || local43 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8894 || local48 < 0 || local53 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8892)) {
             return;
         }
-        @Pc(94) int[][] local94 = ((Class178_Sub3) floor).anIntArrayArray226;
+        @Pc(94) int[][] local94 = ((Ground_Sub3) floor).anIntArrayArray226;
         @Pc(96) int[][] local96 = null;
         if (ceiling != null) {
-            local96 = ((Class178_Sub3) ceiling).anIntArrayArray226;
+            local96 = ((Ground_Sub3) ceiling).anIntArrayArray226;
         }
         if (hillType == 4 || hillType == 5) {
             if (ceiling == null) {

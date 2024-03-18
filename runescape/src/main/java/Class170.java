@@ -14,7 +14,7 @@ public final class Class170 {
     public final Class19_Sub3 aClass19_Sub3_18;
 
     @OriginalMember(owner = "client!hn", name = "p", descriptor = "Lclient!pn;")
-    public final Class178_Sub2 aClass178_Sub2_1;
+    public final Ground_Sub2 aClass178_Sub2_1;
 
     @OriginalMember(owner = "client!hn", name = "g", descriptor = "I")
     public final int anInt4022;
@@ -35,7 +35,7 @@ public final class Class170 {
     public final int anInt4023;
 
     @OriginalMember(owner = "client!hn", name = "<init>", descriptor = "(Lclient!qha;Lclient!pn;)V")
-    public Class170(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Class178_Sub2 arg1) {
+    public Class170(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Ground_Sub2 arg1) {
         this.aClass19_Sub3_18 = arg0;
         this.aClass178_Sub2_1 = arg1;
         this.anInt4022 = (this.aClass178_Sub2_1.anInt8894 * this.aClass178_Sub2_1.anInt8888 >> this.aClass19_Sub3_18.anInt7989) + 2;

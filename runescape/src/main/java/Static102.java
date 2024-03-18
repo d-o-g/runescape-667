@@ -31,7 +31,7 @@ public final class Static102 {
         if (arg1 != -29754) {
             method2026((Class8_Sub2_Sub1) null, false);
         }
-        if (Static246.aClass178Array1 == null) {
+        if (Static246.aGroundArray1 == null) {
             return 0;
         }
         @Pc(21) int local21 = arg3 >> 9;
@@ -43,12 +43,12 @@ public final class Static102 {
         if (arg0 < 3 && (Static280.aByteArrayArrayArray3[1][local21][local25] & 0x2) != 0) {
             local56 = arg0 + 1;
         }
-        return Static246.aClass178Array1[local56].method7878(arg2, arg3);
+        return Static246.aGroundArray1[local56].method7878(arg2, arg3);
     }
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "(Lclient!qf;Z)Z")
     public static boolean method2026(@OriginalArg(0) Class8_Sub2_Sub1 arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(7) boolean local7 = Static246.aClass178Array1 == Static693.aClass178Array2;
+        @Pc(7) boolean local7 = Static246.aGroundArray1 == Static693.aGroundArray2;
         @Pc(9) int local9 = 0;
         @Pc(11) short local11 = 0;
         @Pc(13) byte local13 = 0;
@@ -97,7 +97,7 @@ public final class Static102 {
         if (arg1) {
             Static679.aClass8_Sub2_Sub1Array1[Static125.anInt2352++] = arg0;
         } else {
-            local48 = Static246.aClass178Array1 == Static693.aClass178Array2 ? 1 : 0;
+            local48 = Static246.aGroundArray1 == Static693.aGroundArray2 ? 1 : 0;
             if (!arg0.method9283()) {
                 arg0.aClass8_Sub2_25 = Static468.aClass8_Sub2Array10[local48];
                 Static468.aClass8_Sub2Array10[local48] = arg0;

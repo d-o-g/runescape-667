@@ -124,7 +124,7 @@ public final class Static409 {
                     }
                 }
                 if (local133) {
-                    local139 = Static246.aClass178Array1[Static394.anInt6176 + 1].method7869(local100, local78);
+                    local139 = Static246.aGroundArray1[Static394.anInt6176 + 1].method7869(local100, local78);
                     if (Static482.anIntArray588[arg2] < local139) {
                         Static482.anIntArray588[arg2] = local139;
                     }

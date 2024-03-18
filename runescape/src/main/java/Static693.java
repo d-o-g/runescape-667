@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static693 {
 
     @OriginalMember(owner = "client!vu", name = "i", descriptor = "[Lclient!s;")
-    public static Class178[] aClass178Array2;
+    public static Ground[] aGroundArray2;
 
     @OriginalMember(owner = "client!vu", name = "b", descriptor = "I")
     public static int anInt10383;

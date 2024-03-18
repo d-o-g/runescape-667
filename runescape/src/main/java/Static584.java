@@ -21,7 +21,7 @@ public final class Static584 {
         }
         local4.aClass8_Sub2_Sub3_2 = arg3;
         local4.aClass8_Sub2_Sub3_1 = arg4;
-        @Pc(22) int local22 = Static246.aClass178Array1 == Static693.aClass178Array2 ? 1 : 0;
+        @Pc(22) int local22 = Static246.aGroundArray1 == Static693.aGroundArray2 ? 1 : 0;
         if (!arg3.method9283()) {
             arg3.aClass8_Sub2_25 = Static468.aClass8_Sub2Array10[local22];
             Static468.aClass8_Sub2Array10[local22] = arg3;

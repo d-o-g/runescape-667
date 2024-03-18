@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!t")
-public final class t extends Class178 implements Interface5 {
+public final class t extends Ground implements Interface5 {
 
     @OriginalMember(owner = "client!t", name = "nativeid", descriptor = "J")
     public long nativeid;

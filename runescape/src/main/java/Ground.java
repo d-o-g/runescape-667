@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!s")
-public abstract class Class178 {
+public abstract class Ground {
 
     @OriginalMember(owner = "client!s", name = "w", descriptor = "[Lclient!hja;")
     public static final Class167[] aClass167Array5 = new Class167[32];
@@ -32,7 +32,7 @@ public abstract class Class178 {
     }
 
     @OriginalMember(owner = "client!s", name = "<init>", descriptor = "(III[[I)V")
-    protected Class178(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[][] arg3) {
+    protected Ground(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[][] arg3) {
         this.anInt8894 = arg0;
         this.anInt8892 = arg1;
         @Pc(11) int local11 = 0;

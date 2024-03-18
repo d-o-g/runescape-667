@@ -56,7 +56,7 @@ public final class a implements Interface5 {
     }
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!s;II)V")
-    public void method2(@OriginalArg(0) Class178 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void method2(@OriginalArg(0) Ground arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.H(this.nativeid, ((t) arg0).nativeid, arg1, arg2);
     }
 
@@ -109,7 +109,7 @@ public final class a implements Interface5 {
     public native void UA(@OriginalArg(0) long arg0, @OriginalArg(1) long arg1, @OriginalArg(2) long arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!s;III)V")
-    public void method6(@OriginalArg(0) Class178 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void method6(@OriginalArg(0) Ground arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         this.Z(this.nativeid, ((t) arg0).nativeid, arg1, arg2, arg3);
     }
 
@@ -156,7 +156,7 @@ public final class a implements Interface5 {
     public native void HA(@OriginalArg(0) long arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!s;IIIIIII[[Z)V")
-    public void method13(@OriginalArg(0) Class178 arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) int arg4, @OriginalArg(8) boolean[][] arg5) {
+    public void method13(@OriginalArg(0) Ground arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) int arg4, @OriginalArg(8) boolean[][] arg5) {
         this.ta(this.nativeid, ((t) arg0).nativeid, 0, 0, 1024, arg1, arg2, arg3, arg4, arg5);
     }
 

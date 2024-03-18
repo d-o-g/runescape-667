@@ -314,7 +314,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         }
         @Pc(40) Class8_Sub5 local40 = this.aClass8_Sub8_1.aClass8_Sub5_6;
         @Pc(44) Class379 local44 = this.aClass8_Sub8_1.aClass379_1;
-        @Pc(46) Class178[] local46 = Static246.aClass178Array1;
+        @Pc(46) Ground[] local46 = Static246.aGroundArray1;
         @Pc(49) int local49 = local40.anInt4149;
         @Pc(58) Class291 local58 = Static334.aClass291ArrayArrayArray1[local40.anInt4149][local6][local13];
         if (local58 != null) {

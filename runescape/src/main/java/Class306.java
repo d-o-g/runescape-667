@@ -156,7 +156,7 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(IBLclient!ha;[[ILclient!s;Lclient!s;Lclient!s;)V")
-    public void method7882(@OriginalArg(0) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int[][] arg2, @OriginalArg(4) Class178 arg3, @OriginalArg(5) Class178 arg4, @OriginalArg(6) Class178 arg5) {
+    public void method7882(@OriginalArg(0) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int[][] arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Ground arg4, @OriginalArg(6) Ground arg5) {
         for (@Pc(1) int local1 = 0; local1 < this.anInt8906; local1++) {
             for (@Pc(4) int local4 = 0; local4 < this.anInt8904; local4++) {
                 if (Static478.anInt7198 == -1 || Static696.method9036(local4, Static478.anInt7198, local1, arg0)) {
@@ -657,7 +657,7 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(BLclient!ha;Lclient!s;Lclient!s;)V")
-    public final void method7888(@OriginalArg(1) Class19 arg0, @OriginalArg(2) Class178 arg1, @OriginalArg(3) Class178 arg2) {
+    public final void method7888(@OriginalArg(1) Class19 arg0, @OriginalArg(2) Ground arg1, @OriginalArg(3) Ground arg2) {
         if (Static397.anIntArray482 == null || this.anInt8904 != Static397.anIntArray482.length) {
             Static501.anIntArray606 = new int[this.anInt8904];
             Static418.anIntArray704 = new int[this.anInt8904];
@@ -736,9 +736,9 @@ public class Class306 {
                 }
             }
             if (Static718.aBoolean822) {
-                this.method7890(local47 == 0 ? arg2 : null, local45, local47 == 0 ? arg1 : null, Static246.aClass178Array1[local47], arg0, local47);
+                this.method7890(local47 == 0 ? arg2 : null, local45, local47 == 0 ? arg1 : null, Static246.aGroundArray1[local47], arg0, local47);
             } else {
-                this.method7882(local47, arg0, local45, local47 == 0 ? arg2 : null, Static246.aClass178Array1[local47], local47 == 0 ? arg1 : null);
+                this.method7882(local47, arg0, local45, local47 == 0 ? arg2 : null, Static246.aGroundArray1[local47], local47 == 0 ? arg1 : null);
             }
             this.aByteArrayArrayArray17[local47] = null;
             this.aByteArrayArrayArray15[local47] = null;
@@ -754,7 +754,7 @@ public class Class306 {
             }
         }
         for (local50 = 0; local50 < this.anInt8913; local50++) {
-            Static246.aClass178Array1[local50].YA();
+            Static246.aGroundArray1[local50].YA();
         }
     }
 
@@ -815,7 +815,7 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(Lclient!s;Z[[ILclient!s;Lclient!s;Lclient!ha;I)V")
-    public void method7890(@OriginalArg(0) Class178 arg0, @OriginalArg(2) int[][] arg1, @OriginalArg(3) Class178 arg2, @OriginalArg(4) Class178 arg3, @OriginalArg(5) Class19 arg4, @OriginalArg(6) int arg5) {
+    public void method7890(@OriginalArg(0) Ground arg0, @OriginalArg(2) int[][] arg1, @OriginalArg(3) Ground arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Class19 arg4, @OriginalArg(6) int arg5) {
         @Pc(8) byte[][] local8 = this.aByteArrayArrayArray16[arg5];
         @Pc(13) byte[][] local13 = this.aByteArrayArrayArray13[arg5];
         @Pc(26) byte[][] local26 = this.aByteArrayArrayArray17[arg5];

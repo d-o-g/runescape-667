@@ -118,7 +118,7 @@ public final class ObjTypeList {
             @Pc(136) Class324 local136 = new Class324();
             local136.anInt8435 = arg8;
             local136.aBoolean641 = arg3 != null;
-            local136.anInt8432 = arg2.anInt8962;
+            local136.anInt8432 = arg2.index;
             local136.anInt8430 = arg6;
             local136.anInt8434 = arg0;
             local136.anInt8433 = arg10;
@@ -180,7 +180,7 @@ public final class ObjTypeList {
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(Lclient!ju;BLclient!ha;IIIII)Lclient!st;")
     public Sprite method2483(@OriginalArg(0) Class201 arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
         this.aClass324_1.anInt8430 = arg5;
-        this.aClass324_1.anInt8432 = arg1.anInt8962;
+        this.aClass324_1.anInt8432 = arg1.index;
         this.aClass324_1.anInt8435 = arg2;
         this.aClass324_1.anInt8436 = arg6;
         this.aClass324_1.aBoolean641 = arg0 != null;

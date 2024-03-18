@@ -186,7 +186,7 @@ public final class Class105 {
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(ILclient!ha;)Lclient!st;")
     public Sprite method2428(@OriginalArg(1) Toolkit arg0) {
-        @Pc(28) Sprite local28 = (Sprite) this.aClass246_2.aClass82_135.method2156((long) (this.anInt2618 | 0x20000 | arg0.anInt8962 << 29));
+        @Pc(28) Sprite local28 = (Sprite) this.aClass246_2.aClass82_135.method2156((long) (this.anInt2618 | 0x20000 | arg0.index << 29));
         if (local28 != null) {
             return local28;
         }
@@ -194,7 +194,7 @@ public final class Class105 {
         @Pc(49) Class407 local49 = Static735.method9382(this.aClass246_2.aClass330_83, this.anInt2618, 0);
         if (local49 != null) {
             local28 = arg0.method7948(local49, true);
-            this.aClass246_2.aClass82_135.method2150(local28, (long) (this.anInt2618 | 0x20000 | arg0.anInt8962 << 29));
+            this.aClass246_2.aClass82_135.method2150(local28, (long) (this.anInt2618 | 0x20000 | arg0.index << 29));
         }
         return local28;
     }
@@ -221,7 +221,7 @@ public final class Class105 {
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(ZBLclient!ha;)Lclient!st;")
     public Sprite method2431(@OriginalArg(0) boolean arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(22) int local22 = arg0 ? this.anInt2591 : this.anInt2596;
-        @Pc(29) int local29 = arg1.anInt8962 << 29 | local22;
+        @Pc(29) int local29 = arg1.index << 29 | local22;
         @Pc(38) Sprite local38 = (Sprite) this.aClass246_2.aClass82_135.method2156((long) local29);
         if (local38 != null) {
             return local38;

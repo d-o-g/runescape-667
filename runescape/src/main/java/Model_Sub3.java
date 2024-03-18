@@ -255,7 +255,7 @@ public final class Model_Sub3 extends Model {
         this.anInt8489 = arg2;
         this.anInt8495 = arg3;
         this.anInt8485 = arg4;
-        @Pc(47) Interface4 local47 = this.aClass19_Sub2_9.anInterface4_10;
+        @Pc(47) TextureSource local47 = this.aClass19_Sub2_9.textureSource;
         this.anInt8483 = arg1.anInt2372;
         this.anInt8491 = arg1.anInt2363;
         this.anIntArray666 = arg1.anIntArray213;
@@ -577,7 +577,7 @@ public final class Model_Sub3 extends Model {
                 if (local539 == -1) {
                     this.aShortArray123[local616] = -1;
                 } else {
-                    local555 = this.aClass19_Sub2_9.anInterface4_10.method6817(local539);
+                    local555 = this.aClass19_Sub2_9.textureSource.method6817(local539);
                     if ((arg5 & 0x40) != 0 && local555.aBoolean240) {
                         this.aShortArray123[local616] = -1;
                     } else {
@@ -4181,7 +4181,7 @@ public final class Model_Sub3 extends Model {
             return;
         }
         if (!this.aBoolean651 && dest >= 0) {
-            @Pc(20) Class118 local20 = this.aClass19_Sub2_9.anInterface4_10.method6817(dest & 0xFFFF);
+            @Pc(20) Class118 local20 = this.aClass19_Sub2_9.textureSource.method6817(dest & 0xFFFF);
             if (local20.aByte54 != 0 || local20.aByte52 != 0) {
                 this.aBoolean651 = true;
             }
@@ -4225,7 +4225,7 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(ISI)I")
     public int method7531(@OriginalArg(0) int arg0, @OriginalArg(1) short arg1, @OriginalArg(2) int arg2) {
         @Pc(6) int local6 = Static154.anIntArray237[this.method7534(arg0, arg2)];
-        @Pc(15) Class118 local15 = this.aClass19_Sub2_9.anInterface4_10.method6817(arg1 & 0xFFFF);
+        @Pc(15) Class118 local15 = this.aClass19_Sub2_9.textureSource.method6817(arg1 & 0xFFFF);
         @Pc(20) int local20 = local15.aByte58 & 0xFF;
         @Pc(26) int local26;
         @Pc(38) int local38;

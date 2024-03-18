@@ -51,14 +51,14 @@ public final class oa extends Toolkit implements Interface5 {
     public Matrix aMatrix_8;
 
     @OriginalMember(owner = "client!oa", name = "<init>", descriptor = "(Ljava/awt/Canvas;Lclient!d;II)V")
-    public oa(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Interface4 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public oa(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         super(arg1);
         try {
             if (!Static14.method179("sw3d")) {
                 throw new RuntimeException("");
             }
             Static307.method4479();
-            this.MA(super.anInterface4_10, 0, 0);
+            this.MA(super.textureSource, 0, 0);
             Static198.method2954(true, false);
             this.aBoolean510 = true;
             this.aMatrix_8 = new ja();
@@ -131,7 +131,7 @@ public final class oa extends Toolkit implements Interface5 {
     }
 
     @OriginalMember(owner = "client!oa", name = "MA", descriptor = "(Lclient!d;II)V")
-    public native void MA(@OriginalArg(0) Interface4 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public native void MA(@OriginalArg(0) TextureSource arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;Z)V")
     public void method6085(@OriginalArg(0) Class230 arg0) {
@@ -311,7 +311,7 @@ public final class oa extends Toolkit implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "c", descriptor = "(S)Z")
     public boolean c(@OriginalArg(0) short arg0) {
         synchronized (this) {
-            @Pc(9) Class118 local9 = super.anInterface4_10.method6817(arg0);
+            @Pc(9) Class118 local9 = super.textureSource.method6817(arg0);
             if (local9 == null) {
                 return false;
             } else {
@@ -582,20 +582,20 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "WA", descriptor = "(S)Z")
     public boolean WA(@OriginalArg(0) short arg0) {
-        @Pc(2) Interface4 local2 = super.anInterface4_10;
-        synchronized (super.anInterface4_10) {
-            if (!super.anInterface4_10.method6814(arg0)) {
+        @Pc(2) TextureSource local2 = super.textureSource;
+        synchronized (super.textureSource) {
+            if (!super.textureSource.method6814(arg0)) {
                 return false;
             }
-            @Pc(22) Class118 local22 = super.anInterface4_10.method6817(arg0);
+            @Pc(22) Class118 local22 = super.textureSource.method6817(arg0);
             if (local22 == null) {
                 return false;
             }
             @Pc(44) int[] local44;
             if (local22.anInt2796 == 2) {
-                local44 = super.anInterface4_10.method6815(0.7F, arg0, 128, 128);
+                local44 = super.textureSource.method6815(0.7F, arg0, 128, 128);
             } else {
-                local44 = super.anInterface4_10.method6818(128, true, 128, arg0, 0.7F);
+                local44 = super.textureSource.method6818(128, true, 128, arg0, 0.7F);
             }
             this.CA(arg0, local44, local22.aShort37, local22.anInt2796, local22.aByte56, local22.aByte55, local22.anInt2791, local22.aBoolean233, local22.aByte58, local22.aByte57, local22.aByte54, local22.aByte52, local22.aBoolean240, local22.aBoolean234, local22.aBoolean239, local22.aBoolean236, local22.aBoolean235, local22.aByte53, local22.aBoolean237, local22.aBoolean238, local22.anInt2790);
             return true;

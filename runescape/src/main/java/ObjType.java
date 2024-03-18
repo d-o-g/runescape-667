@@ -873,7 +873,7 @@ public final class ObjType {
         @Pc(87) Class82 local87 = this.myList.aClass82_58;
         @Pc(104) Model local104;
         synchronized (this.myList.aClass82_58) {
-            local104 = (Model) this.myList.aClass82_58.method2156((long) (this.anInt10134 | arg4.anInt8962 << 29));
+            local104 = (Model) this.myList.aClass82_58.method2156((long) (this.anInt10134 | arg4.index << 29));
         }
         if (local104 == null || arg4.compareFunctionMasks(local104.ua(), local17) != 0) {
             if (local104 != null) {
@@ -933,7 +933,7 @@ public final class ObjType {
             local104.s(local17);
             @Pc(426) Class82 local426 = this.myList.aClass82_58;
             synchronized (this.myList.aClass82_58) {
-                this.myList.aClass82_58.method2150(local104, (long) (this.anInt10134 | arg4.anInt8962 << 29));
+                this.myList.aClass82_58.method2150(local104, (long) (this.anInt10134 | arg4.index << 29));
             }
         }
         if (arg0 != null) {

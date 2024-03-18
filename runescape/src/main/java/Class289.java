@@ -186,7 +186,7 @@ public final class Class289 {
 
     @OriginalMember(owner = "client!pda", name = "a", descriptor = "(ILclient!ha;)[Lclient!tt;")
     public Matrix[] method6480(@OriginalArg(1) Toolkit arg0) {
-        if (this.aMatrixArray1 != null && this.anInt7261 == arg0.anInt8962) {
+        if (this.aMatrixArray1 != null && this.anInt7261 == arg0.index) {
             return this.aMatrixArray1;
         } else if (this.anIntArrayArray181 == null) {
             return null;

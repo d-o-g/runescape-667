@@ -160,7 +160,7 @@ public final class Ground_Sub1 extends Ground {
         if (arg3 != null && this.anIntArrayArrayArray2 == null) {
             this.anIntArrayArrayArray2 = new int[super.anInt8894][super.anInt8892][];
         }
-        @Pc(41) Interface4 local41 = this.aClass19_Sub1_9.anInterface4_10;
+        @Pc(41) TextureSource local41 = this.aClass19_Sub1_9.textureSource;
         this.anIntArrayArrayArray1[arg0][arg1] = arg2;
         this.anIntArrayArrayArray3[arg0][arg1] = arg4;
         this.anIntArrayArrayArray5[arg0][arg1] = arg6;

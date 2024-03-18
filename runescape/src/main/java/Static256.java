@@ -15,7 +15,7 @@ public final class Static256 {
     public static final Class184 aClass184_10 = new Class184(14, 0, 4, 1);
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(IILclient!sb;Lclient!d;Ljava/awt/Canvas;)Lclient!ha;")
-    public static Toolkit method3637(@OriginalArg(0) int arg0, @OriginalArg(2) Class330 arg1, @OriginalArg(3) Interface4 arg2, @OriginalArg(4) Canvas arg3) {
+    public static Toolkit method3637(@OriginalArg(0) int arg0, @OriginalArg(2) Class330 arg1, @OriginalArg(3) TextureSource arg2, @OriginalArg(4) Canvas arg3) {
         if (!Static651.method8516()) {
             throw new RuntimeException("");
         } else if (Static14.method179("jaggl")) {

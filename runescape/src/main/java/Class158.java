@@ -1016,7 +1016,7 @@ public final class Class158 {
                 }
                 arg9 |= 0x8000;
             }
-            @Pc(271) long local271 = local53 & 0x3FFFFFFFFFL | (long) this.anInt3831 << 38 | (long) this.anInt3823 << 54 | (long) arg0.anInt8962 << 59;
+            @Pc(271) long local271 = local53 & 0x3FFFFFFFFFL | (long) this.anInt3831 << 38 | (long) this.anInt3823 << 54 | (long) arg0.index << 59;
             @Pc(277) Model local277 = (Model) Static312.aClass82_106.method2156(local271);
             if (local277 == null || arg0.compareFunctionMasks(local277.ua(), arg9) != 0) {
                 if (local277 != null) {

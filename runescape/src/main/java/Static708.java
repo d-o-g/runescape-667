@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static708 {
 
     @OriginalMember(owner = "client!wga", name = "e", descriptor = "Lclient!d;")
-    public static Interface4 anInterface4_12;
+    public static TextureSource anTextureSource_12;
 
     @OriginalMember(owner = "client!wga", name = "b", descriptor = "I")
     public static int anInt10644;

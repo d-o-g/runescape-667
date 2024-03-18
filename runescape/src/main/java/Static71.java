@@ -163,7 +163,7 @@ public final class Static71 {
                                 continue;
                             }
                             if (local19.anInt3806 == Static58.anInt1177) {
-                                Static93.method1832(local19.anInt3746, local125, local130, Static56.anInterface4_3, Static163.aToolkit_17, local19.anInt3802);
+                                Static93.method1832(local19.anInt3746, local125, local130, Static56.anTextureSource_3, Static163.aToolkit_17, local19.anInt3802);
                                 Static364.aBooleanArray18[local74] = true;
                                 Static163.aToolkit_17.KA(arg3, arg4, arg8, arg5);
                                 continue;

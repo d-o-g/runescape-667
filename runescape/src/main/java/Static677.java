@@ -6,7 +6,7 @@ public final class Static677 {
     public static int anInt10234;
 
     @OriginalMember(owner = "client!vi", name = "L", descriptor = "Lclient!d;")
-    public static Interface4 anInterface4_11;
+    public static TextureSource anTextureSource_11;
 
     @OriginalMember(owner = "client!vi", name = "J", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___76 = new Deque();

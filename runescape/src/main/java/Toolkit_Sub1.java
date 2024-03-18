@@ -447,7 +447,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
     public final Class334 aClass334_3;
 
     @OriginalMember(owner = "client!am", name = "<init>", descriptor = "(Ljava/awt/Canvas;Ljava/lang/Object;Lclient!d;Lclient!sb;II)V")
-    protected Toolkit_Sub1(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Object arg1, @OriginalArg(2) Interface4 arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    protected Toolkit_Sub1(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Object arg1, @OriginalArg(2) TextureSource arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         super(arg2);
         try {
             this.aClass330_112 = arg3;
@@ -459,14 +459,14 @@ public abstract class Toolkit_Sub1 extends Toolkit {
             this.anInt9013 = this.anInt9021 = local313.height;
             this.anInt9122 = this.anInt8991 = local313.width;
             Static198.method2954(true, false);
-            if (super.anInterface4_10 == null) {
+            if (super.textureSource == null) {
                 this.aNativeInterface3 = new NativeInterface(0, this.anInt9178);
                 this.aClass334_3 = null;
             } else {
-                this.aClass334_3 = new Class334(this, super.anInterface4_10);
-                this.aNativeInterface3 = new NativeInterface(super.anInterface4_10.method6813(), this.anInt9178);
-                for (@Pc(371) int local371 = 0; local371 < super.anInterface4_10.method6813(); local371++) {
-                    @Pc(378) Class118 local378 = super.anInterface4_10.method6817(local371);
+                this.aClass334_3 = new Class334(this, super.textureSource);
+                this.aNativeInterface3 = new NativeInterface(super.textureSource.method6813(), this.anInt9178);
+                for (@Pc(371) int local371 = 0; local371 < super.textureSource.method6813(); local371++) {
+                    @Pc(378) Class118 local378 = super.textureSource.method6817(local371);
                     if (local378 != null) {
                         this.aNativeInterface3.initTextureMetrics(local371, local378.aByte58, local378.aByte57);
                     }
@@ -2086,7 +2086,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
                 this.method8031();
             } else {
                 local29 = this.aClass334_3.method7654(arg1);
-                @Pc(60) Class118 local60 = super.anInterface4_10.method6817(arg1);
+                @Pc(60) Class118 local60 = super.textureSource.method6817(arg1);
                 if (local60.aByte54 == 0 && local60.aByte52 == 0) {
                     this.method8031();
                 } else {

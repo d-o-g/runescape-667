@@ -50,7 +50,7 @@ public final class Class67_Sub1_Sub2 extends Class67_Sub1 {
             Static319.anIntArray384[3] = this.anInt9799;
             Static319.anIntArray384[5] = this.anInt9804;
             Static319.anIntArray384[4] = this.anInt9798;
-            @Pc(37) Interface4 local37 = this.aClass19_Sub3_37.anInterface4_10;
+            @Pc(37) TextureSource local37 = this.aClass19_Sub3_37.textureSource;
             Static319.anIntArray384[1] = this.anInt9802;
             @Pc(44) boolean local44 = false;
             @Pc(46) int local46 = 0;

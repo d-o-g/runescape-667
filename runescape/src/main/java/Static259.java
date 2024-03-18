@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static259 {
 
-    @OriginalMember(owner = "client!ia", name = "c", descriptor = "[Z")
-    public static final boolean[] aBooleanArray8 = new boolean[8];
-
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(ILjava/lang/String;Ljava/lang/String;Lclient!vq;ZZ)V")
     public static void method3693(@OriginalArg(1) String arg0, @OriginalArg(2) String arg1, @OriginalArg(3) Class390 arg2, @OriginalArg(4) boolean arg3, @OriginalArg(5) boolean arg4) {
         if (!arg4) {

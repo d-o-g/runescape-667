@@ -9,27 +9,35 @@ import java.awt.Rectangle;
 @OriginalClass("client!ha")
 public abstract class Toolkit {
 
+    private static final int COUNT = 8;
+
+    @OriginalMember(owner = "client!ia", name = "c", descriptor = "[Z")
+    public static final boolean[] inuse = new boolean[COUNT];
+
     @OriginalMember(owner = "client!ha", name = "j", descriptor = "Lclient!d;")
-    public final Interface4 anInterface4_10;
+    public final TextureSource textureSource;
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "I")
-    public final int anInt8962;
+    public final int index;
 
     @OriginalMember(owner = "client!ha", name = "<init>", descriptor = "(Lclient!d;)V")
-    public Toolkit(@OriginalArg(0) Interface4 arg0) {
-        this.anInterface4_10 = arg0;
-        @Pc(6) int local6 = -1;
-        for (@Pc(8) int local8 = 0; local8 < 8; local8++) {
-            if (!Static259.aBooleanArray8[local8]) {
-                Static259.aBooleanArray8[local8] = true;
-                local6 = local8;
+    public Toolkit(@OriginalArg(0) TextureSource arg0) {
+        this.textureSource = arg0;
+
+        @Pc(6) int freeIndex = -1;
+        for (@Pc(8) int i = 0; i < COUNT; i++) {
+            if (!inuse[i]) {
+                inuse[i] = true;
+                freeIndex = i;
                 break;
             }
         }
-        if (local6 == -1) {
+
+        if (freeIndex == -1) {
             throw new IllegalStateException("NFTI");
+        } else {
+            this.index = freeIndex;
         }
-        this.anInt8962 = local6;
     }
 
     @OriginalMember(owner = "client!ha", name = "HA", descriptor = "(IIII[I)V")
@@ -76,7 +84,7 @@ public abstract class Toolkit {
 
     @OriginalMember(owner = "client!ha", name = "i", descriptor = "(I)V")
     public final void method7940() {
-        Static259.aBooleanArray8[this.anInt8962] = false;
+        inuse[this.index] = false;
         this.method7987();
     }
 

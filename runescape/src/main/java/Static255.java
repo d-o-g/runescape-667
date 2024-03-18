@@ -11,7 +11,7 @@ public final class Static255 {
     public static final Class345 aClass345_54 = new Class345(4, 8);
 
     @OriginalMember(owner = "client!hs", name = "a", descriptor = "(Lclient!sb;BLclient!d;ILjava/awt/Canvas;I)Lclient!ha;")
-    public static Toolkit method3612(@OriginalArg(0) Class330 arg0, @OriginalArg(2) Interface4 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Canvas arg3, @OriginalArg(5) int arg4) {
+    public static Toolkit method3612(@OriginalArg(0) Class330 arg0, @OriginalArg(2) TextureSource arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Canvas arg3, @OriginalArg(5) int arg4) {
         @Pc(13) int local13 = 0;
         @Pc(15) int local15 = 0;
         if (arg3 != null) {

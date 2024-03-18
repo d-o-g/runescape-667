@@ -27,7 +27,7 @@ public final class Static718 {
             return arg0.anInt8248;
         }
         if (arg0.anInt8255 != -1) {
-            @Pc(31) Class118 local31 = arg1.anInterface4_10.method6817(arg0.anInt8255);
+            @Pc(31) Class118 local31 = arg1.textureSource.method6817(arg0.anInt8255);
             if (!local31.aBoolean240) {
                 return local31.aShort37;
             }

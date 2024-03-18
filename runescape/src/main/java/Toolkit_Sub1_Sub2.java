@@ -104,7 +104,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
     public final int anInt9277;
 
     @OriginalMember(owner = "client!tca", name = "<init>", descriptor = "(Lclient!jaggl/OpenGL;Ljava/awt/Canvas;JLclient!d;Lclient!sb;I)V")
-    public Toolkit_Sub1_Sub2(@OriginalArg(0) OpenGL arg0, @OriginalArg(1) Canvas arg1, @OriginalArg(2) long arg2, @OriginalArg(3) Interface4 arg3, @OriginalArg(4) Class330 arg4, @OriginalArg(5) int arg5) {
+    public Toolkit_Sub1_Sub2(@OriginalArg(0) OpenGL arg0, @OriginalArg(1) Canvas arg1, @OriginalArg(2) long arg2, @OriginalArg(3) TextureSource arg3, @OriginalArg(4) Class330 arg4, @OriginalArg(5) int arg5) {
         super(arg1, Long.valueOf(arg2), arg3, arg4, arg5, 1);
         try {
             this.anOpenGL2 = arg0;

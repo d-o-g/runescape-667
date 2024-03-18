@@ -760,7 +760,7 @@ public final class Class54 {
             arg6 = 4;
         }
         @Pc(21) long local21 = (long) (arg0 + (this.anInt1256 << 10) + (arg6 << 3));
-        local21 |= (long) (arg7.anInt8962 << 29);
+        local21 |= (long) (arg7.index << 29);
         if (arg8 != null) {
             local21 |= arg8.aLong119 << 32;
         }
@@ -847,7 +847,7 @@ public final class Class54 {
         }
         @Pc(22) long local22 = (long) ((this.anInt1256 << 10) + ((arg2 << 3) + arg0));
         @Pc(24) int local24 = arg9;
-        local22 |= (long) (arg6.anInt8962 << 29);
+        local22 |= (long) (arg6.index << 29);
         if (arg8 != null) {
             local22 |= arg8.aLong119 << 32;
         }
@@ -970,7 +970,7 @@ public final class Class54 {
         @Pc(182) int local182 = local179.length;
         @Pc(193) int local193;
         if (local182 > 0) {
-            @Pc(191) long local191 = (long) arg0.anInt8962;
+            @Pc(191) long local191 = (long) arg0.index;
             for (local193 = 0; local193 < local182; local193++) {
                 local191 = local191 * 67783L + (long) local179[local193];
             }

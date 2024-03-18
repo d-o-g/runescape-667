@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qea")
-public final class Class303 implements Interface4 {
+public final class Class303 implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "k", descriptor = "Lclient!ts;")
     public final Class361 aClass361_3 = new Class361(256);

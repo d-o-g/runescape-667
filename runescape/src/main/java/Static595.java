@@ -11,7 +11,7 @@ public final class Static595 {
     public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
         Static164.method2606();
         if (arg2 == 0) {
-            Static163.aToolkit_17 = Static255.method3612(Static124.aClass330_20, Static56.anInterface4_3, 0, Static434.aCanvas7, Static400.aClass2_Sub34_28.aClass57_Sub13_1.method4373() * 2);
+            Static163.aToolkit_17 = Static255.method3612(Static124.aClass330_20, Static56.anTextureSource_3, 0, Static434.aCanvas7, Static400.aClass2_Sub34_28.aClass57_Sub13_1.method4373() * 2);
             if (arg0 != null) {
                 Static163.aToolkit_17.GA(0);
                 @Pc(36) Class381 local36 = Static74.method1535(Static539.anInt8173, Static697.aClass330_123);
@@ -23,7 +23,7 @@ public final class Static595 {
             @Pc(57) Toolkit local57 = null;
             @Pc(85) Class14 local85;
             if (arg0 != null) {
-                local57 = Static255.method3612(Static124.aClass330_20, Static56.anInterface4_3, 0, Static434.aCanvas7, 0);
+                local57 = Static255.method3612(Static124.aClass330_20, Static56.anTextureSource_3, 0, Static434.aCanvas7, 0);
                 local57.GA(0);
                 @Pc(76) Class381 local76 = Static74.method1535(Static539.anInt8173, Static697.aClass330_123);
                 local85 = local57.method8010(local76, Static735.method9375(Static721.aClass330_128, Static539.anInt8173), true);
@@ -35,7 +35,7 @@ public final class Static595 {
             {
                 try {
                     var14 = true;
-                    Static163.aToolkit_17 = Static255.method3612(Static124.aClass330_20, Static56.anInterface4_3, arg2, Static434.aCanvas7, Static400.aClass2_Sub34_28.aClass57_Sub13_1.method4373() * 2);
+                    Static163.aToolkit_17 = Static255.method3612(Static124.aClass330_20, Static56.anTextureSource_3, arg2, Static434.aCanvas7, Static400.aClass2_Sub34_28.aClass57_Sub13_1.method4373() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
                         @Pc(118) Class381 local118 = Static74.method1535(Static539.anInt8173, Static697.aClass330_123);

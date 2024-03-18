@@ -580,14 +580,14 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!d;II)V")
-    public static void method5067(@OriginalArg(0) Interface4 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static void method5067(@OriginalArg(0) TextureSource arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         for (@Pc(1) int local1 = 0; local1 < aClass96_2.anInt2506; local1++) {
             anIntArray419[local1 + 1] = method5068(arg0, local1, arg1, arg2);
         }
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!d;III)I")
-    public static int method5068(@OriginalArg(0) Interface4 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public static int method5068(@OriginalArg(0) TextureSource arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         @Pc(4) Class318 local4 = aClass96_2.method2352(arg1);
         if (local4 == null) {
             return 0;

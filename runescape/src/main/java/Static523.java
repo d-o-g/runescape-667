@@ -219,7 +219,7 @@ public final class Static523 {
             if (Static65.aClass3_1.anInt81 != -1 && !Static190.aClass330_38.method7586(0, Static65.aClass3_1.anInt81)) {
                 return 99;
             }
-            Static56.anInterface4_3 = new Class303(Static199.aClass330_42, Static534.aClass330_104, Static721.aClass330_128);
+            Static56.anTextureSource_3 = new Class303(Static199.aClass330_42, Static534.aClass330_104, Static721.aClass330_128);
             Static386.aClass49_2 = new Class49(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
             Static574.aClass310_2 = new Class310(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static125.aClass388_1);
             Static354.aClass267_1 = new Class267(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
@@ -257,7 +257,7 @@ public final class Static523 {
             Static296.method4362();
             Static44.method1074(Static25.aClass50_1);
             Static187.method2844(Static88.aClass330_14);
-            Static405.method5592(Static56.anInterface4_3, Static190.aClass330_38);
+            Static405.method5592(Static56.anTextureSource_3, Static190.aClass330_38);
             @Pc(1119) Class197 local1119 = new Class197(Static463.aClass330_93.method7600("huffman", ""));
             Static342.method4462(local1119);
             try {

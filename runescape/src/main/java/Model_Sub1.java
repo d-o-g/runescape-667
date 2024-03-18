@@ -195,7 +195,7 @@ public final class Model_Sub1 extends Model {
     @OriginalMember(owner = "client!eu", name = "<init>", descriptor = "(Lclient!am;Lclient!dv;IIII)V")
     public Model_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this(arg0, arg2, arg5, true, false);
-        @Pc(11) Interface4 local11 = arg0.anInterface4_10;
+        @Pc(11) TextureSource local11 = arg0.textureSource;
         @Pc(15) int[] local15 = new int[arg1.anInt2362];
         this.anIntArray243 = new int[arg1.anInt2363 + 1];
         for (@Pc(24) int local24 = 0; local24 < arg1.anInt2362; local24++) {
@@ -2669,7 +2669,7 @@ public final class Model_Sub1 extends Model {
             return true;
         }
         for (@Pc(13) int local13 = 0; local13 < this.aShortArray46.length; local13++) {
-            if (this.aShortArray46[local13] != -1 && !this.aClass19_Sub1_6.anInterface4_10.method6814(this.aShortArray46[local13])) {
+            if (this.aShortArray46[local13] != -1 && !this.aClass19_Sub1_6.textureSource.method6814(this.aShortArray46[local13])) {
                 return false;
             }
         }
@@ -3233,7 +3233,7 @@ public final class Model_Sub1 extends Model {
     @OriginalMember(owner = "client!eu", name = "aa", descriptor = "(SS)V")
     @Override
     public void aa(@OriginalArg(0) short src, @OriginalArg(1) short dest) {
-        @Pc(9) Interface4 local9 = this.aClass19_Sub1_6.anInterface4_10;
+        @Pc(9) TextureSource local9 = this.aClass19_Sub1_6.textureSource;
         for (@Pc(11) int local11 = 0; local11 < this.anInt2715; local11++) {
             if (this.aShortArray46[local11] == src) {
                 this.aShortArray46[local11] = dest;

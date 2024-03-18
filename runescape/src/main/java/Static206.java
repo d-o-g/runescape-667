@@ -18,7 +18,7 @@ public final class Static206 {
     public static final int anInt3421 = 1339;
 
     @OriginalMember(owner = "client!gga", name = "a", descriptor = "(Lclient!d;Ljava/awt/Canvas;II)Lclient!ha;")
-    public static Toolkit method3093(@OriginalArg(0) Interface4 arg0, @OriginalArg(1) Canvas arg1, @OriginalArg(2) int arg2) {
+    public static Toolkit method3093(@OriginalArg(0) TextureSource arg0, @OriginalArg(1) Canvas arg1, @OriginalArg(2) int arg2) {
         return new Toolkit_Sub3(arg1, arg0, arg2);
     }
 }

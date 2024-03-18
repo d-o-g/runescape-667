@@ -216,7 +216,7 @@ public final class Model_Sub2 extends Model {
         if (Static340.method5012(arg5, arg2)) {
             this.aClass136_1 = new Class136();
         }
-        @Pc(116) Interface4 local116 = arg0.anInterface4_10;
+        @Pc(116) TextureSource local116 = arg0.textureSource;
         @Pc(120) int[] local120 = new int[arg1.anInt2362];
         this.anIntArray411 = new int[arg1.anInt2363 + 1];
         for (@Pc(129) int local129 = 0; local129 < arg1.anInt2362; local129++) {
@@ -744,7 +744,7 @@ public final class Model_Sub2 extends Model {
     @OriginalMember(owner = "client!kla", name = "aa", descriptor = "(SS)V")
     @Override
     public void aa(@OriginalArg(0) short src, @OriginalArg(1) short dest) {
-        @Pc(9) Interface4 local9 = this.aClass19_Sub3_24.anInterface4_10;
+        @Pc(9) TextureSource local9 = this.aClass19_Sub3_24.textureSource;
         for (@Pc(11) int local11 = 0; local11 < this.anInt5560; local11++) {
             if (src == this.aShortArray75[local11]) {
                 this.aShortArray75[local11] = dest;
@@ -1252,7 +1252,7 @@ public final class Model_Sub2 extends Model {
     public int method4985(@OriginalArg(1) byte arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) short arg3) {
         @Pc(20) int local20 = Static154.anIntArray237[Static468.method7648(arg1, arg2)];
         if (arg3 != -1) {
-            @Pc(33) Class118 local33 = this.aClass19_Sub3_24.anInterface4_10.method6817(arg3 & 0xFFFF);
+            @Pc(33) Class118 local33 = this.aClass19_Sub3_24.textureSource.method6817(arg3 & 0xFFFF);
             @Pc(38) int local38 = local33.aByte58 & 0xFF;
             @Pc(49) int local49;
             @Pc(78) int local78;
@@ -2690,7 +2690,7 @@ public final class Model_Sub2 extends Model {
             return true;
         }
         for (@Pc(13) int local13 = 0; local13 < this.aShortArray75.length; local13++) {
-            if (this.aShortArray75[local13] != -1 && !this.aClass19_Sub3_24.anInterface4_10.method6814(this.aShortArray75[local13])) {
+            if (this.aShortArray75[local13] != -1 && !this.aClass19_Sub3_24.textureSource.method6814(this.aShortArray75[local13])) {
                 return false;
             }
         }

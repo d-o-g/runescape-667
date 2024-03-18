@@ -103,7 +103,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
     public final boolean[] aBooleanArray16;
 
     @OriginalMember(owner = "client!kea", name = "createToolkit", descriptor = "(Ljava/awt/Canvas;Lclient!d;Lclient!sb;Ljava/lang/Integer;)Lclient!ha;")
-    public static Toolkit createToolkit(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Interface4 arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Integer arg3) {
+    public static Toolkit createToolkit(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Integer arg3) {
         @Pc(1) Toolkit_Sub1_Sub1 local1 = null;
         try {
             @Pc(3) byte local3 = 0;
@@ -167,7 +167,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
     }
 
     @OriginalMember(owner = "client!kea", name = "<init>", descriptor = "(IILjava/awt/Canvas;Lclient!jaclib/peer/ti;Lclient!jagdx/IDirect3D;Lclient!jagdx/IDirect3DDevice;Lclient!tda;Lclient!jagdx/D3DPRESENT_PARAMETERS;Lclient!jagdx/D3DCAPS;Lclient!d;Lclient!sb;I)V")
-    public Toolkit_Sub1_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Canvas arg2, @OriginalArg(3) ti arg3, @OriginalArg(4) IDirect3D arg4, @OriginalArg(5) IDirect3DDevice arg5, @OriginalArg(6) Class349 arg6, @OriginalArg(7) D3DPRESENT_PARAMETERS arg7, @OriginalArg(8) D3DCAPS arg8, @OriginalArg(9) Interface4 arg9, @OriginalArg(10) Class330 arg10, @OriginalArg(11) int arg11) {
+    public Toolkit_Sub1_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Canvas arg2, @OriginalArg(3) ti arg3, @OriginalArg(4) IDirect3D arg4, @OriginalArg(5) IDirect3DDevice arg5, @OriginalArg(6) Class349 arg6, @OriginalArg(7) D3DPRESENT_PARAMETERS arg7, @OriginalArg(8) D3DCAPS arg8, @OriginalArg(9) TextureSource arg9, @OriginalArg(10) Class330 arg10, @OriginalArg(11) int arg11) {
         super(arg2, arg6, arg9, arg10, arg11, 0);
         try {
             this.aD3DCAPS1 = arg8;

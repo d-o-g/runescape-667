@@ -35,7 +35,7 @@ public final class Node_Sub1_Sub35 extends Node_Sub1 {
             }
         }
         if (arg0 < 107) {
-            Static677.anInterface4_11 = null;
+            Static677.anTextureSource_11 = null;
         }
         return local11;
     }

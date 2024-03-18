@@ -504,7 +504,7 @@ public final class Class268 {
             if (arg0 != null) {
                 local54 = arg0.method9101() | 0x800;
             }
-            @Pc(71) long local71 = (long) (arg2.anInt8962 << 16 | this.anInt6744);
+            @Pc(71) long local71 = (long) (arg2.index << 16 | this.anInt6744);
             if (arg1 != null) {
                 local71 |= arg1.aLong312 << 24;
             }
@@ -637,7 +637,7 @@ public final class Class268 {
             local32 |= arg7.method9101();
             local52 = true;
         }
-        @Pc(116) long local116 = (long) (this.anInt6744 | arg1.anInt8962 << 16);
+        @Pc(116) long local116 = (long) (this.anInt6744 | arg1.index << 16);
         if (arg6 != null) {
             local116 |= arg6.aLong312 << 24;
         }

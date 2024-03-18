@@ -159,7 +159,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     public int anInt4184;
 
     @OriginalMember(owner = "client!iaa", name = "<init>", descriptor = "(Lclient!d;)V")
-    public Toolkit_Sub2(@OriginalArg(0) Interface4 arg0) {
+    public Toolkit_Sub2(@OriginalArg(0) TextureSource arg0) {
         super(arg0);
         this.aBoolean331 = false;
         this.aBoolean330 = false;
@@ -197,7 +197,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     }
 
     @OriginalMember(owner = "client!iaa", name = "<init>", descriptor = "(Ljava/awt/Canvas;Lclient!d;II)V")
-    public Toolkit_Sub2(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Interface4 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public Toolkit_Sub2(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         this(arg1);
         try {
             this.method8022(arg0, arg2, arg3);
@@ -1007,7 +1007,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "n", descriptor = "(I)Z")
     public boolean method3786(@OriginalArg(0) int arg0) {
-        return super.anInterface4_10.method6814(arg0);
+        return super.textureSource.method6814(arg0);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Ljava/lang/Runnable;)Lclient!wf;")
@@ -1182,12 +1182,12 @@ public final class Toolkit_Sub2 extends Toolkit {
         synchronized (this.aClass82_89) {
             local14 = (Node_Sub29) this.aClass82_89.method2156((long) arg0 | Long.MIN_VALUE);
             if (local14 == null) {
-                if (!super.anInterface4_10.method6814(arg0)) {
+                if (!super.textureSource.method6814(arg0)) {
                     return null;
                 }
-                @Pc(36) Class118 local36 = super.anInterface4_10.method6817(arg0);
+                @Pc(36) Class118 local36 = super.textureSource.method6817(arg0);
                 @Pc(50) int local50 = local36.aBoolean233 || this.aBoolean332 ? 64 : this.lb;
-                local14 = new Node_Sub29(arg0, local50, super.anInterface4_10.method6815(0.7F, arg0, local50, local50), local36.anInt2796 != 1);
+                local14 = new Node_Sub29(arg0, local50, super.textureSource.method6815(0.7F, arg0, local50, local50), local36.anInt2796 != 1);
                 this.aClass82_89.method2150(local14, (long) arg0 | Long.MIN_VALUE);
             }
         }
@@ -1875,7 +1875,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 local13.anInt4409 += local4;
                 @Pc(27) int local27 = local13.anInt4409 / 20;
                 if (local27 > 0) {
-                    @Pc(36) Class118 local36 = super.anInterface4_10.method6817(local13.anInt4408);
+                    @Pc(36) Class118 local36 = super.textureSource.method6817(local13.anInt4408);
                     local13.method3973(local36.aByte54 * local4 * 50 / 1000, local36.aByte52 * local4 * 50 / 1000);
                     local13.anInt4409 -= local27 * 20;
                 }
@@ -1897,7 +1897,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         if (arg3 == 0 || arg4 == 0) {
             return;
         }
-        if (arg6 == 65535 || super.anInterface4_10.method6817(arg6).aBoolean240) {
+        if (arg6 == 65535 || super.textureSource.method6817(arg6).aBoolean240) {
             this.method3790(arg0, arg1, arg2, arg3, arg7, arg9);
             return;
         }
@@ -2202,12 +2202,12 @@ public final class Toolkit_Sub2 extends Toolkit {
         synchronized (this.aClass82_89) {
             local12 = (Node_Sub29) this.aClass82_89.method2156((long) arg0);
             if (local12 == null) {
-                if (!super.anInterface4_10.method6814(arg0)) {
+                if (!super.textureSource.method6814(arg0)) {
                     return null;
                 }
-                @Pc(34) Class118 local34 = super.anInterface4_10.method6817(arg0);
+                @Pc(34) Class118 local34 = super.textureSource.method6817(arg0);
                 @Pc(48) int local48 = local34.aBoolean233 || this.aBoolean332 ? 64 : this.lb;
-                local12 = new Node_Sub29(arg0, local48, super.anInterface4_10.method6818(local48, true, local48, arg0, 0.7F), local34.anInt2796 != 1);
+                local12 = new Node_Sub29(arg0, local48, super.textureSource.method6818(local48, true, local48, arg0, 0.7F), local34.anInt2796 != 1);
                 this.aClass82_89.method2150(local12, (long) arg0);
             }
         }
@@ -2260,7 +2260,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "m", descriptor = "(I)I")
     public int method3793(@OriginalArg(0) int arg0) {
-        return super.anInterface4_10.method6817(arg0).aShort37 & 0xFFFF;
+        return super.textureSource.method6817(arg0).aShort37 & 0xFFFF;
     }
 
     @OriginalMember(owner = "client!iaa", name = "X", descriptor = "(I)V")
@@ -2614,7 +2614,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "p", descriptor = "(I)I")
     public int method3795(@OriginalArg(0) int arg0) {
-        return super.anInterface4_10.method6817(arg0).anInt2796;
+        return super.textureSource.method6817(arg0).anInt2796;
     }
 
     @OriginalMember(owner = "client!iaa", name = "z", descriptor = "()Z")
@@ -2709,7 +2709,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "d", descriptor = "(I)Z")
     public boolean method3796(@OriginalArg(0) int arg0) {
-        return super.anInterface4_10.method6817(arg0).aBoolean236 || super.anInterface4_10.method6817(arg0).aBoolean235;
+        return super.textureSource.method6817(arg0).aBoolean236 || super.textureSource.method6817(arg0).aBoolean235;
     }
 
     @OriginalMember(owner = "client!iaa", name = "I", descriptor = "()I")
@@ -2725,7 +2725,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         if (arg3 == 0 || arg4 == 0) {
             return;
         }
-        if (arg6 == 65535 || super.anInterface4_10.method6817(arg6).aBoolean240) {
+        if (arg6 == 65535 || super.textureSource.method6817(arg6).aBoolean240) {
             this.method3790(arg0, arg1, arg2, arg3, arg7, arg9);
             return;
         }
@@ -2758,7 +2758,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "q", descriptor = "(I)Z")
     public boolean method3798(@OriginalArg(0) int arg0) {
-        return this.aBoolean332 || super.anInterface4_10.method6817(arg0).aBoolean233;
+        return this.aBoolean332 || super.textureSource.method6817(arg0).aBoolean233;
     }
 
     @OriginalMember(owner = "client!iaa", name = "w", descriptor = "()Z")

@@ -21,7 +21,7 @@ public final class Static194 {
 
     @OriginalMember(owner = "client!g", name = "a", descriptor = "(BI)V")
     public static void method2907() {
-        @Pc(5) WeightedCache local5 = Static354.A_WEIGHTED_CACHE___120;
+        @Pc(5) ReferenceCache local5 = Static354.A_WEIGHTED_CACHE___120;
         synchronized (Static354.A_WEIGHTED_CACHE___120) {
             Static354.A_WEIGHTED_CACHE___120.method2147(5);
         }

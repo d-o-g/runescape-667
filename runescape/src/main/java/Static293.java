@@ -1340,7 +1340,7 @@ public final class Static293 {
                                                                     local3502 = (local100 & 0x3FFF) - Static116.anInt2270;
                                                                     if (local657 >= 0 && local3502 >= 0 && local657 < Static720.anInt10859 && local3502 < Static501.anInt7568) {
                                                                         if (local2098 == -1) {
-                                                                            @Pc(5270) Node_Sub2_Sub20 local5270 = (Node_Sub2_Sub20) Static346.A_HASH_TABLE___29.get((long) (local657 << 16 | local3502));
+                                                                            @Pc(5270) DoublyLinkedNode_Sub2_Sub20 local5270 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get((long) (local657 << 16 | local3502));
                                                                             if (local5270 != null) {
                                                                                 local5270.aClass8_Sub2_Sub1_Sub5_1.method6600();
                                                                                 local5270.remove();
@@ -1353,7 +1353,7 @@ public final class Static293 {
                                                                                 local667 = local653 + 1;
                                                                             }
                                                                             @Pc(5334) Class8_Sub2_Sub1_Sub5 local5334 = new Class8_Sub2_Sub1_Sub5(local2098, local277, local653, local667, local1021, Static102.method2025(local653, -29754, local1097, local1021) - local1413, local1097, local657, local657, local3502, local3502, local992, local4806);
-                                                                            Static346.A_HASH_TABLE___29.put((long) (local3502 | local657 << 16), new Node_Sub2_Sub20(local5334));
+                                                                            Static346.A_HASH_TABLE___29.put((long) (local3502 | local657 << 16), new DoublyLinkedNode_Sub2_Sub20(local5334));
                                                                         }
                                                                     }
                                                                 }

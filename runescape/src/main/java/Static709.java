@@ -340,7 +340,7 @@ public final class Static709 {
             Static36.method977(local80, (byte) 108);
             Static142.anIntArray225[Static635.anInt9525++ & 0x1F] = local80;
         }
-        for (@Pc(1099) Node_Sub2_Sub2_ local1099 = Static81.method1587(); local1099 != null; local1099 = Static81.method1587()) {
+        for (@Pc(1099) DoublyLinkedNode_Sub2__ local1099 = Static81.method1587(); local1099 != null; local1099 = Static81.method1587()) {
             local541 = local1099.method203();
             local660 = local1099.method204();
             if (local541 == 1) {

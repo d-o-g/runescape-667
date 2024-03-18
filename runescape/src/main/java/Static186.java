@@ -10,7 +10,7 @@ public final class Static186 {
     public static Object anObject7;
 
     @OriginalMember(owner = "client!fo", name = "k", descriptor = "Lclient!dla;")
-    public static final WeightedCache A_WEIGHTED_CACHE___67 = new WeightedCache(4);
+    public static final ReferenceCache A_WEIGHTED_CACHE___67 = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!fo", name = "d", descriptor = "I")
     public static int anInt3059 = 0;
@@ -23,7 +23,7 @@ public final class Static186 {
     }
 
     @OriginalMember(owner = "client!fo", name = "d", descriptor = "(I)Lclient!ip;")
-    public static Node_Sub2_Sub13 method2819() {
+    public static DoublyLinkedNode_Sub2_Sub13 method2819() {
         return Static30.aClass2_Sub2_Sub13_3;
     }
 

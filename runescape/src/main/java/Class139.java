@@ -13,7 +13,7 @@ public final class Class139 {
     public int anInt3264 = 0;
 
     @OriginalMember(owner = "client!gba", name = "e", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_70 = new WeightedCache(64);
+    public final ReferenceCache aReferenceCache_70 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!gba", name = "f", descriptor = "Lclient!raa;")
     public Interface19 anInterface19_1 = null;
@@ -49,8 +49,8 @@ public final class Class139 {
     }
 
     @OriginalMember(owner = "client!gba", name = "a", descriptor = "(IZ)Lclient!ih;")
-    public Node_Sub2_Sub12 method2950(@OriginalArg(0) int arg0) {
-        @Pc(11) Node_Sub2_Sub12 local11 = (Node_Sub2_Sub12) this.aWeightedCache_70.method2156((long) arg0);
+    public DoublyLinkedNode_Sub2_Sub12 method2950(@OriginalArg(0) int arg0) {
+        @Pc(11) DoublyLinkedNode_Sub2_Sub12 local11 = (DoublyLinkedNode_Sub2_Sub12) this.aReferenceCache_70.get((long) arg0);
         if (local11 != null) {
             return local11;
         }
@@ -60,7 +60,7 @@ public final class Class139 {
         } else {
             local28 = this.aClass330_40.method7595(arg0, 1);
         }
-        local11 = new Node_Sub2_Sub12();
+        local11 = new DoublyLinkedNode_Sub2_Sub12();
         local11.aClass139_1 = this;
         if (local28 != null) {
             local11.method3899(new Packet(local28));
@@ -68,7 +68,7 @@ public final class Class139 {
         if (arg0 >= 32768) {
             local11.method3902();
         }
-        this.aWeightedCache_70.put(local11, (long) arg0);
+        this.aReferenceCache_70.put(local11, (long) arg0);
         return local11;
     }
 }

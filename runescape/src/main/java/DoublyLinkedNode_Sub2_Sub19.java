@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ut")
-public final class Node_Sub2_Sub19 extends Node_Sub2 implements Interface3 {
+public final class DoublyLinkedNode_Sub2_Sub19 extends DoublyLinkedNode implements Interface3 {
 
     @OriginalMember(owner = "client!ut", name = "A", descriptor = "[I")
     public static final int[] anIntArray768 = new int[4096];
@@ -41,7 +41,7 @@ public final class Node_Sub2_Sub19 extends Node_Sub2 implements Interface3 {
     }
 
     @OriginalMember(owner = "client!ut", name = "<init>", descriptor = "(Lclient!qha;III)V")
-    public Node_Sub2_Sub19(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public DoublyLinkedNode_Sub2_Sub19(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         this.anInt9826 = arg1;
         this.aClass19_Sub3_38 = arg0;
         this.anInt9818 = arg2;
@@ -54,7 +54,7 @@ public final class Node_Sub2_Sub19 extends Node_Sub2 implements Interface3 {
     }
 
     @OriginalMember(owner = "client!ut", name = "<init>", descriptor = "(Lclient!qha;IIII)V")
-    public Node_Sub2_Sub19(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public DoublyLinkedNode_Sub2_Sub19(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         this.aClass19_Sub3_38 = arg0;
         this.anInt9826 = arg1;
         this.anInt9818 = arg2;

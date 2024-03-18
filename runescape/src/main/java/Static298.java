@@ -53,7 +53,7 @@ public final class Static298 {
     @OriginalMember(owner = "client!ji", name = "a", descriptor = "(II)V")
     public static void setFeatureMask(@OriginalArg(1) int arg0) {
         Static722.anInt10905 = arg0;
-        @Pc(14) WeightedCache local14 = Static354.A_WEIGHTED_CACHE___120;
+        @Pc(14) ReferenceCache local14 = Static354.A_WEIGHTED_CACHE___120;
         synchronized (Static354.A_WEIGHTED_CACHE___120) {
             Static354.A_WEIGHTED_CACHE___120.reset();
         }

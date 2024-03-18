@@ -7,10 +7,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class363 {
 
     @OriginalMember(owner = "client!u", name = "d", descriptor = "Lclient!dla;")
-    public WeightedCache aWeightedCache_201 = new WeightedCache(64);
+    public ReferenceCache aReferenceCache_201 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!u", name = "n", descriptor = "Lclient!dla;")
-    public WeightedCache aWeightedCache_202 = new WeightedCache(64);
+    public ReferenceCache aReferenceCache_202 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!u", name = "q", descriptor = "Lclient!sb;")
     public final Class330 aClass330_116;
@@ -27,34 +27,34 @@ public final class Class363 {
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(B)V")
     public void method8360() {
-        @Pc(2) WeightedCache local2 = this.aWeightedCache_201;
-        synchronized (this.aWeightedCache_201) {
-            this.aWeightedCache_201.method2151();
+        @Pc(2) ReferenceCache local2 = this.aReferenceCache_201;
+        synchronized (this.aReferenceCache_201) {
+            this.aReferenceCache_201.method2151();
         }
-        local2 = this.aWeightedCache_202;
-        synchronized (this.aWeightedCache_202) {
-            this.aWeightedCache_202.method2151();
+        local2 = this.aReferenceCache_202;
+        synchronized (this.aReferenceCache_202) {
+            this.aReferenceCache_202.method2151();
         }
     }
 
     @OriginalMember(owner = "client!u", name = "b", descriptor = "(I)V")
     public void method8361() {
-        @Pc(10) WeightedCache local10 = this.aWeightedCache_201;
-        synchronized (this.aWeightedCache_201) {
-            this.aWeightedCache_201.reset();
+        @Pc(10) ReferenceCache local10 = this.aReferenceCache_201;
+        synchronized (this.aReferenceCache_201) {
+            this.aReferenceCache_201.reset();
         }
-        local10 = this.aWeightedCache_202;
-        synchronized (this.aWeightedCache_202) {
-            this.aWeightedCache_202.reset();
+        local10 = this.aReferenceCache_202;
+        synchronized (this.aReferenceCache_202) {
+            this.aReferenceCache_202.reset();
         }
     }
 
     @OriginalMember(owner = "client!u", name = "b", descriptor = "(II)Lclient!ia;")
     public Class173 method8362(@OriginalArg(0) int arg0) {
-        @Pc(6) WeightedCache local6 = this.aWeightedCache_201;
+        @Pc(6) ReferenceCache local6 = this.aReferenceCache_201;
         @Pc(16) Class173 local16;
-        synchronized (this.aWeightedCache_201) {
-            local16 = (Class173) this.aWeightedCache_201.method2156((long) arg0);
+        synchronized (this.aReferenceCache_201) {
+            local16 = (Class173) this.aReferenceCache_201.get((long) arg0);
         }
         if (local16 != null) {
             return local16;
@@ -69,28 +69,28 @@ public final class Class363 {
         if (local39 != null) {
             local16.method3694(new Packet(local39));
         }
-        @Pc(68) WeightedCache local68 = this.aWeightedCache_201;
-        synchronized (this.aWeightedCache_201) {
-            this.aWeightedCache_201.put(local16, (long) arg0);
+        @Pc(68) ReferenceCache local68 = this.aReferenceCache_201;
+        synchronized (this.aReferenceCache_201) {
+            this.aReferenceCache_201.put(local16, (long) arg0);
             return local16;
         }
     }
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(III)V")
     public void method8365(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        this.aWeightedCache_201 = new WeightedCache(arg1);
-        this.aWeightedCache_202 = new WeightedCache(arg0);
+        this.aReferenceCache_201 = new ReferenceCache(arg1);
+        this.aReferenceCache_202 = new ReferenceCache(arg0);
     }
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(II)V")
     public void method8367() {
-        @Pc(6) WeightedCache local6 = this.aWeightedCache_201;
-        synchronized (this.aWeightedCache_201) {
-            this.aWeightedCache_201.method2147(5);
+        @Pc(6) ReferenceCache local6 = this.aReferenceCache_201;
+        synchronized (this.aReferenceCache_201) {
+            this.aReferenceCache_201.method2147(5);
         }
-        local6 = this.aWeightedCache_202;
-        synchronized (this.aWeightedCache_202) {
-            this.aWeightedCache_202.method2147(5);
+        local6 = this.aReferenceCache_202;
+        synchronized (this.aReferenceCache_202) {
+            this.aReferenceCache_202.method2147(5);
         }
     }
 }

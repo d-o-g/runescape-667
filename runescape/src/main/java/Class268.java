@@ -508,10 +508,10 @@ public final class Class268 {
             if (arg1 != null) {
                 local71 |= arg1.aLong312 << 24;
             }
-            @Pc(84) WeightedCache local84 = this.aNPCTypeList_1.aWeightedCache_171;
+            @Pc(84) ReferenceCache local84 = this.aNPCTypeList_1.aReferenceCache_171;
             @Pc(94) Model local94;
-            synchronized (this.aNPCTypeList_1.aWeightedCache_171) {
-                local94 = (Model) this.aNPCTypeList_1.aWeightedCache_171.method2156(local71);
+            synchronized (this.aNPCTypeList_1.aReferenceCache_171) {
+                local94 = (Model) this.aNPCTypeList_1.aReferenceCache_171.get(local71);
             }
             if (local94 == null || (local94.ua() & local54) != local54) {
                 if (local94 != null) {
@@ -594,9 +594,9 @@ public final class Class268 {
                     local94.adjustColours(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
                 }
                 local94.s(local54);
-                @Pc(469) WeightedCache local469 = this.aNPCTypeList_1.aWeightedCache_171;
-                synchronized (this.aNPCTypeList_1.aWeightedCache_171) {
-                    this.aNPCTypeList_1.aWeightedCache_171.put(local94, local71);
+                @Pc(469) ReferenceCache local469 = this.aNPCTypeList_1.aReferenceCache_171;
+                synchronized (this.aNPCTypeList_1.aReferenceCache_171) {
+                    this.aNPCTypeList_1.aReferenceCache_171.put(local94, local71);
                 }
             }
             if (arg0 != null) {
@@ -641,10 +641,10 @@ public final class Class268 {
         if (arg6 != null) {
             local116 |= arg6.aLong312 << 24;
         }
-        @Pc(129) WeightedCache local129 = this.aNPCTypeList_1.aWeightedCache_170;
+        @Pc(129) ReferenceCache local129 = this.aNPCTypeList_1.aReferenceCache_170;
         @Pc(139) Model local139;
-        synchronized (this.aNPCTypeList_1.aWeightedCache_170) {
-            local139 = (Model) this.aNPCTypeList_1.aWeightedCache_170.method2156(local116);
+        synchronized (this.aNPCTypeList_1.aReferenceCache_170) {
+            local139 = (Model) this.aNPCTypeList_1.aReferenceCache_170.get(local116);
         }
         @Pc(147) BASType local147 = null;
         if (this.anInt6726 != -1) {
@@ -759,9 +759,9 @@ public final class Class268 {
                 local139.adjustColours(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
             }
             local139.s(local32);
-            @Pc(685) WeightedCache local685 = this.aNPCTypeList_1.aWeightedCache_170;
-            synchronized (this.aNPCTypeList_1.aWeightedCache_170) {
-                this.aNPCTypeList_1.aWeightedCache_170.put(local139, local116);
+            @Pc(685) ReferenceCache local685 = this.aNPCTypeList_1.aReferenceCache_170;
+            synchronized (this.aNPCTypeList_1.aReferenceCache_170) {
+                this.aNPCTypeList_1.aReferenceCache_170.put(local139, local116);
             }
         }
         @Pc(706) Model local706 = local139.copy((byte) 4, local32, true);

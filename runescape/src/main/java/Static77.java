@@ -39,7 +39,7 @@ public final class Static77 {
 
     @OriginalMember(owner = "client!ci", name = "b", descriptor = "(IZ)V")
     public static void method1558(@OriginalArg(0) int arg0) {
-        @Pc(9) Node_Sub2_Sub2_ local9 = Static440.method5963(8, (long) arg0);
+        @Pc(9) DoublyLinkedNode_Sub2__ local9 = Static440.method5963(8, (long) arg0);
         local9.method205();
     }
 

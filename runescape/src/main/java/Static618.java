@@ -91,10 +91,10 @@ public final class Static618 {
             local12 &= 0xFFFFFDFF;
         }
         @Pc(58) long local58 = ((long) arg3 << 48) + ((long) arg11 << 32) + (long) (arg5 + (arg7 << 16) + (arg0 << 24));
-        @Pc(60) WeightedCache local60 = Static354.A_WEIGHTED_CACHE___120;
+        @Pc(60) ReferenceCache local60 = Static354.A_WEIGHTED_CACHE___120;
         @Pc(68) Model local68;
         synchronized (Static354.A_WEIGHTED_CACHE___120) {
-            local68 = (Model) Static354.A_WEIGHTED_CACHE___120.method2156(local58);
+            local68 = (Model) Static354.A_WEIGHTED_CACHE___120.get(local58);
         }
         if (local68 == null || arg6.compareFunctionMasks(local68.ua(), local12) != 0) {
             if (local68 != null) {
@@ -145,7 +145,7 @@ public final class Static618 {
                 }
             }
             local68 = arg6.createModel(local162, local12, Static722.anInt10905, 64, 768);
-            @Pc(440) WeightedCache local440 = Static354.A_WEIGHTED_CACHE___120;
+            @Pc(440) ReferenceCache local440 = Static354.A_WEIGHTED_CACHE___120;
             synchronized (Static354.A_WEIGHTED_CACHE___120) {
                 Static354.A_WEIGHTED_CACHE___120.put(local68, local58);
             }

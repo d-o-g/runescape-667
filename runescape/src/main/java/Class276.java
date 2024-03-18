@@ -14,10 +14,10 @@ public final class Class276 {
     public Class93_Sub2 aClass93_Sub2_4;
 
     @OriginalMember(owner = "client!oia", name = "i", descriptor = "Lclient!ut;")
-    public Node_Sub2_Sub19 aClass2_Sub2_Sub19_1;
+    public DoublyLinkedNode_Sub2_Sub19 aClass2_Sub2_Sub19_1;
 
     @OriginalMember(owner = "client!oia", name = "F", descriptor = "Lclient!ut;")
-    public Node_Sub2_Sub19 aClass2_Sub2_Sub19_2;
+    public DoublyLinkedNode_Sub2_Sub19 aClass2_Sub2_Sub19_2;
 
     @OriginalMember(owner = "client!oia", name = "C", descriptor = "I")
     public int anInt6944 = 1;
@@ -94,12 +94,12 @@ public final class Class276 {
                 this.aClass93_Sub2_4 = null;
             }
             if (this.aClass406_3 != null) {
-                this.aClass2_Sub2_Sub19_1 = new Node_Sub2_Sub19(this.aClass19_Sub3_32, 6402, this.anInt6944, this.anInt6943, this.aClass19_Sub3_32.anInt7986);
+                this.aClass2_Sub2_Sub19_1 = new DoublyLinkedNode_Sub2_Sub19(this.aClass19_Sub3_32, 6402, this.anInt6944, this.anInt6943, this.aClass19_Sub3_32.anInt7986);
             }
             if (this.aBoolean528) {
                 this.aClass93_Sub2_4 = new Class93_Sub2(this.aClass19_Sub3_32, 34037, 6402, this.anInt6944, this.anInt6943);
             } else if (this.aClass2_Sub2_Sub19_1 == null) {
-                this.aClass2_Sub2_Sub19_1 = new Node_Sub2_Sub19(this.aClass19_Sub3_32, 6402, this.anInt6944, this.anInt6943);
+                this.aClass2_Sub2_Sub19_1 = new DoublyLinkedNode_Sub2_Sub19(this.aClass19_Sub3_32, 6402, this.anInt6944, this.anInt6943);
             }
             this.aBoolean525 = true;
             this.aBoolean524 = true;
@@ -119,7 +119,7 @@ public final class Class276 {
                 this.aClass93_Sub2Array2[1] = null;
             }
             if (this.aClass406_3 != null) {
-                this.aClass2_Sub2_Sub19_2 = new Node_Sub2_Sub19(this.aClass19_Sub3_32, this.anInt6955, this.anInt6944, this.anInt6943, this.aClass19_Sub3_32.anInt7986);
+                this.aClass2_Sub2_Sub19_2 = new DoublyLinkedNode_Sub2_Sub19(this.aClass19_Sub3_32, this.anInt6955, this.anInt6944, this.anInt6943, this.aClass19_Sub3_32.anInt7986);
             }
             this.aClass93_Sub2Array2[0] = new Class93_Sub2(this.aClass19_Sub3_32, 34037, this.anInt6955, this.anInt6944, this.anInt6943);
             this.aClass93_Sub2Array2[1] = this.anInt6954 <= 1 ? null : new Class93_Sub2(this.aClass19_Sub3_32, 34037, this.anInt6955, this.anInt6944, this.anInt6943);

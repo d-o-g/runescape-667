@@ -58,8 +58,8 @@ public final class Static488 {
     }
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(II)Lclient!fj;")
-    public static Node_Sub2_Sub10 method6525(@OriginalArg(0) int arg0) {
-        @Pc(10) Node_Sub2_Sub10 local10 = (Node_Sub2_Sub10) Static480.aClass361_2.method8342((long) arg0);
+    public static DoublyLinkedNode_Sub2_Sub10 method6525(@OriginalArg(0) int arg0) {
+        @Pc(10) DoublyLinkedNode_Sub2_Sub10 local10 = (DoublyLinkedNode_Sub2_Sub10) Static480.aClass361_2.method8342((long) arg0);
         if (local10 != null) {
             return local10;
         }

@@ -8,7 +8,7 @@ public final class Static312 {
     public static int anInt5001;
 
     @OriginalMember(owner = "client!jt", name = "a", descriptor = "Lclient!dla;")
-    public static final WeightedCache A_WEIGHTED_CACHE___106 = new WeightedCache(50);
+    public static final ReferenceCache A_WEIGHTED_CACHE___106 = new ReferenceCache(50);
 
     @OriginalMember(owner = "client!jt", name = "h", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_131 = new Class225(112, 6);

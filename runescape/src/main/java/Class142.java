@@ -13,16 +13,16 @@ public final class Class142 {
     public boolean aBoolean266 = false;
 
     @OriginalMember(owner = "client!gea", name = "l", descriptor = "Lclient!dla;")
-    public WeightedCache aWeightedCache_73 = new WeightedCache(64);
+    public ReferenceCache aReferenceCache_73 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!gea", name = "f", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_74 = new WeightedCache(500);
+    public final ReferenceCache aReferenceCache_74 = new ReferenceCache(500);
 
     @OriginalMember(owner = "client!gea", name = "k", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_75 = new WeightedCache(30);
+    public final ReferenceCache aReferenceCache_75 = new ReferenceCache(30);
 
     @OriginalMember(owner = "client!gea", name = "q", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_76 = new WeightedCache(50);
+    public final ReferenceCache aReferenceCache_76 = new ReferenceCache(50);
 
     @OriginalMember(owner = "client!gea", name = "b", descriptor = "Lclient!sb;")
     public final Class330 aClass330_44;
@@ -62,21 +62,21 @@ public final class Class142 {
 
     @OriginalMember(owner = "client!gea", name = "a", descriptor = "(I)V")
     public void method3058() {
-        @Pc(2) WeightedCache local2 = this.aWeightedCache_73;
-        synchronized (this.aWeightedCache_73) {
-            this.aWeightedCache_73.method2151();
+        @Pc(2) ReferenceCache local2 = this.aReferenceCache_73;
+        synchronized (this.aReferenceCache_73) {
+            this.aReferenceCache_73.method2151();
         }
-        local2 = this.aWeightedCache_74;
-        synchronized (this.aWeightedCache_74) {
-            this.aWeightedCache_74.method2151();
+        local2 = this.aReferenceCache_74;
+        synchronized (this.aReferenceCache_74) {
+            this.aReferenceCache_74.method2151();
         }
-        local2 = this.aWeightedCache_75;
-        synchronized (this.aWeightedCache_75) {
-            this.aWeightedCache_75.method2151();
+        local2 = this.aReferenceCache_75;
+        synchronized (this.aReferenceCache_75) {
+            this.aReferenceCache_75.method2151();
         }
-        local2 = this.aWeightedCache_76;
-        synchronized (this.aWeightedCache_76) {
-            this.aWeightedCache_76.method2151();
+        local2 = this.aReferenceCache_76;
+        synchronized (this.aReferenceCache_76) {
+            this.aReferenceCache_76.method2151();
         }
     }
 
@@ -90,21 +90,21 @@ public final class Class142 {
 
     @OriginalMember(owner = "client!gea", name = "b", descriptor = "(I)V")
     public void method3060() {
-        @Pc(14) WeightedCache local14 = this.aWeightedCache_73;
-        synchronized (this.aWeightedCache_73) {
-            this.aWeightedCache_73.reset();
+        @Pc(14) ReferenceCache local14 = this.aReferenceCache_73;
+        synchronized (this.aReferenceCache_73) {
+            this.aReferenceCache_73.reset();
         }
-        local14 = this.aWeightedCache_74;
-        synchronized (this.aWeightedCache_74) {
-            this.aWeightedCache_74.reset();
+        local14 = this.aReferenceCache_74;
+        synchronized (this.aReferenceCache_74) {
+            this.aReferenceCache_74.reset();
         }
-        local14 = this.aWeightedCache_75;
-        synchronized (this.aWeightedCache_75) {
-            this.aWeightedCache_75.reset();
+        local14 = this.aReferenceCache_75;
+        synchronized (this.aReferenceCache_75) {
+            this.aReferenceCache_75.reset();
         }
-        local14 = this.aWeightedCache_76;
-        synchronized (this.aWeightedCache_76) {
-            this.aWeightedCache_76.reset();
+        local14 = this.aReferenceCache_76;
+        synchronized (this.aReferenceCache_76) {
+            this.aReferenceCache_76.reset();
         }
     }
 
@@ -118,7 +118,7 @@ public final class Class142 {
 
     @OriginalMember(owner = "client!gea", name = "a", descriptor = "(II)V")
     public void method3062(@OriginalArg(1) int arg0) {
-        this.aWeightedCache_73 = new WeightedCache(arg0);
+        this.aReferenceCache_73 = new ReferenceCache(arg0);
     }
 
     @OriginalMember(owner = "client!gea", name = "d", descriptor = "(II)Lclient!c;")
@@ -126,10 +126,10 @@ public final class Class142 {
         if (arg1 <= 29) {
             return null;
         }
-        @Pc(12) WeightedCache local12 = this.aWeightedCache_73;
+        @Pc(12) ReferenceCache local12 = this.aReferenceCache_73;
         @Pc(22) Class54 local22;
-        synchronized (this.aWeightedCache_73) {
-            local22 = (Class54) this.aWeightedCache_73.method2156((long) arg0);
+        synchronized (this.aReferenceCache_73) {
+            local22 = (Class54) this.aReferenceCache_73.get((long) arg0);
         }
         if (local22 != null) {
             return local22;
@@ -155,47 +155,47 @@ public final class Class142 {
             local22.aStringArray6 = null;
             local22.anIntArray112 = null;
         }
-        @Pc(115) WeightedCache local115 = this.aWeightedCache_73;
-        synchronized (this.aWeightedCache_73) {
-            this.aWeightedCache_73.put(local22, (long) arg0);
+        @Pc(115) ReferenceCache local115 = this.aReferenceCache_73;
+        synchronized (this.aReferenceCache_73) {
+            this.aReferenceCache_73.put(local22, (long) arg0);
             return local22;
         }
     }
 
     @OriginalMember(owner = "client!gea", name = "c", descriptor = "(II)V")
     public void method3064() {
-        @Pc(11) WeightedCache local11 = this.aWeightedCache_73;
-        synchronized (this.aWeightedCache_73) {
-            this.aWeightedCache_73.method2147(5);
+        @Pc(11) ReferenceCache local11 = this.aReferenceCache_73;
+        synchronized (this.aReferenceCache_73) {
+            this.aReferenceCache_73.method2147(5);
         }
-        local11 = this.aWeightedCache_74;
-        synchronized (this.aWeightedCache_74) {
-            this.aWeightedCache_74.method2147(5);
+        local11 = this.aReferenceCache_74;
+        synchronized (this.aReferenceCache_74) {
+            this.aReferenceCache_74.method2147(5);
         }
-        local11 = this.aWeightedCache_75;
-        synchronized (this.aWeightedCache_75) {
-            this.aWeightedCache_75.method2147(5);
+        local11 = this.aReferenceCache_75;
+        synchronized (this.aReferenceCache_75) {
+            this.aReferenceCache_75.method2147(5);
         }
-        local11 = this.aWeightedCache_76;
-        synchronized (this.aWeightedCache_76) {
-            this.aWeightedCache_76.method2147(5);
+        local11 = this.aReferenceCache_76;
+        synchronized (this.aReferenceCache_76) {
+            this.aReferenceCache_76.method2147(5);
         }
     }
 
     @OriginalMember(owner = "client!gea", name = "b", descriptor = "(II)V")
     public void setFeatureMask(@OriginalArg(0) int arg0) {
         this.anInt3390 = arg0;
-        @Pc(9) WeightedCache local9 = this.aWeightedCache_74;
-        synchronized (this.aWeightedCache_74) {
-            this.aWeightedCache_74.reset();
+        @Pc(9) ReferenceCache local9 = this.aReferenceCache_74;
+        synchronized (this.aReferenceCache_74) {
+            this.aReferenceCache_74.reset();
         }
-        local9 = this.aWeightedCache_75;
-        synchronized (this.aWeightedCache_75) {
-            this.aWeightedCache_75.reset();
+        local9 = this.aReferenceCache_75;
+        synchronized (this.aReferenceCache_75) {
+            this.aReferenceCache_75.reset();
         }
-        local9 = this.aWeightedCache_76;
-        synchronized (this.aWeightedCache_76) {
-            this.aWeightedCache_76.reset();
+        local9 = this.aReferenceCache_76;
+        synchronized (this.aReferenceCache_76) {
+            this.aReferenceCache_76.reset();
         }
     }
 }

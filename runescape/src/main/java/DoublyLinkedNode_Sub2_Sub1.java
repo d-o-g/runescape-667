@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ab")
-public final class Node_Sub2_Sub1 extends Node_Sub2 {
+public final class DoublyLinkedNode_Sub2_Sub1 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!ab", name = "A", descriptor = "Lclient!av;")
     public HashTable aHashTable_1;

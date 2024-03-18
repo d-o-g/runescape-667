@@ -10,7 +10,7 @@ public final class Class174 implements Runnable {
     public static final int[] anIntArray325 = new int[32];
 
     @OriginalMember(owner = "client!iba", name = "d", descriptor = "Lclient!jga;")
-    public final Class192 aClass192_7 = new Class192();
+    public final Queue aQueue_7 = new Queue();
 
     @OriginalMember(owner = "client!iba", name = "n", descriptor = "I")
     public int anInt4243 = 0;
@@ -42,22 +42,22 @@ public final class Class174 implements Runnable {
     }
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(Lclient!af;IZ)Lclient!vp;")
-    public Node_Sub2_Sub17_Sub2 method3825(@OriginalArg(0) Class9 arg0, @OriginalArg(1) int arg1) {
-        @Pc(7) Node_Sub2_Sub17_Sub2 local7 = new Node_Sub2_Sub17_Sub2();
+    public DoublyLinkedNode_Sub2_Sub17_ method3825(@OriginalArg(0) Class9 arg0, @OriginalArg(1) int arg1) {
+        @Pc(7) DoublyLinkedNode_Sub2_Sub17_ local7 = new DoublyLinkedNode_Sub2_Sub17_();
         local7.anInt10352 = 1;
-        @Pc(13) Class192 local13 = this.aClass192_7;
-        synchronized (this.aClass192_7) {
-            @Pc(21) Node_Sub2_Sub17_Sub2 local21 = (Node_Sub2_Sub17_Sub2) this.aClass192_7.method4352();
+        @Pc(13) Queue local13 = this.aQueue_7;
+        synchronized (this.aQueue_7) {
+            @Pc(21) DoublyLinkedNode_Sub2_Sub17_ local21 = (DoublyLinkedNode_Sub2_Sub17_) this.aQueue_7.first();
             while (true) {
                 if (local21 == null) {
                     break;
                 }
-                if (local21.aLong325 == (long) arg1 && local21.aClass9_4 == arg0 && local21.anInt10352 == 2) {
+                if (local21.key2 == (long) arg1 && local21.aClass9_4 == arg0 && local21.anInt10352 == 2) {
                     local7.aBoolean778 = false;
                     local7.aByteArray109 = local21.aByteArray109;
                     return local7;
                 }
-                local21 = (Node_Sub2_Sub17_Sub2) this.aClass192_7.method4350();
+                local21 = (DoublyLinkedNode_Sub2_Sub17_) this.aQueue_7.next();
             }
         }
         local7.aByteArray109 = arg0.method126(arg1);
@@ -69,9 +69,9 @@ public final class Class174 implements Runnable {
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(I)V")
     public void method3826() {
         this.aBoolean333 = true;
-        @Pc(9) Class192 local9 = this.aClass192_7;
-        synchronized (this.aClass192_7) {
-            this.aClass192_7.notifyAll();
+        @Pc(9) Queue local9 = this.aQueue_7;
+        synchronized (this.aQueue_7) {
+            this.aQueue_7.notifyAll();
         }
         try {
             this.aThread2.join();
@@ -81,12 +81,12 @@ public final class Class174 implements Runnable {
     }
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(ILclient!vp;)V")
-    public void method3827(@OriginalArg(1) Node_Sub2_Sub17_Sub2 arg0) {
-        @Pc(6) Class192 local6 = this.aClass192_7;
-        synchronized (this.aClass192_7) {
-            this.aClass192_7.method4348(arg0);
+    public void method3827(@OriginalArg(1) DoublyLinkedNode_Sub2_Sub17_ arg0) {
+        @Pc(6) Queue local6 = this.aQueue_7;
+        synchronized (this.aQueue_7) {
+            this.aQueue_7.add(arg0);
             this.anInt4243++;
-            this.aClass192_7.notifyAll();
+            this.aQueue_7.notifyAll();
         }
     }
 
@@ -94,13 +94,13 @@ public final class Class174 implements Runnable {
     @Override
     public void run() {
         while (!this.aBoolean333) {
-            @Pc(10) Class192 local10 = this.aClass192_7;
-            @Pc(18) Node_Sub2_Sub17_Sub2 local18;
-            synchronized (this.aClass192_7) {
-                local18 = (Node_Sub2_Sub17_Sub2) this.aClass192_7.method4346();
+            @Pc(10) Queue local10 = this.aQueue_7;
+            @Pc(18) DoublyLinkedNode_Sub2_Sub17_ local18;
+            synchronized (this.aQueue_7) {
+                local18 = (DoublyLinkedNode_Sub2_Sub17_) this.aQueue_7.removeFirst();
                 if (local18 == null) {
                     try {
-                        this.aClass192_7.wait();
+                        this.aQueue_7.wait();
                     } catch (@Pc(26) InterruptedException local26) {
                     }
                     continue;
@@ -109,9 +109,9 @@ public final class Class174 implements Runnable {
             }
             try {
                 if (local18.anInt10352 == 2) {
-                    local18.aClass9_4.method125(local18.aByteArray109.length, local18.aByteArray109, (int) local18.aLong325);
+                    local18.aClass9_4.method125(local18.aByteArray109.length, local18.aByteArray109, (int) local18.key2);
                 } else if (local18.anInt10352 == 3) {
-                    local18.aByteArray109 = local18.aClass9_4.method126((int) local18.aLong325);
+                    local18.aByteArray109 = local18.aClass9_4.method126((int) local18.key2);
                 }
             } catch (@Pc(83) Exception local83) {
                 Static240.method3496(local83, (String) null);
@@ -121,9 +121,9 @@ public final class Class174 implements Runnable {
     }
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(B[BILclient!af;)Lclient!vp;")
-    public Node_Sub2_Sub17_Sub2 method3829(@OriginalArg(1) byte[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class9 arg2) {
-        @Pc(7) Node_Sub2_Sub17_Sub2 local7 = new Node_Sub2_Sub17_Sub2();
-        local7.aLong325 = (long) arg1;
+    public DoublyLinkedNode_Sub2_Sub17_ method3829(@OriginalArg(1) byte[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class9 arg2) {
+        @Pc(7) DoublyLinkedNode_Sub2_Sub17_ local7 = new DoublyLinkedNode_Sub2_Sub17_();
+        local7.key2 = (long) arg1;
         local7.anInt10352 = 2;
         local7.aByteArray109 = arg0;
         local7.aClass9_4 = arg2;
@@ -133,12 +133,12 @@ public final class Class174 implements Runnable {
     }
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(Lclient!af;II)Lclient!vp;")
-    public Node_Sub2_Sub17_Sub2 method3830(@OriginalArg(0) Class9 arg0, @OriginalArg(2) int arg1) {
-        @Pc(7) Node_Sub2_Sub17_Sub2 local7 = new Node_Sub2_Sub17_Sub2();
+    public DoublyLinkedNode_Sub2_Sub17_ method3830(@OriginalArg(0) Class9 arg0, @OriginalArg(2) int arg1) {
+        @Pc(7) DoublyLinkedNode_Sub2_Sub17_ local7 = new DoublyLinkedNode_Sub2_Sub17_();
         local7.aClass9_4 = arg0;
         local7.aBoolean777 = false;
         local7.anInt10352 = 3;
-        local7.aLong325 = (long) arg1;
+        local7.key2 = (long) arg1;
         this.method3827(local7);
         return local7;
     }

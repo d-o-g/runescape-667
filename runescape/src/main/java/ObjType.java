@@ -876,10 +876,10 @@ public final class ObjType {
         if (animator != null) {
             i = initialFunctionMask | animator.functionMask();
         }
-        @Pc(87) WeightedCache local87 = this.myList.aWeightedCache_58;
+        @Pc(87) ReferenceCache local87 = this.myList.aReferenceCache_58;
         @Pc(104) Model local104;
-        synchronized (this.myList.aWeightedCache_58) {
-            local104 = (Model) this.myList.aWeightedCache_58.method2156((long) (this.anInt10134 | toolkit.index << 29));
+        synchronized (this.myList.aReferenceCache_58) {
+            local104 = (Model) this.myList.aReferenceCache_58.get((long) (this.anInt10134 | toolkit.index << 29));
         }
         if (local104 == null || toolkit.compareFunctionMasks(local104.ua(), i) != 0) {
             if (local104 != null) {
@@ -937,9 +937,9 @@ public final class ObjType {
                 }
             }
             local104.s(i);
-            @Pc(426) WeightedCache local426 = this.myList.aWeightedCache_58;
-            synchronized (this.myList.aWeightedCache_58) {
-                this.myList.aWeightedCache_58.put(local104, (long) (this.anInt10134 | toolkit.index << 29));
+            @Pc(426) ReferenceCache local426 = this.myList.aReferenceCache_58;
+            synchronized (this.myList.aReferenceCache_58) {
+                this.myList.aReferenceCache_58.put(local104, (long) (this.anInt10134 | toolkit.index << 29));
             }
         }
         if (animator != null) {

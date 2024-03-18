@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class210 {
 
     @OriginalMember(owner = "client!kka", name = "b", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_112 = new WeightedCache(64);
+    public final ReferenceCache aReferenceCache_112 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!kka", name = "a", descriptor = "Lclient!sb;")
     public final Class330 aClass330_67;
@@ -23,10 +23,10 @@ public final class Class210 {
 
     @OriginalMember(owner = "client!kka", name = "a", descriptor = "(II)Lclient!paa;")
     public Class284 method4947(@OriginalArg(0) int arg0) {
-        @Pc(12) WeightedCache local12 = this.aWeightedCache_112;
+        @Pc(12) ReferenceCache local12 = this.aReferenceCache_112;
         @Pc(22) Class284 local22;
-        synchronized (this.aWeightedCache_112) {
-            local22 = (Class284) this.aWeightedCache_112.method2156((long) arg0);
+        synchronized (this.aReferenceCache_112) {
+            local22 = (Class284) this.aReferenceCache_112.get((long) arg0);
         }
         if (local22 != null) {
             return local22;
@@ -40,9 +40,9 @@ public final class Class210 {
         if (local45 != null) {
             local22.method6449(new Packet(local45));
         }
-        @Pc(69) WeightedCache local69 = this.aWeightedCache_112;
-        synchronized (this.aWeightedCache_112) {
-            this.aWeightedCache_112.put(local22, (long) arg0);
+        @Pc(69) ReferenceCache local69 = this.aReferenceCache_112;
+        synchronized (this.aReferenceCache_112) {
+            this.aReferenceCache_112.put(local22, (long) arg0);
             return local22;
         }
     }

@@ -17,7 +17,7 @@ public final class Static354 {
     public static int anInt5763;
 
     @OriginalMember(owner = "client!ld", name = "p", descriptor = "Lclient!dla;")
-    public static final WeightedCache A_WEIGHTED_CACHE___120 = new WeightedCache(32);
+    public static final ReferenceCache A_WEIGHTED_CACHE___120 = new ReferenceCache(32);
 
     @OriginalMember(owner = "client!ld", name = "k", descriptor = "Z")
     public static boolean aBoolean439 = false;

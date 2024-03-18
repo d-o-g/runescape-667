@@ -11,7 +11,7 @@ public final class Static449 {
     public static int[] anIntArray546;
 
     @OriginalMember(owner = "client!od", name = "l", descriptor = "Lclient!dla;")
-    public static final WeightedCache A_WEIGHTED_CACHE___146 = new WeightedCache(8);
+    public static final ReferenceCache A_WEIGHTED_CACHE___146 = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!od", name = "e", descriptor = "Z")
     public static boolean aBoolean511 = false;

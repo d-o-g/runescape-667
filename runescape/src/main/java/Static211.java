@@ -15,7 +15,7 @@ public final class Static211 {
 
     @OriginalMember(owner = "client!gj", name = "a", descriptor = "(IILjava/lang/String;)V")
     public static void method4998(@OriginalArg(0) int arg0, @OriginalArg(2) String arg1) {
-        @Pc(16) Node_Sub2_Sub2_ local16 = Static440.method5963(3, (long) arg0);
+        @Pc(16) DoublyLinkedNode_Sub2__ local16 = Static440.method5963(3, (long) arg0);
         local16.method202();
         local16.aString1 = arg1;
     }

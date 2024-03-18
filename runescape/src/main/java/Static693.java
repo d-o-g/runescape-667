@@ -103,7 +103,7 @@ public final class Static693 {
 
     @OriginalMember(owner = "client!vu", name = "a", descriptor = "(III)V")
     public static void method9013(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(21) Node_Sub2_Sub2_ local21 = Static440.method5963(19, (long) arg0 | (long) arg1 << 32);
+        @Pc(21) DoublyLinkedNode_Sub2__ local21 = Static440.method5963(19, (long) arg0 | (long) arg1 << 32);
         local21.method205();
     }
 }

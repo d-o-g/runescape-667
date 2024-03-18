@@ -45,7 +45,7 @@ public final class Static556 {
         } else if (Static209.aBoolean269 && Static334.aClass319_1.method8479(81) && Static594.anInt8777 > 2) {
             local63 = Static518.method9293(Static470.aClass2_Sub2_Sub16_10);
         } else {
-            @Pc(55) Node_Sub2_Sub16 local55 = Static470.aClass2_Sub2_Sub16_10;
+            @Pc(55) DoublyLinkedNode_Sub2_Sub16 local55 = Static470.aClass2_Sub2_Sub16_10;
             if (local55 == null) {
                 return;
             }

@@ -20,14 +20,14 @@ public final class Static409 {
     public static int anInt6318 = -1;
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(ILclient!cm;Lclient!cm;)V")
-    public static void method5654(@OriginalArg(1) Node_Sub2 arg0, @OriginalArg(2) Node_Sub2 arg1) {
-        if (arg1.aClass2_Sub2_67 != null) {
-            arg1.method9260();
+    public static void method5654(@OriginalArg(1) DoublyLinkedNode arg0, @OriginalArg(2) DoublyLinkedNode arg1) {
+        if (arg1.prev2 != null) {
+            arg1.remove2();
         }
-        arg1.aClass2_Sub2_66 = arg0.aClass2_Sub2_66;
-        arg1.aClass2_Sub2_67 = arg0;
-        arg1.aClass2_Sub2_67.aClass2_Sub2_66 = arg1;
-        arg1.aClass2_Sub2_66.aClass2_Sub2_67 = arg1;
+        arg1.next2 = arg0.next2;
+        arg1.prev2 = arg0;
+        arg1.prev2.next2 = arg1;
+        arg1.next2.prev2 = arg1;
     }
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(II[[[Lclient!pha;IIZ)Z")

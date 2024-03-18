@@ -1055,13 +1055,13 @@ public final class Model_Sub2 extends Model {
         }
         @Pc(175) int local175 = local60 + 1 - local43;
         @Pc(182) int local182 = local132 + 1 - local116;
-        @Pc(185) Node_Sub2_Sub9_Sub2 local185 = (Node_Sub2_Sub9_Sub2) shadow;
-        @Pc(197) Node_Sub2_Sub9_Sub2 local197;
+        @Pc(185) DoublyLinkedNode_Sub2_Sub9_ local185 = (DoublyLinkedNode_Sub2_Sub9_) shadow;
+        @Pc(197) DoublyLinkedNode_Sub2_Sub9_ local197;
         if (local185 != null && local185.method6545(local182, local175)) {
             local197 = local185;
             local185.method6546();
         } else {
-            local197 = new Node_Sub2_Sub9_Sub2(this.aClass19_Sub3_24, local175, local182);
+            local197 = new DoublyLinkedNode_Sub2_Sub9_(this.aClass19_Sub3_24, local175, local182);
         }
         local197.method6544(local60, local116, local132, local43);
         this.method4987(local197);
@@ -1347,7 +1347,7 @@ public final class Model_Sub2 extends Model {
     }
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(Lclient!ph;Z)V")
-    public void method4987(@OriginalArg(0) Node_Sub2_Sub9_Sub2 arg0) {
+    public void method4987(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub9_ arg0) {
         if (this.anInt5538 > this.aClass19_Sub3_24.anIntArray623.length) {
             this.aClass19_Sub3_24.anIntArray625 = new int[this.anInt5538];
             this.aClass19_Sub3_24.anIntArray623 = new int[this.anInt5538];

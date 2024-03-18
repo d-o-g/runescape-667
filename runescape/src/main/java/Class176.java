@@ -13,7 +13,7 @@ public final class Class176 {
 
     @OriginalMember(owner = "client!ida", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public Class176(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2) {
-        new WeightedCache(64);
+        new ReferenceCache(64);
         this.aClass330_57 = arg2;
         this.anInt4266 = this.aClass330_57.method7608(15);
     }

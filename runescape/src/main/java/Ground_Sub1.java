@@ -863,7 +863,7 @@ public final class Ground_Sub1 extends Ground {
     }
 
     @OriginalMember(owner = "client!iga", name = "a", descriptor = "(IILclient!dn;I)V")
-    public void method3887(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Node_Sub2_Sub9_Sub1 arg2) {
+    public void method3887(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) DoublyLinkedNode_Sub2_Sub9_Sub1 arg2) {
         @Pc(12) int[] local12 = this.anIntArrayArrayArray1[arg0][arg1];
         @Pc(19) int[] local19 = this.anIntArrayArrayArray3[arg0][arg1];
         @Pc(22) int local22 = local12.length;
@@ -909,13 +909,13 @@ public final class Ground_Sub1 extends Ground {
             return null;
         }
         @Pc(22) int local22 = super.anInt8888 >> this.aClass19_Sub1_9.anInt9173;
-        @Pc(25) Node_Sub2_Sub9_Sub1 local25 = (Node_Sub2_Sub9_Sub1) arg2;
-        @Pc(43) Node_Sub2_Sub9_Sub1 local43;
+        @Pc(25) DoublyLinkedNode_Sub2_Sub9_Sub1 local25 = (DoublyLinkedNode_Sub2_Sub9_Sub1) arg2;
+        @Pc(43) DoublyLinkedNode_Sub2_Sub9_Sub1 local43;
         if (local25 != null && local25.method2192(local22, local22)) {
             local43 = local25;
             local25.method2196();
         } else {
-            local43 = new Node_Sub2_Sub9_Sub1(this.aClass19_Sub1_9, local22, local22);
+            local43 = new DoublyLinkedNode_Sub2_Sub9_Sub1(this.aClass19_Sub1_9, local22, local22);
         }
         local43.method2194(0, local22, local22, 0);
         this.method3887(arg0, arg1, local43);

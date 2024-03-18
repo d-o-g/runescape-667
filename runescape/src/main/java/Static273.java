@@ -27,7 +27,7 @@ public final class Static273 {
 
     @OriginalMember(owner = "client!ik", name = "a", descriptor = "(II)V")
     public static void method3959(@OriginalArg(0) int arg0) {
-        @Pc(17) Node_Sub2_Sub2_ local17 = Static440.method5963(16, (long) arg0);
+        @Pc(17) DoublyLinkedNode_Sub2__ local17 = Static440.method5963(16, (long) arg0);
         local17.method205();
     }
 

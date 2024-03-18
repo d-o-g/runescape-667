@@ -2,7 +2,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!tw")
-public abstract class Node_Sub2_Sub17 extends Node_Sub2 {
+public abstract class DoublyLinkedNode_Sub2_Sub17 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!tw", name = "y", descriptor = "Z")
     public boolean aBoolean776;

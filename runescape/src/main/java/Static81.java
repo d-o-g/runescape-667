@@ -84,15 +84,15 @@ public final class Static81 {
     }
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(I)Lclient!aj;")
-    public static Node_Sub2_Sub2_ method1587() {
-        @Pc(17) Node_Sub2_Sub2_ local17 = (Node_Sub2_Sub2_) Static138.aClass192_6.method4352();
+    public static DoublyLinkedNode_Sub2__ method1587() {
+        @Pc(17) DoublyLinkedNode_Sub2__ local17 = (DoublyLinkedNode_Sub2__) Static138.A_QUEUE___6.first();
         if (local17 != null) {
             local17.remove();
-            local17.method9260();
+            local17.remove2();
             return local17;
         }
         do {
-            local17 = (Node_Sub2_Sub2_) Static59.aClass192_9.method4352();
+            local17 = (DoublyLinkedNode_Sub2__) Static59.A_QUEUE___9.first();
             if (local17 == null) {
                 return null;
             }
@@ -100,8 +100,8 @@ public final class Static81 {
                 return null;
             }
             local17.remove();
-            local17.method9260();
-        } while ((local17.aLong325 & Long.MIN_VALUE) == 0L);
+            local17.remove2();
+        } while ((local17.key2 & Long.MIN_VALUE) == 0L);
         return local17;
     }
 

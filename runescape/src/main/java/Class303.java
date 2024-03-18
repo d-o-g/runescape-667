@@ -133,16 +133,16 @@ public final class Class303 implements TextureSource {
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IB)Lclient!vm;")
-    public Node_Sub2_Sub21 method6819(@OriginalArg(0) int arg0) {
-        @Pc(10) Node_Sub2 local10 = this.aClass361_3.method8342((long) arg0);
+    public DoublyLinkedNode_Sub2_Sub21 method6819(@OriginalArg(0) int arg0) {
+        @Pc(10) DoublyLinkedNode local10 = this.aClass361_3.method8342((long) arg0);
         if (local10 != null) {
-            return (Node_Sub2_Sub21) local10;
+            return (DoublyLinkedNode_Sub2_Sub21) local10;
         }
         @Pc(30) byte[] local30 = this.aClass330_98.method7589(arg0);
         if (local30 == null) {
             return null;
         } else {
-            @Pc(43) Node_Sub2_Sub21 local43 = new Node_Sub2_Sub21(new Packet(local30));
+            @Pc(43) DoublyLinkedNode_Sub2_Sub21 local43 = new DoublyLinkedNode_Sub2_Sub21(new Packet(local30));
             this.aClass361_3.method8341(local43, (long) arg0);
             return local43;
         }
@@ -163,7 +163,7 @@ public final class Class303 implements TextureSource {
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(II)Z")
     @Override
     public boolean textureAvailable(@OriginalArg(1) int arg0) {
-        @Pc(8) Node_Sub2_Sub21 local8 = this.method6819(arg0);
+        @Pc(8) DoublyLinkedNode_Sub2_Sub21 local8 = this.method6819(arg0);
         return local8 != null && local8.method8947(this.aClass330_99, this);
     }
 

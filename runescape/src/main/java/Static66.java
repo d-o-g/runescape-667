@@ -9,7 +9,7 @@ public final class Static66 {
 
     @OriginalMember(owner = "client!cc", name = "b", descriptor = "(II)Lclient!ok;")
     public static Class278 method1487(@OriginalArg(1) int arg0) {
-        @Pc(10) Class278 local10 = (Class278) Static713.A_WEIGHTED_CACHE___231.method2156((long) arg0);
+        @Pc(10) Class278 local10 = (Class278) Static713.A_WEIGHTED_CACHE___231.get((long) arg0);
         if (local10 != null) {
             return local10;
         }

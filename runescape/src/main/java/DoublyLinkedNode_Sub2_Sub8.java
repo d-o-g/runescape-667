@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!dk")
-public final class Node_Sub2_Sub8 extends Node_Sub2 {
+public final class DoublyLinkedNode_Sub2_Sub8 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!dk", name = "w", descriptor = "D")
     public double aDouble10;
@@ -12,7 +12,7 @@ public final class Node_Sub2_Sub8 extends Node_Sub2 {
     public final short[][] aShortArrayArray3;
 
     @OriginalMember(owner = "client!dk", name = "<init>", descriptor = "([[SD)V")
-    public Node_Sub2_Sub8(@OriginalArg(0) short[][] arg0, @OriginalArg(1) double arg1) {
+    public DoublyLinkedNode_Sub2_Sub8(@OriginalArg(0) short[][] arg0, @OriginalArg(1) double arg1) {
         this.aDouble10 = arg1;
         this.aShortArrayArray3 = arg0;
     }

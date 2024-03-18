@@ -91,7 +91,7 @@ public final class Node_Sub28_Sub1 extends Node_Sub28 {
         }
         this.aDSPState1.read(local35[0].length);
         this.anInt4396 += local35[0].length;
-        @Pc(85) Node_Sub2_Sub8 local85 = this.aClass2_Sub6_Sub5_1.method9142(local35[0].length, this.aDouble14);
+        @Pc(85) DoublyLinkedNode_Sub2_Sub8 local85 = this.aClass2_Sub6_Sub5_1.method9142(local35[0].length, this.aDouble14);
         Static373.method5300(local35, local85.aShortArrayArray3);
         for (@Pc(93) int local93 = 0; local93 < this.aVorbisInfo1.channels; local93++) {
             local85.aShortArrayArray3[local93] = this.aClass224_1.method5237(local85.aShortArrayArray3[local93]);

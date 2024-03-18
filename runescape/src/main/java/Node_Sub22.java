@@ -57,7 +57,7 @@ public final class Node_Sub22 extends Node {
         }
         @Pc(116) long local116 = this.method3077(arg2, arg0, local23, arg4 == null ? null : arg4.bodycol_d_palette);
         if (Static166.A_WEIGHTED_CACHE___59 != null) {
-            local7 = (Model) Static166.A_WEIGHTED_CACHE___59.method2156(local116);
+            local7 = (Model) Static166.A_WEIGHTED_CACHE___59.get(local116);
         }
         if (local7 == null || arg1.compareFunctionMasks(local7.ua(), local9) != 0) {
             if (local7 != null) {

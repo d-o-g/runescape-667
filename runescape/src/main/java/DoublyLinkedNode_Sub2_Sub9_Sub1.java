@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!dn")
-public final class Node_Sub2_Sub9_Sub1 extends Shadow {
+public final class DoublyLinkedNode_Sub2_Sub9_Sub1 extends Shadow {
 
     @OriginalMember(owner = "client!dn", name = "N", descriptor = "I")
     public int anInt2320;
@@ -22,7 +22,7 @@ public final class Node_Sub2_Sub9_Sub1 extends Shadow {
     public final byte[] aByteArray22;
 
     @OriginalMember(owner = "client!dn", name = "<init>", descriptor = "(Lclient!am;II)V")
-    public Node_Sub2_Sub9_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public DoublyLinkedNode_Sub2_Sub9_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aByteArray22 = new byte[arg1 * arg2];
     }
 

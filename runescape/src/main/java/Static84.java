@@ -283,27 +283,27 @@ public final class Static84 {
     }
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "(BLclient!pg;)V")
-    public static void method1662(@OriginalArg(1) Node_Sub2_Sub16 arg0) {
+    public static void method1662(@OriginalArg(1) DoublyLinkedNode_Sub2_Sub16 arg0) {
         if (arg0 == null) {
             return;
         }
         Static693.A_DEQUE___79.addLast(arg0);
         Static594.anInt8777++;
-        @Pc(33) Node_Sub2_Sub4 local33;
+        @Pc(33) DoublyLinkedNode_Sub2_Sub4 local33;
         if (arg0.aBoolean551 || "".equals(arg0.aString86)) {
-            local33 = new Node_Sub2_Sub4(arg0.aString86);
+            local33 = new DoublyLinkedNode_Sub2_Sub4(arg0.aString86);
             Static31.anInt767++;
         } else {
             @Pc(41) long local41 = arg0.aLong234;
-            for (local33 = (Node_Sub2_Sub4) Static490.A_HASH_TABLE___34.get(local41); local33 != null && !local33.aString10.equals(arg0.aString86); local33 = (Node_Sub2_Sub4) Static490.A_HASH_TABLE___34.nextWithSameKey()) {
+            for (local33 = (DoublyLinkedNode_Sub2_Sub4) Static490.A_HASH_TABLE___34.get(local41); local33 != null && !local33.aString10.equals(arg0.aString86); local33 = (DoublyLinkedNode_Sub2_Sub4) Static490.A_HASH_TABLE___34.nextWithSameKey()) {
             }
             if (local33 == null) {
-                local33 = (Node_Sub2_Sub4) Static717.A_WEIGHTED_CACHE___232.method2156(local41);
+                local33 = (DoublyLinkedNode_Sub2_Sub4) Static717.A_WEIGHTED_CACHE___232.get(local41);
                 if (local33 != null && !local33.aString10.equals(arg0.aString86)) {
                     local33 = null;
                 }
                 if (local33 == null) {
-                    local33 = new Node_Sub2_Sub4(arg0.aString86);
+                    local33 = new DoublyLinkedNode_Sub2_Sub4(arg0.aString86);
                 }
                 Static490.A_HASH_TABLE___34.put(local41, local33);
                 Static31.anInt767++;
@@ -665,7 +665,7 @@ public final class Static84 {
                                             local549 = (int) -((double) (local47 + local479.method5333() - local24 - local6.anInt3746 / 2) * 2.0D / (double) Static30.aFloat105);
                                             local555 = Static164.anInt2809 + local402 + Static30.anInt5655;
                                             local569 = Static615.anInt9389 + local549 + Static30.anInt5648;
-                                            @Pc(1383) Node_Sub2_Sub13 local1383 = Static186.method2819();
+                                            @Pc(1383) DoublyLinkedNode_Sub2_Sub13 local1383 = Static186.method2819();
                                             if (local1383 == null) {
                                                 continue;
                                             }

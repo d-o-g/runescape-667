@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class169 {
 
     @OriginalMember(owner = "client!hm", name = "f", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_85 = new WeightedCache(256);
+    public final ReferenceCache aReferenceCache_85 = new ReferenceCache(256);
 
     @OriginalMember(owner = "client!hm", name = "a", descriptor = "Lclient!d;")
     public final TextureSource anTextureSource_4;
@@ -25,17 +25,17 @@ public final class Class169 {
 
     @OriginalMember(owner = "client!hm", name = "b", descriptor = "(I)V")
     public void method3527() {
-        this.aWeightedCache_85.reset();
+        this.aReferenceCache_85.reset();
     }
 
     @OriginalMember(owner = "client!hm", name = "a", descriptor = "(Z)V")
     public void method3528() {
-        this.aWeightedCache_85.method2147(5);
+        this.aReferenceCache_85.method2147(5);
     }
 
     @OriginalMember(owner = "client!hm", name = "a", descriptor = "(BI)Lclient!rq;")
     public Class93_Sub2 method3529(@OriginalArg(1) int arg0) {
-        @Pc(10) Object local10 = this.aWeightedCache_85.method2156((long) arg0);
+        @Pc(10) Object local10 = this.aReferenceCache_85.get((long) arg0);
         if (local10 != null) {
             return (Class93_Sub2) local10;
         } else if (this.anTextureSource_4.textureAvailable(arg0)) {
@@ -55,7 +55,7 @@ public final class Class169 {
                 local90 = new Class93_Sub2(this.aClass19_Sub3_17, 3553, 6408, local52, local52, local33.aByte53 != 0, local114, 0, 0, false);
             }
             local90.method2946(local33.aBoolean236, local33.aBoolean235);
-            this.aWeightedCache_85.put(local90, (long) arg0);
+            this.aReferenceCache_85.put(local90, (long) arg0);
             return local90;
         } else {
             return null;

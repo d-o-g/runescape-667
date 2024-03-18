@@ -8,7 +8,7 @@ public final class Static59 {
     public static Matrix aMatrix_5;
 
     @OriginalMember(owner = "client!bv", name = "k", descriptor = "Lclient!jga;")
-    public static final Class192 aClass192_9 = new Class192();
+    public static final Queue A_QUEUE___9 = new Queue();
 
     @OriginalMember(owner = "client!bv", name = "o", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___33 = new Deque();

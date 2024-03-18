@@ -65,9 +65,9 @@ public final class Static572 {
         @Pc(68) int local68;
         @Pc(27) int local27;
         if (Static236.aBoolean304) {
-            for (@Pc(18) Node_Sub2_Sub4 local18 = (Node_Sub2_Sub4) Static350.aClass192_8.method4352(); local18 != null; local18 = (Node_Sub2_Sub4) Static350.aClass192_8.method4350()) {
+            for (@Pc(18) DoublyLinkedNode_Sub2_Sub4 local18 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local18 != null; local18 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
                 if (local18.anInt1534 == 1) {
-                    local27 = Static249.method3536((Node_Sub2_Sub16) local18.aClass192_3.aClass2_Sub2_36.aClass2_Sub2_66);
+                    local27 = Static249.method3536((DoublyLinkedNode_Sub2_Sub16) local18.aQueue_3.tail.next2);
                 } else {
                     local27 = Static192.method2875(local18);
                 }
@@ -79,7 +79,7 @@ public final class Static572 {
             Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + Static31.anInt767 * 16;
             local68 = Static31.anInt767 * 16 + 21;
         } else {
-            for (@Pc(74) Node_Sub2_Sub16 local74 = (Node_Sub2_Sub16) Static693.A_DEQUE___79.first(65280); local74 != null; local74 = (Node_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
+            for (@Pc(74) DoublyLinkedNode_Sub2_Sub16 local74 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(65280); local74 != null; local74 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
                 local27 = Static249.method3536(local74);
                 if (local11 < local27) {
                     local11 = local27;

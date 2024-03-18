@@ -112,7 +112,7 @@ public final class Static608 {
                     }
                     @Pc(295) Sprite[] local295 = Static119.aSpriteArray3;
                     if (local267 != -1) {
-                        local306 = (Sprite[]) Static230.A_WEIGHTED_CACHE___81.method2156((long) local267);
+                        local306 = (Sprite[]) Static230.A_WEIGHTED_CACHE___81.get((long) local267);
                         if (local306 == null) {
                             local313 = Static735.method9375(Static721.aClass330_128, local267);
                             if (local313 != null) {
@@ -161,7 +161,7 @@ public final class Static608 {
                             local504 = local51.method9317().anInt7259;
                         }
                         if (local504 != -1) {
-                            local306 = (Sprite[]) Static669.A_WEIGHTED_CACHE___215.method2156((long) local504);
+                            local306 = (Sprite[]) Static669.A_WEIGHTED_CACHE___215.get((long) local504);
                             if (local306 == null) {
                                 local313 = Static735.method9375(Static721.aClass330_128, local504);
                                 if (local313 != null) {

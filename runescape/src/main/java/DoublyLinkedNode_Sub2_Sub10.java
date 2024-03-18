@@ -2,7 +2,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!fj")
-public final class Node_Sub2_Sub10 extends Node_Sub2 {
+public final class DoublyLinkedNode_Sub2_Sub10 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!fj", name = "w", descriptor = "Ljava/lang/String;")
     public String aString31;

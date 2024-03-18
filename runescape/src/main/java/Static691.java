@@ -19,7 +19,7 @@ public final class Static691 {
     @OriginalMember(owner = "client!vs", name = "a", descriptor = "(IIIIIILclient!ha;)Lclient!ka;")
     public static Model method9004(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) Toolkit arg5) {
         @Pc(13) long local13 = (long) arg2;
-        @Pc(19) Model local19 = (Model) Static186.A_WEIGHTED_CACHE___67.method2156(local13);
+        @Pc(19) Model local19 = (Model) Static186.A_WEIGHTED_CACHE___67.get(local13);
         if (local19 == null) {
             @Pc(29) Mesh local29 = Static121.method2201(arg2, Static190.aClass330_38);
             if (local29 == null) {

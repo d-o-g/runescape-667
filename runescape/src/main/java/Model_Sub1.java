@@ -3574,13 +3574,13 @@ public final class Model_Sub1 extends Model {
         }
         @Pc(177) int local177 = local59 + 1 - local43;
         @Pc(184) int local184 = local134 + 1 - local118;
-        @Pc(187) Node_Sub2_Sub9_Sub1 local187 = (Node_Sub2_Sub9_Sub1) shadow;
-        @Pc(199) Node_Sub2_Sub9_Sub1 local199;
+        @Pc(187) DoublyLinkedNode_Sub2_Sub9_Sub1 local187 = (DoublyLinkedNode_Sub2_Sub9_Sub1) shadow;
+        @Pc(199) DoublyLinkedNode_Sub2_Sub9_Sub1 local199;
         if (local187 != null && local187.method2192(local177, local184)) {
             local199 = local187;
             local187.method2196();
         } else {
-            local199 = new Node_Sub2_Sub9_Sub1(this.aClass19_Sub1_6, local177, local184);
+            local199 = new DoublyLinkedNode_Sub2_Sub9_Sub1(this.aClass19_Sub1_6, local177, local184);
         }
         local199.method2194(local118, local134, local59, local43);
         this.method2565(local199);
@@ -3650,7 +3650,7 @@ public final class Model_Sub1 extends Model {
     }
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(ILclient!dn;)V")
-    public void method2565(@OriginalArg(1) Node_Sub2_Sub9_Sub1 arg0) {
+    public void method2565(@OriginalArg(1) DoublyLinkedNode_Sub2_Sub9_Sub1 arg0) {
         if (Static190.anIntArray266.length < this.anInt2759) {
             Static686.anIntArray710 = new int[this.anInt2759];
             Static190.anIntArray266 = new int[this.anInt2759];

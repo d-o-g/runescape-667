@@ -7,10 +7,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class267 {
 
     @OriginalMember(owner = "client!nv", name = "e", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_142 = new WeightedCache(64);
+    public final ReferenceCache aReferenceCache_142 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!nv", name = "g", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_143 = new WeightedCache(2);
+    public final ReferenceCache aReferenceCache_143 = new ReferenceCache(2);
 
     @OriginalMember(owner = "client!nv", name = "b", descriptor = "Lclient!sb;")
     public final Class330 aClass330_88;
@@ -27,34 +27,34 @@ public final class Class267 {
 
     @OriginalMember(owner = "client!nv", name = "b", descriptor = "(II)V")
     public void method5970() {
-        @Pc(11) WeightedCache local11 = this.aWeightedCache_142;
-        synchronized (this.aWeightedCache_142) {
-            this.aWeightedCache_142.method2147(5);
+        @Pc(11) ReferenceCache local11 = this.aReferenceCache_142;
+        synchronized (this.aReferenceCache_142) {
+            this.aReferenceCache_142.method2147(5);
         }
-        local11 = this.aWeightedCache_143;
-        synchronized (this.aWeightedCache_143) {
-            this.aWeightedCache_143.method2147(5);
+        local11 = this.aReferenceCache_143;
+        synchronized (this.aReferenceCache_143) {
+            this.aReferenceCache_143.method2147(5);
         }
     }
 
     @OriginalMember(owner = "client!nv", name = "a", descriptor = "(B)V")
     public void method5972() {
-        @Pc(9) WeightedCache local9 = this.aWeightedCache_142;
-        synchronized (this.aWeightedCache_142) {
-            this.aWeightedCache_142.method2151();
+        @Pc(9) ReferenceCache local9 = this.aReferenceCache_142;
+        synchronized (this.aReferenceCache_142) {
+            this.aReferenceCache_142.method2151();
         }
-        local9 = this.aWeightedCache_143;
-        synchronized (this.aWeightedCache_143) {
-            this.aWeightedCache_143.method2151();
+        local9 = this.aReferenceCache_143;
+        synchronized (this.aReferenceCache_143) {
+            this.aReferenceCache_143.method2151();
         }
     }
 
     @OriginalMember(owner = "client!nv", name = "a", descriptor = "(II)Lclient!vla;")
     public Class389 method5973(@OriginalArg(1) int arg0) {
-        @Pc(6) WeightedCache local6 = this.aWeightedCache_142;
+        @Pc(6) ReferenceCache local6 = this.aReferenceCache_142;
         @Pc(18) Class389 local18;
-        synchronized (this.aWeightedCache_142) {
-            local18 = (Class389) this.aWeightedCache_142.method2156((long) arg0);
+        synchronized (this.aReferenceCache_142) {
+            local18 = (Class389) this.aReferenceCache_142.get((long) arg0);
         }
         if (local18 != null) {
             return local18;
@@ -69,22 +69,22 @@ public final class Class267 {
         if (local41 != null) {
             local18.method8935(new Packet(local41));
         }
-        @Pc(70) WeightedCache local70 = this.aWeightedCache_142;
-        synchronized (this.aWeightedCache_142) {
-            this.aWeightedCache_142.put(local18, (long) arg0);
+        @Pc(70) ReferenceCache local70 = this.aReferenceCache_142;
+        synchronized (this.aReferenceCache_142) {
+            this.aReferenceCache_142.put(local18, (long) arg0);
             return local18;
         }
     }
 
     @OriginalMember(owner = "client!nv", name = "b", descriptor = "(B)V")
     public void method5974() {
-        @Pc(7) WeightedCache local7 = this.aWeightedCache_142;
-        synchronized (this.aWeightedCache_142) {
-            this.aWeightedCache_142.reset();
+        @Pc(7) ReferenceCache local7 = this.aReferenceCache_142;
+        synchronized (this.aReferenceCache_142) {
+            this.aReferenceCache_142.reset();
         }
-        local7 = this.aWeightedCache_143;
-        synchronized (this.aWeightedCache_143) {
-            this.aWeightedCache_143.reset();
+        local7 = this.aReferenceCache_143;
+        synchronized (this.aReferenceCache_143) {
+            this.aReferenceCache_143.reset();
         }
     }
 }

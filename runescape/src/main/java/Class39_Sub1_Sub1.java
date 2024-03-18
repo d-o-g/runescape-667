@@ -34,6 +34,6 @@ public final class Class39_Sub1_Sub1 extends Class39_Sub1 {
             local30++;
         }
         @Pc(79) Class8_Sub2_Sub1_Sub5 local79 = new Class8_Sub2_Sub1_Sub5(super.anInt10558, 0, this.anInt986, local30, local10, Static102.method2025(this.anInt986, -29754, local17, local10) - super.anInt10560, local17, this.anInt983, this.anInt983, this.anInt987, this.anInt987, super.anInt10556, false);
-        Static346.A_HASH_TABLE___29.put((long) (this.anInt983 << 16 | this.anInt987), new Node_Sub2_Sub20(local79));
+        Static346.A_HASH_TABLE___29.put((long) (this.anInt983 << 16 | this.anInt987), new DoublyLinkedNode_Sub2_Sub20(local79));
     }
 }

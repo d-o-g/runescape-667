@@ -67,7 +67,7 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
                 local59 = 0;
             }
             local77 = this.aByteArray97[local55 & 0xFF] & 0xFF;
-            local81 = Node_Sub2_Sub19.anIntArray768[local37];
+            local81 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local37];
             local90 = this.aByteArray97[local59 & 0xFF] & 0xFF;
             if (this.aBoolean667) {
                 for (local95 = 0; local95 < Static608.anInt9289; local95++) {
@@ -98,7 +98,7 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
             }
             local37 &= 0xFFF;
             local77 = this.aByteArray97[local55 & 0xFF] & 0xFF;
-            local81 = Node_Sub2_Sub19.anIntArray768[local37];
+            local81 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local37];
             local90 = this.aByteArray97[local59 & 0xFF] & 0xFF;
             for (local95 = 0; local95 < Static608.anInt9289; local95++) {
                 local103 = this.anInt8810 * Static54.anIntArray92[local95];
@@ -120,7 +120,7 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
                     local59 = 0;
                 }
                 local90 = this.aByteArray97[local59 & 0xFF] & 0xFF;
-                local81 = Node_Sub2_Sub19.anIntArray768[local37];
+                local81 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local37];
                 local77 = this.aByteArray97[local55 & 0xFF] & 0xFF;
                 if (this.aBoolean667 && this.anInt8803 - 1 == local301) {
                     for (local95 = 0; local95 < Static608.anInt9289; local95++) {
@@ -221,7 +221,7 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
         @Pc(32) int local32 = local15 - 4096;
         local11 &= 0xFF;
         @Pc(40) int local40 = arg3 - 4096;
-        @Pc(44) int local44 = Node_Sub2_Sub19.anIntArray768[local15];
+        @Pc(44) int local44 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local15];
         @Pc(63) int local63 = this.aByteArray97[arg1 + local7] & 0x3;
         @Pc(82) int local82;
         if (local63 <= 1) {

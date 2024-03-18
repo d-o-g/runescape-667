@@ -8,7 +8,7 @@ public final class Static350 {
     public static long[] aLongArray9;
 
     @OriginalMember(owner = "client!la", name = "v", descriptor = "Lclient!jga;")
-    public static final Class192 aClass192_8 = new Class192();
+    public static final Queue A_QUEUE___8 = new Queue();
 
     @OriginalMember(owner = "client!la", name = "u", descriptor = "[I")
     public static final int[] anIntArray433 = new int[1000];

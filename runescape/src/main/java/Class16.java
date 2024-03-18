@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class16 {
 
     @OriginalMember(owner = "client!aka", name = "c", descriptor = "Lclient!jga;")
-    public final Class192 aClass192_1 = new Class192();
+    public final Queue aQueue_1 = new Queue();
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "I")
     public final int anInt246;
@@ -31,7 +31,7 @@ public final class Class16 {
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(ILclient!uq;)V")
     public void method251(@OriginalArg(1) Interface24 arg0) {
         @Pc(9) long local9 = arg0.method7433();
-        for (@Pc(22) Node_Sub2_Sub11 local22 = (Node_Sub2_Sub11) this.aHashTable_3.get(local9); local22 != null; local22 = (Node_Sub2_Sub11) this.aHashTable_3.nextWithSameKey()) {
+        for (@Pc(22) DoublyLinkedNode_Sub2_Sub11 local22 = (DoublyLinkedNode_Sub2_Sub11) this.aHashTable_3.get(local9); local22 != null; local22 = (DoublyLinkedNode_Sub2_Sub11) this.aHashTable_3.nextWithSameKey()) {
             if (local22.anInterface24_3.method7432(arg0)) {
                 this.method254(local22);
                 return;
@@ -41,27 +41,27 @@ public final class Class16 {
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(Z)V")
     public void method252() {
-        this.aClass192_1.method4351();
+        this.aQueue_1.clear();
         this.aHashTable_3.clear();
         this.anInt250 = this.anInt246;
     }
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(B)V")
     public void method253() {
-        for (@Pc(5) Node_Sub2_Sub11 local5 = (Node_Sub2_Sub11) this.aClass192_1.method4352(); local5 != null; local5 = (Node_Sub2_Sub11) this.aClass192_1.method4350()) {
+        for (@Pc(5) DoublyLinkedNode_Sub2_Sub11 local5 = (DoublyLinkedNode_Sub2_Sub11) this.aQueue_1.first(); local5 != null; local5 = (DoublyLinkedNode_Sub2_Sub11) this.aQueue_1.next()) {
             if (local5.method8314()) {
                 local5.remove();
-                local5.method9260();
+                local5.remove2();
                 this.anInt250 += local5.anInt9445;
             }
         }
     }
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(ZLclient!pv;)V")
-    public void method254(@OriginalArg(1) Node_Sub2_Sub11 arg0) {
+    public void method254(@OriginalArg(1) DoublyLinkedNode_Sub2_Sub11 arg0) {
         if (arg0 != null) {
             arg0.remove();
-            arg0.method9260();
+            arg0.remove2();
             this.anInt250 += arg0.anInt9445;
         }
     }
@@ -71,19 +71,19 @@ public final class Class16 {
         if (Static515.aClass22_1 == null) {
             return;
         }
-        for (@Pc(11) Node_Sub2_Sub11 local11 = (Node_Sub2_Sub11) this.aClass192_1.method4352(); local11 != null; local11 = (Node_Sub2_Sub11) this.aClass192_1.method4350()) {
+        for (@Pc(11) DoublyLinkedNode_Sub2_Sub11 local11 = (DoublyLinkedNode_Sub2_Sub11) this.aQueue_1.first(); local11 != null; local11 = (DoublyLinkedNode_Sub2_Sub11) this.aQueue_1.next()) {
             if (local11.method8314()) {
                 if (local11.method8311() == null) {
                     local11.remove();
-                    local11.method9260();
+                    local11.remove2();
                     this.anInt250 += local11.anInt9445;
                 }
-            } else if (++local11.aLong325 > (long) 5) {
-                @Pc(38) Node_Sub2_Sub11 local38 = Static515.aClass22_1.method593(local11);
+            } else if (++local11.key2 > (long) 5) {
+                @Pc(38) DoublyLinkedNode_Sub2_Sub11 local38 = Static515.aClass22_1.method593(local11);
                 this.aHashTable_3.put(local11.key, local38);
                 Static409.method5654(local11, local38);
                 local11.remove();
-                local11.method9260();
+                local11.remove2();
             }
         }
     }
@@ -106,37 +106,37 @@ public final class Class16 {
         this.method251(arg1);
         this.anInt250--;
         while (this.anInt250 < 0) {
-            @Pc(42) Node_Sub2_Sub11 local42 = (Node_Sub2_Sub11) this.aClass192_1.method4346();
+            @Pc(42) DoublyLinkedNode_Sub2_Sub11 local42 = (DoublyLinkedNode_Sub2_Sub11) this.aQueue_1.removeFirst();
             this.method254(local42);
         }
-        @Pc(59) Node_Sub2_Sub11_Sub2 local59 = new Node_Sub2_Sub11_Sub2(arg1, arg0, 1);
+        @Pc(59) DoublyLinkedNode_Sub2_Sub11_ local59 = new DoublyLinkedNode_Sub2_Sub11_(arg1, arg0, 1);
         this.aHashTable_3.put(arg1.method7433(), local59);
-        this.aClass192_1.method4348(local59);
-        local59.aLong325 = 0L;
+        this.aQueue_1.add(local59);
+        local59.key2 = 0L;
     }
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(Lclient!uq;B)Ljava/lang/Object;")
     public Object method260(@OriginalArg(0) Interface24 arg0) {
         @Pc(18) long local18 = arg0.method7433();
-        for (@Pc(25) Node_Sub2_Sub11 local25 = (Node_Sub2_Sub11) this.aHashTable_3.get(local18); local25 != null; local25 = (Node_Sub2_Sub11) this.aHashTable_3.nextWithSameKey()) {
+        for (@Pc(25) DoublyLinkedNode_Sub2_Sub11 local25 = (DoublyLinkedNode_Sub2_Sub11) this.aHashTable_3.get(local18); local25 != null; local25 = (DoublyLinkedNode_Sub2_Sub11) this.aHashTable_3.nextWithSameKey()) {
             if (local25.anInterface24_3.method7432(arg0)) {
                 @Pc(39) Object local39 = local25.method8311();
                 if (local39 != null) {
                     if (local25.method8314()) {
-                        @Pc(84) Node_Sub2_Sub11_Sub2 local84 = new Node_Sub2_Sub11_Sub2(arg0, local39, local25.anInt9445);
+                        @Pc(84) DoublyLinkedNode_Sub2_Sub11_ local84 = new DoublyLinkedNode_Sub2_Sub11_(arg0, local39, local25.anInt9445);
                         this.aHashTable_3.put(local25.key, local84);
-                        this.aClass192_1.method4348(local84);
-                        local84.aLong325 = 0L;
+                        this.aQueue_1.add(local84);
+                        local84.key2 = 0L;
                         local25.remove();
-                        local25.method9260();
+                        local25.remove2();
                     } else {
-                        this.aClass192_1.method4348(local25);
-                        local25.aLong325 = 0L;
+                        this.aQueue_1.add(local25);
+                        local25.key2 = 0L;
                     }
                     return local39;
                 }
                 local25.remove();
-                local25.method9260();
+                local25.remove2();
                 this.anInt250 += local25.anInt9445;
             }
         }

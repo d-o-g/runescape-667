@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static525 {
 
     @OriginalMember(owner = "client!qja", name = "c", descriptor = "Lclient!pg;")
-    public static Node_Sub2_Sub16 aClass2_Sub2_Sub16_12;
+    public static DoublyLinkedNode_Sub2_Sub16 aClass2_Sub2_Sub16_12;
 
     @OriginalMember(owner = "client!qja", name = "p", descriptor = "I")
     public static int anInt8907;

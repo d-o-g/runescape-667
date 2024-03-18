@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class342 {
 
     @OriginalMember(owner = "client!sn", name = "e", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_192 = new WeightedCache(64);
+    public final ReferenceCache aReferenceCache_192 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!sn", name = "l", descriptor = "Lclient!sb;")
     public final Class330 aClass330_111;
@@ -27,26 +27,26 @@ public final class Class342 {
 
     @OriginalMember(owner = "client!sn", name = "a", descriptor = "(Z)V")
     public void method7783() {
-        @Pc(2) WeightedCache local2 = this.aWeightedCache_192;
-        synchronized (this.aWeightedCache_192) {
-            this.aWeightedCache_192.reset();
+        @Pc(2) ReferenceCache local2 = this.aReferenceCache_192;
+        synchronized (this.aReferenceCache_192) {
+            this.aReferenceCache_192.reset();
         }
     }
 
     @OriginalMember(owner = "client!sn", name = "a", descriptor = "(IB)V")
     public void method7784() {
-        @Pc(6) WeightedCache local6 = this.aWeightedCache_192;
-        synchronized (this.aWeightedCache_192) {
-            this.aWeightedCache_192.method2147(5);
+        @Pc(6) ReferenceCache local6 = this.aReferenceCache_192;
+        synchronized (this.aReferenceCache_192) {
+            this.aReferenceCache_192.method2147(5);
         }
     }
 
     @OriginalMember(owner = "client!sn", name = "b", descriptor = "(II)Lclient!fc;")
     public Class122 method7785(@OriginalArg(0) int arg0) {
-        @Pc(6) WeightedCache local6 = this.aWeightedCache_192;
+        @Pc(6) ReferenceCache local6 = this.aReferenceCache_192;
         @Pc(16) Class122 local16;
-        synchronized (this.aWeightedCache_192) {
-            local16 = (Class122) this.aWeightedCache_192.method2156((long) arg0);
+        synchronized (this.aReferenceCache_192) {
+            local16 = (Class122) this.aReferenceCache_192.get((long) arg0);
         }
         if (local16 != null) {
             return local16;
@@ -60,18 +60,18 @@ public final class Class342 {
         if (local39 != null) {
             local16.method2610(new Packet(local39));
         }
-        @Pc(63) WeightedCache local63 = this.aWeightedCache_192;
-        synchronized (this.aWeightedCache_192) {
-            this.aWeightedCache_192.put(local16, (long) arg0);
+        @Pc(63) ReferenceCache local63 = this.aReferenceCache_192;
+        synchronized (this.aReferenceCache_192) {
+            this.aReferenceCache_192.put(local16, (long) arg0);
             return local16;
         }
     }
 
     @OriginalMember(owner = "client!sn", name = "a", descriptor = "(I)V")
     public void method7787() {
-        @Pc(2) WeightedCache local2 = this.aWeightedCache_192;
-        synchronized (this.aWeightedCache_192) {
-            this.aWeightedCache_192.method2151();
+        @Pc(2) ReferenceCache local2 = this.aReferenceCache_192;
+        synchronized (this.aReferenceCache_192) {
+            this.aReferenceCache_192.method2151();
         }
     }
 }

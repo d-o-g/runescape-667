@@ -34,7 +34,7 @@ public final class Static249 {
     }
 
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(BLclient!pg;)I")
-    public static int method3536(@OriginalArg(1) Node_Sub2_Sub16 arg0) {
+    public static int method3536(@OriginalArg(1) DoublyLinkedNode_Sub2_Sub16 arg0) {
         @Pc(15) String local15 = Static518.method9293(arg0);
         @Pc(17) int[] local17 = null;
         if (Static245.method8635(arg0.anInt7314)) {

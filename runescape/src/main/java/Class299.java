@@ -7,40 +7,40 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class299 {
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "Lclient!cm;")
-    public Node_Sub2 aClass2_Sub2_48;
+    public DoublyLinkedNode aClass2_Sub2_48;
 
     @OriginalMember(owner = "client!ps", name = "e", descriptor = "Lclient!jga;")
-    public Class192 aClass192_14;
+    public Queue aQueue_14;
 
     @OriginalMember(owner = "client!ps", name = "<init>", descriptor = "()V")
     public Class299() {
     }
 
     @OriginalMember(owner = "client!ps", name = "<init>", descriptor = "(Lclient!jga;)V")
-    public Class299(@OriginalArg(0) Class192 arg0) {
-        this.aClass192_14 = arg0;
+    public Class299(@OriginalArg(0) Queue arg0) {
+        this.aQueue_14 = arg0;
     }
 
     @OriginalMember(owner = "client!ps", name = "b", descriptor = "(I)Lclient!cm;")
-    public Node_Sub2 method6723() {
-        @Pc(6) Node_Sub2 local6 = this.aClass2_Sub2_48;
-        if (local6 == this.aClass192_14.aClass2_Sub2_36) {
+    public DoublyLinkedNode method6723() {
+        @Pc(6) DoublyLinkedNode local6 = this.aClass2_Sub2_48;
+        if (local6 == this.aQueue_14.tail) {
             this.aClass2_Sub2_48 = null;
             return null;
         } else {
-            this.aClass2_Sub2_48 = local6.aClass2_Sub2_66;
+            this.aClass2_Sub2_48 = local6.next2;
             return local6;
         }
     }
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "(I)Lclient!cm;")
-    public Node_Sub2 method6724() {
-        @Pc(14) Node_Sub2 local14 = this.aClass192_14.aClass2_Sub2_36.aClass2_Sub2_66;
-        if (this.aClass192_14.aClass2_Sub2_36 == local14) {
+    public DoublyLinkedNode method6724() {
+        @Pc(14) DoublyLinkedNode local14 = this.aQueue_14.tail.next2;
+        if (this.aQueue_14.tail == local14) {
             this.aClass2_Sub2_48 = null;
             return null;
         } else {
-            this.aClass2_Sub2_48 = local14.aClass2_Sub2_66;
+            this.aClass2_Sub2_48 = local14.next2;
             return local14;
         }
     }

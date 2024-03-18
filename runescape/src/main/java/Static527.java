@@ -20,7 +20,7 @@ public final class Static527 {
 
     @OriginalMember(owner = "client!qka", name = "c", descriptor = "(I)V")
     public static void method7083() {
-        for (@Pc(15) Node_Sub2_Sub15 local15 = (Node_Sub2_Sub15) Static505.A_DEQUE___77.first(65280); local15 != null; local15 = (Node_Sub2_Sub15) Static505.A_DEQUE___77.next()) {
+        for (@Pc(15) DoublyLinkedNode_Sub2_Sub15 local15 = (DoublyLinkedNode_Sub2_Sub15) Static505.A_DEQUE___77.first(65280); local15 != null; local15 = (DoublyLinkedNode_Sub2_Sub15) Static505.A_DEQUE___77.next()) {
             @Pc(20) Class8_Sub2_Sub1_Sub1 local20 = local15.aClass8_Sub2_Sub1_Sub1_1;
             if (Static333.anInt5455 > local20.anInt697) {
                 local15.remove();

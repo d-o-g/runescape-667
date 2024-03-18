@@ -31,8 +31,8 @@ public final class Static48 {
     }
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "([BZ)Lclient!fj;")
-    public static Node_Sub2_Sub10 method1097(@OriginalArg(0) byte[] arg0) {
-        @Pc(7) Node_Sub2_Sub10 local7 = new Node_Sub2_Sub10();
+    public static DoublyLinkedNode_Sub2_Sub10 method1097(@OriginalArg(0) byte[] arg0) {
+        @Pc(7) DoublyLinkedNode_Sub2_Sub10 local7 = new DoublyLinkedNode_Sub2_Sub10();
         @Pc(12) Packet local12 = new Packet(arg0);
         local12.pos = local12.data.length - 2;
         @Pc(23) int local23 = local12.g2();

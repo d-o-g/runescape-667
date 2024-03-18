@@ -520,7 +520,7 @@ public final class Toolkit_Sub3 extends Toolkit {
     @OriginalMember(owner = "client!qha", name = "<init>", descriptor = "(Ljava/awt/Canvas;Lclient!d;I)V")
     public Toolkit_Sub3(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2) {
         super(arg1);
-        new Class192();
+        new Queue();
         new HashTable(16);
         this.aDeque_47 = new Deque();
         this.aDeque_48 = new Deque();

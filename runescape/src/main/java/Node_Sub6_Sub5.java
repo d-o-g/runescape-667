@@ -40,7 +40,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
         if (this.anInt10535 < 1) {
             return -1.0D;
         }
-        @Pc(16) Node_Sub2_Sub8 local16 = (Node_Sub2_Sub8) this.aDeque_80.first(65280);
+        @Pc(16) DoublyLinkedNode_Sub2_Sub8 local16 = (DoublyLinkedNode_Sub2_Sub8) this.aDeque_80.first(65280);
         if (local16 == null) {
             return -1.0D;
         } else {
@@ -74,7 +74,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             return;
         }
         while (true) {
-            @Pc(14) Node_Sub2_Sub8 local14 = this.method9145();
+            @Pc(14) DoublyLinkedNode_Sub2_Sub8 local14 = this.method9145();
             if (local14 == null) {
                 if (this.aBoolean795) {
                     this.remove();
@@ -92,11 +92,11 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(IDI)Lclient!dk;")
-    public Node_Sub2_Sub8 method9142(@OriginalArg(0) int arg0, @OriginalArg(1) double arg1) {
+    public DoublyLinkedNode_Sub2_Sub8 method9142(@OriginalArg(0) int arg0, @OriginalArg(1) double arg1) {
         @Pc(11) long local11 = (long) (arg0 | this.anInt10521 << 0);
-        @Pc(17) Node_Sub2_Sub8 local17 = (Node_Sub2_Sub8) Static341.aClass361_1.method8342(local11);
+        @Pc(17) DoublyLinkedNode_Sub2_Sub8 local17 = (DoublyLinkedNode_Sub2_Sub8) Static341.aClass361_1.method8342(local11);
         if (local17 == null) {
-            local17 = new Node_Sub2_Sub8(new short[this.anInt10521][arg0], arg1);
+            local17 = new DoublyLinkedNode_Sub2_Sub8(new short[this.anInt10521][arg0], arg1);
         } else {
             local17.aDouble10 = arg1;
             Static341.aClass361_1.method8344(local11);
@@ -105,7 +105,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(Lclient!dk;B)V")
-    public synchronized void method9143(@OriginalArg(0) Node_Sub2_Sub8 arg0) {
+    public synchronized void method9143(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub8 arg0) {
         while (this.anInt10535 >= 100) {
             this.aDeque_80.removeFirst();
             this.anInt10535--;
@@ -119,7 +119,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!wc", name = "b", descriptor = "(B)V")
     public synchronized void method9144() {
-        @Pc(7) Node_Sub2_Sub8 local7 = this.method9145();
+        @Pc(7) DoublyLinkedNode_Sub2_Sub8 local7 = this.method9145();
         if (local7 != null) {
             local7.remove();
             this.anInt10535--;
@@ -141,8 +141,8 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!wc", name = "c", descriptor = "(B)Lclient!dk;")
-    public synchronized Node_Sub2_Sub8 method9145() {
-        return (Node_Sub2_Sub8) this.aDeque_80.first(65280);
+    public synchronized DoublyLinkedNode_Sub2_Sub8 method9145() {
+        return (DoublyLinkedNode_Sub2_Sub8) this.aDeque_80.first(65280);
     }
 
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(IZ)V")
@@ -172,7 +172,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
                 local42 = 1;
             }
             while (arg1 < local32) {
-                @Pc(56) Node_Sub2_Sub8 local56 = this.method9145();
+                @Pc(56) DoublyLinkedNode_Sub2_Sub8 local56 = this.method9145();
                 if (local56 == null) {
                     return;
                 }

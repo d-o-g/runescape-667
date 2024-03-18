@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class334 {
 
     @OriginalMember(owner = "client!sf", name = "f", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_187 = new WeightedCache(256);
+    public final ReferenceCache aReferenceCache_187 = new ReferenceCache(256);
 
     @OriginalMember(owner = "client!sf", name = "c", descriptor = "Lclient!d;")
     public final TextureSource anTextureSource_9;
@@ -25,12 +25,12 @@ public final class Class334 {
 
     @OriginalMember(owner = "client!sf", name = "b", descriptor = "(B)V")
     public void method7653() {
-        this.aWeightedCache_187.reset();
+        this.aReferenceCache_187.reset();
     }
 
     @OriginalMember(owner = "client!sf", name = "a", descriptor = "(BI)Lclient!og;")
     public Interface18 method7654(@OriginalArg(1) int arg0) {
-        @Pc(12) Object local12 = this.aWeightedCache_187.method2156((long) arg0);
+        @Pc(12) Object local12 = this.aReferenceCache_187.get((long) arg0);
         if (local12 != null) {
             return (Interface18) local12;
         } else if (this.anTextureSource_9.textureAvailable(arg0)) {
@@ -50,7 +50,7 @@ public final class Class334 {
                 local105 = this.aClass19_Sub1_20.method8034(local35.aByte53 != 0, local45, local45, local79);
             }
             local105.method9052(local35.aBoolean236, local35.aBoolean235);
-            this.aWeightedCache_187.put(local105, (long) arg0);
+            this.aReferenceCache_187.put(local105, (long) arg0);
             return local105;
         } else {
             return null;
@@ -59,6 +59,6 @@ public final class Class334 {
 
     @OriginalMember(owner = "client!sf", name = "a", descriptor = "(B)V")
     public void method7655() {
-        this.aWeightedCache_187.method2147(5);
+        this.aReferenceCache_187.method2147(5);
     }
 }

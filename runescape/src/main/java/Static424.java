@@ -11,7 +11,7 @@ public final class Static424 {
 
     @OriginalMember(owner = "client!nga", name = "a", descriptor = "(I)V")
     public static void method5779() {
-        @Pc(1) WeightedCache local1 = PlayerModel.BIG_CACHE;
+        @Pc(1) ReferenceCache local1 = PlayerModel.BIG_CACHE;
         synchronized (PlayerModel.BIG_CACHE) {
             PlayerModel.BIG_CACHE.method2151();
         }

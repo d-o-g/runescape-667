@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rw")
-public final class AnimFrameset extends Node_Sub2 {
+public final class AnimFrameset extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!rw", name = "t", descriptor = "[Lclient!nb;")
     public AnimFrame[] frames;

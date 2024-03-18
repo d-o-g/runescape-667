@@ -11,7 +11,7 @@ public final class Static55 {
     public static int anInt1124 = 0;
 
     @OriginalMember(owner = "client!br", name = "a", descriptor = "(IILclient!pg;I)V")
-    public static void method1217(@OriginalArg(0) int arg0, @OriginalArg(2) Node_Sub2_Sub16 arg1, @OriginalArg(3) int arg2) {
+    public static void method1217(@OriginalArg(0) int arg0, @OriginalArg(2) DoublyLinkedNode_Sub2_Sub16 arg1, @OriginalArg(3) int arg2) {
         if (arg1 == null || arg1 == Static693.A_DEQUE___79.tail) {
             return;
         }

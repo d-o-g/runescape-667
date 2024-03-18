@@ -1,4 +1,3 @@
-import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -8,10 +7,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class361 {
 
     @OriginalMember(owner = "client!ts", name = "j", descriptor = "Lclient!cm;")
-    public Node_Sub2 aClass2_Sub2_57 = new Node_Sub2();
+    public DoublyLinkedNode aClass2_Sub2_57 = new DoublyLinkedNode();
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "Lclient!jga;")
-    public final Class192 aClass192_15 = new Class192();
+    public final Queue aQueue_15 = new Queue();
 
     @OriginalMember(owner = "client!ts", name = "h", descriptor = "I")
     public int anInt9483;
@@ -33,47 +32,47 @@ public final class Class361 {
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(BLclient!cm;J)V")
-    public void method8341(@OriginalArg(1) Node_Sub2 arg0, @OriginalArg(2) long arg1) {
+    public void method8341(@OriginalArg(1) DoublyLinkedNode arg0, @OriginalArg(2) long arg1) {
         if (this.anInt9483 == 0) {
-            @Pc(19) Node_Sub2 local19 = this.aClass192_15.method4346();
+            @Pc(19) DoublyLinkedNode local19 = this.aQueue_15.removeFirst();
             local19.remove();
-            local19.method9260();
+            local19.remove2();
             if (this.aClass2_Sub2_57 == local19) {
-                local19 = this.aClass192_15.method4346();
+                local19 = this.aQueue_15.removeFirst();
                 local19.remove();
-                local19.method9260();
+                local19.remove2();
             }
         } else {
             this.anInt9483--;
         }
         this.aHashTable_42.put(arg1, arg0);
-        this.aClass192_15.method4348(arg0);
+        this.aQueue_15.add(arg0);
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(JZ)Lclient!cm;")
-    public Node_Sub2 method8342(@OriginalArg(0) long arg0) {
-        @Pc(16) Node_Sub2 local16 = (Node_Sub2) this.aHashTable_42.get(arg0);
+    public DoublyLinkedNode method8342(@OriginalArg(0) long arg0) {
+        @Pc(16) DoublyLinkedNode local16 = (DoublyLinkedNode) this.aHashTable_42.get(arg0);
         if (local16 != null) {
-            this.aClass192_15.method4348(local16);
+            this.aQueue_15.add(local16);
         }
         return local16;
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(IJ)V")
     public void method8344(@OriginalArg(1) long arg0) {
-        @Pc(18) Node_Sub2 local18 = (Node_Sub2) this.aHashTable_42.get(arg0);
+        @Pc(18) DoublyLinkedNode local18 = (DoublyLinkedNode) this.aHashTable_42.get(arg0);
         if (local18 != null) {
             local18.remove();
-            local18.method9260();
+            local18.remove2();
             this.anInt9483++;
         }
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(B)V")
     public void method8345() {
-        this.aClass192_15.method4351();
+        this.aQueue_15.clear();
         this.aHashTable_42.clear();
-        this.aClass2_Sub2_57 = new Node_Sub2();
+        this.aClass2_Sub2_57 = new DoublyLinkedNode();
         this.anInt9483 = this.anInt9484;
     }
 }

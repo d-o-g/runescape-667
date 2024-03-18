@@ -14,10 +14,10 @@ public final class Static440 {
     public static final int[] anIntArray529 = new int[2];
 
     @OriginalMember(owner = "client!nt", name = "a", descriptor = "(IIJ)Lclient!aj;")
-    public static Node_Sub2_Sub2_ method5963(@OriginalArg(1) int arg0, @OriginalArg(2) long arg1) {
-        @Pc(21) Node_Sub2_Sub2_ local21 = (Node_Sub2_Sub2_) Static658.A_HASH_TABLE___43.get(arg1 | (long) arg0 << 56);
+    public static DoublyLinkedNode_Sub2__ method5963(@OriginalArg(1) int arg0, @OriginalArg(2) long arg1) {
+        @Pc(21) DoublyLinkedNode_Sub2__ local21 = (DoublyLinkedNode_Sub2__) Static658.A_HASH_TABLE___43.get(arg1 | (long) arg0 << 56);
         if (local21 == null) {
-            local21 = new Node_Sub2_Sub2_(arg0, arg1);
+            local21 = new DoublyLinkedNode_Sub2__(arg0, arg1);
             Static658.A_HASH_TABLE___43.put(local21.key, local21);
         }
         return local21;

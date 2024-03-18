@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vm")
-public final class Node_Sub2_Sub21 extends Node_Sub2 {
+public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!vm", name = "E", descriptor = "[I")
     public final int[] anIntArray824;
@@ -26,7 +26,7 @@ public final class Node_Sub2_Sub21 extends Node_Sub2 {
     public final Node_Sub1[] aClass2_Sub1Array39;
 
     @OriginalMember(owner = "client!vm", name = "<init>", descriptor = "()V")
-    public Node_Sub2_Sub21() {
+    public DoublyLinkedNode_Sub2_Sub21() {
         this.anIntArray824 = new int[0];
         this.anIntArray823 = new int[0];
         this.aClass2_Sub1_2 = new Node_Sub1_Sub17(0);
@@ -39,7 +39,7 @@ public final class Node_Sub2_Sub21 extends Node_Sub2 {
     }
 
     @OriginalMember(owner = "client!vm", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Node_Sub2_Sub21(@OriginalArg(0) Packet arg0) {
+    public DoublyLinkedNode_Sub2_Sub21(@OriginalArg(0) Packet arg0) {
         @Pc(7) int local7 = arg0.g1();
         @Pc(9) int local9 = 0;
         @Pc(11) int local11 = 0;

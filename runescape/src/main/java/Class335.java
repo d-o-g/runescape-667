@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class335 {
 
     @OriginalMember(owner = "client!sfa", name = "c", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_188 = new WeightedCache(64);
+    public final ReferenceCache aReferenceCache_188 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!sfa", name = "b", descriptor = "Lclient!sb;")
     public final Class330 aClass330_107;
@@ -19,11 +19,11 @@ public final class Class335 {
     }
 
     @OriginalMember(owner = "client!sfa", name = "a", descriptor = "(II)Lclient!dba;")
-    public Node_Sub2_Sub6 method7657(@OriginalArg(0) int arg0) {
-        @Pc(6) WeightedCache local6 = this.aWeightedCache_188;
-        @Pc(16) Node_Sub2_Sub6 local16;
-        synchronized (this.aWeightedCache_188) {
-            local16 = (Node_Sub2_Sub6) this.aWeightedCache_188.method2156((long) arg0);
+    public DoublyLinkedNode_Sub2_Sub6 method7657(@OriginalArg(0) int arg0) {
+        @Pc(6) ReferenceCache local6 = this.aReferenceCache_188;
+        @Pc(16) DoublyLinkedNode_Sub2_Sub6 local16;
+        synchronized (this.aReferenceCache_188) {
+            local16 = (DoublyLinkedNode_Sub2_Sub6) this.aReferenceCache_188.get((long) arg0);
         }
         if (local16 != null) {
             return local16;
@@ -33,13 +33,13 @@ public final class Class335 {
         synchronized (this.aClass330_107) {
             local39 = this.aClass330_107.method7595(arg0, 5);
         }
-        local16 = new Node_Sub2_Sub6();
+        local16 = new DoublyLinkedNode_Sub2_Sub6();
         if (local39 != null) {
             local16.method1979(new Packet(local39));
         }
-        @Pc(63) WeightedCache local63 = this.aWeightedCache_188;
-        synchronized (this.aWeightedCache_188) {
-            this.aWeightedCache_188.put(local16, (long) arg0);
+        @Pc(63) ReferenceCache local63 = this.aReferenceCache_188;
+        synchronized (this.aReferenceCache_188) {
+            this.aReferenceCache_188.put(local16, (long) arg0);
             return local16;
         }
     }

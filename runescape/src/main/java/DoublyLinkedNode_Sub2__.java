@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!aj")
-public final class Node_Sub2_Sub2_ extends Node_Sub2 {
+public final class DoublyLinkedNode_Sub2__ extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!aj", name = "x", descriptor = "Ljava/lang/String;")
     public String aString1;
@@ -18,20 +18,20 @@ public final class Node_Sub2_Sub2_ extends Node_Sub2 {
     public int anInt197;
 
     @OriginalMember(owner = "client!aj", name = "<init>", descriptor = "(IJ)V")
-    public Node_Sub2_Sub2_(@OriginalArg(0) int arg0, @OriginalArg(1) long arg1) {
+    public DoublyLinkedNode_Sub2__(@OriginalArg(0) int arg0, @OriginalArg(1) long arg1) {
         super.key = arg1 | (long) arg0 << 56;
     }
 
     @OriginalMember(owner = "client!aj", name = "g", descriptor = "(I)J")
     public long method201() {
-        return super.aLong325 & Long.MAX_VALUE;
+        return super.key2 & Long.MAX_VALUE;
     }
 
     @OriginalMember(owner = "client!aj", name = "i", descriptor = "(I)V")
     public void method202() {
-        super.aLong325 |= Long.MIN_VALUE;
+        super.key2 |= Long.MIN_VALUE;
         if (this.method201() == (long) 0) {
-            Static138.aClass192_6.method4348(this);
+            Static138.A_QUEUE___6.add(this);
         }
     }
 
@@ -47,7 +47,7 @@ public final class Node_Sub2_Sub2_ extends Node_Sub2 {
 
     @OriginalMember(owner = "client!aj", name = "c", descriptor = "(B)V")
     public void method205() {
-        super.aLong325 = Static588.method7715() + 500L | super.aLong325 & Long.MIN_VALUE;
-        Static59.aClass192_9.method4348(this);
+        super.key2 = Static588.method7715() + 500L | super.key2 & Long.MIN_VALUE;
+        Static59.A_QUEUE___9.add(this);
     }
 }

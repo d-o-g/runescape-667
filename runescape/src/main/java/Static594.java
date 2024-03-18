@@ -7,7 +7,7 @@ public final class Static594 {
     public static int anInt8775;
 
     @OriginalMember(owner = "client!sn", name = "g", descriptor = "Lclient!dla;")
-    public static final WeightedCache A_WEIGHTED_CACHE___193 = new WeightedCache(128, 4);
+    public static final ReferenceCache A_WEIGHTED_CACHE___193 = new ReferenceCache(128, 4);
 
     @OriginalMember(owner = "client!sn", name = "h", descriptor = "I")
     public static int anInt8776 = 0;

@@ -229,7 +229,7 @@ public final class Static605 {
                         }
                         @Pc(1053) Class8_Sub2_Sub1_Sub1 local1053 = new Class8_Sub2_Sub1_Sub1(local219, Static87.anInt1810, Static87.anInt1810, local21, local25, local812, local322 + Static333.anInt5455, Static333.anInt5455 + local353, local843, local847, local212, local217, local290, local764, local46);
                         local1053.method813(Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local290, local322 + Static333.anInt5455, local537, local52);
-                        Static505.A_DEQUE___77.addLast(new Node_Sub2_Sub15(local1053));
+                        Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local1053));
                     }
                 } else if (Static77.aClass287_5 == arg0) {
                     local15 = local8.g2_alt2();
@@ -329,7 +329,7 @@ public final class Static605 {
                         local34 = local34 * 512 + 256;
                         @Pc(1728) Class8_Sub2_Sub1_Sub1 local1728 = new Class8_Sub2_Sub1_Sub1(local52, Static87.anInt1810, Static87.anInt1810, local25, local34, local537, local217 + Static333.anInt5455, local219 + Static333.anInt5455, local812, local290, 0, local46, local212, local1540, -1);
                         local1728.method813(Static102.method2025(Static87.anInt1810, -29754, local42, local38) - local212, Static333.anInt5455 + local217, local42, local38);
-                        Static505.A_DEQUE___77.addLast(new Node_Sub2_Sub15(local1728));
+                        Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local1728));
                     }
                 } else if (Static210.aClass287_9 == arg0) {
                     local15 = local8.g1_alt2();
@@ -370,7 +370,7 @@ public final class Static605 {
                     local46 = local8.g1();
                     if (local21 >= 0 && local25 >= 0 && local21 < Static720.anInt10859 && Static501.anInt7568 > local25) {
                         if (local34 == -1) {
-                            @Pc(2004) Node_Sub2_Sub20 local2004 = (Node_Sub2_Sub20) Static346.A_HASH_TABLE___29.get((long) (local21 << 16 | local25));
+                            @Pc(2004) DoublyLinkedNode_Sub2_Sub20 local2004 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get((long) (local21 << 16 | local25));
                             if (local2004 != null) {
                                 local2004.aClass8_Sub2_Sub1_Sub5_1.method6600();
                                 local2004.remove();
@@ -384,7 +384,7 @@ public final class Static605 {
                                 local212++;
                             }
                             @Pc(2065) Class8_Sub2_Sub1_Sub5 local2065 = new Class8_Sub2_Sub1_Sub5(local34, local42, Static87.anInt1810, local212, local52, Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);
-                            Static346.A_HASH_TABLE___29.put((long) (local21 << 16 | local25), new Node_Sub2_Sub20(local2065));
+                            Static346.A_HASH_TABLE___29.put((long) (local21 << 16 | local25), new DoublyLinkedNode_Sub2_Sub20(local2065));
                         }
                     }
                 } else {

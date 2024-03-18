@@ -7,7 +7,7 @@ public final class Static153 {
     public static final int[] anIntArray234 = new int[13];
 
     @OriginalMember(owner = "client!eq", name = "w", descriptor = "Lclient!dla;")
-    public static final WeightedCache A_WEIGHTED_CACHE___56 = new WeightedCache(64);
+    public static final ReferenceCache A_WEIGHTED_CACHE___56 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!eq", name = "o", descriptor = "[I")
     public static int[] anIntArray235 = new int[2];

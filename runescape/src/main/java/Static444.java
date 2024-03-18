@@ -8,7 +8,7 @@ public final class Static444 {
     public static int anInt6751;
 
     @OriginalMember(owner = "client!o", name = "x", descriptor = "Lclient!dla;")
-    public static final WeightedCache A_WEIGHTED_CACHE___145 = new WeightedCache(4);
+    public static final ReferenceCache A_WEIGHTED_CACHE___145 = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!o", name = "jb", descriptor = "Lclient!jg;")
     public static final Class191 aClass191_1 = new Class191();
@@ -27,13 +27,13 @@ public final class Static444 {
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(B)V")
     public static void method5988() {
-        @Pc(13) Node_Sub2_Sub2_ local13 = Static440.method5963(15, 0L);
+        @Pc(13) DoublyLinkedNode_Sub2__ local13 = Static440.method5963(15, 0L);
         local13.method205();
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(BI)Lclient!vaa;")
     public static Class379 method5994(@OriginalArg(1) int arg0) {
-        @Pc(10) Class379 local10 = (Class379) Static289.A_WEIGHTED_CACHE___100.method2156((long) arg0);
+        @Pc(10) Class379 local10 = (Class379) Static289.A_WEIGHTED_CACHE___100.get((long) arg0);
         if (local10 != null) {
             return local10;
         }

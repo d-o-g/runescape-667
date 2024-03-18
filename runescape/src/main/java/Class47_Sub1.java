@@ -64,7 +64,7 @@ public final class Class47_Sub1 extends Class47 {
     public final Class9 aClass9_2;
 
     @OriginalMember(owner = "client!pm", name = "C", descriptor = "Lclient!tw;")
-    public Node_Sub2_Sub17 aClass2_Sub2_Sub17_1;
+    public DoublyLinkedNode_Sub2_Sub17 aClass2_Sub2_Sub17_1;
 
     @OriginalMember(owner = "client!pm", name = "<init>", descriptor = "(ILclient!af;Lclient!af;Lclient!pla;Lclient!iba;I[BIZ)V")
     public Class47_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) Class9 arg1, @OriginalArg(2) Class9 arg2, @OriginalArg(3) Class295 arg3, @OriginalArg(4) Class174 arg4, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) boolean arg8) {
@@ -221,7 +221,7 @@ public final class Class47_Sub1 extends Class47 {
         if (!this.aBoolean569 || Static588.method7715() < this.aLong239) {
             return;
         }
-        for (@Pc(366) Node_Sub2_Sub17 local366 = (Node_Sub2_Sub17) this.aHashTable_36.first(); local366 != null; local366 = (Node_Sub2_Sub17) this.aHashTable_36.next()) {
+        for (@Pc(366) DoublyLinkedNode_Sub2_Sub17 local366 = (DoublyLinkedNode_Sub2_Sub17) this.aHashTable_36.first(); local366 != null; local366 = (DoublyLinkedNode_Sub2_Sub17) this.aHashTable_36.next()) {
             if (!local366.aBoolean778) {
                 if (local366.aBoolean776) {
                     if (!local366.aBoolean777) {
@@ -244,7 +244,7 @@ public final class Class47_Sub1 extends Class47 {
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(IB)[B")
     @Override
     public byte[] method6641(@OriginalArg(0) int arg0) {
-        @Pc(9) Node_Sub2_Sub17 local9 = this.method6651(arg0, 0);
+        @Pc(9) DoublyLinkedNode_Sub2_Sub17 local9 = this.method6651(arg0, 0);
         if (local9 == null) {
             return null;
         } else {
@@ -255,8 +255,8 @@ public final class Class47_Sub1 extends Class47 {
     }
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(III)Lclient!tw;")
-    public Node_Sub2_Sub17 method6651(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(19) Node_Sub2_Sub17 local19 = (Node_Sub2_Sub17) this.aHashTable_36.get((long) arg0);
+    public DoublyLinkedNode_Sub2_Sub17 method6651(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+        @Pc(19) DoublyLinkedNode_Sub2_Sub17 local19 = (DoublyLinkedNode_Sub2_Sub17) this.aHashTable_36.get((long) arg0);
         if (local19 != null && arg1 == 0 && !local19.aBoolean777 && local19.aBoolean778) {
             local19.remove();
             local19 = null;
@@ -300,8 +300,8 @@ public final class Class47_Sub1 extends Class47 {
         @Pc(254) byte[] local254;
         @Pc(263) byte[] local263;
         @Pc(265) int local265;
-        @Pc(383) Node_Sub2_Sub17_Sub1 local383;
-        if (!(local19 instanceof Node_Sub2_Sub17_Sub2)) {
+        @Pc(383) DoublyLinkedNode_Sub2_Sub17_Sub1 local383;
+        if (!(local19 instanceof DoublyLinkedNode_Sub2_Sub17_)) {
             try {
                 label157:
                 {
@@ -400,7 +400,7 @@ public final class Class47_Sub1 extends Class47 {
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(BI)I")
     @Override
     public int method6637(@OriginalArg(1) int arg0) {
-        @Pc(19) Node_Sub2_Sub17 local19 = (Node_Sub2_Sub17) this.aHashTable_36.get((long) arg0);
+        @Pc(19) DoublyLinkedNode_Sub2_Sub17 local19 = (DoublyLinkedNode_Sub2_Sub17) this.aHashTable_36.get((long) arg0);
         return local19 == null ? 0 : local19.method8972();
     }
 
@@ -443,7 +443,7 @@ public final class Class47_Sub1 extends Class47 {
             return null;
         }
         @Pc(53) byte[] local53 = this.aClass2_Sub2_Sub17_1.method8971();
-        if (this.aClass2_Sub2_Sub17_1 instanceof Node_Sub2_Sub17_Sub2) {
+        if (this.aClass2_Sub2_Sub17_1 instanceof DoublyLinkedNode_Sub2_Sub17_) {
             try {
                 if (local53 == null) {
                     throw new RuntimeException();

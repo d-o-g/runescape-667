@@ -27,7 +27,7 @@ public final class Static402 {
 
     @OriginalMember(owner = "client!ml", name = "c", descriptor = "(II)Lclient!uja;")
     public static Class376 method5582(@OriginalArg(1) int arg0) {
-        @Pc(10) Class376 local10 = (Class376) Static153.A_WEIGHTED_CACHE___56.method2156((long) arg0);
+        @Pc(10) Class376 local10 = (Class376) Static153.A_WEIGHTED_CACHE___56.get((long) arg0);
         if (local10 != null) {
             return local10;
         }

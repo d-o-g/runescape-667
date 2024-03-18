@@ -14,7 +14,7 @@ public final class Static314 {
 
     @OriginalMember(owner = "client!jw", name = "c", descriptor = "(B)V")
     public static void method4560() {
-        @Pc(5) WeightedCache local5 = PlayerModel.BIG_CACHE;
+        @Pc(5) ReferenceCache local5 = PlayerModel.BIG_CACHE;
         synchronized (PlayerModel.BIG_CACHE) {
             PlayerModel.BIG_CACHE.reset();
         }

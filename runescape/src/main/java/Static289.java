@@ -8,7 +8,7 @@ public final class Static289 {
     public static float aFloat84;
 
     @OriginalMember(owner = "client!jba", name = "d", descriptor = "Lclient!dla;")
-    public static final WeightedCache A_WEIGHTED_CACHE___100 = new WeightedCache(64);
+    public static final ReferenceCache A_WEIGHTED_CACHE___100 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!jba", name = "a", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_19 = new Class155(1);

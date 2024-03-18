@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!co")
-public final class Node_Sub2_Sub5 extends Node_Sub2 {
+public final class DoublyLinkedNode_Sub2_Sub5 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!co", name = "z", descriptor = "I")
     public int anInt1821;
@@ -27,7 +27,7 @@ public final class Node_Sub2_Sub5 extends Node_Sub2 {
     public final Class278 aClass278_1;
 
     @OriginalMember(owner = "client!co", name = "<init>", descriptor = "(Lclient!mn;Lclient!hv;)V")
-    public Node_Sub2_Sub5(@OriginalArg(0) MeshMagnet arg0, @OriginalArg(1) Class8_Sub5 arg1) {
+    public DoublyLinkedNode_Sub2_Sub5(@OriginalArg(0) MeshMagnet arg0, @OriginalArg(1) Class8_Sub5 arg1) {
         this.aMeshMagnet_1 = arg0;
         this.aClass278_1 = this.aMeshMagnet_1.method5590();
         this.method1707();

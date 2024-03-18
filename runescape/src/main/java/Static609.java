@@ -57,13 +57,13 @@ public final class Static609 {
     }
 
     @OriginalMember(owner = "client!tea", name = "a", descriptor = "(IIILclient!cba;)V")
-    public static void method8214(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Node_Sub2_Sub4 arg2) {
+    public static void method8214(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) DoublyLinkedNode_Sub2_Sub4 arg2) {
         if (!Static400.aBoolean622) {
             return;
         }
         @Pc(11) int local11 = 0;
         @Pc(23) int local23;
-        for (@Pc(17) Node_Sub2_Sub16 local17 = (Node_Sub2_Sub16) arg2.aClass192_3.method4352(); local17 != null; local17 = (Node_Sub2_Sub16) arg2.aClass192_3.method4350()) {
+        for (@Pc(17) DoublyLinkedNode_Sub2_Sub16 local17 = (DoublyLinkedNode_Sub2_Sub16) arg2.aQueue_3.first(); local17 != null; local17 = (DoublyLinkedNode_Sub2_Sub16) arg2.aQueue_3.next()) {
             local23 = Static249.method3536(local17);
             if (local23 > local11) {
                 local11 = local23;

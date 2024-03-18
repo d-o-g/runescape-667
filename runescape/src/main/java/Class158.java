@@ -484,7 +484,7 @@ public final class Class158 {
     public Sprite method3383(@OriginalArg(1) Toolkit arg0) {
         Static544.aBoolean624 = false;
         @Pc(54) long local54 = ((long) this.anInt3798 << 40) + (((this.aBoolean292 ? 1L : 0L) << 35) + (long) this.anInt3810 - (-((long) this.anInt3773 << 36) + -((this.aBoolean291 ? 1L : 0L) << 38)) + ((this.aBoolean293 ? 1L : 0L) << 39));
-        @Pc(60) Sprite local60 = (Sprite) Static473.A_WEIGHTED_CACHE___157.method2156(local54);
+        @Pc(60) Sprite local60 = (Sprite) Static473.A_WEIGHTED_CACHE___157.get(local54);
         if (local60 != null) {
             return local60;
         }
@@ -514,7 +514,7 @@ public final class Class158 {
             local71.method9381(this.anInt3798 | 0xFF000000);
         }
         local60 = arg0.method7948(local71, true);
-        Static473.A_WEIGHTED_CACHE___157.method2153(local54, local60, local60.getWidth() * local60.getHeight() * 4);
+        Static473.A_WEIGHTED_CACHE___157.put(local54, local60, local60.getWidth() * local60.getHeight() * 4);
         return local60;
     }
 
@@ -852,11 +852,11 @@ public final class Class158 {
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;I)Lclient!he;")
     public Class159 method3393(@OriginalArg(0) Toolkit arg0) {
         @Pc(15) long local15 = (long) this.anInt3741 & 0xFFFFFFFFL | (long) this.anInt3812 << 32;
-        @Pc(21) Class159 local21 = (Class159) Static449.A_WEIGHTED_CACHE___146.method2156(local15);
+        @Pc(21) Class159 local21 = (Class159) Static449.A_WEIGHTED_CACHE___146.get(local15);
         if (local21 != null) {
             if (local21.anInt3836 != this.anInt3810) {
                 local21 = null;
-                Static449.A_WEIGHTED_CACHE___146.method2154(local15);
+                Static449.A_WEIGHTED_CACHE___146.remove(local15);
             }
             if (local21 != null) {
                 return local21;
@@ -1017,7 +1017,7 @@ public final class Class158 {
                 arg9 |= 0x8000;
             }
             @Pc(271) long local271 = local53 & 0x3FFFFFFFFFL | (long) this.obj << 38 | (long) this.anInt3823 << 54 | (long) arg0.index << 59;
-            @Pc(277) Model local277 = (Model) Static312.A_WEIGHTED_CACHE___106.method2156(local271);
+            @Pc(277) Model local277 = (Model) Static312.A_WEIGHTED_CACHE___106.get(local271);
             if (local277 == null || arg0.compareFunctionMasks(local277.ua(), arg9) != 0) {
                 if (local277 != null) {
                     arg9 = arg0.combineFunctionMasks(arg9, local277.ua());
@@ -1142,7 +1142,7 @@ public final class Class158 {
             return null;
         }
         @Pc(48) long local48 = (long) this.anInt3824 & 0xFFFFL | ((long) this.anInt3782 & 0xFFFFL) << 16 | ((long) this.anInt3763 & 0xFFFFL) << 48 | 0xFFFFL << 32 & (long) this.anInt3796 << 32;
-        @Pc(54) Class148 local54 = (Class148) Static444.A_WEIGHTED_CACHE___145.method2156(local48);
+        @Pc(54) Class148 local54 = (Class148) Static444.A_WEIGHTED_CACHE___145.get(local48);
         if (local54 == null) {
             local54 = arg1.method7072(arg0, this.anInt3782, this.anInt3824, this.anInt3796, this.anInt3763);
             Static444.A_WEIGHTED_CACHE___145.put(local54, local48);

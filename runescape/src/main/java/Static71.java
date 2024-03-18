@@ -572,7 +572,7 @@ public final class Static71 {
 
     @OriginalMember(owner = "client!cea", name = "a", descriptor = "(IB)V")
     public static void method1523(@OriginalArg(0) int arg0) {
-        @Pc(18) Node_Sub2_Sub2_ local18 = Static440.method5963(21, (long) arg0);
+        @Pc(18) DoublyLinkedNode_Sub2__ local18 = Static440.method5963(21, (long) arg0);
         local18.method205();
     }
 

@@ -7,10 +7,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class220 {
 
     @OriginalMember(owner = "client!ld", name = "n", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_121 = new WeightedCache(20);
+    public final ReferenceCache aReferenceCache_121 = new ReferenceCache(20);
 
     @OriginalMember(owner = "client!ld", name = "d", descriptor = "Lclient!dla;")
-    public final WeightedCache aWeightedCache_122 = new WeightedCache(64);
+    public final ReferenceCache aReferenceCache_122 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!ld", name = "l", descriptor = "Lclient!sb;")
     public final Class330 aClass330_75;
@@ -27,46 +27,46 @@ public final class Class220 {
 
     @OriginalMember(owner = "client!ld", name = "a", descriptor = "(I)V")
     public void method5182() {
-        @Pc(2) WeightedCache local2 = this.aWeightedCache_122;
-        synchronized (this.aWeightedCache_122) {
-            this.aWeightedCache_122.reset();
+        @Pc(2) ReferenceCache local2 = this.aReferenceCache_122;
+        synchronized (this.aReferenceCache_122) {
+            this.aReferenceCache_122.reset();
         }
-        local2 = this.aWeightedCache_121;
-        synchronized (this.aWeightedCache_121) {
-            this.aWeightedCache_121.reset();
+        local2 = this.aReferenceCache_121;
+        synchronized (this.aReferenceCache_121) {
+            this.aReferenceCache_121.reset();
         }
     }
 
     @OriginalMember(owner = "client!ld", name = "b", descriptor = "(I)V")
     public void method5183() {
-        @Pc(2) WeightedCache local2 = this.aWeightedCache_122;
-        synchronized (this.aWeightedCache_122) {
-            this.aWeightedCache_122.method2151();
+        @Pc(2) ReferenceCache local2 = this.aReferenceCache_122;
+        synchronized (this.aReferenceCache_122) {
+            this.aReferenceCache_122.method2151();
         }
-        local2 = this.aWeightedCache_121;
-        synchronized (this.aWeightedCache_121) {
-            this.aWeightedCache_121.method2151();
+        local2 = this.aReferenceCache_121;
+        synchronized (this.aReferenceCache_121) {
+            this.aReferenceCache_121.method2151();
         }
     }
 
     @OriginalMember(owner = "client!ld", name = "a", descriptor = "(II)V")
     public void method5184() {
-        @Pc(6) WeightedCache local6 = this.aWeightedCache_122;
-        synchronized (this.aWeightedCache_122) {
-            this.aWeightedCache_122.method2147(5);
+        @Pc(6) ReferenceCache local6 = this.aReferenceCache_122;
+        synchronized (this.aReferenceCache_122) {
+            this.aReferenceCache_122.method2147(5);
         }
-        local6 = this.aWeightedCache_121;
-        synchronized (this.aWeightedCache_121) {
-            this.aWeightedCache_121.method2147(5);
+        local6 = this.aReferenceCache_121;
+        synchronized (this.aReferenceCache_121) {
+            this.aReferenceCache_121.method2147(5);
         }
     }
 
     @OriginalMember(owner = "client!ld", name = "b", descriptor = "(II)Lclient!pb;")
     public Class285 method5186(@OriginalArg(0) int arg0) {
-        @Pc(6) WeightedCache local6 = this.aWeightedCache_122;
+        @Pc(6) ReferenceCache local6 = this.aReferenceCache_122;
         @Pc(16) Class285 local16;
-        synchronized (this.aWeightedCache_122) {
-            local16 = (Class285) this.aWeightedCache_122.method2156((long) arg0);
+        synchronized (this.aReferenceCache_122) {
+            local16 = (Class285) this.aReferenceCache_122.get((long) arg0);
         }
         if (local16 != null) {
             return local16;
@@ -81,9 +81,9 @@ public final class Class220 {
         if (local39 != null) {
             local16.method6458(new Packet(local39));
         }
-        @Pc(66) WeightedCache local66 = this.aWeightedCache_122;
-        synchronized (this.aWeightedCache_122) {
-            this.aWeightedCache_122.put(local16, (long) arg0);
+        @Pc(66) ReferenceCache local66 = this.aReferenceCache_122;
+        synchronized (this.aReferenceCache_122) {
+            this.aReferenceCache_122.put(local16, (long) arg0);
             return local16;
         }
     }

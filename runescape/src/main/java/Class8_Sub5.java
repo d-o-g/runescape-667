@@ -87,7 +87,7 @@ public final class Class8_Sub5 extends Class8 {
         }
         @Pc(21) int local21;
         label71:
-        for (@Pc(16) Node_Sub2_Sub5 local16 = (Node_Sub2_Sub5) this.aDeque_22.first(65280); local16 != null; local16 = (Node_Sub2_Sub5) this.aDeque_22.next()) {
+        for (@Pc(16) DoublyLinkedNode_Sub2_Sub5 local16 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.first(65280); local16 != null; local16 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.next()) {
             if (arg0 != null) {
                 for (local21 = 0; local21 < arg0.length; local21++) {
                     if (local16.aMeshMagnet_1 == arg0[local21] || local16.aMeshMagnet_1 == arg0[local21].aMeshMagnet_2) {
@@ -99,8 +99,8 @@ public final class Class8_Sub5 extends Class8 {
             }
             local16.remove();
             this.anInt4150--;
-            if (local16.method9261()) {
-                local16.method9260();
+            if (local16.isLinked2()) {
+                local16.remove2();
                 Static654.anInt9740--;
             }
         }
@@ -109,14 +109,14 @@ public final class Class8_Sub5 extends Class8 {
         }
         for (local21 = 0; local21 < arg0.length && local21 != 8 && this.anInt4150 != 8; local21++) {
             if (!Static257.aBooleanArray6[local21]) {
-                @Pc(96) Node_Sub2_Sub5 local96 = null;
+                @Pc(96) DoublyLinkedNode_Sub2_Sub5 local96 = null;
                 if (arg0[local21].method5590().anInt6982 == 1 && Static654.anInt9740 < 32) {
-                    local96 = new Node_Sub2_Sub5(arg0[local21], this);
+                    local96 = new DoublyLinkedNode_Sub2_Sub5(arg0[local21], this);
                     Static519.aClass144_1.method3094(local96, (long) arg0[local21].anInt6248);
                     Static654.anInt9740++;
                 }
                 if (local96 == null) {
-                    local96 = new Node_Sub2_Sub5(arg0[local21], this);
+                    local96 = new DoublyLinkedNode_Sub2_Sub5(arg0[local21], this);
                 }
                 this.aDeque_22.addLast(local96);
                 this.anInt4150++;
@@ -182,9 +182,9 @@ public final class Class8_Sub5 extends Class8 {
     @OriginalMember(owner = "client!hv", name = "d", descriptor = "()V")
     public void method3652() {
         this.aBoolean324 = true;
-        for (@Pc(8) Node_Sub2_Sub5 local8 = (Node_Sub2_Sub5) this.aDeque_22.first(65280); local8 != null; local8 = (Node_Sub2_Sub5) this.aDeque_22.next()) {
+        for (@Pc(8) DoublyLinkedNode_Sub2_Sub5 local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.first(65280); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.next()) {
             if (local8.aClass278_1.anInt6982 == 1) {
-                local8.method9260();
+                local8.remove2();
             }
         }
         for (@Pc(27) int local27 = 0; local27 < this.aClass8_Sub4_Sub2_Sub1Array1.length; local27++) {

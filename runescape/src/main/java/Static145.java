@@ -8,14 +8,14 @@ public final class Static145 {
     public static int anInt2561 = 0;
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(ZLclient!cm;Lclient!cm;)V")
-    public static void method2408(@OriginalArg(1) Node_Sub2 arg0, @OriginalArg(2) Node_Sub2 arg1) {
-        if (arg0.aClass2_Sub2_67 != null) {
-            arg0.method9260();
+    public static void method2408(@OriginalArg(1) DoublyLinkedNode arg0, @OriginalArg(2) DoublyLinkedNode arg1) {
+        if (arg0.prev2 != null) {
+            arg0.remove2();
         }
-        arg0.aClass2_Sub2_67 = arg1.aClass2_Sub2_67;
-        arg0.aClass2_Sub2_66 = arg1;
-        arg0.aClass2_Sub2_67.aClass2_Sub2_66 = arg0;
-        arg0.aClass2_Sub2_66.aClass2_Sub2_67 = arg0;
+        arg0.prev2 = arg1.prev2;
+        arg0.next2 = arg1;
+        arg0.prev2.next2 = arg0;
+        arg0.next2.prev2 = arg0;
     }
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(I)V")

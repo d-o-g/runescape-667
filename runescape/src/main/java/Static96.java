@@ -5,14 +5,14 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static96 {
 
     @OriginalMember(owner = "client!da", name = "o", descriptor = "Lclient!pg;")
-    public static Node_Sub2_Sub16 aClass2_Sub2_Sub16_13;
+    public static DoublyLinkedNode_Sub2_Sub16 aClass2_Sub2_Sub16_13;
 
     @OriginalMember(owner = "client!da", name = "q", descriptor = "I")
     public static int anInt10171 = 0;
 
     @OriginalMember(owner = "client!da", name = "b", descriptor = "(II)V")
     public static void method8819(@OriginalArg(1) int arg0) {
-        @Pc(18) Node_Sub2_Sub2_ local18 = Static440.method5963(4, (long) arg0);
+        @Pc(18) DoublyLinkedNode_Sub2__ local18 = Static440.method5963(4, (long) arg0);
         local18.method205();
     }
 

@@ -12,7 +12,7 @@ public final class Static30 {
     public static Class363 aClass363_3;
 
     @OriginalMember(owner = "client!baa", name = "I", descriptor = "Lclient!uk;")
-    public static Interface23 anInterface23_3;
+    public static VarDomain anVarDomain_3;
 
     @OriginalMember(owner = "client!baa", name = "m", descriptor = "Lclient!ip;")
     public static Node_Sub2_Sub13 aClass2_Sub2_Sub13_3;
@@ -372,14 +372,14 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
-    public static void method5065(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class96 arg1, @OriginalArg(2) Class79 arg2, @OriginalArg(3) Class142 arg3, @OriginalArg(4) Class246 arg4, @OriginalArg(5) Class363 arg5, @OriginalArg(6) Interface23 arg6) {
+    public static void method5065(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class96 arg1, @OriginalArg(2) Class79 arg2, @OriginalArg(3) Class142 arg3, @OriginalArg(4) Class246 arg4, @OriginalArg(5) Class363 arg5, @OriginalArg(6) VarDomain arg6) {
         aClass330_74 = arg0;
         aClass96_2 = arg1;
         aClass79_5 = arg2;
         aClass142_3 = arg3;
         aClass246_3 = arg4;
         aClass363_3 = arg5;
-        anInterface23_3 = arg6;
+        anVarDomain_3 = arg6;
         A_HASH_TABLE___27.clear();
         @Pc(23) int local23 = aClass330_74.method7590("details");
         @Pc(28) int[] local28 = aClass330_74.method7603(local23);
@@ -828,7 +828,7 @@ public final class Static30 {
                                 @Pc(46) Class54 local46 = aClass142_3.method3063(local31.aShortArray59[local35] & 0xFFFF, 115);
                                 local49 = local46.anInt1233;
                                 if (local46.anIntArray113 != null) {
-                                    local46 = local46.method1301(13, anInterface23_3);
+                                    local46 = local46.method1301(13, anVarDomain_3);
                                     if (local46 != null) {
                                         local49 = local46.anInt1233;
                                     }
@@ -845,7 +845,7 @@ public final class Static30 {
                         @Pc(94) Class54 local94 = aClass142_3.method3063(local15 - 1, 115);
                         local35 = local94.anInt1233;
                         if (local94.anIntArray113 != null) {
-                            local94 = local94.method1301(13, anInterface23_3);
+                            local94 = local94.method1301(13, anVarDomain_3);
                             if (local94 != null) {
                                 local35 = local94.anInt1233;
                             }
@@ -871,7 +871,7 @@ public final class Static30 {
                                     @Pc(177) Class54 local177 = aClass142_3.method3063(local160.aShortArray133[local49] & 0xFFFF, 126);
                                     @Pc(180) int local180 = local177.anInt1233;
                                     if (local177.anIntArray113 != null) {
-                                        local177 = local177.method1301(13, anInterface23_3);
+                                        local177 = local177.method1301(13, anVarDomain_3);
                                         if (local177 != null) {
                                             local180 = local177.anInt1233;
                                         }

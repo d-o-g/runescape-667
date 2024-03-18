@@ -47,7 +47,7 @@ public final class Static296 {
         Static335.method4945(local5);
         Static354.aClass142_4.method3065(local5);
         Static419.aObjTypeList_1.method2481(local5);
-        Static690.aClass308_2.method7093(local5);
+        Static690.aNPCTypeList_2.method7093(local5);
         Static23.aClass128_1.method2695(local5);
         Static41.method1029(local5);
         Static298.method4388(local5);

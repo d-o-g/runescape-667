@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static339 {
 
-    @OriginalMember(owner = "client!kma", name = "n", descriptor = "[[[S")
-    public static short[][][] bodycol_d;
-
     @OriginalMember(owner = "client!kma", name = "m", descriptor = "Lclient!ge;")
     public static Packet aClass2_Sub21_9;
 

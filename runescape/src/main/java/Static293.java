@@ -1898,7 +1898,7 @@ public final class Static293 {
                                                                             local526 = local11.g2();
                                                                             local1409 = local11.g1();
                                                                             local6565 = (local526 & 0x8000) != 0;
-                                                                            if (local7724.aString9 != null && local7724.aClass201_1 != null) {
+                                                                            if (local7724.aString9 != null && local7724.aPlayerModel_1 != null) {
                                                                                 local1425 = false;
                                                                                 if (local1409 <= 1) {
                                                                                     if (!local6565 && (Static389.aBoolean459 && !Static34.aBoolean62 || Static617.aBoolean724)) {

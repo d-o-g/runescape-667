@@ -73,7 +73,7 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "b", descriptor = "(I)V")
     @Override
-    public void method7139(@OriginalArg(0) int arg0) {
+    public void rotateAxisZ(@OriginalArg(0) int arg0) {
         this.za(this.nativeid, arg0);
     }
 
@@ -120,7 +120,7 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "c", descriptor = "(I)V")
     @Override
-    public void method7130(@OriginalArg(0) int arg0) {
+    public void rotateAxisX(@OriginalArg(0) int arg0) {
         this.J(this.nativeid, arg0);
     }
 

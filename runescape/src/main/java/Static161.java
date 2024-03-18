@@ -297,7 +297,7 @@ public final class Static161 {
                 local131 -= 32;
             }
             @Pc(144) int local144 = local8.method7412(2);
-            local42.method9328(Static690.aClass308_2.method7092(local8.method7412(15)));
+            local42.method9328(Static690.aNPCTypeList_2.list(local8.method7412(15)));
             @Pc(159) int local159 = local8.method7412(5);
             if (local159 > 15) {
                 local159 -= 32;

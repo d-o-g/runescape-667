@@ -124,7 +124,7 @@ public final class Class227 {
         }
         @Pc(263) Model local263 = local85.copy(arg0, local15, true);
         if (arg3 != null) {
-            arg3.method9089(local263, 0);
+            arg3.animate(local263, 0);
         }
         if (this.anInt5847 != 128 || this.anInt5843 != 128) {
             local263.O(this.anInt5847, this.anInt5843, this.anInt5847);

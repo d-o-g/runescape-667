@@ -232,12 +232,12 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         if (this.anInt695 < 0) {
             return;
         }
-        @Pc(105) Class289 local105 = local21.method9317();
+        @Pc(105) BASType local105 = local21.method9317();
         @Pc(107) int local107 = 0;
         @Pc(109) int local109 = 0;
-        if (local105.anIntArrayArray181 != null && local105.anIntArrayArray181[this.anInt695] != null) {
-            local109 = local105.anIntArrayArray181[this.anInt695][2];
-            local107 = local105.anIntArrayArray181[this.anInt695][0];
+        if (local105.equipmentTransformations != null && local105.equipmentTransformations[this.anInt695] != null) {
+            local109 = local105.equipmentTransformations[this.anInt695][2];
+            local107 = local105.equipmentTransformations[this.anInt695][0];
         }
         if (local105.anIntArrayArray180 != null && local105.anIntArrayArray180[this.anInt695] != null) {
             local109 += local105.anIntArrayArray180[this.anInt695][2];

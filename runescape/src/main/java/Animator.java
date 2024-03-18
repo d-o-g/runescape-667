@@ -9,6 +9,15 @@ public class Animator {
     @OriginalMember(owner = "client!jh", name = "i", descriptor = "Z")
     public static boolean forceTweening = false;
 
+    @OriginalMember(owner = "client!op", name = "a", descriptor = "(Lclient!gu;Lclient!ka;Lclient!gu;B)V")
+    public static void blend(@OriginalArg(0) Animator animator, @OriginalArg(1) Model model, @OriginalArg(2) Animator other) {
+        if (animator.method9111() && other.method9111()) {
+            @Pc(12) SeqType thisAnimation = animator.animation;
+            @Pc(15) SeqType otherAnimation = other.animation;
+            model.method7477(other.frameOffset, animator.primarySequences.anInt6448, animator.primarySequences.aClass2_Sub2_Sub18_2, other.primarySequences.anInt6450, animator.primarySequences.anInt6450, other.primarySequences.aClass2_Sub2_Sub18_2, animator.primarySequences.aClass2_Sub2_Sub18_1, animator.frameOffset, thisAnimation.aBoolean140 | otherAnimation.aBoolean140, otherAnimation.frameDurations[other.currentFrame], other.primarySequences.aClass2_Sub2_Sub18_1, thisAnimation.aBooleanArray3, thisAnimation.frameDurations[animator.currentFrame], other.primarySequences.anInt6448);
+        }
+    }
+
     @OriginalMember(owner = "client!gu", name = "L", descriptor = "Lclient!cka;")
     public SeqType animation;
 
@@ -64,14 +73,15 @@ public class Animator {
     }
 
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(ILclient!ka;I)V")
-    public final void method9089(@OriginalArg(1) Model arg0, @OriginalArg(2) int arg1) {
+    public final void animate(@OriginalArg(1) Model model, @OriginalArg(2) int arg1) {
         if (this.animation == null || !this.method9111()) {
             return;
         }
-        arg0.method7487(this.primarySequences.aClass2_Sub2_Sub18_1, this.frameOffset, this.animation.frameDurations[this.currentFrame], this.primarySequences.aClass2_Sub2_Sub18_2, this.primarySequences.anInt6448, this.primarySequences.anInt6450, arg1, this.animation.aBoolean140);
+
+        model.method7487(this.primarySequences.aClass2_Sub2_Sub18_1, this.frameOffset, this.animation.frameDurations[this.currentFrame], this.primarySequences.aClass2_Sub2_Sub18_2, this.primarySequences.anInt6448, this.primarySequences.anInt6450, arg1, this.animation.aBoolean140);
+
         if (this.runSecondary && this.animation.secondaryFrames != null && this.secondarySequences.aBoolean481) {
-            arg0.method7487(this.secondarySequences.aClass2_Sub2_Sub18_1, this.frameOffset, this.animation.frameDurations[this.currentFrame], this.secondarySequences.aClass2_Sub2_Sub18_2, this.secondarySequences.anInt6448, this.secondarySequences.anInt6450, arg1, this.animation.aBoolean140);
-            return;
+            model.method7487(this.secondarySequences.aClass2_Sub2_Sub18_1, this.frameOffset, this.animation.frameDurations[this.currentFrame], this.secondarySequences.aClass2_Sub2_Sub18_2, this.secondarySequences.anInt6448, this.secondarySequences.anInt6450, arg1, this.animation.aBoolean140);
         }
     }
 

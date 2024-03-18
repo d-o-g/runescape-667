@@ -503,7 +503,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
-    public int[] method8798(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) Class201 appearance, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Class14 font, @OriginalArg(9) int outline) {
+    public int[] method8798(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) PlayerModel appearance, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Class14 font, @OriginalArg(9) int outline) {
         @Pc(14) Mesh mesh = Static121.method2201(this.mesh, this.myList.meshes);
         if (mesh == null) {
             return null;
@@ -532,9 +532,9 @@ public final class ObjType {
 
         if (appearance != null) {
             for (i = 0; i < 10; i++) {
-                for (@Pc(138) int local138 = 0; local138 < Static76.bodycol_s[i].length; local138++) {
-                    if (appearance.bodycol_d_palette[i] < Static339.bodycol_d[i][local138].length) {
-                        mesh.recolour(Static76.bodycol_s[i][local138], Static339.bodycol_d[i][local138][appearance.bodycol_d_palette[i]]);
+                for (@Pc(138) int local138 = 0; local138 < PlayerModel.bodycol_s[i].length; local138++) {
+                    if (appearance.bodycol_d_palette[i] < PlayerModel.bodycol_d[i][local138].length) {
+                        mesh.recolour(PlayerModel.bodycol_s[i][local138], PlayerModel.bodycol_d[i][local138][appearance.bodycol_d_palette[i]]);
                     }
                 }
             }
@@ -593,7 +593,7 @@ public final class ObjType {
         scratch.makeRotationZ(-this.zan2d << 3);
         scratch.rotateAxisY(this.yan2d << 3);
         scratch.translate(this.xof2d << 2, (Trig1.SIN[this.xan2d << 3] * zoom >> 14) + (this.yof2d << 2) - (model.fa() / 2), (Trig1.COS[this.xan2d << 3] * zoom >> 14) - -(this.yof2d << 2));
-        scratch.method7130(this.xan2d << 3);
+        scratch.rotateAxisX(this.xan2d << 3);
 
         @Pc(480) int zNear = scratchToolkit.i();
         @Pc(483) int zFar = scratchToolkit.XA();
@@ -644,28 +644,28 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!bs;ZI)Lclient!dv;")
-    public Mesh method8799(@OriginalArg(0) Class52 arg0, @OriginalArg(1) boolean arg1) {
+    public Mesh model(@OriginalArg(0) ObjTypeCustomisation arg0, @OriginalArg(1) boolean arg1) {
         @Pc(19) int local19;
         @Pc(24) int local24;
         @Pc(29) int local29;
         if (arg1) {
-            if (arg0 == null || arg0.anIntArray99 == null) {
+            if (arg0 == null || arg0.womanwear == null) {
                 local19 = this.manwear2;
                 local24 = this.womanwear2;
                 local29 = this.womanwear3;
             } else {
-                local29 = arg0.anIntArray99[2];
-                local19 = arg0.anIntArray99[0];
-                local24 = arg0.anIntArray99[1];
+                local29 = arg0.womanwear[2];
+                local19 = arg0.womanwear[0];
+                local24 = arg0.womanwear[1];
             }
-        } else if (arg0 == null || arg0.anIntArray97 == null) {
+        } else if (arg0 == null || arg0.manwear == null) {
             local29 = this.manwear3;
             local19 = this.manwear;
             local24 = this.womanwear;
         } else {
-            local19 = arg0.anIntArray97[0];
-            local24 = arg0.anIntArray97[1];
-            local29 = arg0.anIntArray97[2];
+            local19 = arg0.manwear[0];
+            local24 = arg0.manwear[1];
+            local29 = arg0.manwear[2];
         }
         if (local19 == -1) {
             return null;
@@ -695,28 +695,28 @@ public final class ObjType {
             }
         }
         if (!arg1 && (this.manwearxoff != 0 || this.manwearyoff != 0 || this.manwearzoff != 0)) {
-            local86.method2233(this.manwearxoff, this.manwearyoff, this.manwearzoff);
+            local86.translate(this.manwearxoff, this.manwearyoff, this.manwearzoff);
         }
         if (arg1 && (this.womanwearxoff != 0 || this.womanwearyoff != 0 || this.womanwearzoff != 0)) {
-            local86.method2233(this.womanwearxoff, this.womanwearyoff, this.womanwearzoff);
+            local86.translate(this.womanwearxoff, this.womanwearyoff, this.womanwearzoff);
         }
         @Pc(269) short[] local269;
         @Pc(275) int local275;
         if (this.recol_s != null) {
-            if (arg0 == null || arg0.aShortArray11 == null) {
+            if (arg0 == null || arg0.recol_d == null) {
                 local269 = this.recol_d;
             } else {
-                local269 = arg0.aShortArray11;
+                local269 = arg0.recol_d;
             }
             for (local275 = 0; local275 < this.recol_s.length; local275++) {
                 local86.recolour(this.recol_s[local275], local269[local275]);
             }
         }
         if (this.retex_s != null) {
-            if (arg0 == null || arg0.aShortArray10 == null) {
+            if (arg0 == null || arg0.retex_d == null) {
                 local269 = this.retex_d;
             } else {
-                local269 = arg0.aShortArray10;
+                local269 = arg0.retex_d;
             }
             for (local275 = 0; local275 < this.retex_s.length; local275++) {
                 local86.retexture(this.retex_s[local275], local269[local275]);
@@ -736,23 +736,23 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ZLclient!bs;I)Lclient!dv;")
-    public Mesh method8801(@OriginalArg(0) boolean arg0, @OriginalArg(1) Class52 arg1) {
+    public Mesh method8801(@OriginalArg(0) boolean arg0, @OriginalArg(1) ObjTypeCustomisation arg1) {
         @Pc(21) int local21;
         @Pc(26) int local26;
         if (arg0) {
-            if (arg1 == null || arg1.anIntArray100 == null) {
+            if (arg1 == null || arg1.womanhead == null) {
                 local21 = this.womanhead;
                 local26 = this.womanhead2;
             } else {
-                local26 = arg1.anIntArray100[1];
-                local21 = arg1.anIntArray100[0];
+                local26 = arg1.womanhead[1];
+                local21 = arg1.womanhead[0];
             }
-        } else if (arg1 == null || arg1.anIntArray98 == null) {
+        } else if (arg1 == null || arg1.manhead == null) {
             local26 = this.manhead2;
             local21 = this.manhead;
         } else {
-            local21 = arg1.anIntArray98[0];
-            local26 = arg1.anIntArray98[1];
+            local21 = arg1.manhead[0];
+            local26 = arg1.manhead[1];
         }
         if (local21 == -1) {
             return null;
@@ -772,20 +772,20 @@ public final class ObjType {
         @Pc(149) short[] local149;
         @Pc(156) int local156;
         if (this.recol_s != null) {
-            if (arg1 == null || arg1.aShortArray11 == null) {
+            if (arg1 == null || arg1.recol_d == null) {
                 local149 = this.recol_d;
             } else {
-                local149 = arg1.aShortArray11;
+                local149 = arg1.recol_d;
             }
             for (local156 = 0; local156 < this.recol_s.length; local156++) {
                 local84.recolour(this.recol_s[local156], local149[local156]);
             }
         }
         if (this.retex_s != null) {
-            if (arg1 == null || arg1.aShortArray10 == null) {
+            if (arg1 == null || arg1.retex_d == null) {
                 local149 = this.retex_d;
             } else {
-                local149 = arg1.aShortArray10;
+                local149 = arg1.retex_d;
             }
             for (local156 = 0; local156 < this.retex_s.length; local156++) {
                 local84.retexture(this.retex_s[local156], local149[local156]);
@@ -795,28 +795,28 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "b", descriptor = "(ZLclient!bs;I)Z")
-    public boolean method8802(@OriginalArg(0) boolean arg0, @OriginalArg(1) Class52 arg1) {
+    public boolean loadedModels(@OriginalArg(0) boolean arg0, @OriginalArg(1) ObjTypeCustomisation arg1) {
         @Pc(17) int local17;
         @Pc(23) int local23;
         @Pc(20) int local20;
         if (arg0) {
-            if (arg1 == null || arg1.anIntArray99 == null) {
+            if (arg1 == null || arg1.womanwear == null) {
                 local17 = this.manwear2;
                 local20 = this.womanwear3;
                 local23 = this.womanwear2;
             } else {
-                local17 = arg1.anIntArray99[0];
-                local23 = arg1.anIntArray99[1];
-                local20 = arg1.anIntArray99[2];
+                local17 = arg1.womanwear[0];
+                local23 = arg1.womanwear[1];
+                local20 = arg1.womanwear[2];
             }
-        } else if (arg1 == null || arg1.anIntArray97 == null) {
+        } else if (arg1 == null || arg1.manwear == null) {
             local20 = this.manwear3;
             local17 = this.manwear;
             local23 = this.womanwear;
         } else {
-            local23 = arg1.anIntArray97[1];
-            local20 = arg1.anIntArray97[2];
-            local17 = arg1.anIntArray97[0];
+            local23 = arg1.manwear[1];
+            local20 = arg1.manwear[2];
+            local17 = arg1.manwear[0];
         }
         if (local17 == -1) {
             return true;
@@ -859,37 +859,37 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!gu;ILclient!ju;ILclient!ha;I)Lclient!ka;")
-    public Model getModel(@OriginalArg(0) Animator arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class201 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit arg4) {
-        @Pc(17) int local17;
+    public Model model(@OriginalArg(0) Animator animator, @OriginalArg(1) int initialFunctionMask, @OriginalArg(2) PlayerModel playerModel, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit toolkit) {
+        @Pc(17) int i;
         if (this.countobj != null && arg3 > 1) {
-            local17 = -1;
+            i = -1;
             for (@Pc(19) int local19 = 0; local19 < 10; local19++) {
                 if (arg3 >= this.countco[local19] && this.countco[local19] != 0) {
-                    local17 = this.countobj[local19];
+                    i = this.countobj[local19];
                 }
             }
-            if (local17 != -1) {
-                return this.myList.list(local17).getModel(arg0, arg1, arg2, 1, arg4);
+            if (i != -1) {
+                return this.myList.list(i).model(animator, initialFunctionMask, playerModel, 1, toolkit);
             }
         }
-        local17 = arg1;
-        if (arg0 != null) {
-            local17 = arg1 | arg0.functionMask();
+        i = initialFunctionMask;
+        if (animator != null) {
+            i = initialFunctionMask | animator.functionMask();
         }
         @Pc(87) Class82 local87 = this.myList.aClass82_58;
         @Pc(104) Model local104;
         synchronized (this.myList.aClass82_58) {
-            local104 = (Model) this.myList.aClass82_58.method2156((long) (this.anInt10134 | arg4.index << 29));
+            local104 = (Model) this.myList.aClass82_58.method2156((long) (this.anInt10134 | toolkit.index << 29));
         }
-        if (local104 == null || arg4.compareFunctionMasks(local104.ua(), local17) != 0) {
+        if (local104 == null || toolkit.compareFunctionMasks(local104.ua(), i) != 0) {
             if (local104 != null) {
-                local17 = arg4.combineFunctionMasks(local17, local104.ua());
+                i = toolkit.combineFunctionMasks(i, local104.ua());
             }
-            @Pc(141) int local141 = local17;
+            @Pc(141) int local141 = i;
             if (this.retex_s != null) {
-                local141 = local17 | 0x8000;
+                local141 = i | 0x8000;
             }
-            if (this.recol_s != null || arg2 != null) {
+            if (this.recol_s != null || playerModel != null) {
                 local141 |= 0x4000;
             }
             if (this.resizex != 128) {
@@ -908,7 +908,7 @@ public final class ObjType {
             if (local196.version < 13) {
                 local196.upscale();
             }
-            local104 = arg4.createModel(local196, local141, this.myList.anInt2673, this.ambient + 64, 850 - -this.contrast);
+            local104 = toolkit.createModel(local196, local141, this.myList.anInt2673, this.ambient + 64, 850 - -this.contrast);
             if (this.resizex != 128 || this.resizey != 128 || this.resizez != 128) {
                 local104.O(this.resizex, this.resizey, this.resizez);
             }
@@ -927,26 +927,26 @@ public final class ObjType {
                     local104.aa(this.retex_s[local265], this.retex_d[local265]);
                 }
             }
-            if (arg2 != null) {
+            if (playerModel != null) {
                 for (local265 = 0; local265 < 10; local265++) {
-                    for (@Pc(360) int local360 = 0; local360 < Static76.bodycol_s[local265].length; local360++) {
-                        if (Static339.bodycol_d[local265][local360].length > arg2.bodycol_d_palette[local265]) {
-                            local104.ia(Static76.bodycol_s[local265][local360], Static339.bodycol_d[local265][local360][arg2.bodycol_d_palette[local265]]);
+                    for (@Pc(360) int local360 = 0; local360 < PlayerModel.bodycol_s[local265].length; local360++) {
+                        if (PlayerModel.bodycol_d[local265][local360].length > playerModel.bodycol_d_palette[local265]) {
+                            local104.ia(PlayerModel.bodycol_s[local265][local360], PlayerModel.bodycol_d[local265][local360][playerModel.bodycol_d_palette[local265]]);
                         }
                     }
                 }
             }
-            local104.s(local17);
+            local104.s(i);
             @Pc(426) Class82 local426 = this.myList.aClass82_58;
             synchronized (this.myList.aClass82_58) {
-                this.myList.aClass82_58.method2150(local104, (long) (this.anInt10134 | arg4.index << 29));
+                this.myList.aClass82_58.method2150(local104, (long) (this.anInt10134 | toolkit.index << 29));
             }
         }
-        if (arg0 != null) {
-            local104 = local104.copy((byte) 1, local17, true);
-            arg0.method9089(local104, 0);
+        if (animator != null) {
+            local104 = local104.copy((byte) 1, i, true);
+            animator.animate(local104, 0);
         }
-        local104.s(arg1);
+        local104.s(initialFunctionMask);
         return local104;
     }
 
@@ -955,23 +955,23 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!bs;Z)Z")
-    public boolean method8808(@OriginalArg(1) Class52 arg0, @OriginalArg(2) boolean arg1) {
+    public boolean method8808(@OriginalArg(1) ObjTypeCustomisation arg0, @OriginalArg(2) boolean arg1) {
         @Pc(19) int local19;
         @Pc(22) int local22;
         if (arg1) {
-            if (arg0 == null || arg0.anIntArray100 == null) {
+            if (arg0 == null || arg0.womanhead == null) {
                 local19 = this.womanhead;
                 local22 = this.womanhead2;
             } else {
-                local19 = arg0.anIntArray100[0];
-                local22 = arg0.anIntArray100[1];
+                local19 = arg0.womanhead[0];
+                local22 = arg0.womanhead[1];
             }
-        } else if (arg0 == null || arg0.anIntArray98 == null) {
+        } else if (arg0 == null || arg0.manhead == null) {
             local22 = this.manhead2;
             local19 = this.manhead;
         } else {
-            local22 = arg0.anIntArray98[1];
-            local19 = arg0.anIntArray98[0];
+            local22 = arg0.manhead[1];
+            local19 = arg0.manhead[0];
         }
         if (local19 == -1) {
             return true;

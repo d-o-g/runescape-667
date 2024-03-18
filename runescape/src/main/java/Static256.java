@@ -35,7 +35,7 @@ public final class Static256 {
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(ZLclient!cg;Z)V")
     public static void method3638(@OriginalArg(1) Class8_Sub2_Sub1_Sub2 arg0, @OriginalArg(2) boolean arg1) {
-        @Pc(9) Class289 local9 = arg0.method9317();
+        @Pc(9) BASType local9 = arg0.method9317();
         if (arg0.anInt10764 == 0) {
             arg0.anInt10763 = 0;
             Static524.anInt8042 = 0;

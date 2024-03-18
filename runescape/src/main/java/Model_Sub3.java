@@ -258,11 +258,11 @@ public final class Model_Sub3 extends Model {
         this.anInt8495 = arg3;
         this.anInt8485 = arg4;
         @Pc(47) TextureSource local47 = this.aClass19_Sub2_9.textureSource;
-        this.anInt8483 = arg1.anInt2372;
+        this.anInt8483 = arg1.vertexCount;
         this.anInt8491 = arg1.anInt2363;
-        this.anIntArray666 = arg1.anIntArray213;
-        this.anIntArray675 = arg1.anIntArray205;
-        this.anIntArray658 = arg1.anIntArray204;
+        this.anIntArray666 = arg1.vertexX;
+        this.anIntArray675 = arg1.vertexY;
+        this.anIntArray658 = arg1.vertexZ;
         this.anInt8482 = arg1.anInt2362;
         this.aShortArray122 = arg1.aShortArray27;
         this.lb = arg1.aShortArray24;

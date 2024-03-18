@@ -22,7 +22,7 @@ public final class Class294 {
     public short[] aShortArray108;
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "Lclient!kr;")
-    public Class215 aClass215_4;
+    public IDKTypeList aIDKTypeList_4;
 
     @OriginalMember(owner = "client!pka", name = "c", descriptor = "[I")
     public final int[] anIntArray603 = new int[]{-1, -1, -1, -1, -1};
@@ -79,16 +79,16 @@ public final class Class294 {
     public Mesh method6614() {
         @Pc(8) Mesh[] local8 = new Mesh[5];
         @Pc(10) int local10 = 0;
-        @Pc(22) Class330 local22 = this.aClass215_4.aClass330_72;
+        @Pc(22) Class330 local22 = this.aIDKTypeList_4.aClass330_72;
         @Pc(26) int local26;
-        synchronized (this.aClass215_4.aClass330_72) {
+        synchronized (this.aIDKTypeList_4.aClass330_72) {
             local26 = 0;
             while (true) {
                 if (local26 >= 5) {
                     break;
                 }
                 if (this.anIntArray603[local26] != -1) {
-                    local8[local10++] = Static121.method2201(this.anIntArray603[local26], this.aClass215_4.aClass330_72);
+                    local8[local10++] = Static121.method2201(this.anIntArray603[local26], this.aIDKTypeList_4.aClass330_72);
                 }
                 local26++;
             }
@@ -115,10 +115,10 @@ public final class Class294 {
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(Z)Z")
     public boolean method6615() {
         @Pc(7) boolean local7 = true;
-        @Pc(11) Class330 local11 = this.aClass215_4.aClass330_72;
-        synchronized (this.aClass215_4.aClass330_72) {
+        @Pc(11) Class330 local11 = this.aIDKTypeList_4.aClass330_72;
+        synchronized (this.aIDKTypeList_4.aClass330_72) {
             for (@Pc(15) int local15 = 0; local15 < 5; local15++) {
-                if (this.anIntArray603[local15] != -1 && !this.aClass215_4.aClass330_72.method7586(0, this.anIntArray603[local15])) {
+                if (this.anIntArray603[local15] != -1 && !this.aIDKTypeList_4.aClass330_72.method7586(0, this.anIntArray603[local15])) {
                     local7 = false;
                 }
             }
@@ -127,15 +127,15 @@ public final class Class294 {
     }
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(I)Z")
-    public boolean method6616() {
+    public boolean isModelLoaded() {
         if (this.anIntArray602 == null) {
             return true;
         }
         @Pc(11) boolean local11 = true;
-        @Pc(15) Class330 local15 = this.aClass215_4.aClass330_72;
-        synchronized (this.aClass215_4.aClass330_72) {
+        @Pc(15) Class330 local15 = this.aIDKTypeList_4.aClass330_72;
+        synchronized (this.aIDKTypeList_4.aClass330_72) {
             for (@Pc(19) int local19 = 0; local19 < this.anIntArray602.length; local19++) {
-                if (!this.aClass215_4.aClass330_72.method7586(0, this.anIntArray602[local19])) {
+                if (!this.aIDKTypeList_4.aClass330_72.method7586(0, this.anIntArray602[local19])) {
                     local11 = false;
                 }
             }
@@ -144,20 +144,20 @@ public final class Class294 {
     }
 
     @OriginalMember(owner = "client!pka", name = "b", descriptor = "(I)Lclient!dv;")
-    public Mesh method6618() {
+    public Mesh model() {
         if (this.anIntArray602 == null) {
             return null;
         }
         @Pc(14) Mesh[] local14 = new Mesh[this.anIntArray602.length];
-        @Pc(18) Class330 local18 = this.aClass215_4.aClass330_72;
+        @Pc(18) Class330 local18 = this.aIDKTypeList_4.aClass330_72;
         @Pc(22) int local22;
-        synchronized (this.aClass215_4.aClass330_72) {
+        synchronized (this.aIDKTypeList_4.aClass330_72) {
             local22 = 0;
             while (true) {
                 if (local22 >= this.anIntArray602.length) {
                     break;
                 }
-                local14[local22] = Static121.method2201(this.anIntArray602[local22], this.aClass215_4.aClass330_72);
+                local14[local22] = Static121.method2201(this.anIntArray602[local22], this.aIDKTypeList_4.aClass330_72);
                 local22++;
             }
         }

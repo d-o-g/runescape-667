@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qp")
-public final class Class310 {
+public final class BASTypeList {
 
     @OriginalMember(owner = "client!qp", name = "h", descriptor = "Lclient!dla;")
     public final Class82 aClass82_172 = new Class82(64);
@@ -13,13 +13,13 @@ public final class Class310 {
     public final Class330 aClass330_103;
 
     @OriginalMember(owner = "client!qp", name = "g", descriptor = "Lclient!vl;")
-    public final Class388 aClass388_2;
+    public final WearposDefaults aWearposDefaults_2;
 
     @OriginalMember(owner = "client!qp", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!vl;)V")
-    public Class310(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Class388 arg3) {
+    public BASTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) WearposDefaults arg3) {
         this.aClass330_103 = arg2;
         this.aClass330_103.method7608(32);
-        this.aClass388_2 = arg3;
+        this.aWearposDefaults_2 = arg3;
     }
 
     @OriginalMember(owner = "client!qp", name = "b", descriptor = "(B)V")
@@ -47,11 +47,11 @@ public final class Class310 {
     }
 
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "(BI)Lclient!pda;")
-    public Class289 method7118(@OriginalArg(1) int arg0) {
+    public BASType list(@OriginalArg(1) int arg0) {
         @Pc(6) Class82 local6 = this.aClass82_172;
-        @Pc(16) Class289 local16;
+        @Pc(16) BASType local16;
         synchronized (this.aClass82_172) {
-            local16 = (Class289) this.aClass82_172.method2156((long) arg0);
+            local16 = (BASType) this.aClass82_172.method2156((long) arg0);
         }
         if (local16 != null) {
             return local16;
@@ -61,8 +61,8 @@ public final class Class310 {
         synchronized (this.aClass330_103) {
             local39 = this.aClass330_103.method7595(arg0, 32);
         }
-        local16 = new Class289();
-        local16.aClass310_1 = this;
+        local16 = new BASType();
+        local16.aBASTypeList_1 = this;
         if (local39 != null) {
             local16.method6483(new Packet(local39));
         }

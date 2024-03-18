@@ -212,8 +212,8 @@ public final class Class148 {
         @Pc(10) Matrix local10 = arg4.createMatrix();
         local10.method7125(0, 0, 0);
         local10.rotateAxisY(arg0 & 0x3FFF);
-        local10.method7130(arg2 & 0x3FFF);
-        local10.method7139(arg3 & 0x3FFF);
+        local10.rotateAxisX(arg2 & 0x3FFF);
+        local10.rotateAxisZ(arg3 & 0x3FFF);
         arg4.setCamera(local10);
         @Pc(36) Matrix local36 = arg4.createMatrix();
         local36.makeIdentity();

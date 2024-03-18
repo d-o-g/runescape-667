@@ -29,7 +29,7 @@ public final class Static497 {
             }
         }
         @Pc(22) int local22 = local6.anInt6711;
-        @Pc(32) Class289 local32 = arg0.method9317();
+        @Pc(32) BASType local32 = arg0.method9317();
         @Pc(37) int local37 = arg0.aAnimator_10.getAnimationId();
         if (local37 == -1 || arg0.aBoolean817) {
             local22 = local6.anInt6714;

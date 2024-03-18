@@ -47,7 +47,7 @@ public final class Class268 {
     public byte aByte108;
 
     @OriginalMember(owner = "client!o", name = "A", descriptor = "Lclient!ql;")
-    public Class308 aClass308_1;
+    public NPCTypeList aNPCTypeList_1;
 
     @OriginalMember(owner = "client!o", name = "Z", descriptor = "[I")
     public int[] anIntArray535;
@@ -213,7 +213,7 @@ public final class Class268 {
         if (this.aByte107 != -1) {
             return;
         }
-        if (Static673.aClass377_8 == this.aClass308_1.aClass377_6) {
+        if (Static673.aClass377_8 == this.aNPCTypeList_1.aClass377_6) {
             this.aByte107 = 1;
         } else {
             this.aByte107 = 0;
@@ -227,7 +227,7 @@ public final class Class268 {
         }
         for (@Pc(35) int local35 = 0; local35 < this.anIntArray532.length; local35++) {
             if (this.anIntArray532[local35] != -1) {
-                @Pc(62) Class268 local62 = this.aClass308_1.method7092(this.anIntArray532[local35]);
+                @Pc(62) Class268 local62 = this.aNPCTypeList_1.list(this.anIntArray532[local35]);
                 if (local62.anInt6714 != -1 || local62.anInt6711 != -1 || local62.anInt6712 != -1) {
                     return true;
                 }
@@ -237,7 +237,7 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(ILclient!uk;)Lclient!o;")
-    public Class268 method5985(@OriginalArg(0) int arg0, @OriginalArg(1) Interface23 arg1) {
+    public Class268 method5985(@OriginalArg(0) int arg0, @OriginalArg(1) VarDomain arg1) {
         if (arg0 != 65535) {
             return null;
         }
@@ -249,9 +249,9 @@ public final class Class268 {
         }
         if (local11 < 0 || this.anIntArray532.length - 1 <= local11 || this.anIntArray532[local11] == -1) {
             @Pc(66) int local66 = this.anIntArray532[this.anIntArray532.length - 1];
-            return local66 == -1 ? null : this.aClass308_1.method7092(local66);
+            return local66 == -1 ? null : this.aNPCTypeList_1.list(local66);
         } else {
-            return this.aClass308_1.method7092(this.anIntArray532[local11]);
+            return this.aNPCTypeList_1.list(this.anIntArray532[local11]);
         }
     }
 
@@ -432,7 +432,7 @@ public final class Class268 {
                 this.aBoolean503 = true;
             } else if (arg0 >= 150 && arg0 < 155) {
                 this.aStringArray34[arg0 - 150] = arg1.gjstr();
-                if (!this.aClass308_1.aBoolean621) {
+                if (!this.aNPCTypeList_1.aBoolean621) {
                     this.aStringArray34[arg0 - 150] = null;
                 }
             } else if (arg0 == 155) {
@@ -493,7 +493,7 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(ILclient!gu;Lclient!vk;ILclient!ha;Lclient!uk;)Lclient!ka;")
-    public Model method5992(@OriginalArg(1) Animator arg0, @OriginalArg(2) Class386 arg1, @OriginalArg(4) Toolkit arg2, @OriginalArg(5) Interface23 arg3) {
+    public Model method5992(@OriginalArg(1) Animator arg0, @OriginalArg(2) Class386 arg1, @OriginalArg(4) Toolkit arg2, @OriginalArg(5) VarDomain arg3) {
         if (this.anIntArray532 != null) {
             @Pc(15) Class268 local15 = this.method5985(65535, arg3);
             return local15 == null ? null : local15.method5992(arg0, arg1, arg2, arg3);
@@ -508,10 +508,10 @@ public final class Class268 {
             if (arg1 != null) {
                 local71 |= arg1.aLong312 << 24;
             }
-            @Pc(84) Class82 local84 = this.aClass308_1.aClass82_171;
+            @Pc(84) Class82 local84 = this.aNPCTypeList_1.aClass82_171;
             @Pc(94) Model local94;
-            synchronized (this.aClass308_1.aClass82_171) {
-                local94 = (Model) this.aClass308_1.aClass82_171.method2156(local71);
+            synchronized (this.aNPCTypeList_1.aClass82_171) {
+                local94 = (Model) this.aNPCTypeList_1.aClass82_171.method2156(local71);
             }
             if (local94 == null || (local94.ua() & local54) != local54) {
                 if (local94 != null) {
@@ -529,10 +529,10 @@ public final class Class268 {
                 }
                 @Pc(163) int[] local163 = arg1 == null || arg1.anIntArray816 == null ? this.anIntArray534 : arg1.anIntArray816;
                 @Pc(165) boolean local165 = false;
-                @Pc(169) Class330 local169 = this.aClass308_1.aClass330_102;
-                synchronized (this.aClass308_1.aClass330_102) {
+                @Pc(169) Class330 local169 = this.aNPCTypeList_1.aClass330_102;
+                synchronized (this.aNPCTypeList_1.aClass330_102) {
                     for (@Pc(173) int local173 = 0; local173 < local163.length; local173++) {
-                        if (!this.aClass308_1.aClass330_102.method7586(0, local163[local173])) {
+                        if (!this.aNPCTypeList_1.aClass330_102.method7586(0, local163[local173])) {
                             local165 = true;
                         }
                     }
@@ -541,14 +541,14 @@ public final class Class268 {
                     return null;
                 }
                 @Pc(215) Mesh[] local215 = new Mesh[local163.length];
-                @Pc(219) Class330 local219 = this.aClass308_1.aClass330_102;
-                synchronized (this.aClass308_1.aClass330_102) {
+                @Pc(219) Class330 local219 = this.aNPCTypeList_1.aClass330_102;
+                synchronized (this.aNPCTypeList_1.aClass330_102) {
                     @Pc(223) int local223 = 0;
                     while (true) {
                         if (local223 >= local163.length) {
                             break;
                         }
-                        local215[local223] = Static121.method2201(local163[local223], this.aClass308_1.aClass330_102);
+                        local215[local223] = Static121.method2201(local163[local223], this.aNPCTypeList_1.aClass330_102);
                         local223++;
                     }
                 }
@@ -563,7 +563,7 @@ public final class Class268 {
                 } else {
                     local304 = new Mesh(local215, local215.length);
                 }
-                local94 = arg2.createModel(local304, local125, this.aClass308_1.anInt8088, 64, 768);
+                local94 = arg2.createModel(local304, local125, this.aNPCTypeList_1.anInt8088, 64, 768);
                 @Pc(340) int local340;
                 @Pc(334) short[] local334;
                 if (this.aShortArray99 != null) {
@@ -594,14 +594,14 @@ public final class Class268 {
                     local94.adjustColours(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
                 }
                 local94.s(local54);
-                @Pc(469) Class82 local469 = this.aClass308_1.aClass82_171;
-                synchronized (this.aClass308_1.aClass82_171) {
-                    this.aClass308_1.aClass82_171.method2150(local94, local71);
+                @Pc(469) Class82 local469 = this.aNPCTypeList_1.aClass82_171;
+                synchronized (this.aNPCTypeList_1.aClass82_171) {
+                    this.aNPCTypeList_1.aClass82_171.method2150(local94, local71);
                 }
             }
             if (arg0 != null) {
                 local94 = local94.copy((byte) 1, local54, true);
-                arg0.method9089(local94, 0);
+                arg0.animate(local94, 0);
             }
             local94.s(2048);
             return local94;
@@ -609,10 +609,10 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(Lclient!uk;Lclient!ha;Lclient!qp;BLclient!gu;I[ILclient!vk;Lclient!gu;I[Lclient!gu;)Lclient!ka;")
-    public Model method5993(@OriginalArg(0) Interface23 arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(4) Animator arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int[] arg5, @OriginalArg(7) Class386 arg6, @OriginalArg(8) Animator arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Animator[] arg9) {
+    public Model getModel(@OriginalArg(0) VarDomain arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) BASTypeList arg2, @OriginalArg(4) Animator arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int[] arg5, @OriginalArg(7) Class386 arg6, @OriginalArg(8) Animator arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Animator[] arg9) {
         if (this.anIntArray532 != null) {
             @Pc(11) Class268 local11 = this.method5985(65535, arg0);
-            return local11 == null ? null : local11.method5993(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+            return local11 == null ? null : local11.getModel(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
         }
         @Pc(32) int local32 = arg8;
         if (this.anInt6722 != 128) {
@@ -641,14 +641,14 @@ public final class Class268 {
         if (arg6 != null) {
             local116 |= arg6.aLong312 << 24;
         }
-        @Pc(129) Class82 local129 = this.aClass308_1.aClass82_170;
+        @Pc(129) Class82 local129 = this.aNPCTypeList_1.aClass82_170;
         @Pc(139) Model local139;
-        synchronized (this.aClass308_1.aClass82_170) {
-            local139 = (Model) this.aClass308_1.aClass82_170.method2156(local116);
+        synchronized (this.aNPCTypeList_1.aClass82_170) {
+            local139 = (Model) this.aNPCTypeList_1.aClass82_170.method2156(local116);
         }
-        @Pc(147) Class289 local147 = null;
+        @Pc(147) BASType local147 = null;
         if (this.anInt6726 != -1) {
-            local147 = arg2.method7118(this.anInt6726);
+            local147 = arg2.list(this.anInt6726);
         }
         @Pc(226) int local226;
         @Pc(396) int local396;
@@ -669,10 +669,10 @@ public final class Class268 {
             }
             @Pc(216) int[] local216 = arg6 == null || arg6.anIntArray816 == null ? this.anIntArray535 : arg6.anIntArray816;
             @Pc(218) boolean local218 = false;
-            @Pc(222) Class330 local222 = this.aClass308_1.aClass330_102;
-            synchronized (this.aClass308_1.aClass330_102) {
+            @Pc(222) Class330 local222 = this.aNPCTypeList_1.aClass330_102;
+            synchronized (this.aNPCTypeList_1.aClass330_102) {
                 for (local226 = 0; local226 < local216.length; local226++) {
-                    if (local216[local226] != -1 && !this.aClass308_1.aClass330_102.method7586(0, local216[local226])) {
+                    if (local216[local226] != -1 && !this.aNPCTypeList_1.aClass330_102.method7586(0, local216[local226])) {
                         local218 = true;
                     }
                 }
@@ -683,22 +683,22 @@ public final class Class268 {
             @Pc(267) Mesh[] local267 = new Mesh[local216.length];
             for (local226 = 0; local226 < local216.length; local226++) {
                 if (local216[local226] != -1) {
-                    @Pc(280) Class330 local280 = this.aClass308_1.aClass330_102;
-                    synchronized (this.aClass308_1.aClass330_102) {
-                        local267[local226] = Static121.method2201(local216[local226], this.aClass308_1.aClass330_102);
+                    @Pc(280) Class330 local280 = this.aNPCTypeList_1.aClass330_102;
+                    synchronized (this.aNPCTypeList_1.aClass330_102) {
+                        local267[local226] = Static121.method2201(local216[local226], this.aNPCTypeList_1.aClass330_102);
                     }
                     if (local267[local226] != null) {
                         if (local267[local226].version < 13) {
                             local267[local226].upscale();
                         }
                         if (this.anIntArrayArray166 != null && this.anIntArrayArray166[local226] != null) {
-                            local267[local226].method2233(this.anIntArrayArray166[local226][0], this.anIntArrayArray166[local226][1], this.anIntArrayArray166[local226][2]);
+                            local267[local226].translate(this.anIntArrayArray166[local226][0], this.anIntArrayArray166[local226][1], this.anIntArrayArray166[local226][2]);
                         }
                     }
                 }
             }
-            if (local147 != null && local147.anIntArrayArray181 != null) {
-                for (local377 = 0; local377 < local147.anIntArrayArray181.length; local377++) {
+            if (local147 != null && local147.equipmentTransformations != null) {
+                for (local377 = 0; local377 < local147.equipmentTransformations.length; local377++) {
                     if (local267.length > local377 && local267[local377] != null) {
                         local396 = 0;
                         @Pc(398) int local398 = 0;
@@ -706,19 +706,19 @@ public final class Class268 {
                         @Pc(402) int local402 = 0;
                         @Pc(404) int local404 = 0;
                         @Pc(406) int local406 = 0;
-                        if (local147.anIntArrayArray181[local377] != null) {
-                            local402 = local147.anIntArrayArray181[local377][3] << 3;
-                            local404 = local147.anIntArrayArray181[local377][4] << 3;
-                            local398 = local147.anIntArrayArray181[local377][1];
-                            local396 = local147.anIntArrayArray181[local377][0];
-                            local406 = local147.anIntArrayArray181[local377][5] << 3;
-                            local400 = local147.anIntArrayArray181[local377][2];
+                        if (local147.equipmentTransformations[local377] != null) {
+                            local402 = local147.equipmentTransformations[local377][3] << 3;
+                            local404 = local147.equipmentTransformations[local377][4] << 3;
+                            local398 = local147.equipmentTransformations[local377][1];
+                            local396 = local147.equipmentTransformations[local377][0];
+                            local406 = local147.equipmentTransformations[local377][5] << 3;
+                            local400 = local147.equipmentTransformations[local377][2];
                         }
                         if (local402 != 0 || local404 != 0 || local406 != 0) {
-                            local267[local377].method2236(local406, local402, local404);
+                            local267[local377].rotate(local406, local402, local404);
                         }
                         if (local396 != 0 || local398 != 0 || local400 != 0) {
-                            local267[local377].method2233(local396, local398, local400);
+                            local267[local377].translate(local396, local398, local400);
                         }
                     }
                 }
@@ -729,7 +729,7 @@ public final class Class268 {
             } else {
                 local529 = new Mesh(local267, local267.length);
             }
-            local139 = arg1.createModel(local529, local178, this.aClass308_1.anInt8088, this.anInt6732 + 64, this.anInt6747 + 850);
+            local139 = arg1.createModel(local529, local178, this.aNPCTypeList_1.anInt8088, this.anInt6732 + 64, this.anInt6747 + 850);
             @Pc(568) short[] local568;
             if (this.aShortArray99 != null) {
                 if (arg6 == null || arg6.aShortArray145 == null) {
@@ -759,9 +759,9 @@ public final class Class268 {
                 local139.adjustColours(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
             }
             local139.s(local32);
-            @Pc(685) Class82 local685 = this.aClass308_1.aClass82_170;
-            synchronized (this.aClass308_1.aClass82_170) {
-                this.aClass308_1.aClass82_170.method2150(local139, local116);
+            @Pc(685) Class82 local685 = this.aNPCTypeList_1.aClass82_170;
+            synchronized (this.aNPCTypeList_1.aClass82_170) {
+                this.aNPCTypeList_1.aClass82_170.method2150(local139, local116);
             }
         }
         @Pc(706) Model local706 = local139.copy((byte) 4, local32, true);
@@ -778,7 +778,7 @@ public final class Class268 {
         }
         @Pc(747) Matrix[] local747 = null;
         if (local147 != null) {
-            local747 = local147.method6480(arg1);
+            local747 = local147.transformMatrices(arg1);
         }
         @Pc(762) int local762;
         if (local716 && local747 != null) {
@@ -816,11 +816,11 @@ public final class Class268 {
             }
         }
         if (arg3 != null && arg7 != null) {
-            Static468.method7645(arg3, local706, arg7);
+            Animator.blend(arg3, local706, arg7);
         } else if (arg3 != null) {
-            arg3.method9089(local706, 0);
+            arg3.animate(local706, 0);
         } else if (arg7 != null) {
-            arg7.method9089(local706, 0);
+            arg7.animate(local706, 0);
         }
         if (this.anInt6738 != 128 || this.anInt6722 != 128) {
             local706.O(this.anInt6738, this.anInt6722, this.anInt6738);
@@ -840,7 +840,7 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(BLclient!uk;)Z")
-    public boolean method5996(@OriginalArg(1) Interface23 arg0) {
+    public boolean method5996(@OriginalArg(1) VarDomain arg0) {
         if (this.anIntArray532 == null) {
             return true;
         }

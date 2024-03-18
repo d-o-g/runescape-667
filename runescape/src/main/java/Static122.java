@@ -18,7 +18,7 @@ public final class Static122 {
             return null;
         } else {
             @Pc(42) Class105 local42 = Static30.aClass246_3.method5584(local23.anInt3131);
-            return local42 != null && local42.aBoolean217 && local42.method2425(Static30.anInterface23_3) ? local23 : Static364.method5248();
+            return local42 != null && local42.aBoolean217 && local42.method2425(Static30.anVarDomain_3) ? local23 : Static364.method5248();
         }
     }
 

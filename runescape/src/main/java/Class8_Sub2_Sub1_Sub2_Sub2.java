@@ -133,7 +133,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) local75 / 10.0F);
         }
         local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 20, super.anInt10694);
-        @Pc(104) Class289 local104 = this.method9317();
+        @Pc(104) BASType local104 = this.method9317();
         @Pc(118) Class268 local118 = this.aClass268_1.anIntArray532 == null ? this.aClass268_1 : this.aClass268_1.method5985(65535, Static34.aClass304_1);
         super.aBoolean819 = false;
         @Pc(123) Class8_Sub7 local123 = null;
@@ -194,7 +194,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZLclient!ha;)Z")
     public boolean method9324(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(5) int local5 = arg0;
-        @Pc(9) Class289 local9 = this.method9317();
+        @Pc(9) BASType local9 = this.method9317();
         @Pc(27) Animator local27 = super.aAnimator_11.isAnimating() && !super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
         @Pc(47) Animator local47 = super.aAnimator_10.isAnimating() && (!super.aBoolean817 || local27 == null) ? super.aAnimator_10 : null;
         @Pc(50) int local50 = local9.anInt7234;
@@ -207,7 +207,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             arg0 |= 0x80000;
         }
         @Pc(111) int local111 = super.aClass126_7.method2673(16383);
-        @Pc(134) Model local134 = super.aModelArray3[0] = this.aClass268_1.method5993(Static34.aClass304_1, arg1, Static574.aClass310_2, local27, local111, super.anIntArray877, this.aClass386_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
+        @Pc(134) Model local134 = super.aModelArray3[0] = this.aClass268_1.getModel(Static34.aClass304_1, arg1, Static574.aBASTypeList_2, local27, local111, super.anIntArray877, this.aClass386_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
         if (local134 == null) {
             return false;
         }

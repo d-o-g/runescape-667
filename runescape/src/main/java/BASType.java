@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!pda")
-public final class Class289 {
+public final class BASType {
 
     @OriginalMember(owner = "client!pda", name = "x", descriptor = "[[I")
     public int[][] anIntArrayArray180;
@@ -13,16 +13,16 @@ public final class Class289 {
     public int[] anIntArray585;
 
     @OriginalMember(owner = "client!pda", name = "eb", descriptor = "Lclient!qp;")
-    public Class310 aClass310_1;
+    public BASTypeList aBASTypeList_1;
 
     @OriginalMember(owner = "client!pda", name = "M", descriptor = "[[I")
-    public int[][] anIntArrayArray181;
+    public int[][] equipmentTransformations;
 
     @OriginalMember(owner = "client!pda", name = "D", descriptor = "[I")
     public int[] anIntArray586;
 
     @OriginalMember(owner = "client!pda", name = "O", descriptor = "[Lclient!tt;")
-    public Matrix[] aMatrixArray1;
+    public Matrix[] transformMatrices;
 
     @OriginalMember(owner = "client!pda", name = "t", descriptor = "I")
     public int anInt7231 = 0;
@@ -88,7 +88,7 @@ public final class Class289 {
     public int[] anIntArray587 = null;
 
     @OriginalMember(owner = "client!pda", name = "i", descriptor = "I")
-    public final int anInt7261 = -1;
+    public final int toolkitIndex = -1;
 
     @OriginalMember(owner = "client!pda", name = "y", descriptor = "I")
     public int anInt7259 = -1;
@@ -185,43 +185,47 @@ public final class Class289 {
     }
 
     @OriginalMember(owner = "client!pda", name = "a", descriptor = "(ILclient!ha;)[Lclient!tt;")
-    public Matrix[] method6480(@OriginalArg(1) Toolkit arg0) {
-        if (this.aMatrixArray1 != null && this.anInt7261 == arg0.index) {
-            return this.aMatrixArray1;
-        } else if (this.anIntArrayArray181 == null) {
+    public Matrix[] transformMatrices(@OriginalArg(1) Toolkit toolkit) {
+        if (this.transformMatrices != null && this.toolkitIndex == toolkit.index) {
+            return this.transformMatrices;
+        } else if (this.equipmentTransformations == null) {
             return null;
         } else {
-            this.aMatrixArray1 = new Matrix[this.anIntArrayArray181.length];
-            for (@Pc(35) int local35 = 0; local35 < this.anIntArrayArray181.length; local35++) {
-                @Pc(38) int local38 = 0;
-                @Pc(40) int local40 = 0;
-                @Pc(42) int local42 = 0;
-                @Pc(44) int local44 = 0;
-                @Pc(46) int local46 = 0;
-                @Pc(48) int local48 = 0;
-                if (this.anIntArrayArray181[local35] != null) {
-                    local42 = this.anIntArrayArray181[local35][2];
-                    local48 = this.anIntArrayArray181[local35][5] << 3;
-                    local46 = this.anIntArrayArray181[local35][4] << 3;
-                    local40 = this.anIntArrayArray181[local35][1];
-                    local44 = this.anIntArrayArray181[local35][3] << 3;
-                    local38 = this.anIntArrayArray181[local35][0];
+            this.transformMatrices = new Matrix[this.equipmentTransformations.length];
+
+            for (@Pc(35) int i = 0; i < this.equipmentTransformations.length; i++) {
+                @Pc(38) int tx = 0;
+                @Pc(40) int ty = 0;
+                @Pc(42) int tz = 0;
+                @Pc(44) int rx = 0;
+                @Pc(46) int ry = 0;
+                @Pc(48) int rz = 0;
+
+                if (this.equipmentTransformations[i] != null) {
+                    tx = this.equipmentTransformations[i][0];
+                    ty = this.equipmentTransformations[i][1];
+                    tz = this.equipmentTransformations[i][2];
+                    rx = this.equipmentTransformations[i][3] << 3;
+                    ry = this.equipmentTransformations[i][4] << 3;
+                    rz = this.equipmentTransformations[i][5] << 3;
                 }
-                if (local38 != 0 || local40 != 0 || local42 != 0 || local44 != 0 || local46 != 0 || local48 != 0) {
-                    @Pc(137) Matrix local137 = this.aMatrixArray1[local35] = arg0.createMatrix();
-                    if (local48 != 0) {
-                        local137.method7139(local48);
+
+                if (tx != 0 || ty != 0 || tz != 0 || rx != 0 || ry != 0 || rz != 0) {
+                    @Pc(137) Matrix matrix = this.transformMatrices[i] = toolkit.createMatrix();
+                    if (rz != 0) {
+                        matrix.rotateAxisZ(rz);
                     }
-                    if (local44 != 0) {
-                        local137.method7130(local44);
+                    if (rx != 0) {
+                        matrix.rotateAxisX(rx);
                     }
-                    if (local46 != 0) {
-                        local137.rotateAxisY(local46);
+                    if (ry != 0) {
+                        matrix.rotateAxisY(ry);
                     }
-                    local137.translate(local38, local40, local42);
+                    matrix.translate(tx, ty, tz);
                 }
             }
-            return this.aMatrixArray1;
+
+            return this.transformMatrices;
         }
     }
 
@@ -259,13 +263,13 @@ public final class Class289 {
             @Pc(128) int local128;
             @Pc(136) int local136;
             if (arg1 == 27) {
-                if (this.anIntArrayArray181 == null) {
-                    this.anIntArrayArray181 = new int[this.aClass310_1.aClass388_2.anIntArray821.length][];
+                if (this.equipmentTransformations == null) {
+                    this.equipmentTransformations = new int[this.aBASTypeList_1.aWearposDefaults_2.anIntArray821.length][];
                 }
                 local128 = arg0.g1();
-                this.anIntArrayArray181[local128] = new int[6];
+                this.equipmentTransformations[local128] = new int[6];
                 for (local136 = 0; local136 < 6; local136++) {
-                    this.anIntArrayArray181[local128][local136] = arg0.g2s();
+                    this.equipmentTransformations[local128][local136] = arg0.g2s();
                 }
             } else if (arg1 == 28) {
                 local128 = arg0.g1();
@@ -339,13 +343,13 @@ public final class Class289 {
                 this.anInt7258 = arg0.g1() << 6;
             } else if (arg1 == 55) {
                 if (this.anIntArray585 == null) {
-                    this.anIntArray585 = new int[this.aClass310_1.aClass388_2.anIntArray821.length];
+                    this.anIntArray585 = new int[this.aBASTypeList_1.aWearposDefaults_2.anIntArray821.length];
                 }
                 local128 = arg0.g1();
                 this.anIntArray585[local128] = arg0.g2();
             } else if (arg1 == 56) {
                 if (this.anIntArrayArray180 == null) {
-                    this.anIntArrayArray180 = new int[this.aClass310_1.aClass388_2.anIntArray821.length][];
+                    this.anIntArrayArray180 = new int[this.aBASTypeList_1.aWearposDefaults_2.anIntArray821.length][];
                 }
                 local128 = arg0.g1();
                 this.anIntArrayArray180[local128] = new int[3];

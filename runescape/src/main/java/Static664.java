@@ -89,9 +89,9 @@ public final class Static664 {
     public static void method8659() {
         Static467.aClass96_3.method2351();
         Static540.aClass79_6.method2072();
-        Static68.aClass215_3.method5041();
+        Static68.aIDKTypeList_3.method5041();
         Static354.aClass142_4.method3058();
-        Static690.aClass308_2.method7089();
+        Static690.aNPCTypeList_2.method7089();
         Static419.aObjTypeList_1.method2480();
         Static25.aClass50_1.method1164();
         Static23.aClass128_1.method2697();
@@ -99,7 +99,7 @@ public final class Static664 {
         Static36.aClass260_1.method5781();
         Static628.aClass342_5.method7787();
         Static648.aClass17_1.method266();
-        Static574.aClass310_2.method7117();
+        Static574.aBASTypeList_2.method7117();
         Static720.aClass363_4.method8360();
         Static577.aClass246_4.method5585();
         Static272.aClass45_1.method1093();

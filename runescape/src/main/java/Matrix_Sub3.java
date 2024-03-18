@@ -153,7 +153,7 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "b", descriptor = "(I)V")
     @Override
-    public void method7139(@OriginalArg(0) int arg0) {
+    public void rotateAxisZ(@OriginalArg(0) int arg0) {
         @Pc(9) float local9 = Applet_Sub1.aFloatArray14[arg0 & 0x3FFF];
         @Pc(15) float local15 = Applet_Sub1.aFloatArray15[arg0 & 0x3FFF];
         @Pc(18) float local18 = this.aFloat153;
@@ -292,7 +292,7 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "c", descriptor = "(I)V")
     @Override
-    public void method7130(@OriginalArg(0) int arg0) {
+    public void rotateAxisX(@OriginalArg(0) int arg0) {
         @Pc(9) float local9 = Applet_Sub1.aFloatArray14[arg0 & 0x3FFF];
         @Pc(15) float local15 = Applet_Sub1.aFloatArray15[arg0 & 0x3FFF];
         @Pc(18) float local18 = this.aFloat161;

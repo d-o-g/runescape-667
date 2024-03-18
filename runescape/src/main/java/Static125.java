@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static125 {
 
     @OriginalMember(owner = "client!dt", name = "a", descriptor = "Lclient!vl;")
-    public static Class388 aClass388_1;
+    public static WearposDefaults aWearposDefaults_1;
 
     @OriginalMember(owner = "client!dt", name = "c", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_52 = new Class225(60, 7);

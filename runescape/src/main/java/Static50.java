@@ -52,9 +52,9 @@ public final class Static50 {
                         } else {
                             local134 = arg0.aShortArray26[local97];
                         }
-                        @Pc(153) int local153 = arg0.anIntArray213[local134];
-                        local158 = arg0.anIntArray205[local134];
-                        @Pc(163) int local163 = arg0.anIntArray204[local134];
+                        @Pc(153) int local153 = arg0.vertexX[local134];
+                        local158 = arg0.vertexY[local134];
+                        @Pc(163) int local163 = arg0.vertexZ[local134];
                         if (local153 < local28[local111]) {
                             local28[local111] = local153;
                         }

@@ -62,7 +62,7 @@ public final class Static345 {
                 local8.method2231(local61, 1, local67, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
             }
         }
-        local8.anInt2363 = local8.anInt2372;
+        local8.anInt2363 = local8.vertexCount;
         local8.anIntArray210 = null;
         local8.anIntArray209 = null;
         local8.aByteArray26 = null;

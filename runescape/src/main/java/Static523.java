@@ -211,9 +211,9 @@ public final class Static523 {
             }
             Static502.method6721(Static336.aClass330_68.method7589(1));
             Static65.aClass3_1 = new Class3(Static336.aClass330_68);
-            Static76.bodycol_s = Static65.aClass3_1.aShortArrayArray1;
-            Static339.bodycol_d = Static65.aClass3_1.aShortArrayArrayArray1;
-            Static125.aClass388_1 = new Class388(Static336.aClass330_68);
+            PlayerModel.bodycol_s = Static65.aClass3_1.aShortArrayArray1;
+            PlayerModel.bodycol_d = Static65.aClass3_1.aShortArrayArrayArray1;
+            Static125.aWearposDefaults_1 = new WearposDefaults(Static336.aClass330_68);
         }
         if (Static198.aClass140_13 == Static473.aClass140_22) {
             if (Static65.aClass3_1.anInt81 != -1 && !Static190.aClass330_38.method7586(0, Static65.aClass3_1.anInt81)) {
@@ -221,19 +221,19 @@ public final class Static523 {
             }
             Static56.anTextureSource_3 = new Class303(Static199.aClass330_42, Static534.aClass330_104, Static721.aClass330_128);
             Static386.aClass49_2 = new Class49(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static574.aClass310_2 = new Class310(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static125.aClass388_1);
+            Static574.aBASTypeList_2 = new BASTypeList(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static125.aWearposDefaults_1);
             Static354.aClass267_1 = new Class267(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
             Static619.aClass387_2 = new Class387(Static392.aClass377_4, Static51.anInt1052, Static20.aClass330_3);
             Static467.aClass96_3 = new Class96(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
             Static540.aClass79_6 = new Class79(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
             Static561.aClass220_2 = new Class220(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
-            Static68.aClass215_3 = new Class215(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static190.aClass330_38);
+            Static68.aIDKTypeList_3 = new IDKTypeList(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static190.aClass330_38);
             Static503.aClass335_1 = new Class335(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
             Static48.aClass384_1 = new Class384(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
             Static354.aClass142_4 = new Class142(Static392.aClass377_4, Static51.anInt1052, true, Static459.aClass330_91, Static190.aClass330_38);
             Static577.aClass246_4 = new Class246(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
             Static720.aClass363_4 = new Class363(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
-            Static690.aClass308_2 = new Class308(Static392.aClass377_4, Static51.anInt1052, true, Static333.aClass330_66, Static190.aClass330_38);
+            Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aClass377_4, Static51.anInt1052, true, Static333.aClass330_66, Static190.aClass330_38);
             Static419.aObjTypeList_1 = new ObjTypeList(Static392.aClass377_4, Static51.anInt1052, true, Static386.aClass49_2, Static380.aClass330_79, Static190.aClass330_38);
             Static272.aClass45_1 = new Class45(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
             Static25.aClass50_1 = new Class50(Static392.aClass377_4, Static51.anInt1052, Static668.aClass330_119, Static344.aClass330_73, Static142.aClass330_25);

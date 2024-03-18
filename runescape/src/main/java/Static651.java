@@ -28,7 +28,7 @@ public final class Static651 {
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
     public static void method8513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Class8_Sub2_Sub1_Sub2 arg3) {
-        @Pc(9) Class289 local9 = arg3.method9317();
+        @Pc(9) BASType local9 = arg3.method9317();
         @Pc(19) Animator local19 = arg3.aAnimator_10;
         @Pc(29) int local29 = arg3.anInt10756 - arg3.aClass126_7.anInt2889 & 0x3FFF;
         if (arg0 == -1) {

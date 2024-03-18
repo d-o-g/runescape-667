@@ -9,7 +9,7 @@ public final class Static636 {
     public static Class197 aClass197_1;
 
     @OriginalMember(owner = "client!uba", name = "d", descriptor = "Lclient!pda;")
-    public static final Class289 aClass289_1 = new Class289();
+    public static final BASType A_BAS_TYPE___1 = new BASType();
 
     @OriginalMember(owner = "client!uba", name = "c", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_230 = new Class225(93, 6);

@@ -57,7 +57,7 @@ public final class i extends Model implements Interface5 {
             @Pc(184) Class24 local184 = arg2.aClass24Array1[local178];
             local110[local112++] = local184.anInt589;
         }
-        this.R(this.anOa2, this.aYa1, arg2.anInt2372, arg2.anInt2363, arg2.anIntArray213, arg2.anIntArray205, arg2.anIntArray204, arg2.anIntArray209, arg2.aShortArray23, arg2.anInt2362, arg2.aShortArray27, arg2.aShortArray24, arg2.aShortArray26, arg2.aByteArray25, arg2.aByteArray26, arg2.aByteArray29, arg2.aByteArray28, arg2.aShortArray22, arg2.aShortArray25, arg2.anIntArray210, arg2.aByte45, arg2.aShortArray20, arg2.anInt2377, arg2.aByteArray24, arg2.aShortArray29, arg2.aShortArray21, arg2.aShortArray28, arg2.anIntArray211, arg2.anIntArray207, arg2.anIntArray208, arg2.aByteArray27, arg2.aByteArray23, arg2.anIntArray214, arg2.anIntArray212, arg2.anIntArray206, local43, local24, local34, arg3, arg4, arg5, arg6, local110);
+        this.R(this.anOa2, this.aYa1, arg2.vertexCount, arg2.anInt2363, arg2.vertexX, arg2.vertexY, arg2.vertexZ, arg2.anIntArray209, arg2.aShortArray23, arg2.anInt2362, arg2.aShortArray27, arg2.aShortArray24, arg2.aShortArray26, arg2.aByteArray25, arg2.aByteArray26, arg2.aByteArray29, arg2.aByteArray28, arg2.aShortArray22, arg2.aShortArray25, arg2.anIntArray210, arg2.aByte45, arg2.aShortArray20, arg2.anInt2377, arg2.aByteArray24, arg2.aShortArray29, arg2.aShortArray21, arg2.aShortArray28, arg2.anIntArray211, arg2.anIntArray207, arg2.anIntArray208, arg2.aByteArray27, arg2.aByteArray23, arg2.anIntArray214, arg2.anIntArray212, arg2.anIntArray206, local43, local24, local34, arg3, arg4, arg5, arg6, local110);
     }
 
     @OriginalMember(owner = "client!i", name = "<init>", descriptor = "(Lclient!oa;)V")

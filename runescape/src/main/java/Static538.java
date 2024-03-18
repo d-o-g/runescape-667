@@ -126,7 +126,7 @@ public final class Static538 {
                 if (local31.aClass268_1.method5984()) {
                     Static58.method1259(local31);
                 }
-                local31.method9328(Static690.aClass308_2.method7092(local15.ig2()));
+                local31.method9328(Static690.aNPCTypeList_2.list(local15.ig2()));
                 local31.method9310(local31.aClass268_1.anInt6713);
                 local31.anInt10757 = local31.aClass268_1.lb << 3;
                 if (local31.aClass268_1.method5984()) {

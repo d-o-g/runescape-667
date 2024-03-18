@@ -9,9 +9,13 @@ import java.math.BigInteger;
 public class Packet extends Node {
 
     public static final int CRC32_POLYNOMIAL = 0xEDB88320;
+    public static final long CRC64_POLYNOMIAL = 0xC96C5795D7870F42L;
 
     @OriginalMember(owner = "client!vl", name = "i", descriptor = "[I")
     public static final int[] crctable = new int[256];
+
+    @OriginalMember(owner = "client!vw", name = "y", descriptor = "[J")
+    public static final long[] crc64table = new long[256];
 
     static {
         for (@Pc(43) int i = 0; i < 256; i++) {
@@ -24,6 +28,18 @@ public class Packet extends Node {
                 }
             }
             crctable[i] = j;
+        }
+
+        for (@Pc(49) int i = 0; i < 256; i++) {
+            @Pc(53) long j = i;
+            for (@Pc(55) int k = 0; k < 8; k++) {
+                if ((j & 0x1L) == 1L) {
+                    j = j >>> 1 ^ CRC64_POLYNOMIAL;
+                } else {
+                    j >>>= 0x1;
+                }
+            }
+            crc64table[i] = j;
         }
     }
 

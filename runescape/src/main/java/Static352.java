@@ -28,9 +28,9 @@ public final class Static352 {
     public static void method5180() {
         Static467.aClass96_3.method2349();
         Static540.aClass79_6.method2067();
-        Static68.aClass215_3.method5044();
+        Static68.aIDKTypeList_3.method5044();
         Static354.aClass142_4.method3060();
-        Static690.aClass308_2.method7086();
+        Static690.aNPCTypeList_2.method7086();
         Static419.aObjTypeList_1.method2476();
         Static25.aClass50_1.method1165();
         Static23.aClass128_1.method2699();
@@ -38,7 +38,7 @@ public final class Static352 {
         Static36.aClass260_1.method5784();
         Static628.aClass342_5.method7783();
         Static648.aClass17_1.method269();
-        Static574.aClass310_2.method7114();
+        Static574.aBASTypeList_2.method7114();
         Static720.aClass363_4.method8361();
         Static577.aClass246_4.method5586();
         Static272.aClass45_1.method1098();

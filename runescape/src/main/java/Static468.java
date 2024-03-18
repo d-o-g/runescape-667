@@ -119,15 +119,6 @@ public final class Static468 {
         }
     }
 
-    @OriginalMember(owner = "client!op", name = "a", descriptor = "(Lclient!gu;Lclient!ka;Lclient!gu;B)V")
-    public static void method7645(@OriginalArg(0) Animator arg0, @OriginalArg(1) Model arg1, @OriginalArg(2) Animator arg2) {
-        if (arg0.method9111() && arg2.method9111()) {
-            @Pc(12) SeqType local12 = arg0.animation;
-            @Pc(15) SeqType local15 = arg2.animation;
-            arg1.method7477(arg2.frameOffset, arg0.primarySequences.anInt6448, arg0.primarySequences.aClass2_Sub2_Sub18_2, arg2.primarySequences.anInt6450, arg0.primarySequences.anInt6450, arg2.primarySequences.aClass2_Sub2_Sub18_2, arg0.primarySequences.aClass2_Sub2_Sub18_1, arg0.frameOffset, local12.aBoolean140 | local15.aBoolean140, local15.frameDurations[arg2.currentFrame], arg2.primarySequences.aClass2_Sub2_Sub18_1, local12.aBooleanArray3, local12.frameDurations[arg0.currentFrame], arg2.primarySequences.anInt6448);
-        }
-    }
-
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(IIB)I")
     public static int method7648(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         arg1 = (arg0 & 0x7F) * arg1 >> 7;

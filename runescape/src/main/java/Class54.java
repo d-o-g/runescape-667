@@ -632,7 +632,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(ILclient!uk;)Lclient!c;")
-    public Class54 method1301(@OriginalArg(0) int arg0, @OriginalArg(1) Interface23 arg1) {
+    public Class54 method1301(@OriginalArg(0) int arg0, @OriginalArg(1) VarDomain arg1) {
         @Pc(5) int local5 = -1;
         if (arg0 != 13) {
             this.method1295();
@@ -892,7 +892,7 @@ public final class Class54 {
         if (arg5 != null) {
             local126 = local126.copy((byte) 1, arg9, true);
             local190 = true;
-            arg5.method9089(local126, arg0 & 0x3);
+            arg5.animate(local126, arg0 & 0x3);
         }
         if (arg2 == 10 && arg0 > 3) {
             if (!local190) {

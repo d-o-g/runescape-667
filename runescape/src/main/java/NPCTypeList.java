@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ql")
-public final class Class308 {
+public final class NPCTypeList {
 
     @OriginalMember(owner = "client!ql", name = "q", descriptor = "I")
     public int anInt8088;
@@ -37,7 +37,7 @@ public final class Class308 {
     public final String[] aStringArray39;
 
     @OriginalMember(owner = "client!ql", name = "<init>", descriptor = "(Lclient!ul;IZLclient!sb;Lclient!sb;)V")
-    public Class308(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) Class330 arg4) {
+    public NPCTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) Class330 arg4) {
         this.aClass330_102 = arg4;
         this.aClass330_101 = arg3;
         this.aBoolean621 = arg2;
@@ -123,7 +123,7 @@ public final class Class308 {
     }
 
     @OriginalMember(owner = "client!ql", name = "a", descriptor = "(IB)Lclient!o;")
-    public Class268 method7092(@OriginalArg(0) int arg0) {
+    public Class268 list(@OriginalArg(0) int arg0) {
         @Pc(14) Class82 local14 = this.aClass82_169;
         @Pc(24) Class268 local24;
         synchronized (this.aClass82_169) {
@@ -138,7 +138,7 @@ public final class Class308 {
             local51 = this.aClass330_101.method7595(Static612.method8237(arg0), Static713.method9336(arg0));
         }
         local24 = new Class268();
-        local24.aClass308_1 = this;
+        local24.aNPCTypeList_1 = this;
         local24.anInt6744 = arg0;
         local24.aStringArray34 = (String[]) this.aStringArray39.clone();
         if (local51 != null) {

@@ -8,13 +8,13 @@ import org.openrs2.deob.annotation.Pc;
 public final class Mesh {
 
     @OriginalMember(owner = "client!dv", name = "k", descriptor = "[I")
-    public int[] anIntArray204;
+    public int[] vertexZ;
 
     @OriginalMember(owner = "client!dv", name = "m", descriptor = "[S")
     public short[] aShortArray20;
 
     @OriginalMember(owner = "client!dv", name = "S", descriptor = "[I")
-    public int[] anIntArray205;
+    public int[] vertexY;
 
     @OriginalMember(owner = "client!dv", name = "R", descriptor = "[S")
     public short[] aShortArray21;
@@ -86,7 +86,7 @@ public final class Mesh {
     public int[] anIntArray212;
 
     @OriginalMember(owner = "client!dv", name = "b", descriptor = "[I")
-    public int[] anIntArray213;
+    public int[] vertexX;
 
     @OriginalMember(owner = "client!dv", name = "w", descriptor = "[I")
     public int[] anIntArray214;
@@ -104,7 +104,7 @@ public final class Mesh {
     public int anInt2362 = 0;
 
     @OriginalMember(owner = "client!dv", name = "z", descriptor = "I")
-    public int anInt2372 = 0;
+    public int vertexCount = 0;
 
     @OriginalMember(owner = "client!dv", name = "D", descriptor = "I")
     public int anInt2363 = 0;
@@ -139,7 +139,7 @@ public final class Mesh {
         this.aShortArray24 = new short[arg1];
         this.aByteArray26 = new byte[arg1];
         this.aByteArray25 = new byte[arg1];
-        this.anIntArray205 = new int[arg0];
+        this.vertexY = new int[arg0];
         this.aShortArray27 = new short[arg1];
         if (arg2 > 0) {
             this.aShortArray21 = new short[arg2];
@@ -155,9 +155,9 @@ public final class Mesh {
             this.anIntArray206 = new int[arg2];
             this.anIntArray207 = new int[arg2];
         }
-        this.anIntArray213 = new int[arg0];
+        this.vertexX = new int[arg0];
         this.anIntArray209 = new int[arg0];
-        this.anIntArray204 = new int[arg0];
+        this.vertexZ = new int[arg0];
         this.aByteArray28 = new byte[arg1];
         this.aByteArray29 = new byte[arg1];
         this.aShortArray26 = new short[arg1];
@@ -166,7 +166,7 @@ public final class Mesh {
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "([Lclient!dv;I)V")
     public Mesh(@OriginalArg(0) Mesh[] arg0, @OriginalArg(1) int arg1) {
         this.anInt2377 = 0;
-        this.anInt2372 = 0;
+        this.vertexCount = 0;
         this.anInt2362 = 0;
         @Pc(30) int local30 = 0;
         @Pc(32) int local32 = 0;
@@ -183,7 +183,7 @@ public final class Mesh {
             if (local56 != null) {
                 this.anInt2362 += local56.anInt2362;
                 this.anInt2377 += local56.anInt2377;
-                this.anInt2372 += local56.anInt2372;
+                this.vertexCount += local56.vertexCount;
                 if (local56.aMeshMagnetArray1 != null) {
                     local32 += local56.aMeshMagnetArray1.length;
                 }
@@ -210,7 +210,7 @@ public final class Mesh {
                 local44 |= local56.aShortArray25 != null;
             }
         }
-        this.anIntArray213 = new int[this.anInt2372];
+        this.vertexX = new int[this.vertexCount];
         this.aShortArray27 = new short[this.anInt2362];
         if (local36) {
             this.aByteArray25 = new byte[this.anInt2362];
@@ -218,8 +218,8 @@ public final class Mesh {
         if (local32 > 0) {
             this.aMeshMagnetArray1 = new MeshMagnet[local32];
         }
-        this.aShortArray23 = new short[this.anInt2372];
-        this.anIntArray205 = new int[this.anInt2372];
+        this.aShortArray23 = new short[this.vertexCount];
+        this.vertexY = new int[this.vertexCount];
         this.aShortArray20 = new short[this.anInt2362];
         if (local46) {
             this.anIntArray210 = new int[this.anInt2362];
@@ -247,8 +247,8 @@ public final class Mesh {
         if (local42) {
             this.aByteArray28 = new byte[this.anInt2362];
         }
-        this.anIntArray209 = new int[this.anInt2372];
-        this.anIntArray204 = new int[this.anInt2372];
+        this.anIntArray209 = new int[this.vertexCount];
+        this.vertexZ = new int[this.vertexCount];
         if (local44) {
             this.aShortArray25 = new short[this.anInt2362];
         }
@@ -266,7 +266,7 @@ public final class Mesh {
         local30 = 0;
         local34 = 0;
         this.anInt2362 = 0;
-        this.anInt2372 = 0;
+        this.vertexCount = 0;
         @Pc(648) int local648;
         @Pc(659) int local659;
         for (@Pc(401) int local401 = 0; local401 < arg1; local401++) {
@@ -334,7 +334,7 @@ public final class Mesh {
                 }
             }
         }
-        this.anInt2363 = this.anInt2372;
+        this.anInt2363 = this.vertexCount;
         @Pc(747) int local747 = 0;
         for (@Pc(749) int local749 = 0; local749 < arg1; local749++) {
             @Pc(755) short local755 = (short) (0x1 << local749);
@@ -375,16 +375,16 @@ public final class Mesh {
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(IIII)I")
     public int method2230(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        for (@Pc(15) int local15 = 0; local15 < this.anInt2372; local15++) {
-            if (arg2 == this.anIntArray213[local15] && arg1 == this.anIntArray205[local15] && arg0 == this.anIntArray204[local15]) {
+        for (@Pc(15) int local15 = 0; local15 < this.vertexCount; local15++) {
+            if (arg2 == this.vertexX[local15] && arg1 == this.vertexY[local15] && arg0 == this.vertexZ[local15]) {
                 return local15;
             }
         }
-        this.anIntArray213[this.anInt2372] = arg2;
-        this.anIntArray205[this.anInt2372] = arg1;
-        this.anIntArray204[this.anInt2372] = arg0;
-        this.anInt2363 = this.anInt2372 + 1;
-        return this.anInt2372++;
+        this.vertexX[this.vertexCount] = arg2;
+        this.vertexY[this.vertexCount] = arg1;
+        this.vertexZ[this.vertexCount] = arg0;
+        this.anInt2363 = this.vertexCount + 1;
+        return this.vertexCount++;
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(ZIIISSBBB)I")
@@ -402,10 +402,10 @@ public final class Mesh {
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(II)V")
     public void upscale() {
-        for (@Pc(1) int local1 = 0; local1 < this.anInt2372; local1++) {
-            this.anIntArray213[local1] <<= 0x2;
-            this.anIntArray205[local1] <<= 0x2;
-            this.anIntArray204[local1] <<= 0x2;
+        for (@Pc(1) int local1 = 0; local1 < this.vertexCount; local1++) {
+            this.vertexX[local1] <<= 0x2;
+            this.vertexY[local1] <<= 0x2;
+            this.vertexZ[local1] <<= 0x2;
         }
         if (this.anInt2377 <= 0 || this.anIntArray211 == null) {
             return;
@@ -420,11 +420,11 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "b", descriptor = "(IIII)V")
-    public void method2233(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
-        for (@Pc(13) int local13 = 0; local13 < this.anInt2372; local13++) {
-            this.anIntArray213[local13] += arg0;
-            this.anIntArray205[local13] += arg1;
-            this.anIntArray204[local13] += arg2;
+    public void translate(@OriginalArg(0) int tx, @OriginalArg(1) int ty, @OriginalArg(3) int tz) {
+        for (@Pc(13) int i = 0; i < this.vertexCount; i++) {
+            this.vertexX[i] += tx;
+            this.vertexY[i] += ty;
+            this.vertexZ[i] += tz;
         }
     }
 
@@ -432,7 +432,7 @@ public final class Mesh {
     public int[][] method2234(@OriginalArg(1) boolean arg0) {
         @Pc(8) int[] local8 = new int[256];
         @Pc(10) int local10 = 0;
-        @Pc(19) int local19 = arg0 ? this.anInt2372 : this.anInt2363;
+        @Pc(19) int local19 = arg0 ? this.vertexCount : this.anInt2363;
         for (@Pc(21) int local21 = 0; local21 < local19; local21++) {
             @Pc(30) int local30 = this.anIntArray209[local21];
             if (local30 >= 0) {
@@ -466,7 +466,7 @@ public final class Mesh {
         @Pc(33) Packet local33 = new Packet(arg0);
         @Pc(38) Packet local38 = new Packet(arg0);
         local8.pos = arg0.length - 23;
-        this.anInt2372 = local8.g2();
+        this.vertexCount = local8.g2();
         this.anInt2362 = local8.g2();
         this.anInt2377 = local8.g1();
         @Pc(63) int local63 = local8.g1();
@@ -511,7 +511,7 @@ public final class Mesh {
         }
         local192 = this.anInt2377;
         @Pc(242) int local242 = local192;
-        local192 += this.anInt2372;
+        local192 += this.vertexCount;
         @Pc(249) int local249 = local192;
         if (local75) {
             local192 += this.anInt2362;
@@ -528,7 +528,7 @@ public final class Mesh {
         }
         @Pc(287) int local287 = local192;
         if (local150 == 1) {
-            local192 += this.anInt2372;
+            local192 += this.vertexCount;
         }
         @Pc(299) int local299 = local192;
         if (local138 == 1) {
@@ -590,9 +590,9 @@ public final class Mesh {
             this.aShortArray21 = new short[this.anInt2377];
             this.aShortArray28 = new short[this.anInt2377];
         }
-        this.anIntArray204 = new int[this.anInt2372];
+        this.vertexZ = new int[this.vertexCount];
         this.aShortArray26 = new short[this.anInt2362];
-        this.anIntArray205 = new int[this.anInt2372];
+        this.vertexY = new int[this.vertexCount];
         this.aShortArray27 = new short[this.anInt2362];
         if (local146 == 1) {
             this.aShortArray25 = new short[this.anInt2362];
@@ -606,9 +606,9 @@ public final class Mesh {
             this.aByteArray29 = new byte[this.anInt2362];
         }
         if (local150 == 1) {
-            this.anIntArray209 = new int[this.anInt2372];
+            this.anIntArray209 = new int[this.vertexCount];
         }
-        this.anIntArray213 = new int[this.anInt2372];
+        this.vertexX = new int[this.vertexCount];
         if (local146 == 1 && this.anInt2377 > 0) {
             this.aByteArray28 = new byte[this.anInt2362];
         }
@@ -624,7 +624,7 @@ public final class Mesh {
         @Pc(629) int local629 = 0;
         @Pc(631) int local631 = 0;
         @Pc(638) int local638;
-        for (@Pc(633) int local633 = 0; local633 < this.anInt2372; local633++) {
+        for (@Pc(633) int local633 = 0; local633 < this.vertexCount; local633++) {
             local638 = local8.g1();
             @Pc(640) int local640 = 0;
             if ((local638 & 0x1) != 0) {
@@ -638,12 +638,12 @@ public final class Mesh {
             if ((local638 & 0x4) != 0) {
                 local666 = local23.gsmarts();
             }
-            this.anIntArray213[local633] = local640 + local627;
-            this.anIntArray205[local633] = local629 + local653;
-            this.anIntArray204[local633] = local666 + local631;
-            local629 = this.anIntArray205[local633];
-            local631 = this.anIntArray204[local633];
-            local627 = this.anIntArray213[local633];
+            this.vertexX[local633] = local640 + local627;
+            this.vertexY[local633] = local629 + local653;
+            this.vertexZ[local633] = local666 + local631;
+            local629 = this.vertexY[local633];
+            local631 = this.vertexZ[local633];
+            local627 = this.vertexX[local633];
             if (local150 == 1) {
                 this.anIntArray209[local633] = local28.g1();
             }
@@ -875,38 +875,40 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "c", descriptor = "(IIII)V")
-    public void method2236(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(5) int local5;
-        @Pc(9) int local9;
-        @Pc(11) int local11;
-        @Pc(28) int local28;
-        if (arg0 != 0) {
-            local5 = Trig1.SIN[arg0];
-            local9 = Trig1.COS[arg0];
-            for (local11 = 0; local11 < this.anInt2372; local11++) {
-                local28 = local9 * this.anIntArray213[local11] + local5 * this.anIntArray205[local11] >> 14;
-                this.anIntArray205[local11] = local9 * this.anIntArray205[local11] - this.anIntArray213[local11] * local5 >> 14;
-                this.anIntArray213[local11] = local28;
+    public void rotate(@OriginalArg(0) int z, @OriginalArg(1) int x, @OriginalArg(3) int y) {
+        @Pc(5) int sin;
+        @Pc(9) int cos;
+        @Pc(11) int i;
+        @Pc(28) int t;
+
+        if (z != 0) {
+            sin = Trig1.SIN[z];
+            cos = Trig1.COS[z];
+            for (i = 0; i < this.vertexCount; i++) {
+                t = cos * this.vertexX[i] + sin * this.vertexY[i] >> 14;
+                this.vertexY[i] = cos * this.vertexY[i] - this.vertexX[i] * sin >> 14;
+                this.vertexX[i] = t;
             }
         }
-        if (arg1 != 0) {
-            local5 = Trig1.SIN[arg1];
-            local9 = Trig1.COS[arg1];
-            for (local11 = 0; local11 < this.anInt2372; local11++) {
-                local28 = local9 * this.anIntArray205[local11] - local5 * this.anIntArray204[local11] >> 14;
-                this.anIntArray204[local11] = local5 * this.anIntArray205[local11] + this.anIntArray204[local11] * local9 >> 14;
-                this.anIntArray205[local11] = local28;
+
+        if (x != 0) {
+            sin = Trig1.SIN[x];
+            cos = Trig1.COS[x];
+            for (i = 0; i < this.vertexCount; i++) {
+                t = cos * this.vertexY[i] - sin * this.vertexZ[i] >> 14;
+                this.vertexZ[i] = sin * this.vertexY[i] + this.vertexZ[i] * cos >> 14;
+                this.vertexY[i] = t;
             }
         }
-        if (arg2 == 0) {
-            return;
-        }
-        local5 = Trig1.SIN[arg2];
-        local9 = Trig1.COS[arg2];
-        for (local11 = 0; local11 < this.anInt2372; local11++) {
-            local28 = local5 * this.anIntArray204[local11] + local9 * this.anIntArray213[local11] >> 14;
-            this.anIntArray204[local11] = this.anIntArray204[local11] * local9 - local5 * this.anIntArray213[local11] >> 14;
-            this.anIntArray213[local11] = local28;
+
+        if (y != 0) {
+            sin = Trig1.SIN[y];
+            cos = Trig1.COS[y];
+            for (i = 0; i < this.vertexCount; i++) {
+                t = sin * this.vertexZ[i] + cos * this.vertexX[i] >> 14;
+                this.vertexZ[i] = this.vertexZ[i] * cos - sin * this.vertexX[i] >> 14;
+                this.vertexX[i] = t;
+            }
         }
     }
 
@@ -1016,7 +1018,7 @@ public final class Mesh {
         @Pc(27) Packet local27 = new Packet(arg0);
         @Pc(32) Packet local32 = new Packet(arg0);
         local12.pos = arg0.length - 18;
-        this.anInt2372 = local12.g2();
+        this.vertexCount = local12.g2();
         this.anInt2362 = local12.g2();
         this.anInt2377 = local12.g1();
         @Pc(57) int local57 = local12.g1();
@@ -1028,7 +1030,7 @@ public final class Mesh {
         @Pc(81) int local81 = local12.g2();
         @Pc(85) int local85 = local12.g2();
         @Pc(89) int local89 = local12.g2();
-        @Pc(98) int local98 = this.anInt2372;
+        @Pc(98) int local98 = this.vertexCount;
         @Pc(100) int local100 = local98;
         local98 += this.anInt2362;
         @Pc(107) int local107 = local98;
@@ -1045,7 +1047,7 @@ public final class Mesh {
         }
         @Pc(139) int local139 = local98;
         if (local73 == 1) {
-            local98 += this.anInt2372;
+            local98 += this.vertexCount;
         }
         @Pc(151) int local151 = local98;
         if (local65 == 1) {
@@ -1070,13 +1072,13 @@ public final class Mesh {
             this.anIntArray210 = new int[this.anInt2362];
         }
         this.aShortArray22 = new short[this.anInt2362];
-        this.anIntArray204 = new int[this.anInt2372];
+        this.vertexZ = new int[this.vertexCount];
         if (local73 == 1) {
-            this.anIntArray209 = new int[this.anInt2372];
+            this.anIntArray209 = new int[this.vertexCount];
         }
         this.aShortArray24 = new short[this.anInt2362];
-        this.anIntArray205 = new int[this.anInt2372];
-        this.anIntArray213 = new int[this.anInt2372];
+        this.vertexY = new int[this.vertexCount];
+        this.vertexX = new int[this.vertexCount];
         local12.pos = 0;
         if (this.anInt2377 > 0) {
             this.aShortArray21 = new short[this.anInt2377];
@@ -1103,7 +1105,7 @@ public final class Mesh {
         @Pc(358) int local358 = 0;
         @Pc(365) int local365;
         @Pc(367) int local367;
-        for (@Pc(360) int local360 = 0; local360 < this.anInt2372; local360++) {
+        for (@Pc(360) int local360 = 0; local360 < this.vertexCount; local360++) {
             local365 = local12.g1();
             local367 = 0;
             if ((local365 & 0x1) != 0) {
@@ -1117,12 +1119,12 @@ public final class Mesh {
             if ((local365 & 0x4) != 0) {
                 local390 = local27.gsmarts();
             }
-            this.anIntArray213[local360] = local367 + local354;
-            this.anIntArray205[local360] = local356 + local377;
-            this.anIntArray204[local360] = local358 + local390;
-            local354 = this.anIntArray213[local360];
-            local356 = this.anIntArray205[local360];
-            local358 = this.anIntArray204[local360];
+            this.vertexX[local360] = local367 + local354;
+            this.vertexY[local360] = local356 + local377;
+            this.vertexZ[local360] = local358 + local390;
+            local354 = this.vertexX[local360];
+            local356 = this.vertexY[local360];
+            local358 = this.vertexZ[local360];
             if (local73 == 1) {
                 this.anIntArray209[local360] = local32.g1();
             }
@@ -1262,20 +1264,20 @@ public final class Mesh {
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(Lclient!dv;IIS)I")
     public int method2244(@OriginalArg(0) Mesh arg0, @OriginalArg(2) int arg1, @OriginalArg(3) short arg2) {
-        @Pc(8) int local8 = arg0.anIntArray213[arg1];
-        @Pc(13) int local13 = arg0.anIntArray205[arg1];
-        @Pc(18) int local18 = arg0.anIntArray204[arg1];
-        for (@Pc(20) int local20 = 0; local20 < this.anInt2372; local20++) {
-            if (this.anIntArray213[local20] == local8 && this.anIntArray205[local20] == local13 && local18 == this.anIntArray204[local20]) {
+        @Pc(8) int local8 = arg0.vertexX[arg1];
+        @Pc(13) int local13 = arg0.vertexY[arg1];
+        @Pc(18) int local18 = arg0.vertexZ[arg1];
+        for (@Pc(20) int local20 = 0; local20 < this.vertexCount; local20++) {
+            if (this.vertexX[local20] == local8 && this.vertexY[local20] == local13 && local18 == this.vertexZ[local20]) {
                 this.aShortArray23[local20] |= arg2;
                 return local20;
             }
         }
-        this.anIntArray213[this.anInt2372] = local8;
-        this.anIntArray205[this.anInt2372] = local13;
-        this.anIntArray204[this.anInt2372] = local18;
-        this.aShortArray23[this.anInt2372] = arg2;
-        this.anIntArray209[this.anInt2372] = arg0.anIntArray209 == null ? -1 : arg0.anIntArray209[arg1];
-        return this.anInt2372++;
+        this.vertexX[this.vertexCount] = local8;
+        this.vertexY[this.vertexCount] = local13;
+        this.vertexZ[this.vertexCount] = local18;
+        this.aShortArray23[this.vertexCount] = arg2;
+        this.anIntArray209[this.vertexCount] = arg0.anIntArray209 == null ? -1 : arg0.anIntArray209[arg1];
+        return this.vertexCount++;
     }
 }

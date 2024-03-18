@@ -139,7 +139,7 @@ public final class Class105 {
     }
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(BLclient!uk;)Z")
-    public boolean method2425(@OriginalArg(1) Interface23 arg0) {
+    public boolean method2425(@OriginalArg(1) VarDomain arg0) {
         @Pc(31) int local31;
         if (this.anInt2616 == -1) {
             if (this.anInt2599 == -1) {

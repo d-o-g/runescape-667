@@ -190,7 +190,7 @@ public final class Class216 {
         }
         arg0.xa(1.0F);
         arg0.ZA(this.anInt5634, 1.0F, 1.0F, (float) local34, (float) local36, (float) local38);
-        local6.method2236(this.anInt5636 & 0x3FFF, this.anInt5632 & 0x3FFF, this.anInt5629 & 0x3FFF);
+        local6.rotate(this.anInt5636 & 0x3FFF, this.anInt5632 & 0x3FFF, this.anInt5629 & 0x3FFF);
         @Pc(190) Model local190 = arg0.createModel(local6, 2048, 0, 64, 768);
         local87 = local190.RA() - local190.V();
         local91 = local190.EA() - local190.fa();

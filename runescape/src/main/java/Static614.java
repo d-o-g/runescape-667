@@ -38,9 +38,9 @@ public final class Static614 {
     public static void method8245() {
         Static467.aClass96_3.method2355();
         Static540.aClass79_6.method2073();
-        Static68.aClass215_3.method5045();
+        Static68.aIDKTypeList_3.method5045();
         Static354.aClass142_4.method3064();
-        Static690.aClass308_2.method7085();
+        Static690.aNPCTypeList_2.method7085();
         Static419.aObjTypeList_1.method2479();
         Static25.aClass50_1.method1163();
         Static23.aClass128_1.method2698();
@@ -48,7 +48,7 @@ public final class Static614 {
         Static36.aClass260_1.method5785();
         Static628.aClass342_5.method7784();
         Static648.aClass17_1.method267();
-        Static574.aClass310_2.method7115();
+        Static574.aBASTypeList_2.method7115();
         Static577.aClass246_4.method5581();
         Static720.aClass363_4.method8367();
         Static386.aClass49_2.method1158();

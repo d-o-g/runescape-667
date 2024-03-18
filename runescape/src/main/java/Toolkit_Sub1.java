@@ -1900,7 +1900,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
         this.method8053(0);
         this.aClass73_Sub1_15.method1884(1.0F, (float) arg5, local20);
         this.aClass73_Sub1_15.translate(0, -arg5 / 2, 0);
-        this.aClass73_Sub1_15.method7139((int) ((double) local18 * 2607.5945876176133D) & 0x3FFF);
+        this.aClass73_Sub1_15.rotateAxisZ((int) ((double) local18 * 2607.5945876176133D) & 0x3FFF);
         this.aClass73_Sub1_15.translate(arg0, arg1, 0);
         this.method8042();
         this.method8141(false);

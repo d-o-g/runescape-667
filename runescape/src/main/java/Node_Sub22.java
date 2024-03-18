@@ -14,7 +14,7 @@ public final class Node_Sub22 extends Node {
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(ZI[I[IZ)J")
     public long method3077(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3) {
-        @Pc(7) long[] local7 = Node_Sub2_Sub14.aLongArray21;
+        @Pc(7) long[] local7 = Packet.crc64table;
         @Pc(9) long local9 = -1L;
         @Pc(25) long local25 = local7[(int) ((local9 ^ (long) (arg1 >> 8)) & 0xFFL)] ^ local9 >>> 8;
         local9 = local7[(int) ((local25 ^ (long) arg1) & 0xFFL)] ^ local25 >>> 8;
@@ -33,12 +33,12 @@ public final class Node_Sub22 extends Node {
     }
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(IILclient!ha;IZLclient!gu;Lclient!ju;)Lclient!ka;")
-    public Model method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(4) boolean arg2, @OriginalArg(5) Animator arg3, @OriginalArg(6) Class201 arg4) {
+    public Model method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(4) boolean arg2, @OriginalArg(5) Animator arg3, @OriginalArg(6) PlayerModel arg4) {
         @Pc(7) Model local7 = null;
         @Pc(9) int local9 = 2048;
-        @Pc(11) Class289 local11 = null;
+        @Pc(11) BASType local11 = null;
         if (arg0 != -1) {
-            local11 = Static574.aClass310_2.method7118(arg0);
+            local11 = Static574.aBASTypeList_2.list(arg0);
         }
         @Pc(23) int[] local23 = this.anIntArray278;
         if (local11 != null && local11.anIntArray586 != null) {
@@ -66,49 +66,49 @@ public final class Node_Sub22 extends Node {
             @Pc(151) int local151 = local9;
             @Pc(153) boolean local153 = false;
             for (@Pc(155) int local155 = 0; local155 < local23.length; local155++) {
-                if (local23[local155] != -1 && !Static419.aObjTypeList_1.list(local23[local155]).method8802(arg2, (Class52) null)) {
+                if (local23[local155] != -1 && !Static419.aObjTypeList_1.list(local23[local155]).loadedModels(arg2, (ObjTypeCustomisation) null)) {
                     local153 = true;
                 }
             }
             if (local153) {
                 return null;
             }
-            @Pc(203) Mesh[] local203 = new Mesh[local23.length];
+            @Pc(203) Mesh[] meshes = new Mesh[local23.length];
             for (@Pc(205) int local205 = 0; local205 < local23.length; local205++) {
                 if (local23[local205] != -1) {
-                    local203[local205] = Static419.aObjTypeList_1.list(local23[local205]).method8799((Class52) null, arg2);
+                    meshes[local205] = Static419.aObjTypeList_1.list(local23[local205]).model((ObjTypeCustomisation) null, arg2);
                 }
             }
-            @Pc(278) int local278;
-            @Pc(285) int local285;
-            if (local11 != null && local11.anIntArrayArray181 != null) {
-                for (@Pc(252) int local252 = 0; local252 < local11.anIntArrayArray181.length; local252++) {
-                    if (local11.anIntArrayArray181[local252] != null && local203[local252] != null) {
-                        local278 = local11.anIntArrayArray181[local252][0];
-                        local285 = local11.anIntArrayArray181[local252][1];
-                        @Pc(292) int local292 = local11.anIntArrayArray181[local252][2];
-                        @Pc(299) int local299 = local11.anIntArrayArray181[local252][3];
-                        @Pc(306) int local306 = local11.anIntArrayArray181[local252][4];
-                        @Pc(313) int local313 = local11.anIntArrayArray181[local252][5];
-                        if (local299 != 0 || local306 != 0 || local313 != 0) {
-                            local203[local252].method2236(local313, local299, local306);
+            @Pc(278) int tx;
+            @Pc(285) int ty;
+            if (local11 != null && local11.equipmentTransformations != null) {
+                for (@Pc(252) int local252 = 0; local252 < local11.equipmentTransformations.length; local252++) {
+                    if (local11.equipmentTransformations[local252] != null && meshes[local252] != null) {
+                        tx = local11.equipmentTransformations[local252][0];
+                        ty = local11.equipmentTransformations[local252][1];
+                        @Pc(292) int tz = local11.equipmentTransformations[local252][2];
+                        @Pc(299) int rx = local11.equipmentTransformations[local252][3];
+                        @Pc(306) int ry = local11.equipmentTransformations[local252][4];
+                        @Pc(313) int rz = local11.equipmentTransformations[local252][5];
+                        if (rx != 0 || ry != 0 || rz != 0) {
+                            meshes[local252].rotate(rz, rx, ry);
                         }
-                        if (local278 != 0 || local285 != 0 || local292 != 0) {
-                            local203[local252].method2233(local278, local285, local292);
+                        if (tx != 0 || ty != 0 || tz != 0) {
+                            meshes[local252].translate(tx, ty, tz);
                         }
                     }
                 }
             }
-            @Pc(382) Mesh local382 = new Mesh(local203, local203.length);
+            @Pc(382) Mesh local382 = new Mesh(meshes, meshes.length);
             if (arg4 != null) {
                 local151 = local9 | 0x4000;
             }
             local7 = arg1.createModel(local382, local151, Static584.anInt8635, 64, 850);
             if (arg4 != null) {
-                for (local278 = 0; local278 < 10; local278++) {
-                    for (local285 = 0; local285 < Static76.bodycol_s[local278].length; local285++) {
-                        if (Static339.bodycol_d[local278][local285].length > arg4.bodycol_d_palette[local278]) {
-                            local7.ia(Static76.bodycol_s[local278][local285], Static339.bodycol_d[local278][local285][arg4.bodycol_d_palette[local278]]);
+                for (tx = 0; tx < 10; tx++) {
+                    for (ty = 0; ty < PlayerModel.bodycol_s[tx].length; ty++) {
+                        if (PlayerModel.bodycol_d[tx][ty].length > arg4.bodycol_d_palette[tx]) {
+                            local7.ia(PlayerModel.bodycol_s[tx][ty], PlayerModel.bodycol_d[tx][ty][arg4.bodycol_d_palette[tx]]);
                         }
                     }
                 }
@@ -122,7 +122,7 @@ public final class Node_Sub22 extends Node {
             return local7;
         } else {
             @Pc(478) Model local478 = local7.copy((byte) 1, local9, true);
-            arg3.method9089(local478, 0);
+            arg3.animate(local478, 0);
             return local478;
         }
     }

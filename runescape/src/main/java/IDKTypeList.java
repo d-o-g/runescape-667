@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!kr")
-public final class Class215 {
+public final class IDKTypeList {
 
     @OriginalMember(owner = "client!kr", name = "n", descriptor = "Lclient!dla;")
     public final Class82 aClass82_115 = new Class82(64);
@@ -16,7 +16,7 @@ public final class Class215 {
     public final Class330 aClass330_71;
 
     @OriginalMember(owner = "client!kr", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public Class215(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Class330 arg3) {
+    public IDKTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Class330 arg3) {
         this.aClass330_72 = arg3;
         this.aClass330_71 = arg2;
         this.aClass330_71.method7608(3);
@@ -31,7 +31,7 @@ public final class Class215 {
     }
 
     @OriginalMember(owner = "client!kr", name = "a", descriptor = "(IB)Lclient!pka;")
-    public Class294 method5042(@OriginalArg(0) int arg0) {
+    public Class294 list(@OriginalArg(0) int arg0) {
         @Pc(6) Class82 local6 = this.aClass82_115;
         @Pc(24) Class294 local24;
         synchronized (this.aClass82_115) {
@@ -46,7 +46,7 @@ public final class Class215 {
             local47 = this.aClass330_71.method7595(arg0, 3);
         }
         local24 = new Class294();
-        local24.aClass215_4 = this;
+        local24.aIDKTypeList_4 = this;
         if (local47 != null) {
             local24.method6613(new Packet(local47));
         }

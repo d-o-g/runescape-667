@@ -4,26 +4,26 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vl")
-public final class Class388 {
+public final class WearposDefaults {
 
     @OriginalMember(owner = "client!vl", name = "a", descriptor = "[I")
-    public int[] anIntArray818;
+    public int[] animationHiddenLeftHandSlots;
 
     @OriginalMember(owner = "client!vl", name = "d", descriptor = "[I")
-    public int[] anIntArray820;
+    public int[] animationHiddenRightHandSlots;
 
     @OriginalMember(owner = "client!vl", name = "j", descriptor = "[I")
     public int[] anIntArray821;
 
     @OriginalMember(owner = "client!vl", name = "h", descriptor = "I")
-    public int anInt10300 = -1;
+    public int rightHandSlot = -1;
 
     @OriginalMember(owner = "client!vl", name = "g", descriptor = "I")
-    public int anInt10301 = -1;
+    public int leftHandSlot = -1;
 
 
     @OriginalMember(owner = "client!vl", name = "<init>", descriptor = "(Lclient!sb;)V")
-    public Class388(@OriginalArg(0) Class330 arg0) {
+    public WearposDefaults(@OriginalArg(0) Class330 arg0) {
         @Pc(12) byte[] local12 = arg0.method7589(6);
         this.method8929(new Packet(local12));
         if (this.anIntArray821 == null) {
@@ -32,7 +32,7 @@ public final class Class388 {
     }
 
     @OriginalMember(owner = "client!vl", name = "<init>", descriptor = "()V")
-    public Class388() {
+    public WearposDefaults() {
         this.anIntArray821 = new int[0];
     }
 
@@ -51,18 +51,18 @@ public final class Class388 {
                     this.anIntArray821[local35] = arg0.g1();
                 }
             } else if (local12 == 3) {
-                this.anInt10301 = arg0.g1();
+                this.leftHandSlot = arg0.g1();
             } else if (local12 == 4) {
-                this.anInt10300 = arg0.g1();
+                this.rightHandSlot = arg0.g1();
             } else if (local12 == 5) {
-                this.anIntArray818 = new int[arg0.g1()];
-                for (local29 = 0; local29 < this.anIntArray818.length; local29++) {
-                    this.anIntArray818[local29] = arg0.g1();
+                this.animationHiddenLeftHandSlots = new int[arg0.g1()];
+                for (local29 = 0; local29 < this.animationHiddenLeftHandSlots.length; local29++) {
+                    this.animationHiddenLeftHandSlots[local29] = arg0.g1();
                 }
             } else if (local12 == 6) {
-                this.anIntArray820 = new int[arg0.g1()];
-                for (local29 = 0; local29 < this.anIntArray820.length; local29++) {
-                    this.anIntArray820[local29] = arg0.g1();
+                this.animationHiddenRightHandSlots = new int[arg0.g1()];
+                for (local29 = 0; local29 < this.animationHiddenRightHandSlots.length; local29++) {
+                    this.animationHiddenRightHandSlots[local29] = arg0.g1();
                 }
             }
         }

@@ -62,10 +62,10 @@ public final class SeqType {
     public boolean tweened = false;
 
     @OriginalMember(owner = "client!cka", name = "h", descriptor = "I")
-    public int anInt1651 = -1;
+    public int playerRightHand = -1;
 
     @OriginalMember(owner = "client!cka", name = "n", descriptor = "I")
-    public int anInt1652 = -1;
+    public int playerLeftHand = -1;
 
     @OriginalMember(owner = "client!cka", name = "C", descriptor = "I")
     public int anInt1654 = -1;
@@ -130,9 +130,9 @@ public final class SeqType {
         } else if (arg0 == 5) {
             this.anInt1649 = arg1.g1();
         } else if (arg0 == 6) {
-            this.anInt1652 = arg1.g2();
+            this.playerLeftHand = arg1.g2();
         } else if (arg0 == 7) {
-            this.anInt1651 = arg1.g2();
+            this.playerRightHand = arg1.g2();
         } else if (arg0 == 8) {
             this.anInt1647 = arg1.g1();
         } else if (arg0 == 9) {

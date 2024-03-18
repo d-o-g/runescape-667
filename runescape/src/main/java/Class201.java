@@ -115,7 +115,7 @@ public final class Class201 {
         @Pc(72) int local72;
         @Pc(116) int local116;
         if (arg1 != null) {
-            @Pc(50) Class69 local50 = arg1.method9107();
+            @Pc(50) SeqType local50 = arg1.getAnimation();
             if (local50 != null && (local50.anInt1652 >= 0 || local50.anInt1651 >= 0)) {
                 local34 = new int[this.anIntArray381.length];
                 for (local72 = 0; local72 < local34.length; local72++) {
@@ -159,17 +159,17 @@ public final class Class201 {
         local72 = arg10 == null ? 0 : arg10.length;
         for (local116 = 0; local116 < local72; local116++) {
             if (arg10[local116] != null) {
-                local28 |= arg10[local116].method9101();
+                local28 |= arg10[local116].functionMask();
                 local257 = true;
             }
         }
         if (arg1 != null) {
-            local28 |= arg1.method9101();
+            local28 |= arg1.functionMask();
             local257 = true;
         }
         if (arg12 != null) {
             local257 = true;
-            local28 |= arg12.method9101();
+            local28 |= arg12.functionMask();
         }
         @Pc(310) boolean local310 = false;
         if (arg5 != null) {
@@ -339,7 +339,7 @@ public final class Class201 {
         local395 = 1;
         while (local390 < local72) {
             if (arg10[local390] != null) {
-                arg10[local390].method9110(local395, local925);
+                arg10[local390].animatePartial(local395, local925);
             }
             local390++;
             local395 <<= 0x1;
@@ -395,7 +395,7 @@ public final class Class201 {
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!gu;IILclient!bp;Lclient!ha;BLclient!kr;II)Lclient!ka;")
     public Model method4550(@OriginalArg(0) Animator arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class50 arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(6) Class215 arg5, @OriginalArg(7) int arg6) {
-        @Pc(16) int local16 = arg0 == null ? 2048 : arg0.method9101() | 0x800;
+        @Pc(16) int local16 = arg0 == null ? 2048 : arg0.functionMask() | 0x800;
         @Pc(29) long local29 = (long) arg1 | (long) arg2 << 32 | (long) (arg6 << 16);
         @Pc(31) Class82 local31 = Static54.aClass82_25;
         @Pc(39) Model local39;
@@ -464,7 +464,7 @@ public final class Class201 {
         if (this.anInt5012 != -1) {
             return arg5.method7092(this.anInt5012).method5992(arg3, (Class386) null, arg6, arg2);
         }
-        @Pc(35) int local35 = arg3 == null ? 2048 : arg3.method9101() | 0x800;
+        @Pc(35) int local35 = arg3 == null ? 2048 : arg3.functionMask() | 0x800;
         @Pc(37) Class82 local37 = Static54.aClass82_25;
         @Pc(48) Model local48;
         synchronized (Static54.aClass82_25) {

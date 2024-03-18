@@ -64,10 +64,10 @@ public final class Static489 {
         }
         @Pc(107) int local107;
         if (arg1.anInt10690 < 512 || arg1.anInt10694 < 512 || Static720.anInt10859 * 512 - 512 <= arg1.anInt10690 || arg1.anInt10694 >= Static501.anInt7568 * 512 - 512) {
-            arg1.aAnimator_11.method9113(true, -1);
+            arg1.aAnimator_11.update(true, -1);
             for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
                 arg1.aClass199Array3[local107].anInt4930 = -1;
-                arg1.aClass199Array3[local107].aAnimator_7.method9113(true, -1);
+                arg1.aClass199Array3[local107].aAnimator_7.update(true, -1);
             }
             arg1.anInt10759 = 0;
             local7 = -1;
@@ -79,10 +79,10 @@ public final class Static489 {
             arg1.method9316();
         }
         if (arg1 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 && (arg1.anInt10690 < 6144 || arg1.anInt10694 < 6144 || arg1.anInt10690 >= Static720.anInt10859 * 512 - 6144 || Static501.anInt7568 * 512 - 6144 <= arg1.anInt10694)) {
-            arg1.aAnimator_11.method9113(true, -1);
+            arg1.aAnimator_11.update(true, -1);
             for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
                 arg1.aClass199Array3[local107].anInt4930 = -1;
-                arg1.aClass199Array3[local107].aAnimator_7.method9113(true, -1);
+                arg1.aClass199Array3[local107].aAnimator_7.update(true, -1);
             }
             arg1.anInt10759 = 0;
             arg1.anInt10755 = 0;

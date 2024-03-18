@@ -292,7 +292,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                 local16 = 7;
             }
             @Pc(50) Class199 local50 = this.aClass199Array3[local13];
-            if (local50.anInt4930 == -1 || local50.aAnimator_7.method9106()) {
+            if (local50.anInt4930 == -1 || local50.aAnimator_7.isDelayed()) {
                 this.aModelArray3[local13 + 1] = null;
             } else {
                 @Pc(76) Class227 local76 = Static23.aClass128_1.method2694(local50.anInt4930);
@@ -644,13 +644,13 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             if (local19 == arg5) {
                 local38 = Static23.aClass128_1.method2694(arg5);
                 if (local38.aBoolean448 && local38.anInt5842 != -1) {
-                    @Pc(54) Class69 local54 = Static25.aClass50_1.method1162(local38.anInt5842);
-                    @Pc(57) int local57 = local54.anInt1646;
+                    @Pc(54) SeqType local54 = Static25.aClass50_1.list(local38.anInt5842);
+                    @Pc(57) int local57 = local54.replayMode;
                     if (local57 == 0) {
                         return;
                     }
                     if (local57 == 2) {
-                        local16.aAnimator_7.method9115();
+                        local16.aAnimator_7.restartLoop();
                         return;
                     }
                 }
@@ -658,8 +658,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                 local38 = Static23.aClass128_1.method2694(arg5);
                 @Pc(86) Class227 local86 = Static23.aClass128_1.method2694(local19);
                 if (local38.anInt5842 != -1 && local86.anInt5842 != -1) {
-                    @Pc(103) Class69 local103 = Static25.aClass50_1.method1162(local38.anInt5842);
-                    @Pc(109) Class69 local109 = Static25.aClass50_1.method1162(local86.anInt5842);
+                    @Pc(103) SeqType local103 = Static25.aClass50_1.list(local38.anInt5842);
+                    @Pc(109) SeqType local109 = Static25.aClass50_1.list(local86.anInt5842);
                     if (local103.anInt1649 < local109.anInt1649) {
                         return;
                     }
@@ -677,7 +677,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         if (arg5 != -1 && arg2) {
             local118 = 1;
         }
-        local16.aAnimator_7.method9092(arg5 == -1 ? -1 : Static23.aClass128_1.method2694(arg5).anInt5842, arg3 & 0xFFFF, local118, false);
+        local16.aAnimator_7.update(arg5 == -1 ? -1 : Static23.aClass128_1.method2694(arg5).anInt5842, arg3 & 0xFFFF, local118, false);
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(II)V")

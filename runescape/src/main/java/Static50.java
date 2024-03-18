@@ -119,10 +119,10 @@ public final class Static50 {
     @OriginalMember(owner = "client!bm", name = "a", descriptor = "(Lclient!cg;B)V")
     public static void method6638(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
         @Pc(8) Animator local8 = arg0.aAnimator_10;
-        if (local8.method9109() && local8.method9112(1) && local8.method9102()) {
+        if (local8.isAnimating() && local8.tick(1) && local8.isFinished()) {
             if (arg0.aBoolean817) {
-                local8.method9113(true, arg0.method9317().method6477());
-                arg0.aBoolean817 = local8.method9109();
+                local8.update(true, arg0.method9317().method6477());
+                arg0.aBoolean817 = local8.isAnimating();
             }
             local8.method9099();
         }
@@ -130,13 +130,13 @@ public final class Static50 {
         for (@Pc(50) int local50 = 0; local50 < arg0.aClass199Array3.length; local50++) {
             if (arg0.aClass199Array3[local50].anInt4930 != -1) {
                 local75 = arg0.aClass199Array3[local50].aAnimator_7;
-                if (local75.method9106()) {
+                if (local75.isDelayed()) {
                     @Pc(88) Class227 local88 = Static23.aClass128_1.method2694(arg0.aClass199Array3[local50].anInt4930);
-                    @Pc(92) Class69 local92 = local75.method9107();
+                    @Pc(92) SeqType local92 = local75.getAnimation();
                     if (local88.aBoolean448) {
                         if (local92.anInt1642 == 3) {
                             if (arg0.anInt10762 > 0 && Static333.anInt5455 >= arg0.anInt10759 && arg0.anInt10755 < Static333.anInt5455) {
-                                local75.method9113(true, -1);
+                                local75.update(true, -1);
                                 arg0.aClass199Array3[local50].anInt4930 = -1;
                                 continue;
                             }
@@ -145,21 +145,21 @@ public final class Static50 {
                         }
                     }
                 }
-                if (local75.method9112(1) && local75.method9102()) {
-                    local75.method9113(true, -1);
+                if (local75.tick(1) && local75.isFinished()) {
+                    local75.update(true, -1);
                     arg0.aClass199Array3[local50].anInt4930 = -1;
                 }
             }
         }
         local75 = arg0.aAnimator_11;
-        if (local75.method9109()) {
+        if (local75.isAnimating()) {
             label83:
             {
-                @Pc(214) Class69 local214 = local75.method9107();
+                @Pc(214) SeqType local214 = local75.getAnimation();
                 if (local214.anInt1642 == 3) {
                     if (arg0.anInt10762 > 0 && arg0.anInt10759 <= Static333.anInt5455 && Static333.anInt5455 > arg0.anInt10755) {
                         arg0.anIntArray869 = null;
-                        local75.method9113(true, -1);
+                        local75.update(true, -1);
                         break label83;
                     }
                 } else if (local214.anInt1642 == 1) {
@@ -169,9 +169,9 @@ public final class Static50 {
                     }
                     local75.method9091(0);
                 }
-                if (local75.method9112(1) && local75.method9102()) {
+                if (local75.tick(1) && local75.isFinished()) {
                     arg0.anIntArray869 = null;
-                    local75.method9113(true, -1);
+                    local75.update(true, -1);
                 }
             }
         }
@@ -180,7 +180,7 @@ public final class Static50 {
             if (local320 != null) {
                 if (local320.anInt10508 > 0) {
                     local320.anInt10508--;
-                } else if (local320.method9112(1) && local320.method9102()) {
+                } else if (local320.tick(1) && local320.isFinished()) {
                     arg0.aClass152_Sub2_Sub1Array3[local313] = null;
                 }
             }

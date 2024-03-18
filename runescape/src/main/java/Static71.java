@@ -456,7 +456,7 @@ public final class Static71 {
                                         if (local2468 != null) {
                                             local2313 = local2468.method3078(local19.anInt3738, Static163.aToolkit_17, local19.anInt3823 == 9, local19.aAnimator_6, local19.aBoolean288 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aClass201_1 : null);
                                         }
-                                    } else if (local19.aAnimator_6 != null && local19.aAnimator_6.method9109()) {
+                                    } else if (local19.aAnimator_6 != null && local19.aAnimator_6.isAnimating()) {
                                         local2313 = local19.method3401(Static163.aToolkit_17, local19.aAnimator_6, Static574.aClass310_2, Static68.aClass215_3, Static25.aClass50_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aClass201_1, Static34.aClass304_1, Static690.aClass308_2, Static419.aObjTypeList_1, 2048, local1215);
                                         if (local2313 == null && Static544.aBoolean624) {
                                             Static178.method2729(local19);

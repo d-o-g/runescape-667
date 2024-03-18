@@ -105,7 +105,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         this.anInt709 = arg9;
         @Pc(82) int local82 = Static23.aClass128_1.method2694(this.anInt715).anInt5842;
         this.aAnimator_1 = new Animator_Sub2(this, false);
-        this.aAnimator_1.method9113(true, local82);
+        this.aAnimator_1.update(true, local82);
     }
 
     @OriginalMember(owner = "client!b", name = "k", descriptor = "(I)I")
@@ -375,7 +375,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         }
         this.anInt694 = (int) (Math.atan2(this.aDouble7, this.aDouble2) * 2607.5945876176133D) + 8192 & 0x3FFF;
         this.anInt703 = (int) (Math.atan2(this.aDouble1, this.aDouble6) * 2607.5945876176133D) & 0x3FFF;
-        if (this.aAnimator_1.method9112(1) && this.aAnimator_1.method9102()) {
+        if (this.aAnimator_1.tick(1) && this.aAnimator_1.isFinished()) {
             this.aAnimator_1.method9099();
         }
     }

@@ -33,84 +33,84 @@ public final class Static651 {
         @Pc(29) int local29 = arg3.anInt10756 - arg3.aClass126_7.anInt2889 & 0x3FFF;
         if (arg0 == -1) {
             if (local29 == 0 && arg3.anInt10749 <= 25) {
-                if (!arg3.aBoolean817 || !local9.method6479(local19.method9114())) {
-                    local19.method9113(true, local9.method6477());
-                    arg3.aBoolean817 = local19.method9109();
+                if (!arg3.aBoolean817 || !local9.method6479(local19.getAnimationId())) {
+                    local19.update(true, local9.method6477());
+                    arg3.aBoolean817 = local19.isAnimating();
                 }
             } else if (arg1 < 0 && local9.anInt7264 != -1) {
-                local19.method9113(true, local9.anInt7264);
+                local19.update(true, local9.anInt7264);
                 arg3.aBoolean817 = false;
             } else if (arg1 > 0 && local9.anInt7243 != -1) {
-                local19.method9113(true, local9.anInt7243);
+                local19.update(true, local9.anInt7243);
                 arg3.aBoolean817 = false;
-            } else if (!arg3.aBoolean817 || !local9.method6479(local19.method9114())) {
-                local19.method9113(true, local9.method6477());
-                arg3.aBoolean817 = arg3.aAnimator_10.method9109();
+            } else if (!arg3.aBoolean817 || !local9.method6479(local19.getAnimationId())) {
+                local19.update(true, local9.method6477());
+                arg3.aBoolean817 = arg3.aAnimator_10.isAnimating();
             }
         } else if (arg3.anInt10722 != -1 && (local29 >= 10240 || local29 <= 2048)) {
             @Pc(172) int local172 = Static464.anIntArray561[arg2] - arg3.aClass126_7.anInt2889 & 0x3FFF;
             if (arg0 == 2 && local9.anInt7226 != -1) {
                 if (local172 > 2048 && local172 <= 6144 && local9.anInt7260 != -1) {
-                    local19.method9113(true, local9.anInt7260);
+                    local19.update(true, local9.anInt7260);
                 } else if (local172 >= 10240 && local172 < 14336 && local9.anInt7240 != -1) {
-                    local19.method9113(true, local9.anInt7240);
+                    local19.update(true, local9.anInt7240);
                 } else if (local172 <= 6144 || local172 >= 10240 || local9.anInt7241 == -1) {
-                    local19.method9113(true, local9.anInt7226);
+                    local19.update(true, local9.anInt7226);
                 } else {
-                    local19.method9113(true, local9.anInt7241);
+                    local19.update(true, local9.anInt7241);
                 }
             } else if (arg0 == 0 && local9.anInt7235 != -1) {
                 if (local172 > 2048 && local172 <= 6144 && local9.anInt7268 != -1) {
-                    local19.method9113(true, local9.anInt7268);
+                    local19.update(true, local9.anInt7268);
                 } else if (local172 >= 10240 && local172 < 14336 && local9.anInt7239 != -1) {
-                    local19.method9113(true, local9.anInt7239);
+                    local19.update(true, local9.anInt7239);
                 } else if (local172 <= 6144 || local172 >= 10240 || local9.anInt7262 == -1) {
-                    local19.method9113(true, local9.anInt7235);
+                    local19.update(true, local9.anInt7235);
                 } else {
-                    local19.method9113(true, local9.anInt7262);
+                    local19.update(true, local9.anInt7262);
                 }
             } else if (local172 > 2048 && local172 <= 6144 && local9.anInt7254 != -1) {
-                local19.method9113(true, local9.anInt7254);
+                local19.update(true, local9.anInt7254);
             } else if (local172 >= 10240 && local172 < 14336 && local9.anInt7266 != -1) {
-                local19.method9113(true, local9.anInt7266);
+                local19.update(true, local9.anInt7266);
             } else if (local172 <= 6144 || local172 >= 10240 || local9.anInt7253 == -1) {
-                local19.method9113(true, local9.anInt7245);
+                local19.update(true, local9.anInt7245);
             } else {
-                local19.method9113(true, local9.anInt7253);
+                local19.update(true, local9.anInt7253);
             }
             arg3.aBoolean817 = false;
         } else if (local29 == 0 && arg3.anInt10749 <= 25) {
             if (arg0 == 2 && local9.anInt7226 != -1) {
-                local19.method9113(true, local9.anInt7226);
+                local19.update(true, local9.anInt7226);
             } else if (arg0 == 0 && local9.anInt7235 != -1) {
-                local19.method9113(true, local9.anInt7235);
+                local19.update(true, local9.anInt7235);
             } else {
-                local19.method9113(true, local9.anInt7245);
+                local19.update(true, local9.anInt7245);
             }
             arg3.aBoolean817 = false;
         } else {
             if (arg0 == 2 && local9.anInt7226 != -1) {
                 if (arg1 < 0 && local9.anInt7249 != -1) {
-                    local19.method9113(true, local9.anInt7249);
+                    local19.update(true, local9.anInt7249);
                 } else if (arg1 <= 0 || local9.anInt7227 == -1) {
-                    local19.method9113(true, local9.anInt7226);
+                    local19.update(true, local9.anInt7226);
                 } else {
-                    local19.method9113(true, local9.anInt7227);
+                    local19.update(true, local9.anInt7227);
                 }
             } else if (arg0 == 0 && local9.anInt7235 != -1) {
                 if (arg1 < 0 && local9.anInt7244 != -1) {
-                    local19.method9113(true, local9.anInt7244);
+                    local19.update(true, local9.anInt7244);
                 } else if (arg1 <= 0 || local9.anInt7233 == -1) {
-                    local19.method9113(true, local9.anInt7235);
+                    local19.update(true, local9.anInt7235);
                 } else {
-                    local19.method9113(true, local9.anInt7233);
+                    local19.update(true, local9.anInt7233);
                 }
             } else if (arg1 < 0 && local9.anInt7263 != -1) {
-                local19.method9113(true, local9.anInt7263);
+                local19.update(true, local9.anInt7263);
             } else if (arg1 <= 0 || local9.anInt7269 == -1) {
-                local19.method9113(true, local9.anInt7245);
+                local19.update(true, local9.anInt7245);
             } else {
-                local19.method9113(true, local9.anInt7269);
+                local19.update(true, local9.anInt7269);
             }
             arg3.aBoolean817 = false;
         }
@@ -129,14 +129,14 @@ public final class Static651 {
                 }
             }
             @Pc(31) Animator local31 = arg3.aAnimator_11;
-            if (local8 && local31.method9109()) {
-                @Pc(44) Class69 local44 = arg3.aAnimator_11.method9107();
-                @Pc(47) int local47 = local44.anInt1646;
+            if (local8 && local31.isAnimating()) {
+                @Pc(44) SeqType local44 = arg3.aAnimator_11.getAnimation();
+                @Pc(47) int local47 = local44.replayMode;
                 if (local47 == 1) {
-                    local31.method9093(arg1);
+                    local31.reset(arg1);
                 }
                 if (local47 == 2) {
-                    local31.method9115();
+                    local31.restartLoop();
                 }
             }
         }
@@ -145,7 +145,7 @@ public final class Static651 {
             if (arg0[local10] != -1) {
                 local8 = false;
             }
-            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.aClass50_1.method1162(arg0[local10]).anInt1649 >= Static25.aClass50_1.method1162(arg3.anIntArray869[local10]).anInt1649) {
+            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.aClass50_1.list(arg0[local10]).anInt1649 >= Static25.aClass50_1.list(arg3.anIntArray869[local10]).anInt1649) {
                 arg3.anIntArray869 = arg0;
                 arg3.aAnimator_11.method9091(arg1);
                 if (arg2) {

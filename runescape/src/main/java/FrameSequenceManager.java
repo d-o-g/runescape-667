@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!nfa")
-public final class Class257 {
+public final class FrameSequenceManager {
 
     @OriginalMember(owner = "client!nfa", name = "c", descriptor = "Lclient!rw;")
     public AnimFrameset aClass2_Sub2_Sub18_1;
@@ -24,7 +24,7 @@ public final class Class257 {
     public boolean aBoolean481 = false;
 
     @OriginalMember(owner = "client!nfa", name = "a", descriptor = "(Lclient!bp;BLclient!cka;II[I)Z")
-    public boolean method5769(@OriginalArg(0) Class50 arg0, @OriginalArg(2) Class69 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int[] arg4) {
+    public boolean method5769(@OriginalArg(0) Class50 arg0, @OriginalArg(2) SeqType arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int[] arg4) {
         if (this.aBoolean481) {
             return true;
         } else if (arg4.length <= arg3) {
@@ -36,7 +36,7 @@ public final class Class257 {
             if (this.aClass2_Sub2_Sub18_1 == null) {
                 return false;
             }
-            if (arg1.aBoolean142 && arg2 != -1 && arg4.length > arg2) {
+            if (arg1.tweened && arg2 != -1 && arg4.length > arg2) {
                 this.anInt6450 = arg4[arg2];
                 this.aClass2_Sub2_Sub18_2 = arg0.method1166(this.anInt6450 >> 16);
                 this.anInt6450 &= 0xFFFF;
@@ -71,7 +71,7 @@ public final class Class257 {
     }
 
     @OriginalMember(owner = "client!nfa", name = "a", descriptor = "(B)V")
-    public void method5774() {
+    public void reset() {
         this.anInt6452 = 0;
         this.aBoolean481 = false;
         this.aClass2_Sub2_Sub18_1 = this.aClass2_Sub2_Sub18_2 = null;

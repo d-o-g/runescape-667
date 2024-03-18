@@ -40,8 +40,8 @@ public final class Static702 {
             return;
         }
         @Pc(13) int local13 = arg0.anIntArray869[arg1 + 1];
-        if (arg0.aAnimator_11.method9114() != local13) {
-            arg0.aAnimator_11.method9098(arg0.aAnimator_11.method9087(), local13);
+        if (arg0.aAnimator_11.getAnimationId() != local13) {
+            arg0.aAnimator_11.update(arg0.aAnimator_11.method9087(), local13);
             arg0.anInt10762 = arg0.anInt10764;
         }
     }

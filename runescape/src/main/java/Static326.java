@@ -20,7 +20,7 @@ public final class Static326 {
     public static int method4870(@OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub1 arg0) {
         @Pc(6) int local6 = arg0.anInt1445;
         @Pc(10) Class289 local10 = arg0.method9317();
-        @Pc(15) int local15 = arg0.aAnimator_10.method9114();
+        @Pc(15) int local15 = arg0.aAnimator_10.getAnimationId();
         if (local15 == -1 || arg0.aBoolean817) {
             local6 = arg0.anInt1455;
         } else if (local10.anInt7226 == local15 || local15 == local10.anInt7241 || local10.anInt7260 == local15 || local10.anInt7240 == local15) {

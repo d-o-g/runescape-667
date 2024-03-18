@@ -41,9 +41,9 @@ public final class Static643 {
                 if (local9.anInt3820 == 6 && local9.anInt3789 != -1) {
                     if (local9.aAnimator_6 == null) {
                         local9.aAnimator_6 = new Animator_Sub1();
-                        local9.aAnimator_6.method9113(true, local9.anInt3789);
+                        local9.aAnimator_6.update(true, local9.anInt3789);
                     }
-                    if (local9.aAnimator_6.method9112(Static35.anInt800) && local9.aAnimator_6.method9102()) {
+                    if (local9.aAnimator_6.tick(Static35.anInt800) && local9.aAnimator_6.isFinished()) {
                         local9.aAnimator_6.method9099();
                     }
                 }

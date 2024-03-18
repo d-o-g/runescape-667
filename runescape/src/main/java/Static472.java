@@ -468,7 +468,7 @@ public final class Static472 {
                                 if (local220.aAnimator_6 == null) {
                                     local220.aAnimator_6 = new Animator_Sub1();
                                 }
-                                local220.aAnimator_6.method9113(true, local21);
+                                local220.aAnimator_6.update(true, local21);
                             }
                             local220.anInt3789 = local21;
                             Static178.method2729(local220);

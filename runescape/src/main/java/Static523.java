@@ -380,7 +380,7 @@ public final class Static523 {
         if (arg0.aAnimator_6 == null) {
             arg0.aAnimator_6 = new Animator_Sub1();
         }
-        arg0.anInt3789 = local55.method9114();
+        arg0.anInt3789 = local55.getAnimationId();
         arg0.aAnimator_6.method9096(local55);
     }
 }

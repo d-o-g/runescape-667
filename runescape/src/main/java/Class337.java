@@ -139,7 +139,7 @@ public final class Class337 {
                 local23 = null;
             }
             if (local21.method1300()) {
-                if (arg2 && this.aAnimator_9.method9109() && local21.method1298(this.aAnimator_9.method9114())) {
+                if (arg2 && this.aAnimator_9.isAnimating() && local21.method1298(this.aAnimator_9.getAnimationId())) {
                     return;
                 }
                 if (this.anInt8647 != local21.anInt1256) {
@@ -152,7 +152,7 @@ public final class Class337 {
                     arg0 = 1;
                 }
             } else if (local23 != null && local23.method1300()) {
-                if (arg2 && this.aAnimator_9.method9109() && local23.method1298(this.aAnimator_9.method9114())) {
+                if (arg2 && this.aAnimator_9.isAnimating() && local23.method1298(this.aAnimator_9.getAnimationId())) {
                     return;
                 }
                 if (this.anInt8647 != local21.anInt1256) {
@@ -169,7 +169,7 @@ public final class Class337 {
         if (local10 == -1) {
             this.aAnimator_9.method9104(false, -1, 838828768);
         } else {
-            this.aAnimator_9.method9092(local10, 0, arg0, local12);
+            this.aAnimator_9.update(local10, 0, arg0, local12);
             this.aModel_8 = null;
             this.aBoolean662 = false;
             this.anInt8643 = Static333.anInt5455;
@@ -212,7 +212,7 @@ public final class Class337 {
             local163 = this.aByte133 >= 3 ? null : Static246.aGroundArray1[this.aByte133 + 1];
         }
         @Pc(171) Model local171 = null;
-        if (this.aAnimator_9.method9109()) {
+        if (this.aAnimator_9.isAnimating()) {
             if (arg3) {
                 arg4 |= 0x40000;
             }
@@ -281,14 +281,14 @@ public final class Class337 {
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!eo;Z)V")
     public void method7680(@OriginalArg(0) Class8_Sub2 arg0, @OriginalArg(1) boolean arg1) {
-        if (!this.aAnimator_9.method9109()) {
+        if (!this.aAnimator_9.isAnimating()) {
             this.method7676(0, -1, false);
-        } else if (this.aAnimator_9.method9112(Static333.anInt5455 - this.anInt8643)) {
+        } else if (this.aAnimator_9.tick(Static333.anInt5455 - this.anInt8643)) {
             if (Static400.aClass2_Sub34_28.aClass57_Sub12_1.method4364() == 2) {
                 this.aBoolean662 = false;
             }
-            if (this.aAnimator_9.method9102()) {
-                this.aAnimator_9.method9113(arg1, -1);
+            if (this.aAnimator_9.isFinished()) {
+                this.aAnimator_9.update(arg1, -1);
                 this.aBoolean659 = false;
                 this.method7676(0, -1, false);
             }

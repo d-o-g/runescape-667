@@ -87,7 +87,7 @@ public final class Static618 {
         }
         @Pc(12) int local12 = 2055;
         if (arg8 != null) {
-            local12 = arg8.method9101() | 0x807;
+            local12 = arg8.functionMask() | 0x807;
             local12 &= 0xFFFFFDFF;
         }
         @Pc(58) long local58 = ((long) arg3 << 48) + ((long) arg11 << 32) + (long) (arg5 + (arg7 << 16) + (arg0 << 24));

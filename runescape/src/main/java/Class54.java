@@ -852,7 +852,7 @@ public final class Class54 {
             local22 |= arg8.aLong119 << 32;
         }
         if (arg5 != null) {
-            arg9 |= arg5.method9101();
+            arg9 |= arg5.functionMask();
         }
         if (this.aByte12 == 3) {
             arg9 |= 0x7;

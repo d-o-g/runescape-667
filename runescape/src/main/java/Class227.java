@@ -70,7 +70,7 @@ public final class Class227 {
         @Pc(13) boolean local13 = arg1 & this.aByte96 != 0;
         @Pc(15) int local15 = arg7;
         if (arg3 != null) {
-            local15 = arg7 | arg3.method9101();
+            local15 = arg7 | arg3.functionMask();
         }
         if (local13) {
             local15 |= this.aByte96 == 3 ? 7 : 2;

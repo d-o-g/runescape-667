@@ -40,7 +40,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
             if (arg12) {
                 local59 = 1;
             }
-            this.aAnimator_8.method9092(local39, arg1, local59, false);
+            this.aAnimator_8.update(local39, arg1, local59, false);
         }
     }
 
@@ -63,7 +63,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
         @Pc(8) Class227 local8 = Static23.aClass128_1.method2694(arg0);
         @Pc(22) Ground local22 = Static706.aGroundArray3[super.aByte144];
         @Pc(36) Ground local36 = super.aByte143 < 3 ? Static706.aGroundArray3[super.aByte143 + 1] : null;
-        return this.aAnimator_8 == null || this.aAnimator_8.method9102() ? local8.method5249((byte) 2, true, super.anInt10694, (Animator) null, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.anInt10694, this.aAnimator_8, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1);
+        return this.aAnimator_8 == null || this.aAnimator_8.isFinished() ? local8.method5249((byte) 2, true, super.anInt10694, (Animator) null, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.anInt10694, this.aAnimator_8, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1);
     }
 
     @OriginalMember(owner = "client!pja", name = "finalize", descriptor = "()V")
@@ -99,7 +99,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(I)Z")
     public boolean method6595() {
-        return this.aAnimator_8 != null && !this.aAnimator_8.method9106();
+        return this.aAnimator_8 != null && !this.aAnimator_8.isDelayed();
     }
 
     @OriginalMember(owner = "client!pja", name = "j", descriptor = "(I)V")
@@ -130,8 +130,8 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(II)V")
     public void method6598() {
-        if (this.aAnimator_8 != null && !this.aAnimator_8.method9102()) {
-            this.aAnimator_8.method9112(1);
+        if (this.aAnimator_8 != null && !this.aAnimator_8.isFinished()) {
+            this.aAnimator_8.tick(1);
         }
     }
 
@@ -216,6 +216,6 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "d", descriptor = "(I)Z")
     public boolean method6603() {
-        return this.aAnimator_8 == null || this.aAnimator_8.method9102();
+        return this.aAnimator_8 == null || this.aAnimator_8.isFinished();
     }
 }

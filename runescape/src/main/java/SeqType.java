@@ -4,7 +4,11 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!cka")
-public final class Class69 {
+public final class SeqType {
+
+    public static final int REPLAY_MODE_STOP = 0;
+    public static final int REPLAY_MODE_RESET = 1;
+    public static final int REPLAY_MODE_RESTART_LOOP = 2;
 
     @OriginalMember(owner = "client!cka", name = "v", descriptor = "[I")
     public int[] anIntArray154;
@@ -22,25 +26,25 @@ public final class Class69 {
     public boolean[] aBooleanArray3;
 
     @OriginalMember(owner = "client!cka", name = "k", descriptor = "[I")
-    public int[] anIntArray157;
+    public int[] frameDurations;
 
     @OriginalMember(owner = "client!cka", name = "t", descriptor = "I")
-    public int anInt1650;
+    public int id;
 
     @OriginalMember(owner = "client!cka", name = "m", descriptor = "[I")
-    public int[] anIntArray158;
+    public int[] secondaryFrames;
 
     @OriginalMember(owner = "client!cka", name = "B", descriptor = "[I")
-    public int[] anIntArray159;
+    public int[] frames;
 
     @OriginalMember(owner = "client!cka", name = "l", descriptor = "I")
-    public int anInt1640 = -1;
+    public int loopOffset = -1;
 
     @OriginalMember(owner = "client!cka", name = "b", descriptor = "Z")
     public boolean aBoolean140 = false;
 
     @OriginalMember(owner = "client!cka", name = "d", descriptor = "I")
-    public int anInt1646 = 2;
+    public int replayMode = 2;
 
     @OriginalMember(owner = "client!cka", name = "w", descriptor = "I")
     public int anInt1642 = -1;
@@ -55,7 +59,7 @@ public final class Class69 {
     public boolean aBoolean141 = false;
 
     @OriginalMember(owner = "client!cka", name = "g", descriptor = "Z")
-    public boolean aBoolean142 = false;
+    public boolean tweened = false;
 
     @OriginalMember(owner = "client!cka", name = "h", descriptor = "I")
     public int anInt1651 = -1;
@@ -104,19 +108,19 @@ public final class Class69 {
         @Pc(58) int local58;
         if (arg0 == 1) {
             local20 = arg1.g2();
-            this.anIntArray157 = new int[local20];
+            this.frameDurations = new int[local20];
             for (local26 = 0; local26 < local20; local26++) {
-                this.anIntArray157[local26] = arg1.g2();
+                this.frameDurations[local26] = arg1.g2();
             }
-            this.anIntArray159 = new int[local20];
+            this.frames = new int[local20];
             for (local44 = 0; local44 < local20; local44++) {
-                this.anIntArray159[local44] = arg1.g2();
+                this.frames[local44] = arg1.g2();
             }
             for (local58 = 0; local58 < local20; local58++) {
-                this.anIntArray159[local58] = (arg1.g2() << 16) + this.anIntArray159[local58];
+                this.frames[local58] = (arg1.g2() << 16) + this.frames[local58];
             }
         } else if (arg0 == 2) {
-            this.anInt1640 = arg1.g2();
+            this.loopOffset = arg1.g2();
         } else if (arg0 == 3) {
             this.aBooleanArray3 = new boolean[256];
             local20 = arg1.g1();
@@ -136,15 +140,15 @@ public final class Class69 {
         } else if (arg0 == 10) {
             this.anInt1654 = arg1.g1();
         } else if (arg0 == 11) {
-            this.anInt1646 = arg1.g1();
+            this.replayMode = arg1.g1();
         } else if (arg0 == 12) {
             local20 = arg1.g1();
-            this.anIntArray158 = new int[local20];
+            this.secondaryFrames = new int[local20];
             for (local26 = 0; local26 < local20; local26++) {
-                this.anIntArray158[local26] = arg1.g2();
+                this.secondaryFrames[local26] = arg1.g2();
             }
             for (local44 = 0; local44 < local20; local44++) {
-                this.anIntArray158[local44] += arg1.g2() << 16;
+                this.secondaryFrames[local44] += arg1.g2() << 16;
             }
         } else if (arg0 == 13) {
             local20 = arg1.g2();
@@ -162,7 +166,7 @@ public final class Class69 {
         } else if (arg0 == 14) {
             this.aBoolean140 = true;
         } else if (arg0 == 15) {
-            this.aBoolean142 = true;
+            this.tweened = true;
         } else if (arg0 != 16) {
             if (arg0 == 18) {
                 this.aBoolean141 = true;

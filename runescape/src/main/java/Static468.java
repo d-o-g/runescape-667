@@ -122,9 +122,9 @@ public final class Static468 {
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(Lclient!gu;Lclient!ka;Lclient!gu;B)V")
     public static void method7645(@OriginalArg(0) Animator arg0, @OriginalArg(1) Model arg1, @OriginalArg(2) Animator arg2) {
         if (arg0.method9111() && arg2.method9111()) {
-            @Pc(12) Class69 local12 = arg0.aClass69_4;
-            @Pc(15) Class69 local15 = arg2.aClass69_4;
-            arg1.method7477(arg2.anInt10478, arg0.aClass257_8.anInt6448, arg0.aClass257_8.aClass2_Sub2_Sub18_2, arg2.aClass257_8.anInt6450, arg0.aClass257_8.anInt6450, arg2.aClass257_8.aClass2_Sub2_Sub18_2, arg0.aClass257_8.aClass2_Sub2_Sub18_1, arg0.anInt10478, local12.aBoolean140 | local15.aBoolean140, local15.anIntArray157[arg2.anInt10489], arg2.aClass257_8.aClass2_Sub2_Sub18_1, local12.aBooleanArray3, local12.anIntArray157[arg0.anInt10489], arg2.aClass257_8.anInt6448);
+            @Pc(12) SeqType local12 = arg0.animation;
+            @Pc(15) SeqType local15 = arg2.animation;
+            arg1.method7477(arg2.frameOffset, arg0.primarySequences.anInt6448, arg0.primarySequences.aClass2_Sub2_Sub18_2, arg2.primarySequences.anInt6450, arg0.primarySequences.anInt6450, arg2.primarySequences.aClass2_Sub2_Sub18_2, arg0.primarySequences.aClass2_Sub2_Sub18_1, arg0.frameOffset, local12.aBoolean140 | local15.aBoolean140, local15.frameDurations[arg2.currentFrame], arg2.primarySequences.aClass2_Sub2_Sub18_1, local12.aBooleanArray3, local12.frameDurations[arg0.currentFrame], arg2.primarySequences.anInt6448);
         }
     }
 

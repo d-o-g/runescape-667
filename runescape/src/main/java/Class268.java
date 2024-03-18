@@ -502,7 +502,7 @@ public final class Class268 {
         } else {
             @Pc(54) int local54 = 2048;
             if (arg0 != null) {
-                local54 = arg0.method9101() | 0x800;
+                local54 = arg0.functionMask() | 0x800;
             }
             @Pc(71) long local71 = (long) (arg2.index << 16 | this.anInt6744);
             if (arg1 != null) {
@@ -625,16 +625,16 @@ public final class Class268 {
         @Pc(60) int local60 = arg9 == null ? 0 : arg9.length;
         for (@Pc(62) int local62 = 0; local62 < local60; local62++) {
             if (arg9[local62] != null) {
-                local32 |= arg9[local62].method9101();
+                local32 |= arg9[local62].functionMask();
                 local52 = true;
             }
         }
         if (arg3 != null) {
             local52 = true;
-            local32 |= arg3.method9101();
+            local32 |= arg3.functionMask();
         }
         if (arg7 != null) {
-            local32 |= arg7.method9101();
+            local32 |= arg7.functionMask();
             local52 = true;
         }
         @Pc(116) long local116 = (long) (this.anInt6744 | arg1.index << 16);
@@ -792,7 +792,7 @@ public final class Class268 {
         local226 = 1;
         while (local762 < local60) {
             if (arg9[local762] != null) {
-                arg9[local762].method9110(local226, local706);
+                arg9[local762].animatePartial(local226, local706);
             }
             local762++;
             local226 <<= 0x1;

@@ -12,7 +12,7 @@ public final class Animator_Sub1 extends Animator {
 
     @OriginalMember(owner = "client!js", name = "a", descriptor = "(ILclient!cka;B)V")
     @Override
-    protected void method9086(@OriginalArg(0) int arg0, @OriginalArg(1) Class69 arg1) {
+    protected void newFrame(@OriginalArg(0) int arg0, @OriginalArg(1) SeqType arg1) {
         Static315.method4577(arg0, arg1);
     }
 }

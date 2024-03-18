@@ -874,7 +874,7 @@ public final class ObjType {
         }
         local17 = arg1;
         if (arg0 != null) {
-            local17 = arg1 | arg0.method9101();
+            local17 = arg1 | arg0.functionMask();
         }
         @Pc(87) Class82 local87 = this.myList.aClass82_58;
         @Pc(104) Model local104;

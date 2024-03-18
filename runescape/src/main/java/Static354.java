@@ -31,7 +31,7 @@ public final class Static354 {
     @OriginalMember(owner = "client!ld", name = "a", descriptor = "(BLclient!cg;)V")
     public static void method5181(@OriginalArg(1) Class8_Sub2_Sub1_Sub2 arg0) {
         @Pc(6) Animator local6 = arg0.aAnimator_11;
-        if (Static333.anInt5455 == arg0.anInt10755 || !local6.method9109() || local6.method9090()) {
+        if (Static333.anInt5455 == arg0.anInt10755 || !local6.isAnimating() || local6.method9090()) {
             @Pc(34) int local34 = arg0.anInt10755 - arg0.anInt10759;
             @Pc(40) int local40 = Static333.anInt5455 - arg0.anInt10759;
             @Pc(52) int local52 = arg0.anInt10750 * 512 + arg0.method9302((byte) 124) * 256;

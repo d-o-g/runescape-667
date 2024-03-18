@@ -53,7 +53,7 @@ public final class Node_Sub22 extends Node {
             }
         }
         if (arg3 != null) {
-            local9 = arg3.method9101() | 0x800;
+            local9 = arg3.functionMask() | 0x800;
         }
         @Pc(116) long local116 = this.method3077(arg2, arg0, local23, arg4 == null ? null : arg4.bodycol_d_palette);
         if (Static166.aClass82_59 != null) {

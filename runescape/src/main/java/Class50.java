@@ -26,11 +26,11 @@ public final class Class50 {
     }
 
     @OriginalMember(owner = "client!bp", name = "a", descriptor = "(IB)Lclient!cka;")
-    public Class69 method1162(@OriginalArg(0) int arg0) {
+    public SeqType list(@OriginalArg(0) int arg0) {
         @Pc(6) Class82 local6 = this.aClass82_22;
-        @Pc(16) Class69 local16;
+        @Pc(16) SeqType local16;
         synchronized (this.aClass82_22) {
-            local16 = (Class69) this.aClass82_22.method2156((long) arg0);
+            local16 = (SeqType) this.aClass82_22.method2156((long) arg0);
         }
         if (local16 != null) {
             return local16;
@@ -40,8 +40,8 @@ public final class Class50 {
         synchronized (this.aClass330_11) {
             local43 = this.aClass330_11.method7595(Static668.method8702(arg0), Static291.method4226(arg0));
         }
-        local16 = new Class69();
-        local16.anInt1650 = arg0;
+        local16 = new SeqType();
+        local16.id = arg0;
         if (local43 != null) {
             local16.method1585(new Packet(local43));
         }

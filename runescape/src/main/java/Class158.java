@@ -993,7 +993,7 @@ public final class Class158 {
             return null;
         } else if (this.anInt3823 == 1) {
             if (arg1 != null) {
-                arg9 = arg1.method9101() | 0x800;
+                arg9 = arg1.functionMask() | 0x800;
             }
             @Pc(53) long local53 = -1L;
             @Pc(55) long[] local55 = Node_Sub2_Sub14.aLongArray21;

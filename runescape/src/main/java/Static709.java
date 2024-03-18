@@ -380,7 +380,7 @@ public final class Static709 {
                                 if (local1143.aAnimator_6 == null) {
                                     local1143.aAnimator_6 = new Animator_Sub1();
                                 }
-                                local1143.aAnimator_6.method9113(true, local1099.anInt197);
+                                local1143.aAnimator_6.update(true, local1099.anInt197);
                             }
                             local1143.anInt3789 = local1099.anInt197;
                             Static178.method2729(local1143);

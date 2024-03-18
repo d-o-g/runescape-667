@@ -450,12 +450,12 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tween")) {
-                    if (!Static296.aBoolean367) {
-                        Static296.aBoolean367 = true;
+                    if (!Animator.forceTweening) {
+                        Animator.forceTweening = true;
                         Static79.method1579("Forced tweening ENABLED!");
                         return;
                     }
-                    Static296.aBoolean367 = false;
+                    Animator.forceTweening = false;
                     Static79.method1579("Forced tweening disabled.");
                     return;
                 }

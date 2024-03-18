@@ -85,9 +85,9 @@ public final class Class327 {
         for (@Pc(9) int local9 = 0; local9 < arg1.length(); local9++) {
             @Pc(16) int local16 = anIntArray679[arg1.charAt(local9)];
             if (arg6) {
-                this.aSpriteArray13[local16].method8197(arg3 + 1, arg4 + 1, 0, -16777216, 1);
+                this.aSpriteArray13[local16].render(arg3 + 1, arg4 + 1, 0, -16777216, 1);
             }
-            this.aSpriteArray13[local16].method8197(arg3, arg4, 0, local7, 1);
+            this.aSpriteArray13[local16].render(arg3, arg4, 0, local7, 1);
             arg3 += this.anIntArray678[local16];
         }
     }
@@ -171,6 +171,6 @@ public final class Class327 {
         this.anInt8496 = local67 - local143;
         this.anInt8498 = local76;
         this.anIntArray678[arg4] = local5;
-        this.aSpriteArray13[arg4] = arg0.method7946(local3, local3, local73, local120);
+        this.aSpriteArray13[arg4] = arg0.createSprite(local3, local3, local73, local120);
     }
 }

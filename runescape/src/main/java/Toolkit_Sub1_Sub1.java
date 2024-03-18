@@ -202,7 +202,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
             this.anIDirect3DDevice1.BeginScene();
         } catch (@Pc(228) Throwable local228) {
             local228.printStackTrace();
-            this.method7940();
+            this.free();
             throw new RuntimeException("");
         }
     }
@@ -355,7 +355,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(II)Lclient!eca;")
     @Override
-    public Interface6 method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public Surface method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return null;
     }
 
@@ -660,7 +660,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public Interface9 method7988(@OriginalArg(0) Interface6 arg0, @OriginalArg(1) Interface26 arg1) {
+    public Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
         return null;
     }
 

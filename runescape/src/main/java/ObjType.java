@@ -313,30 +313,28 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(II[I)[I")
-    public int[] method8795(@OriginalArg(1) int arg0, @OriginalArg(2) int[] arg1) {
-        @Pc(8) int[] local8 = new int[1152];
-        @Pc(10) int local10 = 0;
-        for (@Pc(12) int local12 = 0; local12 < 32; local12++) {
-            for (@Pc(18) int local18 = 0; local18 < 36; local18++) {
-                @Pc(24) int local24 = arg1[local10];
-                if (local24 == 0) {
-                    if (local18 > 0 && arg1[local10 - 1] != 0) {
-                        local24 = arg0;
-                    } else if (local12 > 0 && arg1[local10 - 36] != 0) {
-                        local24 = arg0;
-                    } else if (local18 < 35 && arg1[local10 + 1] != 0) {
-                        local24 = arg0;
-                    } else if (local12 < 31 && arg1[local10 + 36] != 0) {
-                        local24 = arg0;
+    public int[] colourBorder(@OriginalArg(1) int c, @OriginalArg(2) int[] p) {
+        @Pc(8) int[] out = new int[1152];
+        @Pc(10) int pos = 0;
+
+        for (@Pc(12) int y = 0; y < 32; y++) {
+            for (@Pc(18) int x = 0; x < 36; x++) {
+                @Pc(24) int colour = p[pos];
+                if (colour == 0) {
+                    if (x > 0 && p[pos - 1] != 0) {
+                        colour = c;
+                    } else if (y > 0 && p[pos - 36] != 0) {
+                        colour = c;
+                    } else if (x < 35 && p[pos + 1] != 0) {
+                        colour = c;
+                    } else if (y < 31 && p[pos + 36] != 0) {
+                        colour = c;
                     }
                 }
-                local8[local10++] = local24;
+                out[pos++] = colour;
             }
         }
-        if (-1 != -1) {
-            this.recol_s = null;
-        }
-        return local8;
+        return out;
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!ge;ZI)V")
@@ -605,36 +603,40 @@ public final class ObjType {
         scratchToolkit.aa(0, 0, 36, 32, 0, 0);
         model.render(scratch, (PickingCylinder) null, 1);
         scratchToolkit.f(zNear, zFar);
-        @Pc(515) int[] local515 = scratchToolkit.na(0, 0, 36, 32);
+
+        @Pc(515) int[] image = scratchToolkit.na(0, 0, 36, 32);
         if (outline >= 1) {
-            local515 = this.method8795(-16777214, local515);
+            image = this.colourBorder(0xff000002, image);
             if (outline >= 2) {
-                local515 = this.method8795(-1, local515);
+                image = this.colourBorder(-1, image);
             }
         }
+
         if (graphicShadow != 0) {
-            this.method8804(graphicShadow, local515);
+            this.applyShadow(graphicShadow, image);
         }
-        scratchToolkit.method7946(36, 36, 32, local515).method8202(0, 0);
+
+        scratchToolkit.createSprite(36, 36, 32, image).render(0, 0);
+
         if (this.certtemplate != -1) {
-            sprite.method8202(0, 0);
+            sprite.render(0, 0);
         } else if (this.lenttemplate != -1) {
-            sprite.method8202(0, 0);
+            sprite.render(0, 0);
         } else if (this.boughttemplate != -1) {
-            sprite.method8202(0, 0);
+            sprite.render(0, 0);
         }
         if (objNumMode == 1 || objNumMode == 2 && (this.stackable == 1 || invCount != 1) && invCount != -1) {
             font.method8829(0, 9, this.method8803(invCount), -16777215, -256);
         }
-        local515 = scratchToolkit.na(0, 0, 36, 32);
-        for (@Pc(652) int local652 = 0; local652 < local515.length; local652++) {
-            if ((local515[local652] & 0xFFFFFF) == 0) {
-                local515[local652] = 0;
+        image = scratchToolkit.na(0, 0, 36, 32);
+        for (@Pc(652) int local652 = 0; local652 < image.length; local652++) {
+            if ((image[local652] & 0xFFFFFF) == 0) {
+                image[local652] = 0;
             } else {
-                local515[local652] |= 0xFF000000;
+                image[local652] |= 0xFF000000;
             }
         }
-        return local515;
+        return image;
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!bs;ZI)Lclient!dv;")
@@ -840,7 +842,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(I[II)V")
-    public void method8804(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1) {
+    public void applyShadow(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1) {
         for (@Pc(11) int local11 = 31; local11 > 0; local11--) {
             @Pc(19) int local19 = local11 * 36;
             for (@Pc(21) int local21 = 35; local21 > 0; local21--) {

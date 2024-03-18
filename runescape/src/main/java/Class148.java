@@ -134,7 +134,7 @@ public final class Class148 {
                     @Pc(120) int[] local120 = local74.alphaBlendMode == 2 ? Static708.anTextureSource_12.argbOutput(0.7F, this.anInt3507, this.anInt3518, this.anInt3518) : Static708.anTextureSource_12.rgbOutput(this.anInt3518, false, this.anInt3518, this.anInt3507, 0.7F);
                     this.anInt3501 = local120[0];
                     this.anInt3511 = local120[local120.length - 1];
-                    this.aSprite_10 = arg3.method7946(this.anInt3518, this.anInt3518, this.anInt3518, local120);
+                    this.aSprite_10 = arg3.createSprite(this.anInt3518, this.anInt3518, this.anInt3518, local120);
                 }
                 @Pc(161) int local161 = local10 == 255 ? (local74.alphaBlendMode == 2 ? 1 : 0) : 1;
                 if (local161 == 1 && arg4) {
@@ -151,7 +151,7 @@ public final class Class148 {
                     @Pc(233) int local233;
                     if (this.anInt3515 == 1) {
                         for (local233 = local199 - arg2; local233 < arg6; local233 += arg2) {
-                            this.aSprite_10.method8205(arg7 + local233, local187 + arg11, arg2, arg2, 0, local10 << 24 | 0xFFFFFF, local161);
+                            this.aSprite_10.render(arg7 + local233, local187 + arg11, arg2, arg2, 0, local10 << 24 | 0xFFFFFF, local161);
                         }
                         if ((this.anInt3501 & 0xFF000000) != 0) {
                             arg3.method7971(arg6, local187 + arg11 + 1, 0, 0, this.anInt3501);
@@ -168,7 +168,7 @@ public final class Class148 {
                         }
                         for (local233 = local199 - arg2; local233 < arg6; local233 += arg2) {
                             for (@Pc(360) int local360 = local187 - arg2; local360 < arg2; local360 += arg2) {
-                                this.aSprite_10.method8205(arg7 + local233, local360 - -arg11, arg2, arg2, 0, local10 << 24 | 0xFFFFFF, local161);
+                                this.aSprite_10.render(arg7 + local233, local360 - -arg11, arg2, arg2, 0, local10 << 24 | 0xFFFFFF, local161);
                             }
                         }
                     }

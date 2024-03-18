@@ -110,10 +110,10 @@ public abstract class Class14 {
                                     local17++;
                                     @Pc(187) int local187 = Static647.method8473(local64.substring(4));
                                     @Pc(191) Sprite local191 = arg3[local187];
-                                    @Pc(201) int local201 = arg6 == null ? local191.method8192() : arg6[local187];
-                                    local191.method8197(local164 + arg4, local174 + -local201 + local7 + this.aClass381_12.anInt10027, 1, 0, 1);
+                                    @Pc(201) int local201 = arg6 == null ? local191.scaleHeight() : arg6[local187];
+                                    local191.render(local164 + arg4, local174 + -local201 + local7 + this.aClass381_12.anInt10027, 1, 0, 1);
                                     local15 = -1;
-                                    arg4 += arg3[local187].method8203();
+                                    arg4 += arg3[local187].scaleWidth();
                                 } catch (@Pc(230) Exception local230) {
                                 }
                             } else {
@@ -217,14 +217,14 @@ public abstract class Class14 {
                                 try {
                                     @Pc(136) int local136 = Static647.method8473(local54.substring(4));
                                     @Pc(140) Sprite local140 = arg0[local136];
-                                    @Pc(150) int local150 = arg7 == null ? local140.method8192() : arg7[local136];
+                                    @Pc(150) int local150 = arg7 == null ? local140.scaleHeight() : arg7[local136];
                                     if ((Static658.anInt9801 & 0xFF000000) == -16777216) {
-                                        local140.method8197(arg4, this.aClass381_12.anInt10027 + local5 - local150, 1, 0, 1);
+                                        local140.render(arg4, this.aClass381_12.anInt10027 + local5 - local150, 1, 0, 1);
                                     } else {
-                                        local140.method8197(arg4, local5 + this.aClass381_12.anInt10027 - local150, 0, Static658.anInt9801 & 0xFF000000 | 0xFFFFFF, 1);
+                                        local140.render(arg4, local5 + this.aClass381_12.anInt10027 - local150, 0, Static658.anInt9801 & 0xFF000000 | 0xFFFFFF, 1);
                                     }
                                     local18 = -1;
-                                    arg4 += arg0[local136].method8203();
+                                    arg4 += arg0[local136].scaleWidth();
                                 } catch (@Pc(202) Exception local202) {
                                 }
                             } else {

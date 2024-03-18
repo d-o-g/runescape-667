@@ -134,11 +134,11 @@ public final class Class216 {
         local147.renderOrtho(local209, (PickingCylinder) null, 1024, 1);
         @Pc(231) int local231 = this.anInt5638 * 13 / 16;
         @Pc(238) int local238 = (this.anInt5638 - local231) / 2;
-        Static345.aSprite.method8205(local238, local238, local231, local231, 0, this.anInt5634 | 0xFF000000, 1);
+        Static345.aSprite.render(local238, local238, local231, local231, 0, this.anInt5634 | 0xFF000000, 1);
         this.aSprite_24 = arg0.method7964(0, 0, this.anInt5638, this.anInt5638, true);
         arg0.ya();
         arg0.aa(0, 0, this.anInt5638, this.anInt5638, 0, 0);
-        Static345.aSprite_25.method8205(0, 0, this.anInt5638, this.anInt5638, 1, 0, 0);
+        Static345.aSprite_25.render(0, 0, this.anInt5638, this.anInt5638, 1, 0, 0);
         this.aSprite_24.method8196();
         arg0.DA(local190[0], local190[1], local190[2], local190[3]);
         arg0.KA(Static345.anIntArray418[0], Static345.anIntArray418[1], Static345.anIntArray418[2], Static345.anIntArray418[3]);
@@ -229,7 +229,7 @@ public final class Class216 {
         @Pc(75) int local75 = local6[0] - this.anInt5627 / 2;
         @Pc(84) int local84 = local6[1] - this.anInt5627 / 2;
         if (local84 < arg4 && local84 + this.anInt5627 > 0 && local75 < arg3 && local75 + this.anInt5627 > 0) {
-            this.aSprite_24.method8205(local75, local84, this.anInt5627, this.anInt5627, 0, arg10 << 24 | 0xFFFFFF, 1);
+            this.aSprite_24.render(local75, local84, this.anInt5627, this.anInt5627, 0, arg10 << 24 | 0xFFFFFF, 1);
         }
     }
 
@@ -290,7 +290,7 @@ public final class Class216 {
             if (this.anInt5640 == 0) {
                 if (Static708.anTextureSource_12.textureAvailable(this.anInt5633)) {
                     @Pc(23) int[] local23 = Static708.anTextureSource_12.argbOutput(0.7F, this.anInt5633, this.anInt5638, this.anInt5638);
-                    this.aSprite_24 = arg0.method7946(this.anInt5638, this.anInt5638, this.anInt5638, local23);
+                    this.aSprite_24 = arg0.createSprite(this.anInt5638, this.anInt5638, this.anInt5638, local23);
                 }
             } else if (this.anInt5640 == 2) {
                 this.method5054(arg0, arg1);

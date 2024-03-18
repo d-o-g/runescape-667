@@ -73,13 +73,13 @@ public final class Static694 {
                 local101 += Static422.method5771();
             }
             arg0.method7948(Static74.aClass407_1, false).method8189(Static414.aClass407_2.anInt10847 + local92, Static414.aClass407_2.anInt10850 + local101, local40 - Static414.aClass407_2.anInt10847 * 2, local49 + -(Static414.aClass407_2.anInt10850 * 2), 1, 0, 0);
-            arg0.method7948(Static414.aClass407_2, true).method8202(local92, local101);
+            arg0.method7948(Static414.aClass407_2, true).render(local92, local101);
             Static414.aClass407_2.method9388();
-            arg0.method7948(Static414.aClass407_2, true).method8202(local40 + local92 - local52, local101);
+            arg0.method7948(Static414.aClass407_2, true).render(local40 + local92 - local52, local101);
             Static414.aClass407_2.method9377();
-            arg0.method7948(Static414.aClass407_2, true).method8202(local40 + local92 - local52, -local52 + local101 + local49);
+            arg0.method7948(Static414.aClass407_2, true).render(local40 + local92 - local52, -local52 + local101 + local49);
             Static414.aClass407_2.method9388();
-            arg0.method7948(Static414.aClass407_2, true).method8202(local92, local49 + local101 - local52);
+            arg0.method7948(Static414.aClass407_2, true).render(local92, local49 + local101 - local52);
             Static414.aClass407_2.method9377();
             arg0.method7948(Static535.aClass407_3, true).method8198(local92, Static414.aClass407_2.anInt10850 + local101, local52, local49 - Static414.aClass407_2.anInt10850 * 2);
             Static535.aClass407_3.method9386();

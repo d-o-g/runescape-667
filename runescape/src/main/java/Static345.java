@@ -98,7 +98,7 @@ public final class Static345 {
                 local4[local28 + local34] = local4[local28 + local49] = local4[local32 + local34] = local4[local32 + local49] = 127 - local81 << 24 | 0xFFFFFF;
             }
         }
-        aSprite_25 = arg0.method7946(128, 128, 128, local7);
-        aSprite = arg0.method7946(128, 128, 128, local4);
+        aSprite_25 = arg0.createSprite(128, 128, 128, local7);
+        aSprite = arg0.createSprite(128, 128, 128, local4);
     }
 }

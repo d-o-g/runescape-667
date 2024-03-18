@@ -514,7 +514,7 @@ public final class Class158 {
             local71.method9381(this.anInt3798 | 0xFF000000);
         }
         local60 = arg0.method7948(local71, true);
-        Static473.aClass82_157.method2153(local54, local60, local60.method8199() * local60.method8182() * 4);
+        Static473.aClass82_157.method2153(local54, local60, local60.getWidth() * local60.getHeight() * 4);
         return local60;
     }
 

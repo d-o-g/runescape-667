@@ -79,7 +79,7 @@ public final class Static231 {
         }
         Static59.aMatrix_5 = null;
         Static460.aMatrix_10 = null;
-        Static163.aToolkit_17.method7940();
+        Static163.aToolkit_17.free();
         Static163.aToolkit_17 = null;
     }
 

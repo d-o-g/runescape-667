@@ -42,19 +42,19 @@ public final class Static351 {
                 local102 = arg1.method2431(false, arg0);
             }
             if (local102 != null) {
-                local104 = arg2.anInt3130 - (local102.method8203() + 1 >> 1);
-                local106 = arg2.anInt3130 + (local102.method8203() + 1 >> 1);
+                local104 = arg2.anInt3130 - (local102.scaleWidth() + 1 >> 1);
+                local106 = arg2.anInt3130 + (local102.scaleWidth() + 1 >> 1);
                 if (local7 > local104) {
                     local7 = local104;
                 }
                 if (local106 > local9) {
                     local9 = local106;
                 }
-                local108 = arg2.anInt3122 - (local102.method8192() + 1 >> 1);
+                local108 = arg2.anInt3122 - (local102.scaleHeight() + 1 >> 1);
                 if (local11 > local108) {
                     local11 = local108;
                 }
-                local110 = arg2.anInt3122 + (local102.method8192() + 1 >> 1);
+                local110 = arg2.anInt3122 + (local102.scaleHeight() + 1 >> 1);
                 if (local110 > local13) {
                     local13 = local110;
                 }
@@ -79,7 +79,7 @@ public final class Static351 {
                 if (local102 == null) {
                     local215 -= local211 * local209.method7538() / 2;
                 } else {
-                    local215 -= (local102.method8192() >> 1) + (local209.method7536() * local211);
+                    local215 -= (local102.scaleHeight() >> 1) + (local209.method7536() * local211);
                 }
                 for (local312 = 0; local312 < local211; local312++) {
                     @Pc(318) String local318 = Static37.aStringArray5[local312];
@@ -121,13 +121,13 @@ public final class Static351 {
                     local312 = Static212.anInt3467 * 2;
                 }
                 @Pc(495) int local495 = local312 << 24 | 0xFFFF00;
-                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.method8199() / 2 + 7);
-                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.method8199() / 2 + 5);
-                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.method8199() / 2 + 3);
-                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.method8199() / 2 + 1);
-                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.method8199() / 2);
+                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.getWidth() / 2 + 7);
+                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.getWidth() / 2 + 5);
+                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.getWidth() / 2 + 3);
+                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.getWidth() / 2 + 1);
+                arg0.method7966(arg2.anInt3122, local495, arg2.anInt3130, local102.getWidth() / 2);
             }
-            local102.method8202(arg2.anInt3130 - (local102.method8203() >> 1), arg2.anInt3122 - (local102.method8192() >> 1));
+            local102.render(arg2.anInt3130 - (local102.scaleWidth() >> 1), arg2.anInt3122 - (local102.scaleHeight() >> 1));
         }
         if (arg1.aString25 != null && local209 != null) {
             Static720.method9396(local211, arg2, local213, arg1, local209, local217, arg0, local215);

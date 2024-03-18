@@ -1265,7 +1265,7 @@ public final class Toolkit_Sub3 extends Toolkit {
                 }
             }
         }
-        @Pc(127) Sprite local127 = this.method7946(arg0.anInt10847, arg0.anInt10847, arg0.anInt10850, local12);
+        @Pc(127) Sprite local127 = this.createSprite(arg0.anInt10847, arg0.anInt10847, arg0.anInt10850, local12);
         local127.method8184(arg0.anInt10852, arg0.anInt10848, arg0.anInt10851, arg0.anInt10849);
         return local127;
     }
@@ -1700,7 +1700,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public Interface9 method7988(@OriginalArg(0) Interface6 arg0, @OriginalArg(1) Interface26 arg1) {
+    public Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
         return null;
     }
 
@@ -2391,7 +2391,7 @@ public final class Toolkit_Sub3 extends Toolkit {
             this.aClass406_6.method9363(8);
             this.method6993(this.aClass406_6);
         } else if (this.aBoolean612) {
-            this.aClass23_Sub2_1.method8201(0, 0, this.anInt7869, this.anInt7956, 0, 0);
+            this.aClass23_Sub2_1.render(0, 0, this.anInt7869, this.anInt7956, 0, 0);
             this.anOpenGL1.setSurface(this.aLong246);
         } else {
             throw new RuntimeException("");
@@ -3055,7 +3055,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(II)Lclient!eca;")
     @Override
-    public Interface6 method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public Surface method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return null;
     }
 

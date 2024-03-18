@@ -108,7 +108,7 @@ public final class Static620 {
         }
         local36 = 0;
         if (local517 != null) {
-            local36 = local517.method8182();
+            local36 = local517.getHeight();
         }
         @Pc(553) Class14 local553 = Static665.aClass14_12;
         @Pc(555) Class381 local555 = Static154.aClass381_6;

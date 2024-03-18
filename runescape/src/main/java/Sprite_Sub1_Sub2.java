@@ -41,41 +41,41 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
 
     @OriginalMember(owner = "client!nr", name = "a", descriptor = "(IIIII)V")
     @Override
-    public void method8197(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
         if (super.aClass19_Sub2_10.method3785()) {
             throw new IllegalStateException();
         }
         @Pc(12) int local12 = super.aClass19_Sub2_10.anInt4207;
-        arg0 += super.anInt9298;
-        arg1 += super.anInt9308;
-        @Pc(28) int local28 = arg1 * local12 + arg0;
+        x += super.anInt9298;
+        y += super.anInt9308;
+        @Pc(28) int local28 = y * local12 + x;
         @Pc(30) int local30 = 0;
         @Pc(33) int local33 = super.anInt9306;
         @Pc(36) int local36 = super.anInt9302;
         @Pc(40) int local40 = local12 - local36;
         @Pc(42) int local42 = 0;
         @Pc(53) int local53;
-        if (arg1 < super.aClass19_Sub2_10.anInt4186) {
-            local53 = super.aClass19_Sub2_10.anInt4186 - arg1;
+        if (y < super.aClass19_Sub2_10.anInt4186) {
+            local53 = super.aClass19_Sub2_10.anInt4186 - y;
             local33 -= local53;
-            arg1 = super.aClass19_Sub2_10.anInt4186;
+            y = super.aClass19_Sub2_10.anInt4186;
             local30 = local53 * local36;
             local28 += local53 * local12;
         }
-        if (arg1 + local33 > super.aClass19_Sub2_10.anInt4196) {
-            local33 -= arg1 + local33 - super.aClass19_Sub2_10.anInt4196;
+        if (y + local33 > super.aClass19_Sub2_10.anInt4196) {
+            local33 -= y + local33 - super.aClass19_Sub2_10.anInt4196;
         }
-        if (arg0 < super.aClass19_Sub2_10.anInt4192) {
-            local53 = super.aClass19_Sub2_10.anInt4192 - arg0;
+        if (x < super.aClass19_Sub2_10.anInt4192) {
+            local53 = super.aClass19_Sub2_10.anInt4192 - x;
             local36 -= local53;
-            arg0 = super.aClass19_Sub2_10.anInt4192;
+            x = super.aClass19_Sub2_10.anInt4192;
             local30 += local53;
             local28 += local53;
             local42 = local53;
             local40 += local53;
         }
-        if (arg0 + local36 > super.aClass19_Sub2_10.anInt4200) {
-            local53 = arg0 + local36 - super.aClass19_Sub2_10.anInt4200;
+        if (x + local36 > super.aClass19_Sub2_10.anInt4200) {
+            local53 = x + local36 - super.aClass19_Sub2_10.anInt4200;
             local36 -= local53;
             local42 += local53;
             local40 += local53;
@@ -94,12 +94,12 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
         @Pc(297) int local297;
         @Pc(305) int local305;
         @Pc(433) int local433;
-        if (arg4 != 0) {
+        if (op != 0) {
             @Pc(734) int local734;
             @Pc(742) int local742;
             @Pc(754) int local754;
-            if (arg4 == 1) {
-                if (arg2 == 1) {
+            if (op == 1) {
+                if (width == 1) {
                     for (local174 = -local33; local174 < 0; local174++) {
                         for (local181 = -local36; local181 < 0; local181++) {
                             local267 = this.anIntArray528[local30++];
@@ -111,12 +111,12 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                         local28 += local40;
                         local30 += local42;
                     }
-                } else if (arg2 == 0) {
-                    if ((arg3 & 0xFFFFFF) == 16777215) {
+                } else if (width == 0) {
+                    if ((height & 0xFFFFFF) == 16777215) {
                         for (local174 = -local33; local174 < 0; local174++) {
                             for (local181 = -local36; local181 < 0; local181++) {
                                 local267 = this.anIntArray528[local30++];
-                                local270 = (local267 >>> 24) * (arg3 >>> 24) >> 8;
+                                local270 = (local267 >>> 24) * (height >>> 24) >> 8;
                                 local274 = 256 - local270;
                                 local281 = local164[local28];
                                 local164[local28++] = ((local267 & 0xFF00FF) * local270 + (local281 & 0xFF00FF) * local274 & 0xFF00FF00) + ((local267 & 0xFF00) * local270 + (local281 & 0xFF00) * local274 & 0xFF0000) >> 8;
@@ -125,13 +125,13 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                             local30 += local42;
                         }
                     } else {
-                        local174 = arg3 >> 16 & 0xFF;
-                        local181 = arg3 >> 8 & 0xFF;
-                        local267 = arg3 & 0xFF;
+                        local174 = height >> 16 & 0xFF;
+                        local181 = height >> 8 & 0xFF;
+                        local267 = height & 0xFF;
                         for (local270 = -local33; local270 < 0; local270++) {
                             for (local274 = -local36; local274 < 0; local274++) {
                                 local281 = this.anIntArray528[local30++];
-                                local289 = (local281 >>> 24) * (arg3 >>> 24) >> 8;
+                                local289 = (local281 >>> 24) * (height >>> 24) >> 8;
                                 local297 = 256 - local289;
                                 if (local289 == 255) {
                                     local305 = (local281 & 0xFF0000) * local174 & 0xFF000000;
@@ -151,15 +151,15 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                             local30 += local42;
                         }
                     }
-                } else if (arg2 == 3) {
+                } else if (width == 3) {
                     for (local174 = -local33; local174 < 0; local174++) {
                         for (local181 = -local36; local181 < 0; local181++) {
                             local267 = this.anIntArray528[local30++];
-                            local270 = local267 + arg3;
-                            local274 = (local267 & 0xFF00FF) + (arg3 & 0xFF00FF);
+                            local270 = local267 + height;
+                            local274 = (local267 & 0xFF00FF) + (height & 0xFF00FF);
                             local281 = (local274 & 0x1000100) + (local270 - local274 & 0x10000);
                             local281 = local270 - local281 | local281 - (local281 >>> 8);
-                            local289 = (local281 >>> 24) * (arg3 >>> 24) >> 8;
+                            local289 = (local281 >>> 24) * (height >>> 24) >> 8;
                             local297 = 256 - local289;
                             if (local289 != 255) {
                                 local267 = local281;
@@ -171,11 +171,11 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                         local28 += local40;
                         local30 += local42;
                     }
-                } else if (arg2 == 2) {
-                    local174 = arg3 >>> 24;
+                } else if (width == 2) {
+                    local174 = height >>> 24;
                     local181 = 256 - local174;
-                    local267 = (arg3 & 0xFF00FF) * local181 & 0xFF00FF00;
-                    local270 = (arg3 & 0xFF00) * local181 & 0xFF0000;
+                    local267 = (height & 0xFF00FF) * local181 & 0xFF00FF00;
+                    local270 = (height & 0xFF00) * local181 & 0xFF0000;
                     local433 = (local267 | local270) >>> 8;
                     for (local274 = -local33; local274 < 0; local274++) {
                         for (local281 = -local36; local281 < 0; local281++) {
@@ -194,9 +194,9 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                 } else {
                     throw new IllegalArgumentException();
                 }
-            } else if (arg4 != 2) {
+            } else if (op != 2) {
                 throw new IllegalArgumentException();
-            } else if (arg2 == 1) {
+            } else if (width == 1) {
                 for (local174 = -local33; local174 < 0; local174++) {
                     for (local181 = -local36; local181 < 0; local181++) {
                         local267 = this.anIntArray528[local30++];
@@ -213,10 +213,10 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                     local28 += local40;
                     local30 += local42;
                 }
-            } else if (arg2 == 0) {
-                local174 = arg3 >> 16 & 0xFF;
-                local181 = arg3 >> 8 & 0xFF;
-                local267 = arg3 & 0xFF;
+            } else if (width == 0) {
+                local174 = height >> 16 & 0xFF;
+                local181 = height >> 8 & 0xFF;
+                local267 = height & 0xFF;
                 for (local270 = -local33; local270 < 0; local270++) {
                     for (local274 = -local36; local274 < 0; local274++) {
                         local281 = this.anIntArray528[local30++];
@@ -237,12 +237,12 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                     local28 += local40;
                     local30 += local42;
                 }
-            } else if (arg2 == 3) {
+            } else if (width == 3) {
                 for (local174 = -local33; local174 < 0; local174++) {
                     for (local181 = -local36; local181 < 0; local181++) {
                         local267 = this.anIntArray528[local30++];
-                        local270 = local267 + arg3;
-                        local274 = (local267 & 0xFF00FF) + (arg3 & 0xFF00FF);
+                        local270 = local267 + height;
+                        local274 = (local267 & 0xFF00FF) + (height & 0xFF00FF);
                         local281 = (local274 & 0x1000100) + (local270 - local274 & 0x10000);
                         local267 = local270 - local281 | local281 - (local281 >>> 8);
                         local281 = local164[local28];
@@ -254,11 +254,11 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                     local28 += local40;
                     local30 += local42;
                 }
-            } else if (arg2 == 2) {
-                local174 = arg3 >>> 24;
+            } else if (width == 2) {
+                local174 = height >>> 24;
                 local181 = 256 - local174;
-                local267 = (arg3 & 0xFF00FF) * local181 & 0xFF00FF00;
-                local270 = (arg3 & 0xFF00) * local181 & 0xFF0000;
+                local267 = (height & 0xFF00FF) * local181 & 0xFF00FF00;
+                local270 = (height & 0xFF00) * local181 & 0xFF0000;
                 local433 = (local267 | local270) >>> 8;
                 for (local274 = -local33; local274 < 0; local274++) {
                     for (local281 = -local36; local281 < 0; local281++) {
@@ -282,7 +282,7 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
             } else {
                 throw new IllegalArgumentException();
             }
-        } else if (arg2 == 1) {
+        } else if (width == 1) {
             for (local174 = -local33; local174 < 0; local174++) {
                 local181 = local28 + local36 - 3;
                 while (local28 < local181) {
@@ -298,10 +298,10 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                 local28 += local40;
                 local30 += local42;
             }
-        } else if (arg2 == 0) {
-            local174 = arg3 >> 16 & 0xFF;
-            local181 = arg3 >> 8 & 0xFF;
-            local267 = arg3 & 0xFF;
+        } else if (width == 0) {
+            local174 = height >> 16 & 0xFF;
+            local181 = height >> 8 & 0xFF;
+            local267 = height & 0xFF;
             for (local270 = -local33; local270 < 0; local270++) {
                 for (local274 = -local36; local274 < 0; local274++) {
                     local281 = this.anIntArray528[local30++];
@@ -313,23 +313,23 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                 local28 += local40;
                 local30 += local42;
             }
-        } else if (arg2 == 3) {
+        } else if (width == 3) {
             for (local174 = -local33; local174 < 0; local174++) {
                 for (local181 = -local36; local181 < 0; local181++) {
                     local267 = this.anIntArray528[local30++];
-                    local270 = local267 + arg3;
-                    local274 = (local267 & 0xFF00FF) + (arg3 & 0xFF00FF);
+                    local270 = local267 + height;
+                    local274 = (local267 & 0xFF00FF) + (height & 0xFF00FF);
                     local281 = (local274 & 0x1000100) + (local270 - local274 & 0x10000);
                     local164[local28++] = local270 - local281 | local281 - (local281 >>> 8);
                 }
                 local28 += local40;
                 local30 += local42;
             }
-        } else if (arg2 == 2) {
-            local174 = arg3 >>> 24;
+        } else if (width == 2) {
+            local174 = height >>> 24;
             local181 = 256 - local174;
-            local267 = (arg3 & 0xFF00FF) * local181 & 0xFF00FF00;
-            local270 = (arg3 & 0xFF00) * local181 & 0xFF0000;
+            local267 = (height & 0xFF00FF) * local181 & 0xFF00FF00;
+            local270 = (height & 0xFF00) * local181 & 0xFF0000;
             local433 = (local267 | local270) >>> 8;
             for (local274 = -local33; local274 < 0; local274++) {
                 for (local281 = -local36; local281 < 0; local281++) {
@@ -2114,12 +2114,12 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
 
     @OriginalMember(owner = "client!nr", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void method8201(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour) {
         @Pc(3) int[] local3 = super.aClass19_Sub2_10.anIntArray319;
-        for (@Pc(5) int local5 = 0; local5 < arg3; local5++) {
-            @Pc(14) int local14 = (arg1 + local5) * arg2 + arg0;
-            @Pc(22) int local22 = (arg5 + local5) * arg2 + arg4;
-            for (@Pc(24) int local24 = 0; local24 < arg2; local24++) {
+        for (@Pc(5) int local5 = 0; local5 < height; local5++) {
+            @Pc(14) int local14 = (y + local5) * width + x;
+            @Pc(22) int local22 = (colour + local5) * width + op;
+            for (@Pc(24) int local24 = 0; local24 < width; local24++) {
                 this.anIntArray528[local14 + local24] = local3[local22 + local24] & 0xFFFFFF;
             }
         }
@@ -2224,54 +2224,54 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
 
     @OriginalMember(owner = "client!nr", name = "a", descriptor = "(IIIIIIII)V")
     @Override
-    protected void method8190(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    protected void method8190(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
         if (super.aClass19_Sub2_10.method3785()) {
             throw new IllegalStateException();
-        } else if (arg2 > 0 && arg3 > 0) {
+        } else if (width > 0 && height > 0) {
             @Pc(18) int local18 = 0;
             @Pc(20) int local20 = 0;
             @Pc(24) int local24 = super.aClass19_Sub2_10.anInt4207;
             @Pc(33) int local33 = super.anInt9298 + super.anInt9302 + super.anInt9295;
             @Pc(42) int local42 = super.anInt9308 + super.anInt9306 + super.anInt9294;
-            @Pc(48) int local48 = (local33 << 16) / arg2;
-            @Pc(54) int local54 = (local42 << 16) / arg3;
+            @Pc(48) int local48 = (local33 << 16) / width;
+            @Pc(54) int local54 = (local42 << 16) / height;
             @Pc(68) int local68;
             if (super.anInt9298 > 0) {
                 local68 = ((super.anInt9298 << 16) + local48 - 1) / local48;
-                arg0 += local68;
+                x += local68;
                 local18 = local68 * local48 - (super.anInt9298 << 16);
             }
             if (super.anInt9308 > 0) {
                 local68 = ((super.anInt9308 << 16) + local54 - 1) / local54;
-                arg1 += local68;
+                y += local68;
                 local20 = local68 * local54 - (super.anInt9308 << 16);
             }
             if (super.anInt9302 < local33) {
-                arg2 = ((super.anInt9302 << 16) + local48 - local18 - 1) / local48;
+                width = ((super.anInt9302 << 16) + local48 - local18 - 1) / local48;
             }
             if (super.anInt9306 < local42) {
-                arg3 = ((super.anInt9306 << 16) + local54 - local20 - 1) / local54;
+                height = ((super.anInt9306 << 16) + local54 - local20 - 1) / local54;
             }
-            local68 = arg0 + arg1 * local24;
-            @Pc(156) int local156 = local24 - arg2;
-            if (arg1 + arg3 > super.aClass19_Sub2_10.anInt4196) {
-                arg3 -= arg1 + arg3 - super.aClass19_Sub2_10.anInt4196;
+            local68 = x + y * local24;
+            @Pc(156) int local156 = local24 - width;
+            if (y + height > super.aClass19_Sub2_10.anInt4196) {
+                height -= y + height - super.aClass19_Sub2_10.anInt4196;
             }
             @Pc(184) int local184;
-            if (arg1 < super.aClass19_Sub2_10.anInt4186) {
-                local184 = super.aClass19_Sub2_10.anInt4186 - arg1;
-                arg3 -= local184;
+            if (y < super.aClass19_Sub2_10.anInt4186) {
+                local184 = super.aClass19_Sub2_10.anInt4186 - y;
+                height -= local184;
                 local68 += local184 * local24;
                 local20 += local54 * local184;
             }
-            if (arg0 + arg2 > super.aClass19_Sub2_10.anInt4200) {
-                local184 = arg0 + arg2 - super.aClass19_Sub2_10.anInt4200;
-                arg2 -= local184;
+            if (x + width > super.aClass19_Sub2_10.anInt4200) {
+                local184 = x + width - super.aClass19_Sub2_10.anInt4200;
+                width -= local184;
                 local156 += local184;
             }
-            if (arg0 < super.aClass19_Sub2_10.anInt4192) {
-                local184 = super.aClass19_Sub2_10.anInt4192 - arg0;
-                arg2 -= local184;
+            if (x < super.aClass19_Sub2_10.anInt4192) {
+                local184 = super.aClass19_Sub2_10.anInt4192 - x;
+                width -= local184;
                 local68 += local184;
                 local18 += local48 * local184;
                 local156 += local184;
@@ -2289,16 +2289,16 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
             @Pc(374) int local374;
             @Pc(382) int local382;
             @Pc(534) int local534;
-            if (arg6 != 0) {
+            if (mode != 0) {
                 @Pc(897) int local897;
                 @Pc(905) int local905;
                 @Pc(917) int local917;
-                if (arg6 == 1) {
-                    if (arg4 == 1) {
+                if (mode == 1) {
+                    if (op == 1) {
                         local265 = local18;
-                        for (local268 = -arg3; local268 < 0; local268++) {
+                        for (local268 = -height; local268 < 0; local268++) {
                             local276 = (local20 >> 16) * super.anInt9302;
-                            for (local279 = -arg2; local279 < 0; local279++) {
+                            for (local279 = -width; local279 < 0; local279++) {
                                 local337 = this.anIntArray528[(local18 >> 16) + local276];
                                 local345 = local337 >>> 24;
                                 local348 = 256 - local345;
@@ -2310,14 +2310,14 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                             local18 = local265;
                             local68 += local156;
                         }
-                    } else if (arg4 == 0) {
+                    } else if (op == 0) {
                         local265 = local18;
-                        if ((arg5 & 0xFFFFFF) == 16777215) {
-                            for (local268 = -arg3; local268 < 0; local268++) {
+                        if ((colour & 0xFFFFFF) == 16777215) {
+                            for (local268 = -height; local268 < 0; local268++) {
                                 local276 = (local20 >> 16) * super.anInt9302;
-                                for (local279 = -arg2; local279 < 0; local279++) {
+                                for (local279 = -width; local279 < 0; local279++) {
                                     local337 = this.anIntArray528[(local18 >> 16) + local276];
-                                    local345 = (local337 >>> 24) * (arg5 >>> 24) >> 8;
+                                    local345 = (local337 >>> 24) * (colour >>> 24) >> 8;
                                     local348 = 256 - local345;
                                     local358 = local256[local68];
                                     local256[local68++] = ((local337 & 0xFF00FF) * local345 + (local358 & 0xFF00FF) * local348 & 0xFF00FF00) + ((local337 & 0xFF00) * local345 + (local358 & 0xFF00) * local348 & 0xFF0000) >> 8;
@@ -2328,14 +2328,14 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                                 local68 += local156;
                             }
                         } else {
-                            local268 = arg5 >> 16 & 0xFF;
-                            local276 = arg5 >> 8 & 0xFF;
-                            local279 = arg5 & 0xFF;
-                            for (local337 = -arg3; local337 < 0; local337++) {
+                            local268 = colour >> 16 & 0xFF;
+                            local276 = colour >> 8 & 0xFF;
+                            local279 = colour & 0xFF;
+                            for (local337 = -height; local337 < 0; local337++) {
                                 local345 = (local20 >> 16) * super.anInt9302;
-                                for (local348 = -arg2; local348 < 0; local348++) {
+                                for (local348 = -width; local348 < 0; local348++) {
                                     local358 = this.anIntArray528[(local18 >> 16) + local345];
-                                    local366 = (local358 >>> 24) * (arg5 >>> 24) >> 8;
+                                    local366 = (local358 >>> 24) * (colour >>> 24) >> 8;
                                     local374 = 256 - local366;
                                     if (local366 == 255) {
                                         local382 = (local358 & 0xFF0000) * local268 & 0xFF000000;
@@ -2357,17 +2357,17 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                                 local68 += local156;
                             }
                         }
-                    } else if (arg4 == 3) {
+                    } else if (op == 3) {
                         local265 = local18;
-                        for (local268 = -arg3; local268 < 0; local268++) {
+                        for (local268 = -height; local268 < 0; local268++) {
                             local276 = (local20 >> 16) * super.anInt9302;
-                            for (local279 = -arg2; local279 < 0; local279++) {
+                            for (local279 = -width; local279 < 0; local279++) {
                                 local337 = this.anIntArray528[(local18 >> 16) + local276];
-                                local345 = local337 + arg5;
-                                local348 = (local337 & 0xFF00FF) + (arg5 & 0xFF00FF);
+                                local345 = local337 + colour;
+                                local348 = (local337 & 0xFF00FF) + (colour & 0xFF00FF);
                                 local358 = (local348 & 0x1000100) + (local345 - local348 & 0x10000);
                                 local358 = local345 - local358 | local358 - (local358 >>> 8);
-                                local366 = (local358 >>> 24) * (arg5 >>> 24) >> 8;
+                                local366 = (local358 >>> 24) * (colour >>> 24) >> 8;
                                 local374 = 256 - local366;
                                 if (local366 != 255) {
                                     local337 = local358;
@@ -2381,16 +2381,16 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                             local18 = local265;
                             local68 += local156;
                         }
-                    } else if (arg4 == 2) {
-                        local265 = arg5 >>> 24;
+                    } else if (op == 2) {
+                        local265 = colour >>> 24;
                         local268 = 256 - local265;
-                        local276 = (arg5 & 0xFF00FF) * local268 & 0xFF00FF00;
-                        local279 = (arg5 & 0xFF00) * local268 & 0xFF0000;
+                        local276 = (colour & 0xFF00FF) * local268 & 0xFF00FF00;
+                        local279 = (colour & 0xFF00) * local268 & 0xFF0000;
                         local534 = (local276 | local279) >>> 8;
                         local337 = local18;
-                        for (local345 = -arg3; local345 < 0; local345++) {
+                        for (local345 = -height; local345 < 0; local345++) {
                             local348 = (local20 >> 16) * super.anInt9302;
-                            for (local358 = -arg2; local358 < 0; local358++) {
+                            for (local358 = -width; local358 < 0; local358++) {
                                 local366 = this.anIntArray528[(local18 >> 16) + local348];
                                 local374 = local366 >>> 24;
                                 local382 = 256 - local374;
@@ -2408,13 +2408,13 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                     } else {
                         throw new IllegalArgumentException();
                     }
-                } else if (arg6 != 2) {
+                } else if (mode != 2) {
                     throw new IllegalArgumentException();
-                } else if (arg4 == 1) {
+                } else if (op == 1) {
                     local265 = local18;
-                    for (local268 = -arg3; local268 < 0; local268++) {
+                    for (local268 = -height; local268 < 0; local268++) {
                         local276 = (local20 >> 16) * super.anInt9302;
-                        for (local279 = -arg2; local279 < 0; local279++) {
+                        for (local279 = -width; local279 < 0; local279++) {
                             local337 = this.anIntArray528[(local18 >> 16) + local276];
                             if (local337 == 0) {
                                 local68++;
@@ -2431,14 +2431,14 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                         local18 = local265;
                         local68 += local156;
                     }
-                } else if (arg4 == 0) {
+                } else if (op == 0) {
                     local265 = local18;
-                    local268 = arg5 >> 16 & 0xFF;
-                    local276 = arg5 >> 8 & 0xFF;
-                    local279 = arg5 & 0xFF;
-                    for (local337 = -arg3; local337 < 0; local337++) {
+                    local268 = colour >> 16 & 0xFF;
+                    local276 = colour >> 8 & 0xFF;
+                    local279 = colour & 0xFF;
+                    for (local337 = -height; local337 < 0; local337++) {
                         local345 = (local20 >> 16) * super.anInt9302;
-                        for (local348 = -arg2; local348 < 0; local348++) {
+                        for (local348 = -width; local348 < 0; local348++) {
                             local358 = this.anIntArray528[(local18 >> 16) + local345];
                             if (local358 == 0) {
                                 local68++;
@@ -2459,14 +2459,14 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                         local18 = local265;
                         local68 += local156;
                     }
-                } else if (arg4 == 3) {
+                } else if (op == 3) {
                     local265 = local18;
-                    for (local268 = -arg3; local268 < 0; local268++) {
+                    for (local268 = -height; local268 < 0; local268++) {
                         local276 = (local20 >> 16) * super.anInt9302;
-                        for (local279 = -arg2; local279 < 0; local279++) {
+                        for (local279 = -width; local279 < 0; local279++) {
                             local337 = this.anIntArray528[(local18 >> 16) + local276];
-                            local345 = local337 + arg5;
-                            local348 = (local337 & 0xFF00FF) + (arg5 & 0xFF00FF);
+                            local345 = local337 + colour;
+                            local348 = (local337 & 0xFF00FF) + (colour & 0xFF00FF);
                             local358 = (local348 & 0x1000100) + (local345 - local348 & 0x10000);
                             local337 = local345 - local358 | local358 - (local358 >>> 8);
                             local358 = local256[local68];
@@ -2480,16 +2480,16 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                         local18 = local265;
                         local68 += local156;
                     }
-                } else if (arg4 == 2) {
-                    local265 = arg5 >>> 24;
+                } else if (op == 2) {
+                    local265 = colour >>> 24;
                     local268 = 256 - local265;
-                    local276 = (arg5 & 0xFF00FF) * local268 & 0xFF00FF00;
-                    local279 = (arg5 & 0xFF00) * local268 & 0xFF0000;
+                    local276 = (colour & 0xFF00FF) * local268 & 0xFF00FF00;
+                    local279 = (colour & 0xFF00) * local268 & 0xFF0000;
                     local534 = (local276 | local279) >>> 8;
                     local337 = local18;
-                    for (local345 = -arg3; local345 < 0; local345++) {
+                    for (local345 = -height; local345 < 0; local345++) {
                         local348 = (local20 >> 16) * super.anInt9302;
-                        for (local358 = -arg2; local358 < 0; local358++) {
+                        for (local358 = -width; local358 < 0; local358++) {
                             local366 = this.anIntArray528[(local18 >> 16) + local348];
                             if (local366 == 0) {
                                 local68++;
@@ -2512,11 +2512,11 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                 } else {
                     throw new IllegalArgumentException();
                 }
-            } else if (arg4 == 1) {
+            } else if (op == 1) {
                 local265 = local18;
-                for (local268 = -arg3; local268 < 0; local268++) {
+                for (local268 = -height; local268 < 0; local268++) {
                     local276 = (local20 >> 16) * super.anInt9302;
-                    for (local279 = -arg2; local279 < 0; local279++) {
+                    for (local279 = -width; local279 < 0; local279++) {
                         local256[local68++] = this.anIntArray528[(local18 >> 16) + local276];
                         local18 += local48;
                     }
@@ -2524,14 +2524,14 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                     local18 = local265;
                     local68 += local156;
                 }
-            } else if (arg4 == 0) {
-                local265 = arg5 >> 16 & 0xFF;
-                local268 = arg5 >> 8 & 0xFF;
-                local276 = arg5 & 0xFF;
+            } else if (op == 0) {
+                local265 = colour >> 16 & 0xFF;
+                local268 = colour >> 8 & 0xFF;
+                local276 = colour & 0xFF;
                 local279 = local18;
-                for (local337 = -arg3; local337 < 0; local337++) {
+                for (local337 = -height; local337 < 0; local337++) {
                     local345 = (local20 >> 16) * super.anInt9302;
-                    for (local348 = -arg2; local348 < 0; local348++) {
+                    for (local348 = -width; local348 < 0; local348++) {
                         local358 = this.anIntArray528[(local18 >> 16) + local345];
                         local366 = (local358 & 0xFF0000) * local265 & 0xFF000000;
                         local374 = (local358 & 0xFF00) * local268 & 0xFF0000;
@@ -2543,14 +2543,14 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                     local18 = local279;
                     local68 += local156;
                 }
-            } else if (arg4 == 3) {
+            } else if (op == 3) {
                 local265 = local18;
-                for (local268 = -arg3; local268 < 0; local268++) {
+                for (local268 = -height; local268 < 0; local268++) {
                     local276 = (local20 >> 16) * super.anInt9302;
-                    for (local279 = -arg2; local279 < 0; local279++) {
+                    for (local279 = -width; local279 < 0; local279++) {
                         local337 = this.anIntArray528[(local18 >> 16) + local276];
-                        local345 = local337 + arg5;
-                        local348 = (local337 & 0xFF00FF) + (arg5 & 0xFF00FF);
+                        local345 = local337 + colour;
+                        local348 = (local337 & 0xFF00FF) + (colour & 0xFF00FF);
                         local358 = (local348 & 0x1000100) + (local345 - local348 & 0x10000);
                         local256[local68++] = local345 - local358 | local358 - (local358 >>> 8);
                         local18 += local48;
@@ -2559,16 +2559,16 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
                     local18 = local265;
                     local68 += local156;
                 }
-            } else if (arg4 == 2) {
-                local265 = arg5 >>> 24;
+            } else if (op == 2) {
+                local265 = colour >>> 24;
                 local268 = 256 - local265;
-                local276 = (arg5 & 0xFF00FF) * local268 & 0xFF00FF00;
-                local279 = (arg5 & 0xFF00) * local268 & 0xFF0000;
+                local276 = (colour & 0xFF00FF) * local268 & 0xFF00FF00;
+                local279 = (colour & 0xFF00) * local268 & 0xFF0000;
                 local534 = (local276 | local279) >>> 8;
                 local337 = local18;
-                for (local345 = -arg3; local345 < 0; local345++) {
+                for (local345 = -height; local345 < 0; local345++) {
                     local348 = (local20 >> 16) * super.anInt9302;
-                    for (local358 = -arg2; local358 < 0; local358++) {
+                    for (local358 = -width; local358 < 0; local358++) {
                         local366 = this.anIntArray528[(local18 >> 16) + local348];
                         local276 = (local366 & 0xFF00FF) * local265 & 0xFF00FF00;
                         local279 = (local366 & 0xFF00) * local265 & 0xFF0000;

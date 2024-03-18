@@ -36,7 +36,7 @@ public final class Static65 {
         @Pc(71) int local71 = (int) (Static588.method7715() - local36);
         local5.method7971(100, 100, 0, 0, -16777216);
         if (local7) {
-            local5.method7940();
+            local5.free();
         }
         return local71;
     }

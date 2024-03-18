@@ -41,6 +41,6 @@ public final class Static6 {
         }
         @Pc(98) int local98 = local64 * arg4 + local60 * arg3 >> 14;
         @Pc(109) int local109 = arg3 * local64 - arg4 * local60 >> 14;
-        arg2.method8195(local98 + arg5.anInt3802 / 2 + arg6 - arg2.method8203() / 2, arg5.anInt3746 / 2 + arg0 - local109 + -(arg2.method8192() / 2), arg1, arg6, arg0);
+        arg2.method8195(local98 + arg5.anInt3802 / 2 + arg6 - arg2.scaleWidth() / 2, arg5.anInt3746 / 2 + arg0 - local109 + -(arg2.scaleHeight() / 2), arg1, arg6, arg0);
     }
 }

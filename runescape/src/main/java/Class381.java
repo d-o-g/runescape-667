@@ -193,7 +193,7 @@ public final class Class381 {
                     } else if (local76.startsWith("img=") && arg2 != null) {
                         try {
                             @Pc(242) int local242 = Static647.method8473(local76.substring(4));
-                            local48 = arg2[local242].method8203();
+                            local48 = arg2[local242].scaleWidth();
                             local22 = -1;
                         } catch (@Pc(253) Exception local253) {
                         }
@@ -297,7 +297,7 @@ public final class Class381 {
                                 try {
                                     @Pc(143) int local143 = Static647.method8473(local53.substring(4));
                                     local19 = -1;
-                                    local21 += arg0[local143].method8203();
+                                    local21 += arg0[local143].scaleWidth();
                                 } catch (@Pc(154) Exception local154) {
                                 }
                             }
@@ -356,7 +356,7 @@ public final class Class381 {
                             if (local69.startsWith("img=") && arg1 != null) {
                                 try {
                                     @Pc(155) int local155 = Static647.method8473(local69.substring(4));
-                                    local33 += arg1[local155].method8203();
+                                    local33 += arg1[local155].scaleWidth();
                                     local31 = -1;
                                     if (local33 > local27) {
                                         return local38 + "...";

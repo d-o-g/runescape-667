@@ -110,9 +110,9 @@ public final class ObjTypeList {
         }
         @Pc(119) Sprite local119;
         if (arg4) {
-            local119 = arg1.method7946(36, 36, 32, local101);
+            local119 = arg1.createSprite(36, 36, 32, local101);
         } else {
-            local119 = arg2.method7946(36, 36, 32, local101);
+            local119 = arg2.createSprite(36, 36, 32, local101);
         }
         if (!arg4) {
             @Pc(136) Class324 local136 = new Class324();

@@ -39,7 +39,7 @@ public final class Static28 {
         }
         @Pc(120) int local120 = local90 / 128 + 208 + 48 - Static720.anInt10859 * 2;
         @Pc(137) int local137 = Static501.anInt7568 * 4 + 48 - local93 / 128 - (Static501.anInt7568 - 104) * 2;
-        Static12.aSprite_26.method8185((float) arg3 + (float) arg2.anInt3802 / 2.0F, (float) arg2.anInt3746 / 2.0F + (float) arg0, (float) local120, (float) local137, local79, local87 << 2, local30, arg3, arg0);
+        Static12.aSprite_26.renderRotated((float) arg3 + (float) arg2.anInt3802 / 2.0F, (float) arg2.anInt3746 / 2.0F + (float) arg0, (float) local120, (float) local137, local79, local87 << 2, local30, arg3, arg0);
         @Pc(190) int local190;
         @Pc(200) int local200;
         @Pc(211) int local211;

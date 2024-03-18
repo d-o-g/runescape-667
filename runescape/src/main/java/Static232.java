@@ -59,7 +59,7 @@ public final class Static232 {
         }
         Static180.aClass14_3.method8827(arg7, arg4, local154, arg9 + 3, Static186.aSpriteArray5, Static460.anIntArray554);
         if (arg6.aBoolean553) {
-            Static517.aSprite_32.method8202(arg9 + Static42.aClass381_4.method8744(local154) + 5, arg4 + -12);
+            Static517.aSprite_32.render(arg9 + Static42.aClass381_4.method8744(local154) + 5, arg4 + -12);
         }
     }
 

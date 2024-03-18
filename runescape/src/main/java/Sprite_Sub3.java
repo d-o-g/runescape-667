@@ -88,13 +88,13 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "c", descriptor = "()I")
     @Override
-    public int method8199() {
+    public int getWidth() {
         return this.anInt6626;
     }
 
     @OriginalMember(owner = "client!np", name = "d", descriptor = "()I")
     @Override
-    public int method8182() {
+    public int getHeight() {
         return this.anInt6606;
     }
 
@@ -136,19 +136,19 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(IIIII)V")
     @Override
-    public void method8197(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
         @Pc(8) Matrix_Sub1 local8 = this.aClass19_Sub1_12.method8040();
         @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_12.method8082();
-        @Pc(18) int local18 = arg1 + this.anInt6624;
-        @Pc(23) int local23 = arg0 + this.anInt6617;
+        @Pc(18) int local18 = y + this.anInt6624;
+        @Pc(23) int local23 = x + this.anInt6617;
         this.anInterface18_3.method9041(Static363.aClass259_14);
         this.aClass19_Sub1_12.method8099();
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);
-        this.aClass19_Sub1_12.method8053(arg4);
-        this.aClass19_Sub1_12.method8054(arg2);
+        this.aClass19_Sub1_12.method8053(op);
+        this.aClass19_Sub1_12.method8054(width);
         this.aClass19_Sub1_12.method8080(1, Static454.aClass168_5);
         this.aClass19_Sub1_12.method8142(Static454.aClass168_5, 1);
-        this.aClass19_Sub1_12.method8112(arg3);
+        this.aClass19_Sub1_12.method8112(height);
         local8.method1884(0.0F, (float) this.anInt6606, (float) this.anInt6626);
         local8.translate(local23, local18, 0);
         local13.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) this.anInt6626));
@@ -162,41 +162,41 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void method8201(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        @Pc(13) int[] local13 = this.aClass19_Sub1_12.na(arg4, arg5, arg2, arg3);
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour) {
+        @Pc(13) int[] local13 = this.aClass19_Sub1_12.na(op, colour, width, height);
         if (local13 != null) {
             for (@Pc(17) int local17 = 0; local17 < local13.length; local17++) {
                 local13[local17] |= 0xFF000000;
             }
-            this.method5914(arg0, arg1, arg2, arg3, local13, arg2);
+            this.method5914(x, y, width, height, local13, width);
         }
     }
 
     @OriginalMember(owner = "client!np", name = "b", descriptor = "()I")
     @Override
-    public int method8203() {
+    public int scaleWidth() {
         return this.anInt6625 + this.anInt6626 + this.anInt6617;
     }
 
     @OriginalMember(owner = "client!np", name = "b", descriptor = "(IIIIIII)V")
     @Override
-    public void method8189(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public void method8189(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
         @Pc(10) Matrix_Sub1 local10 = this.aClass19_Sub1_12.method8040();
         @Pc(15) Matrix_Sub1 local15 = this.aClass19_Sub1_12.method8082();
         this.anInterface18_3.method9041(Static363.aClass259_14);
         this.aClass19_Sub1_12.method8099();
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);
-        this.aClass19_Sub1_12.method8053(arg6);
-        this.aClass19_Sub1_12.method8054(arg4);
+        this.aClass19_Sub1_12.method8053(mode);
+        this.aClass19_Sub1_12.method8054(op);
         this.aClass19_Sub1_12.method8080(1, Static454.aClass168_5);
         this.aClass19_Sub1_12.method8142(Static454.aClass168_5, 1);
-        this.aClass19_Sub1_12.method8112(arg5);
+        this.aClass19_Sub1_12.method8112(colour);
         @Pc(75) boolean local75 = this.aBoolean496 && this.anInt6624 == 0 && this.anInt6612 == 0;
         @Pc(96) boolean local96 = this.aBoolean492 && this.anInt6617 == 0 && this.anInt6625 == 0;
         if (local96 & local75) {
-            local15.method1884(1.0F, this.anInterface18_3.method9050((float) arg3), this.anInterface18_3.method9046((float) arg2));
-            local10.method1884(0.0F, (float) arg3, (float) arg2);
-            local10.translate(arg0, arg1, 0);
+            local15.method1884(1.0F, this.anInterface18_3.method9050((float) height), this.anInterface18_3.method9046((float) width));
+            local10.method1884(0.0F, (float) height, (float) width);
+            local10.translate(x, y, 0);
             this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
             this.aClass19_Sub1_12.method8042();
             this.aClass19_Sub1_12.method8059();
@@ -207,15 +207,15 @@ public final class Sprite_Sub3 extends Sprite {
             @Pc(191) int local191;
             @Pc(246) int local246;
             if (local96) {
-                local155 = arg1 + arg3;
-                local158 = this.method8192();
-                local15.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) arg2));
+                local155 = y + height;
+                local158 = this.scaleHeight();
+                local15.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) width));
                 this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
-                local185 = this.anInt6624 + arg1;
+                local185 = this.anInt6624 + y;
                 local191 = local185 + this.anInt6606;
                 while (local191 <= local155) {
-                    local10.method1884(0.0F, (float) this.anInt6606, (float) arg2);
-                    local10.translate(arg0, local185, 0);
+                    local10.method1884(0.0F, (float) this.anInt6606, (float) width);
+                    local10.translate(x, local185, 0);
                     this.aClass19_Sub1_12.method8042();
                     local191 += local158;
                     local185 += local158;
@@ -223,23 +223,23 @@ public final class Sprite_Sub3 extends Sprite {
                 }
                 if (local155 > local185) {
                     local246 = local155 - local185;
-                    local15.method1884(1.0F, this.anInterface18_3.method9050((float) local246), this.anInterface18_3.method9046((float) arg2));
+                    local15.method1884(1.0F, this.anInterface18_3.method9050((float) local246), this.anInterface18_3.method9046((float) width));
                     this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
-                    local10.method1884(0.0F, (float) local246, (float) arg2);
-                    local10.translate(arg0, local185, 0);
+                    local10.method1884(0.0F, (float) local246, (float) width);
+                    local10.translate(x, local185, 0);
                     this.aClass19_Sub1_12.method8042();
                     this.aClass19_Sub1_12.method8059();
                 }
             } else if (local75) {
-                local155 = arg0 + arg2;
-                local158 = this.method8203();
-                local15.method1884(1.0F, this.anInterface18_3.method9050((float) arg3), this.anInterface18_3.method9046((float) this.anInt6626));
+                local155 = x + width;
+                local158 = this.scaleWidth();
+                local15.method1884(1.0F, this.anInterface18_3.method9050((float) height), this.anInterface18_3.method9046((float) this.anInt6626));
                 this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
-                local185 = arg0 + this.anInt6617;
+                local185 = x + this.anInt6617;
                 local191 = this.anInt6626 + local185;
                 while (local191 <= local155) {
-                    local10.method1884(0.0F, (float) arg3, (float) this.anInt6626);
-                    local10.translate(local185, arg1, 0);
+                    local10.method1884(0.0F, (float) height, (float) this.anInt6626);
+                    local10.translate(local185, y, 0);
                     this.aClass19_Sub1_12.method8042();
                     local185 += local158;
                     local191 += local158;
@@ -247,26 +247,26 @@ public final class Sprite_Sub3 extends Sprite {
                 }
                 if (local185 < local155) {
                     local246 = local155 - local185;
-                    local15.method1884(1.0F, this.anInterface18_3.method9050((float) arg3), this.anInterface18_3.method9046((float) local246));
+                    local15.method1884(1.0F, this.anInterface18_3.method9050((float) height), this.anInterface18_3.method9046((float) local246));
                     this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
-                    local10.method1884(0.0F, (float) arg3, (float) local246);
-                    local10.translate(local185, arg1, 0);
+                    local10.method1884(0.0F, (float) height, (float) local246);
+                    local10.translate(local185, y, 0);
                     this.aClass19_Sub1_12.method8042();
                     this.aClass19_Sub1_12.method8059();
                 }
             } else {
-                local155 = arg1 + arg3;
-                local158 = arg0 + arg2;
-                local185 = this.method8203();
-                local191 = this.method8192();
-                local246 = this.anInt6624 + arg1;
+                local155 = y + height;
+                local158 = x + width;
+                local185 = this.scaleWidth();
+                local191 = this.scaleHeight();
+                local246 = this.anInt6624 + y;
                 @Pc(351) int local351;
                 @Pc(356) int local356;
                 @Pc(404) int local404;
                 for (@Pc(319) int local319 = local246 + this.anInt6606; local319 <= local155; local319 += local191) {
                     local15.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) this.anInt6626));
                     this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
-                    local351 = arg0 + this.anInt6617;
+                    local351 = x + this.anInt6617;
                     for (local356 = this.anInt6626 + local351; local356 <= local158; local356 += local185) {
                         local10.method1884(0.0F, (float) this.anInt6606, (float) this.anInt6626);
                         local10.translate(local351, local246, 0);
@@ -289,7 +289,7 @@ public final class Sprite_Sub3 extends Sprite {
                     local351 = local155 - local246;
                     local15.method1884(1.0F, this.anInterface18_3.method9050((float) local351), this.anInterface18_3.method9046((float) this.anInt6626));
                     this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
-                    local356 = this.anInt6617 + arg0;
+                    local356 = this.anInt6617 + x;
                     local404 = this.anInt6626 + local356;
                     while (local158 >= local404) {
                         local10.method1884(0.0F, (float) local351, (float) this.anInt6626);
@@ -318,7 +318,7 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "([I)V")
     @Override
-    public void method8193(@OriginalArg(0) int[] arg0) {
+    public void getOffsets(@OriginalArg(0) int[] arg0) {
         arg0[2] = this.anInt6625;
         arg0[0] = this.anInt6617;
         arg0[3] = this.anInt6612;
@@ -327,32 +327,32 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "()I")
     @Override
-    public int method8192() {
+    public int scaleHeight() {
         return this.anInt6624 + this.anInt6606 + this.anInt6612;
     }
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(IIIIIIII)V")
     @Override
-    protected void method8190(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    protected void method8190(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
         @Pc(8) Matrix_Sub1 local8 = this.aClass19_Sub1_12.method8040();
         @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_12.method8082();
         this.anInterface18_3.method9041(this.aBoolean494 || this.aBoolean495 || !(true & true) ? Static363.aClass259_14 : Static60.aClass259_3);
         this.aClass19_Sub1_12.method8099();
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);
-        this.aClass19_Sub1_12.method8053(arg6);
-        this.aClass19_Sub1_12.method8054(arg4);
+        this.aClass19_Sub1_12.method8053(mode);
+        this.aClass19_Sub1_12.method8054(op);
         this.aClass19_Sub1_12.method8080(1, Static454.aClass168_5);
         this.aClass19_Sub1_12.method8142(Static454.aClass168_5, 1);
-        this.aClass19_Sub1_12.method8112(arg5);
+        this.aClass19_Sub1_12.method8112(colour);
         local13.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) this.anInt6626));
         if (this.aBoolean493) {
-            arg2 = this.anInt6626 * arg2 / this.method8203();
-            arg3 = this.anInt6606 * arg3 / this.method8192();
-            arg0 += arg2 * this.anInt6617 / this.anInt6626;
-            arg1 += this.anInt6624 * arg3 / this.anInt6606;
+            width = this.anInt6626 * width / this.scaleWidth();
+            height = this.anInt6606 * height / this.scaleHeight();
+            x += width * this.anInt6617 / this.anInt6626;
+            y += this.anInt6624 * height / this.anInt6606;
         }
-        local8.method1884(0.0F, (float) arg3, (float) arg2);
-        local8.translate(arg0, arg1, 0);
+        local8.method1884(0.0F, (float) height, (float) width);
+        local8.translate(x, y, 0);
         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
         this.aClass19_Sub1_12.method8042();
         this.aClass19_Sub1_12.method8059();
@@ -389,8 +389,8 @@ public final class Sprite_Sub3 extends Sprite {
         this.aClass19_Sub1_12.method8053(1);
         this.aClass19_Sub1_12.method8054(1);
         if (this.aBoolean493) {
-            @Pc(75) float local75 = (float) this.anInt6626 / (float) this.method8203();
-            @Pc(83) float local83 = (float) this.anInt6606 / (float) this.method8192();
+            @Pc(75) float local75 = (float) this.anInt6626 / (float) this.scaleWidth();
+            @Pc(83) float local83 = (float) this.anInt6606 / (float) this.scaleHeight();
             local8.method1887(local83 * (arg4 - arg0), (arg3 - arg1) * local75, 1.0F, local75 * (arg2 - arg0), 0.0F, 0.0F, 0.0F, 0.0F, local83 * (arg5 - arg1));
             local8.method1882(0.0F, (arg1 + (float) this.anInt6624) * local83, local75 * ((float) this.anInt6617 + arg0));
         } else {
@@ -420,24 +420,24 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(FFFFFFIIII)V")
     @Override
-    protected void method8200(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+    protected void render(@OriginalArg(0) float x, @OriginalArg(1) float y, @OriginalArg(2) float width, @OriginalArg(3) float height, @OriginalArg(4) float op, @OriginalArg(5) float colour, @OriginalArg(6) int mode, @OriginalArg(7) int arg7) {
         @Pc(8) Matrix_Sub1 local8 = this.aClass19_Sub1_12.method8040();
         @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_12.method8082();
         this.anInterface18_3.method9041(this.aBoolean494 || this.aBoolean495 || (0x1 & 0x1) == 0 ? Static363.aClass259_14 : Static60.aClass259_3);
         this.aClass19_Sub1_12.method8099();
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);
         this.aClass19_Sub1_12.method8053(1);
-        this.aClass19_Sub1_12.method8054(arg6);
+        this.aClass19_Sub1_12.method8054(mode);
         this.aClass19_Sub1_12.method8080(1, Static454.aClass168_5);
         this.aClass19_Sub1_12.method8142(Static454.aClass168_5, 1);
         this.aClass19_Sub1_12.method8112(arg7);
         if (this.aBoolean493) {
-            @Pc(82) float local82 = (float) this.method8203();
-            @Pc(86) float local86 = (float) this.method8192();
-            @Pc(92) float local92 = (arg2 - arg0) / local82;
-            @Pc(99) float local99 = (arg3 - arg1) / local82;
-            @Pc(105) float local105 = (arg4 - arg0) / local86;
-            @Pc(111) float local111 = (arg5 - arg1) / local86;
+            @Pc(82) float local82 = (float) this.scaleWidth();
+            @Pc(86) float local86 = (float) this.scaleHeight();
+            @Pc(92) float local92 = (width - x) / local82;
+            @Pc(99) float local99 = (height - y) / local82;
+            @Pc(105) float local105 = (op - x) / local86;
+            @Pc(111) float local111 = (colour - y) / local86;
             @Pc(117) float local117 = local105 * (float) this.anInt6624;
             @Pc(123) float local123 = (float) this.anInt6624 * local111;
             @Pc(129) float local129 = local92 * (float) this.anInt6617;
@@ -446,15 +446,15 @@ public final class Sprite_Sub3 extends Sprite {
             @Pc(149) float local149 = -local99 * (float) this.anInt6625;
             @Pc(156) float local156 = -local105 * (float) this.anInt6612;
             @Pc(163) float local163 = (float) this.anInt6612 * -local111;
-            arg0 = arg0 + local129 + local117;
-            arg4 = arg4 + local129 + local156;
-            arg3 = local123 + local149 + arg3;
-            arg1 = local123 + local135 + arg1;
-            arg2 = local142 + arg2 + local117;
-            arg5 = arg5 + local135 + local163;
+            x = x + local129 + local117;
+            op = op + local129 + local156;
+            height = local123 + local149 + height;
+            y = local123 + local135 + y;
+            width = local142 + width + local117;
+            colour = colour + local135 + local163;
         }
-        local8.method1887(arg4 - arg0, -arg1 + arg3, 1.0F, arg2 - arg0, 0.0F, 0.0F, 0.0F, 0.0F, arg5 - arg1);
-        local8.method1882(0.0F, arg1, arg0);
+        local8.method1887(op - x, -y + height, 1.0F, width - x, 0.0F, 0.0F, 0.0F, 0.0F, colour - y);
+        local8.method1882(0.0F, y, x);
         local13.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) this.anInt6626));
         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
         this.aClass19_Sub1_12.method8042();

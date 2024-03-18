@@ -110,7 +110,7 @@ public final class Static397 {
         @Pc(83) int local83 = local75 + arg6 / 4 * 18;
         @Pc(94) int local94 = arg5 + Static215.anIntArray284[1] - 54 - 16;
         @Pc(102) int local102 = local94 + arg6 % 4 * 18;
-        local27.method8202(local83, local102);
+        local27.render(local83, local102);
         if (arg2 == arg1) {
             Static163.aToolkit_17.method7945(local102 - 1, -256, 18, 18, local83 - 1);
         }

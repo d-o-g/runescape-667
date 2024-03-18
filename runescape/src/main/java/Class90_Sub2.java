@@ -35,15 +35,15 @@ public class Class90_Sub2 extends Class90 {
         @Pc(8) int[] local8 = new int[4];
         Static163.aToolkit_17.K(local8);
         Static163.aToolkit_17.KA(arg0, arg1, arg0 + super.aClass138_5.anInt4418, super.aClass138_5.anInt4413 + arg1);
-        @Pc(30) int local30 = this.aSprite_36.method8203();
-        @Pc(34) int local34 = this.aSprite_36.method8192();
-        @Pc(38) int local38 = this.aSprite_35.method8203();
-        @Pc(42) int local42 = this.aSprite_35.method8192();
-        this.aSprite_36.method8202(arg0, (super.aClass138_5.anInt4413 - local34) / 2 + arg1);
-        this.aSprite_35.method8202(super.aClass138_5.anInt4418 + arg0 - local38, (-local42 + super.aClass138_5.anInt4413) / 2 + arg1);
-        Static163.aToolkit_17.KA(arg0, arg1, super.aClass138_5.anInt4418 + arg0, this.aSprite_37.method8192() + arg1);
+        @Pc(30) int local30 = this.aSprite_36.scaleWidth();
+        @Pc(34) int local34 = this.aSprite_36.scaleHeight();
+        @Pc(38) int local38 = this.aSprite_35.scaleWidth();
+        @Pc(42) int local42 = this.aSprite_35.scaleHeight();
+        this.aSprite_36.render(arg0, (super.aClass138_5.anInt4413 - local34) / 2 + arg1);
+        this.aSprite_35.render(super.aClass138_5.anInt4418 + arg0 - local38, (-local42 + super.aClass138_5.anInt4413) / 2 + arg1);
+        Static163.aToolkit_17.KA(arg0, arg1, super.aClass138_5.anInt4418 + arg0, this.aSprite_37.scaleHeight() + arg1);
         this.aSprite_37.method8198(local30 + arg0, arg1, super.aClass138_5.anInt4418 - local38 - local30, super.aClass138_5.anInt4413);
-        @Pc(112) int local112 = this.aSprite_38.method8192();
+        @Pc(112) int local112 = this.aSprite_38.scaleHeight();
         Static163.aToolkit_17.KA(arg0, super.aClass138_5.anInt4413 + arg1 - local112, arg0 + super.aClass138_5.anInt4418, arg1 + super.aClass138_5.anInt4413);
         this.aSprite_38.method8198(local30 + arg0, super.aClass138_5.anInt4413 + arg1 + -local112, super.aClass138_5.anInt4418 - local30 - local38, super.aClass138_5.anInt4413);
         Static163.aToolkit_17.KA(local8[0], local8[1], local8[2], local8[3]);
@@ -52,10 +52,10 @@ public class Class90_Sub2 extends Class90 {
     @OriginalMember(owner = "client!gr", name = "a", descriptor = "(IIZI)V")
     @Override
     protected final void method7753(@OriginalArg(0) int arg0, @OriginalArg(3) int arg1) {
-        @Pc(9) int local9 = arg0 + this.aSprite_36.method8203();
-        @Pc(27) int local27 = arg0 + super.aClass138_5.anInt4418 - this.aSprite_35.method8203();
-        @Pc(33) int local33 = this.aSprite_37.method8192() + arg1;
-        @Pc(45) int local45 = arg1 + super.aClass138_5.anInt4413 - this.aSprite_38.method8192();
+        @Pc(9) int local9 = arg0 + this.aSprite_36.scaleWidth();
+        @Pc(27) int local27 = arg0 + super.aClass138_5.anInt4418 - this.aSprite_35.scaleWidth();
+        @Pc(33) int local33 = this.aSprite_37.scaleHeight() + arg1;
+        @Pc(45) int local45 = arg1 + super.aClass138_5.anInt4413 - this.aSprite_38.scaleHeight();
         @Pc(50) int local50 = local27 - local9;
         @Pc(55) int local55 = local45 - local33;
         @Pc(63) int local63 = this.method7752() * local50 / 10000;

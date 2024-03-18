@@ -193,7 +193,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             this.anInt4184 = (int) Static588.method7715();
         } catch (@Pc(99) Throwable local99) {
             local99.printStackTrace();
-            this.method7940();
+            this.free();
             throw new RuntimeException("");
         }
     }
@@ -206,7 +206,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             this.method8019(arg0);
         } catch (@Pc(12) Throwable local12) {
             local12.printStackTrace();
-            this.method7940();
+            this.free();
             throw new RuntimeException("");
         }
     }
@@ -608,7 +608,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                     return;
                 }
                 @Pc(54) int local54 = this.method3798(local2) ? 64 : this.lb;
-                local34 = this.method7946(local54, local54, local54, local40);
+                local34 = this.createSprite(local54, local54, local54, local40);
                 this.aClass82_88.method2150(local34, (long) local2);
             }
             this.anInt4215 = local2;
@@ -1471,7 +1471,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(II)Lclient!eca;")
     @Override
-    public Interface6 method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public Surface method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return this.method7963(arg0, arg1, false);
     }
 
@@ -1911,7 +1911,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                     return;
                 }
                 @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.lb;
-                local33 = this.method7946(local53, local53, local53, local39);
+                local33 = this.createSprite(local53, local53, local53, local39);
                 this.aClass82_88.method2150(local33, (long) arg6);
             }
             this.anInt4215 = arg6;
@@ -2627,7 +2627,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public Interface9 method7988(@OriginalArg(0) Interface6 arg0, @OriginalArg(1) Interface26 arg1) {
+    public Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
         return new Class87(this, (Sprite) arg0, (Class165) arg1);
     }
 
@@ -2739,7 +2739,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                     return;
                 }
                 @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.lb;
-                local33 = this.method7946(local53, local53, local53, local39);
+                local33 = this.createSprite(local53, local53, local53, local39);
                 this.aClass82_88.method2150(local33, (long) arg6);
             }
             this.anInt4215 = arg6;

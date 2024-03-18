@@ -108,7 +108,7 @@ public final class client extends Applet_Sub1 {
         }
         Static419.method5757();
         if (Static163.aToolkit_17 != null) {
-            Static163.aToolkit_17.method7940();
+            Static163.aToolkit_17.free();
         }
         if (Static316.aFrame8 != null) {
             Static655.method8562(Static446.aClass390_6, Static316.aFrame8);

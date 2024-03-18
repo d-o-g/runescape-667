@@ -72,7 +72,7 @@ public final class oa extends Toolkit implements Interface5 {
                 this.method8019(arg0);
             }
         } catch (@Pc(82) Throwable local82) {
-            this.method7940();
+            this.free();
             throw new RuntimeException();
         }
     }
@@ -153,7 +153,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(II)Lclient!eca;")
     @Override
-    public Interface6 method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public Surface method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return this.method7963(arg0, arg1, false);
     }
 
@@ -616,7 +616,7 @@ public final class oa extends Toolkit implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "finalize", descriptor = "()V")
     @Override
     public synchronized void finalize() {
-        this.method7940();
+        this.free();
         if (this.nativeid != 0L) {
             Static307.method4477(this);
         }
@@ -827,7 +827,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public Interface9 method7988(@OriginalArg(0) Interface6 arg0, @OriginalArg(1) Interface26 arg1) {
+    public Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
         return new wa(this, (j) arg0, (xa) arg1);
     }
 

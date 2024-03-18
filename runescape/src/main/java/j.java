@@ -36,13 +36,13 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(IIIIIIII)V")
     @Override
-    protected void method8190(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        this.RA(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5, arg6, 1);
+    protected void method8190(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
+        this.RA(this.nativeid, x, y, width, height, op, colour, mode, 1);
     }
 
     @OriginalMember(owner = "client!j", name = "d", descriptor = "()I")
     @Override
-    public int method8182() {
+    public int getHeight() {
         return this.I(this.nativeid);
     }
 
@@ -63,13 +63,13 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "b", descriptor = "(IIIIIII)V")
     @Override
-    public void method8189(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        this.P(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+    public void method8189(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
+        this.P(this.nativeid, x, y, width, height, op, colour, mode);
     }
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "([I)V")
     @Override
-    public void method8193(@OriginalArg(0) int[] arg0) {
+    public void getOffsets(@OriginalArg(0) int[] arg0) {
         this.CA(this.nativeid, arg0);
     }
 
@@ -93,7 +93,7 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "c", descriptor = "()I")
     @Override
-    public int method8199() {
+    public int getWidth() {
         return this.M(this.nativeid);
     }
 
@@ -107,8 +107,8 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(FFFFFFIIII)V")
     @Override
-    protected void method8200(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
-        this.b(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, 1, 1);
+    protected void render(@OriginalArg(0) float x, @OriginalArg(1) float y, @OriginalArg(2) float width, @OriginalArg(3) float height, @OriginalArg(4) float op, @OriginalArg(5) float colour, @OriginalArg(6) int mode, @OriginalArg(7) int arg7) {
+        this.b(this.nativeid, x, y, width, height, op, colour, mode, arg7, 1, 1);
     }
 
     @OriginalMember(owner = "client!j", name = "ua", descriptor = "(Lclient!oa;[IIIIIZ)V")
@@ -125,14 +125,14 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "b", descriptor = "()I")
     @Override
-    public int method8203() {
+    public int scaleWidth() {
         return this.wa(this.nativeid);
     }
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(IIIII)V")
     @Override
-    public void method8197(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        this.W(this.nativeid, arg0, arg1, arg2, arg3, arg4);
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
+        this.W(this.nativeid, x, y, width, height, op);
     }
 
     @OriginalMember(owner = "client!j", name = "c", descriptor = "(IIII)V")
@@ -146,8 +146,8 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void method8201(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.YA(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5);
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour) {
+        this.YA(this.nativeid, x, y, width, height, op, colour);
     }
 
     @OriginalMember(owner = "client!j", name = "EA", descriptor = "(Lclient!oa;II)V")
@@ -161,7 +161,7 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "()I")
     @Override
-    public int method8192() {
+    public int scaleHeight() {
         return this.JA(this.nativeid);
     }
 

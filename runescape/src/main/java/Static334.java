@@ -65,7 +65,7 @@ public final class Static334 {
             @Pc(416) int local416 = (int) local395;
             Static485.anIntArray886[local389] = local416 | local416 << 8 | local416 << 16 | 0xFF000000;
         }
-        @Pc(444) Sprite local444 = Static665.aToolkit_15.method7946(Static228.anInt3709, Static228.anInt3709, Static624.anInt9461, Static485.anIntArray886);
-        local444.method8197(10, 170, 1, 0, 0);
+        @Pc(444) Sprite local444 = Static665.aToolkit_15.createSprite(Static228.anInt3709, Static228.anInt3709, Static624.anInt9461, Static485.anIntArray886);
+        local444.render(10, 170, 1, 0, 0);
     }
 }

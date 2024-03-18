@@ -139,12 +139,12 @@ public final class Class364 implements Runnable {
                             Static163.aToolkit_17.method8002(local100);
                             this.anInterface22_2.method8465(true);
                             Static163.aToolkit_17.method7943();
-                            local100.method8197(0, 0, 0, local85, 1);
+                            local100.render(0, 0, 0, local85, 1);
                             Static163.aToolkit_17.method8002(local100);
                             Static163.aToolkit_17.GA(0);
                             this.anInterface22_1.method8465(true);
                             Static163.aToolkit_17.method7943();
-                            local100.method8197(0, 0, 0, local91, 1);
+                            local100.render(0, 0, 0, local91, 1);
                         }
                         try {
                             if (Static163.aToolkit_17 != null && !(this.anInterface22_1 instanceof Class374)) {

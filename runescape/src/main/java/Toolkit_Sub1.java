@@ -476,7 +476,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
             }
         } catch (@Pc(399) Throwable local399) {
             local399.printStackTrace();
-            this.method7940();
+            this.free();
             throw new RuntimeException("");
         }
     }
@@ -1033,7 +1033,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
     @Override
     public final Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         @Pc(11) Sprite_Sub3 local11 = new Sprite_Sub3(this, arg2, arg3, arg4);
-        local11.method8201(0, 0, arg2, arg3, arg0, arg1);
+        local11.render(0, 0, arg2, arg3, arg0, arg1);
         return local11;
     }
 
@@ -1440,7 +1440,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
     public final Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
         @Pc(141) Sprite local141;
         if (arg0.anInt10847 == 0 || arg0.anInt10850 == 0) {
-            local141 = this.method7946(1, 1, 1, new int[1]);
+            local141 = this.createSprite(1, 1, 1, new int[1]);
         } else {
             @Pc(23) int[] local23 = new int[arg0.anInt10847 * arg0.anInt10850];
             @Pc(25) int local25 = 0;
@@ -1462,7 +1462,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
                     }
                 }
             }
-            local141 = this.method7946(arg0.anInt10847, arg0.anInt10847, arg0.anInt10850, local23);
+            local141 = this.createSprite(arg0.anInt10847, arg0.anInt10847, arg0.anInt10850, local23);
         }
         local141.method8184(arg0.anInt10852, arg0.anInt10848, arg0.anInt10851, arg0.anInt10849);
         return local141;

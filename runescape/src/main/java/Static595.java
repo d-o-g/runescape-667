@@ -75,7 +75,7 @@ public final class Static595 {
                         local85 = null;
                         if (local57 != null) {
                             try {
-                                local57.method7940();
+                                local57.free();
                             } catch (@Pc(359) Throwable local359) {
                             }
                         }
@@ -83,7 +83,7 @@ public final class Static595 {
                 }
                 if (local57 != null) {
                     try {
-                        local57.method7940();
+                        local57.free();
                     } catch (@Pc(339) Throwable local339) {
                     }
                 }
@@ -92,7 +92,7 @@ public final class Static595 {
             local85 = null;
             if (local57 != null) {
                 try {
-                    local57.method7940();
+                    local57.free();
                 } catch (@Pc(349) Throwable local349) {
                 }
             }

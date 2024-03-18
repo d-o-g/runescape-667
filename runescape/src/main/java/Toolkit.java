@@ -84,7 +84,7 @@ public abstract class Toolkit {
     public abstract void EA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!ha", name = "i", descriptor = "(I)V")
-    public final void method7940() {
+    public final void free() {
         inuse[this.index] = false;
         this.method7987();
     }
@@ -131,7 +131,7 @@ public abstract class Toolkit {
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(III[III)Lclient!st;")
-    public final Sprite method7946(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
+    public final Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
         return this.method7958(arg3, arg1, arg0, arg2, true);
     }
 
@@ -195,7 +195,7 @@ public abstract class Toolkit {
     public abstract Node_Sub13 method7961(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(II)Lclient!eca;")
-    public abstract Interface6 method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
+    public abstract Surface method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIZ)Lclient!st;")
     public abstract Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
@@ -305,14 +305,14 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "finalize", descriptor = "()V")
     @Override
     public void finalize() {
-        this.method7940();
+        this.free();
     }
 
     @OriginalMember(owner = "client!ha", name = "u", descriptor = "()V")
     protected abstract void method7987();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
-    public abstract Interface9 method7988(@OriginalArg(0) Interface6 arg0, @OriginalArg(1) Interface26 arg1);
+    public abstract Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1);
 
     @OriginalMember(owner = "client!ha", name = "Y", descriptor = "()[I")
     public abstract int[] Y();
@@ -374,7 +374,7 @@ public abstract class Toolkit {
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!st;I)V")
     public final void method8002(@OriginalArg(0) Sprite arg0) {
-        this.method7939(this.method7988(arg0, this.method7986(arg0.method8199(), arg0.method8182())));
+        this.method7939(this.method7988(arg0, this.method7986(arg0.getWidth(), arg0.getHeight())));
     }
 
     @OriginalMember(owner = "client!ha", name = "pa", descriptor = "()V")

@@ -94,9 +94,9 @@ public final class Static603 {
         if (local8 == null) {
             return;
         }
-        @Pc(15) int local15 = local8.method8199();
-        if (local8.method8182() > local15) {
-            local15 = local8.method8182();
+        @Pc(15) int local15 = local8.getWidth();
+        if (local8.getHeight() > local15) {
+            local15 = local8.getHeight();
         }
         @Pc(31) int local31 = arg0.anInt3130;
         @Pc(34) int local34 = arg0.anInt3122;

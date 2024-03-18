@@ -40,7 +40,7 @@ public final class Static331 {
         Static460.anIntArray554 = new int[anInt5440 + 10];
         Static734.method7691(arg0, 0, Static186.aSpriteArray5, 0, anInt5440);
         for (@Pc(32) int local32 = 0; local32 < anInt5440; local32++) {
-            Static460.anIntArray554[local32] = Static186.aSpriteArray5[local32].method8192();
+            Static460.anIntArray554[local32] = Static186.aSpriteArray5[local32].scaleHeight();
         }
         for (@Pc(50) int local50 = anInt5440; local50 < Static186.aSpriteArray5.length; local50++) {
             Static460.anIntArray554[local50] = 12;

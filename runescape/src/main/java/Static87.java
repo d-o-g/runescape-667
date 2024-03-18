@@ -50,12 +50,12 @@ public final class Static87 {
             }
         }
         if (Static459.aSprite_31 != null && Static1.aSprite_42 != null) {
-            @Pc(82) int local82 = (arg0 - Static1.aSprite_42.method8199() * 2) / Static459.aSprite_31.method8199();
+            @Pc(82) int local82 = (arg0 - Static1.aSprite_42.getWidth() * 2) / Static459.aSprite_31.getWidth();
             for (@Pc(84) int local84 = 0; local84 < local82; local84++) {
-                Static459.aSprite_31.method8202(arg5 + Static1.aSprite_42.method8199() + local84 * Static459.aSprite_31.method8199(), arg4);
+                Static459.aSprite_31.render(arg5 + Static1.aSprite_42.getWidth() + local84 * Static459.aSprite_31.getWidth(), arg4);
             }
-            Static1.aSprite_42.method8202(arg5, arg4);
-            Static608.aSprite_41.method8202(arg0 + arg5 - Static608.aSprite_41.method8199(), arg4);
+            Static1.aSprite_42.render(arg5, arg4);
+            Static608.aSprite_41.render(arg0 + arg5 - Static608.aSprite_41.getWidth(), arg4);
         }
         Static180.aClass14_3.method8829(arg5 + 3, arg4 + 14, arg2, -1, -16777216 | Static563.anInt8455);
         arg3.aa(arg5, arg4 + 20, arg0, arg1 - 20, -Static514.anInt7677 + 255 << 24 | Static719.anInt10504, 1);

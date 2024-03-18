@@ -53,16 +53,16 @@ public final class Static452 {
             local46 = arg0.anInt1229;
             local49 = arg0.anInt1270;
         }
-        @Pc(72) int local72 = local39.method8203();
-        @Pc(75) int local75 = local39.method8192();
+        @Pc(72) int local72 = local39.scaleWidth();
+        @Pc(75) int local75 = local39.scaleHeight();
         if (local9.aBoolean329) {
             local75 = local49 * 4;
             local72 = local46 * 4;
         }
         if (local9.anInt4165 == 0) {
-            local39.method8206(arg3, arg4 + 4 - local49 * 4, local72, local75);
+            local39.render(arg3, arg4 + 4 - local49 * 4, local72, local75);
         } else {
-            local39.method8205(arg3, arg4 - (local49 - 1) * 4, local72, local75, 0, local9.anInt4165 | 0xFF000000, 1);
+            local39.render(arg3, arg4 - (local49 - 1) * 4, local72, local75, 0, local9.anInt4165 | 0xFF000000, 1);
         }
     }
 }

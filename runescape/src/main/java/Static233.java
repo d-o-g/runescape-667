@@ -27,8 +27,8 @@ public final class Static233 {
                     @Pc(76) Sprite local76 = Static28.aSpriteArray1[local22.anInt6367];
                     @Pc(84) int local84 = arg2 + Static215.anIntArray284[0] - 12;
                     @Pc(92) int local92 = Static215.anIntArray284[1] + arg1 - 28;
-                    local76.method8202(local84, local92);
-                    Static682.method8927(local92, local76.method8192() + local92, local84, local76.method8203() + local84);
+                    local76.render(local84, local92);
+                    Static682.method8927(local92, local76.scaleHeight() + local92, local84, local76.scaleWidth() + local84);
                 }
             }
         }

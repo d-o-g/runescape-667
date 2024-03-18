@@ -221,11 +221,11 @@ public final class Static484 {
                         local218 = (local216 >> 14 & 0x3FFF) - Static691.anInt10367;
                         local229 = (local216 & 0x3FFF) - Static116.anInt2270;
                         if (local218 >= 0 && local218 < Static720.anInt10859 && local229 >= 0 && local229 < Static501.anInt7568) {
-                            Static612.aClass339_67.method7711(new Class2_Sub38(local214));
+                            Static612.aClass339_67.method7711(new Node_Sub38(local214));
                         } else {
                             @Pc(1199) Class105 local1199 = Static577.aClass246_4.method5584(Static42.aClass255_2.anIntArray496[local214]);
                             if (local1199.anIntArray228 != null && local1199.anInt2614 + local218 >= 0 && local218 + local1199.anInt2598 < Static720.anInt10859 && local1199.anInt2594 + local229 >= 0 && local229 + local1199.anInt2588 < Static501.anInt7568) {
-                                Static612.aClass339_67.method7711(new Class2_Sub38(local214));
+                                Static612.aClass339_67.method7711(new Node_Sub38(local214));
                             }
                         }
                     }

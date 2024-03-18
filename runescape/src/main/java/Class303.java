@@ -25,7 +25,7 @@ public final class Class303 implements Interface4 {
     public Class303(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) Class330 arg2) {
         this.aClass330_99 = arg2;
         this.aClass330_98 = arg1;
-        @Pc(24) Class2_Sub21 local24 = new Class2_Sub21(arg0.method7595(0, 0));
+        @Pc(24) Node_Sub21 local24 = new Node_Sub21(arg0.method7595(0, 0));
         this.anInt7709 = local24.method7382();
         this.aClass118Array1 = new Class118[this.anInt7709];
         for (@Pc(36) int local36 = 0; local36 < this.anInt7709; local36++) {
@@ -131,16 +131,16 @@ public final class Class303 implements Interface4 {
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IB)Lclient!vm;")
-    public Class2_Sub2_Sub21 method6819(@OriginalArg(0) int arg0) {
-        @Pc(10) Class2_Sub2 local10 = this.aClass361_3.method8342((long) arg0);
+    public Node_Sub2_Sub21 method6819(@OriginalArg(0) int arg0) {
+        @Pc(10) Node_Sub2 local10 = this.aClass361_3.method8342((long) arg0);
         if (local10 != null) {
-            return (Class2_Sub2_Sub21) local10;
+            return (Node_Sub2_Sub21) local10;
         }
         @Pc(30) byte[] local30 = this.aClass330_98.method7589(arg0);
         if (local30 == null) {
             return null;
         } else {
-            @Pc(43) Class2_Sub2_Sub21 local43 = new Class2_Sub2_Sub21(new Class2_Sub21(local30));
+            @Pc(43) Node_Sub2_Sub21 local43 = new Node_Sub2_Sub21(new Node_Sub21(local30));
             this.aClass361_3.method8341(local43, (long) arg0);
             return local43;
         }
@@ -161,7 +161,7 @@ public final class Class303 implements Interface4 {
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(II)Z")
     @Override
     public boolean method6814(@OriginalArg(1) int arg0) {
-        @Pc(8) Class2_Sub2_Sub21 local8 = this.method6819(arg0);
+        @Pc(8) Node_Sub2_Sub21 local8 = this.method6819(arg0);
         return local8 != null && local8.method8947(this.aClass330_99, this);
     }
 

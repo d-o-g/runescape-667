@@ -16,7 +16,7 @@ public final class Static262 {
 
     @OriginalMember(owner = "client!ica", name = "c", descriptor = "(Z)V")
     public static void method3839() {
-        @Pc(8) Class2_Sub21_Sub2 local8 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
+        @Pc(8) Node_Sub21_Sub2 local8 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
         local8.method7417();
         @Pc(16) int local16 = local8.method7412(8);
         @Pc(21) int local21;
@@ -31,7 +31,7 @@ public final class Static262 {
         Static390.anInt6126 = 0;
         for (local21 = 0; local21 < local16; local21++) {
             @Pc(73) int local73 = Static103.anIntArray187[local21];
-            @Pc(81) Class8_Sub2_Sub1_Sub2_Sub2 local81 = ((Class2_Sub45) Static18.aClass28_2.method738((long) local73)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(81) Class8_Sub2_Sub1_Sub2_Sub2 local81 = ((Node_Sub45) Static18.aClass28_2.method738((long) local73)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             @Pc(86) int local86 = local8.method7412(1);
             if (local86 == 0) {
                 Static103.anIntArray187[Static390.anInt6126++] = local73;

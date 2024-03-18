@@ -22,7 +22,7 @@ public final class Static618 {
     }
 
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(BLclient!ge;)V")
-    public static void method8317(@OriginalArg(1) Class2_Sub21 arg0) {
+    public static void method8317(@OriginalArg(1) Node_Sub21 arg0) {
         if (arg0.aByteArray93.length - arg0.anInt8388 < 1) {
             return;
         }
@@ -63,7 +63,7 @@ public final class Static618 {
     }
 
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(Lclient!rka;B)V")
-    public static void method8319(@OriginalArg(0) Class2_Sub21_Sub2 arg0) {
+    public static void method8319(@OriginalArg(0) Node_Sub21_Sub2 arg0) {
         for (@Pc(10) int local10 = 0; local10 < Static652.anInt9713; local10++) {
             @Pc(18) int local18 = Static321.anIntArray388[local10];
             @Pc(22) Class8_Sub2_Sub1_Sub2_Sub1 local22 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local18];

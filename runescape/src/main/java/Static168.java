@@ -14,7 +14,7 @@ public final class Static168 {
     public static final Class130 aClass130_5 = new Class130();
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(Lclient!rka;I)V")
-    public static void method2633(@OriginalArg(0) Class2_Sub21_Sub2 arg0) {
+    public static void method2633(@OriginalArg(0) Node_Sub21_Sub2 arg0) {
         arg0.method7417();
         @Pc(10) int local10 = Static312.anInt5000;
         @Pc(20) Class8_Sub2_Sub1_Sub2_Sub1 local20 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local10] = new Class8_Sub2_Sub1_Sub2_Sub1();

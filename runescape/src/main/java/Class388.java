@@ -41,7 +41,7 @@ public final class Class388 {
     @OriginalMember(owner = "client!vl", name = "<init>", descriptor = "(Lclient!sb;)V")
     public Class388(@OriginalArg(0) Class330 arg0) {
         @Pc(12) byte[] local12 = arg0.method7589(6);
-        this.method8929(new Class2_Sub21(local12));
+        this.method8929(new Node_Sub21(local12));
         if (this.anIntArray821 == null) {
             throw new RuntimeException("");
         }
@@ -53,7 +53,7 @@ public final class Class388 {
     }
 
     @OriginalMember(owner = "client!vl", name = "a", descriptor = "(ILclient!ge;)V")
-    public void method8929(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method8929(@OriginalArg(1) Node_Sub21 arg0) {
         while (true) {
             @Pc(12) int local12 = arg0.method7396();
             if (local12 == 0) {

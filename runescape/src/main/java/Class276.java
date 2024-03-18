@@ -14,10 +14,10 @@ public final class Class276 {
     public Class93_Sub2 aClass93_Sub2_4;
 
     @OriginalMember(owner = "client!oia", name = "i", descriptor = "Lclient!ut;")
-    public Class2_Sub2_Sub19 aClass2_Sub2_Sub19_1;
+    public Node_Sub2_Sub19 aClass2_Sub2_Sub19_1;
 
     @OriginalMember(owner = "client!oia", name = "F", descriptor = "Lclient!ut;")
-    public Class2_Sub2_Sub19 aClass2_Sub2_Sub19_2;
+    public Node_Sub2_Sub19 aClass2_Sub2_Sub19_2;
 
     @OriginalMember(owner = "client!oia", name = "C", descriptor = "I")
     public int anInt6944 = 1;
@@ -94,12 +94,12 @@ public final class Class276 {
                 this.aClass93_Sub2_4 = null;
             }
             if (this.aClass406_3 != null) {
-                this.aClass2_Sub2_Sub19_1 = new Class2_Sub2_Sub19(this.aClass19_Sub3_32, 6402, this.anInt6944, this.anInt6943, this.aClass19_Sub3_32.anInt7986);
+                this.aClass2_Sub2_Sub19_1 = new Node_Sub2_Sub19(this.aClass19_Sub3_32, 6402, this.anInt6944, this.anInt6943, this.aClass19_Sub3_32.anInt7986);
             }
             if (this.aBoolean528) {
                 this.aClass93_Sub2_4 = new Class93_Sub2(this.aClass19_Sub3_32, 34037, 6402, this.anInt6944, this.anInt6943);
             } else if (this.aClass2_Sub2_Sub19_1 == null) {
-                this.aClass2_Sub2_Sub19_1 = new Class2_Sub2_Sub19(this.aClass19_Sub3_32, 6402, this.anInt6944, this.anInt6943);
+                this.aClass2_Sub2_Sub19_1 = new Node_Sub2_Sub19(this.aClass19_Sub3_32, 6402, this.anInt6944, this.anInt6943);
             }
             this.aBoolean525 = true;
             this.aBoolean524 = true;
@@ -119,7 +119,7 @@ public final class Class276 {
                 this.aClass93_Sub2Array2[1] = null;
             }
             if (this.aClass406_3 != null) {
-                this.aClass2_Sub2_Sub19_2 = new Class2_Sub2_Sub19(this.aClass19_Sub3_32, this.anInt6955, this.anInt6944, this.anInt6943, this.aClass19_Sub3_32.anInt7986);
+                this.aClass2_Sub2_Sub19_2 = new Node_Sub2_Sub19(this.aClass19_Sub3_32, this.anInt6955, this.anInt6944, this.anInt6943, this.aClass19_Sub3_32.anInt7986);
             }
             this.aClass93_Sub2Array2[0] = new Class93_Sub2(this.aClass19_Sub3_32, 34037, this.anInt6955, this.anInt6944, this.anInt6943);
             this.aClass93_Sub2Array2[1] = this.anInt6954 <= 1 ? null : new Class93_Sub2(this.aClass19_Sub3_32, 34037, this.anInt6955, this.anInt6944, this.anInt6943);
@@ -198,9 +198,9 @@ public final class Class276 {
         this.aClass19_Sub3_32.la();
         @Pc(90) int local90 = 0;
         @Pc(99) int local99 = 1;
-        @Pc(115) Class2_Sub31 local115;
-        for (@Pc(105) Class2_Sub31 local105 = (Class2_Sub31) this.aClass339_39.method7699(65280); local105 != null; local105 = local115) {
-            local115 = (Class2_Sub31) this.aClass339_39.method7706();
+        @Pc(115) Node_Sub31 local115;
+        for (@Pc(105) Node_Sub31 local105 = (Node_Sub31) this.aClass339_39.method7699(65280); local105 != null; local105 = local115) {
+            local115 = (Node_Sub31) this.aClass339_39.method7706();
             @Pc(119) int local119 = local105.method4605();
             for (@Pc(121) int local121 = 0; local121 < local119; local121++) {
                 local105.method4611(this.aClass93_Sub2_4, this.aClass93_Sub2Array2[local90], local121);
@@ -247,7 +247,7 @@ public final class Class276 {
     }
 
     @OriginalMember(owner = "client!oia", name = "a", descriptor = "(Lclient!jea;B)Z")
-    public boolean method6246(@OriginalArg(0) Class2_Sub31 arg0) {
+    public boolean method6246(@OriginalArg(0) Node_Sub31 arg0) {
         if (this.aClass406_5 != null) {
             if (arg0.method4609() || arg0.method4617()) {
                 this.aClass339_39.method7711(arg0);
@@ -271,7 +271,7 @@ public final class Class276 {
         @Pc(15) int local15 = 0;
         @Pc(17) int local17 = 0;
         @Pc(32) int local32;
-        for (@Pc(25) Class2_Sub31 local25 = (Class2_Sub31) this.aClass339_39.method7699(65280); local25 != null; local25 = (Class2_Sub31) this.aClass339_39.method7706()) {
+        for (@Pc(25) Node_Sub31 local25 = (Node_Sub31) this.aClass339_39.method7699(65280); local25 != null; local25 = (Node_Sub31) this.aClass339_39.method7706()) {
             local32 = local25.method4612();
             if (local15 < local32) {
                 local15 = local32;
@@ -315,8 +315,8 @@ public final class Class276 {
         this.aClass93_Sub2Array2 = null;
         this.aClass93_Sub2_4 = null;
         if (!this.aClass339_39.method7702()) {
-            for (@Pc(41) Class2 local41 = this.aClass339_39.method7699(65280); local41 != this.aClass339_39.aClass2_271; local41 = local41.aClass2_346) {
-                ((Class2_Sub31) local41).method4608();
+            for (@Pc(41) Node local41 = this.aClass339_39.method7699(65280); local41 != this.aClass339_39.aNode_271; local41 = local41.aNode_346) {
+                ((Node_Sub31) local41).method4608();
             }
         }
         this.anInt6944 = this.anInt6943 = 1;
@@ -330,8 +330,8 @@ public final class Class276 {
         if (arg0 != this.anInt6944 || arg2 != this.anInt6943) {
             this.anInt6944 = arg0;
             this.anInt6943 = arg2;
-            for (@Pc(43) Class2 local43 = this.aClass339_39.method7699(65280); local43 != this.aClass339_39.aClass2_271; local43 = local43.aClass2_346) {
-                ((Class2_Sub31) local43).method4614(this.anInt6944, this.anInt6943);
+            for (@Pc(43) Node local43 = this.aClass339_39.method7699(65280); local43 != this.aClass339_39.aNode_271; local43 = local43.aNode_346) {
+                ((Node_Sub31) local43).method4614(this.anInt6944, this.anInt6943);
             }
             this.aBoolean526 = true;
             this.aBoolean527 = true;
@@ -350,7 +350,7 @@ public final class Class276 {
     }
 
     @OriginalMember(owner = "client!oia", name = "a", descriptor = "(ILclient!jea;)V")
-    public void method6251(@OriginalArg(1) Class2_Sub31 arg0) {
+    public void method6251(@OriginalArg(1) Node_Sub31 arg0) {
         arg0.aBoolean387 = false;
         arg0.method4608();
         arg0.method9457();

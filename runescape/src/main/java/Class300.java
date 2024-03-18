@@ -21,7 +21,7 @@ public final class Class300 {
     }
 
     @OriginalMember(owner = "client!qaa", name = "a", descriptor = "(ILclient!ge;[B)V")
-    public void method6761(@OriginalArg(1) Class2_Sub21 arg0, @OriginalArg(2) byte[] arg1) {
+    public void method6761(@OriginalArg(1) Node_Sub21 arg0, @OriginalArg(2) byte[] arg1) {
         if (arg0.aByteArray93[arg0.anInt8388] != 31 || arg0.aByteArray93[arg0.anInt8388 + 1] != -117) {
             throw new RuntimeException("Invalid GZIP header!");
         }
@@ -40,7 +40,7 @@ public final class Class300 {
 
     @OriginalMember(owner = "client!qaa", name = "a", descriptor = "([BZ)[B")
     public byte[] method6762(@OriginalArg(0) byte[] arg0) {
-        @Pc(8) Class2_Sub21 local8 = new Class2_Sub21(arg0);
+        @Pc(8) Node_Sub21 local8 = new Node_Sub21(arg0);
         local8.anInt8388 = arg0.length - 4;
         @Pc(24) int local24 = local8.method7351();
         @Pc(27) byte[] local27 = new byte[local24];

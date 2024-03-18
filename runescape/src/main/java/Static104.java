@@ -15,7 +15,7 @@ public final class Static104 {
 
     @OriginalMember(owner = "client!de", name = "a", descriptor = "(BLjava/lang/String;)V")
     public static void method2029(@OriginalArg(1) String arg0) {
-        @Pc(6) Class2_Sub19 local6 = Static273.method3962();
+        @Pc(6) Node_Sub19 local6 = Static273.method3962();
         local6.aClass2_Sub21_Sub2_1.method7389(Static572.aClass167_63.anInt3973);
         local6.aClass2_Sub21_Sub2_1.method7373(0);
         @Pc(28) int local28 = local6.aClass2_Sub21_Sub2_1.anInt8388;

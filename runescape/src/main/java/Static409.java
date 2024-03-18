@@ -20,7 +20,7 @@ public final class Static409 {
     public static int anInt6318 = -1;
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(ILclient!cm;Lclient!cm;)V")
-    public static void method5654(@OriginalArg(1) Class2_Sub2 arg0, @OriginalArg(2) Class2_Sub2 arg1) {
+    public static void method5654(@OriginalArg(1) Node_Sub2 arg0, @OriginalArg(2) Node_Sub2 arg1) {
         if (arg1.aClass2_Sub2_67 != null) {
             arg1.method9260();
         }

@@ -14,7 +14,7 @@ public final class Static452 {
     public static final Class82 aClass82_149 = new Class82(8);
 
     @OriginalMember(owner = "client!oea", name = "a", descriptor = "(ILclient!ge;)Lclient!fea;")
-    public static Class125 method6171(@OriginalArg(1) Class2_Sub21 arg0) {
+    public static Class125 method6171(@OriginalArg(1) Node_Sub21 arg0) {
         @Pc(7) String local7 = arg0.method7358();
         @Pc(14) Class403 local14 = Static33.method882()[arg0.method7396()];
         @Pc(23) Class103 local23 = Static313.method4544()[arg0.method7396()];

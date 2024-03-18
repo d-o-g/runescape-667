@@ -34,7 +34,7 @@ public final class Class264 {
     public boolean aBoolean498 = true;
 
     @OriginalMember(owner = "client!nq", name = "a", descriptor = "(ILclient!ge;I)V")
-    public void method5920(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub21 arg1) {
+    public void method5920(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21 arg1) {
         if (arg0 == 1) {
             this.anInt6634 = arg1.method7383();
             this.method5922(this.anInt6634);
@@ -53,7 +53,7 @@ public final class Class264 {
     }
 
     @OriginalMember(owner = "client!nq", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method5921(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method5921(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(3) int local3 = arg0.method7396();
             if (local3 == 0) {

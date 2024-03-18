@@ -55,7 +55,7 @@ public final class Class227 {
     public boolean aBoolean448 = false;
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Lclient!ge;Z)V")
-    public void method5246(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method5246(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(12) int local12 = arg0.method7396();
             if (local12 == 0) {
@@ -148,7 +148,7 @@ public final class Class227 {
     }
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(ILclient!ge;I)V")
-    public void method5250(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub21 arg1) {
+    public void method5250(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21 arg1) {
         if (arg0 == 1) {
             this.anInt5834 = arg1.method7382();
         } else if (arg0 == 2) {

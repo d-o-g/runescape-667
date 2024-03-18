@@ -25,9 +25,9 @@ public final class Static25 {
             if (Static377.anInt5930 != -1) {
                 Static347.method5094(Static377.anInt5930);
             }
-            for (@Pc(16) Class2_Sub4 local16 = (Class2_Sub4) Static548.aClass28_40.method736(); local16 != null; local16 = (Class2_Sub4) Static548.aClass28_40.method740()) {
+            for (@Pc(16) Node_Sub4 local16 = (Node_Sub4) Static548.aClass28_40.method736(); local16 != null; local16 = (Node_Sub4) Static548.aClass28_40.method740()) {
                 if (!local16.method9458()) {
-                    local16 = (Class2_Sub4) Static548.aClass28_40.method736();
+                    local16 = (Node_Sub4) Static548.aClass28_40.method736();
                     if (local16 == null) {
                         break;
                     }

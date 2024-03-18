@@ -16,7 +16,7 @@ public final class Class95 {
     public int anInt2501;
 
     @OriginalMember(owner = "client!eea", name = "a", descriptor = "(ILclient!ge;)V")
-    public void method2346(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method2346(@OriginalArg(1) Node_Sub21 arg0) {
         while (true) {
             @Pc(11) int local11 = arg0.method7396();
             if (local11 == 0) {
@@ -27,7 +27,7 @@ public final class Class95 {
     }
 
     @OriginalMember(owner = "client!eea", name = "a", descriptor = "(ILclient!ge;I)V")
-    public void method2348(@OriginalArg(1) Class2_Sub21 arg0, @OriginalArg(2) int arg1) {
+    public void method2348(@OriginalArg(1) Node_Sub21 arg0, @OriginalArg(2) int arg1) {
         if (arg1 == 1) {
             this.anInt2501 = arg0.method7382();
             this.anInt2497 = arg0.method7396();

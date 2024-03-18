@@ -27,7 +27,7 @@ public final class Static444 {
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(B)V")
     public static void method5988() {
-        @Pc(13) Class2_Sub2_Sub2 local13 = Static440.method5963(15, 0L);
+        @Pc(13) Node_Sub2_Sub2_ local13 = Static440.method5963(15, 0L);
         local13.method205();
     }
 
@@ -40,7 +40,7 @@ public final class Static444 {
         @Pc(21) byte[] local21 = Static409.aClass330_85.method7595(arg0, 0);
         local10 = new Class379();
         if (local21 != null) {
-            local10.method8656(new Class2_Sub21(local21));
+            local10.method8656(new Node_Sub21(local21));
         }
         local10.method8654();
         Static289.aClass82_100.method2150(local10, (long) arg0);

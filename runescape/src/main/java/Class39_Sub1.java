@@ -15,7 +15,7 @@ public abstract class Class39_Sub1 extends Class39 {
     protected final int anInt10560;
 
     @OriginalMember(owner = "client!mha", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class39_Sub1(@OriginalArg(0) Class2_Sub21 arg0) {
+    public Class39_Sub1(@OriginalArg(0) Node_Sub21 arg0) {
         super(arg0);
         this.anInt10558 = arg0.method7382();
         this.anInt10556 = arg0.method7382();

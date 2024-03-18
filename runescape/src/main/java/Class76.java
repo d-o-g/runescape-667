@@ -16,7 +16,7 @@ public final class Class76 {
     public int anInt2141;
 
     @OriginalMember(owner = "client!de", name = "a", descriptor = "(ILclient!ge;Lclient!kda;)Lclient!gja;")
-    public Interface10 method2030(@OriginalArg(1) Class2_Sub21 arg0, @OriginalArg(2) Class204 arg1) {
+    public Interface10 method2030(@OriginalArg(1) Node_Sub21 arg0, @OriginalArg(2) Class204 arg1) {
         if (Static515.aClass204_10 == arg1) {
             return Static652.method8531(arg0);
         } else if (Static77.aClass204_1 == arg1) {
@@ -43,7 +43,7 @@ public final class Class76 {
     }
 
     @OriginalMember(owner = "client!de", name = "a", descriptor = "(Lclient!ge;B)V")
-    public void method2032(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method2032(@OriginalArg(0) Node_Sub21 arg0) {
         this.anInt2140 = arg0.method7383();
         this.anInt2141 = arg0.method7382();
         this.anInterface10Array1 = new Interface10[arg0.method7396()];

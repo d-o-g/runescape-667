@@ -22,7 +22,7 @@ public final class Class108 {
     public int anInt2625 = 0;
 
     @OriginalMember(owner = "client!ema", name = "a", descriptor = "(IILclient!ge;)V")
-    public void method2446(@OriginalArg(0) int arg0, @OriginalArg(2) Class2_Sub21 arg1) {
+    public void method2446(@OriginalArg(0) int arg0, @OriginalArg(2) Node_Sub21 arg1) {
         if (arg0 == 1) {
             this.anInt2629 = arg1.method7382();
         } else if (arg0 == 2) {
@@ -41,7 +41,7 @@ public final class Class108 {
     }
 
     @OriginalMember(owner = "client!ema", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method2447(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method2447(@OriginalArg(1) Node_Sub21 arg0) {
         while (true) {
             @Pc(3) int local3 = arg0.method7396();
             if (local3 == 0) {

@@ -19,8 +19,8 @@ public final class Static437 {
     public static final Class131 aClass131_4 = new Class131();
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(ILclient!rka;)V")
-    public static void method5915(@OriginalArg(1) Class2_Sub21_Sub2 arg0) {
-        @Pc(10) Class2_Sub57 local10 = (Class2_Sub57) Static631.aClass339_78.method7699(65280);
+    public static void method5915(@OriginalArg(1) Node_Sub21_Sub2 arg0) {
+        @Pc(10) Node_Sub57 local10 = (Node_Sub57) Static631.aClass339_78.method7699(65280);
         if (local10 == null) {
             return;
         }

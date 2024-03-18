@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 import java.awt.*;
 
 @OriginalClass("client!p")
-public final class p extends Class2 implements Interface5 {
+public final class p extends Node implements Interface5 {
 
     @OriginalMember(owner = "client!p", name = "nativeid", descriptor = "J")
     public long nativeid;

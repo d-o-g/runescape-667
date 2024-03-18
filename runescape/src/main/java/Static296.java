@@ -18,15 +18,15 @@ public final class Static296 {
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(Lclient!gp;BIIII)V")
     public static void method4361(@OriginalArg(0) Class150 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        @Pc(15) Class2_Sub25 local15 = null;
-        for (@Pc(20) Class2_Sub25 local20 = (Class2_Sub25) Static227.aClass339_18.method7699(65280); local20 != null; local20 = (Class2_Sub25) Static227.aClass339_18.method7706()) {
+        @Pc(15) Node_Sub25 local15 = null;
+        for (@Pc(20) Node_Sub25 local20 = (Node_Sub25) Static227.aClass339_18.method7699(65280); local20 != null; local20 = (Node_Sub25) Static227.aClass339_18.method7706()) {
             if (local20.anInt4010 == arg1 && local20.anInt4016 == arg3 && local20.anInt4006 == arg4 && arg2 == local20.anInt4011) {
                 local15 = local20;
                 break;
             }
         }
         if (local15 == null) {
-            local15 = new Class2_Sub25();
+            local15 = new Node_Sub25();
             local15.anInt4010 = arg1;
             local15.anInt4016 = arg3;
             local15.anInt4006 = arg4;

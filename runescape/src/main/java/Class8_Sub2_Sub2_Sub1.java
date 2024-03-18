@@ -28,7 +28,7 @@ public final class Class8_Sub2_Sub2_Sub1 extends Class8_Sub2_Sub2 implements Int
     public boolean aBoolean181;
 
     @OriginalMember(owner = "client!cu", name = "R", descriptor = "Lclient!r;")
-    public Class2_Sub2_Sub9 aClass2_Sub2_Sub9_1;
+    public Node_Sub2_Sub9 aClass2_Sub2_Sub9_1;
 
     @OriginalMember(owner = "client!cu", name = "bb", descriptor = "Lclient!ka;")
     public Class114 aClass114_1;
@@ -131,7 +131,7 @@ public final class Class8_Sub2_Sub2_Sub1 extends Class8_Sub2_Sub2 implements Int
     @OriginalMember(owner = "client!cu", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
     public void method6861(@OriginalArg(0) Class19 arg0) {
-        @Pc(33) Class2_Sub2_Sub9 local33;
+        @Pc(33) Node_Sub2_Sub9 local33;
         if (this.aClass2_Sub2_Sub9_1 == null && this.aBoolean181) {
             @Pc(25) Class272 local25 = this.method1831(262144, 20, arg0, true);
             local33 = local25 == null ? null : local25.aClass2_Sub2_Sub9_5;
@@ -211,7 +211,7 @@ public final class Class8_Sub2_Sub2_Sub1 extends Class8_Sub2_Sub2 implements Int
         if (arg1 >= -42) {
             this.method6859(-92);
         }
-        @Pc(25) Class2_Sub2_Sub9 local25;
+        @Pc(25) Node_Sub2_Sub9 local25;
         if (this.aClass2_Sub2_Sub9_1 == null && this.aBoolean181) {
             @Pc(36) Class272 local36 = this.method1831(262144, 20, arg0, true);
             local25 = local36 == null ? null : local36.aClass2_Sub2_Sub9_5;

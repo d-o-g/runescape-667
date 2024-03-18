@@ -216,7 +216,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
                 }
             } else {
                 local35 = this.anInt706 - 1;
-                @Pc(58) Class2_Sub45 local58 = (Class2_Sub45) Static18.aClass28_2.method738((long) local35);
+                @Pc(58) Node_Sub45 local58 = (Node_Sub45) Static18.aClass28_2.method738((long) local35);
                 if (local58 != null) {
                     local21 = local58.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }

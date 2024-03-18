@@ -74,10 +74,10 @@ public final class Static385 {
     }
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(Lclient!cba;B)V")
-    public static void method5424(@OriginalArg(0) Class2_Sub2_Sub4 arg0) {
+    public static void method5424(@OriginalArg(0) Node_Sub2_Sub4 arg0) {
         @Pc(5) boolean local5 = false;
         arg0.method9260();
-        for (@Pc(21) Class2_Sub2_Sub4 local21 = (Class2_Sub2_Sub4) Static350.aClass192_8.method4352(); local21 != null; local21 = (Class2_Sub2_Sub4) Static350.aClass192_8.method4350()) {
+        for (@Pc(21) Node_Sub2_Sub4 local21 = (Node_Sub2_Sub4) Static350.aClass192_8.method4352(); local21 != null; local21 = (Node_Sub2_Sub4) Static350.aClass192_8.method4350()) {
             if (Static546.method7250(arg0.method1468(), local21.method1468())) {
                 local5 = true;
                 Static409.method5654(local21, arg0);

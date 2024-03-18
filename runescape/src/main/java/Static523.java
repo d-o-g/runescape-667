@@ -27,7 +27,7 @@ public final class Static523 {
     }
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ILclient!ge;Ljava/lang/String;)I")
-    public static int method3446(@OriginalArg(1) Class2_Sub21 arg0, @OriginalArg(2) String arg1) {
+    public static int method3446(@OriginalArg(1) Node_Sub21 arg0, @OriginalArg(2) String arg1) {
         @Pc(12) int local12 = arg0.anInt8388;
         @Pc(16) byte[] local16 = Static469.method6361(arg1);
         arg0.method7352(local16.length);
@@ -265,7 +265,7 @@ public final class Static523 {
             } catch (@Pc(1126) Throwable local1126) {
             }
             Static600.aClass27_1 = Static570.method7550();
-            Static292.aClass2_Sub43_2 = new Class2_Sub43(true, Static446.aClass390_6);
+            Static292.aClass2_Sub43_2 = new Node_Sub43(true, Static446.aClass390_6);
         }
         if (Static198.aClass140_15 == Static473.aClass140_22) {
             local12 = Static188.method2860(Static721.aClass330_128) + Static372.method5291(true);

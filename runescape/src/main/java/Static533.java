@@ -11,10 +11,10 @@ public final class Static533 {
 
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "(B)V")
     public static void method7119() {
-        for (@Pc(8) Class2_Sub2_Sub4 local8 = (Class2_Sub2_Sub4) Static350.aClass192_8.method4352(); local8 != null; local8 = (Class2_Sub2_Sub4) Static350.aClass192_8.method4350()) {
+        for (@Pc(8) Node_Sub2_Sub4 local8 = (Node_Sub2_Sub4) Static350.aClass192_8.method4352(); local8 != null; local8 = (Node_Sub2_Sub4) Static350.aClass192_8.method4350()) {
             if (local8.anInt1534 > 1) {
                 local8.anInt1534 = 0;
-                Static717.aClass82_232.method2150(local8, ((Class2_Sub2_Sub16) local8.aClass192_3.aClass2_Sub2_36.aClass2_Sub2_66).aLong234);
+                Static717.aClass82_232.method2150(local8, ((Node_Sub2_Sub16) local8.aClass192_3.aClass2_Sub2_36.aClass2_Sub2_66).aLong234);
                 local8.aClass192_3.method4351();
             }
         }

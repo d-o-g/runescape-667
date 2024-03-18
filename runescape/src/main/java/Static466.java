@@ -324,7 +324,7 @@ public final class Static466 {
 
     @OriginalMember(owner = "client!om", name = "b", descriptor = "(Z)V")
     public static void method6325() {
-        @Pc(8) Class2_Sub21_Sub2 local8 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
+        @Pc(8) Node_Sub21_Sub2 local8 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
         @Pc(12) int local12 = local8.method7382();
         @Pc(16) int local16 = local8.method7396();
         @Pc(28) boolean local28 = local8.method7376() == 1;

@@ -23,7 +23,7 @@ public final class Static666 {
             }
             if (local18.anInt6789 == 1) {
                 local5 = (Class83) local18.anObject13;
-                @Pc(41) Class2_Sub21 local41 = Static400.aClass2_Sub34_28.method5110();
+                @Pc(41) Node_Sub21 local41 = Static400.aClass2_Sub34_28.method5110();
                 local5.method2162(local41.aByteArray93, 0, local41.anInt8388);
             }
         } catch (@Pc(51) Exception local51) {

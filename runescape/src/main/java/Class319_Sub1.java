@@ -48,7 +48,7 @@ public final class Class319_Sub1 extends Class319 implements KeyListener, FocusL
 
     @OriginalMember(owner = "client!ui", name = "a", descriptor = "(CIII)V")
     public void method8485(@OriginalArg(0) char arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(7) Class2_Sub18 local7 = new Class2_Sub18();
+        @Pc(7) Node_Sub18 local7 = new Node_Sub18();
         local7.aChar4 = arg0;
         local7.anInt2881 = arg1;
         local7.anInt2886 = arg2;
@@ -83,11 +83,11 @@ public final class Class319_Sub1 extends Class319 implements KeyListener, FocusL
     @Override
     public synchronized void method8481() {
         this.aClass339_70.method7700();
-        for (@Pc(22) Class2_Sub18 local22 = (Class2_Sub18) this.aClass339_71.method7705(); local22 != null; local22 = (Class2_Sub18) this.aClass339_71.method7705()) {
+        for (@Pc(22) Node_Sub18 local22 = (Node_Sub18) this.aClass339_71.method7705(); local22 != null; local22 = (Node_Sub18) this.aClass339_71.method7705()) {
             local22.anInt2885 = this.method8484();
             if (local22.anInt2886 == 0) {
                 if (!this.aBooleanArray31[local22.anInt2881]) {
-                    @Pc(152) Class2_Sub18 local152 = new Class2_Sub18();
+                    @Pc(152) Node_Sub18 local152 = new Node_Sub18();
                     local152.aChar4 = '\u0000';
                     local152.anInt2881 = local22.anInt2881;
                     local152.anInt2886 = 0;
@@ -106,7 +106,7 @@ public final class Class319_Sub1 extends Class319 implements KeyListener, FocusL
             } else if (local22.anInt2886 == -1) {
                 for (@Pc(65) int local65 = 0; local65 < 112; local65++) {
                     if (this.aBooleanArray31[local65]) {
-                        @Pc(78) Class2_Sub18 local78 = new Class2_Sub18();
+                        @Pc(78) Node_Sub18 local78 = new Node_Sub18();
                         local78.anInt2881 = local65;
                         local78.anInt2885 = local22.anInt2885;
                         local78.aChar4 = '\u0000';

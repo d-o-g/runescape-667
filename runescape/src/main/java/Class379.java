@@ -205,7 +205,7 @@ public final class Class379 {
     public int anInt9932 = 100;
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(BLclient!ge;I)V")
-    public void method8653(@OriginalArg(1) Class2_Sub21 arg0, @OriginalArg(2) int arg1) {
+    public void method8653(@OriginalArg(1) Node_Sub21 arg0, @OriginalArg(2) int arg1) {
         if (arg1 == 1) {
             this.aShort124 = (short) arg0.method7382();
             this.aShort125 = (short) arg0.method7382();
@@ -360,7 +360,7 @@ public final class Class379 {
     }
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method8656(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method8656(@OriginalArg(1) Node_Sub21 arg0) {
         while (true) {
             @Pc(3) int local3 = arg0.method7396();
             if (local3 == 0) {

@@ -9,7 +9,7 @@ public abstract class Class39 {
     public final int anInt10553;
 
     @OriginalMember(owner = "client!pi", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class39(@OriginalArg(0) Class2_Sub21 arg0) {
+    public Class39(@OriginalArg(0) Node_Sub21 arg0) {
         this.anInt10553 = arg0.method7382();
     }
 

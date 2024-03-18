@@ -25,7 +25,7 @@ public final class Class180 {
     public final int anInt4372;
 
     @OriginalMember(owner = "client!ija", name = "a", descriptor = "[Lclient!v;")
-    public Class2_Sub54[] aClass2_Sub54Array1;
+    public Node_Sub54[] aClass2_Sub54Array1;
 
     @OriginalMember(owner = "client!ija", name = "b", descriptor = "[[I")
     public int[][] anIntArrayArray104;
@@ -34,7 +34,7 @@ public final class Class180 {
     public Class180(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.anInt4373 = arg0;
         this.anInt4372 = arg1;
-        this.aClass2_Sub54Array1 = new Class2_Sub54[this.anInt4372];
+        this.aClass2_Sub54Array1 = new Node_Sub54[this.anInt4372];
         this.anIntArrayArray104 = new int[this.anInt4373][arg2];
     }
 
@@ -74,16 +74,16 @@ public final class Class180 {
             this.anInt4368 = arg0;
             return this.anIntArrayArray104[0];
         } else {
-            @Pc(34) Class2_Sub54 local34 = this.aClass2_Sub54Array1[arg0];
+            @Pc(34) Node_Sub54 local34 = this.aClass2_Sub54Array1[arg0];
             if (local34 == null) {
                 this.aBoolean338 = true;
                 if (this.anInt4369 >= this.anInt4373) {
-                    @Pc(59) Class2_Sub54 local59 = (Class2_Sub54) this.aClass339_25.method7708();
-                    local34 = new Class2_Sub54(arg0, local59.anInt9846);
+                    @Pc(59) Node_Sub54 local59 = (Node_Sub54) this.aClass339_25.method7708();
+                    local34 = new Node_Sub54(arg0, local59.anInt9846);
                     this.aClass2_Sub54Array1[local59.anInt9844] = null;
                     local59.method9457();
                 } else {
-                    local34 = new Class2_Sub54(arg0, this.anInt4369);
+                    local34 = new Node_Sub54(arg0, this.anInt4369);
                     this.anInt4369++;
                 }
                 this.aClass2_Sub54Array1[arg0] = local34;

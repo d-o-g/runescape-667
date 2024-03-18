@@ -91,13 +91,13 @@ public final class Static35 {
                             }
                         }
                         if (local179 > 0) {
-                            @Pc(392) Class2_Sub49_Sub1 local392 = null;
+                            @Pc(392) Node_Sub49_Sub1 local392 = null;
                             if (local13.aByte49 == 1) {
                                 local392 = local13.aClass89_1.method2247().method7821(Static681.aClass224_2);
                             } else if (local13.method2418()) {
                                 local392 = local13.aClass2_Sub49_Sub1_2;
                             }
-                            @Pc(422) Class2_Sub6_Sub2 local422 = local13.aClass2_Sub6_Sub2_2 = Static730.method3346(local392, local13.anInt2573, local179, local154);
+                            @Pc(422) Node_Sub6_Sub2 local422 = local13.aClass2_Sub6_Sub2_2 = Static730.method3346(local392, local13.anInt2573, local179, local154);
                             local422.method3318(local13.anInt2574 - 1);
                             Static336.aClass2_Sub6_Sub3_1.method5882(local422);
                         }
@@ -125,7 +125,7 @@ public final class Static35 {
             Static8.aClass2_Sub6_Sub1_1 = null;
             Static501.aBoolean575 = false;
         } else if (Static400.aClass2_Sub34_28.aClass57_Sub25_2.method7208() != 0 && Static588.anInt8692 != -1 && !Static52.method1157(125)) {
-            @Pc(551) Class2_Sub19 local551 = Static293.method4335(Static235.aClass345_49, Static405.aClass153_2.aClass186_1);
+            @Pc(551) Node_Sub19 local551 = Static293.method4335(Static235.aClass345_49, Static405.aClass153_2.aClass186_1);
             local551.aClass2_Sub21_Sub2_1.method7342(Static588.anInt8692);
             Static405.aClass153_2.method3275(local551);
             Static588.anInt8692 = -1;
@@ -133,7 +133,7 @@ public final class Static35 {
     }
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(Lclient!ge;I)Lclient!lv;")
-    public static Class235 method935(@OriginalArg(0) Class2_Sub21 arg0) {
+    public static Class235 method935(@OriginalArg(0) Node_Sub21 arg0) {
         @Pc(7) int local7 = arg0.method7396();
         @Pc(16) Class403 local16 = Static33.method882()[arg0.method7396()];
         @Pc(25) Class103 local25 = Static313.method4544()[arg0.method7396()];

@@ -18,7 +18,7 @@ public final class Class295 {
     public long aLong238;
 
     @OriginalMember(owner = "client!pla", name = "B", descriptor = "Lclient!rja;")
-    public Class2_Sub2_Sub17_Sub1 aClass2_Sub2_Sub17_Sub1_2;
+    public Node_Sub2_Sub17_Sub1 aClass2_Sub2_Sub17_Sub1_2;
 
     @OriginalMember(owner = "client!pla", name = "C", descriptor = "Lclient!jga;")
     public final Class192 aClass192_10 = new Class192();
@@ -33,7 +33,7 @@ public final class Class295 {
     public final Class192 aClass192_13 = new Class192();
 
     @OriginalMember(owner = "client!pla", name = "v", descriptor = "Lclient!ge;")
-    public final Class2_Sub21 aClass2_Sub21_13 = new Class2_Sub21(4);
+    public final Node_Sub21 aClass2_Sub21_13 = new Node_Sub21(4);
 
     @OriginalMember(owner = "client!pla", name = "w", descriptor = "I")
     public volatile int anInt7453 = 0;
@@ -45,7 +45,7 @@ public final class Class295 {
     public byte aByte120 = 0;
 
     @OriginalMember(owner = "client!pla", name = "x", descriptor = "Lclient!ge;")
-    public final Class2_Sub21 aClass2_Sub21_14 = new Class2_Sub21(8);
+    public final Node_Sub21 aClass2_Sub21_14 = new Node_Sub21(8);
 
     @OriginalMember(owner = "client!pla", name = "b", descriptor = "(B)V")
     public void method6619() {
@@ -116,14 +116,14 @@ public final class Class295 {
         }
         try {
             this.aClass263_1.method5823();
-            for (@Pc(84) Class2_Sub2_Sub17_Sub1 local84 = (Class2_Sub2_Sub17_Sub1) this.aClass192_10.method4352(); local84 != null; local84 = (Class2_Sub2_Sub17_Sub1) this.aClass192_10.method4350()) {
+            for (@Pc(84) Node_Sub2_Sub17_Sub1 local84 = (Node_Sub2_Sub17_Sub1) this.aClass192_10.method4352(); local84 != null; local84 = (Node_Sub2_Sub17_Sub1) this.aClass192_10.method4350()) {
                 this.aClass2_Sub21_13.anInt8388 = 0;
                 this.aClass2_Sub21_13.method7389(1);
                 this.aClass2_Sub21_13.method7388((int) local84.aLong325);
                 this.aClass263_1.method5829(4, this.aClass2_Sub21_13.aByteArray93);
                 this.aClass192_11.method4348(local84);
             }
-            for (@Pc(142) Class2_Sub2_Sub17_Sub1 local142 = (Class2_Sub2_Sub17_Sub1) this.aClass192_12.method4352(); local142 != null; local142 = (Class2_Sub2_Sub17_Sub1) this.aClass192_12.method4350()) {
+            for (@Pc(142) Node_Sub2_Sub17_Sub1 local142 = (Node_Sub2_Sub17_Sub1) this.aClass192_12.method4352(); local142 != null; local142 = (Node_Sub2_Sub17_Sub1) this.aClass192_12.method4350()) {
                 this.aClass2_Sub21_13.anInt8388 = 0;
                 this.aClass2_Sub21_13.method7389(0);
                 this.aClass2_Sub21_13.method7388((int) local142.aLong325);
@@ -170,12 +170,12 @@ public final class Class295 {
                             @Pc(342) int local342 = local333 & 0x7F;
                             @Pc(354) boolean local354 = (local333 & 0x80) != 0;
                             @Pc(361) long local361 = (long) (local328 + (local260 << 16));
-                            @Pc(371) Class2_Sub2_Sub17_Sub1 local371;
+                            @Pc(371) Node_Sub2_Sub17_Sub1 local371;
                             if (local354) {
-                                for (local371 = (Class2_Sub2_Sub17_Sub1) this.aClass192_13.method4352(); local371 != null && local371.aLong325 != local361; local371 = (Class2_Sub2_Sub17_Sub1) this.aClass192_13.method4350()) {
+                                for (local371 = (Node_Sub2_Sub17_Sub1) this.aClass192_13.method4352(); local371 != null && local371.aLong325 != local361; local371 = (Node_Sub2_Sub17_Sub1) this.aClass192_13.method4350()) {
                                 }
                             } else {
-                                for (local371 = (Class2_Sub2_Sub17_Sub1) this.aClass192_11.method4352(); local371 != null && local371.aLong325 != local361; local371 = (Class2_Sub2_Sub17_Sub1) this.aClass192_11.method4350()) {
+                                for (local371 = (Node_Sub2_Sub17_Sub1) this.aClass192_11.method4352(); local371 != null && local371.aLong325 != local361; local371 = (Node_Sub2_Sub17_Sub1) this.aClass192_11.method4350()) {
                                 }
                             }
                             if (local371 == null) {
@@ -183,7 +183,7 @@ public final class Class295 {
                             }
                             this.aClass2_Sub2_Sub17_Sub1_2 = local371;
                             @Pc(454) int local454 = local342 == 0 ? 5 : 9;
-                            this.aClass2_Sub2_Sub17_Sub1_2.aClass2_Sub21_15 = new Class2_Sub21(local454 + local338 + this.aClass2_Sub2_Sub17_Sub1_2.aByte129);
+                            this.aClass2_Sub2_Sub17_Sub1_2.aClass2_Sub21_15 = new Node_Sub21(local454 + local338 + this.aClass2_Sub2_Sub17_Sub1_2.aByte129);
                             this.aClass2_Sub2_Sub17_Sub1_2.aClass2_Sub21_15.method7389(local342);
                             this.aClass2_Sub2_Sub17_Sub1_2.aClass2_Sub21_15.method7342(local338);
                             this.aClass2_Sub2_Sub17_Sub1_2.anInt8331 = 8;
@@ -277,10 +277,10 @@ public final class Class295 {
         this.aClass2_Sub2_Sub17_Sub1_2 = null;
         this.aClass2_Sub21_14.anInt8388 = 0;
         while (true) {
-            @Pc(48) Class2_Sub2_Sub17_Sub1 local48 = (Class2_Sub2_Sub17_Sub1) this.aClass192_11.method4346();
+            @Pc(48) Node_Sub2_Sub17_Sub1 local48 = (Node_Sub2_Sub17_Sub1) this.aClass192_11.method4346();
             if (local48 == null) {
                 while (true) {
-                    local48 = (Class2_Sub2_Sub17_Sub1) this.aClass192_13.method4346();
+                    local48 = (Node_Sub2_Sub17_Sub1) this.aClass192_13.method4346();
                     if (local48 == null) {
                         if (this.aByte120 != 0) {
                             try {
@@ -349,9 +349,9 @@ public final class Class295 {
     }
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(IIBZB)Lclient!rja;")
-    public Class2_Sub2_Sub17_Sub1 method6633(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) byte arg3) {
+    public Node_Sub2_Sub17_Sub1 method6633(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) byte arg3) {
         @Pc(19) long local19 = (long) ((arg0 << 16) + arg1);
-        @Pc(23) Class2_Sub2_Sub17_Sub1 local23 = new Class2_Sub2_Sub17_Sub1();
+        @Pc(23) Node_Sub2_Sub17_Sub1 local23 = new Node_Sub2_Sub17_Sub1();
         local23.aBoolean777 = arg2;
         local23.aByte129 = arg3;
         local23.aLong325 = local19;

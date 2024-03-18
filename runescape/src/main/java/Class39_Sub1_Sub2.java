@@ -15,7 +15,7 @@ public final class Class39_Sub1_Sub2 extends Class39_Sub1 {
     public final int anInt10563;
 
     @OriginalMember(owner = "client!wd", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class39_Sub1_Sub2(@OriginalArg(0) Class2_Sub21 arg0) {
+    public Class39_Sub1_Sub2(@OriginalArg(0) Node_Sub21 arg0) {
         super(arg0);
         this.anInt10564 = arg0.method7382();
         this.anInt10562 = arg0.method7396();

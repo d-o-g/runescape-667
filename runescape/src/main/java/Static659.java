@@ -39,8 +39,8 @@ public final class Static659 {
     }
 
     @OriginalMember(owner = "client!ut", name = "d", descriptor = "(B)Lclient!ge;")
-    public static Class2_Sub21 method8608() {
-        @Pc(6) Class2_Sub21 local6 = Static570.method7552();
+    public static Node_Sub21 method8608() {
+        @Pc(6) Node_Sub21 local6 = Static570.method7552();
         local6.method7363(0L);
         local6.method7391(Static59.aString63);
         local6.method7363(Static430.aLong209);

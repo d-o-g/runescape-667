@@ -13,7 +13,7 @@ public final class Static263 {
     }
 
     @OriginalMember(owner = "client!ida", name = "a", descriptor = "(Lclient!rka;I)V")
-    public static void method3856(@OriginalArg(0) Class2_Sub21_Sub2 arg0) {
+    public static void method3856(@OriginalArg(0) Node_Sub21_Sub2 arg0) {
         arg0.method7417();
         @Pc(10) int local10 = 0;
         @Pc(20) int local20;

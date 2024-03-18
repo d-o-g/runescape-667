@@ -3544,7 +3544,7 @@ public final class Class114_Sub1 extends Class114 {
 
     @OriginalMember(owner = "client!eu", name = "ba", descriptor = "(Lclient!r;)Lclient!r;")
     @Override
-    public Class2_Sub2_Sub9 ba(@OriginalArg(0) Class2_Sub2_Sub9 arg0) {
+    public Node_Sub2_Sub9 ba(@OriginalArg(0) Node_Sub2_Sub9 arg0) {
         if (this.anInt2759 == 0) {
             return null;
         }
@@ -3571,13 +3571,13 @@ public final class Class114_Sub1 extends Class114 {
         }
         @Pc(177) int local177 = local59 + 1 - local43;
         @Pc(184) int local184 = local134 + 1 - local118;
-        @Pc(187) Class2_Sub2_Sub9_Sub1 local187 = (Class2_Sub2_Sub9_Sub1) arg0;
-        @Pc(199) Class2_Sub2_Sub9_Sub1 local199;
+        @Pc(187) Node_Sub2_Sub9_Sub1 local187 = (Node_Sub2_Sub9_Sub1) arg0;
+        @Pc(199) Node_Sub2_Sub9_Sub1 local199;
         if (local187 != null && local187.method2192(local177, local184)) {
             local199 = local187;
             local187.method2196();
         } else {
-            local199 = new Class2_Sub2_Sub9_Sub1(this.aClass19_Sub1_6, local177, local184);
+            local199 = new Node_Sub2_Sub9_Sub1(this.aClass19_Sub1_6, local177, local184);
         }
         local199.method2194(local118, local134, local59, local43);
         this.method2565(local199);
@@ -3647,7 +3647,7 @@ public final class Class114_Sub1 extends Class114 {
     }
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(ILclient!dn;)V")
-    public void method2565(@OriginalArg(1) Class2_Sub2_Sub9_Sub1 arg0) {
+    public void method2565(@OriginalArg(1) Node_Sub2_Sub9_Sub1 arg0) {
         if (Static190.anIntArray266.length < this.anInt2759) {
             Static686.anIntArray710 = new int[this.anInt2759];
             Static190.anIntArray266 = new int[this.anInt2759];

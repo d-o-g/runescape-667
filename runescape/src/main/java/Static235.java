@@ -50,7 +50,7 @@ public final class Static235 {
     }
 
     @OriginalMember(owner = "client!hf", name = "a", descriptor = "(Lclient!ge;B)Lclient!pi;")
-    public static Class39 method3425(@OriginalArg(0) Class2_Sub21 arg0) {
+    public static Class39 method3425(@OriginalArg(0) Node_Sub21 arg0) {
         @Pc(7) int local7 = arg0.method7396();
         @Pc(19) Class155 local19 = Static471.method6409(local7);
         @Pc(21) Class39 local21 = null;

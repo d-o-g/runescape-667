@@ -317,7 +317,7 @@ public final class Static489 {
         Static197.method2949();
         Static352.method5180();
         Static442.method5969();
-        @Pc(920) Class2_Sub19 local920;
+        @Pc(920) Node_Sub19 local920;
         if (Static353.aFrame10 != null && Static405.aClass153_2.aClass348_1 != null && Static283.anInt4574 == 12) {
             local920 = Static293.method4335(Static694.aClass345_122, Static405.aClass153_2.aClass186_1);
             local920.aClass2_Sub21_Sub2_1.method7342(1057001181);

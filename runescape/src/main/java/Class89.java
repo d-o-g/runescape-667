@@ -16,7 +16,7 @@ public final class Class89 {
     public int anInt2382;
 
     @OriginalMember(owner = "client!dw", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class89(@OriginalArg(0) Class2_Sub21 arg0) {
+    public Class89(@OriginalArg(0) Node_Sub21 arg0) {
         for (@Pc(7) int local7 = 0; local7 < 10; local7++) {
             @Pc(12) int local12 = arg0.method7396();
             if (local12 != 0) {
@@ -64,9 +64,9 @@ public final class Class89 {
     }
 
     @OriginalMember(owner = "client!dw", name = "c", descriptor = "()Lclient!sq;")
-    public Class2_Sub49_Sub1 method2247() {
+    public Node_Sub49_Sub1 method2247() {
         @Pc(2) byte[] local2 = this.method2246();
-        return new Class2_Sub49_Sub1(22050, local2, this.anInt2381 * 22050 / 1000, this.anInt2382 * 22050 / 1000);
+        return new Node_Sub49_Sub1(22050, local2, this.anInt2381 * 22050 / 1000, this.anInt2382 * 22050 / 1000);
     }
 
     @OriginalMember(owner = "client!dw", name = "a", descriptor = "()I")

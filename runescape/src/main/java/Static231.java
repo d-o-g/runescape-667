@@ -106,7 +106,7 @@ public final class Static231 {
 
     @OriginalMember(owner = "client!hd", name = "a", descriptor = "(IIIII)V")
     public static void method3378(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        @Pc(9) Class2_Sub2_Sub2 local9 = Static440.method5963(8, (long) arg2);
+        @Pc(9) Node_Sub2_Sub2_ local9 = Static440.method5963(8, (long) arg2);
         local9.method202();
         local9.anInt195 = arg3;
         local9.anInt192 = arg1;
@@ -567,7 +567,7 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("pc")) {
                     @Pc(1833) Class153 local1833 = Static668.method8701();
-                    @Pc(1839) Class2_Sub19 local1839 = Static293.method4335(Static243.aClass345_52, local1833.aClass186_1);
+                    @Pc(1839) Node_Sub19 local1839 = Static293.method4335(Static243.aClass345_52, local1833.aClass186_1);
                     local1839.aClass2_Sub21_Sub2_1.method7389(0);
                     local521 = local1839.aClass2_Sub21_Sub2_1.anInt8388;
                     local582 = arg2.indexOf(" ", 4);
@@ -807,7 +807,7 @@ public final class Static231 {
                     return;
                 }
                 if (Static283.anInt4574 == 11) {
-                    @Pc(2836) Class2_Sub19 local2836 = Static293.method4335(Static459.aClass345_87, Static405.aClass153_2.aClass186_1);
+                    @Pc(2836) Node_Sub19 local2836 = Static293.method4335(Static459.aClass345_87, Static405.aClass153_2.aClass186_1);
                     local2836.aClass2_Sub21_Sub2_1.method7389(arg2.length() + 3);
                     local2836.aClass2_Sub21_Sub2_1.method7389(arg0 ? 1 : 0);
                     local2836.aClass2_Sub21_Sub2_1.method7389(arg1 ? 1 : 0);
@@ -875,7 +875,7 @@ public final class Static231 {
             return;
         }
         @Pc(216) Class153 local216 = Static668.method8701();
-        @Pc(222) Class2_Sub19 local222 = Static293.method4335(Static113.aClass345_22, local216.aClass186_1);
+        @Pc(222) Node_Sub19 local222 = Static293.method4335(Static113.aClass345_22, local216.aClass186_1);
         local222.aClass2_Sub21_Sub2_1.method7389(method3379(arg1) + 1);
         local222.aClass2_Sub21_Sub2_1.method7391(arg1);
         local222.aClass2_Sub21_Sub2_1.method7389(arg0 ? 1 : 0);

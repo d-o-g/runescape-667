@@ -34,8 +34,8 @@ public final class Static163 {
     }
 
     @OriginalMember(owner = "client!fb", name = "a", descriptor = "(IIIIZ)Lclient!aha;")
-    public static Class2_Sub4 method8850(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) boolean arg3) {
-        @Pc(7) Class2_Sub4 local7 = new Class2_Sub4();
+    public static Node_Sub4 method8850(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) boolean arg3) {
+        @Pc(7) Node_Sub4 local7 = new Node_Sub4();
         local7.anInt147 = arg1;
         local7.anInt146 = arg0;
         Static548.aClass28_40.method735((long) arg2, local7);

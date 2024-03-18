@@ -13,7 +13,7 @@ public final class Static687 {
         @Pc(15) int local15 = Integer.MAX_VALUE;
         @Pc(19) int local19 = arg2 - Static30.anInt5655;
         @Pc(23) int local23 = arg1 - Static30.anInt5648;
-        for (@Pc(34) Class2_Sub20 local34 = (Class2_Sub20) Static30.aClass339_31.method7699(65280); local34 != null; local34 = (Class2_Sub20) Static30.aClass339_31.method7706()) {
+        for (@Pc(34) Node_Sub20 local34 = (Node_Sub20) Static30.aClass339_31.method7699(65280); local34 != null; local34 = (Node_Sub20) Static30.aClass339_31.method7706()) {
             if (local34.anInt3131 == arg0) {
                 @Pc(46) int local46 = local34.anInt3129;
                 @Pc(49) int local49 = local34.anInt3124;

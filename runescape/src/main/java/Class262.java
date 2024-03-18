@@ -9,7 +9,7 @@ import java.math.BigInteger;
 public final class Class262 {
 
     @OriginalMember(owner = "client!nj", name = "l", descriptor = "Lclient!ge;")
-    public Class2_Sub21 aClass2_Sub21_10;
+    public Node_Sub21 aClass2_Sub21_10;
 
     @OriginalMember(owner = "client!nj", name = "b", descriptor = "[Lclient!pm;")
     public Class47_Sub1[] aClass47_Sub1Array5;
@@ -27,7 +27,7 @@ public final class Class262 {
     public final BigInteger aBigInteger3;
 
     @OriginalMember(owner = "client!nj", name = "f", descriptor = "Lclient!rja;")
-    public Class2_Sub2_Sub17_Sub1 aClass2_Sub2_Sub17_Sub1_1;
+    public Node_Sub2_Sub17_Sub1 aClass2_Sub2_Sub17_Sub1_1;
 
     @OriginalMember(owner = "client!nj", name = "<init>", descriptor = "(Lclient!pla;Lclient!iba;Ljava/math/BigInteger;Ljava/math/BigInteger;)V")
     public Class262(@OriginalArg(0) Class295 arg0, @OriginalArg(1) Class174 arg1, @OriginalArg(2) BigInteger arg2, @OriginalArg(3) BigInteger arg3) {
@@ -54,7 +54,7 @@ public final class Class262 {
         if (this.aClass2_Sub2_Sub17_Sub1_1.aBoolean778) {
             return false;
         }
-        @Pc(49) Class2_Sub21 local49 = new Class2_Sub21(this.aClass2_Sub2_Sub17_Sub1_1.method8971());
+        @Pc(49) Node_Sub21 local49 = new Node_Sub21(this.aClass2_Sub2_Sub17_Sub1_1.method8971());
         local49.anInt8388 = 5;
         @Pc(56) int local56 = local49.method7396();
         local49.anInt8388 += local56 * 72;

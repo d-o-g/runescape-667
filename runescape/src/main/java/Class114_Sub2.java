@@ -1025,7 +1025,7 @@ public final class Class114_Sub2 extends Class114 {
 
     @OriginalMember(owner = "client!kla", name = "ba", descriptor = "(Lclient!r;)Lclient!r;")
     @Override
-    public Class2_Sub2_Sub9 ba(@OriginalArg(0) Class2_Sub2_Sub9 arg0) {
+    public Node_Sub2_Sub9 ba(@OriginalArg(0) Node_Sub2_Sub9 arg0) {
         if (this.anInt5538 == 0) {
             return null;
         }
@@ -1052,13 +1052,13 @@ public final class Class114_Sub2 extends Class114 {
         }
         @Pc(175) int local175 = local60 + 1 - local43;
         @Pc(182) int local182 = local132 + 1 - local116;
-        @Pc(185) Class2_Sub2_Sub9_Sub2 local185 = (Class2_Sub2_Sub9_Sub2) arg0;
-        @Pc(197) Class2_Sub2_Sub9_Sub2 local197;
+        @Pc(185) Node_Sub2_Sub9_Sub2 local185 = (Node_Sub2_Sub9_Sub2) arg0;
+        @Pc(197) Node_Sub2_Sub9_Sub2 local197;
         if (local185 != null && local185.method6545(local182, local175)) {
             local197 = local185;
             local185.method6546();
         } else {
-            local197 = new Class2_Sub2_Sub9_Sub2(this.aClass19_Sub3_24, local175, local182);
+            local197 = new Node_Sub2_Sub9_Sub2(this.aClass19_Sub3_24, local175, local182);
         }
         local197.method6544(local60, local116, local132, local43);
         this.method4987(local197);
@@ -1344,7 +1344,7 @@ public final class Class114_Sub2 extends Class114 {
     }
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(Lclient!ph;Z)V")
-    public void method4987(@OriginalArg(0) Class2_Sub2_Sub9_Sub2 arg0) {
+    public void method4987(@OriginalArg(0) Node_Sub2_Sub9_Sub2 arg0) {
         if (this.anInt5538 > this.aClass19_Sub3_24.anIntArray623.length) {
             this.aClass19_Sub3_24.anIntArray625 = new int[this.anInt5538];
             this.aClass19_Sub3_24.anIntArray623 = new int[this.anInt5538];
@@ -1669,9 +1669,9 @@ public final class Class114_Sub2 extends Class114 {
         if (this.anInt5506 * 6 <= this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3.aByteArray93.length) {
             this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3.anInt8388 = 0;
         } else {
-            this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3 = new Class2_Sub21_Sub1((this.anInt5506 + 100) * 6);
+            this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3 = new Node_Sub21_Sub1((this.anInt5506 + 100) * 6);
         }
-        @Pc(46) Class2_Sub21_Sub1 local46 = this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3;
+        @Pc(46) Node_Sub21_Sub1 local46 = this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3;
         @Pc(52) int local52;
         if (this.aClass19_Sub3_24.aBoolean618) {
             for (local52 = 0; local52 < this.anInt5506; local52++) {
@@ -2793,9 +2793,9 @@ public final class Class114_Sub2 extends Class114 {
         if (this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3.aByteArray93.length >= local118 * this.anInt5538) {
             this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3.anInt8388 = 0;
         } else {
-            this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3 = new Class2_Sub21_Sub1(local118 * (this.anInt5538 + 100));
+            this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3 = new Node_Sub21_Sub1(local118 * (this.anInt5538 + 100));
         }
-        @Pc(203) Class2_Sub21_Sub1 local203 = this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3;
+        @Pc(203) Node_Sub21_Sub1 local203 = this.aClass19_Sub3_24.aClass2_Sub21_Sub1_3;
         @Pc(213) int local213;
         @Pc(222) int local222;
         @Pc(250) int local250;

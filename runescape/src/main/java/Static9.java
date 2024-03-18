@@ -26,7 +26,7 @@ public final class Static9 {
 
     @OriginalMember(owner = "client!af", name = "a", descriptor = "([BZ)V")
     public static void method124(@OriginalArg(0) byte[] arg0) {
-        @Pc(15) Class2_Sub21 local15 = new Class2_Sub21(arg0);
+        @Pc(15) Node_Sub21 local15 = new Node_Sub21(arg0);
         while (true) {
             @Pc(19) int local19 = local15.method7396();
             if (local19 == 0) {

@@ -24,7 +24,7 @@ public final class Class296 {
     }
 
     @OriginalMember(owner = "client!po", name = "a", descriptor = "(Lclient!ge;B)V")
-    public void method6673(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method6673(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(3) int local3 = arg0.method7396();
             if (local3 == 0) {
@@ -35,7 +35,7 @@ public final class Class296 {
     }
 
     @OriginalMember(owner = "client!po", name = "a", descriptor = "(IILclient!ge;)V")
-    public void method6674(@OriginalArg(1) int arg0, @OriginalArg(2) Class2_Sub21 arg1) {
+    public void method6674(@OriginalArg(1) int arg0, @OriginalArg(2) Node_Sub21 arg1) {
         if (arg0 == 1) {
             this.aChar6 = Static346.method5084(arg1.method7377());
         } else if (arg0 == 2) {

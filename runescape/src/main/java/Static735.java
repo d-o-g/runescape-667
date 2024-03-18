@@ -12,7 +12,7 @@ public final class Static735 {
 
     @OriginalMember(owner = "client!wp", name = "a", descriptor = "([B)[Lclient!wp;")
     public static Class407[] method9376(@OriginalArg(0) byte[] arg0) {
-        @Pc(4) Class2_Sub21 local4 = new Class2_Sub21(arg0);
+        @Pc(4) Node_Sub21 local4 = new Node_Sub21(arg0);
         local4.anInt8388 = arg0.length - 2;
         @Pc(14) int local14 = local4.method7382();
         @Pc(17) Class407[] local17 = new Class407[local14];

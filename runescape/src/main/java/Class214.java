@@ -35,11 +35,11 @@ public final class Class214 {
     }
 
     @OriginalMember(owner = "client!kq", name = "a", descriptor = "(II)Lclient!ab;")
-    public Class2_Sub2_Sub1 method5038(@OriginalArg(1) int arg0) {
+    public Node_Sub2_Sub1 method5038(@OriginalArg(1) int arg0) {
         @Pc(6) Class82 local6 = this.aClass82_114;
-        @Pc(16) Class2_Sub2_Sub1 local16;
+        @Pc(16) Node_Sub2_Sub1 local16;
         synchronized (this.aClass82_114) {
-            local16 = (Class2_Sub2_Sub1) this.aClass82_114.method2156((long) arg0);
+            local16 = (Node_Sub2_Sub1) this.aClass82_114.method2156((long) arg0);
         }
         if (local16 != null) {
             return local16;
@@ -49,9 +49,9 @@ public final class Class214 {
         synchronized (this.aClass330_70) {
             local39 = this.aClass330_70.method7595(arg0, 26);
         }
-        local16 = new Class2_Sub2_Sub1();
+        local16 = new Node_Sub2_Sub1();
         if (local39 != null) {
-            local16.method90(new Class2_Sub21(local39));
+            local16.method90(new Node_Sub21(local39));
         }
         @Pc(71) Class82 local71 = this.aClass82_114;
         synchronized (this.aClass82_114) {

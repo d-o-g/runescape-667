@@ -12,7 +12,7 @@ public final class Static89 {
 
     @OriginalMember(owner = "client!cp", name = "a", descriptor = "(ILclient!ca;IILclient!wj;Lclient!c;BI)V")
     public static void method1714(@OriginalArg(0) int arg0, @OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub1 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class8_Sub2_Sub1_Sub2_Sub2 arg4, @OriginalArg(5) Class54 arg5, @OriginalArg(7) int arg6) {
-        @Pc(7) Class2_Sub51 local7 = new Class2_Sub51();
+        @Pc(7) Node_Sub51 local7 = new Node_Sub51();
         local7.anInt9350 = arg0;
         local7.anInt9357 = arg2 << 9;
         local7.anInt9352 = arg3 << 9;

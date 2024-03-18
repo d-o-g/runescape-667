@@ -252,7 +252,7 @@ public final class Static434 {
     @OriginalMember(owner = "client!nla", name = "g", descriptor = "(I)V")
     public static void method5855() {
         Static117.anInt2282 = 0;
-        @Pc(8) Class2_Sub21_Sub2 local8 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
+        @Pc(8) Node_Sub21_Sub2 local8 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
         @Pc(12) int local12 = local8.method7401();
         @Pc(24) boolean local24 = local8.method7396() == 1;
         @Pc(28) int local28 = local8.method7372();

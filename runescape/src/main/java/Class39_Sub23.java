@@ -46,7 +46,7 @@ public final class Class39_Sub23 extends Class39 {
     public final int anInt9979;
 
     @OriginalMember(owner = "client!vca", name = "<init>", descriptor = "(Lclient!ge;II)V")
-    public Class39_Sub23(@OriginalArg(0) Class2_Sub21 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public Class39_Sub23(@OriginalArg(0) Node_Sub21 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         super(arg0);
         @Pc(10) int local10;
         if (arg1 == 0) {
@@ -115,6 +115,6 @@ public final class Class39_Sub23 extends Class39 {
         @Pc(91) int local91 = this.anInt9979 << 2;
         @Pc(128) Class8_Sub2_Sub1_Sub1 local128 = new Class8_Sub2_Sub1_Sub1(this.anInt9976, local18, local18, local24, local21, this.anInt9974 << 2, Static333.anInt5455, Static333.anInt5455 + this.anInt9978, this.anInt9977, local91, this.anInt9982 + 1, this.anInt9989 + 1, this.anInt9988 << 2, false, 0);
         local128.method813(this.anInt9988 << 2, this.anInt9978 + Static333.anInt5455, local56, local63);
-        Static505.aClass339_77.method7711(new Class2_Sub2_Sub15(local128));
+        Static505.aClass339_77.method7711(new Node_Sub2_Sub15(local128));
     }
 }

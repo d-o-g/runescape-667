@@ -8,7 +8,7 @@ public final class Static371 {
 
     @OriginalMember(owner = "client!lma", name = "b", descriptor = "(I)V")
     public static void method5284() {
-        @Pc(22) Class2_Sub19 local22 = Static293.method4335(Static587.aClass345_105, Static405.aClass153_2.aClass186_1);
+        @Pc(22) Node_Sub19 local22 = Static293.method4335(Static587.aClass345_105, Static405.aClass153_2.aClass186_1);
         local22.aClass2_Sub21_Sub2_1.method7389(Static36.method978(3));
         local22.aClass2_Sub21_Sub2_1.method7373(Static680.anInt10289);
         local22.aClass2_Sub21_Sub2_1.method7373(Static380.anInt5979);

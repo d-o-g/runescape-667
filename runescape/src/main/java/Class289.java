@@ -226,7 +226,7 @@ public final class Class289 {
     }
 
     @OriginalMember(owner = "client!pda", name = "a", descriptor = "(ILclient!ge;I)V")
-    public void method6482(@OriginalArg(1) Class2_Sub21 arg0, @OriginalArg(2) int arg1) {
+    public void method6482(@OriginalArg(1) Node_Sub21 arg0, @OriginalArg(2) int arg1) {
         if (arg1 == 1) {
             this.anInt7232 = arg0.method7382();
             this.anInt7245 = arg0.method7382();
@@ -357,7 +357,7 @@ public final class Class289 {
     }
 
     @OriginalMember(owner = "client!pda", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method6483(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method6483(@OriginalArg(1) Node_Sub21 arg0) {
         while (true) {
             @Pc(5) int local5 = arg0.method7396();
             if (local5 == 0) {

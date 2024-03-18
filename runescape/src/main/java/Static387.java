@@ -29,7 +29,7 @@ public final class Static387 {
     }
 
     @OriginalMember(owner = "client!mc", name = "a", descriptor = "(Lclient!ge;II)Ljava/lang/String;")
-    public static String method5441(@OriginalArg(0) Class2_Sub21 arg0) {
+    public static String method5441(@OriginalArg(0) Node_Sub21 arg0) {
         try {
             @Pc(7) int local7 = arg0.method7390();
             if (local7 > 32767) {

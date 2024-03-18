@@ -244,7 +244,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!za;)V")
     @Override
-    public void method7938(@OriginalArg(0) Class2_Sub13 arg0) {
+    public void method7938(@OriginalArg(0) Node_Sub13 arg0) {
         this.aYa2 = (ya) arg0;
         this.va(arg0);
     }
@@ -299,8 +299,8 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIF)Lclient!lca;")
     @Override
-    public Class2_Sub7 method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
-        return new Class2_Sub7_Sub3(arg0, arg1, arg2, arg3, arg4, arg5);
+    public Node_Sub7 method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
+        return new Node_Sub7_Sub3(arg0, arg1, arg2, arg3, arg4, arg5);
     }
 
     @OriginalMember(owner = "client!oa", name = "KA", descriptor = "(IIII)V")
@@ -369,7 +369,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(I)Lclient!za;")
     @Override
-    public Class2_Sub13 method7961(@OriginalArg(0) int arg0) {
+    public Node_Sub13 method7961(@OriginalArg(0) int arg0) {
         @Pc(5) ya local5 = new ya(this, arg0);
         this.aClass339_38.method7711(local5);
         return local5;
@@ -626,7 +626,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(I[Lclient!lca;)V")
     @Override
-    public void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub7[] arg1) {
+    public void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub7[] arg1) {
         @Pc(1) int local1 = 0;
         for (@Pc(3) int local3 = 0; local3 < arg0; local3++) {
             Static445.anIntArray540[local1++] = arg1[local3].method8426();
@@ -807,7 +807,7 @@ public final class oa extends Class19 implements Interface5 {
     public native void la();
 
     @OriginalMember(owner = "client!oa", name = "va", descriptor = "(Lclient!za;)V")
-    public native void va(@OriginalArg(0) Class2_Sub13 arg0);
+    public native void va(@OriginalArg(0) Node_Sub13 arg0);
 
     @OriginalMember(owner = "client!oa", name = "C", descriptor = "(Z)V")
     public native void C(@OriginalArg(0) boolean arg0);

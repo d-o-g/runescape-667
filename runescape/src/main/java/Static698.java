@@ -18,7 +18,7 @@ public final class Static698 {
         if (Static319.anInt5080 >= 65535) {
             return;
         }
-        @Pc(7) Class2_Sub7 local7 = arg0.aClass2_Sub7_3;
+        @Pc(7) Node_Sub7 local7 = arg0.aClass2_Sub7_3;
         Static265.aClass353Array1[Static319.anInt5080] = arg0;
         Static279.aBooleanArray11[Static319.anInt5080] = false;
         Static319.anInt5080++;
@@ -69,7 +69,7 @@ public final class Static698 {
 
     @OriginalMember(owner = "client!wba", name = "a", descriptor = "(ZII)V")
     public static void method9123(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1) {
-        @Pc(12) Class2_Sub22 local12 = Static556.method7303(arg1, arg0);
+        @Pc(12) Node_Sub22 local12 = Static556.method7303(arg1, arg0);
         if (local12 != null) {
             local12.method9457();
         }
@@ -81,7 +81,7 @@ public final class Static698 {
             return;
         }
         @Pc(16) Class153 local16 = Static668.method8701();
-        @Pc(29) Class2_Sub19 local29 = Static293.method4335(Static244.aClass345_53, local16.aClass186_1);
+        @Pc(29) Node_Sub19 local29 = Static293.method4335(Static244.aClass345_53, local16.aClass186_1);
         local29.aClass2_Sub21_Sub2_1.method7389(Static231.method3379(arg0));
         local29.aClass2_Sub21_Sub2_1.method7391(arg0);
         local16.method3275(local29);

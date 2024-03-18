@@ -23,7 +23,7 @@ public final class Class42 {
     public final float[] aFloatArray10 = new float[16];
 
     @OriginalMember(owner = "client!bj", name = "t", descriptor = "Lclient!jfa;")
-    public final Class2_Sub21_Sub1 aClass2_Sub21_Sub1_1 = new Class2_Sub21_Sub1(786336);
+    public final Node_Sub21_Sub1 aClass2_Sub21_Sub1_1 = new Node_Sub21_Sub1(786336);
 
     @OriginalMember(owner = "client!bj", name = "r", descriptor = "I")
     public final int anInt998 = Static434.method5853(1600);

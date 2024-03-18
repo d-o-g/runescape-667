@@ -26,7 +26,7 @@ public final class Static609 {
 
     @OriginalMember(owner = "client!tea", name = "a", descriptor = "(ZI)V")
     public static void method8213(@OriginalArg(0) boolean arg0) {
-        for (@Pc(8) Class2_Sub51 local8 = (Class2_Sub51) Static460.aClass339_40.method7699(65280); local8 != null; local8 = (Class2_Sub51) Static460.aClass339_40.method7706()) {
+        for (@Pc(8) Node_Sub51 local8 = (Node_Sub51) Static460.aClass339_40.method7699(65280); local8 != null; local8 = (Node_Sub51) Static460.aClass339_40.method7706()) {
             if (local8.aClass2_Sub6_Sub2_4 != null) {
                 Static336.aClass2_Sub6_Sub3_1.method5883(local8.aClass2_Sub6_Sub2_4);
                 local8.aClass2_Sub6_Sub2_4 = null;
@@ -40,14 +40,14 @@ public final class Static609 {
         if (!arg0) {
             return;
         }
-        for (@Pc(57) Class2_Sub51 local57 = (Class2_Sub51) Static717.aClass339_81.method7699(65280); local57 != null; local57 = (Class2_Sub51) Static717.aClass339_81.method7706()) {
+        for (@Pc(57) Node_Sub51 local57 = (Node_Sub51) Static717.aClass339_81.method7699(65280); local57 != null; local57 = (Node_Sub51) Static717.aClass339_81.method7706()) {
             if (local57.aClass2_Sub6_Sub2_4 != null) {
                 Static336.aClass2_Sub6_Sub3_1.method5883(local57.aClass2_Sub6_Sub2_4);
                 local57.aClass2_Sub6_Sub2_4 = null;
             }
             local57.method9457();
         }
-        for (@Pc(85) Class2_Sub51 local85 = (Class2_Sub51) Static113.aClass28_12.method736(); local85 != null; local85 = (Class2_Sub51) Static113.aClass28_12.method740()) {
+        for (@Pc(85) Node_Sub51 local85 = (Node_Sub51) Static113.aClass28_12.method736(); local85 != null; local85 = (Node_Sub51) Static113.aClass28_12.method740()) {
             if (local85.aClass2_Sub6_Sub2_4 != null) {
                 Static336.aClass2_Sub6_Sub3_1.method5883(local85.aClass2_Sub6_Sub2_4);
                 local85.aClass2_Sub6_Sub2_4 = null;
@@ -57,13 +57,13 @@ public final class Static609 {
     }
 
     @OriginalMember(owner = "client!tea", name = "a", descriptor = "(IIILclient!cba;)V")
-    public static void method8214(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class2_Sub2_Sub4 arg2) {
+    public static void method8214(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Node_Sub2_Sub4 arg2) {
         if (!Static400.aBoolean622) {
             return;
         }
         @Pc(11) int local11 = 0;
         @Pc(23) int local23;
-        for (@Pc(17) Class2_Sub2_Sub16 local17 = (Class2_Sub2_Sub16) arg2.aClass192_3.method4352(); local17 != null; local17 = (Class2_Sub2_Sub16) arg2.aClass192_3.method4350()) {
+        for (@Pc(17) Node_Sub2_Sub16 local17 = (Node_Sub2_Sub16) arg2.aClass192_3.method4352(); local17 != null; local17 = (Node_Sub2_Sub16) arg2.aClass192_3.method4350()) {
             local23 = Static249.method3536(local17);
             if (local23 > local11) {
                 local11 = local23;

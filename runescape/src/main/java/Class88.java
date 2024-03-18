@@ -457,13 +457,13 @@ public final class Class88 {
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "([BZ)V")
     public void method2235(@OriginalArg(0) byte[] arg0) {
-        @Pc(8) Class2_Sub21 local8 = new Class2_Sub21(arg0);
-        @Pc(13) Class2_Sub21 local13 = new Class2_Sub21(arg0);
-        @Pc(18) Class2_Sub21 local18 = new Class2_Sub21(arg0);
-        @Pc(23) Class2_Sub21 local23 = new Class2_Sub21(arg0);
-        @Pc(28) Class2_Sub21 local28 = new Class2_Sub21(arg0);
-        @Pc(33) Class2_Sub21 local33 = new Class2_Sub21(arg0);
-        @Pc(38) Class2_Sub21 local38 = new Class2_Sub21(arg0);
+        @Pc(8) Node_Sub21 local8 = new Node_Sub21(arg0);
+        @Pc(13) Node_Sub21 local13 = new Node_Sub21(arg0);
+        @Pc(18) Node_Sub21 local18 = new Node_Sub21(arg0);
+        @Pc(23) Node_Sub21 local23 = new Node_Sub21(arg0);
+        @Pc(28) Node_Sub21 local28 = new Node_Sub21(arg0);
+        @Pc(33) Node_Sub21 local33 = new Node_Sub21(arg0);
+        @Pc(38) Node_Sub21 local38 = new Node_Sub21(arg0);
         local8.anInt8388 = arg0.length - 23;
         this.anInt2372 = local8.method7382();
         this.anInt2362 = local8.method7382();
@@ -1009,11 +1009,11 @@ public final class Class88 {
     public void method2242(@OriginalArg(1) byte[] arg0) {
         @Pc(5) boolean local5 = false;
         @Pc(7) boolean local7 = false;
-        @Pc(12) Class2_Sub21 local12 = new Class2_Sub21(arg0);
-        @Pc(17) Class2_Sub21 local17 = new Class2_Sub21(arg0);
-        @Pc(22) Class2_Sub21 local22 = new Class2_Sub21(arg0);
-        @Pc(27) Class2_Sub21 local27 = new Class2_Sub21(arg0);
-        @Pc(32) Class2_Sub21 local32 = new Class2_Sub21(arg0);
+        @Pc(12) Node_Sub21 local12 = new Node_Sub21(arg0);
+        @Pc(17) Node_Sub21 local17 = new Node_Sub21(arg0);
+        @Pc(22) Node_Sub21 local22 = new Node_Sub21(arg0);
+        @Pc(27) Node_Sub21 local27 = new Node_Sub21(arg0);
+        @Pc(32) Node_Sub21 local32 = new Node_Sub21(arg0);
         local12.anInt8388 = arg0.length - 18;
         this.anInt2372 = local12.method7382();
         this.anInt2362 = local12.method7382();

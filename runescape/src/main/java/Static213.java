@@ -22,7 +22,7 @@ public final class Static213 {
     @OriginalMember(owner = "client!gl", name = "a", descriptor = "([BIIIII)Z")
     public static boolean method3141(@OriginalArg(0) byte[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(5) boolean local5 = true;
-        @Pc(10) Class2_Sub21 local10 = new Class2_Sub21(arg0);
+        @Pc(10) Node_Sub21 local10 = new Node_Sub21(arg0);
         @Pc(12) int local12 = -1;
         label54:
         while (true) {

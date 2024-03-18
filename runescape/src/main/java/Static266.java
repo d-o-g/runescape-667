@@ -39,7 +39,7 @@ public final class Static266 {
         @Pc(110) int local110;
         @Pc(113) int local113;
         @Pc(116) int local116;
-        for (@Pc(71) Class2_Sub35 local71 = (Class2_Sub35) Static391.aClass339_34.method7699(65280); local71 != null; local71 = (Class2_Sub35) Static391.aClass339_34.method7706()) {
+        for (@Pc(71) Node_Sub35 local71 = (Node_Sub35) Static391.aClass339_34.method7699(65280); local71 != null; local71 = (Node_Sub35) Static391.aClass339_34.method7706()) {
             local22 = local71.anInt5689;
             @Pc(88) boolean local88 = (local22 & 0x1) == 1;
             local93 = local71.anInt5691 >> 3;
@@ -95,7 +95,7 @@ public final class Static266 {
         Static376.anIntArray458 = null;
         Static421.aByteArrayArray19 = new byte[local22][];
         local22 = 0;
-        for (@Pc(312) Class2_Sub35 local312 = (Class2_Sub35) Static391.aClass339_34.method7699(65280); local312 != null; local312 = (Class2_Sub35) Static391.aClass339_34.method7706()) {
+        for (@Pc(312) Node_Sub35 local312 = (Node_Sub35) Static391.aClass339_34.method7699(65280); local312 != null; local312 = (Node_Sub35) Static391.aClass339_34.method7706()) {
             local93 = local312.anInt5691 >>> -2127211805;
             local98 = local312.anInt5692 >>> 3;
             local101 = local312.anInt5686 + local93;
@@ -136,7 +136,7 @@ public final class Static266 {
         @Pc(5) Class83 local5 = null;
         try {
             local5 = Static689.method8983("2");
-            @Pc(25) Class2_Sub21 local25 = new Class2_Sub21(Static319.anInt5078 * 6 + 3);
+            @Pc(25) Node_Sub21 local25 = new Node_Sub21(Static319.anInt5078 * 6 + 3);
             local25.method7389(1);
             local25.method7373(Static319.anInt5078);
             for (@Pc(35) int local35 = 0; local35 < Static511.anIntArray614.length; local35++) {

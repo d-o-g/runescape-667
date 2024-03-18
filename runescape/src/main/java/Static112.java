@@ -20,7 +20,7 @@ public final class Static112 {
         if (arg0.anInt10722 != -1) {
             @Pc(24) Class8_Sub2_Sub1_Sub2 local24 = null;
             if (arg0.anInt10722 < 32768) {
-                @Pc(54) Class2_Sub45 local54 = (Class2_Sub45) Static18.aClass28_2.method738((long) arg0.anInt10722);
+                @Pc(54) Node_Sub45 local54 = (Node_Sub45) Static18.aClass28_2.method738((long) arg0.anInt10722);
                 if (local54 != null) {
                     local24 = local54.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
@@ -56,7 +56,7 @@ public final class Static112 {
     }
 
     @OriginalMember(owner = "client!dj", name = "a", descriptor = "(BLclient!ge;)Lclient!jt;")
-    public static Class200 method2106(@OriginalArg(1) Class2_Sub21 arg0) {
+    public static Class200 method2106(@OriginalArg(1) Node_Sub21 arg0) {
         @Pc(7) int local7 = arg0.method7382();
         return new Class200(local7);
     }

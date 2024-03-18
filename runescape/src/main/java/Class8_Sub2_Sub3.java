@@ -30,7 +30,7 @@ public abstract class Class8_Sub2_Sub3 extends Class8_Sub2 {
 
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
-    public final int method9288(@OriginalArg(0) Class2_Sub7[] arg0) {
+    public final int method9288(@OriginalArg(0) Node_Sub7[] arg0) {
         @Pc(10) int local10 = super.anInt10690 >> Static52.anInt1066;
         @Pc(21) int local21 = super.anInt10694 >> Static52.anInt1066;
         @Pc(23) int local23 = 0;

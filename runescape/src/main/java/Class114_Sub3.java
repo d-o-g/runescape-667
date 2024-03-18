@@ -1396,7 +1396,7 @@ public final class Class114_Sub3 extends Class114 {
 
     @OriginalMember(owner = "client!rs", name = "ba", descriptor = "(Lclient!r;)Lclient!r;")
     @Override
-    public Class2_Sub2_Sub9 ba(@OriginalArg(0) Class2_Sub2_Sub9 arg0) {
+    public Node_Sub2_Sub9 ba(@OriginalArg(0) Node_Sub2_Sub9 arg0) {
         return null;
     }
 

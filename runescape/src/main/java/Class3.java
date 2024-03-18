@@ -45,11 +45,11 @@ public final class Class3 {
     @OriginalMember(owner = "client!aba", name = "<init>", descriptor = "(Lclient!sb;)V")
     public Class3(@OriginalArg(0) Class330 arg0) {
         @Pc(30) byte[] local30 = arg0.method7589(3);
-        this.method93(new Class2_Sub21(local30));
+        this.method93(new Node_Sub21(local30));
     }
 
     @OriginalMember(owner = "client!aba", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method93(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method93(@OriginalArg(0) Node_Sub21 arg0) {
         @Pc(7) boolean local7 = false;
         while (true) {
             while (true) {

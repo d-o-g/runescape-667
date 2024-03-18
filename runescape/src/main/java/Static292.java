@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static292 {
 
     @OriginalMember(owner = "client!jea", name = "m", descriptor = "Lclient!pw;")
-    public static Class2_Sub43 aClass2_Sub43_2;
+    public static Node_Sub43 aClass2_Sub43_2;
 
     @OriginalMember(owner = "client!jea", name = "t", descriptor = "J")
     public static long aLong163;
@@ -81,7 +81,7 @@ public final class Static292 {
         Static299.anInt4825 = 1;
         @Pc(16) String local16 = null;
         if (Static265.aByteArray44 != null) {
-            @Pc(23) Class2_Sub21 local23 = new Class2_Sub21(Static265.aByteArray44);
+            @Pc(23) Node_Sub21 local23 = new Node_Sub21(Static265.aByteArray44);
             local16 = Static287.method4154(local23.method7398());
             Static430.aLong209 = local23.method7398();
         }
@@ -93,7 +93,7 @@ public final class Static292 {
     }
 
     @OriginalMember(owner = "client!jea", name = "a", descriptor = "(Lclient!r;III[Z)V")
-    public static void method4618(@OriginalArg(0) Class2_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean[] arg4) {
+    public static void method4618(@OriginalArg(0) Node_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean[] arg4) {
         if (Static246.aClass178Array1 == Static693.aClass178Array2) {
             return;
         }

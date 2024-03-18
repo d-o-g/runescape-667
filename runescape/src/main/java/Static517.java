@@ -14,12 +14,12 @@ public final class Static517 {
     public static final Class155 aClass155_36 = new Class155(15);
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(Lclient!sb;III)Lclient!ip;")
-    public static Class2_Sub2_Sub13 method6820(@OriginalArg(0) Class330 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(14) Class2_Sub21 local14 = new Class2_Sub21(arg0.method7595(arg2, arg1));
-        @Pc(50) Class2_Sub2_Sub13 local50 = new Class2_Sub2_Sub13(arg2, local14.method7358(), local14.method7358(), local14.method7349(), local14.method7349(), local14.method7396() == 1, local14.method7396(), local14.method7396());
+    public static Node_Sub2_Sub13 method6820(@OriginalArg(0) Class330 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+        @Pc(14) Node_Sub21 local14 = new Node_Sub21(arg0.method7595(arg2, arg1));
+        @Pc(50) Node_Sub2_Sub13 local50 = new Node_Sub2_Sub13(arg2, local14.method7358(), local14.method7358(), local14.method7349(), local14.method7349(), local14.method7396() == 1, local14.method7396(), local14.method7396());
         @Pc(54) int local54 = local14.method7396();
         for (@Pc(56) int local56 = 0; local56 < local54; local56++) {
-            local50.aClass339_26.method7711(new Class2_Sub56(local14.method7396(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382()));
+            local50.aClass339_26.method7711(new Node_Sub56(local14.method7396(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382()));
         }
         local50.method4090();
         return local50;
@@ -100,7 +100,7 @@ public final class Static517 {
             }
         }
         if (Static442.aBoolean500) {
-            Static665.aClass19_15.method8009(0, (Class2_Sub7[]) null);
+            Static665.aClass19_15.method8009(0, (Node_Sub7[]) null);
         }
         if ((arg5 & 0x2) == 0) {
             for (local225 = Static296.anInt4792; local225 < Static299.anInt4824; local225++) {

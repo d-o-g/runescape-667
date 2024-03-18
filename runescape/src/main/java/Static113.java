@@ -27,7 +27,7 @@ public final class Static113 {
     @OriginalMember(owner = "client!dja", name = "a", descriptor = "([BBZ)V")
     public static void method2121(@OriginalArg(0) byte[] arg0, @OriginalArg(2) boolean arg1) {
         if (Static339.aClass2_Sub21_9 == null) {
-            Static339.aClass2_Sub21_9 = new Class2_Sub21(20000);
+            Static339.aClass2_Sub21_9 = new Node_Sub21(20000);
         }
         Static339.aClass2_Sub21_9.method7386(arg0.length, arg0, 0);
         if (!arg1) {

@@ -20,7 +20,7 @@ public final class Static90 {
         }
         for (@Pc(40) int local40 = 0; local40 < Static390.anInt6126; local40++) {
             @Pc(49) long local49 = (long) Static103.anIntArray187[local40];
-            @Pc(57) Class2_Sub45 local57 = (Class2_Sub45) Static18.aClass28_2.method738(local49);
+            @Pc(57) Node_Sub45 local57 = (Node_Sub45) Static18.aClass28_2.method738(local49);
             if (local57 != null) {
                 local57.aClass8_Sub2_Sub1_Sub2_Sub2_2.method9296();
             }

@@ -50,7 +50,7 @@ public abstract class Class8_Sub2 extends Class8 {
     public abstract Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0);
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(I[Lclient!lca;II)I")
-    protected final int method9277(@OriginalArg(1) Class2_Sub7[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
+    protected final int method9277(@OriginalArg(1) Node_Sub7[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(21) long local21 = Static161.aLongArrayArrayArray1[this.aByte144][arg2][arg1];
         @Pc(23) long local23 = 0L;
         @Pc(25) int local25 = 0;
@@ -99,7 +99,7 @@ public abstract class Class8_Sub2 extends Class8 {
     }
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "([Lclient!lca;I)I")
-    public abstract int method9288(@OriginalArg(0) Class2_Sub7[] arg0);
+    public abstract int method9288(@OriginalArg(0) Node_Sub7[] arg0);
 
     @OriginalMember(owner = "client!eo", name = "d", descriptor = "(Lclient!ha;I)V")
     public abstract void method9289(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1);

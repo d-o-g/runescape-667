@@ -246,7 +246,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Lclient!ge;II)V")
-    public void method1296(@OriginalArg(0) Class2_Sub21 arg0, @OriginalArg(1) int arg1) {
+    public void method1296(@OriginalArg(0) Node_Sub21 arg0, @OriginalArg(1) int arg1) {
         @Pc(37) int local37;
         @Pc(47) int local47;
         @Pc(59) int local59;
@@ -523,11 +523,11 @@ public final class Class54 {
                                                     for (local47 = 0; local47 < local37; local47++) {
                                                         @Pc(872) boolean local872 = arg0.method7396() == 1;
                                                         local67 = arg0.method7383();
-                                                        @Pc(885) Class2 local885;
+                                                        @Pc(885) Node local885;
                                                         if (local872) {
-                                                            local885 = new Class2_Sub24(arg0.method7358());
+                                                            local885 = new Node_Sub24(arg0.method7358());
                                                         } else {
-                                                            local885 = new Class2_Sub38(arg0.method7349());
+                                                            local885 = new Node_Sub38(arg0.method7349());
                                                         }
                                                         this.aClass28_10.method735((long) local67, local885);
                                                     }
@@ -608,7 +608,7 @@ public final class Class54 {
         if (this.aClass28_10 == null) {
             return arg0;
         } else {
-            @Pc(25) Class2_Sub24 local25 = (Class2_Sub24) this.aClass28_10.method738((long) arg1);
+            @Pc(25) Node_Sub24 local25 = (Node_Sub24) this.aClass28_10.method738((long) arg1);
             return local25 == null ? arg0 : local25.aString46;
         }
     }
@@ -704,7 +704,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "b", descriptor = "(BLclient!ge;)V")
-    public void method1305(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method1305(@OriginalArg(1) Node_Sub21 arg0) {
         while (true) {
             @Pc(3) int local3 = arg0.method7396();
             if (local3 == 0) {
@@ -786,12 +786,12 @@ public final class Class54 {
             local106 = (Class272) this.aClass142_2.aClass82_75.method2156(local21);
         }
         @Pc(120) Class114 local120 = local106 == null ? null : local106.aClass114_7;
-        @Pc(122) Class2_Sub2_Sub9 local122 = null;
+        @Pc(122) Node_Sub2_Sub9 local122 = null;
         if (local120 != null && arg7.method7960(local120.ua(), local40) == 0) {
             local120 = local106.aClass114_7;
             local122 = local106.aClass2_Sub2_Sub9_5;
             if (arg4 && local122 == null) {
-                local122 = local106.aClass2_Sub2_Sub9_5 = local120.ba((Class2_Sub2_Sub9) null);
+                local122 = local106.aClass2_Sub2_Sub9_5 = local120.ba((Node_Sub2_Sub9) null);
             }
         } else {
             if (local120 != null) {
@@ -809,7 +809,7 @@ public final class Class54 {
                 local120.a(2048);
             }
             if (arg4) {
-                local122 = local120.ba((Class2_Sub2_Sub9) null);
+                local122 = local120.ba((Node_Sub2_Sub9) null);
             }
             local120.s(local40);
             local106 = new Class272();
@@ -1088,7 +1088,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method1315(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method1315(@OriginalArg(1) Node_Sub21 arg0) {
         @Pc(12) int local12 = arg0.method7396();
         for (@Pc(14) int local14 = 0; local14 < local12; local14++) {
             arg0.anInt8388++;
@@ -1102,7 +1102,7 @@ public final class Class54 {
         if (this.aClass28_10 == null) {
             return arg0;
         } else {
-            @Pc(17) Class2_Sub38 local17 = (Class2_Sub38) this.aClass28_10.method738((long) arg1);
+            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aClass28_10.method738((long) arg1);
             return local17 == null ? arg0 : local17.anInt6379;
         }
     }

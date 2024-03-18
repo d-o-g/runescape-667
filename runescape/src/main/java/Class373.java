@@ -60,7 +60,7 @@ public final class Class373 {
         if (local27 <= 0) {
             this.aClass93_Sub2_6 = null;
         } else {
-            @Pc(103) Class2_Sub21 local103 = new Class2_Sub21(local27 * 2);
+            @Pc(103) Node_Sub21 local103 = new Node_Sub21(local27 * 2);
             @Pc(123) int local123;
             @Pc(131) short[] local131;
             @Pc(135) int local135;

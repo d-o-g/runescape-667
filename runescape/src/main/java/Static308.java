@@ -7,7 +7,7 @@ public final class Static308 {
     public static final Class155 aClass155_21 = new Class155(53);
 
     @OriginalMember(owner = "client!jp", name = "a", descriptor = "(BLclient!rka;I)V")
-    public static void method4482(@OriginalArg(1) Class2_Sub21_Sub2 arg0, @OriginalArg(2) int arg1) {
+    public static void method4482(@OriginalArg(1) Node_Sub21_Sub2 arg0, @OriginalArg(2) int arg1) {
         Static652.anInt9713 = 0;
         Static358.aBoolean803 = false;
         Static263.method3856(arg0);

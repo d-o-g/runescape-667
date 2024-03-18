@@ -40,7 +40,7 @@ public final class Class10 {
     public int anInt131 = 16777215;
 
     @OriginalMember(owner = "client!afa", name = "a", descriptor = "(ILclient!ge;I)V")
-    public void method129(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub21 arg1) {
+    public void method129(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21 arg1) {
         if (arg0 == 1) {
             this.anInt123 = arg1.method7382();
         } else if (arg0 == 2) {
@@ -63,7 +63,7 @@ public final class Class10 {
     }
 
     @OriginalMember(owner = "client!afa", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method131(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method131(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(11) int local11 = arg0.method7396();
             if (local11 == 0) {

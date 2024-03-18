@@ -34,7 +34,7 @@ public final class Static249 {
     }
 
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(BLclient!pg;)I")
-    public static int method3536(@OriginalArg(1) Class2_Sub2_Sub16 arg0) {
+    public static int method3536(@OriginalArg(1) Node_Sub2_Sub16 arg0) {
         @Pc(15) String local15 = Static518.method9293(arg0);
         @Pc(17) int[] local17 = null;
         if (Static245.method8635(arg0.anInt7314)) {
@@ -42,7 +42,7 @@ public final class Static249 {
         } else if (arg0.anInt7317 != -1) {
             local17 = Static419.aClass112_1.method2486(arg0.anInt7317).anIntArray800;
         } else if (Static598.method7825(arg0.anInt7314)) {
-            @Pc(51) Class2_Sub45 local51 = (Class2_Sub45) Static18.aClass28_2.method738((long) (int) arg0.aLong233);
+            @Pc(51) Node_Sub45 local51 = (Node_Sub45) Static18.aClass28_2.method738((long) (int) arg0.aLong233);
             if (local51 != null) {
                 @Pc(56) Class8_Sub2_Sub1_Sub2_Sub2 local56 = local51.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 @Pc(59) Class268 local59 = local56.aClass268_1;

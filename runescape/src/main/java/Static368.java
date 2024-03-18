@@ -73,7 +73,7 @@ public final class Static368 {
         if (Static178.aBoolean251) {
             return;
         }
-        for (@Pc(27) Class2_Sub20 local27 = (Class2_Sub20) arg0.method7699(65280); local27 != null; local27 = (Class2_Sub20) arg0.method7706()) {
+        for (@Pc(27) Node_Sub20 local27 = (Node_Sub20) arg0.method7699(65280); local27 != null; local27 = (Node_Sub20) arg0.method7706()) {
             @Pc(35) Class105 local35 = Static30.aClass246_3.method5584(local27.anInt3131);
             if (Static408.method5634(local35)) {
                 @Pc(47) boolean local47 = Static351.method5138(arg1, local35, local27);

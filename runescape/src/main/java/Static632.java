@@ -23,7 +23,7 @@ public final class Static632 {
     public static final Class225 aClass225_229 = new Class225(89, -1);
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(Lclient!ge;I)Lclient!is;")
-    public static Class138 method8359(@OriginalArg(0) Class2_Sub21 arg0) {
+    public static Class138 method8359(@OriginalArg(0) Node_Sub21 arg0) {
         @Pc(10) Class403 local10 = Static33.method882()[arg0.method7396()];
         @Pc(17) Class103 local17 = Static313.method4544()[arg0.method7396()];
         @Pc(21) int local21 = arg0.method7356();
@@ -42,7 +42,7 @@ public final class Static632 {
     }
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(ILclient!tg;IIBI)V")
-    public static void method8366(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub51 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
+    public static void method8366(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub51 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
         if (arg1.anInt9353 == -1 && arg1.anIntArray718 == null) {
             return;
         }
@@ -106,7 +106,7 @@ public final class Static632 {
             }
             local214 = (16384 - local275 >> 1) + local264 * local275 / 8192;
         }
-        @Pc(391) Class2_Sub6_Sub2 local391;
+        @Pc(391) Node_Sub6_Sub2 local391;
         if (arg1.aClass2_Sub6_Sub2_4 != null) {
             arg1.aClass2_Sub6_Sub2_4.method3327(local182);
             arg1.aClass2_Sub6_Sub2_4.method3333(local214);
@@ -130,8 +130,8 @@ public final class Static632 {
             } else {
                 @Pc(408) Class89 local408 = Static729.method2245(Static281.aClass330_60, arg1.anInt9353, 0);
                 if (local408 != null) {
-                    @Pc(415) Class2_Sub49_Sub1 local415 = local408.method2247().method7821(Static681.aClass224_2);
-                    @Pc(423) Class2_Sub6_Sub2 local423 = Static730.method3346(local415, local264, local182 << 6, local214);
+                    @Pc(415) Node_Sub49_Sub1 local415 = local408.method2247().method7821(Static681.aClass224_2);
+                    @Pc(423) Node_Sub6_Sub2 local423 = Static730.method3346(local415, local264, local182 << 6, local214);
                     local423.method3318(-1);
                     Static336.aClass2_Sub6_Sub3_1.method5882(local423);
                     arg1.aClass2_Sub6_Sub2_4 = local423;
@@ -152,8 +152,8 @@ public final class Static632 {
                 local275 = (int) ((double) arg1.anIntArray718.length * Math.random());
                 @Pc(536) Class89 local536 = Static729.method2245(Static281.aClass330_60, arg1.anIntArray718[local275], 0);
                 if (local536 != null) {
-                    @Pc(543) Class2_Sub49_Sub1 local543 = local536.method2247().method7821(Static681.aClass224_2);
-                    @Pc(551) Class2_Sub6_Sub2 local551 = Static730.method3346(local543, local264, local182 << 6, local214);
+                    @Pc(543) Node_Sub49_Sub1 local543 = local536.method2247().method7821(Static681.aClass224_2);
+                    @Pc(551) Node_Sub6_Sub2 local551 = Static730.method3346(local543, local264, local182 << 6, local214);
                     local551.method3318(0);
                     Static336.aClass2_Sub6_Sub3_1.method5882(local551);
                     arg1.anInt9351 = (int) (Math.random() * (double) (arg1.anInt9354 - arg1.anInt9365)) + arg1.anInt9365;

@@ -215,7 +215,7 @@ public final class Class382 {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!ge;B)V")
-    public void method8791(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method8791(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(15) int local15 = arg0.method7396();
             if (local15 == 0) {
@@ -295,7 +295,7 @@ public final class Class382 {
         if (this.aClass28_44 == null) {
             return arg1;
         } else {
-            @Pc(19) Class2_Sub38 local19 = (Class2_Sub38) this.aClass28_44.method738((long) arg0);
+            @Pc(19) Node_Sub38 local19 = (Node_Sub38) this.aClass28_44.method738((long) arg0);
             return local19 == null ? arg1 : local19.anInt6379;
         }
     }
@@ -328,7 +328,7 @@ public final class Class382 {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!ge;ZI)V")
-    public void method8797(@OriginalArg(0) Class2_Sub21 arg0, @OriginalArg(2) int arg1) {
+    public void method8797(@OriginalArg(0) Node_Sub21 arg0, @OriginalArg(2) int arg1) {
         if (arg1 == 1) {
             this.anInt10120 = arg0.method7382();
         } else if (arg1 == 2) {
@@ -480,11 +480,11 @@ public final class Class382 {
                 for (local212 = 0; local212 < local202; local212++) {
                     @Pc(554) boolean local554 = arg0.method7396() == 1;
                     @Pc(558) int local558 = arg0.method7383();
-                    @Pc(567) Class2 local567;
+                    @Pc(567) Node local567;
                     if (local554) {
-                        local567 = new Class2_Sub24(arg0.method7358());
+                        local567 = new Node_Sub24(arg0.method7358());
                     } else {
-                        local567 = new Class2_Sub38(arg0.method7349());
+                        local567 = new Node_Sub38(arg0.method7349());
                     }
                     this.aClass28_44.method735((long) local558, local567);
                 }
@@ -701,7 +701,7 @@ public final class Class382 {
         if (this.aClass28_44 == null) {
             return arg0;
         } else {
-            @Pc(17) Class2_Sub24 local17 = (Class2_Sub24) this.aClass28_44.method738((long) arg1);
+            @Pc(17) Node_Sub24 local17 = (Node_Sub24) this.aClass28_44.method738((long) arg1);
             return local17 == null ? arg0 : local17.aString46;
         }
     }

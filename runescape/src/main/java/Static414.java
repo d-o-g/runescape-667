@@ -72,7 +72,7 @@ public final class Static414 {
                 }
             }
             if (!arg0) {
-                for (@Pc(484) Class2_Sub2_Sub16 local484 = (Class2_Sub2_Sub16) Static693.aClass339_79.method7699(65280); local484 != null; local484 = (Class2_Sub2_Sub16) Static693.aClass339_79.method7706()) {
+                for (@Pc(484) Node_Sub2_Sub16 local484 = (Node_Sub2_Sub16) Static693.aClass339_79.method7699(65280); local484 != null; local484 = (Node_Sub2_Sub16) Static693.aClass339_79.method7706()) {
                     if (local484.anInt7314 == 58) {
                         local484.aString88 = "<col=ffffff>" + local177;
                         return;

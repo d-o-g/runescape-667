@@ -23,7 +23,7 @@ public final class Static59 {
     public static final Class155 aClass155_25 = new Class155(43);
 
     @OriginalMember(owner = "client!bv", name = "a", descriptor = "(Lclient!rka;I)I")
-    public static int method5329(@OriginalArg(0) Class2_Sub21_Sub2 arg0) {
+    public static int method5329(@OriginalArg(0) Node_Sub21_Sub2 arg0) {
         @Pc(10) int local10 = arg0.method7412(2);
         @Pc(22) int local22;
         if (local10 == 0) {

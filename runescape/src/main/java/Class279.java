@@ -24,7 +24,7 @@ public final class Class279 {
     public Class279(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2) {
         this.aClass330_92 = arg2;
         this.aClass330_92.method7608(1);
-        @Pc(22) Class2_Sub21 local22 = new Class2_Sub21(this.aClass330_92.method7595(0, 0));
+        @Pc(22) Node_Sub21 local22 = new Node_Sub21(this.aClass330_92.method7595(0, 0));
         @Pc(26) int local26 = local22.method7396();
         if (local26 > 3) {
             this.aBooleanArray22 = new boolean[0];
@@ -123,7 +123,7 @@ public final class Class279 {
     public Class76 method6277(@OriginalArg(0) int arg0) {
         @Pc(10) byte[] local10 = this.aClass330_92.method7595(arg0, 1);
         @Pc(14) Class76 local14 = new Class76();
-        local14.method2032(new Class2_Sub21(local10));
+        local14.method2032(new Node_Sub21(local10));
         return local14;
     }
 }

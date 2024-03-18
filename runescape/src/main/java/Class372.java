@@ -25,7 +25,7 @@ public final class Class372 {
     public final int anInt9612;
 
     @OriginalMember(owner = "client!ug", name = "g", descriptor = "[Lclient!iia;")
-    public Class2_Sub27[] aClass2_Sub27Array1;
+    public Node_Sub27[] aClass2_Sub27Array1;
 
     @OriginalMember(owner = "client!ug", name = "l", descriptor = "[[[I")
     public int[][][] anIntArrayArrayArray20;
@@ -34,7 +34,7 @@ public final class Class372 {
     public Class372(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.anInt9610 = arg0;
         this.anInt9612 = arg1;
-        this.aClass2_Sub27Array1 = new Class2_Sub27[this.anInt9612];
+        this.aClass2_Sub27Array1 = new Node_Sub27[this.anInt9612];
         this.anIntArrayArrayArray20 = new int[this.anInt9610][3][arg2];
     }
 
@@ -63,15 +63,15 @@ public final class Class372 {
             this.anInt9613 = arg0;
             return this.anIntArrayArrayArray20[0];
         } else {
-            @Pc(78) Class2_Sub27 local78 = this.aClass2_Sub27Array1[arg0];
+            @Pc(78) Node_Sub27 local78 = this.aClass2_Sub27Array1[arg0];
             if (local78 == null) {
                 this.aBoolean737 = true;
                 if (this.anInt9615 < this.anInt9610) {
-                    local78 = new Class2_Sub27(arg0, this.anInt9615);
+                    local78 = new Node_Sub27(arg0, this.anInt9615);
                     this.anInt9615++;
                 } else {
-                    @Pc(111) Class2_Sub27 local111 = (Class2_Sub27) this.aClass339_69.method7708();
-                    local78 = new Class2_Sub27(arg0, local111.anInt4352);
+                    @Pc(111) Node_Sub27 local111 = (Node_Sub27) this.aClass339_69.method7708();
+                    local78 = new Node_Sub27(arg0, local111.anInt4352);
                     this.aClass2_Sub27Array1[local111.anInt4356] = null;
                     local111.method9457();
                 }

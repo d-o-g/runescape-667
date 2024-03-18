@@ -63,7 +63,7 @@ public final class Static693 {
                             @Pc(70) int local70 = local60 / 8 + (local54 / 8 << 8);
                             for (@Pc(72) int local72 = 0; local72 < Static89.anIntArray169.length; local72++) {
                                 if (local70 == Static89.anIntArray169[local72] && arg0[local72] != null) {
-                                    @Pc(91) Class2_Sub21 local91 = new Class2_Sub21(arg0[local72]);
+                                    @Pc(91) Node_Sub21 local91 = new Node_Sub21(arg0[local72]);
                                     arg1.method7891(local5, local32, local10 * 8, local60, local13 * 8, local91, local48, local54, Static577.aClass110Array1);
                                     arg1.method7895(local10 * 8, Static163.aClass19_17, local60, local91, local5, local54, local48, local32, local13 * 8);
                                     break;
@@ -103,7 +103,7 @@ public final class Static693 {
 
     @OriginalMember(owner = "client!vu", name = "a", descriptor = "(III)V")
     public static void method9013(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(21) Class2_Sub2_Sub2 local21 = Static440.method5963(19, (long) arg0 | (long) arg1 << 32);
+        @Pc(21) Node_Sub2_Sub2_ local21 = Static440.method5963(19, (long) arg0 | (long) arg1 << 32);
         local21.method205();
     }
 }

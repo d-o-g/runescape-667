@@ -65,7 +65,7 @@ public final class Class218 {
     }
 
     @OriginalMember(owner = "client!la", name = "a", descriptor = "(ILclient!ge;B)V")
-    public void method5125(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub21 arg1) {
+    public void method5125(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21 arg1) {
         if (arg0 == 1) {
             this.aString55 = arg1.method7343();
         } else if (arg0 == 2) {
@@ -156,11 +156,11 @@ public final class Class218 {
                     for (local36 = 0; local36 < local29; local36++) {
                         @Pc(224) boolean local224 = arg1.method7396() == 1;
                         @Pc(228) int local228 = arg1.method7383();
-                        @Pc(237) Class2 local237;
+                        @Pc(237) Node local237;
                         if (local224) {
-                            local237 = new Class2_Sub24(arg1.method7358());
+                            local237 = new Node_Sub24(arg1.method7358());
                         } else {
-                            local237 = new Class2_Sub38(arg1.method7349());
+                            local237 = new Node_Sub38(arg1.method7349());
                         }
                         this.aClass28_30.method735((long) local228, local237);
                     }
@@ -170,7 +170,7 @@ public final class Class218 {
     }
 
     @OriginalMember(owner = "client!la", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method5127(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method5127(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(3) int local3 = arg0.method7396();
             if (local3 == 0) {

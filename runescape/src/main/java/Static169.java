@@ -16,7 +16,7 @@ public final class Static169 {
     public static int anInt2855 = -2;
 
     @OriginalMember(owner = "client!fe", name = "a", descriptor = "(ILclient!rka;)V")
-    public static void method2647(@OriginalArg(1) Class2_Sub21_Sub2 arg0) {
+    public static void method2647(@OriginalArg(1) Node_Sub21_Sub2 arg0) {
         arg0.method7342(Static344.aClass330_73.method7576());
         arg0.method7342(Static142.aClass330_25.method7576());
         arg0.method7342(Static6.aClass330_1.method7576());

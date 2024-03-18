@@ -249,7 +249,7 @@ public final class i extends Class114 implements Interface5 {
     public native int HA();
 
     @OriginalMember(owner = "client!i", name = "ba", descriptor = "(Lclient!r;)Lclient!r;")
-    public native Class2_Sub2_Sub9 ba(@OriginalArg(0) Class2_Sub2_Sub9 arg0);
+    public native Node_Sub2_Sub9 ba(@OriginalArg(0) Node_Sub2_Sub9 arg0);
 
     @OriginalMember(owner = "client!i", name = "FA", descriptor = "(I)V")
     public native void FA(@OriginalArg(0) int arg0);

@@ -26,19 +26,19 @@ public final class Class226 implements Runnable {
     public void run() {
         while (true) {
             @Pc(8) Class339 local8 = this.aClass339_32;
-            @Pc(43) Class2_Sub12 local43;
+            @Pc(43) Node_Sub12 local43;
             synchronized (this.aClass339_32) {
-                @Pc(15) Class2 local15;
+                @Pc(15) Node local15;
                 for (local15 = this.aClass339_32.method7705(); local15 == null; local15 = this.aClass339_32.method7705()) {
                     try {
                         this.aClass339_32.wait();
                     } catch (@Pc(23) InterruptedException local23) {
                     }
                 }
-                if (!(local15 instanceof Class2_Sub12)) {
+                if (!(local15 instanceof Node_Sub12)) {
                     return;
                 }
-                local43 = (Class2_Sub12) local15;
+                local43 = (Node_Sub12) local15;
             }
             @Pc(69) int local69;
             try {
@@ -56,7 +56,7 @@ public final class Class226 implements Runnable {
         if (this.aThread4 == null) {
             return;
         }
-        this.method5244(new Class2());
+        this.method5244(new Node());
         try {
             this.aThread4.join();
         } catch (@Pc(23) InterruptedException local23) {
@@ -65,7 +65,7 @@ public final class Class226 implements Runnable {
     }
 
     @OriginalMember(owner = "client!lha", name = "a", descriptor = "(ILclient!ie;)V")
-    public void method5244(@OriginalArg(1) Class2 arg0) {
+    public void method5244(@OriginalArg(1) Node arg0) {
         @Pc(2) Class339 local2 = this.aClass339_32;
         synchronized (this.aClass339_32) {
             this.aClass339_32.method7711(arg0);
@@ -74,13 +74,13 @@ public final class Class226 implements Runnable {
     }
 
     @OriginalMember(owner = "client!lha", name = "a", descriptor = "(BLjava/lang/String;)Lclient!cja;")
-    public Class2_Sub12 method5245(@OriginalArg(1) String arg0) {
+    public Node_Sub12 method5245(@OriginalArg(1) String arg0) {
         if (this.aThread4 == null) {
             throw new IllegalStateException("");
         } else if (arg0 == null) {
             throw new IllegalArgumentException("");
         } else {
-            @Pc(32) Class2_Sub12 local32 = new Class2_Sub12(arg0);
+            @Pc(32) Node_Sub12 local32 = new Node_Sub12(arg0);
             this.method5244(local32);
             return local32;
         }

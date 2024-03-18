@@ -51,7 +51,7 @@ public final class Class318 {
     }
 
     @OriginalMember(owner = "client!re", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method7256(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method7256(@OriginalArg(1) Node_Sub21 arg0) {
         while (true) {
             @Pc(7) int local7 = arg0.method7396();
             if (local7 == 0) {
@@ -62,7 +62,7 @@ public final class Class318 {
     }
 
     @OriginalMember(owner = "client!re", name = "a", descriptor = "(BLclient!ge;I)V")
-    public void method7257(@OriginalArg(1) Class2_Sub21 arg0, @OriginalArg(2) int arg1) {
+    public void method7257(@OriginalArg(1) Node_Sub21 arg0, @OriginalArg(2) int arg1) {
         if (arg1 == 1) {
             this.anInt8249 = Static579.method7633(arg0.method7383());
         } else if (arg1 == 2) {

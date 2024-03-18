@@ -35,7 +35,7 @@ public abstract class Class8_Sub2_Sub2 extends Class8_Sub2 {
 
     @OriginalMember(owner = "client!eia", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
-    public final int method9288(@OriginalArg(0) Class2_Sub7[] arg0) {
+    public final int method9288(@OriginalArg(0) Node_Sub7[] arg0) {
         return this.method9277(arg0, super.anInt10694 >> Static52.anInt1066, super.anInt10690 >> Static52.anInt1066);
     }
 }

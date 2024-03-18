@@ -28,7 +28,7 @@ public final class Class376 {
     public int anInt9696 = 64;
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(Lclient!ge;IBI)V")
-    public void method8510(@OriginalArg(0) Class2_Sub21 arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
+    public void method8510(@OriginalArg(0) Node_Sub21 arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
         if (arg2 == 1) {
             this.anInt9693 = arg0.method7382();
             if (this.anInt9693 == 65535) {
@@ -51,7 +51,7 @@ public final class Class376 {
     }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IBLclient!ge;)V")
-    public void method8511(@OriginalArg(0) int arg0, @OriginalArg(2) Class2_Sub21 arg1) {
+    public void method8511(@OriginalArg(0) int arg0, @OriginalArg(2) Node_Sub21 arg1) {
         while (true) {
             @Pc(13) int local13 = arg1.method7396();
             if (local13 == 0) {

@@ -76,7 +76,7 @@ public final class Class292 {
 
     @OriginalMember(owner = "client!pj", name = "a", descriptor = "([BZ)V")
     public void method6568(@OriginalArg(0) byte[] arg0) {
-        @Pc(12) Class2_Sub21 local12 = new Class2_Sub21(Static590.method7744(arg0));
+        @Pc(12) Node_Sub21 local12 = new Node_Sub21(Static590.method7744(arg0));
         @Pc(16) int local16 = local12.method7396();
         if (local16 < 5 || local16 > 7) {
             throw new RuntimeException();

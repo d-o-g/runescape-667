@@ -20,7 +20,7 @@ public final class Static515 {
     public static final Class22 aClass22_1 = Static433.method5595();
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(IIIIILclient!ha;IIIIILclient!cba;)V")
-    public static void method6799(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Class19 arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class2_Sub2_Sub4 arg10) {
+    public static void method6799(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Class19 arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Node_Sub2_Sub4 arg10) {
         if (arg8 < arg5 && arg5 < arg1 + arg8 && arg2 - 13 < arg0 && arg0 < arg2 + 3) {
             arg6 = arg3;
         }
@@ -70,7 +70,7 @@ public final class Static515 {
         } else {
             local202 = Static212.anInt3467 * 5;
         }
-        for (@Pc(213) Class2_Sub20 local213 = (Class2_Sub20) Static30.aClass339_31.method7699(65280); local213 != null; local213 = (Class2_Sub20) Static30.aClass339_31.method7706()) {
+        for (@Pc(213) Node_Sub20 local213 = (Node_Sub20) Static30.aClass339_31.method7699(65280); local213 != null; local213 = (Node_Sub20) Static30.aClass339_31.method7706()) {
             @Pc(221) Class105 local221 = Static30.aClass246_3.method5584(local213.anInt3131);
             if (Static408.method5634(local221)) {
                 @Pc(256) int local256;
@@ -94,7 +94,7 @@ public final class Static515 {
             return;
         }
         if (Static234.aBoolean303) {
-            @Pc(34) Class2_Sub5 local34 = new Class2_Sub5(arg1, new Class222_Sub1(4096, Static709.aClass330_127, arg1), arg2, arg0);
+            @Pc(34) Node_Sub5 local34 = new Node_Sub5(arg1, new Class222_Sub1(4096, Static709.aClass330_127, arg1), arg2, arg0);
             local34.aClass222_Sub1_1.method9183(Static384.aStringArray31[Static51.anInt1052]);
             Static106.aClass28_11.method735((long) arg1, local34);
         } else {
@@ -103,7 +103,7 @@ public final class Static515 {
     }
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(Lclient!ge;B)Lclient!no;")
-    public static Class160 method6803(@OriginalArg(0) Class2_Sub21 arg0) {
+    public static Class160 method6803(@OriginalArg(0) Node_Sub21 arg0) {
         @Pc(15) int local15 = arg0.method7382();
         @Pc(22) Class403 local22 = Static33.method882()[arg0.method7396()];
         @Pc(29) Class103 local29 = Static313.method4544()[arg0.method7396()];

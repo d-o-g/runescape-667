@@ -330,7 +330,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                 if (local275 != null && local275.anInt6371 != -1) {
                     @Pc(310) int local310;
                     if (local275.anInt6363 == 1) {
-                        @Pc(298) Class2_Sub45 local298 = (Class2_Sub45) Static18.aClass28_2.method738((long) local275.anInt6366);
+                        @Pc(298) Node_Sub45 local298 = (Node_Sub45) Static18.aClass28_2.method738((long) local275.anInt6366);
                         if (local298 != null) {
                             @Pc(303) Class8_Sub2_Sub1_Sub2_Sub2 local303 = local298.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                             local310 = local303.anInt10690 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690;
@@ -409,7 +409,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method1420(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method1420(@OriginalArg(0) Node_Sub21 arg0) {
         arg0.anInt8388 = 0;
         @Pc(12) int local12 = arg0.method7396();
         this.aByte32 = (byte) (local12 & 0x1);

@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static75 {
 
     @OriginalMember(owner = "client!ch", name = "j", descriptor = "Lclient!pg;")
-    public static Class2_Sub2_Sub16 aClass2_Sub2_Sub16_9;
+    public static Node_Sub2_Sub16 aClass2_Sub2_Sub16_9;
 
     @OriginalMember(owner = "client!ch", name = "m", descriptor = "[Lclient!tn;")
     public static Class357[] aClass357Array2;
@@ -58,7 +58,7 @@ public final class Static75 {
     }
 
     @OriginalMember(owner = "client!ch", name = "a", descriptor = "(BLclient!ge;)Lclient!kk;")
-    public static Class154_Sub2 method6240(@OriginalArg(1) Class2_Sub21 arg0) {
+    public static Class154_Sub2 method6240(@OriginalArg(1) Node_Sub21 arg0) {
         return new Class154_Sub2(arg0.method7356(), arg0.method7356(), arg0.method7356(), arg0.method7356(), arg0.method7383(), arg0.method7383(), arg0.method7396());
     }
 }

@@ -75,7 +75,7 @@ public final class Class120_Sub1 extends Class120 implements MouseListener, Mous
 
     @OriginalMember(owner = "client!ht", name = "a", descriptor = "(IIIII)V")
     public void method3627(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
-        @Pc(3) Class2_Sub9_Sub1 local3 = new Class2_Sub9_Sub1();
+        @Pc(3) Node_Sub9_Sub1 local3 = new Node_Sub9_Sub1();
         local3.anInt1889 = arg1;
         local3.anInt1888 = arg2;
         local3.anInt1887 = arg0;
@@ -95,8 +95,8 @@ public final class Class120_Sub1 extends Class120 implements MouseListener, Mous
 
     @OriginalMember(owner = "client!ht", name = "a", descriptor = "(B)Lclient!bv;")
     @Override
-    public Class2_Sub9 method8851() {
-        return (Class2_Sub9) this.aClass339_20.method7705();
+    public Node_Sub9 method8851() {
+        return (Node_Sub9) this.aClass339_20.method7705();
     }
 
     @OriginalMember(owner = "client!ht", name = "a", descriptor = "(ILjava/awt/Component;)V")

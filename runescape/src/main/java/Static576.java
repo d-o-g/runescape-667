@@ -31,7 +31,7 @@ public final class Static576 {
                 if (Static12.aClass123_4 == null) {
                     Static12.aClass123_4 = new Class123(Static91.aClass330_117, Static296.aClass330_61);
                 }
-                @Pc(36) Class2_Sub6_Sub1 local36 = Static581.aClass2_Sub6_Sub1_3;
+                @Pc(36) Node_Sub6_Sub1 local36 = Static581.aClass2_Sub6_Sub1_3;
                 if (Static117.aClass2_Sub6_Sub1_2 != null) {
                     local36 = Static117.aClass2_Sub6_Sub1_2;
                 }

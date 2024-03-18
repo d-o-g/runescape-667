@@ -51,7 +51,7 @@ public final class Class173 {
     }
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(IILclient!ge;)V")
-    public void method3691(@OriginalArg(1) int arg0, @OriginalArg(2) Class2_Sub21 arg1) {
+    public void method3691(@OriginalArg(1) int arg0, @OriginalArg(2) Node_Sub21 arg1) {
         if (arg0 == 1) {
             this.anInt4167 = arg1.method7382();
         } else if (arg0 == 2) {
@@ -64,7 +64,7 @@ public final class Class173 {
     }
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method3694(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method3694(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(7) int local7 = arg0.method7396();
             if (local7 == 0) {

@@ -19,7 +19,7 @@ public final class Class392 {
     public int anInt10377 = 2048;
 
     @OriginalMember(owner = "client!vt", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method9006(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method9006(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(15) int local15 = arg0.method7396();
             if (local15 == 0) {
@@ -30,7 +30,7 @@ public final class Class392 {
     }
 
     @OriginalMember(owner = "client!vt", name = "a", descriptor = "(ILclient!ge;B)V")
-    public void method9007(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub21 arg1) {
+    public void method9007(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21 arg1) {
         if (arg0 == 1) {
             this.anInt10372 = arg1.method7396();
         } else if (arg0 == 2) {

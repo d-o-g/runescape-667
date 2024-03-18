@@ -11,7 +11,7 @@ public final class Static610 {
     public static Class158 aClass158_16 = null;
 
     @OriginalMember(owner = "client!tf", name = "a", descriptor = "(ILclient!rka;I)V")
-    public static void method8217(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub21_Sub2 arg1) {
+    public static void method8217(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21_Sub2 arg1) {
         @Pc(16) boolean local16 = arg1.method7412(1) == 1;
         if (local16) {
             Static321.anIntArray388[Static652.anInt9713++] = arg0;

@@ -48,7 +48,7 @@ public final class Static502 {
     }
 
     @OriginalMember(owner = "client!pr", name = "a", descriptor = "(BLclient!ge;)Lclient!il;")
-    public static Class138_Sub3 method6720(@OriginalArg(1) Class2_Sub21 arg0) {
+    public static Class138_Sub3 method6720(@OriginalArg(1) Node_Sub21 arg0) {
         @Pc(7) Class138 local7 = Static632.method8359(arg0);
         @Pc(23) int local23 = arg0.method7349();
         @Pc(27) int local27 = arg0.method7349();
@@ -57,7 +57,7 @@ public final class Static502 {
 
     @OriginalMember(owner = "client!pr", name = "a", descriptor = "(B[B)V")
     public static void method6721(@OriginalArg(1) byte[] arg0) {
-        @Pc(10) Class2_Sub21 local10 = new Class2_Sub21(arg0);
+        @Pc(10) Node_Sub21 local10 = new Node_Sub21(arg0);
         while (true) {
             @Pc(14) int local14;
             @Pc(55) int local55;

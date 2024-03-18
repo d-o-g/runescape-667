@@ -19,7 +19,7 @@ public final class Class341 {
     public int anInt8746;
 
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "(ILclient!ge;Z)V")
-    public void method7762(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub21 arg1) {
+    public void method7762(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21 arg1) {
         if (arg0 == 1) {
             this.aChar7 = Static346.method5084(arg1.method7377());
         } else if (arg0 == 2) {
@@ -30,7 +30,7 @@ public final class Class341 {
     }
 
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method7763(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method7763(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(14) int local14 = arg0.method7396();
             if (local14 == 0) {

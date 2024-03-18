@@ -12,7 +12,7 @@ public final class Static590 {
 
     @OriginalMember(owner = "client!ska", name = "a", descriptor = "([BB)[B")
     public static byte[] method7744(@OriginalArg(0) byte[] arg0) {
-        @Pc(8) Class2_Sub21 local8 = new Class2_Sub21(arg0);
+        @Pc(8) Node_Sub21 local8 = new Node_Sub21(arg0);
         @Pc(18) int local18 = local8.method7396();
         @Pc(22) int local22 = local8.method7349();
         if (local22 < 0 || Static112.anInt2222 != 0 && Static112.anInt2222 < local22) {

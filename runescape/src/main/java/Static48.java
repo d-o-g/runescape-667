@@ -30,9 +30,9 @@ public final class Static48 {
     }
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "([BZ)Lclient!fj;")
-    public static Class2_Sub2_Sub10 method1097(@OriginalArg(0) byte[] arg0) {
-        @Pc(7) Class2_Sub2_Sub10 local7 = new Class2_Sub2_Sub10();
-        @Pc(12) Class2_Sub21 local12 = new Class2_Sub21(arg0);
+    public static Node_Sub2_Sub10 method1097(@OriginalArg(0) byte[] arg0) {
+        @Pc(7) Node_Sub2_Sub10 local7 = new Node_Sub2_Sub10();
+        @Pc(12) Node_Sub21 local12 = new Node_Sub21(arg0);
         local12.anInt8388 = local12.aByteArray93.length - 2;
         @Pc(23) int local23 = local12.method7382();
         @Pc(34) int local34 = local12.aByteArray93.length - local23 - 2 - 16;
@@ -56,7 +56,7 @@ public final class Static48 {
                 while (local100-- > 0) {
                     @Pc(117) int local117 = local12.method7349();
                     @Pc(121) int local121 = local12.method7349();
-                    local107.method735((long) local117, new Class2_Sub38(local121));
+                    local107.method735((long) local117, new Node_Sub38(local121));
                 }
             }
         }
@@ -92,8 +92,8 @@ public final class Static48 {
     }
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "(Lclient!bd;I)Lclient!bd;")
-    public static Class2_Sub6_Sub1 method1100(@OriginalArg(0) Class2_Sub6_Sub1 arg0) {
-        @Pc(15) Class2_Sub6_Sub1 local15 = arg0 == null ? new Class2_Sub6_Sub1() : new Class2_Sub6_Sub1(arg0);
+    public static Node_Sub6_Sub1 method1100(@OriginalArg(0) Node_Sub6_Sub1 arg0) {
+        @Pc(15) Node_Sub6_Sub1 local15 = arg0 == null ? new Node_Sub6_Sub1() : new Node_Sub6_Sub1(arg0);
         local15.method929();
         return local15;
     }

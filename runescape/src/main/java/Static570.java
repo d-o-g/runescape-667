@@ -42,8 +42,8 @@ public final class Static570 {
     }
 
     @OriginalMember(owner = "client!rv", name = "b", descriptor = "(I)Lclient!ge;")
-    public static Class2_Sub21 method7552() {
-        @Pc(8) Class2_Sub21 local8 = new Class2_Sub21(518);
+    public static Node_Sub21 method7552() {
+        @Pc(8) Node_Sub21 local8 = new Node_Sub21(518);
         Static219.anIntArray287 = new int[4];
         Static219.anIntArray287[2] = (int) (Math.random() * 9.9999999E7D);
         Static219.anIntArray287[0] = (int) (Math.random() * 9.9999999E7D);

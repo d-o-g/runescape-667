@@ -44,7 +44,7 @@ public final class Static28 {
         @Pc(200) int local200;
         @Pc(211) int local211;
         @Pc(222) int local222;
-        for (@Pc(171) Class2_Sub38 local171 = (Class2_Sub38) Static612.aClass339_67.method7699(65280); local171 != null; local171 = (Class2_Sub38) Static612.aClass339_67.method7706()) {
+        for (@Pc(171) Node_Sub38 local171 = (Node_Sub38) Static612.aClass339_67.method7699(65280); local171 != null; local171 = (Node_Sub38) Static612.aClass339_67.method7706()) {
             @Pc(178) int local178 = local171.anInt6379;
             local190 = (Static42.aClass255_2.anIntArray495[local178] >> 14 & 0x3FFF) - Static691.anInt10367;
             local200 = (Static42.aClass255_2.anIntArray495[local178] & 0x3FFF) - Static116.anInt2270;
@@ -66,7 +66,7 @@ public final class Static28 {
         }
         @Pc(381) int local381;
         @Pc(392) int local392;
-        for (@Pc(334) Class2_Sub17 local334 = (Class2_Sub17) Static497.aClass28_35.method736(); local334 != null; local334 = (Class2_Sub17) Static497.aClass28_35.method740()) {
+        for (@Pc(334) Node_Sub17 local334 = (Node_Sub17) Static497.aClass28_35.method736(); local334 != null; local334 = (Node_Sub17) Static497.aClass28_35.method740()) {
             local211 = (int) (local334.aLong328 >> 28 & 0x3L);
             if (Static643.anInt9604 == local211) {
                 local222 = (int) (local334.aLong328 & 0x3FFFL) - Static691.anInt10367;
@@ -78,7 +78,7 @@ public final class Static28 {
         }
         @Pc(490) int local490;
         for (local211 = 0; local211 < Static390.anInt6126; local211++) {
-            @Pc(427) Class2_Sub45 local427 = (Class2_Sub45) Static18.aClass28_2.method738((long) Static103.anIntArray187[local211]);
+            @Pc(427) Node_Sub45 local427 = (Node_Sub45) Static18.aClass28_2.method738((long) Static103.anIntArray187[local211]);
             if (local427 != null) {
                 @Pc(432) Class8_Sub2_Sub1_Sub2_Sub2 local432 = local427.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 if (local432.method9322() && local432.aByte144 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
@@ -148,7 +148,7 @@ public final class Static28 {
             if (local796 != null && local796.anInt6363 != 0 && Static333.anInt5455 % 20 < 10) {
                 @Pc(843) int local843;
                 if (local796.anInt6363 == 1) {
-                    @Pc(828) Class2_Sub45 local828 = (Class2_Sub45) Static18.aClass28_2.method738((long) local796.anInt6366);
+                    @Pc(828) Node_Sub45 local828 = (Node_Sub45) Static18.aClass28_2.method738((long) local796.anInt6366);
                     if (local828 != null) {
                         @Pc(833) Class8_Sub2_Sub1_Sub2_Sub2 local833 = local828.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                         local843 = local833.anInt10690 / 128 - local90 / 128;

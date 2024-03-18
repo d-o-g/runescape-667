@@ -22,7 +22,7 @@ public final class Class236 {
     public final int anInt5980;
 
     @OriginalMember(owner = "client!lw", name = "<init>", descriptor = "(Lclient!ge;I)V")
-    public Class236(@OriginalArg(0) Class2_Sub21 arg0, @OriginalArg(1) int arg1) {
+    public Class236(@OriginalArg(0) Node_Sub21 arg0, @OriginalArg(1) int arg1) {
         this.anInt5985 = arg1;
         @Pc(19) int local19 = arg0.method7396();
         if (local19 == 0) {

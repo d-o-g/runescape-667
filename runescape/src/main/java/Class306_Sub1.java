@@ -16,7 +16,7 @@ public final class Class306_Sub1 extends Class306 {
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(III[Lclient!eq;Lclient!ha;[B)V")
     public void method7892(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Class110[] arg2, @OriginalArg(4) Class19 arg3, @OriginalArg(5) byte[] arg4) {
-        @Pc(8) Class2_Sub21 local8 = new Class2_Sub21(arg4);
+        @Pc(8) Node_Sub21 local8 = new Node_Sub21(arg4);
         @Pc(18) int local18 = -1;
         while (true) {
             @Pc(22) int local22 = local8.method7345();
@@ -57,7 +57,7 @@ public final class Class306_Sub1 extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(ILclient!ge;ILclient!ha;I)V")
-    public void method7893(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub21 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class19 arg3) {
+    public void method7893(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class19 arg3) {
         if (super.aBoolean673) {
             return;
         }
@@ -88,7 +88,7 @@ public final class Class306_Sub1 extends Class306 {
                                                 local512.method8244(local523.anInt10374, local523.anInt10372, local523.anInt10373, local523.anInt10377);
                                             }
                                             if (arg3.method7955() > 0) {
-                                                @Pc(543) Class2_Sub7 local543 = local512.aClass2_Sub7_3;
+                                                @Pc(543) Node_Sub7 local543 = local512.aClass2_Sub7_3;
                                                 local149 = (arg2 << 9) + local543.method8426();
                                                 local153 = (arg0 << 9) + local543.method8429();
                                                 local290 = local149 >> 9;
@@ -632,7 +632,7 @@ public final class Class306_Sub1 extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IILclient!ha;ILclient!ge;IIIII)V")
-    public void method7895(@OriginalArg(0) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Class2_Sub21 arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
+    public void method7895(@OriginalArg(0) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Node_Sub21 arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
         if (super.aBoolean673) {
             return;
         }
@@ -662,7 +662,7 @@ public final class Class306_Sub1 extends Class306 {
                                     local78.method8244(local91.anInt10374, local91.anInt10372, local91.anInt10373, local91.anInt10377);
                                 }
                                 if (arg1.method7955() > 0) {
-                                    @Pc(108) Class2_Sub7 local108 = local78.aClass2_Sub7_3;
+                                    @Pc(108) Node_Sub7 local108 = local78.aClass2_Sub7_3;
                                     local116 = local108.method8426() >> 9;
                                     local122 = local108.method8429() >> 9;
                                     if (arg7 == local78.anInt9369 && local116 >= local18 && local116 < local18 + 8 && local122 >= local24 && local24 + 8 > local122) {
@@ -800,7 +800,7 @@ public final class Class306_Sub1 extends Class306 {
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(I[Lclient!eq;ILclient!ha;BII[BIII)V")
     public void method7897(@OriginalArg(0) int arg0, @OriginalArg(1) Class110[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class19 arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) byte[] arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
-        @Pc(26) Class2_Sub21 local26 = new Class2_Sub21(arg6);
+        @Pc(26) Node_Sub21 local26 = new Node_Sub21(arg6);
         @Pc(28) int local28 = -1;
         while (true) {
             @Pc(32) int local32 = local26.method7345();

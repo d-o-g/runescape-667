@@ -64,12 +64,12 @@ public final class Class367 {
     }
 
     @OriginalMember(owner = "client!uc", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class367(@OriginalArg(0) Class2_Sub21 arg0) {
+    public Class367(@OriginalArg(0) Node_Sub21 arg0) {
         this.method8386(arg0);
     }
 
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method8384(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method8384(@OriginalArg(0) Node_Sub21 arg0) {
         @Pc(17) int local17 = arg0.method7382();
         @Pc(21) int local21 = arg0.method7356();
         @Pc(25) int local25 = arg0.method7356();
@@ -80,14 +80,14 @@ public final class Class367 {
     }
 
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(Lclient!ge;Z)V")
-    public void method8385(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method8385(@OriginalArg(0) Node_Sub21 arg0) {
         this.aFloat201 = (float) (arg0.method7396() * 8) / 255.0F;
         this.aFloat200 = (float) (arg0.method7396() * 8) / 255.0F;
         this.aFloat203 = (float) (arg0.method7396() * 8) / 255.0F;
     }
 
     @OriginalMember(owner = "client!uc", name = "b", descriptor = "(Lclient!ge;I)V")
-    public void method8386(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method8386(@OriginalArg(0) Node_Sub21 arg0) {
         @Pc(7) int local7 = arg0.method7396();
         if (Static400.aClass2_Sub34_28.aClass57_Sub24_1.method7082() == 1 && Static425.aClass19_13.method7955() > 0) {
             if ((local7 & 0x1) == 0) {

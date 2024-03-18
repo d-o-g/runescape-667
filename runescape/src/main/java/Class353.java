@@ -19,7 +19,7 @@ public final class Class353 {
     public int anInt9371;
 
     @OriginalMember(owner = "client!th", name = "r", descriptor = "Lclient!lca;")
-    public Class2_Sub7 aClass2_Sub7_3;
+    public Node_Sub7 aClass2_Sub7_3;
 
     @OriginalMember(owner = "client!th", name = "v", descriptor = "Z")
     public boolean aBoolean717;
@@ -48,7 +48,7 @@ public final class Class353 {
     }
 
     @OriginalMember(owner = "client!th", name = "<init>", descriptor = "(Lclient!ha;Lclient!ge;I)V")
-    public Class353(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class2_Sub21 arg1, @OriginalArg(2) int arg2) {
+    public Class353(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Node_Sub21 arg1, @OriginalArg(2) int arg2) {
         if (Static695.anIntArray868 == null) {
             Static344.method5043();
         }

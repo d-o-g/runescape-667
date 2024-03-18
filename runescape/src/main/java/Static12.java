@@ -37,7 +37,7 @@ public final class Static12 {
     }
 
     @OriginalMember(owner = "client!ah", name = "a", descriptor = "(Lclient!ge;I)V")
-    public static void method5164(@OriginalArg(0) Class2_Sub21 arg0) {
+    public static void method5164(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(20) int local20 = arg0.method7396();
             if (local20 == 0) {

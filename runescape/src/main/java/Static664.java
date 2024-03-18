@@ -11,8 +11,8 @@ public final class Static664 {
     public static final Class345 aClass345_115 = new Class345(40, 11);
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(ILclient!fk;)[I")
-    public static int[] method8652(@OriginalArg(1) Class2_Sub19 arg0) {
-        @Pc(8) Class2_Sub21 local8 = new Class2_Sub21(518);
+    public static int[] method8652(@OriginalArg(1) Node_Sub19 arg0) {
+        @Pc(8) Node_Sub21 local8 = new Node_Sub21(518);
         @Pc(11) int[] local11 = new int[4];
         for (@Pc(13) int local13 = 0; local13 < 4; local13++) {
             local11[local13] = (int) (Math.random() * 9.9999999E7D);

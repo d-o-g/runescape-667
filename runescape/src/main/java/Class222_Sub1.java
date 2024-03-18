@@ -18,10 +18,10 @@ public final class Class222_Sub1 extends Class222 {
     public byte[][] aByteArrayArray37 = new byte[10][];
 
     @OriginalMember(owner = "client!wea", name = "S", descriptor = "Lclient!ge;")
-    public final Class2_Sub21 aClass2_Sub21_16 = new Class2_Sub21((byte[]) null);
+    public final Node_Sub21 aClass2_Sub21_16 = new Node_Sub21((byte[]) null);
 
     @OriginalMember(owner = "client!wea", name = "O", descriptor = "Lclient!ge;")
-    public final Class2_Sub21 aClass2_Sub21_17 = new Class2_Sub21((byte[]) null);
+    public final Node_Sub21 aClass2_Sub21_17 = new Node_Sub21((byte[]) null);
 
     @OriginalMember(owner = "client!wea", name = "L", descriptor = "Lclient!sb;")
     public final Class330 aClass330_126;

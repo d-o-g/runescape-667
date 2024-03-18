@@ -13,7 +13,7 @@ public final class Class231 {
     public final int[] anIntArray454;
 
     @OriginalMember(owner = "client!lka", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class231(@OriginalArg(0) Class2_Sub21 arg0) {
+    public Class231(@OriginalArg(0) Node_Sub21 arg0) {
         @Pc(7) int local7 = arg0.method7390();
         this.anIntArray453 = new int[local7];
         this.anIntArray454 = new int[local7];

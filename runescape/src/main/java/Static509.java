@@ -59,7 +59,7 @@ public final class Static509 {
         if (!Static95.aBoolean184 || Static551.aClass339_54 == null) {
             return;
         }
-        for (@Pc(197) Class2_Sub37 local197 = (Class2_Sub37) Static551.aClass339_54.method7699(65280); local197 != null; local197 = (Class2_Sub37) Static551.aClass339_54.method7706()) {
+        for (@Pc(197) Node_Sub37 local197 = (Node_Sub37) Static551.aClass339_54.method7699(65280); local197 != null; local197 = (Node_Sub37) Static551.aClass339_54.method7706()) {
             @Pc(206) Class105 local206 = Static30.aClass246_3.method5584(local197.aClass2_Sub20_1.anInt3131);
             if (local197.method5553(arg0, arg1)) {
                 if (local206.aStringArray9 != null) {

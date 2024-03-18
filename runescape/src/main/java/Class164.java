@@ -79,7 +79,7 @@ public final class Class164 {
     public int anInt3956 = -1;
 
     @OriginalMember(owner = "client!hi", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class164(@OriginalArg(0) Class2_Sub21 arg0) {
+    public Class164(@OriginalArg(0) Node_Sub21 arg0) {
         this.method3494(arg0);
     }
 
@@ -174,8 +174,8 @@ public final class Class164 {
         if (this.aClass28_19 == null) {
             return null;
         } else {
-            @Pc(16) Class2 local16 = this.aClass28_19.method738((long) arg0);
-            return local16 != null && local16 instanceof Class2_Sub48 ? Long.valueOf(((Class2_Sub48) local16).aLong264) : null;
+            @Pc(16) Node local16 = this.aClass28_19.method738((long) arg0);
+            return local16 != null && local16 instanceof Node_Sub48 ? Long.valueOf(((Node_Sub48) local16).aLong264) : null;
         }
     }
 
@@ -202,10 +202,10 @@ public final class Class164 {
         if (this.aClass28_19 == null) {
             this.aClass28_19 = new Class28(4);
         } else {
-            @Pc(32) Class2 local32 = this.aClass28_19.method738((long) arg1);
+            @Pc(32) Node local32 = this.aClass28_19.method738((long) arg1);
             if (local32 != null) {
-                if (local32 instanceof Class2_Sub24) {
-                    @Pc(42) Class2_Sub24 local42 = (Class2_Sub24) local32;
+                if (local32 instanceof Node_Sub24) {
+                    @Pc(42) Node_Sub24 local42 = (Node_Sub24) local32;
                     if (local42.aString46.equals(arg0)) {
                         return false;
                     }
@@ -215,7 +215,7 @@ public final class Class164 {
                 local32.method9457();
             }
         }
-        this.aClass28_19.method735((long) arg1, new Class2_Sub24(arg0));
+        this.aClass28_19.method735((long) arg1, new Node_Sub24(arg0));
         return true;
     }
 
@@ -252,8 +252,8 @@ public final class Class164 {
         if (this.aClass28_19 == null) {
             return null;
         } else {
-            @Pc(24) Class2 local24 = this.aClass28_19.method738((long) arg0);
-            return local24 != null && local24 instanceof Class2_Sub24 ? ((Class2_Sub24) local24).aString46 : null;
+            @Pc(24) Node local24 = this.aClass28_19.method738((long) arg0);
+            return local24 != null && local24 instanceof Node_Sub24 ? ((Node_Sub24) local24).aString46 : null;
         }
     }
 
@@ -331,10 +331,10 @@ public final class Class164 {
         if (this.aClass28_19 == null) {
             this.aClass28_19 = new Class28(4);
         } else {
-            @Pc(29) Class2 local29 = this.aClass28_19.method738((long) arg0);
+            @Pc(29) Node local29 = this.aClass28_19.method738((long) arg0);
             if (local29 != null) {
-                if (local29 instanceof Class2_Sub48) {
-                    @Pc(39) Class2_Sub48 local39 = (Class2_Sub48) local29;
+                if (local29 instanceof Node_Sub48) {
+                    @Pc(39) Node_Sub48 local39 = (Node_Sub48) local29;
                     if (local39.aLong264 == arg1) {
                         return false;
                     }
@@ -344,7 +344,7 @@ public final class Class164 {
                 local29.method9457();
             }
         }
-        this.aClass28_19.method735((long) arg0, new Class2_Sub48(arg1));
+        this.aClass28_19.method735((long) arg0, new Node_Sub48(arg1));
         return true;
     }
 
@@ -368,8 +368,8 @@ public final class Class164 {
         if (this.aClass28_19 == null) {
             return null;
         } else {
-            @Pc(24) Class2 local24 = this.aClass28_19.method738((long) arg0);
-            return local24 != null && local24 instanceof Class2_Sub38 ? Integer.valueOf(((Class2_Sub38) local24).anInt6379) : null;
+            @Pc(24) Node local24 = this.aClass28_19.method738((long) arg0);
+            return local24 != null && local24 instanceof Node_Sub38 ? Integer.valueOf(((Node_Sub38) local24).anInt6379) : null;
         }
     }
 
@@ -418,10 +418,10 @@ public final class Class164 {
         if (this.aClass28_19 == null) {
             this.aClass28_19 = new Class28(4);
         } else {
-            @Pc(63) Class2 local63 = this.aClass28_19.method738((long) arg3);
+            @Pc(63) Node local63 = this.aClass28_19.method738((long) arg3);
             if (local63 != null) {
-                if (local63 instanceof Class2_Sub38) {
-                    @Pc(73) Class2_Sub38 local73 = (Class2_Sub38) local63;
+                if (local63 instanceof Node_Sub38) {
+                    @Pc(73) Node_Sub38 local73 = (Node_Sub38) local63;
                     if ((local35 & local73.anInt6379) == local43) {
                         return false;
                     }
@@ -432,12 +432,12 @@ public final class Class164 {
                 local63.method9457();
             }
         }
-        this.aClass28_19.method735((long) arg3, new Class2_Sub38(local43));
+        this.aClass28_19.method735((long) arg3, new Node_Sub38(local43));
         return true;
     }
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(ILclient!ge;)V")
-    public void method3494(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method3494(@OriginalArg(1) Node_Sub21 arg0) {
         @Pc(9) int local9 = arg0.method7396();
         if (local9 < 1 || local9 > 5) {
             throw new RuntimeException("Unsupported ClanSettings version: " + local9);
@@ -539,13 +539,13 @@ public final class Class164 {
             @Pc(501) int local501 = local493 >>> 30;
             if (local501 == 0) {
                 @Pc(510) int local510 = arg0.method7349();
-                this.aClass28_19.method735((long) local497, new Class2_Sub38(local510));
+                this.aClass28_19.method735((long) local497, new Node_Sub38(local510));
             } else if (local501 == 1) {
                 @Pc(533) long local533 = arg0.method7398();
-                this.aClass28_19.method735((long) local497, new Class2_Sub48(local533));
+                this.aClass28_19.method735((long) local497, new Node_Sub48(local533));
             } else if (local501 == 2) {
                 @Pc(556) String local556 = arg0.method7358();
-                this.aClass28_19.method735((long) local497, new Class2_Sub24(local556));
+                this.aClass28_19.method735((long) local497, new Node_Sub24(local556));
             }
         }
         return;
@@ -556,10 +556,10 @@ public final class Class164 {
         if (this.aClass28_19 == null) {
             return null;
         }
-        @Pc(16) Class2 local16 = this.aClass28_19.method738((long) arg0);
-        if (local16 != null && local16 instanceof Class2_Sub38) {
+        @Pc(16) Node local16 = this.aClass28_19.method738((long) arg0);
+        if (local16 != null && local16 instanceof Node_Sub38) {
             @Pc(50) int local50 = arg1 == 31 ? -1 : (0x1 << arg1 + 1) - 1;
-            return Integer.valueOf((((Class2_Sub38) local16).anInt6379 & local50) >>> arg2);
+            return Integer.valueOf((((Node_Sub38) local16).anInt6379 & local50) >>> arg2);
         } else {
             return null;
         }
@@ -576,10 +576,10 @@ public final class Class164 {
         if (this.aClass28_19 == null) {
             this.aClass28_19 = new Class28(4);
         } else {
-            @Pc(35) Class2 local35 = this.aClass28_19.method738((long) arg1);
+            @Pc(35) Node local35 = this.aClass28_19.method738((long) arg1);
             if (local35 != null) {
-                if (local35 instanceof Class2_Sub38) {
-                    @Pc(45) Class2_Sub38 local45 = (Class2_Sub38) local35;
+                if (local35 instanceof Node_Sub38) {
+                    @Pc(45) Node_Sub38 local45 = (Node_Sub38) local35;
                     if (local45.anInt6379 == arg0) {
                         return false;
                     }
@@ -589,7 +589,7 @@ public final class Class164 {
                 local35.method9457();
             }
         }
-        this.aClass28_19.method735((long) arg1, new Class2_Sub38(arg0));
+        this.aClass28_19.method735((long) arg1, new Node_Sub38(arg0));
         return true;
     }
 }

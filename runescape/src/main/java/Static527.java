@@ -20,7 +20,7 @@ public final class Static527 {
 
     @OriginalMember(owner = "client!qka", name = "c", descriptor = "(I)V")
     public static void method7083() {
-        for (@Pc(15) Class2_Sub2_Sub15 local15 = (Class2_Sub2_Sub15) Static505.aClass339_77.method7699(65280); local15 != null; local15 = (Class2_Sub2_Sub15) Static505.aClass339_77.method7706()) {
+        for (@Pc(15) Node_Sub2_Sub15 local15 = (Node_Sub2_Sub15) Static505.aClass339_77.method7699(65280); local15 != null; local15 = (Node_Sub2_Sub15) Static505.aClass339_77.method7706()) {
             @Pc(20) Class8_Sub2_Sub1_Sub1 local20 = local15.aClass8_Sub2_Sub1_Sub1_1;
             if (Static333.anInt5455 > local20.anInt697) {
                 local15.method9457();
@@ -34,7 +34,7 @@ public final class Static527 {
                             local20.method813(Static102.method2025(local20.aByte144, -29754, local61.anInt10694, local61.anInt10690) - local20.lb, Static333.anInt5455, local61.anInt10694, local61.anInt10690);
                         }
                     } else {
-                        @Pc(130) Class2_Sub45 local130 = (Class2_Sub45) Static18.aClass28_2.method738((long) (local20.anInt711 - 1));
+                        @Pc(130) Node_Sub45 local130 = (Node_Sub45) Static18.aClass28_2.method738((long) (local20.anInt711 - 1));
                         if (local130 != null) {
                             @Pc(135) Class8_Sub2_Sub1_Sub2_Sub2 local135 = local130.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                             if (local135.anInt10690 >= 0 && local135.anInt10690 < Static720.anInt10859 * 512 && local135.anInt10694 >= 0 && local135.anInt10694 < Static501.anInt7568 * 512) {

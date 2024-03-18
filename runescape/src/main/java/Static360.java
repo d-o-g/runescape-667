@@ -26,11 +26,11 @@ public final class Static360 {
             if (local36 == null) {
                 return false;
             }
-            @Pc(46) Class2_Sub21 local46 = new Class2_Sub21(local36);
+            @Pc(46) Node_Sub21 local46 = new Node_Sub21(local36);
             Static12.method5164(local46);
             local53 = local46.method7396();
             for (@Pc(55) int local55 = 0; local55 < local53; local55++) {
-                Static391.aClass339_34.method7711(new Class2_Sub35(local46));
+                Static391.aClass339_34.method7711(new Node_Sub35(local46));
             }
             @Pc(78) int local78 = local46.method7390();
             Static75.aClass357Array2 = new Class357[local78];

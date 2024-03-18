@@ -23,7 +23,7 @@ public final class Class381 {
 
     @OriginalMember(owner = "client!ve", name = "<init>", descriptor = "([B)V")
     public Class381(@OriginalArg(0) byte[] arg0) {
-        @Pc(6) Class2_Sub21 local6 = new Class2_Sub21(arg0);
+        @Pc(6) Node_Sub21 local6 = new Node_Sub21(arg0);
         @Pc(10) int local10 = local6.method7396();
         if (local10 != 0) {
             throw new RuntimeException("");

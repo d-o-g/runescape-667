@@ -22,7 +22,7 @@ public final class Class39_Sub16 extends Class39 {
     public final int anInt7279;
 
     @OriginalMember(owner = "client!pe", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class39_Sub16(@OriginalArg(0) Class2_Sub21 arg0) {
+    public Class39_Sub16(@OriginalArg(0) Node_Sub21 arg0) {
         super(arg0);
         this.anInt7273 = arg0.method7382();
         @Pc(11) int local11 = arg0.method7349();

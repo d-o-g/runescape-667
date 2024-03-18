@@ -42,12 +42,12 @@ public final class Class174 implements Runnable {
     }
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(Lclient!af;IZ)Lclient!vp;")
-    public Class2_Sub2_Sub17_Sub2 method3825(@OriginalArg(0) Class9 arg0, @OriginalArg(1) int arg1) {
-        @Pc(7) Class2_Sub2_Sub17_Sub2 local7 = new Class2_Sub2_Sub17_Sub2();
+    public Node_Sub2_Sub17_Sub2 method3825(@OriginalArg(0) Class9 arg0, @OriginalArg(1) int arg1) {
+        @Pc(7) Node_Sub2_Sub17_Sub2 local7 = new Node_Sub2_Sub17_Sub2();
         local7.anInt10352 = 1;
         @Pc(13) Class192 local13 = this.aClass192_7;
         synchronized (this.aClass192_7) {
-            @Pc(21) Class2_Sub2_Sub17_Sub2 local21 = (Class2_Sub2_Sub17_Sub2) this.aClass192_7.method4352();
+            @Pc(21) Node_Sub2_Sub17_Sub2 local21 = (Node_Sub2_Sub17_Sub2) this.aClass192_7.method4352();
             while (true) {
                 if (local21 == null) {
                     break;
@@ -57,7 +57,7 @@ public final class Class174 implements Runnable {
                     local7.aByteArray109 = local21.aByteArray109;
                     return local7;
                 }
-                local21 = (Class2_Sub2_Sub17_Sub2) this.aClass192_7.method4350();
+                local21 = (Node_Sub2_Sub17_Sub2) this.aClass192_7.method4350();
             }
         }
         local7.aByteArray109 = arg0.method126(arg1);
@@ -81,7 +81,7 @@ public final class Class174 implements Runnable {
     }
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(ILclient!vp;)V")
-    public void method3827(@OriginalArg(1) Class2_Sub2_Sub17_Sub2 arg0) {
+    public void method3827(@OriginalArg(1) Node_Sub2_Sub17_Sub2 arg0) {
         @Pc(6) Class192 local6 = this.aClass192_7;
         synchronized (this.aClass192_7) {
             this.aClass192_7.method4348(arg0);
@@ -95,9 +95,9 @@ public final class Class174 implements Runnable {
     public void run() {
         while (!this.aBoolean333) {
             @Pc(10) Class192 local10 = this.aClass192_7;
-            @Pc(18) Class2_Sub2_Sub17_Sub2 local18;
+            @Pc(18) Node_Sub2_Sub17_Sub2 local18;
             synchronized (this.aClass192_7) {
-                local18 = (Class2_Sub2_Sub17_Sub2) this.aClass192_7.method4346();
+                local18 = (Node_Sub2_Sub17_Sub2) this.aClass192_7.method4346();
                 if (local18 == null) {
                     try {
                         this.aClass192_7.wait();
@@ -121,8 +121,8 @@ public final class Class174 implements Runnable {
     }
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(B[BILclient!af;)Lclient!vp;")
-    public Class2_Sub2_Sub17_Sub2 method3829(@OriginalArg(1) byte[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class9 arg2) {
-        @Pc(7) Class2_Sub2_Sub17_Sub2 local7 = new Class2_Sub2_Sub17_Sub2();
+    public Node_Sub2_Sub17_Sub2 method3829(@OriginalArg(1) byte[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class9 arg2) {
+        @Pc(7) Node_Sub2_Sub17_Sub2 local7 = new Node_Sub2_Sub17_Sub2();
         local7.aLong325 = (long) arg1;
         local7.anInt10352 = 2;
         local7.aByteArray109 = arg0;
@@ -133,8 +133,8 @@ public final class Class174 implements Runnable {
     }
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(Lclient!af;II)Lclient!vp;")
-    public Class2_Sub2_Sub17_Sub2 method3830(@OriginalArg(0) Class9 arg0, @OriginalArg(2) int arg1) {
-        @Pc(7) Class2_Sub2_Sub17_Sub2 local7 = new Class2_Sub2_Sub17_Sub2();
+    public Node_Sub2_Sub17_Sub2 method3830(@OriginalArg(0) Class9 arg0, @OriginalArg(2) int arg1) {
+        @Pc(7) Node_Sub2_Sub17_Sub2 local7 = new Node_Sub2_Sub17_Sub2();
         local7.aClass9_4 = arg0;
         local7.aBoolean777 = false;
         local7.anInt10352 = 3;

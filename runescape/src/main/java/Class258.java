@@ -77,7 +77,7 @@ public final class Class258 {
     }
 
     @OriginalMember(owner = "client!ng", name = "a", descriptor = "(Lclient!ge;)V")
-    public void method5775(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method5775(@OriginalArg(0) Node_Sub21 arg0) {
         this.aClass211_5 = new Class211();
         this.aClass211_5.method4952(arg0);
         this.aClass211_7 = new Class211();

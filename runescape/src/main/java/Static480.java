@@ -76,8 +76,8 @@ public final class Static480 {
     }
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "(ILclient!ge;Lclient!vq;I)V")
-    public static void method6468(@OriginalArg(1) Class2_Sub21 arg0, @OriginalArg(2) Class390 arg1, @OriginalArg(3) int arg2) {
-        @Pc(23) Class2_Sub57 local23 = new Class2_Sub57();
+    public static void method6468(@OriginalArg(1) Node_Sub21 arg0, @OriginalArg(2) Class390 arg1, @OriginalArg(3) int arg2) {
+        @Pc(23) Node_Sub57 local23 = new Node_Sub57();
         local23.anInt10364 = arg0.method7396();
         local23.anInt10366 = arg0.method7349();
         local23.anIntArray829 = new int[local23.anInt10364];

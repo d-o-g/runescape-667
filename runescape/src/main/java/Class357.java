@@ -28,7 +28,7 @@ public final class Class357 {
     public final int[] anIntArray730;
 
     @OriginalMember(owner = "client!tn", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class357(@OriginalArg(0) Class2_Sub21 arg0) {
+    public Class357(@OriginalArg(0) Node_Sub21 arg0) {
         @Pc(7) int local7 = arg0.method7390();
         this.anIntArray735 = new int[local7];
         this.anIntArray734 = new int[local7];

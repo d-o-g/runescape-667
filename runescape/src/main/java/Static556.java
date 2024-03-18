@@ -17,7 +17,7 @@ public final class Static556 {
         }
         @Pc(25) int local25 = arg0.anInt3812 >>> 16;
         @Pc(30) Class331 local30 = new Class331(Static548.aClass28_40);
-        for (@Pc(35) Class2_Sub4 local35 = (Class2_Sub4) local30.method7613(); local35 != null; local35 = (Class2_Sub4) local30.method7610()) {
+        for (@Pc(35) Node_Sub4 local35 = (Node_Sub4) local30.method7613(); local35 != null; local35 = (Node_Sub4) local30.method7610()) {
             if (local35.anInt147 == local25) {
                 return Static145.method2412((int) local35.aLong328);
             }
@@ -45,7 +45,7 @@ public final class Static556 {
         } else if (Static209.aBoolean269 && Static334.aClass319_1.method8479(81) && Static594.anInt8777 > 2) {
             local63 = Static518.method9293(Static470.aClass2_Sub2_Sub16_10);
         } else {
-            @Pc(55) Class2_Sub2_Sub16 local55 = Static470.aClass2_Sub2_Sub16_10;
+            @Pc(55) Node_Sub2_Sub16 local55 = Static470.aClass2_Sub2_Sub16_10;
             if (local55 == null) {
                 return;
             }
@@ -56,7 +56,7 @@ public final class Static556 {
             } else if (local55.anInt7317 != -1) {
                 local65 = Static419.aClass112_1.method2486(local55.anInt7317).anIntArray800;
             } else if (Static598.method7825(local55.anInt7314)) {
-                @Pc(93) Class2_Sub45 local93 = (Class2_Sub45) Static18.aClass28_2.method738((long) (int) local55.aLong233);
+                @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.aClass28_2.method738((long) (int) local55.aLong233);
                 if (local93 != null) {
                     @Pc(98) Class8_Sub2_Sub1_Sub2_Sub2 local98 = local93.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                     @Pc(101) Class268 local101 = local98.aClass268_1;
@@ -102,8 +102,8 @@ public final class Static556 {
     }
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(IBZ)Lclient!gfa;")
-    public static Class2_Sub22 method7303(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
+    public static Node_Sub22 method7303(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
         @Pc(19) long local19 = (long) (arg0 | (arg1 ? Integer.MIN_VALUE : 0));
-        return (Class2_Sub22) Static286.aClass28_23.method738(local19);
+        return (Node_Sub22) Static286.aClass28_23.method738(local19);
     }
 }

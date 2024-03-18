@@ -23,7 +23,7 @@ public final class Static186 {
     }
 
     @OriginalMember(owner = "client!fo", name = "d", descriptor = "(I)Lclient!ip;")
-    public static Class2_Sub2_Sub13 method2819() {
+    public static Node_Sub2_Sub13 method2819() {
         return Static30.aClass2_Sub2_Sub13_3;
     }
 

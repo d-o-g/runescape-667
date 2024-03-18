@@ -47,7 +47,7 @@ public final class Static346 {
         @Pc(33) int local33;
         for (@Pc(25) int local25 = 0; local25 < Static78.anInt1622; local25++) {
             local33 = Static118.anIntArray197[local25];
-            @Pc(40) Class2_Sub45 local40 = (Class2_Sub45) Static18.aClass28_2.method738((long) local33);
+            @Pc(40) Node_Sub45 local40 = (Node_Sub45) Static18.aClass28_2.method738((long) local33);
             @Pc(43) Class8_Sub2_Sub1_Sub2_Sub2 local43 = local40.aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local43.anInt10751 != Static572.anInt8896) {
                 if (Static400.aBoolean622 && Static321.method4622(local33)) {

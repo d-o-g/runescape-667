@@ -84,15 +84,15 @@ public final class Static81 {
     }
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(I)Lclient!aj;")
-    public static Class2_Sub2_Sub2 method1587() {
-        @Pc(17) Class2_Sub2_Sub2 local17 = (Class2_Sub2_Sub2) Static138.aClass192_6.method4352();
+    public static Node_Sub2_Sub2_ method1587() {
+        @Pc(17) Node_Sub2_Sub2_ local17 = (Node_Sub2_Sub2_) Static138.aClass192_6.method4352();
         if (local17 != null) {
             local17.method9457();
             local17.method9260();
             return local17;
         }
         do {
-            local17 = (Class2_Sub2_Sub2) Static59.aClass192_9.method4352();
+            local17 = (Node_Sub2_Sub2_) Static59.aClass192_9.method4352();
             if (local17 == null) {
                 return null;
             }
@@ -112,7 +112,7 @@ public final class Static81 {
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(Ljava/lang/String;ILjava/lang/String;ZI)V")
     public static void method1591(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2, @OriginalArg(3) boolean arg3) {
-        @Pc(8) Class2_Sub19 local8 = Static273.method3962();
+        @Pc(8) Node_Sub19 local8 = Static273.method3962();
         local8.aClass2_Sub21_Sub2_1.method7389(Static572.aClass167_58.anInt3973);
         local8.aClass2_Sub21_Sub2_1.method7373(0);
         @Pc(25) int local25 = local8.aClass2_Sub21_Sub2_1.anInt8388;

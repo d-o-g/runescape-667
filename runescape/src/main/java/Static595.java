@@ -49,7 +49,7 @@ public final class Static595 {
                             local141 = Static292.aClass2_Sub43_2.anInt7610 > 256;
                         } catch (@Pc(152) Throwable local152) {
                         }
-                        @Pc(158) Class2_Sub13 local158;
+                        @Pc(158) Node_Sub13 local158;
                         if (local141) {
                             local158 = Static163.aClass19_17.method7961(146800640);
                         } else {
@@ -146,7 +146,7 @@ public final class Static595 {
     }
 
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(Lclient!ge;Lclient!vfa;I)Lclient!bs;")
-    public static Class52 method7811(@OriginalArg(0) Class2_Sub21 arg0, @OriginalArg(1) Class382 arg1) {
+    public static Class52 method7811(@OriginalArg(0) Node_Sub21 arg0, @OriginalArg(1) Class382 arg1) {
         @Pc(10) Class52 local10 = new Class52(arg1);
         @Pc(14) int local14 = arg0.method7396();
         @Pc(23) boolean local23 = (local14 & 0x1) != 0;

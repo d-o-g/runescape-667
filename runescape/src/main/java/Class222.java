@@ -16,7 +16,7 @@ public abstract class Class222 {
     public boolean aBoolean799;
 
     @OriginalMember(owner = "client!lf", name = "y", descriptor = "Lclient!un;")
-    public Class2_Sub28_Sub4 aClass2_Sub28_Sub4_2;
+    public Node_Sub28_Sub4 aClass2_Sub28_Sub4_2;
 
     @OriginalMember(owner = "client!lf", name = "i", descriptor = "Z")
     public boolean aBoolean800;
@@ -28,10 +28,10 @@ public abstract class Class222 {
     public boolean aBoolean802;
 
     @OriginalMember(owner = "client!lf", name = "w", descriptor = "Lclient!ik;")
-    public Class2_Sub28_Sub1 aClass2_Sub28_Sub1_2;
+    public Node_Sub28_Sub1 aClass2_Sub28_Sub1_2;
 
     @OriginalMember(owner = "client!lf", name = "k", descriptor = "Lclient!mda;")
-    public Class2_Sub28_Sub3 aClass2_Sub28_Sub3_2;
+    public Node_Sub28_Sub3 aClass2_Sub28_Sub3_2;
 
     @OriginalMember(owner = "client!lf", name = "b", descriptor = "Ljava/lang/String;")
     public String aString127;
@@ -64,7 +64,7 @@ public abstract class Class222 {
     }
 
     @OriginalMember(owner = "client!lf", name = "b", descriptor = "(B)Lclient!kb;")
-    public Class2_Sub28 method9172() throws IOException {
+    public Node_Sub28 method9172() throws IOException {
         if (this.aBoolean800) {
             throw new IllegalStateException();
         } else if (this.aBoolean799) {
@@ -86,7 +86,7 @@ public abstract class Class222 {
             }
             local25 = this.anOggPage2.getSerialNumber();
             if (!this.anOggPage2.isBOS()) {
-                @Pc(81) Class2_Sub28 local81 = (Class2_Sub28) this.aClass28_45.method738((long) local25);
+                @Pc(81) Node_Sub28 local81 = (Node_Sub28) this.aClass28_45.method738((long) local25);
                 if (!local81.anOggStreamState5.pageIn(this.anOggPage2)) {
                     throw new IllegalStateException();
                 }
@@ -96,12 +96,12 @@ public abstract class Class222 {
             if (!local99.pageIn(this.anOggPage2)) {
                 throw new IllegalStateException();
             } else if (local99.packetPeek(this.anOggPacket2) == 1) {
-                @Pc(188) Class2_Sub28 local188;
+                @Pc(188) Node_Sub28 local188;
                 if (this.aClass2_Sub28_Sub3_2 == null && this.anOggPacket2.isTheora()) {
-                    this.aClass2_Sub28_Sub3_2 = new Class2_Sub28_Sub3(local99);
+                    this.aClass2_Sub28_Sub3_2 = new Node_Sub28_Sub3(local99);
                     local188 = this.aClass2_Sub28_Sub3_2;
                 } else if (this.aClass2_Sub28_Sub1_2 == null && this.anOggPacket2.isVorbis()) {
-                    this.aClass2_Sub28_Sub1_2 = new Class2_Sub28_Sub1(local99);
+                    this.aClass2_Sub28_Sub1_2 = new Node_Sub28_Sub1(local99);
                     local188 = this.aClass2_Sub28_Sub1_2;
                 } else {
                     @Pc(144) byte[] local144 = this.anOggPacket2.getData();
@@ -111,9 +111,9 @@ public abstract class Class222 {
                     }
                     @Pc(175) String local175 = local148.toString();
                     if (local175.equals("kate")) {
-                        local188 = new Class2_Sub28_Sub4(local99);
+                        local188 = new Node_Sub28_Sub4(local99);
                     } else {
-                        local188 = new Class2_Sub28_Sub2(local99);
+                        local188 = new Node_Sub28_Sub2(local99);
                     }
                 }
                 this.aClass28_45.method735((long) local25, local188);
@@ -127,7 +127,7 @@ public abstract class Class222 {
     @OriginalMember(owner = "client!lf", name = "a", descriptor = "(ZI)V")
     public final void method9174(@OriginalArg(0) boolean arg0) {
         if (this.aClass2_Sub28_Sub1_2 != null) {
-            @Pc(7) Class2_Sub6_Sub5 local7 = this.aClass2_Sub28_Sub1_2.method3960();
+            @Pc(7) Node_Sub6_Sub5 local7 = this.aClass2_Sub28_Sub1_2.method3960();
             if (local7 != null) {
                 local7.method9146(arg0);
             }
@@ -138,7 +138,7 @@ public abstract class Class222 {
     @OriginalMember(owner = "client!lf", name = "a", descriptor = "(I)V")
     public void method9175() throws IOException {
         while (this.aClass2_Sub28_Sub3_2.anOggStreamState5.packetOut(this.anOggPacket2) != 1) {
-            @Pc(11) Class2_Sub28 local11 = this.method9172();
+            @Pc(11) Node_Sub28 local11 = this.method9172();
             if (local11 == null) {
                 if (this.aBoolean799) {
                     this.method9188();
@@ -172,7 +172,7 @@ public abstract class Class222 {
     }
 
     @OriginalMember(owner = "client!lf", name = "c", descriptor = "(I)Lclient!un;")
-    public final Class2_Sub28_Sub4 method9178() {
+    public final Node_Sub28_Sub4 method9178() {
         return this.aClass2_Sub28_Sub4_2;
     }
 
@@ -182,9 +182,9 @@ public abstract class Class222 {
             return;
         }
         while (!this.aBoolean800) {
-            @Pc(26) Class2_Sub28 local26;
+            @Pc(26) Node_Sub28 local26;
             if (this.aBoolean801) {
-                local26 = (Class2_Sub28) this.aClass28_45.method738((long) this.anOggPage2.getSerialNumber());
+                local26 = (Node_Sub28) this.aClass28_45.method738((long) this.anOggPage2.getSerialNumber());
             } else {
                 local26 = this.method9172();
                 if (local26 == null) {
@@ -221,11 +221,11 @@ public abstract class Class222 {
                         return;
                     }
                 }
-            } else if (local26 instanceof Class2_Sub28_Sub4) {
+            } else if (local26 instanceof Node_Sub28_Sub4) {
                 this.method9180((byte) -106);
             } else if (this.aClass2_Sub28_Sub3_2 != local26) {
                 while (local26.anOggStreamState5.packetOut(this.anOggPacket2) == 1) {
-                    if (local26.anInt9753 == 1 && local26 instanceof Class2_Sub28_Sub4) {
+                    if (local26.anInt9753 == 1 && local26 instanceof Node_Sub28_Sub4) {
                         this.method9183(this.aString127);
                     }
                     local26.method8556(this.anOggPacket2);
@@ -245,9 +245,9 @@ public abstract class Class222 {
 
     @OriginalMember(owner = "client!lf", name = "c", descriptor = "(B)V")
     public void method9180(@OriginalArg(0) byte arg0) {
-        for (@Pc(11) Class2_Sub28 local11 = (Class2_Sub28) this.aClass28_45.method736(); local11 != null; local11 = (Class2_Sub28) this.aClass28_45.method740()) {
-            if (local11 instanceof Class2_Sub28_Sub4) {
-                @Pc(21) Class2_Sub28_Sub4 local21 = (Class2_Sub28_Sub4) local11;
+        for (@Pc(11) Node_Sub28 local11 = (Node_Sub28) this.aClass28_45.method736(); local11 != null; local11 = (Node_Sub28) this.aClass28_45.method740()) {
+            if (local11 instanceof Node_Sub28_Sub4) {
+                @Pc(21) Node_Sub28_Sub4 local21 = (Node_Sub28_Sub4) local11;
                 while ((local21.anInt9753 <= 8 || this.method9185() > (double) local21.method8566()) && local21.anOggStreamState5.packetOut(this.anOggPacket2) == 1) {
                     local21.method8556(this.anOggPacket2);
                 }
@@ -264,7 +264,7 @@ public abstract class Class222 {
         if (this.aBoolean800) {
             return;
         }
-        for (@Pc(14) Class2_Sub28 local14 = (Class2_Sub28) this.aClass28_45.method736(); local14 != null; local14 = (Class2_Sub28) this.aClass28_45.method740()) {
+        for (@Pc(14) Node_Sub28 local14 = (Node_Sub28) this.aClass28_45.method736(); local14 != null; local14 = (Node_Sub28) this.aClass28_45.method740()) {
             local14.method8560();
             local14.anOggStreamState5.a();
         }
@@ -287,9 +287,9 @@ public abstract class Class222 {
         if (this.aClass2_Sub28_Sub4_2 != null) {
             return;
         }
-        for (@Pc(50) Class2_Sub28 local50 = (Class2_Sub28) this.aClass28_45.method736(); local50 != null; local50 = (Class2_Sub28) this.aClass28_45.method740()) {
-            if (local50 instanceof Class2_Sub28_Sub4) {
-                @Pc(57) Class2_Sub28_Sub4 local57 = (Class2_Sub28_Sub4) local50;
+        for (@Pc(50) Node_Sub28 local50 = (Node_Sub28) this.aClass28_45.method736(); local50 != null; local50 = (Node_Sub28) this.aClass28_45.method740()) {
+            if (local50 instanceof Node_Sub28_Sub4) {
+                @Pc(57) Node_Sub28_Sub4 local57 = (Node_Sub28_Sub4) local50;
                 if (this.aString127.equals(local57.method8563())) {
                     this.aClass2_Sub28_Sub4_2 = local57;
                     return;
@@ -311,13 +311,13 @@ public abstract class Class222 {
     protected abstract int method9186(@OriginalArg(0) byte[] arg0) throws IOException;
 
     @OriginalMember(owner = "client!lf", name = "f", descriptor = "(B)Lclient!mda;")
-    public final Class2_Sub28_Sub3 method9187() {
+    public final Node_Sub28_Sub3 method9187() {
         return this.aClass2_Sub28_Sub3_2;
     }
 
     @OriginalMember(owner = "client!lf", name = "a", descriptor = "(B)V")
     public void method9188() {
-        for (@Pc(7) Class2_Sub28 local7 = (Class2_Sub28) this.aClass28_45.method736(); local7 != null; local7 = (Class2_Sub28) this.aClass28_45.method740()) {
+        for (@Pc(7) Node_Sub28 local7 = (Node_Sub28) this.aClass28_45.method736(); local7 != null; local7 = (Node_Sub28) this.aClass28_45.method740()) {
             if (local7 != this.aClass2_Sub28_Sub3_2) {
                 while (local7.anOggStreamState5.packetOut() == 1) {
                     local7.method8556(this.anOggPacket2);
@@ -340,7 +340,7 @@ public abstract class Class222 {
     }
 
     @OriginalMember(owner = "client!lf", name = "b", descriptor = "(I)Lclient!ik;")
-    public final Class2_Sub28_Sub1 method9189() {
+    public final Node_Sub28_Sub1 method9189() {
         return this.aClass2_Sub28_Sub1_2;
     }
 }

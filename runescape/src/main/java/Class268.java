@@ -255,7 +255,7 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method5986(@OriginalArg(1) Class2_Sub21 arg0) {
+    public void method5986(@OriginalArg(1) Node_Sub21 arg0) {
         while (true) {
             @Pc(15) int local15 = arg0.method7396();
             if (local15 == 0) {
@@ -266,7 +266,7 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(ILclient!ge;B)V")
-    public void method5990(@OriginalArg(0) int arg0, @OriginalArg(1) Class2_Sub21 arg1) {
+    public void method5990(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21 arg1) {
         @Pc(12) int local12;
         @Pc(18) int local18;
         if (arg0 == 1) {
@@ -469,11 +469,11 @@ public final class Class268 {
                 for (local18 = 0; local18 < local12; local18++) {
                     @Pc(761) boolean local761 = arg1.method7396() == 1;
                     @Pc(765) int local765 = arg1.method7383();
-                    @Pc(774) Class2 local774;
+                    @Pc(774) Node local774;
                     if (local761) {
-                        local774 = new Class2_Sub24(arg1.method7358());
+                        local774 = new Node_Sub24(arg1.method7358());
                     } else {
-                        local774 = new Class2_Sub38(arg1.method7349());
+                        local774 = new Node_Sub38(arg1.method7349());
                     }
                     this.aClass28_32.method735((long) local765, local774);
                 }
@@ -486,7 +486,7 @@ public final class Class268 {
         if (this.aClass28_32 == null) {
             return arg0;
         } else {
-            @Pc(23) Class2_Sub24 local23 = (Class2_Sub24) this.aClass28_32.method738((long) arg1);
+            @Pc(23) Node_Sub24 local23 = (Node_Sub24) this.aClass28_32.method738((long) arg1);
             return local23 == null ? arg0 : local23.aString46;
         }
     }
@@ -833,7 +833,7 @@ public final class Class268 {
         if (this.aClass28_32 == null) {
             return arg1;
         } else {
-            @Pc(25) Class2_Sub38 local25 = (Class2_Sub38) this.aClass28_32.method738((long) arg0);
+            @Pc(25) Node_Sub38 local25 = (Node_Sub38) this.aClass28_32.method738((long) arg0);
             return local25 == null ? arg1 : local25.anInt6379;
         }
     }

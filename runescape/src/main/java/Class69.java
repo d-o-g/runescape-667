@@ -86,7 +86,7 @@ public final class Class69 {
     }
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method1585(@OriginalArg(0) Class2_Sub21 arg0) {
+    public void method1585(@OriginalArg(0) Node_Sub21 arg0) {
         while (true) {
             @Pc(3) int local3 = arg0.method7396();
             if (local3 == 0) {
@@ -97,7 +97,7 @@ public final class Class69 {
     }
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(IBLclient!ge;)V")
-    public void method1588(@OriginalArg(0) int arg0, @OriginalArg(2) Class2_Sub21 arg1) {
+    public void method1588(@OriginalArg(0) int arg0, @OriginalArg(2) Node_Sub21 arg1) {
         @Pc(20) int local20;
         @Pc(26) int local26;
         @Pc(44) int local44;

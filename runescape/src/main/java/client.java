@@ -187,7 +187,7 @@ public final class client extends Applet_Sub1 {
             }
             if (Static92.anInt1874 == 2) {
                 Static672.aClass263_2 = new Class263((Socket) Static514.aClass270_6.anObject13, Static446.aClass390_6, 25000);
-                @Pc(251) Class2_Sub21 local251 = new Class2_Sub21(5);
+                @Pc(251) Node_Sub21 local251 = new Node_Sub21(5);
                 local251.method7389(Static572.aClass167_54.anInt3973);
                 local251.method7342(667);
                 Static672.aClass263_2.method5829(5, local251.aByteArray93);
@@ -210,7 +210,7 @@ public final class client extends Applet_Sub1 {
             if (Static92.anInt1874 == 4) {
                 @Pc(356) boolean local356 = Static181.method2778(Static283.anInt4574) || Static41.method1027(Static283.anInt4574) || Static620.method8321(Static283.anInt4574);
                 @Pc(359) Class326[] local359 = Static566.method7467();
-                @Pc(367) Class2_Sub21 local367 = new Class2_Sub21(local359.length * 4);
+                @Pc(367) Node_Sub21 local367 = new Node_Sub21(local359.length * 4);
                 Static672.aClass263_2.method5825(local367.aByteArray93.length, 0, local367.aByteArray93);
                 for (@Pc(378) int local378 = 0; local378 < local359.length; local378++) {
                     local359[local378].method7468(local367.method7349());
@@ -301,19 +301,19 @@ public final class client extends Applet_Sub1 {
             }
         }
         while (true) {
-            @Pc(453) Class2_Sub42 local453;
+            @Pc(453) Node_Sub42 local453;
             @Pc(458) Class158 local458;
             @Pc(470) Class158 local470;
             do {
-                local453 = (Class2_Sub42) Static618.aClass339_68.method7705();
+                local453 = (Node_Sub42) Static618.aClass339_68.method7705();
                 if (local453 == null) {
                     while (true) {
                         do {
-                            local453 = (Class2_Sub42) Static59.aClass339_33.method7705();
+                            local453 = (Node_Sub42) Static59.aClass339_33.method7705();
                             if (local453 == null) {
                                 while (true) {
                                     do {
-                                        local453 = (Class2_Sub42) Static521.aClass339_44.method7705();
+                                        local453 = (Node_Sub42) Static521.aClass339_44.method7705();
                                         if (local453 == null) {
                                             if (Static109.aClass158_3 != null) {
                                                 Static603.method7899();
@@ -347,7 +347,7 @@ public final class client extends Applet_Sub1 {
                                                 if (Static405.aClass153_1 != null) {
                                                     Static405.aClass153_1.anInt3647++;
                                                     if (Static405.aClass153_1.anInt3647 > 50) {
-                                                        @Pc(823) Class2_Sub19 local823 = Static293.method4335(Static415.aClass345_75, Static405.aClass153_1.aClass186_1);
+                                                        @Pc(823) Node_Sub19 local823 = Static293.method4335(Static415.aClass345_75, Static405.aClass153_1.aClass186_1);
                                                         Static405.aClass153_1.method3275(local823);
                                                     }
                                                     try {
@@ -498,7 +498,7 @@ public final class client extends Applet_Sub1 {
         }
         if (Static18.anInt251 == 3) {
             for (local110 = 0; local110 < Static122.anInt2339; local110++) {
-                @Pc(478) Rectangle local478 = Class2_Sub1_Sub28.aRectangleArray1[local110];
+                @Pc(478) Rectangle local478 = Node_Sub1_Sub28.aRectangleArray1[local110];
                 if (Static359.aBooleanArray17[local110]) {
                     Static163.aClass19_17.method7945(local478.y, -65281, local478.width, local478.height, local478.x);
                 } else if (Static469.aBooleanArray23[local110]) {
@@ -516,7 +516,7 @@ public final class client extends Applet_Sub1 {
             for (local114 = 0; local114 < Static122.anInt2339; local114++) {
                 if (Static469.aBooleanArray23[local114]) {
                     Static469.aBooleanArray23[local114] = false;
-                    Static663.aRectangleArray2[local110++] = Class2_Sub1_Sub28.aRectangleArray1[local114];
+                    Static663.aRectangleArray2[local110++] = Node_Sub1_Sub28.aRectangleArray1[local114];
                 }
             }
             try {
@@ -636,7 +636,7 @@ public final class client extends Applet_Sub1 {
             }
         }
         Static611.anInt9341 = 0;
-        for (@Pc(214) Class2_Sub9 local214 = Static189.aClass120_1.method8851(); local214 != null; local214 = Static189.aClass120_1.method8851()) {
+        for (@Pc(214) Node_Sub9 local214 = Static189.aClass120_1.method8851(); local214 != null; local214 = Static189.aClass120_1.method8851()) {
             @Pc(222) int local222 = local214.method5328();
             if (local222 == -1) {
                 Static677.aClass339_76.method7711(local214);

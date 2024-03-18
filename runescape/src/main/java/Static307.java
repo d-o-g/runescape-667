@@ -21,7 +21,7 @@ public final class Static307 {
         if (anInt4924 <= 0) {
             arg0.w(false);
         } else {
-            @Pc(15) Class2_Sub52 local15 = new Class2_Sub52();
+            @Pc(15) Node_Sub52 local15 = new Node_Sub52();
             local15.anInterface5_1 = arg0;
             aClass339_28.method7711(local15);
         }
@@ -30,7 +30,7 @@ public final class Static307 {
     @OriginalMember(owner = "client!jo", name = "c", descriptor = "(I)V")
     public static synchronized void method4478() {
         while (true) {
-            @Pc(4) Class2_Sub52 local4 = (Class2_Sub52) aClass339_28.method7705();
+            @Pc(4) Node_Sub52 local4 = (Node_Sub52) aClass339_28.method7705();
             if (local4 == null) {
                 return;
             }

@@ -15,7 +15,7 @@ public final class Static710 {
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
     public static void method6710(@OriginalArg(1) Class158 arg0, @OriginalArg(2) Class158 arg1) {
-        @Pc(15) Class2_Sub19 local15 = Static293.method4335(Static671.aClass345_117, Static405.aClass153_2.aClass186_1);
+        @Pc(15) Node_Sub19 local15 = Static293.method4335(Static671.aClass345_117, Static405.aClass153_2.aClass186_1);
         local15.aClass2_Sub21_Sub2_1.method7373(arg1.anInt3760);
         local15.aClass2_Sub21_Sub2_1.method7362(arg0.anInt3741);
         local15.aClass2_Sub21_Sub2_1.method7393(arg0.anInt3760);

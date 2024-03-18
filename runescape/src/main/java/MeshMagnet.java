@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!mn")
-public final class Class249 {
+public final class MeshMagnet {
 
     @OriginalMember(owner = "client!mn", name = "j", descriptor = "I")
     public int anInt6249;
@@ -15,7 +15,7 @@ public final class Class249 {
     public int anInt6252;
 
     @OriginalMember(owner = "client!mn", name = "l", descriptor = "Lclient!mn;")
-    public Class249 aClass249_2;
+    public MeshMagnet aMeshMagnet_2;
 
     @OriginalMember(owner = "client!mn", name = "d", descriptor = "Lclient!tt;")
     public Matrix aMatrix_6;
@@ -27,7 +27,7 @@ public final class Class249 {
     public final int anInt6247;
 
     @OriginalMember(owner = "client!mn", name = "<init>", descriptor = "(II)V")
-    public Class249(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public MeshMagnet(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         this.anInt6248 = arg0;
         this.anInt6247 = arg1;
     }
@@ -38,7 +38,7 @@ public final class Class249 {
     }
 
     @OriginalMember(owner = "client!mn", name = "a", descriptor = "(ZI)Lclient!mn;")
-    public Class249 method5593(@OriginalArg(1) int arg0) {
-        return new Class249(this.anInt6248, arg0);
+    public MeshMagnet method5593(@OriginalArg(1) int arg0) {
+        return new MeshMagnet(this.anInt6248, arg0);
     }
 }

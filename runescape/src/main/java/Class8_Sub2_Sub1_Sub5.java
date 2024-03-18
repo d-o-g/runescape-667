@@ -48,7 +48,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
     public void method6593(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Class19 arg2) {
         arg1.method7476(arg0);
         @Pc(9) MeshEmitter[] local9 = arg1.meshEmitters();
-        @Pc(19) Class249[] local19 = arg1.method7480();
+        @Pc(19) MeshMagnet[] local19 = arg1.meshMagnets();
         if ((this.aClass8_Sub5_5 == null || this.aClass8_Sub5_5.aBoolean324) && (local9 != null || local19 != null)) {
             this.aClass8_Sub5_5 = Static257.method3654(Static333.anInt5455, true);
         }

@@ -24,7 +24,7 @@ public final class Model_Sub2 extends Model {
     public int[] anIntArray410;
 
     @OriginalMember(owner = "client!kla", name = "K", descriptor = "[Lclient!mn;")
-    public Class249[] aClass249Array4;
+    public MeshMagnet[] aMeshMagnetArray4;
 
     @OriginalMember(owner = "client!kla", name = "wb", descriptor = "S")
     public short aShort62;
@@ -309,7 +309,7 @@ public final class Model_Sub2 extends Model {
         this.anIntArray410 = arg1.anIntArray213;
         @Pc(575) Class185[] local575 = new Class185[this.anInt5543];
         this.aMeshEmitterArray4 = arg1.aMeshEmitterArray1;
-        this.aClass249Array4 = arg1.aClass249Array1;
+        this.aMeshMagnetArray4 = arg1.aMeshMagnetArray1;
         @Pc(603) int local603;
         @Pc(619) int local619;
         @Pc(674) int local674;
@@ -1071,7 +1071,7 @@ public final class Model_Sub2 extends Model {
             return;
         }
         this.aBoolean422 = false;
-        if (this.aMeshEmitterArray4 == null && this.aClass249Array4 == null && this.aClass97Array1 == null && !Static298.method4387(this.anInt5529, this.anInt5520)) {
+        if (this.aMeshEmitterArray4 == null && this.aMeshMagnetArray4 == null && this.aClass97Array1 == null && !Static298.method4387(this.anInt5529, this.anInt5520)) {
             @Pc(37) boolean local37 = false;
             @Pc(39) boolean local39 = false;
             @Pc(41) boolean local41 = false;
@@ -1388,8 +1388,8 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "c", descriptor = "()[Lclient!mn;")
     @Override
-    public Class249[] method7480() {
-        return this.aClass249Array4;
+    public MeshMagnet[] meshMagnets() {
+        return this.aMeshMagnetArray4;
     }
 
     @OriginalMember(owner = "client!kla", name = "H", descriptor = "(III)V")
@@ -1480,14 +1480,14 @@ public final class Model_Sub2 extends Model {
                 local22.anInt8520 = (int) (local8.aFloat159 + local8.aFloat154 * (float) this.anIntArray412[local20.anInt8505] + (float) this.anIntArray410[local20.anInt8505] * local8.aFloat155 + local8.aFloat151 * (float) this.anIntArray409[local20.anInt8505]);
             }
         }
-        if (this.aClass249Array4 == null) {
+        if (this.aMeshMagnetArray4 == null) {
             return;
         }
-        for (local13 = 0; local13 < this.aClass249Array4.length; local13++) {
-            @Pc(367) Class249 local367 = this.aClass249Array4[local13];
-            @Pc(369) Class249 local369 = local367;
-            if (local367.aClass249_2 != null) {
-                local369 = local367.aClass249_2;
+        for (local13 = 0; local13 < this.aMeshMagnetArray4.length; local13++) {
+            @Pc(367) MeshMagnet local367 = this.aMeshMagnetArray4[local13];
+            @Pc(369) MeshMagnet local369 = local367;
+            if (local367.aMeshMagnet_2 != null) {
+                local369 = local367.aMeshMagnet_2;
             }
             if (local367.aMatrix_6 == null) {
                 local367.aMatrix_6 = local8.method7129();
@@ -3361,7 +3361,7 @@ public final class Model_Sub2 extends Model {
         arg4.aShortArray68 = this.aShortArray68;
         arg4.anIntArrayArray129 = this.anIntArrayArray129;
         arg4.anIntArrayArray130 = this.anIntArrayArray130;
-        arg4.aClass249Array4 = this.aClass249Array4;
+        arg4.aMeshMagnetArray4 = this.aMeshMagnetArray4;
         arg4.anIntArray413 = this.anIntArray413;
         arg4.anIntArray411 = this.anIntArray411;
         if (this.aBoolean424) {

@@ -80,7 +80,7 @@ public final class a implements Interface5 {
         }
         arg0.ZA(local20, local13, arg2, local1, arg3);
         local20.aMeshEmitterArray3 = arg0.aMeshEmitterArray3;
-        local20.aClass249Array3 = arg0.aClass249Array3;
+        local20.aMeshMagnetArray3 = arg0.aMeshMagnetArray3;
         return local20;
     }
 

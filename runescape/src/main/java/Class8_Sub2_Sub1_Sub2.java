@@ -822,12 +822,12 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             @Pc(23) int local23 = -1;
             @Pc(25) int local25 = -1;
             @Pc(29) MeshEmitter[][] local29 = new MeshEmitter[arg2.length][];
-            @Pc(33) Class249[][] local33 = new Class249[arg2.length][];
+            @Pc(33) MeshMagnet[][] local33 = new MeshMagnet[arg2.length][];
             for (@Pc(35) int local35 = 0; local35 < arg2.length; local35++) {
                 if (arg2[local35] != null) {
                     arg2[local35].method7476(arg3);
                     local29[local35] = arg2[local35].meshEmitters();
-                    local33[local35] = arg2[local35].method7480();
+                    local33[local35] = arg2[local35].meshMagnets();
                     if (local29[local35] != null) {
                         local23 = local35;
                         local15 += local29[local35].length;
@@ -858,11 +858,11 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                         }
                     }
                 }
-                @Pc(191) Class249[] local191;
+                @Pc(191) MeshMagnet[] local191;
                 if (local21 == 1) {
                     local191 = local33[local25];
                 } else {
-                    local191 = new Class249[local19];
+                    local191 = new MeshMagnet[local19];
                     local142 = 0;
                     for (@Pc(199) int local199 = 0; local199 < arg2.length; local199++) {
                         if (local33[local199] != null) {

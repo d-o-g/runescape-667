@@ -54,7 +54,7 @@ public final class Class8_Sub5 extends Class8 {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J[Lclient!rv;[Lclient!mn;Z)V")
-    public void method3643(@OriginalArg(0) Class19 arg0, @OriginalArg(1) long arg1, @OriginalArg(2) MeshEmitter[] arg2, @OriginalArg(3) Class249[] arg3) {
+    public void method3643(@OriginalArg(0) Class19 arg0, @OriginalArg(1) long arg1, @OriginalArg(2) MeshEmitter[] arg2, @OriginalArg(3) MeshMagnet[] arg3) {
         if (!this.aBoolean324) {
             this.method3651(arg0, arg2);
             this.method3648(arg3);
@@ -81,7 +81,7 @@ public final class Class8_Sub5 extends Class8 {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "([Lclient!mn;Z)V")
-    public void method3648(@OriginalArg(0) Class249[] arg0) {
+    public void method3648(@OriginalArg(0) MeshMagnet[] arg0) {
         for (@Pc(1) int local1 = 0; local1 < 8; local1++) {
             Static257.aBooleanArray6[local1] = false;
         }
@@ -90,7 +90,7 @@ public final class Class8_Sub5 extends Class8 {
         for (@Pc(16) Node_Sub2_Sub5 local16 = (Node_Sub2_Sub5) this.aDeque_22.first(65280); local16 != null; local16 = (Node_Sub2_Sub5) this.aDeque_22.next()) {
             if (arg0 != null) {
                 for (local21 = 0; local21 < arg0.length; local21++) {
-                    if (local16.aClass249_1 == arg0[local21] || local16.aClass249_1 == arg0[local21].aClass249_2) {
+                    if (local16.aMeshMagnet_1 == arg0[local21] || local16.aMeshMagnet_1 == arg0[local21].aMeshMagnet_2) {
                         Static257.aBooleanArray6[local21] = true;
                         local16.method1707();
                         continue label71;

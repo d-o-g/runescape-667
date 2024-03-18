@@ -105,7 +105,7 @@ public final class Model_Sub1 extends Model {
     public short[] aShortArray41;
 
     @OriginalMember(owner = "client!eu", name = "Nb", descriptor = "[Lclient!mn;")
-    public Class249[] aClass249Array2;
+    public MeshMagnet[] aMeshMagnetArray2;
 
     @OriginalMember(owner = "client!eu", name = "wb", descriptor = "[Lclient!rv;")
     public MeshEmitter[] aMeshEmitterArray2;
@@ -283,7 +283,7 @@ public final class Model_Sub1 extends Model {
         this.anInt2773 = arg1.anInt2363;
         this.anIntArray242 = arg1.anIntArray205;
         this.aShortArray41 = arg1.aShortArray23;
-        this.aClass249Array2 = arg1.aClass249Array1;
+        this.aMeshMagnetArray2 = arg1.aMeshMagnetArray1;
         @Pc(470) Class368[] local470 = new Class368[this.anInt2773];
         this.aMeshEmitterArray2 = arg1.aMeshEmitterArray1;
         @Pc(494) int local494;
@@ -1346,14 +1346,14 @@ public final class Model_Sub1 extends Model {
                 local22.anInt8520 = (int) (local8.aFloat43 + (float) this.anIntArray240[local20.anInt8505] * local8.aFloat45 + local8.aFloat36 * (float) this.anIntArray242[local20.anInt8505] + (float) this.anIntArray244[local20.anInt8505] * local8.aFloat47);
             }
         }
-        if (this.aClass249Array2 == null) {
+        if (this.aMeshMagnetArray2 == null) {
             return;
         }
-        for (local13 = 0; local13 < this.aClass249Array2.length; local13++) {
-            @Pc(367) Class249 local367 = this.aClass249Array2[local13];
-            @Pc(369) Class249 local369 = local367;
-            if (local367.aClass249_2 != null) {
-                local369 = local367.aClass249_2;
+        for (local13 = 0; local13 < this.aMeshMagnetArray2.length; local13++) {
+            @Pc(367) MeshMagnet local367 = this.aMeshMagnetArray2[local13];
+            @Pc(369) MeshMagnet local369 = local367;
+            if (local367.aMeshMagnet_2 != null) {
+                local369 = local367.aMeshMagnet_2;
             }
             if (local367.aMatrix_6 == null) {
                 local367.aMatrix_6 = local8.method7129();
@@ -3078,7 +3078,7 @@ public final class Model_Sub1 extends Model {
         arg4.aShortArray42 = this.aShortArray42;
         arg4.aMeshEmitterArray2 = this.aMeshEmitterArray2;
         arg4.anIntArray238 = this.anIntArray238;
-        arg4.aClass249Array2 = this.aClass249Array2;
+        arg4.aMeshMagnetArray2 = this.aMeshMagnetArray2;
         return arg4;
     }
 
@@ -3088,7 +3088,7 @@ public final class Model_Sub1 extends Model {
             return;
         }
         this.aBoolean229 = false;
-        if (this.aMeshEmitterArray2 == null && this.aClass249Array2 == null && this.aClass298Array1 == null && !Static2.method66(this.anInt2765, this.anInt2756)) {
+        if (this.aMeshEmitterArray2 == null && this.aMeshMagnetArray2 == null && this.aClass298Array1 == null && !Static2.method66(this.anInt2765, this.anInt2756)) {
             @Pc(39) boolean local39 = false;
             @Pc(41) boolean local41 = false;
             if (this.anIntArray240 != null && !Static577.method7616(this.anInt2756, this.anInt2765)) {
@@ -3703,8 +3703,8 @@ public final class Model_Sub1 extends Model {
 
     @OriginalMember(owner = "client!eu", name = "c", descriptor = "()[Lclient!mn;")
     @Override
-    public Class249[] method7480() {
-        return this.aClass249Array2;
+    public MeshMagnet[] meshMagnets() {
+        return this.aMeshMagnetArray2;
     }
 
     @OriginalMember(owner = "client!eu", name = "H", descriptor = "(III)V")

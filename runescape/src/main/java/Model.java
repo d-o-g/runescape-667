@@ -153,7 +153,7 @@ public abstract class Model {
     public abstract void s(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!ka", name = "c", descriptor = "()[Lclient!mn;")
-    public abstract Class249[] method7480();
+    public abstract MeshMagnet[] meshMagnets();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!ka;IIIZ)V")
     public abstract void method7481(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4);

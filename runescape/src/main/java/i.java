@@ -19,16 +19,16 @@ public final class i extends Model implements Interface5 {
     public MeshEmitter[] aMeshEmitterArray3;
 
     @OriginalMember(owner = "client!i", name = "p", descriptor = "[Lclient!mn;")
-    public Class249[] aClass249Array3;
+    public MeshMagnet[] aMeshMagnetArray3;
 
     @OriginalMember(owner = "client!i", name = "<init>", descriptor = "(Lclient!oa;Lclient!ya;Lclient!dv;IIII)V")
     public i(@OriginalArg(0) oa arg0, @OriginalArg(1) ya arg1, @OriginalArg(2) Mesh arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         this.anOa2 = arg0;
         this.aYa1 = arg1;
         this.aMeshEmitterArray3 = arg2.aMeshEmitterArray1;
-        this.aClass249Array3 = arg2.aClass249Array1;
+        this.aMeshMagnetArray3 = arg2.aMeshMagnetArray1;
         @Pc(24) int local24 = arg2.aMeshEmitterArray1 == null ? 0 : arg2.aMeshEmitterArray1.length;
-        @Pc(34) int local34 = arg2.aClass249Array1 == null ? 0 : arg2.aClass249Array1.length;
+        @Pc(34) int local34 = arg2.aMeshMagnetArray1 == null ? 0 : arg2.aMeshMagnetArray1.length;
         @Pc(36) int local36 = 0;
         @Pc(43) int[] local43 = new int[local24 * 3 + local34];
         for (@Pc(45) int local45 = 0; local45 < local24; local45++) {
@@ -37,7 +37,7 @@ public final class i extends Model implements Interface5 {
             local43[local36++] = this.aMeshEmitterArray3[local45].anInt8505;
         }
         for (@Pc(79) int local79 = 0; local79 < local34; local79++) {
-            local43[local36++] = this.aClass249Array3[local79].anInt6247;
+            local43[local36++] = this.aMeshMagnetArray3[local79].anInt6247;
         }
         @Pc(105) int local105 = arg2.aClass24Array1 == null ? 0 : arg2.aClass24Array1.length;
         @Pc(110) int[] local110 = new int[local105 * 8];
@@ -187,14 +187,14 @@ public final class i extends Model implements Interface5 {
                 local16.anInt8520 = Static445.anIntArray537[local5++];
             }
         }
-        if (this.aClass249Array3 == null) {
+        if (this.aMeshMagnetArray3 == null) {
             return;
         }
-        for (local10 = 0; local10 < this.aClass249Array3.length; local10++) {
-            @Pc(89) Class249 local89 = this.aClass249Array3[local10];
-            @Pc(91) Class249 local91 = local89;
-            if (local89.aClass249_2 != null) {
-                local91 = local89.aClass249_2;
+        for (local10 = 0; local10 < this.aMeshMagnetArray3.length; local10++) {
+            @Pc(89) MeshMagnet local89 = this.aMeshMagnetArray3[local10];
+            @Pc(91) MeshMagnet local91 = local89;
+            if (local89.aMeshMagnet_2 != null) {
+                local91 = local89.aMeshMagnet_2;
             }
             if (local89.aMatrix_6 == null) {
                 local89.aMatrix_6 = arg0.method7129();
@@ -215,8 +215,8 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "c", descriptor = "()[Lclient!mn;")
     @Override
-    public Class249[] method7480() {
-        return this.aClass249Array3;
+    public MeshMagnet[] meshMagnets() {
+        return this.aMeshMagnetArray3;
     }
 
     @OriginalMember(owner = "client!i", name = "G", descriptor = "()I")

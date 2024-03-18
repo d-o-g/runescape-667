@@ -91,7 +91,7 @@ public final class Mesh {
     public int[] anIntArray214;
 
     @OriginalMember(owner = "client!dv", name = "p", descriptor = "[Lclient!mn;")
-    public Class249[] aClass249Array1;
+    public MeshMagnet[] aMeshMagnetArray1;
 
     @OriginalMember(owner = "client!dv", name = "d", descriptor = "[Lclient!aq;")
     public Class24[] aClass24Array1;
@@ -183,8 +183,8 @@ public final class Mesh {
                 this.anInt2362 += local56.anInt2362;
                 this.anInt2377 += local56.anInt2377;
                 this.anInt2372 += local56.anInt2372;
-                if (local56.aClass249Array1 != null) {
-                    local32 += local56.aClass249Array1.length;
+                if (local56.aMeshMagnetArray1 != null) {
+                    local32 += local56.aMeshMagnetArray1.length;
                 }
                 if (local56.aClass24Array1 != null) {
                     local34 += local56.aClass24Array1.length;
@@ -215,7 +215,7 @@ public final class Mesh {
             this.aByteArray25 = new byte[this.anInt2362];
         }
         if (local32 > 0) {
-            this.aClass249Array1 = new Class249[local32];
+            this.aMeshMagnetArray1 = new MeshMagnet[local32];
         }
         this.aShortArray23 = new short[this.anInt2372];
         this.anIntArray205 = new int[this.anInt2372];
@@ -324,10 +324,10 @@ public final class Mesh {
                         local30++;
                     }
                 }
-                if (local411.aClass249Array1 != null) {
-                    for (local636 = 0; local636 < local411.aClass249Array1.length; local636++) {
-                        local648 = this.method2244(local411, local411.aClass249Array1[local636].anInt6247, local407);
-                        this.aClass249Array1[local32] = local411.aClass249Array1[local636].method5593(local648);
+                if (local411.aMeshMagnetArray1 != null) {
+                    for (local636 = 0; local636 < local411.aMeshMagnetArray1.length; local636++) {
+                        local648 = this.method2244(local411, local411.aMeshMagnetArray1[local636].anInt6247, local407);
+                        this.aMeshMagnetArray1[local32] = local411.aMeshMagnetArray1[local636].method5593(local648);
                         local32++;
                     }
                 }
@@ -847,11 +847,11 @@ public final class Mesh {
             }
             local1556 = local8.g1();
             if (local1556 > 0) {
-                this.aClass249Array1 = new Class249[local1556];
+                this.aMeshMagnetArray1 = new MeshMagnet[local1556];
                 for (local1561 = 0; local1561 < local1556; local1561++) {
                     local1565 = local8.g2();
                     local1627 = local8.g2();
-                    this.aClass249Array1[local1561] = new Class249(local1565, local1627);
+                    this.aMeshMagnetArray1[local1561] = new MeshMagnet(local1565, local1627);
                 }
             }
         }

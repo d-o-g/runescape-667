@@ -2092,7 +2092,7 @@ public final class Toolkit_Sub3 extends Toolkit {
                 this.method6999();
             } else {
                 local33 = this.aClass169_1.method3529(arg0);
-                @Pc(69) Class118 local69 = super.textureSource.method6817(arg0);
+                @Pc(69) TextureMetrics local69 = super.textureSource.getMetrics(arg0);
                 if (local69.aByte54 == 0 && local69.aByte52 == 0) {
                     this.method6999();
                 } else {

@@ -372,7 +372,7 @@ public final class Ground_Sub3 extends Ground {
                         }
                     }
                     local530 = -16777216;
-                    if (arg8[local205] != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(arg8[local205]).aByte56)) {
+                    if (arg8[local205] != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(arg8[local205]).aByte56)) {
                         local530 = -1694498816;
                     }
                     local147.anIntArray646[local205] = local530 | Static572.method7867(arg10, Static732.method7167(arg6[local205] >> 8, local236), local498);
@@ -520,7 +520,7 @@ public final class Ground_Sub3 extends Ground {
             }
             @Pc(2164) boolean local2164 = false;
             for (local530 = 0; local530 < local1760.aShort129; local530++) {
-                if (arg8[local530 * 3] != -1 && !this.aClass19_Sub2_8.textureSource.method6817(arg8[local530 * 3]).aBoolean240) {
+                if (arg8[local530 * 3] != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(arg8[local530 * 3]).aBoolean240) {
                     local2164 = true;
                 }
             }
@@ -542,19 +542,19 @@ public final class Ground_Sub3 extends Ground {
                     @Pc(2258) boolean local2258 = false;
                     @Pc(2260) boolean local2260 = true;
                     @Pc(2264) int local2264 = arg8[local1961];
-                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.method6817(local2264).aBoolean240) {
+                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
                         local2260 = false;
                     } else {
                         local2258 = true;
                     }
                     local2264 = arg8[local2008];
-                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.method6817(local2264).aBoolean240) {
+                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
                         local2260 = false;
                     } else {
                         local2258 = true;
                     }
                     local2264 = arg8[local2098];
-                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.method6817(local2264).aBoolean240) {
+                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
                         local2260 = false;
                     } else {
                         local2258 = true;
@@ -565,16 +565,16 @@ public final class Ground_Sub3 extends Ground {
                     } else {
                         if (local2258) {
                             local2264 = arg8[local1961];
-                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.method6817(local2264).aBoolean240) {
-                                local1760.anIntArray802[local1961] = Static323.anIntArray389[Static105.method2043(this.aClass19_Sub2_8.textureSource.method6817(local2264).aShort37 & 0xFFFF) & 0xFFFF];
+                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
+                                local1760.anIntArray802[local1961] = Static323.anIntArray389[Static105.method2043(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
                             }
                             local2264 = arg8[local2008];
-                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.method6817(local2264).aBoolean240) {
-                                local1760.anIntArray802[local2008] = Static323.anIntArray389[Static105.method2043(this.aClass19_Sub2_8.textureSource.method6817(local2264).aShort37 & 0xFFFF) & 0xFFFF];
+                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
+                                local1760.anIntArray802[local2008] = Static323.anIntArray389[Static105.method2043(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
                             }
                             local2264 = arg8[local2098];
-                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.method6817(local2264).aBoolean240) {
-                                local1760.anIntArray802[local2098] = Static323.anIntArray389[Static105.method2043(this.aClass19_Sub2_8.textureSource.method6817(local2264).aShort37 & 0xFFFF) & 0xFFFF];
+                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
+                                local1760.anIntArray802[local2098] = Static323.anIntArray389[Static105.method2043(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
                             }
                         }
                         local1760.aShortArray139[local1834] = -1;
@@ -598,7 +598,7 @@ public final class Ground_Sub3 extends Ground {
         if (super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0 + 1][arg1] && super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0 + 1][arg1 + 1] && super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0][arg1 + 1]) {
             local931.aByte126 = (byte) (local931.aByte126 | 0x1);
         }
-        if (local498 == -1 || (local931.aByte126 & 0x2) != 0 || this.aClass19_Sub2_8.textureSource.method6817(local498).aBoolean240) {
+        if (local498 == -1 || (local931.aByte126 & 0x2) != 0 || this.aClass19_Sub2_8.textureSource.getMetrics(local498).aBoolean240) {
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
@@ -1346,7 +1346,7 @@ public final class Ground_Sub3 extends Ground {
                 }
                 local370 = arg11[local323];
                 if (local370 != -1) {
-                    @Pc(490) Class118 local490 = this.aClass19_Sub2_8.textureSource.method6817(local370);
+                    @Pc(490) TextureMetrics local490 = this.aClass19_Sub2_8.textureSource.getMetrics(local370);
                     if (!local490.aBoolean240) {
                         local454 = true;
                         if (this.method7162(local490.aByte56) || local490.aByte54 != 0 || local490.aByte52 != 0) {
@@ -1384,7 +1384,7 @@ public final class Ground_Sub3 extends Ground {
                     local118.aShortArray37[local118.aShort33] = (short) arg7[local370];
                     local118.aShortArray36[local118.aShort33] = (short) arg8[local370];
                     if (local454) {
-                        if (arg11[local370] == -1 || this.aClass19_Sub2_8.textureSource.method6817(arg11[local370]).aBoolean240) {
+                        if (arg11[local370] == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(arg11[local370]).aBoolean240) {
                             local118.aShortArray30[local118.aShort33] = -1;
                         } else {
                             local118.aShortArray30[local118.aShort33] = (short) arg11[local370];
@@ -1408,9 +1408,9 @@ public final class Ground_Sub3 extends Ground {
             if (super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0 + 1][arg1] && super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0 + 1][arg1 + 1] && super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0][arg1 + 1]) {
                 local741.aByte59 = (byte) (local741.aByte59 | 0x1);
             }
-            @Pc(849) Class118 local849 = null;
+            @Pc(849) TextureMetrics local849 = null;
             if (local85 != -1) {
-                local849 = this.aClass19_Sub2_8.textureSource.method6817(local85);
+                local849 = this.aClass19_Sub2_8.textureSource.getMetrics(local85);
             }
             if (local849 == null || (local741.aByte59 & 0x2) != 0 || local849.aBoolean240) {
                 @Pc(987) short local987 = Static105.method2043(local79);
@@ -1568,12 +1568,12 @@ public final class Ground_Sub3 extends Ground {
                                 } else if (local3648 > 0) {
                                     if (local3705 != -1) {
                                         local3719 = -16777216;
-                                        if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local3705).aByte56)) {
+                                        if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).aByte56)) {
                                             local3719 = -1694498816;
                                         }
                                         arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, arg3.anInt10597, arg8[local409], arg8[local469], arg8[local529], local3705);
                                     } else if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
-                                        if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local3705).aByte56)) {
+                                        if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).aByte56)) {
                                             arg4.anInt5724 = -1694498816;
                                         }
                                         arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], Static462.method6270(arg8[local409] << 24 | arg3.anInt10597, local3142.anIntArray802[local409]), Static462.method6270(arg8[local469] << 24 | arg3.anInt10597, local3142.anIntArray802[local469]), Static462.method6270(arg8[local529] << 24 | arg3.anInt10597, local3142.anIntArray802[local529]));
@@ -1581,12 +1581,12 @@ public final class Ground_Sub3 extends Ground {
                                     }
                                 } else if (local3705 != -1) {
                                     local3719 = -16777216;
-                                    if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local3705).aByte56)) {
+                                    if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).aByte56)) {
                                         local3719 = -1694498816;
                                     }
                                     arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, 0, 0, 0, 0, local3705);
                                 } else if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
-                                    if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local3705).aByte56)) {
+                                    if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).aByte56)) {
                                         arg4.anInt5724 = -1694498816;
                                     }
                                     arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], local3142.anIntArray802[local409], local3142.anIntArray802[local469], local3142.anIntArray802[local529]);
@@ -1611,18 +1611,18 @@ public final class Ground_Sub3 extends Ground {
                             arg4.aBoolean434 = local589 < 0 || local3620 < 0 || local3624 < 0 || local589 > arg4.anInt5725 || local3620 > arg4.anInt5725 || local3624 > arg4.anInt5725;
                             local3705 = local3142.aShortArray139[local559];
                             if (local3648 < 765) {
-                                if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local3705).aByte56)) {
+                                if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).aByte56)) {
                                     arg4.anInt5724 = -1694498816;
                                 }
                                 if (local3648 > 0) {
                                     if (local3705 != -1) {
                                         local3719 = -16777216;
-                                        if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local3705).aByte56)) {
+                                        if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).aByte56)) {
                                             local3719 = -1694498816;
                                         }
                                         arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, arg3.anInt10597, arg8[local409], arg8[local469], arg8[local529], local3705);
                                     } else if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
-                                        if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local3705).aByte56)) {
+                                        if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).aByte56)) {
                                             arg4.anInt5724 = -1694498816;
                                         }
                                         arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], Static462.method6270(arg8[local409] << 24 | arg3.anInt10597, local3142.anIntArray802[local409]), Static462.method6270(arg8[local469] << 24 | arg3.anInt10597, local3142.anIntArray802[local469]), Static462.method6270(arg8[local529] << 24 | arg3.anInt10597, local3142.anIntArray802[local529]));
@@ -1630,12 +1630,12 @@ public final class Ground_Sub3 extends Ground {
                                     }
                                 } else if (local3705 != -1) {
                                     local3719 = -16777216;
-                                    if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local3705).aByte56)) {
+                                    if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).aByte56)) {
                                         local3719 = -1694498816;
                                     }
                                     arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, 0, 0, 0, 0, local3705);
                                 } else if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
-                                    if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local3705).aByte56)) {
+                                    if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).aByte56)) {
                                         arg4.anInt5724 = -1694498816;
                                     }
                                     arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], local3142.anIntArray802[local409], local3142.anIntArray802[local469], local3142.anIntArray802[local529]);
@@ -1944,7 +1944,7 @@ public final class Ground_Sub3 extends Ground {
                     local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
                 }
             }
-            @Pc(1864) boolean local1864 = local6.aShort105 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.method6817(local6.aShort105).aByte56);
+            @Pc(1864) boolean local1864 = local6.aShort105 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local6.aShort105).aByte56);
             if (this.anInt8145 == -1) {
                 local863 = local64 + local66 + local68;
                 if ((local499 - local559) * (local469 - local589) - (local529 - local589) * (local439 - local559) > 0) {

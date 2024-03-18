@@ -77,7 +77,7 @@ public final class Node_Sub1_Sub1 extends Node_Sub1 {
     public void method9418(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         super.method9418(arg0, arg1);
         if (this.anInt55 >= 0 && Static677.anTextureSource_11 != null) {
-            @Pc(40) int local40 = Static677.anTextureSource_11.method6817(this.anInt55).aBoolean233 ? 64 : 128;
+            @Pc(40) int local40 = Static677.anTextureSource_11.getMetrics(this.anInt55).aBoolean233 ? 64 : 128;
             this.anIntArray10 = Static677.anTextureSource_11.method6818(local40, false, local40, this.anInt55, 1.0F);
             this.anInt49 = local40;
             this.anInt57 = local40;

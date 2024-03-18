@@ -284,7 +284,7 @@ public final class Model_Sub3 extends Model {
         @Pc(335) int local335;
         for (@Pc(147) int local147 = 0; local147 < this.anInt8482; local147++) {
             local152 = local119[local147];
-            @Pc(154) Class118 local154 = null;
+            @Pc(154) TextureMetrics local154 = null;
             @Pc(156) int local156 = 0;
             @Pc(158) byte local158 = 0;
             @Pc(160) byte local160 = 0;
@@ -299,7 +299,7 @@ public final class Model_Sub3 extends Model {
                             local167 = true;
                         }
                         if (local184.anInt9693 != -1) {
-                            @Pc(199) Class118 local199 = local47.method6817(local184.anInt9693);
+                            @Pc(199) TextureMetrics local199 = local47.getMetrics(local184.anInt9693);
                             if (local199.anInt2796 == 2) {
                                 this.aBoolean647 = true;
                             }
@@ -314,7 +314,7 @@ public final class Model_Sub3 extends Model {
             if (arg1.aShortArray25 != null) {
                 local226 = arg1.aShortArray25[local152];
                 if (local226 != -1) {
-                    local154 = local47.method6817(local226 & 0xFFFF);
+                    local154 = local47.getMetrics(local226 & 0xFFFF);
                     if ((arg5 & 0x40) != 0 && local154.aBoolean240) {
                         local226 = -1;
                     } else {
@@ -359,7 +359,7 @@ public final class Model_Sub3 extends Model {
         @Pc(510) boolean local510 = false;
         @Pc(517) int local517;
         @Pc(539) short local539;
-        @Pc(555) Class118 local555;
+        @Pc(555) TextureMetrics local555;
         @Pc(616) int local616;
         for (@Pc(512) int local512 = 0; local512 < this.anInt8482; local512++) {
             local517 = local119[local512];
@@ -371,7 +371,7 @@ public final class Model_Sub3 extends Model {
             }
             local539 = arg1.aShortArray25 == null ? -1 : arg1.aShortArray25[local517];
             if (local539 != -1 && (arg5 & 0x40) != 0) {
-                local555 = local47.method6817(local539 & 0xFFFF);
+                local555 = local47.getMetrics(local539 & 0xFFFF);
                 if (local555.aBoolean240) {
                     local539 = -1;
                 }
@@ -577,7 +577,7 @@ public final class Model_Sub3 extends Model {
                 if (local539 == -1) {
                     this.aShortArray123[local616] = -1;
                 } else {
-                    local555 = this.aClass19_Sub2_9.textureSource.method6817(local539);
+                    local555 = this.aClass19_Sub2_9.textureSource.getMetrics(local539);
                     if ((arg5 & 0x40) != 0 && local555.aBoolean240) {
                         this.aShortArray123[local616] = -1;
                     } else {
@@ -4181,7 +4181,7 @@ public final class Model_Sub3 extends Model {
             return;
         }
         if (!this.aBoolean651 && dest >= 0) {
-            @Pc(20) Class118 local20 = this.aClass19_Sub2_9.textureSource.method6817(dest & 0xFFFF);
+            @Pc(20) TextureMetrics local20 = this.aClass19_Sub2_9.textureSource.getMetrics(dest & 0xFFFF);
             if (local20.aByte54 != 0 || local20.aByte52 != 0) {
                 this.aBoolean651 = true;
             }
@@ -4225,7 +4225,7 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(ISI)I")
     public int method7531(@OriginalArg(0) int arg0, @OriginalArg(1) short arg1, @OriginalArg(2) int arg2) {
         @Pc(6) int local6 = Static154.anIntArray237[this.method7534(arg0, arg2)];
-        @Pc(15) Class118 local15 = this.aClass19_Sub2_9.textureSource.method6817(arg1 & 0xFFFF);
+        @Pc(15) TextureMetrics local15 = this.aClass19_Sub2_9.textureSource.getMetrics(arg1 & 0xFFFF);
         @Pc(20) int local20 = local15.aByte58 & 0xFF;
         @Pc(26) int local26;
         @Pc(38) int local38;

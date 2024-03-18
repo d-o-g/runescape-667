@@ -201,7 +201,7 @@ public final class Model_Sub1 extends Model {
         for (@Pc(24) int local24 = 0; local24 < arg1.anInt2362; local24++) {
             if (arg1.aByteArray25 == null || arg1.aByteArray25[local24] != 2) {
                 if (arg1.aShortArray25 != null && arg1.aShortArray25[local24] != -1) {
-                    @Pc(65) Class118 local65 = local11.method6817(arg1.aShortArray25[local24] & 0xFFFF);
+                    @Pc(65) TextureMetrics local65 = local11.getMetrics(arg1.aShortArray25[local24] & 0xFFFF);
                     if (((this.anInt2765 & 0x40) == 0 || !local65.aBoolean240) && local65.aBoolean234) {
                         continue;
                     }
@@ -220,7 +220,7 @@ public final class Model_Sub1 extends Model {
         @Pc(375) int local375;
         for (@Pc(159) int local159 = 0; local159 < this.anInt2715; local159++) {
             @Pc(167) int local167 = local15[local159];
-            @Pc(169) Class118 local169 = null;
+            @Pc(169) TextureMetrics local169 = null;
             local171 = 0;
             @Pc(173) byte local173 = 0;
             @Pc(175) byte local175 = 0;
@@ -235,7 +235,7 @@ public final class Model_Sub1 extends Model {
                             local182 = true;
                         }
                         if (local204.anInt9693 != -1) {
-                            @Pc(220) Class118 local220 = local11.method6817(local204.anInt9693);
+                            @Pc(220) TextureMetrics local220 = local11.getMetrics(local204.anInt9693);
                             if (local220.anInt2796 == 2) {
                                 this.aBoolean228 = true;
                             }
@@ -252,7 +252,7 @@ public final class Model_Sub1 extends Model {
             if (arg1.aShortArray25 != null) {
                 local257 = arg1.aShortArray25[local167];
                 if (local257 != -1) {
-                    local169 = local11.method6817(local257 & 0xFFFF);
+                    local169 = local11.getMetrics(local257 & 0xFFFF);
                     if ((this.anInt2765 & 0x40) != 0 && local169.aBoolean240) {
                         local257 = -1;
                         local169 = null;
@@ -416,7 +416,7 @@ public final class Model_Sub1 extends Model {
             }
             local1164 = arg1.aShortArray25 == null ? -1 : arg1.aShortArray25[local1120];
             if (local1164 != -1 && (this.anInt2765 & 0x40) != 0) {
-                @Pc(1181) Class118 local1181 = local11.method6817(local1164 & 0xFFFF);
+                @Pc(1181) TextureMetrics local1181 = local11.getMetrics(local1164 & 0xFFFF);
                 if (local1181.aBoolean240) {
                     local1164 = -1;
                 }
@@ -3242,14 +3242,14 @@ public final class Model_Sub1 extends Model {
         @Pc(39) byte local39 = 0;
         @Pc(41) byte local41 = 0;
         if (src != -1) {
-            @Pc(53) Class118 local53 = local9.method6817(src & 0xFFFF);
+            @Pc(53) TextureMetrics local53 = local9.getMetrics(src & 0xFFFF);
             local41 = local53.aByte57;
             local39 = local53.aByte58;
         }
         @Pc(61) byte local61 = 0;
         @Pc(63) byte local63 = 0;
         if (dest != -1) {
-            @Pc(74) Class118 local74 = local9.method6817(dest & 0xFFFF);
+            @Pc(74) TextureMetrics local74 = local9.getMetrics(dest & 0xFFFF);
             local63 = local74.aByte57;
             if (local74.aByte54 != 0 || local74.aByte52 != 0) {
                 this.aBoolean230 = true;

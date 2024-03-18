@@ -32,7 +32,7 @@ public final class Class334 {
         if (local12 != null) {
             return (Interface18) local12;
         } else if (this.anTextureSource_9.method6814(arg0)) {
-            @Pc(35) Class118 local35 = this.anTextureSource_9.method6817(arg0);
+            @Pc(35) TextureMetrics local35 = this.anTextureSource_9.getMetrics(arg0);
             @Pc(45) int local45 = local35.aBoolean233 ? 64 : this.aClass19_Sub1_20.anInt9183;
             @Pc(105) Interface18 local105;
             if (local35.aBoolean237 && this.aClass19_Sub1_20.method8014()) {

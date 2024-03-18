@@ -593,7 +593,7 @@ public final class Static30 {
             return 0;
         }
         @Pc(11) int local11 = local4.anInt8255;
-        if (local11 >= 0 && arg0.method6817(local11).aBoolean240) {
+        if (local11 >= 0 && arg0.getMetrics(local11).aBoolean240) {
             local11 = -1;
         }
         @Pc(68) int local68;
@@ -611,7 +611,7 @@ public final class Static30 {
             local55 = (local27 + arg2 & 0xFC00) + (local27 & 0x380) + local33;
             local68 = Static323.anIntArray389[Static105.method2043(Static203.method3066(local55)) & 0xFFFF] | 0xFF000000;
         } else if (local11 >= 0) {
-            local68 = Static323.anIntArray389[Static105.method2043(Static203.method3066(arg0.method6817(local11).aShort37)) & 0xFFFF] | 0xFF000000;
+            local68 = Static323.anIntArray389[Static105.method2043(Static203.method3066(arg0.getMetrics(local11).aShort37)) & 0xFFFF] | 0xFF000000;
         } else if (local4.anInt8249 == -1) {
             local68 = 0;
         } else {

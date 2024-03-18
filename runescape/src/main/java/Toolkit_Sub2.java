@@ -1185,7 +1185,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 if (!super.textureSource.method6814(arg0)) {
                     return null;
                 }
-                @Pc(36) Class118 local36 = super.textureSource.method6817(arg0);
+                @Pc(36) TextureMetrics local36 = super.textureSource.getMetrics(arg0);
                 @Pc(50) int local50 = local36.aBoolean233 || this.aBoolean332 ? 64 : this.lb;
                 local14 = new Node_Sub29(arg0, local50, super.textureSource.method6815(0.7F, arg0, local50, local50), local36.anInt2796 != 1);
                 this.aClass82_89.method2150(local14, (long) arg0 | Long.MIN_VALUE);
@@ -1875,7 +1875,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 local13.anInt4409 += local4;
                 @Pc(27) int local27 = local13.anInt4409 / 20;
                 if (local27 > 0) {
-                    @Pc(36) Class118 local36 = super.textureSource.method6817(local13.anInt4408);
+                    @Pc(36) TextureMetrics local36 = super.textureSource.getMetrics(local13.anInt4408);
                     local13.method3973(local36.aByte54 * local4 * 50 / 1000, local36.aByte52 * local4 * 50 / 1000);
                     local13.anInt4409 -= local27 * 20;
                 }
@@ -1897,7 +1897,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         if (arg3 == 0 || arg4 == 0) {
             return;
         }
-        if (arg6 == 65535 || super.textureSource.method6817(arg6).aBoolean240) {
+        if (arg6 == 65535 || super.textureSource.getMetrics(arg6).aBoolean240) {
             this.method3790(arg0, arg1, arg2, arg3, arg7, arg9);
             return;
         }
@@ -2205,7 +2205,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 if (!super.textureSource.method6814(arg0)) {
                     return null;
                 }
-                @Pc(34) Class118 local34 = super.textureSource.method6817(arg0);
+                @Pc(34) TextureMetrics local34 = super.textureSource.getMetrics(arg0);
                 @Pc(48) int local48 = local34.aBoolean233 || this.aBoolean332 ? 64 : this.lb;
                 local12 = new Node_Sub29(arg0, local48, super.textureSource.method6818(local48, true, local48, arg0, 0.7F), local34.anInt2796 != 1);
                 this.aClass82_89.method2150(local12, (long) arg0);
@@ -2260,7 +2260,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "m", descriptor = "(I)I")
     public int method3793(@OriginalArg(0) int arg0) {
-        return super.textureSource.method6817(arg0).aShort37 & 0xFFFF;
+        return super.textureSource.getMetrics(arg0).aShort37 & 0xFFFF;
     }
 
     @OriginalMember(owner = "client!iaa", name = "X", descriptor = "(I)V")
@@ -2614,7 +2614,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "p", descriptor = "(I)I")
     public int method3795(@OriginalArg(0) int arg0) {
-        return super.textureSource.method6817(arg0).anInt2796;
+        return super.textureSource.getMetrics(arg0).anInt2796;
     }
 
     @OriginalMember(owner = "client!iaa", name = "z", descriptor = "()Z")
@@ -2709,7 +2709,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "d", descriptor = "(I)Z")
     public boolean method3796(@OriginalArg(0) int arg0) {
-        return super.textureSource.method6817(arg0).aBoolean236 || super.textureSource.method6817(arg0).aBoolean235;
+        return super.textureSource.getMetrics(arg0).aBoolean236 || super.textureSource.getMetrics(arg0).aBoolean235;
     }
 
     @OriginalMember(owner = "client!iaa", name = "I", descriptor = "()I")
@@ -2725,7 +2725,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         if (arg3 == 0 || arg4 == 0) {
             return;
         }
-        if (arg6 == 65535 || super.textureSource.method6817(arg6).aBoolean240) {
+        if (arg6 == 65535 || super.textureSource.getMetrics(arg6).aBoolean240) {
             this.method3790(arg0, arg1, arg2, arg3, arg7, arg9);
             return;
         }
@@ -2758,7 +2758,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "q", descriptor = "(I)Z")
     public boolean method3798(@OriginalArg(0) int arg0) {
-        return this.aBoolean332 || super.textureSource.method6817(arg0).aBoolean233;
+        return this.aBoolean332 || super.textureSource.getMetrics(arg0).aBoolean233;
     }
 
     @OriginalMember(owner = "client!iaa", name = "w", descriptor = "()Z")

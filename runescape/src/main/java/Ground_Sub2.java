@@ -689,7 +689,7 @@ public final class Ground_Sub2 extends Ground {
         for (@Pc(106) int local106 = 0; local106 < arg6.length; local106++) {
             @Pc(114) int local114 = arg8[local106];
             @Pc(118) int local118 = arg9[local106];
-            if ((this.anInt7486 & 0x20) != 0 && local114 != -1 && local41.method6817(local114).aBoolean240) {
+            if ((this.anInt7486 & 0x20) != 0 && local114 != -1 && local41.getMetrics(local114).aBoolean240) {
                 local114 = -1;
                 local118 = 128;
             }

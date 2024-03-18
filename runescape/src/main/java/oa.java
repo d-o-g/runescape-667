@@ -311,7 +311,7 @@ public final class oa extends Toolkit implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "c", descriptor = "(S)Z")
     public boolean c(@OriginalArg(0) short arg0) {
         synchronized (this) {
-            @Pc(9) Class118 local9 = super.textureSource.method6817(arg0);
+            @Pc(9) TextureMetrics local9 = super.textureSource.getMetrics(arg0);
             if (local9 == null) {
                 return false;
             } else {
@@ -587,7 +587,7 @@ public final class oa extends Toolkit implements Interface5 {
             if (!super.textureSource.method6814(arg0)) {
                 return false;
             }
-            @Pc(22) Class118 local22 = super.textureSource.method6817(arg0);
+            @Pc(22) TextureMetrics local22 = super.textureSource.getMetrics(arg0);
             if (local22 == null) {
                 return false;
             }

@@ -37,7 +37,7 @@ public final class Class169 {
         if (local10 != null) {
             return (Class93_Sub2) local10;
         } else if (this.anTextureSource_4.method6814(arg0)) {
-            @Pc(33) Class118 local33 = this.anTextureSource_4.method6817(arg0);
+            @Pc(33) TextureMetrics local33 = this.anTextureSource_4.getMetrics(arg0);
             @Pc(52) int local52 = local33.aBoolean233 ? 64 : this.aClass19_Sub3_17.anInt7981;
             @Pc(90) Class93_Sub2 local90;
             if (local33.aBoolean237 && this.aClass19_Sub3_17.method8014()) {

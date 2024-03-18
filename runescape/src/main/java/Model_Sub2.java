@@ -222,7 +222,7 @@ public final class Model_Sub2 extends Model {
         for (@Pc(129) int local129 = 0; local129 < arg1.anInt2362; local129++) {
             if (arg1.aByteArray25 == null || arg1.aByteArray25[local129] != 2) {
                 if (arg1.aShortArray25 != null && arg1.aShortArray25[local129] != -1) {
-                    @Pc(168) Class118 local168 = local116.method6817(arg1.aShortArray25[local129] & 0xFFFF);
+                    @Pc(168) TextureMetrics local168 = local116.getMetrics(arg1.aShortArray25[local129] & 0xFFFF);
                     if (((this.anInt5529 & 0x40) == 0 || !local168.aBoolean240) && local168.aBoolean234) {
                         continue;
                     }
@@ -241,7 +241,7 @@ public final class Model_Sub2 extends Model {
         @Pc(481) int local481;
         for (@Pc(266) int local266 = 0; local266 < this.anInt5560; local266++) {
             @Pc(274) int local274 = local120[local266];
-            @Pc(276) Class118 local276 = null;
+            @Pc(276) TextureMetrics local276 = null;
             local278 = 0;
             @Pc(280) byte local280 = 0;
             @Pc(282) byte local282 = 0;
@@ -256,7 +256,7 @@ public final class Model_Sub2 extends Model {
                             local289 = true;
                         }
                         if (local307.anInt9693 != -1) {
-                            @Pc(323) Class118 local323 = local116.method6817(local307.anInt9693);
+                            @Pc(323) TextureMetrics local323 = local116.getMetrics(local307.anInt9693);
                             if (local323.anInt2796 == 2) {
                                 this.aBoolean421 = true;
                             }
@@ -273,7 +273,7 @@ public final class Model_Sub2 extends Model {
             if (arg1.aShortArray25 != null) {
                 local358 = arg1.aShortArray25[local274];
                 if (local358 != -1) {
-                    local276 = local116.method6817(local358 & 0xFFFF);
+                    local276 = local116.getMetrics(local358 & 0xFFFF);
                     if ((this.anInt5529 & 0x40) != 0 && local276.aBoolean240) {
                         local358 = -1;
                         local276 = null;
@@ -440,7 +440,7 @@ public final class Model_Sub2 extends Model {
             }
             local1260 = arg1.aShortArray25 == null ? -1 : arg1.aShortArray25[local1216];
             if (local1260 != -1 && (this.anInt5529 & 0x40) != 0) {
-                @Pc(1278) Class118 local1278 = local116.method6817(local1260 & 0xFFFF);
+                @Pc(1278) TextureMetrics local1278 = local116.getMetrics(local1260 & 0xFFFF);
                 if (local1278.aBoolean240) {
                     local1260 = -1;
                 }
@@ -753,14 +753,14 @@ public final class Model_Sub2 extends Model {
         @Pc(39) byte local39 = 0;
         @Pc(41) byte local41 = 0;
         if (src != -1) {
-            @Pc(53) Class118 local53 = local9.method6817(src & 0xFFFF);
+            @Pc(53) TextureMetrics local53 = local9.getMetrics(src & 0xFFFF);
             local39 = local53.aByte58;
             local41 = local53.aByte57;
         }
         @Pc(61) byte local61 = 0;
         @Pc(63) byte local63 = 0;
         if (dest != -1) {
-            @Pc(73) Class118 local73 = local9.method6817(dest & 0xFFFF);
+            @Pc(73) TextureMetrics local73 = local9.getMetrics(dest & 0xFFFF);
             local61 = local73.aByte58;
             local63 = local73.aByte57;
             if (local73.aByte54 != 0 || local73.aByte52 != 0) {
@@ -1252,7 +1252,7 @@ public final class Model_Sub2 extends Model {
     public int method4985(@OriginalArg(1) byte arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) short arg3) {
         @Pc(20) int local20 = Static154.anIntArray237[Static468.method7648(arg1, arg2)];
         if (arg3 != -1) {
-            @Pc(33) Class118 local33 = this.aClass19_Sub3_24.textureSource.method6817(arg3 & 0xFFFF);
+            @Pc(33) TextureMetrics local33 = this.aClass19_Sub3_24.textureSource.getMetrics(arg3 & 0xFFFF);
             @Pc(38) int local38 = local33.aByte58 & 0xFF;
             @Pc(49) int local49;
             @Pc(78) int local78;

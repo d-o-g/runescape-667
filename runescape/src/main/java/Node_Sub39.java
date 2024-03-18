@@ -139,7 +139,7 @@ public final class Node_Sub39 extends Node {
         @Pc(24) int local24;
         @Pc(49) int local49;
         if (this.anInt6592 != -1) {
-            @Pc(19) Class118 local19 = this.aClass19_Sub3_31.textureSource.method6817(this.anInt6592);
+            @Pc(19) TextureMetrics local19 = this.aClass19_Sub3_31.textureSource.getMetrics(this.anInt6592);
             local24 = local19.aByte58 & 0xFF;
             @Pc(68) int local68;
             if (local24 != 0 && local19.aByte56 != 4) {

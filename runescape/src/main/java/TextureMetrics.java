@@ -2,7 +2,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!fa")
-public final class Class118 {
+public final class TextureMetrics {
 
     @OriginalMember(owner = "client!fa", name = "r", descriptor = "I")
     public int anInt2790;

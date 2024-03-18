@@ -9,46 +9,46 @@ import org.openrs2.deob.annotation.Pc;
 public final class Js5Index {
 
     @OriginalMember(owner = "client!pj", name = "s", descriptor = "[I")
-    public int[] anIntArray595;
+    public int[] fileLimits;
 
     @OriginalMember(owner = "client!pj", name = "t", descriptor = "[I")
-    public int[] anIntArray596;
+    public int[] groupNames;
 
     @OriginalMember(owner = "client!pj", name = "e", descriptor = "[Lclient!eha;")
-    public Class100[] aClass100Array1;
+    public NameHashTable[] fileNameTables;
 
     @OriginalMember(owner = "client!pj", name = "n", descriptor = "[[I")
-    public int[][] anIntArrayArray185;
+    public int[][] fileIds;
 
     @OriginalMember(owner = "client!pj", name = "q", descriptor = "I")
-    public int anInt7366;
+    public int version;
 
     @OriginalMember(owner = "client!pj", name = "r", descriptor = "[I")
-    public int[] anIntArray597;
+    public int[] groupVersions;
 
     @OriginalMember(owner = "client!pj", name = "k", descriptor = "I")
-    public int anInt7367;
+    public int groupCount;
 
     @OriginalMember(owner = "client!pj", name = "b", descriptor = "[I")
-    public int[] anIntArray598;
+    public int[] fileCounts;
 
     @OriginalMember(owner = "client!pj", name = "o", descriptor = "I")
-    public int anInt7368;
+    public int groupLimit;
 
     @OriginalMember(owner = "client!pj", name = "g", descriptor = "[[B")
-    public byte[][] aByteArrayArray24;
+    public byte[][] groupHashes;
 
     @OriginalMember(owner = "client!pj", name = "h", descriptor = "[I")
-    public int[] anIntArray599;
+    public int[] groupCrcs;
 
     @OriginalMember(owner = "client!pj", name = "u", descriptor = "[I")
-    public int[] anIntArray600;
+    public int[] groupIds;
 
     @OriginalMember(owner = "client!pj", name = "c", descriptor = "Lclient!eha;")
-    public Class100 aClass100_1;
+    public NameHashTable aNameHashTable_1;
 
     @OriginalMember(owner = "client!pj", name = "l", descriptor = "[[I")
-    public int[][] anIntArrayArray186;
+    public int[][] fileNames;
 
     @OriginalMember(owner = "client!pj", name = "j", descriptor = "I")
     public final int crc;
@@ -78,152 +78,182 @@ public final class Js5Index {
             }
         }
 
-        this.method6568(data);
+        this.loadIndex(data);
     }
 
     @OriginalMember(owner = "client!pj", name = "a", descriptor = "([BZ)V")
-    public void method6568(@OriginalArg(0) byte[] arg0) {
-        @Pc(12) Packet local12 = new Packet(Static590.method7744(arg0));
-        @Pc(16) int local16 = local12.g1();
-        if (local16 < 5 || local16 > 7) {
-            throw new RuntimeException();
+    public void loadIndex(@OriginalArg(0) byte[] data) {
+        @Pc(12) Packet packet = new Packet(js5.decodeContainer(data));
+
+        @Pc(16) int protocol = packet.g1();
+        if (protocol < 5 || protocol > 7) {
+            throw new RuntimeException("Incorrect JS5 protocol number: " + protocol);
         }
-        if (local16 >= 6) {
-            this.anInt7366 = local12.g4();
+
+        if (protocol >= 6) {
+            this.version = packet.g4();
         } else {
-            this.anInt7366 = 0;
+            this.version = 0;
         }
-        @Pc(54) int local54 = local12.g1();
-        @Pc(63) boolean local63 = (local54 & 0x1) != 0;
-        @Pc(75) boolean local75 = (local54 & 0x2) != 0;
-        if (local16 >= 7) {
-            this.anInt7367 = local12.gSmart2or4();
+
+        @Pc(54) int flags = packet.g1();
+        @Pc(63) boolean hasNames = (flags & 0x1) != 0;
+        @Pc(75) boolean hasHashes = (flags & 0x2) != 0;
+
+        if (protocol >= 7) {
+            this.groupCount = packet.gSmart2or4();
         } else {
-            this.anInt7367 = local12.g2();
+            this.groupCount = packet.g2();
         }
-        @Pc(101) int local101 = 0;
-        @Pc(103) int local103 = -1;
-        this.anIntArray600 = new int[this.anInt7367];
-        @Pc(115) int local115;
-        if (local16 >= 7) {
-            for (local115 = 0; local115 < this.anInt7367; local115++) {
-                this.anIntArray600[local115] = local101 += local12.gSmart2or4();
-                if (this.anIntArray600[local115] > local103) {
-                    local103 = this.anIntArray600[local115];
+
+        @Pc(101) int id = 0;
+        @Pc(103) int lastGroup = -1;
+
+        this.groupIds = new int[this.groupCount];
+
+        if (protocol >= 7) {
+            for (@Pc(115) int i = 0; i < this.groupCount; i++) {
+                this.groupIds[i] = id += packet.gSmart2or4();
+
+                if (this.groupIds[i] > lastGroup) {
+                    lastGroup = this.groupIds[i];
                 }
             }
         } else {
-            for (local115 = 0; local115 < this.anInt7367; local115++) {
-                this.anIntArray600[local115] = local101 += local12.g2();
-                if (local103 < this.anIntArray600[local115]) {
-                    local103 = this.anIntArray600[local115];
+            for (@Pc(115) int i = 0; i < this.groupCount; i++) {
+                this.groupIds[i] = id += packet.g2();
+
+                if (lastGroup < this.groupIds[i]) {
+                    lastGroup = this.groupIds[i];
                 }
             }
         }
-        this.anInt7368 = local103 + 1;
-        this.anIntArray599 = new int[this.anInt7368];
-        if (local75) {
-            this.aByteArrayArray24 = new byte[this.anInt7368][];
+
+        this.groupLimit = lastGroup + 1;
+        this.groupCrcs = new int[this.groupLimit];
+        if (hasHashes) {
+            this.groupHashes = new byte[this.groupLimit][];
         }
-        this.anIntArray597 = new int[this.anInt7368];
-        this.anIntArray595 = new int[this.anInt7368];
-        this.anIntArray598 = new int[this.anInt7368];
-        this.anIntArrayArray185 = new int[this.anInt7368][];
-        @Pc(265) int local265;
-        if (local63) {
-            this.anIntArray596 = new int[this.anInt7368];
-            for (local115 = 0; local115 < this.anInt7368; local115++) {
-                this.anIntArray596[local115] = -1;
+        this.groupVersions = new int[this.groupLimit];
+
+        this.fileLimits = new int[this.groupLimit];
+        this.fileCounts = new int[this.groupLimit];
+        this.fileIds = new int[this.groupLimit][];
+
+        if (hasNames) {
+            this.groupNames = new int[this.groupLimit];
+
+            for (@Pc(115) int i = 0; i < this.groupLimit; i++) {
+                this.groupNames[i] = -1;
             }
-            for (local265 = 0; local265 < this.anInt7367; local265++) {
-                this.anIntArray596[this.anIntArray600[local265]] = local12.g4();
+
+            for (@Pc(265) int i = 0; i < this.groupCount; i++) {
+                this.groupNames[this.groupIds[i]] = packet.g4();
             }
-            this.aClass100_1 = new Class100(this.anIntArray596);
+
+            this.aNameHashTable_1 = new NameHashTable(this.groupNames);
         }
-        for (local115 = 0; local115 < this.anInt7367; local115++) {
-            this.anIntArray599[this.anIntArray600[local115]] = local12.g4();
+
+        for (@Pc(115) int i = 0; i < this.groupCount; i++) {
+            this.groupCrcs[this.groupIds[i]] = packet.g4();
         }
-        if (local75) {
-            for (local265 = 0; local265 < this.anInt7367; local265++) {
-                @Pc(339) byte[] local339 = new byte[64];
-                local12.gdata(0, 64, local339);
-                this.aByteArrayArray24[this.anIntArray600[local265]] = local339;
+
+        if (hasHashes) {
+            for (@Pc(265) int i = 0; i < this.groupCount; i++) {
+                @Pc(339) byte[] hash = new byte[64];
+                packet.gdata(0, 64, hash);
+                this.groupHashes[this.groupIds[i]] = hash;
             }
         }
-        for (local265 = 0; local265 < this.anInt7367; local265++) {
-            this.anIntArray597[this.anIntArray600[local265]] = local12.g4();
+
+        for (@Pc(265) int i = 0; i < this.groupCount; i++) {
+            this.groupVersions[this.groupIds[i]] = packet.g4();
         }
-        @Pc(423) int local423;
-        @Pc(432) int local432;
-        @Pc(439) int local439;
-        @Pc(441) int local441;
-        @Pc(449) int local449;
-        @Pc(466) int local466;
-        @Pc(398) int local398;
-        if (local16 < 7) {
-            for (local398 = 0; local398 < this.anInt7367; local398++) {
-                this.anIntArray598[this.anIntArray600[local398]] = local12.g2();
+
+        if (protocol < 7) {
+            for (@Pc(398) int i = 0; i < this.groupCount; i++) {
+                this.fileCounts[this.groupIds[i]] = packet.g2();
             }
-            for (local423 = 0; local423 < this.anInt7367; local423++) {
-                local432 = this.anIntArray600[local423];
-                local101 = 0;
-                local439 = this.anIntArray598[local432];
-                local441 = -1;
-                this.anIntArrayArray185[local432] = new int[local439];
-                for (local449 = 0; local449 < local439; local449++) {
-                    local466 = this.anIntArrayArray185[local432][local449] = local101 += local12.g2();
-                    if (local441 < local466) {
-                        local441 = local466;
+
+            for (@Pc(423) int i = 0; i < this.groupCount; i++) {
+                @Pc(432) int groupId = this.groupIds[i];
+                id = 0;
+                @Pc(439) int fileCount = this.fileCounts[groupId];
+                @Pc(441) int lastFile = -1;
+
+                this.fileIds[groupId] = new int[fileCount];
+
+                for (@Pc(449) int j = 0; j < fileCount; j++) {
+                    @Pc(466) int fileId = this.fileIds[groupId][j] = id += packet.g2();
+
+                    if (fileId > lastFile) {
+                        lastFile = fileId;
                     }
                 }
-                this.anIntArray595[local432] = local441 + 1;
-                if (local439 == local441 + 1) {
-                    this.anIntArrayArray185[local432] = null;
+
+                this.fileLimits[groupId] = lastFile + 1;
+
+                if (fileCount == lastFile + 1) {
+                    this.fileIds[groupId] = null;
                 }
             }
         } else {
-            for (local398 = 0; local398 < this.anInt7367; local398++) {
-                this.anIntArray598[this.anIntArray600[local398]] = local12.gSmart2or4();
+            for (@Pc(398) int i = 0; i < this.groupCount; i++) {
+                this.fileCounts[this.groupIds[i]] = packet.gSmart2or4();
             }
-            for (local423 = 0; local423 < this.anInt7367; local423++) {
-                local432 = this.anIntArray600[local423];
-                local439 = this.anIntArray598[local432];
-                local101 = 0;
-                local441 = -1;
-                this.anIntArrayArray185[local432] = new int[local439];
-                for (local449 = 0; local449 < local439; local449++) {
-                    local466 = this.anIntArrayArray185[local432][local449] = local101 += local12.gSmart2or4();
-                    if (local466 > local441) {
-                        local441 = local466;
+
+            for (@Pc(423) int i = 0; i < this.groupCount; i++) {
+                @Pc(432) int groupId = this.groupIds[i];
+                @Pc(439) int fileCount = this.fileCounts[groupId];
+                id = 0;
+                @Pc(441) int lastFile = -1;
+
+                this.fileIds[groupId] = new int[fileCount];
+
+                for (@Pc(449) int j = 0; j < fileCount; j++) {
+                    @Pc(441) int fileId = this.fileIds[groupId][j] = id += packet.gSmart2or4();
+
+                    if (fileId > lastFile) {
+                        lastFile = fileId;
                     }
                 }
-                this.anIntArray595[local432] = local441 + 1;
-                if (local441 + 1 == local439) {
-                    this.anIntArrayArray185[local432] = null;
+
+                this.fileLimits[groupId] = lastFile + 1;
+
+                if (lastFile + 1 == fileCount) {
+                    this.fileIds[groupId] = null;
                 }
             }
         }
-        if (!local63) {
-            return;
-        }
-        this.aClass100Array1 = new Class100[local103 + 1];
-        this.anIntArrayArray186 = new int[local103 + 1][];
-        for (local398 = 0; local398 < this.anInt7367; local398++) {
-            local423 = this.anIntArray600[local398];
-            local432 = this.anIntArray598[local423];
-            this.anIntArrayArray186[local423] = new int[this.anIntArray595[local423]];
-            for (local439 = 0; local439 < this.anIntArray595[local423]; local439++) {
-                this.anIntArrayArray186[local423][local439] = -1;
-            }
-            for (local441 = 0; local441 < local432; local441++) {
-                if (this.anIntArrayArray185[local423] == null) {
-                    local449 = local441;
-                } else {
-                    local449 = this.anIntArrayArray185[local423][local441];
+
+        if (hasNames) {
+            this.fileNameTables = new NameHashTable[lastGroup + 1];
+            this.fileNames = new int[lastGroup + 1][];
+
+            for (@Pc(398) int i = 0; i < this.groupCount; i++) {
+                @Pc(423) int groupId = this.groupIds[i];
+                @Pc(432) int fileCount = this.fileCounts[groupId];
+
+                this.fileNames[groupId] = new int[this.fileLimits[groupId]];
+
+                for (@Pc(439) int j = 0; j < this.fileLimits[groupId]; j++) {
+                    this.fileNames[groupId][j] = -1;
                 }
-                this.anIntArrayArray186[local423][local449] = local12.g4();
+
+                for (@Pc(441) int j = 0; j < fileCount; j++) {
+                    @Pc(449) int fileId;
+
+                    if (this.fileIds[groupId] == null) {
+                        fileId = j;
+                    } else {
+                        fileId = this.fileIds[groupId][j];
+                    }
+
+                    this.fileNames[groupId][fileId] = packet.g4();
+                }
+
+                this.fileNameTables[groupId] = new NameHashTable(this.fileNames[groupId]);
             }
-            this.aClass100Array1[local423] = new Class100(this.anIntArrayArray186[local423]);
         }
     }
 }

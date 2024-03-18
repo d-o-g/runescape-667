@@ -22,7 +22,7 @@ public final class Class300 {
     }
 
     @OriginalMember(owner = "client!qaa", name = "a", descriptor = "(ILclient!ge;[B)V")
-    public void method6761(@OriginalArg(1) Packet arg0, @OriginalArg(2) byte[] arg1) {
+    public void gunzip(@OriginalArg(1) Packet arg0, @OriginalArg(2) byte[] arg1) {
         if (arg0.data[arg0.pos] != 31 || arg0.data[arg0.pos + 1] != -117) {
             throw new RuntimeException("Invalid GZIP header!");
         }
@@ -46,7 +46,7 @@ public final class Class300 {
         @Pc(24) int local24 = local8.ig4();
         @Pc(27) byte[] local27 = new byte[local24];
         local8.pos = 0;
-        this.method6761(local8, local27);
+        this.gunzip(local8, local27);
         return local27;
     }
 }

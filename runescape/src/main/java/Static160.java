@@ -8,7 +8,7 @@ public final class Static160 {
     public static final Class261 aClass261_1 = new Class261();
 
     @OriginalMember(owner = "client!f", name = "a", descriptor = "([BI[BII)I")
-    public static int method2576(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3) {
+    public static int bunzip(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3) {
         @Pc(1) Class261 local1 = aClass261_1;
         synchronized (aClass261_1) {
             aClass261_1.aByteArray72 = arg2;

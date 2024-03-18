@@ -9,6 +9,41 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!sb")
 public final class js5 {
 
+    @OriginalMember(owner = "client!dj", name = "o", descriptor = "I")
+    public static final int maxsize = 0;
+
+    @OriginalMember(owner = "client!ska", name = "a", descriptor = "([BB)[B")
+    public static byte[] decodeContainer(@OriginalArg(0) byte[] compressed) {
+        @Pc(8) Packet packet = new Packet(compressed);
+        @Pc(18) int ctype = packet.g1();
+        @Pc(22) int clen = packet.g4();
+
+        if ((clen < 0) || ((maxsize != 0) && (clen > maxsize))) {
+            throw new RuntimeException("ctype=" + ctype + " clen=" + clen + " maxsize=" + maxsize);
+        } else if (ctype == 0) {
+            @Pc(98) byte[] decoded = new byte[clen];
+            packet.gdata(0, clen, decoded);
+            return decoded;
+        } else {
+            @Pc(44) int ulen = packet.g4();
+            if ((ulen < 0) || ((maxsize != 0) && (ulen > maxsize))) {
+                throw new RuntimeException("ctype=" + ctype + " clen=" + clen + " ulen=" + ulen + " maxsize=" + maxsize);
+            }
+
+            @Pc(66) byte[] decoded = new byte[ulen];
+            if (ctype == 1) {
+                Static160.bunzip(decoded, ulen, compressed, clen);
+            } else {
+                @Pc(73) Class300 local73 = Static315.aClass300_1;
+                synchronized (Static315.aClass300_1) {
+                    Static315.aClass300_1.gunzip(packet, decoded);
+                }
+            }
+
+            return decoded;
+        }
+    }
+
     public static String whirlpoolToString(byte[] whirlpool) {
         StringBuffer buffer = new StringBuffer(whirlpool.length * 2 + 2);
         buffer.append("0x");
@@ -65,11 +100,11 @@ public final class js5 {
             return;
         }
         if (arg0) {
-            this.aJs5Index_2.aClass100_1 = null;
-            this.aJs5Index_2.anIntArray596 = null;
+            this.aJs5Index_2.aNameHashTable_1 = null;
+            this.aJs5Index_2.groupNames = null;
         }
-        this.aJs5Index_2.anIntArrayArray186 = null;
-        this.aJs5Index_2.aClass100Array1 = null;
+        this.aJs5Index_2.fileNames = null;
+        this.aJs5Index_2.fileNameTables = null;
     }
 
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(Z)I")
@@ -87,11 +122,11 @@ public final class js5 {
         }
         @Pc(13) String local13 = arg0.toLowerCase();
         @Pc(16) String local16 = arg1.toLowerCase();
-        @Pc(25) int local25 = this.aJs5Index_2.aClass100_1.method2382(Static95.method1894(local13));
+        @Pc(25) int local25 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local13));
         if (local25 < 0) {
             return false;
         } else {
-            @Pc(41) int local41 = this.aJs5Index_2.aClass100Array1[local25].method2382(Static95.method1894(local16));
+            @Pc(41) int local41 = this.aJs5Index_2.fileNameTables[local25].method2382(Static95.method1894(local16));
             return local41 >= 0;
         }
     }
@@ -124,11 +159,11 @@ public final class js5 {
     public boolean method7581(@OriginalArg(0) int arg0) {
         if (!this.method7601()) {
             return false;
-        } else if (this.aJs5Index_2.anIntArray595.length == 1) {
+        } else if (this.aJs5Index_2.fileLimits.length == 1) {
             return this.method7586(arg0, 0);
         } else if (!this.method7596(arg0)) {
             return false;
-        } else if (this.aJs5Index_2.anIntArray595[arg0] == 1) {
+        } else if (this.aJs5Index_2.fileLimits[arg0] == 1) {
             return this.method7586(0, arg0);
         } else {
             throw new RuntimeException();
@@ -143,7 +178,7 @@ public final class js5 {
         @Pc(18) int local18 = 0;
         @Pc(20) int local20 = 0;
         for (@Pc(22) int local22 = 0; local22 < this.anObjectArray37.length; local22++) {
-            if (this.aJs5Index_2.anIntArray598[local22] > 0) {
+            if (this.aJs5Index_2.fileCounts[local22] > 0) {
                 local18 += 100;
                 local20 += this.method7580(local22);
             }
@@ -173,7 +208,7 @@ public final class js5 {
         @Pc(61) byte[] local61 = Static377.method5321(false, this.anObjectArrayArray1[arg2][arg1]);
         if (this.anInt8555 == 1) {
             this.anObjectArrayArray1[arg2][arg1] = null;
-            if (this.aJs5Index_2.anIntArray595[arg2] == 1) {
+            if (this.aJs5Index_2.fileLimits[arg2] == 1) {
                 this.anObjectArrayArray1[arg2] = null;
             }
         } else if (this.anInt8555 == 2) {
@@ -186,7 +221,7 @@ public final class js5 {
     public boolean method7584(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (!this.method7601()) {
             return false;
-        } else if (arg1 >= 0 && arg0 >= 0 && arg1 < this.aJs5Index_2.anIntArray595.length && this.aJs5Index_2.anIntArray595[arg1] > arg0) {
+        } else if (arg1 >= 0 && arg0 >= 0 && arg1 < this.aJs5Index_2.fileLimits.length && this.aJs5Index_2.fileLimits[arg1] > arg0) {
             return true;
         } else if (Static486.aBoolean550) {
             throw new IllegalArgumentException(arg1 + "," + arg0);
@@ -202,10 +237,10 @@ public final class js5 {
         } else if (this.anObjectArray37[arg2] == null) {
             return false;
         } else {
-            @Pc(32) int local32 = this.aJs5Index_2.anIntArray598[arg2];
-            @Pc(38) int[] local38 = this.aJs5Index_2.anIntArrayArray185[arg2];
+            @Pc(32) int local32 = this.aJs5Index_2.fileCounts[arg2];
+            @Pc(38) int[] local38 = this.aJs5Index_2.fileIds[arg2];
             if (this.anObjectArrayArray1[arg2] == null) {
-                this.anObjectArrayArray1[arg2] = new Object[this.aJs5Index_2.anIntArray595[arg2]];
+                this.anObjectArrayArray1[arg2] = new Object[this.aJs5Index_2.fileLimits[arg2]];
             }
             @Pc(60) Object[] local60 = this.anObjectArrayArray1[arg2];
             @Pc(62) boolean local62 = true;
@@ -234,9 +269,9 @@ public final class js5 {
             }
             @Pc(164) byte[] local164;
             try {
-                local164 = Static590.method7744(local138);
+                local164 = decodeContainer(local138);
             } catch (@Pc(166) RuntimeException local166) {
-                throw Static231.method3380(local166, "T3 - " + (arg0 != null) + "," + arg2 + "," + local138.length + "," + Packet.getcrc(local138.length, local138) + "," + Packet.getcrc(local138.length - 2, local138) + "," + this.aJs5Index_2.anIntArray599[arg2] + "," + this.aJs5Index_2.crc);
+                throw Static231.method3380(local166, "T3 - " + (arg0 != null) + "," + arg2 + "," + local138.length + "," + Packet.getcrc(local138.length, local138) + "," + Packet.getcrc(local138.length - 2, local138) + "," + this.aJs5Index_2.groupCrcs[arg2] + "," + this.aJs5Index_2.crc);
             }
             if (this.aBoolean656) {
                 this.anObjectArray37[arg2] = null;
@@ -379,7 +414,7 @@ public final class js5 {
     public boolean method7587(@OriginalArg(0) String arg0) {
         if (this.method7601()) {
             @Pc(21) String local21 = arg0.toLowerCase();
-            @Pc(30) int local30 = this.aJs5Index_2.aClass100_1.method2382(Static95.method1894(local21));
+            @Pc(30) int local30 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local21));
             return local30 >= 0;
         } else {
             return false;
@@ -395,11 +430,11 @@ public final class js5 {
     public byte[] getfile(@OriginalArg(1) int arg0) {
         if (!this.method7601()) {
             return null;
-        } else if (this.aJs5Index_2.anIntArray595.length == 1) {
+        } else if (this.aJs5Index_2.fileLimits.length == 1) {
             return this.method7595(arg0, 0);
         } else if (!this.method7596(arg0)) {
             return null;
-        } else if (this.aJs5Index_2.anIntArray595[arg0] == 1) {
+        } else if (this.aJs5Index_2.fileLimits[arg0] == 1) {
             return this.method7595(0, arg0);
         } else {
             throw new RuntimeException();
@@ -410,7 +445,7 @@ public final class js5 {
     public int method7590(@OriginalArg(0) String arg0) {
         if (this.method7601()) {
             @Pc(19) String local19 = arg0.toLowerCase();
-            @Pc(28) int local28 = this.aJs5Index_2.aClass100_1.method2382(Static95.method1894(local19));
+            @Pc(28) int local28 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local19));
             return this.method7596(local28) ? local28 : -1;
         } else {
             return -1;
@@ -423,8 +458,8 @@ public final class js5 {
             return false;
         }
         @Pc(24) boolean local24 = true;
-        for (@Pc(26) int local26 = 0; local26 < this.aJs5Index_2.anIntArray600.length; local26++) {
-            @Pc(36) int local36 = this.aJs5Index_2.anIntArray600[local26];
+        for (@Pc(26) int local26 = 0; local26 < this.aJs5Index_2.groupIds.length; local26++) {
+            @Pc(36) int local36 = this.aJs5Index_2.groupIds[local26];
             if (this.anObjectArray37[local36] == null) {
                 this.method7579(local36);
                 if (this.anObjectArray37[local36] == null) {
@@ -448,7 +483,7 @@ public final class js5 {
     public int method7593(@OriginalArg(1) String arg0) {
         if (this.method7601()) {
             @Pc(24) String local24 = arg0.toLowerCase();
-            @Pc(33) int local33 = this.aJs5Index_2.aClass100_1.method2382(Static95.method1894(local24));
+            @Pc(33) int local33 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local24));
             return this.method7580(local33);
         } else {
             return 0;
@@ -473,7 +508,7 @@ public final class js5 {
     public boolean method7596(@OriginalArg(1) int arg0) {
         if (!this.method7601()) {
             return false;
-        } else if (arg0 >= 0 && arg0 < this.aJs5Index_2.anIntArray595.length && this.aJs5Index_2.anIntArray595[arg0] != 0) {
+        } else if (arg0 >= 0 && arg0 < this.aJs5Index_2.fileLimits.length && this.aJs5Index_2.fileLimits[arg0] != 0) {
             return true;
         } else if (Static486.aBoolean550) {
             throw new IllegalArgumentException(Integer.toString(arg0));
@@ -484,14 +519,14 @@ public final class js5 {
 
     @OriginalMember(owner = "client!sb", name = "b", descriptor = "(I)I")
     public int method7597() {
-        return this.method7601() ? this.aJs5Index_2.anIntArray595.length : -1;
+        return this.method7601() ? this.aJs5Index_2.fileLimits.length : -1;
     }
 
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(Ljava/lang/String;I)Z")
     public boolean method7598(@OriginalArg(0) String arg0) {
         if (this.method7601()) {
             @Pc(13) String local13 = arg0.toLowerCase();
-            @Pc(22) int local22 = this.aJs5Index_2.aClass100_1.method2382(Static95.method1894(local13));
+            @Pc(22) int local22 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local13));
             return this.method7607(local22);
         } else {
             return false;
@@ -501,7 +536,7 @@ public final class js5 {
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(BI)I")
     public int method7599(@OriginalArg(1) int arg0) {
         if (this.method7601()) {
-            @Pc(17) int local17 = this.aJs5Index_2.aClass100_1.method2382(arg0);
+            @Pc(17) int local17 = this.aJs5Index_2.aNameHashTable_1.method2382(arg0);
             return this.method7596(local17) ? local17 : -1;
         } else {
             return -1;
@@ -515,9 +550,9 @@ public final class js5 {
         }
         @Pc(13) String local13 = arg0.toLowerCase();
         @Pc(16) String local16 = arg1.toLowerCase();
-        @Pc(25) int local25 = this.aJs5Index_2.aClass100_1.method2382(Static95.method1894(local13));
+        @Pc(25) int local25 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local13));
         if (this.method7596(local25)) {
-            @Pc(53) int local53 = this.aJs5Index_2.aClass100Array1[local25].method2382(Static95.method1894(local16));
+            @Pc(53) int local53 = this.aJs5Index_2.fileNameTables[local25].method2382(Static95.method1894(local16));
             return this.method7595(local53, local25);
         } else {
             return null;
@@ -531,8 +566,8 @@ public final class js5 {
             if (this.aJs5Index_2 == null) {
                 return false;
             }
-            this.anObjectArrayArray1 = new Object[this.aJs5Index_2.anInt7368][];
-            this.anObjectArray37 = new Object[this.aJs5Index_2.anInt7368];
+            this.anObjectArrayArray1 = new Object[this.aJs5Index_2.groupLimit][];
+            this.anObjectArray37 = new Object[this.aJs5Index_2.groupLimit];
         }
         return true;
     }
@@ -541,7 +576,7 @@ public final class js5 {
     public void method7602(@OriginalArg(0) String arg0) {
         if (this.method7601()) {
             @Pc(12) String local12 = arg0.toLowerCase();
-            @Pc(29) int local29 = this.aJs5Index_2.aClass100_1.method2382(Static95.method1894(local12));
+            @Pc(29) int local29 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local12));
             this.method7588(local29);
         }
     }
@@ -551,9 +586,9 @@ public final class js5 {
         if (!this.method7596(arg0)) {
             return null;
         }
-        @Pc(17) int[] local17 = this.aJs5Index_2.anIntArrayArray185[arg0];
+        @Pc(17) int[] local17 = this.aJs5Index_2.fileIds[arg0];
         if (local17 == null) {
-            local17 = new int[this.aJs5Index_2.anIntArray598[arg0]];
+            local17 = new int[this.aJs5Index_2.fileCounts[arg0]];
             @Pc(28) int local28 = 0;
             while (local28 < local17.length) {
                 local17[local28] = local28++;
@@ -569,9 +604,9 @@ public final class js5 {
         }
         @Pc(13) String local13 = arg0.toLowerCase();
         @Pc(16) String local16 = arg1.toLowerCase();
-        @Pc(25) int local25 = this.aJs5Index_2.aClass100_1.method2382(Static95.method1894(local13));
+        @Pc(25) int local25 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local13));
         if (this.method7596(local25)) {
-            @Pc(44) int local44 = this.aJs5Index_2.aClass100Array1[local25].method2382(Static95.method1894(local16));
+            @Pc(44) int local44 = this.aJs5Index_2.fileNameTables[local25].method2382(Static95.method1894(local16));
             return this.method7586(local44, local25);
         } else {
             return false;
@@ -599,6 +634,6 @@ public final class js5 {
 
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(II)I")
     public int method7608(@OriginalArg(1) int arg0) {
-        return this.method7596(arg0) ? this.aJs5Index_2.anIntArray595[arg0] : 0;
+        return this.method7596(arg0) ? this.aJs5Index_2.fileLimits[arg0] : 0;
     }
 }

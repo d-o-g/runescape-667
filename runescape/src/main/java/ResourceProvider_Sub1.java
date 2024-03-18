@@ -102,7 +102,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
 
     @OriginalMember(owner = "client!pm", name = "f", descriptor = "(I)I")
     public int method6645() {
-        return this.aJs5Index_1 == null ? 0 : this.aJs5Index_1.anInt7367;
+        return this.aJs5Index_1 == null ? 0 : this.aJs5Index_1.groupCount;
     }
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(II)V")
@@ -129,7 +129,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
             @Pc(29) Node local29 = this.aDeque_42.first(65280);
             return local29 == null ? 0 : (int) local29.key;
         } else {
-            return this.aJs5Index_1.anInt7367;
+            return this.aJs5Index_1.groupCount;
         }
     }
 
@@ -156,8 +156,8 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
                         local38.remove();
                     }
                 }
-                while (this.aJs5Index_1.anIntArray598.length > this.anInt7475) {
-                    if (this.aJs5Index_1.anIntArray598[this.anInt7475] == 0) {
+                while (this.aJs5Index_1.fileCounts.length > this.anInt7475) {
+                    if (this.aJs5Index_1.fileCounts[this.anInt7475] == 0) {
                         this.anInt7475++;
                     } else {
                         if (this.aClass174_3.anInt4243 >= 250) {
@@ -193,8 +193,8 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
                         local33 = false;
                     }
                 }
-                while (this.aJs5Index_1.anIntArray598.length > this.anInt7475) {
-                    if (this.aJs5Index_1.anIntArray598[this.anInt7475] == 0) {
+                while (this.aJs5Index_1.fileCounts.length > this.anInt7475) {
+                    if (this.aJs5Index_1.fileCounts[this.anInt7475] == 0) {
                         this.anInt7475++;
                     } else {
                         if (this.aClass295_2.method6625()) {
@@ -312,13 +312,13 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
                         Static10.aCRC32_1.reset();
                         Static10.aCRC32_1.update(local194, 0, local194.length - 2);
                         local224 = (int) Static10.aCRC32_1.getValue();
-                        if (this.aJs5Index_1.anIntArray599[arg0] != local224) {
+                        if (this.aJs5Index_1.groupCrcs[arg0] != local224) {
                             throw new RuntimeException();
                         }
-                        if (this.aJs5Index_1.aByteArrayArray24 == null || this.aJs5Index_1.aByteArrayArray24[arg0] == null) {
+                        if (this.aJs5Index_1.groupHashes == null || this.aJs5Index_1.groupHashes[arg0] == null) {
                             break label157;
                         }
-                        local254 = this.aJs5Index_1.aByteArrayArray24[arg0];
+                        local254 = this.aJs5Index_1.groupHashes[arg0];
                         local263 = Whirlpool.digest(local194, local194.length - 2, 0);
                         local265 = 0;
                         while (true) {
@@ -344,8 +344,8 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
                 }
                 return null;
             }
-            local194[local194.length - 2] = (byte) (this.aJs5Index_1.anIntArray597[arg0] >>> 8);
-            local194[local194.length - 1] = (byte) this.aJs5Index_1.anIntArray597[arg0];
+            local194[local194.length - 2] = (byte) (this.aJs5Index_1.groupVersions[arg0] >>> 8);
+            local194[local194.length - 1] = (byte) this.aJs5Index_1.groupVersions[arg0];
             if (this.aClass9_3 != null) {
                 this.aClass174_3.method3829(local194, arg0, this.aClass9_3);
                 if (this.aByteArray88[arg0] != 1) {
@@ -365,11 +365,11 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
             Static10.aCRC32_1.reset();
             Static10.aCRC32_1.update(local194, 0, local194.length - 2);
             local224 = (int) Static10.aCRC32_1.getValue();
-            if (local224 != this.aJs5Index_1.anIntArray599[arg0]) {
+            if (local224 != this.aJs5Index_1.groupCrcs[arg0]) {
                 throw new RuntimeException();
             }
-            if (this.aJs5Index_1.aByteArrayArray24 != null && this.aJs5Index_1.aByteArrayArray24[arg0] != null) {
-                local254 = this.aJs5Index_1.aByteArrayArray24[arg0];
+            if (this.aJs5Index_1.groupHashes != null && this.aJs5Index_1.groupHashes[arg0] != null) {
+                local254 = this.aJs5Index_1.groupHashes[arg0];
                 local263 = Whirlpool.digest(local194, local194.length - 2, 0);
                 for (local265 = 0; local265 < 64; local265++) {
                     if (local263[local265] != local254[local265]) {
@@ -378,7 +378,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
                 }
             }
             @Pc(307) int local307 = (local194[local194.length - 1] & 0xFF) + ((local194[local194.length - 2] & 0xFF) << 8);
-            if (local307 != (this.aJs5Index_1.anIntArray597[arg0] & 0xFFFF)) {
+            if (local307 != (this.aJs5Index_1.groupVersions[arg0] & 0xFFFF)) {
                 throw new RuntimeException();
             }
             if (this.aByteArray88[arg0] != 1) {
@@ -414,7 +414,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
         }
         for (@Pc(21) Node local21 = this.aDeque_41.first(65280); local21 != null; local21 = this.aDeque_41.next()) {
             @Pc(29) int local29 = (int) local21.key;
-            if (local29 < 0 || local29 >= this.aJs5Index_1.anInt7368 || this.aJs5Index_1.anIntArray598[local29] == 0) {
+            if (local29 < 0 || local29 >= this.aJs5Index_1.groupLimit || this.aJs5Index_1.fileCounts[local29] == 0) {
                 local21.remove();
             } else {
                 if (this.aByteArray88[local29] == 0) {
@@ -452,7 +452,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
                     throw new RuntimeException();
                 }
                 this.aJs5Index_1 = new Js5Index(local53, this.anInt7463, this.aByteArray89);
-                if (this.anInt7472 != this.aJs5Index_1.anInt7366) {
+                if (this.anInt7472 != this.aJs5Index_1.version) {
                     throw new RuntimeException();
                 }
             } catch (@Pc(162) RuntimeException local162) {
@@ -485,7 +485,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
             }
         }
         if (this.aClass9_3 != null) {
-            this.aByteArray88 = new byte[this.aJs5Index_1.anInt7368];
+            this.aByteArray88 = new byte[this.aJs5Index_1.groupLimit];
             this.anInt7473 = 0;
         }
         this.aClass2_Sub2_Sub17_1 = null;

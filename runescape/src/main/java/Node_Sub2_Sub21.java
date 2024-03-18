@@ -1,3 +1,4 @@
+import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -168,7 +169,7 @@ public final class Node_Sub2_Sub21 extends Node_Sub2 {
             return true;
         }
         for (local12 = 0; local12 < this.anIntArray823.length; local12++) {
-            if (!arg1.method6814(this.anIntArray823[local12])) {
+            if (!arg1.textureAvailable(this.anIntArray823[local12])) {
                 return false;
             }
         }

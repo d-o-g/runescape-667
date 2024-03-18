@@ -1,3 +1,5 @@
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -40,7 +42,7 @@ public final class Class303 implements TextureSource {
         }
         for (@Pc(98) int local98 = 0; local98 < this.anInt7709; local98++) {
             if (this.aTextureMetricsArray1[local98] != null) {
-                this.aTextureMetricsArray1[local98].aBoolean233 = local24.g1() == 1;
+                this.aTextureMetricsArray1[local98].small = local24.g1() == 1;
             }
         }
         for (@Pc(132) int local132 = 0; local132 < this.anInt7709; local132++) {
@@ -55,17 +57,17 @@ public final class Class303 implements TextureSource {
         }
         for (@Pc(200) int local200 = 0; local200 < this.anInt7709; local200++) {
             if (this.aTextureMetricsArray1[local200] != null) {
-                this.aTextureMetricsArray1[local200].aByte58 = local24.g1b();
+                this.aTextureMetricsArray1[local200].alpha = local24.g1b();
             }
         }
         for (@Pc(228) int local228 = 0; local228 < this.anInt7709; local228++) {
             if (this.aTextureMetricsArray1[local228] != null) {
-                this.aTextureMetricsArray1[local228].aByte56 = local24.g1b();
+                this.aTextureMetricsArray1[local228].effectType = local24.g1b();
             }
         }
         for (@Pc(256) int local256 = 0; local256 < this.anInt7709; local256++) {
             if (this.aTextureMetricsArray1[local256] != null) {
-                this.aTextureMetricsArray1[local256].aByte55 = local24.g1b();
+                this.aTextureMetricsArray1[local256].effectParam1 = local24.g1b();
             }
         }
         for (@Pc(288) int local288 = 0; local288 < this.anInt7709; local288++) {
@@ -75,12 +77,12 @@ public final class Class303 implements TextureSource {
         }
         for (@Pc(321) int local321 = 0; local321 < this.anInt7709; local321++) {
             if (this.aTextureMetricsArray1[local321] != null) {
-                this.aTextureMetricsArray1[local321].aByte54 = local24.g1b();
+                this.aTextureMetricsArray1[local321].speedU = local24.g1b();
             }
         }
         for (@Pc(353) int local353 = 0; local353 < this.anInt7709; local353++) {
             if (this.aTextureMetricsArray1[local353] != null) {
-                this.aTextureMetricsArray1[local353].aByte52 = local24.g1b();
+                this.aTextureMetricsArray1[local353].speedV = local24.g1b();
             }
         }
         for (@Pc(381) int local381 = 0; local381 < this.anInt7709; local381++) {
@@ -115,17 +117,17 @@ public final class Class303 implements TextureSource {
         }
         for (@Pc(595) int local595 = 0; local595 < this.anInt7709; local595++) {
             if (this.aTextureMetricsArray1[local595] != null) {
-                this.aTextureMetricsArray1[local595].anInt2790 = local24.g1();
+                this.aTextureMetricsArray1[local595].colorOp = local24.g1();
             }
         }
         for (@Pc(627) int local627 = 0; local627 < this.anInt7709; local627++) {
             if (this.aTextureMetricsArray1[local627] != null) {
-                this.aTextureMetricsArray1[local627].anInt2791 = local24.g4();
+                this.aTextureMetricsArray1[local627].effectParam2 = local24.g4();
             }
         }
         for (@Pc(655) int local655 = 0; local655 < this.anInt7709; local655++) {
             if (this.aTextureMetricsArray1[local655] != null) {
-                this.aTextureMetricsArray1[local655].anInt2796 = local24.g1();
+                this.aTextureMetricsArray1[local655].alphaBlendMode = local24.g1();
             }
         }
     }
@@ -148,19 +150,19 @@ public final class Class303 implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IZIIBF)[I")
     @Override
-    public int[] method6818(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) float arg4) {
+    public int[] rgbOutput(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) float arg4) {
         return this.method6819(arg3).method8951(this.aClass330_99, (double) arg4, this.aTextureMetricsArray1[arg3].aBoolean238, this, arg1, arg2, arg0);
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(I)I")
     @Override
-    public int method6813() {
+    public int textureCount() {
         return this.anInt7709;
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(II)Z")
     @Override
-    public boolean method6814(@OriginalArg(1) int arg0) {
+    public boolean textureAvailable(@OriginalArg(1) int arg0) {
         @Pc(8) Node_Sub2_Sub21 local8 = this.method6819(arg0);
         return local8 != null && local8.method8947(this.aClass330_99, this);
     }
@@ -173,13 +175,13 @@ public final class Class303 implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IIFBIZ)[F")
     @Override
-    public float[] method6816(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) float arg2, @OriginalArg(4) int arg3) {
+    public float[] floatArgbOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) float arg2, @OriginalArg(4) int arg3) {
         return this.method6819(arg1).method8946(arg0, this, this.aClass330_99, this.aTextureMetricsArray1[arg1].aBoolean238, arg3);
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(FIIZZI)[I")
     @Override
-    public int[] method6815(@OriginalArg(0) float arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3) {
+    public int[] argbOutput(@OriginalArg(0) float arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3) {
         return this.method6819(arg1).method8948(arg2, (double) arg0, this.aTextureMetricsArray1[arg1].aBoolean238, arg3, this, this.aClass330_99);
     }
 }

@@ -288,8 +288,8 @@ public final class Class216 {
     public boolean method5057(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
         if (this.aSprite_24 == null) {
             if (this.anInt5640 == 0) {
-                if (Static708.anTextureSource_12.method6814(this.anInt5633)) {
-                    @Pc(23) int[] local23 = Static708.anTextureSource_12.method6815(0.7F, this.anInt5633, this.anInt5638, this.anInt5638);
+                if (Static708.anTextureSource_12.textureAvailable(this.anInt5633)) {
+                    @Pc(23) int[] local23 = Static708.anTextureSource_12.argbOutput(0.7F, this.anInt5633, this.anInt5638, this.anInt5638);
                     this.aSprite_24 = arg0.method7946(this.anInt5638, this.anInt5638, this.anInt5638, local23);
                 }
             } else if (this.anInt5640 == 2) {

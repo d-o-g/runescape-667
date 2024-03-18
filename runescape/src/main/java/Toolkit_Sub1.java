@@ -1,3 +1,5 @@
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
 import jaclib.memory.heap.NativeHeap;
@@ -464,11 +466,11 @@ public abstract class Toolkit_Sub1 extends Toolkit {
                 this.aClass334_3 = null;
             } else {
                 this.aClass334_3 = new Class334(this, super.textureSource);
-                this.aNativeInterface3 = new NativeInterface(super.textureSource.method6813(), this.anInt9178);
-                for (@Pc(371) int local371 = 0; local371 < super.textureSource.method6813(); local371++) {
+                this.aNativeInterface3 = new NativeInterface(super.textureSource.textureCount(), this.anInt9178);
+                for (@Pc(371) int local371 = 0; local371 < super.textureSource.textureCount(); local371++) {
                     @Pc(378) TextureMetrics local378 = super.textureSource.getMetrics(local371);
                     if (local378 != null) {
-                        this.aNativeInterface3.initTextureMetrics(local371, local378.aByte58, local378.aByte57);
+                        this.aNativeInterface3.initTextureMetrics(local371, local378.alpha, local378.aByte57);
                     }
                 }
             }
@@ -2087,20 +2089,20 @@ public abstract class Toolkit_Sub1 extends Toolkit {
             } else {
                 local29 = this.aClass334_3.method7654(arg1);
                 @Pc(60) TextureMetrics local60 = super.textureSource.getMetrics(arg1);
-                if (local60.aByte54 == 0 && local60.aByte52 == 0) {
+                if (local60.speedU == 0 && local60.speedV == 0) {
                     this.method8031();
                 } else {
-                    @Pc(87) int local87 = local60.aBoolean233 ? 64 : 128;
+                    @Pc(87) int local87 = local60.small ? 64 : 128;
                     @Pc(91) int local91 = local87 * 50;
                     @Pc(95) Matrix_Sub1 local95 = this.method8082();
-                    local95.method1877(0.0F, (float) (this.anInt9164 % local91 * local60.aByte52) / (float) local91, (float) (local60.aByte54 * (this.anInt9164 % local91)) / (float) local91);
+                    local95.method1877(0.0F, (float) (this.anInt9164 % local91 * local60.speedV) / (float) local91, (float) (local60.speedU * (this.anInt9164 % local91)) / (float) local91);
                     this.method8073(Static431.aClass370_5);
                 }
-                local31 = local60.anInt2790;
+                local31 = local60.colorOp;
                 if (!this.aBoolean681) {
-                    local33 = local60.aByte55;
-                    local43 = local60.aByte56;
-                    local35 = local60.anInt2791;
+                    local33 = local60.effectParam1;
+                    local43 = local60.effectType;
+                    local35 = local60.effectParam2;
                 }
             }
             this.method8090(local43, arg2, local33, local35, arg0);

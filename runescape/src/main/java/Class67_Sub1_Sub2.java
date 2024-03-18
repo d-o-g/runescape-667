@@ -1,3 +1,5 @@
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -55,11 +57,11 @@ public final class Class67_Sub1_Sub2 extends Class67_Sub1 {
             @Pc(44) boolean local44 = false;
             @Pc(46) int local46 = 0;
             for (@Pc(48) int local48 = 0; local48 < 6; local48++) {
-                if (!local37.method6814(Static319.anIntArray384[local48])) {
+                if (!local37.textureAvailable(Static319.anIntArray384[local48])) {
                     return null;
                 }
                 @Pc(69) TextureMetrics local69 = local37.getMetrics(Static319.anIntArray384[local48]);
-                @Pc(77) int local77 = local69.aBoolean233 ? 64 : 128;
+                @Pc(77) int local77 = local69.small ? 64 : 128;
                 if (local69.aByte53 > 0) {
                     local44 = true;
                 }
@@ -68,7 +70,7 @@ public final class Class67_Sub1_Sub2 extends Class67_Sub1 {
                 }
             }
             for (@Pc(99) int local99 = 0; local99 < 6; local99++) {
-                Static304.anIntArrayArray119[local99] = local37.method6818(local46, false, local46, Static319.anIntArray384[local99], 1.0F);
+                Static304.anIntArrayArray119[local99] = local37.rgbOutput(local46, false, local46, Static319.anIntArray384[local99], 1.0F);
             }
             this.aClass93_Sub1_2 = new Class93_Sub1(this.aClass19_Sub3_37, 6407, local46, local44, Static304.anIntArrayArray119);
         }

@@ -1,3 +1,5 @@
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -1007,7 +1009,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "n", descriptor = "(I)Z")
     public boolean method3786(@OriginalArg(0) int arg0) {
-        return super.textureSource.method6814(arg0);
+        return super.textureSource.textureAvailable(arg0);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Ljava/lang/Runnable;)Lclient!wf;")
@@ -1182,12 +1184,12 @@ public final class Toolkit_Sub2 extends Toolkit {
         synchronized (this.aClass82_89) {
             local14 = (Node_Sub29) this.aClass82_89.method2156((long) arg0 | Long.MIN_VALUE);
             if (local14 == null) {
-                if (!super.textureSource.method6814(arg0)) {
+                if (!super.textureSource.textureAvailable(arg0)) {
                     return null;
                 }
                 @Pc(36) TextureMetrics local36 = super.textureSource.getMetrics(arg0);
-                @Pc(50) int local50 = local36.aBoolean233 || this.aBoolean332 ? 64 : this.lb;
-                local14 = new Node_Sub29(arg0, local50, super.textureSource.method6815(0.7F, arg0, local50, local50), local36.anInt2796 != 1);
+                @Pc(50) int local50 = local36.small || this.aBoolean332 ? 64 : this.lb;
+                local14 = new Node_Sub29(arg0, local50, super.textureSource.argbOutput(0.7F, arg0, local50, local50), local36.alphaBlendMode != 1);
                 this.aClass82_89.method2150(local14, (long) arg0 | Long.MIN_VALUE);
             }
         }
@@ -1876,7 +1878,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 @Pc(27) int local27 = local13.anInt4409 / 20;
                 if (local27 > 0) {
                     @Pc(36) TextureMetrics local36 = super.textureSource.getMetrics(local13.anInt4408);
-                    local13.method3973(local36.aByte54 * local4 * 50 / 1000, local36.aByte52 * local4 * 50 / 1000);
+                    local13.method3973(local36.speedU * local4 * 50 / 1000, local36.speedV * local4 * 50 / 1000);
                     local13.anInt4409 -= local27 * 20;
                 }
                 local13.aBoolean341 = false;
@@ -2202,12 +2204,12 @@ public final class Toolkit_Sub2 extends Toolkit {
         synchronized (this.aClass82_89) {
             local12 = (Node_Sub29) this.aClass82_89.method2156((long) arg0);
             if (local12 == null) {
-                if (!super.textureSource.method6814(arg0)) {
+                if (!super.textureSource.textureAvailable(arg0)) {
                     return null;
                 }
                 @Pc(34) TextureMetrics local34 = super.textureSource.getMetrics(arg0);
-                @Pc(48) int local48 = local34.aBoolean233 || this.aBoolean332 ? 64 : this.lb;
-                local12 = new Node_Sub29(arg0, local48, super.textureSource.method6818(local48, true, local48, arg0, 0.7F), local34.anInt2796 != 1);
+                @Pc(48) int local48 = local34.small || this.aBoolean332 ? 64 : this.lb;
+                local12 = new Node_Sub29(arg0, local48, super.textureSource.rgbOutput(local48, true, local48, arg0, 0.7F), local34.alphaBlendMode != 1);
                 this.aClass82_89.method2150(local12, (long) arg0);
             }
         }
@@ -2614,7 +2616,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "p", descriptor = "(I)I")
     public int method3795(@OriginalArg(0) int arg0) {
-        return super.textureSource.getMetrics(arg0).anInt2796;
+        return super.textureSource.getMetrics(arg0).alphaBlendMode;
     }
 
     @OriginalMember(owner = "client!iaa", name = "z", descriptor = "()Z")
@@ -2758,7 +2760,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "q", descriptor = "(I)Z")
     public boolean method3798(@OriginalArg(0) int arg0) {
-        return this.aBoolean332 || super.textureSource.getMetrics(arg0).aBoolean233;
+        return this.aBoolean332 || super.textureSource.getMetrics(arg0).small;
     }
 
     @OriginalMember(owner = "client!iaa", name = "w", descriptor = "()Z")

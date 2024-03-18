@@ -1,3 +1,5 @@
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -36,19 +38,19 @@ public final class Class169 {
         @Pc(10) Object local10 = this.aClass82_85.method2156((long) arg0);
         if (local10 != null) {
             return (Class93_Sub2) local10;
-        } else if (this.anTextureSource_4.method6814(arg0)) {
+        } else if (this.anTextureSource_4.textureAvailable(arg0)) {
             @Pc(33) TextureMetrics local33 = this.anTextureSource_4.getMetrics(arg0);
-            @Pc(52) int local52 = local33.aBoolean233 ? 64 : this.aClass19_Sub3_17.anInt7981;
+            @Pc(52) int local52 = local33.small ? 64 : this.aClass19_Sub3_17.anInt7981;
             @Pc(90) Class93_Sub2 local90;
             if (local33.aBoolean237 && this.aClass19_Sub3_17.method8014()) {
-                @Pc(71) float[] local71 = this.anTextureSource_4.method6816(local52, arg0, 0.7F, local52);
+                @Pc(71) float[] local71 = this.anTextureSource_4.floatArgbOutput(local52, arg0, 0.7F, local52);
                 local90 = new Class93_Sub2(this.aClass19_Sub3_17, 3553, 34842, local52, local52, local33.aByte53 != 0, local71, 6408);
             } else {
                 @Pc(114) int[] local114;
-                if (local33.anInt2796 != 2 && Static501.method6715(local33.aByte56)) {
-                    local114 = this.anTextureSource_4.method6818(local52, true, local52, arg0, 0.7F);
+                if (local33.alphaBlendMode != 2 && Static501.method6715(local33.effectType)) {
+                    local114 = this.anTextureSource_4.rgbOutput(local52, true, local52, arg0, 0.7F);
                 } else {
-                    local114 = this.anTextureSource_4.method6815(0.7F, arg0, local52, local52);
+                    local114 = this.anTextureSource_4.argbOutput(0.7F, arg0, local52, local52);
                 }
                 local90 = new Class93_Sub2(this.aClass19_Sub3_17, 3553, 6408, local52, local52, local33.aByte53 != 0, local114, 0, 0, false);
             }

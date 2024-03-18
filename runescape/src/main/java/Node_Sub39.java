@@ -1,3 +1,4 @@
+import com.jagex.graphics.TextureMetrics;
 import jaclib.memory.Stream;
 import jaclib.memory.heap.NativeHeapBuffer;
 import jaggl.OpenGL;
@@ -140,9 +141,9 @@ public final class Node_Sub39 extends Node {
         @Pc(49) int local49;
         if (this.anInt6592 != -1) {
             @Pc(19) TextureMetrics local19 = this.aClass19_Sub3_31.textureSource.getMetrics(this.anInt6592);
-            local24 = local19.aByte58 & 0xFF;
+            local24 = local19.alpha & 0xFF;
             @Pc(68) int local68;
-            if (local24 != 0 && local19.aByte56 != 4) {
+            if (local24 != 0 && local19.effectType != 4) {
                 if (arg1 < 0) {
                     local49 = 0;
                 } else if (arg1 <= 127) {

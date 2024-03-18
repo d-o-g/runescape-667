@@ -1,3 +1,4 @@
+import com.jagex.graphics.TextureSource;
 import jaclib.peer.ti;
 import jagdx.D3DADAPTER_IDENTIFIER;
 import jagdx.D3DCAPS;

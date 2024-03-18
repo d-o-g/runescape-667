@@ -1,3 +1,4 @@
+import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -14,7 +15,7 @@ public final class Static733 {
                 throw new RuntimeException("");
             } else if (Static14.method179("jagdx")) {
                 @Pc(26) Class local26 = Class.forName("Toolkit_Sub1_Sub1");
-                @Pc(68) Method local68 = local26.getDeclaredMethod("createToolkit", Class.forName("java.awt.Canvas"), Class.forName("TextureSource"), Class.forName("Class330"), Class.forName("java.lang.Integer"));
+                @Pc(68) Method local68 = local26.getDeclaredMethod("createToolkit", Class.forName("java.awt.Canvas"), Class.forName("com.jagex.graphics.TextureSource"), Class.forName("Class330"), Class.forName("java.lang.Integer"));
                 return (Toolkit) local68.invoke((Object) null, arg3, arg2, arg0, Integer.valueOf(arg1));
             } else {
                 throw new RuntimeException("");

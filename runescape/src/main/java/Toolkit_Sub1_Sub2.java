@@ -1,3 +1,4 @@
+import com.jagex.graphics.TextureSource;
 import com.jagex.math.IntMath;
 import jaclib.memory.Stream;
 import jaggl.MapBuffer;

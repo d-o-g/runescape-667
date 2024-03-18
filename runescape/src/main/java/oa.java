@@ -1,3 +1,5 @@
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -315,7 +317,7 @@ public final class oa extends Toolkit implements Interface5 {
             if (local9 == null) {
                 return false;
             } else {
-                this.AA(arg0, local9.aShort37, local9.anInt2796, local9.aByte56, local9.aByte55, local9.anInt2791, local9.aBoolean233, local9.aByte58, local9.aByte57, local9.aByte54, local9.aByte52, local9.aBoolean240, local9.aBoolean234, local9.aBoolean239, local9.aBoolean236, local9.aBoolean235, local9.aByte53, local9.aBoolean237, local9.aBoolean238, local9.anInt2790);
+                this.AA(arg0, local9.aShort37, local9.alphaBlendMode, local9.effectType, local9.effectParam1, local9.effectParam2, local9.small, local9.alpha, local9.aByte57, local9.speedU, local9.speedV, local9.aBoolean240, local9.aBoolean234, local9.aBoolean239, local9.aBoolean236, local9.aBoolean235, local9.aByte53, local9.aBoolean237, local9.aBoolean238, local9.colorOp);
                 return true;
             }
         }
@@ -584,7 +586,7 @@ public final class oa extends Toolkit implements Interface5 {
     public boolean WA(@OriginalArg(0) short arg0) {
         @Pc(2) TextureSource local2 = super.textureSource;
         synchronized (super.textureSource) {
-            if (!super.textureSource.method6814(arg0)) {
+            if (!super.textureSource.textureAvailable(arg0)) {
                 return false;
             }
             @Pc(22) TextureMetrics local22 = super.textureSource.getMetrics(arg0);
@@ -592,12 +594,12 @@ public final class oa extends Toolkit implements Interface5 {
                 return false;
             }
             @Pc(44) int[] local44;
-            if (local22.anInt2796 == 2) {
-                local44 = super.textureSource.method6815(0.7F, arg0, 128, 128);
+            if (local22.alphaBlendMode == 2) {
+                local44 = super.textureSource.argbOutput(0.7F, arg0, 128, 128);
             } else {
-                local44 = super.textureSource.method6818(128, true, 128, arg0, 0.7F);
+                local44 = super.textureSource.rgbOutput(128, true, 128, arg0, 0.7F);
             }
-            this.CA(arg0, local44, local22.aShort37, local22.anInt2796, local22.aByte56, local22.aByte55, local22.anInt2791, local22.aBoolean233, local22.aByte58, local22.aByte57, local22.aByte54, local22.aByte52, local22.aBoolean240, local22.aBoolean234, local22.aBoolean239, local22.aBoolean236, local22.aBoolean235, local22.aByte53, local22.aBoolean237, local22.aBoolean238, local22.anInt2790);
+            this.CA(arg0, local44, local22.aShort37, local22.alphaBlendMode, local22.effectType, local22.effectParam1, local22.effectParam2, local22.small, local22.alpha, local22.aByte57, local22.speedU, local22.speedV, local22.aBoolean240, local22.aBoolean234, local22.aBoolean239, local22.aBoolean236, local22.aBoolean235, local22.aByte53, local22.aBoolean237, local22.aBoolean238, local22.colorOp);
             return true;
         }
     }

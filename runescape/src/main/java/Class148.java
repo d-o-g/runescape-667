@@ -1,3 +1,4 @@
+import com.jagex.graphics.TextureMetrics;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -129,13 +130,13 @@ public final class Class148 {
                 arg3.aa(arg7, arg11, arg6, arg2, local10 << 24 | arg5, 1);
             } else {
                 @Pc(74) TextureMetrics local74 = Static708.anTextureSource_12.getMetrics(this.anInt3507);
-                if (this.aSprite_10 == null && Static708.anTextureSource_12.method6814(this.anInt3507)) {
-                    @Pc(120) int[] local120 = local74.anInt2796 == 2 ? Static708.anTextureSource_12.method6815(0.7F, this.anInt3507, this.anInt3518, this.anInt3518) : Static708.anTextureSource_12.method6818(this.anInt3518, false, this.anInt3518, this.anInt3507, 0.7F);
+                if (this.aSprite_10 == null && Static708.anTextureSource_12.textureAvailable(this.anInt3507)) {
+                    @Pc(120) int[] local120 = local74.alphaBlendMode == 2 ? Static708.anTextureSource_12.argbOutput(0.7F, this.anInt3507, this.anInt3518, this.anInt3518) : Static708.anTextureSource_12.rgbOutput(this.anInt3518, false, this.anInt3518, this.anInt3507, 0.7F);
                     this.anInt3501 = local120[0];
                     this.anInt3511 = local120[local120.length - 1];
                     this.aSprite_10 = arg3.method7946(this.anInt3518, this.anInt3518, this.anInt3518, local120);
                 }
-                @Pc(161) int local161 = local10 == 255 ? (local74.anInt2796 == 2 ? 1 : 0) : 1;
+                @Pc(161) int local161 = local10 == 255 ? (local74.alphaBlendMode == 2 ? 1 : 0) : 1;
                 if (local161 == 1 && arg4) {
                     arg3.aa(arg7, arg11, arg6, arg2, arg5, 0);
                 }

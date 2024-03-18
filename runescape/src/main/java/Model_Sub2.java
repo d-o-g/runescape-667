@@ -1,3 +1,5 @@
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import com.jagex.math.Trig1;
 import jaclib.memory.Stream;
 import jaggl.OpenGL;
@@ -257,7 +259,7 @@ public final class Model_Sub2 extends Model {
                         }
                         if (local307.anInt9693 != -1) {
                             @Pc(323) TextureMetrics local323 = local116.getMetrics(local307.anInt9693);
-                            if (local323.anInt2796 == 2) {
+                            if (local323.alphaBlendMode == 2) {
                                 this.aBoolean421 = true;
                             }
                         }
@@ -278,15 +280,15 @@ public final class Model_Sub2 extends Model {
                         local358 = -1;
                         local276 = null;
                     } else {
-                        local282 = local276.aByte56;
-                        local284 = local276.aByte55;
-                        if (local276.aByte54 != 0 || local276.aByte52 != 0) {
+                        local282 = local276.effectType;
+                        local284 = local276.effectParam1;
+                        if (local276.speedU != 0 || local276.speedV != 0) {
                             this.aBoolean423 = true;
                         }
                     }
                 }
             }
-            @Pc(439) boolean local439 = arg1.aByteArray29 != null && arg1.aByteArray29[local274] != 0 || local276 != null && local276.anInt2796 != 0;
+            @Pc(439) boolean local439 = arg1.aByteArray29 != null && arg1.aByteArray29[local274] != 0 || local276 != null && local276.alphaBlendMode != 0;
             if ((local264 || local439) && arg1.aByteArray26 != null) {
                 local278 += arg1.aByteArray26[local274] << 17;
             }
@@ -299,7 +301,7 @@ public final class Model_Sub2 extends Model {
             @Pc(493) int local493 = local481 + (local266 & 0xFFFF);
             local252[local266] = ((long) local278 << 32) + ((long) local493);
             this.aBoolean421 |= local439;
-            this.aBoolean423 |= local276 != null && (local276.aByte54 != 0 || local276.aByte52 != 0);
+            this.aBoolean423 |= local276 != null && (local276.speedU != 0 || local276.speedV != 0);
         }
         Static15.method187(local252, local120);
         this.anIntArray412 = arg1.anIntArray204;
@@ -754,16 +756,16 @@ public final class Model_Sub2 extends Model {
         @Pc(41) byte local41 = 0;
         if (src != -1) {
             @Pc(53) TextureMetrics local53 = local9.getMetrics(src & 0xFFFF);
-            local39 = local53.aByte58;
+            local39 = local53.alpha;
             local41 = local53.aByte57;
         }
         @Pc(61) byte local61 = 0;
         @Pc(63) byte local63 = 0;
         if (dest != -1) {
             @Pc(73) TextureMetrics local73 = local9.getMetrics(dest & 0xFFFF);
-            local61 = local73.aByte58;
+            local61 = local73.alpha;
             local63 = local73.aByte57;
-            if (local73.aByte54 != 0 || local73.aByte52 != 0) {
+            if (local73.speedU != 0 || local73.speedV != 0) {
                 this.aBoolean423 = true;
             }
         }
@@ -1253,7 +1255,7 @@ public final class Model_Sub2 extends Model {
         @Pc(20) int local20 = Static154.anIntArray237[Static468.method7648(arg1, arg2)];
         if (arg3 != -1) {
             @Pc(33) TextureMetrics local33 = this.aClass19_Sub3_24.textureSource.getMetrics(arg3 & 0xFFFF);
-            @Pc(38) int local38 = local33.aByte58 & 0xFF;
+            @Pc(38) int local38 = local33.alpha & 0xFF;
             @Pc(49) int local49;
             @Pc(78) int local78;
             if (local38 != 0) {
@@ -2690,7 +2692,7 @@ public final class Model_Sub2 extends Model {
             return true;
         }
         for (@Pc(13) int local13 = 0; local13 < this.aShortArray75.length; local13++) {
-            if (this.aShortArray75[local13] != -1 && !this.aClass19_Sub3_24.textureSource.method6814(this.aShortArray75[local13])) {
+            if (this.aShortArray75[local13] != -1 && !this.aClass19_Sub3_24.textureSource.textureAvailable(this.aShortArray75[local13])) {
                 return false;
             }
         }

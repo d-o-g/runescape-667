@@ -1,3 +1,5 @@
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import com.jagex.math.Trig1;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
@@ -236,7 +238,7 @@ public final class Model_Sub1 extends Model {
                         }
                         if (local204.anInt9693 != -1) {
                             @Pc(220) TextureMetrics local220 = local11.getMetrics(local204.anInt9693);
-                            if (local220.anInt2796 == 2) {
+                            if (local220.alphaBlendMode == 2) {
                                 this.aBoolean228 = true;
                             }
                         }
@@ -257,12 +259,12 @@ public final class Model_Sub1 extends Model {
                         local257 = -1;
                         local169 = null;
                     } else {
-                        local177 = local169.aByte55;
-                        local175 = local169.aByte56;
+                        local177 = local169.effectParam1;
+                        local175 = local169.effectType;
                     }
                 }
             }
-            @Pc(327) boolean local327 = arg1.aByteArray29 != null && arg1.aByteArray29[local167] != 0 || local169 != null && local169.anInt2796 != 0;
+            @Pc(327) boolean local327 = arg1.aByteArray29 != null && arg1.aByteArray29[local167] != 0 || local169 != null && local169.alphaBlendMode != 0;
             if ((local157 || local327) && arg1.aByteArray26 != null) {
                 local171 += arg1.aByteArray26[local167] << 17;
             }
@@ -275,7 +277,7 @@ public final class Model_Sub1 extends Model {
             @Pc(381) int local381 = local375 + (local159 & 0xFFFF);
             local145[local159] = ((long) local171 << 32) + (long) local381;
             this.aBoolean228 |= local327;
-            this.aBoolean230 |= local169 != null && (local169.aByte54 != 0 || local169.aByte52 != 0);
+            this.aBoolean230 |= local169 != null && (local169.speedU != 0 || local169.speedV != 0);
         }
         Static15.method187(local145, local15);
         this.anIntArray240 = arg1.anIntArray213;
@@ -2669,7 +2671,7 @@ public final class Model_Sub1 extends Model {
             return true;
         }
         for (@Pc(13) int local13 = 0; local13 < this.aShortArray46.length; local13++) {
-            if (this.aShortArray46[local13] != -1 && !this.aClass19_Sub1_6.textureSource.method6814(this.aShortArray46[local13])) {
+            if (this.aShortArray46[local13] != -1 && !this.aClass19_Sub1_6.textureSource.textureAvailable(this.aShortArray46[local13])) {
                 return false;
             }
         }
@@ -3244,17 +3246,17 @@ public final class Model_Sub1 extends Model {
         if (src != -1) {
             @Pc(53) TextureMetrics local53 = local9.getMetrics(src & 0xFFFF);
             local41 = local53.aByte57;
-            local39 = local53.aByte58;
+            local39 = local53.alpha;
         }
         @Pc(61) byte local61 = 0;
         @Pc(63) byte local63 = 0;
         if (dest != -1) {
             @Pc(74) TextureMetrics local74 = local9.getMetrics(dest & 0xFFFF);
             local63 = local74.aByte57;
-            if (local74.aByte54 != 0 || local74.aByte52 != 0) {
+            if (local74.speedU != 0 || local74.speedV != 0) {
                 this.aBoolean230 = true;
             }
-            local61 = local74.aByte58;
+            local61 = local74.alpha;
         }
         if (!(local39 != local61 | local41 != local63)) {
             return;

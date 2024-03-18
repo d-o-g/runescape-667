@@ -1,3 +1,5 @@
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
 import jaclib.memory.heap.NativeHeap;
@@ -2093,19 +2095,19 @@ public final class Toolkit_Sub3 extends Toolkit {
             } else {
                 local33 = this.aClass169_1.method3529(arg0);
                 @Pc(69) TextureMetrics local69 = super.textureSource.getMetrics(arg0);
-                if (local69.aByte54 == 0 && local69.aByte52 == 0) {
+                if (local69.speedU == 0 && local69.speedV == 0) {
                     this.method6999();
                 } else {
-                    @Pc(93) int local93 = local69.aBoolean233 ? 64 : 128;
+                    @Pc(93) int local93 = local69.small ? 64 : 128;
                     @Pc(97) int local97 = local93 * 50;
-                    this.method6970(0.0F, (float) (local69.aByte52 * (this.anInt7987 % local97)) / (float) local97, (float) (this.anInt7987 % local97 * local69.aByte54) / (float) local97);
+                    this.method6970(0.0F, (float) (local69.speedV * (this.anInt7987 % local97)) / (float) local97, (float) (this.anInt7987 % local97 * local69.speedU) / (float) local97);
                 }
                 if (!this.aBoolean605) {
-                    local47 = local69.aByte56;
-                    local39 = local69.anInt2791;
-                    local37 = local69.aByte55;
+                    local47 = local69.effectType;
+                    local39 = local69.effectParam2;
+                    local37 = local69.effectParam1;
                 }
-                local35 = local69.anInt2790;
+                local35 = local69.colorOp;
             }
             this.aClass98_1.method2360(local39, arg2, arg1, local37, local47);
             if (!this.aClass98_1.method2359(local35, local33)) {

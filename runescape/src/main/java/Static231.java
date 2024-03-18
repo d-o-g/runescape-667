@@ -661,7 +661,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equals("heapdump")) {
-                    if (Static689.aString119.startsWith("win")) {
+                    if (SignLink.osNameLower.startsWith("win")) {
                         Static21.method8048(new File("C:\\Temp\\heap.dump"));
                     } else {
                         Static21.method8048(new File("/tmp/heap.dump"));
@@ -670,9 +670,9 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equals("os")) {
-                    Static79.method1579("Name: " + Static689.aString119);
-                    Static79.method1579("Arch: " + Static689.aString121);
-                    Static79.method1579("Ver: " + Static689.aString120);
+                    Static79.method1579("Name: " + SignLink.osNameLower);
+                    Static79.method1579("Arch: " + SignLink.osArchRaw);
+                    Static79.method1579("Ver: " + SignLink.osVersionRaw);
                     return;
                 }
                 if (arg2.startsWith("w2debug")) {

@@ -59,7 +59,7 @@ public final class Static664 {
         Static471.anIntArray577[46] = 72;
         Static471.anIntArray577[44] = 71;
         Static471.anIntArray577[45] = 26;
-        if (Static689.aMethod2 == null) {
+        if (SignLink.setFocusTraversalKeysEnabled == null) {
             Static471.anIntArray577[192] = 58;
             Static471.anIntArray577[222] = 59;
         } else {

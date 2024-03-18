@@ -131,7 +131,7 @@ public final class Static266 {
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "(B)V")
     public static void method6777() {
-        @Pc(5) Class83 local5 = null;
+        @Pc(5) FileOnDisk local5 = null;
         try {
             local5 = Static689.method8983("2");
             @Pc(25) Packet local25 = new Packet(Static319.anInt5078 * 6 + 3);

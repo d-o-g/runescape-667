@@ -86,7 +86,7 @@ public final class client extends Applet_Sub1 {
     @OriginalMember(owner = "client!client", name = "i", descriptor = "(I)V")
     @Override
     public synchronized void method1641() {
-        if (Static166.anApplet1 != null && Static434.aCanvas7 == null && !Static446.aSignLink_6.aBoolean779) {
+        if (Static166.anApplet1 != null && Static434.aCanvas7 == null && !Static446.aSignLink_6.microsoftjava) {
             try {
                 @Pc(25) Class local25 = Static166.anApplet1.getClass();
                 @Pc(31) Field local31 = local25.getDeclaredField("canvas");
@@ -516,7 +516,7 @@ public final class client extends Applet_Sub1 {
         if (Static607.method8163()) {
             Static546.method7251(Static163.aToolkit_17);
         }
-        if (Static446.aSignLink_6.aBoolean779 && Static475.method6445(Static283.anInt4574) && Static18.anInt251 == 0 && Static36.method978(3) == 1 && !local209) {
+        if (Static446.aSignLink_6.microsoftjava && Static475.method6445(Static283.anInt4574) && Static18.anInt251 == 0 && Static36.method978(3) == 1 && !local209) {
             local110 = 0;
             for (local114 = 0; local114 < Static122.anInt2339; local114++) {
                 if (Static469.aBooleanArray23[local114]) {
@@ -742,18 +742,18 @@ public final class client extends Applet_Sub1 {
         Static334.aClass319_1 = Static681.method8921(Static434.aCanvas7);
         Static189.aClass120_1 = Static70.method1513(Static434.aCanvas7);
         try {
-            if (Static446.aSignLink_6.aClass83_2 != null) {
-                Static172.aClass243_4 = new Class243(Static446.aSignLink_6.aClass83_2, 5200, 0);
+            if (Static446.aSignLink_6.cacheDat != null) {
+                Static172.aClass243_4 = new Class243(Static446.aSignLink_6.cacheDat, 5200, 0);
                 for (@Pc(205) int local205 = 0; local205 < 37; local205++) {
-                    Static208.aClass243Array1[local205] = new Class243(Static446.aSignLink_6.aClass83Array1[local205], 6000, 0);
+                    Static208.aClass243Array1[local205] = new Class243(Static446.aSignLink_6.cacheIndex[local205], 6000, 0);
                 }
-                Static5.aClass243_1 = new Class243(Static446.aSignLink_6.aClass83_3, 6000, 0);
+                Static5.aClass243_1 = new Class243(Static446.aSignLink_6.masterIndex, 6000, 0);
                 Static276.aClass9_1 = new Class9(255, Static172.aClass243_4, Static5.aClass243_1, 500000);
-                Static690.aClass243_5 = new Class243(Static446.aSignLink_6.aClass83_4, 24, 0);
-                Static446.aSignLink_6.aClass83_3 = null;
-                Static446.aSignLink_6.aClass83Array1 = null;
-                Static446.aSignLink_6.aClass83_2 = null;
-                Static446.aSignLink_6.aClass83_4 = null;
+                Static690.aClass243_5 = new Class243(Static446.aSignLink_6.uidFile, 24, 0);
+                Static446.aSignLink_6.masterIndex = null;
+                Static446.aSignLink_6.cacheIndex = null;
+                Static446.aSignLink_6.cacheDat = null;
+                Static446.aSignLink_6.uidFile = null;
             }
         } catch (@Pc(275) IOException local275) {
             Static5.aClass243_1 = null;

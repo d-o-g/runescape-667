@@ -1,3 +1,4 @@
+import com.jagex.FileCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -14,7 +15,7 @@ public final class Static53 {
 
     @OriginalMember(owner = "client!bp", name = "a", descriptor = "(ZLjava/lang/String;)I")
     public static int method1168(@OriginalArg(1) String arg0) {
-        if (!Static93.aSignLink_1.aBoolean781) {
+        if (!Static93.aSignLink_1.signed) {
             return -1;
         } else if (Static154.aHashtable3.containsKey(arg0)) {
             return 100;
@@ -30,7 +31,7 @@ public final class Static53 {
                 @Pc(62) byte[] local62 = Static442.aJs5_90.method7600(local36, "");
                 @Pc(68) File local68;
                 try {
-                    local68 = Static649.method8490(local22);
+                    local68 = FileCache.get(local22);
                 } catch (@Pc(70) RuntimeException local70) {
                     return -1;
                 }

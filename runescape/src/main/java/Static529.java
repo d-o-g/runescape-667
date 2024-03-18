@@ -21,7 +21,7 @@ public final class Static529 {
         } else if (Class254.aString70.startsWith("mac")) {
             Static185.aString34 = Static185.aString34 + "macos/";
         }
-        if (Static93.aSignLink_1.aBoolean779) {
+        if (Static93.aSignLink_1.microsoftjava) {
             Static185.aString34 = Static185.aString34 + "msjava/";
         } else if (Class254.aString69.startsWith("amd64") || Class254.aString69.startsWith("x86_64")) {
             Static185.aString34 = Static185.aString34 + "x86_64/";

@@ -11,7 +11,7 @@ public final class Static259 {
             return;
         }
         @Pc(31) String local31;
-        if (Static689.aString119.startsWith("win") && arg2.aBoolean781) {
+        if (SignLink.osNameLower.startsWith("win") && arg2.signed) {
             local31 = null;
             if (Static166.anApplet1 != null) {
                 local31 = Static166.anApplet1.getParameter("haveie6");
@@ -24,7 +24,7 @@ public final class Static259 {
                 return;
             }
         }
-        if (Static689.aString119.startsWith("mac")) {
+        if (SignLink.osNameLower.startsWith("mac")) {
             local31 = null;
             if (Static166.anApplet1 != null) {
                 local31 = Static166.anApplet1.getParameter("havefirefox");

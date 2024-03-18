@@ -44,15 +44,15 @@ public final class Static61 {
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Lclient!vq;Ljava/lang/Object;B)V")
     public static void method1312(@OriginalArg(0) SignLink arg0, @OriginalArg(1) Object arg1) {
-        if (arg0.anEventQueue1 == null) {
+        if (arg0.eventQueue == null) {
             return;
         }
-        for (@Pc(19) int local19 = 0; local19 < 50 && arg0.anEventQueue1.peekEvent() != null; local19++) {
+        for (@Pc(19) int local19 = 0; local19 < 50 && arg0.eventQueue.peekEvent() != null; local19++) {
             Static638.sleep(1L);
         }
         try {
             if (arg1 != null) {
-                arg0.anEventQueue1.postEvent(new ActionEvent(arg1, 1001, "dummy"));
+                arg0.eventQueue.postEvent(new ActionEvent(arg1, 1001, "dummy"));
             }
         } catch (@Pc(50) Exception local50) {
         }

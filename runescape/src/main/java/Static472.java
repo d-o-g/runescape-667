@@ -4469,7 +4469,7 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 5420) {
-                        anIntArray578[anInt7142++] = Static446.aSignLink_6.aBoolean781 ? 0 : 1;
+                        anIntArray578[anInt7142++] = Static446.aSignLink_6.signed ? 0 : 1;
                         return;
                     }
                     if (arg0 == 5421) {
@@ -5310,7 +5310,7 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 6133) {
-                        anIntArray578[anInt7142++] = Static446.aSignLink_6.aBoolean781 && !Static446.aSignLink_6.aBoolean779 ? 1 : 0;
+                        anIntArray578[anInt7142++] = Static446.aSignLink_6.signed && !Static446.aSignLink_6.microsoftjava ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6135) {

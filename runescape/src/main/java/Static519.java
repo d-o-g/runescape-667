@@ -15,12 +15,12 @@ public final class Static519 {
         @Pc(5) boolean local5 = false;
         @Pc(7) boolean local7 = false;
         @Pc(9) boolean local9 = false;
-        if (Static446.aSignLink_6.aBoolean781 && !Static446.aSignLink_6.aBoolean779) {
+        if (Static446.aSignLink_6.signed && !Static446.aSignLink_6.microsoftjava) {
             local5 = true;
             if (Static292.aClass2_Sub43_2.anInt7610 < 512 && Static292.aClass2_Sub43_2.anInt7610 != 0) {
                 local5 = false;
             }
-            if (Static689.aString119.startsWith("win")) {
+            if (SignLink.osNameLower.startsWith("win")) {
                 local9 = true;
                 local7 = true;
             } else {

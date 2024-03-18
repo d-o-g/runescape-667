@@ -286,7 +286,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             if (Static166.anApplet1 != null) {
                 local168 = Static166.anApplet1;
             }
-            @Pc(174) Method local174 = Static689.aMethod1;
+            @Pc(174) Method local174 = SignLink.setFocusCycleRoot;
             if (local174 != null) {
                 try {
                     local174.invoke(local168, Boolean.TRUE);

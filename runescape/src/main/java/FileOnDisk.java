@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 @OriginalClass("client!dm")
-public final class Class83 {
+public final class FileOnDisk {
 
     @OriginalMember(owner = "client!dm", name = "o", descriptor = "Ljava/io/RandomAccessFile;")
     public RandomAccessFile aRandomAccessFile1;
@@ -24,7 +24,7 @@ public final class Class83 {
     public final long aLong87;
 
     @OriginalMember(owner = "client!dm", name = "<init>", descriptor = "(Ljava/io/File;Ljava/lang/String;J)V")
-    public Class83(@OriginalArg(0) File arg0, @OriginalArg(1) String arg1, @OriginalArg(2) long arg2) throws IOException {
+    public FileOnDisk(@OriginalArg(0) File arg0, @OriginalArg(1) String arg1, @OriginalArg(2) long arg2) throws IOException {
         if (arg2 == -1L) {
             arg2 = Long.MAX_VALUE;
         }

@@ -27,7 +27,7 @@ public final class Class243 {
     public long aLong200 = -1L;
 
     @OriginalMember(owner = "client!mj", name = "g", descriptor = "Lclient!dm;")
-    public final Class83 aClass83_1;
+    public final FileOnDisk aFileOnDisk_1;
 
     @OriginalMember(owner = "client!mj", name = "t", descriptor = "J")
     public long aLong196;
@@ -45,8 +45,8 @@ public final class Class243 {
     public final byte[] aByteArray67;
 
     @OriginalMember(owner = "client!mj", name = "<init>", descriptor = "(Lclient!dm;II)V")
-    public Class243(@OriginalArg(0) Class83 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) throws IOException {
-        this.aClass83_1 = arg0;
+    public Class243(@OriginalArg(0) FileOnDisk arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) throws IOException {
+        this.aFileOnDisk_1 = arg0;
         this.aLong198 = this.aLong196 = arg0.method2161();
         this.aLong195 = 0L;
         this.aByteArray66 = new byte[arg1];
@@ -55,7 +55,7 @@ public final class Class243 {
 
     @OriginalMember(owner = "client!mj", name = "b", descriptor = "(I)Ljava/io/File;")
     public File method5558() {
-        return this.aClass83_1.method2164();
+        return this.aFileOnDisk_1.method2164();
     }
 
     @OriginalMember(owner = "client!mj", name = "a", descriptor = "(II[BI)V")
@@ -83,10 +83,10 @@ public final class Class243 {
                 arg0 -= local132;
             }
             if (this.aByteArray66.length < arg0) {
-                this.aClass83_1.method2160(this.aLong195);
+                this.aFileOnDisk_1.method2160(this.aLong195);
                 this.aLong197 = this.aLong195;
                 while (arg0 > 0) {
-                    local132 = this.aClass83_1.method2163(arg0, arg1, arg2);
+                    local132 = this.aFileOnDisk_1.method2163(arg0, arg1, arg2);
                     if (local132 == -1) {
                         break;
                     }
@@ -168,10 +168,10 @@ public final class Class243 {
             }
             if (arg1 > this.aByteArray67.length) {
                 if (this.aLong197 != this.aLong195) {
-                    this.aClass83_1.method2160(this.aLong195);
+                    this.aFileOnDisk_1.method2160(this.aLong195);
                     this.aLong197 = this.aLong195;
                 }
-                this.aClass83_1.method2162(arg2, arg0, arg1);
+                this.aFileOnDisk_1.method2162(arg2, arg0, arg1);
                 this.aLong197 += (long) arg1;
                 if (this.aLong197 > this.aLong196) {
                     this.aLong196 = this.aLong197;
@@ -213,7 +213,7 @@ public final class Class243 {
     public void method5563() throws IOException {
         this.anInt6212 = 0;
         if (this.aLong195 != this.aLong197) {
-            this.aClass83_1.method2160(this.aLong195);
+            this.aFileOnDisk_1.method2160(this.aLong195);
             this.aLong197 = this.aLong195;
         }
         this.aLong199 = this.aLong195;
@@ -222,7 +222,7 @@ public final class Class243 {
             if (local44 > 200000000) {
                 local44 = 200000000;
             }
-            @Pc(61) int local61 = this.aClass83_1.method2163(local44, this.aByteArray66, this.anInt6212);
+            @Pc(61) int local61 = this.aFileOnDisk_1.method2163(local44, this.aByteArray66, this.anInt6212);
             if (local61 == -1) {
                 break;
             }
@@ -244,7 +244,7 @@ public final class Class243 {
     @OriginalMember(owner = "client!mj", name = "d", descriptor = "(I)V")
     public void method5566() throws IOException {
         this.method5567();
-        this.aClass83_1.method2158();
+        this.aFileOnDisk_1.method2158();
     }
 
     @OriginalMember(owner = "client!mj", name = "a", descriptor = "(Z)V")
@@ -253,10 +253,10 @@ public final class Class243 {
             return;
         }
         if (this.aLong200 != this.aLong197) {
-            this.aClass83_1.method2160(this.aLong200);
+            this.aFileOnDisk_1.method2160(this.aLong200);
             this.aLong197 = this.aLong200;
         }
-        this.aClass83_1.method2162(this.aByteArray67, 0, this.anInt6208);
+        this.aFileOnDisk_1.method2162(this.aByteArray67, 0, this.anInt6208);
         this.aLong197 += (long) this.anInt6208;
         if (this.aLong197 > this.aLong196) {
             this.aLong196 = this.aLong197;

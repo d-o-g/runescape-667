@@ -78,44 +78,44 @@ public final class Node_Sub43 extends Node {
 
     @OriginalMember(owner = "client!pw", name = "<init>", descriptor = "(ZLclient!vq;)V")
     public Node_Sub43(@OriginalArg(0) boolean arg0, @OriginalArg(1) SignLink arg1) {
-        if (Static689.aString119.startsWith("win")) {
+        if (SignLink.osNameLower.startsWith("win")) {
             this.anInt7611 = 1;
-        } else if (Static689.aString119.startsWith("mac")) {
+        } else if (SignLink.osNameLower.startsWith("mac")) {
             this.anInt7611 = 2;
-        } else if (Static689.aString119.startsWith("linux")) {
+        } else if (SignLink.osNameLower.startsWith("linux")) {
             this.anInt7611 = 3;
         } else {
             this.anInt7611 = 4;
         }
-        if (Static689.aString121.startsWith("amd64") || Static689.aString121.startsWith("x86_64")) {
+        if (SignLink.osArchRaw.startsWith("amd64") || SignLink.osArchRaw.startsWith("x86_64")) {
             this.aBoolean580 = true;
         } else {
             this.aBoolean580 = false;
         }
         if (this.anInt7611 == 1) {
-            if (Static689.aString120.indexOf("4.0") != -1) {
+            if (SignLink.osVersionRaw.indexOf("4.0") != -1) {
                 this.anInt7612 = 1;
-            } else if (Static689.aString120.indexOf("4.1") != -1) {
+            } else if (SignLink.osVersionRaw.indexOf("4.1") != -1) {
                 this.anInt7612 = 2;
-            } else if (Static689.aString120.indexOf("4.9") != -1) {
+            } else if (SignLink.osVersionRaw.indexOf("4.9") != -1) {
                 this.anInt7612 = 3;
-            } else if (Static689.aString120.indexOf("5.0") != -1) {
+            } else if (SignLink.osVersionRaw.indexOf("5.0") != -1) {
                 this.anInt7612 = 4;
-            } else if (Static689.aString120.indexOf("5.1") != -1) {
+            } else if (SignLink.osVersionRaw.indexOf("5.1") != -1) {
                 this.anInt7612 = 5;
-            } else if (Static689.aString120.indexOf("6.0") != -1) {
+            } else if (SignLink.osVersionRaw.indexOf("6.0") != -1) {
                 this.anInt7612 = 6;
-            } else if (Static689.aString120.indexOf("6.1") != -1) {
+            } else if (SignLink.osVersionRaw.indexOf("6.1") != -1) {
                 this.anInt7612 = 7;
             }
         } else if (this.anInt7611 == 2) {
-            if (Static689.aString120.indexOf("10.4") != -1) {
+            if (SignLink.osVersionRaw.indexOf("10.4") != -1) {
                 this.anInt7612 = 20;
-            } else if (Static689.aString120.indexOf("10.5") != -1) {
+            } else if (SignLink.osVersionRaw.indexOf("10.5") != -1) {
                 this.anInt7612 = 21;
-            } else if (Static689.aString120.indexOf("10.6") != -1) {
+            } else if (SignLink.osVersionRaw.indexOf("10.6") != -1) {
                 this.anInt7612 = 22;
-            } else if (Static689.aString120.indexOf("10.7") != -1) {
+            } else if (SignLink.osVersionRaw.indexOf("10.7") != -1) {
                 this.anInt7612 = 23;
             }
         }
@@ -177,7 +177,7 @@ public final class Node_Sub43 extends Node {
             this.anInt7609 = 0;
         }
         this.anInt7613 = Static369.anInt4265;
-        if (arg1.aBoolean781) {
+        if (arg1.signed) {
             this.aBoolean581 = false;
         } else {
             this.aBoolean581 = true;

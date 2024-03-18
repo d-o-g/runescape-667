@@ -26,14 +26,14 @@ public final class Static218 {
 
     @OriginalMember(owner = "client!go", name = "b", descriptor = "(I)V")
     public static void method3189() {
-        @Pc(7) Class83 local7 = null;
+        @Pc(7) FileOnDisk local7 = null;
         try {
             @Pc(13) SignedResource local13 = Static446.aSignLink_6.method8981("2");
             while (local13.status == 0) {
                 Static638.sleep(1L);
             }
             if (local13.status == 1) {
-                local7 = (Class83) local13.result;
+                local7 = (FileOnDisk) local13.result;
                 @Pc(41) byte[] local41 = new byte[(int) local7.method2161()];
                 @Pc(57) int local57;
                 for (@Pc(43) int local43 = 0; local43 < local41.length; local43 += local57) {

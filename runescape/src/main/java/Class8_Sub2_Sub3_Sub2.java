@@ -255,7 +255,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
         } else {
             @Pc(14) Matrix local14 = arg3.method7985();
             local14.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
-            return Static504.aBoolean579 ? local9.method7483(arg1, arg0, local14, false, 0, Static582.anInt8627) : local9.method7486(arg1, arg0, local14, false, 0);
+            return Static504.aBoolean579 ? local9.method7483(arg1, arg0, local14, false, 0, Static582.anInt8627) : local9.picked(arg1, arg0, local14, false, 0);
         }
     }
 
@@ -278,9 +278,9 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
         local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(34) Class8_Sub7 local34 = Static642.method8441(this.aBoolean379, 1);
         if (Static504.aBoolean579) {
-            this.aModel_5.method7484(local20, local34.aClass8_Sub6Array1[0], Static582.anInt8627, 0);
+            this.aModel_5.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {
-            this.aModel_5.method7473(local20, local34.aClass8_Sub6Array1[0], 0);
+            this.aModel_5.method7473(local20, local34.aPickingCylinderArray1[0], 0);
         }
         return local34;
     }

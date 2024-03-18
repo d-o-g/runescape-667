@@ -591,7 +591,7 @@ public final class Class268 {
                     }
                 }
                 if (this.aByte105 != 0) {
-                    local94.method7488(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
+                    local94.adjustColours(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
                 }
                 local94.s(local54);
                 @Pc(469) Class82 local469 = this.aClass308_1.aClass82_171;
@@ -756,7 +756,7 @@ public final class Class268 {
                 }
             }
             if (this.aByte105 != 0) {
-                local139.method7488(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
+                local139.adjustColours(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
             }
             local139.s(local32);
             @Pc(685) Class82 local685 = this.aClass308_1.aClass82_170;

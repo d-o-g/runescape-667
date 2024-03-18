@@ -1076,7 +1076,7 @@ public final class Class54 {
             }
         }
         if (this.aByte10 != 0) {
-            local398.method7488(this.aByte11, this.aByte13, this.aByte14, this.aByte10 & 0xFF);
+            local398.adjustColours(this.aByte11, this.aByte13, this.aByte14, this.aByte10 & 0xFF);
         }
         if (this.anInt1218 != 128 || this.anInt1220 != 128 || this.anInt1241 != 128) {
             local398.O(this.anInt1218, this.anInt1220, this.anInt1241);

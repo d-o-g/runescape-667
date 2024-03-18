@@ -21,7 +21,7 @@ public final class Class213 {
     public void method5008(@OriginalArg(1) Class8_Sub7 arg0) {
         @Pc(6) Class8_Sub2 local6 = arg0.aClass8_Sub2_18;
         @Pc(8) boolean local8 = true;
-        @Pc(11) Class8_Sub6[] local11 = arg0.aClass8_Sub6Array1;
+        @Pc(11) PickingCylinder[] local11 = arg0.aPickingCylinderArray1;
         for (@Pc(13) int local13 = 0; local13 < local11.length; local13++) {
             if (local11[local13].aBoolean352) {
                 local8 = false;

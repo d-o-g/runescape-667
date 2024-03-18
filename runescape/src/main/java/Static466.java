@@ -153,10 +153,10 @@ public final class Static466 {
                 @Pc(451) Class130 local451 = Static10.aClass213_1.aClass130_8;
                 @Pc(465) int local465;
                 for (@Pc(456) Class8_Sub7 local456 = (Class8_Sub7) local451.method2790(); local456 != null; local456 = (Class8_Sub7) local451.method2785()) {
-                    @Pc(461) Class8_Sub6[] local461 = local456.aClass8_Sub6Array1;
+                    @Pc(461) PickingCylinder[] local461 = local456.aPickingCylinderArray1;
                     @Pc(463) boolean local463 = true;
                     for (local465 = 0; local465 < local461.length; local465++) {
-                        @Pc(471) Class8_Sub6 local471 = local461[local465];
+                        @Pc(471) PickingCylinder local471 = local461[local465];
                         @Pc(474) int local474 = local471.anInt4504;
                         @Pc(477) int local477 = local471.anInt4505;
                         @Pc(480) int local480 = local471.anInt4501;

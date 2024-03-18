@@ -793,7 +793,7 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(IILclient!tt;ZI)Z")
     @Override
-    public boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
+    public boolean picked(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
         return this.method4981(arg2, arg3, arg1, arg0, -1, arg4);
     }
 
@@ -1243,7 +1243,7 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "b", descriptor = "()[B")
     @Override
-    public byte[] method7489() {
+    public byte[] getFaceAlphas() {
         return this.aByteArray54;
     }
 
@@ -1538,7 +1538,7 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
     @Override
-    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2) {
+    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder arg1, @OriginalArg(2) int arg2) {
         if (this.anInt5538 == 0) {
             return;
         }
@@ -1898,7 +1898,7 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(Lclient!tt;Lclient!ima;II)V")
     @Override
-    public void method7484(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void renderOrtho(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder cylinder, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (this.anInt5538 == 0) {
             return;
         }
@@ -1955,7 +1955,7 @@ public final class Model_Sub2 extends Model {
         if (local326 / (float) arg2 >= this.aClass19_Sub3_24.aFloat133 || local337 / (float) arg2 <= this.aClass19_Sub3_24.aFloat141) {
             return;
         }
-        if (arg1 != null || this.aClass97Array1 != null) {
+        if (cylinder != null || this.aClass97Array1 != null) {
             Static409.aFloat118 = local17.aFloat160 * local14.aFloat161 + local17.aFloat150 * local14.aFloat156 + local17.aFloat154 * local14.aFloat150;
             Static289.aFloat84 = local14.aFloat151 * local17.aFloat161 + local14.aFloat155 * local17.aFloat153 + local17.aFloat155 * local14.aFloat154;
             Static376.aFloat113 = local17.aFloat154 * local14.aFloat160 + local17.aFloat160 * local14.aFloat153 + local14.aFloat157 * local17.aFloat150;
@@ -1963,7 +1963,7 @@ public final class Model_Sub2 extends Model {
             Static190.aFloat66 = local17.aFloat154 * local14.aFloat154 + local14.aFloat155 * local17.aFloat160 + local17.aFloat150 * local14.aFloat151;
             Static430.aFloat120 = local14.aFloat156 * local17.aFloat161 + local17.aFloat153 * local14.aFloat161 + local14.aFloat150 * local17.aFloat155;
         }
-        if (arg1 != null) {
+        if (cylinder != null) {
             @Pc(511) int local511 = this.aShort66 + this.aShort62 >> 1;
             @Pc(519) int local519 = this.aShort61 + this.aShort69 >> 1;
             @Pc(538) int local538 = (int) ((float) this.aShort63 * Static238.aFloat73 + Static393.aFloat117 * (float) local511 + Static9.aFloat1 + Static376.aFloat113 * (float) local519);
@@ -1972,13 +1972,13 @@ public final class Model_Sub2 extends Model {
             @Pc(595) int local595 = (int) (Static376.aFloat113 * (float) local519 + Static238.aFloat73 * (float) this.aShort68 + Static9.aFloat1 + Static393.aFloat117 * (float) local511);
             @Pc(614) int local614 = (int) ((float) this.aShort68 * Static91.aFloat208 + Static209.aFloat70 + (float) local511 * Static430.aFloat120 + Static409.aFloat118 * (float) local519);
             @Pc(633) int local633 = (int) (Static24.aFloat20 + Static289.aFloat84 * (float) local511 + Static188.aFloat65 * (float) this.aShort68 + (float) local519 * Static190.aFloat66);
-            arg1.anInt4503 = this.aClass19_Sub3_24.anInt8016 + local614 * this.aClass19_Sub3_24.anInt8025 / arg2;
-            arg1.anInt4501 = this.aClass19_Sub3_24.anInt8001 * local595 / arg2 + this.aClass19_Sub3_24.anInt8021;
-            arg1.anInt4504 = this.aClass19_Sub3_24.anInt8021 + this.aClass19_Sub3_24.anInt8001 * local538 / arg2;
-            arg1.anInt4505 = this.aClass19_Sub3_24.anInt8025 * local557 / arg2 + this.aClass19_Sub3_24.anInt8016;
+            cylinder.anInt4503 = this.aClass19_Sub3_24.anInt8016 + local614 * this.aClass19_Sub3_24.anInt8025 / arg2;
+            cylinder.anInt4501 = this.aClass19_Sub3_24.anInt8001 * local595 / arg2 + this.aClass19_Sub3_24.anInt8021;
+            cylinder.anInt4504 = this.aClass19_Sub3_24.anInt8021 + this.aClass19_Sub3_24.anInt8001 * local538 / arg2;
+            cylinder.anInt4505 = this.aClass19_Sub3_24.anInt8025 * local557 / arg2 + this.aClass19_Sub3_24.anInt8016;
             if (local576 >= this.aClass19_Sub3_24.anInt8010 || local633 >= this.aClass19_Sub3_24.anInt8010) {
-                arg1.aBoolean352 = true;
-                arg1.anInt4502 = (local538 + this.aShort70) * this.aClass19_Sub3_24.anInt8001 / arg2 + this.aClass19_Sub3_24.anInt8021 - arg1.anInt4504;
+                cylinder.aBoolean352 = true;
+                cylinder.anInt4502 = (local538 + this.aShort70) * this.aClass19_Sub3_24.anInt8001 / arg2 + this.aClass19_Sub3_24.anInt8021 - cylinder.anInt4504;
             }
         }
         this.aClass19_Sub3_24.method6964((float) arg2);
@@ -2726,21 +2726,21 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(IIII)V")
     @Override
-    public void method7488(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void adjustColours(@OriginalArg(0) int hue, @OriginalArg(1) int saturation, @OriginalArg(2) int lightness, @OriginalArg(3) int scale) {
         @Pc(18) int local18;
         for (@Pc(7) int local7 = 0; local7 < this.anInt5560; local7++) {
             local18 = this.aShortArray74[local7] & 0xFFFF;
             @Pc(24) int local24 = local18 >> 10 & 0x3F;
             @Pc(30) int local30 = local18 >> 7 & 0x7;
-            if (arg0 != -1) {
-                local24 += (arg0 - local24) * arg3 >> 7;
+            if (hue != -1) {
+                local24 += (hue - local24) * scale >> 7;
             }
             @Pc(49) int local49 = local18 & 0x7F;
-            if (arg1 != -1) {
-                local30 += (arg1 - local30) * arg3 >> 7;
+            if (saturation != -1) {
+                local30 += (saturation - local30) * scale >> 7;
             }
-            if (arg2 != -1) {
-                local49 += arg3 * (arg2 - local49) >> 7;
+            if (lightness != -1) {
+                local49 += scale * (lightness - local49) >> 7;
             }
             this.aShortArray74[local7] = (short) (local24 << 10 | local30 << 7 | local49);
         }

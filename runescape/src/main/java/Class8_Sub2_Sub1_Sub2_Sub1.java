@@ -135,7 +135,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(65) Model local65 = Static691.method9004(super.anInt10746, super.anInt10742, arg3, super.anInt10716, local53, arg6);
         if (local65 != null) {
             arg6.C(false);
-            local65.method7473(arg5, (Class8_Sub6) null, 0);
+            local65.method7473(arg5, (PickingCylinder) null, 0);
             arg6.C(true);
         }
     }
@@ -161,7 +161,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         local22.method7134(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(40) boolean local40 = arg2;
         for (@Pc(42) int local42 = 0; local42 < super.aModelArray3.length; local42++) {
-            if (super.aModelArray3[local42] != null && (Static504.aBoolean579 ? super.aModelArray3[local42].method7483(arg1, arg0, local22, true, 0, Static582.anInt8627) : super.aModelArray3[local42].method7486(arg1, arg0, local22, true, 0))) {
+            if (super.aModelArray3[local42] != null && (Static504.aBoolean579 ? super.aModelArray3[local42].method7483(arg1, arg0, local22, true, 0, Static582.anInt8627) : super.aModelArray3[local42].picked(arg1, arg0, local22, true, 0))) {
                 local40 = true;
                 break;
             }
@@ -217,7 +217,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(65) Model local65 = Static691.method9004(super.anInt10746, super.anInt10742, arg3, super.anInt10716, local53, arg2);
         if (local65 != null) {
             arg2.C(false);
-            local65.method7484(arg5, (Class8_Sub6) null, arg6, 0);
+            local65.renderOrtho(arg5, (PickingCylinder) null, arg6, 0);
             arg2.C(true);
         }
     }
@@ -315,9 +315,9 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                     super.aBoolean819 = true;
                     arg0.C(false);
                     if (Static504.aBoolean579) {
-                        local212.method7484(local22, local114.aClass8_Sub6Array1[super.aModelArray3.length], Static582.anInt8627, 0);
+                        local212.renderOrtho(local22, local114.aPickingCylinderArray1[super.aModelArray3.length], Static582.anInt8627, 0);
                     } else {
-                        local212.method7473(local22, local114.aClass8_Sub6Array1[super.aModelArray3.length], 0);
+                        local212.method7473(local22, local114.aPickingCylinderArray1[super.aModelArray3.length], 0);
                     }
                     arg0.C(true);
                 }
@@ -380,13 +380,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (Static504.aBoolean579) {
             for (local269 = 0; local269 < super.aModelArray3.length; local269++) {
                 if (super.aModelArray3[local269] != null) {
-                    super.aModelArray3[local269].method7484(local22, local114.aClass8_Sub6Array1[local269], Static582.anInt8627, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this ? 1 : 0);
+                    super.aModelArray3[local269].renderOrtho(local22, local114.aPickingCylinderArray1[local269], Static582.anInt8627, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this ? 1 : 0);
                 }
             }
         } else {
             for (local269 = 0; local269 < super.aModelArray3.length; local269++) {
                 if (super.aModelArray3[local269] != null) {
-                    super.aModelArray3[local269].method7473(local22, local114.aClass8_Sub6Array1[local269], Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this ? 1 : 0);
+                    super.aModelArray3[local269].method7473(local22, local114.aPickingCylinderArray1[local269], Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this ? 1 : 0);
                 }
             }
         }
@@ -614,7 +614,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             }
         }
         if (local119) {
-            local152.method7488(super.aByte150, super.aByte147, super.aByte148, super.aByte149 & 0xFF);
+            local152.adjustColours(super.aByte150, super.aByte147, super.aByte148, super.aByte149 & 0xFF);
         }
         if (!this.aBoolean129) {
             this.method9297(local5, local64, arg1, local15, local95, local61);

@@ -102,7 +102,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 if (Static504.aBoolean579) {
                     local105 = super.aModelArray3[local40].method7483(arg1, arg0, local20, local89, this.aClass268_1.anInt6723, Static582.anInt8627);
                 } else {
-                    local105 = super.aModelArray3[local40].method7486(arg1, arg0, local20, local89, this.aClass268_1.anInt6723);
+                    local105 = super.aModelArray3[local40].picked(arg1, arg0, local20, local89, this.aClass268_1.anInt6723);
                 }
                 if (local105) {
                     local38 = true;
@@ -146,9 +146,9 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 super.aBoolean819 = true;
                 arg0.C(false);
                 if (Static504.aBoolean579) {
-                    local223.method7484(local22, local123.aClass8_Sub6Array1[super.aModelArray3.length], Static582.anInt8627, 0);
+                    local223.renderOrtho(local22, local123.aPickingCylinderArray1[super.aModelArray3.length], Static582.anInt8627, 0);
                 } else {
-                    local223.method7473(local22, local123.aClass8_Sub6Array1[super.aModelArray3.length], 0);
+                    local223.method7473(local22, local123.aPickingCylinderArray1[super.aModelArray3.length], 0);
                 }
                 arg0.C(true);
             }
@@ -163,13 +163,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (Static504.aBoolean579) {
             for (local314 = 0; local314 < super.aModelArray3.length; local314++) {
                 if (super.aModelArray3[local314] != null) {
-                    super.aModelArray3[local314].method7484(local22, local123.aClass8_Sub6Array1[local314], Static582.anInt8627, 0);
+                    super.aModelArray3[local314].renderOrtho(local22, local123.aPickingCylinderArray1[local314], Static582.anInt8627, 0);
                 }
             }
         } else {
             for (local314 = 0; local314 < super.aModelArray3.length; local314++) {
                 if (super.aModelArray3[local314] != null) {
-                    super.aModelArray3[local314].method7473(local22, local123.aClass8_Sub6Array1[local314], 0);
+                    super.aModelArray3[local314].method7473(local22, local123.aPickingCylinderArray1[local314], 0);
                 }
             }
         }
@@ -229,7 +229,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             }
         }
         if (local100) {
-            local134.method7488(super.aByte150, super.aByte147, super.aByte148, super.aByte149 & 0xFF);
+            local134.adjustColours(super.aByte150, super.aByte147, super.aByte148, super.aByte149 & 0xFF);
         }
         this.method9297(local5, local53, arg1, local9, local111, local50);
         return true;

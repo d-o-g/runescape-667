@@ -220,7 +220,7 @@ public final class Class148 {
             this.aModel_2.updateAlphas((byte) arg1, this.aByteArray35);
             this.anInt3503 = arg1;
         }
-        this.aModel_2.method7473(local36, (Class8_Sub6) null, 0);
+        this.aModel_2.method7473(local36, (PickingCylinder) null, 0);
         arg4.method8000(local7);
     }
 
@@ -238,7 +238,7 @@ public final class Class148 {
                 arg0.ZA(16777215, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F);
                 @Pc(36) Mesh local36 = Static121.method2201(this.anInt3514, Static386.aClass330_80);
                 this.aModel_2 = arg0.createModel(local36, 1099776, 0, 255, 1);
-                @Pc(49) byte[] local49 = this.aModel_2.method7489();
+                @Pc(49) byte[] local49 = this.aModel_2.getFaceAlphas();
                 if (local49 == null) {
                     this.aByteArray35 = null;
                 } else {

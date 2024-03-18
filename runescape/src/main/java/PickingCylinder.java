@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ima")
-public final class Class8_Sub6 extends Class8 {
+public final class PickingCylinder extends Class8 {
 
     @OriginalMember(owner = "client!ima", name = "f", descriptor = "I")
     public int anInt4501;

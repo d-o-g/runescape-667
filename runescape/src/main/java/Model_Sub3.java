@@ -861,7 +861,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(IIII)V")
     @Override
-    public void method7488(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void adjustColours(@OriginalArg(0) int hue, @OriginalArg(1) int saturation, @OriginalArg(2) int lightness, @OriginalArg(3) int scale) {
         if ((this.anInt8489 & 0x80000) != 524288) {
             throw new IllegalStateException("FMT");
         }
@@ -871,14 +871,14 @@ public final class Model_Sub3 extends Model {
             @Pc(27) int local27 = local21 >> 10 & 0x3F;
             @Pc(33) int local33 = local21 >> 7 & 0x7;
             @Pc(37) int local37 = local21 & 0x7F;
-            if (arg0 != -1) {
-                local27 += (arg0 - local27) * arg3 >> 7;
+            if (hue != -1) {
+                local27 += (hue - local27) * scale >> 7;
             }
-            if (arg1 != -1) {
-                local33 += (arg1 - local33) * arg3 >> 7;
+            if (saturation != -1) {
+                local33 += (saturation - local33) * scale >> 7;
             }
-            if (arg2 != -1) {
-                local37 += (arg2 - local37) * arg3 >> 7;
+            if (lightness != -1) {
+                local37 += (lightness - local37) * scale >> 7;
             }
             this.aShortArray120[local13] = (short) (local27 << 10 | local33 << 7 | local37);
         }
@@ -1378,7 +1378,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(IILclient!tt;ZI)Z")
     @Override
-    public boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
+    public boolean picked(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
         return this.method7513(arg0, arg1, arg2, arg3, arg4, -1);
     }
 
@@ -1965,8 +1965,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;Lclient!ima;II)V")
     @Override
-    public void method7484(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this.method7528(arg0, arg1, arg2, arg3);
+    public void renderOrtho(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder cylinder, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+        this.method7528(arg0, cylinder, arg2, arg3);
     }
 
     @OriginalMember(owner = "client!rs", name = "c", descriptor = "()[Lclient!mn;")
@@ -3582,7 +3582,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
     @Override
-    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2) {
+    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder arg1, @OriginalArg(2) int arg2) {
         this.method7528(arg0, arg1, -1, arg2);
     }
 
@@ -3606,7 +3606,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "()[B")
     @Override
-    public byte[] method7489() {
+    public byte[] getFaceAlphas() {
         return this.aByteArray96;
     }
 
@@ -3765,7 +3765,7 @@ public final class Model_Sub3 extends Model {
     }
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(Lclient!tt;Lclient!ima;II)V")
-    public void method7528(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void method7528(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (this.anInt8491 < 1) {
             return;
         }

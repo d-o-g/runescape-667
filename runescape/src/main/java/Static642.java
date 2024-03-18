@@ -23,9 +23,9 @@ public final class Static642 {
             @Pc(37) Class8_Sub7 local37;
             if (Class43.aClass130Array1.length <= arg1 || Class43.aClass130Array1[arg1].method2782()) {
                 local37 = new Class8_Sub7();
-                local37.aClass8_Sub6Array1 = new Class8_Sub6[arg1];
+                local37.aPickingCylinderArray1 = new PickingCylinder[arg1];
                 for (@Pc(43) int local43 = 0; local43 < arg1; local43++) {
-                    local37.aClass8_Sub6Array1[local43] = new Class8_Sub6();
+                    local37.aPickingCylinderArray1[local43] = new PickingCylinder();
                 }
             } else {
                 local37 = (Class8_Sub7) Class43.aClass130Array1[arg1].method2788();

@@ -36,9 +36,9 @@ public final class Static658 {
             return;
         }
         if (arg0.aBoolean813) {
-            @Pc(74) Class8_Sub6[] local74 = local64.aClass8_Sub6Array1;
+            @Pc(74) PickingCylinder[] local74 = local64.aPickingCylinderArray1;
             for (@Pc(76) int local76 = 0; local76 < local74.length; local76++) {
-                @Pc(81) Class8_Sub6 local81 = local74[local76];
+                @Pc(81) PickingCylinder local81 = local74[local76];
                 if (local81.aBoolean352) {
                     Static682.method8927(local81.anInt4505 - local81.anInt4502, local81.anInt4503 + local81.anInt4502, local81.anInt4504 - local81.anInt4502, local81.anInt4501 + local81.anInt4502);
                 }

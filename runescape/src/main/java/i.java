@@ -122,7 +122,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(IIII)V")
     @Override
-    public void method7488(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void adjustColours(@OriginalArg(0) int hue, @OriginalArg(1) int saturation, @OriginalArg(2) int lightness, @OriginalArg(3) int scale) {
     }
 
     @OriginalMember(owner = "client!i", name = "I", descriptor = "(I[IIIIZI[I)V")
@@ -142,7 +142,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(IILclient!tt;ZI)Z")
     @Override
-    public boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
+    public boolean picked(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
         return this.anOa2.method6087().method11(this, arg0, arg1, arg2, arg3);
     }
 
@@ -230,7 +230,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "b", descriptor = "()[B")
     @Override
-    public byte[] method7489() {
+    public byte[] getFaceAlphas() {
         throw new RuntimeException();
     }
 
@@ -256,19 +256,19 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(Lclient!tt;Lclient!ima;II)V")
     @Override
-    public void method7484(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        if (arg1 == null) {
+    public void renderOrtho(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder cylinder, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+        if (cylinder == null) {
             this.anOa2.method6087().method9(this, arg0, (int[]) null, arg2, arg3);
             return;
         }
         Static445.anIntArray542[5] = 0;
         this.anOa2.method6087().method9(this, arg0, Static445.anIntArray542, arg2, arg3);
-        arg1.anInt4504 = Static445.anIntArray542[0];
-        arg1.anInt4505 = Static445.anIntArray542[1];
-        arg1.anInt4501 = Static445.anIntArray542[2];
-        arg1.anInt4503 = Static445.anIntArray542[3];
-        arg1.anInt4502 = Static445.anIntArray542[4];
-        arg1.aBoolean352 = Static445.anIntArray542[5] != 0;
+        cylinder.anInt4504 = Static445.anIntArray542[0];
+        cylinder.anInt4505 = Static445.anIntArray542[1];
+        cylinder.anInt4501 = Static445.anIntArray542[2];
+        cylinder.anInt4503 = Static445.anIntArray542[3];
+        cylinder.anInt4502 = Static445.anIntArray542[4];
+        cylinder.aBoolean352 = Static445.anIntArray542[5] != 0;
     }
 
     @OriginalMember(owner = "client!i", name = "r", descriptor = "()Z")
@@ -330,7 +330,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
     @Override
-    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2) {
+    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder arg1, @OriginalArg(2) int arg2) {
         if (arg1 == null) {
             this.anOa2.method6087().method8(this, arg0, (int[]) null, arg2);
             return;

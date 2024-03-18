@@ -106,21 +106,21 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         local16.method7125(super.anInt10690, super.anInt10691 - 10, super.anInt10694);
         @Pc(32) ObjType local32 = Static419.aObjTypeList_1.list(this.anInt8867);
         @Pc(42) Model local42 = local32.method8805((Class152) null, 131072, (Class201) null, this.anInt8873, arg3);
-        if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local32.picksizeshift, Static582.anInt8627) : local42.method7486(arg1, arg0, local16, true, local32.picksizeshift))) {
+        if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local32.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local32.picksizeshift))) {
             return true;
         }
         @Pc(82) ObjType local82;
         if (this.anInt8878 != -1) {
             local82 = Static419.aObjTypeList_1.list(this.anInt8878);
             local42 = local82.method8805((Class152) null, 131072, (Class201) null, this.anInt8874, arg3);
-            if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.method7486(arg1, arg0, local16, true, local82.picksizeshift))) {
+            if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local82.picksizeshift))) {
                 return true;
             }
         }
         if (this.anInt8876 != -1) {
             local82 = Static419.aObjTypeList_1.list(this.anInt8876);
             local42 = local82.method8805((Class152) null, 131072, (Class201) null, this.anInt8872, arg3);
-            if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.method7486(arg1, arg0, local16, true, local82.picksizeshift))) {
+            if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local82.picksizeshift))) {
                 return true;
             }
         }
@@ -201,9 +201,9 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             local369 = Static419.aObjTypeList_1.list(this.anInt8876).method8805((Class152) null, 2048, (Class201) null, this.anInt8872, arg0);
             if (local369 != null) {
                 if (Static504.aBoolean579) {
-                    local369.method7484(local94, local345.aClass8_Sub6Array1[2], Static582.anInt8627, 0);
+                    local369.renderOrtho(local94, local345.aPickingCylinderArray1[2], Static582.anInt8627, 0);
                 } else {
-                    local369.method7473(local94, local345.aClass8_Sub6Array1[2], 0);
+                    local369.method7473(local94, local345.aPickingCylinderArray1[2], 0);
                 }
                 this.aBoolean672 |= local369.F();
                 this.anInt8879 = local369.ma();
@@ -213,9 +213,9 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             local369 = Static419.aObjTypeList_1.list(this.anInt8878).method8805((Class152) null, 2048, (Class201) null, this.anInt8874, arg0);
             if (local369 != null) {
                 if (Static504.aBoolean579) {
-                    local369.method7484(local94, local345.aClass8_Sub6Array1[1], Static582.anInt8627, 0);
+                    local369.renderOrtho(local94, local345.aPickingCylinderArray1[1], Static582.anInt8627, 0);
                 } else {
-                    local369.method7473(local94, local345.aClass8_Sub6Array1[1], 0);
+                    local369.method7473(local94, local345.aPickingCylinderArray1[1], 0);
                 }
                 this.aBoolean672 |= local369.F();
                 if (local369.ma() > this.anInt8879) {
@@ -226,9 +226,9 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         local369 = Static419.aObjTypeList_1.list(this.anInt8867).method8805((Class152) null, 2048, (Class201) null, this.anInt8873, arg0);
         if (local369 != null) {
             if (Static504.aBoolean579) {
-                local369.method7484(local94, local345.aClass8_Sub6Array1[0], Static582.anInt8627, 0);
+                local369.renderOrtho(local94, local345.aPickingCylinderArray1[0], Static582.anInt8627, 0);
             } else {
-                local369.method7473(local94, local345.aClass8_Sub6Array1[0], 0);
+                local369.method7473(local94, local345.aPickingCylinderArray1[0], 0);
             }
             this.aBoolean672 |= local369.F();
             if (local369.ma() > this.anInt8879) {

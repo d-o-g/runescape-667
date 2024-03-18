@@ -34,7 +34,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
         } else {
             @Pc(20) Matrix local20 = arg3.method7985();
             local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
-            return Static504.aBoolean579 ? local12.method7483(arg1, arg0, local20, false, 0, Static582.anInt8627) : local12.method7486(arg1, arg0, local20, false, 0);
+            return Static504.aBoolean579 ? local12.method7483(arg1, arg0, local20, false, 0, Static582.anInt8627) : local12.picked(arg1, arg0, local20, false, 0);
         }
     }
 
@@ -158,9 +158,9 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
         @Pc(54) int local54 = super.anInt10694 >> 9;
         this.aClass337_2.method7681(local54, local22, true, -9827, arg0, local49, local49, local54, local30);
         if (Static504.aBoolean579) {
-            local22.method7484(local30, local44.aClass8_Sub6Array1[0], Static582.anInt8627, 0);
+            local22.renderOrtho(local30, local44.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {
-            local22.method7473(local30, local44.aClass8_Sub6Array1[0], 0);
+            local22.method7473(local30, local44.aPickingCylinderArray1[0], 0);
         }
         if (this.aClass337_2.aClass8_Sub5_7 != null) {
             @Pc(100) Class230 local100 = this.aClass337_2.aClass8_Sub5_7.method3645();

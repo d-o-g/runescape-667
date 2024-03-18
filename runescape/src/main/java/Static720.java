@@ -58,12 +58,12 @@ public final class Static720 {
         @Pc(13) Class83 local13 = null;
         @Pc(19) Node_Sub34 local19 = new Node_Sub34(Static392.aClass377_4, 0);
         try {
-            @Pc(25) Class270 local25 = Static446.aClass390_6.method8981("");
-            while (local25.anInt6789 == 0) {
-                Static638.method8395(1L);
+            @Pc(25) SignedResource local25 = Static446.aSignLink_6.method8981("");
+            while (local25.status == 0) {
+                Static638.sleep(1L);
             }
-            if (local25.anInt6789 == 1) {
-                local13 = (Class83) local25.anObject13;
+            if (local25.status == 1) {
+                local13 = (Class83) local25.result;
                 @Pc(51) byte[] local51 = new byte[(int) local13.method2161()];
                 @Pc(66) int local66;
                 for (@Pc(53) int local53 = 0; local53 < local51.length; local53 += local66) {

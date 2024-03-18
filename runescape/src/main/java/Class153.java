@@ -13,7 +13,7 @@ public final class Class153 {
     public Class348 aClass348_1;
 
     @OriginalMember(owner = "client!gw", name = "r", descriptor = "Lclient!oba;")
-    public Class270 aClass270_1;
+    public SignedResource aSignedResource_1;
 
     @OriginalMember(owner = "client!gw", name = "l", descriptor = "Lclient!iv;")
     public Class186 aClass186_1;

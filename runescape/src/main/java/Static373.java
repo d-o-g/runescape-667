@@ -8,7 +8,7 @@ public final class Static373 {
     public static int anInt5903;
 
     @OriginalMember(owner = "client!lo", name = "e", descriptor = "I")
-    public static int anInt5905;
+    public static int clientBuild;
 
     @OriginalMember(owner = "client!lo", name = "a", descriptor = "(I[[F[[S)[[S")
     public static short[][] method5300(@OriginalArg(1) float[][] arg0, @OriginalArg(2) short[][] arg1) {

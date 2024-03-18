@@ -31,19 +31,19 @@ public final class Static437 {
         }
         @Pc(16) boolean local16 = false;
         for (@Pc(18) int local18 = 0; local18 < local10.anInt10364; local18++) {
-            if (local10.aClass270Array1[local18] != null) {
-                if (local10.aClass270Array1[local18].anInt6789 == 2) {
+            if (local10.aSignedResourceArray1[local18] != null) {
+                if (local10.aSignedResourceArray1[local18].status == 2) {
                     local10.anIntArray829[local18] = -5;
                 }
-                if (local10.aClass270Array1[local18].anInt6789 == 0) {
+                if (local10.aSignedResourceArray1[local18].status == 0) {
                     local16 = true;
                 }
             }
-            if (local10.aClass270Array2[local18] != null) {
-                if (local10.aClass270Array2[local18].anInt6789 == 2) {
+            if (local10.aSignedResourceArray2[local18] != null) {
+                if (local10.aSignedResourceArray2[local18].status == 2) {
                     local10.anIntArray829[local18] = -6;
                 }
-                if (local10.aClass270Array2[local18].anInt6789 == 0) {
+                if (local10.aSignedResourceArray2[local18].status == 0) {
                     local16 = true;
                 }
             }
@@ -60,23 +60,23 @@ public final class Static437 {
                     @Pc(149) Field local149;
                     @Pc(177) int local177;
                     if (local130 == 0) {
-                        local149 = (Field) local10.aClass270Array1[local105].anObject13;
+                        local149 = (Field) local10.aSignedResourceArray1[local105].result;
                         local177 = local149.getInt((Object) null);
                         arg0.p1(0);
                         arg0.p4(local177);
                     } else if (local130 == 1) {
-                        local149 = (Field) local10.aClass270Array1[local105].anObject13;
+                        local149 = (Field) local10.aSignedResourceArray1[local105].result;
                         local149.setInt((Object) null, local10.anIntArray827[local105]);
                         arg0.p1(0);
                     } else if (local130 == 2) {
-                        local149 = (Field) local10.aClass270Array1[local105].anObject13;
+                        local149 = (Field) local10.aSignedResourceArray1[local105].result;
                         local177 = local149.getModifiers();
                         arg0.p1(0);
                         arg0.p4(local177);
                     }
                     @Pc(225) Method local225;
                     if (local130 == 3) {
-                        local225 = (Method) local10.aClass270Array2[local105].anObject13;
+                        local225 = (Method) local10.aSignedResourceArray2[local105].result;
                         @Pc(250) byte[][] local250 = local10.aByteArrayArrayArray18[local105];
                         @Pc(254) Object[] local254 = new Object[local250.length];
                         for (@Pc(256) int local256 = 0; local256 < local250.length; local256++) {
@@ -96,7 +96,7 @@ public final class Static437 {
                             arg0.p1(4);
                         }
                     } else if (local130 == 4) {
-                        local225 = (Method) local10.aClass270Array2[local105].anObject13;
+                        local225 = (Method) local10.aSignedResourceArray2[local105].result;
                         local177 = local225.getModifiers();
                         arg0.p1(0);
                         arg0.p4(local177);

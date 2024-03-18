@@ -18,7 +18,7 @@ public final class Static638 {
     }
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(Lclient!vq;BIILjava/awt/Component;)Lclient!cd;")
-    public static Class56 method8394(@OriginalArg(0) Class390 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Component arg3) {
+    public static Class56 method8394(@OriginalArg(0) SignLink arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Component arg3) {
         if (Static686.anInt8944 == 0) {
             throw new IllegalStateException();
         } else if (arg1 >= 2) {
@@ -36,7 +36,7 @@ public final class Static638 {
                 local41.method3588(local41.anInt4097);
                 if (Static156.anInt2679 > 0 && Static232.aClass119_1 == null) {
                     Static232.aClass119_1 = new Class119();
-                    Static232.aClass119_1.aClass390_2 = arg0;
+                    Static232.aClass119_1.aSignLink_2 = arg0;
                     arg0.method8991(Static232.aClass119_1, Static156.anInt2679);
                 }
                 if (Static232.aClass119_1 != null) {
@@ -56,7 +56,7 @@ public final class Static638 {
                     local141.method3588(local141.anInt4097);
                     if (Static156.anInt2679 > 0 && Static232.aClass119_1 == null) {
                         Static232.aClass119_1 = new Class119();
-                        Static232.aClass119_1.aClass390_2 = arg0;
+                        Static232.aClass119_1.aSignLink_2 = arg0;
                         arg0.method8991(Static232.aClass119_1, Static156.anInt2679);
                     }
                     if (Static232.aClass119_1 != null) {
@@ -74,7 +74,7 @@ public final class Static638 {
     }
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(JZ)V")
-    public static void method8395(@OriginalArg(0) long arg0) {
+    public static void sleep(@OriginalArg(0) long arg0) {
         if (arg0 <= 0L) {
             return;
         }

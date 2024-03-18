@@ -16,7 +16,7 @@ public final class Static489 {
     public static final Class283[] aClass283Array1 = new Class283[100];
 
     @OriginalMember(owner = "client!ph", name = "a", descriptor = "(ILclient!vq;IIII)Ljava/awt/Frame;")
-    public static Frame method6543(@OriginalArg(0) int arg0, @OriginalArg(1) Class390 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
+    public static Frame method6543(@OriginalArg(0) int arg0, @OriginalArg(1) SignLink arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         if (!arg1.method8990()) {
             return null;
         }
@@ -34,14 +34,14 @@ public final class Static489 {
         if (!local25) {
             return null;
         }
-        @Pc(101) Class270 local101 = arg1.method8977(arg0, arg2, arg3);
-        while (local101.anInt6789 == 0) {
-            Static638.method8395(10L);
+        @Pc(101) SignedResource local101 = arg1.method8977(arg0, arg2, arg3);
+        while (local101.status == 0) {
+            Static638.sleep(10L);
         }
-        @Pc(112) Frame local112 = (Frame) local101.anObject13;
+        @Pc(112) Frame local112 = (Frame) local101.result;
         if (local112 == null) {
             return null;
-        } else if (local101.anInt6789 == 2) {
+        } else if (local101.status == 2) {
             Static655.method8562(arg1, local112);
             return null;
         } else {

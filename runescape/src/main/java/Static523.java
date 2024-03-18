@@ -203,7 +203,7 @@ public final class Static523 {
             Static81.method1586(2);
         }
         if (Static198.aClass140_11 == Static473.aClass140_22) {
-            Static529.method7096(Static614.aJs5_114, Static446.aClass390_6);
+            Static529.method7096(Static614.aJs5_114, Static446.aSignLink_6);
         }
         if (Static198.aClass140_12 == Static473.aClass140_22) {
             local12 = Static460.method6266();
@@ -266,7 +266,7 @@ public final class Static523 {
             } catch (@Pc(1126) Throwable local1126) {
             }
             Static600.aClass27_1 = Static570.method7550();
-            Static292.aClass2_Sub43_2 = new Node_Sub43(true, Static446.aClass390_6);
+            Static292.aClass2_Sub43_2 = new Node_Sub43(true, Static446.aSignLink_6);
         }
         if (Static198.aClass140_15 == Static473.aClass140_22) {
             local12 = Static188.method2860(Static721.aJs5_128) + Static372.method5291(true);

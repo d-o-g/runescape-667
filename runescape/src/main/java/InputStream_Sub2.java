@@ -9,7 +9,7 @@ public final class InputStream_Sub2 extends InputStream {
     @OriginalMember(owner = "client!saa", name = "read", descriptor = "()I")
     @Override
     public int read() {
-        Static638.method8395(30000L);
+        Static638.sleep(30000L);
         return -1;
     }
 }

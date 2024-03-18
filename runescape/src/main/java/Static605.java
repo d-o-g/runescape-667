@@ -388,7 +388,7 @@ public final class Static605 {
                         }
                     }
                 } else {
-                    Static240.method3496((Throwable) null, "T3 - " + arg0);
+                    Static240.sendTrace((Throwable) null, "T3 - " + arg0);
                     Static233.method3409(false);
                 }
             }

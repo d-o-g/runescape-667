@@ -8,7 +8,7 @@ import java.io.File;
 public final class Static93 {
 
     @OriginalMember(owner = "client!cu", name = "Y", descriptor = "Lclient!vq;")
-    public static Class390 aClass390_1;
+    public static SignLink aSignLink_1;
 
     @OriginalMember(owner = "client!cu", name = "gb", descriptor = "Lclient!sb;")
     public static js5 aJs5_16;

@@ -2,6 +2,7 @@ import com.jagex.core.io.ByteArrayWrapper;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.StringTools;
+import com.jagex.core.util.JagException;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -217,16 +218,19 @@ public final class js5 {
             }
         }
 
-        @Pc(61) byte[] local61 = ByteArrayWrapper.unwrap(false, this.unpacked[group][file]);
+        @Pc(61) byte[] data = ByteArrayWrapper.unwrap(false, this.unpacked[group][file]);
+
         if (this.discardunpacked == 1) {
             this.unpacked[group][file] = null;
+
             if (this.index.fileLimits[group] == 1) {
                 this.unpacked[group] = null;
             }
         } else if (this.discardunpacked == 2) {
             this.unpacked[group] = null;
         }
-        return local61;
+
+        return data;
     }
 
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(IIB)Z")
@@ -258,6 +262,7 @@ public final class js5 {
 
             @Pc(60) Object[] groupData = this.unpacked[group];
             @Pc(62) boolean done = true;
+
             for (@Pc(64) int i = 0; i < count; i++) {
                 @Pc(71) int id;
                 if (ids == null) {
@@ -288,12 +293,14 @@ public final class js5 {
             @Pc(164) byte[] local164;
             try {
                 local164 = decodeContainer(unpacked);
-            } catch (@Pc(166) RuntimeException local166) {
-                throw Static231.method3380(local166, "T3 - " + (key != null) + "," + group + "," + unpacked.length + "," + Packet.getcrc(unpacked.length, unpacked) + "," + Packet.getcrc(unpacked.length - 2, unpacked) + "," + this.index.groupCrcs[group] + "," + this.index.crc);
+            } catch (@Pc(166) RuntimeException exception) {
+                throw JagException.wrap(exception, "T3 - " + (key != null) + "," + group + "," + unpacked.length + "," + Packet.getcrc(unpacked.length, unpacked) + "," + Packet.getcrc(unpacked.length - 2, unpacked) + "," + this.index.groupCrcs[group] + "," + this.index.crc);
             }
+
             if (this.discardpacked) {
                 this.packed[group] = null;
             }
+
             @Pc(243) int local243;
             if (count <= 1) {
                 if (ids == null) {

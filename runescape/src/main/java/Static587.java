@@ -64,7 +64,7 @@ public final class Static587 {
     @OriginalMember(owner = "client!sia", name = "g", descriptor = "(I)[Lclient!oga;")
     public static Class273[] method7710() {
         if (Static679.aClass273Array1 == null) {
-            @Pc(20) Class273[] local20 = Static673.method8787(Static446.aClass390_6, true);
+            @Pc(20) Class273[] local20 = Static673.method8787(Static446.aSignLink_6, true);
             @Pc(24) Class273[] local24 = new Class273[local20.length];
             @Pc(26) int local26 = 0;
             @Pc(31) int local31 = Static400.instance.aClass57_Sub18_1.method5767();

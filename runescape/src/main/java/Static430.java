@@ -22,7 +22,7 @@ public final class Static430 {
 
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(IBLjava/lang/String;)Z")
     public static boolean method5817(@OriginalArg(0) int arg0, @OriginalArg(2) String arg1) {
-        if (Static446.aClass390_6.aBoolean781) {
+        if (Static446.aSignLink_6.aBoolean781) {
             Static344.aClass229_1 = new Class229();
             Static344.aClass229_1.anInt5856 = arg0;
             Static344.aClass229_1.aString60 = arg1;

@@ -112,14 +112,6 @@ public final class Static232 {
         }
     }
 
-    @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
-    public static String method3395(@OriginalArg(0) String arg0, @OriginalArg(2) String arg1, @OriginalArg(3) String arg2) {
-        for (@Pc(13) int local13 = arg0.indexOf(arg1); local13 != -1; local13 = arg0.indexOf(arg1, local13 + arg2.length())) {
-            arg0 = arg0.substring(0, local13) + arg2 + arg0.substring(arg1.length() + local13);
-        }
-        return arg0;
-    }
-
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(I)Z")
     public static boolean method3400() {
         @Pc(10) Node_Sub57 local10 = (Node_Sub57) Static631.aDeque_78.first(65280);
@@ -127,10 +119,10 @@ public final class Static232 {
             return false;
         }
         for (@Pc(23) int local23 = 0; local23 < local10.anInt10364; local23++) {
-            if (local10.aClass270Array1[local23] != null && local10.aClass270Array1[local23].anInt6789 == 0) {
+            if (local10.aSignedResourceArray1[local23] != null && local10.aSignedResourceArray1[local23].status == 0) {
                 return false;
             }
-            if (local10.aClass270Array2[local23] != null && local10.aClass270Array2[local23].anInt6789 == 0) {
+            if (local10.aSignedResourceArray2[local23] != null && local10.aSignedResourceArray2[local23].status == 0) {
                 return false;
             }
         }

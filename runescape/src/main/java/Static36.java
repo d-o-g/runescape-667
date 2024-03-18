@@ -44,34 +44,34 @@ public final class Static36 {
     }
 
     @OriginalMember(owner = "client!bda", name = "a", descriptor = "(BLclient!vq;Ljava/lang/String;Ljava/lang/String;I)Lclient!oba;")
-    public static Class270 method980(@OriginalArg(1) Class390 arg0, @OriginalArg(2) String arg1, @OriginalArg(3) String arg2, @OriginalArg(4) int arg3) {
+    public static SignedResource method980(@OriginalArg(1) SignLink arg0, @OriginalArg(2) String arg1, @OriginalArg(3) String arg2, @OriginalArg(4) int arg3) {
         if (arg3 == 0) {
             return arg0.method8986(arg1);
         }
-        @Pc(57) Class270 local57;
+        @Pc(57) SignedResource local57;
         if (arg3 == 1) {
             try {
                 @Pc(36) Object local36 = Static727.method96(Static166.anApplet1, arg2, new Object[]{(new URL(Static166.anApplet1.getCodeBase(), arg1)).toString()});
                 if (local36 == null) {
                     throw new RuntimeException();
                 }
-                @Pc(47) Class270 local47 = new Class270();
-                local47.anInt6789 = 1;
+                @Pc(47) SignedResource local47 = new SignedResource();
+                local47.status = 1;
                 return local47;
             } catch (@Pc(53) Throwable local53) {
-                local57 = new Class270();
-                local57.anInt6789 = 2;
+                local57 = new SignedResource();
+                local57.status = 2;
                 return local57;
             }
         } else if (arg3 == 2) {
             try {
                 Static166.anApplet1.getAppletContext().showDocument(new URL(Static166.anApplet1.getCodeBase(), arg1), "_blank");
-                local57 = new Class270();
-                local57.anInt6789 = 1;
+                local57 = new SignedResource();
+                local57.status = 1;
                 return local57;
             } catch (@Pc(94) Exception local94) {
-                local57 = new Class270();
-                local57.anInt6789 = 2;
+                local57 = new SignedResource();
+                local57.status = 2;
                 return local57;
             }
         } else if (arg3 == 3) {
@@ -81,12 +81,12 @@ public final class Static36 {
             }
             try {
                 Static166.anApplet1.getAppletContext().showDocument(new URL(Static166.anApplet1.getCodeBase(), arg1), "_top");
-                local57 = new Class270();
-                local57.anInt6789 = 1;
+                local57 = new SignedResource();
+                local57.status = 1;
                 return local57;
             } catch (@Pc(137) Exception local137) {
-                local57 = new Class270();
-                local57.anInt6789 = 2;
+                local57 = new SignedResource();
+                local57.status = 2;
                 return local57;
             }
         } else {

@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static515 {
 
     @OriginalMember(owner = "client!qda", name = "q", descriptor = "Ljava/lang/String;")
-    public static String aString96;
+    public static String playerDisplayName;
 
     @OriginalMember(owner = "client!qda", name = "l", descriptor = "[[Ljava/lang/String;")
     public static final String[][] aStringArrayArray2 = new String[][]{{"M1", "M2", "S1", "F"}, {"M1", "M2", "M3", "S1", "S2", "F"}, {"M1", "M2", "M3", "M4", "S1", "S2", "S3", "F"}};

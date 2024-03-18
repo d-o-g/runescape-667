@@ -101,11 +101,11 @@ public final class Static363 {
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(IIIIIZ)V")
     public static void method6236(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
         if (Static316.aFrame8 != null && (arg2 != 3 || arg3 != Static328.anInt5427 || Static110.anInt2189 != arg1)) {
-            Static655.method8562(Static446.aClass390_6, Static316.aFrame8);
+            Static655.method8562(Static446.aSignLink_6, Static316.aFrame8);
             Static316.aFrame8 = null;
         }
         if (arg2 == 3 && Static316.aFrame8 == null) {
-            Static316.aFrame8 = Static489.method6543(0, Static446.aClass390_6, arg1, arg3);
+            Static316.aFrame8 = Static489.method6543(0, Static446.aSignLink_6, arg1, arg3);
             if (Static316.aFrame8 != null) {
                 Static328.anInt5427 = arg3;
                 Static110.anInt2189 = arg1;

@@ -10,7 +10,7 @@ public final class Static236 {
     public static int anInt3893;
 
     @OriginalMember(owner = "client!hfa", name = "w", descriptor = "Lclient!oba;")
-    public static Class270 aClass270_2;
+    public static SignedResource aSignedResource_2;
 
     @OriginalMember(owner = "client!hfa", name = "v", descriptor = "Lclient!ss;")
     public static final Class345 aClass345_50 = new Class345(69, 7);
@@ -44,7 +44,7 @@ public final class Static236 {
             for (@Pc(108) int local108 = 0; arg0.anInt3648 > local108 && local108 < 50; local108++) {
                 local106 = local106 + arg0.aClass2_Sub21_Sub2_2.data[local108] + ",";
             }
-            Static240.method3496(local29, local106);
+            Static240.sendTrace(local29, local106);
             Static233.method3409(false);
             return true;
         }
@@ -60,7 +60,7 @@ public final class Static236 {
                 try {
                     local16.aClass222_Sub1_1.method9179();
                 } catch (@Pc(43) Exception local43) {
-                    Static240.method3496(local43, "TV: " + local16.anInt182);
+                    Static240.sendTrace(local43, "TV: " + local16.anInt182);
                     Static121.method2199(local16.anInt182);
                 }
                 if (!local16.aBoolean14 && !local16.aBoolean16) {

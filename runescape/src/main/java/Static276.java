@@ -150,7 +150,7 @@ public final class Static276 {
             }
             return;
         }
-        Static240.method3496((Throwable) null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + Static691.anInt10367 + "," + Static116.anInt2270);
+        Static240.sendTrace((Throwable) null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + Static691.anInt10367 + "," + Static116.anInt2270);
         return;
     }
 }

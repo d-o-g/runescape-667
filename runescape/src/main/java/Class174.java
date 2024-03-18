@@ -31,15 +31,15 @@ public final class Class174 implements Runnable {
     }
 
     @OriginalMember(owner = "client!iba", name = "<init>", descriptor = "(Lclient!vq;)V")
-    public Class174(@OriginalArg(0) Class390 arg0) {
-        @Pc(20) Class270 local20 = arg0.method8991(this, 5);
-        while (local20.anInt6789 == 0) {
-            Static638.method8395(10L);
+    public Class174(@OriginalArg(0) SignLink arg0) {
+        @Pc(20) SignedResource local20 = arg0.method8991(this, 5);
+        while (local20.status == 0) {
+            Static638.sleep(10L);
         }
-        if (local20.anInt6789 == 2) {
+        if (local20.status == 2) {
             throw new RuntimeException();
         }
-        this.aThread2 = (Thread) local20.anObject13;
+        this.aThread2 = (Thread) local20.result;
     }
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(Lclient!af;IZ)Lclient!vp;")
@@ -115,7 +115,7 @@ public final class Class174 implements Runnable {
                     local18.aByteArray109 = local18.aClass9_4.method126((int) local18.key2);
                 }
             } catch (@Pc(83) Exception local83) {
-                Static240.method3496(local83, (String) null);
+                Static240.sendTrace(local83, (String) null);
             }
             local18.aBoolean778 = false;
         }

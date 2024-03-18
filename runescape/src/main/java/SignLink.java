@@ -20,19 +20,23 @@ import java.net.Socket;
 import java.net.URL;
 
 @OriginalClass("client!vq")
-public final class Class390 implements Runnable {
+public final class SignLink implements Runnable {
 
+    @OriginalMember(owner = "client!vq", name = "D", descriptor = "Ljava/lang/String;")
+    public static String javaVendor;
+    @OriginalMember(owner = "client!vq", name = "q", descriptor = "Ljava/lang/String;")
+    public static String javaVersion;
     @OriginalMember(owner = "client!vq", name = "m", descriptor = "Lclient!dm;")
     public Class83 aClass83_2 = null;
 
     @OriginalMember(owner = "client!vq", name = "l", descriptor = "Lclient!oba;")
-    public Class270 aClass270_8 = null;
+    public SignedResource current = null;
 
     @OriginalMember(owner = "client!vq", name = "F", descriptor = "Z")
     public boolean aBoolean780 = false;
 
     @OriginalMember(owner = "client!vq", name = "h", descriptor = "Lclient!oba;")
-    public Class270 aClass270_9 = null;
+    public SignedResource last = null;
 
     @OriginalMember(owner = "client!vq", name = "i", descriptor = "Lclient!dm;")
     public Class83 aClass83_4 = null;
@@ -71,18 +75,18 @@ public final class Class390 implements Runnable {
     public final Thread aThread7;
 
     @OriginalMember(owner = "client!vq", name = "<init>", descriptor = "(ILjava/lang/String;IZ)V")
-    public Class390(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) throws Exception {
+    public SignLink(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) throws Exception {
         Static689.aString122 = arg1;
-        Static689.aString124 = "1.1";
-        Static689.aString123 = "Unknown";
+        javaVersion = "1.1";
+        javaVendor = "Unknown";
         this.aBoolean781 = arg3;
         Static689.anInt10357 = arg0;
         try {
-            Static689.aString123 = System.getProperty("java.vendor");
-            Static689.aString124 = System.getProperty("java.version");
+            javaVendor = System.getProperty("java.vendor");
+            javaVersion = System.getProperty("java.version");
         } catch (@Pc(52) Exception local52) {
         }
-        if (Static689.aString123.toLowerCase().indexOf("microsoft") != -1) {
+        if (javaVendor.toLowerCase().indexOf("microsoft") != -1) {
             this.aBoolean779 = true;
         }
         try {
@@ -183,33 +187,33 @@ public final class Class390 implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(IIIII)Lclient!oba;")
-    public Class270 method8977(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
-        return this.method8993(arg0 << 16, 6, (Object) null, (arg2 << 16) + arg1);
+    public SignedResource method8977(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
+        return this.request(arg0 << 16, 6, (Object) null, (arg2 << 16) + arg1);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/Class;Ljava/lang/String;I)Lclient!oba;")
-    public Class270 method8978(@OriginalArg(0) Class arg0, @OriginalArg(1) String arg1) {
-        return this.method8993(0, 9, new Object[]{arg0, arg1}, 0);
+    public SignedResource method8978(@OriginalArg(0) Class arg0, @OriginalArg(1) String arg1) {
+        return this.request(0, 9, new Object[]{arg0, arg1}, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/String;ZZI)Lclient!oba;")
-    public Class270 method8979(@OriginalArg(0) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
-        return this.method8993(0, arg1 ? 22 : 1, arg0, arg2);
+    public SignedResource method8979(@OriginalArg(0) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
+        return this.request(0, arg1 ? 22 : 1, arg0, arg2);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(ZLjava/lang/String;B)Lclient!oba;")
-    public Class270 method8981(@OriginalArg(1) String arg0) {
-        return this.method8993(0, 12, arg0, 0);
+    public SignedResource method8981(@OriginalArg(1) String arg0) {
+        return this.request(0, 12, arg0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(BI)Lclient!oba;")
-    public Class270 method8982(@OriginalArg(1) int arg0) {
-        return this.method8993(0, 3, (Object) null, arg0);
+    public SignedResource method8982(@OriginalArg(1) int arg0) {
+        return this.request(0, 3, (Object) null, arg0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(B)Lclient!oba;")
-    public Class270 method8984() {
-        return this.method8993(0, 5, (Object) null, 0);
+    public SignedResource method8984() {
+        return this.request(0, 5, (Object) null, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "b", descriptor = "(I)V")
@@ -253,8 +257,8 @@ public final class Class390 implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/String;B)Lclient!oba;")
-    public Class270 method8986(@OriginalArg(0) String arg0) {
-        return this.method8993(0, 16, arg0, 0);
+    public SignedResource method8986(@OriginalArg(0) String arg0) {
+        return this.request(0, 16, arg0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/io/File;I[B)Z")
@@ -270,13 +274,13 @@ public final class Class390 implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/Class;[Ljava/lang/Class;Ljava/lang/String;Z)Lclient!oba;")
-    public Class270 method8988(@OriginalArg(0) Class arg0, @OriginalArg(1) Class[] arg1, @OriginalArg(2) String arg2) {
-        return this.method8993(0, 8, new Object[]{arg0, arg2, arg1}, 0);
+    public SignedResource method8988(@OriginalArg(0) Class arg0, @OriginalArg(1) Class[] arg1, @OriginalArg(2) String arg2) {
+        return this.request(0, 8, new Object[]{arg0, arg2, arg1}, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/awt/Frame;I)Lclient!oba;")
-    public Class270 method8989(@OriginalArg(0) Frame arg0) {
-        return this.method8993(0, 7, arg0, 0);
+    public SignedResource method8989(@OriginalArg(0) Frame arg0) {
+        return this.request(0, 7, arg0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(I)Z")
@@ -291,31 +295,31 @@ public final class Class390 implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(BLjava/lang/Runnable;I)Lclient!oba;")
-    public Class270 method8991(@OriginalArg(1) Runnable arg0, @OriginalArg(2) int arg1) {
-        return this.method8993(0, 2, arg0, arg1);
+    public SignedResource method8991(@OriginalArg(1) Runnable arg0, @OriginalArg(2) int arg1) {
+        return this.request(0, 2, arg0, arg1);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(BLjava/net/URL;)Lclient!oba;")
-    public Class270 method8992(@OriginalArg(1) URL arg0) {
-        return this.method8993(0, 4, arg0, 0);
+    public SignedResource openStream(@OriginalArg(1) URL arg0) {
+        return this.request(0, 4, arg0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(IILjava/lang/Object;II)Lclient!oba;")
-    public Class270 method8993(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Object arg2, @OriginalArg(4) int arg3) {
-        @Pc(3) Class270 local3 = new Class270();
-        local3.anObject12 = arg2;
-        local3.anInt6788 = arg3;
-        local3.anInt6790 = arg1;
-        local3.anInt6787 = arg0;
+    public SignedResource request(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Object arg2, @OriginalArg(4) int arg3) {
+        @Pc(3) SignedResource resource = new SignedResource();
+        resource.objectData = arg2;
+        resource.anInt6788 = arg3;
+        resource.anInt6790 = arg1;
+        resource.anInt6787 = arg0;
         synchronized (this) {
-            if (this.aClass270_9 == null) {
-                this.aClass270_9 = this.aClass270_8 = local3;
+            if (this.last == null) {
+                this.last = this.current = resource;
             } else {
-                this.aClass270_9.aClass270_5 = local3;
-                this.aClass270_9 = local3;
+                this.last.next = resource;
+                this.last = resource;
             }
             this.notify();
-            return local3;
+            return resource;
         }
     }
 
@@ -325,25 +329,25 @@ public final class Class390 implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(IB[ILjava/awt/Component;Ljava/awt/Point;I)Lclient!oba;")
-    public Class270 method8995(@OriginalArg(0) int arg0, @OriginalArg(2) int[] arg1, @OriginalArg(3) Component arg2, @OriginalArg(4) Point arg3, @OriginalArg(5) int arg4) {
-        return this.method8993(arg0, 17, new Object[]{arg2, arg1, arg3}, arg4);
+    public SignedResource method8995(@OriginalArg(0) int arg0, @OriginalArg(2) int[] arg1, @OriginalArg(3) Component arg2, @OriginalArg(4) Point arg3, @OriginalArg(5) int arg4) {
+        return this.request(arg0, 17, new Object[]{arg2, arg1, arg3}, arg4);
     }
 
     @OriginalMember(owner = "client!vq", name = "run", descriptor = "()V")
     @Override
     public void run() {
         while (true) {
-            @Pc(15) Class270 local15;
+            @Pc(15) SignedResource local15;
             synchronized (this) {
                 while (true) {
                     if (this.aBoolean780) {
                         return;
                     }
-                    if (this.aClass270_8 != null) {
-                        local15 = this.aClass270_8;
-                        this.aClass270_8 = this.aClass270_8.aClass270_5;
-                        if (this.aClass270_8 == null) {
-                            this.aClass270_9 = null;
+                    if (this.current != null) {
+                        local15 = this.current;
+                        this.current = this.current.next;
+                        if (this.current == null) {
+                            this.last = null;
                         }
                         break;
                     }
@@ -359,47 +363,47 @@ public final class Class390 implements Runnable {
                     if (Static588.method7715() < Static689.aLong317) {
                         throw new IOException();
                     }
-                    local15.anObject13 = new Socket(InetAddress.getByName((String) local15.anObject12), local15.anInt6788);
+                    local15.result = new Socket(InetAddress.getByName((String) local15.objectData), local15.anInt6788);
                 } else if (local42 == 22) {
                     if (Static689.aLong317 > Static588.method7715()) {
                         throw new IOException();
                     }
                     try {
-                        local15.anObject13 = Static327.method4894((String) local15.anObject12, local15.anInt6788).method6097();
+                        local15.result = Static327.method4894((String) local15.objectData, local15.anInt6788).method6097();
                     } catch (@Pc(947) IOException_Sub1 local947) {
-                        local15.anObject13 = local947.getMessage();
+                        local15.result = local947.getMessage();
                         throw local947;
                     }
                 } else if (local42 == 2) {
-                    @Pc(911) Thread local911 = new Thread((Runnable) local15.anObject12);
+                    @Pc(911) Thread local911 = new Thread((Runnable) local15.objectData);
                     local911.setDaemon(true);
                     local911.start();
                     local911.setPriority(local15.anInt6788);
-                    local15.anObject13 = local911;
+                    local15.result = local911;
                 } else if (local42 == 4) {
                     if (Static588.method7715() < Static689.aLong317) {
                         throw new IOException();
                     }
-                    local15.anObject13 = new DataInputStream(((URL) local15.anObject12).openStream());
+                    local15.result = new DataInputStream(((URL) local15.objectData).openStream());
                 } else {
                     @Pc(102) Object[] local102;
                     if (local42 == 8) {
-                        local102 = (Object[]) local15.anObject12;
+                        local102 = (Object[]) local15.objectData;
                         if (this.aBoolean781 && ((Class) local102[0]).getClassLoader() == null) {
                             throw new SecurityException();
                         }
-                        local15.anObject13 = ((Class) local102[0]).getDeclaredMethod((String) local102[1], (Class[]) local102[2]);
+                        local15.result = ((Class) local102[0]).getDeclaredMethod((String) local102[1], (Class[]) local102[2]);
                     } else if (local42 == 9) {
-                        local102 = (Object[]) local15.anObject12;
+                        local102 = (Object[]) local15.objectData;
                         if (this.aBoolean781 && ((Class) local102[0]).getClassLoader() == null) {
                             throw new SecurityException();
                         }
-                        local15.anObject13 = ((Class) local102[0]).getDeclaredField((String) local102[1]);
+                        local15.result = ((Class) local102[0]).getDeclaredField((String) local102[1]);
                     } else if (local42 == 18) {
                         @Pc(136) Clipboard local136 = Toolkit.getDefaultToolkit().getSystemClipboard();
-                        local15.anObject13 = local136.getContents((Object) null);
+                        local15.result = local136.getContents((Object) null);
                     } else if (local42 == 19) {
-                        @Pc(149) Transferable local149 = (Transferable) local15.anObject12;
+                        @Pc(149) Transferable local149 = (Transferable) local15.objectData;
                         @Pc(152) Clipboard local152 = Toolkit.getDefaultToolkit().getSystemClipboard();
                         local152.setContents(local149, (ClipboardOwner) null);
                     } else if (this.aBoolean781) {
@@ -409,21 +413,21 @@ public final class Class390 implements Runnable {
                                 throw new IOException();
                             }
                             local220 = (local15.anInt6788 >> 24 & 0xFF) + "." + (local15.anInt6788 >> 16 & 0xFF) + "." + (local15.anInt6788 >> 8 & 0xFF) + "." + (local15.anInt6788 & 0xFF);
-                            local15.anObject13 = InetAddress.getByName(local220).getHostName();
+                            local15.result = InetAddress.getByName(local220).getHostName();
                         } else if (local42 == 21) {
                             if (Static588.method7715() < Static689.aLong317) {
                                 throw new IOException();
                             }
-                            local15.anObject13 = InetAddress.getByName((String) local15.anObject12).getAddress();
+                            local15.result = InetAddress.getByName((String) local15.objectData).getAddress();
                         } else if (local42 == 5) {
                             if (this.aBoolean779) {
-                                local15.anObject13 = this.aClass15_1.method250();
+                                local15.result = this.aClass15_1.method250();
                             } else {
-                                local15.anObject13 = Class.forName("Class66").getMethod("listmodes").invoke(this.anObject19);
+                                local15.result = Class.forName("Class66").getMethod("listmodes").invoke(this.anObject19);
                             }
                         } else if (local42 == 6) {
                             @Pc(268) Frame local268 = new Frame("Jagex Full Screen");
-                            local15.anObject13 = local268;
+                            local15.result = local268;
                             local268.setResizable(false);
                             if (this.aBoolean779) {
                                 this.aClass15_1.method248(local268, local15.anInt6787 >> 16, local15.anInt6787 & 0xFFFF, local15.anInt6788 & 0xFFFF, local15.anInt6788 >>> 16);
@@ -433,11 +437,11 @@ public final class Class390 implements Runnable {
                         } else if (local42 != 7) {
                             @Pc(438) Class83 local438;
                             if (local42 == 12) {
-                                local438 = Static689.method8980(Static689.aString122, Static689.anInt10357, (String) local15.anObject12);
-                                local15.anObject13 = local438;
+                                local438 = Static689.method8980(Static689.aString122, Static689.anInt10357, (String) local15.objectData);
+                                local15.result = local438;
                             } else if (local42 == 13) {
-                                local438 = Static689.method8980("", Static689.anInt10357, (String) local15.anObject12);
-                                local15.anObject13 = local438;
+                                local438 = Static689.method8980("", Static689.anInt10357, (String) local15.objectData);
+                                local15.result = local438;
                             } else if (this.aBoolean781 && local42 == 14) {
                                 @Pc(460) int local460 = local15.anInt6788;
                                 @Pc(463) int local463 = local15.anInt6787;
@@ -448,21 +452,21 @@ public final class Class390 implements Runnable {
                                 }
                             } else if (this.aBoolean781 && local42 == 15) {
                                 @Pc(534) boolean local534 = local15.anInt6788 != 0;
-                                @Pc(538) Component local538 = (Component) local15.anObject12;
+                                @Pc(538) Component local538 = (Component) local15.objectData;
                                 if (this.aBoolean779) {
                                     this.aCallback_Sub1_1.method6432(local534, local538);
                                 } else {
                                     Class.forName("Class238").getDeclaredMethod("showcursor", Static689.aClass25 == null ? (Static689.aClass25 = Class.forName("java.awt.Component")) : Static689.aClass25, Boolean.TYPE).invoke(this.anObject20, local538, Boolean.valueOf(local534));
                                 }
                             } else if (!this.aBoolean779 && local42 == 17) {
-                                local102 = (Object[]) local15.anObject12;
+                                local102 = (Object[]) local15.objectData;
                                 Class.forName("Class238").getDeclaredMethod("setcustomcursor", Static689.aClass25 == null ? (Static689.aClass25 = Class.forName("java.awt.Component")) : Static689.aClass25, Static689.aClass26 == null ? (Static689.aClass26 = Class.forName("[I")) : Static689.aClass26, Integer.TYPE, Integer.TYPE, Static689.aClass27 == null ? (Static689.aClass27 = Class.forName("java.awt.Point")) : Static689.aClass27).invoke(this.anObject20, (Component) local102[0], (int[]) local102[1], Integer.valueOf(local15.anInt6788), new Integer(local15.anInt6787), (Point) local102[2]);
                             } else if (local42 == 16) {
                                 try {
                                     if (!Static689.aString119.startsWith("win")) {
                                         throw new Exception();
                                     }
-                                    local220 = (String) local15.anObject12;
+                                    local220 = (String) local15.objectData;
                                     if (!local220.startsWith("http://") && !local220.startsWith("https://")) {
                                         throw new Exception();
                                     }
@@ -473,16 +477,16 @@ public final class Class390 implements Runnable {
                                         }
                                     }
                                     Runtime.getRuntime().exec("cmd /c start \"j\" \"" + local220 + "\"");
-                                    local15.anObject13 = null;
+                                    local15.result = null;
                                 } catch (@Pc(793) Exception local793) {
-                                    local15.anObject13 = local793;
+                                    local15.result = local793;
                                     throw local793;
                                 }
                             } else {
                                 throw new Exception("");
                             }
                         } else if (this.aBoolean779) {
-                            this.aClass15_1.method249((Frame) local15.anObject12);
+                            this.aClass15_1.method249((Frame) local15.objectData);
                         } else {
                             Class.forName("Class66").getMethod("exit").invoke(this.anObject19);
                         }
@@ -490,11 +494,11 @@ public final class Class390 implements Runnable {
                         throw new Exception("");
                     }
                 }
-                local15.anInt6789 = 1;
+                local15.status = 1;
             } catch (@Pc(958) ThreadDeath local958) {
                 throw local958;
             } catch (@Pc(961) Throwable local961) {
-                local15.anInt6789 = 2;
+                local15.status = 2;
             }
             synchronized (local15) {
                 local15.notify();

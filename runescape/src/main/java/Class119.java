@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class119 implements Runnable {
 
     @OriginalMember(owner = "client!faa", name = "g", descriptor = "Lclient!vq;")
-    public Class390 aClass390_2;
+    public SignLink aSignLink_2;
 
     @OriginalMember(owner = "client!faa", name = "f", descriptor = "[Lclient!cd;")
     public final Class56[] aClass56Array1 = new Class56[2];
@@ -29,11 +29,11 @@ public final class Class119 implements Runnable {
                         local21.method3594();
                     }
                 }
-                Static638.method8395(10L);
-                Static61.method1312(this.aClass390_2, (Object) null);
+                Static638.sleep(10L);
+                Static61.method1312(this.aSignLink_2, (Object) null);
             }
         } catch (@Pc(49) Exception local49) {
-            Static240.method3496(local49, (String) null);
+            Static240.sendTrace(local49, (String) null);
         } finally {
             @Pc(59) Object local59 = null;
             this.aBoolean242 = false;

@@ -13,7 +13,7 @@ import java.net.Socket;
 public final class Class263 implements Runnable {
 
     @OriginalMember(owner = "client!nk", name = "j", descriptor = "Lclient!oba;")
-    public Class270 aClass270_3;
+    public SignedResource aSignedResource_3;
 
     @OriginalMember(owner = "client!nk", name = "f", descriptor = "[B")
     public byte[] aByteArray79;
@@ -31,7 +31,7 @@ public final class Class263 implements Runnable {
     public boolean aBoolean489 = false;
 
     @OriginalMember(owner = "client!nk", name = "u", descriptor = "Lclient!vq;")
-    public final Class390 aClass390_5;
+    public final SignLink aSignLink_5;
 
     @OriginalMember(owner = "client!nk", name = "w", descriptor = "Ljava/net/Socket;")
     public final Socket aSocket1;
@@ -46,8 +46,8 @@ public final class Class263 implements Runnable {
     public final int anInt6537;
 
     @OriginalMember(owner = "client!nk", name = "<init>", descriptor = "(Ljava/net/Socket;Lclient!vq;I)V")
-    public Class263(@OriginalArg(0) Socket arg0, @OriginalArg(1) Class390 arg1, @OriginalArg(2) int arg2) throws IOException {
-        this.aClass390_5 = arg1;
+    public Class263(@OriginalArg(0) Socket arg0, @OriginalArg(1) SignLink arg1, @OriginalArg(2) int arg2) throws IOException {
+        this.aSignLink_5 = arg1;
         this.aSocket1 = arg0;
         this.aSocket1.setSoTimeout(30000);
         this.aSocket1.setTcpNoDelay(true);
@@ -129,7 +129,7 @@ public final class Class263 implements Runnable {
                 break;
             }
         } catch (@Pc(122) Exception local122) {
-            Static240.method3496(local122, (String) null);
+            Static240.sendTrace(local122, (String) null);
         }
     }
 
@@ -187,8 +187,8 @@ public final class Class263 implements Runnable {
                     throw new IOException();
                 }
             }
-            if (this.aClass270_3 == null) {
-                this.aClass270_3 = this.aClass390_5.method8991(this, 3);
+            if (this.aSignedResource_3 == null) {
+                this.aSignedResource_3 = this.aSignLink_5.method8991(this, 3);
             }
             this.notifyAll();
         }
@@ -203,17 +203,17 @@ public final class Class263 implements Runnable {
             this.aBoolean488 = true;
             this.notifyAll();
         }
-        if (this.aClass270_3 != null) {
-            while (this.aClass270_3.anInt6789 == 0) {
-                Static638.method8395(1L);
+        if (this.aSignedResource_3 != null) {
+            while (this.aSignedResource_3.status == 0) {
+                Static638.sleep(1L);
             }
-            if (this.aClass270_3.anInt6789 == 1) {
+            if (this.aSignedResource_3.status == 1) {
                 try {
-                    ((Thread) this.aClass270_3.anObject13).join();
+                    ((Thread) this.aSignedResource_3.result).join();
                 } catch (@Pc(60) InterruptedException local60) {
                 }
             }
         }
-        this.aClass270_3 = null;
+        this.aSignedResource_3 = null;
     }
 }

@@ -43,12 +43,12 @@ public final class Static61 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Lclient!vq;Ljava/lang/Object;B)V")
-    public static void method1312(@OriginalArg(0) Class390 arg0, @OriginalArg(1) Object arg1) {
+    public static void method1312(@OriginalArg(0) SignLink arg0, @OriginalArg(1) Object arg1) {
         if (arg0.anEventQueue1 == null) {
             return;
         }
         for (@Pc(19) int local19 = 0; local19 < 50 && arg0.anEventQueue1.peekEvent() != null; local19++) {
-            Static638.method8395(1L);
+            Static638.sleep(1L);
         }
         try {
             if (arg1 != null) {

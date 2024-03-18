@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 public abstract class ByteArrayWrapper {
 
     @OriginalMember(owner = "client!ec", name = "H", descriptor = "Z")
-    public static boolean errored = false;
+    private static boolean errored = false;
 
     @OriginalMember(owner = "client!ls", name = "a", descriptor = "(BZLjava/lang/Object;)[B")
     public static byte[] unwrap(@OriginalArg(1) boolean copy, @OriginalArg(2) Object object) {

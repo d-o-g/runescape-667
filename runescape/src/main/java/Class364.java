@@ -151,7 +151,7 @@ public final class Class364 implements Runnable {
                                 Static163.aToolkit_17.method7984();
                             }
                         } catch (@Pc(205) Exception_Sub1 local205) {
-                            Static240.method3496(local205, local205.getMessage() + " (Recovered) " + Static295.aClient1.method1648());
+                            Static240.sendTrace(local205, local205.getMessage() + " (Recovered) " + Static295.aClient1.method1648());
                             Static32.method880(0, true);
                         }
                     }
@@ -179,7 +179,7 @@ public final class Class364 implements Runnable {
             @Pc(304) long local304 = Static588.method7715();
             @Pc(312) int local312 = (int) (local8 + 20L - local304);
             if (local312 > 0) {
-                Static638.method8395((long) local312);
+                Static638.sleep((long) local312);
             }
         }
     }

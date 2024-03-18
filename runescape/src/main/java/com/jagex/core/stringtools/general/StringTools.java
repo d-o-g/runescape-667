@@ -116,6 +116,14 @@ public final class StringTools {
         return hash;
     }
 
+    @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+    public static String replace(@OriginalArg(0) String string, @OriginalArg(2) String target, @OriginalArg(3) String replacement) {
+        for (@Pc(13) int i = string.indexOf(target); i != -1; i = string.indexOf(target, i + replacement.length())) {
+            string = string.substring(0, i) + replacement + string.substring(target.length() + i);
+        }
+        return string;
+    }
+
     private StringTools() {
         /* empty */
     }

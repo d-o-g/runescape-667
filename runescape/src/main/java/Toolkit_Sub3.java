@@ -1242,7 +1242,7 @@ public final class Toolkit_Sub3 extends Toolkit {
             if (local13++ > 5) {
                 throw new RuntimeException("");
             }
-            Static638.method8395(1000L);
+            Static638.sleep(1000L);
         }
     }
 

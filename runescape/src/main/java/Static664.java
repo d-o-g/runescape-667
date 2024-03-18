@@ -33,13 +33,13 @@ public final class Static664 {
     }
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(IZLjava/lang/String;ZLclient!vq;)V")
-    public static void method8655(@OriginalArg(1) boolean arg0, @OriginalArg(2) String arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) Class390 arg3) {
+    public static void method8655(@OriginalArg(1) boolean arg0, @OriginalArg(2) String arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) SignLink arg3) {
         Static259.method3693(arg1, "openjs", arg3, arg0, arg2);
     }
 
     @OriginalMember(owner = "client!vaa", name = "b", descriptor = "(Z)V")
     public static void method8657() {
-        if (Static689.aString123.toLowerCase().indexOf("microsoft") != -1) {
+        if (SignLink.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
             Static471.anIntArray577[191] = 73;
             Static471.anIntArray577[186] = 57;
             Static471.anIntArray577[219] = 42;

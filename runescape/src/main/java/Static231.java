@@ -118,18 +118,6 @@ public final class Static231 {
         return arg0.length() + 1;
     }
 
-    @OriginalMember(owner = "client!hd", name = "a", descriptor = "(Ljava/lang/Throwable;Ljava/lang/String;)Lclient!fl;")
-    public static RuntimeException_Sub1 method3380(@OriginalArg(0) Throwable arg0, @OriginalArg(1) String arg1) {
-        @Pc(12) RuntimeException_Sub1 local12;
-        if (arg0 instanceof RuntimeException_Sub1) {
-            local12 = (RuntimeException_Sub1) arg0;
-            local12.aString32 = local12.aString32 + ' ' + arg1;
-        } else {
-            local12 = new RuntimeException_Sub1(arg0, arg1);
-        }
-        return local12;
-    }
-
     @OriginalMember(owner = "client!hd", name = "a", descriptor = "(IZZLjava/lang/String;)V")
     public static void method3381(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) String arg2) {
         try {
@@ -288,7 +276,7 @@ public final class Static231 {
                 }
                 @Pc(725) int local725;
                 if (arg2.equalsIgnoreCase("breakcon")) {
-                    Static446.aClass390_6.method8994();
+                    Static446.aSignLink_6.method8994();
                     @Pc(723) Class153[] local723 = Static405.aClass153Array1;
                     for (local725 = 0; local725 < local723.length; local725++) {
                         @Pc(730) Class153 local730 = local723[local725];

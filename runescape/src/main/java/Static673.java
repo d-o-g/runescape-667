@@ -14,18 +14,18 @@ public final class Static673 {
     public static int anInt10079 = -1;
 
     @OriginalMember(owner = "client!vf", name = "a", descriptor = "(Lclient!vq;Z)[Lclient!oga;")
-    public static Class273[] method8787(@OriginalArg(0) Class390 arg0, @OriginalArg(1) boolean arg1) {
+    public static Class273[] method8787(@OriginalArg(0) SignLink arg0, @OriginalArg(1) boolean arg1) {
         if (!arg0.method8990()) {
             return new Class273[0];
         }
-        @Pc(15) Class270 local15 = arg0.method8984();
-        while (local15.anInt6789 == 0) {
-            Static638.method8395(10L);
+        @Pc(15) SignedResource local15 = arg0.method8984();
+        while (local15.status == 0) {
+            Static638.sleep(10L);
         }
-        if (local15.anInt6789 == 2) {
+        if (local15.status == 2) {
             return new Class273[0];
         }
-        @Pc(38) int[] local38 = (int[]) local15.anObject13;
+        @Pc(38) int[] local38 = (int[]) local15.result;
         @Pc(44) Class273[] local44 = new Class273[local38.length >> 2];
         for (@Pc(46) int local46 = 0; local46 < local44.length; local46++) {
             @Pc(51) Class273 local51 = new Class273();

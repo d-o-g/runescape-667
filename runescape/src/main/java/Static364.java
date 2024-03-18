@@ -92,9 +92,9 @@ public final class Static364 {
             }
             if (Static135.anInt8223 == 1) {
                 if (Static299.anInt4825 == 2) {
-                    Static524.aClass153_3.aClass270_1 = Static344.aClass229_1.method5263(Static446.aClass390_6);
+                    Static524.aClass153_3.aSignedResource_1 = Static344.aClass229_1.method5263(Static446.aSignLink_6);
                 } else {
-                    Static524.aClass153_3.aClass270_1 = Static660.aClass229_4.method5263(Static446.aClass390_6);
+                    Static524.aClass153_3.aSignedResource_1 = Static660.aClass229_4.method5263(Static446.aSignLink_6);
                 }
                 Static135.anInt8223 = 2;
             }
@@ -102,14 +102,14 @@ public final class Static364 {
             @Pc(203) int local203;
             @Pc(250) int local250;
             if (Static135.anInt8223 == 2) {
-                if (Static524.aClass153_3.aClass270_1.anInt6789 == 2) {
+                if (Static524.aClass153_3.aSignedResource_1.status == 2) {
                     throw new IOException();
                 }
-                if (Static524.aClass153_3.aClass270_1.anInt6789 != 1) {
+                if (Static524.aClass153_3.aSignedResource_1.status != 1) {
                     return;
                 }
-                Static524.aClass153_3.aClass348_1 = Static99.method1975((Socket) Static524.aClass153_3.aClass270_1.anObject13);
-                Static524.aClass153_3.aClass270_1 = null;
+                Static524.aClass153_3.aClass348_1 = Static99.method1975((Socket) Static524.aClass153_3.aSignedResource_1.result);
+                Static524.aClass153_3.aSignedResource_1 = null;
                 Static524.aClass153_3.method3272();
                 local186 = Static273.method3962();
                 if (Static311.aBoolean384) {
@@ -180,8 +180,8 @@ public final class Static364 {
                 @Pc(465) String local465 = Static524.aClass153_3.aClass2_Sub21_Sub2_2.gjstr2();
                 Static524.aClass153_3.aClass2_Sub21_Sub2_2.pos = 0;
                 @Pc(473) String local473 = "opensn";
-                if (!Static98.aBoolean191 || Static36.method980(Static446.aClass390_6, local465, local473, 1).anInt6789 == 2) {
-                    Static259.method3693(local465, local473, Static446.aClass390_6, Static400.instance.aClass57_Sub29_1.method7915() == 1, true);
+                if (!Static98.aBoolean191 || Static36.method980(Static446.aSignLink_6, local465, local473, 1).status == 2) {
+                    Static259.method3693(local465, local473, Static446.aSignLink_6, Static400.instance.aClass57_Sub29_1.method7915() == 1, true);
                 }
                 Static135.anInt8223 = 6;
             }
@@ -436,12 +436,12 @@ public final class Static364 {
                         Static476.anInt7175 = local1435.g2();
                         Static323.anInt5118 = local1435.g2();
                         Static392.anInt6141 = local1435.g4();
-                        Static439.aClass270_4 = Static446.aClass390_6.method8982(Static392.anInt6141);
+                        Static439.aSignedResource_4 = Static446.aSignLink_6.method8982(Static392.anInt6141);
                         Static335.anInt5462 = local1435.g1();
                         Static626.anInt9473 = local1435.g2();
                         Static636.anInt9527 = local1435.g2();
                         Static420.aBoolean479 = local1435.g1() == 1;
-                        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString8 = Static515.aString96 = local1435.gjstr2();
+                        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString8 = Static515.playerDisplayName = local1435.gjstr2();
                         Static639.anInt9571 = local1435.g1();
                         Static438.anInt6640 = local1435.g4();
                         Static587.aBoolean663 = local1435.g1() == 1;

@@ -95,7 +95,7 @@ public class Class56 {
             if (local11) {
                 Static232.aClass119_1.aBoolean241 = true;
                 while (Static232.aClass119_1.aBoolean242) {
-                    Static638.method8395(50L);
+                    Static638.sleep(50L);
                 }
                 Static232.aClass119_1 = null;
             }

@@ -3529,7 +3529,7 @@ public final class Static472 {
                 local1484.append("v: ").append(aClass143Array1[local706].aClass2_Sub2_Sub10_1.key).append(" ");
             }
             local1484.append("op: ").append(local13);
-            Static240.method3496(local1479, local1484.toString());
+            Static240.sendTrace(local1479, local1484.toString());
         }
     }
 
@@ -4453,23 +4453,23 @@ public final class Static472 {
                             return;
                         }
                         local95 = Static360.aString59 == null ? Static659.method8605() : Static360.aString59;
-                        Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local95, false, Static446.aClass390_6);
+                        Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local95, false, Static446.aSignLink_6);
                         return;
                     }
                     if (arg0 == 5419) {
                         local95 = "";
-                        if (Static439.aClass270_4 != null) {
-                            if (Static439.aClass270_4.anObject13 == null) {
-                                local95 = Static419.method5756(Static439.aClass270_4.anInt6788);
+                        if (Static439.aSignedResource_4 != null) {
+                            if (Static439.aSignedResource_4.result == null) {
+                                local95 = Static419.method5756(Static439.aSignedResource_4.anInt6788);
                             } else {
-                                local95 = (String) Static439.aClass270_4.anObject13;
+                                local95 = (String) Static439.aSignedResource_4.result;
                             }
                         }
                         aStringArray37[anInt7139++] = local95;
                         return;
                     }
                     if (arg0 == 5420) {
-                        anIntArray578[anInt7142++] = Static446.aClass390_6.aBoolean781 ? 0 : 1;
+                        anIntArray578[anInt7142++] = Static446.aSignLink_6.aBoolean781 ? 0 : 1;
                         return;
                     }
                     if (arg0 == 5421) {
@@ -4479,7 +4479,7 @@ public final class Static472 {
                         local95 = aStringArray37[--anInt7139];
                         local1578 = anIntArray578[--anInt7142] == 1;
                         local198 = Static659.method8605() + local95;
-                        Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local198, local1578, Static446.aClass390_6);
+                        Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local198, local1578, Static446.aSignLink_6);
                         return;
                     }
                     if (arg0 == 5422) {
@@ -5310,7 +5310,7 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 6133) {
-                        anIntArray578[anInt7142++] = Static446.aClass390_6.aBoolean781 && !Static446.aClass390_6.aBoolean779 ? 1 : 0;
+                        anIntArray578[anInt7142++] = Static446.aSignLink_6.aBoolean781 && !Static446.aSignLink_6.aBoolean779 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6135) {
@@ -5857,11 +5857,11 @@ public final class Static472 {
                         }
                         if (arg0 == 6905) {
                             local95 = "";
-                            if (Static439.aClass270_4 != null) {
-                                if (Static439.aClass270_4.anObject13 == null) {
-                                    local95 = Static419.method5756(Static439.aClass270_4.anInt6788);
+                            if (Static439.aSignedResource_4 != null) {
+                                if (Static439.aSignedResource_4.result == null) {
+                                    local95 = Static419.method5756(Static439.aSignedResource_4.anInt6788);
                                 } else {
-                                    local95 = (String) Static439.aClass270_4.anObject13;
+                                    local95 = (String) Static439.aSignedResource_4.result;
                                 }
                             }
                             aStringArray37[anInt7139++] = local95;

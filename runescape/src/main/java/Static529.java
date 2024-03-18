@@ -10,10 +10,10 @@ public final class Static529 {
     public static int anInt8089 = -1;
 
     @OriginalMember(owner = "client!qla", name = "a", descriptor = "(ILclient!sb;Lclient!vq;)V")
-    public static void method7096(@OriginalArg(1) js5 arg0, @OriginalArg(2) Class390 arg1) {
+    public static void method7096(@OriginalArg(1) js5 arg0, @OriginalArg(2) SignLink arg1) {
         Static442.aJs5_90 = arg0;
         Static185.aString34 = "";
-        Static93.aClass390_1 = arg1;
+        Static93.aSignLink_1 = arg1;
         if (Class254.aString70.startsWith("win")) {
             Static185.aString34 = Static185.aString34 + "windows/";
         } else if (Class254.aString70.startsWith("linux")) {
@@ -21,7 +21,7 @@ public final class Static529 {
         } else if (Class254.aString70.startsWith("mac")) {
             Static185.aString34 = Static185.aString34 + "macos/";
         }
-        if (Static93.aClass390_1.aBoolean779) {
+        if (Static93.aSignLink_1.aBoolean779) {
             Static185.aString34 = Static185.aString34 + "msjava/";
         } else if (Class254.aString69.startsWith("amd64") || Class254.aString69.startsWith("x86_64")) {
             Static185.aString34 = Static185.aString34 + "x86_64/";

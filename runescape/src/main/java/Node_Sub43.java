@@ -77,7 +77,7 @@ public final class Node_Sub43 extends Node {
     }
 
     @OriginalMember(owner = "client!pw", name = "<init>", descriptor = "(ZLclient!vq;)V")
-    public Node_Sub43(@OriginalArg(0) boolean arg0, @OriginalArg(1) Class390 arg1) {
+    public Node_Sub43(@OriginalArg(0) boolean arg0, @OriginalArg(1) SignLink arg1) {
         if (Static689.aString119.startsWith("win")) {
             this.anInt7611 = 1;
         } else if (Static689.aString119.startsWith("mac")) {
@@ -119,21 +119,21 @@ public final class Node_Sub43 extends Node {
                 this.anInt7612 = 23;
             }
         }
-        if (Static689.aString123.toLowerCase().indexOf("sun") != -1) {
+        if (SignLink.javaVendor.toLowerCase().indexOf("sun") != -1) {
             this.anInt7617 = 1;
-        } else if (Static689.aString123.toLowerCase().indexOf("microsoft") != -1) {
+        } else if (SignLink.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
             this.anInt7617 = 2;
-        } else if (Static689.aString123.toLowerCase().indexOf("apple") == -1) {
+        } else if (SignLink.javaVendor.toLowerCase().indexOf("apple") == -1) {
             this.anInt7617 = 4;
         } else {
             this.anInt7617 = 3;
         }
-        @Pc(332) int local332 = Static689.aString124.startsWith("1.") ? 2 : 0;
+        @Pc(332) int local332 = SignLink.javaVersion.startsWith("1.") ? 2 : 0;
         @Pc(334) int local334 = 0;
         @Pc(340) char local340;
         try {
-            while (local332 < Static689.aString124.length()) {
-                local340 = Static689.aString124.charAt(local332);
+            while (local332 < SignLink.javaVersion.length()) {
+                local340 = SignLink.javaVersion.charAt(local332);
                 if (local340 < '0' || local340 > '9') {
                     break;
                 }
@@ -143,11 +143,11 @@ public final class Node_Sub43 extends Node {
         } catch (@Pc(372) Exception local372) {
         }
         this.anInt7603 = local334;
-        local332 = Static689.aString124.indexOf(46, 2) + 1;
+        local332 = SignLink.javaVersion.indexOf(46, 2) + 1;
         local334 = 0;
         try {
-            while (local332 < Static689.aString124.length()) {
-                local340 = Static689.aString124.charAt(local332);
+            while (local332 < SignLink.javaVersion.length()) {
+                local340 = SignLink.javaVersion.charAt(local332);
                 if (local340 < '0' || local340 > '9') {
                     break;
                 }
@@ -158,10 +158,10 @@ public final class Node_Sub43 extends Node {
         }
         this.anInt7599 = local334;
         local334 = 0;
-        local332 = Static689.aString124.indexOf(95, 4) + 1;
+        local332 = SignLink.javaVersion.indexOf(95, 4) + 1;
         try {
-            while (Static689.aString124.length() > local332) {
-                local340 = Static689.aString124.charAt(local332);
+            while (SignLink.javaVersion.length() > local332) {
+                local340 = SignLink.javaVersion.charAt(local332);
                 if (local340 < '0' || local340 > '9') {
                     break;
                 }

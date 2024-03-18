@@ -22,12 +22,6 @@ public final class Static689 {
     @OriginalMember(owner = "client!vq", name = "f", descriptor = "Ljava/lang/String;")
     public static String aString122;
 
-    @OriginalMember(owner = "client!vq", name = "D", descriptor = "Ljava/lang/String;")
-    public static String aString123;
-
-    @OriginalMember(owner = "client!vq", name = "q", descriptor = "Ljava/lang/String;")
-    public static String aString124;
-
     @OriginalMember(owner = "client!vq", name = "B", descriptor = "Ljava/lang/String;")
     public static String aString125;
 

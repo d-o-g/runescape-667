@@ -419,4 +419,4 @@ Up to 50 characters of additional client information.
 
 ## hc
 
-Set to `1` if the applet is served by Google Chrome
+Set to `1` if the player "has [Chrome](https://blog.google/products/chrome/)".

@@ -150,11 +150,11 @@ public final class ObjTypeList {
     public void method2480() {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_57;
         synchronized (this.aReferenceCache_57) {
-            this.aReferenceCache_57.clearSoft();
+            this.aReferenceCache_57.removeSoftReferences();
         }
         local6 = this.aReferenceCache_58;
         synchronized (this.aReferenceCache_58) {
-            this.aReferenceCache_58.clearSoft();
+            this.aReferenceCache_58.removeSoftReferences();
         }
         @Pc(44) Class16 local44 = this.aClass16_1;
         synchronized (this.aClass16_1) {

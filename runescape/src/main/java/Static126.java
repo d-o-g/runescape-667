@@ -52,7 +52,7 @@ public final class Static126 {
     public static void method2229() {
         @Pc(1) ReferenceCache local1 = Static354.A_WEIGHTED_CACHE___120;
         synchronized (Static354.A_WEIGHTED_CACHE___120) {
-            Static354.A_WEIGHTED_CACHE___120.clearSoft();
+            Static354.A_WEIGHTED_CACHE___120.removeSoftReferences();
         }
     }
 }

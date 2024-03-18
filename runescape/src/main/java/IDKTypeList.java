@@ -27,7 +27,7 @@ public final class IDKTypeList {
     public void method5041() {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_115;
         synchronized (this.aReferenceCache_115) {
-            this.aReferenceCache_115.clearSoft();
+            this.aReferenceCache_115.removeSoftReferences();
         }
     }
 

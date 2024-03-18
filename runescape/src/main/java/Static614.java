@@ -59,7 +59,7 @@ public final class Static614 {
         Static354.aClass267_1.method5970();
         Static652.aClass214_1.method5037();
         Static561.aClass220_2.method5184();
-        Static559.method7414();
+        PlayerModel.cacheClean();
         Static534.method7121();
         Static402.method5580();
         Static198.method2951();

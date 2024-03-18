@@ -30,11 +30,11 @@ public final class Class363 {
     public void method8360() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_201;
         synchronized (this.aReferenceCache_201) {
-            this.aReferenceCache_201.clearSoft();
+            this.aReferenceCache_201.removeSoftReferences();
         }
         local2 = this.aReferenceCache_202;
         synchronized (this.aReferenceCache_202) {
-            this.aReferenceCache_202.clearSoft();
+            this.aReferenceCache_202.removeSoftReferences();
         }
     }
 

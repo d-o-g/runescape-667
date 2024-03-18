@@ -1,4 +1,3 @@
-import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -12,18 +11,6 @@ public final class Static314 {
 
     @OriginalMember(owner = "client!jw", name = "D", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_132 = new Class225(27, 0);
-
-    @OriginalMember(owner = "client!jw", name = "c", descriptor = "(B)V")
-    public static void method4560() {
-        @Pc(5) ReferenceCache local5 = PlayerModel.BIG_CACHE;
-        synchronized (PlayerModel.BIG_CACHE) {
-            PlayerModel.BIG_CACHE.reset();
-        }
-        local5 = PlayerModel.SMALL_CACHE;
-        synchronized (PlayerModel.SMALL_CACHE) {
-            PlayerModel.SMALL_CACHE.reset();
-        }
-    }
 
     @OriginalMember(owner = "client!jw", name = "b", descriptor = "(B)V")
     public static void method4562() {

@@ -42,11 +42,11 @@ public final class Class267 {
     public void method5972() {
         @Pc(9) ReferenceCache local9 = this.aReferenceCache_142;
         synchronized (this.aReferenceCache_142) {
-            this.aReferenceCache_142.clearSoft();
+            this.aReferenceCache_142.removeSoftReferences();
         }
         local9 = this.aReferenceCache_143;
         synchronized (this.aReferenceCache_143) {
-            this.aReferenceCache_143.clearSoft();
+            this.aReferenceCache_143.removeSoftReferences();
         }
     }
 

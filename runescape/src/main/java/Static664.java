@@ -110,15 +110,15 @@ public final class Static664 {
         Static354.aClass267_1.method5972();
         Static652.aClass214_1.method5040();
         Static561.aClass220_2.method5183();
-        Static424.method5779();
+        PlayerModel.cacheRemoveSoftReferences();
         Static570.method7553();
         Static553.method7290();
         Static149.method2450();
         Static126.method2229();
-        Static230.A_WEIGHTED_CACHE___81.clearSoft();
-        Static669.A_WEIGHTED_CACHE___215.clearSoft();
-        Static541.A_WEIGHTED_CACHE___174.clearSoft();
-        Static452.A_WEIGHTED_CACHE___149.clearSoft();
-        Static472.A_WEIGHTED_CACHE___156.clearSoft();
+        Static230.A_WEIGHTED_CACHE___81.removeSoftReferences();
+        Static669.A_WEIGHTED_CACHE___215.removeSoftReferences();
+        Static541.A_WEIGHTED_CACHE___174.removeSoftReferences();
+        Static452.A_WEIGHTED_CACHE___149.removeSoftReferences();
+        Static472.A_WEIGHTED_CACHE___156.removeSoftReferences();
     }
 }

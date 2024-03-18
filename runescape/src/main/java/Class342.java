@@ -72,7 +72,7 @@ public final class Class342 {
     public void method7787() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_192;
         synchronized (this.aReferenceCache_192) {
-            this.aReferenceCache_192.clearSoft();
+            this.aReferenceCache_192.removeSoftReferences();
         }
     }
 }

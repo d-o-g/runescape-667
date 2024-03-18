@@ -65,19 +65,19 @@ public final class Class142 {
     public void method3058() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_73;
         synchronized (this.aReferenceCache_73) {
-            this.aReferenceCache_73.clearSoft();
+            this.aReferenceCache_73.removeSoftReferences();
         }
         local2 = this.aReferenceCache_74;
         synchronized (this.aReferenceCache_74) {
-            this.aReferenceCache_74.clearSoft();
+            this.aReferenceCache_74.removeSoftReferences();
         }
         local2 = this.aReferenceCache_75;
         synchronized (this.aReferenceCache_75) {
-            this.aReferenceCache_75.clearSoft();
+            this.aReferenceCache_75.removeSoftReferences();
         }
         local2 = this.aReferenceCache_76;
         synchronized (this.aReferenceCache_76) {
-            this.aReferenceCache_76.clearSoft();
+            this.aReferenceCache_76.removeSoftReferences();
         }
     }
 

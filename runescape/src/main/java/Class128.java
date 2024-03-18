@@ -71,11 +71,11 @@ public final class Class128 {
     public void method2697() {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_61;
         synchronized (this.aReferenceCache_61) {
-            this.aReferenceCache_61.clearSoft();
+            this.aReferenceCache_61.removeSoftReferences();
         }
         local6 = this.aReferenceCache_62;
         synchronized (this.aReferenceCache_62) {
-            this.aReferenceCache_62.clearSoft();
+            this.aReferenceCache_62.removeSoftReferences();
         }
     }
 

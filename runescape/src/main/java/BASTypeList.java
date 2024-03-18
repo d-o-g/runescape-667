@@ -43,7 +43,7 @@ public final class BASTypeList {
     public void method7117() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_172;
         synchronized (this.aReferenceCache_172) {
-            this.aReferenceCache_172.clearSoft();
+            this.aReferenceCache_172.removeSoftReferences();
         }
     }
 

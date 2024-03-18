@@ -117,7 +117,7 @@ public final class ReferenceCache {
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(B)V")
-    public void clearSoft() {
+    public void removeSoftReferences() {
         for (@Pc(14) ReferenceNode local14 = (ReferenceNode) this.history.first(); local14 != null; local14 = (ReferenceNode) this.history.next()) {
             if (local14.isSoft()) {
                 local14.remove();

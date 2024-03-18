@@ -30,7 +30,7 @@ public final class Class260 {
     public void method5781() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_138;
         synchronized (this.aReferenceCache_138) {
-            this.aReferenceCache_138.clearSoft();
+            this.aReferenceCache_138.removeSoftReferences();
         }
     }
 

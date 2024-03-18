@@ -91,15 +91,15 @@ public final class NPCTypeList {
     public void method7089() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_169;
         synchronized (this.aReferenceCache_169) {
-            this.aReferenceCache_169.clearSoft();
+            this.aReferenceCache_169.removeSoftReferences();
         }
         local2 = this.aReferenceCache_170;
         synchronized (this.aReferenceCache_170) {
-            this.aReferenceCache_170.clearSoft();
+            this.aReferenceCache_170.removeSoftReferences();
         }
         local2 = this.aReferenceCache_171;
         synchronized (this.aReferenceCache_171) {
-            this.aReferenceCache_171.clearSoft();
+            this.aReferenceCache_171.removeSoftReferences();
         }
     }
 

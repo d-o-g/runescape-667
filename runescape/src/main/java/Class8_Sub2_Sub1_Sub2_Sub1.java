@@ -575,7 +575,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             arg0 |= 0x80000;
         }
         @Pc(152) Model local152 = super.aModelArray3[0] = this.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, local33, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, arg0, super.anIntArray877, Static125.aWearposDefaults_1, Static68.aIDKTypeList_3, arg1, Static690.aNPCTypeList_2, super.aClass152_Sub2_Sub1Array3, local95, local58, Static34.aClass304_1);
-        @Pc(155) int local155 = Static303.method4429();
+        @Pc(155) int local155 = PlayerModel.cacheHardReferenceCount();
         if (Static369.anInt4265 < 96 && local155 > 50) {
             Static358.method9191();
         }

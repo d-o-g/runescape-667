@@ -70,11 +70,11 @@ public final class SeqTypeList {
     public void method1164() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_22;
         synchronized (this.aReferenceCache_22) {
-            this.aReferenceCache_22.clearSoft();
+            this.aReferenceCache_22.removeSoftReferences();
         }
         local2 = this.aReferenceCache_23;
         synchronized (this.aReferenceCache_23) {
-            this.aReferenceCache_23.clearSoft();
+            this.aReferenceCache_23.removeSoftReferences();
         }
     }
 

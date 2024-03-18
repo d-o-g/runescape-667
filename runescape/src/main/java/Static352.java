@@ -49,7 +49,7 @@ public final class Static352 {
         Static354.aClass267_1.method5974();
         Static652.aClass214_1.method5035();
         Static561.aClass220_2.method5182();
-        Static314.method4560();
+        PlayerModel.cacheReset();
         Static675.method8811();
         Static124.method2215();
         Static327.method4895();

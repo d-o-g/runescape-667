@@ -37,7 +37,7 @@ public final class Class96 {
     public void method2351() {
         @Pc(9) ReferenceCache local9 = this.aReferenceCache_55;
         synchronized (this.aReferenceCache_55) {
-            this.aReferenceCache_55.clearSoft();
+            this.aReferenceCache_55.removeSoftReferences();
         }
     }
 

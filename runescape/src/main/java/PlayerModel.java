@@ -8,10 +8,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class PlayerModel {
 
     @OriginalMember(owner = "client!bq", name = "t", descriptor = "Lclient!dla;")
-    public static final ReferenceCache SMALL_CACHE = new ReferenceCache(5);
+    public static final ReferenceCache modelCache = new ReferenceCache(5);
 
     @OriginalMember(owner = "client!sea", name = "y", descriptor = "Lclient!dla;")
-    public static final ReferenceCache BIG_CACHE = new ReferenceCache(260);
+    public static final ReferenceCache recentUse = new ReferenceCache(260);
 
     @OriginalMember(owner = "client!kma", name = "n", descriptor = "[[[S")
     public static short[][][] bodycol_d;
@@ -25,13 +25,57 @@ public final class PlayerModel {
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(II)V")
     public static void setFeatureMask(@OriginalArg(1) int featureMask) {
         PlayerModel.featureMask = featureMask;
-        @Pc(7) ReferenceCache local7 = SMALL_CACHE;
-        synchronized (SMALL_CACHE) {
-            SMALL_CACHE.reset();
+        @Pc(7) ReferenceCache local7 = modelCache;
+        synchronized (modelCache) {
+            modelCache.reset();
         }
-        local7 = BIG_CACHE;
-        synchronized (BIG_CACHE) {
-            BIG_CACHE.reset();
+        local7 = recentUse;
+        synchronized (recentUse) {
+            recentUse.reset();
+        }
+    }
+
+    @OriginalMember(owner = "client!rka", name = "b", descriptor = "(ZI)V")
+    public static void cacheClean() {
+        @Pc(5) ReferenceCache local5 = recentUse;
+        synchronized (recentUse) {
+            recentUse.clean(5);
+        }
+        local5 = modelCache;
+        synchronized (modelCache) {
+            modelCache.clean(5);
+        }
+    }
+
+    @OriginalMember(owner = "client!nga", name = "a", descriptor = "(I)V")
+    public static void cacheRemoveSoftReferences() {
+        @Pc(1) ReferenceCache local1 = recentUse;
+        synchronized (recentUse) {
+            recentUse.removeSoftReferences();
+        }
+        local1 = modelCache;
+        synchronized (modelCache) {
+            modelCache.removeSoftReferences();
+        }
+    }
+
+    @OriginalMember(owner = "client!jw", name = "c", descriptor = "(B)V")
+    public static void cacheReset() {
+        @Pc(5) ReferenceCache local5 = recentUse;
+        synchronized (recentUse) {
+            recentUse.reset();
+        }
+        local5 = modelCache;
+        synchronized (modelCache) {
+            modelCache.reset();
+        }
+    }
+
+    @OriginalMember(owner = "client!jka", name = "g", descriptor = "(I)I")
+    public static int cacheHardReferenceCount() {
+        @Pc(13) ReferenceCache local13 = recentUse;
+        synchronized (recentUse) {
+            return recentUse.hardCount();
         }
     }
 
@@ -227,10 +271,10 @@ public final class PlayerModel {
             }
         }
 
-        @Pc(334) ReferenceCache local334 = BIG_CACHE;
+        @Pc(334) ReferenceCache local334 = recentUse;
         @Pc(342) Model model;
-        synchronized (BIG_CACHE) {
-            model = (Model) BIG_CACHE.get(hash);
+        synchronized (recentUse) {
+            model = (Model) recentUse.get(hash);
         }
 
         @Pc(350) BASType basType = null;
@@ -254,9 +298,9 @@ public final class PlayerModel {
                 if (local390 >= identikit.length) {
                     if (local388) {
                         if (this.aLong159 != -1L) {
-                            @Pc(552) ReferenceCache local552 = BIG_CACHE;
-                            synchronized (BIG_CACHE) {
-                                model = (Model) BIG_CACHE.get(this.aLong159);
+                            @Pc(552) ReferenceCache local552 = recentUse;
+                            synchronized (recentUse) {
+                                model = (Model) recentUse.get(this.aLong159);
                             }
                         }
                         if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
@@ -327,9 +371,9 @@ public final class PlayerModel {
 
                         model.s(functionMask);
 
-                        @Pc(903) ReferenceCache local903 = BIG_CACHE;
-                        synchronized (BIG_CACHE) {
-                            BIG_CACHE.put(model, hash);
+                        @Pc(903) ReferenceCache local903 = recentUse;
+                        synchronized (recentUse) {
+                            recentUse.put(model, hash);
                         }
 
                         this.aLong159 = hash;
@@ -466,10 +510,10 @@ public final class PlayerModel {
     public Model headModel(@OriginalArg(0) Animator animator, @OriginalArg(1) int ki1, @OriginalArg(2) int kit3, @OriginalArg(3) SeqTypeList arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(6) IDKTypeList idkTypeList, @OriginalArg(7) int kit2) {
         @Pc(16) int functionMask = animator == null ? 2048 : animator.functionMask() | 0x800;
         @Pc(29) long key = (long) ki1 | (long) kit3 << 32 | (long) (kit2 << 16);
-        @Pc(31) ReferenceCache local31 = SMALL_CACHE;
+        @Pc(31) ReferenceCache local31 = modelCache;
         @Pc(39) Model model;
-        synchronized (SMALL_CACHE) {
-            model = (Model) SMALL_CACHE.get(key);
+        synchronized (modelCache) {
+            model = (Model) modelCache.get(key);
         }
 
         if (model == null || arg4.compareFunctionMasks(model.ua(), functionMask) != 0) {
@@ -511,9 +555,9 @@ public final class PlayerModel {
             }
 
             model.s(functionMask);
-            @Pc(228) ReferenceCache local228 = SMALL_CACHE;
-            synchronized (SMALL_CACHE) {
-                SMALL_CACHE.put(model, key);
+            @Pc(228) ReferenceCache local228 = modelCache;
+            synchronized (modelCache) {
+                modelCache.put(model, key);
             }
         }
 
@@ -542,11 +586,11 @@ public final class PlayerModel {
         }
 
         @Pc(35) int functionMask = animator == null ? 2048 : animator.functionMask() | 0x800;
-        @Pc(37) ReferenceCache local37 = SMALL_CACHE;
+        @Pc(37) ReferenceCache local37 = modelCache;
 
         @Pc(48) Model model;
-        synchronized (SMALL_CACHE) {
-            model = (Model) SMALL_CACHE.get(this.hash);
+        synchronized (modelCache) {
+            model = (Model) modelCache.get(this.hash);
         }
 
         if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
@@ -612,9 +656,9 @@ public final class PlayerModel {
 
             model.s(functionMask);
 
-            @Pc(340) ReferenceCache local340 = SMALL_CACHE;
-            synchronized (SMALL_CACHE) {
-                SMALL_CACHE.put(model, this.hash);
+            @Pc(340) ReferenceCache local340 = modelCache;
+            synchronized (modelCache) {
+                modelCache.put(model, this.hash);
             }
         }
 

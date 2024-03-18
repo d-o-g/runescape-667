@@ -59,9 +59,9 @@ public final class Static570 {
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(I)V")
     public static void method7553() {
-        Static473.A_WEIGHTED_CACHE___157.clearSoft();
-        Static312.A_WEIGHTED_CACHE___106.clearSoft();
-        Static449.A_WEIGHTED_CACHE___146.clearSoft();
-        Static444.A_WEIGHTED_CACHE___145.clearSoft();
+        Static473.A_WEIGHTED_CACHE___157.removeSoftReferences();
+        Static312.A_WEIGHTED_CACHE___106.removeSoftReferences();
+        Static449.A_WEIGHTED_CACHE___146.removeSoftReferences();
+        Static444.A_WEIGHTED_CACHE___145.removeSoftReferences();
     }
 }

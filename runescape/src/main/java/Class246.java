@@ -77,11 +77,11 @@ public final class Class246 {
     public void method5585() {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_134;
         synchronized (this.aReferenceCache_134) {
-            this.aReferenceCache_134.clearSoft();
+            this.aReferenceCache_134.removeSoftReferences();
         }
         local6 = this.aReferenceCache_135;
         synchronized (this.aReferenceCache_135) {
-            this.aReferenceCache_135.clearSoft();
+            this.aReferenceCache_135.removeSoftReferences();
         }
     }
 

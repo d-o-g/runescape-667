@@ -39,10 +39,10 @@ enable debug commands for administrators.
 
 Each `modewhere` specifies a different set of ports the client will use to connect:
 
-| ModeWhere                                  |                    Lobby&nbsp;server                     |                     Game&nbsp;server                     |      Web&nbsp;server       |
-|:-------------------------------------------|:--------------------------------------------------------:|:--------------------------------------------------------:|:--------------------------:|
-| LIVE                                       |                        43594, 443                        |                        43594, 443                        |             80             |
-| RC<br>QA<br>WIP<br>LOCAL<br>WTI<br>INTBETA | 40000&nbsp;+&nbsp;`worldid`, 50000&nbsp;+&nbsp;`worldid` | 40000&nbsp;+&nbsp;`worldid`, 50000&nbsp;+&nbsp;`worldid` | 7000&nbsp;+&nbsp;`worldid` |
+| ModeWhere                                  |                      Lobby&nbsp;server                      |                      Game&nbsp;server                       |      Web&nbsp;server       |
+|:-------------------------------------------|:-----------------------------------------------------------:|:-----------------------------------------------------------:|:--------------------------:|
+| LIVE                                       |                        43594,<br>443                        |                        43594,<br>443                        |             80             |
+| RC<br>QA<br>WIP<br>LOCAL<br>WTI<br>INTBETA | 40000&nbsp;+&nbsp;`worldid`,<br>50000&nbsp;+&nbsp;`worldid` | 40000&nbsp;+&nbsp;`worldid`,<br>50000&nbsp;+&nbsp;`worldid` | 7000&nbsp;+&nbsp;`worldid` |
 
 ### Domains
 

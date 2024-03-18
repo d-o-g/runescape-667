@@ -315,7 +315,7 @@ public final class Class276 {
         this.aClass93_Sub2Array2 = null;
         this.aClass93_Sub2_4 = null;
         if (!this.aClass339_39.method7702()) {
-            for (@Pc(41) Node local41 = this.aClass339_39.method7699(65280); local41 != this.aClass339_39.aNode_271; local41 = local41.aNode_346) {
+            for (@Pc(41) Node local41 = this.aClass339_39.method7699(65280); local41 != this.aClass339_39.aNode_271; local41 = local41.next) {
                 ((Node_Sub31) local41).method4608();
             }
         }
@@ -330,7 +330,7 @@ public final class Class276 {
         if (arg0 != this.anInt6944 || arg2 != this.anInt6943) {
             this.anInt6944 = arg0;
             this.anInt6943 = arg2;
-            for (@Pc(43) Node local43 = this.aClass339_39.method7699(65280); local43 != this.aClass339_39.aNode_271; local43 = local43.aNode_346) {
+            for (@Pc(43) Node local43 = this.aClass339_39.method7699(65280); local43 != this.aClass339_39.aNode_271; local43 = local43.next) {
                 ((Node_Sub31) local43).method4614(this.anInt6944, this.anInt6943);
             }
             this.aBoolean526 = true;
@@ -353,7 +353,7 @@ public final class Class276 {
     public void method6251(@OriginalArg(1) Node_Sub31 arg0) {
         arg0.aBoolean387 = false;
         arg0.method4608();
-        arg0.method9457();
+        arg0.remove();
         this.method6247();
     }
 }

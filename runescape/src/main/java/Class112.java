@@ -250,7 +250,7 @@ public final class Class112 {
                 for (@Pc(200) Node local200 = local26.aClass28_44.method736(); local200 != null; local200 = local26.aClass28_44.method740()) {
                     @Pc(209) Class296 local209 = this.aClass49_1.method1161((int) local200.aLong328);
                     if (local209.aBoolean570) {
-                        local200.method9457();
+                        local200.remove();
                     } else {
                         local195 = true;
                     }

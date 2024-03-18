@@ -8,23 +8,23 @@ public class Node {
     public long aLong328;
 
     @OriginalMember(owner = "client!ie", name = "c", descriptor = "Lclient!ie;")
-    public Node aNode_345;
+    public Node prev;
 
     @OriginalMember(owner = "client!ie", name = "i", descriptor = "Lclient!ie;")
-    public Node aNode_346;
+    public Node next;
 
     @OriginalMember(owner = "client!ie", name = "a", descriptor = "(B)V")
-    public final void method9457() {
-        if (this.aNode_345 != null) {
-            this.aNode_345.aNode_346 = this.aNode_346;
-            this.aNode_346.aNode_345 = this.aNode_345;
-            this.aNode_346 = null;
-            this.aNode_345 = null;
+    public final void remove() {
+        if (this.prev != null) {
+            this.prev.next = this.next;
+            this.next.prev = this.prev;
+            this.next = null;
+            this.prev = null;
         }
     }
 
     @OriginalMember(owner = "client!ie", name = "e", descriptor = "(I)Z")
-    public final boolean method9458() {
-        return this.aNode_345 != null;
+    public final boolean hasPrev() {
+        return this.prev != null;
     }
 }

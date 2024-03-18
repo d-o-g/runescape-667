@@ -1112,7 +1112,7 @@ public final class Class158 {
         if (this.aClass28_17 != null) {
             @Pc(14) Node local14 = this.aClass28_17.method738((long) arg0);
             if (local14 != null) {
-                local14.method9457();
+                local14.remove();
             }
         }
     }

@@ -23,7 +23,7 @@ public final class Static527 {
         for (@Pc(15) Node_Sub2_Sub15 local15 = (Node_Sub2_Sub15) Static505.aClass339_77.method7699(65280); local15 != null; local15 = (Node_Sub2_Sub15) Static505.aClass339_77.method7706()) {
             @Pc(20) Class8_Sub2_Sub1_Sub1 local20 = local15.aClass8_Sub2_Sub1_Sub1_1;
             if (Static333.anInt5455 > local20.anInt697) {
-                local15.method9457();
+                local15.remove();
                 local20.method815();
             } else if (Static333.anInt5455 >= local20.anInt722) {
                 local20.method816();

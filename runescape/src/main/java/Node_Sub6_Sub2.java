@@ -123,7 +123,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
         if (this.anInt3686 < 0) {
             if (this.anInt3679 <= 0) {
                 this.method3335();
-                this.method9457();
+                this.remove();
                 return;
             }
             this.anInt3686 = 0;
@@ -131,7 +131,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
         if (this.anInt3686 >= local29) {
             if (this.anInt3679 >= 0) {
                 this.method3335();
-                this.method9457();
+                this.remove();
                 return;
             }
             this.anInt3686 = local29 - 1;
@@ -210,7 +210,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                 if (this.anInt3686 < 0) {
                     this.anInt3686 = -1;
                     this.method3335();
-                    this.method9457();
+                    this.remove();
                     return;
                 }
             } else {
@@ -218,7 +218,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                 if (this.anInt3686 >= local29) {
                     this.anInt3686 = local29;
                     this.method3335();
-                    this.method9457();
+                    this.remove();
                 }
             }
         } else if (this.aBoolean281) {
@@ -337,12 +337,12 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
     public synchronized void method3320(@OriginalArg(0) int arg0) {
         if (arg0 == 0) {
             this.method3322();
-            this.method9457();
+            this.remove();
         } else if (this.anInt3680 == 0 && this.anInt3677 == 0) {
             this.anInt3684 = 0;
             this.anInt3685 = 0;
             this.anInt3676 = 0;
-            this.method9457();
+            this.remove();
         } else {
             @Pc(31) int local31 = -this.anInt3676;
             if (this.anInt3676 > local31) {
@@ -486,7 +486,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                 if (this.anInt3685 == Integer.MIN_VALUE) {
                     this.anInt3685 = 0;
                     this.anInt3676 = this.anInt3680 = this.anInt3677 = 0;
-                    this.method9457();
+                    this.remove();
                     arg0 = this.anInt3684;
                 }
                 this.anInt3684 = 0;
@@ -509,7 +509,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
         if (this.anInt3686 < 0) {
             if (this.anInt3679 <= 0) {
                 this.method3335();
-                this.method9457();
+                this.remove();
                 return;
             }
             this.anInt3686 = 0;
@@ -517,7 +517,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
         if (this.anInt3686 >= local87) {
             if (this.anInt3679 >= 0) {
                 this.method3335();
-                this.method9457();
+                this.remove();
                 return;
             }
             this.anInt3686 = local87 - 1;
@@ -586,13 +586,13 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                 if (this.anInt3686 < 0) {
                     this.anInt3686 = -1;
                     this.method3335();
-                    this.method9457();
+                    this.remove();
                     return;
                 }
             } else if (this.anInt3686 >= local87) {
                 this.anInt3686 = local87;
                 this.method3335();
-                this.method9457();
+                this.remove();
             }
         } else if (this.aBoolean281) {
             if (this.anInt3679 < 0) {
@@ -691,7 +691,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
         } else if (this.anInt3685 == Integer.MIN_VALUE) {
             this.anInt3685 = 0;
             this.anInt3676 = this.anInt3680 = this.anInt3677 = 0;
-            this.method9457();
+            this.remove();
             return true;
         } else {
             this.method3314();

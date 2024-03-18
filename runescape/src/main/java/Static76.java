@@ -26,7 +26,7 @@ public final class Static76 {
             Static336.aClass2_Sub6_Sub3_1.method5883(local19.aClass2_Sub6_Sub2_4);
             local19.aClass2_Sub6_Sub2_4 = null;
         }
-        local19.method9457();
+        local19.remove();
     }
 
     @OriginalMember(owner = "client!cha", name = "b", descriptor = "(B)V")

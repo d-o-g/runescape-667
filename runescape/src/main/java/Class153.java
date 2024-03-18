@@ -100,7 +100,7 @@ public final class Class153 {
             }
             this.aClass2_Sub21_6.method7386(local23.anInt2989, local23.aClass2_Sub21_Sub2_1.aByteArray93, 0);
             this.anInt3640 -= local23.anInt2989;
-            local23.method9457();
+            local23.remove();
             local23.aClass2_Sub21_Sub2_1.method7365();
             local23.method2768();
         }

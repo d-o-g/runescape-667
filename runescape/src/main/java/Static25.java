@@ -26,7 +26,7 @@ public final class Static25 {
                 Static347.method5094(Static377.anInt5930);
             }
             for (@Pc(16) Node_Sub4 local16 = (Node_Sub4) Static548.aClass28_40.method736(); local16 != null; local16 = (Node_Sub4) Static548.aClass28_40.method740()) {
-                if (!local16.method9458()) {
+                if (!local16.hasPrev()) {
                     local16 = (Node_Sub4) Static548.aClass28_40.method736();
                     if (local16 == null) {
                         break;

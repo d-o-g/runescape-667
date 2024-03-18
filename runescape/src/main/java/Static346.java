@@ -57,7 +57,7 @@ public final class Static346 {
                     Static58.method1259(local43);
                 }
                 local43.method9328((Class268) null);
-                local40.method9457();
+                local40.remove();
                 local23 = true;
             }
         }

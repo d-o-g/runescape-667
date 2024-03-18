@@ -1168,7 +1168,7 @@ public final class Static293 {
                                                                 local4597 = (Node_Sub41) Static291.aClass28_24.method738(local644);
                                                                 if (local4597 != null) {
                                                                     local4611 = new Node_Sub41(local4597.anInt6909, local1409);
-                                                                    local4597.method9457();
+                                                                    local4597.remove();
                                                                 } else if (local1413 == -1) {
                                                                     local4611 = new Node_Sub41(Static145.method2412(local100).aClass2_Sub41_2.anInt6909, local1409);
                                                                 } else {
@@ -1343,7 +1343,7 @@ public final class Static293 {
                                                                             @Pc(5270) Node_Sub2_Sub20 local5270 = (Node_Sub2_Sub20) Static346.aClass28_29.method738((long) (local657 << 16 | local3502));
                                                                             if (local5270 != null) {
                                                                                 local5270.aClass8_Sub2_Sub1_Sub5_1.method6600();
-                                                                                local5270.method9457();
+                                                                                local5270.remove();
                                                                             }
                                                                         } else {
                                                                             local1021 = local657 * 512 + 256;
@@ -1390,7 +1390,7 @@ public final class Static293 {
                                                                         Static449.method6115(false, local5438 == null || local5438.anInt147 != local5445.anInt147, local5445);
                                                                     }
                                                                     if (local5438 != null) {
-                                                                        local5438.method9457();
+                                                                        local5438.remove();
                                                                         Static548.aClass28_40.method735((long) local277, local5438);
                                                                     }
                                                                     @Pc(5487) Class158 local5487 = Static145.method2412(local100);
@@ -1590,7 +1590,7 @@ public final class Static293 {
                                                                         local1413 = (int) (local6277.aLong328 >> 14 & 0x3FFFL);
                                                                         local2098 = local1413 - Static116.anInt2270;
                                                                         if (Static87.anInt1810 == local100 && local1409 >= Static626.anInt9476 && Static626.anInt9476 + 8 > local1409 && local2098 >= Static270.anInt4354 && Static270.anInt4354 + 8 > local2098) {
-                                                                            local6277.method9457();
+                                                                            local6277.remove();
                                                                             if (local1409 >= 0 && local2098 >= 0 && Static720.anInt10859 > local1409 && local2098 < Static501.anInt7568) {
                                                                                 Static468.method7641(Static87.anInt1810, local2098, local1409);
                                                                             }
@@ -1966,7 +1966,7 @@ public final class Static293 {
                                                                                 local4597 = (Node_Sub41) Static291.aClass28_24.method738(local644);
                                                                                 if (local4597 != null) {
                                                                                     local4611 = new Node_Sub41(local1409, local4597.anInt6904);
-                                                                                    local4597.method9457();
+                                                                                    local4597.remove();
                                                                                 } else if (local1413 == -1) {
                                                                                     local4611 = new Node_Sub41(local1409, Static145.method2412(local100).aClass2_Sub41_2.anInt6904);
                                                                                 } else {

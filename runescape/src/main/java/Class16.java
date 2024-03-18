@@ -50,7 +50,7 @@ public final class Class16 {
     public void method253() {
         for (@Pc(5) Node_Sub2_Sub11 local5 = (Node_Sub2_Sub11) this.aClass192_1.method4352(); local5 != null; local5 = (Node_Sub2_Sub11) this.aClass192_1.method4350()) {
             if (local5.method8314()) {
-                local5.method9457();
+                local5.remove();
                 local5.method9260();
                 this.anInt250 += local5.anInt9445;
             }
@@ -60,7 +60,7 @@ public final class Class16 {
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(ZLclient!pv;)V")
     public void method254(@OriginalArg(1) Node_Sub2_Sub11 arg0) {
         if (arg0 != null) {
-            arg0.method9457();
+            arg0.remove();
             arg0.method9260();
             this.anInt250 += arg0.anInt9445;
         }
@@ -74,7 +74,7 @@ public final class Class16 {
         for (@Pc(11) Node_Sub2_Sub11 local11 = (Node_Sub2_Sub11) this.aClass192_1.method4352(); local11 != null; local11 = (Node_Sub2_Sub11) this.aClass192_1.method4350()) {
             if (local11.method8314()) {
                 if (local11.method8311() == null) {
-                    local11.method9457();
+                    local11.remove();
                     local11.method9260();
                     this.anInt250 += local11.anInt9445;
                 }
@@ -82,7 +82,7 @@ public final class Class16 {
                 @Pc(38) Node_Sub2_Sub11 local38 = Static515.aClass22_1.method593(local11);
                 this.aClass28_3.method735(local11.aLong328, local38);
                 Static409.method5654(local11, local38);
-                local11.method9457();
+                local11.remove();
                 local11.method9260();
             }
         }
@@ -127,7 +127,7 @@ public final class Class16 {
                         this.aClass28_3.method735(local25.aLong328, local84);
                         this.aClass192_1.method4348(local84);
                         local84.aLong325 = 0L;
-                        local25.method9457();
+                        local25.remove();
                         local25.method9260();
                     } else {
                         this.aClass192_1.method4348(local25);
@@ -135,7 +135,7 @@ public final class Class16 {
                     }
                     return local39;
                 }
-                local25.method9457();
+                local25.remove();
                 local25.method9260();
                 this.anInt250 += local25.anInt9445;
             }

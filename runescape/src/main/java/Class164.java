@@ -212,7 +212,7 @@ public final class Class164 {
                     local42.aString46 = arg0;
                     return true;
                 }
-                local32.method9457();
+                local32.remove();
             }
         }
         this.aClass28_19.method735((long) arg1, new Node_Sub24(arg0));
@@ -341,7 +341,7 @@ public final class Class164 {
                     local39.aLong264 = arg1;
                     return true;
                 }
-                local29.method9457();
+                local29.remove();
             }
         }
         this.aClass28_19.method735((long) arg0, new Node_Sub48(arg1));
@@ -429,7 +429,7 @@ public final class Class164 {
                     local73.anInt6379 |= local43;
                     return true;
                 }
-                local63.method9457();
+                local63.remove();
             }
         }
         this.aClass28_19.method735((long) arg3, new Node_Sub38(local43));
@@ -586,7 +586,7 @@ public final class Class164 {
                     local45.anInt6379 = arg0;
                     return true;
                 }
-                local35.method9457();
+                local35.remove();
             }
         }
         this.aClass28_19.method735((long) arg1, new Node_Sub38(arg0));

@@ -45,13 +45,11 @@ public final class Static2 {
                 local78 *= local65.anInt1959 + 1;
             }
             if (local48 > local78) {
-                Static201.method7368(local65, arg3);
+                Static201.addBefore(local65, arg3);
                 return;
             }
         }
-        if (-108 == -108) {
-            local22.aClass339_12.method7711(arg3);
-        }
+        local22.aClass339_12.method7711(arg3);
     }
 
     @OriginalMember(owner = "client!aaa", name = "b", descriptor = "(II)V")

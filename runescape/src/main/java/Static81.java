@@ -87,7 +87,7 @@ public final class Static81 {
     public static Node_Sub2_Sub2_ method1587() {
         @Pc(17) Node_Sub2_Sub2_ local17 = (Node_Sub2_Sub2_) Static138.aClass192_6.method4352();
         if (local17 != null) {
-            local17.method9457();
+            local17.remove();
             local17.method9260();
             return local17;
         }
@@ -99,7 +99,7 @@ public final class Static81 {
             if (local17.method201() > Static588.method7715()) {
                 return null;
             }
-            local17.method9457();
+            local17.remove();
             local17.method9260();
         } while ((local17.aLong325 & Long.MIN_VALUE) == 0L);
         return local17;

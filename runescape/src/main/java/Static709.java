@@ -136,7 +136,7 @@ public final class Static709 {
             local179 = null;
             local181 = 0;
             for (@Pc(186) Node_Sub9 local186 = (Node_Sub9) Static677.aClass339_76.method7699(65280); local186 != null && (local179 == null || local179.aClass2_Sub21_Sub2_1.anInt8388 - local181 < 240); local186 = (Node_Sub9) Static677.aClass339_76.method7706()) {
-                local186.method9457();
+                local186.remove();
                 local208 = local186.method5333();
                 if (local208 < -1) {
                     local208 = -1;

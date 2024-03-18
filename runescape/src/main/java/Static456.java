@@ -20,7 +20,7 @@ public final class Static456 {
                 Static347.method5094(Static377.anInt5930);
             }
             for (@Pc(21) Node_Sub4 local21 = (Node_Sub4) Static548.aClass28_40.method736(); local21 != null; local21 = (Node_Sub4) Static548.aClass28_40.method740()) {
-                if (!local21.method9458()) {
+                if (!local21.hasPrev()) {
                     local21 = (Node_Sub4) Static548.aClass28_40.method736();
                     if (local21 == null) {
                         break;

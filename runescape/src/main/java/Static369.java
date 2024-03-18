@@ -71,7 +71,7 @@ public final class Static369 {
         if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() == 0) {
             for (local31 = (Node_Sub36) Static133.aClass339_13.method7699(65280); local31 != null; local31 = (Node_Sub36) Static133.aClass339_13.method7706()) {
                 Static419.aClass112_1.method2478(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aClass201_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Static665.aClass14_12, local31.anInt5895);
-                local31.method9457();
+                local31.remove();
             }
             Static469.method6362();
             return;
@@ -84,7 +84,7 @@ public final class Static369 {
         }
         for (local31 = (Node_Sub36) Static133.aClass339_13.method7699(65280); local31 != null; local31 = (Node_Sub36) Static133.aClass339_13.method7706()) {
             Static419.aClass112_1.method2478(local31.anInt5893, Static158.aClass19_5, arg0, local31.aBoolean451 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aClass201_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Static629.aClass14_11, local31.anInt5895);
-            local31.method9457();
+            local31.remove();
         }
     }
 

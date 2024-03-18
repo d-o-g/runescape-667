@@ -4244,7 +4244,7 @@ public final class Static472 {
                     if (Static232.aClass28_18 != null) {
                         local2867 = Static232.aClass28_18.method738((long) local192);
                         if (local2867 != null && !local1578) {
-                            local2867.method9457();
+                            local2867.remove();
                             return;
                         }
                         if (local2867 == null && local1578) {
@@ -4272,7 +4272,7 @@ public final class Static472 {
                     if (Static268.aClass28_22 != null) {
                         local2867 = Static268.aClass28_22.method738((long) local192);
                         if (local2867 != null && !local1578) {
-                            local2867.method9457();
+                            local2867.remove();
                             return;
                         }
                         if (local2867 == null && local1578) {

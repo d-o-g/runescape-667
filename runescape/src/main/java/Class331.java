@@ -29,13 +29,13 @@ public final class Class331 {
         @Pc(23) Node local23;
         if (this.anInt8579 > 0 && this.aClass28_41.aNodeArray1[this.anInt8579 - 1] != this.aNode_266) {
             local23 = this.aNode_266;
-            this.aNode_266 = local23.aNode_346;
+            this.aNode_266 = local23.next;
             return local23;
         }
         while (this.aClass28_41.anInt638 > this.anInt8579) {
-            local23 = this.aClass28_41.aNodeArray1[this.anInt8579++].aNode_346;
+            local23 = this.aClass28_41.aNodeArray1[this.anInt8579++].next;
             if (this.aClass28_41.aNodeArray1[this.anInt8579 - 1] != local23) {
-                this.aNode_266 = local23.aNode_346;
+                this.aNode_266 = local23.next;
                 return local23;
             }
         }

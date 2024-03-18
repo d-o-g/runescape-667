@@ -35,7 +35,7 @@ public final class Static605 {
                 if (local69 != null) {
                     for (@Pc(77) Node_Sub15 local77 = (Node_Sub15) local69.aClass339_12.method7699(65280); local77 != null; local77 = (Node_Sub15) local69.aClass339_12.method7706()) {
                         if ((local42 & 0x7FFF) == local77.anInt1958 && local77.anInt1959 == local46) {
-                            local77.method9457();
+                            local77.remove();
                             local77.anInt1959 = local52;
                             Static2.method63(Static87.anInt1810, local25, local38, local77);
                             break;
@@ -280,12 +280,12 @@ public final class Static605 {
                     if (local1389 != null) {
                         for (@Pc(1399) Node_Sub15 local1399 = (Node_Sub15) local1389.aClass339_12.method7699(65280); local1399 != null; local1399 = (Node_Sub15) local1389.aClass339_12.method7706()) {
                             if (local1399.anInt1958 == (local15 & 0x7FFF)) {
-                                local1399.method9457();
+                                local1399.remove();
                                 break;
                             }
                         }
                         if (local1389.aClass339_12.method7702()) {
-                            local1389.method9457();
+                            local1389.remove();
                         }
                         if (local38 >= 0 && local25 >= 0 && local38 < Static720.anInt10859 && local25 < Static501.anInt7568) {
                             Static468.method7641(Static87.anInt1810, local25, local38);
@@ -373,7 +373,7 @@ public final class Static605 {
                             @Pc(2004) Node_Sub2_Sub20 local2004 = (Node_Sub2_Sub20) Static346.aClass28_29.method738((long) (local21 << 16 | local25));
                             if (local2004 != null) {
                                 local2004.aClass8_Sub2_Sub1_Sub5_1.method6600();
-                                local2004.method9457();
+                                local2004.remove();
                                 return;
                             }
                         } else {

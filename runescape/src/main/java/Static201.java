@@ -10,13 +10,13 @@ public final class Static201 {
     public static final Class225 aClass225_206 = new Class225(136, 6);
 
     @OriginalMember(owner = "client!ge", name = "a", descriptor = "(ILclient!ie;Lclient!ie;)V")
-    public static void method7368(@OriginalArg(1) Node arg0, @OriginalArg(2) Node arg1) {
-        if (arg1.aNode_345 != null) {
-            arg1.method9457();
+    public static void addBefore(@OriginalArg(1) Node back, @OriginalArg(2) Node front) {
+        if (front.prev != null) {
+            front.remove();
         }
-        arg1.aNode_346 = arg0;
-        arg1.aNode_345 = arg0.aNode_345;
-        arg1.aNode_345.aNode_346 = arg1;
-        arg1.aNode_346.aNode_345 = arg1;
+        front.next = back;
+        front.prev = back.prev;
+        front.prev.next = front;
+        front.next.prev = front;
     }
 }

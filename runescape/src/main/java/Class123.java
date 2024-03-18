@@ -69,7 +69,7 @@ public final class Class123 {
             if (local33 == null) {
                 return null;
             } else {
-                local59.method9457();
+                local59.remove();
                 this.aClass28_16.method735(local26, local33);
                 return local33;
             }

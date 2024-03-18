@@ -43,21 +43,21 @@ public final class Class28 {
         this.aNodeArray1 = new Node[arg0];
         for (@Pc(13) int local13 = 0; local13 < arg0; local13++) {
             @Pc(23) Node local23 = this.aNodeArray1[local13] = new Node();
-            local23.aNode_346 = local23;
-            local23.aNode_345 = local23;
+            local23.next = local23;
+            local23.prev = local23;
         }
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(JLclient!ie;I)V")
     public void method735(@OriginalArg(0) long arg0, @OriginalArg(1) Node arg1) {
-        if (arg1.aNode_345 != null) {
-            arg1.method9457();
+        if (arg1.prev != null) {
+            arg1.remove();
         }
         @Pc(28) Node local28 = this.aNodeArray1[(int) (arg0 & (long) (this.anInt638 - 1))];
-        arg1.aNode_346 = local28;
-        arg1.aNode_345 = local28.aNode_345;
-        arg1.aNode_345.aNode_346 = arg1;
-        arg1.aNode_346.aNode_345 = arg1;
+        arg1.next = local28;
+        arg1.prev = local28.prev;
+        arg1.prev.next = arg1;
+        arg1.next.prev = arg1;
         arg1.aLong328 = arg0;
     }
 
@@ -72,11 +72,11 @@ public final class Class28 {
         for (@Pc(6) int local6 = 0; local6 < this.anInt638; local6++) {
             @Pc(12) Node local12 = this.aNodeArray1[local6];
             while (true) {
-                @Pc(15) Node local15 = local12.aNode_346;
+                @Pc(15) Node local15 = local12.next;
                 if (local15 == local12) {
                     break;
                 }
-                local15.method9457();
+                local15.remove();
             }
         }
         this.aNode_21 = null;
@@ -87,10 +87,10 @@ public final class Class28 {
     public Node method738(@OriginalArg(1) long arg0) {
         this.aLong21 = arg0;
         @Pc(25) Node local25 = this.aNodeArray1[(int) (arg0 & (long) (this.anInt638 - 1))];
-        for (this.aNode_21 = local25.aNode_346; this.aNode_21 != local25; this.aNode_21 = this.aNode_21.aNode_346) {
+        for (this.aNode_21 = local25.next; this.aNode_21 != local25; this.aNode_21 = this.aNode_21.next) {
             if (arg0 == this.aNode_21.aLong328) {
                 @Pc(43) Node local43 = this.aNode_21;
-                this.aNode_21 = this.aNode_21.aNode_346;
+                this.aNode_21 = this.aNode_21.next;
                 return local43;
             }
         }
@@ -103,9 +103,9 @@ public final class Class28 {
         @Pc(5) int local5 = 0;
         for (@Pc(13) int local13 = 0; local13 < this.anInt638; local13++) {
             @Pc(19) Node local19 = this.aNodeArray1[local13];
-            @Pc(22) Node local22 = local19.aNode_346;
+            @Pc(22) Node local22 = local19.next;
             while (local22 != local19) {
-                local22 = local22.aNode_346;
+                local22 = local22.next;
                 local5++;
             }
         }
@@ -117,13 +117,13 @@ public final class Class28 {
         @Pc(32) Node local32;
         if (this.anInt641 > 0 && this.aNode_22 != this.aNodeArray1[this.anInt641 - 1]) {
             local32 = this.aNode_22;
-            this.aNode_22 = local32.aNode_346;
+            this.aNode_22 = local32.next;
             return local32;
         }
         while (this.anInt638 > this.anInt641) {
-            local32 = this.aNodeArray1[this.anInt641++].aNode_346;
+            local32 = this.aNodeArray1[this.anInt641++].next;
             if (this.aNodeArray1[this.anInt641 - 1] != local32) {
-                this.aNode_22 = local32.aNode_346;
+                this.aNode_22 = local32.next;
                 return local32;
             }
         }
@@ -140,7 +140,7 @@ public final class Class28 {
         @Pc(5) int local5 = 0;
         for (@Pc(16) int local16 = 0; local16 < this.anInt638; local16++) {
             @Pc(22) Node local22 = this.aNodeArray1[local16];
-            for (@Pc(25) Node local25 = local22.aNode_346; local25 != local22; local25 = local25.aNode_346) {
+            for (@Pc(25) Node local25 = local22.next; local25 != local22; local25 = local25.next) {
                 arg0[local5++] = local25;
             }
         }
@@ -156,10 +156,10 @@ public final class Class28 {
         while (this.aNode_21 != local28) {
             if (this.aNode_21.aLong328 == this.aLong21) {
                 @Pc(43) Node local43 = this.aNode_21;
-                this.aNode_21 = this.aNode_21.aNode_346;
+                this.aNode_21 = this.aNode_21.next;
                 return local43;
             }
-            this.aNode_21 = this.aNode_21.aNode_346;
+            this.aNode_21 = this.aNode_21.next;
         }
         this.aNode_21 = null;
         return null;

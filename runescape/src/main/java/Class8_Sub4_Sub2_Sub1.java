@@ -147,7 +147,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         }
         if (local35.anIntArray775 != null) {
             @Pc(437) Node local437 = local31.aClass339_22.aNode_271;
-            for (@Pc(440) Node local440 = local437.aNode_346; local440 != local437; local440 = local440.aNode_346) {
+            for (@Pc(440) Node local440 = local437.next; local440 != local437; local440 = local440.next) {
                 @Pc(444) Node_Sub2_Sub5 local444 = (Node_Sub2_Sub5) local440;
                 @Pc(447) Class278 local447 = local444.aClass278_1;
                 if (local447.anInt6982 != 1) {

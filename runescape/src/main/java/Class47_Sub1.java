@@ -150,7 +150,7 @@ public final class Class47_Sub1 extends Class47 {
                     if (this.aByteArray88[local44] == 0) {
                         local33 = false;
                     } else {
-                        local38.method9457();
+                        local38.remove();
                     }
                 }
                 while (this.aClass292_1.anIntArray598.length > this.anInt7475) {
@@ -185,7 +185,7 @@ public final class Class47_Sub1 extends Class47 {
                         this.method6651(local44, 2);
                     }
                     if (this.aByteArray88[local44] == 1) {
-                        local38.method9457();
+                        local38.remove();
                     } else {
                         local33 = false;
                     }
@@ -227,7 +227,7 @@ public final class Class47_Sub1 extends Class47 {
                     if (!local366.aBoolean777) {
                         throw new RuntimeException();
                     }
-                    local366.method9457();
+                    local366.remove();
                 } else {
                     local366.aBoolean776 = true;
                 }
@@ -249,7 +249,7 @@ public final class Class47_Sub1 extends Class47 {
             return null;
         } else {
             @Pc(26) byte[] local26 = local9.method8971();
-            local9.method9457();
+            local9.remove();
             return local26;
         }
     }
@@ -258,7 +258,7 @@ public final class Class47_Sub1 extends Class47 {
     public Node_Sub2_Sub17 method6651(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(19) Node_Sub2_Sub17 local19 = (Node_Sub2_Sub17) this.aClass28_36.method738((long) arg0);
         if (local19 != null && arg1 == 0 && !local19.aBoolean777 && local19.aBoolean778) {
-            local19.method9457();
+            local19.remove();
             local19 = null;
         }
         if (local19 == null) {
@@ -334,7 +334,7 @@ public final class Class47_Sub1 extends Class47 {
                 this.aClass295_2.anInt7452 = 0;
             } catch (@Pc(498) RuntimeException local498) {
                 this.aClass295_2.method6619();
-                local19.method9457();
+                local19.remove();
                 if (local19.aBoolean777 && !this.aClass295_2.method6630()) {
                     local383 = this.aClass295_2.method6633(this.anInt7465, arg0, true, (byte) 2);
                     this.aClass28_36.method735((long) arg0, local383);
@@ -351,7 +351,7 @@ public final class Class47_Sub1 extends Class47 {
                 }
             }
             if (!local19.aBoolean777) {
-                local19.method9457();
+                local19.remove();
             }
             return local19;
         }
@@ -383,12 +383,12 @@ public final class Class47_Sub1 extends Class47 {
                 this.aByteArray88[arg0] = 1;
             }
             if (!local19.aBoolean777) {
-                local19.method9457();
+                local19.remove();
             }
             return local19;
         } catch (@Pc(355) Exception local355) {
             this.aByteArray88[arg0] = -1;
-            local19.method9457();
+            local19.remove();
             if (local19.aBoolean777 && !this.aClass295_2.method6630()) {
                 local383 = this.aClass295_2.method6633(this.anInt7465, arg0, true, (byte) 2);
                 this.aClass28_36.method735((long) arg0, local383);
@@ -412,7 +412,7 @@ public final class Class47_Sub1 extends Class47 {
         for (@Pc(21) Node local21 = this.aClass339_41.method7699(65280); local21 != null; local21 = this.aClass339_41.method7706()) {
             @Pc(29) int local29 = (int) local21.aLong328;
             if (local29 < 0 || local29 >= this.aClass292_1.anInt7368 || this.aClass292_1.anIntArray598[local29] == 0) {
-                local21.method9457();
+                local21.remove();
             } else {
                 if (this.aByteArray88[local29] == 0) {
                     this.method6651(local29, 1);
@@ -421,7 +421,7 @@ public final class Class47_Sub1 extends Class47 {
                     this.method6651(local29, 2);
                 }
                 if (this.aByteArray88[local29] == 1) {
-                    local21.method9457();
+                    local21.remove();
                 }
             }
         }

@@ -51,7 +51,7 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
                     this.method5888(local60);
                 } else {
                     local60.anInt101 = local68;
-                    this.method5886(local60.aNode_346, local60);
+                    this.method5886(local60.next, local60);
                 }
             }
         } while (arg2 != 0);
@@ -69,7 +69,7 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!nn", name = "b", descriptor = "(Lclient!dea;)V")
     public synchronized void method5883(@OriginalArg(0) Node_Sub6 arg0) {
-        arg0.method9457();
+        arg0.remove();
     }
 
     @OriginalMember(owner = "client!nn", name = "b", descriptor = "(I)V")
@@ -95,10 +95,10 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "(Lclient!ie;Lclient!ada;)V")
     public void method5886(@OriginalArg(0) Node arg0, @OriginalArg(1) Node_Sub3 arg1) {
         while (arg0 != this.aClass339_36.aNode_271 && ((Node_Sub3) arg0).anInt101 <= arg1.anInt101) {
-            arg0 = arg0.aNode_346;
+            arg0 = arg0.next;
         }
-        Static201.method7368(arg0, arg1);
-        this.anInt6604 = ((Node_Sub3) this.aClass339_36.aNode_271.aNode_346).anInt101;
+        Static201.addBefore(arg0, arg1);
+        this.anInt6604 = ((Node_Sub3) this.aClass339_36.aNode_271.next).anInt101;
     }
 
     @OriginalMember(owner = "client!nn", name = "c", descriptor = "()Lclient!dea;")
@@ -133,7 +133,7 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
                     this.method5888(local50);
                 } else {
                     local50.anInt101 = local58;
-                    this.method5886(local50.aNode_346, local50);
+                    this.method5886(local50.next, local50);
                 }
             }
         } while (arg0 != 0);
@@ -153,9 +153,9 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "(Lclient!ada;)V")
     public void method5888(@OriginalArg(0) Node_Sub3 arg0) {
-        arg0.method9457();
+        arg0.remove();
         arg0.method113();
-        @Pc(9) Node local9 = this.aClass339_36.aNode_271.aNode_346;
+        @Pc(9) Node local9 = this.aClass339_36.aNode_271.next;
         if (local9 == this.aClass339_36.aNode_271) {
             this.anInt6604 = -1;
         } else {

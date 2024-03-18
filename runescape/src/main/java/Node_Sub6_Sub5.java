@@ -77,7 +77,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             @Pc(14) Node_Sub2_Sub8 local14 = this.method9145();
             if (local14 == null) {
                 if (this.aBoolean795) {
-                    this.method9457();
+                    this.remove();
                     Static341.aClass361_1.method8345();
                 }
                 return;
@@ -121,7 +121,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
     public synchronized void method9144() {
         @Pc(7) Node_Sub2_Sub8 local7 = this.method9145();
         if (local7 != null) {
-            local7.method9457();
+            local7.remove();
             this.anInt10535--;
             this.anInt10536 = 0;
             Static341.aClass361_1.method8341(local7, local7.method2133());
@@ -192,7 +192,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
                 }
             }
         } else if (this.aBoolean795) {
-            this.method9457();
+            this.remove();
             Static341.aClass361_1.method8345();
         }
     }

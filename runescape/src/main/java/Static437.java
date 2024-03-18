@@ -127,7 +127,7 @@ public final class Static437 {
         }
         arg0.method7353(local98);
         if (-2 == -2) {
-            local10.method9457();
+            local10.remove();
         }
     }
 

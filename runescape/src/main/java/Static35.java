@@ -103,7 +103,7 @@ public final class Static35 {
                         }
                     }
                 }
-            } else if (!local13.aClass2_Sub6_Sub2_2.method9458()) {
+            } else if (!local13.aClass2_Sub6_Sub2_2.hasPrev()) {
                 local15 = true;
             }
             if (local15) {

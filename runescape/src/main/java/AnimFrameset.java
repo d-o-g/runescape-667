@@ -29,15 +29,15 @@ public final class AnimFrameset extends DoublyLinkedNode {
         @Pc(36) int[] local36;
         @Pc(43) int local43;
         if (this.aByteArrayArray32 == null) {
-            @Pc(14) Class330 local14 = Static509.aClass330_96;
-            synchronized (Static509.aClass330_96) {
-                if (!Static509.aClass330_96.method7607(this.anInt8535)) {
+            @Pc(14) js5 local14 = Static509.aJs5_96;
+            synchronized (Static509.aJs5_96) {
+                if (!Static509.aJs5_96.method7607(this.anInt8535)) {
                     return false;
                 }
-                local36 = Static509.aClass330_96.method7603(this.anInt8535);
+                local36 = Static509.aJs5_96.method7603(this.anInt8535);
                 this.aByteArrayArray32 = new byte[local36.length][];
                 for (local43 = 0; local43 < local36.length; local43++) {
-                    this.aByteArrayArray32[local43] = Static509.aClass330_96.method7595(local36[local43], this.anInt8535);
+                    this.aByteArrayArray32[local43] = Static509.aJs5_96.method7595(local36[local43], this.anInt8535);
                 }
             }
         }
@@ -47,20 +47,20 @@ public final class AnimFrameset extends DoublyLinkedNode {
             @Pc(82) Packet local82 = new Packet(local77);
             local82.pos = 1;
             local43 = local82.g2();
-            @Pc(91) Class330 local91 = Static269.aClass330_58;
-            synchronized (Static269.aClass330_58) {
-                local69 &= Static269.aClass330_58.method7581(local43);
+            @Pc(91) js5 local91 = Static269.aJs5_58;
+            synchronized (Static269.aJs5_58) {
+                local69 &= Static269.aJs5_58.method7581(local43);
             }
         }
         if (!local69) {
             return false;
         }
         @Pc(123) Deque local123 = new Deque();
-        @Pc(125) Class330 local125 = Static509.aClass330_96;
-        synchronized (Static509.aClass330_96) {
-            @Pc(133) int local133 = Static509.aClass330_96.method7608(this.anInt8535);
+        @Pc(125) js5 local125 = Static509.aJs5_96;
+        synchronized (Static509.aJs5_96) {
+            @Pc(133) int local133 = Static509.aJs5_96.method7608(this.anInt8535);
             this.frames = new AnimFrame[local133];
-            local36 = Static509.aClass330_96.method7603(this.anInt8535);
+            local36 = Static509.aJs5_96.method7603(this.anInt8535);
         }
         for (local43 = 0; local43 < local36.length; local43++) {
             @Pc(167) byte[] local167 = this.aByteArrayArray32[local43];
@@ -75,9 +75,9 @@ public final class AnimFrameset extends DoublyLinkedNode {
                 }
             }
             if (local181 == null) {
-                @Pc(209) Class330 local209 = Static269.aClass330_58;
-                synchronized (Static269.aClass330_58) {
-                    local181 = new AnimBase(local179, Static269.aClass330_58.method7589(local179));
+                @Pc(209) js5 local209 = Static269.aJs5_58;
+                synchronized (Static269.aJs5_58) {
+                    local181 = new AnimBase(local179, Static269.aJs5_58.getfile(local179));
                 }
                 local123.addLast(local181);
             }

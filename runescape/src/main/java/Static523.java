@@ -82,30 +82,30 @@ public final class Static523 {
             }
             Static595.method7807((String) null, true, 0);
             Static297.aBoolean368 = !Static589.method7721();
-            Static177.aClass330_35 = Static109.method2069(false, Static297.aBoolean368 ? 34 : 32, 1);
-            Static516.aClass330_97 = Static109.method2069(false, 33, 1);
-            Static697.aClass330_123 = Static109.method2069(false, 13, 1);
+            Static177.aJs5_35 = Static109.method2069(false, Static297.aBoolean368 ? 34 : 32, 1);
+            Static516.aJs5_97 = Static109.method2069(false, 33, 1);
+            Static697.aJs5_123 = Static109.method2069(false, 13, 1);
         }
         @Pc(184) boolean local184;
         if (Static198.aClass140_3 == Static473.aClass140_22) {
-            local184 = Static516.aClass330_97.method7591();
+            local184 = Static516.aJs5_97.method7591();
             local74 = Static226.aClass47_Sub1Array8[33].method6644();
             local74 += Static226.aClass47_Sub1Array8[Static297.aBoolean368 ? 34 : 32].method6644();
             local74 += Static226.aClass47_Sub1Array8[13].method6644();
-            local74 += local184 ? 100 : Static516.aClass330_97.method7582();
+            local74 += local184 ? 100 : Static516.aJs5_97.method7582();
             if (local74 != 400) {
                 return local74 / 4;
             }
-            Static324.anInt5129 = Static177.aClass330_35.method7576();
-            Static466.anInt7042 = Static516.aClass330_97.method7576();
-            Static616.method8284(Static177.aClass330_35);
+            Static324.anInt5129 = Static177.aJs5_35.method7576();
+            Static466.anInt7042 = Static516.aJs5_97.method7576();
+            Static616.method8284(Static177.aJs5_35);
             @Pc(250) int local250 = Static400.instance.aClass57_Sub11_1.method3603();
-            Static333.aClass279_1 = new Class279(Static392.aClass377_4, Static51.anInt1052, Static516.aClass330_97);
+            Static333.aClass279_1 = new Class279(Static392.aClass377_4, Static51.anInt1052, Static516.aJs5_97);
             @Pc(262) int[] local262 = Static333.aClass279_1.method6275(local250);
             if (local262.length == 0) {
                 local262 = Static333.aClass279_1.method6275(0);
             }
-            @Pc(276) Class398 local276 = new Class398(Static177.aClass330_35, Static697.aClass330_123);
+            @Pc(276) Class398 local276 = new Class398(Static177.aJs5_35, Static697.aJs5_123);
             if (local262.length > 0) {
                 Static234.anInterface22Array1 = new Interface22[local262.length];
                 for (@Pc(285) int local285 = 0; local285 < Static234.anInterface22Array1.length; local285++) {
@@ -114,7 +114,7 @@ public final class Static523 {
             }
         }
         if (Static198.aClass140_4 == Static473.aClass140_22) {
-            Static82.method1592(Static697.aClass330_123, Static177.aClass330_35, Static52.method1159());
+            Static82.method1592(Static697.aJs5_123, Static177.aJs5_35, Static52.method1159());
         }
         if (Static198.aClass140_5 == Static473.aClass140_22) {
             local12 = Static359.method5226();
@@ -142,39 +142,39 @@ public final class Static523 {
             }
         }
         if (Static473.aClass140_22 == Static198.aClass140_8) {
-            Static721.aClass330_128 = Static109.method2069(false, 8, 1);
-            Static344.aClass330_73 = Static109.method2069(false, 0, 1);
-            Static142.aClass330_25 = Static109.method2069(false, 1, 1);
-            Static6.aClass330_1 = Static109.method2069(false, 2, 1);
-            Static554.aClass330_105 = Static109.method2069(false, 3, 1);
-            Static281.aClass330_60 = Static109.method2069(false, 4, 1);
-            Static93.aClass330_16 = Static109.method2069(true, 5, 1);
-            Static398.aClass330_81 = Static109.method2069(true, 6, 1);
-            Static190.aClass330_38 = Static109.method2069(false, 7, 1);
-            Static534.aClass330_104 = Static109.method2069(false, 9, 1);
-            Static463.aClass330_93 = Static109.method2069(false, 10, 1);
-            Static340.aClass330_69 = Static109.method2069(false, 11, 1);
-            Static31.aClass330_6 = Static109.method2069(false, 12, 1);
-            Static147.aClass330_26 = Static109.method2069(false, 14, 1);
-            Static405.aClass330_84 = Static109.method2069(false, 15, 1);
-            Static459.aClass330_91 = Static109.method2069(false, 16, 1);
-            Static20.aClass330_3 = Static109.method2069(false, 17, 1);
-            Static333.aClass330_66 = Static109.method2069(false, 18, 1);
-            Static380.aClass330_79 = Static109.method2069(false, 19, 1);
-            Static668.aClass330_119 = Static109.method2069(false, 20, 1);
-            Static271.aClass330_59 = Static109.method2069(false, 21, 1);
-            Static233.aClass330_52 = Static109.method2069(false, 22, 1);
-            Static120.aClass330_19 = Static109.method2069(true, 23, 1);
-            Static58.aClass330_12 = Static109.method2069(false, 24, 1);
-            Static244.aClass330_55 = Static109.method2069(false, 25, 1);
-            Static199.aClass330_42 = Static109.method2069(true, 26, 1);
-            Static88.aClass330_14 = Static109.method2069(false, 27, 1);
-            Static336.aClass330_68 = Static109.method2069(true, 28, 1);
-            Static140.aClass330_24 = Static109.method2069(false, 29, 1);
-            Static504.aClass330_95 = Static109.method2069(true, 35, 1);
-            Static614.aClass330_114 = Static109.method2069(true, 30, 1);
-            Static124.aClass330_20 = Static109.method2069(true, 31, 1);
-            Static709.aClass330_127 = Static109.method2069(true, 36, 2);
+            Static721.aJs5_128 = Static109.method2069(false, 8, 1);
+            Static344.aJs5_73 = Static109.method2069(false, 0, 1);
+            Static142.aJs5_25 = Static109.method2069(false, 1, 1);
+            Static6.aJs5_1 = Static109.method2069(false, 2, 1);
+            Static554.aJs5_105 = Static109.method2069(false, 3, 1);
+            Static281.aJs5_60 = Static109.method2069(false, 4, 1);
+            Static93.aJs5_16 = Static109.method2069(true, 5, 1);
+            Static398.aJs5_81 = Static109.method2069(true, 6, 1);
+            Static190.aJs5_38 = Static109.method2069(false, 7, 1);
+            Static534.aJs5_104 = Static109.method2069(false, 9, 1);
+            Static463.aJs5_93 = Static109.method2069(false, 10, 1);
+            Static340.aJs5_69 = Static109.method2069(false, 11, 1);
+            Static31.aJs5_6 = Static109.method2069(false, 12, 1);
+            Static147.aJs5_26 = Static109.method2069(false, 14, 1);
+            Static405.aJs5_84 = Static109.method2069(false, 15, 1);
+            Static459.aJs5_91 = Static109.method2069(false, 16, 1);
+            Static20.aJs5_3 = Static109.method2069(false, 17, 1);
+            Static333.aJs5_66 = Static109.method2069(false, 18, 1);
+            Static380.aJs5_79 = Static109.method2069(false, 19, 1);
+            Static668.aJs5_119 = Static109.method2069(false, 20, 1);
+            Static271.aJs5_59 = Static109.method2069(false, 21, 1);
+            Static233.aJs5_52 = Static109.method2069(false, 22, 1);
+            Static120.aJs5_19 = Static109.method2069(true, 23, 1);
+            Static58.aJs5_12 = Static109.method2069(false, 24, 1);
+            Static244.aJs5_55 = Static109.method2069(false, 25, 1);
+            Static199.aJs5_42 = Static109.method2069(true, 26, 1);
+            Static88.aJs5_14 = Static109.method2069(false, 27, 1);
+            js5.DEFAULTS = Static109.method2069(true, 28, 1);
+            Static140.aJs5_24 = Static109.method2069(false, 29, 1);
+            Static504.aJs5_95 = Static109.method2069(true, 35, 1);
+            Static614.aJs5_114 = Static109.method2069(true, 30, 1);
+            Static124.aJs5_20 = Static109.method2069(true, 31, 1);
+            Static709.aJs5_127 = Static109.method2069(true, 36, 2);
         }
         if (Static473.aClass140_22 == Static198.aClass140_9) {
             local12 = 0;
@@ -189,11 +189,11 @@ public final class Static523 {
                 }
                 return (local12 - Static669.anInt9996) * 100 / (100 - Static669.anInt9996);
             }
-            Static204.method3079(Static721.aClass330_128);
-            Static82.method1592(Static697.aClass330_123, Static721.aClass330_128, Static52.method1159());
+            Static204.method3079(Static721.aJs5_128);
+            Static82.method1592(Static697.aJs5_123, Static721.aJs5_128, Static52.method1159());
         }
         if (Static473.aClass140_22 == Static198.aClass140_10) {
-            @Pc(746) byte[] local746 = Static336.aClass330_68.method7589(4);
+            @Pc(746) byte[] local746 = js5.DEFAULTS.getfile(4);
             if (local746 == null) {
                 return 0;
             }
@@ -202,63 +202,63 @@ public final class Static523 {
             Static81.method1586(2);
         }
         if (Static198.aClass140_11 == Static473.aClass140_22) {
-            Static529.method7096(Static614.aClass330_114, Static446.aClass390_6);
+            Static529.method7096(Static614.aJs5_114, Static446.aClass390_6);
         }
         if (Static198.aClass140_12 == Static473.aClass140_22) {
             local12 = Static460.method6266();
             if (local12 < 100) {
                 return local12;
             }
-            Static502.method6721(Static336.aClass330_68.method7589(1));
-            Static65.aClass3_1 = new Class3(Static336.aClass330_68);
-            PlayerModel.bodycol_s = Static65.aClass3_1.aShortArrayArray1;
-            PlayerModel.bodycol_d = Static65.aClass3_1.aShortArrayArrayArray1;
-            Static125.aWearposDefaults_1 = new WearposDefaults(Static336.aClass330_68);
+            Static502.method6721(js5.DEFAULTS.getfile(1));
+            GraphicsDefaults.instance = new GraphicsDefaults(js5.DEFAULTS);
+            PlayerModel.bodycol_s = GraphicsDefaults.instance.recol_s;
+            PlayerModel.bodycol_d = GraphicsDefaults.instance.recol_d;
+            Static125.aWearposDefaults_1 = new WearposDefaults(js5.DEFAULTS);
         }
         if (Static198.aClass140_13 == Static473.aClass140_22) {
-            if (Static65.aClass3_1.anInt81 != -1 && !Static190.aClass330_38.method7586(0, Static65.aClass3_1.anInt81)) {
+            if (GraphicsDefaults.instance.profilingModel != -1 && !Static190.aJs5_38.method7586(0, GraphicsDefaults.instance.profilingModel)) {
                 return 99;
             }
-            Static56.anTextureSource_3 = new Class303(Static199.aClass330_42, Static534.aClass330_104, Static721.aClass330_128);
-            Static386.aClass49_2 = new Class49(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static574.aBASTypeList_2 = new BASTypeList(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static125.aWearposDefaults_1);
-            Static354.aClass267_1 = new Class267(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
-            Static619.aClass387_2 = new Class387(Static392.aClass377_4, Static51.anInt1052, Static20.aClass330_3);
-            Static467.aClass96_3 = new Class96(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static540.aClass79_6 = new Class79(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static561.aClass220_2 = new Class220(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
-            Static68.aIDKTypeList_3 = new IDKTypeList(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static190.aClass330_38);
-            Static503.aClass335_1 = new Class335(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static48.aClass384_1 = new Class384(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static354.aClass142_4 = new Class142(Static392.aClass377_4, Static51.anInt1052, true, Static459.aClass330_91, Static190.aClass330_38);
-            Static577.aClass246_4 = new Class246(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
-            Static720.aClass363_4 = new Class363(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
-            Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aClass377_4, Static51.anInt1052, true, Static333.aClass330_66, Static190.aClass330_38);
-            Static419.aObjTypeList_1 = new ObjTypeList(Static392.aClass377_4, Static51.anInt1052, true, Static386.aClass49_2, Static380.aClass330_79, Static190.aClass330_38);
-            Static272.aClass45_1 = new Class45(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static25.aSeqTypeList_1 = new SeqTypeList(Static392.aClass377_4, Static51.anInt1052, Static668.aClass330_119, Static344.aClass330_73, Static142.aClass330_25);
-            Static324.aClass307_1 = new Class307(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static99.aClass78_1 = new Class78(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static23.aClass128_1 = new Class128(Static392.aClass377_4, Static51.anInt1052, Static271.aClass330_59, Static190.aClass330_38);
-            Static652.aClass214_1 = new Class214(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static718.aClass176_1 = new Class176(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static691.aClass210_1 = new Class210(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static529.aClass161_1 = new Class161(Static392.aClass377_4, Static51.anInt1052, Static233.aClass330_52);
-            Static36.aClass260_1 = new Class260(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static628.aClass342_5 = new Class342(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static648.aClass17_1 = new Class17(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static444.method5987(Static554.aClass330_105, Static697.aClass330_123, Static721.aClass330_128, Static190.aClass330_38);
-            Static110.method2081(Static140.aClass330_24);
-            Static68.aClass151_3 = new Class151(Static51.anInt1052, Static58.aClass330_12, Static244.aClass330_55);
-            Static288.aClass139_2 = new Class139(Static51.anInt1052, Static58.aClass330_12, Static244.aClass330_55, new Class251());
+            Static56.anTextureSource_3 = new Class303(Static199.aJs5_42, Static534.aJs5_104, Static721.aJs5_128);
+            Static386.aClass49_2 = new Class49(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static574.aBASTypeList_2 = new BASTypeList(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1, Static125.aWearposDefaults_1);
+            Static354.aClass267_1 = new Class267(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
+            Static619.aClass387_2 = new Class387(Static392.aClass377_4, Static51.anInt1052, Static20.aJs5_3);
+            Static467.aClass96_3 = new Class96(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static540.aClass79_6 = new Class79(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static561.aClass220_2 = new Class220(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
+            Static68.aIDKTypeList_3 = new IDKTypeList(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1, Static190.aJs5_38);
+            Static503.aClass335_1 = new Class335(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static48.aClass384_1 = new Class384(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static354.aClass142_4 = new Class142(Static392.aClass377_4, Static51.anInt1052, true, Static459.aJs5_91, Static190.aJs5_38);
+            Static577.aClass246_4 = new Class246(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
+            Static720.aClass363_4 = new Class363(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
+            Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aClass377_4, Static51.anInt1052, true, Static333.aJs5_66, Static190.aJs5_38);
+            Static419.aObjTypeList_1 = new ObjTypeList(Static392.aClass377_4, Static51.anInt1052, true, Static386.aClass49_2, Static380.aJs5_79, Static190.aJs5_38);
+            Static272.aClass45_1 = new Class45(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static25.aSeqTypeList_1 = new SeqTypeList(Static392.aClass377_4, Static51.anInt1052, Static668.aJs5_119, Static344.aJs5_73, Static142.aJs5_25);
+            Static324.aClass307_1 = new Class307(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static99.aClass78_1 = new Class78(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static23.aClass128_1 = new Class128(Static392.aClass377_4, Static51.anInt1052, Static271.aJs5_59, Static190.aJs5_38);
+            Static652.aClass214_1 = new Class214(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static718.aClass176_1 = new Class176(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static691.aClass210_1 = new Class210(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static529.aClass161_1 = new Class161(Static392.aClass377_4, Static51.anInt1052, Static233.aJs5_52);
+            Static36.aClass260_1 = new Class260(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static628.aClass342_5 = new Class342(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static648.aClass17_1 = new Class17(Static392.aClass377_4, Static51.anInt1052, Static6.aJs5_1);
+            Static444.method5987(Static554.aJs5_105, Static697.aJs5_123, Static721.aJs5_128, Static190.aJs5_38);
+            Static110.method2081(Static140.aJs5_24);
+            Static68.aClass151_3 = new Class151(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55);
+            Static288.aClass139_2 = new Class139(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55, new Class251());
             Static412.method5693();
             Static354.aClass142_4.method3061(Static400.instance.aClass57_Sub19_2.method5960() == 0);
             Static34.aClass304_1 = new Class304();
             Static296.updateFeatureMask();
             Static44.method1074(Static25.aSeqTypeList_1);
-            Static187.method2844(Static88.aClass330_14);
-            Static405.method5592(Static56.anTextureSource_3, Static190.aClass330_38);
-            @Pc(1119) Class197 local1119 = new Class197(Static463.aClass330_93.method7600("huffman", ""));
+            Static187.method2844(Static88.aJs5_14);
+            Static405.method5592(Static56.anTextureSource_3, Static190.aJs5_38);
+            @Pc(1119) Class197 local1119 = new Class197(Static463.aJs5_93.method7600("huffman", ""));
             Static342.method4462(local1119);
             try {
                 jagmisc.init();
@@ -268,14 +268,14 @@ public final class Static523 {
             Static292.aClass2_Sub43_2 = new Node_Sub43(true, Static446.aClass390_6);
         }
         if (Static198.aClass140_15 == Static473.aClass140_22) {
-            local12 = Static188.method2860(Static721.aClass330_128) + Static372.method5291(true);
+            local12 = Static188.method2860(Static721.aJs5_128) + Static372.method5291(true);
             local74 = Static688.method8974() + Static714.method9339();
             if (local12 < local74) {
                 return local12 * 100 / local74;
             }
         }
         if (Static198.aClass140_16 == Static473.aClass140_22) {
-            Static30.method5065(Static120.aClass330_19, Static467.aClass96_3, Static540.aClass79_6, Static354.aClass142_4, Static577.aClass246_4, Static720.aClass363_4, Static34.aClass304_1);
+            Static30.method5065(Static120.aJs5_19, Static467.aClass96_3, Static540.aClass79_6, Static354.aClass142_4, Static577.aClass246_4, Static720.aClass363_4, Static34.aClass304_1);
         }
         if (Static198.aClass140_17 == Static473.aClass140_22) {
             Static37.aStringArray4 = new String[Static718.aClass176_1.anInt4266];
@@ -289,28 +289,28 @@ public final class Static523 {
                 Static511.anIntArray614[local12] = -1;
             }
             Static218.method3189();
-            Static93.aClass330_16.method7575(false);
-            Static398.aClass330_81.method7575(true);
-            Static721.aClass330_128.method7575(true);
-            Static697.aClass330_123.method7575(true);
-            Static463.aClass330_93.method7575(true);
-            Static6.aClass330_1.anInt8555 = 2;
+            Static93.aJs5_16.method7575(false);
+            Static398.aJs5_81.method7575(true);
+            Static721.aJs5_128.method7575(true);
+            Static697.aJs5_123.method7575(true);
+            Static463.aJs5_93.method7575(true);
+            Static6.aJs5_1.anInt8555 = 2;
             Static666.aBoolean766 = true;
-            Static20.aClass330_3.anInt8555 = 2;
-            Static459.aClass330_91.anInt8555 = 2;
-            Static333.aClass330_66.anInt8555 = 2;
-            Static380.aClass330_79.anInt8555 = 2;
-            Static668.aClass330_119.anInt8555 = 2;
-            Static271.aClass330_59.anInt8555 = 2;
+            Static20.aJs5_3.anInt8555 = 2;
+            Static459.aJs5_91.anInt8555 = 2;
+            Static333.aJs5_66.anInt8555 = 2;
+            Static380.aJs5_79.anInt8555 = 2;
+            Static668.aJs5_119.anInt8555 = 2;
+            Static271.aJs5_59.anInt8555 = 2;
         }
         if (Static473.aClass140_22 == Static198.aClass140_18) {
-            if (!Static571.method7566(Static65.aClass3_1.anInt88)) {
+            if (!Static571.method7566(GraphicsDefaults.instance.login_interface)) {
                 return 0;
             }
             local184 = true;
-            for (local74 = 0; local74 < Static453.aClass158ArrayArray2[Static65.aClass3_1.anInt88].length; local74++) {
-                @Pc(1315) Class158 local1315 = Static453.aClass158ArrayArray2[Static65.aClass3_1.anInt88][local74];
-                if (local1315.anInt3820 == 5 && local1315.anInt3810 != -1 && !Static721.aClass330_128.method7586(0, local1315.anInt3810)) {
+            for (local74 = 0; local74 < Static453.aClass158ArrayArray2[GraphicsDefaults.instance.login_interface].length; local74++) {
+                @Pc(1315) Class158 local1315 = Static453.aClass158ArrayArray2[GraphicsDefaults.instance.login_interface][local74];
+                if (local1315.anInt3820 == 5 && local1315.anInt3810 != -1 && !Static721.aJs5_128.method7586(0, local1315.anInt3810)) {
                     local184 = false;
                 }
             }
@@ -330,8 +330,8 @@ public final class Static523 {
             }
             Static234.anInterface22Array1 = null;
             Static449.aClass364_1 = null;
-            Static177.aClass330_35 = null;
-            Static516.aClass330_97 = null;
+            Static177.aJs5_35 = null;
+            Static516.aJs5_97 = null;
             Static242.aThread1 = null;
             Static333.aClass279_1 = null;
             Static9.method123();
@@ -351,7 +351,7 @@ public final class Static523 {
             Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
             Static570.method7549(Static163.aToolkit_17);
             Static469.method6358(Static163.aToolkit_17);
-            Static239.method3472(Static721.aClass330_128, Static163.aToolkit_17);
+            Static239.method3472(Static721.aJs5_128, Static163.aToolkit_17);
             Static331.method4925(Static679.aSpriteArray14);
         }
         return Static694.method9030();

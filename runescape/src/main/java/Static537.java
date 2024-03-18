@@ -17,21 +17,21 @@ public final class Static537 {
         if (local19 != null) {
             return local19;
         }
-        @Pc(32) byte[] local32 = Static31.aClass330_6.method7589(Static31.aClass330_6.method7599(local10));
+        @Pc(32) byte[] local32 = Static31.aJs5_6.getfile(Static31.aJs5_6.method7599(local10));
         if (local32 == null) {
             local10 = arg2 + 65536 << 10 | arg0.anInt6197;
             local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.aClass361_2.method8342((long) local10 << 16);
             if (local19 != null) {
                 return local19;
             }
-            local32 = Static31.aClass330_6.method7589(Static31.aClass330_6.method7599(local10));
+            local32 = Static31.aJs5_6.getfile(Static31.aJs5_6.method7599(local10));
             if (local32 == null) {
                 local10 = arg0.anInt6197 | 0x3FFFC00;
                 local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.aClass361_2.method8342((long) local10 << 16);
                 if (local19 != null) {
                     return local19;
                 }
-                local32 = Static31.aClass330_6.method7589(Static31.aClass330_6.method7599(local10));
+                local32 = Static31.aJs5_6.getfile(Static31.aJs5_6.method7599(local10));
                 if (local32 == null) {
                     return null;
                 } else if (local32.length <= 1) {

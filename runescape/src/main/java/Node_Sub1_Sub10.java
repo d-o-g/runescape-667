@@ -49,7 +49,7 @@ public final class Node_Sub1_Sub10 extends Node_Sub1 {
             super.aBoolean824 = arg1.g1() == 1;
         }
         if (arg0) {
-            Static199.aClass330_42 = null;
+            Static199.aJs5_42 = null;
         }
     }
 

@@ -13,23 +13,23 @@ public final class Class133 implements Interface13 {
     public final Class125 aClass125_1;
 
     @OriginalMember(owner = "client!fo", name = "j", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_36;
+    public final js5 aJs5_36;
 
     @OriginalMember(owner = "client!fo", name = "n", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_37;
+    public final js5 aJs5_37;
 
     @OriginalMember(owner = "client!fo", name = "<init>", descriptor = "(Lclient!sb;Lclient!sb;Lclient!fea;)V")
-    public Class133(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) Class125 arg2) {
+    public Class133(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) Class125 arg2) {
         this.aClass125_1 = arg2;
-        this.aClass330_36 = arg1;
-        this.aClass330_37 = arg0;
+        this.aJs5_36 = arg1;
+        this.aJs5_37 = arg0;
     }
 
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(I)V")
     @Override
     public void method7748() {
-        @Pc(24) Class381 local24 = Static238.method3468(this.aClass125_1.anInt2858, this.aClass330_36);
-        this.aClass14_4 = Static163.aToolkit_17.method8010(local24, Static735.method9387(this.aClass330_37, this.aClass125_1.anInt2858), true);
+        @Pc(24) Class381 local24 = Static238.method3468(this.aClass125_1.anInt2858, this.aJs5_36);
+        this.aClass14_4 = Static163.aToolkit_17.method8010(local24, Static735.method9387(this.aJs5_37, this.aClass125_1.anInt2858), true);
     }
 
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(ZI)V")
@@ -44,10 +44,10 @@ public final class Class133 implements Interface13 {
     @Override
     public boolean method7747() {
         @Pc(11) boolean local11 = true;
-        if (!this.aClass330_37.method7581(this.aClass125_1.anInt2858)) {
+        if (!this.aJs5_37.method7581(this.aClass125_1.anInt2858)) {
             local11 = false;
         }
-        if (!this.aClass330_36.method7581(this.aClass125_1.anInt2858)) {
+        if (!this.aJs5_36.method7581(this.aClass125_1.anInt2858)) {
             local11 = false;
         }
         return local11;

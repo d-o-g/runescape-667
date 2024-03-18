@@ -20,14 +20,14 @@ public final class Static311 {
             Static159.anInt2788 = 0;
             Static62.aClass2_Sub8_2 = arg0;
         }
-        Static676.aClass330_121 = null;
+        Static676.aJs5_121 = null;
         if (Static159.anInt2788 == 0) {
-            Static270.aClass123_2 = new Class123(Static91.aClass330_117, Static296.aClass330_61);
+            Static270.aClass123_2 = new Class123(Static91.aJs5_117, Static296.aJs5_61);
             Static581.aClass2_Sub6_Sub1_3.method927();
             Static159.anInt2788 = 1;
         }
         if (Static159.anInt2788 == 1) {
-            if (!Static581.aClass2_Sub6_Sub1_3.method944(Static270.aClass123_2, Static86.aClass330_13, arg0)) {
+            if (!Static581.aClass2_Sub6_Sub1_3.method944(Static270.aClass123_2, Static86.aJs5_13, arg0)) {
                 return false;
             }
             Static270.aClass123_2 = null;
@@ -39,7 +39,7 @@ public final class Static311 {
 
     @OriginalMember(owner = "client!js", name = "a", descriptor = "(ZBZIILjava/lang/String;Ljava/lang/String;)V")
     public static void method4538(@OriginalArg(0) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) String arg4, @OriginalArg(6) String arg5) {
-        Static380.aClass330_79.anInt8555 = 1;
+        Static380.aJs5_79.anInt8555 = 1;
         @Pc(9) String local9 = arg4.toLowerCase();
         @Pc(12) short[] local12 = new short[16];
         @Pc(14) int local14 = -1;
@@ -91,7 +91,7 @@ public final class Static311 {
             local203[local205] = Static419.aObjTypeList_1.list(local12[local205]).name;
         }
         Static554.method7292(local203, Static256.aShortArray63);
-        Static380.aClass330_79.method7592();
-        Static380.aClass330_79.anInt8555 = 2;
+        Static380.aJs5_79.method7592();
+        Static380.aJs5_79.anInt8555 = 2;
     }
 }

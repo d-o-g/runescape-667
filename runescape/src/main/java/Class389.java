@@ -34,7 +34,7 @@ public final class Class389 {
         if (local13 != null) {
             return local13;
         }
-        local13 = Static735.method9382(this.aClass267_2.aClass330_88, this.anInt10305, 0);
+        local13 = Static735.method9382(this.aClass267_2.aJs5_88, this.anInt10305, 0);
         if (local13 != null) {
             this.aClass267_2.aReferenceCache_143.put(local13, (long) this.anInt10305);
         }

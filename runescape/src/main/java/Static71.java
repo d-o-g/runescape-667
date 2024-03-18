@@ -596,36 +596,36 @@ public final class Static71 {
     public static boolean method1525() {
         @Pc(5) boolean local5 = true;
         if (Static414.aClass407_2 == null) {
-            if (Static721.aClass330_128.method7581(Static456.anInt6929)) {
-                Static414.aClass407_2 = Static735.method9379(Static721.aClass330_128, Static456.anInt6929);
+            if (Static721.aJs5_128.method7581(Static456.anInt6929)) {
+                Static414.aClass407_2 = Static735.method9379(Static721.aJs5_128, Static456.anInt6929);
             } else {
                 local5 = false;
             }
         }
         if (Static535.aClass407_3 == null) {
-            if (Static721.aClass330_128.method7581(Static362.anInt5828)) {
-                Static535.aClass407_3 = Static735.method9379(Static721.aClass330_128, Static362.anInt5828);
+            if (Static721.aJs5_128.method7581(Static362.anInt5828)) {
+                Static535.aClass407_3 = Static735.method9379(Static721.aJs5_128, Static362.anInt5828);
             } else {
                 local5 = false;
             }
         }
         if (Static74.aClass407_1 == null) {
-            if (Static721.aClass330_128.method7581(Static11.anInt136)) {
-                Static74.aClass407_1 = Static735.method9379(Static721.aClass330_128, Static11.anInt136);
+            if (Static721.aJs5_128.method7581(Static11.anInt136)) {
+                Static74.aClass407_1 = Static735.method9379(Static721.aJs5_128, Static11.anInt136);
             } else {
                 local5 = false;
             }
         }
         if (Static16.aClass381_1 == null) {
-            if (Static697.aClass330_123.method7581(Static723.anInt10929)) {
-                Static16.aClass381_1 = Static238.method3468(Static723.anInt10929, Static697.aClass330_123);
+            if (Static697.aJs5_123.method7581(Static723.anInt10929)) {
+                Static16.aClass381_1 = Static238.method3468(Static723.anInt10929, Static697.aJs5_123);
             } else {
                 local5 = false;
             }
         }
         if (Static627.aClass407Array1 == null) {
-            if (Static721.aClass330_128.method7581(Static723.anInt10929)) {
-                Static627.aClass407Array1 = Static735.method9387(Static721.aClass330_128, Static723.anInt10929);
+            if (Static721.aJs5_128.method7581(Static723.anInt10929)) {
+                Static627.aClass407Array1 = Static735.method9387(Static721.aJs5_128, Static723.anInt10929);
             } else {
                 local5 = false;
             }

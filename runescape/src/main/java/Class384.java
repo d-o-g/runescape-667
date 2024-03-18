@@ -11,12 +11,12 @@ public final class Class384 {
     public final ReferenceCache aReferenceCache_219 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!vga", name = "k", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_120;
+    public final js5 aJs5_120;
 
     @OriginalMember(owner = "client!vga", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class384(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2) {
-        this.aClass330_120 = arg2;
-        this.aClass330_120.method7608(31);
+    public Class384(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
+        this.aJs5_120 = arg2;
+        this.aJs5_120.method7608(31);
     }
 
     @OriginalMember(owner = "client!vga", name = "b", descriptor = "(I)V")
@@ -45,10 +45,10 @@ public final class Class384 {
         if (local23 != null) {
             return local23;
         }
-        @Pc(37) Class330 local37 = this.aClass330_120;
+        @Pc(37) js5 local37 = this.aJs5_120;
         @Pc(46) byte[] local46;
-        synchronized (this.aClass330_120) {
-            local46 = this.aClass330_120.method7595(arg0, 31);
+        synchronized (this.aJs5_120) {
+            local46 = this.aJs5_120.method7595(arg0, 31);
         }
         local23 = new Class392();
         if (local46 != null) {

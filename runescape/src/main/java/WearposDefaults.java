@@ -23,8 +23,8 @@ public final class WearposDefaults {
 
 
     @OriginalMember(owner = "client!vl", name = "<init>", descriptor = "(Lclient!sb;)V")
-    public WearposDefaults(@OriginalArg(0) Class330 arg0) {
-        @Pc(12) byte[] local12 = arg0.method7589(6);
+    public WearposDefaults(@OriginalArg(0) js5 arg0) {
+        @Pc(12) byte[] local12 = arg0.getfile(6);
         this.method8929(new Packet(local12));
         if (this.anIntArray821 == null) {
             throw new RuntimeException("");

@@ -20,8 +20,8 @@ public final class Static571 {
     public static boolean method7566(@OriginalArg(1) int arg0) {
         if (Static132.aBooleanArray5[arg0]) {
             return true;
-        } else if (Static666.aClass330_118.method7607(arg0)) {
-            @Pc(25) int local25 = Static666.aClass330_118.method7608(arg0);
+        } else if (Static666.aJs5_118.method7607(arg0)) {
+            @Pc(25) int local25 = Static666.aJs5_118.method7608(arg0);
             if (local25 == 0) {
                 Static132.aBooleanArray5[arg0] = true;
                 return true;
@@ -31,7 +31,7 @@ public final class Static571 {
             }
             for (@Pc(53) int local53 = 0; local53 < local25; local53++) {
                 if (Static453.aClass158ArrayArray2[arg0][local53] == null) {
-                    @Pc(66) byte[] local66 = Static666.aClass330_118.method7595(local53, arg0);
+                    @Pc(66) byte[] local66 = Static666.aJs5_118.method7595(local53, arg0);
                     if (local66 != null) {
                         @Pc(78) Class158 local78 = Static453.aClass158ArrayArray2[arg0][local53] = new Class158();
                         local78.anInt3812 = local53 + (arg0 << 16);

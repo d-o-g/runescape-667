@@ -8,7 +8,7 @@ public final class Static666 {
     public static long aLong301;
 
     @OriginalMember(owner = "client!vba", name = "M", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_118;
+    public static js5 aJs5_118;
 
     @OriginalMember(owner = "client!vba", name = "H", descriptor = "Z")
     public static boolean aBoolean766 = false;

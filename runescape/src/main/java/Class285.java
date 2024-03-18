@@ -102,7 +102,7 @@ public final class Class285 {
 
     @OriginalMember(owner = "client!pb", name = "b", descriptor = "(ILclient!ha;)V")
     public void method6455(@OriginalArg(1) Toolkit arg0) {
-        @Pc(7) Class330 local7 = this.aClass220_1.aClass330_76;
+        @Pc(7) js5 local7 = this.aClass220_1.aJs5_76;
         @Pc(34) Class407 local34;
         if (this.anInt7183 >= 0 && this.aClass220_1.aReferenceCache_121.get((long) this.anInt7183) == null && local7.method7581(this.anInt7183)) {
             local34 = Static735.method9379(local7, this.anInt7183);

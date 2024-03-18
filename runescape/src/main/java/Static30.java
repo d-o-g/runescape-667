@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static30 {
 
     @OriginalMember(owner = "client!baa", name = "w", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_74;
+    public static js5 aJs5_74;
 
     @OriginalMember(owner = "client!baa", name = "y", descriptor = "Lclient!u;")
     public static Class363 aClass363_3;
@@ -374,8 +374,8 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
-    public static void method5065(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class96 arg1, @OriginalArg(2) Class79 arg2, @OriginalArg(3) Class142 arg3, @OriginalArg(4) Class246 arg4, @OriginalArg(5) Class363 arg5, @OriginalArg(6) VarDomain arg6) {
-        aClass330_74 = arg0;
+    public static void method5065(@OriginalArg(0) js5 arg0, @OriginalArg(1) Class96 arg1, @OriginalArg(2) Class79 arg2, @OriginalArg(3) Class142 arg3, @OriginalArg(4) Class246 arg4, @OriginalArg(5) Class363 arg5, @OriginalArg(6) VarDomain arg6) {
+        aJs5_74 = arg0;
         aClass96_2 = arg1;
         aClass79_5 = arg2;
         aClass142_3 = arg3;
@@ -383,11 +383,11 @@ public final class Static30 {
         aClass363_3 = arg5;
         anVarDomain_3 = arg6;
         A_HASH_TABLE___27.clear();
-        @Pc(23) int local23 = aClass330_74.method7590("details");
-        @Pc(28) int[] local28 = aClass330_74.method7603(local23);
+        @Pc(23) int local23 = aJs5_74.method7590("details");
+        @Pc(28) int[] local28 = aJs5_74.method7603(local23);
         if (local28 != null) {
             for (@Pc(32) int local32 = 0; local32 < local28.length; local32++) {
-                @Pc(41) DoublyLinkedNode_Sub2_Sub13 local41 = Static517.method6820(aClass330_74, local23, local28[local32]);
+                @Pc(41) DoublyLinkedNode_Sub2_Sub13 local41 = Static517.method6820(aJs5_74, local23, local28[local32]);
                 A_HASH_TABLE___27.put((long) local41.anInt4563, local41);
             }
         }
@@ -930,7 +930,7 @@ public final class Static30 {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;II)V")
     public static void method5080(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(11) Packet local11 = new Packet(aClass330_74.method7600(aClass2_Sub2_Sub13_3.aString48, "area"));
+        @Pc(11) Packet local11 = new Packet(aJs5_74.method7600(aClass2_Sub2_Sub13_3.aString48, "area"));
         @Pc(15) int local15 = local11.g1();
         @Pc(18) int[] local18 = new int[local15];
         for (@Pc(20) int local20 = 0; local20 < local15; local20++) {

@@ -14,15 +14,15 @@ public final class Class96 {
     public int anInt2509 = 0;
 
     @OriginalMember(owner = "client!ef", name = "j", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_23;
+    public final js5 aJs5_23;
 
     @OriginalMember(owner = "client!ef", name = "q", descriptor = "I")
     public final int anInt2506;
 
     @OriginalMember(owner = "client!ef", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class96(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2) {
-        this.aClass330_23 = arg2;
-        this.anInt2506 = this.aClass330_23.method7608(4);
+    public Class96(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
+        this.aJs5_23 = arg2;
+        this.anInt2506 = this.aJs5_23.method7608(4);
     }
 
     @OriginalMember(owner = "client!ef", name = "a", descriptor = "(B)V")
@@ -51,10 +51,10 @@ public final class Class96 {
         if (local25 != null) {
             return local25;
         }
-        @Pc(39) Class330 local39 = this.aClass330_23;
+        @Pc(39) js5 local39 = this.aJs5_23;
         @Pc(48) byte[] local48;
-        synchronized (this.aClass330_23) {
-            local48 = this.aClass330_23.method7595(arg0, 4);
+        synchronized (this.aJs5_23) {
+            local48 = this.aJs5_23.method7595(arg0, 4);
         }
         local25 = new Class318();
         local25.aClass96_5 = this;

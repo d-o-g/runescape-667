@@ -114,7 +114,7 @@ public final class Static608 {
                     if (local267 != -1) {
                         local306 = (Sprite[]) Static230.A_WEIGHTED_CACHE___81.get((long) local267);
                         if (local306 == null) {
-                            local313 = Static735.method9375(Static721.aClass330_128, local267);
+                            local313 = Static735.method9375(Static721.aJs5_128, local267);
                             if (local313 != null) {
                                 local306 = new Sprite[local313.length];
                                 for (local321 = 0; local321 < local313.length; local321++) {
@@ -163,7 +163,7 @@ public final class Static608 {
                         if (local504 != -1) {
                             local306 = (Sprite[]) Static669.A_WEIGHTED_CACHE___215.get((long) local504);
                             if (local306 == null) {
-                                local313 = Static735.method9375(Static721.aClass330_128, local504);
+                                local313 = Static735.method9375(Static721.aJs5_128, local504);
                                 if (local313 != null) {
                                     local306 = new Sprite[local313.length];
                                     for (local321 = 0; local321 < local313.length; local321++) {
@@ -263,7 +263,7 @@ public final class Static608 {
                     if (local267 > 0) {
                     }
                 }
-                for (local267 = 0; local267 < Static65.aClass3_1.anInt86; local267++) {
+                for (local267 = 0; local267 < GraphicsDefaults.instance.maxhitmarks; local267++) {
                     local1179 = local51.anIntArray871[local267];
                     local504 = local51.anIntArray873[local267];
                     @Pc(1186) Class285 local1186 = null;
@@ -295,8 +295,8 @@ public final class Static608 {
                             local1274 = local51.method9299() / 2;
                             Static716.method9350(local51, arg3 >> 1, local1274, arg1 >> 1);
                             if (Static215.anIntArray284[0] > -1) {
-                                Static215.anIntArray284[0] += Static65.aClass3_1.anIntArray16[local267];
-                                Static215.anIntArray284[1] += Static65.aClass3_1.anIntArray14[local267];
+                                Static215.anIntArray284[0] += GraphicsDefaults.instance.hitmarkpos_x[local267];
+                                Static215.anIntArray284[1] += GraphicsDefaults.instance.hitmarkpos_y[local267];
                                 local1321 = 0;
                                 local1323 = 0;
                                 local1325 = 0;

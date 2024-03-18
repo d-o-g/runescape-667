@@ -20,21 +20,21 @@ public final class Class139 {
     public Interface19 anInterface19_1 = null;
 
     @OriginalMember(owner = "client!gba", name = "i", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_40;
+    public final js5 aJs5_40;
 
     @OriginalMember(owner = "client!gba", name = "b", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_41;
+    public final js5 aJs5_41;
 
     @OriginalMember(owner = "client!gba", name = "<init>", descriptor = "(ILclient!sb;Lclient!sb;Lclient!raa;)V")
-    public Class139(@OriginalArg(0) int arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Interface19 arg3) {
+    public Class139(@OriginalArg(0) int arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) Interface19 arg3) {
         this.anInterface19_1 = arg3;
-        this.aClass330_40 = arg1;
-        this.aClass330_41 = arg2;
-        if (this.aClass330_40 != null) {
-            this.anInt3264 = this.aClass330_40.method7608(1);
+        this.aJs5_40 = arg1;
+        this.aJs5_41 = arg2;
+        if (this.aJs5_40 != null) {
+            this.anInt3264 = this.aJs5_40.method7608(1);
         }
-        if (this.aClass330_41 != null) {
-            this.anInt3261 = this.aClass330_41.method7608(1);
+        if (this.aJs5_41 != null) {
+            this.anInt3261 = this.aJs5_41.method7608(1);
         }
     }
 
@@ -57,9 +57,9 @@ public final class Class139 {
         }
         @Pc(28) byte[] local28;
         if (arg0 >= 32768) {
-            local28 = this.aClass330_41.method7595(arg0 & 0x7FFF, 1);
+            local28 = this.aJs5_41.method7595(arg0 & 0x7FFF, 1);
         } else {
-            local28 = this.aClass330_40.method7595(arg0, 1);
+            local28 = this.aJs5_40.method7595(arg0, 1);
         }
         local11 = new DoublyLinkedNode_Sub2_Sub12();
         local11.aClass139_1 = this;

@@ -10,7 +10,7 @@ public final class Class90_Sub3 extends Class90 {
     public Sprite aSprite_28;
 
     @OriginalMember(owner = "client!lq", name = "<init>", descriptor = "(Lclient!sb;Lclient!sb;Lclient!gha;)V")
-    public Class90_Sub3(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) Class138_Sub2 arg2) {
+    public Class90_Sub3(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) Class138_Sub2 arg2) {
         super(arg0, arg1, arg2);
     }
 
@@ -18,7 +18,7 @@ public final class Class90_Sub3 extends Class90 {
     @Override
     public void method7748() {
         super.method7748();
-        this.aSprite_28 = Static652.method8533(((Class138_Sub2) super.aClass138_5).anInt3438, super.aClass330_109);
+        this.aSprite_28 = Static652.method8533(((Class138_Sub2) super.aClass138_5).anInt3438, super.aJs5_109);
     }
 
     @OriginalMember(owner = "client!lq", name = "a", descriptor = "(ZIBI)V")
@@ -31,7 +31,7 @@ public final class Class90_Sub3 extends Class90 {
     @OriginalMember(owner = "client!lq", name = "b", descriptor = "(I)Z")
     @Override
     public boolean method7747() {
-        return super.method7747() ? super.aClass330_109.method7581(((Class138_Sub2) super.aClass138_5).anInt3438) : false;
+        return super.method7747() ? super.aJs5_109.method7581(((Class138_Sub2) super.aClass138_5).anInt3438) : false;
     }
 
     @OriginalMember(owner = "client!lq", name = "a", descriptor = "(IIZI)V")

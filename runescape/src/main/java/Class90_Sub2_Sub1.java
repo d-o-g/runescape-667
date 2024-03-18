@@ -43,7 +43,7 @@ public final class Class90_Sub2_Sub1 extends Class90_Sub2 {
     }
 
     @OriginalMember(owner = "client!sl", name = "<init>", descriptor = "(Lclient!sb;Lclient!sb;Lclient!fw;)V")
-    public Class90_Sub2_Sub1(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) Class138_Sub1_Sub1 arg2) {
+    public Class90_Sub2_Sub1(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) Class138_Sub1_Sub1 arg2) {
         super(arg0, arg1, arg2);
     }
 

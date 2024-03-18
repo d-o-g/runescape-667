@@ -14,14 +14,14 @@ public final class SeqTypeList {
     public final ReferenceCache aReferenceCache_23 = new ReferenceCache(100);
 
     @OriginalMember(owner = "client!bp", name = "j", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_11;
+    public final js5 aJs5_11;
 
     @OriginalMember(owner = "client!bp", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;Lclient!sb;)V")
-    public SeqTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) Class330 arg4) {
-        this.aClass330_11 = arg2;
-        if (this.aClass330_11 != null) {
-            @Pc(26) int local26 = this.aClass330_11.method7597() - 1;
-            this.aClass330_11.method7608(local26);
+    public SeqTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
+        this.aJs5_11 = arg2;
+        if (this.aJs5_11 != null) {
+            @Pc(26) int local26 = this.aJs5_11.method7597() - 1;
+            this.aJs5_11.method7608(local26);
         }
         Static642.method8440(arg4, arg3);
     }
@@ -36,10 +36,10 @@ public final class SeqTypeList {
         if (local16 != null) {
             return local16;
         }
-        @Pc(30) Class330 local30 = this.aClass330_11;
+        @Pc(30) js5 local30 = this.aJs5_11;
         @Pc(43) byte[] local43;
-        synchronized (this.aClass330_11) {
-            local43 = this.aClass330_11.method7595(Static668.method8702(arg0), Static291.method4226(arg0));
+        synchronized (this.aJs5_11) {
+            local43 = this.aJs5_11.method7595(Static668.method8702(arg0), Static291.method4226(arg0));
         }
         local16 = new SeqType();
         local16.id = arg0;

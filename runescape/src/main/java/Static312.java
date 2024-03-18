@@ -20,7 +20,7 @@ public final class Static312 {
     @OriginalMember(owner = "client!jt", name = "a", descriptor = "(II)V")
     public static void method4541() {
         Static117.aClass2_Sub6_Sub1_2 = null;
-        Static676.aClass330_121 = null;
+        Static676.aJs5_121 = null;
         Static190.anInt3112 = 2;
         Static497.aBoolean564 = false;
         Static24.anInt595 = 0;

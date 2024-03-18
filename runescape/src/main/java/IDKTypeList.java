@@ -11,16 +11,16 @@ public final class IDKTypeList {
     public final ReferenceCache aReferenceCache_115 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!kr", name = "b", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_72;
+    public final js5 aJs5_72;
 
     @OriginalMember(owner = "client!kr", name = "k", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_71;
+    public final js5 aJs5_71;
 
     @OriginalMember(owner = "client!kr", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public IDKTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Class330 arg3) {
-        this.aClass330_72 = arg3;
-        this.aClass330_71 = arg2;
-        this.aClass330_71.method7608(3);
+    public IDKTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3) {
+        this.aJs5_72 = arg3;
+        this.aJs5_71 = arg2;
+        this.aJs5_71.method7608(3);
     }
 
     @OriginalMember(owner = "client!kr", name = "d", descriptor = "(I)V")
@@ -41,10 +41,10 @@ public final class IDKTypeList {
         if (local24 != null) {
             return local24;
         }
-        @Pc(38) Class330 local38 = this.aClass330_71;
+        @Pc(38) js5 local38 = this.aJs5_71;
         @Pc(47) byte[] local47;
-        synchronized (this.aClass330_71) {
-            local47 = this.aClass330_71.method7595(arg0, 3);
+        synchronized (this.aJs5_71) {
+            local47 = this.aJs5_71.method7595(arg0, 3);
         }
         local24 = new Class294();
         local24.aIDKTypeList_4 = this;

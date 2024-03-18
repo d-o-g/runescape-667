@@ -11,9 +11,6 @@ public final class Static264 {
     @OriginalMember(owner = "client!ie", name = "b", descriptor = "[[I")
     public static final int[][] anIntArrayArray267 = new int[][]{{0, 1, 2, 3}, {1, 2, 3, 0}, {1, 2, -1, 0}, {2, 0, -1, 1}, {0, 1, -1, 2}, {1, 2, -1, 0}, {-1, 4, -1, 1}, {-1, 1, 3, -1}, {-1, 0, 2, -1}, {3, 5, 2, 0}, {0, 2, 5, 3}, {0, 2, 3, 5}, {0, 1, 2, 3}};
 
-    @OriginalMember(owner = "client!ie", name = "g", descriptor = "[I")
-    public static final int[] anIntArray891 = new int[]{8, 11, 4, 6, 9, 7, 10, 0};
-
     @OriginalMember(owner = "client!ie", name = "a", descriptor = "(IIIIIIII)V")
     public static void method9459(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
         if (Static180.anInt2995 <= arg5 && arg1 <= Static111.anInt2219 && Static724.anInt10930 <= arg3 && arg4 <= Static273.anInt4395) {

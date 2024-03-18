@@ -106,7 +106,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
     public final int anInt9277;
 
     @OriginalMember(owner = "client!tca", name = "<init>", descriptor = "(Lclient!jaggl/OpenGL;Ljava/awt/Canvas;JLclient!d;Lclient!sb;I)V")
-    public Toolkit_Sub1_Sub2(@OriginalArg(0) OpenGL arg0, @OriginalArg(1) Canvas arg1, @OriginalArg(2) long arg2, @OriginalArg(3) TextureSource arg3, @OriginalArg(4) Class330 arg4, @OriginalArg(5) int arg5) {
+    public Toolkit_Sub1_Sub2(@OriginalArg(0) OpenGL arg0, @OriginalArg(1) Canvas arg1, @OriginalArg(2) long arg2, @OriginalArg(3) TextureSource arg3, @OriginalArg(4) js5 arg4, @OriginalArg(5) int arg5) {
         super(arg1, Long.valueOf(arg2), arg3, arg4, arg5, 1);
         try {
             this.anOpenGL2 = arg0;
@@ -334,11 +334,11 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
     @Override
     protected Class26 method8087(@OriginalArg(1) int arg0) {
         if (arg0 == 3) {
-            return new Class26_Sub11(this, super.aClass330_112);
+            return new Class26_Sub11(this, super.aJs5_112);
         } else if (arg0 == 4) {
-            return new Class26_Sub1(this, super.aClass330_112, super.aClass7_8);
+            return new Class26_Sub1(this, super.aJs5_112, super.aClass7_8);
         } else if (arg0 == 8) {
-            return new Class26_Sub3(this, super.aClass330_112, super.aClass7_8);
+            return new Class26_Sub3(this, super.aJs5_112, super.aClass7_8);
         } else {
             return super.method8087(arg0);
         }

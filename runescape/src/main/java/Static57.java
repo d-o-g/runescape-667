@@ -57,8 +57,8 @@ public final class Static57 {
     }
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(IIIZILclient!sb;Z)V")
-    public static void method1225(@OriginalArg(1) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) Class330 arg2) {
-        Static676.aClass330_121 = arg2;
+    public static void method1225(@OriginalArg(1) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) js5 arg2) {
+        Static676.aJs5_121 = arg2;
         Static497.aBoolean564 = false;
         Static190.anInt3112 = 2;
         Static117.aClass2_Sub6_Sub1_2 = null;

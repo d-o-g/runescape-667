@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static504 {
 
     @OriginalMember(owner = "client!pt", name = "s", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_95;
+    public static js5 aJs5_95;
 
     @OriginalMember(owner = "client!pt", name = "p", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_188 = new Class225(16, 3);

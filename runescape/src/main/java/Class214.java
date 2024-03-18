@@ -11,12 +11,12 @@ public final class Class214 {
     public final ReferenceCache aReferenceCache_114 = new ReferenceCache(256);
 
     @OriginalMember(owner = "client!kq", name = "j", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_70;
+    public final js5 aJs5_70;
 
     @OriginalMember(owner = "client!kq", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class214(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2) {
-        this.aClass330_70 = arg2;
-        this.aClass330_70.method7608(26);
+    public Class214(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
+        this.aJs5_70 = arg2;
+        this.aJs5_70.method7608(26);
     }
 
     @OriginalMember(owner = "client!kq", name = "b", descriptor = "(Z)V")
@@ -45,10 +45,10 @@ public final class Class214 {
         if (local16 != null) {
             return local16;
         }
-        @Pc(30) Class330 local30 = this.aClass330_70;
+        @Pc(30) js5 local30 = this.aJs5_70;
         @Pc(39) byte[] local39;
-        synchronized (this.aClass330_70) {
-            local39 = this.aClass330_70.method7595(arg0, 26);
+        synchronized (this.aJs5_70) {
+            local39 = this.aJs5_70.method7595(arg0, 26);
         }
         local16 = new DoublyLinkedNode_Sub2_Sub1();
         if (local39 != null) {

@@ -490,7 +490,7 @@ public final class Class158 {
         if (local60 != null) {
             return local60;
         }
-        @Pc(71) Class407 local71 = Static735.method9382(Static262.aClass330_56, this.anInt3810, 0);
+        @Pc(71) Class407 local71 = Static735.method9382(Static262.aJs5_56, this.anInt3810, 0);
         if (local71 == null) {
             Static544.aBoolean624 = true;
             return null;
@@ -864,7 +864,7 @@ public final class Class158 {
                 return local21;
             }
         }
-        @Pc(53) Class407 local53 = Static735.method9382(Static262.aClass330_56, this.anInt3810, 0);
+        @Pc(53) Class407 local53 = Static735.method9382(Static262.aJs5_56, this.anInt3810, 0);
         if (local53 == null) {
             return null;
         }
@@ -1024,7 +1024,7 @@ public final class Class158 {
                 if (local277 != null) {
                     arg9 = arg0.combineFunctionMasks(arg9, local277.ua());
                 }
-                @Pc(307) Mesh local307 = Static121.method2201(this.obj, Static607.aClass330_113);
+                @Pc(307) Mesh local307 = Static121.method2201(this.obj, Static607.aJs5_113);
                 if (local307 == null) {
                     Static544.aBoolean624 = true;
                     return null;

@@ -13,10 +13,10 @@ public final class Class303 implements TextureSource {
     public final Class361 aClass361_3 = new Class361(256);
 
     @OriginalMember(owner = "client!qea", name = "b", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_99;
+    public final js5 aJs5_99;
 
     @OriginalMember(owner = "client!qea", name = "n", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_98;
+    public final js5 aJs5_98;
 
     @OriginalMember(owner = "client!qea", name = "l", descriptor = "I")
     public final int anInt7709;
@@ -25,9 +25,9 @@ public final class Class303 implements TextureSource {
     public final TextureMetrics[] aTextureMetricsArray1;
 
     @OriginalMember(owner = "client!qea", name = "<init>", descriptor = "(Lclient!sb;Lclient!sb;Lclient!sb;)V")
-    public Class303(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) Class330 arg2) {
-        this.aClass330_99 = arg2;
-        this.aClass330_98 = arg1;
+    public Class303(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2) {
+        this.aJs5_99 = arg2;
+        this.aJs5_98 = arg1;
         @Pc(24) Packet local24 = new Packet(arg0.method7595(0, 0));
         this.anInt7709 = local24.g2();
         this.aTextureMetricsArray1 = new TextureMetrics[this.anInt7709];
@@ -139,7 +139,7 @@ public final class Class303 implements TextureSource {
         if (local10 != null) {
             return (DoublyLinkedNode_Sub2_Sub21) local10;
         }
-        @Pc(30) byte[] local30 = this.aClass330_98.method7589(arg0);
+        @Pc(30) byte[] local30 = this.aJs5_98.getfile(arg0);
         if (local30 == null) {
             return null;
         } else {
@@ -152,7 +152,7 @@ public final class Class303 implements TextureSource {
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IZIIBF)[I")
     @Override
     public int[] rgbOutput(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) float arg4) {
-        return this.method6819(arg3).method8951(this.aClass330_99, (double) arg4, this.aTextureMetricsArray1[arg3].aBoolean238, this, arg1, arg2, arg0);
+        return this.method6819(arg3).method8951(this.aJs5_99, (double) arg4, this.aTextureMetricsArray1[arg3].aBoolean238, this, arg1, arg2, arg0);
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(I)I")
@@ -165,7 +165,7 @@ public final class Class303 implements TextureSource {
     @Override
     public boolean textureAvailable(@OriginalArg(1) int arg0) {
         @Pc(8) DoublyLinkedNode_Sub2_Sub21 local8 = this.method6819(arg0);
-        return local8 != null && local8.method8947(this.aClass330_99, this);
+        return local8 != null && local8.method8947(this.aJs5_99, this);
     }
 
     @OriginalMember(owner = "client!qea", name = "b", descriptor = "(II)Lclient!fa;")
@@ -177,12 +177,12 @@ public final class Class303 implements TextureSource {
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IIFBIZ)[F")
     @Override
     public float[] floatArgbOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) float arg2, @OriginalArg(4) int arg3) {
-        return this.method6819(arg1).method8946(arg0, this, this.aClass330_99, this.aTextureMetricsArray1[arg1].aBoolean238, arg3);
+        return this.method6819(arg1).method8946(arg0, this, this.aJs5_99, this.aTextureMetricsArray1[arg1].aBoolean238, arg3);
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(FIIZZI)[I")
     @Override
     public int[] argbOutput(@OriginalArg(0) float arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3) {
-        return this.method6819(arg1).method8948(arg2, (double) arg0, this.aTextureMetricsArray1[arg1].aBoolean238, arg3, this, this.aClass330_99);
+        return this.method6819(arg1).method8948(arg2, (double) arg0, this.aTextureMetricsArray1[arg1].aBoolean238, arg3, this, this.aJs5_99);
     }
 }

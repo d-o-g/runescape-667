@@ -11,20 +11,20 @@ public final class Class151 {
     public final ReferenceCache aReferenceCache_79 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!gt", name = "c", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_51;
+    public final js5 aJs5_51;
 
     @OriginalMember(owner = "client!gt", name = "f", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_50;
+    public final js5 aJs5_50;
 
     @OriginalMember(owner = "client!gt", name = "<init>", descriptor = "(ILclient!sb;Lclient!sb;)V")
-    public Class151(@OriginalArg(0) int arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) Class330 arg2) {
-        this.aClass330_51 = arg2;
-        this.aClass330_50 = arg1;
-        if (this.aClass330_50 != null) {
-            this.aClass330_50.method7608(0);
+    public Class151(@OriginalArg(0) int arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2) {
+        this.aJs5_51 = arg2;
+        this.aJs5_50 = arg1;
+        if (this.aJs5_50 != null) {
+            this.aJs5_50.method7608(0);
         }
-        if (this.aClass330_51 != null) {
-            this.aClass330_51.method7608(0);
+        if (this.aJs5_51 != null) {
+            this.aJs5_51.method7608(0);
         }
     }
 
@@ -36,9 +36,9 @@ public final class Class151 {
         }
         @Pc(28) byte[] local28;
         if (arg0 < 32768) {
-            local28 = this.aClass330_50.method7595(arg0, 0);
+            local28 = this.aJs5_50.method7595(arg0, 0);
         } else {
-            local28 = this.aClass330_51.method7595(arg0 & 0x7FFF, 0);
+            local28 = this.aJs5_51.method7595(arg0 & 0x7FFF, 0);
         }
         local11 = new DoublyLinkedNode_Sub2_Sub3();
         if (local28 != null) {

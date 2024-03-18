@@ -11,7 +11,7 @@ public final class Static331 {
     public static int anInt5440;
 
     @OriginalMember(owner = "client!ki", name = "h", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_65;
+    public static js5 aJs5_65;
 
     @OriginalMember(owner = "client!ki", name = "e", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_138 = new Class225(36, 4);

@@ -17,17 +17,17 @@ public final class Class128 {
     public final ReferenceCache aReferenceCache_62 = new ReferenceCache(60);
 
     @OriginalMember(owner = "client!fh", name = "f", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_34;
+    public final js5 aJs5_34;
 
     @OriginalMember(owner = "client!fh", name = "d", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_33;
+    public final js5 aJs5_33;
 
     @OriginalMember(owner = "client!fh", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public Class128(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Class330 arg3) {
-        this.aClass330_34 = arg3;
-        this.aClass330_33 = arg2;
-        @Pc(26) int local26 = this.aClass330_33.method7597() - 1;
-        this.aClass330_33.method7608(local26);
+    public Class128(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3) {
+        this.aJs5_34 = arg3;
+        this.aJs5_33 = arg2;
+        @Pc(26) int local26 = this.aJs5_33.method7597() - 1;
+        this.aJs5_33.method7608(local26);
     }
 
     @OriginalMember(owner = "client!fh", name = "a", descriptor = "(II)Lclient!lia;")
@@ -40,10 +40,10 @@ public final class Class128 {
         if (local24 != null) {
             return local24;
         }
-        @Pc(38) Class330 local38 = this.aClass330_33;
+        @Pc(38) js5 local38 = this.aJs5_33;
         @Pc(51) byte[] local51;
-        synchronized (this.aClass330_33) {
-            local51 = this.aClass330_33.method7595(Static560.method7429(arg0), Static359.method5224(arg0));
+        synchronized (this.aJs5_33) {
+            local51 = this.aJs5_33.method7595(Static560.method7429(arg0), Static359.method5224(arg0));
         }
         local24 = new Class227();
         local24.anInt5833 = arg0;

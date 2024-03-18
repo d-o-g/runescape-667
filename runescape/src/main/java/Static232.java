@@ -82,7 +82,7 @@ public final class Static232 {
                 Static581.aClass2_Sub6_Sub1_3.method927();
                 Static12.aClass123_4 = null;
                 Static62.aClass2_Sub8_3 = null;
-                if (Static676.aClass330_121 == null) {
+                if (Static676.aJs5_121 == null) {
                     Static96.anInt10171 = 0;
                 } else {
                     Static96.anInt10171 = 2;
@@ -107,7 +107,7 @@ public final class Static232 {
             Static117.aClass2_Sub6_Sub1_2 = null;
             Static62.aClass2_Sub8_3 = null;
             Static96.anInt10171 = 0;
-            Static676.aClass330_121 = null;
+            Static676.aJs5_121 = null;
             Static12.aClass123_4 = null;
         }
     }

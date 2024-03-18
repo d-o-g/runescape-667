@@ -8,7 +8,7 @@ import java.io.IOException;
 public final class Static709 {
 
     @OriginalMember(owner = "client!wh", name = "K", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_127;
+    public static js5 aJs5_127;
 
     @OriginalMember(owner = "client!wh", name = "N", descriptor = "I")
     public static int anInt10667;

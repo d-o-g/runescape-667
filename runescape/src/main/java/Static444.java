@@ -18,12 +18,12 @@ public final class Static444 {
     public static final Class225 aClass225_169 = new Class225(42, -1);
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(Lclient!sb;Lclient!sb;Lclient!sb;BLclient!sb;)V")
-    public static void method5987(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(4) Class330 arg3) {
-        Static262.aClass330_56 = arg2;
-        Static666.aClass330_118 = arg0;
-        Static607.aClass330_113 = arg3;
-        Static453.aClass158ArrayArray2 = new Class158[Static666.aClass330_118.method7597()][];
-        Static132.aBooleanArray5 = new boolean[Static666.aClass330_118.method7597()];
+    public static void method5987(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2, @OriginalArg(4) js5 arg3) {
+        Static262.aJs5_56 = arg2;
+        Static666.aJs5_118 = arg0;
+        Static607.aJs5_113 = arg3;
+        Static453.aClass158ArrayArray2 = new Class158[Static666.aJs5_118.method7597()][];
+        Static132.aBooleanArray5 = new boolean[Static666.aJs5_118.method7597()];
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(B)V")
@@ -38,7 +38,7 @@ public final class Static444 {
         if (local10 != null) {
             return local10;
         }
-        @Pc(21) byte[] local21 = Static409.aClass330_85.method7595(arg0, 0);
+        @Pc(21) byte[] local21 = Static409.aJs5_85.method7595(arg0, 0);
         local10 = new Class379();
         if (local21 != null) {
             local10.method8656(new Packet(local21));

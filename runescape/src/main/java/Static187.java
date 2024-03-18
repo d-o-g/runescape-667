@@ -52,7 +52,7 @@ public final class Static187 {
     }
 
     @OriginalMember(owner = "client!fp", name = "a", descriptor = "(Lclient!sb;I)V")
-    public static void method2844(@OriginalArg(0) Class330 arg0) {
+    public static void method2844(@OriginalArg(0) js5 arg0) {
         Static559.anInt8410 = 0;
         Static600.anInt8880 = 0;
         Static342.aClass130_7 = new Class130();

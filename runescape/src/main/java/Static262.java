@@ -9,7 +9,7 @@ public final class Static262 {
     public static BigInteger LOGIN_RSA_EXPONENT = new BigInteger("10001", 16);
 
     @OriginalMember(owner = "client!ica", name = "m", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_56;
+    public static js5 aJs5_56;
 
     @OriginalMember(owner = "client!ica", name = "n", descriptor = "[I")
     public static final int[] anIntArray326 = new int[13];

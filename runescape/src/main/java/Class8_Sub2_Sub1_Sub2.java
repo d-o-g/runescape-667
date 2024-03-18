@@ -215,7 +215,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public Class8_Sub2_Sub1_Sub2(@OriginalArg(0) int arg0) {
         super(0, 0, 0, 0, 0, 0, 0, 0, 0, false, (byte) 0);
         this.anIntArray869 = null;
-        this.anIntArray870 = new int[Static65.aClass3_1.anInt86];
+        this.anIntArray870 = new int[GraphicsDefaults.instance.maxhitmarks];
         this.anInt10728 = 0;
         this.anInt10719 = -1000;
         this.anInt10739 = 0;
@@ -225,14 +225,14 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         this.anInt10733 = 1;
         this.anInt10743 = -1;
         this.anInt10732 = 0;
-        this.anIntArray871 = new int[Static65.aClass3_1.anInt86];
+        this.anIntArray871 = new int[GraphicsDefaults.instance.maxhitmarks];
         this.aBoolean817 = false;
-        this.anIntArray874 = new int[Static65.aClass3_1.anInt86];
+        this.anIntArray874 = new int[GraphicsDefaults.instance.maxhitmarks];
         this.anInt10722 = -1;
-        this.anIntArray876 = new int[Static65.aClass3_1.anInt86];
-        this.anIntArray875 = new int[Static65.aClass3_1.anInt86];
+        this.anIntArray876 = new int[GraphicsDefaults.instance.maxhitmarks];
+        this.anIntArray875 = new int[GraphicsDefaults.instance.maxhitmarks];
         this.aBoolean818 = false;
-        this.anIntArray873 = new int[Static65.aClass3_1.anInt86];
+        this.anIntArray873 = new int[GraphicsDefaults.instance.maxhitmarks];
         this.anInt10748 = -32768;
         this.anInt10747 = -1000;
         this.aAnimator_10 = new Animator_Sub2(this, false);
@@ -419,7 +419,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public final void method9301(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
         @Pc(5) boolean local5 = true;
         @Pc(7) boolean local7 = true;
-        for (@Pc(21) int local21 = 0; local21 < Static65.aClass3_1.anInt86; local21++) {
+        for (@Pc(21) int local21 = 0; local21 < GraphicsDefaults.instance.maxhitmarks; local21++) {
             if (arg4 < this.anIntArray871[local21]) {
                 local5 = false;
             } else {
@@ -446,7 +446,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             } else if (local50 == 1) {
                 local78 = this.anIntArray870[0];
             }
-            for (@Pc(98) int local98 = 1; local98 < Static65.aClass3_1.anInt86; local98++) {
+            for (@Pc(98) int local98 = 1; local98 < GraphicsDefaults.instance.maxhitmarks; local98++) {
                 if (local50 == 0) {
                     if (local78 > this.anIntArray871[local98]) {
                         local78 = this.anIntArray871[local98];
@@ -464,9 +464,9 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             if (local5) {
                 this.aByte146 = 0;
             }
-            for (local78 = 0; local78 < Static65.aClass3_1.anInt86; local78++) {
+            for (local78 = 0; local78 < GraphicsDefaults.instance.maxhitmarks; local78++) {
                 @Pc(176) byte local176 = this.aByte146;
-                this.aByte146 = (byte) ((this.aByte146 + 1) % Static65.aClass3_1.anInt86);
+                this.aByte146 = (byte) ((this.aByte146 + 1) % GraphicsDefaults.instance.maxhitmarks);
                 if (this.anIntArray871[local176] <= arg4) {
                     local48 = local176;
                     break;

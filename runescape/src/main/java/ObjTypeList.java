@@ -30,13 +30,13 @@ public final class ObjTypeList {
     public final Class377 aClass377_1;
 
     @OriginalMember(owner = "client!es", name = "l", descriptor = "Lclient!sb;")
-    public final Class330 meshes;
+    public final js5 meshes;
 
     @OriginalMember(owner = "client!es", name = "q", descriptor = "Lclient!bo;")
     public final Class49 aClass49_1;
 
     @OriginalMember(owner = "client!es", name = "x", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_29;
+    public final js5 aJs5_29;
 
     @OriginalMember(owner = "client!es", name = "i", descriptor = "Z")
     public boolean aBoolean222;
@@ -51,18 +51,18 @@ public final class ObjTypeList {
     public final String[] aStringArray10;
 
     @OriginalMember(owner = "client!es", name = "<init>", descriptor = "(Lclient!ul;IZLclient!bo;Lclient!sb;Lclient!sb;)V")
-    public ObjTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class49 arg3, @OriginalArg(4) Class330 arg4, @OriginalArg(5) Class330 arg5) {
+    public ObjTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class49 arg3, @OriginalArg(4) js5 arg4, @OriginalArg(5) js5 arg5) {
         this.anInt2662 = arg1;
         this.aClass377_1 = arg0;
         this.meshes = arg5;
         this.aClass49_1 = arg3;
-        this.aClass330_29 = arg4;
+        this.aJs5_29 = arg4;
         this.aBoolean222 = arg2;
-        if (this.aClass330_29 == null) {
+        if (this.aJs5_29 == null) {
             this.anInt2670 = 0;
         } else {
-            @Pc(54) int local54 = this.aClass330_29.method7597() - 1;
-            this.anInt2670 = this.aClass330_29.method7608(local54) + local54 * 256;
+            @Pc(54) int local54 = this.aJs5_29.method7597() - 1;
+            this.anInt2670 = this.aJs5_29.method7608(local54) + local54 * 256;
         }
         if (this.aClass377_1 == Static673.aClass377_8) {
             this.aStringArray11 = new String[]{null, null, Static32.aClass32_8.method877(this.anInt2662), null, null, Static32.aClass32_22.method877(this.anInt2662)};
@@ -217,10 +217,10 @@ public final class ObjTypeList {
         if (local26 != null) {
             return local26;
         }
-        @Pc(40) Class330 local40 = this.aClass330_29;
+        @Pc(40) js5 local40 = this.aJs5_29;
         @Pc(53) byte[] local53;
-        synchronized (this.aClass330_29) {
-            local53 = this.aClass330_29.method7595(Static223.method9100(arg0), Static593.method7781(arg0));
+        synchronized (this.aJs5_29) {
+            local53 = this.aJs5_29.method7595(Static223.method9100(arg0), Static593.method7781(arg0));
         }
         local26 = new ObjType();
         local26.anInt10134 = arg0;

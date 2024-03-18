@@ -411,7 +411,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
     public final Matrix_Sub1 aClass73_Sub1_21 = new Matrix_Sub1();
 
     @OriginalMember(owner = "client!am", name = "Td", descriptor = "Lclient!sb;")
-    protected final Class330 aClass330_112;
+    protected final js5 aJs5_112;
 
     @OriginalMember(owner = "client!am", name = "T", descriptor = "Ljava/lang/Object;")
     protected final Object anObject16;
@@ -450,10 +450,10 @@ public abstract class Toolkit_Sub1 extends Toolkit {
     public final Class334 aClass334_3;
 
     @OriginalMember(owner = "client!am", name = "<init>", descriptor = "(Ljava/awt/Canvas;Ljava/lang/Object;Lclient!d;Lclient!sb;II)V")
-    protected Toolkit_Sub1(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Object arg1, @OriginalArg(2) TextureSource arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    protected Toolkit_Sub1(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Object arg1, @OriginalArg(2) TextureSource arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         super(arg2);
         try {
-            this.aClass330_112 = arg3;
+            this.aJs5_112 = arg3;
             this.anObject15 = this.anObject16 = arg1;
             this.anInt9158 = arg4;
             this.aCanvas12 = this.aCanvas13 = arg0;

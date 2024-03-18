@@ -24,15 +24,15 @@ public final class Class222_Sub1 extends Class222 {
     public final Packet aClass2_Sub21_17 = new Packet((byte[]) null);
 
     @OriginalMember(owner = "client!wea", name = "L", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_126;
+    public final js5 aJs5_126;
 
     @OriginalMember(owner = "client!wea", name = "K", descriptor = "I")
     public final int anInt10594;
 
     @OriginalMember(owner = "client!wea", name = "<init>", descriptor = "(ILclient!sb;I)V")
-    public Class222_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) int arg2) {
+    public Class222_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) int arg2) {
         super(arg0);
-        this.aClass330_126 = arg1;
+        this.aJs5_126 = arg1;
         this.anInt10594 = arg2;
     }
 
@@ -42,8 +42,8 @@ public final class Class222_Sub1 extends Class222 {
             return;
         }
         for (@Pc(12) int local12 = 0; local12 < 10 && local12 + this.anInt10596 < this.anIntArray834.length; local12++) {
-            if (this.aByteArrayArray37[local12] == null && this.aClass330_126.method7586(0, this.anIntArray834[this.anInt10596 + local12])) {
-                this.aByteArrayArray37[local12] = this.aClass330_126.method7595(0, this.anIntArray834[this.anInt10596 + local12]);
+            if (this.aByteArrayArray37[local12] == null && this.aJs5_126.method7586(0, this.anIntArray834[this.anInt10596 + local12])) {
+                this.aByteArrayArray37[local12] = this.aJs5_126.method7595(0, this.anIntArray834[this.anInt10596 + local12]);
             }
         }
         if (arg0 < 93) {
@@ -57,10 +57,10 @@ public final class Class222_Sub1 extends Class222 {
         @Pc(50) int local50;
         @Pc(56) int local56;
         if (this.anIntArray834 == null) {
-            if (!this.aClass330_126.method7586(0, this.anInt10594)) {
+            if (!this.aJs5_126.method7586(0, this.anInt10594)) {
                 return 0;
             }
-            @Pc(29) byte[] local29 = this.aClass330_126.method7595(0, this.anInt10594);
+            @Pc(29) byte[] local29 = this.aJs5_126.method7595(0, this.anInt10594);
             if (local29 == null) {
                 throw new IllegalStateException("");
             }

@@ -18,7 +18,7 @@ public final class Static616 {
     }
 
     @OriginalMember(owner = "client!tia", name = "a", descriptor = "(BLclient!sb;)V")
-    public static void method8284(@OriginalArg(1) Class330 arg0) {
+    public static void method8284(@OriginalArg(1) js5 arg0) {
         Static662.anInt9845 = arg0.method7590("p11_full");
         Static539.anInt8173 = arg0.method7590("p12_full");
         Static634.anInt9519 = arg0.method7590("b12_full");

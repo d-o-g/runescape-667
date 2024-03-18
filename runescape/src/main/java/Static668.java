@@ -13,7 +13,7 @@ public final class Static668 {
     public static Class229 aClass229_5;
 
     @OriginalMember(owner = "client!vca", name = "o", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_119;
+    public static js5 aJs5_119;
 
     @OriginalMember(owner = "client!vca", name = "i", descriptor = "Lclient!pc;")
     public static final Class287 aClass287_16 = new Class287(12, 7);

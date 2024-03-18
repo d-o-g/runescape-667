@@ -10,14 +10,14 @@ public final class Class109 implements Interface13 {
     public Sprite aSprite_9;
 
     @OriginalMember(owner = "client!en", name = "a", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_27;
+    public final js5 aJs5_27;
 
     @OriginalMember(owner = "client!en", name = "g", descriptor = "Lclient!jt;")
     public final Class200 aClass200_1;
 
     @OriginalMember(owner = "client!en", name = "<init>", descriptor = "(Lclient!sb;Lclient!jt;)V")
-    public Class109(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class200 arg1) {
-        this.aClass330_27 = arg0;
+    public Class109(@OriginalArg(0) js5 arg0, @OriginalArg(1) Class200 arg1) {
+        this.aJs5_27 = arg0;
         this.aClass200_1 = arg1;
     }
 
@@ -44,12 +44,12 @@ public final class Class109 implements Interface13 {
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(I)V")
     @Override
     public void method7748() {
-        this.aSprite_9 = Static652.method8533(this.aClass200_1.anInt4996, this.aClass330_27);
+        this.aSprite_9 = Static652.method8533(this.aClass200_1.anInt4996, this.aJs5_27);
     }
 
     @OriginalMember(owner = "client!en", name = "b", descriptor = "(I)Z")
     @Override
     public boolean method7747() {
-        return this.aClass330_27.method7581(this.aClass200_1.anInt4996);
+        return this.aJs5_27.method7581(this.aClass200_1.anInt4996);
     }
 }

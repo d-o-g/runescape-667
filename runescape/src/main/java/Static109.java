@@ -62,14 +62,14 @@ public final class Static109 {
     }
 
     @OriginalMember(owner = "client!dh", name = "a", descriptor = "(ZIII)Lclient!sb;")
-    public static Class330 method2069(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static js5 method2069(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(5) Class9 local5 = null;
         if (Static172.aClass243_4 != null) {
             local5 = new Class9(arg1, Static172.aClass243_4, Static208.aClass243Array1[arg1], 1000000);
         }
         Static226.aClass47_Sub1Array8[arg1] = Static228.aClass262_1.method5801(local5, arg1, Static276.aClass9_1);
         Static226.aClass47_Sub1Array8[arg1].method6654();
-        return new Class330(Static226.aClass47_Sub1Array8[arg1], arg0, arg2);
+        return new js5(Static226.aClass47_Sub1Array8[arg1], arg0, arg2);
     }
 
     @OriginalMember(owner = "client!dh", name = "b", descriptor = "(II)Z")

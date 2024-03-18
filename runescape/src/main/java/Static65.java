@@ -7,9 +7,6 @@ import java.awt.Canvas;
 
 public final class Static65 {
 
-    @OriginalMember(owner = "client!cba", name = "E", descriptor = "Lclient!aba;")
-    public static Class3 aClass3_1;
-
     @OriginalMember(owner = "client!cba", name = "D", descriptor = "[Z")
     public static final boolean[] aBooleanArray2 = new boolean[100];
 
@@ -27,7 +24,7 @@ public final class Static65 {
             @Pc(19) Canvas local19 = new Canvas();
             local19.setSize(100, 100);
             local7 = true;
-            local5 = Static255.method3612((Class330) null, (TextureSource) null, 0, local19, 0);
+            local5 = Static255.method3612((js5) null, (TextureSource) null, 0, local19, 0);
         }
         @Pc(36) long local36 = Static588.method7715();
         for (@Pc(38) int local38 = 0; local38 < 10000; local38++) {

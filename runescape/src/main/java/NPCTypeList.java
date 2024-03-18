@@ -20,10 +20,10 @@ public final class NPCTypeList {
     public final ReferenceCache aReferenceCache_171 = new ReferenceCache(5);
 
     @OriginalMember(owner = "client!ql", name = "g", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_102;
+    public final js5 aJs5_102;
 
     @OriginalMember(owner = "client!ql", name = "a", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_101;
+    public final js5 aJs5_101;
 
     @OriginalMember(owner = "client!ql", name = "k", descriptor = "Z")
     public boolean aBoolean621;
@@ -38,15 +38,15 @@ public final class NPCTypeList {
     public final String[] aStringArray39;
 
     @OriginalMember(owner = "client!ql", name = "<init>", descriptor = "(Lclient!ul;IZLclient!sb;Lclient!sb;)V")
-    public NPCTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) Class330 arg4) {
-        this.aClass330_102 = arg4;
-        this.aClass330_101 = arg3;
+    public NPCTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
+        this.aJs5_102 = arg4;
+        this.aJs5_101 = arg3;
         this.aBoolean621 = arg2;
         this.anInt8086 = arg1;
         this.aClass377_6 = arg0;
-        if (this.aClass330_101 != null) {
-            @Pc(44) int local44 = this.aClass330_101.method7597() - 1;
-            this.aClass330_101.method7608(local44);
+        if (this.aJs5_101 != null) {
+            @Pc(44) int local44 = this.aJs5_101.method7597() - 1;
+            this.aJs5_101.method7608(local44);
         }
         if (Static673.aClass377_8 == this.aClass377_6) {
             this.aStringArray39 = new String[]{null, null, null, null, null, Static32.aClass32_22.method877(this.anInt8086)};
@@ -133,10 +133,10 @@ public final class NPCTypeList {
         if (local24 != null) {
             return local24;
         }
-        @Pc(38) Class330 local38 = this.aClass330_101;
+        @Pc(38) js5 local38 = this.aJs5_101;
         @Pc(51) byte[] local51;
-        synchronized (this.aClass330_101) {
-            local51 = this.aClass330_101.method7595(Static612.method8237(arg0), Static713.method9336(arg0));
+        synchronized (this.aJs5_101) {
+            local51 = this.aJs5_101.method7595(Static612.method8237(arg0), Static713.method9336(arg0));
         }
         local24 = new Class268();
         local24.aNPCTypeList_1 = this;

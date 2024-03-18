@@ -24,10 +24,10 @@ public final class Static53 {
                 return -1;
             }
             @Pc(36) String local36 = Static185.aString34 + local22;
-            if (!Static442.aClass330_90.method7577(local36, "")) {
+            if (!Static442.aJs5_90.method7577(local36, "")) {
                 return -1;
-            } else if (Static442.aClass330_90.method7598(local36)) {
-                @Pc(62) byte[] local62 = Static442.aClass330_90.method7600(local36, "");
+            } else if (Static442.aJs5_90.method7598(local36)) {
+                @Pc(62) byte[] local62 = Static442.aJs5_90.method7600(local36, "");
                 @Pc(68) File local68;
                 try {
                     local68 = Static649.method8490(local22);
@@ -59,7 +59,7 @@ public final class Static53 {
                 Static196.method2947(local68, arg0);
                 return 100;
             } else {
-                return Static442.aClass330_90.method7593(local36);
+                return Static442.aJs5_90.method7593(local36);
             }
         }
     }

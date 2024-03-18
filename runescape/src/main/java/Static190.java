@@ -9,7 +9,7 @@ public final class Static190 {
     public static int anInt3112;
 
     @OriginalMember(owner = "client!fs", name = "d", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_38;
+    public static js5 aJs5_38;
 
     @OriginalMember(owner = "client!fs", name = "c", descriptor = "[I")
     public static final int[] anIntArray265 = new int[]{3, 7, 15};

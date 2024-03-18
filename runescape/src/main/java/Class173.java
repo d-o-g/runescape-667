@@ -24,8 +24,8 @@ public final class Class173 {
         @Pc(31) Sprite local31 = (Sprite) this.aClass363_2.aReferenceCache_202.get(local23);
         if (local31 != null) {
             return local31;
-        } else if (this.aClass363_2.aClass330_116.method7581(this.anInt4167)) {
-            @Pc(55) Class407 local55 = Static735.method9382(this.aClass363_2.aClass330_116, this.anInt4167, 0);
+        } else if (this.aClass363_2.aJs5_116.method7581(this.anInt4167)) {
+            @Pc(55) Class407 local55 = Static735.method9382(this.aClass363_2.aJs5_116, this.anInt4167, 0);
             if (local55 != null) {
                 local55.anInt10849 = local55.anInt10852 = local55.anInt10851 = local55.anInt10848 = 0;
                 if (arg2) {
@@ -47,7 +47,7 @@ public final class Class173 {
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(B)Z")
     public boolean method3690() {
-        return this.aClass363_2.aClass330_116.method7581(this.anInt4167);
+        return this.aClass363_2.aJs5_116.method7581(this.anInt4167);
     }
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(IILclient!ge;)V")

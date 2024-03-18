@@ -26,7 +26,7 @@ public final class Class142 {
     public final ReferenceCache aReferenceCache_76 = new ReferenceCache(50);
 
     @OriginalMember(owner = "client!gea", name = "b", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_44;
+    public final js5 aJs5_44;
 
     @OriginalMember(owner = "client!gea", name = "j", descriptor = "Lclient!ul;")
     public final Class377 aClass377_2;
@@ -35,7 +35,7 @@ public final class Class142 {
     public final int anInt3383;
 
     @OriginalMember(owner = "client!gea", name = "p", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_43;
+    public final js5 aJs5_43;
 
     @OriginalMember(owner = "client!gea", name = "d", descriptor = "Z")
     public boolean aBoolean267;
@@ -44,15 +44,15 @@ public final class Class142 {
     public final String[] aStringArray15;
 
     @OriginalMember(owner = "client!gea", name = "<init>", descriptor = "(Lclient!ul;IZLclient!sb;Lclient!sb;)V")
-    public Class142(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) Class330 arg4) {
-        this.aClass330_44 = arg4;
+    public Class142(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
+        this.aJs5_44 = arg4;
         this.aClass377_2 = arg0;
         this.anInt3383 = arg1;
-        this.aClass330_43 = arg3;
+        this.aJs5_43 = arg3;
         this.aBoolean267 = arg2;
-        if (this.aClass330_43 != null) {
-            @Pc(53) int local53 = this.aClass330_43.method7597() - 1;
-            this.aClass330_43.method7608(local53);
+        if (this.aJs5_43 != null) {
+            @Pc(53) int local53 = this.aJs5_43.method7597() - 1;
+            this.aJs5_43.method7608(local53);
         }
         if (Static673.aClass377_8 == this.aClass377_2) {
             this.aStringArray15 = new String[]{null, null, null, null, null, Static32.aClass32_22.method877(this.anInt3383)};
@@ -135,10 +135,10 @@ public final class Class142 {
         if (local22 != null) {
             return local22;
         }
-        @Pc(36) Class330 local36 = this.aClass330_43;
+        @Pc(36) js5 local36 = this.aJs5_43;
         @Pc(49) byte[] local49;
-        synchronized (this.aClass330_43) {
-            local49 = this.aClass330_43.method7595(Static570.method7551(arg0), Static705.method9197(arg0));
+        synchronized (this.aJs5_43) {
+            local49 = this.aJs5_43.method7595(Static570.method7551(arg0), Static705.method9197(arg0));
         }
         local22 = new Class54();
         local22.anInt1256 = arg0;

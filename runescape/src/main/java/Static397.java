@@ -98,7 +98,7 @@ public final class Static397 {
         }
         @Pc(27) Sprite local27 = (Sprite) Static541.A_WEIGHTED_CACHE___174.get((long) local7);
         if (local27 == null) {
-            @Pc(34) Class407[] local34 = Static735.method9375(Static721.aClass330_128, local7);
+            @Pc(34) Class407[] local34 = Static735.method9375(Static721.aJs5_128, local7);
             if (local34 == null) {
                 return;
             }

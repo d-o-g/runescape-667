@@ -659,11 +659,11 @@ public final class Class54 {
             return true;
         }
         @Pc(11) boolean local11 = true;
-        @Pc(15) Class330 local15 = this.aClass142_2.aClass330_44;
-        synchronized (this.aClass142_2.aClass330_44) {
+        @Pc(15) js5 local15 = this.aClass142_2.aJs5_44;
+        synchronized (this.aClass142_2.aJs5_44) {
             for (@Pc(19) int local19 = 0; local19 < this.anIntArrayArray30.length; local19++) {
                 for (@Pc(22) int local22 = 0; local22 < this.anIntArrayArray30[local19].length; local22++) {
-                    local11 &= this.aClass142_2.aClass330_44.method7586(0, this.anIntArrayArray30[local19][local22]);
+                    local11 &= this.aClass142_2.aJs5_44.method7586(0, this.anIntArrayArray30[local19][local22]);
                 }
             }
             return local11;
@@ -691,12 +691,12 @@ public final class Class54 {
         if (this.anIntArrayArray30 == null) {
             return true;
         }
-        @Pc(13) Class330 local13 = this.aClass142_2.aClass330_44;
-        synchronized (this.aClass142_2.aClass330_44) {
+        @Pc(13) js5 local13 = this.aClass142_2.aJs5_44;
+        synchronized (this.aClass142_2.aJs5_44) {
             for (@Pc(26) int local26 = 0; local26 < this.aByteArray13.length; local26++) {
                 if (arg0 == this.aByteArray13[local26]) {
                     for (@Pc(35) int local35 = 0; local35 < this.anIntArrayArray30[local26].length; local35++) {
-                        if (!this.aClass142_2.aClass330_44.method7586(0, this.anIntArrayArray30[local26][local35])) {
+                        if (!this.aClass142_2.aJs5_44.method7586(0, this.anIntArrayArray30[local26][local35])) {
                             return false;
                         }
                     }
@@ -1005,9 +1005,9 @@ public final class Class54 {
                             }
                             break;
                         }
-                        @Pc(286) Class330 local286 = this.aClass142_2.aClass330_44;
-                        synchronized (this.aClass142_2.aClass330_44) {
-                            local275 = Static121.method2201(local179[local281] & 0xFFFF, this.aClass142_2.aClass330_44);
+                        @Pc(286) js5 local286 = this.aClass142_2.aJs5_44;
+                        synchronized (this.aClass142_2.aJs5_44) {
+                            local275 = Static121.method2201(local179[local281] & 0xFFFF, this.aClass142_2.aJs5_44);
                         }
                         if (local275 == null) {
                             return null;

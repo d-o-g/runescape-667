@@ -14,16 +14,16 @@ public final class Class220 {
     public final ReferenceCache aReferenceCache_122 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!ld", name = "l", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_75;
+    public final js5 aJs5_75;
 
     @OriginalMember(owner = "client!ld", name = "g", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_76;
+    public final js5 aJs5_76;
 
     @OriginalMember(owner = "client!ld", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public Class220(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2, @OriginalArg(3) Class330 arg3) {
-        this.aClass330_75 = arg2;
-        this.aClass330_76 = arg3;
-        this.aClass330_75.method7608(46);
+    public Class220(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3) {
+        this.aJs5_75 = arg2;
+        this.aJs5_76 = arg3;
+        this.aJs5_75.method7608(46);
     }
 
     @OriginalMember(owner = "client!ld", name = "a", descriptor = "(I)V")
@@ -72,10 +72,10 @@ public final class Class220 {
         if (local16 != null) {
             return local16;
         }
-        @Pc(30) Class330 local30 = this.aClass330_75;
+        @Pc(30) js5 local30 = this.aJs5_75;
         @Pc(39) byte[] local39;
-        synchronized (this.aClass330_75) {
-            local39 = this.aClass330_75.method7595(arg0, 46);
+        synchronized (this.aJs5_75) {
+            local39 = this.aJs5_75.method7595(arg0, 46);
         }
         local16 = new Class285();
         local16.aClass220_1 = this;

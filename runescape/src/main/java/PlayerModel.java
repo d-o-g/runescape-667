@@ -7,11 +7,14 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ju")
 public final class PlayerModel {
 
+    @OriginalMember(owner = "client!ie", name = "g", descriptor = "[I")
+    private static final int[] BASE_PART_MAP = {8, 11, 4, 6, 9, 7, 10, 0};
+
     @OriginalMember(owner = "client!bq", name = "t", descriptor = "Lclient!dla;")
-    public static final ReferenceCache modelCache = new ReferenceCache(5);
+    private static final ReferenceCache modelCache = new ReferenceCache(5);
 
     @OriginalMember(owner = "client!sea", name = "y", descriptor = "Lclient!dla;")
-    public static final ReferenceCache recentUse = new ReferenceCache(260);
+    private static final ReferenceCache recentUse = new ReferenceCache(260);
 
     @OriginalMember(owner = "client!kma", name = "n", descriptor = "[[[S")
     public static short[][][] bodycol_d;
@@ -486,16 +489,16 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(IZ)V")
-    public void method4547(@OriginalArg(1) boolean arg0) {
-        this.female = arg0;
+    public void setGender(@OriginalArg(1) boolean female) {
+        this.female = female;
         this.computeHash();
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(IBLclient!kr;I)V")
-    public void method4548(@OriginalArg(0) int arg0, @OriginalArg(2) IDKTypeList arg1, @OriginalArg(3) int arg2) {
-        @Pc(7) int local7 = Static264.anIntArray891[arg2];
-        if (arg1.list(arg0) != null) {
-            this.identikit[local7] = Integer.MIN_VALUE | arg0;
+    public void setIDKPart(@OriginalArg(0) int idkType, @OriginalArg(2) IDKTypeList idkTypeList, @OriginalArg(3) int part) {
+        @Pc(7) int basePart = BASE_PART_MAP[part];
+        if (idkTypeList.list(idkType) != null) {
+            this.identikit[basePart] = Integer.MIN_VALUE | idkType;
             this.computeHash();
         }
     }

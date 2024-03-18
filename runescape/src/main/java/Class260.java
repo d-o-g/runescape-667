@@ -11,18 +11,18 @@ public final class Class260 {
     public final ReferenceCache aReferenceCache_138 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!nh", name = "f", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_86;
+    public final js5 aJs5_86;
 
     @OriginalMember(owner = "client!nh", name = "d", descriptor = "I")
     public final int anInt6462;
 
     @OriginalMember(owner = "client!nh", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class260(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2) {
-        this.aClass330_86 = arg2;
-        if (this.aClass330_86 == null) {
+    public Class260(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
+        this.aJs5_86 = arg2;
+        if (this.aJs5_86 == null) {
             this.anInt6462 = 0;
         } else {
-            this.anInt6462 = this.aClass330_86.method7608(16);
+            this.anInt6462 = this.aJs5_86.method7608(16);
         }
     }
 
@@ -44,10 +44,10 @@ public final class Class260 {
         if (local16 != null) {
             return local16;
         }
-        @Pc(30) Class330 local30 = this.aClass330_86;
+        @Pc(30) js5 local30 = this.aJs5_86;
         @Pc(39) byte[] local39;
-        synchronized (this.aClass330_86) {
-            local39 = this.aClass330_86.method7595(arg0, 16);
+        synchronized (this.aJs5_86) {
+            local39 = this.aJs5_86.method7595(arg0, 16);
         }
         local16 = new Class321();
         if (local39 != null) {

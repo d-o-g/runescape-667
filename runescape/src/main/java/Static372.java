@@ -23,10 +23,10 @@ public final class Static372 {
             @Pc(29) int local29 = 0;
             for (@Pc(31) int local31 = 0; local31 < Static552.anIntArray753.length; local31++) {
                 @Pc(36) int local36 = Static552.anIntArray753[local31];
-                if (Static555.aClass330_106.method7581(local36)) {
+                if (Static555.aJs5_106.method7581(local36)) {
                     local29++;
                 }
-                if (Static237.aClass330_87.method7581(local36)) {
+                if (Static237.aJs5_87.method7581(local36)) {
                     local29++;
                 }
             }

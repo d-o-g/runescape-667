@@ -785,7 +785,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(Lclient!fca;Lclient!sb;IILclient!bn;)Z")
-    public synchronized boolean method944(@OriginalArg(0) Class123 arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(4) Node_Sub8 arg2) {
+    public synchronized boolean method944(@OriginalArg(0) Class123 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(4) Node_Sub8 arg2) {
         arg2.method1154();
         @Pc(15) boolean local15 = true;
         @Pc(29) int[] local29 = new int[]{22050};

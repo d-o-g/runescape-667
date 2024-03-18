@@ -532,10 +532,10 @@ public final class Class268 {
                 }
                 @Pc(163) int[] local163 = arg1 == null || arg1.anIntArray816 == null ? this.anIntArray534 : arg1.anIntArray816;
                 @Pc(165) boolean local165 = false;
-                @Pc(169) Class330 local169 = this.aNPCTypeList_1.aClass330_102;
-                synchronized (this.aNPCTypeList_1.aClass330_102) {
+                @Pc(169) js5 local169 = this.aNPCTypeList_1.aJs5_102;
+                synchronized (this.aNPCTypeList_1.aJs5_102) {
                     for (@Pc(173) int local173 = 0; local173 < local163.length; local173++) {
-                        if (!this.aNPCTypeList_1.aClass330_102.method7586(0, local163[local173])) {
+                        if (!this.aNPCTypeList_1.aJs5_102.method7586(0, local163[local173])) {
                             local165 = true;
                         }
                     }
@@ -544,14 +544,14 @@ public final class Class268 {
                     return null;
                 }
                 @Pc(215) Mesh[] local215 = new Mesh[local163.length];
-                @Pc(219) Class330 local219 = this.aNPCTypeList_1.aClass330_102;
-                synchronized (this.aNPCTypeList_1.aClass330_102) {
+                @Pc(219) js5 local219 = this.aNPCTypeList_1.aJs5_102;
+                synchronized (this.aNPCTypeList_1.aJs5_102) {
                     @Pc(223) int local223 = 0;
                     while (true) {
                         if (local223 >= local163.length) {
                             break;
                         }
-                        local215[local223] = Static121.method2201(local163[local223], this.aNPCTypeList_1.aClass330_102);
+                        local215[local223] = Static121.method2201(local163[local223], this.aNPCTypeList_1.aJs5_102);
                         local223++;
                     }
                 }
@@ -672,10 +672,10 @@ public final class Class268 {
             }
             @Pc(216) int[] local216 = arg6 == null || arg6.anIntArray816 == null ? this.anIntArray535 : arg6.anIntArray816;
             @Pc(218) boolean local218 = false;
-            @Pc(222) Class330 local222 = this.aNPCTypeList_1.aClass330_102;
-            synchronized (this.aNPCTypeList_1.aClass330_102) {
+            @Pc(222) js5 local222 = this.aNPCTypeList_1.aJs5_102;
+            synchronized (this.aNPCTypeList_1.aJs5_102) {
                 for (local226 = 0; local226 < local216.length; local226++) {
-                    if (local216[local226] != -1 && !this.aNPCTypeList_1.aClass330_102.method7586(0, local216[local226])) {
+                    if (local216[local226] != -1 && !this.aNPCTypeList_1.aJs5_102.method7586(0, local216[local226])) {
                         local218 = true;
                     }
                 }
@@ -686,9 +686,9 @@ public final class Class268 {
             @Pc(267) Mesh[] local267 = new Mesh[local216.length];
             for (local226 = 0; local226 < local216.length; local226++) {
                 if (local216[local226] != -1) {
-                    @Pc(280) Class330 local280 = this.aNPCTypeList_1.aClass330_102;
-                    synchronized (this.aNPCTypeList_1.aClass330_102) {
-                        local267[local226] = Static121.method2201(local216[local226], this.aNPCTypeList_1.aClass330_102);
+                    @Pc(280) js5 local280 = this.aNPCTypeList_1.aJs5_102;
+                    synchronized (this.aNPCTypeList_1.aJs5_102) {
+                        local267[local226] = Static121.method2201(local216[local226], this.aNPCTypeList_1.aJs5_102);
                     }
                     if (local267[local226] != null) {
                         if (local267[local226].version < 13) {

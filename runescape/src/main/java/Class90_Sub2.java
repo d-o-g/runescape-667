@@ -25,7 +25,7 @@ public class Class90_Sub2 extends Class90 {
     protected Sprite aSprite_40;
 
     @OriginalMember(owner = "client!gr", name = "<init>", descriptor = "(Lclient!sb;Lclient!sb;Lclient!rk;)V")
-    public Class90_Sub2(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class330 arg1, @OriginalArg(2) Class138_Sub1 arg2) {
+    public Class90_Sub2(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) Class138_Sub1 arg2) {
         super(arg0, arg1, arg2);
     }
 
@@ -78,12 +78,12 @@ public class Class90_Sub2 extends Class90 {
     public final void method7748() {
         super.method7748();
         @Pc(10) Class138_Sub1 local10 = (Class138_Sub1) super.aClass138_5;
-        this.aSprite_40 = Static652.method8533(local10.anInt3188, super.aClass330_109);
-        this.aSprite_39 = Static652.method8533(local10.anInt3190, super.aClass330_109);
-        this.aSprite_36 = Static652.method8533(local10.anInt3189, super.aClass330_109);
-        this.aSprite_35 = Static652.method8533(local10.anInt3185, super.aClass330_109);
-        this.aSprite_37 = Static652.method8533(local10.anInt3183, super.aClass330_109);
-        this.aSprite_38 = Static652.method8533(local10.anInt3182, super.aClass330_109);
+        this.aSprite_40 = Static652.method8533(local10.anInt3188, super.aJs5_109);
+        this.aSprite_39 = Static652.method8533(local10.anInt3190, super.aJs5_109);
+        this.aSprite_36 = Static652.method8533(local10.anInt3189, super.aJs5_109);
+        this.aSprite_35 = Static652.method8533(local10.anInt3185, super.aJs5_109);
+        this.aSprite_37 = Static652.method8533(local10.anInt3183, super.aJs5_109);
+        this.aSprite_38 = Static652.method8533(local10.anInt3182, super.aJs5_109);
     }
 
     @OriginalMember(owner = "client!gr", name = "b", descriptor = "(I)Z")
@@ -93,16 +93,16 @@ public class Class90_Sub2 extends Class90 {
             return false;
         }
         @Pc(14) Class138_Sub1 local14 = (Class138_Sub1) super.aClass138_5;
-        if (!super.aClass330_109.method7581(local14.anInt3188)) {
+        if (!super.aJs5_109.method7581(local14.anInt3188)) {
             return false;
-        } else if (!super.aClass330_109.method7581(local14.anInt3190)) {
+        } else if (!super.aJs5_109.method7581(local14.anInt3190)) {
             return false;
-        } else if (!super.aClass330_109.method7581(local14.anInt3189)) {
+        } else if (!super.aJs5_109.method7581(local14.anInt3189)) {
             return false;
-        } else if (!super.aClass330_109.method7581(local14.anInt3185)) {
+        } else if (!super.aJs5_109.method7581(local14.anInt3185)) {
             return false;
-        } else if (super.aClass330_109.method7581(local14.anInt3183)) {
-            return super.aClass330_109.method7581(local14.anInt3182);
+        } else if (super.aJs5_109.method7581(local14.anInt3183)) {
+            return super.aJs5_109.method7581(local14.anInt3182);
         } else {
             return false;
         }

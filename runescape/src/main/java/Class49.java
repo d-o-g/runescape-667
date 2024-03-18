@@ -11,13 +11,13 @@ public final class Class49 {
     public final ReferenceCache aReferenceCache_21 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!bo", name = "d", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_10;
+    public final js5 aJs5_10;
 
     @OriginalMember(owner = "client!bo", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class49(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2) {
-        this.aClass330_10 = arg2;
-        if (this.aClass330_10 != null) {
-            this.aClass330_10.method7608(11);
+    public Class49(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
+        this.aJs5_10 = arg2;
+        if (this.aJs5_10 != null) {
+            this.aJs5_10.method7608(11);
         }
     }
 
@@ -55,10 +55,10 @@ public final class Class49 {
         if (local23 != null) {
             return local23;
         }
-        @Pc(37) Class330 local37 = this.aClass330_10;
+        @Pc(37) js5 local37 = this.aJs5_10;
         @Pc(46) byte[] local46;
-        synchronized (this.aClass330_10) {
-            local46 = this.aClass330_10.method7595(arg0, 11);
+        synchronized (this.aJs5_10) {
+            local46 = this.aJs5_10.method7595(arg0, 11);
         }
         local23 = new Class296();
         if (local46 != null) {

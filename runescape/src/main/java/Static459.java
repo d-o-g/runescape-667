@@ -12,7 +12,7 @@ public final class Static459 {
     public static Sprite aSprite_31;
 
     @OriginalMember(owner = "client!oia", name = "r", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_91;
+    public static js5 aJs5_91;
 
     @OriginalMember(owner = "client!oia", name = "t", descriptor = "Z")
     public static final boolean aBoolean523 = false;

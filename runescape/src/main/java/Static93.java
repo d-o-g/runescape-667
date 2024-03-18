@@ -11,7 +11,7 @@ public final class Static93 {
     public static Class390 aClass390_1;
 
     @OriginalMember(owner = "client!cu", name = "gb", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_16;
+    public static js5 aJs5_16;
 
     // $FF: synthetic field
     @OriginalMember(owner = "client!cu", name = "Q", descriptor = "Ljava/lang/Class;")

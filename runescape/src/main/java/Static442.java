@@ -8,7 +8,7 @@ public final class Static442 {
     public static BigInteger JS5_RSA_EXPONENT = new BigInteger("10001", 16);
 
     @OriginalMember(owner = "client!nv", name = "a", descriptor = "Lclient!sb;")
-    public static Class330 aClass330_90;
+    public static js5 aJs5_90;
 
     @OriginalMember(owner = "client!nv", name = "l", descriptor = "Z")
     public static boolean aBoolean500;

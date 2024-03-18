@@ -88,8 +88,8 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
     }
 
     @OriginalMember(owner = "client!vm", name = "a", descriptor = "(BILclient!d;Lclient!sb;ZI)[F")
-    public float[] method8946(@OriginalArg(1) int arg0, @OriginalArg(2) TextureSource arg1, @OriginalArg(3) Class330 arg2, @OriginalArg(4) boolean arg3, @OriginalArg(5) int arg4) {
-        Static582.aClass330_108 = arg2;
+    public float[] method8946(@OriginalArg(1) int arg0, @OriginalArg(2) TextureSource arg1, @OriginalArg(3) js5 arg2, @OriginalArg(4) boolean arg3, @OriginalArg(5) int arg4) {
+        Static582.aJs5_108 = arg2;
         Static677.anTextureSource_11 = arg1;
         for (@Pc(25) int local25 = 0; local25 < this.aClass2_Sub1Array39.length; local25++) {
             this.aClass2_Sub1Array39[local25].method9418(arg0, arg4);
@@ -151,7 +151,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
     }
 
     @OriginalMember(owner = "client!vm", name = "a", descriptor = "(Lclient!sb;Lclient!d;B)Z")
-    public boolean method8947(@OriginalArg(0) Class330 arg0, @OriginalArg(1) TextureSource arg1) {
+    public boolean method8947(@OriginalArg(0) js5 arg0, @OriginalArg(1) TextureSource arg1) {
         @Pc(12) int local12;
         if (Static426.anInt940 < 0) {
             for (local12 = 0; local12 < this.anIntArray824.length; local12++) {
@@ -178,8 +178,8 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
     }
 
     @OriginalMember(owner = "client!vm", name = "a", descriptor = "(IDZIBLclient!d;Lclient!sb;)[I")
-    public int[] method8948(@OriginalArg(0) int arg0, @OriginalArg(1) double arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int arg3, @OriginalArg(5) TextureSource arg4, @OriginalArg(6) Class330 arg5) {
-        Static582.aClass330_108 = arg5;
+    public int[] method8948(@OriginalArg(0) int arg0, @OriginalArg(1) double arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int arg3, @OriginalArg(5) TextureSource arg4, @OriginalArg(6) js5 arg5) {
+        Static582.aJs5_108 = arg5;
         Static677.anTextureSource_11 = arg4;
         for (@Pc(11) int local11 = 0; local11 < this.aClass2_Sub1Array39.length; local11++) {
             this.aClass2_Sub1Array39[local11].method9418(arg3, arg0);
@@ -262,9 +262,9 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
     }
 
     @OriginalMember(owner = "client!vm", name = "a", descriptor = "(Lclient!sb;DZLclient!d;ZIII)[I")
-    public int[] method8951(@OriginalArg(0) Class330 arg0, @OriginalArg(1) double arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) TextureSource arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public int[] method8951(@OriginalArg(0) js5 arg0, @OriginalArg(1) double arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) TextureSource arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         Static677.anTextureSource_11 = arg3;
-        Static582.aClass330_108 = arg0;
+        Static582.aJs5_108 = arg0;
         for (@Pc(11) int local11 = 0; local11 < this.aClass2_Sub1Array39.length; local11++) {
             this.aClass2_Sub1Array39[local11].method9418(arg5, arg6);
         }

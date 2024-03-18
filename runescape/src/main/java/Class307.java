@@ -11,12 +11,12 @@ public final class Class307 {
     public final ReferenceCache aReferenceCache_168 = new ReferenceCache(16);
 
     @OriginalMember(owner = "client!qk", name = "j", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_100;
+    public final js5 aJs5_100;
 
     @OriginalMember(owner = "client!qk", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class307(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class330 arg2) {
-        this.aClass330_100 = arg2;
-        this.aClass330_100.method7608(29);
+    public Class307(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
+        this.aJs5_100 = arg2;
+        this.aJs5_100.method7608(29);
     }
 
     @OriginalMember(owner = "client!qk", name = "b", descriptor = "(II)V")
@@ -45,10 +45,10 @@ public final class Class307 {
         if (local22 != null) {
             return local22;
         }
-        @Pc(36) Class330 local36 = this.aClass330_100;
+        @Pc(36) js5 local36 = this.aJs5_100;
         @Pc(45) byte[] local45;
-        synchronized (this.aClass330_100) {
-            local45 = this.aClass330_100.method7595(arg0, 29);
+        synchronized (this.aJs5_100) {
+            local45 = this.aJs5_100.method7595(arg0, 29);
         }
         local22 = new Class108();
         if (local45 != null) {

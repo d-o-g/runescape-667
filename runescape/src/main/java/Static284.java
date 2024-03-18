@@ -17,7 +17,7 @@ public final class Static284 {
     public static boolean aBoolean355 = false;
 
     @OriginalMember(owner = "client!iu", name = "a", descriptor = "(ZILclient!sb;Ljava/lang/String;)Lclient!nc;")
-    public static Class255 method4103(@OriginalArg(0) boolean arg0, @OriginalArg(2) Class330 arg1, @OriginalArg(3) String arg2) {
+    public static Class255 method4103(@OriginalArg(0) boolean arg0, @OriginalArg(2) js5 arg1, @OriginalArg(3) String arg2) {
         @Pc(8) int local8 = arg1.method7590(arg2);
         if (local8 == -1) {
             return new Class255(0);

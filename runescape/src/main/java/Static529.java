@@ -21,8 +21,8 @@ public final class Static529 {
     }
 
     @OriginalMember(owner = "client!qla", name = "a", descriptor = "(ILclient!sb;Lclient!vq;)V")
-    public static void method7096(@OriginalArg(1) Class330 arg0, @OriginalArg(2) Class390 arg1) {
-        Static442.aClass330_90 = arg0;
+    public static void method7096(@OriginalArg(1) js5 arg0, @OriginalArg(2) Class390 arg1) {
+        Static442.aJs5_90 = arg0;
         Static185.aString34 = "";
         Static93.aClass390_1 = arg1;
         if (Class254.aString70.startsWith("win")) {

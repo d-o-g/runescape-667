@@ -14,15 +14,15 @@ public final class Class123 {
     public final HashTable aHashTable_16 = new HashTable(256);
 
     @OriginalMember(owner = "client!fca", name = "d", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_31;
+    public final js5 aJs5_31;
 
     @OriginalMember(owner = "client!fca", name = "i", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_32;
+    public final js5 aJs5_32;
 
     @OriginalMember(owner = "client!fca", name = "<init>", descriptor = "(Lclient!sb;Lclient!sb;)V")
-    public Class123(@OriginalArg(0) Class330 arg0, @OriginalArg(1) Class330 arg1) {
-        this.aClass330_31 = arg1;
-        this.aClass330_32 = arg0;
+    public Class123(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1) {
+        this.aJs5_31 = arg1;
+        this.aJs5_32 = arg0;
     }
 
     @OriginalMember(owner = "client!fca", name = "a", descriptor = "(III[I)Lclient!sq;")
@@ -34,7 +34,7 @@ public final class Class123 {
         if (local37 != null) {
             return local37;
         } else if (arg2 == null || arg2[0] > 0) {
-            @Pc(62) Class89 local62 = Static729.method2245(this.aClass330_32, arg1, arg0);
+            @Pc(62) Class89 local62 = Static729.method2245(this.aJs5_32, arg1, arg0);
             if (local62 == null) {
                 return null;
             }
@@ -60,7 +60,7 @@ public final class Class123 {
         } else if (arg0 == null || arg0[0] > 0) {
             @Pc(59) Node_Sub53 local59 = (Node_Sub53) this.aHashTable_15.get(local26);
             if (local59 == null) {
-                local59 = Static650.method8506(this.aClass330_31, arg1, arg2);
+                local59 = Static650.method8506(this.aJs5_31, arg1, arg2);
                 if (local59 == null) {
                     return null;
                 }
@@ -81,9 +81,9 @@ public final class Class123 {
 
     @OriginalMember(owner = "client!fca", name = "a", descriptor = "(Z[II)Lclient!sq;")
     public Node_Sub49_Sub1 method2614(@OriginalArg(1) int[] arg0, @OriginalArg(2) int arg1) {
-        if (this.aClass330_32.method7597() == 1) {
+        if (this.aJs5_32.method7597() == 1) {
             return this.method2612(arg1, 0, arg0);
-        } else if (this.aClass330_32.method7608(arg1) == 1) {
+        } else if (this.aJs5_32.method7608(arg1) == 1) {
             return this.method2612(0, arg1, arg0);
         } else {
             throw new RuntimeException();
@@ -92,9 +92,9 @@ public final class Class123 {
 
     @OriginalMember(owner = "client!fca", name = "a", descriptor = "([IBI)Lclient!sq;")
     public Node_Sub49_Sub1 method2615(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1) {
-        if (this.aClass330_31.method7597() == 1) {
+        if (this.aJs5_31.method7597() == 1) {
             return this.method2613(arg0, 0, arg1);
-        } else if (this.aClass330_31.method7608(arg1) == 1) {
+        } else if (this.aJs5_31.method7608(arg1) == 1) {
             return this.method2613(arg0, arg1, 0);
         } else {
             throw new RuntimeException();

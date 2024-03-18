@@ -18,7 +18,7 @@ public final class Node_Sub1_Sub31 extends Node_Sub1 {
             super.aBoolean824 = arg1.g1() == 1;
         }
         if (arg0) {
-            Static666.aClass330_118 = null;
+            Static666.aJs5_118 = null;
         }
     }
 

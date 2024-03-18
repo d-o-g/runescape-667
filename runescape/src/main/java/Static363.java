@@ -50,7 +50,7 @@ public final class Static363 {
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(III)I")
     public static int method6235(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (Static65.aClass3_1.anInt81 == -1) {
+        if (GraphicsDefaults.instance.profilingModel == -1) {
             return 1;
         }
         if (arg1 != Static400.instance.aClass57_Sub29_1.method7915()) {
@@ -62,7 +62,7 @@ public final class Static363 {
         try {
             @Pc(43) Dimension local43 = Static434.aCanvas7.getSize();
             Static694.method9028(Static163.aToolkit_17, Static32.aClass32_13.method877(Static51.anInt1052), true, Static694.aClass381_13, Static437.aClass14_9);
-            @Pc(67) Mesh local67 = Static121.method2201(Static65.aClass3_1.anInt81, Static190.aClass330_38);
+            @Pc(67) Mesh local67 = Static121.method2201(GraphicsDefaults.instance.profilingModel, Static190.aJs5_38);
             @Pc(70) long local70 = Static588.method7715();
             Static163.aToolkit_17.la();
             Static460.aMatrix_10.method7125(0, Static247.anInt3993, 0);

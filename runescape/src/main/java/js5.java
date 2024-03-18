@@ -4,7 +4,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!sb")
-public final class Class330 {
+public final class js5 {
+
+    @OriginalMember(owner = "client!kka", name = "c", descriptor = "Lclient!sb;")
+    public static js5 DEFAULTS; // 28
 
     @OriginalMember(owner = "client!sb", name = "J", descriptor = "[Ljava/lang/Object;")
     public Object[] anObjectArray37;
@@ -25,7 +28,7 @@ public final class Class330 {
     public int anInt8555;
 
     @OriginalMember(owner = "client!sb", name = "<init>", descriptor = "(Lclient!bm;ZI)V")
-    public Class330(@OriginalArg(0) Class47 arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2) {
+    public js5(@OriginalArg(0) Class47 arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2) {
         if (arg2 < 0 || arg2 > 2) {
             throw new IllegalArgumentException("js5: Invalid value " + arg2 + " supplied for discardunpacked");
         }
@@ -367,7 +370,7 @@ public final class Class330 {
     }
 
     @OriginalMember(owner = "client!sb", name = "b", descriptor = "(BI)[B")
-    public byte[] method7589(@OriginalArg(1) int arg0) {
+    public byte[] getfile(@OriginalArg(1) int arg0) {
         if (!this.method7601()) {
             return null;
         } else if (this.aClass292_2.anIntArray595.length == 1) {

@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -64,7 +65,7 @@ public final class Class51_Sub3 extends Class51 implements Interface18 {
         super.aClass19_Sub1_Sub2_12.method8088(this);
         OpenGL.glGetTexImagei(super.anInt9848, OpenGL.GL_POINTS, OpenGL.GL_BGRA, OpenGL.GL_UNSIGNED_BYTE, local12, 0);
         for (@Pc(32) int local32 = 0; local32 < arg2; local32++) {
-            Static734.method7695(local12, (arg2 - local32 - 1) * this.anInt6893, arg0, arg1 * local32, arg1);
+            Arrays.copy(local12, (arg2 - local32 - 1) * this.anInt6893, arg0, arg1 * local32, arg1);
         }
     }
 

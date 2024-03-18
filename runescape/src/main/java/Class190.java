@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -147,11 +148,11 @@ public final class Class190 implements Runnable {
                 throw new IOException(this.anIOException1.toString());
             }
             if (this.anInt4666 >= this.anInt4665 + arg0) {
-                Static734.method7694(this.aByteArray47, this.anInt4665, arg2, arg1, arg0);
+                Arrays.copy(this.aByteArray47, this.anInt4665, arg2, arg1, arg0);
             } else {
                 @Pc(117) int local117 = this.anInt4666 - this.anInt4665;
-                Static734.method7694(this.aByteArray47, this.anInt4665, arg2, arg1, local117);
-                Static734.method7694(this.aByteArray47, 0, arg2, local117 + arg1, arg0 + -local117);
+                Arrays.copy(this.aByteArray47, this.anInt4665, arg2, arg1, local117);
+                Arrays.copy(this.aByteArray47, 0, arg2, local117 + arg1, arg0 + -local117);
             }
             this.anInt4665 = (arg0 + this.anInt4665) % this.anInt4666;
             this.notifyAll();

@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -125,10 +126,10 @@ public final class Class385 implements Runnable {
             }
             if (arg1 + this.anInt10283 > this.anInt10287) {
                 @Pc(101) int local101 = this.anInt10287 - this.anInt10283;
-                Static734.method7694(arg0, 0, this.aByteArray108, this.anInt10283, local101);
-                Static734.method7694(arg0, local101, this.aByteArray108, 0, arg1 - local101);
+                Arrays.copy(arg0, 0, this.aByteArray108, this.anInt10283, local101);
+                Arrays.copy(arg0, local101, this.aByteArray108, 0, arg1 - local101);
             } else {
-                Static734.method7694(arg0, 0, this.aByteArray108, this.anInt10283, arg1);
+                Arrays.copy(arg0, 0, this.aByteArray108, this.anInt10283, arg1);
             }
             this.anInt10283 = (arg1 + this.anInt10283) % this.anInt10287;
             this.notifyAll();

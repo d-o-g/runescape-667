@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!pj")
-public final class Class292 {
+public final class Js5Index {
 
     @OriginalMember(owner = "client!pj", name = "s", descriptor = "[I")
     public int[] anIntArray595;
@@ -50,29 +50,31 @@ public final class Class292 {
     public int[][] anIntArrayArray186;
 
     @OriginalMember(owner = "client!pj", name = "j", descriptor = "I")
-    public final int anInt7365;
+    public final int crc;
 
     @OriginalMember(owner = "client!pj", name = "d", descriptor = "[B")
     public byte[] aByteArray86;
 
     @OriginalMember(owner = "client!pj", name = "<init>", descriptor = "([BI[B)V")
-    public Class292(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2) {
-        this.anInt7365 = Packet.getcrc(arg0.length, arg0);
-        if (arg1 != this.anInt7365) {
+    public Js5Index(@OriginalArg(0) byte[] data, @OriginalArg(1) int expectedCrc, @OriginalArg(2) byte[] expectedWhirlpool) {
+        this.crc = Packet.getcrc(data.length, data);
+
+        if (expectedCrc != this.crc) {
             throw new RuntimeException();
         }
-        if (arg2 != null) {
-            if (arg2.length != 64) {
+
+        if (expectedWhirlpool != null) {
+            if (expectedWhirlpool.length != 64) {
                 throw new RuntimeException();
             }
-            this.aByteArray86 = Static607.method8161(arg0, arg0.length, 0);
+            this.aByteArray86 = Static607.whirlpool(data, data.length, 0);
             for (@Pc(45) int local45 = 0; local45 < 64; local45++) {
-                if (arg2[local45] != this.aByteArray86[local45]) {
+                if (expectedWhirlpool[local45] != this.aByteArray86[local45]) {
                     throw new RuntimeException();
                 }
             }
         }
-        this.method6568(arg0);
+        this.method6568(data);
     }
 
     @OriginalMember(owner = "client!pj", name = "a", descriptor = "([BZ)V")

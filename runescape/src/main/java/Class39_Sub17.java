@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -25,7 +26,7 @@ public final class Class39_Sub17 extends Class39 {
         this.anInt7622 = arg0.g2();
         this.anIntArray611 = new int[4];
         this.anInt7624 = arg0.gSmart2or4null();
-        Static734.method7690(this.anIntArray611, 0, this.anIntArray611.length, this.anInt7624);
+        Arrays.set(this.anIntArray611, 0, this.anIntArray611.length, this.anInt7624);
         this.anInt7625 = arg0.g4();
     }
 

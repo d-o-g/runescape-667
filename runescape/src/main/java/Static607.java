@@ -17,22 +17,23 @@ public final class Static607 {
     public static int anInt9251 = -1;
 
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(B[BII)[B")
-    public static byte[] method8161(@OriginalArg(1) byte[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(10) byte[] local10;
-        if (arg2 > 0) {
-            local10 = new byte[arg1];
-            for (@Pc(12) int local12 = 0; local12 < arg1; local12++) {
-                local10[local12] = arg0[local12 + arg2];
+    public static byte[] whirlpool(@OriginalArg(1) byte[] arg0, @OriginalArg(2) int len, @OriginalArg(3) int off) {
+        @Pc(10) byte[] buf;
+        if (off > 0) {
+            buf = new byte[len];
+            for (@Pc(12) int i = 0; i < len; i++) {
+                buf[i] = arg0[i + off];
             }
         } else {
-            local10 = arg0;
+            buf = arg0;
         }
-        @Pc(40) Class404 local40 = new Class404();
-        local40.method9342();
-        local40.method9343((long) (arg1 * 8), local10);
-        @Pc(60) byte[] local60 = new byte[64];
-        local40.method9344(local60);
-        return local60;
+
+        @Pc(40) Whirlpool whirlpool = new Whirlpool();
+        whirlpool.reset();
+        whirlpool.add((long) (len * 8), buf);
+        @Pc(60) byte[] hash = new byte[64];
+        whirlpool.finalize(hash);
+        return hash;
     }
 
     @OriginalMember(owner = "client!tca", name = "bb", descriptor = "(I)Z")

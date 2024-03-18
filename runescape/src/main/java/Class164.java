@@ -1,5 +1,6 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
+import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -114,30 +115,30 @@ public final class Class164 {
             if (this.aLongArray8 == null) {
                 this.aLongArray8 = new long[arg0];
             } else {
-                Static734.method7693(this.aLongArray8, 0, this.aLongArray8 = new long[arg0], 0, this.anInt3939);
+                Arrays.copy(this.aLongArray8, 0, this.aLongArray8 = new long[arg0], 0, this.anInt3939);
             }
         }
         if (this.aBoolean306) {
             if (this.aStringArray18 == null) {
                 this.aStringArray18 = new String[arg0];
             } else {
-                Static734.method7691(this.aStringArray18, 0, this.aStringArray18 = new String[arg0], 0, this.anInt3939);
+                Arrays.copy(this.aStringArray18, 0, this.aStringArray18 = new String[arg0], 0, this.anInt3939);
             }
         }
         if (this.aByteArray40 == null) {
             this.aByteArray40 = new byte[arg0];
         } else {
-            Static734.method7694(this.aByteArray40, 0, this.aByteArray40 = new byte[arg0], 0, this.anInt3939);
+            Arrays.copy(this.aByteArray40, 0, this.aByteArray40 = new byte[arg0], 0, this.anInt3939);
         }
         if (this.anIntArray309 == null) {
             this.anIntArray309 = new int[arg0];
         } else {
-            Static734.method7695(this.anIntArray309, 0, this.anIntArray309 = new int[arg0], 0, this.anInt3939);
+            Arrays.copy(this.anIntArray309, 0, this.anIntArray309 = new int[arg0], 0, this.anInt3939);
         }
         if (this.anIntArray308 == null) {
             this.anIntArray308 = new int[arg0];
         } else {
-            Static734.method7695(this.anIntArray308, 0, this.anIntArray308 = new int[arg0], 0, this.anInt3939);
+            Arrays.copy(this.anIntArray308, 0, this.anIntArray308 = new int[arg0], 0, this.anInt3939);
         }
     }
 
@@ -278,14 +279,14 @@ public final class Class164 {
             this.anInt3956 = -1;
             return;
         }
-        Static734.method7694(this.aByteArray40, arg0 + 1, this.aByteArray40, arg0, this.anInt3939 - arg0);
-        Static734.method7695(this.anIntArray309, arg0 + 1, this.anIntArray309, arg0, this.anInt3939 - arg0);
-        Static734.method7695(this.anIntArray308, arg0 + 1, this.anIntArray308, arg0, this.anInt3939 - arg0);
+        Arrays.copy(this.aByteArray40, arg0 + 1, this.aByteArray40, arg0, this.anInt3939 - arg0);
+        Arrays.copy(this.anIntArray309, arg0 + 1, this.anIntArray309, arg0, this.anInt3939 - arg0);
+        Arrays.copy(this.anIntArray308, arg0 + 1, this.anIntArray308, arg0, this.anInt3939 - arg0);
         if (this.aLongArray8 != null) {
-            Static734.method7693(this.aLongArray8, arg0 + 1, this.aLongArray8, arg0, this.anInt3939 - arg0);
+            Arrays.copy(this.aLongArray8, arg0 + 1, this.aLongArray8, arg0, this.anInt3939 - arg0);
         }
         if (this.aStringArray18 != null) {
-            Static734.method7691(this.aStringArray18, arg0 + 1, this.aStringArray18, arg0, this.anInt3939 - arg0);
+            Arrays.copy(this.aStringArray18, arg0 + 1, this.aStringArray18, arg0, this.anInt3939 - arg0);
         }
         if (this.anInt3956 == arg0 || this.anInt3947 == arg0) {
             this.method3482();
@@ -386,10 +387,10 @@ public final class Class164 {
             return;
         }
         if (this.aLongArray7 != null) {
-            Static734.method7693(this.aLongArray7, arg0 + 1, this.aLongArray7, arg0, this.anInt3941 - arg0);
+            Arrays.copy(this.aLongArray7, arg0 + 1, this.aLongArray7, arg0, this.anInt3941 - arg0);
         }
         if (this.aStringArray19 != null) {
-            Static734.method7691(this.aStringArray19, arg0 + 1, this.aStringArray19, arg0, this.anInt3941 - arg0);
+            Arrays.copy(this.aStringArray19, arg0 + 1, this.aStringArray19, arg0, this.anInt3941 - arg0);
         }
     }
 
@@ -399,7 +400,7 @@ public final class Class164 {
             if (this.aLongArray7 == null) {
                 this.aLongArray7 = new long[arg0];
             } else {
-                Static734.method7693(this.aLongArray7, 0, this.aLongArray7 = new long[arg0], 0, this.anInt3941);
+                Arrays.copy(this.aLongArray7, 0, this.aLongArray7 = new long[arg0], 0, this.anInt3941);
             }
         }
         if (!this.aBoolean306) {
@@ -408,7 +409,7 @@ public final class Class164 {
         if (this.aStringArray19 == null) {
             this.aStringArray19 = new String[arg0];
         } else {
-            Static734.method7691(this.aStringArray19, 0, this.aStringArray19 = new String[arg0], 0, this.anInt3941);
+            Arrays.copy(this.aStringArray19, 0, this.aStringArray19 = new String[arg0], 0, this.anInt3941);
         }
     }
 

@@ -1,5 +1,6 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.util.Arrays;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -633,17 +634,17 @@ public final class Toolkit_Sub2 extends Toolkit {
         @Pc(34) int local34;
         if (local6 < 0) {
             local34 = local24.length + local6;
-            Static734.method7695(local24, -local6, local24, 0, local34);
+            Arrays.copy(local24, -local6, local24, 0, local34);
         } else if (local6 > 0) {
             local34 = local24.length - local6;
-            Static734.method7695(local24, 0, local24, local6, local34);
+            Arrays.copy(local24, 0, local24, local6, local34);
         }
         if (local13 < 0) {
             local34 = local27.length + local13;
-            Static734.method7689(local27, -local13, local27, 0, local34);
+            Arrays.copy(local27, -local13, local27, 0, local34);
         } else if (local13 > 0) {
             local34 = local27.length - local13;
-            Static734.method7689(local27, 0, local27, local13, local34);
+            Arrays.copy(local27, 0, local27, local13, local34);
         }
     }
 

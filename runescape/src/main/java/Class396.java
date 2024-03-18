@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -47,7 +48,7 @@ public final class Class396 {
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(I)[Ljava/lang/String;")
     public String[] method9151() {
         @Pc(16) String[] local16 = new String[this.anInt10544 + 1];
-        Static734.method7691(this.aStringArray48, 0, local16, 0, this.anInt10544 + 1);
+        Arrays.copy(this.aStringArray48, 0, local16, 0, this.anInt10544 + 1);
         return local16;
     }
 
@@ -69,7 +70,7 @@ public final class Class396 {
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(IB)V")
     public void method9156(@OriginalArg(0) int arg0) {
         @Pc(9) String[] local9 = new String[this.method9154(arg0)];
-        Static734.method7691(this.aStringArray48, 0, local9, 0, this.aStringArray48.length);
+        Arrays.copy(this.aStringArray48, 0, local9, 0, this.aStringArray48.length);
         this.aStringArray48 = local9;
     }
 

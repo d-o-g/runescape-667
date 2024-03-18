@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -154,7 +155,7 @@ public final class Class407 {
             if (local1 == -1) {
                 local1 = this.anIntArray882.length;
                 @Pc(38) int[] local38 = new int[this.anIntArray882.length + 1];
-                Static734.method7695(this.anIntArray882, 0, local38, 0, this.anIntArray882.length);
+                Arrays.copy(this.anIntArray882, 0, local38, 0, this.anIntArray882.length);
                 this.anIntArray882 = local38;
                 local38[local1] = arg0;
             }
@@ -253,7 +254,7 @@ public final class Class407 {
             if (local1 == -1) {
                 local1 = this.anIntArray882.length;
                 @Pc(38) int[] local38 = new int[this.anIntArray882.length + 1];
-                Static734.method7695(this.anIntArray882, 0, local38, 0, this.anIntArray882.length);
+                Arrays.copy(this.anIntArray882, 0, local38, 0, this.anIntArray882.length);
                 this.anIntArray882 = local38;
                 local38[local1] = arg0;
             }

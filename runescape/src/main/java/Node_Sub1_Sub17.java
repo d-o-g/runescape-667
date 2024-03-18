@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -41,7 +42,7 @@ public final class Node_Sub1_Sub17 extends Node_Sub1 {
         }
         @Pc(16) int[] local16 = super.aClass180_41.method3935(arg1);
         if (super.aClass180_41.aBoolean338) {
-            Static734.method7690(local16, 0, Static608.anInt9289, this.anInt5965);
+            Arrays.set(local16, 0, Static608.anInt9289, this.anInt5965);
         }
         return local16;
     }

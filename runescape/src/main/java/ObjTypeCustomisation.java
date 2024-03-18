@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -37,11 +38,11 @@ public final class ObjTypeCustomisation {
         this.womanhead[1] = arg0.womanhead2;
         if (arg0.recol_d != null) {
             this.recol_d = new short[arg0.recol_d.length];
-            Static734.method7692(arg0.recol_d, 0, this.recol_d, 0, this.recol_d.length);
+            Arrays.copy(arg0.recol_d, 0, this.recol_d, 0, this.recol_d.length);
         }
         if (arg0.retex_d != null) {
             this.retex_d = new short[arg0.retex_d.length];
-            Static734.method7692(arg0.retex_d, 0, this.retex_d, 0, this.retex_d.length);
+            Arrays.copy(arg0.retex_d, 0, this.retex_d, 0, this.retex_d.length);
         }
     }
 }

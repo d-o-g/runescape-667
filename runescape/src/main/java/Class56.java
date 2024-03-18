@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -229,7 +230,7 @@ public class Class56 {
         if (Static316.aBoolean644) {
             local1 = 512;
         }
-        Static734.method7688(arg0, 0, local1);
+        Arrays.clear(arg0, 0, local1);
         this.anInt4099 -= 256;
         if (this.aClass2_Sub6_6 != null && this.anInt4099 <= 0) {
             this.anInt4099 += Static686.anInt8944 >> 4;

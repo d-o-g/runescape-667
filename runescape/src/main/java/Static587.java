@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -87,7 +88,7 @@ public final class Static587 {
                 }
             }
             Static679.aClass273Array1 = new Class273[local26];
-            Static734.method7691(local24, 0, Static679.aClass273Array1, 0, local26);
+            Arrays.copy(local24, 0, Static679.aClass273Array1, 0, local26);
             @Pc(175) int[] local175 = new int[Static679.aClass273Array1.length];
             for (local112 = 0; local112 < Static679.aClass273Array1.length; local112++) {
                 local117 = Static679.aClass273Array1[local112];

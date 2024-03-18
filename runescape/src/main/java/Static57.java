@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -74,7 +75,7 @@ public final class Static57 {
             return null;
         } else {
             @Pc(19) short[] local19 = new short[arg0.length];
-            Static734.method7692(arg0, 0, local19, 0, arg0.length);
+            Arrays.copy(arg0, 0, local19, 0, arg0.length);
             return local19;
         }
     }

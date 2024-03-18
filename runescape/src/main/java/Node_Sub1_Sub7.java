@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -231,12 +232,12 @@ public final class Node_Sub1_Sub7 extends Node_Sub1 {
                 local82 = Static608.anInt9289 - arg4;
                 for (local84 = 0; local84 < arg1; local84++) {
                     @Pc(92) int[] local92 = arg0[local84 + arg3];
-                    Static734.method7690(local92, arg4, local82, local22);
-                    Static734.method7690(local92, 0, arg5 - local82, local22);
+                    Arrays.set(local92, arg4, local82, local22);
+                    Arrays.set(local92, 0, arg5 - local82, local22);
                 }
             } else {
                 for (local82 = 0; local82 < arg1; local82++) {
-                    Static734.method7690(arg0[local82 + arg3], arg4, arg5, local22);
+                    Arrays.set(arg0[local82 + arg3], arg4, arg5, local22);
                 }
             }
         } else if (arg1 > 0 && arg5 > 0) {
@@ -266,10 +267,10 @@ public final class Node_Sub1_Sub7 extends Node_Sub1 {
                     }
                     if (Static608.anInt9289 < local182 + local189) {
                         local217 = Static608.anInt9289 - local182;
-                        Static734.method7690(local199, local182, local217, local212);
-                        Static734.method7690(local199, 0, local189 - local217, local212);
+                        Arrays.set(local199, local182, local217, local212);
+                        Arrays.set(local199, 0, local189 - local217, local212);
                     } else {
-                        Static734.method7690(local199, local182, local189, local212);
+                        Arrays.set(local199, local182, local189, local212);
                     }
                 } else {
                     local212 = arg1 - local191 - 1;
@@ -288,22 +289,22 @@ public final class Node_Sub1_Sub7 extends Node_Sub1 {
                             }
                         }
                         if (Static608.anInt9289 >= local189 + local182) {
-                            Static734.method7690(local199, local182, local189, local217);
+                            Arrays.set(local199, local182, local189, local217);
                         } else {
                             local225 = Static608.anInt9289 - local182;
-                            Static734.method7690(local199, local182, local225, local217);
-                            Static734.method7690(local199, 0, local189 - local225, local217);
+                            Arrays.set(local199, local182, local225, local217);
+                            Arrays.set(local199, 0, local189 - local225, local217);
                         }
                     } else {
                         for (local217 = 0; local217 < local166; local217++) {
                             local199[Static576.anInt8580 & arg4 + local217] = local199[Static576.anInt8580 & arg5 + arg4 - local217 - 1] = local217 * local22 / local166;
                         }
                         if (Static608.anInt9289 >= local182 + local189) {
-                            Static734.method7690(local199, local182, local189, local22);
+                            Arrays.set(local199, local182, local189, local22);
                         } else {
                             local225 = Static608.anInt9289 - local182;
-                            Static734.method7690(local199, local182, local225, local22);
-                            Static734.method7690(local199, 0, local189 - local225, local22);
+                            Arrays.set(local199, local182, local225, local22);
+                            Arrays.set(local199, 0, local189 - local225, local22);
                         }
                     }
                 }

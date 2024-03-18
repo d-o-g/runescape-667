@@ -1,4 +1,5 @@
 import com.jagex.collect.Node;
+import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -103,7 +104,7 @@ public final class Node_Sub47 extends Node {
         if (this.aClass34Array1 == null) {
             this.aClass34Array1 = new Class34[arg0];
         } else {
-            Static734.method7691(this.aClass34Array1, 0, this.aClass34Array1 = new Class34[arg0], 0, this.anInt8286);
+            Arrays.copy(this.aClass34Array1, 0, this.aClass34Array1 = new Class34[arg0], 0, this.anInt8286);
         }
     }
 
@@ -113,7 +114,7 @@ public final class Node_Sub47 extends Node {
         if (this.anInt8286 == 0) {
             this.aClass34Array1 = null;
         } else {
-            Static734.method7691(this.aClass34Array1, arg0 + 1, this.aClass34Array1, arg0, this.anInt8286 - arg0);
+            Arrays.copy(this.aClass34Array1, arg0 + 1, this.aClass34Array1, arg0, this.anInt8286 - arg0);
         }
         this.anIntArray644 = null;
     }

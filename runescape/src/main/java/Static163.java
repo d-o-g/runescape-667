@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -29,7 +30,7 @@ public final class Static163 {
     public static byte[] method8849(@OriginalArg(0) byte[] arg0) {
         @Pc(13) int local13 = arg0.length;
         @Pc(16) byte[] local16 = new byte[local13];
-        Static734.method7694(arg0, 0, local16, 0, local13);
+        Arrays.copy(arg0, 0, local16, 0, local13);
         return local16;
     }
 

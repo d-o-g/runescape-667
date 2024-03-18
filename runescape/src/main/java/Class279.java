@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -102,7 +103,7 @@ public final class Class279 {
             @Pc(66) int local66 = this.anInt6994 == -1 ? 0 : 1;
             @Pc(70) Random local70 = new Random();
             @Pc(77) int[] local77 = new int[this.anIntArrayArray171[arg0].length];
-            Static734.method7695(this.anIntArrayArray171[arg0], 0, local77, 0, local77.length);
+            Arrays.copy(this.anIntArrayArray171[arg0], 0, local77, 0, local77.length);
             for (@Pc(99) int local99 = local66; local99 < local77.length; local99++) {
                 @Pc(112) int local112 = local66 + Static623.method8326(-5208, local77.length - local66, local70);
                 @Pc(116) int local116 = local77[local99];

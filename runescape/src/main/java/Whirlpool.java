@@ -1,10 +1,11 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!wla")
-public final class Class404 {
+public final class Whirlpool {
 
     @OriginalMember(owner = "client!wla", name = "o", descriptor = "[J")
     public final long[] aLongArray23 = new long[8];
@@ -34,22 +35,21 @@ public final class Class404 {
     public final long[] aLongArray25 = new long[8];
 
     @OriginalMember(owner = "client!wla", name = "a", descriptor = "(I)V")
-    public void method9342() {
-        for (@Pc(3) int local3 = 0; local3 < 32; local3++) {
-            this.aByteArray113[local3] = 0;
+    public void reset() {
+        for (@Pc(3) int i = 0; i < 32; i++) {
+            this.aByteArray113[i] = 0;
         }
+
         this.anInt10812 = this.anInt10807 = 0;
         this.aByteArray112[0] = 0;
-        if (60 < 29) {
-            Static715.method9347((String) null, 79, (String) null, -124, false);
-        }
-        for (@Pc(48) int local48 = 0; local48 < 8; local48++) {
-            this.aLongArray22[local48] = 0L;
+
+        for (@Pc(48) int i = 0; i < 8; i++) {
+            this.aLongArray22[i] = 0L;
         }
     }
 
     @OriginalMember(owner = "client!wla", name = "a", descriptor = "(J[BI)V")
-    public void method9343(@OriginalArg(0) long arg0, @OriginalArg(1) byte[] arg1) {
+    public void add(@OriginalArg(0) long arg0, @OriginalArg(1) byte[] arg1) {
         @Pc(7) int local7 = 0;
         @Pc(24) int local24 = 8 - ((int) arg0 & 0x7) & 0x7;
         @Pc(29) int local29 = this.anInt10812 & 0x7;
@@ -103,7 +103,7 @@ public final class Class404 {
     }
 
     @OriginalMember(owner = "client!wla", name = "a", descriptor = "([BII)V")
-    public void method9344(@OriginalArg(0) byte[] arg0) {
+    public void finalize(@OriginalArg(0) byte[] arg0) {
         this.aByteArray112[this.anInt10807] = (byte) (this.aByteArray112[this.anInt10807] | 0x80 >>> (this.anInt10812 & 0x7));
         this.anInt10807++;
         if (this.anInt10807 > 32) {
@@ -119,7 +119,7 @@ public final class Class404 {
         while (this.anInt10807 < 32) {
             this.aByteArray112[this.anInt10807++] = 0;
         }
-        Static734.method7694(this.aByteArray113, 0, this.aByteArray112, 32, 32);
+        Arrays.copy(this.aByteArray113, 0, this.aByteArray112, 32, 32);
         this.method9345();
         @Pc(105) int local105 = 0;
         @Pc(107) int local107 = 0;

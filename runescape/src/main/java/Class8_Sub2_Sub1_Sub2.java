@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -854,7 +855,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                     @Pc(140) int local140 = 0;
                     for (local142 = 0; local142 < arg2.length; local142++) {
                         if (local29[local142] != null) {
-                            Static734.method7691(local29[local142], 0, local138, local140, local29[local142].length);
+                            Arrays.copy(local29[local142], 0, local138, local140, local29[local142].length);
                             local140 += local29[local142].length;
                         }
                     }
@@ -867,7 +868,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                     local142 = 0;
                     for (@Pc(199) int local199 = 0; local199 < arg2.length; local199++) {
                         if (local33[local199] != null) {
-                            Static734.method7691(local33[local199], 0, local191, local142, local33[local199].length);
+                            Arrays.copy(local33[local199], 0, local191, local142, local33[local199].length);
                             local142 += local33[local199].length;
                         }
                     }

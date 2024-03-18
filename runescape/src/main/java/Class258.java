@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -127,7 +128,7 @@ public final class Class258 {
 
     @OriginalMember(owner = "client!ng", name = "a", descriptor = "(II)[I")
     public int[] method5776(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        Static734.method7688(Static423.anIntArray506, 0, arg0);
+        Arrays.clear(Static423.anIntArray506, 0, arg0);
         if (arg1 < 10) {
             return Static423.anIntArray506;
         }

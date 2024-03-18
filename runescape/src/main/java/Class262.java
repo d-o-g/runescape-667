@@ -13,7 +13,7 @@ public final class Class262 {
     public Packet aClass2_Sub21_10;
 
     @OriginalMember(owner = "client!nj", name = "b", descriptor = "[Lclient!pm;")
-    public Class47_Sub1[] aClass47_Sub1Array5;
+    public ResourceProvider_Sub1[] aClass47_Sub1Array5;
 
     @OriginalMember(owner = "client!nj", name = "e", descriptor = "Ljava/math/BigInteger;")
     public final BigInteger aBigInteger4;
@@ -72,24 +72,24 @@ public final class Class262 {
         if (local102.length != 65) {
             throw new RuntimeException();
         }
-        @Pc(131) byte[] local131 = Static607.method8161(local49.data, local49.pos - local72.length - 5, 5);
+        @Pc(131) byte[] local131 = Static607.whirlpool(local49.data, local49.pos - local72.length - 5, 5);
         for (@Pc(140) int local140 = 0; local140 < 64; local140++) {
             if (local131[local140] != local102[local140 + 1]) {
                 throw new RuntimeException();
             }
         }
-        this.aClass47_Sub1Array5 = new Class47_Sub1[local56];
+        this.aClass47_Sub1Array5 = new ResourceProvider_Sub1[local56];
         this.aClass2_Sub21_10 = local49;
         return true;
     }
 
     @OriginalMember(owner = "client!nj", name = "a", descriptor = "(Lclient!af;ILclient!af;B)Lclient!pm;")
-    public Class47_Sub1 method5801(@OriginalArg(0) Class9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class9 arg2) {
+    public ResourceProvider_Sub1 method5801(@OriginalArg(0) Class9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class9 arg2) {
         return this.method5802(arg0, arg1, arg2);
     }
 
     @OriginalMember(owner = "client!nj", name = "a", descriptor = "(ZLclient!af;ILclient!af;I)Lclient!pm;")
-    public Class47_Sub1 method5802(@OriginalArg(1) Class9 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class9 arg2) {
+    public ResourceProvider_Sub1 method5802(@OriginalArg(1) Class9 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class9 arg2) {
         if (this.aClass2_Sub21_10 == null) {
             throw new RuntimeException();
         } else if (arg1 < 0 || arg1 >= this.aClass47_Sub1Array5.length) {
@@ -100,7 +100,7 @@ public final class Class262 {
             @Pc(57) int local57 = this.aClass2_Sub21_10.g4();
             @Pc(60) byte[] local60 = new byte[64];
             this.aClass2_Sub21_10.gdata(0, 64, local60);
-            @Pc(84) Class47_Sub1 local84 = new Class47_Sub1(arg1, arg0, arg2, this.aClass295_1, this.aClass174_2, local52, local60, local57, true);
+            @Pc(84) ResourceProvider_Sub1 local84 = new ResourceProvider_Sub1(arg1, arg0, arg2, this.aClass295_1, this.aClass174_2, local52, local60, local57, true);
             this.aClass47_Sub1Array5[arg1] = local84;
             return local84;
         } else {

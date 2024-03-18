@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import com.jagex.graphics.TextureMetrics;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -244,7 +245,7 @@ public final class Class148 {
                     this.aByteArray35 = null;
                 } else {
                     this.aByteArray35 = new byte[local49.length];
-                    Static734.method7694(local49, 0, this.aByteArray35, 0, local49.length);
+                    Arrays.copy(local49, 0, this.aByteArray35, 0, local49.length);
                 }
             }
         } catch (@Pc(73) Exception local73) {

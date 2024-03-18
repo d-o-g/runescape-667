@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -13,7 +14,7 @@ public final class Static550 {
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(BLclient!ca;II)V")
     public static void method7260(@OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub1 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(6) int[] local6 = new int[4];
-        Static734.method7690(local6, 0, local6.length, arg2);
+        Arrays.set(local6, 0, local6.length, arg2);
         Static651.method8515(local6, arg1, false, arg0);
     }
 

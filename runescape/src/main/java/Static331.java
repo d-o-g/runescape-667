@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -38,7 +39,7 @@ public final class Static331 {
         anInt5440 = arg0.length;
         Static186.aSpriteArray5 = new Sprite[anInt5440 + 10];
         Static460.anIntArray554 = new int[anInt5440 + 10];
-        Static734.method7691(arg0, 0, Static186.aSpriteArray5, 0, anInt5440);
+        Arrays.copy(arg0, 0, Static186.aSpriteArray5, 0, anInt5440);
         for (@Pc(32) int local32 = 0; local32 < anInt5440; local32++) {
             Static460.anIntArray554[local32] = Static186.aSpriteArray5[local32].scaleHeight();
         }

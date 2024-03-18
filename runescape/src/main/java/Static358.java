@@ -1,3 +1,4 @@
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -17,7 +18,7 @@ public final class Static358 {
     @OriginalMember(owner = "client!lf", name = "a", descriptor = "(BI[S)[S")
     public static short[] method9173(@OriginalArg(1) int arg0, @OriginalArg(2) short[] arg1) {
         @Pc(14) short[] local14 = new short[arg0];
-        Static734.method7692(arg1, 0, local14, 0, arg0);
+        Arrays.copy(arg1, 0, local14, 0, arg0);
         return local14;
     }
 

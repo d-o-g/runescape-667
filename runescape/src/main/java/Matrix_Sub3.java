@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qr")
-public final class Class73_Sub3 extends Class73 {
+public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "C", descriptor = "F")
     public float aFloat150;
@@ -43,7 +43,7 @@ public final class Class73_Sub3 extends Class73 {
     public float aFloat161;
 
     @OriginalMember(owner = "client!qr", name = "<init>", descriptor = "()V")
-    public Class73_Sub3() {
+    public Matrix_Sub3() {
         this.method7133();
     }
 
@@ -87,8 +87,8 @@ public final class Class73_Sub3 extends Class73 {
     }
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(BLclient!tt;)V")
-    public void method7142(@OriginalArg(1) Class73 arg0) {
-        @Pc(6) Class73_Sub3 local6 = (Class73_Sub3) arg0;
+    public void method7142(@OriginalArg(1) Matrix arg0) {
+        @Pc(6) Matrix_Sub3 local6 = (Matrix_Sub3) arg0;
         this.aFloat160 = local6.aFloat155;
         this.aFloat153 = local6.aFloat153;
         this.aFloat157 = local6.aFloat161;
@@ -105,8 +105,8 @@ public final class Class73_Sub3 extends Class73 {
 
     @OriginalMember(owner = "client!qr", name = "b", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method7129() {
-        @Pc(7) Class73_Sub3 local7 = new Class73_Sub3();
+    public Matrix method7129() {
+        @Pc(7) Matrix_Sub3 local7 = new Matrix_Sub3();
         local7.aFloat158 = this.aFloat158;
         local7.aFloat156 = this.aFloat156;
         local7.aFloat151 = this.aFloat151;
@@ -356,8 +356,8 @@ public final class Class73_Sub3 extends Class73 {
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7128(@OriginalArg(0) Class73 arg0) {
-        @Pc(6) Class73_Sub3 local6 = (Class73_Sub3) arg0;
+    public void method7128(@OriginalArg(0) Matrix arg0) {
+        @Pc(6) Matrix_Sub3 local6 = (Matrix_Sub3) arg0;
         this.aFloat155 = local6.aFloat155;
         this.aFloat160 = local6.aFloat160;
         this.aFloat158 = local6.aFloat158;

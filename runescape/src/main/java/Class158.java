@@ -519,7 +519,7 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!ka;ILclient!tt;I)V")
-    public void method3384(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Class73 arg2, @OriginalArg(4) int arg3) {
+    public void method3384(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Matrix arg2, @OriginalArg(4) int arg3) {
         arg1.method7476(arg2);
         @Pc(9) Class328[] local9 = arg1.method7482();
         @Pc(22) Class249[] local22 = arg1.method7480();

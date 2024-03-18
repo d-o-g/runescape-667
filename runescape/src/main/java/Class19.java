@@ -130,7 +130,7 @@ public abstract class Class19 {
     public abstract Model createModel(@OriginalArg(0) Mesh mesh, @OriginalArg(1) int functionMask, @OriginalArg(2) int featureMask, @OriginalArg(3) int ambient, @OriginalArg(4) int contrast);
 
     @OriginalMember(owner = "client!ha", name = "y", descriptor = "()Lclient!tt;")
-    public abstract Class73 method7953();
+    public abstract Matrix method7953();
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(IIIIII)V")
     public final void method7954(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
@@ -249,7 +249,7 @@ public abstract class Class19 {
     }
 
     @OriginalMember(owner = "client!ha", name = "A", descriptor = "()Lclient!tt;")
-    public abstract Class73 method7985();
+    public abstract Matrix method7985();
 
     @OriginalMember(owner = "client!ha", name = "Q", descriptor = "(IIIIII[BII)V")
     public abstract void Q(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8);
@@ -316,7 +316,7 @@ public abstract class Class19 {
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!tt;)V")
-    public abstract void method8000(@OriginalArg(0) Class73 arg0);
+    public abstract void method8000(@OriginalArg(0) Matrix arg0);
 
     @OriginalMember(owner = "client!ha", name = "B", descriptor = "()Z")
     public abstract boolean method8001();
@@ -395,7 +395,7 @@ public abstract class Class19 {
     public abstract void method8016(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!ha", name = "n", descriptor = "()Lclient!tt;")
-    public abstract Class73 method8017();
+    public abstract Matrix method8017();
 
     @OriginalMember(owner = "client!ha", name = "JA", descriptor = "(IIIIII)I")
     public abstract int JA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);

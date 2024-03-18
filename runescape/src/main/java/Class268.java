@@ -776,7 +776,7 @@ public final class Class268 {
         if (!local52 && !local716) {
             return local706;
         }
-        @Pc(747) Class73[] local747 = null;
+        @Pc(747) Matrix[] local747 = null;
         if (local147 != null) {
             local747 = local147.method6480(arg1);
         }
@@ -784,7 +784,7 @@ public final class Class268 {
         if (local716 && local747 != null) {
             for (local762 = 0; local762 < 12; local762++) {
                 if (local747[local762] != null) {
-                    local706.method7492(local747[local762], 0x1 << local762, true);
+                    local706.transform(local747[local762], 0x1 << local762, true);
                 }
             }
         }
@@ -802,16 +802,16 @@ public final class Class268 {
                 if (arg5[local377] != -1) {
                     local396 = arg5[local377] - arg4;
                     local396 &= 0x3FFF;
-                    @Pc(838) Class73 local838 = arg1.method7953();
+                    @Pc(838) Matrix local838 = arg1.method7953();
                     local838.method7131(local396);
-                    local706.method7492(local838, 0x1 << local377, false);
+                    local706.transform(local838, 0x1 << local377, false);
                 }
             }
         }
         if (local716 && local747 != null) {
             for (local377 = 0; local377 < 12; local377++) {
                 if (local747[local377] != null) {
-                    local706.method7492(local747[local377], 0x1 << local377, false);
+                    local706.transform(local747[local377], 0x1 << local377, false);
                 }
             }
         }

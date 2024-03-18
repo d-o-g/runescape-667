@@ -40,7 +40,7 @@ public final class Class399 {
     public int anInt10600 = 0;
 
     @OriginalMember(owner = "client!wf", name = "M", descriptor = "Lclient!eaa;")
-    public final Class73_Sub2 aClass73_Sub2_3 = new Class73_Sub2();
+    public final Matrix_Sub2 aClass73_Sub2_3 = new Matrix_Sub2();
 
     @OriginalMember(owner = "client!wf", name = "h", descriptor = "[I")
     public final int[] anIntArray842 = new int[8];

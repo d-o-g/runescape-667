@@ -483,43 +483,43 @@ public final class Static71 {
                                             local779 += local19.anInt3755 * local1255 >> 9;
                                             local792 += local19.anInt3799 * local777 >> 9;
                                         }
-                                        Static460.aClass73_10.method7133();
-                                        Static163.aClass19_17.method8000(Static460.aClass73_10);
+                                        Static460.aMatrix_10.method7133();
+                                        Static163.aClass19_17.method8000(Static460.aMatrix_10);
                                         Static163.aClass19_17.DA(local779, local792, local1255, local777);
                                         Static163.aClass19_17.ya();
                                         if (local19.aBoolean289) {
                                             Static163.aClass19_17.C(false);
                                         }
                                         if (local19.aBoolean302) {
-                                            Static59.aClass73_5.method7136(local19.anInt3807);
-                                            Static59.aClass73_5.method7127(local19.anInt3811);
-                                            Static59.aClass73_5.method7139(local19.anInt3737);
-                                            Static59.aClass73_5.method7134(local19.anInt3755, local19.anInt3799, local19.anInt3821);
+                                            Static59.aMatrix_5.method7136(local19.anInt3807);
+                                            Static59.aMatrix_5.method7127(local19.anInt3811);
+                                            Static59.aMatrix_5.method7139(local19.anInt3737);
+                                            Static59.aMatrix_5.method7134(local19.anInt3755, local19.anInt3799, local19.anInt3821);
                                         } else {
                                             local936 = Class361.anIntArray741[local19.anInt3807 << 3] * (local19.anInt3793 << 2) >> 14;
                                             local938 = Class361.anIntArray740[local19.anInt3807 << 3] * (local19.anInt3793 << 2) >> 14;
-                                            Static59.aClass73_5.method7132(-local19.anInt3737 << 3);
-                                            Static59.aClass73_5.method7127(local19.anInt3811 << 3);
-                                            Static59.aClass73_5.method7134(local19.anInt3736 << 2, local744 + (local19.anInt3804 << 2) + local936, (local19.anInt3804 << 2) + local938);
-                                            Static59.aClass73_5.method7130(local19.anInt3807 << 3);
+                                            Static59.aMatrix_5.method7132(-local19.anInt3737 << 3);
+                                            Static59.aMatrix_5.method7127(local19.anInt3811 << 3);
+                                            Static59.aMatrix_5.method7134(local19.anInt3736 << 2, local744 + (local19.anInt3804 << 2) + local936, (local19.anInt3804 << 2) + local938);
+                                            Static59.aMatrix_5.method7130(local19.anInt3807 << 3);
                                         }
-                                        local19.method3384(Static163.aClass19_17, local2313, Static59.aClass73_5, Static333.anInt5455);
+                                        local19.method3384(Static163.aClass19_17, local2313, Static59.aMatrix_5, Static333.anInt5455);
                                         if (Static376.aBoolean452) {
                                             Static163.aClass19_17.T(local125, local130, local125 + local19.anInt3802, local19.anInt3746 + local130);
                                         }
                                         if (local19.aBoolean302) {
                                             if (local19.aBoolean285) {
-                                                local2313.method7484(Static59.aClass73_5, (Class8_Sub6) null, local19.anInt3793, 1);
+                                                local2313.method7484(Static59.aMatrix_5, (Class8_Sub6) null, local19.anInt3793, 1);
                                             } else {
-                                                local2313.method7473(Static59.aClass73_5, (Class8_Sub6) null, 1);
+                                                local2313.method7473(Static59.aMatrix_5, (Class8_Sub6) null, 1);
                                                 if (local19.aClass8_Sub5_4 != null) {
                                                     Static163.aClass19_17.method8021(local19.aClass8_Sub5_4.method3650());
                                                 }
                                             }
                                         } else if (local19.aBoolean285) {
-                                            local2313.method7484(Static59.aClass73_5, (Class8_Sub6) null, local19.anInt3793 << 2, 1);
+                                            local2313.method7484(Static59.aMatrix_5, (Class8_Sub6) null, local19.anInt3793 << 2, 1);
                                         } else {
-                                            local2313.method7473(Static59.aClass73_5, (Class8_Sub6) null, 1);
+                                            local2313.method7473(Static59.aMatrix_5, (Class8_Sub6) null, 1);
                                             if (local19.aClass8_Sub5_4 != null) {
                                                 Static163.aClass19_17.method8021(local19.aClass8_Sub5_4.method3650());
                                             }

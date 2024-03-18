@@ -45,7 +45,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(Lclient!tt;Lclient!ka;ILclient!ha;)V")
-    public void method6593(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Class19 arg2) {
+    public void method6593(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Class19 arg2) {
         arg1.method7476(arg0);
         @Pc(9) Class328[] local9 = arg1.method7482();
         @Pc(19) Class249[] local19 = arg1.method7480();
@@ -82,7 +82,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
         }
         @Pc(20) Model local20 = this.method6594(this.anInt7402, arg0, 0);
         if (local20 != null) {
-            @Pc(25) Class73 local25 = arg0.method7985();
+            @Pc(25) Matrix local25 = arg0.method7985();
             local25.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
             this.method6593(local25, local20, arg0);
         }
@@ -185,7 +185,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
         if (this.anInt7400 != 0) {
             local24.a(this.anInt7400 * 2048);
         }
-        @Pc(43) Class73 local43 = arg0.method7985();
+        @Pc(43) Matrix local43 = arg0.method7985();
         local43.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         this.method6593(local43, local24, arg0);
         @Pc(62) Class8_Sub7 local62 = Static642.method8441(false, 1);

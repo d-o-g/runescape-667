@@ -65,7 +65,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (this.aClass268_1 == null || !this.method9324(131072, arg3)) {
             return false;
         }
-        @Pc(20) Class73 local20 = arg3.method7985();
+        @Pc(20) Matrix local20 = arg3.method7985();
         @Pc(25) int local25 = super.aClass126_7.method2673(16383);
         local20.method7131(local25);
         local20.method7134(super.anInt10690, super.anInt10691, super.anInt10694);
@@ -122,7 +122,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (this.aClass268_1 == null || !this.method9324(2048, arg0)) {
             return null;
         }
-        @Pc(22) Class73 local22 = arg0.method7985();
+        @Pc(22) Matrix local22 = arg0.method7985();
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
         local22.method7131(local27);
         @Pc(45) Class291 local45 = Static334.aClass291ArrayArrayArray1[super.aByte144][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
@@ -406,7 +406,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (this.aClass268_1 == null || !super.aBoolean820 && !this.method9324(0, arg0)) {
             return;
         }
-        @Pc(26) Class73 local26 = arg0.method7985();
+        @Pc(26) Matrix local26 = arg0.method7985();
         local26.method7131(super.aClass126_7.method2673(16383));
         local26.method7134(super.anInt10690, super.anInt10691 - 20, super.anInt10694);
         this.method9319(arg0, super.aBoolean820, super.aModelArray3, local26);

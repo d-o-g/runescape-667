@@ -14,7 +14,7 @@ public abstract class Model {
     }
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
-    public abstract void method7473(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2);
+    public abstract void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2);
 
     /**
      * animationPartialTransform
@@ -79,7 +79,7 @@ public abstract class Model {
     public abstract boolean F();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!tt;)V")
-    public abstract void method7476(@OriginalArg(0) Class73 arg0);
+    public abstract void method7476(@OriginalArg(0) Matrix arg0);
 
     /**
      * setContrast
@@ -165,7 +165,7 @@ public abstract class Model {
     public abstract Class328[] method7482();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IILclient!tt;ZII)Z")
-    public abstract boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class73 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
+    public abstract boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
 
     /**
      * getMinZ
@@ -174,10 +174,10 @@ public abstract class Model {
     public abstract int HA();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!tt;Lclient!ima;II)V")
-    public abstract void method7484(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public abstract void method7484(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IILclient!tt;ZI)Z")
-    public abstract boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class73 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4);
+    public abstract boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!rw;IILclient!rw;IIIIZ)V")
     public final void method7487(@OriginalArg(0) AnimFrameset arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) AnimFrameset arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) boolean arg7) {
@@ -334,7 +334,7 @@ public abstract class Model {
     public abstract int EA();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!tt;IZ)V")
-    public abstract void method7492(@OriginalArg(0) Class73 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
+    public abstract void transform(@OriginalArg(0) Matrix matrix, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IILclient!rw;)V")
     public final void method7493(@OriginalArg(0) int i, @OriginalArg(2) AnimFrameset frameset) {
@@ -346,15 +346,15 @@ public abstract class Model {
             this.method7494();
             return;
         }
-        @Pc(33) AnimFrame local33 = frameset.frames[i];
-        @Pc(36) AnimBase local36 = local33.base;
-        for (@Pc(38) int local38 = 0; local38 < local33.anInt6359; local38++) {
-            @Pc(45) short local45 = local33.aShortArray87[local38];
-            if (local36.aBooleanArray25[local45]) {
-                if (local33.aShortArray86[local38] != -1) {
+        @Pc(33) AnimFrame frame = frameset.frames[i];
+        @Pc(36) AnimBase base = frame.base;
+        for (@Pc(38) int local38 = 0; local38 < frame.anInt6359; local38++) {
+            @Pc(45) short local45 = frame.aShortArray87[local38];
+            if (base.aBooleanArray25[local45]) {
+                if (frame.aShortArray86[local38] != -1) {
                     this.P(0, 0, 0, 0);
                 }
-                this.P(local36.anIntArray619[local45], local33.aShortArray93[local38], local33.aShortArray94[local38], local33.aShortArray89[local38]);
+                this.P(base.anIntArray619[local45], frame.aShortArray93[local38], frame.aShortArray94[local38], frame.aShortArray89[local38]);
             }
         }
         this.wa();

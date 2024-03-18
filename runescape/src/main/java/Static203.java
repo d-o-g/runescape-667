@@ -8,7 +8,7 @@ public final class Static203 {
     public static float aFloat69;
 
     @OriginalMember(owner = "client!gf", name = "j", descriptor = "Lclient!tt;")
-    public static Class73 aClass73_4;
+    public static Matrix aMatrix_4;
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(ZII)I")
     public static int method3066(@OriginalArg(2) int arg0) {

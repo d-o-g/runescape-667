@@ -110,18 +110,18 @@ public final class Class23_Sub3 extends Class23 {
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);
         this.aClass19_Sub1_12.method8053(1);
         this.aClass19_Sub1_12.method8054(1);
-        @Pc(49) Class73_Sub1 local49 = this.aClass19_Sub1_12.method8040();
+        @Pc(49) Matrix_Sub1 local49 = this.aClass19_Sub1_12.method8040();
         local49.method1884(0.0F, (float) this.anInt6606, (float) this.anInt6626);
         local49.method7134(local14, local19, 0);
         this.aClass19_Sub1_12.method8042();
-        @Pc(73) Class73_Sub1 local73 = this.aClass19_Sub1_12.method8082();
+        @Pc(73) Matrix_Sub1 local73 = this.aClass19_Sub1_12.method8082();
         local73.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) this.anInt6626));
         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
         this.aClass19_Sub1_12.method8138(1);
         this.aClass19_Sub1_12.method8088(local9);
         this.aClass19_Sub1_12.method8094(Static209.aClass121_4, Static185.aClass121_3);
         this.aClass19_Sub1_12.method8080(0, Static188.aClass168_1);
-        @Pc(123) Class73_Sub1 local123 = this.aClass19_Sub1_12.method8082();
+        @Pc(123) Matrix_Sub1 local123 = this.aClass19_Sub1_12.method8082();
         local123.method1884(1.0F, local9.method9050((float) this.anInt6606), local9.method9046((float) this.anInt6626));
         local123.method1882(0.0F, local9.method9050((float) (local19 - arg4)), local9.method9046((float) (local14 - arg3)));
         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
@@ -137,8 +137,8 @@ public final class Class23_Sub3 extends Class23 {
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(IIIII)V")
     @Override
     public void method8197(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        @Pc(8) Class73_Sub1 local8 = this.aClass19_Sub1_12.method8040();
-        @Pc(13) Class73_Sub1 local13 = this.aClass19_Sub1_12.method8082();
+        @Pc(8) Matrix_Sub1 local8 = this.aClass19_Sub1_12.method8040();
+        @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_12.method8082();
         @Pc(18) int local18 = arg1 + this.anInt6624;
         @Pc(23) int local23 = arg0 + this.anInt6617;
         this.anInterface18_3.method9041(Static363.aClass259_14);
@@ -181,8 +181,8 @@ public final class Class23_Sub3 extends Class23 {
     @OriginalMember(owner = "client!np", name = "b", descriptor = "(IIIIIII)V")
     @Override
     public void method8189(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        @Pc(10) Class73_Sub1 local10 = this.aClass19_Sub1_12.method8040();
-        @Pc(15) Class73_Sub1 local15 = this.aClass19_Sub1_12.method8082();
+        @Pc(10) Matrix_Sub1 local10 = this.aClass19_Sub1_12.method8040();
+        @Pc(15) Matrix_Sub1 local15 = this.aClass19_Sub1_12.method8082();
         this.anInterface18_3.method9041(Static363.aClass259_14);
         this.aClass19_Sub1_12.method8099();
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);
@@ -334,8 +334,8 @@ public final class Class23_Sub3 extends Class23 {
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(IIIIIIII)V")
     @Override
     protected void method8190(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        @Pc(8) Class73_Sub1 local8 = this.aClass19_Sub1_12.method8040();
-        @Pc(13) Class73_Sub1 local13 = this.aClass19_Sub1_12.method8082();
+        @Pc(8) Matrix_Sub1 local8 = this.aClass19_Sub1_12.method8040();
+        @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_12.method8082();
         this.anInterface18_3.method9041(this.aBoolean494 || this.aBoolean495 || !(true & true) ? Static363.aClass259_14 : Static60.aClass259_3);
         this.aClass19_Sub1_12.method8099();
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);
@@ -379,8 +379,8 @@ public final class Class23_Sub3 extends Class23 {
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     @Override
     protected void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) Class1 arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
-        @Pc(8) Class73_Sub1 local8 = this.aClass19_Sub1_12.method8040();
-        @Pc(13) Class73_Sub1 local13 = this.aClass19_Sub1_12.method8082();
+        @Pc(8) Matrix_Sub1 local8 = this.aClass19_Sub1_12.method8040();
+        @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_12.method8082();
         @Pc(16) Class1_Sub2 local16 = (Class1_Sub2) arg6;
         @Pc(19) Interface18 local19 = local16.anInterface18_2;
         this.anInterface18_3.method9041(this.aBoolean494 || this.aBoolean495 || (0x1 & 0x1) == 0 ? Static363.aClass259_14 : Static60.aClass259_3);
@@ -403,7 +403,7 @@ public final class Class23_Sub3 extends Class23 {
         this.aClass19_Sub1_12.method8088(local19);
         this.aClass19_Sub1_12.method8094(Static209.aClass121_4, Static185.aClass121_3);
         this.aClass19_Sub1_12.method8080(0, Static188.aClass168_1);
-        @Pc(213) Class73_Sub1 local213 = this.aClass19_Sub1_12.method8082();
+        @Pc(213) Matrix_Sub1 local213 = this.aClass19_Sub1_12.method8082();
         local213.method7128(local8);
         local213.method7134(-arg7, -arg8, 0);
         local213.method1896(local19.method9050(1.0F), local19.method9046(1.0F), 1.0F);
@@ -421,8 +421,8 @@ public final class Class23_Sub3 extends Class23 {
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(FFFFFFIIII)V")
     @Override
     protected void method8200(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
-        @Pc(8) Class73_Sub1 local8 = this.aClass19_Sub1_12.method8040();
-        @Pc(13) Class73_Sub1 local13 = this.aClass19_Sub1_12.method8082();
+        @Pc(8) Matrix_Sub1 local8 = this.aClass19_Sub1_12.method8040();
+        @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_12.method8082();
         this.anInterface18_3.method9041(this.aBoolean494 || this.aBoolean495 || (0x1 & 0x1) == 0 ? Static363.aClass259_14 : Static60.aClass259_3);
         this.aClass19_Sub1_12.method8099();
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);

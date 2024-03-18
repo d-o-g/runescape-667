@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static460 {
 
     @OriginalMember(owner = "client!oj", name = "l", descriptor = "Lclient!tt;")
-    public static Class73 aClass73_10;
+    public static Matrix aMatrix_10;
 
     @OriginalMember(owner = "client!oj", name = "j", descriptor = "[I")
     public static int[] anIntArray554;

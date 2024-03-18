@@ -38,8 +38,8 @@ public final class Node_Sub2_Sub5 extends Node_Sub2 {
         this.anInt1827 = this.aClass249_1.anInt6252;
         this.anInt1824 = this.aClass249_1.anInt6250;
         this.anInt1821 = this.aClass249_1.anInt6249;
-        if (this.aClass249_1.aClass73_6 != null) {
-            this.aClass249_1.aClass73_6.method7138(this.aClass278_1.anInt6979, this.aClass278_1.anInt6987, this.aClass278_1.anInt6975, Static485.anIntArray888);
+        if (this.aClass249_1.aMatrix_6 != null) {
+            this.aClass249_1.aMatrix_6.method7138(this.aClass278_1.anInt6979, this.aClass278_1.anInt6987, this.aClass278_1.anInt6975, Static485.anIntArray888);
         }
         this.anInt1823 = Static485.anIntArray888[2];
         this.anInt1825 = Static485.anIntArray888[0];

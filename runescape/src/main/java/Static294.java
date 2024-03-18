@@ -138,8 +138,8 @@ public final class Static294 {
         Static163.aClass19_17.KA(local153, local159, local155 + local153, local159 + local161);
         Static501.method6716(true);
         local375 = Static251.anInt4037;
-        Static460.aClass73_10.method7135(Static170.anInt2864, Static359.anInt5801, Static110.anInt2186, -Static598.anInt8832 & 0x3FFF, -Static323.anInt5119 & 0x3FFF, -Static81.anInt1644 & 0x3FFF);
-        Static163.aClass19_17.method8000(Static460.aClass73_10);
+        Static460.aMatrix_10.method7135(Static170.anInt2864, Static359.anInt5801, Static110.anInt2186, -Static598.anInt8832 & 0x3FFF, -Static323.anInt5119 & 0x3FFF, -Static81.anInt1644 & 0x3FFF);
+        Static163.aClass19_17.method8000(Static460.aMatrix_10);
         Static163.aClass19_17.DA(local155 / 2 + local153, local161 / 2 + local159, Static428.anInt6495 << 1, Static428.anInt6495 << 1);
         if (Static137.aBoolean210) {
             Static476.method6448(Static251.anInt4037);

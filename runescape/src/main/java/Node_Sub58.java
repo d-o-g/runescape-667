@@ -163,7 +163,7 @@ public final class Node_Sub58 extends Node {
         if (this.aClass19_Sub1_23.aBoolean681) {
             this.aClass19_Sub1_23.EA(Integer.MAX_VALUE, this.anInt10863, this.anInt10860, this.anInt10868);
         }
-        @Pc(315) Class73_Sub1 local315 = this.aClass19_Sub1_23.method8082();
+        @Pc(315) Matrix_Sub1 local315 = this.aClass19_Sub1_23.method8082();
         local315.method1884(1.0F, 1.0F / this.aFloat219, 1.0F / this.aFloat219);
         this.aClass19_Sub1_23.method8073(Static431.aClass370_5);
         this.aClass19_Sub1_23.method8130(1, this.anInterface16_18);

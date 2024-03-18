@@ -103,7 +103,7 @@ public final class Ground_Sub3 extends Ground {
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(III[[ZZI)V")
     @Override
     public void method7870(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5) {
-        @Pc(3) Class73_Sub2 local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
+        @Pc(3) Matrix_Sub2 local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
         this.anInt8145 = -1;
         this.aFloat170 = local3.aFloat59;
         this.aFloat167 = local3.aFloat55;
@@ -1231,7 +1231,7 @@ public final class Ground_Sub3 extends Ground {
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(III[[ZZII)V")
     @Override
     public void method7877(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        @Pc(3) Class73_Sub2 local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
+        @Pc(3) Matrix_Sub2 local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
         this.anInt8145 = arg5;
         this.aFloat170 = local3.aFloat59;
         this.aFloat167 = local3.aFloat55;

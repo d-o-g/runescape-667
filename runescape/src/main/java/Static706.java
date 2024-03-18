@@ -57,7 +57,7 @@ public final class Static706 {
 
     @OriginalMember(owner = "client!wfa", name = "a", descriptor = "(IBII)Z")
     public static boolean method9224(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        Static107.aClass73_3.method7124(arg2, arg1, arg0, Static35.anIntArray58);
+        Static107.aMatrix_3.method7124(arg2, arg1, arg0, Static35.anIntArray58);
         @Pc(13) int local13 = Static35.anIntArray58[2];
         if (local13 < 50) {
             return false;

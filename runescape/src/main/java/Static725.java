@@ -36,7 +36,7 @@ public final class Static725 {
             Static460.anInt6970 = Static228.anInt3709 >> 1;
             Static485.anIntArray886 = new int[Static228.anInt3709 * Static624.anInt9461];
         }
-        Static107.aClass73_3 = arg0.method8017();
+        Static107.aMatrix_3 = arg0.method8017();
         Static469.anInt7072 = 0;
         for (@Pc(117) int local117 = 0; local117 < Static317.anInt5046; local117++) {
             Static494.method6601(arg1, Static384.aClass75Array2[local117], arg0);

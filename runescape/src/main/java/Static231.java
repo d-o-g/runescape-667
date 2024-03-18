@@ -77,8 +77,8 @@ public final class Static231 {
                 }
             }
         }
-        Static59.aClass73_5 = null;
-        Static460.aClass73_10 = null;
+        Static59.aMatrix_5 = null;
+        Static460.aMatrix_10 = null;
         Static163.aClass19_17.method7940();
         Static163.aClass19_17 = null;
     }

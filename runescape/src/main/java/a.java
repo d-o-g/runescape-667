@@ -90,7 +90,7 @@ public final class a implements Interface5 {
     }
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!ka;IILclient!tt;ZI)Z")
-    public boolean method5(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class73 arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5) {
+    public boolean method5(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Matrix arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5) {
         return this.n(this.nativeid, ((i) arg0).nativeid, arg1, arg2, ((ja) arg3).nativeid, arg4, arg5);
     }
 
@@ -119,12 +119,12 @@ public final class a implements Interface5 {
     }
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!ka;Lclient!tt;[II)V")
-    public void method8(@OriginalArg(0) Model arg0, @OriginalArg(1) Class73 arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3) {
+    public void method8(@OriginalArg(0) Model arg0, @OriginalArg(1) Matrix arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3) {
         this.UA(this.nativeid, ((i) arg0).nativeid, ((ja) arg1).nativeid, arg2, arg3);
     }
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!ka;Lclient!tt;[III)V")
-    public void method9(@OriginalArg(0) Model arg0, @OriginalArg(1) Class73 arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void method9(@OriginalArg(0) Model arg0, @OriginalArg(1) Matrix arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         this.f(this.nativeid, ((i) arg0).nativeid, ((ja) arg1).nativeid, arg2, arg3, arg4);
     }
 
@@ -140,7 +140,7 @@ public final class a implements Interface5 {
     public native void E(@OriginalArg(0) long arg0, @OriginalArg(1) boolean arg1);
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!ka;IILclient!tt;Z)Z")
-    public boolean method11(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class73 arg3, @OriginalArg(4) boolean arg4) {
+    public boolean method11(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Matrix arg3, @OriginalArg(4) boolean arg4) {
         return this.R(this.nativeid, ((i) arg0).nativeid, arg1, arg2, ((ja) arg3).nativeid, arg4);
     }
 
@@ -176,7 +176,7 @@ public final class a implements Interface5 {
     }
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!ka;[ILclient!tt;)V")
-    public void method15(@OriginalArg(0) Model arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) Class73 arg2) {
+    public void method15(@OriginalArg(0) Model arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) Matrix arg2) {
         this.e(this.nativeid, ((i) arg0).nativeid, arg1, ((ja) arg2).nativeid);
     }
 

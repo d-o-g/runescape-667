@@ -128,7 +128,7 @@ public final class Class216 {
         @Pc(190) int[] local190 = arg0.Y();
         arg0.DA(this.anInt5638 / 2, this.anInt5638 / 2, local84, local84);
         arg0.method8000(arg0.method7953());
-        @Pc(209) Class73 local209 = arg0.method7953();
+        @Pc(209) Matrix local209 = arg0.method7953();
         local209.method7125(0, 0, arg0.i() - local147.HA());
         local147.method7484(local209, (Class8_Sub6) null, 1024, 1);
         @Pc(231) int local231 = this.anInt5638 * 13 / 16;
@@ -198,7 +198,7 @@ public final class Class216 {
         @Pc(219) int[] local219 = arg0.Y();
         arg0.DA(this.anInt5638 / 2, this.anInt5638 / 2, local216, local216);
         arg0.method8000(arg0.method7953());
-        @Pc(238) Class73 local238 = arg0.method7985();
+        @Pc(238) Matrix local238 = arg0.method7985();
         local238.method7125(0, 0, arg0.i() - local190.HA());
         local190.method7484(local238, (Class8_Sub6) null, arg0.i(), 1);
         this.aClass23_24 = arg0.method7964(0, 0, this.anInt5638, this.anInt5638, true);
@@ -216,7 +216,7 @@ public final class Class216 {
         @Pc(14) int local14 = -(this.anInt5635 - arg7 << 16);
         @Pc(21) int local21 = this.anInt5626 - arg8 << 15;
         @Pc(29) int local29 = -(this.anInt5630 - arg9 << 16);
-        @Pc(32) Class73 local32 = arg0.method8017();
+        @Pc(32) Matrix local32 = arg0.method8017();
         local32.method7124(0, 0, 0, local6);
         @Pc(44) int local44 = local14 + local6[0];
         @Pc(50) int local50 = local21 + local6[1];

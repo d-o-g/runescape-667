@@ -102,8 +102,8 @@ public final class Static595 {
         Static112.method2109();
         Static163.aClass19_17.method8003();
         Static163.aClass19_17.X(32);
-        Static460.aClass73_10 = Static163.aClass19_17.method7953();
-        Static59.aClass73_5 = Static163.aClass19_17.method7953();
+        Static460.aMatrix_10 = Static163.aClass19_17.method7953();
+        Static59.aMatrix_5 = Static163.aClass19_17.method7953();
         Static209.method3110();
         Static163.aClass19_17.method7997(Static400.aClass2_Sub34_28.aClass57_Sub9_1.method3199() == 1);
         if (Static163.aClass19_17.method7936()) {

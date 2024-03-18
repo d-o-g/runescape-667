@@ -15,7 +15,7 @@ public final class Static713 {
 
     @OriginalMember(owner = "client!wk", name = "a", descriptor = "(IZ)V")
     public static void method9331(@OriginalArg(1) boolean arg0) {
-        Static712.aClass73_11.method7128(Static74.aClass19_4.method8017());
+        Static712.aMatrix_11.method7128(Static74.aClass19_4.method8017());
         @Pc(10) int[] local10 = Static74.aClass19_4.Y();
         Static338.anInt5563 = local10[0];
         Static637.anInt9536 = local10[1];

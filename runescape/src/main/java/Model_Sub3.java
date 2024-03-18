@@ -175,7 +175,7 @@ public final class Model_Sub3 extends Model {
     public short aShort118;
 
     @OriginalMember(owner = "client!rs", name = "Y", descriptor = "Lclient!eaa;")
-    public Class73_Sub2 aClass73_Sub2_2;
+    public Matrix_Sub2 aClass73_Sub2_2;
 
     @OriginalMember(owner = "client!rs", name = "L", descriptor = "I")
     public int anInt8493;
@@ -1378,7 +1378,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(IILclient!tt;ZI)Z")
     @Override
-    public boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class73 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
+    public boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
         return this.method7513(arg0, arg1, arg2, arg3, arg4, -1);
     }
 
@@ -1726,8 +1726,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7476(@OriginalArg(0) Class73 arg0) {
-        @Pc(2) Class73_Sub2 local2 = (Class73_Sub2) arg0;
+    public void method7476(@OriginalArg(0) Matrix arg0) {
+        @Pc(2) Matrix_Sub2 local2 = (Matrix_Sub2) arg0;
         @Pc(7) int local7;
         if (this.aClass328Array5 != null) {
             for (local7 = 0; local7 < this.aClass328Array5.length; local7++) {
@@ -1756,10 +1756,10 @@ public final class Model_Sub3 extends Model {
             if (local355.aClass249_2 != null) {
                 local357 = local355.aClass249_2;
             }
-            if (local355.aClass73_6 == null) {
-                local355.aClass73_6 = local2.method7129();
+            if (local355.aMatrix_6 == null) {
+                local355.aMatrix_6 = local2.method7129();
             } else {
-                local355.aClass73_6.method7128(local2);
+                local355.aMatrix_6.method7128(local2);
             }
             local357.anInt6252 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local355.anInt6247] + local2.aFloat55 * (float) this.anIntArray675[local355.anInt6247] + local2.aFloat53 * (float) this.anIntArray658[local355.anInt6247]);
             local357.anInt6250 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local355.anInt6247] + local2.aFloat52 * (float) this.anIntArray675[local355.anInt6247] + local2.aFloat51 * (float) this.anIntArray658[local355.anInt6247]);
@@ -1895,7 +1895,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(IILclient!tt;ZII)Z")
     @Override
-    public boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class73 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         return this.method7513(arg0, arg1, arg2, arg3, arg4, arg5);
     }
 
@@ -1965,7 +1965,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;Lclient!ima;II)V")
     @Override
-    public void method7484(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void method7484(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         this.method7528(arg0, arg1, arg2, arg3);
     }
 
@@ -2581,9 +2581,9 @@ public final class Model_Sub3 extends Model {
     }
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(IILclient!tt;ZII)Z")
-    public boolean method7513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class73 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.aClass73_Sub2_2 = (Class73_Sub2) arg2;
-        @Pc(7) Class73_Sub2 local7 = this.aClass19_Sub2_9.aClass73_Sub2_1;
+    public boolean method7513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+        this.aClass73_Sub2_2 = (Matrix_Sub2) arg2;
+        @Pc(7) Matrix_Sub2 local7 = this.aClass19_Sub2_9.aClass73_Sub2_1;
         @Pc(31) float local31 = local7.aFloat60 + local7.aFloat59 * this.aClass73_Sub2_2.aFloat60 + local7.aFloat55 * this.aClass73_Sub2_2.aFloat58 + local7.aFloat53 * this.aClass73_Sub2_2.aFloat62;
         @Pc(55) float local55 = local7.aFloat58 + local7.aFloat57 * this.aClass73_Sub2_2.aFloat60 + local7.aFloat52 * this.aClass73_Sub2_2.aFloat58 + local7.aFloat51 * this.aClass73_Sub2_2.aFloat62;
         @Pc(79) float local79 = local7.aFloat62 + local7.aFloat56 * this.aClass73_Sub2_2.aFloat60 + local7.aFloat54 * this.aClass73_Sub2_2.aFloat58 + local7.aFloat61 * this.aClass73_Sub2_2.aFloat62;
@@ -3317,7 +3317,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;IZ)V")
     @Override
-    public void method7492(@OriginalArg(0) Class73 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+    public void transform(@OriginalArg(0) Matrix matrix, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
         if (this.aShortArray121 == null) {
             return;
         }
@@ -3325,9 +3325,9 @@ public final class Model_Sub3 extends Model {
         for (@Pc(9) int local9 = 0; local9 < this.anInt8491; local9++) {
             if ((arg1 & this.aShortArray121[local9]) != 0) {
                 if (arg2) {
-                    arg0.method7140(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
+                    matrix.method7140(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
                 } else {
-                    arg0.method7124(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
+                    matrix.method7124(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
                 }
                 this.anIntArray666[local9] = local7[0];
                 this.anIntArray675[local9] = local7[1];
@@ -3582,7 +3582,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
     @Override
-    public void method7473(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2) {
+    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2) {
         this.method7528(arg0, arg1, -1, arg2);
     }
 
@@ -3765,12 +3765,12 @@ public final class Model_Sub3 extends Model {
     }
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(Lclient!tt;Lclient!ima;II)V")
-    public void method7528(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void method7528(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (this.anInt8491 < 1) {
             return;
         }
-        this.aClass73_Sub2_2 = (Class73_Sub2) arg0;
-        @Pc(13) Class73_Sub2 local13 = this.aClass19_Sub2_9.aClass73_Sub2_1;
+        this.aClass73_Sub2_2 = (Matrix_Sub2) arg0;
+        @Pc(13) Matrix_Sub2 local13 = this.aClass19_Sub2_9.aClass73_Sub2_1;
         if (!this.aBoolean652) {
             this.method7525();
         }

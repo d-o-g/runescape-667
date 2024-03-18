@@ -91,7 +91,7 @@ public final class Class293 {
                             if (local99 - arg3 >= -arg1 && arg1 >= local99 - arg3) {
                                 for (@Pc(127) int local127 = local65; local127 < local72; local127++) {
                                     if (-arg1 <= local127 - arg2 && local127 - arg2 <= arg1 && arg0[arg1 + local99 - arg3][local127 + arg1 - arg2]) {
-                                        @Pc(169) Class73_Sub1 local169 = this.aClass19_Sub1_17.method8082();
+                                        @Pc(169) Matrix_Sub1 local169 = this.aClass19_Sub1_17.method8082();
                                         local169.method1884(1.0F, local54, local54);
                                         local169.method7134(-local74, -local58, 0);
                                         this.aClass19_Sub1_17.method8073(Static431.aClass370_5);
@@ -145,7 +145,7 @@ public final class Class293 {
                             }
                             local292.c();
                             if (local279.method8546() && local294 > 0) {
-                                @Pc(490) Class73_Sub1 local490 = this.aClass19_Sub1_17.method8082();
+                                @Pc(490) Matrix_Sub1 local490 = this.aClass19_Sub1_17.method8082();
                                 local490.method1884(1.0F, local54, local54);
                                 local490.method7134(-local74, -local58, 0);
                                 this.aClass19_Sub1_17.method8073(Static431.aClass370_5);

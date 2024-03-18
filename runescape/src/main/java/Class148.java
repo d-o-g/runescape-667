@@ -207,14 +207,14 @@ public final class Class148 {
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(IIIIILclient!ha;)V")
     public void method3164(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) Class19 arg4) {
-        @Pc(7) Class73 local7 = arg4.method8017().method7129();
-        @Pc(10) Class73 local10 = arg4.method7953();
+        @Pc(7) Matrix local7 = arg4.method8017().method7129();
+        @Pc(10) Matrix local10 = arg4.method7953();
         local10.method7125(0, 0, 0);
         local10.method7127(arg0 & 0x3FFF);
         local10.method7130(arg2 & 0x3FFF);
         local10.method7139(arg3 & 0x3FFF);
         arg4.method8000(local10);
-        @Pc(36) Class73 local36 = arg4.method7953();
+        @Pc(36) Matrix local36 = arg4.method7953();
         local36.method7133();
         if (this.anInt3503 != arg1) {
             this.aModel_2.updateAlphas((byte) arg1, this.aByteArray35);

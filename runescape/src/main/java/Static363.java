@@ -65,8 +65,8 @@ public final class Static363 {
             @Pc(67) Mesh local67 = Static121.method2201(Static65.aClass3_1.anInt81, Static190.aClass330_38);
             @Pc(70) long local70 = Static588.method7715();
             Static163.aClass19_17.la();
-            Static460.aClass73_10.method7125(0, Static247.anInt3993, 0);
-            Static163.aClass19_17.method8000(Static460.aClass73_10);
+            Static460.aMatrix_10.method7125(0, Static247.anInt3993, 0);
+            Static163.aClass19_17.method8000(Static460.aMatrix_10);
             Static163.aClass19_17.DA(local43.width / 2, local43.height / 2, 512, 512);
             Static163.aClass19_17.xa(1.0F);
             Static163.aClass19_17.ZA(16777215, 0.5F, 0.5F, 20.0F, -50.0F, 30.0F);
@@ -78,8 +78,8 @@ public final class Static363 {
                 Static163.aClass19_17.ya();
                 for (@Pc(123) int local123 = 15; local123 >= 0; local123--) {
                     for (@Pc(126) int local126 = 0; local126 <= local123; local126++) {
-                        Static59.aClass73_5.method7125((int) ((float) Static340.anInt5586 * (-((float) local123 / 2.0F) + (float) local126)), 0, (local123 + 1) * Static340.anInt5586);
-                        local111.method7473(Static59.aClass73_5, (Class8_Sub6) null, 0);
+                        Static59.aMatrix_5.method7125((int) ((float) Static340.anInt5586 * (-((float) local123 / 2.0F) + (float) local126)), 0, (local123 + 1) * Static340.anInt5586);
+                        local111.method7473(Static59.aMatrix_5, (Class8_Sub6) null, 0);
                         local113++;
                         if ((long) arg0 <= Static588.method7715() - local70) {
                             break label41;

@@ -272,7 +272,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(BLclient!ha;Lclient!tt;Lclient!ka;)V")
-    public void method817(@OriginalArg(1) Class19 arg0, @OriginalArg(2) Class73 arg1, @OriginalArg(3) Model arg2) {
+    public void method817(@OriginalArg(1) Class19 arg0, @OriginalArg(2) Matrix arg1, @OriginalArg(3) Model arg2) {
         arg2.method7476(arg1);
         @Pc(9) Class328[] local9 = arg2.method7482();
         @Pc(12) Class249[] local12 = arg2.method7480();
@@ -301,7 +301,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         if (local18 == null) {
             return;
         }
-        @Pc(25) Class73 local25 = arg0.method7985();
+        @Pc(25) Matrix local25 = arg0.method7985();
         local25.method7136(this.anInt703);
         local25.method7127(this.anInt694);
         local25.method7134((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);
@@ -317,7 +317,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         if (local19 == null) {
             return null;
         }
-        @Pc(27) Class73 local27 = arg0.method7985();
+        @Pc(27) Matrix local27 = arg0.method7985();
         local27.method7136(this.anInt703);
         local27.method7127(this.anInt694);
         local27.method7134((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);

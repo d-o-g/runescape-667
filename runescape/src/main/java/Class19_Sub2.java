@@ -153,7 +153,7 @@ public final class Class19_Sub2 extends Class19 {
     public final Class82 aClass82_89;
 
     @OriginalMember(owner = "client!iaa", name = "db", descriptor = "Lclient!eaa;")
-    public Class73_Sub2 aClass73_Sub2_1;
+    public Matrix_Sub2 aClass73_Sub2_1;
 
     @OriginalMember(owner = "client!iaa", name = "eb", descriptor = "I")
     public int anInt4184;
@@ -183,7 +183,7 @@ public final class Class19_Sub2 extends Class19 {
         this.anInt4215 = -1;
         try {
             this.aClass82_89 = new Class82(256);
-            this.aClass73_Sub2_1 = new Class73_Sub2();
+            this.aClass73_Sub2_1 = new Matrix_Sub2();
             this.method7956(1);
             this.method8020(0);
             Static198.method2954(true, true);
@@ -940,7 +940,7 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "n", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method8017() {
+    public Matrix method8017() {
         return this.aClass73_Sub2_1;
     }
 
@@ -1086,7 +1086,7 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "A", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method7985() {
+    public Matrix method7985() {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
         return local3.aClass73_Sub2_3;
     }
@@ -2803,8 +2803,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method8000(@OriginalArg(0) Class73 arg0) {
-        this.aClass73_Sub2_1 = (Class73_Sub2) arg0;
+    public void method8000(@OriginalArg(0) Matrix arg0) {
+        this.aClass73_Sub2_1 = (Matrix_Sub2) arg0;
     }
 
     @OriginalMember(owner = "client!iaa", name = "na", descriptor = "(IIII)[I")
@@ -2874,8 +2874,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "y", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method7953() {
-        return new Class73_Sub2();
+    public Matrix method7953() {
+        return new Matrix_Sub2();
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(I)Lclient!za;")

@@ -87,7 +87,7 @@ public abstract class Class19_Sub1 extends Class19 {
     public int anInt9160;
 
     @OriginalMember(owner = "client!am", name = "kc", descriptor = "[Lclient!cw;")
-    protected Class73_Sub1[] aClass73_Sub1Array3;
+    protected Matrix_Sub1[] aClass73_Sub1Array3;
 
     @OriginalMember(owner = "client!am", name = "Gf", descriptor = "F")
     public float aFloat192;
@@ -186,22 +186,22 @@ public abstract class Class19_Sub1 extends Class19 {
     protected boolean aBoolean676 = true;
 
     @OriginalMember(owner = "client!am", name = "Xc", descriptor = "Lclient!cw;")
-    protected final Class73_Sub1 aClass73_Sub1_15 = new Class73_Sub1();
+    protected final Matrix_Sub1 aClass73_Sub1_15 = new Matrix_Sub1();
 
     @OriginalMember(owner = "client!am", name = "wg", descriptor = "Lclient!cw;")
-    public Class73_Sub1 aClass73_Sub1_16 = new Class73_Sub1();
+    public Matrix_Sub1 aClass73_Sub1_16 = new Matrix_Sub1();
 
     @OriginalMember(owner = "client!am", name = "O", descriptor = "Lclient!cw;")
-    public final Class73_Sub1 aClass73_Sub1_17 = new Class73_Sub1();
+    public final Matrix_Sub1 aClass73_Sub1_17 = new Matrix_Sub1();
 
     @OriginalMember(owner = "client!am", name = "C", descriptor = "Lclient!cw;")
-    protected final Class73_Sub1 aClass73_Sub1_18 = new Class73_Sub1();
+    protected final Matrix_Sub1 aClass73_Sub1_18 = new Matrix_Sub1();
 
     @OriginalMember(owner = "client!am", name = "Le", descriptor = "Lclient!cw;")
-    public final Class73_Sub1 aClass73_Sub1_19 = new Class73_Sub1();
+    public final Matrix_Sub1 aClass73_Sub1_19 = new Matrix_Sub1();
 
     @OriginalMember(owner = "client!am", name = "ee", descriptor = "Lclient!cw;")
-    public final Class73_Sub1 aClass73_Sub1_20 = new Class73_Sub1();
+    public final Matrix_Sub1 aClass73_Sub1_20 = new Matrix_Sub1();
 
     @OriginalMember(owner = "client!am", name = "Ie", descriptor = "I")
     protected int anInt9148 = 0;
@@ -405,7 +405,7 @@ public abstract class Class19_Sub1 extends Class19 {
     public final Model_Sub1[] aClass114_Sub1Array6 = new Model_Sub1[7];
 
     @OriginalMember(owner = "client!am", name = "B", descriptor = "Lclient!cw;")
-    public final Class73_Sub1 aClass73_Sub1_21 = new Class73_Sub1();
+    public final Matrix_Sub1 aClass73_Sub1_21 = new Matrix_Sub1();
 
     @OriginalMember(owner = "client!am", name = "Td", descriptor = "Lclient!sb;")
     protected final Class330 aClass330_112;
@@ -585,7 +585,7 @@ public abstract class Class19_Sub1 extends Class19 {
     }
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!cw;Z)V")
-    public final void method8024(@OriginalArg(0) Class73_Sub1 arg0) {
+    public final void method8024(@OriginalArg(0) Matrix_Sub1 arg0) {
         this.aClass73_Sub1_15.method7128(arg0);
         this.aBoolean676 = false;
         this.method8091();
@@ -950,15 +950,15 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "y", descriptor = "()Lclient!tt;")
     @Override
-    public final Class73 method7953() {
-        return new Class73_Sub1();
+    public final Matrix method7953() {
+        return new Matrix_Sub1();
     }
 
     @OriginalMember(owner = "client!am", name = "h", descriptor = "(Z)V")
     protected abstract void method8039();
 
     @OriginalMember(owner = "client!am", name = "g", descriptor = "(Z)Lclient!cw;")
-    public final Class73_Sub1 method8040() {
+    public final Matrix_Sub1 method8040() {
         return this.aClass73_Sub1_15;
     }
 
@@ -1141,7 +1141,7 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "n", descriptor = "()Lclient!tt;")
     @Override
-    public final Class73 method8017() {
+    public final Matrix method8017() {
         return this.aClass73_Sub1_16;
     }
 
@@ -1340,7 +1340,7 @@ public abstract class Class19_Sub1 extends Class19 {
     protected abstract void method8065();
 
     @OriginalMember(owner = "client!am", name = "w", descriptor = "(B)Lclient!cw;")
-    public final Class73_Sub1 method8066() {
+    public final Matrix_Sub1 method8066() {
         return this.aClass73_Sub1Array3[this.anInt9148];
     }
 
@@ -1354,7 +1354,7 @@ public abstract class Class19_Sub1 extends Class19 {
     }
 
     @OriginalMember(owner = "client!am", name = "l", descriptor = "(B)Lclient!cw;")
-    public final Class73_Sub1 method8068() {
+    public final Matrix_Sub1 method8068() {
         return this.aClass73_Sub1_19;
     }
 
@@ -1652,20 +1652,20 @@ public abstract class Class19_Sub1 extends Class19 {
     }
 
     @OriginalMember(owner = "client!am", name = "E", descriptor = "(I)Lclient!cw;")
-    public final Class73_Sub1 method8082() {
+    public final Matrix_Sub1 method8082() {
         return this.aClass73_Sub1Array3[this.anInt9148];
     }
 
     @OriginalMember(owner = "client!am", name = "A", descriptor = "()Lclient!tt;")
     @Override
-    public final Class73 method7985() {
+    public final Matrix method7985() {
         return this.aClass73_Sub1_21;
     }
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public final void method8000(@OriginalArg(0) Class73 arg0) {
-        this.aClass73_Sub1_16 = (Class73_Sub1) arg0;
+    public final void method8000(@OriginalArg(0) Matrix arg0) {
+        this.aClass73_Sub1_16 = (Matrix_Sub1) arg0;
         this.aClass73_Sub1_18.method7128(this.aClass73_Sub1_16);
         this.aClass73_Sub1_18.method1895();
         this.aClass73_Sub1_19.method1880(this.aClass73_Sub1_18);
@@ -2092,7 +2092,7 @@ public abstract class Class19_Sub1 extends Class19 {
                 } else {
                     @Pc(87) int local87 = local60.aBoolean233 ? 64 : 128;
                     @Pc(91) int local91 = local87 * 50;
-                    @Pc(95) Class73_Sub1 local95 = this.method8082();
+                    @Pc(95) Matrix_Sub1 local95 = this.method8082();
                     local95.method1877(0.0F, (float) (this.anInt9164 % local91 * local60.aByte52) / (float) local91, (float) (local60.aByte54 * (this.anInt9164 % local91)) / (float) local91);
                     this.method8073(Static431.aClass370_5);
                 }
@@ -2252,7 +2252,7 @@ public abstract class Class19_Sub1 extends Class19 {
     }
 
     @OriginalMember(owner = "client!am", name = "C", descriptor = "(I)Lclient!cw;")
-    public final Class73_Sub1 method8118() {
+    public final Matrix_Sub1 method8118() {
         return this.aClass73_Sub1_18;
     }
 
@@ -2448,13 +2448,13 @@ public abstract class Class19_Sub1 extends Class19 {
         this.aClass370Array3 = new Class370[this.anInt9184];
         this.aClass121Array5 = new Class121[this.anInt9184];
         this.aClass121Array6 = new Class121[this.anInt9184];
-        this.aClass73_Sub1Array3 = new Class73_Sub1[this.anInt9184];
+        this.aClass73_Sub1Array3 = new Matrix_Sub1[this.anInt9184];
         this.anInterface17Array3 = new Interface17[this.anInt9184];
         for (@Pc(38) int local38 = 0; local38 < this.anInt9184; local38++) {
             this.aClass121Array5[local38] = Static209.aClass121_4;
             this.aClass121Array6[local38] = Static209.aClass121_4;
             this.aClass370Array3[local38] = Static215.aClass370_2;
-            this.aClass73_Sub1Array3[local38] = new Class73_Sub1();
+            this.aClass73_Sub1Array3[local38] = new Matrix_Sub1();
         }
         this.aClass2_Sub7Array6 = new Node_Sub7[this.anInt9182 - 2];
         this.anInterface17_3 = this.method8067(Static172.aClass92_8, Static702.aClass397_16, 1, 1);
@@ -2695,7 +2695,7 @@ public abstract class Class19_Sub1 extends Class19 {
     }
 
     @OriginalMember(owner = "client!am", name = "n", descriptor = "(I)Lclient!cw;")
-    public final Class73_Sub1 method8154() {
+    public final Matrix_Sub1 method8154() {
         if (!this.aBoolean682) {
             this.aClass73_Sub1_20.method1890(this.aClass73_Sub1_18, this.aClass73_Sub1_15);
             this.aBoolean682 = true;

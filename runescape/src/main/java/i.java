@@ -110,7 +110,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(IILclient!tt;ZII)Z")
     @Override
-    public boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class73 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         return this.anOa2.method6087().method5(this, arg0, arg1, arg2, arg3, arg5);
     }
 
@@ -136,13 +136,13 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(Lclient!tt;IZ)V")
     @Override
-    public void method7492(@OriginalArg(0) Class73 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
-        this.J(((ja) arg0).nativeid, arg1, arg2);
+    public void transform(@OriginalArg(0) Matrix matrix, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+        this.J(((ja) matrix).nativeid, arg1, arg2);
     }
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(IILclient!tt;ZI)Z")
     @Override
-    public boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class73 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
+    public boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
         return this.anOa2.method6087().method11(this, arg0, arg1, arg2, arg3);
     }
 
@@ -169,7 +169,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7476(@OriginalArg(0) Class73 arg0) {
+    public void method7476(@OriginalArg(0) Matrix arg0) {
         this.method3688(Static445.anIntArray537, arg0);
         @Pc(5) int local5 = 0;
         @Pc(10) int local10;
@@ -196,10 +196,10 @@ public final class i extends Model implements Interface5 {
             if (local89.aClass249_2 != null) {
                 local91 = local89.aClass249_2;
             }
-            if (local89.aClass73_6 == null) {
-                local89.aClass73_6 = arg0.method7129();
+            if (local89.aMatrix_6 == null) {
+                local89.aMatrix_6 = arg0.method7129();
             } else {
-                local89.aClass73_6.method7128(arg0);
+                local89.aMatrix_6.method7128(arg0);
             }
             local91.anInt6252 = Static445.anIntArray537[local5++];
             local91.anInt6250 = Static445.anIntArray537[local5++];
@@ -256,7 +256,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(Lclient!tt;Lclient!ima;II)V")
     @Override
-    public void method7484(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void method7484(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (arg1 == null) {
             this.anOa2.method6087().method9(this, arg0, (int[]) null, arg2, arg3);
             return;
@@ -275,7 +275,7 @@ public final class i extends Model implements Interface5 {
     public native boolean r();
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "([ILclient!tt;)V")
-    public void method3688(@OriginalArg(0) int[] arg0, @OriginalArg(1) Class73 arg1) {
+    public void method3688(@OriginalArg(0) int[] arg0, @OriginalArg(1) Matrix arg1) {
         this.anOa2.method6087().method15(this, arg0, arg1);
     }
 
@@ -330,7 +330,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
     @Override
-    public void method7473(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2) {
+    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2) {
         if (arg1 == null) {
             this.anOa2.method6087().method8(this, arg0, (int[]) null, arg2);
             return;

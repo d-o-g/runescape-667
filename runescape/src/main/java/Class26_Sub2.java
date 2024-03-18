@@ -79,9 +79,9 @@ public final class Class26_Sub2 extends Class26 {
         if (super.aClass19_Sub1_21.method8026() != 0) {
             return;
         }
-        @Pc(9) Class73_Sub1 local9 = super.aClass19_Sub1_21.method8066();
+        @Pc(9) Matrix_Sub1 local9 = super.aClass19_Sub1_21.method8066();
         super.aClass19_Sub1_21.method8138(1);
-        @Pc(19) Class73_Sub1 local19 = super.aClass19_Sub1_21.method8082();
+        @Pc(19) Matrix_Sub1 local19 = super.aClass19_Sub1_21.method8082();
         local19.method7128(local9);
         local19.method1896(0.125F, 0.125F, 1.0F);
         local19.method1882(this.aFloat33, 0.0F, 0.0F);

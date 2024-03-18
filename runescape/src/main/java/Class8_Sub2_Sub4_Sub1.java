@@ -106,7 +106,7 @@ public final class Class8_Sub2_Sub4_Sub1 extends Class8_Sub2_Sub4 implements Int
         if (local18 == null) {
             return false;
         } else {
-            @Pc(23) Class73 local23 = arg3.method7985();
+            @Pc(23) Matrix local23 = arg3.method7985();
             local23.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
             return Static504.aBoolean579 ? local18.method7483(arg1, arg0, local23, false, 0, Static582.anInt8627) : local18.method7486(arg1, arg0, local23, false, 0);
         }
@@ -221,7 +221,7 @@ public final class Class8_Sub2_Sub4_Sub1 extends Class8_Sub2_Sub4 implements Int
         if (this.aModel_3 == null) {
             return null;
         }
-        @Pc(12) Class73 local12 = arg0.method7985();
+        @Pc(12) Matrix local12 = arg0.method7985();
         local12.method7125(super.anInt10690 + super.aShort101, super.anInt10691, super.aShort102 + super.anInt10694);
         @Pc(41) Class8_Sub7 local41 = Static642.method8441(this.aBoolean350, 1);
         if (Static504.aBoolean579) {

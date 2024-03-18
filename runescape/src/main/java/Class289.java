@@ -22,7 +22,7 @@ public final class Class289 {
     public int[] anIntArray586;
 
     @OriginalMember(owner = "client!pda", name = "O", descriptor = "[Lclient!tt;")
-    public Class73[] aClass73Array1;
+    public Matrix[] aMatrixArray1;
 
     @OriginalMember(owner = "client!pda", name = "t", descriptor = "I")
     public int anInt7231 = 0;
@@ -185,13 +185,13 @@ public final class Class289 {
     }
 
     @OriginalMember(owner = "client!pda", name = "a", descriptor = "(ILclient!ha;)[Lclient!tt;")
-    public Class73[] method6480(@OriginalArg(1) Class19 arg0) {
-        if (this.aClass73Array1 != null && this.anInt7261 == arg0.anInt8962) {
-            return this.aClass73Array1;
+    public Matrix[] method6480(@OriginalArg(1) Class19 arg0) {
+        if (this.aMatrixArray1 != null && this.anInt7261 == arg0.anInt8962) {
+            return this.aMatrixArray1;
         } else if (this.anIntArrayArray181 == null) {
             return null;
         } else {
-            this.aClass73Array1 = new Class73[this.anIntArrayArray181.length];
+            this.aMatrixArray1 = new Matrix[this.anIntArrayArray181.length];
             for (@Pc(35) int local35 = 0; local35 < this.anIntArrayArray181.length; local35++) {
                 @Pc(38) int local38 = 0;
                 @Pc(40) int local40 = 0;
@@ -208,7 +208,7 @@ public final class Class289 {
                     local38 = this.anIntArrayArray181[local35][0];
                 }
                 if (local38 != 0 || local40 != 0 || local42 != 0 || local44 != 0 || local46 != 0 || local48 != 0) {
-                    @Pc(137) Class73 local137 = this.aClass73Array1[local35] = arg0.method7953();
+                    @Pc(137) Matrix local137 = this.aMatrixArray1[local35] = arg0.method7953();
                     if (local48 != 0) {
                         local137.method7139(local48);
                     }
@@ -221,7 +221,7 @@ public final class Class289 {
                     local137.method7134(local38, local40, local42);
                 }
             }
-            return this.aClass73Array1;
+            return this.aMatrixArray1;
         }
     }
 

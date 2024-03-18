@@ -32,7 +32,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
         if (local12 == null) {
             return false;
         } else {
-            @Pc(20) Class73 local20 = arg3.method7985();
+            @Pc(20) Matrix local20 = arg3.method7985();
             local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
             return Static504.aBoolean579 ? local12.method7483(arg1, arg0, local20, false, 0, Static582.anInt8627) : local12.method7486(arg1, arg0, local20, false, 0);
         }
@@ -59,7 +59,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
         }
         @Pc(28) int local28 = super.anInt10690 >> 9;
         @Pc(33) int local33 = super.anInt10694 >> 9;
-        @Pc(36) Class73 local36 = arg0.method7985();
+        @Pc(36) Matrix local36 = arg0.method7985();
         local36.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         this.aClass337_2.method7681(local33, local21, false, -9827, arg0, local28, local28, local33, local36);
     }
@@ -151,7 +151,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
         if (local22 == null) {
             return null;
         }
-        @Pc(30) Class73 local30 = arg0.method7985();
+        @Pc(30) Matrix local30 = arg0.method7985();
         local30.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(44) Class8_Sub7 local44 = Static642.method8441(this.aBoolean318, 1);
         @Pc(49) int local49 = super.anInt10690 >> 9;

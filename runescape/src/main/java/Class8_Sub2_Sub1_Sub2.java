@@ -813,7 +813,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public abstract Class80 method9318(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(Lclient!ha;BZ[Lclient!ka;Lclient!tt;)V")
-    protected final void method9319(@OriginalArg(0) Class19 arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Model[] arg2, @OriginalArg(4) Class73 arg3) {
+    protected final void method9319(@OriginalArg(0) Class19 arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Model[] arg2, @OriginalArg(4) Matrix arg3) {
         if (!arg1) {
             @Pc(15) int local15 = 0;
             @Pc(17) int local17 = 0;

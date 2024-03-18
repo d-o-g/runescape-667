@@ -19,9 +19,9 @@ public final class Static85 {
     @OriginalMember(owner = "client!cm", name = "a", descriptor = "(IIIIILclient!ha;)V")
     public static void method9264(@OriginalArg(1) int arg0, @OriginalArg(3) int arg1, @OriginalArg(5) Class19 arg2) {
         Static74.aClass19_4 = arg2;
-        Static420.aClass73_7 = Static74.aClass19_4.method7953();
-        Static203.aClass73_4 = Static74.aClass19_4.method7953();
-        Static712.aClass73_11 = Static74.aClass19_4.method7953();
+        Static420.aMatrix_7 = Static74.aClass19_4.method7953();
+        Static203.aMatrix_4 = Static74.aClass19_4.method7953();
+        Static712.aMatrix_11 = Static74.aClass19_4.method7953();
         Static173.anIntArray252 = null;
         Static321.anInt5113 = 100;
         Static702.anInt10569 = 100;

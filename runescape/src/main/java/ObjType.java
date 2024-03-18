@@ -572,12 +572,12 @@ public final class ObjType {
             local363 = this.zoom2d << 2;
         }
         scratchToolkit.DA(16, 16, 512, 512);
-        @Pc(395) Class73 local395 = scratchToolkit.method7953();
+        @Pc(395) Matrix local395 = scratchToolkit.method7953();
         local395.method7133();
         scratchToolkit.method8000(local395);
         scratchToolkit.xa(1.0F);
         scratchToolkit.ZA(16777215, 1.0F, 1.0F, -50.0F, -10.0F, -50.0F);
-        @Pc(414) Class73 local414 = scratchToolkit.method7985();
+        @Pc(414) Matrix local414 = scratchToolkit.method7985();
         local414.method7132(-this.zan2d << 3);
         local414.method7127(this.yan2d << 3);
         local414.method7134(this.xof2d << 2, (Class361.anIntArray741[this.xan2d << 3] * local363 >> 14) + (this.yof2d << 2) - (model.fa() / 2), (Class361.anIntArray740[this.xan2d << 3] * local363 >> 14) - -(this.yof2d << 2));

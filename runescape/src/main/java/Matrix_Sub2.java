@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!eaa")
-public final class Class73_Sub2 extends Class73 {
+public final class Matrix_Sub2 extends Matrix {
 
     @OriginalMember(owner = "client!eaa", name = "y", descriptor = "F")
     public float aFloat51;
@@ -43,7 +43,7 @@ public final class Class73_Sub2 extends Class73 {
     public float aFloat62;
 
     @OriginalMember(owner = "client!eaa", name = "<init>", descriptor = "()V")
-    public Class73_Sub2() {
+    public Matrix_Sub2() {
         this.method7133();
     }
 
@@ -159,8 +159,8 @@ public final class Class73_Sub2 extends Class73 {
 
     @OriginalMember(owner = "client!eaa", name = "b", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method7129() {
-        @Pc(7) Class73_Sub2 local7 = new Class73_Sub2();
+    public Matrix method7129() {
+        @Pc(7) Matrix_Sub2 local7 = new Matrix_Sub2();
         local7.aFloat62 = this.aFloat62;
         local7.aFloat53 = this.aFloat53;
         local7.aFloat52 = this.aFloat52;
@@ -243,8 +243,8 @@ public final class Class73_Sub2 extends Class73 {
 
     @OriginalMember(owner = "client!eaa", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7128(@OriginalArg(0) Class73 arg0) {
-        @Pc(6) Class73_Sub2 local6 = (Class73_Sub2) arg0;
+    public void method7128(@OriginalArg(0) Matrix arg0) {
+        @Pc(6) Matrix_Sub2 local6 = (Matrix_Sub2) arg0;
         this.aFloat56 = local6.aFloat56;
         this.aFloat53 = local6.aFloat53;
         this.aFloat52 = local6.aFloat52;

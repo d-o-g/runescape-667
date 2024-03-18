@@ -18,7 +18,7 @@ public final class Static147 {
         if (arg1 < 0 || arg0 < 0 || Static240.anInt3955 == 0 || Static275.anInt4424 == 0) {
             return;
         }
-        @Pc(38) Class73 local38;
+        @Pc(38) Matrix local38;
         @Pc(57) int local57;
         @Pc(45) int local45;
         @Pc(49) int local49;

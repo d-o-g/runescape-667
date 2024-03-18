@@ -52,7 +52,7 @@ public final class Class26_Sub9 extends Class26 {
     public void method8285() {
         if (this.anIDirect3DVertexShader7 != null) {
             @Pc(8) IDirect3DDevice local8 = this.aClass19_Sub1_Sub1_7.anIDirect3DDevice1;
-            @Pc(13) Class73_Sub1 local13 = this.aClass19_Sub1_Sub1_7.method8154();
+            @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_Sub1_7.method8154();
             local8.a(0, local13.method1888(Static531.aFloatArray55));
         }
     }
@@ -123,7 +123,7 @@ public final class Class26_Sub9 extends Class26 {
             return;
         }
         @Pc(16) IDirect3DDevice local16 = this.aClass19_Sub1_Sub1_7.anIDirect3DDevice1;
-        @Pc(21) Class73_Sub1 local21 = this.aClass19_Sub1_21.method8066();
+        @Pc(21) Matrix_Sub1 local21 = this.aClass19_Sub1_21.method8066();
         local21.method1898(Static531.aFloatArray55);
         Static531.aFloatArray55[4] *= 0.25F;
         Static531.aFloatArray55[0] *= 0.25F;
@@ -141,7 +141,7 @@ public final class Class26_Sub9 extends Class26 {
     public void method8288() {
         if (this.anIDirect3DVertexShader7 != null) {
             @Pc(6) IDirect3DDevice local6 = this.aClass19_Sub1_Sub1_7.anIDirect3DDevice1;
-            @Pc(11) Class73_Sub1 local11 = this.aClass19_Sub1_Sub1_7.method8154();
+            @Pc(11) Matrix_Sub1 local11 = this.aClass19_Sub1_Sub1_7.method8154();
             local6.a(0, local11.method1888(Static531.aFloatArray55));
         }
     }

@@ -15,7 +15,7 @@ public final class oa extends Class19 implements Interface5 {
     public ya aYa2;
 
     @OriginalMember(owner = "client!oa", name = "B", descriptor = "Lclient!tt;")
-    public Class73 aClass73_9;
+    public Matrix aMatrix_9;
 
     @OriginalMember(owner = "client!oa", name = "w", descriptor = "Lclient!p;")
     public p aP1;
@@ -48,7 +48,7 @@ public final class oa extends Class19 implements Interface5 {
     public boolean aBoolean510 = false;
 
     @OriginalMember(owner = "client!oa", name = "D", descriptor = "Lclient!tt;")
-    public Class73 aClass73_8;
+    public Matrix aMatrix_8;
 
     @OriginalMember(owner = "client!oa", name = "<init>", descriptor = "(Ljava/awt/Canvas;Lclient!d;II)V")
     public oa(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Interface4 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
@@ -61,7 +61,7 @@ public final class oa extends Class19 implements Interface5 {
             this.MA(super.anInterface4_10, 0, 0);
             Static198.method2954(true, false);
             this.aBoolean510 = true;
-            this.aClass73_8 = new ja();
+            this.aMatrix_8 = new ja();
             this.method8000(new ja());
             this.method7956(1);
             this.method8020(0);
@@ -516,7 +516,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "y", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method7953() {
+    public Matrix method7953() {
         return new ja();
     }
 
@@ -669,8 +669,8 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "n", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method8017() {
-        return this.aClass73_9;
+    public Matrix method8017() {
+        return this.aMatrix_9;
     }
 
     @OriginalMember(owner = "client!oa", name = "OA", descriptor = "()Ljava/lang/Object;")
@@ -705,8 +705,8 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method8000(@OriginalArg(0) Class73 arg0) {
-        this.aClass73_9 = arg0;
+    public void method8000(@OriginalArg(0) Matrix arg0) {
+        this.aMatrix_9 = arg0;
         this.ma(((ja) arg0).nativeid);
     }
 
@@ -777,7 +777,7 @@ public final class oa extends Class19 implements Interface5 {
         this.anAArray1 = null;
         this.aP1 = null;
         this.aYa2 = null;
-        this.aClass73_8 = null;
+        this.aMatrix_8 = null;
         this.aHashTable_33.clear();
         for (@Pc(26) ya local26 = (ya) this.aDeque_38.first(65280); local26 != null; local26 = (ya) this.aDeque_38.next()) {
             local26.ga();
@@ -831,8 +831,8 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "A", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method7985() {
-        return this.aClass73_8;
+    public Matrix method7985() {
+        return this.aMatrix_8;
     }
 
     @OriginalMember(owner = "client!oa", name = "XA", descriptor = "()I")

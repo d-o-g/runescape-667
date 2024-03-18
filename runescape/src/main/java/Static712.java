@@ -8,7 +8,7 @@ import java.awt.Insets;
 public final class Static712 {
 
     @OriginalMember(owner = "client!wj", name = "Lc", descriptor = "Lclient!tt;")
-    public static Class73 aClass73_11;
+    public static Matrix aMatrix_11;
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "()V")
     public static void method9323() {
@@ -79,7 +79,7 @@ public final class Static712 {
             Static288.method4182();
         }
         if (arg0 != 11) {
-            aClass73_11 = null;
+            aMatrix_11 = null;
         }
     }
 }

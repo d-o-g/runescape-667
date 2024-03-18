@@ -122,7 +122,7 @@ public final class Class101_Sub6 extends Class101 {
 
     @OriginalMember(owner = "client!nia", name = "b", descriptor = "(I)V")
     public void method5797() {
-        @Pc(14) Class73_Sub3 local14 = super.aClass19_Sub3_42.aClass73_Sub3_4;
+        @Pc(14) Matrix_Sub3 local14 = super.aClass19_Sub3_42.aClass73_Sub3_4;
         if (this.aBoolean484) {
             OpenGL.glBindProgramARB(OpenGL.GL_VERTEX_PROGRAM_ARB, super.aClass19_Sub3_42.anInt8006 == Integer.MAX_VALUE ? this.aClass71_2.anInt1805 : this.aClass71_4.anInt1805);
         } else {

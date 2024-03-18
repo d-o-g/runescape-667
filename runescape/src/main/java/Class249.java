@@ -18,7 +18,7 @@ public final class Class249 {
     public Class249 aClass249_2;
 
     @OriginalMember(owner = "client!mn", name = "d", descriptor = "Lclient!tt;")
-    public Class73 aClass73_6;
+    public Matrix aMatrix_6;
 
     @OriginalMember(owner = "client!mn", name = "n", descriptor = "I")
     public final int anInt6248;

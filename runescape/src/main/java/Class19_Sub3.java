@@ -246,10 +246,10 @@ public final class Class19_Sub3 extends Class19 {
     public final Class42 aClass42_1 = new Class42();
 
     @OriginalMember(owner = "client!qha", name = "Dd", descriptor = "Lclient!qr;")
-    public final Class73_Sub3 aClass73_Sub3_1 = new Class73_Sub3();
+    public final Matrix_Sub3 aClass73_Sub3_1 = new Matrix_Sub3();
 
     @OriginalMember(owner = "client!qha", name = "Fb", descriptor = "Lclient!qr;")
-    public final Class73_Sub3 aClass73_Sub3_2 = new Class73_Sub3();
+    public final Matrix_Sub3 aClass73_Sub3_2 = new Matrix_Sub3();
 
     @OriginalMember(owner = "client!qha", name = "Ee", descriptor = "Z")
     public boolean aBoolean589 = false;
@@ -303,13 +303,13 @@ public final class Class19_Sub3 extends Class19 {
     public final Deque aDeque_53;
 
     @OriginalMember(owner = "client!qha", name = "hh", descriptor = "Lclient!qr;")
-    public final Class73_Sub3 aClass73_Sub3_3;
+    public final Matrix_Sub3 aClass73_Sub3_3;
 
     @OriginalMember(owner = "client!qha", name = "Og", descriptor = "Lclient!qr;")
-    public final Class73_Sub3 aClass73_Sub3_4;
+    public final Matrix_Sub3 aClass73_Sub3_4;
 
     @OriginalMember(owner = "client!qha", name = "nf", descriptor = "Lclient!qr;")
-    public final Class73_Sub3 aClass73_Sub3_5;
+    public final Matrix_Sub3 aClass73_Sub3_5;
 
     @OriginalMember(owner = "client!qha", name = "Mc", descriptor = "[Lclient!lca;")
     public final Node_Sub7[] aClass2_Sub7Array5;
@@ -527,9 +527,9 @@ public final class Class19_Sub3 extends Class19 {
         this.aDeque_51 = new Deque();
         this.aDeque_52 = new Deque();
         this.aDeque_53 = new Deque();
-        this.aClass73_Sub3_3 = new Class73_Sub3();
-        this.aClass73_Sub3_4 = new Class73_Sub3();
-        this.aClass73_Sub3_5 = new Class73_Sub3();
+        this.aClass73_Sub3_3 = new Matrix_Sub3();
+        this.aClass73_Sub3_4 = new Matrix_Sub3();
+        this.aClass73_Sub3_5 = new Matrix_Sub3();
         this.aClass2_Sub7Array5 = new Node_Sub7[Static509.anInt7634];
         this.aFloat129 = -1.0F;
         this.aFloatArray52 = new float[4];
@@ -1972,7 +1972,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "A", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method7985() {
+    public Matrix method7985() {
         return this.aClass73_Sub3_1;
     }
 
@@ -2050,7 +2050,7 @@ public final class Class19_Sub3 extends Class19 {
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!qr;B)V")
-    public void method7012(@OriginalArg(0) Class73_Sub3 arg0) {
+    public void method7012(@OriginalArg(0) Matrix_Sub3 arg0) {
         OpenGL.glLoadMatrixf(arg0.method7146(), 0);
     }
 
@@ -2340,8 +2340,8 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "y", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method7953() {
-        return new Class73_Sub3();
+    public Matrix method7953() {
+        return new Matrix_Sub3();
     }
 
     @OriginalMember(owner = "client!qha", name = "o", descriptor = "(I)V")
@@ -2356,7 +2356,7 @@ public final class Class19_Sub3 extends Class19 {
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!qr;I)V")
-    public void method7020(@OriginalArg(0) Class73_Sub3 arg0) {
+    public void method7020(@OriginalArg(0) Matrix_Sub3 arg0) {
         OpenGL.glPushMatrix();
         OpenGL.glMultMatrixf(arg0.method7146(), 0);
     }
@@ -2969,7 +2969,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method8000(@OriginalArg(0) Class73 arg0) {
+    public void method8000(@OriginalArg(0) Matrix arg0) {
         this.aClass73_Sub3_3.method7128(arg0);
         this.aClass73_Sub3_4.method7128(this.aClass73_Sub3_3);
         this.aClass73_Sub3_4.method7141();
@@ -3275,7 +3275,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "n", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method8017() {
+    public Matrix method8017() {
         return this.aClass73_Sub3_3;
     }
 

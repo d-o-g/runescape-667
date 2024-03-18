@@ -74,8 +74,8 @@ public final class Class26_Sub10 extends Class26 {
             return;
         }
         @Pc(8) IDirect3DDevice local8 = this.aClass19_Sub1_Sub1_8.anIDirect3DDevice1;
-        @Pc(13) Class73_Sub1 local13 = this.aClass19_Sub1_Sub1_8.method8118();
-        @Pc(18) Class73_Sub1 local18 = this.aClass19_Sub1_Sub1_8.method8154();
+        @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_Sub1_8.method8118();
+        @Pc(18) Matrix_Sub1 local18 = this.aClass19_Sub1_Sub1_8.method8154();
         local8.a(0, local18.method1888(Static562.aFloatArray57));
         local8.a(4, local13.method1892(Static562.aFloatArray57));
     }
@@ -105,7 +105,7 @@ public final class Class26_Sub10 extends Class26 {
     public void method8285() {
         if (this.aBoolean643) {
             @Pc(6) IDirect3DDevice local6 = this.aClass19_Sub1_Sub1_8.anIDirect3DDevice1;
-            @Pc(11) Class73_Sub1 local11 = this.aClass19_Sub1_Sub1_8.method8154();
+            @Pc(11) Matrix_Sub1 local11 = this.aClass19_Sub1_Sub1_8.method8154();
             local6.a(0, local11.method1888(Static562.aFloatArray57));
         }
     }
@@ -169,7 +169,7 @@ public final class Class26_Sub10 extends Class26 {
     public void method8296() {
         if (this.aBoolean643) {
             @Pc(8) IDirect3DDevice local8 = this.aClass19_Sub1_Sub1_8.anIDirect3DDevice1;
-            @Pc(13) Class73_Sub1 local13 = this.aClass19_Sub1_21.method8066();
+            @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_21.method8066();
             local8.SetVertexShaderConstantF(12, local13.method1898(Static562.aFloatArray57), 2);
         }
     }

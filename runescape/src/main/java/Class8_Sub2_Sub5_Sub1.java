@@ -102,7 +102,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         if (arg2) {
             this.method9278((Class19) null, 104);
         }
-        @Pc(16) Class73 local16 = arg3.method7985();
+        @Pc(16) Matrix local16 = arg3.method7985();
         local16.method7125(super.anInt10690, super.anInt10691 - 10, super.anInt10694);
         @Pc(32) ObjType local32 = Static419.aObjTypeList_1.list(this.anInt8867);
         @Pc(42) Model local42 = local32.method8805((Class152) null, 131072, (Class201) null, this.anInt8873, arg3);
@@ -150,7 +150,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             this.anInt8885 = local31;
             super.anInt10691 += local31;
         }
-        @Pc(94) Class73 local94 = arg0.method7985();
+        @Pc(94) Matrix local94 = arg0.method7985();
         local94.method7133();
         if (this.anInt8885 == 0) {
             @Pc(110) Ground local110 = Static246.aGroundArray1[super.aByte143];

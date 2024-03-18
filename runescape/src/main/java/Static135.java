@@ -18,17 +18,17 @@ public final class Static135 {
 
     @OriginalMember(owner = "client!ee", name = "g", descriptor = "(I)V")
     public static void method7237() {
-        Static203.aClass73_4 = null;
+        Static203.aMatrix_4 = null;
         Static450.anInterface9_1 = null;
         Static49.anInt1045 = -1;
         Static173.anIntArray252 = null;
-        Static420.aClass73_7 = null;
+        Static420.aMatrix_7 = null;
         Static138.anInt2512 = -1;
         Static448.anInt6796 = -1;
         Static74.aClass19_4 = null;
         Static693.anInt10382 = -1;
         Static651.anInterface9Array1 = null;
-        Static712.aClass73_11 = null;
+        Static712.aMatrix_11 = null;
         Static10.aClass213_1.method5010();
     }
 

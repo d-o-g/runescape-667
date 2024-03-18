@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ja")
-public final class ja extends Class73 implements Interface5 {
+public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "nativeid", descriptor = "J")
     public long nativeid;
@@ -106,7 +106,7 @@ public final class ja extends Class73 implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7128(@OriginalArg(0) Class73 arg0) {
+    public void method7128(@OriginalArg(0) Matrix arg0) {
         this.l(this.nativeid, ((ja) arg0).nativeid);
     }
 
@@ -141,7 +141,7 @@ public final class ja extends Class73 implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "b", descriptor = "()Lclient!tt;")
     @Override
-    public Class73 method7129() {
+    public Matrix method7129() {
         @Pc(3) ja local3 = new ja();
         local3.method7128(this);
         return local3;

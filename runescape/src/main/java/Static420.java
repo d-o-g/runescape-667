@@ -8,7 +8,7 @@ public final class Static420 {
     public static boolean aBoolean479;
 
     @OriginalMember(owner = "client!nea", name = "b", descriptor = "Lclient!tt;")
-    public static Class73 aClass73_7;
+    public static Matrix aMatrix_7;
 
     @OriginalMember(owner = "client!nea", name = "g", descriptor = "[[[Lclient!pha;")
     public static Class291[][][] aClass291ArrayArrayArray2;

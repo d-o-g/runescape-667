@@ -251,7 +251,7 @@ public final class Class316 {
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(IZLclient!am;)V")
     public void method7216(@OriginalArg(0) int arg0, @OriginalArg(2) Class19_Sub1 arg1) {
         @Pc(5) int local5 = 0;
-        @Pc(9) Class73_Sub1 local9 = arg1.method8154();
+        @Pc(9) Matrix_Sub1 local9 = arg1.method8154();
         @Pc(12) float local12 = local9.aFloat39;
         @Pc(15) float local15 = local9.aFloat40;
         @Pc(23) float local23 = local9.aFloat38;

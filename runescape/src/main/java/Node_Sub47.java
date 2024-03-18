@@ -71,7 +71,7 @@ public final class Node_Sub47 extends Node {
         if ((local9 & 0x1) != 0) {
             this.aBoolean632 = true;
         }
-        super.aLong328 = arg0.method7398();
+        super.key = arg0.method7398();
         this.aLong256 = arg0.method7398();
         this.aString101 = arg0.method7358();
         arg0.method7396();

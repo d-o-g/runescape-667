@@ -146,7 +146,7 @@ public final class Static595 {
     }
 
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(Lclient!ge;Lclient!vfa;I)Lclient!bs;")
-    public static Class52 method7811(@OriginalArg(0) Node_Sub21 arg0, @OriginalArg(1) Class382 arg1) {
+    public static Class52 method7811(@OriginalArg(0) Node_Sub21 arg0, @OriginalArg(1) ObjType arg1) {
         @Pc(10) Class52 local10 = new Class52(arg1);
         @Pc(14) int local14 = arg0.method7396();
         @Pc(23) boolean local23 = (local14 & 0x1) != 0;

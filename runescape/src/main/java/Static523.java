@@ -234,7 +234,7 @@ public final class Static523 {
             Static577.aClass246_4 = new Class246(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
             Static720.aClass363_4 = new Class363(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1, Static721.aClass330_128);
             Static690.aClass308_2 = new Class308(Static392.aClass377_4, Static51.anInt1052, true, Static333.aClass330_66, Static190.aClass330_38);
-            Static419.aClass112_1 = new Class112(Static392.aClass377_4, Static51.anInt1052, true, Static386.aClass49_2, Static380.aClass330_79, Static190.aClass330_38);
+            Static419.aObjTypeList_1 = new ObjTypeList(Static392.aClass377_4, Static51.anInt1052, true, Static386.aClass49_2, Static380.aClass330_79, Static190.aClass330_38);
             Static272.aClass45_1 = new Class45(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
             Static25.aClass50_1 = new Class50(Static392.aClass377_4, Static51.anInt1052, Static668.aClass330_119, Static344.aClass330_73, Static142.aClass330_25);
             Static324.aClass307_1 = new Class307(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);

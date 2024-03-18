@@ -305,15 +305,15 @@ public final class client extends Applet_Sub1 {
             @Pc(458) Class158 local458;
             @Pc(470) Class158 local470;
             do {
-                local453 = (Node_Sub42) Static618.aClass339_68.method7705();
+                local453 = (Node_Sub42) Static618.A_DEQUE___68.removeFirst();
                 if (local453 == null) {
                     while (true) {
                         do {
-                            local453 = (Node_Sub42) Static59.aClass339_33.method7705();
+                            local453 = (Node_Sub42) Static59.A_DEQUE___33.removeFirst();
                             if (local453 == null) {
                                 while (true) {
                                     do {
-                                        local453 = (Node_Sub42) Static521.aClass339_44.method7705();
+                                        local453 = (Node_Sub42) Static521.A_DEQUE___44.removeFirst();
                                         if (local453 == null) {
                                             if (Static109.aClass158_3 != null) {
                                                 Static603.method7899();
@@ -639,13 +639,13 @@ public final class client extends Applet_Sub1 {
         for (@Pc(214) Node_Sub9 local214 = Static189.aClass120_1.method8851(); local214 != null; local214 = Static189.aClass120_1.method8851()) {
             @Pc(222) int local222 = local214.method5328();
             if (local222 == -1) {
-                Static677.aClass339_76.method7711(local214);
+                Static677.A_DEQUE___76.addLast(local214);
             } else if (local222 == 6) {
                 Static611.anInt9341 += local214.method5332();
             } else if (Static278.method4070(local222)) {
-                Static226.aClass339_58.method7711(local214);
-                if (Static226.aClass339_58.method7701() > 10) {
-                    Static226.aClass339_58.method7705();
+                Static226.A_DEQUE___58.addLast(local214);
+                if (Static226.A_DEQUE___58.size() > 10) {
+                    Static226.A_DEQUE___58.removeFirst();
                 }
             }
         }
@@ -689,7 +689,7 @@ public final class client extends Applet_Sub1 {
             }
         }
         Static369.method3851(Static163.aClass19_17);
-        Static226.aClass339_58.method7705();
+        Static226.A_DEQUE___58.removeFirst();
     }
 
     @OriginalMember(owner = "client!client", name = "h", descriptor = "(I)V")

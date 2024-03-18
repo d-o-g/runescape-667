@@ -179,7 +179,7 @@ public abstract class Class19_Sub1 extends Class19 {
     public int anInt9186;
 
     @OriginalMember(owner = "client!am", name = "vb", descriptor = "Lclient!sia;")
-    public final Class339 aClass339_59 = new Class339();
+    public final Deque aDeque_59 = new Deque();
 
     @OriginalMember(owner = "client!am", name = "jg", descriptor = "Z")
     protected boolean aBoolean676 = true;
@@ -1063,7 +1063,7 @@ public abstract class Class19_Sub1 extends Class19 {
         if (this.aBoolean687) {
             return;
         }
-        for (@Pc(9) Node local9 = this.aClass339_59.method7699(65280); local9 != null; local9 = this.aClass339_59.method7706()) {
+        for (@Pc(9) Node local9 = this.aDeque_59.first(65280); local9 != null; local9 = this.aDeque_59.next()) {
             ((Node_Sub13_Sub2) local9).method2101();
         }
         @Pc(28) Enumeration local28 = this.aHashtable6.keys();
@@ -1364,7 +1364,7 @@ public abstract class Class19_Sub1 extends Class19 {
     @Override
     public final Node_Sub13 method7961(@OriginalArg(0) int arg0) {
         @Pc(8) Node_Sub13_Sub2 local8 = new Node_Sub13_Sub2(arg0);
-        this.aClass339_59.method7711(local8);
+        this.aDeque_59.addLast(local8);
         return local8;
     }
 

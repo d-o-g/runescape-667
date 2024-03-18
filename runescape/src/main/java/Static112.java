@@ -20,7 +20,7 @@ public final class Static112 {
         if (arg0.anInt10722 != -1) {
             @Pc(24) Class8_Sub2_Sub1_Sub2 local24 = null;
             if (arg0.anInt10722 < 32768) {
-                @Pc(54) Node_Sub45 local54 = (Node_Sub45) Static18.aClass28_2.method738((long) arg0.anInt10722);
+                @Pc(54) Node_Sub45 local54 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) arg0.anInt10722);
                 if (local54 != null) {
                     local24 = local54.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }

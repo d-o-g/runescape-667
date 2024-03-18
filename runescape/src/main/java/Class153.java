@@ -39,7 +39,7 @@ public final class Class153 {
     public int anInt3649;
 
     @OriginalMember(owner = "client!gw", name = "h", descriptor = "Lclient!sia;")
-    public final Class339 aClass339_17 = new Class339();
+    public final Deque aDeque_17 = new Deque();
 
     @OriginalMember(owner = "client!gw", name = "x", descriptor = "I")
     public int anInt3640 = 0;
@@ -80,7 +80,7 @@ public final class Class153 {
 
     @OriginalMember(owner = "client!gw", name = "a", descriptor = "(B)V")
     public void method3272() {
-        this.aClass339_17.method7700();
+        this.aDeque_17.clear();
         this.anInt3640 = 0;
     }
 
@@ -91,7 +91,7 @@ public final class Class153 {
         }
         this.aClass2_Sub21_6.anInt8388 = 0;
         while (true) {
-            @Pc(23) Node_Sub19 local23 = (Node_Sub19) this.aClass339_17.method7699(65280);
+            @Pc(23) Node_Sub19 local23 = (Node_Sub19) this.aDeque_17.first(65280);
             if (local23 == null || local23.anInt2989 > this.aClass2_Sub21_6.aByteArray93.length - this.aClass2_Sub21_6.anInt8388) {
                 this.aClass348_1.method7931(this.aClass2_Sub21_6.aByteArray93, this.aClass2_Sub21_6.anInt8388);
                 this.anInt3647 = 0;
@@ -116,7 +116,7 @@ public final class Class153 {
 
     @OriginalMember(owner = "client!gw", name = "a", descriptor = "(ILclient!fk;)V")
     public void method3275(@OriginalArg(1) Node_Sub19 arg0) {
-        this.aClass339_17.method7711(arg0);
+        this.aDeque_17.addLast(arg0);
         arg0.anInt2989 = arg0.aClass2_Sub21_Sub2_1.anInt8388;
         arg0.aClass2_Sub21_Sub2_1.anInt8388 = 0;
         this.anInt3640 += arg0.anInt2989;

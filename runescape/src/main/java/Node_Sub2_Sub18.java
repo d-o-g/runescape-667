@@ -54,7 +54,7 @@ public final class Node_Sub2_Sub18 extends Node_Sub2 {
         if (!local69) {
             return false;
         }
-        @Pc(123) Class339 local123 = new Class339();
+        @Pc(123) Deque local123 = new Deque();
         @Pc(125) Class330 local125 = Static509.aClass330_96;
         synchronized (Static509.aClass330_96) {
             @Pc(133) int local133 = Static509.aClass330_96.method7608(this.anInt8535);
@@ -67,7 +67,7 @@ public final class Node_Sub2_Sub18 extends Node_Sub2 {
             local172.anInt8388 = 1;
             @Pc(179) int local179 = local172.method7382();
             @Pc(181) Node_Sub44 local181 = null;
-            for (@Pc(188) Node_Sub44 local188 = (Node_Sub44) local123.method7699(65280); local188 != null; local188 = (Node_Sub44) local123.method7706()) {
+            for (@Pc(188) Node_Sub44 local188 = (Node_Sub44) local123.first(65280); local188 != null; local188 = (Node_Sub44) local123.next()) {
                 if (local188.anInt7692 == local179) {
                     local181 = local188;
                     break;
@@ -78,7 +78,7 @@ public final class Node_Sub2_Sub18 extends Node_Sub2 {
                 synchronized (Static269.aClass330_58) {
                     local181 = new Node_Sub44(local179, Static269.aClass330_58.method7589(local179));
                 }
-                local123.method7711(local181);
+                local123.addLast(local181);
             }
             this.aClass253Array1[local36[local43]] = new Class253(local167, local181);
         }

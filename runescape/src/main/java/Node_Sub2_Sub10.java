@@ -20,7 +20,7 @@ public final class Node_Sub2_Sub10 extends Node_Sub2 {
     public int anInt2949;
 
     @OriginalMember(owner = "client!fj", name = "B", descriptor = "[Lclient!av;")
-    public Class28[] aClass28Array1;
+    public HashTable[] aHashTableArray1;
 
     @OriginalMember(owner = "client!fj", name = "E", descriptor = "[Ljava/lang/String;")
     public String[] aStringArray14;

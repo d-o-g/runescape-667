@@ -97,18 +97,18 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     public final Node_Sub6_Sub4 aClass2_Sub6_Sub4_1 = new Node_Sub6_Sub4(this);
 
     @OriginalMember(owner = "client!bd", name = "q", descriptor = "Lclient!av;")
-    public final Class28 aClass28_7;
+    public final HashTable aHashTable_7;
 
     @OriginalMember(owner = "client!bd", name = "<init>", descriptor = "()V")
     public Node_Sub6_Sub1() {
-        this.aClass28_7 = new Class28(128);
+        this.aHashTable_7 = new HashTable(128);
         this.method926(256, -1);
         this.method942(true);
     }
 
     @OriginalMember(owner = "client!bd", name = "<init>", descriptor = "(Lclient!bd;)V")
     public Node_Sub6_Sub1(@OriginalArg(0) Node_Sub6_Sub1 arg0) {
-        this.aClass28_7 = arg0.aClass28_7;
+        this.aHashTable_7 = arg0.aHashTable_7;
         this.method926(256, -1);
         this.method942(true);
     }
@@ -244,7 +244,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             local12.anInt2202 = 0;
             return;
         }
-        for (@Pc(47) Node_Sub16 local47 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7699(65280); local47 != null; local47 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7706()) {
+        for (@Pc(47) Node_Sub16 local47 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(65280); local47 != null; local47 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if (local12.anInt2187 == local47.anInt2187 && local47.anInt2202 < 0 && local12 != local47) {
                 local12.anInt2202 = 0;
                 break;
@@ -260,7 +260,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     @OriginalMember(owner = "client!bd", name = "c", descriptor = "(II)V")
     public void method917(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if ((this.anIntArray56[arg1] & 0x4) != 0) {
-            for (@Pc(22) Node_Sub16 local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7699(arg0 + 65280); local22 != null; local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7706()) {
+            for (@Pc(22) Node_Sub16 local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(arg0 + 65280); local22 != null; local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
                 if (arg1 == local22.anInt2187) {
                     local22.anInt2183 = 0;
                 }
@@ -545,7 +545,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(B)V")
     public synchronized void method927() {
-        for (@Pc(5) Node_Sub11 local5 = (Node_Sub11) this.aClass28_7.method736(); local5 != null; local5 = (Node_Sub11) this.aClass28_7.method740()) {
+        for (@Pc(5) Node_Sub11 local5 = (Node_Sub11) this.aHashTable_7.first(); local5 != null; local5 = (Node_Sub11) this.aHashTable_7.next()) {
             local5.remove();
         }
     }
@@ -563,7 +563,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(II)V")
     public void method930(@OriginalArg(1) int arg0) {
-        for (@Pc(14) Node_Sub16 local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7699(65280); local14 != null; local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7706()) {
+        for (@Pc(14) Node_Sub16 local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(65280); local14 != null; local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if (arg0 < 0 || local14.anInt2187 == arg0) {
                 if (local14.aClass2_Sub6_Sub2_1 != null) {
                     local14.aClass2_Sub6_Sub2_1.method3320(Static686.anInt8944 / 100);
@@ -637,7 +637,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(I)V")
     public synchronized void method933() {
-        for (@Pc(7) Node_Sub11 local7 = (Node_Sub11) this.aClass28_7.method736(); local7 != null; local7 = (Node_Sub11) this.aClass28_7.method740()) {
+        for (@Pc(7) Node_Sub11 local7 = (Node_Sub11) this.aHashTable_7.first(); local7 != null; local7 = (Node_Sub11) this.aHashTable_7.next()) {
             local7.method1521();
         }
     }
@@ -651,7 +651,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     public void method936(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.method915(64, arg0, arg1);
         if ((this.anIntArray56[arg0] & 0x2) != 0) {
-            for (@Pc(25) Node_Sub16 local25 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7708(); local25 != null; local25 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7709()) {
+            for (@Pc(25) Node_Sub16 local25 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.last(); local25 != null; local25 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.previous()) {
                 if (arg0 == local25.anInt2187 && local25.anInt2202 < 0) {
                     this.aClass2_Sub16ArrayArray1[arg0][local25.anInt2196] = null;
                     this.aClass2_Sub16ArrayArray1[arg0][arg1] = local25;
@@ -664,7 +664,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
                 }
             }
         }
-        @Pc(117) Node_Sub11 local117 = (Node_Sub11) this.aClass28_7.method738((long) this.anIntArray54[arg0]);
+        @Pc(117) Node_Sub11 local117 = (Node_Sub11) this.aHashTable_7.get((long) this.anIntArray54[arg0]);
         if (local117 == null) {
             return;
         }
@@ -704,7 +704,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             }
             this.aClass2_Sub16ArrayArray2[arg0][local142.anInt2198] = local142;
         }
-        this.aClass2_Sub6_Sub4_1.aClass339_72.method7711(local142);
+        this.aClass2_Sub6_Sub4_1.aDeque_72.addLast(local142);
         this.aClass2_Sub16ArrayArray1[arg0][arg1] = local142;
     }
 
@@ -718,7 +718,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "e", descriptor = "(II)V")
     public void method938(@OriginalArg(1) int arg0) {
-        for (@Pc(6) Node_Sub16 local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7699(65280); local6 != null; local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7706()) {
+        for (@Pc(6) Node_Sub16 local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(65280); local6 != null; local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if ((arg0 < 0 || arg0 == local6.anInt2187) && local6.anInt2202 < 0) {
                 this.aClass2_Sub16ArrayArray1[local6.anInt2187][local6.anInt2196] = null;
                 local6.anInt2202 = 0;
@@ -742,7 +742,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         if ((this.anIntArray56[arg0] & 0x2) == 0) {
             return;
         }
-        for (@Pc(28) Node_Sub16 local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7699(65280); local28 != null; local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aClass339_72.method7706()) {
+        for (@Pc(28) Node_Sub16 local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(65280); local28 != null; local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if (arg0 == local28.anInt2187 && this.aClass2_Sub16ArrayArray1[arg0][local28.anInt2196] == null && local28.anInt2202 < 0) {
                 local28.anInt2202 = 0;
             }
@@ -788,16 +788,16 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         arg2.method1154();
         @Pc(15) boolean local15 = true;
         @Pc(29) int[] local29 = new int[]{22050};
-        for (@Pc(35) Node_Sub55 local35 = (Node_Sub55) arg2.aClass28_8.method736(); local35 != null; local35 = (Node_Sub55) arg2.aClass28_8.method740()) {
-            @Pc(40) int local40 = (int) local35.aLong328;
-            @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aClass28_7.method738((long) local40);
+        for (@Pc(35) Node_Sub55 local35 = (Node_Sub55) arg2.aHashTable_8.first(); local35 != null; local35 = (Node_Sub55) arg2.aHashTable_8.next()) {
+            @Pc(40) int local40 = (int) local35.key;
+            @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aHashTable_7.get((long) local40);
             if (local48 == null) {
                 local48 = Static680.method8917(arg1, local40);
                 if (local48 == null) {
                     local15 = false;
                     continue;
                 }
-                this.aClass28_7.method735((long) local40, local48);
+                this.aHashTable_7.put((long) local40, local48);
             }
             if (!local48.method1526(arg0, local29, local35.aByteArray105)) {
                 local15 = false;

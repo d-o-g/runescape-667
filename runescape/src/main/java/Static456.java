@@ -19,9 +19,9 @@ public final class Static456 {
             if (Static377.anInt5930 != -1) {
                 Static347.method5094(Static377.anInt5930);
             }
-            for (@Pc(21) Node_Sub4 local21 = (Node_Sub4) Static548.aClass28_40.method736(); local21 != null; local21 = (Node_Sub4) Static548.aClass28_40.method740()) {
+            for (@Pc(21) Node_Sub4 local21 = (Node_Sub4) Static548.aHashTable_40.first(); local21 != null; local21 = (Node_Sub4) Static548.aHashTable_40.next()) {
                 if (!local21.hasPrev()) {
-                    local21 = (Node_Sub4) Static548.aClass28_40.method736();
+                    local21 = (Node_Sub4) Static548.aHashTable_40.first();
                     if (local21 == null) {
                         break;
                     }
@@ -29,7 +29,7 @@ public final class Static456 {
                 Static449.method6115(false, true, local21);
             }
             Static377.anInt5930 = -1;
-            Static548.aClass28_40 = new Class28(8);
+            Static548.aHashTable_40 = new HashTable(8);
             Static656.method6692();
             Static377.anInt5930 = Static65.aClass3_1.anInt88;
             Static640.method8435(false);

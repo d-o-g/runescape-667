@@ -11,7 +11,7 @@ public final class Static346 {
     public static final float[] aFloatArray40 = new float[2];
 
     @OriginalMember(owner = "client!kt", name = "P", descriptor = "Lclient!av;")
-    public static final Class28 aClass28_29 = new Class28(16);
+    public static final HashTable A_HASH_TABLE___29 = new HashTable(16);
 
     @OriginalMember(owner = "client!kt", name = "R", descriptor = "[I")
     public static int[] anIntArray420 = new int[4];
@@ -47,7 +47,7 @@ public final class Static346 {
         @Pc(33) int local33;
         for (@Pc(25) int local25 = 0; local25 < Static78.anInt1622; local25++) {
             local33 = Static118.anIntArray197[local25];
-            @Pc(40) Node_Sub45 local40 = (Node_Sub45) Static18.aClass28_2.method738((long) local33);
+            @Pc(40) Node_Sub45 local40 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local33);
             @Pc(43) Class8_Sub2_Sub1_Sub2_Sub2 local43 = local40.aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local43.anInt10751 != Static572.anInt8896) {
                 if (Static400.aBoolean622 && Static321.method4622(local33)) {
@@ -62,14 +62,14 @@ public final class Static346 {
             }
         }
         if (local23) {
-            Static416.anInt6378 = Static18.aClass28_2.method739();
-            Static18.aClass28_2.method743(Static592.aClass2_Sub45Array1);
+            Static416.anInt6378 = Static18.A_HASH_TABLE___2.size();
+            Static18.A_HASH_TABLE___2.flatten(Static592.aClass2_Sub45Array1);
         }
         if (Static405.aClass153_2.aClass2_Sub21_Sub2_2.anInt8388 != Static405.aClass153_2.anInt3648) {
             throw new RuntimeException("gnp1 pos:" + Static405.aClass153_2.aClass2_Sub21_Sub2_2.anInt8388 + " psize:" + Static405.aClass153_2.anInt3648);
         }
         for (local33 = 0; local33 < Static390.anInt6126; local33++) {
-            if (Static18.aClass28_2.method738((long) Static103.anIntArray187[local33]) == null) {
+            if (Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local33]) == null) {
                 throw new RuntimeException("gnp2 pos:" + local33 + " size:" + Static390.anInt6126);
             }
         }

@@ -86,7 +86,7 @@ public final class Static30 {
     public static byte[] aByteArray59;
 
     @OriginalMember(owner = "client!baa", name = "l", descriptor = "Lclient!av;")
-    public static Class28 aClass28_28;
+    public static HashTable aHashTable;
 
     @OriginalMember(owner = "client!baa", name = "r", descriptor = "I")
     public static int anInt5651;
@@ -110,7 +110,7 @@ public final class Static30 {
     public static int anInt5655;
 
     @OriginalMember(owner = "client!baa", name = "e", descriptor = "Lclient!av;")
-    public static final Class28 aClass28_27 = new Class28(16);
+    public static final HashTable A_HASH_TABLE___27 = new HashTable(16);
 
     @OriginalMember(owner = "client!baa", name = "q", descriptor = "I")
     public static int anInt5641 = (int) (Math.random() * 11.0D) - 5;
@@ -125,11 +125,11 @@ public final class Static30 {
     public static final short[] aShortArray77 = new short[1];
 
     @OriginalMember(owner = "client!baa", name = "D", descriptor = "Lclient!sia;")
-    public static final Class339 aClass339_31 = new Class339();
+    public static final Deque A_DEQUE___31 = new Deque();
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(I)Lclient!ip;")
     public static Node_Sub2_Sub13 method5059(@OriginalArg(0) int arg0) {
-        return (Node_Sub2_Sub13) aClass28_27.method738((long) arg0);
+        return (Node_Sub2_Sub13) A_HASH_TABLE___27.get((long) arg0);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;)V")
@@ -379,13 +379,13 @@ public final class Static30 {
         aClass246_3 = arg4;
         aClass363_3 = arg5;
         anInterface23_3 = arg6;
-        aClass28_27.method737();
+        A_HASH_TABLE___27.clear();
         @Pc(23) int local23 = aClass330_74.method7590("details");
         @Pc(28) int[] local28 = aClass330_74.method7603(local23);
         if (local28 != null) {
             for (@Pc(32) int local32 = 0; local32 < local28.length; local32++) {
                 @Pc(41) Node_Sub2_Sub13 local41 = Static517.method6820(aClass330_74, local23, local28[local32]);
-                aClass28_27.method735((long) local41.anInt4563, local41);
+                A_HASH_TABLE___27.put((long) local41.anInt4563, local41);
             }
         }
         Static198.method2954(false, true);
@@ -454,7 +454,7 @@ public final class Static30 {
                             } else if (local179 <= 0) {
                                 method5061(arg0, local28, local70, local44, local84, local175, local177, aByteArray59[local173], (short[]) null, (byte[]) null, true);
                             } else if (local179 == 65535) {
-                                @Pc(282) Node_Sub23 local282 = (Node_Sub23) aClass28_28.method738((long) (local50 << 16 | local93));
+                                @Pc(282) Node_Sub23 local282 = (Node_Sub23) aHashTable.get((long) (local50 << 16 | local93));
                                 if (local282 != null) {
                                     method5061(arg0, local28, local70, local44, local84, local175, local177, aByteArray59[local173], local282.aShortArray59, local282.aByteArray38, true);
                                 }
@@ -503,7 +503,7 @@ public final class Static30 {
                                 if (local175 <= 0) {
                                     method5063(arg0, local40, local80, local50, local93, (short[]) null, (byte[]) null);
                                 } else if (local175 == 65535) {
-                                    @Pc(459) Node_Sub23 local459 = (Node_Sub23) aClass28_28.method738((long) (local57 << 16 | local173));
+                                    @Pc(459) Node_Sub23 local459 = (Node_Sub23) aHashTable.get((long) (local57 << 16 | local173));
                                     if (local459 != null) {
                                         method5063(arg0, local40, local80, local50, local93, local459.aShortArray59, local459.aByteArray38);
                                     }
@@ -635,7 +635,7 @@ public final class Static30 {
         aByteArray59 = new byte[anInt5650 * anInt5644];
         aShortArray78 = new short[anInt5650 * anInt5644];
         aByteArray58 = new byte[anInt5650 * anInt5644];
-        aClass28_28 = new Class28(1024);
+        aHashTable = new HashTable(1024);
         aClass130ArrayArrayArray2 = new Class130[3][anInt5650 >> 6][anInt5644 >> 6];
         anIntArray419 = new int[aClass96_2.anInt2506 + 1];
     }
@@ -649,7 +649,7 @@ public final class Static30 {
         aByteArray59 = null;
         aShortArray78 = null;
         aByteArray58 = null;
-        aClass28_28 = null;
+        aHashTable = null;
         aClass130ArrayArrayArray2 = null;
         anIntArray419 = null;
     }
@@ -721,7 +721,7 @@ public final class Static30 {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(I)V")
     public static void method5072(@OriginalArg(0) int arg0) {
-        aClass2_Sub2_Sub13_3 = (Node_Sub2_Sub13) aClass28_27.method738((long) arg0);
+        aClass2_Sub2_Sub13_3 = (Node_Sub2_Sub13) A_HASH_TABLE___27.get((long) arg0);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!fu;IIII)V")
@@ -788,7 +788,7 @@ public final class Static30 {
                         local215[local220] = (short) arg1.method7382();
                         local218[local220] = arg1.method7377();
                     }
-                    aClass28_28.method735((long) (arg4 << 16 | arg5), new Node_Sub23(local215, local218));
+                    aHashTable.put((long) (arg4 << 16 | arg5), new Node_Sub23(local215, local218));
                 }
             } else {
                 local215 = null;
@@ -821,7 +821,7 @@ public final class Static30 {
                 if (local15 != 0) {
                     @Pc(35) int local35;
                     if (local15 == 65535) {
-                        @Pc(31) Node_Sub23 local31 = (Node_Sub23) aClass28_28.method738((long) (local1 << 16 | local4));
+                        @Pc(31) Node_Sub23 local31 = (Node_Sub23) aHashTable.get((long) (local1 << 16 | local4));
                         if (local31 != null) {
                             for (local35 = 0; local35 < local31.aShortArray59.length; local35++) {
                                 @Pc(46) Class54 local46 = aClass142_3.method3063(local31.aShortArray59[local35] & 0xFFFF, 115);
@@ -836,7 +836,7 @@ public final class Static30 {
                                     @Pc(70) Node_Sub20 local70 = new Node_Sub20(local49);
                                     local70.anInt3129 = local1;
                                     local70.anInt3124 = local4;
-                                    aClass339_31.method7711(local70);
+                                    A_DEQUE___31.addLast(local70);
                                 }
                             }
                         }
@@ -853,7 +853,7 @@ public final class Static30 {
                             @Pc(118) Node_Sub20 local118 = new Node_Sub20(local35);
                             local118.anInt3129 = local1;
                             local118.anInt3124 = local4;
-                            aClass339_31.method7711(local118);
+                            A_DEQUE___31.addLast(local118);
                         }
                     }
                 }
@@ -879,7 +879,7 @@ public final class Static30 {
                                         @Pc(201) Node_Sub20 local201 = new Node_Sub20(local180);
                                         local201.anInt3129 = (local15 + (anInt5655 >> 6)) * 64 + local160.aByte138 - anInt5655;
                                         local201.anInt3124 = (local144 + (anInt5648 >> 6)) * 64 + local160.aByte139 - anInt5648;
-                                        aClass339_31.method7711(local201);
+                                        A_DEQUE___31.addLast(local201);
                                     }
                                 }
                             }
@@ -893,7 +893,7 @@ public final class Static30 {
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(II)Lclient!jga;")
     public static Class192 method5076(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(3) Class192 local3 = new Class192();
-        for (@Pc(8) Node_Sub2_Sub13 local8 = (Node_Sub2_Sub13) aClass28_27.method736(); local8 != null; local8 = (Node_Sub2_Sub13) aClass28_27.method740()) {
+        for (@Pc(8) Node_Sub2_Sub13 local8 = (Node_Sub2_Sub13) A_HASH_TABLE___27.first(); local8 != null; local8 = (Node_Sub2_Sub13) A_HASH_TABLE___27.next()) {
             if (local8.aBoolean354 && local8.method4086(arg0, arg1)) {
                 local3.method4348(local8);
             }
@@ -903,7 +903,7 @@ public final class Static30 {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(II)Lclient!ip;")
     public static Node_Sub2_Sub13 method5078(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        for (@Pc(4) Node_Sub2_Sub13 local4 = (Node_Sub2_Sub13) aClass28_27.method736(); local4 != null; local4 = (Node_Sub2_Sub13) aClass28_27.method740()) {
+        for (@Pc(4) Node_Sub2_Sub13 local4 = (Node_Sub2_Sub13) A_HASH_TABLE___27.first(); local4 != null; local4 = (Node_Sub2_Sub13) A_HASH_TABLE___27.next()) {
             if (local4.aBoolean354 && local4.method4086(arg0, arg1)) {
                 return local4;
             }
@@ -920,7 +920,7 @@ public final class Static30 {
                 @Pc(42) Node_Sub20 local42 = new Node_Sub20(aClass255_3.anIntArray496[local4]);
                 local42.anInt3129 = local2[1] - anInt5655;
                 local42.anInt3124 = local2[2] - anInt5648;
-                aClass339_31.method7711(local42);
+                A_DEQUE___31.addLast(local42);
             }
         }
     }
@@ -1009,7 +1009,7 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(Lclient!ha;)Lclient!sia;")
-    public static Class339 method5081(@OriginalArg(0) Class19 arg0) {
+    public static Deque method5081(@OriginalArg(0) Class19 arg0) {
         @Pc(3) int local3 = anInt5647 - anInt5652;
         @Pc(7) int local7 = anInt5645 - anInt5654;
         @Pc(15) int local15 = (anInt5651 - anInt5649 << 16) / local3;
@@ -1018,10 +1018,10 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(Lclient!ha;IIII)Lclient!sia;")
-    public static Class339 method5082(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        for (@Pc(4) Node_Sub20 local4 = (Node_Sub20) aClass339_31.method7699(65280); local4 != null; local4 = (Node_Sub20) aClass339_31.method7706()) {
+    public static Deque method5082(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+        for (@Pc(4) Node_Sub20 local4 = (Node_Sub20) A_DEQUE___31.first(65280); local4 != null; local4 = (Node_Sub20) A_DEQUE___31.next()) {
             method5073(arg0, local4, arg1, arg2);
         }
-        return aClass339_31;
+        return A_DEQUE___31;
     }
 }

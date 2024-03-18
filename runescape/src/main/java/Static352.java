@@ -31,7 +31,7 @@ public final class Static352 {
         Static68.aClass215_3.method5044();
         Static354.aClass142_4.method3060();
         Static690.aClass308_2.method7086();
-        Static419.aClass112_1.method2476();
+        Static419.aObjTypeList_1.method2476();
         Static25.aClass50_1.method1165();
         Static23.aClass128_1.method2699();
         Static529.aClass161_1.method3429();

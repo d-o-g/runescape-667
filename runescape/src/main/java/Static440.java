@@ -26,10 +26,10 @@ public final class Static440 {
 
     @OriginalMember(owner = "client!nt", name = "a", descriptor = "(IIJ)Lclient!aj;")
     public static Node_Sub2_Sub2_ method5963(@OriginalArg(1) int arg0, @OriginalArg(2) long arg1) {
-        @Pc(21) Node_Sub2_Sub2_ local21 = (Node_Sub2_Sub2_) Static658.aClass28_43.method738(arg1 | (long) arg0 << 56);
+        @Pc(21) Node_Sub2_Sub2_ local21 = (Node_Sub2_Sub2_) Static658.A_HASH_TABLE___43.get(arg1 | (long) arg0 << 56);
         if (local21 == null) {
             local21 = new Node_Sub2_Sub2_(arg0, arg1);
-            Static658.aClass28_43.method735(local21.aLong328, local21);
+            Static658.A_HASH_TABLE___43.put(local21.key, local21);
         }
         return local21;
     }

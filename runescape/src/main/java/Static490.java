@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static490 {
 
     @OriginalMember(owner = "client!pha", name = "m", descriptor = "Lclient!av;")
-    public static final Class28 aClass28_34 = new Class28(16);
+    public static final HashTable A_HASH_TABLE___34 = new HashTable(16);
 
     @OriginalMember(owner = "client!pha", name = "a", descriptor = "(ZIIIIIIIF)[[I")
     public static int[][] method6551(@OriginalArg(8) float arg0) {

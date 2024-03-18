@@ -25,7 +25,7 @@ public final class Class361 {
     public final int anInt9484;
 
     @OriginalMember(owner = "client!ts", name = "c", descriptor = "Lclient!av;")
-    public final Class28 aClass28_42;
+    public final HashTable aHashTable_42;
 
     static {
         @Pc(63) double local63 = 3.834951969714103E-4D;
@@ -42,7 +42,7 @@ public final class Class361 {
         @Pc(19) int local19;
         for (local19 = 1; local19 + local19 < arg0; local19 += local19) {
         }
-        this.aClass28_42 = new Class28(local19);
+        this.aHashTable_42 = new HashTable(local19);
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(BLclient!cm;J)V")
@@ -59,13 +59,13 @@ public final class Class361 {
         } else {
             this.anInt9483--;
         }
-        this.aClass28_42.method735(arg1, arg0);
+        this.aHashTable_42.put(arg1, arg0);
         this.aClass192_15.method4348(arg0);
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(JZ)Lclient!cm;")
     public Node_Sub2 method8342(@OriginalArg(0) long arg0) {
-        @Pc(16) Node_Sub2 local16 = (Node_Sub2) this.aClass28_42.method738(arg0);
+        @Pc(16) Node_Sub2 local16 = (Node_Sub2) this.aHashTable_42.get(arg0);
         if (local16 != null) {
             this.aClass192_15.method4348(local16);
         }
@@ -74,7 +74,7 @@ public final class Class361 {
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(IJ)V")
     public void method8344(@OriginalArg(1) long arg0) {
-        @Pc(18) Node_Sub2 local18 = (Node_Sub2) this.aClass28_42.method738(arg0);
+        @Pc(18) Node_Sub2 local18 = (Node_Sub2) this.aHashTable_42.get(arg0);
         if (local18 != null) {
             local18.remove();
             local18.method9260();
@@ -85,7 +85,7 @@ public final class Class361 {
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(B)V")
     public void method8345() {
         this.aClass192_15.method4351();
-        this.aClass28_42.method737();
+        this.aHashTable_42.clear();
         this.aClass2_Sub2_57 = new Node_Sub2();
         this.anInt9483 = this.anInt9484;
     }

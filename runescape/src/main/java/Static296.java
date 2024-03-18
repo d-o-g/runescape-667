@@ -19,7 +19,7 @@ public final class Static296 {
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(Lclient!gp;BIIII)V")
     public static void method4361(@OriginalArg(0) Class150 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(15) Node_Sub25 local15 = null;
-        for (@Pc(20) Node_Sub25 local20 = (Node_Sub25) Static227.aClass339_18.method7699(65280); local20 != null; local20 = (Node_Sub25) Static227.aClass339_18.method7706()) {
+        for (@Pc(20) Node_Sub25 local20 = (Node_Sub25) Static227.aDeque_18.first(65280); local20 != null; local20 = (Node_Sub25) Static227.aDeque_18.next()) {
             if (local20.anInt4010 == arg1 && local20.anInt4016 == arg3 && local20.anInt4006 == arg4 && arg2 == local20.anInt4011) {
                 local15 = local20;
                 break;
@@ -31,7 +31,7 @@ public final class Static296 {
             local15.anInt4016 = arg3;
             local15.anInt4006 = arg4;
             local15.anInt4011 = arg2;
-            Static227.aClass339_18.method7711(local15);
+            Static227.aDeque_18.addLast(local15);
         }
         local15.aBoolean309 = false;
         local15.aClass150_1 = arg0;
@@ -49,7 +49,7 @@ public final class Static296 {
         }
         Static335.method4945(local5);
         Static354.aClass142_4.method3065(local5);
-        Static419.aClass112_1.method2481(local5);
+        Static419.aObjTypeList_1.method2481(local5);
         Static690.aClass308_2.method7093(local5);
         Static23.aClass128_1.method2695(local5);
         Static41.method1029(local5);

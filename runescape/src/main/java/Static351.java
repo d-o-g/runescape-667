@@ -142,7 +142,7 @@ public final class Static351 {
             local612.anInt6184 = local231;
             local612.anInt6187 = local233;
             local612.anInt6195 = local104;
-            Static551.aClass339_54.method7711(local612);
+            Static551.aDeque_54.addLast(local612);
         }
         return false;
     }

@@ -12,7 +12,7 @@ public final class Static55 {
 
     @OriginalMember(owner = "client!br", name = "a", descriptor = "(IILclient!pg;I)V")
     public static void method1217(@OriginalArg(0) int arg0, @OriginalArg(2) Node_Sub2_Sub16 arg1, @OriginalArg(3) int arg2) {
-        if (arg1 == null || arg1 == Static693.aClass339_79.aNode_271) {
+        if (arg1 == null || arg1 == Static693.A_DEQUE___79.tail) {
             return;
         }
         @Pc(16) int local16 = arg1.anInt7316;
@@ -198,7 +198,7 @@ public final class Static55 {
             local750 = Static591.aClass345_107;
         }
         if (local750 != null) {
-            @Pc(806) Node_Sub45 local806 = (Node_Sub45) Static18.aClass28_2.method738((long) local26);
+            @Pc(806) Node_Sub45 local806 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local26);
             if (local806 != null) {
                 Static676.anInt10206 = arg2;
                 @Pc(813) Class8_Sub2_Sub1_Sub2_Sub2 local813 = local806.aClass8_Sub2_Sub1_Sub2_Sub2_2;
@@ -274,7 +274,7 @@ public final class Static55 {
             Static414.method5697(local19, local16);
         }
         if (local22 == 23) {
-            @Pc(1200) Node_Sub45 local1200 = (Node_Sub45) Static18.aClass28_2.method738((long) local26);
+            @Pc(1200) Node_Sub45 local1200 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local26);
             if (local1200 != null) {
                 @Pc(1205) Class8_Sub2_Sub1_Sub2_Sub2 local1205 = local1200.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 Static481.anInt7215 = 0;

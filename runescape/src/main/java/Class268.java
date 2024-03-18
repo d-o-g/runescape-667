@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class268 {
 
     @OriginalMember(owner = "client!o", name = "tb", descriptor = "Lclient!av;")
-    public Class28 aClass28_32;
+    public HashTable aHashTable_32;
 
     @OriginalMember(owner = "client!o", name = "gb", descriptor = "[B")
     public byte[] aByteArray80;
@@ -462,9 +462,9 @@ public final class Class268 {
                 this.anInt6741 = arg1.method7396();
             } else if (arg0 == 249) {
                 local12 = arg1.method7396();
-                if (this.aClass28_32 == null) {
+                if (this.aHashTable_32 == null) {
                     local18 = Static440.method5962(local12);
-                    this.aClass28_32 = new Class28(local18);
+                    this.aHashTable_32 = new HashTable(local18);
                 }
                 for (local18 = 0; local18 < local12; local18++) {
                     @Pc(761) boolean local761 = arg1.method7396() == 1;
@@ -475,7 +475,7 @@ public final class Class268 {
                     } else {
                         local774 = new Node_Sub38(arg1.method7349());
                     }
-                    this.aClass28_32.method735((long) local765, local774);
+                    this.aHashTable_32.put((long) local765, local774);
                 }
             }
         }
@@ -483,10 +483,10 @@ public final class Class268 {
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(BLjava/lang/String;I)Ljava/lang/String;")
     public String method5991(@OriginalArg(1) String arg0, @OriginalArg(2) int arg1) {
-        if (this.aClass28_32 == null) {
+        if (this.aHashTable_32 == null) {
             return arg0;
         } else {
-            @Pc(23) Node_Sub24 local23 = (Node_Sub24) this.aClass28_32.method738((long) arg1);
+            @Pc(23) Node_Sub24 local23 = (Node_Sub24) this.aHashTable_32.get((long) arg1);
             return local23 == null ? arg0 : local23.aString46;
         }
     }
@@ -830,10 +830,10 @@ public final class Class268 {
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(III)I")
     public int method5995(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        if (this.aClass28_32 == null) {
+        if (this.aHashTable_32 == null) {
             return arg1;
         } else {
-            @Pc(25) Node_Sub38 local25 = (Node_Sub38) this.aClass28_32.method738((long) arg0);
+            @Pc(25) Node_Sub38 local25 = (Node_Sub38) this.aHashTable_32.get((long) arg0);
             return local25 == null ? arg1 : local25.anInt6379;
         }
     }

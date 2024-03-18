@@ -41,7 +41,7 @@ public final class Static614 {
         Static68.aClass215_3.method5045();
         Static354.aClass142_4.method3064();
         Static690.aClass308_2.method7085();
-        Static419.aClass112_1.method2479();
+        Static419.aObjTypeList_1.method2479();
         Static25.aClass50_1.method1163();
         Static23.aClass128_1.method2698();
         Static529.aClass161_1.method3428();

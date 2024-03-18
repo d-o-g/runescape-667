@@ -92,7 +92,7 @@ public final class Static664 {
         Static68.aClass215_3.method5041();
         Static354.aClass142_4.method3058();
         Static690.aClass308_2.method7089();
-        Static419.aClass112_1.method2480();
+        Static419.aObjTypeList_1.method2480();
         Static25.aClass50_1.method1164();
         Static23.aClass128_1.method2697();
         Static529.aClass161_1.method3423();

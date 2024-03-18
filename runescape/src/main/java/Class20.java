@@ -13,7 +13,7 @@ public final class Class20 {
     public int anInt519 = -1;
 
     @OriginalMember(owner = "client!ama", name = "g", descriptor = "Lclient!sia;")
-    public final Class339 aClass339_4 = new Class339();
+    public final Deque aDeque_4 = new Deque();
 
     @OriginalMember(owner = "client!ama", name = "<init>", descriptor = "(Lclient!ge;)V")
     public Class20(@OriginalArg(0) Node_Sub21 arg0) {
@@ -59,7 +59,7 @@ public final class Class20 {
                 throw new RuntimeException("Unrecognised ClanSettingsDelta type in decode()");
             }
             local61.method8615(arg0);
-            this.aClass339_4.method7711(local61);
+            this.aDeque_4.addLast(local61);
         }
     }
 
@@ -68,7 +68,7 @@ public final class Class20 {
         if (this.aLong15 != arg0.aLong125 || this.anInt519 != arg0.anInt3950) {
             throw new RuntimeException("ClanSettingsDelta.applyToClanSettings(): Credentials do not match! Settings.owner:" + Static287.method4154(arg0.aLong125) + " updateNum:" + arg0.anInt3950 + " delta.owner:" + Static287.method4154(this.aLong15) + " updateNum:" + this.anInt519);
         }
-        for (@Pc(82) Node_Sub14 local82 = (Node_Sub14) this.aClass339_4.method7699(65280); local82 != null; local82 = (Node_Sub14) this.aClass339_4.method7706()) {
+        for (@Pc(82) Node_Sub14 local82 = (Node_Sub14) this.aDeque_4.first(65280); local82 != null; local82 = (Node_Sub14) this.aDeque_4.next()) {
             local82.method8617(arg0);
         }
         arg0.anInt3950++;

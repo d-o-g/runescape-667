@@ -16,10 +16,10 @@ public final class Static556 {
             return Static145.method2412(arg0.anInt3743);
         }
         @Pc(25) int local25 = arg0.anInt3812 >>> 16;
-        @Pc(30) Class331 local30 = new Class331(Static548.aClass28_40);
+        @Pc(30) Class331 local30 = new Class331(Static548.aHashTable_40);
         for (@Pc(35) Node_Sub4 local35 = (Node_Sub4) local30.method7613(); local35 != null; local35 = (Node_Sub4) local30.method7610()) {
             if (local35.anInt147 == local25) {
-                return Static145.method2412((int) local35.aLong328);
+                return Static145.method2412((int) local35.key);
             }
         }
         return null;
@@ -52,11 +52,11 @@ public final class Static556 {
             local63 = Static518.method9293(local55);
             @Pc(65) int[] local65 = null;
             if (Static245.method8635(local55.anInt7314)) {
-                local65 = Static419.aClass112_1.method2486((int) local55.aLong233).anIntArray800;
+                local65 = Static419.aObjTypeList_1.list((int) local55.aLong233).anIntArray800;
             } else if (local55.anInt7317 != -1) {
-                local65 = Static419.aClass112_1.method2486(local55.anInt7317).anIntArray800;
+                local65 = Static419.aObjTypeList_1.list(local55.anInt7317).anIntArray800;
             } else if (Static598.method7825(local55.anInt7314)) {
-                @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.aClass28_2.method738((long) (int) local55.aLong233);
+                @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) local55.aLong233);
                 if (local93 != null) {
                     @Pc(98) Class8_Sub2_Sub1_Sub2_Sub2 local98 = local93.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                     @Pc(101) Class268 local101 = local98.aClass268_1;
@@ -104,6 +104,6 @@ public final class Static556 {
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(IBZ)Lclient!gfa;")
     public static Node_Sub22 method7303(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
         @Pc(19) long local19 = (long) (arg0 | (arg1 ? Integer.MIN_VALUE : 0));
-        return (Node_Sub22) Static286.aClass28_23.method738(local19);
+        return (Node_Sub22) Static286.A_HASH_TABLE___23.get(local19);
     }
 }

@@ -8,7 +8,7 @@ public final class Static658 {
     public static int anInt9800;
 
     @OriginalMember(owner = "client!us", name = "k", descriptor = "Lclient!av;")
-    public static final Class28 aClass28_43 = new Class28(16);
+    public static final HashTable A_HASH_TABLE___43 = new HashTable(16);
 
     @OriginalMember(owner = "client!us", name = "m", descriptor = "I")
     public static int anInt9801 = 0;

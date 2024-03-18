@@ -44,7 +44,7 @@ public final class Static89 {
             if (local7.anIntArray718 != null) {
                 local7.anInt9351 = (int) ((double) (local7.anInt9354 - local7.anInt9365) * Math.random()) + local7.anInt9365;
             }
-            Static460.aClass339_40.method7711(local7);
+            Static460.A_DEQUE___40.addLast(local7);
             return;
         }
         if (arg4 != null) {
@@ -65,7 +65,7 @@ public final class Static89 {
                 local7.anInt9356 = local37.anInt6742 << 9;
                 local7.anInt9360 = local37.anInt6736;
             }
-            Static717.aClass339_81.method7711(local7);
+            Static717.A_DEQUE___81.addLast(local7);
             return;
         }
         if (arg1 == null) {
@@ -81,7 +81,7 @@ public final class Static89 {
         local7.anInt9358 = arg1.anInt1460;
         local7.anInt9355 = 0;
         local7.aBoolean714 = arg1.aBoolean126;
-        Static113.aClass28_12.method735((long) arg1.anInt10740, local7);
+        Static113.A_HASH_TABLE___12.put((long) arg1.anInt10740, local7);
         return;
     }
 

@@ -24,8 +24,8 @@ public final class Static79 {
         if (98 != 98) {
             anInt1634 = 47;
         }
-        Static693.aClass339_79.method7700();
-        Static490.aClass28_34.method737();
+        Static693.A_DEQUE___79.clear();
+        Static490.A_HASH_TABLE___34.clear();
         Static350.aClass192_8.method4351();
         Static84.method1662(Static525.aClass2_Sub2_Sub16_12);
     }

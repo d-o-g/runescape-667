@@ -174,6 +174,6 @@ public final class Static603 {
         local393.anInt6186 = local34 - local15;
         local393.anInt6184 = local248;
         local393.anInt6185 = local257;
-        Static551.aClass339_54.method7711(local393);
+        Static551.aDeque_54.addLast(local393);
     }
 }

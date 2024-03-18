@@ -61,7 +61,7 @@ public final class Node_Sub33 extends Node {
     public Node_Sub21_Sub1 aClass2_Sub21_Sub1_2;
 
     @OriginalMember(owner = "client!kia", name = "B", descriptor = "Lclient!av;")
-    public Class28 aClass28_26;
+    public HashTable aHashTable_26;
 
     @OriginalMember(owner = "client!kia", name = "<init>", descriptor = "(Lclient!qha;Lclient!pn;Lclient!lca;[I)V")
     public Node_Sub33(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Class178_Sub2 arg1, @OriginalArg(2) Node_Sub7 arg2, @OriginalArg(3) int[] arg3) {
@@ -134,7 +134,7 @@ public final class Node_Sub33 extends Node {
         } else {
             this.aClass2_Sub21_8 = new Node_Sub21(this.anInt5447 * 2);
             this.aClass2_Sub21_Sub1_2 = new Node_Sub21_Sub1(this.anInt5447 * 16);
-            this.aClass28_26 = new Class28(Static440.method5962(this.anInt5447));
+            this.aHashTable_26 = new HashTable(Static440.method5962(this.anInt5447));
             local148 = 0;
             local121 = 0;
             for (local178 = this.anInt5449; local178 <= this.anInt5454; local178++) {
@@ -199,7 +199,7 @@ public final class Node_Sub33 extends Node {
             this.aClass94_4 = new Class94(this.anInterface12_3, 5126, 3, 0);
             this.aClass94_5 = new Class94(this.anInterface12_3, 5121, 4, 12);
         }
-        this.aClass28_26 = null;
+        this.aHashTable_26 = null;
         this.aClass2_Sub21_Sub1_2 = null;
         this.aClass2_Sub21_8 = null;
         this.aFloatArrayArray11 = this.aFloatArrayArray9 = this.aFloatArrayArray10 = null;
@@ -213,7 +213,7 @@ public final class Node_Sub33 extends Node {
         @Pc(30) int local30 = this.aClass178_Sub2_2.method7878(local23, local15);
         if ((arg1 & 0x7F) == 0 || (arg0 & 0x7F) == 0) {
             local7 = ((long) local23 & 0xFFFFL) << 16 | (long) local15 & 0xFFFFL;
-            @Pc(64) Node local64 = this.aClass28_26.method738(local7);
+            @Pc(64) Node local64 = this.aHashTable_26.get(local7);
             if (local64 != null) {
                 this.method4934(((Node_Sub50) local64).aShort119);
                 return;
@@ -221,7 +221,7 @@ public final class Node_Sub33 extends Node {
         }
         @Pc(83) short local83 = (short) this.anInt5452++;
         if (local7 != -1L) {
-            this.aClass28_26.method735(local7, new Node_Sub50(local83));
+            this.aHashTable_26.put(local7, new Node_Sub50(local83));
         }
         @Pc(114) float local114;
         @Pc(121) float local121;

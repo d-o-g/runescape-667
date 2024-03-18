@@ -330,7 +330,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                 if (local275 != null && local275.anInt6371 != -1) {
                     @Pc(310) int local310;
                     if (local275.anInt6363 == 1) {
-                        @Pc(298) Node_Sub45 local298 = (Node_Sub45) Static18.aClass28_2.method738((long) local275.anInt6366);
+                        @Pc(298) Node_Sub45 local298 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local275.anInt6366);
                         if (local298 != null) {
                             @Pc(303) Class8_Sub2_Sub1_Sub2_Sub2 local303 = local298.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                             local310 = local303.anInt10690 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690;
@@ -432,7 +432,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(134) int local134 = -1;
         @Pc(139) int[] local139 = new int[Static125.aClass388_1.anIntArray821.length];
         @Pc(144) Class52[] local144 = new Class52[Static125.aClass388_1.anIntArray821.length];
-        @Pc(149) Class382[] local149 = new Class382[Static125.aClass388_1.anIntArray821.length];
+        @Pc(149) ObjType[] local149 = new ObjType[Static125.aClass388_1.anIntArray821.length];
         @Pc(165) int local165;
         @Pc(184) int local184;
         @Pc(191) int local191;
@@ -453,7 +453,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                     if (local191 >= 32768) {
                         local191 = Static349.anIntArray426[local191 - 32768];
                         local139[local151] = local191 | 0x40000000;
-                        local149[local151] = Static419.aClass112_1.method2486(local191);
+                        local149[local151] = Static419.aObjTypeList_1.list(local191);
                         local240 = local149[local151].anInt10121;
                         if (local240 != 0) {
                             this.anInt1433 = local240;
@@ -539,7 +539,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (Static312.anInt5000 == super.anInt10740 && local603 != null) {
             for (local490 = 0; local490 < local332.length; local490++) {
                 if (local332[local490] != local603[local490]) {
-                    Static419.aClass112_1.method2484();
+                    Static419.aObjTypeList_1.method2484();
                     break;
                 }
             }
@@ -574,7 +574,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (local119) {
             arg0 |= 0x80000;
         }
-        @Pc(152) Class114 local152 = super.aClass114Array3[0] = this.aClass201_1.method4546(Static419.aClass112_1, local33, Static574.aClass310_2, Static25.aClass50_1, arg0, super.anIntArray877, Static125.aClass388_1, Static68.aClass215_3, arg1, Static690.aClass308_2, super.aClass152_Sub2_Sub1Array3, local95, local58, Static34.aClass304_1);
+        @Pc(152) Class114 local152 = super.aClass114Array3[0] = this.aClass201_1.method4546(Static419.aObjTypeList_1, local33, Static574.aClass310_2, Static25.aClass50_1, arg0, super.anIntArray877, Static125.aClass388_1, Static68.aClass215_3, arg1, Static690.aClass308_2, super.aClass152_Sub2_Sub1Array3, local95, local58, Static34.aClass304_1);
         @Pc(155) int local155 = Static303.method4429();
         if (Static369.anInt4265 < 96 && local155 > 50) {
             Static358.method9191();

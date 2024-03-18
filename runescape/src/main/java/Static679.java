@@ -105,7 +105,7 @@ public final class Static679 {
                 }
                 if (local53 != -1) {
                     local71 = 0;
-                    @Pc(129) Class191 local129 = new Class191(Static693.aClass339_79);
+                    @Pc(129) Class191 local129 = new Class191(Static693.A_DEQUE___79);
                     for (local134 = (Node_Sub2_Sub16) local129.method4343(); local134 != null; local134 = (Node_Sub2_Sub16) local129.method4342()) {
                         if (local53 == local71++) {
                             return local134.anInt7318;
@@ -127,7 +127,7 @@ public final class Static679 {
         if (!arg0.aBoolean551) {
             @Pc(79) long local79 = arg0.aLong234;
             @Pc(85) Node_Sub2_Sub4 local85;
-            for (local85 = (Node_Sub2_Sub4) Static490.aClass28_34.method738(local79); local85 != null && !local85.aString10.equals(arg0.aString86); local85 = (Node_Sub2_Sub4) Static490.aClass28_34.method744()) {
+            for (local85 = (Node_Sub2_Sub4) Static490.A_HASH_TABLE___34.get(local79); local85 != null && !local85.aString10.equals(arg0.aString86); local85 = (Node_Sub2_Sub4) Static490.A_HASH_TABLE___34.nextWithSameKey()) {
             }
             if (local85 != null && local85.method1469(arg0)) {
                 Static385.method5424(local85);

@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Node_Sub2_Sub1 extends Node_Sub2 {
 
     @OriginalMember(owner = "client!ab", name = "A", descriptor = "Lclient!av;")
-    public Class28 aClass28_1;
+    public HashTable aHashTable_1;
 
     @OriginalMember(owner = "client!ab", name = "a", descriptor = "(ILclient!ge;I)V")
     public void method88(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21 arg1) {
@@ -16,9 +16,9 @@ public final class Node_Sub2_Sub1 extends Node_Sub2 {
         }
         @Pc(6) int local6 = arg1.method7396();
         @Pc(13) int local13;
-        if (this.aClass28_1 == null) {
+        if (this.aHashTable_1 == null) {
             local13 = Static440.method5962(local6);
-            this.aClass28_1 = new Class28(local13);
+            this.aHashTable_1 = new HashTable(local13);
         }
         for (local13 = 0; local13 < local6; local13++) {
             @Pc(32) boolean local32 = arg1.method7396() == 1;
@@ -29,16 +29,16 @@ public final class Node_Sub2_Sub1 extends Node_Sub2 {
             } else {
                 local45 = new Node_Sub38(arg1.method7349());
             }
-            this.aClass28_1.method735((long) local36, local45);
+            this.aHashTable_1.put((long) local36, local45);
         }
     }
 
     @OriginalMember(owner = "client!ab", name = "a", descriptor = "(III)I")
     public int method89(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        if (this.aClass28_1 == null) {
+        if (this.aHashTable_1 == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aClass28_1.method738((long) arg1);
+            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aHashTable_1.get((long) arg1);
             return local17 == null ? arg0 : local17.anInt6379;
         }
     }
@@ -56,10 +56,10 @@ public final class Node_Sub2_Sub1 extends Node_Sub2 {
 
     @OriginalMember(owner = "client!ab", name = "a", descriptor = "(ILjava/lang/String;I)Ljava/lang/String;")
     public String method91(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1) {
-        if (this.aClass28_1 == null) {
+        if (this.aHashTable_1 == null) {
             return arg1;
         } else {
-            @Pc(23) Node_Sub24 local23 = (Node_Sub24) this.aClass28_1.method738((long) arg0);
+            @Pc(23) Node_Sub24 local23 = (Node_Sub24) this.aHashTable_1.get((long) arg0);
             return local23 == null ? arg1 : local23.aString46;
         }
     }

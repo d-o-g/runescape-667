@@ -48,15 +48,15 @@ public final class Static48 {
         @Pc(95) int local95;
         @Pc(100) int local100;
         if (local84 > 0) {
-            local7.aClass28Array1 = new Class28[local84];
+            local7.aHashTableArray1 = new HashTable[local84];
             for (local95 = 0; local95 < local84; local95++) {
                 local100 = local12.method7382();
-                @Pc(107) Class28 local107 = new Class28(Static440.method5962(local100));
-                local7.aClass28Array1[local95] = local107;
+                @Pc(107) HashTable local107 = new HashTable(Static440.method5962(local100));
+                local7.aHashTableArray1[local95] = local107;
                 while (local100-- > 0) {
                     @Pc(117) int local117 = local12.method7349();
                     @Pc(121) int local121 = local12.method7349();
-                    local107.method735((long) local117, new Node_Sub38(local121));
+                    local107.put((long) local117, new Node_Sub38(local121));
                 }
             }
         }

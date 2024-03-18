@@ -10,7 +10,7 @@ public final class t extends Class178 implements Interface5 {
     public long nativeid;
 
     @OriginalMember(owner = "client!t", name = "C", descriptor = "Lclient!sia;")
-    public final Class339 aClass339_57 = new Class339();
+    public final Deque aDeque_57 = new Deque();
 
     @OriginalMember(owner = "client!t", name = "A", descriptor = "I")
     public int anInt8897 = -1;
@@ -41,8 +41,8 @@ public final class t extends Class178 implements Interface5 {
     public void method7870(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5) {
         this.anInt8897 = -1;
         @Pc(4) int local4 = 0;
-        @Pc(10) float[] local10 = new float[this.aClass339_57.method7701()];
-        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aClass339_57.method7699(65280); local16 != null; local16 = (Node_Sub7) this.aClass339_57.method7706()) {
+        @Pc(10) float[] local10 = new float[this.aDeque_57.size()];
+        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aDeque_57.first(65280); local16 != null; local16 = (Node_Sub7) this.aDeque_57.next()) {
             local10[local4++] = local16.method8428();
         }
         this.q(local10);
@@ -62,7 +62,7 @@ public final class t extends Class178 implements Interface5 {
     @OriginalMember(owner = "client!t", name = "a", descriptor = "(Lclient!lca;[I)V")
     @Override
     public void method7868(@OriginalArg(0) Node_Sub7 arg0, @OriginalArg(1) int[] arg1) {
-        this.aClass339_57.method7711(arg0);
+        this.aDeque_57.addLast(arg0);
         this.V(arg0.hashCode(), arg0.method8426(), arg0.method8425(), arg0.method8429(), arg0.method8432(), arg0.method8431(), arg1);
     }
 
@@ -84,8 +84,8 @@ public final class t extends Class178 implements Interface5 {
     public void method7877(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         this.anInt8897 = arg5;
         @Pc(4) int local4 = 0;
-        @Pc(10) float[] local10 = new float[this.aClass339_57.method7701()];
-        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aClass339_57.method7699(65280); local16 != null; local16 = (Node_Sub7) this.aClass339_57.method7706()) {
+        @Pc(10) float[] local10 = new float[this.aDeque_57.size()];
+        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aDeque_57.first(65280); local16 != null; local16 = (Node_Sub7) this.aDeque_57.next()) {
             local10[local4++] = local16.method8428();
         }
         this.q(local10);

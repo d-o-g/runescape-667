@@ -66,7 +66,7 @@ public final class Node_Sub22 extends Node {
             @Pc(151) int local151 = local9;
             @Pc(153) boolean local153 = false;
             for (@Pc(155) int local155 = 0; local155 < local23.length; local155++) {
-                if (local23[local155] != -1 && !Static419.aClass112_1.method2486(local23[local155]).method8802(arg2, (Class52) null)) {
+                if (local23[local155] != -1 && !Static419.aObjTypeList_1.list(local23[local155]).method8802(arg2, (Class52) null)) {
                     local153 = true;
                 }
             }
@@ -76,7 +76,7 @@ public final class Node_Sub22 extends Node {
             @Pc(203) Class88[] local203 = new Class88[local23.length];
             for (@Pc(205) int local205 = 0; local205 < local23.length; local205++) {
                 if (local23[local205] != -1) {
-                    local203[local205] = Static419.aClass112_1.method2486(local23[local205]).method8799((Class52) null, arg2);
+                    local203[local205] = Static419.aObjTypeList_1.list(local23[local205]).method8799((Class52) null, arg2);
                 }
             }
             @Pc(278) int local278;

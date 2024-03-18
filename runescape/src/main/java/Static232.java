@@ -17,7 +17,7 @@ public final class Static232 {
     public static int anInt3764 = 0;
 
     @OriginalMember(owner = "client!hda", name = "ob", descriptor = "Lclient!av;")
-    public static final Class28 aClass28_18 = new Class28(8);
+    public static final HashTable A_HASH_TABLE___18 = new HashTable(8);
 
     @OriginalMember(owner = "client!hda", name = "u", descriptor = "Lclient!mia;")
     public static final Class242 aClass242_6 = new Class242("", 21);
@@ -29,11 +29,11 @@ public final class Static232 {
         }
         @Pc(49) int[] local49 = null;
         if (Static245.method8635(arg6.anInt7314)) {
-            local49 = Static419.aClass112_1.method2486((int) arg6.aLong233).anIntArray800;
+            local49 = Static419.aObjTypeList_1.list((int) arg6.aLong233).anIntArray800;
         } else if (arg6.anInt7317 != -1) {
-            local49 = Static419.aClass112_1.method2486(arg6.anInt7317).anIntArray800;
+            local49 = Static419.aObjTypeList_1.list(arg6.anInt7317).anIntArray800;
         } else if (Static598.method7825(arg6.anInt7314)) {
-            @Pc(110) Node_Sub45 local110 = (Node_Sub45) Static18.aClass28_2.method738((long) (int) arg6.aLong233);
+            @Pc(110) Node_Sub45 local110 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) arg6.aLong233);
             if (local110 != null) {
                 @Pc(115) Class8_Sub2_Sub1_Sub2_Sub2 local115 = local110.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 @Pc(118) Class268 local118 = local115.aClass268_1;
@@ -121,7 +121,7 @@ public final class Static232 {
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(I)Z")
     public static boolean method3400() {
-        @Pc(10) Node_Sub57 local10 = (Node_Sub57) Static631.aClass339_78.method7699(65280);
+        @Pc(10) Node_Sub57 local10 = (Node_Sub57) Static631.aDeque_78.first(65280);
         if (local10 == null) {
             return false;
         }

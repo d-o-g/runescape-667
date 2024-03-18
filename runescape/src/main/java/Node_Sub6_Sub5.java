@@ -16,7 +16,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
     public boolean aBoolean795;
 
     @OriginalMember(owner = "client!wc", name = "M", descriptor = "Lclient!sia;")
-    public final Class339 aClass339_80 = new Class339();
+    public final Deque aDeque_80 = new Deque();
 
     @OriginalMember(owner = "client!wc", name = "E", descriptor = "I")
     public int anInt10535 = 0;
@@ -40,7 +40,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
         if (this.anInt10535 < 1) {
             return -1.0D;
         }
-        @Pc(16) Node_Sub2_Sub8 local16 = (Node_Sub2_Sub8) this.aClass339_80.method7699(65280);
+        @Pc(16) Node_Sub2_Sub8 local16 = (Node_Sub2_Sub8) this.aDeque_80.first(65280);
         if (local16 == null) {
             return -1.0D;
         } else {
@@ -107,10 +107,10 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(Lclient!dk;B)V")
     public synchronized void method9143(@OriginalArg(0) Node_Sub2_Sub8 arg0) {
         while (this.anInt10535 >= 100) {
-            this.aClass339_80.method7705();
+            this.aDeque_80.removeFirst();
             this.anInt10535--;
         }
-        this.aClass339_80.method7711(arg0);
+        this.aDeque_80.addLast(arg0);
         if (-73 != -73) {
             this.method9137(true);
         }
@@ -142,7 +142,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!wc", name = "c", descriptor = "(B)Lclient!dk;")
     public synchronized Node_Sub2_Sub8 method9145() {
-        return (Node_Sub2_Sub8) this.aClass339_80.method7699(65280);
+        return (Node_Sub2_Sub8) this.aDeque_80.first(65280);
     }
 
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(IZ)V")

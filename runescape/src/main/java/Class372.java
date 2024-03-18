@@ -13,7 +13,7 @@ public final class Class372 {
     public int anInt9615 = 0;
 
     @OriginalMember(owner = "client!ug", name = "f", descriptor = "Lclient!sia;")
-    public Class339 aClass339_69 = new Class339();
+    public Deque aDeque_69 = new Deque();
 
     @OriginalMember(owner = "client!ug", name = "k", descriptor = "Z")
     public boolean aBoolean737 = false;
@@ -48,8 +48,8 @@ public final class Class372 {
         }
         this.anIntArrayArrayArray20 = null;
         this.aClass2_Sub27Array1 = null;
-        this.aClass339_69.method7700();
-        this.aClass339_69 = null;
+        this.aDeque_69.clear();
+        this.aDeque_69 = null;
     }
 
     @OriginalMember(owner = "client!ug", name = "a", descriptor = "(II)[[I")
@@ -70,7 +70,7 @@ public final class Class372 {
                     local78 = new Node_Sub27(arg0, this.anInt9615);
                     this.anInt9615++;
                 } else {
-                    @Pc(111) Node_Sub27 local111 = (Node_Sub27) this.aClass339_69.method7708();
+                    @Pc(111) Node_Sub27 local111 = (Node_Sub27) this.aDeque_69.last();
                     local78 = new Node_Sub27(arg0, local111.anInt4352);
                     this.aClass2_Sub27Array1[local111.anInt4356] = null;
                     local111.remove();
@@ -79,7 +79,7 @@ public final class Class372 {
             } else {
                 this.aBoolean737 = false;
             }
-            this.aClass339_69.method7697(local78);
+            this.aDeque_69.addFirst(local78);
             return this.anIntArrayArrayArray20[local78.anInt4352];
         }
     }

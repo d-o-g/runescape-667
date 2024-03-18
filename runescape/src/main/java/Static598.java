@@ -30,7 +30,7 @@ public final class Static598 {
 
     @OriginalMember(owner = "client!ss", name = "a", descriptor = "(Z)V")
     public static void method7827() {
-        for (@Pc(13) Node_Sub2_Sub20 local13 = (Node_Sub2_Sub20) Static346.aClass28_29.method736(); local13 != null; local13 = (Node_Sub2_Sub20) Static346.aClass28_29.method740()) {
+        for (@Pc(13) Node_Sub2_Sub20 local13 = (Node_Sub2_Sub20) Static346.A_HASH_TABLE___29.first(); local13 != null; local13 = (Node_Sub2_Sub20) Static346.A_HASH_TABLE___29.next()) {
             @Pc(18) Class8_Sub2_Sub1_Sub5 local18 = local13.aClass8_Sub2_Sub1_Sub5_1;
             local18.method6598();
             if (local18.method6603()) {

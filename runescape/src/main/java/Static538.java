@@ -31,7 +31,7 @@ public final class Static538 {
         @Pc(15) Node_Sub21_Sub2 local15 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
         for (@Pc(17) int local17 = 0; local17 < Static86.anInt1798; local17++) {
             @Pc(23) int local23 = Static458.anIntArray553[local17];
-            @Pc(31) Class8_Sub2_Sub1_Sub2_Sub2 local31 = ((Node_Sub45) Static18.aClass28_2.method738((long) local23)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(31) Class8_Sub2_Sub1_Sub2_Sub2 local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local23)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             @Pc(35) int local35 = local15.method7396();
             if ((local35 & 0x80) != 0) {
                 local35 += local15.method7396() << 8;

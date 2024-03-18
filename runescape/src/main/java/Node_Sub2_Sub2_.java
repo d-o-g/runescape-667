@@ -19,7 +19,7 @@ public final class Node_Sub2_Sub2_ extends Node_Sub2 {
 
     @OriginalMember(owner = "client!aj", name = "<init>", descriptor = "(IJ)V")
     public Node_Sub2_Sub2_(@OriginalArg(0) int arg0, @OriginalArg(1) long arg1) {
-        super.aLong328 = arg1 | (long) arg0 << 56;
+        super.key = arg1 | (long) arg0 << 56;
     }
 
     @OriginalMember(owner = "client!aj", name = "g", descriptor = "(I)J")
@@ -37,12 +37,12 @@ public final class Node_Sub2_Sub2_ extends Node_Sub2 {
 
     @OriginalMember(owner = "client!aj", name = "a", descriptor = "(I)I")
     public int method203() {
-        return (int) (super.aLong328 >>> 56 & 0xFFL);
+        return (int) (super.key >>> 56 & 0xFFL);
     }
 
     @OriginalMember(owner = "client!aj", name = "h", descriptor = "(I)J")
     public long method204() {
-        return super.aLong328 & 0xFFFFFFFFFFFFFFL;
+        return super.key & 0xFFFFFFFFFFFFFFL;
     }
 
     @OriginalMember(owner = "client!aj", name = "c", descriptor = "(B)V")

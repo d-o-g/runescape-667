@@ -10,7 +10,7 @@ import java.net.InetAddress;
 public final class Class226 implements Runnable {
 
     @OriginalMember(owner = "client!lha", name = "h", descriptor = "Lclient!sia;")
-    public final Class339 aClass339_32 = new Class339();
+    public final Deque aDeque_32 = new Deque();
 
     @OriginalMember(owner = "client!lha", name = "d", descriptor = "Ljava/lang/Thread;")
     public Thread aThread4 = new Thread(this);
@@ -25,13 +25,13 @@ public final class Class226 implements Runnable {
     @Override
     public void run() {
         while (true) {
-            @Pc(8) Class339 local8 = this.aClass339_32;
+            @Pc(8) Deque local8 = this.aDeque_32;
             @Pc(43) Node_Sub12 local43;
-            synchronized (this.aClass339_32) {
+            synchronized (this.aDeque_32) {
                 @Pc(15) Node local15;
-                for (local15 = this.aClass339_32.method7705(); local15 == null; local15 = this.aClass339_32.method7705()) {
+                for (local15 = this.aDeque_32.removeFirst(); local15 == null; local15 = this.aDeque_32.removeFirst()) {
                     try {
-                        this.aClass339_32.wait();
+                        this.aDeque_32.wait();
                     } catch (@Pc(23) InterruptedException local23) {
                     }
                 }
@@ -66,10 +66,10 @@ public final class Class226 implements Runnable {
 
     @OriginalMember(owner = "client!lha", name = "a", descriptor = "(ILclient!ie;)V")
     public void method5244(@OriginalArg(1) Node arg0) {
-        @Pc(2) Class339 local2 = this.aClass339_32;
-        synchronized (this.aClass339_32) {
-            this.aClass339_32.method7711(arg0);
-            this.aClass339_32.notify();
+        @Pc(2) Deque local2 = this.aDeque_32;
+        synchronized (this.aDeque_32) {
+            this.aDeque_32.addLast(arg0);
+            this.aDeque_32.notify();
         }
     }
 

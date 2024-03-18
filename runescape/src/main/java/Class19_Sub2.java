@@ -93,7 +93,7 @@ public final class Class19_Sub2 extends Class19 {
     public boolean aBoolean330;
 
     @OriginalMember(owner = "client!iaa", name = "N", descriptor = "Lclient!av;")
-    public Class28 aClass28_20;
+    public HashTable aHashTable_20;
 
     @OriginalMember(owner = "client!iaa", name = "L", descriptor = "I")
     public int anInt4186;
@@ -160,7 +160,7 @@ public final class Class19_Sub2 extends Class19 {
         super(arg0);
         this.aBoolean331 = false;
         this.aBoolean330 = false;
-        this.aClass28_20 = new Class28(4);
+        this.aHashTable_20 = new HashTable(4);
         this.anInt4186 = 0;
         this.anInt4188 = 512;
         this.anInt4202 = 75518;
@@ -217,7 +217,7 @@ public final class Class19_Sub2 extends Class19 {
         this.aCanvas3 = null;
         this.anInt4183 = 0;
         this.anInt4185 = 0;
-        this.aClass28_20 = null;
+        this.aHashTable_20 = null;
         this.aBoolean331 = true;
     }
 
@@ -413,7 +413,7 @@ public final class Class19_Sub2 extends Class19 {
             }
             return;
         }
-        @Pc(10) Node_Sub10 local10 = (Node_Sub10) this.aClass28_20.method738((long) arg0.hashCode());
+        @Pc(10) Node_Sub10 local10 = (Node_Sub10) this.aHashTable_20.get((long) arg0.hashCode());
         if (local10 == null) {
             return;
         }
@@ -904,13 +904,13 @@ public final class Class19_Sub2 extends Class19 {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aClass28_20.method738((long) arg0.hashCode());
+        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aHashTable_20.get((long) arg0.hashCode());
         if (local8 == null) {
             return;
         }
         local8.remove();
         local8 = Static538.method7192(arg2, arg0, arg1);
-        this.aClass28_20.method735((long) arg0.hashCode(), local8);
+        this.aHashTable_20.put((long) arg0.hashCode(), local8);
         if (this.aCanvas3 != arg0 || this.aClass87_1 != null) {
             return;
         }
@@ -2789,10 +2789,10 @@ public final class Class19_Sub2 extends Class19 {
     @OriginalMember(owner = "client!iaa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aClass28_20.method738((long) arg0.hashCode());
+        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aHashTable_20.get((long) arg0.hashCode());
         if (local8 == null) {
             local8 = Static538.method7192(arg2, arg0, arg1);
-            this.aClass28_20.method735((long) arg0.hashCode(), local8);
+            this.aHashTable_20.put((long) arg0.hashCode(), local8);
         } else if (local8.anInt7053 != arg1 || local8.anInt7050 != arg2) {
             this.method7935(arg0, arg1, arg2);
         }
@@ -2854,7 +2854,7 @@ public final class Class19_Sub2 extends Class19 {
         if (this.aCanvas3 == arg0) {
             this.method8019((Canvas) null);
         }
-        @Pc(17) Node_Sub10 local17 = (Node_Sub10) this.aClass28_20.method738((long) arg0.hashCode());
+        @Pc(17) Node_Sub10 local17 = (Node_Sub10) this.aHashTable_20.get((long) arg0.hashCode());
         if (local17 != null) {
             local17.remove();
         }

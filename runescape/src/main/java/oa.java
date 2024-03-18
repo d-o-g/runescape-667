@@ -31,7 +31,7 @@ public final class oa extends Class19 implements Interface5 {
     public boolean aBoolean509 = false;
 
     @OriginalMember(owner = "client!oa", name = "E", descriptor = "Lclient!sia;")
-    public final Class339 aClass339_38 = new Class339();
+    public final Deque aDeque_38 = new Deque();
 
     @OriginalMember(owner = "client!oa", name = "I", descriptor = "I")
     public int anInt6768 = 4096;
@@ -40,7 +40,7 @@ public final class oa extends Class19 implements Interface5 {
     public int anInt6769 = 4096;
 
     @OriginalMember(owner = "client!oa", name = "x", descriptor = "Lclient!av;")
-    public final Class28 aClass28_33 = new Class28(4);
+    public final HashTable aHashTable_33 = new HashTable(4);
 
     @OriginalMember(owner = "client!oa", name = "G", descriptor = "Z")
     public boolean aBoolean510 = false;
@@ -95,7 +95,7 @@ public final class oa extends Class19 implements Interface5 {
     public void method7977(@OriginalArg(0) int arg0) {
         Static307.method4478();
         this.d(arg0);
-        for (@Pc(10) ya local10 = (ya) this.aClass339_38.method7699(65280); local10 != null; local10 = (ya) this.aClass339_38.method7706()) {
+        for (@Pc(10) ya local10 = (ya) this.aDeque_38.first(65280); local10 != null; local10 = (ya) this.aDeque_38.next()) {
             local10.r();
         }
     }
@@ -160,7 +160,7 @@ public final class oa extends Class19 implements Interface5 {
             this.aP1 = null;
             this.t((p) null);
         } else {
-            @Pc(10) p local10 = (p) this.aClass28_33.method738((long) arg0.hashCode());
+            @Pc(10) p local10 = (p) this.aHashTable_33.get((long) arg0.hashCode());
             this.aP1 = local10;
             this.t(local10);
         }
@@ -172,7 +172,7 @@ public final class oa extends Class19 implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) p local8 = (p) this.aClass28_33.method738((long) arg0.hashCode());
+        @Pc(8) p local8 = (p) this.aHashTable_33.get((long) arg0.hashCode());
         local8.method6439(arg0, arg1, arg2);
         if (arg0 != null && arg0 == this.aP1.aCanvas9) {
             this.method8019(arg0);
@@ -328,7 +328,7 @@ public final class oa extends Class19 implements Interface5 {
         if (this.aP1.aCanvas9 == arg0) {
             this.method8019((Canvas) null);
         }
-        @Pc(18) p local18 = (p) this.aClass28_33.method738((long) arg0.hashCode());
+        @Pc(18) p local18 = (p) this.aHashTable_33.get((long) arg0.hashCode());
         if (local18 != null) {
             local18.remove();
             local18.method6442();
@@ -371,7 +371,7 @@ public final class oa extends Class19 implements Interface5 {
     @Override
     public Node_Sub13 method7961(@OriginalArg(0) int arg0) {
         @Pc(5) ya local5 = new ya(this, arg0);
-        this.aClass339_38.method7711(local5);
+        this.aDeque_38.addLast(local5);
         return local5;
     }
 
@@ -473,7 +473,7 @@ public final class oa extends Class19 implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) p local8 = (p) this.aClass28_33.method738((long) arg0.hashCode());
+        @Pc(8) p local8 = (p) this.aHashTable_33.get((long) arg0.hashCode());
         if (local8 == null) {
             try {
                 @Pc(15) Class local15 = Class.forName("java.awt.Canvas");
@@ -482,7 +482,7 @@ public final class oa extends Class19 implements Interface5 {
             } catch (@Pc(39) Exception local39) {
             }
             local8 = new p(this, arg0, arg1, arg2);
-            this.aClass28_33.method735((long) arg0.hashCode(), local8);
+            this.aHashTable_33.put((long) arg0.hashCode(), local8);
         } else if (local8.anInt7161 != arg1 || local8.anInt7162 != arg2) {
             local8.method6439(arg0, arg1, arg2);
         }
@@ -776,11 +776,11 @@ public final class oa extends Class19 implements Interface5 {
         this.aP1 = null;
         this.aYa2 = null;
         this.aClass73_8 = null;
-        this.aClass28_33.method737();
-        for (@Pc(26) ya local26 = (ya) this.aClass339_38.method7699(65280); local26 != null; local26 = (ya) this.aClass339_38.method7706()) {
+        this.aHashTable_33.clear();
+        for (@Pc(26) ya local26 = (ya) this.aDeque_38.first(65280); local26 != null; local26 = (ya) this.aDeque_38.next()) {
             local26.ga();
         }
-        this.aClass339_38.method7700();
+        this.aDeque_38.clear();
         this.FA();
         if (this.aBoolean510) {
             Static300.method4390(false, true);

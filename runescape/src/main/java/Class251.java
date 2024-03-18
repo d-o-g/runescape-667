@@ -13,7 +13,7 @@ public final class Class251 implements Interface19 {
             @Pc(13) Class53 local13 = Static619.aClass387_2.method8925(arg2[0]);
             return local13.method1229((int) arg0);
         } else if (Static560.aClass184_15 == arg1 || arg1 == Static507.aClass184_14) {
-            @Pc(41) Class382 local41 = Static419.aClass112_1.method2486((int) arg0);
+            @Pc(41) ObjType local41 = Static419.aObjTypeList_1.list((int) arg0);
             return local41.aString118;
         } else if (Static51.aClass184_1 == arg1 || Static642.aClass184_17 == arg1 || Static208.aClass184_6 == arg1) {
             return Static619.aClass387_2.method8925(arg2[0]).method1229((int) arg0);

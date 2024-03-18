@@ -12,7 +12,7 @@ public final class Static121 {
 
     @OriginalMember(owner = "client!dp", name = "a", descriptor = "(II)V")
     public static void method2199(@OriginalArg(0) int arg0) {
-        @Pc(17) Node_Sub5 local17 = (Node_Sub5) Static106.aClass28_11.method738((long) arg0);
+        @Pc(17) Node_Sub5 local17 = (Node_Sub5) Static106.A_HASH_TABLE___11.get((long) arg0);
         if (local17 != null) {
             local17.aClass222_Sub1_1.method9181();
             Static635.method8380(local17.anInt182, local17.aBoolean15);

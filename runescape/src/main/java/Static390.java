@@ -106,8 +106,8 @@ public final class Static390 {
         }
         @Pc(25) int local25 = 0;
         for (@Pc(27) int local27 = 0; local27 < local18.anIntArray278.length; local27++) {
-            if (local18.anIntArray278[local27] >= 0 && local18.anIntArray278[local27] < Static419.aClass112_1.anInt2670) {
-                @Pc(54) Class382 local54 = Static419.aClass112_1.method2486(local18.anIntArray278[local27]);
+            if (local18.anIntArray278[local27] >= 0 && local18.anIntArray278[local27] < Static419.aObjTypeList_1.anInt2670) {
+                @Pc(54) ObjType local54 = Static419.aObjTypeList_1.list(local18.anIntArray278[local27]);
                 @Pc(64) int local64 = local54.method8794(arg1, Static386.aClass49_2.method1161(arg1).anInt7509);
                 if (arg0) {
                     local25 += local64 * local18.anIntArray279[local27];

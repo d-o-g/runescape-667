@@ -19,7 +19,7 @@ public final class Static517 {
         @Pc(50) Node_Sub2_Sub13 local50 = new Node_Sub2_Sub13(arg2, local14.method7358(), local14.method7358(), local14.method7349(), local14.method7349(), local14.method7396() == 1, local14.method7396(), local14.method7396());
         @Pc(54) int local54 = local14.method7396();
         for (@Pc(56) int local56 = 0; local56 < local54; local56++) {
-            local50.aClass339_26.method7711(new Node_Sub56(local14.method7396(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382()));
+            local50.aDeque_26.addLast(new Node_Sub56(local14.method7396(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382(), local14.method7382()));
         }
         local50.method4090();
         return local50;

@@ -3,17 +3,17 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!cv")
-public final class Node_Sub15 extends Node {
+public final class ObjStackEntry extends Node {
 
     @OriginalMember(owner = "client!cv", name = "o", descriptor = "I")
-    public final int anInt1958;
+    public final int id;
 
     @OriginalMember(owner = "client!cv", name = "q", descriptor = "I")
-    public int anInt1959;
+    public int count;
 
     @OriginalMember(owner = "client!cv", name = "<init>", descriptor = "(II)V")
-    public Node_Sub15(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        this.anInt1958 = arg0;
-        this.anInt1959 = arg1;
+    public ObjStackEntry(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+        this.id = arg0;
+        this.count = arg1;
     }
 }

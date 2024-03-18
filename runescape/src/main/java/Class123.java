@@ -7,10 +7,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class123 {
 
     @OriginalMember(owner = "client!fca", name = "k", descriptor = "Lclient!av;")
-    public final Class28 aClass28_15 = new Class28(256);
+    public final HashTable aHashTable_15 = new HashTable(256);
 
     @OriginalMember(owner = "client!fca", name = "c", descriptor = "Lclient!av;")
-    public final Class28 aClass28_16 = new Class28(256);
+    public final HashTable aHashTable_16 = new HashTable(256);
 
     @OriginalMember(owner = "client!fca", name = "d", descriptor = "Lclient!sb;")
     public final Class330 aClass330_31;
@@ -29,7 +29,7 @@ public final class Class123 {
         @Pc(15) int local15 = arg0 ^ (arg1 >>> 12 | (arg1 & 0x10000FFF) << 4);
         @Pc(27) int local27 = local15 | arg1 << 16;
         @Pc(30) long local30 = (long) local27;
-        @Pc(37) Node_Sub49_Sub1 local37 = (Node_Sub49_Sub1) this.aClass28_16.method738(local30);
+        @Pc(37) Node_Sub49_Sub1 local37 = (Node_Sub49_Sub1) this.aHashTable_16.get(local30);
         if (local37 != null) {
             return local37;
         } else if (arg2 == null || arg2[0] > 0) {
@@ -38,7 +38,7 @@ public final class Class123 {
                 return null;
             }
             local37 = local62.method2247();
-            this.aClass28_16.method735(local30, local37);
+            this.aHashTable_16.put(local30, local37);
             if (arg2 != null) {
                 arg2[0] -= local37.aByteArray98.length;
             }
@@ -53,24 +53,24 @@ public final class Class123 {
         @Pc(15) int local15 = (arg1 >>> 12 | (arg1 & 0xB0000FFF) << 4) ^ arg2;
         @Pc(21) int local21 = local15 | arg1 << 16;
         @Pc(26) long local26 = (long) local21 ^ 0x100000000L;
-        @Pc(33) Node_Sub49_Sub1 local33 = (Node_Sub49_Sub1) this.aClass28_16.method738(local26);
+        @Pc(33) Node_Sub49_Sub1 local33 = (Node_Sub49_Sub1) this.aHashTable_16.get(local26);
         if (local33 != null) {
             return local33;
         } else if (arg0 == null || arg0[0] > 0) {
-            @Pc(59) Node_Sub53 local59 = (Node_Sub53) this.aClass28_15.method738(local26);
+            @Pc(59) Node_Sub53 local59 = (Node_Sub53) this.aHashTable_15.get(local26);
             if (local59 == null) {
                 local59 = Static650.method8506(this.aClass330_31, arg1, arg2);
                 if (local59 == null) {
                     return null;
                 }
-                this.aClass28_15.method735(local26, local59);
+                this.aHashTable_15.put(local26, local59);
             }
             local33 = local59.method8502(arg0);
             if (local33 == null) {
                 return null;
             } else {
                 local59.remove();
-                this.aClass28_16.method735(local26, local33);
+                this.aHashTable_16.put(local26, local33);
                 return local33;
             }
         } else {

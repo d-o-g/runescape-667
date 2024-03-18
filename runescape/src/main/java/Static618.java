@@ -11,7 +11,7 @@ public final class Static618 {
     public static final Class225 aClass225_226 = new Class225(141, 2);
 
     @OriginalMember(owner = "client!tja", name = "G", descriptor = "Lclient!sia;")
-    public static final Class339 aClass339_68 = new Class339();
+    public static final Deque A_DEQUE___68 = new Deque();
 
     @OriginalMember(owner = "client!tja", name = "z", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_227 = new Class225(81, 12);

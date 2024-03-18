@@ -11,7 +11,7 @@ public final class Static59 {
     public static final Class192 aClass192_9 = new Class192();
 
     @OriginalMember(owner = "client!bv", name = "o", descriptor = "Lclient!sia;")
-    public static final Class339 aClass339_33 = new Class339();
+    public static final Deque A_DEQUE___33 = new Deque();
 
     @OriginalMember(owner = "client!bv", name = "n", descriptor = "I")
     public static int anInt5936 = 999999;

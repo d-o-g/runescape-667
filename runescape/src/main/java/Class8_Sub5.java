@@ -31,7 +31,7 @@ public final class Class8_Sub5 extends Class8 {
     public int anInt4148 = 0;
 
     @OriginalMember(owner = "client!hv", name = "k", descriptor = "Lclient!sia;")
-    public Class339 aClass339_22 = new Class339();
+    public Deque aDeque_22 = new Deque();
 
     @OriginalMember(owner = "client!hv", name = "j", descriptor = "Z")
     public boolean aBoolean326 = false;
@@ -87,7 +87,7 @@ public final class Class8_Sub5 extends Class8 {
         }
         @Pc(21) int local21;
         label71:
-        for (@Pc(16) Node_Sub2_Sub5 local16 = (Node_Sub2_Sub5) this.aClass339_22.method7699(65280); local16 != null; local16 = (Node_Sub2_Sub5) this.aClass339_22.method7706()) {
+        for (@Pc(16) Node_Sub2_Sub5 local16 = (Node_Sub2_Sub5) this.aDeque_22.first(65280); local16 != null; local16 = (Node_Sub2_Sub5) this.aDeque_22.next()) {
             if (arg0 != null) {
                 for (local21 = 0; local21 < arg0.length; local21++) {
                     if (local16.aClass249_1 == arg0[local21] || local16.aClass249_1 == arg0[local21].aClass249_2) {
@@ -118,7 +118,7 @@ public final class Class8_Sub5 extends Class8 {
                 if (local96 == null) {
                     local96 = new Node_Sub2_Sub5(arg0[local21], this);
                 }
-                this.aClass339_22.method7711(local96);
+                this.aDeque_22.addLast(local96);
                 this.anInt4150++;
                 Static257.aBooleanArray6[local21] = true;
             }
@@ -182,7 +182,7 @@ public final class Class8_Sub5 extends Class8 {
     @OriginalMember(owner = "client!hv", name = "d", descriptor = "()V")
     public void method3652() {
         this.aBoolean324 = true;
-        for (@Pc(8) Node_Sub2_Sub5 local8 = (Node_Sub2_Sub5) this.aClass339_22.method7699(65280); local8 != null; local8 = (Node_Sub2_Sub5) this.aClass339_22.method7706()) {
+        for (@Pc(8) Node_Sub2_Sub5 local8 = (Node_Sub2_Sub5) this.aDeque_22.first(65280); local8 != null; local8 = (Node_Sub2_Sub5) this.aDeque_22.next()) {
             if (local8.aClass278_1.anInt6982 == 1) {
                 local8.method9260();
             }
@@ -196,7 +196,7 @@ public final class Class8_Sub5 extends Class8 {
         this.anInt4147 = 0;
         this.aClass130_6 = new Class130();
         this.anInt4148 = 0;
-        this.aClass339_22 = new Class339();
+        this.aDeque_22 = new Deque();
         this.anInt4150 = 0;
         this.method9274();
         Static81.aClass8_Sub5Array1[Static349.anInt5693] = this;

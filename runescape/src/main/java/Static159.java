@@ -14,7 +14,7 @@ public final class Static159 {
     public static int anInt2788 = 0;
 
     @OriginalMember(owner = "client!ew", name = "d", descriptor = "Lclient!sia;")
-    public static Class339 aClass339_15 = new Class339();
+    public static Deque aDeque_15 = new Deque();
 
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "(III)I")
     public static int method2572(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
@@ -62,7 +62,7 @@ public final class Static159 {
             }
         } else {
             local80 = 0;
-            for (@Pc(85) Node_Sub2_Sub16 local85 = (Node_Sub2_Sub16) Static693.aClass339_79.method7699(65280); local85 != null; local85 = (Node_Sub2_Sub16) Static693.aClass339_79.method7706()) {
+            for (@Pc(85) Node_Sub2_Sub16 local85 = (Node_Sub2_Sub16) Static693.A_DEQUE___79.first(65280); local85 != null; local85 = (Node_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
                 local101 = (Static594.anInt8777 - local80 - 1) * 16 + local9 + Static84.anInt1775 + 31;
                 local80++;
                 Static232.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, local85, -1, local76, local7 + Static71.anInt1576, local69);

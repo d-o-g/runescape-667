@@ -8,7 +8,7 @@ public final class Static497 {
     public static boolean aBoolean564;
 
     @OriginalMember(owner = "client!pla", name = "i", descriptor = "Lclient!av;")
-    public static Class28 aClass28_35 = new Class28(64);
+    public static HashTable stacks = new HashTable(64);
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ILclient!ha;)V")
     public static void method6623(@OriginalArg(1) Class19 arg0) {

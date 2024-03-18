@@ -28,7 +28,7 @@ public final class Class54 {
     public byte[] aByteArray14;
 
     @OriginalMember(owner = "client!c", name = "kb", descriptor = "Lclient!av;")
-    public Class28 aClass28_10;
+    public HashTable aHashTable_10;
 
     @OriginalMember(owner = "client!c", name = "mb", descriptor = "[S")
     public short[] aShortArray13;
@@ -516,9 +516,9 @@ public final class Class54 {
                                                     return;
                                                 } else if (arg1 == 249) {
                                                     local37 = arg0.method7396();
-                                                    if (this.aClass28_10 == null) {
+                                                    if (this.aHashTable_10 == null) {
                                                         local47 = Static440.method5962(local37);
-                                                        this.aClass28_10 = new Class28(local47);
+                                                        this.aHashTable_10 = new HashTable(local47);
                                                     }
                                                     for (local47 = 0; local47 < local37; local47++) {
                                                         @Pc(872) boolean local872 = arg0.method7396() == 1;
@@ -529,7 +529,7 @@ public final class Class54 {
                                                         } else {
                                                             local885 = new Node_Sub38(arg0.method7349());
                                                         }
-                                                        this.aClass28_10.method735((long) local67, local885);
+                                                        this.aHashTable_10.put((long) local67, local885);
                                                     }
                                                     return;
                                                 }
@@ -605,10 +605,10 @@ public final class Class54 {
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Ljava/lang/String;IZ)Ljava/lang/String;")
     public String method1297(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        if (this.aClass28_10 == null) {
+        if (this.aHashTable_10 == null) {
             return arg0;
         } else {
-            @Pc(25) Node_Sub24 local25 = (Node_Sub24) this.aClass28_10.method738((long) arg1);
+            @Pc(25) Node_Sub24 local25 = (Node_Sub24) this.aHashTable_10.get((long) arg1);
             return local25 == null ? arg0 : local25.aString46;
         }
     }
@@ -1099,10 +1099,10 @@ public final class Class54 {
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(III)I")
     public int method1316(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        if (this.aClass28_10 == null) {
+        if (this.aHashTable_10 == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aClass28_10.method738((long) arg1);
+            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aHashTable_10.get((long) arg1);
             return local17 == null ? arg0 : local17.anInt6379;
         }
     }

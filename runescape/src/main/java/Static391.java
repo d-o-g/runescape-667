@@ -10,7 +10,7 @@ public final class Static391 {
     public static int anInt6134;
 
     @OriginalMember(owner = "client!mea", name = "l", descriptor = "Lclient!sia;")
-    public static final Class339 aClass339_34 = new Class339();
+    public static final Deque A_DEQUE___34 = new Deque();
 
     @OriginalMember(owner = "client!mea", name = "b", descriptor = "(II)I")
     public static int method5505(@OriginalArg(1) int arg0) {

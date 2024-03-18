@@ -28,12 +28,12 @@ public final class Static668 {
         } else {
             Static357.anInt6504 = -1;
         }
-        Static551.aClass339_54 = null;
+        Static551.aDeque_54 = null;
         Static210.aClass158_4 = null;
         Static30.aClass2_Sub2_Sub13_3 = null;
         Static273.anInt4403 = 0;
         Static30.method5070();
-        Static30.aClass339_31.method7700();
+        Static30.A_DEQUE___31.clear();
         Static359.aClass327_3 = null;
         Static484.aClass327_6 = null;
         Static30.aClass255_3 = null;

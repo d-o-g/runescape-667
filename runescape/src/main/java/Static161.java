@@ -271,13 +271,13 @@ public final class Static161 {
                 break;
             }
             @Pc(29) boolean local29 = false;
-            @Pc(36) Node_Sub45 local36 = (Node_Sub45) Static18.aClass28_2.method738((long) local22);
+            @Pc(36) Node_Sub45 local36 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local22);
             @Pc(42) Class8_Sub2_Sub1_Sub2_Sub2 local42;
             if (local36 == null) {
                 local42 = new Class8_Sub2_Sub1_Sub2_Sub2();
                 local42.anInt10740 = local22;
                 local36 = new Node_Sub45(local42);
-                Static18.aClass28_2.method735((long) local22, local36);
+                Static18.A_HASH_TABLE___2.put((long) local22, local36);
                 Static592.aClass2_Sub45Array1[Static416.anInt6378++] = local36;
                 local29 = true;
             }

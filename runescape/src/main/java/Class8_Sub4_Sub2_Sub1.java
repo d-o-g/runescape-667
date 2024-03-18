@@ -146,7 +146,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 28));
         }
         if (local35.anIntArray775 != null) {
-            @Pc(437) Node local437 = local31.aClass339_22.aNode_271;
+            @Pc(437) Node local437 = local31.aDeque_22.tail;
             for (@Pc(440) Node local440 = local437.next; local440 != local437; local440 = local440.next) {
                 @Pc(444) Node_Sub2_Sub5 local444 = (Node_Sub2_Sub5) local440;
                 @Pc(447) Class278 local447 = local444.aClass278_1;
@@ -267,7 +267,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                 local35.anIntArray774 = new int[local35.anIntArray777.length];
                 for (local317 = 0; local317 < local35.anIntArray777.length; local317++) {
                     Static66.method1487(local35.anIntArray777[local317]);
-                    local35.anIntArray774[local317] = ((Node_Sub38) Static503.aClass28_38.method738((long) local35.anIntArray777[local317])).anInt6379;
+                    local35.anIntArray774[local317] = ((Node_Sub38) Static503.A_HASH_TABLE___38.get((long) local35.anIntArray777[local317])).anInt6379;
                 }
             }
             for (local317 = 0; local317 < local35.anIntArray774.length; local317++) {

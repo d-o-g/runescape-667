@@ -19,7 +19,7 @@ public final class Static364 {
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Z)Lclient!fu;")
     public static Node_Sub20 method5248() {
-        if (Static30.aClass339_31 == null || Static444.aClass191_1 == null) {
+        if (Static30.A_DEQUE___31 == null || Static444.aClass191_1 == null) {
             return null;
         }
         for (@Pc(17) Node_Sub20 local17 = (Node_Sub20) Static444.aClass191_1.method4342(); local17 != null; local17 = (Node_Sub20) Static444.aClass191_1.method4342()) {
@@ -413,7 +413,7 @@ public final class Static364 {
                         Static174.aBoolean249 = local1435.method7396() == 1;
                         Static416.aString71 = local1435.method7358();
                         Static354.aClass142_4.method3059(Static174.aBoolean249);
-                        Static419.aClass112_1.method2485(Static174.aBoolean249);
+                        Static419.aObjTypeList_1.method2485(Static174.aBoolean249);
                         Static690.aClass308_2.method7090(Static174.aBoolean249);
                     } else if (Static524.aClass153_3.aClass348_1.method7932(Static94.anInt1961)) {
                         Static524.aClass153_3.aClass348_1.method7929(local1435.aByteArray93, Static94.anInt1961, 0);

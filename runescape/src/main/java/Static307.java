@@ -8,7 +8,7 @@ public final class Static307 {
     public static boolean aBoolean380 = false;
 
     @OriginalMember(owner = "client!jo", name = "c", descriptor = "Lclient!sia;")
-    public static final Class339 aClass339_28 = new Class339();
+    public static final Deque A_DEQUE___28 = new Deque();
 
     @OriginalMember(owner = "client!jo", name = "a", descriptor = "I")
     public static int anInt4924 = 0;
@@ -23,14 +23,14 @@ public final class Static307 {
         } else {
             @Pc(15) Node_Sub52 local15 = new Node_Sub52();
             local15.anInterface5_1 = arg0;
-            aClass339_28.method7711(local15);
+            A_DEQUE___28.addLast(local15);
         }
     }
 
     @OriginalMember(owner = "client!jo", name = "c", descriptor = "(I)V")
     public static synchronized void method4478() {
         while (true) {
-            @Pc(4) Node_Sub52 local4 = (Node_Sub52) aClass339_28.method7705();
+            @Pc(4) Node_Sub52 local4 = (Node_Sub52) A_DEQUE___28.removeFirst();
             if (local4 == null) {
                 return;
             }

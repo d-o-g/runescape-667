@@ -24,32 +24,32 @@ public final class Static2 {
     }
 
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(IBIILclient!cv;)V")
-    public static void method63(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Node_Sub15 arg3) {
-        @Pc(16) long local16 = (long) (arg1 << 14 | arg0 << 28 | arg2);
-        @Pc(22) Node_Sub17 local22 = (Node_Sub17) Static497.aClass28_35.method738(local16);
-        if (local22 == null) {
-            local22 = new Node_Sub17();
-            Static497.aClass28_35.method735(local16, local22);
-            local22.aClass339_12.method7711(arg3);
+    public static void sortAllObjs(@OriginalArg(0) int z, @OriginalArg(2) int level, @OriginalArg(3) int x, @OriginalArg(4) ObjStackEntry entry) {
+        @Pc(16) long key = (level << 14) | (z << 28) | x;
+        @Pc(22) ObjStack stack = (ObjStack) Static497.stacks.get(key);
+        if (stack == null) {
+            stack = new ObjStack();
+            Static497.stacks.put(key, stack);
+            stack.objs.addLast(entry);
             return;
         }
-        @Pc(45) Class382 local45 = Static419.aClass112_1.method2486(arg3.anInt1958);
-        @Pc(48) int local48 = local45.anInt10142;
-        if (local45.anInt10115 == 1) {
-            local48 *= arg3.anInt1959 + 1;
+        @Pc(45) ObjType type = Static419.aObjTypeList_1.list(entry.id);
+        @Pc(48) int totalCost = type.cost;
+        if (type.stackable == 1) {
+            totalCost *= entry.count + 1;
         }
-        for (@Pc(65) Node_Sub15 local65 = (Node_Sub15) local22.aClass339_12.method7699(65280); local65 != null; local65 = (Node_Sub15) local22.aClass339_12.method7706()) {
-            local45 = Static419.aClass112_1.method2486(local65.anInt1958);
-            @Pc(78) int local78 = local45.anInt10142;
-            if (local45.anInt10115 == 1) {
-                local78 *= local65.anInt1959 + 1;
+        for (@Pc(65) ObjStackEntry other = (ObjStackEntry) stack.objs.first(65280); other != null; other = (ObjStackEntry) stack.objs.next()) {
+            type = Static419.aObjTypeList_1.list(other.id);
+            @Pc(78) int otherTotalCost = type.cost;
+            if (type.stackable == 1) {
+                otherTotalCost *= other.count + 1;
             }
-            if (local48 > local78) {
-                Static201.addBefore(local65, arg3);
+            if (totalCost > otherTotalCost) {
+                Static201.addBefore(other, entry);
                 return;
             }
         }
-        local22.aClass339_12.method7711(arg3);
+        stack.objs.addLast(entry);
     }
 
     @OriginalMember(owner = "client!aaa", name = "b", descriptor = "(II)V")

@@ -79,7 +79,7 @@ public final class Static572 {
             Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + Static31.anInt767 * 16;
             local68 = Static31.anInt767 * 16 + 21;
         } else {
-            for (@Pc(74) Node_Sub2_Sub16 local74 = (Node_Sub2_Sub16) Static693.aClass339_79.method7699(65280); local74 != null; local74 = (Node_Sub2_Sub16) Static693.aClass339_79.method7706()) {
+            for (@Pc(74) Node_Sub2_Sub16 local74 = (Node_Sub2_Sub16) Static693.A_DEQUE___79.first(65280); local74 != null; local74 = (Node_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
                 local27 = Static249.method3536(local74);
                 if (local11 < local27) {
                     local11 = local27;

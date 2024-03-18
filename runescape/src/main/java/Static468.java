@@ -18,12 +18,12 @@ public final class Static468 {
             return;
         }
         @Pc(67) long local67 = (long) (local12 << 14 | arg0 << 28 | local8);
-        @Pc(73) Node_Sub17 local73 = (Node_Sub17) Static497.aClass28_35.method738(local67);
+        @Pc(73) ObjStack local73 = (ObjStack) Static497.stacks.get(local67);
         if (local73 == null) {
             Static638.method8398(arg0, arg2, arg1);
             return;
         }
-        @Pc(88) Node_Sub15 local88 = (Node_Sub15) local73.aClass339_12.method7699(65280);
+        @Pc(88) ObjStackEntry local88 = (ObjStackEntry) local73.objs.first(65280);
         if (local88 == null) {
             Static638.method8398(arg0, arg2, arg1);
             return;
@@ -34,25 +34,25 @@ public final class Static468 {
         } else {
             local103.anInt8878 = local103.anInt8876 = -1;
         }
-        local103.anInt8873 = local88.anInt1959;
-        local103.anInt8867 = local88.anInt1958;
+        local103.anInt8873 = local88.count;
+        local103.anInt8867 = local88.id;
         label56:
         while (true) {
-            @Pc(146) Node_Sub15 local146 = (Node_Sub15) local73.aClass339_12.method7706();
+            @Pc(146) ObjStackEntry local146 = (ObjStackEntry) local73.objs.next();
             if (local146 == null) {
                 break;
             }
-            if (local146.anInt1958 != local103.anInt8867) {
-                local103.anInt8874 = local146.anInt1959;
-                local103.anInt8878 = local146.anInt1958;
+            if (local146.id != local103.anInt8867) {
+                local103.anInt8874 = local146.count;
+                local103.anInt8878 = local146.id;
                 while (true) {
-                    @Pc(171) Node_Sub15 local171 = (Node_Sub15) local73.aClass339_12.method7706();
+                    @Pc(171) ObjStackEntry local171 = (ObjStackEntry) local73.objs.next();
                     if (local171 == null) {
                         break label56;
                     }
-                    if (local103.anInt8867 != local171.anInt1958 && local171.anInt1958 != local103.anInt8878) {
-                        local103.anInt8872 = local171.anInt1959;
-                        local103.anInt8876 = local171.anInt1958;
+                    if (local103.anInt8867 != local171.id && local171.id != local103.anInt8878) {
+                        local103.anInt8872 = local171.count;
+                        local103.anInt8876 = local171.id;
                     }
                 }
             }

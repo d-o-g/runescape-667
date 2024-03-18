@@ -16,7 +16,7 @@ public final class Class16 {
     public int anInt250;
 
     @OriginalMember(owner = "client!aka", name = "b", descriptor = "Lclient!av;")
-    public final Class28 aClass28_3;
+    public final HashTable aHashTable_3;
 
     @OriginalMember(owner = "client!aka", name = "<init>", descriptor = "(I)V")
     public Class16(@OriginalArg(0) int arg0) {
@@ -25,13 +25,13 @@ public final class Class16 {
         @Pc(16) int local16;
         for (local16 = 1; arg0 > local16 + local16; local16 += local16) {
         }
-        this.aClass28_3 = new Class28(local16);
+        this.aHashTable_3 = new HashTable(local16);
     }
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(ILclient!uq;)V")
     public void method251(@OriginalArg(1) Interface24 arg0) {
         @Pc(9) long local9 = arg0.method7433();
-        for (@Pc(22) Node_Sub2_Sub11 local22 = (Node_Sub2_Sub11) this.aClass28_3.method738(local9); local22 != null; local22 = (Node_Sub2_Sub11) this.aClass28_3.method744()) {
+        for (@Pc(22) Node_Sub2_Sub11 local22 = (Node_Sub2_Sub11) this.aHashTable_3.get(local9); local22 != null; local22 = (Node_Sub2_Sub11) this.aHashTable_3.nextWithSameKey()) {
             if (local22.anInterface24_3.method7432(arg0)) {
                 this.method254(local22);
                 return;
@@ -42,7 +42,7 @@ public final class Class16 {
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(Z)V")
     public void method252() {
         this.aClass192_1.method4351();
-        this.aClass28_3.method737();
+        this.aHashTable_3.clear();
         this.anInt250 = this.anInt246;
     }
 
@@ -80,7 +80,7 @@ public final class Class16 {
                 }
             } else if (++local11.aLong325 > (long) 5) {
                 @Pc(38) Node_Sub2_Sub11 local38 = Static515.aClass22_1.method593(local11);
-                this.aClass28_3.method735(local11.aLong328, local38);
+                this.aHashTable_3.put(local11.key, local38);
                 Static409.method5654(local11, local38);
                 local11.remove();
                 local11.method9260();
@@ -110,7 +110,7 @@ public final class Class16 {
             this.method254(local42);
         }
         @Pc(59) Node_Sub2_Sub11_Sub2 local59 = new Node_Sub2_Sub11_Sub2(arg1, arg0, 1);
-        this.aClass28_3.method735(arg1.method7433(), local59);
+        this.aHashTable_3.put(arg1.method7433(), local59);
         this.aClass192_1.method4348(local59);
         local59.aLong325 = 0L;
     }
@@ -118,13 +118,13 @@ public final class Class16 {
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(Lclient!uq;B)Ljava/lang/Object;")
     public Object method260(@OriginalArg(0) Interface24 arg0) {
         @Pc(18) long local18 = arg0.method7433();
-        for (@Pc(25) Node_Sub2_Sub11 local25 = (Node_Sub2_Sub11) this.aClass28_3.method738(local18); local25 != null; local25 = (Node_Sub2_Sub11) this.aClass28_3.method744()) {
+        for (@Pc(25) Node_Sub2_Sub11 local25 = (Node_Sub2_Sub11) this.aHashTable_3.get(local18); local25 != null; local25 = (Node_Sub2_Sub11) this.aHashTable_3.nextWithSameKey()) {
             if (local25.anInterface24_3.method7432(arg0)) {
                 @Pc(39) Object local39 = local25.method8311();
                 if (local39 != null) {
                     if (local25.method8314()) {
                         @Pc(84) Node_Sub2_Sub11_Sub2 local84 = new Node_Sub2_Sub11_Sub2(arg0, local39, local25.anInt9445);
-                        this.aClass28_3.method735(local25.aLong328, local84);
+                        this.aHashTable_3.put(local25.key, local84);
                         this.aClass192_1.method4348(local84);
                         local84.aLong325 = 0L;
                         local25.remove();

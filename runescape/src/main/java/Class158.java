@@ -157,7 +157,7 @@ public final class Class158 {
     public Object[] anObjectArray26;
 
     @OriginalMember(owner = "client!hda", name = "qd", descriptor = "Lclient!av;")
-    public Class28 aClass28_17;
+    public HashTable aHashTable_17;
 
     @OriginalMember(owner = "client!hda", name = "tc", descriptor = "I")
     public int anInt3815;
@@ -533,14 +533,14 @@ public final class Class158 {
 
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(III)V")
     public void method3385(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        if (this.aClass28_17 == null) {
-            this.aClass28_17 = new Class28(16);
-            this.aClass28_17.method735((long) arg0, new Node_Sub38(arg1));
+        if (this.aHashTable_17 == null) {
+            this.aHashTable_17 = new HashTable(16);
+            this.aHashTable_17.put((long) arg0, new Node_Sub38(arg1));
             return;
         }
-        @Pc(34) Node_Sub38 local34 = (Node_Sub38) this.aClass28_17.method738((long) arg0);
+        @Pc(34) Node_Sub38 local34 = (Node_Sub38) this.aHashTable_17.get((long) arg0);
         if (local34 == null) {
-            this.aClass28_17.method735((long) arg0, new Node_Sub38(arg1));
+            this.aHashTable_17.put((long) arg0, new Node_Sub38(arg1));
         } else {
             local34.anInt6379 = arg1;
         }
@@ -580,10 +580,10 @@ public final class Class158 {
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Ljava/lang/String;II)Ljava/lang/String;")
     public String method3389(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        if (this.aClass28_17 == null) {
+        if (this.aHashTable_17 == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub24 local17 = (Node_Sub24) this.aClass28_17.method738((long) arg1);
+            @Pc(17) Node_Sub24 local17 = (Node_Sub24) this.aHashTable_17.get((long) arg1);
             return local17 == null ? arg0 : local17.aString46;
         }
     }
@@ -796,13 +796,13 @@ public final class Class158 {
             for (@Pc(924) int local924 = 0; local924 < local767; local924++) {
                 local929 = arg0.method7383();
                 local933 = arg0.method7349();
-                this.aClass28_17.method735((long) local929, new Node_Sub38(local933));
+                this.aHashTable_17.put((long) local929, new Node_Sub38(local933));
             }
             local929 = arg0.method7396();
             for (local933 = 0; local933 < local929; local933++) {
                 @Pc(958) int local958 = arg0.method7383();
                 @Pc(962) String local962 = arg0.method7343();
-                this.aClass28_17.method735((long) local958, new Node_Sub24(local962));
+                this.aHashTable_17.put((long) local958, new Node_Sub24(local962));
             }
         }
         this.anObjectArray13 = this.method3386(arg0);
@@ -900,14 +900,14 @@ public final class Class158 {
 
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(Ljava/lang/String;II)V")
     public void method3396(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        if (this.aClass28_17 == null) {
-            this.aClass28_17 = new Class28(16);
-            this.aClass28_17.method735((long) arg1, new Node_Sub24(arg0));
+        if (this.aHashTable_17 == null) {
+            this.aHashTable_17 = new HashTable(16);
+            this.aHashTable_17.put((long) arg1, new Node_Sub24(arg0));
             return;
         }
-        @Pc(32) Node_Sub24 local32 = (Node_Sub24) this.aClass28_17.method738((long) arg1);
+        @Pc(32) Node_Sub24 local32 = (Node_Sub24) this.aHashTable_17.get((long) arg1);
         if (local32 == null) {
-            this.aClass28_17.method735((long) arg1, new Node_Sub24(arg0));
+            this.aHashTable_17.put((long) arg1, new Node_Sub24(arg0));
         } else {
             local32.aString46 = arg0;
         }
@@ -985,7 +985,7 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!gu;Lclient!qp;Lclient!kr;BLclient!bp;Lclient!ju;Lclient!uk;Lclient!ql;Lclient!es;ILclient!vk;)Lclient!ka;")
-    public Class114 method3401(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(3) Class215 arg3, @OriginalArg(5) Class50 arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Interface23 arg6, @OriginalArg(8) Class308 arg7, @OriginalArg(9) Class112 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
+    public Class114 method3401(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(3) Class215 arg3, @OriginalArg(5) Class50 arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Interface23 arg6, @OriginalArg(8) Class308 arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
         Static544.aBoolean624 = false;
         if (this.anInt3823 == 0) {
             return null;
@@ -1072,7 +1072,7 @@ public final class Class158 {
                     return local438;
                 }
             } else if (this.anInt3823 == 4) {
-                @Pc(489) Class382 local489 = arg8.method2486(this.anInt3831);
+                @Pc(489) ObjType local489 = arg8.list(this.anInt3831);
                 @Pc(498) Class114 local498 = local489.method8805(arg1, 2048, arg5, 10, arg0);
                 if (local498 == null) {
                     Static544.aBoolean624 = true;
@@ -1109,8 +1109,8 @@ public final class Class158 {
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(II)V")
     public void method3402(@OriginalArg(0) int arg0) {
-        if (this.aClass28_17 != null) {
-            @Pc(14) Node local14 = this.aClass28_17.method738((long) arg0);
+        if (this.aHashTable_17 != null) {
+            @Pc(14) Node local14 = this.aHashTable_17.get((long) arg0);
             if (local14 != null) {
                 local14.remove();
             }
@@ -1126,10 +1126,10 @@ public final class Class158 {
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(III)I")
     public int method3404(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        if (this.aClass28_17 == null) {
+        if (this.aHashTable_17 == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aClass28_17.method738((long) arg1);
+            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aHashTable_17.get((long) arg1);
             return local17 == null ? arg0 : local17.anInt6379;
         }
     }

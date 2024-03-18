@@ -33,10 +33,10 @@ public final class Class120_Sub2 extends Class120 implements MouseListener, Mous
     public Component aComponent5;
 
     @OriginalMember(owner = "client!vha", name = "J", descriptor = "Lclient!sia;")
-    public Class339 aClass339_74 = new Class339();
+    public Deque aDeque_74 = new Deque();
 
     @OriginalMember(owner = "client!vha", name = "K", descriptor = "Lclient!sia;")
-    public Class339 aClass339_75 = new Class339();
+    public Deque aDeque_75 = new Deque();
 
     @OriginalMember(owner = "client!vha", name = "p", descriptor = "Z")
     public final boolean aBoolean772;
@@ -55,7 +55,7 @@ public final class Class120_Sub2 extends Class120 implements MouseListener, Mous
         local15.anInt5942 = arg1;
         local15.anInt5940 = arg0;
         local15.aLong181 = Static588.method7715();
-        this.aClass339_75.method7711(local15);
+        this.aDeque_75.addLast(local15);
     }
 
     @OriginalMember(owner = "client!vha", name = "c", descriptor = "(I)Z")
@@ -120,8 +120,8 @@ public final class Class120_Sub2 extends Class120 implements MouseListener, Mous
         this.aComponent5.removeMouseMotionListener(this);
         this.aComponent5.removeMouseListener(this);
         this.aComponent5 = null;
-        this.aClass339_75 = null;
-        this.aClass339_74 = null;
+        this.aDeque_75 = null;
+        this.aDeque_74 = null;
         this.anInt10196 = this.anInt10197 = this.anInt10204 = 0;
         this.anInt10209 = this.anInt10208 = this.anInt10210 = 0;
     }
@@ -193,7 +193,7 @@ public final class Class120_Sub2 extends Class120 implements MouseListener, Mous
     @OriginalMember(owner = "client!vha", name = "a", descriptor = "(B)Lclient!bv;")
     @Override
     public Node_Sub9 method8851() {
-        return (Node_Sub9) this.aClass339_74.method7705();
+        return (Node_Sub9) this.aDeque_74.removeFirst();
     }
 
     @OriginalMember(owner = "client!vha", name = "mouseReleased", descriptor = "(Ljava/awt/event/MouseEvent;)V")
@@ -230,9 +230,9 @@ public final class Class120_Sub2 extends Class120 implements MouseListener, Mous
         this.anInt10204 = this.anInt10210;
         this.anInt10197 = this.anInt10208;
         this.anInt10196 = this.anInt10209;
-        @Pc(18) Class339 local18 = this.aClass339_74;
-        this.aClass339_74 = this.aClass339_75;
-        this.aClass339_75 = local18;
-        this.aClass339_75.method7700();
+        @Pc(18) Deque local18 = this.aDeque_74;
+        this.aDeque_74 = this.aDeque_75;
+        this.aDeque_75 = local18;
+        this.aDeque_75.clear();
     }
 }

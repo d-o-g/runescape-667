@@ -505,7 +505,7 @@ public final class Static231 {
                 if (arg2.startsWith("cachespace")) {
                     Static79.method1579("I(s): " + Static473.aClass82_157.method2144() + "/" + Static473.aClass82_157.method2146());
                     Static79.method1579("I(m): " + Static312.aClass82_106.method2144() + "/" + Static312.aClass82_106.method2146());
-                    Static79.method1579("O(s): " + Static419.aClass112_1.aClass16_1.method257() + "/" + Static419.aClass112_1.aClass16_1.method256());
+                    Static79.method1579("O(s): " + Static419.aObjTypeList_1.aClass16_1.method257() + "/" + Static419.aObjTypeList_1.aClass16_1.method256());
                     return;
                 }
                 if (arg2.equals("renderprofile") || arg2.equals("rp")) {

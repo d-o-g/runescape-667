@@ -20,8 +20,8 @@ public final class Static533 {
         }
         Static31.anInt767 = 0;
         Static594.anInt8777 = 0;
-        Static693.aClass339_79.method7700();
-        Static490.aClass28_34.method737();
+        Static693.A_DEQUE___79.clear();
+        Static490.A_HASH_TABLE___34.clear();
         Static350.aClass192_8.method4351();
         Static400.aBoolean622 = false;
     }

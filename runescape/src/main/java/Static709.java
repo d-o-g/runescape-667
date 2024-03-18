@@ -124,7 +124,7 @@ public final class Static709 {
             Static211.aClass2_Sub12_3 = null;
             Static675.aLong307 = Static588.method7715() + 30000L;
         }
-        @Pc(166) Node_Sub9 local166 = (Node_Sub9) Static226.aClass339_58.method7699(65280);
+        @Pc(166) Node_Sub9 local166 = (Node_Sub9) Static226.A_DEQUE___58.first(65280);
         @Pc(181) int local181;
         @Pc(208) int local208;
         @Pc(226) int local226;
@@ -135,7 +135,7 @@ public final class Static709 {
         if (local166 != null || Static56.aLong38 < Static588.method7715() - 2000L) {
             local179 = null;
             local181 = 0;
-            for (@Pc(186) Node_Sub9 local186 = (Node_Sub9) Static677.aClass339_76.method7699(65280); local186 != null && (local179 == null || local179.aClass2_Sub21_Sub2_1.anInt8388 - local181 < 240); local186 = (Node_Sub9) Static677.aClass339_76.method7706()) {
+            for (@Pc(186) Node_Sub9 local186 = (Node_Sub9) Static677.A_DEQUE___76.first(65280); local186 != null && (local179 == null || local179.aClass2_Sub21_Sub2_1.anInt8388 - local181 < 240); local186 = (Node_Sub9) Static677.A_DEQUE___76.next()) {
                 local186.remove();
                 local208 = local186.method5333();
                 if (local208 < -1) {
@@ -302,7 +302,7 @@ public final class Static709 {
                 Static1.anInt10798 = 2;
             }
             if (Static1.anInt10798 == 2 && Static283.anInt4574 != 12) {
-                Static25.aClass28_4.method737();
+                Static25.A_HASH_TABLE___4.clear();
                 Static440.anInt6680 = 0;
                 Static607.anInt9251 = Static333.anInt5455;
                 Static1.anInt10798 = 3;
@@ -520,15 +520,15 @@ public final class Static709 {
             @Pc(2026) Class158 local2026;
             @Pc(2011) Class158 local2011;
             do {
-                local2006 = (Node_Sub42) Static618.aClass339_68.method7705();
+                local2006 = (Node_Sub42) Static618.A_DEQUE___68.removeFirst();
                 if (local2006 == null) {
                     while (true) {
                         do {
-                            local2006 = (Node_Sub42) Static59.aClass339_33.method7705();
+                            local2006 = (Node_Sub42) Static59.A_DEQUE___33.removeFirst();
                             if (local2006 == null) {
                                 while (true) {
                                     do {
-                                        local2006 = (Node_Sub42) Static521.aClass339_44.method7705();
+                                        local2006 = (Node_Sub42) Static521.A_DEQUE___44.removeFirst();
                                         if (local2006 == null) {
                                             if (Static210.aClass158_4 == null) {
                                                 Static460.anInt6964 = 0;

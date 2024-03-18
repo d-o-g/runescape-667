@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class331 {
 
     @OriginalMember(owner = "client!sba", name = "i", descriptor = "Lclient!av;")
-    public Class28 aClass28_41;
+    public HashTable aHashTable_41;
 
     @OriginalMember(owner = "client!sba", name = "j", descriptor = "Lclient!ie;")
     public Node aNode_266;
@@ -20,21 +20,21 @@ public final class Class331 {
     }
 
     @OriginalMember(owner = "client!sba", name = "<init>", descriptor = "(Lclient!av;)V")
-    public Class331(@OriginalArg(0) Class28 arg0) {
-        this.aClass28_41 = arg0;
+    public Class331(@OriginalArg(0) HashTable arg0) {
+        this.aHashTable_41 = arg0;
     }
 
     @OriginalMember(owner = "client!sba", name = "a", descriptor = "(I)Lclient!ie;")
     public Node method7610() {
         @Pc(23) Node local23;
-        if (this.anInt8579 > 0 && this.aClass28_41.aNodeArray1[this.anInt8579 - 1] != this.aNode_266) {
+        if (this.anInt8579 > 0 && this.aHashTable_41.buckets[this.anInt8579 - 1] != this.aNode_266) {
             local23 = this.aNode_266;
             this.aNode_266 = local23.next;
             return local23;
         }
-        while (this.aClass28_41.anInt638 > this.anInt8579) {
-            local23 = this.aClass28_41.aNodeArray1[this.anInt8579++].next;
-            if (this.aClass28_41.aNodeArray1[this.anInt8579 - 1] != local23) {
+        while (this.aHashTable_41.bucketCount > this.anInt8579) {
+            local23 = this.aHashTable_41.buckets[this.anInt8579++].next;
+            if (this.aHashTable_41.buckets[this.anInt8579 - 1] != local23) {
                 this.aNode_266 = local23.next;
                 return local23;
             }

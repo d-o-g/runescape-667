@@ -15,7 +15,7 @@ public final class Static651 {
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(BILclient!ha;)Lclient!st;")
     public static Class23 method8512(@OriginalArg(1) int arg0, @OriginalArg(2) Class19 arg1) {
-        @Pc(18) Node_Sub5 local18 = (Node_Sub5) Static106.aClass28_11.method738((long) arg0);
+        @Pc(18) Node_Sub5 local18 = (Node_Sub5) Static106.A_HASH_TABLE___11.get((long) arg0);
         if (local18 != null) {
             @Pc(25) Node_Sub28_Sub3 local25 = local18.aClass222_Sub1_1.method9187();
             local18.aBoolean18 = true;

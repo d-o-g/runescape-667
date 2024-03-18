@@ -27,7 +27,7 @@ public final class Static46 {
 
     @OriginalMember(owner = "client!bja", name = "a", descriptor = "(I)V")
     public static void method1084() {
-        for (@Pc(8) Node_Sub5 local8 = (Node_Sub5) Static106.aClass28_11.method736(); local8 != null; local8 = (Node_Sub5) Static106.aClass28_11.method740()) {
+        for (@Pc(8) Node_Sub5 local8 = (Node_Sub5) Static106.A_HASH_TABLE___11.first(); local8 != null; local8 = (Node_Sub5) Static106.A_HASH_TABLE___11.next()) {
             Static121.method2199(local8.anInt182);
         }
     }

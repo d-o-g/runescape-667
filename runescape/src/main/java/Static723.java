@@ -20,8 +20,8 @@ public final class Static723 {
 
     @OriginalMember(owner = "client!wu", name = "e", descriptor = "(I)V")
     public static void method9450() {
-        Static268.aClass28_22.method737();
-        Static232.aClass28_18.method737();
+        Static268.A_HASH_TABLE___22.clear();
+        Static232.A_HASH_TABLE___18.clear();
     }
 
     @OriginalMember(owner = "client!wu", name = "c", descriptor = "(B)V")

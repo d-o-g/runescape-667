@@ -13,7 +13,7 @@ public final class Class82 {
     public int anInt2281;
 
     @OriginalMember(owner = "client!dla", name = "r", descriptor = "Lclient!av;")
-    public final Class28 aClass28_13;
+    public final HashTable aHashTable_13;
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "I")
     public final int anInt2285;
@@ -31,7 +31,7 @@ public final class Class82 {
         @Pc(14) int local14;
         for (local14 = 1; arg0 > local14 + local14 && local14 < arg1; local14 += local14) {
         }
-        this.aClass28_13 = new Class28(local14);
+        this.aHashTable_13 = new HashTable(local14);
     }
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "(I)I")
@@ -41,14 +41,14 @@ public final class Class82 {
 
     @OriginalMember(owner = "client!dla", name = "b", descriptor = "(I)Ljava/lang/Object;")
     public Object method2145() {
-        @Pc(19) Node_Sub2_Sub14 local19 = (Node_Sub2_Sub14) this.aClass28_13.method736();
+        @Pc(19) Node_Sub2_Sub14 local19 = (Node_Sub2_Sub14) this.aHashTable_13.first();
         while (local19 != null) {
             @Pc(25) Object local25 = local19.method9268();
             if (local25 != null) {
                 return local25;
             }
             @Pc(29) Node_Sub2_Sub14 local29 = local19;
-            local19 = (Node_Sub2_Sub14) this.aClass28_13.method740();
+            local19 = (Node_Sub2_Sub14) this.aHashTable_13.next();
             local29.remove();
             local29.method9260();
             this.anInt2281 += local29.anInt10683;
@@ -75,7 +75,7 @@ public final class Class82 {
                 }
             } else if (++local15.aLong325 > (long) arg0) {
                 @Pc(42) Node_Sub2_Sub14 local42 = Static443.aClass145_1.method4433(local15);
-                this.aClass28_13.method735(local15.aLong328, local42);
+                this.aHashTable_13.put(local15.key, local42);
                 Static409.method5654(local15, local42);
                 local15.remove();
                 local15.method9260();
@@ -121,14 +121,14 @@ public final class Class82 {
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "(B)Ljava/lang/Object;")
     public Object method2152() {
-        @Pc(19) Node_Sub2_Sub14 local19 = (Node_Sub2_Sub14) this.aClass28_13.method740();
+        @Pc(19) Node_Sub2_Sub14 local19 = (Node_Sub2_Sub14) this.aHashTable_13.next();
         while (local19 != null) {
             @Pc(25) Object local25 = local19.method9268();
             if (local25 != null) {
                 return local25;
             }
             @Pc(29) Node_Sub2_Sub14 local29 = local19;
-            local19 = (Node_Sub2_Sub14) this.aClass28_13.method740();
+            local19 = (Node_Sub2_Sub14) this.aHashTable_13.next();
             local29.remove();
             local29.method9260();
             this.anInt2281 += local29.anInt10683;
@@ -148,20 +148,20 @@ public final class Class82 {
             this.method2149(local32);
         }
         @Pc(48) Node_Sub2_Sub14_Sub1 local48 = new Node_Sub2_Sub14_Sub1(arg1, arg2);
-        this.aClass28_13.method735(arg0, local48);
+        this.aHashTable_13.put(arg0, local48);
         this.aClass192_5.method4348(local48);
         local48.aLong325 = 0L;
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(JI)V")
     public void method2154(@OriginalArg(0) long arg0) {
-        @Pc(15) Node_Sub2_Sub14 local15 = (Node_Sub2_Sub14) this.aClass28_13.method738(arg0);
+        @Pc(15) Node_Sub2_Sub14 local15 = (Node_Sub2_Sub14) this.aHashTable_13.get(arg0);
         this.method2149(local15);
     }
 
     @OriginalMember(owner = "client!dla", name = "b", descriptor = "(JI)Ljava/lang/Object;")
     public Object method2156(@OriginalArg(0) long arg0) {
-        @Pc(12) Node_Sub2_Sub14 local12 = (Node_Sub2_Sub14) this.aClass28_13.method738(arg0);
+        @Pc(12) Node_Sub2_Sub14 local12 = (Node_Sub2_Sub14) this.aHashTable_13.get(arg0);
         if (local12 == null) {
             return null;
         }
@@ -174,7 +174,7 @@ public final class Class82 {
         }
         if (local12.method9270()) {
             @Pc(65) Node_Sub2_Sub14_Sub1 local65 = new Node_Sub2_Sub14_Sub1(local26, local12.anInt10683);
-            this.aClass28_13.method735(local12.aLong328, local65);
+            this.aHashTable_13.put(local12.key, local65);
             this.aClass192_5.method4348(local65);
             local65.aLong325 = 0L;
             local12.remove();
@@ -189,7 +189,7 @@ public final class Class82 {
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(Z)V")
     public void method2157() {
         this.aClass192_5.method4351();
-        this.aClass28_13.method737();
+        this.aHashTable_13.clear();
         this.anInt2281 = this.anInt2285;
     }
 }

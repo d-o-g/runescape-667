@@ -13,7 +13,7 @@ public final class Class164 {
     public int anInt3939;
 
     @OriginalMember(owner = "client!hi", name = "n", descriptor = "Lclient!av;")
-    public Class28 aClass28_19;
+    public HashTable aHashTable_19;
 
     @OriginalMember(owner = "client!hi", name = "J", descriptor = "[I")
     public int[] anIntArray308;
@@ -171,10 +171,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(BI)Ljava/lang/Long;")
     public Long method3478(@OriginalArg(1) int arg0) {
-        if (this.aClass28_19 == null) {
+        if (this.aHashTable_19 == null) {
             return null;
         } else {
-            @Pc(16) Node local16 = this.aClass28_19.method738((long) arg0);
+            @Pc(16) Node local16 = this.aHashTable_19.get((long) arg0);
             return local16 != null && local16 instanceof Node_Sub48 ? Long.valueOf(((Node_Sub48) local16).aLong264) : null;
         }
     }
@@ -199,10 +199,10 @@ public final class Class164 {
         } else if (arg0.length() > 80) {
             arg0 = arg0.substring(0, 80);
         }
-        if (this.aClass28_19 == null) {
-            this.aClass28_19 = new Class28(4);
+        if (this.aHashTable_19 == null) {
+            this.aHashTable_19 = new HashTable(4);
         } else {
-            @Pc(32) Node local32 = this.aClass28_19.method738((long) arg1);
+            @Pc(32) Node local32 = this.aHashTable_19.get((long) arg1);
             if (local32 != null) {
                 if (local32 instanceof Node_Sub24) {
                     @Pc(42) Node_Sub24 local42 = (Node_Sub24) local32;
@@ -215,7 +215,7 @@ public final class Class164 {
                 local32.remove();
             }
         }
-        this.aClass28_19.method735((long) arg1, new Node_Sub24(arg0));
+        this.aHashTable_19.put((long) arg1, new Node_Sub24(arg0));
         return true;
     }
 
@@ -249,10 +249,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(II)Ljava/lang/String;")
     public String method3484(@OriginalArg(1) int arg0) {
-        if (this.aClass28_19 == null) {
+        if (this.aHashTable_19 == null) {
             return null;
         } else {
-            @Pc(24) Node local24 = this.aClass28_19.method738((long) arg0);
+            @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
             return local24 != null && local24 instanceof Node_Sub24 ? ((Node_Sub24) local24).aString46 : null;
         }
     }
@@ -328,10 +328,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(BIJ)Z")
     public boolean method3488(@OriginalArg(1) int arg0, @OriginalArg(2) long arg1) {
-        if (this.aClass28_19 == null) {
-            this.aClass28_19 = new Class28(4);
+        if (this.aHashTable_19 == null) {
+            this.aHashTable_19 = new HashTable(4);
         } else {
-            @Pc(29) Node local29 = this.aClass28_19.method738((long) arg0);
+            @Pc(29) Node local29 = this.aHashTable_19.get((long) arg0);
             if (local29 != null) {
                 if (local29 instanceof Node_Sub48) {
                     @Pc(39) Node_Sub48 local39 = (Node_Sub48) local29;
@@ -344,7 +344,7 @@ public final class Class164 {
                 local29.remove();
             }
         }
-        this.aClass28_19.method735((long) arg0, new Node_Sub48(arg1));
+        this.aHashTable_19.put((long) arg0, new Node_Sub48(arg1));
         return true;
     }
 
@@ -365,10 +365,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "c", descriptor = "(II)Ljava/lang/Integer;")
     public Integer method3490(@OriginalArg(0) int arg0) {
-        if (this.aClass28_19 == null) {
+        if (this.aHashTable_19 == null) {
             return null;
         } else {
-            @Pc(24) Node local24 = this.aClass28_19.method738((long) arg0);
+            @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
             return local24 != null && local24 instanceof Node_Sub38 ? Integer.valueOf(((Node_Sub38) local24).anInt6379) : null;
         }
     }
@@ -415,10 +415,10 @@ public final class Class164 {
         @Pc(35) int local35 = local9 ^ local23;
         @Pc(39) int local39 = arg2 << arg1;
         @Pc(43) int local43 = local39 & local35;
-        if (this.aClass28_19 == null) {
-            this.aClass28_19 = new Class28(4);
+        if (this.aHashTable_19 == null) {
+            this.aHashTable_19 = new HashTable(4);
         } else {
-            @Pc(63) Node local63 = this.aClass28_19.method738((long) arg3);
+            @Pc(63) Node local63 = this.aHashTable_19.get((long) arg3);
             if (local63 != null) {
                 if (local63 instanceof Node_Sub38) {
                     @Pc(73) Node_Sub38 local73 = (Node_Sub38) local63;
@@ -432,7 +432,7 @@ public final class Class164 {
                 local63.remove();
             }
         }
-        this.aClass28_19.method735((long) arg3, new Node_Sub38(local43));
+        this.aHashTable_19.put((long) arg3, new Node_Sub38(local43));
         return true;
     }
 
@@ -532,20 +532,20 @@ public final class Class164 {
         if (local282 <= 0) {
             return;
         }
-        this.aClass28_19 = new Class28(local282 >= 16 ? 16 : Static440.method5962(local282));
+        this.aHashTable_19 = new HashTable(local282 >= 16 ? 16 : Static440.method5962(local282));
         while (local282-- > 0) {
             @Pc(493) int local493 = arg0.method7349();
             @Pc(497) int local497 = local493 & 0x3FFFFFFF;
             @Pc(501) int local501 = local493 >>> 30;
             if (local501 == 0) {
                 @Pc(510) int local510 = arg0.method7349();
-                this.aClass28_19.method735((long) local497, new Node_Sub38(local510));
+                this.aHashTable_19.put((long) local497, new Node_Sub38(local510));
             } else if (local501 == 1) {
                 @Pc(533) long local533 = arg0.method7398();
-                this.aClass28_19.method735((long) local497, new Node_Sub48(local533));
+                this.aHashTable_19.put((long) local497, new Node_Sub48(local533));
             } else if (local501 == 2) {
                 @Pc(556) String local556 = arg0.method7358();
-                this.aClass28_19.method735((long) local497, new Node_Sub24(local556));
+                this.aHashTable_19.put((long) local497, new Node_Sub24(local556));
             }
         }
         return;
@@ -553,10 +553,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(BIII)Ljava/lang/Integer;")
     public Integer method3495(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        if (this.aClass28_19 == null) {
+        if (this.aHashTable_19 == null) {
             return null;
         }
-        @Pc(16) Node local16 = this.aClass28_19.method738((long) arg0);
+        @Pc(16) Node local16 = this.aHashTable_19.get((long) arg0);
         if (local16 != null && local16 instanceof Node_Sub38) {
             @Pc(50) int local50 = arg1 == 31 ? -1 : (0x1 << arg1 + 1) - 1;
             return Integer.valueOf((((Node_Sub38) local16).anInt6379 & local50) >>> arg2);
@@ -573,10 +573,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(III)Z")
     public boolean method3498(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (this.aClass28_19 == null) {
-            this.aClass28_19 = new Class28(4);
+        if (this.aHashTable_19 == null) {
+            this.aHashTable_19 = new HashTable(4);
         } else {
-            @Pc(35) Node local35 = this.aClass28_19.method738((long) arg1);
+            @Pc(35) Node local35 = this.aHashTable_19.get((long) arg1);
             if (local35 != null) {
                 if (local35 instanceof Node_Sub38) {
                     @Pc(45) Node_Sub38 local45 = (Node_Sub38) local35;
@@ -589,7 +589,7 @@ public final class Class164 {
                 local35.remove();
             }
         }
-        this.aClass28_19.method735((long) arg1, new Node_Sub38(arg0));
+        this.aHashTable_19.put((long) arg1, new Node_Sub38(arg0));
         return true;
     }
 }

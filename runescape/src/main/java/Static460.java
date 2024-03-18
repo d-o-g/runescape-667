@@ -16,7 +16,7 @@ public final class Static460 {
     public static int anInt6964 = 0;
 
     @OriginalMember(owner = "client!oj", name = "n", descriptor = "Lclient!sia;")
-    public static final Class339 aClass339_40 = new Class339();
+    public static final Deque A_DEQUE___40 = new Deque();
 
     @OriginalMember(owner = "client!oj", name = "f", descriptor = "(I)I")
     public static int method6266() {

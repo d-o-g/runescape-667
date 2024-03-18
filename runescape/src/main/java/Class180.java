@@ -13,7 +13,7 @@ public final class Class180 {
     public int anInt4369 = 0;
 
     @OriginalMember(owner = "client!ija", name = "c", descriptor = "Lclient!sia;")
-    public Class339 aClass339_25 = new Class339();
+    public Deque aDeque_25 = new Deque();
 
     @OriginalMember(owner = "client!ija", name = "o", descriptor = "Z")
     public boolean aBoolean338 = false;
@@ -59,8 +59,8 @@ public final class Class180 {
         }
         this.aClass2_Sub54Array1 = null;
         this.anIntArrayArray104 = null;
-        this.aClass339_25.method7700();
-        this.aClass339_25 = null;
+        this.aDeque_25.clear();
+        this.aDeque_25 = null;
     }
 
     @OriginalMember(owner = "client!ija", name = "a", descriptor = "(II)[I")
@@ -78,7 +78,7 @@ public final class Class180 {
             if (local34 == null) {
                 this.aBoolean338 = true;
                 if (this.anInt4369 >= this.anInt4373) {
-                    @Pc(59) Node_Sub54 local59 = (Node_Sub54) this.aClass339_25.method7708();
+                    @Pc(59) Node_Sub54 local59 = (Node_Sub54) this.aDeque_25.last();
                     local34 = new Node_Sub54(arg0, local59.anInt9846);
                     this.aClass2_Sub54Array1[local59.anInt9844] = null;
                     local59.remove();
@@ -90,7 +90,7 @@ public final class Class180 {
             } else {
                 this.aBoolean338 = false;
             }
-            this.aClass339_25.method7697(local34);
+            this.aDeque_25.addFirst(local34);
             return this.anIntArrayArray104[local34.anInt9846];
         }
     }

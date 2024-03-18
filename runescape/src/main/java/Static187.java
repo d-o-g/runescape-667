@@ -37,9 +37,9 @@ public final class Static187 {
             Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local48] = null;
         }
         Static390.anInt6126 = 0;
-        Static18.aClass28_2.method737();
+        Static18.A_HASH_TABLE___2.clear();
         Static416.anInt6378 = 0;
-        Static497.aClass28_35.method737();
+        Static497.stacks.clear();
         Static693.method9012();
         Static334.anInt5456 = 0;
         Static34.aClass304_1.method6867();

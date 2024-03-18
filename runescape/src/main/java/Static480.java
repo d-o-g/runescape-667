@@ -139,7 +139,7 @@ public final class Static480 {
                 local23.anIntArray829[local65] = -5;
             }
         }
-        Static631.aClass339_78.method7711(local23);
+        Static631.aDeque_78.addLast(local23);
     }
 
     @OriginalMember(owner = "client!pca", name = "c", descriptor = "(B)V")

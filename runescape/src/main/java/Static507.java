@@ -63,13 +63,13 @@ public final class Static507 {
             @Pc(225) Node_Sub42 local225 = new Node_Sub42();
             local225.anObjectArray36 = arg3.anObjectArray19;
             local225.aClass158_14 = arg3;
-            Static521.aClass339_44.method7711(local225);
+            Static521.A_DEQUE___44.addLast(local225);
         }
     }
 
     @OriginalMember(owner = "client!pw", name = "c", descriptor = "(Z)V")
     public static void method6744() {
-        for (@Pc(15) Node_Sub5 local15 = (Node_Sub5) Static106.aClass28_11.method736(); local15 != null; local15 = (Node_Sub5) Static106.aClass28_11.method740()) {
+        for (@Pc(15) Node_Sub5 local15 = (Node_Sub5) Static106.A_HASH_TABLE___11.first(); local15 != null; local15 = (Node_Sub5) Static106.A_HASH_TABLE___11.next()) {
             if (local15.aBoolean18) {
                 local15.aBoolean18 = false;
             } else {

@@ -46,7 +46,7 @@ public final class Static93 {
         Static534.anInt8111 = Static164.anInt2809 - (int) ((float) arg5 / Static30.aFloat105);
         Static30.method5062(Static30.anInt5655 + local114, local38 - -Static30.anInt5648, local57 + Static30.anInt5655, local155 - -Static30.anInt5648, arg1, arg2, arg5 + arg1, arg0 + arg2 + 1);
         Static30.method5060(arg4);
-        @Pc(203) Class339 local203 = Static30.method5081(arg4);
+        @Pc(203) Deque local203 = Static30.method5081(arg4);
         Static368.method5272(local203, arg4);
         if (Static320.anInt5084 > 0) {
             Static212.anInt3467--;

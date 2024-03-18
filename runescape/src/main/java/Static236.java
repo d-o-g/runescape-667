@@ -52,7 +52,7 @@ public final class Static236 {
 
     @OriginalMember(owner = "client!hfa", name = "c", descriptor = "(I)V")
     public static void method3453() {
-        for (@Pc(16) Node_Sub5 local16 = (Node_Sub5) Static106.aClass28_11.method736(); local16 != null; local16 = (Node_Sub5) Static106.aClass28_11.method740()) {
+        for (@Pc(16) Node_Sub5 local16 = (Node_Sub5) Static106.A_HASH_TABLE___11.first(); local16 != null; local16 = (Node_Sub5) Static106.A_HASH_TABLE___11.next()) {
             if (local16.aClass222_Sub1_1.method9177()) {
                 Static121.method2199(local16.anInt182);
             } else {

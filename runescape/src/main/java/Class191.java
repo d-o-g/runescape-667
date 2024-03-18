@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class191 {
 
     @OriginalMember(owner = "client!jg", name = "g", descriptor = "Lclient!sia;")
-    public Class339 aClass339_27;
+    public Deque aDeque_27;
 
     @OriginalMember(owner = "client!jg", name = "j", descriptor = "Lclient!ie;")
     public Node aNode_149;
@@ -17,14 +17,14 @@ public final class Class191 {
     }
 
     @OriginalMember(owner = "client!jg", name = "<init>", descriptor = "(Lclient!sia;)V")
-    public Class191(@OriginalArg(0) Class339 arg0) {
-        this.aClass339_27 = arg0;
+    public Class191(@OriginalArg(0) Deque arg0) {
+        this.aDeque_27 = arg0;
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(B)Lclient!ie;")
     public Node method4342() {
         @Pc(12) Node local12 = this.aNode_149;
-        if (this.aClass339_27.aNode_271 == local12) {
+        if (this.aDeque_27.tail == local12) {
             this.aNode_149 = null;
             return null;
         } else {
@@ -35,8 +35,8 @@ public final class Class191 {
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(I)Lclient!ie;")
     public Node method4343() {
-        @Pc(8) Node local8 = this.aClass339_27.aNode_271.next;
-        if (this.aClass339_27.aNode_271 == local8) {
+        @Pc(8) Node local8 = this.aDeque_27.tail.next;
+        if (this.aDeque_27.tail == local8) {
             this.aNode_149 = null;
             return null;
         } else {
@@ -46,7 +46,7 @@ public final class Class191 {
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(Lclient!sia;I)V")
-    public void method4344(@OriginalArg(0) Class339 arg0) {
-        this.aClass339_27 = arg0;
+    public void method4344(@OriginalArg(0) Deque arg0) {
+        this.aDeque_27 = arg0;
     }
 }

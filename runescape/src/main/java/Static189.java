@@ -30,23 +30,6 @@ public final class Static189 {
         return local13;
     }
 
-    @OriginalMember(owner = "client!fr", name = "a", descriptor = "(IC)Z")
-    public static boolean method2862(@OriginalArg(1) char arg0) {
-        if (arg0 > '\u0000' && arg0 < '\u0080' || !(arg0 < ' ' || arg0 > 'ÿ')) {
-            return true;
-        }
-        if (arg0 != '\u0000') {
-            @Pc(38) char[] local38 = Static376.aCharArray7;
-            for (@Pc(40) int local40 = 0; local40 < local38.length; local40++) {
-                @Pc(46) char local46 = local38[local40];
-                if (local46 == arg0) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     @OriginalMember(owner = "client!fr", name = "a", descriptor = "(IB)Lclient!om;")
     public static Class280 method2864(@OriginalArg(0) int arg0) {
         @Pc(6) Class280[] local6 = Static400.method7112();

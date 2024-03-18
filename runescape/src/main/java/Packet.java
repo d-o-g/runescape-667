@@ -1,4 +1,5 @@
 import com.jagex.collect.Node;
+import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -229,7 +230,7 @@ public class Packet extends Node {
         if (nul >= 0) {
             throw new IllegalArgumentException("NUL character at " + nul + " - cannot pjstr");
         } else {
-            this.pos += Static331.cp1252Encode(string, string.length(), this.data, this.pos);
+            this.pos += Cp1252.encode(string, string.length(), this.data, this.pos);
             this.data[this.pos++] = 0;
         }
     }
@@ -242,7 +243,7 @@ public class Packet extends Node {
             throw new IllegalArgumentException("NUL character at " + nul + " - cannot pjstr2");
         } else {
             this.data[this.pos++] = 0;
-            this.pos += Static331.cp1252Encode(string, string.length(), this.data, this.pos);
+            this.pos += Cp1252.encode(string, string.length(), this.data, this.pos);
             this.data[this.pos++] = 0;
         }
     }
@@ -445,7 +446,7 @@ public class Packet extends Node {
         if (length == 0) {
             return "";
         } else {
-            return Static350.cp1252Decode(off, this.data, length);
+            return Cp1252.decode(off, this.data, length);
         }
     }
 
@@ -467,7 +468,7 @@ public class Packet extends Node {
             if (length == 0) {
                 return "";
             } else {
-                return Static350.cp1252Decode(start, this.data, length);
+                return Cp1252.decode(start, this.data, length);
             }
         }
     }

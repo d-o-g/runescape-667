@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -189,7 +190,7 @@ public final class Class319_Sub1 extends Class319 implements KeyListener, FocusL
     @Override
     public synchronized void keyTyped(@OriginalArg(0) KeyEvent arg0) {
         @Pc(6) char local6 = arg0.getKeyChar();
-        if (local6 != '\u0000' && Static189.method2862(local6)) {
+        if (local6 != '\u0000' && Cp1252.contains(local6)) {
             this.method8485(local6, -1, 3);
             arg0.consume();
         }

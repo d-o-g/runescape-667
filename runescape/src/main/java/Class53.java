@@ -1,5 +1,6 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
+import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -196,9 +197,9 @@ public final class Class53 {
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(IILclient!ge;)V")
     public void method1234(@OriginalArg(0) int arg0, @OriginalArg(2) Packet arg1) {
         if (arg0 == 1) {
-            this.aChar2 = Static346.method5084(arg1.g1b());
+            this.aChar2 = Cp1252.decodeChar(arg1.g1b());
         } else if (arg0 == 2) {
-            this.aChar1 = Static346.method5084(arg1.g1b());
+            this.aChar1 = Cp1252.decodeChar(arg1.g1b());
         } else if (arg0 == 3) {
             this.aString5 = arg1.gjstr();
         } else if (arg0 == 4) {

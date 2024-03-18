@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -21,7 +22,7 @@ public final class Class341 {
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "(ILclient!ge;Z)V")
     public void method7762(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
         if (arg0 == 1) {
-            this.aChar7 = Static346.method5084(arg1.g1b());
+            this.aChar7 = Cp1252.decodeChar(arg1.g1b());
         } else if (arg0 == 2) {
             this.anInt8745 = arg1.g2();
             this.anInt8742 = arg1.g1();

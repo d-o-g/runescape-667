@@ -1,4 +1,5 @@
 import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -49,7 +50,7 @@ public final class DoublyLinkedNode_Sub2_Sub3 extends DoublyLinkedNode {
             for (local32 = 0; local32 < local22; local32++) {
                 this.anIntArray93[local32] = arg0.g2();
                 local44 = arg0.g1b();
-                this.aCharArray2[local32] = local44 == 0 ? 0 : Static346.method5084(local44);
+                this.aCharArray2[local32] = local44 == 0 ? 0 : Cp1252.decodeChar(local44);
             }
         } else if (arg1 == 3) {
             local22 = arg0.g1();
@@ -58,7 +59,7 @@ public final class DoublyLinkedNode_Sub2_Sub3 extends DoublyLinkedNode {
             for (local32 = 0; local32 < local22; local32++) {
                 this.anIntArray94[local32] = arg0.g2();
                 local44 = arg0.g1b();
-                this.aCharArray3[local32] = local44 == 0 ? 0 : Static346.method5084(local44);
+                this.aCharArray3[local32] = local44 == 0 ? 0 : Cp1252.decodeChar(local44);
             }
         }
     }

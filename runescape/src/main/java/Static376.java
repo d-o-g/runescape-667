@@ -14,9 +14,6 @@ public final class Static376 {
     @OriginalMember(owner = "client!lr", name = "e", descriptor = "Z")
     public static boolean aBoolean452 = false;
 
-    @OriginalMember(owner = "client!lr", name = "h", descriptor = "[C")
-    public static final char[] aCharArray7 = new char[]{'€', '\u0000', '‚', 'ƒ', '„', '…', '†', '‡', 'ˆ', '‰', 'Š', '‹', 'Œ', '\u0000', 'Ž', '\u0000', '\u0000', '‘', '’', '“', '”', '•', '–', '—', '˜', '™', 'š', '›', 'œ', '\u0000', 'ž', 'Ÿ'};
-
     @OriginalMember(owner = "client!lr", name = "d", descriptor = "[F")
     public static final float[] aFloatArray42 = new float[4];
 

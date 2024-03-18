@@ -1,5 +1,4 @@
 import com.jagex.collect.HashTable;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -19,22 +18,6 @@ public final class Static346 {
 
     @OriginalMember(owner = "client!kt", name = "S", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_145 = new Class225(124, 1);
-
-    @OriginalMember(owner = "client!kt", name = "a", descriptor = "(BB)C")
-    public static char method5084(@OriginalArg(0) byte arg0) {
-        @Pc(14) int local14 = arg0 & 0xFF;
-        if (local14 == 0) {
-            throw new IllegalArgumentException("Non cp1252 character 0x" + Integer.toString(local14, 16) + " provided");
-        }
-        if (local14 >= 128 && local14 < 160) {
-            @Pc(50) char local50 = Static376.aCharArray7[local14 - 128];
-            if (local50 == '\u0000') {
-                local50 = '?';
-            }
-            local14 = local50;
-        }
-        return (char) local14;
-    }
 
     @OriginalMember(owner = "client!kt", name = "c", descriptor = "(I)V")
     public static void method5085() {

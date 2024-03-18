@@ -1,4 +1,5 @@
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -65,8 +66,8 @@ public final class Static713 {
                     local84 += local29 + 10 - 65;
                 }
                 local14 += 2;
-                if (local84 != 0 && Static529.method7094((byte) local84)) {
-                    local9.append(Static346.method5084((byte) local84));
+                if (local84 != 0 && Cp1252.contains((byte) local84)) {
+                    local9.append(Cp1252.decodeChar((byte) local84));
                 }
             } else if (local29 == '+') {
                 local9.append(' ');

@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -811,7 +812,7 @@ public final class Static293 {
                                                 }
                                                 local3044 = new byte[arg0.anInt3648];
                                                 local11.method7416(local3044, arg0.anInt3648);
-                                                local627 = Static350.cp1252Decode(0, local3044, arg0.anInt3648);
+                                                local627 = Cp1252.decode(0, local3044, arg0.anInt3648);
                                                 Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local627, true, Static446.aClass390_6);
                                                 arg0.aClass225_93 = null;
                                                 return true;
@@ -1523,7 +1524,7 @@ public final class Static293 {
                                                                     }
                                                                     local3044 = new byte[arg0.anInt3648];
                                                                     local11.method7416(local3044, arg0.anInt3648);
-                                                                    local627 = Static350.cp1252Decode(0, local3044, arg0.anInt3648);
+                                                                    local627 = Cp1252.decode(0, local3044, arg0.anInt3648);
                                                                     local629 = "opensn";
                                                                     if (!Static98.aBoolean191 || Static36.method980(Static446.aClass390_6, local627, local629, 1).anInt6789 == 2) {
                                                                         Static259.method3693(local627, local629, Static446.aClass390_6, Static400.instance.aClass57_Sub29_1.method7915() == 1, true);

@@ -1,6 +1,7 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.collect.Queue;
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
 import jaclib.memory.Buffer;
@@ -609,7 +610,7 @@ public final class Toolkit_Sub3 extends Toolkit {
                         @Pc(395) String local395 = local388[local390];
                         try {
                             if (local395.length() > 0) {
-                                if (local395.charAt(0) == 'x' && local395.length() >= 3 && Static467.method6350(local395.substring(1, 3))) {
+                                if (local395.charAt(0) == 'x' && local395.length() >= 3 && StringTools.isNumeric(local395.substring(1, 3))) {
                                     local395 = local395.substring(1);
                                     local379 = true;
                                 }
@@ -620,7 +621,7 @@ public final class Toolkit_Sub3 extends Toolkit {
                                         local395 = local395.substring(2);
                                         local377 = true;
                                     }
-                                    if (local395.length() >= 4 && Static467.method6350(local395.substring(0, 4))) {
+                                    if (local395.length() >= 4 && StringTools.isNumeric(local395.substring(0, 4))) {
                                         local375 = Static647.method8473(local395.substring(0, 4));
                                         break;
                                     }

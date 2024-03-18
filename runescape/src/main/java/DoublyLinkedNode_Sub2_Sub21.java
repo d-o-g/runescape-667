@@ -103,7 +103,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
             @Pc(80) int[] local80;
             @Pc(76) int[] local76;
             if (this.aClass2_Sub1_3.aBoolean824) {
-                @Pc(74) int[] local74 = this.aClass2_Sub1_3.method9411(117, local58);
+                @Pc(74) int[] local74 = this.aClass2_Sub1_3.monochromeOutput(117, local58);
                 local76 = local74;
                 local78 = local74;
                 local80 = local74;
@@ -115,7 +115,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
             }
             @Pc(110) int[] local110;
             if (this.aClass2_Sub1_1.aBoolean824) {
-                local110 = this.aClass2_Sub1_1.method9411(114, local58);
+                local110 = this.aClass2_Sub1_1.monochromeOutput(114, local58);
             } else {
                 local110 = this.aClass2_Sub1_1.method9414(local58)[0];
             }
@@ -124,7 +124,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
             }
             @Pc(136) int[] local136;
             if (this.aClass2_Sub1_2.aBoolean824) {
-                local136 = this.aClass2_Sub1_2.method9411(115, local58);
+                local136 = this.aClass2_Sub1_2.monochromeOutput(115, local58);
             } else {
                 local136 = this.aClass2_Sub1_2.method9414(local58)[0];
             }
@@ -195,7 +195,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
             @Pc(81) int[] local81;
             @Pc(93) int[] local93;
             if (this.aClass2_Sub1_3.aBoolean824) {
-                local93 = this.aClass2_Sub1_3.method9411(117, local57);
+                local93 = this.aClass2_Sub1_3.monochromeOutput(117, local57);
                 local81 = local93;
                 local85 = local93;
                 local77 = local93;
@@ -206,7 +206,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
                 local85 = local73[1];
             }
             if (this.aClass2_Sub1_1.aBoolean824) {
-                local93 = this.aClass2_Sub1_1.method9411(111, local57);
+                local93 = this.aClass2_Sub1_1.monochromeOutput(111, local57);
             } else {
                 local93 = this.aClass2_Sub1_1.method9414(local57)[0];
             }
@@ -290,7 +290,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
             @Pc(81) int[] local81;
             @Pc(83) int[] local83;
             if (this.aClass2_Sub1_3.aBoolean824) {
-                @Pc(79) int[] local79 = this.aClass2_Sub1_3.method9411(127, local65);
+                @Pc(79) int[] local79 = this.aClass2_Sub1_3.monochromeOutput(127, local65);
                 local81 = local79;
                 local83 = local79;
                 local85 = local79;

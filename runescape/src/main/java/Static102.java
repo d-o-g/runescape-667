@@ -116,33 +116,4 @@ public final class Static102 {
         return true;
     }
 
-    @OriginalMember(owner = "client!dd", name = "a", descriptor = "(ZIIZ)Ljava/lang/String;")
-    public static String method2027(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
-        if (arg2 > 36) {
-            throw new IllegalArgumentException("Invalid radix:" + arg2);
-        } else if (arg3 && arg1 >= 0) {
-            if (arg0) {
-                method2025(21, 69, -79, 83);
-            }
-            @Pc(51) int local51 = 2;
-            for (@Pc(55) int local55 = arg1 / arg2; local55 != 0; local55 /= arg2) {
-                local51++;
-            }
-            @Pc(66) char[] local66 = new char[local51];
-            local66[0] = '+';
-            for (@Pc(74) int local74 = local51 - 1; local74 > 0; local74--) {
-                @Pc(77) int local77 = arg1;
-                arg1 /= arg2;
-                @Pc(88) int local88 = local77 - arg1 * arg2;
-                if (local88 < 10) {
-                    local66[local74] = (char) (local88 + 48);
-                } else {
-                    local66[local74] = (char) (local88 + 87);
-                }
-            }
-            return new String(local66);
-        } else {
-            return Integer.toString(arg1, arg2);
-        }
-    }
 }

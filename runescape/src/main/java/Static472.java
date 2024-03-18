@@ -2,6 +2,7 @@ import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.collect.Queue;
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -1419,7 +1420,7 @@ public final class Static472 {
                                     if (arg0 == 3104) {
                                         local4911 = aStringArray37[--anInt7139];
                                         local21 = 0;
-                                        if (Static467.method6350(local4911)) {
+                                        if (StringTools.isNumeric(local4911)) {
                                             local21 = Static647.method8473(local4911);
                                         }
                                         @Pc(4974) Node_Sub19 local4974 = Static293.method4335(Static330.aClass345_66, Static405.aClass153_2.aClass186_1);
@@ -2649,7 +2650,7 @@ public final class Static472 {
                                             if (arg0 == 4102) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 local21 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = local4911 + Static593.method7780(true, local21);
+                                                aStringArray37[anInt7139++] = local4911 + StringTools.parseIntWithSign(true, local21);
                                                 return;
                                             }
                                             if (arg0 == 4103) {

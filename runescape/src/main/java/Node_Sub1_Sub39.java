@@ -35,7 +35,7 @@ public final class Node_Sub1_Sub39 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!ws", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (super.aClass180_41.aBoolean338) {
             for (@Pc(17) int local17 = 0; local17 < Static608.anInt9289; local17++) {

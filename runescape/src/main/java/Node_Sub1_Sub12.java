@@ -88,7 +88,7 @@ public final class Node_Sub1_Sub12 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!jk", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (super.aClass180_41.aBoolean338) {
             @Pc(23) int local23 = this.anInt4855 + this.anInt4855 + 1;
@@ -122,7 +122,7 @@ public final class Node_Sub1_Sub12 extends Node_Sub1 {
             }
         }
         if (arg0 < 107) {
-            this.method9411(-16, 56);
+            this.monochromeOutput(-16, 56);
         }
         return local11;
     }

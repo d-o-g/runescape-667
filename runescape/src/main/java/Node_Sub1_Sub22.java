@@ -28,7 +28,7 @@ public final class Node_Sub1_Sub22 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!ola", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(18) int[] local18 = super.aClass180_41.method3935(arg1);
         if (super.aClass180_41.aBoolean338) {
             @Pc(32) int[] local32 = this.method9422(Static489.anInt7343 & arg1 - 1, 0);

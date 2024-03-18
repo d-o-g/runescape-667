@@ -1,4 +1,5 @@
 import com.jagex.collect.Node;
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.graphics.TextureSource;
 import com.jagex.math.IntMath;
 import jaclib.memory.Stream;
@@ -162,7 +163,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
                         @Pc(348) String local348 = local341[local343];
                         try {
                             if (local348.length() > 0) {
-                                if (local348.charAt(0) == 'x' && local348.length() >= 3 && Static467.method6350(local348.substring(1, 3))) {
+                                if (local348.charAt(0) == 'x' && local348.length() >= 3 && StringTools.isNumeric(local348.substring(1, 3))) {
                                     local332 = true;
                                     local348 = local348.substring(1);
                                 }
@@ -173,7 +174,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
                                         local348 = local348.substring(2);
                                         local330 = true;
                                     }
-                                    if (local348.length() >= 4 && Static467.method6350(local348.substring(0, 4))) {
+                                    if (local348.length() >= 4 && StringTools.isNumeric(local348.substring(0, 4))) {
                                         local140 = Static647.method8473(local348.substring(0, 4));
                                         break;
                                     }

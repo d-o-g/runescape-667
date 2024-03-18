@@ -23,7 +23,7 @@ public final class Node_Sub1_Sub4 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!bu", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (arg0 <= 107) {
             this.anInt1169 = -17;
         }

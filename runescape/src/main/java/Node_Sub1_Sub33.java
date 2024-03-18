@@ -12,9 +12,9 @@ public final class Node_Sub1_Sub33 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!vea", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (arg0 <= 107) {
-            this.method9411(49, -21);
+            this.monochromeOutput(49, -21);
         }
         return Static54.anIntArray92;
     }

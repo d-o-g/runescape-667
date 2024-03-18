@@ -14,7 +14,7 @@ public final class Node_Sub1_Sub25 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!qu", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(9) int[] local9 = super.aClass180_41.method3935(arg1);
         if (arg0 <= 107) {
             Static537.anIntArray633 = null;

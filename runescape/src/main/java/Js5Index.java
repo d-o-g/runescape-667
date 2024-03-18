@@ -54,27 +54,30 @@ public final class Js5Index {
     public final int crc;
 
     @OriginalMember(owner = "client!pj", name = "d", descriptor = "[B")
-    public byte[] aByteArray86;
+    public byte[] whirlpool;
 
     @OriginalMember(owner = "client!pj", name = "<init>", descriptor = "([BI[B)V")
     public Js5Index(@OriginalArg(0) byte[] data, @OriginalArg(1) int expectedCrc, @OriginalArg(2) byte[] expectedWhirlpool) {
         this.crc = Packet.getcrc(data.length, data);
 
         if (expectedCrc != this.crc) {
-            throw new RuntimeException();
+            throw new RuntimeException("Invalid CRC - expected:" + expectedCrc + " got:" + crc);
         }
 
         if (expectedWhirlpool != null) {
             if (expectedWhirlpool.length != 64) {
-                throw new RuntimeException();
+                throw new RuntimeException("Invalid expectedwhirlpool - must be 64 bytes long");
             }
-            this.aByteArray86 = Whirlpool.digest(data, data.length, 0);
-            for (@Pc(45) int local45 = 0; local45 < 64; local45++) {
-                if (expectedWhirlpool[local45] != this.aByteArray86[local45]) {
-                    throw new RuntimeException();
+
+            this.whirlpool = Whirlpool.digest(data, data.length, 0);
+
+            for (@Pc(45) int i = 0; i < 64; i++) {
+                if (expectedWhirlpool[i] != this.whirlpool[i]) {
+                    throw new RuntimeException("Invalid Whirlpool - expected:" + js5.whirlpoolToString(expectedWhirlpool) + " got:" + js5.whirlpoolToString(whirlpool));
                 }
             }
         }
+
         this.method6568(data);
     }
 

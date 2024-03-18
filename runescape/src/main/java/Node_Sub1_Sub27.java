@@ -143,7 +143,7 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(9) int[] local9 = super.aClass180_41.method3935(arg1);
         if (arg0 <= 107) {
             this.aShortArray126 = null;
@@ -180,7 +180,7 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
     @Override
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
-            this.method9411(17, -97);
+            this.monochromeOutput(17, -97);
         }
         if (arg2 == 0) {
             this.aBoolean667 = arg1.g1() == 1;

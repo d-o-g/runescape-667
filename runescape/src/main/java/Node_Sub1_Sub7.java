@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -47,10 +48,10 @@ public final class Node_Sub1_Sub7 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (arg0 <= 107) {
-            Static102.method2027(true, -62, 43, true);
+            StringTools.parseIntWithSign(-62, 43, true);
         }
         if (!super.aClass180_41.aBoolean338) {
             return local11;
@@ -316,7 +317,7 @@ public final class Node_Sub1_Sub7 extends Node_Sub1 {
     @Override
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
-            this.method9411(39, 29);
+            this.monochromeOutput(39, 29);
         }
         if (arg2 == 0) {
             this.anInt2124 = arg1.g1();

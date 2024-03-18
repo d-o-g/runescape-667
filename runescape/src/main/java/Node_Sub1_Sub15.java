@@ -44,13 +44,13 @@ public final class Node_Sub1_Sub15 extends Node_Sub1 {
             this.anInt5424 = arg1.g2();
         }
         if (arg0) {
-            this.method9411(-52, 90);
+            this.monochromeOutput(-52, 90);
         }
     }
 
     @OriginalMember(owner = "client!kga", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (super.aClass180_41.aBoolean338) {
             @Pc(20) int local20 = this.anInt5424 >> 1;
@@ -129,7 +129,7 @@ public final class Node_Sub1_Sub15 extends Node_Sub1 {
     @Override
     public void method9421(@OriginalArg(0) int arg0) {
         if (arg0 != 7) {
-            this.method9411(73, -102);
+            this.monochromeOutput(73, -102);
         }
         Static481.method6475();
     }

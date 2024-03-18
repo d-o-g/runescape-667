@@ -11,11 +11,6 @@ public final class Static593 {
         return Static448.anInt6796 == 1 ? Static571.anInt8534 : Static252.anInt4078;
     }
 
-    @OriginalMember(owner = "client!sm", name = "a", descriptor = "(BZI)Ljava/lang/String;")
-    public static String method7780(@OriginalArg(1) boolean arg0, @OriginalArg(2) int arg1) {
-        return arg0 && arg1 >= 0 ? Static102.method2027(false, arg1, 10, arg0) : Integer.toString(arg1);
-    }
-
     @OriginalMember(owner = "client!sm", name = "a", descriptor = "(II)I")
     public static int method7781(@OriginalArg(1) int arg0) {
         return arg0 >>> 8;

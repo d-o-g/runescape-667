@@ -1,5 +1,6 @@
 import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
+import com.jagex.core.stringtools.general.StringTools;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -7,6 +8,25 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!sb")
 public final class js5 {
+
+    public static String whirlpoolToString(byte[] whirlpool) {
+        StringBuffer buffer = new StringBuffer(whirlpool.length * 2 + 2);
+        buffer.append("0x");
+
+        byte[] bytes = whirlpool;
+        int len = whirlpool.length;
+        for(int i = 0; i < len; ++i) {
+            byte b = bytes[i];
+
+            if(b >= 0 && b < 16) {
+                buffer.append("0" + StringTools.parseIntWithSign(b, 16, false));
+            } else {
+                buffer.append(StringTools.parseIntWithSign(b & 255, 16, false));
+            }
+        }
+
+        return buffer.toString();
+    }
 
     @OriginalMember(owner = "client!kka", name = "c", descriptor = "Lclient!sb;")
     public static js5 DEFAULTS; // 28

@@ -30,11 +30,12 @@ public abstract class Node_Sub1 extends Node {
     }
 
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(II)[I")
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (arg0 >= 107) {
             throw new IllegalStateException("This operation does not have a monochrome output");
+        } else {
+            return null;
         }
-        return null;
     }
 
     @OriginalMember(owner = "client!pf", name = "b", descriptor = "(B)I")
@@ -45,7 +46,7 @@ public abstract class Node_Sub1 extends Node {
     @OriginalMember(owner = "client!pf", name = "b", descriptor = "(III)[[I")
     protected final int[][] method9413(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         if (this.aClass2_Sub1Array42[arg0].aBoolean824) {
-            @Pc(36) int[] local36 = this.aClass2_Sub1Array42[arg0].method9411(111, arg1);
+            @Pc(36) int[] local36 = this.aClass2_Sub1Array42[arg0].monochromeOutput(111, arg1);
             return new int[][]{local36, local36, local36};
         } else {
             return this.aClass2_Sub1Array42[arg0].method9414(arg1);
@@ -88,7 +89,7 @@ public abstract class Node_Sub1 extends Node {
 
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(III)[I")
     protected final int[] method9422(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        return this.aClass2_Sub1Array42[arg1].aBoolean824 ? this.aClass2_Sub1Array42[arg1].method9411(120, arg0) : this.aClass2_Sub1Array42[arg1].method9414(arg0)[0];
+        return this.aClass2_Sub1Array42[arg1].aBoolean824 ? this.aClass2_Sub1Array42[arg1].monochromeOutput(120, arg0) : this.aClass2_Sub1Array42[arg1].method9414(arg0)[0];
     }
 
     @OriginalMember(owner = "client!pf", name = "b", descriptor = "(I)V")

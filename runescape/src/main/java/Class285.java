@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.stringtools.general.StringTools;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -164,7 +165,7 @@ public final class Class285 {
             if (local14 < 0) {
                 return local8;
             }
-            local8 = local8.substring(0, local14) + Static593.method7780(false, arg0) + local8.substring(local14 + 2);
+            local8 = local8.substring(0, local14) + StringTools.parseIntWithSign(false, arg0) + local8.substring(local14 + 2);
         }
     }
 

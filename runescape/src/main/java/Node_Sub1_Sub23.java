@@ -84,7 +84,7 @@ public final class Node_Sub1_Sub23 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!or", name = "a", descriptor = "(II)[I")
     @Override
-    public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (arg0 <= 107) {
             Static470.method6383((Class158) null, -42, 121, -79);

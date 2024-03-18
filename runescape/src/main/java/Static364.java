@@ -130,7 +130,7 @@ public final class Static364 {
                         local229.p4((int) (Math.random() * 9.9999999E7D));
                     }
                     local229.p8(Static571.aLong269);
-                    local229.p1(Static392.aClass377_4.anInt9720);
+                    local229.p1(Static392.aModeGame_4.id);
                     local229.p1((int) (Math.random() * 9.9999999E7D));
                     local229.rsaenc(Static374.LOGIN_RSA_MODULUS, Static262.LOGIN_RSA_EXPONENT);
                     local186.aClass2_Sub21_Sub2_1.pdata(local229.pos, local229.data, 0);
@@ -279,7 +279,7 @@ public final class Static364 {
                         local646 = local618.pos;
                         local618.pjstr(Static449.aString75);
                     }
-                    local618.p1(Static392.aClass377_4.anInt9720);
+                    local618.p1(Static392.aModeGame_4.id);
                     local618.p1(Static51.anInt1052);
                     Static176.method6690(local618);
                     local618.pjstr(Static150.aString26);

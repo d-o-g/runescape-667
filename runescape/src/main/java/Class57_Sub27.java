@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeGame;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -30,7 +31,7 @@ public final class Class57_Sub27 extends Class57 {
     @OriginalMember(owner = "client!sga", name = "a", descriptor = "(B)V")
     @Override
     public void method8350() {
-        if (super.aClass2_Sub34_34.method5105() == Static723.aClass377_9) {
+        if (super.aClass2_Sub34_34.method5105() == ModeGame.STELLAR_DAWN) {
             super.anInt9489 = 2;
         }
         if (super.anInt9489 < 0 || super.anInt9489 > 2) {

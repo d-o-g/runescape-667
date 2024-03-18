@@ -1,4 +1,5 @@
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -33,24 +34,24 @@ public final class NPCTypeList {
     public final int anInt8086;
 
     @OriginalMember(owner = "client!ql", name = "o", descriptor = "Lclient!ul;")
-    public final Class377 aClass377_6;
+    public final ModeGame aModeGame_6;
 
     @OriginalMember(owner = "client!ql", name = "s", descriptor = "[Ljava/lang/String;")
     public final String[] aStringArray39;
 
     @OriginalMember(owner = "client!ql", name = "<init>", descriptor = "(Lclient!ul;IZLclient!sb;Lclient!sb;)V")
-    public NPCTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
+    public NPCTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
         this.aJs5_102 = arg4;
         this.aJs5_101 = arg3;
         this.aBoolean621 = arg2;
         this.anInt8086 = arg1;
-        this.aClass377_6 = arg0;
+        this.aModeGame_6 = arg0;
         if (this.aJs5_101 != null) {
             @Pc(44) int local44 = this.aJs5_101.method7597() - 1;
             this.aJs5_101.method7608(local44);
         }
-        if (Static673.aClass377_8 == this.aClass377_6) {
-            this.aStringArray39 = new String[]{null, null, null, null, null, Static32.aClass32_22.method877(this.anInt8086)};
+        if (ModeGame.RUNESCAPE == this.aModeGame_6) {
+            this.aStringArray39 = new String[]{null, null, null, null, null, Static32.A_LOCALISED_TEXT___22.localise(this.anInt8086)};
         } else {
             this.aStringArray39 = new String[]{null, null, null, null, null, null};
         }

@@ -30,10 +30,6 @@ public final class Node_Sub28_Sub4 extends Node_Sub28 {
     @OriginalMember(owner = "client!un", name = "r", descriptor = "I")
     public int anInt9764;
 
-    static {
-        new Class377("game5", "Game 5", 4);
-    }
-
     @OriginalMember(owner = "client!un", name = "<init>", descriptor = "(Lclient!jagtheora/ogg/OggStreamState;)V")
     public Node_Sub28_Sub4(@OriginalArg(0) OggStreamState arg0) {
         super(arg0);

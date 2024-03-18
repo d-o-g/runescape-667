@@ -1,6 +1,7 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.constants.ObjStackability;
 import com.jagex.core.io.Packet;
 import com.jagex.math.IntMath;
 import com.jagex.math.Trig1;
@@ -16,8 +17,8 @@ public final class ObjType {
     public static final int SHOWCOUNT_ALWAYS = 1;
     public static final int SHOWCOUNT_IFNOT1 = 2;
 
-    public static final int OBJ_STACKABILITY_SOMETIMES = 0;
-    public static final int OBJ_STACKABILITY_ALWAYS = 1;
+    private static final int MAX_OP_COUNT = 6;
+    private static final int MAX_IOP_COUNT = 5;
 
     @OriginalMember(owner = "client!hh", name = "b", descriptor = "[S")
     public static short[] clientpalette = new short[256];
@@ -170,7 +171,7 @@ public final class ObjType {
     public int picksizeshift = 0;
 
     @OriginalMember(owner = "client!vfa", name = "T", descriptor = "I")
-    public int stackable = 0;
+    public int stackable = ObjStackability.SOMETIMES;
 
     @OriginalMember(owner = "client!vfa", name = "lb", descriptor = "I")
     public int resizez = 128;
@@ -261,7 +262,7 @@ public final class ObjType {
         this.xan2d = arg1.xan2d;
         this.manwear2 = arg0.manwear2;
         this.mesh = arg1.mesh;
-        this.iop = new String[5];
+        this.iop = new String[MAX_IOP_COUNT];
         this.yan2d = arg1.yan2d;
         this.yof2d = arg1.yof2d;
         this.retex_s = arg0.retex_s;
@@ -283,7 +284,7 @@ public final class ObjType {
                 this.iop[local155] = arg0.iop[local155];
             }
         }
-        this.iop[4] = Static32.aClass32_6.method877(this.myList.anInt2662);
+        this.iop[4] = Static32.A_LOCALISED_TEXT___6.localise(this.myList.languageId);
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!vfa;ILclient!vfa;)V")
@@ -383,131 +384,127 @@ public final class ObjType {
             this.op[code - 30] = packet.gjstr();
         } else if (code >= 35 && code < 40) {
             this.iop[code - 35] = packet.gjstr();
-        } else {
-            @Pc(202) int len;
-            @Pc(212) int i;
-            if (code == 40) {
-                len = packet.g1();
-                this.recol_s = new short[len];
-                this.recol_d = new short[len];
-                for (i = 0; i < len; i++) {
-                    this.recol_s[i] = (short) packet.g2();
-                    this.recol_d[i] = (short) packet.g2();
+        } else if (code == 40) {
+            @Pc(202) int len = packet.g1();
+            this.recol_s = new short[len];
+            this.recol_d = new short[len];
+            for (@Pc(212) int i = 0; i < len; i++) {
+                this.recol_s[i] = (short) packet.g2();
+                this.recol_d[i] = (short) packet.g2();
+            }
+        } else if (code == 41) {
+            @Pc(202) int len = packet.g1();
+            this.retex_s = new short[len];
+            this.retex_d = new short[len];
+            for (@Pc(212) int i = 0; i < len; i++) {
+                this.retex_s[i] = (short) packet.g2();
+                this.retex_d[i] = (short) packet.g2();
+            }
+        } else if (code == 42) {
+            @Pc(202) int len = packet.g1();
+            this.recol_d_palette = new byte[len];
+            for (@Pc(212) int i = 0; i < len; i++) {
+                this.recol_d_palette[i] = packet.g1b();
+            }
+        } else if (code == 65) {
+            this.stockmarket = true;
+        } else if (code == 78) {
+            this.manwear3 = packet.g2();
+        } else if (code == 79) {
+            this.womanwear3 = packet.g2();
+        } else if (code == 90) {
+            this.manhead = packet.g2();
+        } else if (code == 91) {
+            this.womanhead = packet.g2();
+        } else if (code == 92) {
+            this.manhead2 = packet.g2();
+        } else if (code == 93) {
+            this.womanhead2 = packet.g2();
+        } else if (code == 95) {
+            this.zan2d = packet.g2();
+        } else if (code == 96) {
+            this.dummyitem = packet.g1();
+        } else if (code == 97) {
+            this.certlink = packet.g2();
+        } else if (code == 98) {
+            this.certtemplate = packet.g2();
+        } else if (code >= 100 && code < 110) {
+            if (this.countobj == null) {
+                this.countco = new int[10];
+                this.countobj = new int[10];
+            }
+            this.countobj[code - 100] = packet.g2();
+            this.countco[code - 100] = packet.g2();
+        } else if (code == 110) {
+            this.resizex = packet.g2();
+        } else if (code == 111) {
+            this.resizey = packet.g2();
+        } else if (code == 112) {
+            this.resizez = packet.g2();
+        } else if (code == 113) {
+            this.ambient = packet.g1b();
+        } else if (code == 114) {
+            this.contrast = packet.g1b() * 5;
+        } else if (code == 115) {
+            this.team = packet.g1();
+        } else if (code == 121) {
+            this.lentlink = packet.g2();
+        } else if (code == 122) {
+            this.lenttemplate = packet.g2();
+        } else if (code == 125) {
+            this.manwearxoff = packet.g1b() << 2;
+            this.manwearyoff = packet.g1b() << 2;
+            this.manwearzoff = packet.g1b() << 2;
+        } else if (code == 126) {
+            this.womanwearxoff = packet.g1b() << 2;
+            this.womanwearyoff = packet.g1b() << 2;
+            this.womanwearzoff = packet.g1b() << 2;
+        } else if (code == 127) {
+            this.cursor1op = packet.g1();
+            this.cursor1 = packet.g2();
+        } else if (code == 128) {
+            this.cursor2op = packet.g1();
+            this.cursor2 = packet.g2();
+        } else if (code == 129) {
+            this.cursor1iop = packet.g1();
+            this.icursor1 = packet.g2();
+        } else if (code == 130) {
+            this.cursor2iop = packet.g1();
+            this.icursor2 = packet.g2();
+        } else if (code == 132) {
+            @Pc(202) int len = packet.g1();
+            this.quests = new int[len];
+            for (@Pc(212) int i = 0; i < len; i++) {
+                this.quests[i] = packet.g2();
+            }
+        } else if (code == 134) {
+            this.picksizeshift = packet.g1();
+        } else if (code == 139) {
+            this.boughtlink = packet.g2();
+        } else if (code == 140) {
+            this.boughttemplate = packet.g2();
+        } else if (code == 249) {
+            @Pc(202) int len = packet.g1();
+            if (this.params == null) {
+                @Pc(212) int count = IntMath.nextPow2(len);
+                this.params = new HashTable(count);
+            }
+            for (@Pc(212) int i = 0; i < len; i++) {
+                @Pc(554) boolean string = packet.g1() == 1;
+                @Pc(558) int id = packet.g3();
+                @Pc(567) Node node;
+                if (string) {
+                    node = new StringNode(packet.gjstr());
+                } else {
+                    node = new IntNode(packet.g4());
                 }
-            } else if (code == 41) {
-                len = packet.g1();
-                this.retex_s = new short[len];
-                this.retex_d = new short[len];
-                for (i = 0; i < len; i++) {
-                    this.retex_s[i] = (short) packet.g2();
-                    this.retex_d[i] = (short) packet.g2();
-                }
-            } else if (code == 42) {
-                len = packet.g1();
-                this.recol_d_palette = new byte[len];
-                for (i = 0; i < len; i++) {
-                    this.recol_d_palette[i] = packet.g1b();
-                }
-            } else if (code == 65) {
-                this.stockmarket = true;
-            } else if (code == 78) {
-                this.manwear3 = packet.g2();
-            } else if (code == 79) {
-                this.womanwear3 = packet.g2();
-            } else if (code == 90) {
-                this.manhead = packet.g2();
-            } else if (code == 91) {
-                this.womanhead = packet.g2();
-            } else if (code == 92) {
-                this.manhead2 = packet.g2();
-            } else if (code == 93) {
-                this.womanhead2 = packet.g2();
-            } else if (code == 95) {
-                this.zan2d = packet.g2();
-            } else if (code == 96) {
-                this.dummyitem = packet.g1();
-            } else if (code == 97) {
-                this.certlink = packet.g2();
-            } else if (code == 98) {
-                this.certtemplate = packet.g2();
-            } else if (code >= 100 && code < 110) {
-                if (this.countobj == null) {
-                    this.countco = new int[10];
-                    this.countobj = new int[10];
-                }
-                this.countobj[code - 100] = packet.g2();
-                this.countco[code - 100] = packet.g2();
-            } else if (code == 110) {
-                this.resizex = packet.g2();
-            } else if (code == 111) {
-                this.resizey = packet.g2();
-            } else if (code == 112) {
-                this.resizez = packet.g2();
-            } else if (code == 113) {
-                this.ambient = packet.g1b();
-            } else if (code == 114) {
-                this.contrast = packet.g1b() * 5;
-            } else if (code == 115) {
-                this.team = packet.g1();
-            } else if (code == 121) {
-                this.lentlink = packet.g2();
-            } else if (code == 122) {
-                this.lenttemplate = packet.g2();
-            } else if (code == 125) {
-                this.manwearxoff = packet.g1b() << 2;
-                this.manwearyoff = packet.g1b() << 2;
-                this.manwearzoff = packet.g1b() << 2;
-            } else if (code == 126) {
-                this.womanwearxoff = packet.g1b() << 2;
-                this.womanwearyoff = packet.g1b() << 2;
-                this.womanwearzoff = packet.g1b() << 2;
-            } else if (code == 127) {
-                this.cursor1op = packet.g1();
-                this.cursor1 = packet.g2();
-            } else if (code == 128) {
-                this.cursor2op = packet.g1();
-                this.cursor2 = packet.g2();
-            } else if (code == 129) {
-                this.cursor1iop = packet.g1();
-                this.icursor1 = packet.g2();
-            } else if (code == 130) {
-                this.cursor2iop = packet.g1();
-                this.icursor2 = packet.g2();
-            } else if (code == 132) {
-                len = packet.g1();
-                this.quests = new int[len];
-                for (i = 0; i < len; i++) {
-                    this.quests[i] = packet.g2();
-                }
-            } else if (code == 134) {
-                this.picksizeshift = packet.g1();
-            } else if (code == 139) {
-                this.boughtlink = packet.g2();
-            } else if (code == 140) {
-                this.boughttemplate = packet.g2();
-            } else if (code == 249) {
-                len = packet.g1();
-                if (this.params == null) {
-                    i = IntMath.nextPow2(len);
-                    this.params = new HashTable(i);
-                }
-                for (i = 0; i < len; i++) {
-                    @Pc(554) boolean string = packet.g1() == 1;
-                    @Pc(558) int id = packet.g3();
-                    @Pc(567) Node node;
-                    if (string) {
-                        node = new StringNode(packet.gjstr());
-                    } else {
-                        node = new IntNode(packet.g4());
-                    }
-                    this.params.put((long) id, node);
-                }
+                this.params.put((long) id, node);
             }
         }
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
-    public int[] method8798(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) PlayerModel appearance, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Class14 font, @OriginalArg(9) int outline) {
+    public int[] sprite(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) PlayerModel appearance, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Class14 font, @OriginalArg(9) int outline) {
         @Pc(14) Mesh mesh = Static121.method2201(this.mesh, this.myList.meshes);
         if (mesh == null) {
             return null;
@@ -550,10 +547,12 @@ public final class ObjType {
             scaled = true;
             functionMask = 2055;
         }
+
         @Pc(244) Model model = scratchToolkit.createModel(mesh, functionMask, 64, this.ambient + 64, this.contrast + 768);
         if (!model.loadedTextures()) {
             return null;
         }
+
         if (scaled) {
             model.O(this.resizex, this.resizey, this.resizez);
         }
@@ -630,7 +629,7 @@ public final class ObjType {
             sprite.render(0, 0);
         }
 
-        if (objNumMode == SHOWCOUNT_ALWAYS || objNumMode == SHOWCOUNT_IFNOT1 && (this.stackable == OBJ_STACKABILITY_ALWAYS || invCount != 1) && invCount != -1) {
+        if (objNumMode == SHOWCOUNT_ALWAYS || objNumMode == SHOWCOUNT_IFNOT1 && (this.stackable == ObjStackability.ALWAYS || invCount != 1) && invCount != -1) {
             font.method8829(0, 9, this.formatAmount(invCount), 0xFF000001, 0xFFFFFF00);
         }
 
@@ -843,9 +842,9 @@ public final class ObjType {
         if (arg0 < 100000) {
             return "<col=ffff00>" + arg0 + "</col>";
         } else if (arg0 < 10000000) {
-            return "<col=ffffff>" + arg0 / 1000 + Static32.aClass32_36.method877(this.myList.anInt2662) + "</col>";
+            return "<col=ffffff>" + arg0 / 1000 + Static32.A_LOCALISED_TEXT___36.localise(this.myList.languageId) + "</col>";
         } else {
-            return "<col=00ff80>" + arg0 / 1000000 + Static32.aClass32_34.method877(this.myList.anInt2662) + "</col>";
+            return "<col=00ff80>" + arg0 / 1000000 + Static32.A_LOCALISED_TEXT___34.localise(this.myList.languageId) + "</col>";
         }
     }
 
@@ -991,48 +990,50 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!vfa;BLclient!vfa;)V")
-    public void method8809(@OriginalArg(0) ObjType arg0, @OriginalArg(2) ObjType arg1) {
+    public void method8809(@OriginalArg(0) ObjType template, @OriginalArg(2) ObjType original) {
         this.cost = 0;
-        this.manwear3 = arg1.manwear3;
-        this.stackable = arg1.stackable;
-        this.members = arg1.members;
-        this.recol_d_palette = arg1.recol_d_palette;
-        this.yof2d = arg0.yof2d;
-        this.team = arg1.team;
-        this.womanwear = arg1.womanwear;
-        this.iop = new String[5];
-        this.op = arg1.op;
-        this.manwearyoff = arg1.manwearyoff;
-        this.manhead = arg1.manhead;
-        this.womanwearyoff = arg1.womanwearyoff;
-        this.name = arg1.name;
-        this.zoom2d = arg0.zoom2d;
-        this.recol_s = arg1.recol_s;
-        this.womanhead2 = arg1.womanhead2;
-        this.params = arg1.params;
-        this.manwear2 = arg1.manwear2;
-        this.xan2d = arg0.xan2d;
-        this.yan2d = arg0.yan2d;
-        this.womanwearxoff = arg1.womanwearxoff;
-        this.manhead2 = arg1.manhead2;
-        this.womanwear3 = arg1.womanwear3;
-        this.retex_d = arg1.retex_d;
-        this.manwearxoff = arg1.manwearxoff;
-        this.womanhead = arg1.womanhead;
-        this.mesh = arg0.mesh;
-        this.recol_d = arg1.recol_d;
-        this.womanwear2 = arg1.womanwear2;
-        this.xof2d = arg0.xof2d;
-        this.zan2d = arg0.zan2d;
-        this.manwear = arg1.manwear;
-        this.womanwearzoff = arg1.womanwearzoff;
-        this.manwearzoff = arg1.manwearzoff;
-        this.retex_s = arg1.retex_s;
-        if (arg1.iop != null) {
-            for (@Pc(161) int local161 = 0; local161 < 4; local161++) {
-                this.iop[local161] = arg1.iop[local161];
+        this.manwear3 = original.manwear3;
+        this.stackable = original.stackable;
+        this.members = original.members;
+        this.recol_d_palette = original.recol_d_palette;
+        this.yof2d = template.yof2d;
+        this.team = original.team;
+        this.womanwear = original.womanwear;
+        this.iop = new String[MAX_IOP_COUNT];
+        this.op = original.op;
+        this.manwearyoff = original.manwearyoff;
+        this.manhead = original.manhead;
+        this.womanwearyoff = original.womanwearyoff;
+        this.name = original.name;
+        this.zoom2d = template.zoom2d;
+        this.recol_s = original.recol_s;
+        this.womanhead2 = original.womanhead2;
+        this.params = original.params;
+        this.manwear2 = original.manwear2;
+        this.xan2d = template.xan2d;
+        this.yan2d = template.yan2d;
+        this.womanwearxoff = original.womanwearxoff;
+        this.manhead2 = original.manhead2;
+        this.womanwear3 = original.womanwear3;
+        this.retex_d = original.retex_d;
+        this.manwearxoff = original.manwearxoff;
+        this.womanhead = original.womanhead;
+        this.mesh = template.mesh;
+        this.recol_d = original.recol_d;
+        this.womanwear2 = original.womanwear2;
+        this.xof2d = template.xof2d;
+        this.zan2d = template.zan2d;
+        this.manwear = original.manwear;
+        this.womanwearzoff = original.womanwearzoff;
+        this.manwearzoff = original.manwearzoff;
+        this.retex_s = original.retex_s;
+
+        if (original.iop != null) {
+            for (@Pc(161) int i = 0; i < 4; i++) {
+                this.iop[i] = original.iop[i];
             }
         }
-        this.iop[4] = Static32.aClass32_7.method877(this.myList.anInt2662);
+
+        this.iop[4] = Static32.LENT_ITEM_RETURN.localise(this.myList.languageId);
     }
 }

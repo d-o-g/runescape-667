@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -57,7 +58,7 @@ public final class Static515 {
         @Pc(152) int local152 = Static534.anInt8111 * local46 / Static30.anInt5650 + local75;
         @Pc(166) int local166 = local48 + local84 - local144 - Static510.anInt7639 * local48 / Static30.anInt5644;
         @Pc(168) int local168 = -1996554240;
-        if (Static392.aClass377_4 == Static723.aClass377_9) {
+        if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
             local168 = -1996488705;
         }
         arg1.aa(local152, local166, local138, local144, local168, 1);

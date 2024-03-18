@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeGame;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -18,7 +19,7 @@ public final class Class57_Sub19 extends Class57 {
     @OriginalMember(owner = "client!nt", name = "a", descriptor = "(I)I")
     @Override
     protected int method8354() {
-        return super.aClass2_Sub34_34.method5105() == Static673.aClass377_8 && super.aClass2_Sub34_34.method5111() ? 0 : 1;
+        return super.aClass2_Sub34_34.method5105() == ModeGame.RUNESCAPE && super.aClass2_Sub34_34.method5111() ? 0 : 1;
     }
 
     @OriginalMember(owner = "client!nt", name = "a", descriptor = "(B)V")

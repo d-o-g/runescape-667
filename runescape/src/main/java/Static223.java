@@ -68,11 +68,6 @@ public final class Static223 {
         return local7;
     }
 
-    @OriginalMember(owner = "client!gu", name = "b", descriptor = "(ZI)I")
-    public static int method9100(@OriginalArg(1) int arg0) {
-        return arg0 & 0xFF;
-    }
-
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(Lclient!ka;IIILclient!ke;I)V")
     public static void method9103(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class205 arg4) {
         if (arg0 != null) {

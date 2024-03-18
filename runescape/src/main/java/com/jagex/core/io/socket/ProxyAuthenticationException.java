@@ -10,7 +10,7 @@ import java.io.IOException;
 public final class ProxyAuthenticationException extends IOException {
 
     @OriginalMember(owner = "client!qla", name = "<init>", descriptor = "(Ljava/lang/String;)V")
-    public ProxyAuthenticationException(@OriginalArg(0) String arg0) {
-        super(arg0);
+    public ProxyAuthenticationException(@OriginalArg(0) String message) {
+        super(message);
     }
 }

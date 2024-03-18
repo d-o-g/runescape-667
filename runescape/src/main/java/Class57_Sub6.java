@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeGame;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -31,7 +32,7 @@ public final class Class57_Sub6 extends Class57 {
     public int method8352(@OriginalArg(0) int arg0) {
         if (super.aClass2_Sub34_34.method5111()) {
             return 3;
-        } else if (super.aClass2_Sub34_34.method5105() == Static673.aClass377_8) {
+        } else if (super.aClass2_Sub34_34.method5105() == ModeGame.RUNESCAPE) {
             return 1;
         } else {
             return 3;
@@ -43,7 +44,7 @@ public final class Class57_Sub6 extends Class57 {
         if (super.aClass2_Sub34_34.method5111()) {
             return false;
         } else {
-            return super.aClass2_Sub34_34.method5105() == Static673.aClass377_8;
+            return super.aClass2_Sub34_34.method5105() == ModeGame.RUNESCAPE;
         }
     }
 
@@ -56,7 +57,7 @@ public final class Class57_Sub6 extends Class57 {
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(B)V")
     @Override
     public void method8350() {
-        if (super.aClass2_Sub34_34.method5105() != Static673.aClass377_8) {
+        if (super.aClass2_Sub34_34.method5105() != ModeGame.RUNESCAPE) {
             super.anInt9489 = 1;
         } else if (super.aClass2_Sub34_34.method5111()) {
             super.anInt9489 = 0;

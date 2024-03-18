@@ -1,4 +1,5 @@
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -30,7 +31,7 @@ public final class Class142 {
     public final js5 aJs5_44;
 
     @OriginalMember(owner = "client!gea", name = "j", descriptor = "Lclient!ul;")
-    public final Class377 aClass377_2;
+    public final ModeGame aModeGame_2;
 
     @OriginalMember(owner = "client!gea", name = "h", descriptor = "I")
     public final int anInt3383;
@@ -45,9 +46,9 @@ public final class Class142 {
     public final String[] aStringArray15;
 
     @OriginalMember(owner = "client!gea", name = "<init>", descriptor = "(Lclient!ul;IZLclient!sb;Lclient!sb;)V")
-    public Class142(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
+    public Class142(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
         this.aJs5_44 = arg4;
-        this.aClass377_2 = arg0;
+        this.aModeGame_2 = arg0;
         this.anInt3383 = arg1;
         this.aJs5_43 = arg3;
         this.aBoolean267 = arg2;
@@ -55,8 +56,8 @@ public final class Class142 {
             @Pc(53) int local53 = this.aJs5_43.method7597() - 1;
             this.aJs5_43.method7608(local53);
         }
-        if (Static673.aClass377_8 == this.aClass377_2) {
-            this.aStringArray15 = new String[]{null, null, null, null, null, Static32.aClass32_22.method877(this.anInt3383)};
+        if (ModeGame.RUNESCAPE == this.aModeGame_2) {
+            this.aStringArray15 = new String[]{null, null, null, null, null, Static32.A_LOCALISED_TEXT___22.localise(this.anInt3383)};
         } else {
             this.aStringArray15 = new String[]{null, null, null, null, null, null};
         }

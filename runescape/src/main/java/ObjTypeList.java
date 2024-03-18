@@ -1,5 +1,6 @@
 import com.jagex.collect.Node;
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -13,7 +14,7 @@ public final class ObjTypeList {
     public int anInt2673;
 
     @OriginalMember(owner = "client!es", name = "o", descriptor = "Lclient!dla;")
-    public final ReferenceCache aReferenceCache_57 = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!es", name = "b", descriptor = "Lclient!dla;")
     public final ReferenceCache aReferenceCache_58 = new ReferenceCache(50);
@@ -25,10 +26,10 @@ public final class ObjTypeList {
     public final Class324 aClass324_1 = new Class324();
 
     @OriginalMember(owner = "client!es", name = "m", descriptor = "I")
-    public final int anInt2662;
+    public final int languageId;
 
     @OriginalMember(owner = "client!es", name = "w", descriptor = "Lclient!ul;")
-    public final Class377 aClass377_1;
+    public final ModeGame aModeGame_1;
 
     @OriginalMember(owner = "client!es", name = "l", descriptor = "Lclient!sb;")
     public final js5 meshes;
@@ -37,7 +38,7 @@ public final class ObjTypeList {
     public final Class49 aClass49_1;
 
     @OriginalMember(owner = "client!es", name = "x", descriptor = "Lclient!sb;")
-    public final js5 aJs5_29;
+    public final js5 configClient;
 
     @OriginalMember(owner = "client!es", name = "i", descriptor = "Z")
     public boolean aBoolean222;
@@ -52,32 +53,42 @@ public final class ObjTypeList {
     public final String[] aStringArray10;
 
     @OriginalMember(owner = "client!es", name = "<init>", descriptor = "(Lclient!ul;IZLclient!bo;Lclient!sb;Lclient!sb;)V")
-    public ObjTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class49 arg3, @OriginalArg(4) js5 arg4, @OriginalArg(5) js5 arg5) {
-        this.anInt2662 = arg1;
-        this.aClass377_1 = arg0;
+    public ObjTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class49 arg3, @OriginalArg(4) js5 arg4, @OriginalArg(5) js5 arg5) {
+        this.languageId = arg1;
+        this.aModeGame_1 = arg0;
         this.meshes = arg5;
         this.aClass49_1 = arg3;
-        this.aJs5_29 = arg4;
+        this.configClient = arg4;
         this.aBoolean222 = arg2;
-        if (this.aJs5_29 == null) {
+        if (this.configClient == null) {
             this.anInt2670 = 0;
         } else {
-            @Pc(54) int local54 = this.aJs5_29.method7597() - 1;
-            this.anInt2670 = this.aJs5_29.method7608(local54) + local54 * 256;
+            @Pc(54) int local54 = this.configClient.method7597() - 1;
+            this.anInt2670 = this.configClient.method7608(local54) + local54 * 256;
         }
-        if (this.aClass377_1 == Static673.aClass377_8) {
-            this.aStringArray11 = new String[]{null, null, Static32.aClass32_8.method877(this.anInt2662), null, null, Static32.aClass32_22.method877(this.anInt2662)};
+        if (this.aModeGame_1 == ModeGame.RUNESCAPE) {
+            this.aStringArray11 = new String[]{null, null, Static32.A_LOCALISED_TEXT___8.localise(this.languageId), null, null, Static32.A_LOCALISED_TEXT___22.localise(this.languageId)};
         } else {
-            this.aStringArray11 = new String[]{null, null, Static32.aClass32_8.method877(this.anInt2662), null, null, null};
+            this.aStringArray11 = new String[]{null, null, Static32.A_LOCALISED_TEXT___8.localise(this.languageId), null, null, null};
         }
-        this.aStringArray10 = new String[]{null, null, null, null, Static32.aClass32_9.method877(this.anInt2662)};
+        this.aStringArray10 = new String[]{null, null, null, null, Static32.A_LOCALISED_TEXT___9.localise(this.languageId)};
+    }
+
+    @OriginalMember(owner = "client!gu", name = "b", descriptor = "(ZI)I")
+    public static int method9100(@OriginalArg(1) int arg0) {
+        return arg0 & 0xFF;
+    }
+
+    @OriginalMember(owner = "client!sm", name = "a", descriptor = "(II)I")
+    public static int method7781(@OriginalArg(1) int arg0) {
+        return arg0 >>> 8;
     }
 
     @OriginalMember(owner = "client!es", name = "b", descriptor = "(B)V")
     public void method2476() {
-        @Pc(6) ReferenceCache local6 = this.aReferenceCache_57;
-        synchronized (this.aReferenceCache_57) {
-            this.aReferenceCache_57.reset();
+        @Pc(6) ReferenceCache local6 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.reset();
         }
         local6 = this.aReferenceCache_58;
         synchronized (this.aReferenceCache_58) {
@@ -107,7 +118,7 @@ public final class ObjTypeList {
                 local34 = this.list(local44);
             }
         }
-        @Pc(101) int[] local101 = local34.method8798(arg8, arg2, arg6, arg5, arg7, arg3, arg1, arg9, arg0);
+        @Pc(101) int[] local101 = local34.sprite(arg8, arg2, arg6, arg5, arg7, arg3, arg1, arg9, arg0);
         if (local101 == null) {
             return null;
         }
@@ -133,9 +144,9 @@ public final class ObjTypeList {
 
     @OriginalMember(owner = "client!es", name = "c", descriptor = "(II)V")
     public void method2479() {
-        @Pc(14) ReferenceCache local14 = this.aReferenceCache_57;
-        synchronized (this.aReferenceCache_57) {
-            this.aReferenceCache_57.clean(5);
+        @Pc(14) ReferenceCache local14 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.clean(5);
         }
         local14 = this.aReferenceCache_58;
         synchronized (this.aReferenceCache_58) {
@@ -149,9 +160,9 @@ public final class ObjTypeList {
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(B)V")
     public void method2480() {
-        @Pc(6) ReferenceCache local6 = this.aReferenceCache_57;
-        synchronized (this.aReferenceCache_57) {
-            this.aReferenceCache_57.removeSoftReferences();
+        @Pc(6) ReferenceCache local6 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.removeSoftReferences();
         }
         local6 = this.aReferenceCache_58;
         synchronized (this.aReferenceCache_58) {
@@ -210,47 +221,50 @@ public final class ObjTypeList {
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(II)Lclient!vfa;")
     public ObjType list(@OriginalArg(0) int arg0) {
-        @Pc(14) ReferenceCache local14 = this.aReferenceCache_57;
-        @Pc(26) ObjType local26;
-        synchronized (this.aReferenceCache_57) {
-            local26 = (ObjType) this.aReferenceCache_57.get((long) arg0);
+        @Pc(14) ReferenceCache local14 = this.recentUse;
+        @Pc(26) ObjType type;
+
+        synchronized (this.recentUse) {
+            type = (ObjType) this.recentUse.get((long) arg0);
         }
-        if (local26 != null) {
-            return local26;
+        if (type != null) {
+            return type;
         }
-        @Pc(40) js5 local40 = this.aJs5_29;
-        @Pc(53) byte[] local53;
-        synchronized (this.aJs5_29) {
-            local53 = this.aJs5_29.getfile(Static223.method9100(arg0), Static593.method7781(arg0));
+
+        @Pc(40) js5 local40 = this.configClient;
+        @Pc(53) byte[] data;
+        synchronized (this.configClient) {
+            data = this.configClient.getfile(method9100(arg0), method7781(arg0));
         }
-        local26 = new ObjType();
-        local26.anInt10134 = arg0;
-        local26.myList = this;
-        local26.op = (String[]) this.aStringArray11.clone();
-        local26.iop = (String[]) this.aStringArray10.clone();
-        if (local53 != null) {
-            local26.method8791(new Packet(local53));
+
+        type = new ObjType();
+        type.anInt10134 = arg0;
+        type.myList = this;
+        type.op = (String[]) this.aStringArray11.clone();
+        type.iop = (String[]) this.aStringArray10.clone();
+        if (data != null) {
+            type.method8791(new Packet(data));
         }
-        local26.method8807();
-        if (local26.certtemplate != -1) {
-            local26.method8793(this.list(local26.certtemplate), this.list(local26.certlink));
+        type.method8807();
+        if (type.certtemplate != -1) {
+            type.method8793(this.list(type.certtemplate), this.list(type.certlink));
         }
-        if (local26.lenttemplate != -1) {
-            local26.method8792(this.list(local26.lentlink), this.list(local26.lenttemplate));
+        if (type.lenttemplate != -1) {
+            type.method8792(this.list(type.lentlink), this.list(type.lenttemplate));
         }
-        if (local26.boughttemplate != -1) {
-            local26.method8809(this.list(local26.boughttemplate), this.list(local26.boughtlink));
+        if (type.boughttemplate != -1) {
+            type.method8809(this.list(type.boughttemplate), this.list(type.boughtlink));
         }
-        if (!this.aBoolean222 && local26.members) {
-            local26.name = Static32.aClass32_5.method877(this.anInt2662);
-            local26.op = this.aStringArray11;
-            local26.iop = this.aStringArray10;
-            local26.quests = null;
-            local26.team = 0;
-            local26.stockmarket = false;
-            if (local26.params != null) {
+        if (!this.aBoolean222 && type.members) {
+            type.name = Static32.A_LOCALISED_TEXT___5.localise(this.languageId);
+            type.op = this.aStringArray11;
+            type.iop = this.aStringArray10;
+            type.quests = null;
+            type.team = 0;
+            type.stockmarket = false;
+            if (type.params != null) {
                 @Pc(195) boolean local195 = false;
-                for (@Pc(200) Node local200 = local26.params.first(); local200 != null; local200 = local26.params.next()) {
+                for (@Pc(200) Node local200 = type.params.first(); local200 != null; local200 = type.params.next()) {
                     @Pc(209) Class296 local209 = this.aClass49_1.method1161((int) local200.key);
                     if (local209.aBoolean570) {
                         local200.remove();
@@ -259,14 +273,14 @@ public final class ObjTypeList {
                     }
                 }
                 if (!local195) {
-                    local26.params = null;
+                    type.params = null;
                 }
             }
         }
-        @Pc(238) ReferenceCache local238 = this.aReferenceCache_57;
-        synchronized (this.aReferenceCache_57) {
-            this.aReferenceCache_57.put(local26, (long) arg0);
-            return local26;
+        @Pc(238) ReferenceCache local238 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.put(type, (long) arg0);
+            return type;
         }
     }
 }

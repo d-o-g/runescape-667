@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeGame;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -649,8 +650,8 @@ public final class Static84 {
                                             }
                                             continue;
                                         }
-                                        if (Static392.aClass377_4 == Static723.aClass377_9) {
-                                            Static416.method5707(false, -1, 1L, local1191, local1199, Static32.aClass32_27.method877(Static51.anInt1052), 11, true, -1, "", 0L, true);
+                                        if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
+                                            Static416.method5707(false, -1, 1L, local1191, local1199, Static32.A_LOCALISED_TEXT___27.localise(Static51.anInt1052), 11, true, -1, "", 0L, true);
                                         }
                                         Static416.method5707(false, -1, 1L, local1191, local1199, Static331.aString52, 58, true, Static331.anInt5439, "", 0L, true);
                                         continue;
@@ -1012,7 +1013,7 @@ public final class Static84 {
                                 }
                                 @Pc(2824) Node_Sub4 local2824 = (Node_Sub4) Static548.aHashTable_40.get((long) local6.anInt3812);
                                 if (local2824 != null) {
-                                    if (Static392.aClass377_4 == Static673.aClass377_8 && local2824.anInt146 == 0 && !Static400.aBoolean622 && local310 && !Static103.aBoolean195) {
+                                    if (Static392.aModeGame_4 == ModeGame.RUNESCAPE && local2824.anInt146 == 0 && !Static400.aBoolean622 && local310 && !Static103.aBoolean195) {
                                         Static79.method1578();
                                     }
                                     Static431.method5822(local36, local24, local32, arg9, arg11, local34, local19, local2824.anInt147, arg8, arg10, local30);

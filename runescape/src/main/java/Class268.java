@@ -1,6 +1,7 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -217,7 +218,7 @@ public final class Class268 {
         if (this.aByte107 != -1) {
             return;
         }
-        if (Static673.aClass377_8 == this.aNPCTypeList_1.aClass377_6) {
+        if (ModeGame.RUNESCAPE == this.aNPCTypeList_1.aModeGame_6) {
             this.aByte107 = 1;
         } else {
             this.aByte107 = 0;

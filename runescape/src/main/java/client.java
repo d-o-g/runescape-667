@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -53,13 +54,13 @@ public final class client extends Applet_Sub1 {
             Static464.aBoolean533 = false;
             Static98.aBoolean191 = false;
             if (arg0[5].equals("game0")) {
-                Static392.aClass377_4 = Static673.aClass377_8;
+                Static392.aModeGame_4 = ModeGame.RUNESCAPE;
             } else if (arg0[5].equals("game1")) {
-                Static392.aClass377_4 = Static723.aClass377_9;
+                Static392.aModeGame_4 = ModeGame.STELLAR_DAWN;
             } else if (arg0[5].equals("game2")) {
-                Static392.aClass377_4 = Static465.aClass377_5;
+                Static392.aModeGame_4 = ModeGame.GAME3;
             } else if (arg0[5].equals("game3")) {
-                Static392.aClass377_4 = Static655.aClass377_7;
+                Static392.aModeGame_4 = ModeGame.GAME4;
             } else {
                 Static426.method1016("game");
             }
@@ -70,14 +71,14 @@ public final class client extends Applet_Sub1 {
             Static126.aBoolean200 = true;
             Static473.aBoolean539 = false;
             Static389.aString64 = null;
-            Static338.anInt5562 = Static392.aClass377_4.anInt9720;
+            Static338.anInt5562 = Static392.aModeGame_4.id;
             Static150.aString26 = "";
             Static265.aByteArray44 = null;
             Static584.anInt8634 = 0;
             Static416.aLong208 = 0L;
             @Pc(241) client local241 = new client();
             Static295.aClient1 = local241;
-            local241.method1635(Static598.aClass162_5.method3469() + 32, Static392.aClass377_4.aString114);
+            local241.method1635(Static598.aClass162_5.method3469() + 32, Static392.aModeGame_4.domainName);
             Static353.aFrame10.setLocation(40, 40);
         } catch (@Pc(265) Exception local265) {
             Static240.sendTrace(local265, (String) null);
@@ -337,10 +338,10 @@ public final class client extends Applet_Sub1 {
                                             for (@Pc(672) Class8_Sub4_Sub1 local672 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2790(); local672 != null; local672 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2785()) {
                                                 if ((long) local672.anInt6433 < SystemTimer.safetime() / 1000L - 5L) {
                                                     if (local672.aShort74 > 0) {
-                                                        Static44.method1072(local672.aString72 + Static32.aClass32_19.method877(Static51.anInt1052), "", 0, "", "", 5);
+                                                        Static44.method1072(local672.aString72 + Static32.A_LOCALISED_TEXT___19.localise(Static51.anInt1052), "", 0, "", "", 5);
                                                     }
                                                     if (local672.aShort74 == 0) {
-                                                        Static44.method1072(local672.aString72 + Static32.aClass32_20.method877(Static51.anInt1052), "", 0, "", "", 5);
+                                                        Static44.method1072(local672.aString72 + Static32.A_LOCALISED_TEXT___20.localise(Static51.anInt1052), "", 0, "", "", 5);
                                                     }
                                                     local672.method9274();
                                                 }
@@ -485,22 +486,22 @@ public final class client extends Applet_Sub1 {
                     Static357.anInt6508 = Static593.anInt8763;
                 }
                 local110 = (Static357.anInt6508 - Static593.anInt8763) * 50 / Static357.anInt6508;
-                Static694.method9028(Static163.aToolkit_17, Static32.aClass32_12.method877(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Static694.aClass381_13, Static437.aClass14_9);
+                Static694.method9028(Static163.aToolkit_17, Static32.A_LOCALISED_TEXT___12.localise(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Static694.aClass381_13, Static437.aClass14_9);
             } else if (Static213.anInt3472 == 2) {
                 if (Static13.anInt150 > Static440.anInt6683) {
                     Static440.anInt6683 = Static13.anInt150;
                 }
                 local110 = (Static440.anInt6683 - Static13.anInt150) * 50 / Static440.anInt6683 + 50;
-                Static694.method9028(Static163.aToolkit_17, Static32.aClass32_12.method877(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Static694.aClass381_13, Static437.aClass14_9);
+                Static694.method9028(Static163.aToolkit_17, Static32.A_LOCALISED_TEXT___12.localise(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Static694.aClass381_13, Static437.aClass14_9);
             } else {
-                Static694.method9028(Static163.aToolkit_17, Static32.aClass32_12.method877(Static51.anInt1052), true, Static694.aClass381_13, Static437.aClass14_9);
+                Static694.method9028(Static163.aToolkit_17, Static32.A_LOCALISED_TEXT___12.localise(Static51.anInt1052), true, Static694.aClass381_13, Static437.aClass14_9);
             }
         } else if (Static283.anInt4574 == 11) {
             Static686.method7930(local20);
         } else if (Static283.anInt4574 == 14) {
-            Static694.method9028(Static163.aToolkit_17, Static32.aClass32_14.method877(Static51.anInt1052) + "<br>" + Static32.aClass32_15.method877(Static51.anInt1052), false, Static694.aClass381_13, Static437.aClass14_9);
+            Static694.method9028(Static163.aToolkit_17, Static32.A_LOCALISED_TEXT___14.localise(Static51.anInt1052) + "<br>" + Static32.A_LOCALISED_TEXT___15.localise(Static51.anInt1052), false, Static694.aClass381_13, Static437.aClass14_9);
         } else if (Static283.anInt4574 == 15) {
-            Static694.method9028(Static163.aToolkit_17, Static32.aClass32_31.method877(Static51.anInt1052), false, Static694.aClass381_13, Static437.aClass14_9);
+            Static694.method9028(Static163.aToolkit_17, Static32.A_LOCALISED_TEXT___31.localise(Static51.anInt1052), false, Static694.aClass381_13, Static437.aClass14_9);
         }
         if (Static18.anInt251 == 3) {
             for (local110 = 0; local110 < Static122.anInt2339; local110++) {
@@ -733,7 +734,7 @@ public final class client extends Applet_Sub1 {
         }
         Static344.aClass229_1 = Static527.aClass229_3;
         Static637.aShortArray132 = Static419.aShortArray96 = Static553.aShortArray112 = ObjType.clientpalette = new short[256];
-        if (Static392.aClass377_4 == Static673.aClass377_8) {
+        if (Static392.aModeGame_4 == ModeGame.RUNESCAPE) {
             Static273.aBoolean340 = false;
         }
         try {
@@ -765,7 +766,7 @@ public final class client extends Applet_Sub1 {
         if (Static446.aClass355_5 != Static2.aClass355_1) {
             Static105.aBoolean196 = true;
         }
-        Static484.aString85 = Static32.aClass32_12.method877(Static51.anInt1052);
+        Static484.aString85 = Static32.A_LOCALISED_TEXT___12.localise(Static51.anInt1052);
     }
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "(I)Ljava/lang/String;")
@@ -872,13 +873,13 @@ public final class client extends Applet_Sub1 {
         @Pc(190) String local190 = this.getParameter("game");
         if (local190 != null) {
             if (local190.equals("0")) {
-                Static392.aClass377_4 = Static673.aClass377_8;
+                Static392.aModeGame_4 = ModeGame.RUNESCAPE;
             } else if (local190.equals("1")) {
-                Static392.aClass377_4 = Static723.aClass377_9;
+                Static392.aModeGame_4 = ModeGame.STELLAR_DAWN;
             } else if (local190.equals("2")) {
-                Static392.aClass377_4 = Static465.aClass377_5;
+                Static392.aModeGame_4 = ModeGame.GAME3;
             } else if (local190.equals("3")) {
-                Static392.aClass377_4 = Static655.aClass377_7;
+                Static392.aModeGame_4 = ModeGame.GAME4;
             }
         }
         try {
@@ -941,10 +942,10 @@ public final class client extends Applet_Sub1 {
         if (Static389.aString64 != null && Static389.aString64.length() > 50) {
             Static389.aString64 = null;
         }
-        if (Static673.aClass377_8 == Static392.aClass377_4) {
+        if (ModeGame.RUNESCAPE == Static392.aModeGame_4) {
             Static302.anInt4851 = 765;
             Static479.anInt7201 = 503;
-        } else if (Static392.aClass377_4 == Static723.aClass377_9) {
+        } else if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
             Static479.anInt7201 = 480;
             Static302.anInt4851 = 640;
         }
@@ -953,7 +954,7 @@ public final class client extends Applet_Sub1 {
             Static416.aBoolean473 = true;
         }
         Static295.aClient1 = this;
-        this.method1640(Static302.anInt4851, Static598.aClass162_5.method3469() + 32, Static392.aClass377_4.aString114, Static479.anInt7201);
+        this.method1640(Static302.anInt4851, Static598.aClass162_5.method3469() + 32, Static392.aModeGame_4.domainName, Static479.anInt7201);
     }
 
     @OriginalMember(owner = "client!client", name = "c", descriptor = "(I)V")

@@ -193,7 +193,7 @@ public final class Static489 {
             return;
         }
         if (Static213.anInt3472 != 0) {
-            Static694.method9028(Static163.aToolkit_17, Static32.aClass32_12.method877(Static51.anInt1052) + "<br>(100%)", true, Static694.aClass381_13, Static437.aClass14_9);
+            Static694.method9028(Static163.aToolkit_17, Static32.A_LOCALISED_TEXT___12.localise(Static51.anInt1052) + "<br>(100%)", true, Static694.aClass381_13, Static437.aClass14_9);
         }
         Static557.method7331();
         Static352.method5180();

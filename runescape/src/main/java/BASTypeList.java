@@ -1,4 +1,5 @@
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -18,7 +19,7 @@ public final class BASTypeList {
     public final WearposDefaults aWearposDefaults_2;
 
     @OriginalMember(owner = "client!qp", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!vl;)V")
-    public BASTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) WearposDefaults arg3) {
+    public BASTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) WearposDefaults arg3) {
         this.aJs5_103 = arg2;
         this.aJs5_103.method7608(32);
         this.aWearposDefaults_2 = arg3;

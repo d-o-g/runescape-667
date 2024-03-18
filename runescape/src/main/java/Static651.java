@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeGame;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -187,7 +188,7 @@ public final class Static651 {
             return;
         }
         if (arg1.anInt10791 != 0) {
-            @Pc(67) String local67 = Static723.aClass377_9 == Static392.aClass377_4 ? Static32.aClass32_30.method877(Static51.anInt1052) : Static32.aClass32_28.method877(Static51.anInt1052);
+            @Pc(67) String local67 = ModeGame.STELLAR_DAWN == Static392.aModeGame_4 ? Static32.A_LOCALISED_TEXT___30.localise(Static51.anInt1052) : Static32.A_LOCALISED_TEXT___28.localise(Static51.anInt1052);
             local24 = local24 + Static693.method9009(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444, arg1.anInt10791) + " (" + local67 + arg1.anInt10791 + ")";
         }
         if (Static156.aBoolean223 && !arg0) {
@@ -207,7 +208,7 @@ public final class Static651 {
             return;
         }
         for (@Pc(189) int local189 = local176.length - 1; local189 >= 0; local189--) {
-            if (local176[local189] != null && (local21.aByte107 == 0 || !local176[local189].equalsIgnoreCase(Static32.aClass32_23.method877(Static51.anInt1052)) && !local176[local189].equalsIgnoreCase(Static32.aClass32_22.method877(Static51.anInt1052)))) {
+            if (local176[local189] != null && (local21.aByte107 == 0 || !local176[local189].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___23.localise(Static51.anInt1052)) && !local176[local189].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___22.localise(Static51.anInt1052)))) {
                 @Pc(226) short local226 = 0;
                 @Pc(228) int local228 = Static39.anInt950;
                 if (local189 == 0) {
@@ -234,14 +235,14 @@ public final class Static651 {
                 if (local21.anInt6737 == local189) {
                     local228 = local21.anInt6752;
                 }
-                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(Static32.aClass32_23.method877(Static51.anInt1052)) ? local21.anInt6740 : local228, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___23.localise(Static51.anInt1052)) ? local21.anInt6740 : local228, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         if (local21.aByte107 != 1) {
             return;
         }
         for (@Pc(341) int local341 = 0; local341 < local176.length; local341++) {
-            if (local176[local341] != null && (local176[local341].equalsIgnoreCase(Static32.aClass32_23.method877(Static51.anInt1052)) || local176[local341].equalsIgnoreCase(Static32.aClass32_22.method877(Static51.anInt1052)))) {
+            if (local176[local341] != null && (local176[local341].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___23.localise(Static51.anInt1052)) || local176[local341].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___22.localise(Static51.anInt1052)))) {
                 @Pc(372) short local372 = 0;
                 if (arg1.anInt10791 > Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444) {
                     local372 = 2000;
@@ -275,7 +276,7 @@ public final class Static651 {
                 if (local21.anInt6737 == local341) {
                     local387 = local21.anInt6752;
                 }
-                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(Static32.aClass32_23.method877(Static51.anInt1052)) ? local21.anInt6740 : local387, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___23.localise(Static51.anInt1052)) ? local21.anInt6740 : local387, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         return;

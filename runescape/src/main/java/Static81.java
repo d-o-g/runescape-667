@@ -125,7 +125,7 @@ public final class Static81 {
         local8.aClass2_Sub21_Sub2_1.pjstr(arg2);
         local8.aClass2_Sub21_Sub2_1.p8(Static416.aLong208);
         local8.aClass2_Sub21_Sub2_1.p1(Static51.anInt1052);
-        local8.aClass2_Sub21_Sub2_1.p1(Static392.aClass377_4.anInt9720);
+        local8.aClass2_Sub21_Sub2_1.p1(Static392.aModeGame_4.id);
         Static176.method6690(local8.aClass2_Sub21_Sub2_1);
         @Pc(81) String local81 = Static389.aString64;
         local8.aClass2_Sub21_Sub2_1.p1(local81 == null ? 0 : 1);

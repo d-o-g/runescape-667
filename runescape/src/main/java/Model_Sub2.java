@@ -108,7 +108,7 @@ public final class Model_Sub2 extends Model {
     public short[] aShortArray70;
 
     @OriginalMember(owner = "client!kla", name = "Ac", descriptor = "[Lclient!rv;")
-    public Class328[] aClass328Array4;
+    public MeshEmitter[] aMeshEmitterArray4;
 
     @OriginalMember(owner = "client!kla", name = "q", descriptor = "[S")
     public short[] aShortArray71;
@@ -308,7 +308,7 @@ public final class Model_Sub2 extends Model {
         this.anIntArray409 = arg1.anIntArray205;
         this.anIntArray410 = arg1.anIntArray213;
         @Pc(575) Class185[] local575 = new Class185[this.anInt5543];
-        this.aClass328Array4 = arg1.aClass328Array1;
+        this.aMeshEmitterArray4 = arg1.aMeshEmitterArray1;
         this.aClass249Array4 = arg1.aClass249Array1;
         @Pc(603) int local603;
         @Pc(619) int local619;
@@ -1071,7 +1071,7 @@ public final class Model_Sub2 extends Model {
             return;
         }
         this.aBoolean422 = false;
-        if (this.aClass328Array4 == null && this.aClass249Array4 == null && this.aClass97Array1 == null && !Static298.method4387(this.anInt5529, this.anInt5520)) {
+        if (this.aMeshEmitterArray4 == null && this.aClass249Array4 == null && this.aClass97Array1 == null && !Static298.method4387(this.anInt5529, this.anInt5520)) {
             @Pc(37) boolean local37 = false;
             @Pc(39) boolean local39 = false;
             @Pc(41) boolean local41 = false;
@@ -1462,12 +1462,12 @@ public final class Model_Sub2 extends Model {
     public void method7476(@OriginalArg(0) Matrix arg0) {
         @Pc(8) Matrix_Sub3 local8 = (Matrix_Sub3) arg0;
         @Pc(13) int local13;
-        if (this.aClass328Array4 != null) {
-            for (local13 = 0; local13 < this.aClass328Array4.length; local13++) {
-                @Pc(20) Class328 local20 = this.aClass328Array4[local13];
-                @Pc(22) Class328 local22 = local20;
-                if (local20.aClass328_2 != null) {
-                    local22 = local20.aClass328_2;
+        if (this.aMeshEmitterArray4 != null) {
+            for (local13 = 0; local13 < this.aMeshEmitterArray4.length; local13++) {
+                @Pc(20) MeshEmitter local20 = this.aMeshEmitterArray4[local13];
+                @Pc(22) MeshEmitter local22 = local20;
+                if (local20.aMeshEmitter_2 != null) {
+                    local22 = local20.aMeshEmitter_2;
                 }
                 local22.anInt8518 = (int) (local8.aFloat153 * (float) this.anIntArray410[local20.anInt8514] + local8.aFloat157 * (float) this.anIntArray409[local20.anInt8514] + (float) this.anIntArray412[local20.anInt8514] * local8.aFloat160 + local8.aFloat152);
                 local22.anInt8502 = (int) ((float) this.anIntArray412[local20.anInt8514] * local8.aFloat150 + (float) this.anIntArray409[local20.anInt8514] * local8.aFloat156 + local8.aFloat161 * (float) this.anIntArray410[local20.anInt8514] + local8.aFloat158);
@@ -3076,8 +3076,8 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "f", descriptor = "()[Lclient!rv;")
     @Override
-    public Class328[] method7482() {
-        return this.aClass328Array4;
+    public MeshEmitter[] meshEmitters() {
+        return this.aMeshEmitterArray4;
     }
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(B[B)V")
@@ -3377,7 +3377,7 @@ public final class Model_Sub2 extends Model {
         } else {
             arg4.aBoolean424 = false;
         }
-        arg4.aClass328Array4 = this.aClass328Array4;
+        arg4.aMeshEmitterArray4 = this.aMeshEmitterArray4;
         arg4.aShortArray66 = this.aShortArray66;
         arg4.aClass97Array1 = this.aClass97Array1;
         arg4.aShortArray70 = this.aShortArray70;
@@ -3826,8 +3826,8 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(IILclient!tt;ZII)Z")
     @Override
-    public boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        return this.method4981(arg2, arg3, arg1, arg0, arg5, arg4);
+    public boolean pickedOrtho(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) Matrix matrix, @OriginalArg(3) boolean quick, @OriginalArg(4) int sizeShift, @OriginalArg(5) int angle) {
+        return this.method4981(matrix, quick, y, x, angle, sizeShift);
     }
 
     @OriginalMember(owner = "client!kla", name = "LA", descriptor = "(I)V")

@@ -16,7 +16,7 @@ public final class i extends Model implements Interface5 {
     public final ya aYa1;
 
     @OriginalMember(owner = "client!i", name = "q", descriptor = "[Lclient!rv;")
-    public Class328[] aClass328Array3;
+    public MeshEmitter[] aMeshEmitterArray3;
 
     @OriginalMember(owner = "client!i", name = "p", descriptor = "[Lclient!mn;")
     public Class249[] aClass249Array3;
@@ -25,16 +25,16 @@ public final class i extends Model implements Interface5 {
     public i(@OriginalArg(0) oa arg0, @OriginalArg(1) ya arg1, @OriginalArg(2) Mesh arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         this.anOa2 = arg0;
         this.aYa1 = arg1;
-        this.aClass328Array3 = arg2.aClass328Array1;
+        this.aMeshEmitterArray3 = arg2.aMeshEmitterArray1;
         this.aClass249Array3 = arg2.aClass249Array1;
-        @Pc(24) int local24 = arg2.aClass328Array1 == null ? 0 : arg2.aClass328Array1.length;
+        @Pc(24) int local24 = arg2.aMeshEmitterArray1 == null ? 0 : arg2.aMeshEmitterArray1.length;
         @Pc(34) int local34 = arg2.aClass249Array1 == null ? 0 : arg2.aClass249Array1.length;
         @Pc(36) int local36 = 0;
         @Pc(43) int[] local43 = new int[local24 * 3 + local34];
         for (@Pc(45) int local45 = 0; local45 < local24; local45++) {
-            local43[local36++] = this.aClass328Array3[local45].anInt8514;
-            local43[local36++] = this.aClass328Array3[local45].anInt8508;
-            local43[local36++] = this.aClass328Array3[local45].anInt8505;
+            local43[local36++] = this.aMeshEmitterArray3[local45].anInt8514;
+            local43[local36++] = this.aMeshEmitterArray3[local45].anInt8508;
+            local43[local36++] = this.aMeshEmitterArray3[local45].anInt8505;
         }
         for (@Pc(79) int local79 = 0; local79 < local34; local79++) {
             local43[local36++] = this.aClass249Array3[local79].anInt6247;
@@ -110,8 +110,8 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(IILclient!tt;ZII)Z")
     @Override
-    public boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        return this.anOa2.method6087().method5(this, arg0, arg1, arg2, arg3, arg5);
+    public boolean pickedOrtho(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) Matrix matrix, @OriginalArg(3) boolean quick, @OriginalArg(4) int sizeShift, @OriginalArg(5) int angle) {
+        return this.anOa2.method6087().method5(this, x, y, matrix, quick, angle);
     }
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(B[B)V")
@@ -173,9 +173,9 @@ public final class i extends Model implements Interface5 {
         this.method3688(Static445.anIntArray537, arg0);
         @Pc(5) int local5 = 0;
         @Pc(10) int local10;
-        if (this.aClass328Array3 != null) {
-            for (local10 = 0; local10 < this.aClass328Array3.length; local10++) {
-                @Pc(16) Class328 local16 = this.aClass328Array3[local10];
+        if (this.aMeshEmitterArray3 != null) {
+            for (local10 = 0; local10 < this.aMeshEmitterArray3.length; local10++) {
+                @Pc(16) MeshEmitter local16 = this.aMeshEmitterArray3[local10];
                 local16.anInt8518 = Static445.anIntArray537[local5++];
                 local16.anInt8502 = Static445.anIntArray537[local5++];
                 local16.anInt8504 = Static445.anIntArray537[local5++];
@@ -365,7 +365,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "f", descriptor = "()[Lclient!rv;")
     @Override
-    public Class328[] method7482() {
-        return this.aClass328Array3;
+    public MeshEmitter[] meshEmitters() {
+        return this.aMeshEmitterArray3;
     }
 }

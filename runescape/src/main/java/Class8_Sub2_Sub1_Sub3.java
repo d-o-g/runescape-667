@@ -154,7 +154,7 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
         } else {
             @Pc(14) Matrix local14 = arg3.method7985();
             local14.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
-            return Static504.aBoolean579 ? local9.method7483(arg1, arg0, local14, false, 0, Static582.anInt8627) : local9.picked(arg1, arg0, local14, false, 0);
+            return Static504.aBoolean579 ? local9.pickedOrtho(arg1, arg0, local14, false, 0, Static582.anInt8627) : local9.picked(arg1, arg0, local14, false, 0);
         }
     }
 

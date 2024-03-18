@@ -46,7 +46,7 @@ public final class Class8_Sub8 extends Class8 {
     public boolean aBoolean631 = false;
 
     @OriginalMember(owner = "client!rf", name = "r", descriptor = "Lclient!rv;")
-    public final Class328 aClass328_1;
+    public final MeshEmitter aMeshEmitter_1;
 
     @OriginalMember(owner = "client!rf", name = "g", descriptor = "J")
     public final long aLong254;
@@ -61,11 +61,11 @@ public final class Class8_Sub8 extends Class8 {
     public final Class130 aClass130_11;
 
     @OriginalMember(owner = "client!rf", name = "<init>", descriptor = "(Lclient!ha;Lclient!rv;Lclient!hv;J)V")
-    public Class8_Sub8(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class328 arg1, @OriginalArg(2) Class8_Sub5 arg2, @OriginalArg(3) long arg3) {
-        this.aClass328_1 = arg1;
+    public Class8_Sub8(@OriginalArg(0) Class19 arg0, @OriginalArg(1) MeshEmitter arg1, @OriginalArg(2) Class8_Sub5 arg2, @OriginalArg(3) long arg3) {
+        this.aMeshEmitter_1 = arg1;
         this.aLong254 = arg3;
         this.aClass8_Sub5_6 = arg2;
-        this.aClass379_1 = this.aClass328_1.method7547();
+        this.aClass379_1 = this.aMeshEmitter_1.method7547();
         if (!arg0.method7937() && this.aClass379_1.anInt9880 != -1) {
             this.aClass379_1 = Static444.method5994(this.aClass379_1.anInt9880);
         }
@@ -230,18 +230,18 @@ public final class Class8_Sub8 extends Class8 {
             @Pc(1078) Class177 local1078 = this.aClass177_2;
             this.aClass177_2 = this.aClass177_1;
             this.aClass177_1 = local1078;
-            this.aClass177_1.anInt4275 = this.aClass328_1.anInt8520;
-            this.aClass177_1.anInt4276 = this.aClass328_1.anInt8512;
-            this.aClass177_1.anInt4283 = this.aClass328_1.anInt8507;
-            this.aClass177_1.anInt4281 = this.aClass328_1.anInt8516;
-            this.aClass177_1.anInt4270 = this.aClass328_1.anInt8504;
-            this.aClass177_1.anInt4280 = this.aClass328_1.anInt8502;
-            this.aClass177_1.anInt4277 = this.aClass328_1.anInt8509;
+            this.aClass177_1.anInt4275 = this.aMeshEmitter_1.anInt8520;
+            this.aClass177_1.anInt4276 = this.aMeshEmitter_1.anInt8512;
+            this.aClass177_1.anInt4283 = this.aMeshEmitter_1.anInt8507;
+            this.aClass177_1.anInt4281 = this.aMeshEmitter_1.anInt8516;
+            this.aClass177_1.anInt4270 = this.aMeshEmitter_1.anInt8504;
+            this.aClass177_1.anInt4280 = this.aMeshEmitter_1.anInt8502;
+            this.aClass177_1.anInt4277 = this.aMeshEmitter_1.anInt8509;
             this.aClass177_1.anInt4278 = this.aClass177_2.anInt4278;
             this.aClass177_1.anInt4273 = this.aClass177_2.anInt4273;
-            this.aClass177_1.anInt4279 = this.aClass328_1.anInt8518;
+            this.aClass177_1.anInt4279 = this.aMeshEmitter_1.anInt8518;
             this.aClass177_1.anInt4271 = this.aClass177_2.anInt4271;
-            this.aClass177_1.anInt4269 = this.aClass328_1.anInt8503;
+            this.aClass177_1.anInt4269 = this.aMeshEmitter_1.anInt8503;
         }
         this.anInt8268 = 0;
         for (@Pc(1171) Class8_Sub4_Sub2_Sub1 local1171 = (Class8_Sub4_Sub2_Sub1) this.aClass130_11.method2790(); local1171 != null; local1171 = (Class8_Sub4_Sub2_Sub1) this.aClass130_11.method2785()) {
@@ -260,15 +260,15 @@ public final class Class8_Sub8 extends Class8 {
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(B)V")
     public void method7264() {
-        this.aClass177_1.anInt4283 = this.aClass328_1.anInt8507;
-        this.aClass177_1.anInt4275 = this.aClass328_1.anInt8520;
-        this.aClass177_1.anInt4276 = this.aClass328_1.anInt8512;
-        this.aClass177_1.anInt4280 = this.aClass328_1.anInt8502;
-        this.aClass177_1.anInt4281 = this.aClass328_1.anInt8516;
-        this.aClass177_1.anInt4270 = this.aClass328_1.anInt8504;
-        this.aClass177_1.anInt4277 = this.aClass328_1.anInt8509;
-        this.aClass177_1.anInt4279 = this.aClass328_1.anInt8518;
-        this.aClass177_1.anInt4269 = this.aClass328_1.anInt8503;
+        this.aClass177_1.anInt4283 = this.aMeshEmitter_1.anInt8507;
+        this.aClass177_1.anInt4275 = this.aMeshEmitter_1.anInt8520;
+        this.aClass177_1.anInt4276 = this.aMeshEmitter_1.anInt8512;
+        this.aClass177_1.anInt4280 = this.aMeshEmitter_1.anInt8502;
+        this.aClass177_1.anInt4281 = this.aMeshEmitter_1.anInt8516;
+        this.aClass177_1.anInt4270 = this.aMeshEmitter_1.anInt8504;
+        this.aClass177_1.anInt4277 = this.aMeshEmitter_1.anInt8509;
+        this.aClass177_1.anInt4279 = this.aMeshEmitter_1.anInt8518;
+        this.aClass177_1.anInt4269 = this.aMeshEmitter_1.anInt8503;
         if (this.aClass177_1.anInt4281 == this.aClass177_1.anInt4279 && this.aClass177_1.anInt4276 == this.aClass177_1.anInt4281 && this.aClass177_1.anInt4280 == this.aClass177_1.anInt4283 && this.aClass177_1.anInt4283 == this.aClass177_1.anInt4269 && this.aClass177_1.anInt4270 == this.aClass177_1.anInt4277 && this.aClass177_1.anInt4275 == this.aClass177_1.anInt4277) {
             this.aBoolean631 = true;
         } else if (this.aBoolean631) {

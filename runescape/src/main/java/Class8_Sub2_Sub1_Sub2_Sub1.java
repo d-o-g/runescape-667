@@ -161,7 +161,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         local22.method7134(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(40) boolean local40 = arg2;
         for (@Pc(42) int local42 = 0; local42 < super.aModelArray3.length; local42++) {
-            if (super.aModelArray3[local42] != null && (Static504.aBoolean579 ? super.aModelArray3[local42].method7483(arg1, arg0, local22, true, 0, Static582.anInt8627) : super.aModelArray3[local42].picked(arg1, arg0, local22, true, 0))) {
+            if (super.aModelArray3[local42] != null && (Static504.aBoolean579 ? super.aModelArray3[local42].pickedOrtho(arg1, arg0, local22, true, 0, Static582.anInt8627) : super.aModelArray3[local42].picked(arg1, arg0, local22, true, 0))) {
                 local40 = true;
                 break;
             }

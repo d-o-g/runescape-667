@@ -821,12 +821,12 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             @Pc(21) int local21 = 0;
             @Pc(23) int local23 = -1;
             @Pc(25) int local25 = -1;
-            @Pc(29) Class328[][] local29 = new Class328[arg2.length][];
+            @Pc(29) MeshEmitter[][] local29 = new MeshEmitter[arg2.length][];
             @Pc(33) Class249[][] local33 = new Class249[arg2.length][];
             for (@Pc(35) int local35 = 0; local35 < arg2.length; local35++) {
                 if (arg2[local35] != null) {
                     arg2[local35].method7476(arg3);
-                    local29[local35] = arg2[local35].method7482();
+                    local29[local35] = arg2[local35].meshEmitters();
                     local33[local35] = arg2[local35].method7480();
                     if (local29[local35] != null) {
                         local23 = local35;
@@ -844,12 +844,12 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                 this.aClass8_Sub5_8 = Static257.method3654(Static333.anInt5455, true);
             }
             if (this.aClass8_Sub5_8 != null) {
-                @Pc(138) Class328[] local138;
+                @Pc(138) MeshEmitter[] local138;
                 @Pc(142) int local142;
                 if (local17 == 1) {
                     local138 = local29[local23];
                 } else {
-                    local138 = new Class328[local15];
+                    local138 = new MeshEmitter[local15];
                     @Pc(140) int local140 = 0;
                     for (local142 = 0; local142 < arg2.length; local142++) {
                         if (local29[local142] != null) {

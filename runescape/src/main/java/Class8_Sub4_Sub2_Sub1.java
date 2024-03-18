@@ -48,7 +48,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aClass8_Sub8_1.aClass328_1.aByte130;
+        super.aByte122 = this.aClass8_Sub8_1.aMeshEmitter_1.aByte130;
         this.method6693();
     }
 
@@ -425,7 +425,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aClass8_Sub8_1.aClass328_1.aByte130;
+        super.aByte122 = this.aClass8_Sub8_1.aMeshEmitter_1.aByte130;
         this.method6693();
     }
 

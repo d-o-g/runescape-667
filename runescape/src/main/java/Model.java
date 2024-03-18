@@ -162,10 +162,10 @@ public abstract class Model {
     protected abstract void P(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!ka", name = "f", descriptor = "()[Lclient!rv;")
-    public abstract Class328[] method7482();
+    public abstract MeshEmitter[] meshEmitters();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IILclient!tt;ZII)Z")
-    public abstract boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
+    public abstract boolean pickedOrtho(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) Matrix matrix, @OriginalArg(3) boolean quick, @OriginalArg(4) int sizeShift, @OriginalArg(5) int angle);
 
     /**
      * getMinZ

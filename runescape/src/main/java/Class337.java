@@ -303,7 +303,7 @@ public final class Class337 {
         if (arg3 != -9827) {
             return;
         }
-        @Pc(11) Class328[] local11 = arg1.method7482();
+        @Pc(11) MeshEmitter[] local11 = arg1.meshEmitters();
         @Pc(14) Class249[] local14 = arg1.method7480();
         if ((this.aClass8_Sub5_7 == null || this.aClass8_Sub5_7.aBoolean324) && (local11 != null || local14 != null)) {
             @Pc(37) Class54 local37 = Static354.aClass142_4.method3063(this.anInt8649, 115);

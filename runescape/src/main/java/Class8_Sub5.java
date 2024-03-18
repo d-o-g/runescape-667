@@ -54,7 +54,7 @@ public final class Class8_Sub5 extends Class8 {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J[Lclient!rv;[Lclient!mn;Z)V")
-    public void method3643(@OriginalArg(0) Class19 arg0, @OriginalArg(1) long arg1, @OriginalArg(2) Class328[] arg2, @OriginalArg(3) Class249[] arg3) {
+    public void method3643(@OriginalArg(0) Class19 arg0, @OriginalArg(1) long arg1, @OriginalArg(2) MeshEmitter[] arg2, @OriginalArg(3) Class249[] arg3) {
         if (!this.aBoolean324) {
             this.method3651(arg0, arg2);
             this.method3648(arg3);
@@ -142,7 +142,7 @@ public final class Class8_Sub5 extends Class8 {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;[Lclient!rv;Z)V")
-    public void method3651(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class328[] arg1) {
+    public void method3651(@OriginalArg(0) Class19 arg0, @OriginalArg(1) MeshEmitter[] arg1) {
         for (@Pc(1) int local1 = 0; local1 < 32; local1++) {
             Static257.aBooleanArray7[local1] = false;
         }
@@ -151,7 +151,7 @@ public final class Class8_Sub5 extends Class8 {
         for (@Pc(16) Class8_Sub8 local16 = (Class8_Sub8) this.aClass130_6.method2790(); local16 != null; local16 = (Class8_Sub8) this.aClass130_6.method2785()) {
             if (arg1 != null) {
                 for (local21 = 0; local21 < arg1.length; local21++) {
-                    if (local16.aClass328_1 == arg1[local21] || local16.aClass328_1 == arg1[local21].aClass328_2) {
+                    if (local16.aMeshEmitter_1 == arg1[local21] || local16.aMeshEmitter_1 == arg1[local21].aMeshEmitter_2) {
                         Static257.aBooleanArray7[local21] = true;
                         local16.method7264();
                         local16.aBoolean630 = false;

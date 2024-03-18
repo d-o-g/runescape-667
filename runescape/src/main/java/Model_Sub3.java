@@ -184,7 +184,7 @@ public final class Model_Sub3 extends Model {
     public int[] anIntArray676;
 
     @OriginalMember(owner = "client!rs", name = "mb", descriptor = "[Lclient!rv;")
-    public Class328[] aClass328Array5;
+    public MeshEmitter[] aMeshEmitterArray5;
 
     @OriginalMember(owner = "client!rs", name = "n", descriptor = "[[I")
     public int[][] anIntArrayArray214;
@@ -269,7 +269,7 @@ public final class Model_Sub3 extends Model {
         this.aByteArray96 = arg1.aByteArray29;
         this.aShortArray124 = arg1.aShortArray20;
         this.aByteArray94 = arg1.aByteArray25;
-        this.aClass328Array5 = arg1.aClass328Array1;
+        this.aMeshEmitterArray5 = arg1.aMeshEmitterArray1;
         this.aClass249Array5 = arg1.aClass249Array1;
         this.aShortArray121 = arg1.aShortArray23;
         @Pc(119) int[] local119 = new int[this.anInt8482];
@@ -1729,12 +1729,12 @@ public final class Model_Sub3 extends Model {
     public void method7476(@OriginalArg(0) Matrix arg0) {
         @Pc(2) Matrix_Sub2 local2 = (Matrix_Sub2) arg0;
         @Pc(7) int local7;
-        if (this.aClass328Array5 != null) {
-            for (local7 = 0; local7 < this.aClass328Array5.length; local7++) {
-                @Pc(13) Class328 local13 = this.aClass328Array5[local7];
-                @Pc(15) Class328 local15 = local13;
-                if (local13.aClass328_2 != null) {
-                    local15 = local13.aClass328_2;
+        if (this.aMeshEmitterArray5 != null) {
+            for (local7 = 0; local7 < this.aMeshEmitterArray5.length; local7++) {
+                @Pc(13) MeshEmitter local13 = this.aMeshEmitterArray5[local7];
+                @Pc(15) MeshEmitter local15 = local13;
+                if (local13.aMeshEmitter_2 != null) {
+                    local15 = local13.aMeshEmitter_2;
                 }
                 local15.anInt8518 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local13.anInt8514] + local2.aFloat55 * (float) this.anIntArray675[local13.anInt8514] + local2.aFloat53 * (float) this.anIntArray658[local13.anInt8514]);
                 local15.anInt8502 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local13.anInt8514] + local2.aFloat52 * (float) this.anIntArray675[local13.anInt8514] + local2.aFloat51 * (float) this.anIntArray658[local13.anInt8514]);
@@ -1869,8 +1869,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "f", descriptor = "()[Lclient!rv;")
     @Override
-    public Class328[] method7482() {
-        return this.aClass328Array5;
+    public MeshEmitter[] meshEmitters() {
+        return this.aMeshEmitterArray5;
     }
 
     @OriginalMember(owner = "client!rs", name = "ia", descriptor = "(SS)V")
@@ -1895,8 +1895,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(IILclient!tt;ZII)Z")
     @Override
-    public boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        return this.method7513(arg0, arg1, arg2, arg3, arg4, arg5);
+    public boolean pickedOrtho(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) Matrix matrix, @OriginalArg(3) boolean quick, @OriginalArg(4) int sizeShift, @OriginalArg(5) int angle) {
+        return this.method7513(x, y, matrix, quick, sizeShift, angle);
     }
 
     @OriginalMember(owner = "client!rs", name = "i", descriptor = "()V")
@@ -2968,7 +2968,7 @@ public final class Model_Sub3 extends Model {
         arg0.aShortArray122 = this.aShortArray122;
         arg0.lb = this.lb;
         arg0.aShortArray125 = this.aShortArray125;
-        arg0.aClass328Array5 = this.aClass328Array5;
+        arg0.aMeshEmitterArray5 = this.aMeshEmitterArray5;
         arg0.aClass249Array5 = this.aClass249Array5;
         arg0.aClass239Array1 = this.aClass239Array1;
         arg0.aShortArray119 = this.aShortArray119;
@@ -3884,7 +3884,7 @@ public final class Model_Sub3 extends Model {
         }
         @Pc(694) boolean local694 = false;
         @Pc(704) boolean local704 = local171 <= this.aClass19_Sub2_9.anInt4214;
-        @Pc(721) boolean local721 = local704 || this.aClass328Array5 != null || this.aClass249Array5 != null;
+        @Pc(721) boolean local721 = local704 || this.aMeshEmitterArray5 != null || this.aClass249Array5 != null;
         this.aClass399_3.anInt10607 = this.aClass219_1.anInt5725;
         this.aClass399_3.anInt10606 = this.aClass219_1.anInt5723;
         this.aClass399_3.anInt10608 = this.aClass219_1.anInt5721;

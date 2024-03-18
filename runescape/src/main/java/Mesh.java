@@ -46,7 +46,7 @@ public final class Mesh {
     public short[] aShortArray26;
 
     @OriginalMember(owner = "client!dv", name = "r", descriptor = "[Lclient!rv;")
-    public Class328[] aClass328Array1;
+    public MeshEmitter[] aMeshEmitterArray1;
 
     @OriginalMember(owner = "client!dv", name = "M", descriptor = "[I")
     public int[] anIntArray208;
@@ -189,8 +189,8 @@ public final class Mesh {
                 if (local56.aClass24Array1 != null) {
                     local34 += local56.aClass24Array1.length;
                 }
-                if (local56.aClass328Array1 != null) {
-                    local30 += local56.aClass328Array1.length;
+                if (local56.aMeshEmitterArray1 != null) {
+                    local30 += local56.aMeshEmitterArray1.length;
                 }
                 local36 |= local56.aByteArray25 != null;
                 local40 |= local56.aByteArray29 != null;
@@ -255,7 +255,7 @@ public final class Mesh {
             this.aByteArray29 = new byte[this.anInt2362];
         }
         if (local30 > 0) {
-            this.aClass328Array1 = new Class328[local30];
+            this.aMeshEmitterArray1 = new MeshEmitter[local30];
         }
         if (local38) {
             this.aByteArray26 = new byte[this.anInt2362];
@@ -315,12 +315,12 @@ public final class Mesh {
                     this.anInt2362++;
                 }
                 @Pc(636) int local636;
-                if (local411.aClass328Array1 != null) {
-                    for (local636 = 0; local636 < local411.aClass328Array1.length; local636++) {
-                        local648 = this.method2244(local411, local411.aClass328Array1[local636].anInt8514, local407);
-                        local659 = this.method2244(local411, local411.aClass328Array1[local636].anInt8508, local407);
-                        @Pc(670) int local670 = this.method2244(local411, local411.aClass328Array1[local636].anInt8505, local407);
-                        this.aClass328Array1[local30] = local411.aClass328Array1[local636].method7554(local648, local659, local670);
+                if (local411.aMeshEmitterArray1 != null) {
+                    for (local636 = 0; local636 < local411.aMeshEmitterArray1.length; local636++) {
+                        local648 = this.method2244(local411, local411.aMeshEmitterArray1[local636].anInt8514, local407);
+                        local659 = this.method2244(local411, local411.aMeshEmitterArray1[local636].anInt8508, local407);
+                        @Pc(670) int local670 = this.method2244(local411, local411.aMeshEmitterArray1[local636].anInt8505, local407);
+                        this.aMeshEmitterArray1[local30] = local411.aMeshEmitterArray1[local636].method7554(local648, local659, local670);
                         local30++;
                     }
                 }
@@ -832,7 +832,7 @@ public final class Mesh {
         if (local85) {
             local1142 = local8.g1();
             if (local1142 > 0) {
-                this.aClass328Array1 = new Class328[local1142];
+                this.aMeshEmitterArray1 = new MeshEmitter[local1142];
                 for (local1556 = 0; local1556 < local1142; local1556++) {
                     local1561 = local8.g2();
                     local1565 = local8.g2();
@@ -842,7 +842,7 @@ public final class Mesh {
                     } else {
                         local1573 = (byte) local134;
                     }
-                    this.aClass328Array1[local1556] = new Class328(local1561, this.aShortArray27[local1565], this.aShortArray24[local1565], this.aShortArray26[local1565], local1573);
+                    this.aMeshEmitterArray1[local1556] = new MeshEmitter(local1561, this.aShortArray27[local1565], this.aShortArray24[local1565], this.aShortArray26[local1565], local1573);
                 }
             }
             local1556 = local8.g1();

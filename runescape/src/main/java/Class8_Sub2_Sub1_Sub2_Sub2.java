@@ -100,7 +100,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 @Pc(89) boolean local89 = var10000;
                 @Pc(105) boolean local105;
                 if (Static504.aBoolean579) {
-                    local105 = super.aModelArray3[local40].method7483(arg1, arg0, local20, local89, this.aClass268_1.anInt6723, Static582.anInt8627);
+                    local105 = super.aModelArray3[local40].pickedOrtho(arg1, arg0, local20, local89, this.aClass268_1.anInt6723, Static582.anInt8627);
                 } else {
                     local105 = super.aModelArray3[local40].picked(arg1, arg0, local20, local89, this.aClass268_1.anInt6723);
                 }

@@ -274,7 +274,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(BLclient!ha;Lclient!tt;Lclient!ka;)V")
     public void method817(@OriginalArg(1) Class19 arg0, @OriginalArg(2) Matrix arg1, @OriginalArg(3) Model arg2) {
         arg2.method7476(arg1);
-        @Pc(9) Class328[] local9 = arg2.method7482();
+        @Pc(9) MeshEmitter[] local9 = arg2.meshEmitters();
         @Pc(12) Class249[] local12 = arg2.method7480();
         if ((this.aClass8_Sub5_1 == null || this.aClass8_Sub5_1.aBoolean324) && (local9 != null || local12 != null)) {
             this.aClass8_Sub5_1 = Static257.method3654(Static333.anInt5455, true);

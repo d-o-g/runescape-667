@@ -154,23 +154,23 @@ public final class Static595 {
         @Pc(47) boolean local47 = (local14 & 0x4) != 0;
         @Pc(57) boolean local57 = (local14 & 0x8) != 0;
         if (local23) {
-            local10.anIntArray97[0] = arg0.method7346();
-            local10.anIntArray99[0] = arg0.method7346();
+            local10.anIntArray97[0] = arg0.gSmart2or4null();
+            local10.anIntArray99[0] = arg0.gSmart2or4null();
             if (arg1.anInt10102 != -1 || arg1.anInt10106 != -1) {
-                local10.anIntArray97[1] = arg0.method7346();
-                local10.anIntArray99[1] = arg0.method7346();
+                local10.anIntArray97[1] = arg0.gSmart2or4null();
+                local10.anIntArray99[1] = arg0.gSmart2or4null();
             }
             if (arg1.anInt10095 != -1 || arg1.anInt10135 != -1) {
-                local10.anIntArray97[2] = arg0.method7346();
-                local10.anIntArray99[2] = arg0.method7346();
+                local10.anIntArray97[2] = arg0.gSmart2or4null();
+                local10.anIntArray99[2] = arg0.gSmart2or4null();
             }
         }
         if (local35) {
-            local10.anIntArray98[0] = arg0.method7346();
-            local10.anIntArray100[0] = arg0.method7346();
+            local10.anIntArray98[0] = arg0.gSmart2or4null();
+            local10.anIntArray100[0] = arg0.gSmart2or4null();
             if (arg1.anInt10111 != -1 || arg1.anInt10119 != -1) {
-                local10.anIntArray98[1] = arg0.method7346();
-                local10.anIntArray100[1] = arg0.method7346();
+                local10.anIntArray98[1] = arg0.gSmart2or4null();
+                local10.anIntArray100[1] = arg0.gSmart2or4null();
             }
         }
         @Pc(178) int local178;

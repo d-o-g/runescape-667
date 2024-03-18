@@ -265,7 +265,7 @@ public final class Class289 {
                 local128 = arg0.g1();
                 this.anIntArrayArray181[local128] = new int[6];
                 for (local136 = 0; local136 < 6; local136++) {
-                    this.anIntArrayArray181[local128][local136] = arg0.method7356();
+                    this.anIntArrayArray181[local128][local136] = arg0.g2s();
                 }
             } else if (arg1 == 28) {
                 local128 = arg0.g1();
@@ -285,13 +285,13 @@ public final class Class289 {
             } else if (arg1 == 32) {
                 this.anInt7251 = arg0.g2();
             } else if (arg1 == 33) {
-                this.anInt7224 = arg0.method7356();
+                this.anInt7224 = arg0.g2s();
             } else if (arg1 == 34) {
                 this.anInt7242 = arg0.g1();
             } else if (arg1 == 35) {
                 this.anInt7256 = arg0.g2();
             } else if (arg1 == 36) {
-                this.anInt7252 = arg0.method7356();
+                this.anInt7252 = arg0.g2s();
             } else if (arg1 == 37) {
                 this.anInt7229 = arg0.g1();
             } else if (arg1 == 38) {
@@ -350,7 +350,7 @@ public final class Class289 {
                 local128 = arg0.g1();
                 this.anIntArrayArray180[local128] = new int[3];
                 for (local136 = 0; local136 < 3; local136++) {
-                    this.anIntArrayArray180[local128][local136] = arg0.method7356();
+                    this.anIntArrayArray180[local128][local136] = arg0.g2s();
                 }
             }
         }

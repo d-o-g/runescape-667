@@ -21,7 +21,7 @@ public final class Class39_Sub19 extends Class39 {
         } else {
             this.aLong257 = (long) local6;
         }
-        this.anInt8296 = arg0.method7349();
+        this.anInt8296 = arg0.g4();
     }
 
     @OriginalMember(owner = "client!rga", name = "b", descriptor = "(I)V")

@@ -88,7 +88,7 @@ public final class Class40 {
             this.aClass2_Sub21_3.pos += local12;
             return 1;
         } else if (local7 == 81) {
-            @Pc(32) int local32 = this.aClass2_Sub21_3.method7383();
+            @Pc(32) int local32 = this.aClass2_Sub21_3.g3();
             local12 -= 3;
             @Pc(38) int local38 = this.anIntArray70[arg0];
             this.aLong31 += (long) local38 * (long) (this.anInt989 - local32);
@@ -112,8 +112,8 @@ public final class Class40 {
         @Pc(27) int local27 = 0;
         @Pc(33) int local33;
         while (local27 < local12) {
-            local33 = this.aClass2_Sub21_3.method7349();
-            @Pc(38) int local38 = this.aClass2_Sub21_3.method7349();
+            local33 = this.aClass2_Sub21_3.g4();
+            @Pc(38) int local38 = this.aClass2_Sub21_3.g4();
             if (local33 == 1297379947) {
                 this.anIntArray71[local27] = this.aClass2_Sub21_3.pos;
                 local27++;

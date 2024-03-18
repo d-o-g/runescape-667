@@ -42,7 +42,7 @@ public final class Class300 {
     public byte[] method6762(@OriginalArg(0) byte[] arg0) {
         @Pc(8) Packet local8 = new Packet(arg0);
         local8.pos = arg0.length - 4;
-        @Pc(24) int local24 = local8.method7351();
+        @Pc(24) int local24 = local8.ig4();
         @Pc(27) byte[] local27 = new byte[local24];
         local8.pos = 0;
         this.method6761(local8, local27);

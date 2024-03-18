@@ -165,7 +165,7 @@ public final class Class170 {
                                             }
                                         } else {
                                             for (local360 = 0; local360 < local350.length; local360++) {
-                                                local262.method7354(local350[local360] & 0xFFFF);
+                                                local262.ip2(local350[local360] & 0xFFFF);
                                                 local77++;
                                             }
                                         }

@@ -36,7 +36,7 @@ public final class Class264 {
     @OriginalMember(owner = "client!nq", name = "a", descriptor = "(ILclient!ge;I)V")
     public void method5920(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
         if (arg0 == 1) {
-            this.anInt6634 = arg1.method7383();
+            this.anInt6634 = arg1.g3();
             this.method5922(this.anInt6634);
         } else if (arg0 == 2) {
             this.anInt6633 = arg1.g2();

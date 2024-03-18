@@ -186,11 +186,11 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
         } else if (arg2 == 1) {
             this.anInt8803 = arg1.g1();
         } else if (arg2 == 2) {
-            this.anInt8799 = arg1.method7356();
+            this.anInt8799 = arg1.g2s();
             if (this.anInt8799 < 0) {
                 this.aShortArray127 = new short[this.anInt8803];
                 for (@Pc(103) int local103 = 0; local103 < this.anInt8803; local103++) {
-                    this.aShortArray127[local103] = (short) arg1.method7356();
+                    this.aShortArray127[local103] = (short) arg1.g2s();
                 }
                 return;
             }

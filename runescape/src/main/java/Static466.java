@@ -329,7 +329,7 @@ public final class Static466 {
         @Pc(16) int local16 = local8.g1();
         @Pc(28) boolean local28 = local8.g1_alt3() == 1;
         Static117.anInt2282 = local8.g1_alt3();
-        @Pc(36) int local36 = local8.method7372();
+        @Pc(36) int local36 = local8.ig2();
         Static165.method2607();
         Static342.method4465(local16);
         local8.method7417();
@@ -353,7 +353,7 @@ public final class Static466 {
         Static22.anIntArrayArray11 = new int[local50][4];
         for (local54 = 0; local54 < local50; local54++) {
             for (local61 = 0; local61 < 4; local61++) {
-                Static22.anIntArrayArray11[local54][local61] = local8.method7349();
+                Static22.anIntArrayArray11[local54][local61] = local8.g4();
             }
         }
         Static118.aByteArrayArray3 = new byte[local50][];

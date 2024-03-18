@@ -132,7 +132,7 @@ public final class Static364 {
                     local229.p1((int) (Math.random() * 9.9999999E7D));
                     local229.rsaenc(Static374.LOGIN_RSA_MODULUS, Static262.LOGIN_RSA_EXPONENT);
                     local186.aClass2_Sub21_Sub2_1.pdata(local229.pos, local229.data, 0);
-                    local186.aClass2_Sub21_Sub2_1.method7357(local186.aClass2_Sub21_Sub2_1.pos - local203);
+                    local186.aClass2_Sub21_Sub2_1.psize2(local186.aClass2_Sub21_Sub2_1.pos - local203);
                 } else {
                     local186.aClass2_Sub21_Sub2_1.p1(Static572.aClass167_53.anInt3973);
                 }
@@ -174,7 +174,7 @@ public final class Static364 {
                     return;
                 }
                 Static524.aClass153_3.aClass348_1.method7929(Static524.aClass153_3.aClass2_Sub21_Sub2_2.data, Static524.aClass153_3.aClass2_Sub21_Sub2_2.pos, 0);
-                Static524.aClass153_3.aClass2_Sub21_Sub2_2.xteaDecrypt(Static219.anIntArray287);
+                Static524.aClass153_3.aClass2_Sub21_Sub2_2.tinydec(Static219.anIntArray287);
                 Static524.aClass153_3.aClass2_Sub21_Sub2_2.pos = 0;
                 @Pc(465) String local465 = Static524.aClass153_3.aClass2_Sub21_Sub2_2.gjstr2();
                 Static524.aClass153_3.aClass2_Sub21_Sub2_2.pos = 0;
@@ -199,10 +199,10 @@ public final class Static364 {
                 }
                 Static524.aClass153_3.aClass348_1.method7929(Static524.aClass153_3.aClass2_Sub21_Sub2_2.data, 16, 0);
                 Static524.aClass153_3.aClass2_Sub21_Sub2_2.pos = 16;
-                Static524.aClass153_3.aClass2_Sub21_Sub2_2.xteaDecrypt(Static219.anIntArray287);
+                Static524.aClass153_3.aClass2_Sub21_Sub2_2.tinydec(Static219.anIntArray287);
                 Static524.aClass153_3.aClass2_Sub21_Sub2_2.pos = 0;
-                Static449.aString75 = Static319.aString51 = Static287.method4154(Static524.aClass153_3.aClass2_Sub21_Sub2_2.method7398());
-                Static430.aLong209 = Static524.aClass153_3.aClass2_Sub21_Sub2_2.method7398();
+                Static449.aString75 = Static319.aString51 = Static287.method4154(Static524.aClass153_3.aClass2_Sub21_Sub2_2.g8());
+                Static430.aLong209 = Static524.aClass153_3.aClass2_Sub21_Sub2_2.g8();
                 Static135.anInt8223 = 8;
             }
             @Pc(618) Node_Sub21_Sub2 local618;
@@ -258,8 +258,8 @@ public final class Static364 {
                     local618.p1(Static98.aBoolean191 ? 1 : 0);
                     local618.p1(Static416.aBoolean473 ? 1 : 0);
                     Static169.method2647(local618);
-                    local618.method7366(Static219.anIntArray287, local646, local618.pos);
-                    local618.method7357(local618.pos - local250);
+                    local618.tinyenc(Static219.anIntArray287, local646, local618.pos);
+                    local618.psize2(local618.pos - local250);
                 } else {
                     if (Static311.aBoolean384) {
                         local627 = Static572.aClass167_65;
@@ -283,8 +283,8 @@ public final class Static364 {
                     local618.pjstr(Static150.aString26);
                     local618.p4(Static323.anInt5121);
                     Static169.method2647(local618);
-                    local618.method7366(Static219.anIntArray287, local646, local618.pos);
-                    local618.method7357(local618.pos - local250);
+                    local618.tinyenc(Static219.anIntArray287, local646, local618.pos);
+                    local618.psize2(local618.pos - local250);
                 }
                 Static524.aClass153_3.method3275(local186);
                 Static524.aClass153_3.method3273();
@@ -423,18 +423,18 @@ public final class Static364 {
                         Static389.aBoolean459 = local1435.g1() == 1;
                         Static34.aBoolean62 = local1435.g1() == 1;
                         Static298.aBoolean369 = local1435.g1() == 1;
-                        Static416.aLong207 = local1435.method7398();
-                        Static94.aLong70 = Static416.aLong207 - Static588.method7715() - local1435.method7404();
+                        Static416.aLong207 = local1435.g8();
+                        Static94.aLong70 = Static416.aLong207 - Static588.method7715() - local1435.g5();
                         local203 = local1435.g1();
                         Static126.aBoolean200 = (local203 & 0x1) != 0;
                         Static425.aBoolean482 = (local203 & 0x2) != 0;
-                        Static435.anInt6594 = local1435.method7349();
+                        Static435.anInt6594 = local1435.g4();
                         Static684.aBoolean775 = local1435.g1() == 1;
-                        Static134.anInt10326 = local1435.method7349();
+                        Static134.anInt10326 = local1435.g4();
                         Static677.anInt10234 = local1435.g2();
                         Static476.anInt7175 = local1435.g2();
                         Static323.anInt5118 = local1435.g2();
-                        Static392.anInt6141 = local1435.method7349();
+                        Static392.anInt6141 = local1435.g4();
                         Static439.aClass270_4 = Static446.aClass390_6.method8982(Static392.anInt6141);
                         Static335.anInt5462 = local1435.g1();
                         Static626.anInt9473 = local1435.g2();
@@ -442,7 +442,7 @@ public final class Static364 {
                         Static420.aBoolean479 = local1435.g1() == 1;
                         Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString8 = Static515.aString96 = local1435.gjstr2();
                         Static639.anInt9571 = local1435.g1();
-                        Static438.anInt6640 = local1435.method7349();
+                        Static438.anInt6640 = local1435.g4();
                         Static587.aBoolean663 = local1435.g1() == 1;
                         Static668.aClass229_5 = new Class229();
                         Static668.aClass229_5.anInt5856 = local1435.g2();

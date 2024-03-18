@@ -35,7 +35,7 @@ public final class Node_Sub35 extends Node {
 
     @OriginalMember(owner = "client!kw", name = "<init>", descriptor = "(Lclient!ge;)V")
     public Node_Sub35(@OriginalArg(0) Packet arg0) {
-        @Pc(5) int local5 = arg0.method7349();
+        @Pc(5) int local5 = arg0.g4();
         this.anInt5692 = local5 & 0x3FFF;
         this.anInt5695 = local5 >>> 28;
         this.anInt5691 = local5 >>> 14 & 0x3FFF;

@@ -166,7 +166,7 @@ public final class Class295 {
                             local260 = this.aClass2_Sub21_14.g1();
                             local328 = this.aClass2_Sub21_14.g2();
                             @Pc(333) int local333 = this.aClass2_Sub21_14.g1();
-                            @Pc(338) int local338 = this.aClass2_Sub21_14.method7349();
+                            @Pc(338) int local338 = this.aClass2_Sub21_14.g4();
                             @Pc(342) int local342 = local333 & 0x7F;
                             @Pc(354) boolean local354 = (local333 & 0x80) != 0;
                             @Pc(361) long local361 = (long) (local328 + (local260 << 16));

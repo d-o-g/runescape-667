@@ -18,6 +18,6 @@ public final class Node_Sub14_Sub3 extends Node_Sub14 {
     @Override
     public void method8615(@OriginalArg(1) Packet arg0) {
         this.aString18 = arg0.gjstr();
-        arg0.method7349();
+        arg0.g4();
     }
 }

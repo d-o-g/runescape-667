@@ -44,12 +44,12 @@ public final class Static312 {
             }
         }
         @Pc(45) Node_Sub19 local45 = Static293.method4335(Static505.aClass345_119, Static405.aClass153_2.aClass186_1);
-        local45.aClass2_Sub21_Sub2_1.method7350(arg0.anInt3812);
+        local45.aClass2_Sub21_Sub2_1.p4_alt2(arg0.anInt3812);
         local45.aClass2_Sub21_Sub2_1.p2_alt2(Static162.anInt2799);
-        local45.aClass2_Sub21_Sub2_1.method7370(Static77.anInt1614);
-        local45.aClass2_Sub21_Sub2_1.method7347(Static450.anInt6819);
+        local45.aClass2_Sub21_Sub2_1.p2_alt3(Static77.anInt1614);
+        local45.aClass2_Sub21_Sub2_1.p4_alt3(Static450.anInt6819);
         local45.aClass2_Sub21_Sub2_1.p2_alt2(arg0.anInt3760);
-        local45.aClass2_Sub21_Sub2_1.ip2(arg0.anInt3741);
+        local45.aClass2_Sub21_Sub2_1.p2_alt1(arg0.anInt3741);
         Static405.aClass153_2.method3275(local45);
     }
 }

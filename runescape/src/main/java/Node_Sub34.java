@@ -476,7 +476,7 @@ public final class Node_Sub34 extends Node {
         if (arg0 >= 4) {
             this.aClass57_Sub28_1 = new Class57_Sub28(arg1.g1(), this);
         }
-        arg1.method7349();
+        arg1.g4();
         if (arg0 >= 6) {
             this.aClass57_Sub1_1 = new Class57_Sub1(arg1.g1(), this);
         }

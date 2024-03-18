@@ -213,7 +213,7 @@ public final class client extends Applet_Sub1 {
                 @Pc(367) Packet local367 = new Packet(local359.length * 4);
                 Static672.aClass263_2.method5825(local367.data.length, 0, local367.data);
                 for (@Pc(378) int local378 = 0; local378 < local359.length; local378++) {
-                    local359[local378].method7468(local367.method7349());
+                    local359[local378].method7468(local367.g4());
                 }
                 Static500.aClass295_3.method6627(!local356, Static672.aClass263_2);
                 Static92.anInt1874 = 0;

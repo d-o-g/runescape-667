@@ -43,7 +43,7 @@ public final class Static735 {
         local4.pos = arg0.length - local14 * 8 - (local56 - 1) * 3 - 7;
         @Pc(160) int[] local160 = new int[local56];
         for (@Pc(162) int local162 = 1; local162 < local56; local162++) {
-            local160[local162] = local4.method7383();
+            local160[local162] = local4.g3();
             if (local160[local162] == 0) {
                 local160[local162] = 1;
             }

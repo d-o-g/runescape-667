@@ -83,8 +83,8 @@ public final class Class3 {
                                     }
                                     local7 = true;
                                     for (local93 = 0; local93 < this.anIntArray16.length; local93++) {
-                                        this.anIntArray16[local93] = arg0.method7356();
-                                        this.anIntArray14[local93] = arg0.method7356();
+                                        this.anIntArray16[local93] = arg0.g2s();
+                                        this.anIntArray14[local93] = arg0.g2s();
                                     }
                                 } else if (local13 == 2) {
                                     this.anInt81 = arg0.g2();
@@ -101,9 +101,9 @@ public final class Class3 {
                     }
                 } while (local13 == 4);
                 if (local13 == 5) {
-                    this.anInt88 = arg0.method7383();
+                    this.anInt88 = arg0.g3();
                 } else if (local13 == 6) {
-                    this.anInt82 = arg0.method7383();
+                    this.anInt82 = arg0.g3();
                 } else if (local13 == 7) {
                     this.aShortArrayArrayArray1 = new short[10][4][];
                     this.aShortArrayArray1 = new short[10][4];

@@ -468,12 +468,12 @@ public final class Class268 {
                 }
                 for (local18 = 0; local18 < local12; local18++) {
                     @Pc(761) boolean local761 = arg1.g1() == 1;
-                    @Pc(765) int local765 = arg1.method7383();
+                    @Pc(765) int local765 = arg1.g3();
                     @Pc(774) Node local774;
                     if (local761) {
                         local774 = new Node_Sub24(arg1.gjstr());
                     } else {
-                        local774 = new Node_Sub38(arg1.method7349());
+                        local774 = new Node_Sub38(arg1.g4());
                     }
                     this.aHashTable_32.put((long) local765, local774);
                 }

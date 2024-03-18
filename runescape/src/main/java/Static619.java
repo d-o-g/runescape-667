@@ -88,8 +88,8 @@ public final class Static619 {
         @Pc(18) String local18 = null;
         if (Static265.aByteArray44 != null) {
             @Pc(25) Packet local25 = new Packet(Static265.aByteArray44);
-            local18 = Static287.method4154(local25.method7398());
-            Static430.aLong209 = local25.method7398();
+            local18 = Static287.method4154(local25.g8());
+            Static430.aLong209 = local25.g8();
         }
         if (local18 == null) {
             Static342.method4464(35);

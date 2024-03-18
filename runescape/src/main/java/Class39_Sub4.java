@@ -25,7 +25,7 @@ public final class Class39_Sub4 extends Class39 {
     public Class39_Sub4(@OriginalArg(0) Packet arg0) {
         super(arg0);
         this.anInt2532 = arg0.g2();
-        @Pc(11) int local11 = arg0.method7349();
+        @Pc(11) int local11 = arg0.g4();
         this.anInt2527 = local11 >>> 16;
         this.anInt2529 = local11 & 0xFFFF;
         this.anInt2528 = arg0.g1();

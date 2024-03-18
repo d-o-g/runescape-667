@@ -199,19 +199,19 @@ public final class Class53 {
         } else if (arg0 == 3) {
             this.aString5 = arg1.gjstr();
         } else if (arg0 == 4) {
-            this.anInt1142 = arg1.method7349();
+            this.anInt1142 = arg1.g4();
         } else {
             @Pc(69) int local69;
             if (arg0 == 5 || arg0 == 6) {
                 this.anInt1144 = arg1.g2();
                 @Pc(62) HashTable local62 = new HashTable(Static440.method5962(this.anInt1144));
                 for (@Pc(64) int local64 = 0; local64 < this.anInt1144; local64++) {
-                    local69 = arg1.method7349();
+                    local69 = arg1.g4();
                     @Pc(79) Node local79;
                     if (arg0 == 5) {
                         local79 = new Node_Sub24(arg1.gjstr());
                     } else {
-                        local79 = new Node_Sub38(arg1.method7349());
+                        local79 = new Node_Sub38(arg1.g4());
                     }
                     local62.put((long) local69, local79);
                 }
@@ -234,7 +234,7 @@ public final class Class53 {
                     @Pc(164) Integer[] local164 = new Integer[local114];
                     for (local69 = 0; local69 < this.anInt1144; local69++) {
                         local131 = arg1.g2();
-                        local164[local131] = Integer.valueOf(arg1.method7349());
+                        local164[local131] = Integer.valueOf(arg1.g4());
                     }
                     this.anObject3 = local164;
                 }

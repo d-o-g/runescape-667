@@ -573,7 +573,7 @@ public final class Static231 {
                     local582 = arg2.indexOf(" ", 4);
                     local1839.aClass2_Sub21_Sub2_1.pjstr(arg2.substring(3, local582));
                     Static523.method3446(local1839.aClass2_Sub21_Sub2_1, arg2.substring(local582));
-                    local1839.aClass2_Sub21_Sub2_1.method7380(local1839.aClass2_Sub21_Sub2_1.pos - local521);
+                    local1839.aClass2_Sub21_Sub2_1.psize1(local1839.aClass2_Sub21_Sub2_1.pos - local521);
                     local1833.method3275(local1839);
                     return;
                 }

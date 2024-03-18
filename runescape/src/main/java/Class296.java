@@ -39,7 +39,7 @@ public final class Class296 {
         if (arg0 == 1) {
             this.aChar6 = Static346.method5084(arg1.g1b());
         } else if (arg0 == 2) {
-            this.anInt7509 = arg1.method7349();
+            this.anInt7509 = arg1.g4();
         } else if (arg0 == 4) {
             this.aBoolean570 = false;
         } else if (arg0 == 5) {

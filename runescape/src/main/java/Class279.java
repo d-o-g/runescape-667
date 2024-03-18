@@ -51,7 +51,7 @@ public final class Class279 {
                 local44 = local22.g1();
                 local50 = local22.g1();
                 if (local26 > 2) {
-                    this.anInt6994 = local22.method7356();
+                    this.anInt6994 = local22.g2s();
                 } else {
                     this.anInt6994 = -1;
                 }

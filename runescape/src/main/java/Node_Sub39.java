@@ -104,10 +104,10 @@ public final class Node_Sub39 extends Node {
                             local50 += 3;
                         } else {
                             local7++;
-                            local11.method7354(local32[local50++] & 0xFFFF);
+                            local11.ip2(local32[local50++] & 0xFFFF);
                             local7++;
-                            local11.method7354(local32[local50++] & 0xFFFF);
-                            local11.method7354(local32[local50++] & 0xFFFF);
+                            local11.ip2(local32[local50++] & 0xFFFF);
+                            local11.ip2(local32[local50++] & 0xFFFF);
                             local7++;
                         }
                     }

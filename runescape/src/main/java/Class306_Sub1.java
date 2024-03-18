@@ -19,7 +19,7 @@ public final class Class306_Sub1 extends Class306 {
         @Pc(8) Packet local8 = new Packet(arg4);
         @Pc(18) int local18 = -1;
         while (true) {
-            @Pc(22) int local22 = local8.method7345();
+            @Pc(22) int local22 = local8.gExtended1or2();
             if (local22 == 0) {
                 return;
             }
@@ -803,7 +803,7 @@ public final class Class306_Sub1 extends Class306 {
         @Pc(26) Packet local26 = new Packet(arg6);
         @Pc(28) int local28 = -1;
         while (true) {
-            @Pc(32) int local32 = local26.method7345();
+            @Pc(32) int local32 = local26.gExtended1or2();
             if (local32 == 0) {
                 return;
             }

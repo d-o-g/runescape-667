@@ -26,7 +26,7 @@ public final class Class39_Sub6 extends Class39 {
         this.anInt3025 = arg0.g2();
         this.anInt3020 = arg0.g2();
         this.aString33 = arg0.gjstr();
-        this.anInt3026 = arg0.method7349();
+        this.anInt3026 = arg0.g4();
         this.anInt3021 = arg0.g2();
     }
 

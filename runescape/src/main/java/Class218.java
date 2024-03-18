@@ -78,16 +78,16 @@ public final class Class218 {
                 this.anIntArrayArray138 = new int[local29][3];
                 for (local36 = 0; local36 < local29; local36++) {
                     this.anIntArrayArray138[local36][0] = arg1.g2();
-                    this.anIntArrayArray138[local36][1] = arg1.method7349();
-                    this.anIntArrayArray138[local36][2] = arg1.method7349();
+                    this.anIntArrayArray138[local36][1] = arg1.g4();
+                    this.anIntArrayArray138[local36][2] = arg1.g4();
                 }
             } else if (arg0 == 4) {
                 local29 = arg1.g1();
                 this.anIntArrayArray137 = new int[local29][3];
                 for (local36 = 0; local36 < local29; local36++) {
                     this.anIntArrayArray137[local36][0] = arg1.g2();
-                    this.anIntArrayArray137[local36][1] = arg1.method7349();
-                    this.anIntArrayArray137[local36][2] = arg1.method7349();
+                    this.anIntArrayArray137[local36][1] = arg1.g4();
+                    this.anIntArrayArray137[local36][2] = arg1.g4();
                 }
             } else if (arg0 == 5) {
                 arg1.g2();
@@ -102,10 +102,10 @@ public final class Class218 {
                     local29 = arg1.g1();
                     this.anIntArray436 = new int[local29];
                     for (local36 = 0; local36 < local29; local36++) {
-                        this.anIntArray436[local36] = arg1.method7349();
+                        this.anIntArray436[local36] = arg1.g4();
                     }
                 } else if (arg0 == 12) {
-                    arg1.method7349();
+                    arg1.g4();
                 } else if (arg0 == 13) {
                     local29 = arg1.g1();
                     this.anIntArray435 = new int[local29];
@@ -130,9 +130,9 @@ public final class Class218 {
                     this.anIntArray431 = new int[local29];
                     this.anIntArray429 = new int[local29];
                     for (local36 = 0; local36 < local29; local36++) {
-                        this.anIntArray432[local36] = arg1.method7349();
-                        this.anIntArray429[local36] = arg1.method7349();
-                        this.anIntArray431[local36] = arg1.method7349();
+                        this.anIntArray432[local36] = arg1.g4();
+                        this.anIntArray429[local36] = arg1.g4();
+                        this.anIntArray431[local36] = arg1.g4();
                         this.aStringArray28[local36] = arg1.gjstr();
                     }
                 } else if (arg0 == 19) {
@@ -142,9 +142,9 @@ public final class Class218 {
                     this.anIntArray430 = new int[local29];
                     this.anIntArray428 = new int[local29];
                     for (local36 = 0; local36 < local29; local36++) {
-                        this.anIntArray434[local36] = arg1.method7349();
-                        this.anIntArray430[local36] = arg1.method7349();
-                        this.anIntArray428[local36] = arg1.method7349();
+                        this.anIntArray434[local36] = arg1.g4();
+                        this.anIntArray430[local36] = arg1.g4();
+                        this.anIntArray428[local36] = arg1.g4();
                         this.aStringArray27[local36] = arg1.gjstr();
                     }
                 } else if (arg0 == 249) {
@@ -155,12 +155,12 @@ public final class Class218 {
                     }
                     for (local36 = 0; local36 < local29; local36++) {
                         @Pc(224) boolean local224 = arg1.g1() == 1;
-                        @Pc(228) int local228 = arg1.method7383();
+                        @Pc(228) int local228 = arg1.g3();
                         @Pc(237) Node local237;
                         if (local224) {
                             local237 = new Node_Sub24(arg1.gjstr());
                         } else {
-                            local237 = new Node_Sub38(arg1.method7349());
+                            local237 = new Node_Sub38(arg1.g4());
                         }
                         this.aHashTable_30.put((long) local228, local237);
                     }

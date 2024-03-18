@@ -24,7 +24,7 @@ public final class Node_Sub30_Sub4 extends Node_Sub30 {
         this.anInt8616 = arg0.g2();
         this.aByte131 = arg0.g1b();
         this.anInt8618 = arg0.g2();
-        arg0.method7398();
+        arg0.g8();
         this.aString107 = arg0.gjstr();
     }
 

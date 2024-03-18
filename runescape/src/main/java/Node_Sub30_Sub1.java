@@ -33,12 +33,12 @@ public final class Node_Sub30_Sub1 extends Node_Sub30 {
     public void method7647(@OriginalArg(0) Packet arg0) {
         if (arg0.g1() != 255) {
             arg0.pos--;
-            this.aLong149 = arg0.method7398();
+            this.aLong149 = arg0.g8();
         }
         this.aString50 = arg0.fastgstr();
         this.anInt4619 = arg0.g2();
         this.aByte79 = arg0.g1b();
-        arg0.method7398();
+        arg0.g8();
         if (Static459.aBoolean523) {
             System.out.println("memberhash:" + this.aLong149 + " membername:" + this.aString50);
         }

@@ -218,16 +218,16 @@ public final class Class379 {
         } else if (arg1 == 2) {
             arg0.g1();
         } else if (arg1 == 3) {
-            this.anInt9894 = arg0.method7349();
-            this.anInt9888 = arg0.method7349();
+            this.anInt9894 = arg0.g4();
+            this.anInt9888 = arg0.g4();
         } else if (arg1 == 4) {
             this.anInt9897 = arg0.g1();
             this.anInt9915 = arg0.g1b();
         } else if (arg1 == 5) {
             this.anInt9884 = this.anInt9918 = arg0.g2() << 12 << 2;
         } else if (arg1 == 6) {
-            this.anInt9883 = arg0.method7349();
-            this.anInt9881 = arg0.method7349();
+            this.anInt9883 = arg0.g4();
+            this.anInt9881 = arg0.g4();
         } else if (arg1 == 7) {
             this.anInt9912 = arg0.g2();
             this.anInt9902 = arg0.g2();
@@ -265,7 +265,7 @@ public final class Class379 {
             } else if (arg1 == 17) {
                 this.anInt9880 = arg0.g2();
             } else if (arg1 == 18) {
-                this.anInt9919 = arg0.method7349();
+                this.anInt9919 = arg0.g4();
             } else if (arg1 == 19) {
                 this.anInt9896 = arg0.g1();
             } else if (arg1 == 20) {
@@ -273,7 +273,7 @@ public final class Class379 {
             } else if (arg1 == 21) {
                 this.anInt9893 = arg0.g1();
             } else if (arg1 == 22) {
-                this.anInt9923 = arg0.method7349();
+                this.anInt9923 = arg0.g4();
             } else if (arg1 == 23) {
                 this.anInt9907 = arg0.g1();
             } else if (arg1 == 24) {
@@ -291,7 +291,7 @@ public final class Class379 {
             } else if (arg1 == 28) {
                 this.anInt9900 = arg0.g1();
             } else if (arg1 == 29) {
-                arg0.method7356();
+                arg0.g2s();
             } else if (arg1 == 30) {
                 this.aBoolean755 = true;
             } else if (arg1 == 31) {

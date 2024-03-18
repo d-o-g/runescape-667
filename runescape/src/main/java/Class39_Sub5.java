@@ -15,7 +15,7 @@ public final class Class39_Sub5 extends Class39 {
     public Class39_Sub5(@OriginalArg(0) Packet arg0) {
         super(arg0);
         this.anInt3000 = arg0.g2();
-        this.anInt2996 = arg0.method7349();
+        this.anInt2996 = arg0.g4();
     }
 
     @OriginalMember(owner = "client!fka", name = "b", descriptor = "(I)V")

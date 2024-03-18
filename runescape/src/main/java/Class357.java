@@ -40,11 +40,11 @@ public final class Class357 {
         for (@Pc(37) int local37 = 0; local37 < local7; local37++) {
             this.anIntArray733[local37] = arg0.g2() - 5120;
             this.anIntArray732[local37] = arg0.g2() - 5120;
-            this.anIntArray735[local37] = arg0.method7356();
+            this.anIntArray735[local37] = arg0.g2s();
             this.anIntArray729[local37] = arg0.g2() - 5120;
             this.anIntArray734[local37] = arg0.g2() - 5120;
-            this.anIntArray731[local37] = arg0.method7356();
-            this.anIntArray730[local37] = arg0.method7356();
+            this.anIntArray731[local37] = arg0.g2s();
+            this.anIntArray730[local37] = arg0.g2s();
         }
     }
 

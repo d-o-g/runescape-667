@@ -22,7 +22,7 @@ public final class Class39_Sub2 extends Class39 {
         super(arg0);
         this.anInt1832 = arg0.g2();
         this.aString15 = arg0.gjstr();
-        this.anInt1834 = arg0.method7349();
+        this.anInt1834 = arg0.g4();
         this.anInt1833 = arg0.g2();
     }
 

@@ -339,15 +339,15 @@ public final class Class54 {
                             return;
                         }
                         if (arg1 == 70) {
-                            this.anInt1217 = arg0.method7356() << 2;
+                            this.anInt1217 = arg0.g2s() << 2;
                             return;
                         }
                         if (arg1 == 71) {
-                            this.anInt1259 = arg0.method7356() << 2;
+                            this.anInt1259 = arg0.g2s() << 2;
                             return;
                         }
                         if (arg1 == 72) {
-                            this.anInt1228 = arg0.method7356() << 2;
+                            this.anInt1228 = arg0.g2s() << 2;
                             return;
                         }
                         if (arg1 == 73) {
@@ -472,7 +472,7 @@ public final class Class54 {
                                                 return;
                                             } else if (arg1 == 162) {
                                                 this.aByte12 = 3;
-                                                this.anInt1252 = arg0.method7349();
+                                                this.anInt1252 = arg0.g4();
                                                 return;
                                             } else if (arg1 == 163) {
                                                 this.aByte11 = arg0.g1b();
@@ -481,13 +481,13 @@ public final class Class54 {
                                                 this.aByte10 = arg0.g1b();
                                                 return;
                                             } else if (arg1 == 164) {
-                                                this.anInt1214 = arg0.method7356();
+                                                this.anInt1214 = arg0.g2s();
                                                 return;
                                             } else if (arg1 == 165) {
-                                                this.anInt1213 = arg0.method7356();
+                                                this.anInt1213 = arg0.g2s();
                                                 return;
                                             } else if (arg1 == 166) {
-                                                this.anInt1248 = arg0.method7356();
+                                                this.anInt1248 = arg0.g2s();
                                                 return;
                                             } else if (arg1 == 167) {
                                                 this.anInt1227 = arg0.g2();
@@ -522,12 +522,12 @@ public final class Class54 {
                                                     }
                                                     for (local47 = 0; local47 < local37; local47++) {
                                                         @Pc(872) boolean local872 = arg0.g1() == 1;
-                                                        local67 = arg0.method7383();
+                                                        local67 = arg0.g3();
                                                         @Pc(885) Node local885;
                                                         if (local872) {
                                                             local885 = new Node_Sub24(arg0.gjstr());
                                                         } else {
-                                                            local885 = new Node_Sub38(arg0.method7349());
+                                                            local885 = new Node_Sub38(arg0.g4());
                                                         }
                                                         this.aHashTable_10.put((long) local67, local885);
                                                     }
@@ -542,7 +542,7 @@ public final class Class54 {
                                         return;
                                     }
                                     this.aByte12 = 5;
-                                    this.anInt1252 = arg0.method7356();
+                                    this.anInt1252 = arg0.g2s();
                                     return;
                                 }
                                 this.aBoolean94 = false;

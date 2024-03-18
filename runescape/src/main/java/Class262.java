@@ -95,8 +95,8 @@ public final class Class262 {
             throw new RuntimeException();
         } else if (this.aClass47_Sub1Array5[arg1] == null) {
             this.aClass2_Sub21_10.pos = arg1 * 72 + 6;
-            @Pc(52) int local52 = this.aClass2_Sub21_10.method7349();
-            @Pc(57) int local57 = this.aClass2_Sub21_10.method7349();
+            @Pc(52) int local52 = this.aClass2_Sub21_10.g4();
+            @Pc(57) int local57 = this.aClass2_Sub21_10.g4();
             @Pc(60) byte[] local60 = new byte[64];
             this.aClass2_Sub21_10.gdata(0, 64, local60);
             @Pc(84) Class47_Sub1 local84 = new Class47_Sub1(arg1, arg0, arg2, this.aClass295_1, this.aClass174_2, local52, local60, local57, true);

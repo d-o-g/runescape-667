@@ -44,7 +44,7 @@ public final class Class76 {
 
     @OriginalMember(owner = "client!de", name = "a", descriptor = "(Lclient!ge;B)V")
     public void method2032(@OriginalArg(0) Packet arg0) {
-        this.anInt2140 = arg0.method7383();
+        this.anInt2140 = arg0.g3();
         this.anInt2141 = arg0.g2();
         this.anInterface10Array1 = new Interface10[arg0.g1()];
         @Pc(31) Class204[] local31 = Static370.method5281();

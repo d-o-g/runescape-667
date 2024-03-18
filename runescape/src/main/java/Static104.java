@@ -25,8 +25,8 @@ public final class Static104 {
         local6.aClass2_Sub21_Sub2_1.pjstr(arg0);
         local6.aClass2_Sub21_Sub2_1.p1(Static51.anInt1052);
         local6.aClass2_Sub21_Sub2_1.pos += 7;
-        local6.aClass2_Sub21_Sub2_1.method7366(local39, local43, local6.aClass2_Sub21_Sub2_1.pos);
-        local6.aClass2_Sub21_Sub2_1.method7357(local6.aClass2_Sub21_Sub2_1.pos - local28);
+        local6.aClass2_Sub21_Sub2_1.tinyenc(local39, local43, local6.aClass2_Sub21_Sub2_1.pos);
+        local6.aClass2_Sub21_Sub2_1.psize2(local6.aClass2_Sub21_Sub2_1.pos - local28);
         Static405.aClass153_1.method3275(local6);
         Static580.anInt8621 = -3;
         Static654.anInt9739 = 0;

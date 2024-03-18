@@ -71,8 +71,8 @@ public final class Node_Sub47 extends Node {
         if ((local9 & 0x1) != 0) {
             this.aBoolean632 = true;
         }
-        super.key = arg0.method7398();
-        this.aLong256 = arg0.method7398();
+        super.key = arg0.g8();
+        this.aLong256 = arg0.g8();
         this.aString101 = arg0.gjstr();
         arg0.g1();
         this.aByte127 = arg0.g1b();
@@ -85,7 +85,7 @@ public final class Node_Sub47 extends Node {
         for (@Pc(82) int local82 = 0; local82 < this.anInt8286; local82++) {
             @Pc(88) Class34 local88 = new Class34();
             if (this.aBoolean632) {
-                arg0.method7398();
+                arg0.g8();
             }
             if (this.aBoolean633) {
                 local88.aString2 = arg0.gjstr();

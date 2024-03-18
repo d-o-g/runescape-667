@@ -36,7 +36,7 @@ public final class Static161 {
                 }
                 local18[local26] = local32;
                 local21[local26] = arg2.g1_alt2();
-                local24[local26] = arg2.method7406();
+                local24[local26] = arg2.g2_alt3();
             }
             Static310.method4505(local24, local18, local21, arg0);
         }
@@ -45,7 +45,7 @@ public final class Static161 {
         if ((arg3 & 0x40) != 0) {
             @Pc(75) int[] local75 = new int[4];
             for (local77 = 0; local77 < 4; local77++) {
-                local75[local77] = arg2.method7372();
+                local75[local77] = arg2.ig2();
                 if (local75[local77] == 65535) {
                     local75[local77] = -1;
                 }
@@ -56,8 +56,8 @@ public final class Static161 {
         @Pc(141) int local141;
         @Pc(166) boolean local166;
         if ((arg3 & 0x40000) != 0) {
-            local15 = arg2.method7406();
-            local77 = arg2.method7371();
+            local15 = arg2.g2_alt3();
+            local77 = arg2.g4_alt3();
             if (local15 == 65535) {
                 local15 = -1;
             }
@@ -75,14 +75,14 @@ public final class Static161 {
             arg0.aByte147 = arg2.g1b_alt3();
             arg0.aByte148 = arg2.g1b_alt2();
             arg0.aByte149 = (byte) arg2.g1();
-            arg0.anInt10760 = Static333.anInt5455 + arg2.method7406();
+            arg0.anInt10760 = Static333.anInt5455 + arg2.g2_alt3();
             arg0.anInt10752 = Static333.anInt5455 + arg2.g2();
         }
         if ((arg3 & 0x200) != 0) {
             local7 = arg2.g1b_alt2();
         }
         if ((arg3 & 0x2000) != 0) {
-            local15 = arg2.method7387();
+            local15 = arg2.g2_alt2();
             arg0.anInt10738 = arg2.g1();
             arg0.anInt10731 = arg2.g1_alt2();
             arg0.aBoolean818 = (local15 & 0x8000) != 0;
@@ -90,8 +90,8 @@ public final class Static161 {
             arg0.anInt10719 = arg0.anInt10738 + arg0.anInt10737 + Static333.anInt5455;
         }
         if ((arg3 & 0x80000) != 0) {
-            local15 = arg2.method7372();
-            local77 = arg2.method7371();
+            local15 = arg2.ig2();
+            local77 = arg2.g4_alt3();
             if (local15 == 65535) {
                 local15 = -1;
             }
@@ -136,14 +136,14 @@ public final class Static161 {
             local18 = new int[local15];
             local21 = new int[local15];
             for (local141 = 0; local141 < local15; local141++) {
-                local26 = arg2.method7387();
+                local26 = arg2.g2_alt2();
                 if ((local26 & 0xC000) == 49152) {
                     local32 = arg2.g2();
                     local18[local141] = local32 | local26 << 16;
                 } else {
                     local18[local141] = local26;
                 }
-                local21[local141] = arg2.method7387();
+                local21[local141] = arg2.g2_alt2();
             }
             arg0.method9315(local21, local18);
         }
@@ -172,7 +172,7 @@ public final class Static161 {
             Static139.aByteArray30[arg1] = arg2.g1b_alt3();
         }
         if ((arg3 & 0x10) != 0) {
-            local15 = arg2.method7387();
+            local15 = arg2.g2_alt2();
             if (local15 == 65535) {
                 local15 = -1;
             }
@@ -183,8 +183,8 @@ public final class Static161 {
             arg0.anInt10753 = arg2.g1b();
             arg0.anInt10761 = arg2.g1b_alt1();
             arg0.anInt10758 = arg2.g1b_alt1();
-            arg0.anInt10759 = arg2.method7372() + Static333.anInt5455;
-            arg0.anInt10755 = arg2.method7406() + Static333.anInt5455;
+            arg0.anInt10759 = arg2.ig2() + Static333.anInt5455;
+            arg0.anInt10755 = arg2.g2_alt3() + Static333.anInt5455;
             arg0.anInt10754 = arg2.g1_alt1();
             if (arg0.aBoolean127) {
                 arg0.anInt10764 = 0;
@@ -210,7 +210,7 @@ public final class Static161 {
         }
         if ((arg3 & 0x2) != 0) {
             local15 = arg2.g2();
-            local77 = arg2.method7339();
+            local77 = arg2.g4_alt1();
             if (local15 == 65535) {
                 local15 = -1;
             }
@@ -224,11 +224,11 @@ public final class Static161 {
             arg0.method9309(0, local141, local166, local77, local26, local15);
         }
         if ((arg3 & 0x100) != 0) {
-            local15 = arg2.method7406();
+            local15 = arg2.g2_alt3();
             if (local15 == 65535) {
                 local15 = -1;
             }
-            local77 = arg2.method7371();
+            local77 = arg2.g4_alt3();
             local108 = arg2.g1_alt2();
             local141 = local108 & 0x7;
             local26 = local108 >> 3 & 0xF;

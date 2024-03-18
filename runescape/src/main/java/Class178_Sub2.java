@@ -267,7 +267,7 @@ public final class Class178_Sub2 extends Class178 {
                         local360 = this.aShortArrayArray6[local337];
                         if (local360 != null) {
                             for (local364 = 0; local364 < local360.length; local364++) {
-                                local321.method7354(local360[local364] & 0xFFFF);
+                                local321.ip2(local360[local364] & 0xFFFF);
                                 local317++;
                             }
                         }

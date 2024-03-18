@@ -62,7 +62,7 @@ public final class Static605 {
             local38 = local8.g1_alt3();
             local42 = Static626.anInt9476 + (local38 >> 4 & 0x7);
             local46 = (local38 & 0x7) + Static270.anInt4354;
-            local52 = local8.method7372();
+            local52 = local8.ig2();
             if (local21 == 11) {
                 local21 = 10;
             }
@@ -113,7 +113,7 @@ public final class Static605 {
                 Static296.method4361(new Class150((long) Static356.aLong177++, local278, local310, local343), Static87.anInt1810, local25, local42, local46);
             }
         } else if (arg0 == Static420.aClass287_13) {
-            local15 = local8.method7406();
+            local15 = local8.g2_alt3();
             if (local15 == 65535) {
                 local15 = -1;
             }
@@ -159,7 +159,7 @@ public final class Static605 {
                 local38 = local34 >> 2;
                 local42 = local34 & 0x3;
                 local46 = Static310.anIntArray379[local38];
-                local52 = local8.method7387();
+                local52 = local8.g2_alt2();
                 if (Static55.method1218(Static117.anInt2282) || local21 >= 0 && local25 >= 0 && Static720.anInt10859 > local21 && Static501.anInt7568 > local25) {
                     Static553.method7289(local42, local52, local46, local21, Static87.anInt1810, local38, local25);
                 }
@@ -175,8 +175,8 @@ public final class Static605 {
                     local46 = local773 ? local34 >> 2 : -1;
                     local52 = local8.g1b() + local21;
                     local537 = local25 + local8.g1b();
-                    local212 = local8.method7356();
-                    local217 = local8.method7356();
+                    local212 = local8.g2s();
+                    local217 = local8.g2s();
                     local219 = local8.g2();
                     local812 = local8.g1();
                     if (local773) {
@@ -232,13 +232,13 @@ public final class Static605 {
                         Static505.A_DEQUE___77.addLast(new Node_Sub2_Sub15(local1053));
                     }
                 } else if (Static77.aClass287_5 == arg0) {
-                    local15 = local8.method7387();
+                    local15 = local8.g2_alt2();
                     local21 = local8.g1_alt1();
                     local25 = Static270.anInt4354 + (local21 & 0x7);
                     local34 = local25 + Static116.anInt2270;
                     local38 = Static626.anInt9476 + (local21 >> 4 & 0x7);
                     local42 = Static691.anInt10367 + local38;
-                    local46 = local8.method7372();
+                    local46 = local8.ig2();
                     local52 = local8.g2();
                     if (local15 != Static312.anInt5000) {
                         @Pc(1151) boolean local1151 = local38 >= 0 && local25 >= 0 && Static720.anInt10859 > local38 && local25 < Static501.anInt7568;
@@ -298,7 +298,7 @@ public final class Static605 {
                     local25 = (local15 & 0x7) + Static270.anInt4354;
                     local34 = local8.g2();
                     local38 = local8.g1();
-                    local42 = local8.method7383();
+                    local42 = local8.g3();
                     @Pc(1511) String local1511 = local8.gjstr();
                     Static540.method6539(Static87.anInt1810, local34, local1511, local42, local38, local21, local25);
                 } else if (Static73.aClass287_18 == arg0) {
@@ -308,7 +308,7 @@ public final class Static605 {
                     local34 = (local15 & 0x7) + Static270.anInt4354;
                     local38 = local25 + local8.g1b();
                     local42 = local34 + local8.g1b();
-                    local46 = local8.method7356();
+                    local46 = local8.g2s();
                     local52 = local8.g2();
                     local537 = local8.g1() * 4;
                     local212 = local8.g1() * 4;
@@ -348,7 +348,7 @@ public final class Static605 {
                     local25 = local21 + Static116.anInt2270;
                     local34 = (local15 >> 4 & 0x7) + Static626.anInt9476;
                     local38 = Static691.anInt10367 + local34;
-                    local42 = local8.method7387();
+                    local42 = local8.g2_alt2();
                     local46 = local8.g2();
                     @Pc(1886) boolean local1886 = local34 >= 0 && local21 >= 0 && local34 < Static720.anInt10859 && local21 < Static501.anInt7568;
                     if (local1886 || Static55.method1218(Static117.anInt2282)) {

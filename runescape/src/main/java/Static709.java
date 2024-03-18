@@ -110,7 +110,7 @@ public final class Static709 {
             local71.aClass2_Sub21_Sub2_1.p1(0);
             local80 = local71.aClass2_Sub21_Sub2_1.pos;
             Static437.method5915(local71.aClass2_Sub21_Sub2_1);
-            local71.aClass2_Sub21_Sub2_1.method7380(local71.aClass2_Sub21_Sub2_1.pos - local80);
+            local71.aClass2_Sub21_Sub2_1.psize1(local71.aClass2_Sub21_Sub2_1.pos - local80);
             Static405.aClass153_2.method3275(local71);
         }
         if (Static211.aClass2_Sub12_3 == null) {
@@ -188,7 +188,7 @@ public final class Static709 {
                 }
             }
             if (local179 != null) {
-                local179.aClass2_Sub21_Sub2_1.method7380(local179.aClass2_Sub21_Sub2_1.pos - local181);
+                local179.aClass2_Sub21_Sub2_1.psize1(local179.aClass2_Sub21_Sub2_1.pos - local181);
                 Static405.aClass153_2.method3275(local179);
             }
         }
@@ -217,8 +217,8 @@ public final class Static709 {
             }
             local282 = (int) local527;
             @Pc(603) Node_Sub19 local603 = Static293.method4335(Static111.aClass345_21, Static405.aClass153_2.aClass186_1);
-            local603.aClass2_Sub21_Sub2_1.method7370(local581 << 15 | local282);
-            local603.aClass2_Sub21_Sub2_1.method7350(local208 | local541 << 16);
+            local603.aClass2_Sub21_Sub2_1.p2_alt3(local581 << 15 | local282);
+            local603.aClass2_Sub21_Sub2_1.p4_alt2(local208 | local541 << 16);
             Static405.aClass153_2.method3275(local603);
         }
         @Pc(660) long local660;
@@ -260,7 +260,7 @@ public final class Static709 {
             local181 = local179.aClass2_Sub21_Sub2_1.pos;
             @Pc(810) Packet local810 = Static400.aClass2_Sub34_28.method5110();
             local179.aClass2_Sub21_Sub2_1.pdata(local810.pos, local810.data, 0);
-            local179.aClass2_Sub21_Sub2_1.method7380(local179.aClass2_Sub21_Sub2_1.pos - local181);
+            local179.aClass2_Sub21_Sub2_1.psize1(local179.aClass2_Sub21_Sub2_1.pos - local181);
             Static405.aClass153_2.method3275(local179);
             Static503.aBoolean578 = true;
         }
@@ -511,7 +511,7 @@ public final class Static709 {
         Static642.anInt9599++;
         if (Static118.aBoolean199) {
             @Pc(1980) Node_Sub19 local1980 = Static293.method4335(Static133.aClass345_26, Static405.aClass153_2.aClass186_1);
-            local1980.aClass2_Sub21_Sub2_1.method7347(Static614.anInt9373 | Static688.anInt10356 << 28 | Static503.anInt7582 << 14);
+            local1980.aClass2_Sub21_Sub2_1.p4_alt3(Static614.anInt9373 | Static688.anInt10356 << 28 | Static503.anInt7582 << 14);
             Static405.aClass153_2.method3275(local1980);
             Static118.aBoolean199 = false;
         }

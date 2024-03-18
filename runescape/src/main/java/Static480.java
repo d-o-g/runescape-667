@@ -79,7 +79,7 @@ public final class Static480 {
     public static void method6468(@OriginalArg(1) Packet arg0, @OriginalArg(2) Class390 arg1, @OriginalArg(3) int arg2) {
         @Pc(23) Node_Sub57 local23 = new Node_Sub57();
         local23.anInt10364 = arg0.g1();
-        local23.anInt10366 = arg0.method7349();
+        local23.anInt10366 = arg0.g4();
         local23.anIntArray829 = new int[local23.anInt10364];
         local23.anIntArray827 = new int[local23.anInt10364];
         local23.aClass270Array1 = new Class270[local23.anInt10364];
@@ -97,7 +97,7 @@ public final class Static480 {
                     local110 = arg0.gjstr();
                     local114 = 0;
                     if (local73 == 1) {
-                        local114 = arg0.method7349();
+                        local114 = arg0.g4();
                     }
                     local23.anIntArray828[local65] = local73;
                     local23.anIntArray827[local65] = local114;
@@ -114,7 +114,7 @@ public final class Static480 {
                     @Pc(153) int local153;
                     if (local73 == 3) {
                         for (@Pc(147) int local147 = 0; local147 < local114; local147++) {
-                            local153 = arg0.method7349();
+                            local153 = arg0.g4();
                             local138[local147] = new byte[local153];
                             arg0.gdata(0, local153, local138[local147]);
                         }

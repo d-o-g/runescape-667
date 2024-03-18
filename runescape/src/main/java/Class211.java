@@ -87,8 +87,8 @@ public final class Class211 {
     @OriginalMember(owner = "client!kl", name = "b", descriptor = "(Lclient!ge;)V")
     public void method4952(@OriginalArg(0) Packet arg0) {
         this.anInt5477 = arg0.g1();
-        this.anInt5475 = arg0.method7349();
-        this.anInt5476 = arg0.method7349();
+        this.anInt5475 = arg0.g4();
+        this.anInt5476 = arg0.g4();
         this.method4949(arg0);
     }
 }

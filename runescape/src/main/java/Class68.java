@@ -22,8 +22,8 @@ public final class Class68 {
 
     @OriginalMember(owner = "client!ck", name = "a", descriptor = "(Lclient!ge;I)V")
     public void method1580(@OriginalArg(0) Packet arg0) {
-        this.aLong57 = arg0.method7398();
-        this.aLong56 = arg0.method7398();
+        this.aLong57 = arg0.g8();
+        this.aLong56 = arg0.g8();
         for (@Pc(21) int local21 = arg0.g1(); local21 != 0; local21 = arg0.g1()) {
             @Pc(44) Node_Sub30 local44;
             if (local21 == 1) {

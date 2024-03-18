@@ -55,7 +55,7 @@ public final class Class173 {
         if (arg0 == 1) {
             this.anInt4167 = arg1.g2();
         } else if (arg0 == 2) {
-            this.anInt4165 = arg1.method7383();
+            this.anInt4165 = arg1.g3();
         } else if (arg0 == 3) {
             this.aBoolean329 = true;
         } else if (arg0 == 4) {

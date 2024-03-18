@@ -92,7 +92,7 @@ public final class Node_Sub1_Sub5 extends Node_Sub1 {
         } else if (arg2 == 3) {
             this.anInt1204 = arg1.g2();
         } else if (arg2 == 4) {
-            @Pc(72) int local72 = arg1.method7383();
+            @Pc(72) int local72 = arg1.g3();
             this.anIntArray110[1] = local72 >> 4 & 0xFF0;
             this.anIntArray110[2] = local72 >> 12 & 0x0;
             this.anIntArray110[0] = (local72 & 0xFF0000) << 4;

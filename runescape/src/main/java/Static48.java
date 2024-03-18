@@ -37,7 +37,7 @@ public final class Static48 {
         @Pc(23) int local23 = local12.g2();
         @Pc(34) int local34 = local12.data.length - local23 - 2 - 16;
         local12.pos = local34;
-        @Pc(50) int local50 = local12.method7349();
+        @Pc(50) int local50 = local12.g4();
         local7.anInt2948 = local12.g2();
         local7.anInt2950 = local12.g2();
         local7.anInt2949 = local12.g2();
@@ -54,8 +54,8 @@ public final class Static48 {
                 @Pc(107) HashTable local107 = new HashTable(Static440.method5962(local100));
                 local7.aHashTableArray1[local95] = local107;
                 while (local100-- > 0) {
-                    @Pc(117) int local117 = local12.method7349();
-                    @Pc(121) int local121 = local12.method7349();
+                    @Pc(117) int local117 = local12.g4();
+                    @Pc(121) int local121 = local12.g4();
                     local107.put((long) local117, new Node_Sub38(local121));
                 }
             }
@@ -75,7 +75,7 @@ public final class Static48 {
                 if (local7.aLongArray4 == null) {
                     local7.aLongArray4 = new long[local50];
                 }
-                local7.aLongArray4[local95] = local12.method7398();
+                local7.aLongArray4[local95] = local12.g8();
             } else {
                 if (local7.anIntArray255 == null) {
                     local7.anIntArray255 = new int[local50];
@@ -83,7 +83,7 @@ public final class Static48 {
                 if (local100 >= 150 || local100 == 21 || local100 == 38 || local100 == 39) {
                     local7.anIntArray255[local95] = local12.g1();
                 } else {
-                    local7.anIntArray255[local95] = local12.method7349();
+                    local7.anIntArray255[local95] = local12.g4();
                 }
             }
             local7.anIntArray254[local95++] = local100;

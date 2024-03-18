@@ -134,8 +134,8 @@ public final class Static81 {
         local8.aClass2_Sub21_Sub2_1.p1(arg1);
         local8.aClass2_Sub21_Sub2_1.p1(arg3 ? 1 : 0);
         local8.aClass2_Sub21_Sub2_1.pos += 7;
-        local8.aClass2_Sub21_Sub2_1.method7366(local38, local42, local8.aClass2_Sub21_Sub2_1.pos);
-        local8.aClass2_Sub21_Sub2_1.method7357(local8.aClass2_Sub21_Sub2_1.pos - local25);
+        local8.aClass2_Sub21_Sub2_1.tinyenc(local38, local42, local8.aClass2_Sub21_Sub2_1.pos);
+        local8.aClass2_Sub21_Sub2_1.psize2(local8.aClass2_Sub21_Sub2_1.pos - local25);
         Static405.aClass153_1.method3275(local8);
         Static720.anInt10865 = 0;
         Static580.anInt8621 = -3;

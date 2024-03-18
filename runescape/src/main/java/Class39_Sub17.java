@@ -23,9 +23,9 @@ public final class Class39_Sub17 extends Class39 {
         super(arg0);
         this.anInt7622 = arg0.g2();
         this.anIntArray611 = new int[4];
-        this.anInt7624 = arg0.method7346();
+        this.anInt7624 = arg0.gSmart2or4null();
         Static734.method7690(this.anIntArray611, 0, this.anIntArray611.length, this.anInt7624);
-        this.anInt7625 = arg0.method7349();
+        this.anInt7625 = arg0.g4();
     }
 
     @OriginalMember(owner = "client!q", name = "b", descriptor = "(I)V")

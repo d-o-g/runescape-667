@@ -22,8 +22,8 @@ public final class Class20 {
 
     @OriginalMember(owner = "client!ama", name = "a", descriptor = "(Lclient!ge;B)V")
     public void method585(@OriginalArg(0) Packet arg0) {
-        this.aLong15 = arg0.method7398();
-        this.anInt519 = arg0.method7349();
+        this.aLong15 = arg0.g8();
+        this.anInt519 = arg0.g4();
         for (@Pc(28) int local28 = arg0.g1(); local28 != 0; local28 = arg0.g1()) {
             if (Static148.aBoolean215) {
                 System.out.println("t:" + local28);

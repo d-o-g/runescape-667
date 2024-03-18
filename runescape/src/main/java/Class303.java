@@ -120,7 +120,7 @@ public final class Class303 implements Interface4 {
         }
         for (@Pc(627) int local627 = 0; local627 < this.anInt7709; local627++) {
             if (this.aClass118Array1[local627] != null) {
-                this.aClass118Array1[local627].anInt2791 = local24.method7349();
+                this.aClass118Array1[local627].anInt2791 = local24.g4();
             }
         }
         for (@Pc(655) int local655 = 0; local655 < this.anInt7709; local655++) {

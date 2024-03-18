@@ -22,12 +22,12 @@ public final class Node_Sub2_Sub1 extends Node_Sub2 {
         }
         for (local13 = 0; local13 < local6; local13++) {
             @Pc(32) boolean local32 = arg1.g1() == 1;
-            @Pc(36) int local36 = arg1.method7383();
+            @Pc(36) int local36 = arg1.g3();
             @Pc(45) Node local45;
             if (local32) {
                 local45 = new Node_Sub24(arg1.gjstr());
             } else {
-                local45 = new Node_Sub38(arg1.method7349());
+                local45 = new Node_Sub38(arg1.g4());
             }
             this.aHashTable_1.put((long) local36, local45);
         }

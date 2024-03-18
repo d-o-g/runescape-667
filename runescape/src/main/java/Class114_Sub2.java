@@ -1681,9 +1681,9 @@ public final class Class114_Sub2 extends Class114 {
             }
         } else {
             for (local52 = 0; local52 < this.anInt5506; local52++) {
-                local46.method7354(this.aShortArray67[local52]);
-                local46.method7354(this.aShortArray71[local52]);
-                local46.method7354(this.aShortArray76[local52]);
+                local46.ip2(this.aShortArray67[local52]);
+                local46.ip2(this.aShortArray71[local52]);
+                local46.ip2(this.aShortArray76[local52]);
             }
         }
         if (5123 != 5123) {
@@ -2836,9 +2836,9 @@ public final class Class114_Sub2 extends Class114 {
                             break;
                         }
                         local203.pos = local259 * local118;
-                        local203.method7400(local222);
-                        local203.method7400(local229);
-                        local203.method7400(local236);
+                        local203.ip4(local222);
+                        local203.ip4(local229);
+                        local203.ip4(local236);
                     }
                 }
             }

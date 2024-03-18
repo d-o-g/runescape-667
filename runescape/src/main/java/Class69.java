@@ -153,7 +153,7 @@ public final class Class69 {
                 local44 = arg1.g1();
                 if (local44 > 0) {
                     this.anIntArrayArray38[local26] = new int[local44];
-                    this.anIntArrayArray38[local26][0] = arg1.method7383();
+                    this.anIntArrayArray38[local26][0] = arg1.g3();
                     for (local58 = 1; local58 < local44; local58++) {
                         this.anIntArrayArray38[local26][local58] = arg1.g2();
                     }

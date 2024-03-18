@@ -48,12 +48,12 @@ public final class Static300 {
             @Pc(68) int local68 = arg0.gsmart();
             @Pc(76) Class297_Sub1 local76 = Static106.aClass297_Sub1Array1[local68] = new Class297_Sub1();
             local76.anInt7564 = arg0.g1();
-            local76.anInt7563 = arg0.method7349();
+            local76.anInt7563 = arg0.g4();
             local76.anInt7569 = Static494.anInt7396 + local68;
             local76.aString91 = arg0.gjstr2();
             local76.aString90 = arg0.gjstr2();
         }
-        Static379.anInt5968 = arg0.method7349();
+        Static379.anInt5968 = arg0.g4();
         Static518.aBoolean814 = true;
     }
 

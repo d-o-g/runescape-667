@@ -352,7 +352,7 @@ public final class ObjType {
         } else if (arg1 == 11) {
             this.stackable = 1;
         } else if (arg1 == 12) {
-            this.cost = arg0.method7349();
+            this.cost = arg0.g4();
         } else if (arg1 == 16) {
             this.aBoolean770 = true;
         } else if (arg1 == 18) {
@@ -479,12 +479,12 @@ public final class ObjType {
                 }
                 for (local212 = 0; local212 < local202; local212++) {
                     @Pc(554) boolean local554 = arg0.g1() == 1;
-                    @Pc(558) int local558 = arg0.method7383();
+                    @Pc(558) int local558 = arg0.g3();
                     @Pc(567) Node local567;
                     if (local554) {
                         local567 = new Node_Sub24(arg0.gjstr());
                     } else {
-                        local567 = new Node_Sub38(arg0.method7349());
+                        local567 = new Node_Sub38(arg0.g4());
                     }
                     this.aHashTable_44.put((long) local558, local567);
                 }

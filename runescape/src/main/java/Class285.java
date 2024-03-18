@@ -127,7 +127,7 @@ public final class Class285 {
         if (arg1 == 1) {
             this.anInt7196 = arg0.g2();
         } else if (arg1 == 2) {
-            this.anInt7190 = arg0.method7383();
+            this.anInt7190 = arg0.g3();
         } else if (arg1 == 3) {
             this.anInt7183 = arg0.g2();
         } else if (arg1 == 4) {
@@ -137,19 +137,19 @@ public final class Class285 {
         } else if (arg1 == 6) {
             this.anInt7187 = arg0.g2();
         } else if (arg1 == 7) {
-            this.anInt7184 = arg0.method7356();
+            this.anInt7184 = arg0.g2s();
         } else if (arg1 == 8) {
             this.aString82 = arg0.gjstr2();
         } else if (arg1 == 9) {
             this.anInt7192 = arg0.g2();
         } else if (arg1 == 10) {
-            this.anInt7191 = arg0.method7356();
+            this.anInt7191 = arg0.g2s();
         } else if (arg1 == 11) {
             this.anInt7179 = 0;
         } else if (arg1 == 12) {
             this.anInt7195 = arg0.g1();
         } else if (arg1 == 13) {
-            this.anInt7178 = arg0.method7356();
+            this.anInt7178 = arg0.g2s();
         } else if (arg1 == 14) {
             this.anInt7179 = arg0.g2();
         }

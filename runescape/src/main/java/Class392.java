@@ -38,7 +38,7 @@ public final class Class392 {
         } else if (arg0 == 3) {
             this.anInt10373 = arg1.g2();
         } else if (arg0 == 4) {
-            this.anInt10374 = arg1.method7356();
+            this.anInt10374 = arg1.g2s();
         }
     }
 }

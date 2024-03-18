@@ -3038,7 +3038,7 @@ public final class Static472 {
                                                     local5005.aClass2_Sub21_Sub2_1.p1(0);
                                                     local27 = local5005.aClass2_Sub21_Sub2_1.pos;
                                                     local5005.aClass2_Sub21_Sub2_1.pjstr(local4911);
-                                                    local5005.aClass2_Sub21_Sub2_1.method7380(local5005.aClass2_Sub21_Sub2_1.pos - local27);
+                                                    local5005.aClass2_Sub21_Sub2_1.psize1(local5005.aClass2_Sub21_Sub2_1.pos - local27);
                                                     Static405.aClass153_1.method3275(local5005);
                                                     return;
                                                 }
@@ -3644,7 +3644,7 @@ public final class Static472 {
                     local375 = local366.aClass2_Sub21_Sub2_1.pos;
                     local366.aClass2_Sub21_Sub2_1.pjstr(local95);
                     Static523.method3446(local366.aClass2_Sub21_Sub2_1, local101);
-                    local366.aClass2_Sub21_Sub2_1.method7357(local366.aClass2_Sub21_Sub2_1.pos - local375);
+                    local366.aClass2_Sub21_Sub2_1.psize2(local366.aClass2_Sub21_Sub2_1.pos - local375);
                     local360.method3275(local366);
                     return;
                 }
@@ -3835,7 +3835,7 @@ public final class Static472 {
                 local63.aClass2_Sub21_Sub2_1.p1(0);
                 local63.aClass2_Sub21_Sub2_1.p2(aClass21_1.anInt521);
                 aClass21_1.aClass2_Sub2_Sub12_1.method3904(local63.aClass2_Sub21_Sub2_1, aClass21_1.anIntArray29);
-                local63.aClass2_Sub21_Sub2_1.method7380(local63.aClass2_Sub21_Sub2_1.pos - local109);
+                local63.aClass2_Sub21_Sub2_1.psize1(local63.aClass2_Sub21_Sub2_1.pos - local109);
                 local57.method3275(local63);
                 return;
             }
@@ -3848,7 +3848,7 @@ public final class Static472 {
                 local295.aClass2_Sub21_Sub2_1.pjstr(local95);
                 local295.aClass2_Sub21_Sub2_1.p2(aClass21_1.anInt521);
                 aClass21_1.aClass2_Sub2_Sub12_1.method3904(local295.aClass2_Sub21_Sub2_1, aClass21_1.anIntArray29);
-                local295.aClass2_Sub21_Sub2_1.method7380(local295.aClass2_Sub21_Sub2_1.pos - local115);
+                local295.aClass2_Sub21_Sub2_1.psize1(local295.aClass2_Sub21_Sub2_1.pos - local115);
                 local289.method3275(local295);
                 return;
             }
@@ -3860,7 +3860,7 @@ public final class Static472 {
                 local63.aClass2_Sub21_Sub2_1.p1(1);
                 local63.aClass2_Sub21_Sub2_1.p2(aClass21_1.anInt521);
                 aClass21_1.aClass2_Sub2_Sub12_1.method3904(local63.aClass2_Sub21_Sub2_1, aClass21_1.anIntArray29);
-                local63.aClass2_Sub21_Sub2_1.method7380(local63.aClass2_Sub21_Sub2_1.pos - local109);
+                local63.aClass2_Sub21_Sub2_1.psize1(local63.aClass2_Sub21_Sub2_1.pos - local109);
                 local57.method3275(local63);
                 return;
             }
@@ -3966,7 +3966,7 @@ public final class Static472 {
                 local63.aClass2_Sub21_Sub2_1.p1(2);
                 local63.aClass2_Sub21_Sub2_1.p2(aClass21_1.anInt521);
                 aClass21_1.aClass2_Sub2_Sub12_1.method3904(local63.aClass2_Sub21_Sub2_1, aClass21_1.anIntArray29);
-                local63.aClass2_Sub21_Sub2_1.method7380(local63.aClass2_Sub21_Sub2_1.pos - local109);
+                local63.aClass2_Sub21_Sub2_1.psize1(local63.aClass2_Sub21_Sub2_1.pos - local109);
                 local57.method3275(local63);
                 return;
             }
@@ -3978,7 +3978,7 @@ public final class Static472 {
                 local63.aClass2_Sub21_Sub2_1.p1(3);
                 local63.aClass2_Sub21_Sub2_1.p2(aClass21_1.anInt521);
                 aClass21_1.aClass2_Sub2_Sub12_1.method3904(local63.aClass2_Sub21_Sub2_1, aClass21_1.anIntArray29);
-                local63.aClass2_Sub21_Sub2_1.method7380(local63.aClass2_Sub21_Sub2_1.pos - local109);
+                local63.aClass2_Sub21_Sub2_1.psize1(local63.aClass2_Sub21_Sub2_1.pos - local109);
                 local57.method3275(local63);
                 return;
             }
@@ -6343,7 +6343,7 @@ public final class Static472 {
         local656.aClass2_Sub21_Sub2_1.p1(local20);
         local656.aClass2_Sub21_Sub2_1.p1(local460);
         Static523.method3446(local656.aClass2_Sub21_Sub2_1, arg0);
-        local656.aClass2_Sub21_Sub2_1.method7380(local656.aClass2_Sub21_Sub2_1.pos - local665);
+        local656.aClass2_Sub21_Sub2_1.psize1(local656.aClass2_Sub21_Sub2_1.pos - local665);
         local650.method3275(local656);
     }
 

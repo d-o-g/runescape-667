@@ -14,7 +14,7 @@ public final class Static590 {
     public static byte[] method7744(@OriginalArg(0) byte[] arg0) {
         @Pc(8) Packet local8 = new Packet(arg0);
         @Pc(18) int local18 = local8.g1();
-        @Pc(22) int local22 = local8.method7349();
+        @Pc(22) int local22 = local8.g4();
         if (local22 < 0 || Static112.anInt2222 != 0 && Static112.anInt2222 < local22) {
             throw new RuntimeException();
         } else if (local18 == 0) {
@@ -22,7 +22,7 @@ public final class Static590 {
             local8.gdata(0, local22, local98);
             return local98;
         } else {
-            @Pc(44) int local44 = local8.method7349();
+            @Pc(44) int local44 = local8.g4();
             if (local44 < 0 || Static112.anInt2222 != 0 && local44 > Static112.anInt2222) {
                 throw new RuntimeException();
             }

@@ -183,7 +183,7 @@ public final class Node_Sub8 extends Node {
             while (true) {
                 while (true) {
                     @Pc(603) int local603 = arg0.gVarInt();
-                    local533.method7395(local603);
+                    local533.pVarInt(local603);
                     @Pc(615) int local615 = arg0.data[local328++] & 0xFF;
                     @Pc(623) boolean local623 = local615 != local599;
                     local599 = local615 & 0xF;
@@ -193,7 +193,7 @@ public final class Node_Sub8 extends Node {
                         }
                         local533.p1(47);
                         local533.p1(0);
-                        local533.method7367(local533.pos - local597);
+                        local533.psize4(local533.pos - local597);
                         continue label220;
                     }
                     if (local615 == 23) {

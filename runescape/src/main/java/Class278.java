@@ -55,12 +55,12 @@ public final class Class278 {
         } else if (arg1 == 2) {
             arg0.g1();
         } else if (arg1 == 3) {
-            this.anInt6979 = arg0.method7349();
-            this.anInt6987 = arg0.method7349();
-            this.anInt6975 = arg0.method7349();
+            this.anInt6979 = arg0.g4();
+            this.anInt6987 = arg0.g4();
+            this.anInt6975 = arg0.g4();
         } else if (arg1 == 4) {
             this.anInt6985 = arg0.g1();
-            this.anInt6973 = arg0.method7349();
+            this.anInt6973 = arg0.g4();
         } else if (arg1 == 6) {
             this.anInt6982 = arg0.g1();
         } else if (arg1 == 8) {

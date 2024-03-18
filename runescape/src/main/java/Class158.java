@@ -556,7 +556,7 @@ public final class Class158 {
         for (@Pc(20) int local20 = 0; local20 < local7; local20++) {
             @Pc(25) int local25 = arg0.g1();
             if (local25 == 0) {
-                local18[local20] = Integer.valueOf(arg0.method7349());
+                local18[local20] = Integer.valueOf(arg0.g4());
             } else if (local25 == 1) {
                 local18[local20] = arg0.gjstr();
             }
@@ -600,8 +600,8 @@ public final class Class158 {
             this.aString40 = arg0.gjstr();
         }
         this.anInt3806 = arg0.g2();
-        this.anInt3826 = arg0.method7356();
-        this.anInt3808 = arg0.method7356();
+        this.anInt3826 = arg0.g2s();
+        this.anInt3808 = arg0.g2s();
         this.anInt3744 = arg0.g2();
         this.anInt3762 = arg0.g2();
         this.aByte63 = arg0.g1b();
@@ -628,17 +628,17 @@ public final class Class158 {
         }
         @Pc(191) int local191;
         if (this.anInt3820 == 5) {
-            this.anInt3810 = arg0.method7349();
+            this.anInt3810 = arg0.g4();
             this.anInt3765 = arg0.g2();
             local191 = arg0.g1();
             this.aBoolean301 = (local191 & 0x1) != 0;
             this.aBoolean292 = (local191 & 0x2) != 0;
             this.anInt3780 = arg0.g1();
             this.anInt3773 = arg0.g1();
-            this.anInt3798 = arg0.method7349();
+            this.anInt3798 = arg0.g4();
             this.aBoolean291 = arg0.g1() == 1;
             this.aBoolean293 = arg0.g1() == 1;
-            this.anInt3779 = arg0.method7349();
+            this.anInt3779 = arg0.g4();
             if (local7 >= 3) {
                 this.aBoolean295 = arg0.g1() == 1;
             }
@@ -655,20 +655,20 @@ public final class Class158 {
             this.aBoolean302 = (local191 & 0x2) == 2;
             this.aBoolean289 = (local191 & 0x8) == 8;
             if (local326) {
-                this.anInt3755 = arg0.method7356();
-                this.anInt3799 = arg0.method7356();
+                this.anInt3755 = arg0.g2s();
+                this.anInt3799 = arg0.g2s();
                 this.anInt3807 = arg0.g2();
                 this.anInt3811 = arg0.g2();
                 this.anInt3737 = arg0.g2();
                 this.anInt3793 = arg0.g2();
             } else if (this.aBoolean302) {
-                this.anInt3755 = arg0.method7356();
-                this.anInt3799 = arg0.method7356();
-                this.anInt3821 = arg0.method7356();
+                this.anInt3755 = arg0.g2s();
+                this.anInt3799 = arg0.g2s();
+                this.anInt3821 = arg0.g2s();
                 this.anInt3807 = arg0.g2();
                 this.anInt3811 = arg0.g2();
                 this.anInt3737 = arg0.g2();
-                this.anInt3793 = arg0.method7356();
+                this.anInt3793 = arg0.g2s();
             }
             this.anInt3789 = arg0.g2();
             if (this.anInt3789 == 65535) {
@@ -694,23 +694,23 @@ public final class Class158 {
             this.anInt3818 = arg0.g1();
             this.anInt3814 = arg0.g1();
             this.aBoolean286 = arg0.g1() == 1;
-            this.anInt3779 = arg0.method7349();
+            this.anInt3779 = arg0.g4();
             this.anInt3780 = arg0.g1();
             if (local7 >= 0) {
                 this.anInt3788 = arg0.g1();
             }
         }
         if (this.anInt3820 == 3) {
-            this.anInt3779 = arg0.method7349();
+            this.anInt3779 = arg0.g4();
             this.aBoolean294 = arg0.g1() == 1;
             this.anInt3780 = arg0.g1();
         }
         if (this.anInt3820 == 9) {
             this.anInt3778 = arg0.g1();
-            this.anInt3779 = arg0.method7349();
+            this.anInt3779 = arg0.g4();
             this.aBoolean287 = arg0.g1() == 1;
         }
-        local191 = arg0.method7383();
+        local191 = arg0.g3();
         @Pc(628) int local628 = arg0.g1();
         @Pc(653) int local653;
         if (local628 != 0) {
@@ -794,13 +794,13 @@ public final class Class158 {
             @Pc(929) int local929;
             @Pc(933) int local933;
             for (@Pc(924) int local924 = 0; local924 < local767; local924++) {
-                local929 = arg0.method7383();
-                local933 = arg0.method7349();
+                local929 = arg0.g3();
+                local933 = arg0.g4();
                 this.aHashTable_17.put((long) local929, new Node_Sub38(local933));
             }
             local929 = arg0.g1();
             for (local933 = 0; local933 < local929; local933++) {
-                @Pc(958) int local958 = arg0.method7383();
+                @Pc(958) int local958 = arg0.g3();
                 @Pc(962) String local962 = arg0.gjstr2();
                 this.aHashTable_17.put((long) local958, new Node_Sub24(local962));
             }
@@ -938,7 +938,7 @@ public final class Class158 {
         }
         @Pc(15) int[] local15 = new int[local7];
         for (@Pc(23) int local23 = 0; local23 < local7; local23++) {
-            local15[local23] = arg0.method7349();
+            local15[local23] = arg0.g4();
         }
         return local15;
     }

@@ -30,6 +30,6 @@ public final class Static150 {
 
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(BLclient!ge;)Lclient!hba;")
     public static Class154_Sub1 method2456(@OriginalArg(1) Packet arg0) {
-        return new Class154_Sub1(arg0.method7356(), arg0.method7356(), arg0.method7356(), arg0.method7356(), arg0.method7383(), arg0.method7383(), arg0.g1());
+        return new Class154_Sub1(arg0.g2s(), arg0.g2s(), arg0.g2s(), arg0.g2s(), arg0.g3(), arg0.g3(), arg0.g1());
     }
 }

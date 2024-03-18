@@ -182,7 +182,7 @@ public final class Class227 {
             this.anInt5837 = arg1.g2();
         } else if (arg0 == 16) {
             this.aByte96 = 3;
-            this.anInt5837 = arg1.method7349();
+            this.anInt5837 = arg1.g4();
         } else {
             @Pc(132) int local132;
             @Pc(142) int local142;

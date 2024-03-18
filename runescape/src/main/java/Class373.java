@@ -84,7 +84,7 @@ public final class Class373 {
                         local131 = arg2.aShortArrayArray6[local121++];
                         if (local131 != null) {
                             for (local135 = 0; local135 < local131.length; local135++) {
-                                local103.method7354(local131[local135] & 0xFFFF);
+                                local103.ip2(local131[local135] & 0xFFFF);
                             }
                         }
                     }

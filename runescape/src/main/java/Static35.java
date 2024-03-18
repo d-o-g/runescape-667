@@ -137,13 +137,13 @@ public final class Static35 {
         @Pc(7) int local7 = arg0.g1();
         @Pc(16) Class403 local16 = Static33.method882()[arg0.g1()];
         @Pc(25) Class103 local25 = Static313.method4544()[arg0.g1()];
-        @Pc(29) int local29 = arg0.method7356();
-        @Pc(33) int local33 = arg0.method7356();
+        @Pc(29) int local29 = arg0.g2s();
+        @Pc(33) int local33 = arg0.g2s();
         @Pc(39) int local39 = arg0.g2();
         @Pc(43) int local43 = arg0.g2();
-        @Pc(49) int local49 = arg0.method7349();
-        @Pc(53) int local53 = arg0.method7349();
-        @Pc(59) int local59 = arg0.method7349();
+        @Pc(49) int local49 = arg0.g4();
+        @Pc(53) int local53 = arg0.g4();
+        @Pc(59) int local59 = arg0.g4();
         @Pc(69) boolean local69 = arg0.g1() == 1;
         return new Class235(local7, local16, local25, local29, local33, local39, local43, local49, local53, local59, local69);
     }

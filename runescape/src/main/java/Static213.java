@@ -26,7 +26,7 @@ public final class Static213 {
         @Pc(12) int local12 = -1;
         label54:
         while (true) {
-            @Pc(16) int local16 = local10.method7345();
+            @Pc(16) int local16 = local10.gExtended1or2();
             if (local16 == 0) {
                 return local5;
             }

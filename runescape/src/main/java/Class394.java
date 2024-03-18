@@ -25,7 +25,7 @@ public final class Class394 {
 
     @OriginalMember(owner = "client!w", name = "<init>", descriptor = "(Lclient!ge;)V")
     public Class394(@OriginalArg(0) Packet arg0) {
-        this.anInt10421 = arg0.method7346();
+        this.anInt10421 = arg0.gSmart2or4null();
         this.anInt10415 = arg0.g1();
     }
 

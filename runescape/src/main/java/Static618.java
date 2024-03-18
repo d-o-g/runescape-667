@@ -36,7 +36,7 @@ public final class Static618 {
         }
         for (@Pc(80) int local80 = 0; local80 < local62; local80++) {
             @Pc(86) int local86 = arg0.g2();
-            @Pc(90) int local90 = arg0.method7349();
+            @Pc(90) int local90 = arg0.g4();
             if (local86 < Static511.anIntArray614.length && Static118.aBooleanArray4[local86] && (Static691.aClass210_1.method4947(local86).aChar5 != '1' || local90 >= -1 && local90 <= 1)) {
                 Static511.anIntArray614[local86] = local90;
             }

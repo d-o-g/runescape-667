@@ -46,19 +46,19 @@ public final class Class10 {
         } else if (arg0 == 2) {
             this.aBoolean10 = true;
         } else if (arg0 == 3) {
-            this.anInt125 = arg1.method7356();
-            this.anInt130 = arg1.method7356();
-            this.anInt132 = arg1.method7356();
+            this.anInt125 = arg1.g2s();
+            this.anInt130 = arg1.g2s();
+            this.anInt132 = arg1.g2s();
         } else if (arg0 == 4) {
             this.anInt129 = arg1.g1();
         } else if (arg0 == 5) {
             this.anInt124 = arg1.g2();
         } else if (arg0 == 6) {
-            this.anInt131 = arg1.method7383();
+            this.anInt131 = arg1.g3();
         } else if (arg0 == 7) {
-            this.anInt128 = arg1.method7356();
-            this.anInt133 = arg1.method7356();
-            this.anInt126 = arg1.method7356();
+            this.anInt128 = arg1.g2s();
+            this.anInt133 = arg1.g2s();
+            this.anInt126 = arg1.g2s();
         }
     }
 

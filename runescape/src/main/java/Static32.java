@@ -214,8 +214,8 @@ public final class Static32 {
         if (arg2 == 1) {
             local11 = Static293.method4335(Static632.aClass345_111, Static405.aClass153_2.aClass186_1);
         }
-        local11.aClass2_Sub21_Sub2_1.method7370(arg0 + Static691.anInt10367);
-        local11.aClass2_Sub21_Sub2_1.method7370(Static116.anInt2270 + arg1);
+        local11.aClass2_Sub21_Sub2_1.p2_alt3(arg0 + Static691.anInt10367);
+        local11.aClass2_Sub21_Sub2_1.p2_alt3(Static116.anInt2270 + arg1);
         local11.aClass2_Sub21_Sub2_1.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
         Static266.aBoolean583 = false;
         Static675.anInt10156 = arg0;

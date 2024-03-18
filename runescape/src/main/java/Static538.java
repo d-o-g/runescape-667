@@ -47,7 +47,7 @@ public final class Static538 {
             @Pc(117) boolean local117;
             if ((local35 & 0x100000) != 0) {
                 local73 = local15.g2();
-                local77 = local15.method7349();
+                local77 = local15.g4();
                 if (local73 == 65535) {
                     local73 = -1;
                 }
@@ -61,14 +61,14 @@ public final class Static538 {
                 local31.method9309(2, local90, local117, local77, local96, local73);
             }
             if ((local35 & 0x1) != 0) {
-                local31.anInt10722 = local15.method7372();
+                local31.anInt10722 = local15.ig2();
                 if (local31.anInt10722 == 65535) {
                     local31.anInt10722 = -1;
                 }
             }
             if ((local35 & 0x20000) != 0) {
                 local73 = local15.g2();
-                local77 = local15.method7349();
+                local77 = local15.g4();
                 if (local73 == 65535) {
                     local73 = -1;
                 }
@@ -109,7 +109,7 @@ public final class Static538 {
                 }
             }
             if ((local35 & 0x100) != 0) {
-                local73 = local15.method7387();
+                local73 = local15.g2_alt2();
                 local31.anInt10738 = local15.g1_alt2();
                 local31.anInt10731 = local15.g1_alt2();
                 local31.anInt10737 = local73 & 0x7FFF;
@@ -126,7 +126,7 @@ public final class Static538 {
                 if (local31.aClass268_1.method5984()) {
                     Static58.method1259(local31);
                 }
-                local31.method9328(Static690.aClass308_2.method7092(local15.method7372()));
+                local31.method9328(Static690.aClass308_2.method7092(local15.ig2()));
                 local31.method9310(local31.aClass268_1.anInt6713);
                 local31.anInt10757 = local31.aClass268_1.lb << 3;
                 if (local31.aClass268_1.method5984()) {
@@ -137,11 +137,11 @@ public final class Static538 {
                 local31.method9327(local15.gjstr());
             }
             if ((local35 & 0x8) != 0) {
-                local31.anInt10774 = local15.method7372();
-                local31.anInt10767 = local15.method7372();
+                local31.anInt10774 = local15.ig2();
+                local31.anInt10767 = local15.ig2();
             }
             if ((local35 & 0x80000) != 0) {
-                local31.anInt10791 = local15.method7372();
+                local31.anInt10791 = local15.ig2();
                 if (local31.anInt10791 == 65535) {
                     local31.anInt10791 = local31.aClass268_1.anInt6727;
                 }
@@ -155,7 +155,7 @@ public final class Static538 {
                 for (local90 = 0; local90 < local73; local90++) {
                     local96 = local15.g2();
                     if ((local96 & 0xC000) == 49152) {
-                        local240 = local15.method7387();
+                        local240 = local15.g2_alt2();
                         local511[local90] = local240 | local96 << 16;
                     } else {
                         local511[local90] = local96;
@@ -183,14 +183,14 @@ public final class Static538 {
                     if ((local90 & 0x2) == 2) {
                         local608 = new int[local73];
                         for (local240 = 0; local240 < local73; local240++) {
-                            local608[local240] = local15.method7406();
+                            local608[local240] = local15.g2_alt3();
                         }
                     }
                     local636 = null;
                     if ((local90 & 0x4) == 4) {
                         local636 = new short[local77];
                         for (local280 = 0; local280 < local77; local280++) {
-                            local636[local280] = (short) local15.method7387();
+                            local636[local280] = (short) local15.g2_alt2();
                         }
                     }
                     local665 = null;
@@ -210,7 +210,7 @@ public final class Static538 {
                 local31.anInt10761 = local15.g1b_alt2();
                 local31.anInt10758 = local15.g1b_alt2();
                 local31.anInt10759 = local15.g2() + Static333.anInt5455;
-                local31.anInt10755 = local15.method7406() + Static333.anInt5455;
+                local31.anInt10755 = local15.g2_alt3() + Static333.anInt5455;
                 local31.anInt10754 = local15.g1_alt3();
                 local31.anInt10758 += local31.anIntArray878[0];
                 local31.anInt10764 = 1;
@@ -262,7 +262,7 @@ public final class Static538 {
                     if ((local90 & 0x8) == 8) {
                         local665 = new short[local86];
                         for (local284 = 0; local284 < local86; local284++) {
-                            local665[local284] = (short) local15.method7406();
+                            local665[local284] = (short) local15.g2_alt3();
                         }
                     }
                     local708 = (long) local23 | (long) local31.anInt10790++ << 32;
@@ -275,7 +275,7 @@ public final class Static538 {
                 local514 = new int[local73];
                 @Pc(1031) int[] local1031 = new int[local73];
                 for (local96 = 0; local96 < local73; local96++) {
-                    local240 = local15.method7372();
+                    local240 = local15.ig2();
                     if (local240 == 65535) {
                         local240 = -1;
                     }
@@ -286,8 +286,8 @@ public final class Static538 {
                 Static310.method4505(local1031, local511, local514, local31);
             }
             if ((local35 & 0x1000) != 0) {
-                local73 = local15.method7387();
-                local77 = local15.method7349();
+                local73 = local15.g2_alt2();
+                local77 = local15.g4();
                 if (local73 == 65535) {
                     local73 = -1;
                 }
@@ -301,8 +301,8 @@ public final class Static538 {
                 local31.method9309(1, local90, local117, local77, local96, local73);
             }
             if ((local35 & 0x4) != 0) {
-                local73 = local15.method7372();
-                local77 = local15.method7371();
+                local73 = local15.ig2();
+                local77 = local15.g4_alt3();
                 if (local73 == 65535) {
                     local73 = -1;
                 }
@@ -320,7 +320,7 @@ public final class Static538 {
                 local31.aByte147 = local15.g1b_alt3();
                 local31.aByte148 = local15.g1b();
                 local31.aByte149 = (byte) local15.g1_alt3();
-                local31.anInt10760 = Static333.anInt5455 + local15.method7372();
+                local31.anInt10760 = Static333.anInt5455 + local15.ig2();
                 local31.anInt10752 = Static333.anInt5455 + local15.g2();
             }
         }

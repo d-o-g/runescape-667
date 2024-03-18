@@ -767,13 +767,13 @@ public final class Class88 {
                     if (this.anInt2379 < 14) {
                         this.anIntArray207[local882] = local18.g2();
                     } else {
-                        this.anIntArray207[local882] = local18.method7383();
+                        this.anIntArray207[local882] = local18.g3();
                     }
                     this.anIntArray208[local882] = local18.g2();
                 } else {
-                    this.anIntArray211[local882] = local18.method7383();
-                    this.anIntArray207[local882] = local18.method7383();
-                    this.anIntArray208[local882] = local18.method7383();
+                    this.anIntArray211[local882] = local18.g3();
+                    this.anIntArray207[local882] = local18.g3();
+                    this.anIntArray208[local882] = local18.g3();
                 }
                 this.aByteArray27[local882] = local23.g1b();
                 this.aByteArray23[local882] = local28.g1b();
@@ -786,15 +786,15 @@ public final class Class88 {
                 if (this.anInt2379 < 15) {
                     this.anIntArray211[local882] = local18.g2();
                     if (this.anInt2379 >= 14) {
-                        this.anIntArray207[local882] = local18.method7383();
+                        this.anIntArray207[local882] = local18.g3();
                     } else {
                         this.anIntArray207[local882] = local18.g2();
                     }
                     this.anIntArray208[local882] = local18.g2();
                 } else {
-                    this.anIntArray211[local882] = local18.method7383();
-                    this.anIntArray207[local882] = local18.method7383();
-                    this.anIntArray208[local882] = local18.method7383();
+                    this.anIntArray211[local882] = local18.g3();
+                    this.anIntArray207[local882] = local18.g3();
+                    this.anIntArray208[local882] = local18.g3();
                 }
                 this.aByteArray27[local882] = local23.g1b();
                 this.aByteArray23[local882] = local28.g1b();
@@ -811,13 +811,13 @@ public final class Class88 {
                     if (this.anInt2379 < 14) {
                         this.anIntArray207[local882] = local18.g2();
                     } else {
-                        this.anIntArray207[local882] = local18.method7383();
+                        this.anIntArray207[local882] = local18.g3();
                     }
                     this.anIntArray208[local882] = local18.g2();
                 } else {
-                    this.anIntArray211[local882] = local18.method7383();
-                    this.anIntArray207[local882] = local18.method7383();
-                    this.anIntArray208[local882] = local18.method7383();
+                    this.anIntArray211[local882] = local18.g3();
+                    this.anIntArray207[local882] = local18.g3();
+                    this.anIntArray208[local882] = local18.g3();
                 }
                 this.aByteArray27[local882] = local23.g1b();
                 this.aByteArray23[local882] = local28.g1b();

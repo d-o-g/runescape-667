@@ -15,7 +15,7 @@ public final class Node_Sub30_Sub3 extends Node_Sub30 {
         arg0.g1();
         if (arg0.g1() != 255) {
             arg0.pos--;
-            arg0.method7398();
+            arg0.g8();
         }
     }
 

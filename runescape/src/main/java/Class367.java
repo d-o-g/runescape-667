@@ -71,9 +71,9 @@ public final class Class367 {
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(Lclient!ge;I)V")
     public void method8384(@OriginalArg(0) Packet arg0) {
         @Pc(17) int local17 = arg0.g2();
-        @Pc(21) int local21 = arg0.method7356();
-        @Pc(25) int local25 = arg0.method7356();
-        @Pc(29) int local29 = arg0.method7356();
+        @Pc(21) int local21 = arg0.g2s();
+        @Pc(25) int local25 = arg0.g2s();
+        @Pc(29) int local29 = arg0.g2s();
         @Pc(33) int local33 = arg0.g2();
         Static436.anInt3852 = local33;
         this.aClass148_5 = Static344.method5047(local25, local17, local21, local29);
@@ -93,7 +93,7 @@ public final class Class367 {
             if ((local7 & 0x1) == 0) {
                 this.anInt9537 = Static68.anInt4096;
             } else {
-                this.anInt9537 = arg0.method7349();
+                this.anInt9537 = arg0.g4();
             }
             if ((local7 & 0x2) == 0) {
                 this.aFloat204 = 1.1523438F;
@@ -112,7 +112,7 @@ public final class Class367 {
             }
         } else {
             if ((local7 & 0x1) != 0) {
-                arg0.method7349();
+                arg0.g4();
             }
             if ((local7 & 0x2) != 0) {
                 arg0.g2();
@@ -133,14 +133,14 @@ public final class Class367 {
             this.anInt9534 = -50;
             this.anInt9533 = -60;
         } else {
-            this.anInt9535 = arg0.method7356();
-            this.anInt9533 = arg0.method7356();
-            this.anInt9534 = arg0.method7356();
+            this.anInt9535 = arg0.g2s();
+            this.anInt9533 = arg0.g2s();
+            this.anInt9534 = arg0.g2s();
         }
         if ((local7 & 0x20) == 0) {
             this.anInt9538 = Static563.anInt8460;
         } else {
-            this.anInt9538 = arg0.method7349();
+            this.anInt9538 = arg0.g4();
         }
         if ((local7 & 0x40) == 0) {
             this.anInt9539 = 0;

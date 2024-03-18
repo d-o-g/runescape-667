@@ -25,7 +25,7 @@ public final class Node_Sub14_Sub7 extends Node_Sub14 {
     public void method8615(@OriginalArg(1) Packet arg0) {
         if (arg0.g1() != 255) {
             arg0.pos--;
-            this.aLong176 = arg0.method7398();
+            this.aLong176 = arg0.g8();
         }
         this.aString57 = arg0.fastgstr();
         this.anInt5770 = arg0.g2();

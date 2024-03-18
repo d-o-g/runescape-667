@@ -58,15 +58,15 @@ public final class Node_Sub28_Sub4 extends Node_Sub28 {
         @Pc(35) int local35 = local31.g1();
         if (super.anInt9753 > 8) {
             if (local35 == 0) {
-                @Pc(47) long local47 = local31.method7359();
-                @Pc(51) long local51 = local31.method7359();
-                @Pc(55) long local55 = local31.method7359();
+                @Pc(47) long local47 = local31.ig8();
+                @Pc(51) long local51 = local31.ig8();
+                @Pc(55) long local55 = local31.ig8();
                 if (local47 < 0L || local51 < 0L || local55 < 0L || local47 < local55) {
                     throw new IllegalStateException();
                 }
                 this.aFloat211 = (float) ((long) this.anInt9757 * (local47 + local51)) / (float) this.anInt9764;
                 this.aFloat212 = (float) ((long) this.anInt9757 * local47) / (float) this.anInt9764;
-                @Pc(121) int local121 = local31.method7351();
+                @Pc(121) int local121 = local31.ig4();
                 if (local121 < 0 || local31.data.length - local31.pos < local121) {
                     throw new IllegalStateException();
                 }
@@ -84,8 +84,8 @@ public final class Node_Sub28_Sub4 extends Node_Sub28 {
             return;
         }
         local31.pos += 23;
-        this.anInt9764 = local31.method7351();
-        this.anInt9757 = local31.method7351();
+        this.anInt9764 = local31.ig4();
+        this.anInt9757 = local31.ig4();
         if (this.anInt9764 == 0 || this.anInt9757 == 0) {
             throw new IllegalStateException();
         }

@@ -26,7 +26,7 @@ public final class Class236 {
         this.anInt5985 = arg1;
         @Pc(19) int local19 = arg0.g1();
         if (local19 == 0) {
-            this.anInt5980 = arg0.method7346();
+            this.anInt5980 = arg0.gSmart2or4null();
         } else if (local19 == 1) {
             this.anInt5980 = -1;
         } else {

@@ -50,7 +50,7 @@ public final class Class39_Sub23 extends Class39 {
         super(arg0);
         @Pc(10) int local10;
         if (arg1 == 0) {
-            local10 = arg0.method7349();
+            local10 = arg0.g4();
             this.anInt9972 = local10 & 0xFFFF;
             this.anInt9982 = -1;
             this.anInt9980 = local10 >>> 16;
@@ -60,7 +60,7 @@ public final class Class39_Sub23 extends Class39 {
             this.anInt9982 = arg0.g2();
         }
         if (arg2 == 0) {
-            local10 = arg0.method7349();
+            local10 = arg0.g4();
             this.anInt9985 = local10 >>> 16;
             this.anInt9989 = -1;
             this.anInt9973 = local10 & 0xFFFF;
@@ -77,7 +77,7 @@ public final class Class39_Sub23 extends Class39 {
         this.anInt9976 = arg0.g2();
         this.anInt9974 = arg0.g1();
         this.anInt9988 = arg0.g1();
-        this.anInt9978 = arg0.method7383();
+        this.anInt9978 = arg0.g3();
         this.anInt9977 = arg0.g2();
         this.anInt9979 = arg0.g1();
     }

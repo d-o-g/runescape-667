@@ -26,7 +26,7 @@ public final class Static664 {
             local8.method7342((int) (Math.random() * 9.9999999E7D));
         }
         local8.method7373((int) (Math.random() * 9.9999999E7D));
-        local8.method7385(Static374.aBigInteger2, Static262.aBigInteger1);
+        local8.method7385(Static374.LOGIN_RSA_MODULUS, Static262.LOGIN_RSA_EXPONENT);
         arg0.aClass2_Sub21_Sub2_1.method7386(local8.anInt8388, local8.aByteArray93, 0);
         return local11;
     }

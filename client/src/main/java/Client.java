@@ -4,8 +4,11 @@ import java.applet.AppletStub;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +16,7 @@ public final class Client implements AppletStub {
 	private static final Dimension MINIMUM_SIZE = new Dimension(765, 503);
 	private static final Dimension PREFERRED_SIZE = new Dimension(1024, 768);
 
-	public static void main(String[] args) throws MalformedURLException {
+	public static void main(String[] args) throws IOException {
 		try {
 			System.loadLibrary("jawt");
 		} catch (Throwable t) {
@@ -24,6 +27,15 @@ public final class Client implements AppletStub {
 				t.printStackTrace();
 			}
 		}
+
+        Path keyPairPath = Paths.get(args[0]);
+        System.out.println("Reading public key from: " + keyPairPath);
+
+        RsaKeyPair keyPair = RsaKeyPair.read(keyPairPath);
+        Static262.LOGIN_RSA_EXPONENT = keyPair.getExponent();
+        Static374.LOGIN_RSA_MODULUS = keyPair.getModulus();
+        Static442.JS5_RSA_EXPONENT = keyPair.getExponent();
+        Static670.JS5_RSA_MODULUS = keyPair.getModulus();
 
 		Client client = new Client();
 		client.start();

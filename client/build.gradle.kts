@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     implementation(project(":runescape"))
+    implementation(libs.bouncycastle.bcpkix)
 }
 
 java {

@@ -6,7 +6,7 @@ import java.math.BigInteger;
 public final class Static262 {
 
     @OriginalMember(owner = "client!ica", name = "j", descriptor = "Ljava/math/BigInteger;")
-    public static final BigInteger aBigInteger1 = new BigInteger("10001", 16);
+    public static BigInteger LOGIN_RSA_EXPONENT = new BigInteger("10001", 16);
 
     @OriginalMember(owner = "client!ica", name = "m", descriptor = "Lclient!sb;")
     public static Class330 aClass330_56;

@@ -5,7 +5,7 @@ import java.math.BigInteger;
 public final class Static442 {
 
     @OriginalMember(owner = "client!nv", name = "p", descriptor = "Ljava/math/BigInteger;")
-    public static final BigInteger aBigInteger5 = new BigInteger("10001", 16);
+    public static BigInteger JS5_RSA_EXPONENT = new BigInteger("10001", 16);
 
     @OriginalMember(owner = "client!nv", name = "a", descriptor = "Lclient!sb;")
     public static Class330 aClass330_90;

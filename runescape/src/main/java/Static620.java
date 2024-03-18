@@ -95,7 +95,7 @@ public final class Static620 {
                 arg3.method7965(local34[local34.length - 2], local34[local34.length - 1], local34[0], local34[1], local10.anIntArray229[local10.aByteArray31[local10.aByteArray31.length - 1] & 0xFF], arg2, arg1, arg5);
             }
         }
-        @Pc(517) Class23 local517 = null;
+        @Pc(517) Sprite local517 = null;
         if (local10.anInt2596 != -1) {
             local517 = local10.method2431(false, arg3);
             if (local517 != null) {

@@ -546,7 +546,8 @@ public final class ObjType {
         if (scaled) {
             model.O(this.resizex, this.resizey, this.resizez);
         }
-        @Pc(272) Class23 local272 = null;
+
+        @Pc(272) Sprite local272 = null;
         if (this.certtemplate != -1) {
             local272 = this.myList.method2478(1, scratchToolkit, arg1, appearance, true, 0, 10, true, 0, arg7, this.certlink);
             if (local272 == null) {

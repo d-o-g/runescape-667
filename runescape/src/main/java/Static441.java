@@ -8,7 +8,7 @@ public final class Static441 {
     public static int anInt6689;
 
     @OriginalMember(owner = "client!nu", name = "d", descriptor = "[Lclient!st;")
-    public static Class23[] aClass23Array10;
+    public static Sprite[] aSpriteArray10;
 
     @OriginalMember(owner = "client!nu", name = "g", descriptor = "I")
     public static int anInt6691;

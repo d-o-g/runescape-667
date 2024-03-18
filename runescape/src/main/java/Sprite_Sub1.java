@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qc")
-public abstract class Class23_Sub1 extends Class23 {
+public abstract class Sprite_Sub1 extends Sprite {
 
     @OriginalMember(owner = "client!qc", name = "j", descriptor = "I")
     protected int anInt9294;
@@ -31,7 +31,7 @@ public abstract class Class23_Sub1 extends Class23 {
     public final int anInt9306;
 
     @OriginalMember(owner = "client!qc", name = "<init>", descriptor = "(Lclient!iaa;II)V")
-    public Class23_Sub1(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public Sprite_Sub1(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aClass19_Sub2_10 = arg0;
         this.anInt9302 = arg1;
         this.anInt9306 = arg2;

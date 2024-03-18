@@ -947,7 +947,7 @@ public final class Static293 {
                                                     @Pc(3721) Class254 local3721 = new Class254();
                                                     local3721.anInt6363 = local526;
                                                     local3721.anInt6367 = local11.g1();
-                                                    if (local3721.anInt6367 >= 0 && local3721.anInt6367 < Static28.aClass23Array1.length) {
+                                                    if (local3721.anInt6367 >= 0 && local3721.anInt6367 < Static28.aSpriteArray1.length) {
                                                         if (local3721.anInt6363 == 1 || local3721.anInt6363 == 10) {
                                                             local3721.anInt6366 = local11.g2();
                                                             local3721.anInt6360 = local11.g2();

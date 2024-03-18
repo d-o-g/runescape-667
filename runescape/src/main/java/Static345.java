@@ -8,10 +8,10 @@ public final class Static345 {
     public static Model aModel_6;
 
     @OriginalMember(owner = "client!ks", name = "j", descriptor = "Lclient!st;")
-    public static Class23 aClass23_23;
+    public static Sprite aSprite;
 
     @OriginalMember(owner = "client!ks", name = "o", descriptor = "Lclient!st;")
-    public static Class23 aClass23_25;
+    public static Sprite aSprite_25;
 
     @OriginalMember(owner = "client!ks", name = "h", descriptor = "[I")
     public static final int[] anIntArray418 = new int[4];
@@ -19,7 +19,7 @@ public final class Static345 {
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "()V")
     public static void method5049() {
         aModel_6 = null;
-        aClass23_25 = null;
+        aSprite_25 = null;
     }
 
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "(Lclient!ha;)V")
@@ -70,7 +70,7 @@ public final class Static345 {
 
     @OriginalMember(owner = "client!ks", name = "b", descriptor = "(Lclient!ha;)V")
     public static void method5058(@OriginalArg(0) Class19 arg0) {
-        if (aClass23_25 != null) {
+        if (aSprite_25 != null) {
             return;
         }
         @Pc(4) int[] local4 = new int[16384];
@@ -97,7 +97,7 @@ public final class Static345 {
                 local4[local28 + local34] = local4[local28 + local49] = local4[local32 + local34] = local4[local32 + local49] = 127 - local81 << 24 | 0xFFFFFF;
             }
         }
-        aClass23_25 = arg0.method7946(128, 128, 128, local7);
-        aClass23_23 = arg0.method7946(128, 128, 128, local4);
+        aSprite_25 = arg0.method7946(128, 128, 128, local7);
+        aSprite = arg0.method7946(128, 128, 128, local4);
     }
 }

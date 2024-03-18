@@ -8,7 +8,7 @@ public final class Static63 {
     public static int anInt1474;
 
     @OriginalMember(owner = "client!caa", name = "b", descriptor = "Lclient!st;")
-    public static Class23 aClass23_8;
+    public static Sprite aSprite_8;
 
     @OriginalMember(owner = "client!caa", name = "a", descriptor = "(IIII)V")
     public static void method1427(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {

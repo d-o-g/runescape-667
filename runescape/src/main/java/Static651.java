@@ -14,7 +14,7 @@ public final class Static651 {
     public static final Class225 aClass225_235 = new Class225(43, -2);
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(BILclient!ha;)Lclient!st;")
-    public static Class23 method8512(@OriginalArg(1) int arg0, @OriginalArg(2) Class19 arg1) {
+    public static Sprite method8512(@OriginalArg(1) int arg0, @OriginalArg(2) Class19 arg1) {
         @Pc(18) Node_Sub5 local18 = (Node_Sub5) Static106.A_HASH_TABLE___11.get((long) arg0);
         if (local18 != null) {
             @Pc(25) Node_Sub28_Sub3 local25 = local18.aClass222_Sub1_1.method9187();

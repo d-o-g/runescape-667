@@ -11,7 +11,7 @@ public final class Static244 {
 
     @OriginalMember(owner = "client!hk", name = "a", descriptor = "(I)V")
     public static void method3512() {
-        Static12.aClass23_26 = null;
+        Static12.aSprite_26 = null;
         Static643.anInt9604 = -1;
     }
 

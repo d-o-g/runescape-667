@@ -4,10 +4,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!st")
-public abstract class Class23 implements Interface6 {
+public abstract class Sprite implements Interface6 {
 
     @OriginalMember(owner = "client!st", name = "<init>", descriptor = "()V")
-    protected Class23() {
+    protected Sprite() {
     }
 
     @OriginalMember(owner = "client!st", name = "d", descriptor = "()I")

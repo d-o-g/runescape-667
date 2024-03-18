@@ -104,7 +104,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "([IIIIIZ)Lclient!st;")
     @Override
-    public Class23 method7958(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
+    public Sprite method7958(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
         return new j(this, arg0, 0, arg1, arg2, arg3, false);
     }
 
@@ -212,11 +212,11 @@ public final class oa extends Class19 implements Interface5 {
             if (local9) {
                 throw new IllegalArgumentException("Cannot specify alpha with non-mono font unless someone writes it");
             }
-            return new h(this, this.aYa2, arg0, arg1, (Class23[]) null);
+            return new h(this, this.aYa2, arg0, arg1, (Sprite[]) null);
         } else if (local9) {
             throw new IllegalArgumentException("Cannot specify alpha with non-mono font unless someone writes it");
         } else {
-            return new n(this, this.aYa2, arg0, arg1, (Class23[]) null);
+            return new n(this, this.aYa2, arg0, arg1, (Sprite[]) null);
         }
     }
 
@@ -522,7 +522,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     @Override
-    public Class23 method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         return new j(this, arg0, arg1, arg2, arg3, !arg4);
     }
 
@@ -542,7 +542,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public Class23 method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+    public Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
         return new j(this, arg0, arg1);
     }
 
@@ -724,7 +724,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public Class23 method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
+    public Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
         @Pc(17) j local17 = new j(this, arg0.anIntArray882, arg0.aByteArray114, arg0.aByteArray115, 0, arg0.anInt10847, arg0.anInt10847, arg0.anInt10850);
         local17.method8184(arg0.anInt10852, arg0.anInt10848, arg0.anInt10851, arg0.anInt10849);
         return local17;

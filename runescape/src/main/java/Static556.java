@@ -88,10 +88,10 @@ public final class Static556 {
             if (local232 == null) {
                 local232 = Static180.aClass14_3;
             }
-            local232.method8836(Static329.anIntArray163, Static605.aClass158_15.anInt3818, Static605.aClass158_15.anInt3802, Static460.anIntArray554, Static605.aClass158_15.anInt3779, Static605.aClass158_15.anInt3746, Static493.aRandom1, local63, Static366.anInt5852, Static605.aClass158_15.anInt3798, Static186.aClass23Array5, Static178.anInt2947, Static157.anInt2777, Static605.aClass158_15.anInt3814);
+            local232.method8836(Static329.anIntArray163, Static605.aClass158_15.anInt3818, Static605.aClass158_15.anInt3802, Static460.anIntArray554, Static605.aClass158_15.anInt3779, Static605.aClass158_15.anInt3746, Static493.aRandom1, local63, Static366.anInt5852, Static605.aClass158_15.anInt3798, Static186.aSpriteArray5, Static178.anInt2947, Static157.anInt2777, Static605.aClass158_15.anInt3814);
             Static585.method7670(Static329.anIntArray163[2], Static329.anIntArray163[0], Static329.anIntArray163[3], Static329.anIntArray163[1]);
         } else if (Static71.aClass158_2 != null && Static392.aClass377_4 == Static673.aClass377_8) {
-            @Pc(299) int local299 = Static180.aClass14_3.method8816(Static186.aClass23Array5, Static178.anInt2947, Static192.anInt3123 + 16, local63, Static460.anIntArray554, Static493.aRandom1, Static725.anInt10936 + 4);
+            @Pc(299) int local299 = Static180.aClass14_3.method8816(Static186.aSpriteArray5, Static178.anInt2947, Static192.anInt3123 + 16, local63, Static460.anIntArray554, Static493.aRandom1, Static725.anInt10936 + 4);
             Static585.method7670(local299 + Static42.aClass381_4.method8744(local63), Static725.anInt10936 - -4, 16, Static192.anInt3123);
         }
     }

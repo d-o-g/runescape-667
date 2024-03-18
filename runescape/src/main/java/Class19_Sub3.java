@@ -42,7 +42,7 @@ public final class Class19_Sub3 extends Class19 {
     public Interface14 anInterface14_1;
 
     @OriginalMember(owner = "client!qha", name = "u", descriptor = "Lclient!mb;")
-    public Class23_Sub2 aClass23_Sub2_1;
+    public Sprite_Sub2 aClass23_Sub2_1;
 
     @OriginalMember(owner = "client!qha", name = "Lc", descriptor = "Lclient!jf;")
     public Interface14 anInterface14_2;
@@ -968,14 +968,14 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public Class23 method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
-        return new Class23_Sub2(this, arg0, arg1, arg2);
+    public Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+        return new Sprite_Sub2(this, arg0, arg1, arg2);
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     @Override
-    public Class23 method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
-        return new Class23_Sub2(this, arg0, arg1, arg2, arg3);
+    public Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+        return new Sprite_Sub2(this, arg0, arg1, arg2, arg3);
     }
 
     @OriginalMember(owner = "client!qha", name = "c", descriptor = "(IZ)I")
@@ -1242,7 +1242,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public Class23 method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
+    public Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
         @Pc(12) int[] local12 = new int[arg0.anInt10850 * arg0.anInt10847];
         @Pc(14) int local14 = 0;
         @Pc(16) int local16 = 0;
@@ -1263,7 +1263,7 @@ public final class Class19_Sub3 extends Class19 {
                 }
             }
         }
-        @Pc(127) Class23 local127 = this.method7946(arg0.anInt10847, arg0.anInt10847, arg0.anInt10850, local12);
+        @Pc(127) Sprite local127 = this.method7946(arg0.anInt10847, arg0.anInt10847, arg0.anInt10850, local12);
         local127.method8184(arg0.anInt10852, arg0.anInt10848, arg0.anInt10851, arg0.anInt10849);
         return local127;
     }
@@ -2286,8 +2286,8 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "([IIIIIZ)Lclient!st;")
     @Override
-    public Class23 method7958(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
-        return new Class23_Sub2(this, arg2, arg3, arg0, 0, arg1);
+    public Sprite method7958(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
+        return new Sprite_Sub2(this, arg2, arg3, arg0, 0, arg1);
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!pu;Lclient!pu;FLclient!pu;)Lclient!pu;")

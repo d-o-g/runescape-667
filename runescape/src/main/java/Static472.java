@@ -2684,7 +2684,7 @@ public final class Static472 {
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
                                                 local10482 = Static74.method1535(local27, Static697.aClass330_123);
-                                                anIntArray578[anInt7142++] = local10482.method8739(local4911, Static679.aClass23Array14, local21);
+                                                anIntArray578[anInt7142++] = local10482.method8739(local4911, Static679.aSpriteArray14, local21);
                                                 return;
                                             }
                                             if (arg0 == 4109) {
@@ -2693,7 +2693,7 @@ public final class Static472 {
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
                                                 local10482 = Static74.method1535(local27, Static697.aClass330_123);
-                                                anIntArray578[anInt7142++] = local10482.method8741(Static679.aClass23Array14, local4911, local21);
+                                                anIntArray578[anInt7142++] = local10482.method8741(Static679.aSpriteArray14, local4911, local21);
                                                 return;
                                             }
                                             if (arg0 == 4110) {
@@ -2811,7 +2811,7 @@ public final class Static472 {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 local21 = anIntArray578[--anInt7142];
                                                 @Pc(11077) Class381 local11077 = Static74.method1535(local21, Static697.aClass330_123);
-                                                anIntArray578[anInt7142++] = local11077.method8742(Static679.aClass23Array14, local4911);
+                                                anIntArray578[anInt7142++] = local11077.method8742(Static679.aSpriteArray14, local4911);
                                                 return;
                                             }
                                             if (arg0 == 4126) {
@@ -4517,14 +4517,14 @@ public final class Static472 {
                         Static721.aClass330_128.method7581(Static337.anInt5561);
                         Static721.aClass330_128.method7581(Static176.anInt7532);
                         Static721.aClass330_128.method7581(Static282.anInt4419);
-                        Static26.aClass23_5 = null;
-                        Static561.aClass23_34 = null;
-                        Static261.aClass23_18 = null;
-                        Static608.aClass23_41 = null;
-                        Static1.aClass23_42 = null;
-                        Static459.aClass23_31 = null;
-                        Static542.aClass23_33 = null;
-                        Static63.aClass23_8 = null;
+                        Static26.aSprite_5 = null;
+                        Static561.aSprite_34 = null;
+                        Static261.aSprite_18 = null;
+                        Static608.aSprite_41 = null;
+                        Static1.aSprite_42 = null;
+                        Static459.aSprite_31 = null;
+                        Static542.aSprite_33 = null;
+                        Static63.aSprite_8 = null;
                         Static60.aBoolean87 = true;
                         return;
                     }

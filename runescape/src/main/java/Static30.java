@@ -257,7 +257,7 @@ public final class Static30 {
             @Pc(17) int local17 = local14.anInt1239;
             if (local17 != -1) {
                 @Pc(25) Class173 local25 = aClass363_3.method8362(local17);
-                @Pc(49) Class23 local49 = local25.method3689(local14.aBoolean103 ? arg6[local4] >> 6 & 0x3 : 0, arg0, local14.aBoolean96 ? local14.aBoolean100 : false);
+                @Pc(49) Sprite local49 = local25.method3689(local14.aBoolean103 ? arg6[local4] >> 6 & 0x3 : 0, arg0, local14.aBoolean96 ? local14.aBoolean100 : false);
                 if (local49 != null) {
                     @Pc(58) int local58 = arg3 * local49.method8203() >> 2;
                     @Pc(65) int local65 = arg4 * local49.method8192() >> 2;

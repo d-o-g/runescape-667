@@ -25,7 +25,7 @@ public final class Static515 {
             arg6 = arg3;
         }
         @Pc(41) String local41 = Static192.method2874(arg10);
-        Static180.aClass14_3.method8827(arg6, arg2, local41, arg8 + 3, Static186.aClass23Array5, Static460.anIntArray554);
+        Static180.aClass14_3.method8827(arg6, arg2, local41, arg8 + 3, Static186.aSpriteArray5, Static460.anIntArray554);
     }
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(BILclient!ha;III)V")
@@ -45,12 +45,12 @@ public final class Static515 {
         }
         @Pc(75) int local75 = arg3 + (arg0 - local46) / 2;
         @Pc(84) int local84 = arg4 + (arg2 - local48) / 2;
-        if (Static13.aClass23_4 == null || Static13.aClass23_4.method8199() != arg0 || Static13.aClass23_4.method8182() != arg2) {
+        if (Static13.aSprite_4 == null || Static13.aSprite_4.method8199() != arg0 || Static13.aSprite_4.method8182() != arg2) {
             Static30.method5062(Static30.anInt5655, Static30.anInt5648 + Static30.anInt5644, Static30.anInt5650 + Static30.anInt5655, Static30.anInt5648, local75, local84, local75 + local46, local84 - -local48);
             Static30.method5060(arg1);
-            Static13.aClass23_4 = arg1.method7964(local75, local84, local46, local48, false);
+            Static13.aSprite_4 = arg1.method7964(local75, local84, local46, local48, false);
         }
-        Static13.aClass23_4.method8202(local75, local84);
+        Static13.aSprite_4.method8202(local75, local84);
         @Pc(138) int local138 = local46 * Static329.anInt1750 / Static30.anInt5650;
         @Pc(144) int local144 = Static588.anInt8690 * local48 / Static30.anInt5644;
         @Pc(152) int local152 = Static534.anInt8111 * local46 / Static30.anInt5650 + local75;

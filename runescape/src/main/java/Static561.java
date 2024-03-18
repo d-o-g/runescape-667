@@ -8,7 +8,7 @@ public final class Static561 {
     public static Class220 aClass220_2;
 
     @OriginalMember(owner = "client!rla", name = "f", descriptor = "Lclient!st;")
-    public static Class23 aClass23_34;
+    public static Sprite aSprite_34;
 
     // $FF: synthetic field
     @OriginalMember(owner = "client!rla", name = "o", descriptor = "Ljava/lang/Class;")

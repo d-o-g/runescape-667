@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!np")
-public final class Class23_Sub3 extends Class23 {
+public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "C", descriptor = "I")
     public int anInt6612 = 0;
@@ -46,7 +46,7 @@ public final class Class23_Sub3 extends Class23 {
     public final boolean aBoolean496;
 
     @OriginalMember(owner = "client!np", name = "<init>", descriptor = "(Lclient!am;IIZ)V")
-    public Class23_Sub3(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
+    public Sprite_Sub3(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
         this.anInt6606 = arg2;
         this.anInt6626 = arg1;
         this.aClass19_Sub1_12 = arg0;
@@ -59,7 +59,7 @@ public final class Class23_Sub3 extends Class23 {
     }
 
     @OriginalMember(owner = "client!np", name = "<init>", descriptor = "(Lclient!am;II[III)V")
-    public Class23_Sub3(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Sprite_Sub3(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.anInt6626 = arg1;
         this.anInt6606 = arg2;
         this.aClass19_Sub1_12 = arg0;

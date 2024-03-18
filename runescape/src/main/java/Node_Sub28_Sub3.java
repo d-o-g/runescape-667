@@ -24,7 +24,7 @@ public final class Node_Sub28_Sub3 extends Node_Sub28 {
     public boolean aBoolean460;
 
     @OriginalMember(owner = "client!mda", name = "D", descriptor = "Lclient!st;")
-    public Class23 aClass23_29;
+    public Sprite aSprite_29;
 
     @OriginalMember(owner = "client!mda", name = "J", descriptor = "Z")
     public boolean aBoolean461;
@@ -85,15 +85,15 @@ public final class Node_Sub28_Sub3 extends Node_Sub28 {
     }
 
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(Lclient!ha;I)Lclient!st;")
-    public Class23 method5491(@OriginalArg(0) Class19 arg0) {
+    public Sprite method5491(@OriginalArg(0) Class19 arg0) {
         if (this.aFrame7 == null) {
             return null;
-        } else if (this.aBoolean462 || this.aClass23_29 == null) {
-            this.aClass23_29 = arg0.method7958(this.aFrame7.pixels, this.aFrame7.b, this.aFrame7.b, this.aFrame7.a, false);
+        } else if (this.aBoolean462 || this.aSprite_29 == null) {
+            this.aSprite_29 = arg0.method7958(this.aFrame7.pixels, this.aFrame7.b, this.aFrame7.b, this.aFrame7.a, false);
             this.aBoolean462 = false;
-            return this.aClass23_29;
+            return this.aSprite_29;
         } else {
-            return this.aClass23_29;
+            return this.aSprite_29;
         }
     }
 

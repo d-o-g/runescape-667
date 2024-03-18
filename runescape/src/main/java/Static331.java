@@ -34,15 +34,15 @@ public final class Static331 {
     }
 
     @OriginalMember(owner = "client!ki", name = "a", descriptor = "(B[Lclient!st;)V")
-    public static void method4925(@OriginalArg(1) Class23[] arg0) {
+    public static void method4925(@OriginalArg(1) Sprite[] arg0) {
         anInt5440 = arg0.length;
-        Static186.aClass23Array5 = new Class23[anInt5440 + 10];
+        Static186.aSpriteArray5 = new Sprite[anInt5440 + 10];
         Static460.anIntArray554 = new int[anInt5440 + 10];
-        Static734.method7691(arg0, 0, Static186.aClass23Array5, 0, anInt5440);
+        Static734.method7691(arg0, 0, Static186.aSpriteArray5, 0, anInt5440);
         for (@Pc(32) int local32 = 0; local32 < anInt5440; local32++) {
-            Static460.anIntArray554[local32] = Static186.aClass23Array5[local32].method8192();
+            Static460.anIntArray554[local32] = Static186.aSpriteArray5[local32].method8192();
         }
-        for (@Pc(50) int local50 = anInt5440; local50 < Static186.aClass23Array5.length; local50++) {
+        for (@Pc(50) int local50 = anInt5440; local50 < Static186.aSpriteArray5.length; local50++) {
             Static460.anIntArray554[local50] = 12;
         }
     }

@@ -23,14 +23,14 @@ public final class Static208 {
             local5 += Static130.method2283();
             local7 += Static422.method5771();
         }
-        @Pc(30) Class23 local30;
+        @Pc(30) Sprite local30;
         if (Static616.anInt9417 == 1) {
-            local30 = Static355.aClass23Array9[Static481.anInt7215 / 100];
+            local30 = Static355.aSpriteArray9[Static481.anInt7215 / 100];
             local30.method8202(local5 - 8, local7 + -8);
             Static682.method8927(local7 - 8, local7 - 8 - -local30.method8192(), local5 - 8, local30.method8203() + -8 + local5);
         }
         if (Static616.anInt9417 == 2) {
-            local30 = Static355.aClass23Array9[Static481.anInt7215 / 100 + 4];
+            local30 = Static355.aSpriteArray9[Static481.anInt7215 / 100 + 4];
             local30.method8202(local5 - 8, local7 + -8);
             Static682.method8927(local7 - 8, local30.method8192() + -8 + local7, local5 - 8, local30.method8203() + local5 + -8);
         }

@@ -87,7 +87,7 @@ public final class Class19_Sub2 extends Class19 {
     public int anInt4211;
 
     @OriginalMember(owner = "client!iaa", name = "H", descriptor = "Lclient!st;")
-    public Class23 aClass23_17;
+    public Sprite aSprite_17;
 
     @OriginalMember(owner = "client!iaa", name = "F", descriptor = "Z")
     public boolean aBoolean331;
@@ -599,7 +599,7 @@ public final class Class19_Sub2 extends Class19 {
             return;
         }
         if (this.anInt4215 != local2) {
-            @Pc(34) Class23 local34 = (Class23) this.aClass82_88.method2156((long) local2);
+            @Pc(34) Sprite local34 = (Sprite) this.aClass82_88.method2156((long) local2);
             if (local34 == null) {
                 @Pc(40) int[] local40 = this.method3788(local2);
                 if (local40 == null) {
@@ -610,10 +610,10 @@ public final class Class19_Sub2 extends Class19 {
                 this.aClass82_88.method2150(local34, (long) local2);
             }
             this.anInt4215 = local2;
-            this.aClass23_17 = local34;
+            this.aSprite_17 = local34;
         }
         local8++;
-        ((Class23_Sub1) this.aClass23_17).method8208(arg1 - arg4, arg2 - arg4, arg3, local8, local8, 0, arg0.anInt7539, 1);
+        ((Sprite_Sub1) this.aSprite_17).method8208(arg1 - arg4, arg2 - arg4, arg3, local8, local8, 0, arg0.anInt7539, 1);
     }
 
     @OriginalMember(owner = "client!iaa", name = "F", descriptor = "(II)V")
@@ -1833,7 +1833,7 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "([IIIIIZ)Lclient!st;")
     @Override
-    public Class23 method7958(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
+    public Sprite method7958(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
         @Pc(1) boolean local1 = false;
         @Pc(3) int local3 = 0;
         for (@Pc(5) int local5 = 0; local5 < arg3; local5++) {
@@ -1841,11 +1841,11 @@ public final class Class19_Sub2 extends Class19 {
                 @Pc(16) int local16 = arg0[local3++] >>> 24;
                 if (local16 != 0 && local16 != 255) {
                     local1 = true;
-                    return local1 ? new Class23_Sub1_Sub2(this, arg0, 0, arg1, arg2, arg3, arg4) : new Class23_Sub1_Sub1(this, arg0, 0, arg1, arg2, arg3, arg4);
+                    return local1 ? new Sprite_Sub1_Sub2(this, arg0, 0, arg1, arg2, arg3, arg4) : new Sprite_Sub1_Sub1(this, arg0, 0, arg1, arg2, arg3, arg4);
                 }
             }
         }
-        return local1 ? new Class23_Sub1_Sub2(this, arg0, 0, arg1, arg2, arg3, arg4) : new Class23_Sub1_Sub1(this, arg0, 0, arg1, arg2, arg3, arg4);
+        return local1 ? new Sprite_Sub1_Sub2(this, arg0, 0, arg1, arg2, arg3, arg4) : new Sprite_Sub1_Sub1(this, arg0, 0, arg1, arg2, arg3, arg4);
     }
 
     @OriginalMember(owner = "client!iaa", name = "E", descriptor = "()I")
@@ -1902,7 +1902,7 @@ public final class Class19_Sub2 extends Class19 {
             return;
         }
         if (this.anInt4215 != arg6) {
-            @Pc(33) Class23 local33 = (Class23) this.aClass82_88.method2156((long) arg6);
+            @Pc(33) Sprite local33 = (Sprite) this.aClass82_88.method2156((long) arg6);
             if (local33 == null) {
                 @Pc(39) int[] local39 = this.method3788(arg6);
                 if (local39 == null) {
@@ -1913,14 +1913,14 @@ public final class Class19_Sub2 extends Class19 {
                 this.aClass82_88.method2150(local33, (long) arg6);
             }
             this.anInt4215 = arg6;
-            this.aClass23_17 = local33;
+            this.aSprite_17 = local33;
         }
-        ((Class23_Sub1) this.aClass23_17).method8208(arg0 - arg3, arg1 - arg4, arg2, arg3 << 1, arg4 << 1, arg8, arg7, arg9);
+        ((Sprite_Sub1) this.aSprite_17).method8208(arg0 - arg3, arg1 - arg4, arg2, arg3 << 1, arg4 << 1, arg8, arg7, arg9);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     @Override
-    public Class23 method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         @Pc(4) int[] local4 = new int[arg2 * arg3];
         @Pc(11) int local11 = arg1 * this.anInt4207 + arg0;
         @Pc(16) int local16 = this.anInt4207 - arg2;
@@ -1932,9 +1932,9 @@ public final class Class19_Sub2 extends Class19 {
             local11 += local16;
         }
         if (arg4) {
-            return new Class23_Sub1_Sub2(this, local4, arg2, arg3);
+            return new Sprite_Sub1_Sub2(this, local4, arg2, arg3);
         } else {
-            return new Class23_Sub1_Sub1(this, local4, arg2, arg3);
+            return new Sprite_Sub1_Sub1(this, local4, arg2, arg3);
         }
     }
 
@@ -1958,12 +1958,12 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public Class23 method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
+    public Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
         @Pc(2) int[] local2 = arg0.anIntArray882;
         @Pc(5) byte[] local5 = arg0.aByteArray114;
         @Pc(8) int local8 = arg0.anInt10847;
         @Pc(11) int local11 = arg0.anInt10850;
-        @Pc(80) Class23_Sub1 local80;
+        @Pc(80) Sprite_Sub1 local80;
         @Pc(22) int[] local22;
         @Pc(27) byte[] local27;
         @Pc(29) int local29;
@@ -1981,7 +1981,7 @@ public final class Class19_Sub2 extends Class19 {
             for (local34 = 0; local34 < local2.length; local34++) {
                 local22[local34] = local2[local34];
             }
-            local80 = new Class23_Sub1_Sub3(this, local27, local22, local8, local11);
+            local80 = new Sprite_Sub1_Sub3(this, local27, local22, local8, local11);
         } else {
             local22 = new int[local8 * local11];
             local27 = arg0.aByteArray115;
@@ -1993,7 +1993,7 @@ public final class Class19_Sub2 extends Class19 {
                         local22[local34 + local36] = local162 == 0 ? 0 : local162 | 0xFF000000;
                     }
                 }
-                local80 = new Class23_Sub1_Sub1(this, local22, local8, local11);
+                local80 = new Sprite_Sub1_Sub1(this, local22, local8, local11);
             } else {
                 for (local29 = 0; local29 < local11; local29++) {
                     local34 = local29 * local8;
@@ -2001,7 +2001,7 @@ public final class Class19_Sub2 extends Class19 {
                         local22[local34 + local36] = local2[local5[local34 + local36] & 0xFF] | local27[local34 + local36] << 24;
                     }
                 }
-                local80 = new Class23_Sub1_Sub2(this, local22, local8, local11);
+                local80 = new Sprite_Sub1_Sub2(this, local22, local8, local11);
             }
         }
         local80.method8184(arg0.anInt10852, arg0.anInt10848, arg0.anInt10851, arg0.anInt10849);
@@ -2626,7 +2626,7 @@ public final class Class19_Sub2 extends Class19 {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
     public Interface9 method7988(@OriginalArg(0) Interface6 arg0, @OriginalArg(1) Interface26 arg1) {
-        return new Class87(this, (Class23) arg0, (Class165) arg1);
+        return new Class87(this, (Sprite) arg0, (Class165) arg1);
     }
 
     @OriginalMember(owner = "client!iaa", name = "e", descriptor = "()I")
@@ -2643,8 +2643,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public Class23 method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
-        return arg2 ? new Class23_Sub1_Sub2(this, arg0, arg1) : new Class23_Sub1_Sub1(this, arg0, arg1);
+    public Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+        return arg2 ? new Sprite_Sub1_Sub2(this, arg0, arg1) : new Sprite_Sub1_Sub1(this, arg0, arg1);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "()Z")
@@ -2730,7 +2730,7 @@ public final class Class19_Sub2 extends Class19 {
             return;
         }
         if (this.anInt4215 != arg6) {
-            @Pc(33) Class23 local33 = (Class23) this.aClass82_88.method2156((long) arg6);
+            @Pc(33) Sprite local33 = (Sprite) this.aClass82_88.method2156((long) arg6);
             if (local33 == null) {
                 @Pc(39) int[] local39 = this.method3788(arg6);
                 if (local39 == null) {
@@ -2741,9 +2741,9 @@ public final class Class19_Sub2 extends Class19 {
                 this.aClass82_88.method2150(local33, (long) arg6);
             }
             this.anInt4215 = arg6;
-            this.aClass23_17 = local33;
+            this.aSprite_17 = local33;
         }
-        ((Class23_Sub1) this.aClass23_17).method8207(arg0 - arg3, arg1 - arg4, arg2, arg3 << 1, arg4 << 1, arg8, arg7, arg9);
+        ((Sprite_Sub1) this.aSprite_17).method8207(arg0 - arg3, arg1 - arg4, arg2, arg3 << 1, arg4 << 1, arg8, arg7, arg9);
     }
 
     @OriginalMember(owner = "client!iaa", name = "la", descriptor = "()V")

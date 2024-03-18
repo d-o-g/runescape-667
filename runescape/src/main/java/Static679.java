@@ -17,7 +17,7 @@ public final class Static679 {
     public static Class273[] aClass273Array1;
 
     @OriginalMember(owner = "client!vj", name = "n", descriptor = "[Lclient!st;")
-    public static Class23[] aClass23Array14;
+    public static Sprite[] aSpriteArray14;
 
     @OriginalMember(owner = "client!vj", name = "s", descriptor = "Lclient!eba;")
     public static final Class92 aClass92_15 = new Class92(1);

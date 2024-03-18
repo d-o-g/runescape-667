@@ -39,7 +39,7 @@ public final class Static668 {
         Static30.aClass255_3 = null;
         Static651.aClass327_8 = null;
         Static180.anInt3001 = -1;
-        Static13.aClass23_4 = null;
+        Static13.aSprite_4 = null;
         Static142.aClass327_1 = null;
         Static390.aClass327_5 = null;
         Static559.aClass327_7 = null;

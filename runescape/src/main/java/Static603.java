@@ -90,7 +90,7 @@ public final class Static603 {
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(BLclient!fu;Lclient!ha;Lclient!el;)V")
     public static void method7902(@OriginalArg(1) Node_Sub20 arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) Class105 arg2) {
-        @Pc(8) Class23 local8 = arg2.method2428(arg1);
+        @Pc(8) Sprite local8 = arg2.method2428(arg1);
         if (local8 == null) {
             return;
         }
@@ -106,7 +106,7 @@ public final class Static603 {
         @Pc(56) int local56;
         @Pc(78) int local78;
         if (arg2.aString25 != null) {
-            local36 = Static154.aClass381_6.method8740(Static37.aStringArray5, (int[]) null, (Class23[]) null, arg2.aString25);
+            local36 = Static154.aClass381_6.method8740(Static37.aStringArray5, (int[]) null, (Sprite[]) null, arg2.aString25);
             for (local56 = 0; local56 < local36; local56++) {
                 @Pc(61) String local61 = Static37.aStringArray5[local56];
                 if (local56 < local36 - 1) {

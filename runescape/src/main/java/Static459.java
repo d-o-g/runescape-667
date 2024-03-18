@@ -9,7 +9,7 @@ public final class Static459 {
     public static Class229 aClass229_2;
 
     @OriginalMember(owner = "client!oia", name = "f", descriptor = "Lclient!st;")
-    public static Class23 aClass23_31;
+    public static Sprite aSprite_31;
 
     @OriginalMember(owner = "client!oia", name = "r", descriptor = "Lclient!sb;")
     public static Class330 aClass330_91;

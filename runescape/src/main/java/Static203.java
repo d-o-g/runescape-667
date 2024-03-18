@@ -29,23 +29,23 @@ public final class Static203 {
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(B)V")
     public static void method3068() {
-        Static441.aClass23Array10 = null;
-        Static558.aClass23Array7 = null;
-        Static174.aClass23Array4 = null;
+        Static441.aSpriteArray10 = null;
+        Static558.aSpriteArray7 = null;
+        Static174.aSpriteArray4 = null;
         Static665.aClass14_12 = null;
         Static437.aClass14_9 = null;
-        Static12.aClass23_27 = null;
-        Static119.aClass23Array3 = null;
-        Static291.aClass23Array8 = null;
-        Static471.aClass23Array11 = null;
-        Static34.aClass23Array2 = null;
-        Static517.aClass23_32 = null;
-        Static355.aClass23Array9 = null;
+        Static12.aSprite_27 = null;
+        Static119.aSpriteArray3 = null;
+        Static291.aSpriteArray8 = null;
+        Static471.aSpriteArray11 = null;
+        Static34.aSpriteArray2 = null;
+        Static517.aSprite_32 = null;
+        Static355.aSpriteArray9 = null;
         Static180.aClass14_3 = null;
-        Static679.aClass23Array14 = null;
-        Static691.aClass23Array15 = null;
-        Static28.aClass23Array1 = null;
-        Static493.aClass23Array12 = null;
+        Static679.aSpriteArray14 = null;
+        Static691.aSpriteArray15 = null;
+        Static28.aSpriteArray1 = null;
+        Static493.aSpriteArray12 = null;
     }
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(IIIBI)V")

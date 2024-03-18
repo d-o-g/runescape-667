@@ -49,53 +49,53 @@ public final class Class285 {
     public int anInt7195 = -1;
 
     @OriginalMember(owner = "client!pb", name = "a", descriptor = "(Lclient!ha;I)Lclient!st;")
-    public Class23 method6451(@OriginalArg(0) Class19 arg0) {
+    public Sprite method6451(@OriginalArg(0) Class19 arg0) {
         if (this.anInt7181 < 0) {
             return null;
         }
-        @Pc(22) Class23 local22 = (Class23) this.aClass220_1.aClass82_121.method2156((long) this.anInt7181);
+        @Pc(22) Sprite local22 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7181);
         if (local22 == null) {
             this.method6455(arg0);
-            local22 = (Class23) this.aClass220_1.aClass82_121.method2156((long) this.anInt7181);
+            local22 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7181);
         }
         return local22;
     }
 
     @OriginalMember(owner = "client!pb", name = "c", descriptor = "(ILclient!ha;)Lclient!st;")
-    public Class23 method6452(@OriginalArg(1) Class19 arg0) {
+    public Sprite method6452(@OriginalArg(1) Class19 arg0) {
         if (this.anInt7180 < 0) {
             return null;
         }
-        @Pc(29) Class23 local29 = (Class23) this.aClass220_1.aClass82_121.method2156((long) this.anInt7180);
+        @Pc(29) Sprite local29 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7180);
         if (local29 == null) {
             this.method6455(arg0);
-            local29 = (Class23) this.aClass220_1.aClass82_121.method2156((long) this.anInt7180);
+            local29 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7180);
         }
         return local29;
     }
 
     @OriginalMember(owner = "client!pb", name = "a", descriptor = "(Lclient!ha;B)Lclient!st;")
-    public Class23 method6453(@OriginalArg(0) Class19 arg0) {
+    public Sprite method6453(@OriginalArg(0) Class19 arg0) {
         if (this.anInt7187 < 0) {
             return null;
         }
-        @Pc(27) Class23 local27 = (Class23) this.aClass220_1.aClass82_121.method2156((long) this.anInt7187);
+        @Pc(27) Sprite local27 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7187);
         if (local27 == null) {
             this.method6455(arg0);
-            local27 = (Class23) this.aClass220_1.aClass82_121.method2156((long) this.anInt7187);
+            local27 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7187);
         }
         return local27;
     }
 
     @OriginalMember(owner = "client!pb", name = "a", descriptor = "(ILclient!ha;)Lclient!st;")
-    public Class23 method6454(@OriginalArg(1) Class19 arg0) {
+    public Sprite method6454(@OriginalArg(1) Class19 arg0) {
         if (this.anInt7183 < 0) {
             return null;
         }
-        @Pc(20) Class23 local20 = (Class23) this.aClass220_1.aClass82_121.method2156((long) this.anInt7183);
+        @Pc(20) Sprite local20 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7183);
         if (local20 == null) {
             this.method6455(arg0);
-            local20 = (Class23) this.aClass220_1.aClass82_121.method2156((long) this.anInt7183);
+            local20 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7183);
         }
         return local20;
     }

@@ -43,7 +43,7 @@ public final class Static452 {
         } else {
             arg1 = 0;
         }
-        @Pc(39) Class23 local39 = local9.method3689(arg1, arg2, arg0.aBoolean96);
+        @Pc(39) Sprite local39 = local9.method3689(arg1, arg2, arg0.aBoolean96);
         if (local39 == null) {
             return;
         }

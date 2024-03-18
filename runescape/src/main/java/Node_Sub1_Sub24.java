@@ -18,7 +18,7 @@ public final class Node_Sub1_Sub24 extends Node_Sub1 {
     @Override
     public int[] method9411(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (arg0 < 107) {
-            Static471.aClass23Array11 = null;
+            Static471.aSpriteArray11 = null;
         }
         @Pc(16) int[] local16 = super.aClass180_41.method3935(arg1);
         if (super.aClass180_41.aBoolean338) {

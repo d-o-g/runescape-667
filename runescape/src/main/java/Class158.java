@@ -481,10 +481,10 @@ public final class Class158 {
     public int anInt3819 = -1;
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(ZLclient!ha;)Lclient!st;")
-    public Class23 method3383(@OriginalArg(1) Class19 arg0) {
+    public Sprite method3383(@OriginalArg(1) Class19 arg0) {
         Static544.aBoolean624 = false;
         @Pc(54) long local54 = ((long) this.anInt3798 << 40) + (((this.aBoolean292 ? 1L : 0L) << 35) + (long) this.anInt3810 - (-((long) this.anInt3773 << 36) + -((this.aBoolean291 ? 1L : 0L) << 38)) + ((this.aBoolean293 ? 1L : 0L) << 39));
-        @Pc(60) Class23 local60 = (Class23) Static473.aClass82_157.method2156(local54);
+        @Pc(60) Sprite local60 = (Sprite) Static473.aClass82_157.method2156(local54);
         if (local60 != null) {
             return local60;
         }

@@ -65,9 +65,9 @@ public final class Static249 {
         if (local17 != null) {
             local15 = local15 + Static72.method1527(local17);
         }
-        @Pc(130) int local130 = Static42.aClass381_4.method8742(Static186.aClass23Array5, local15);
+        @Pc(130) int local130 = Static42.aClass381_4.method8742(Static186.aSpriteArray5, local15);
         if (arg0.aBoolean553) {
-            local130 += Static517.aClass23_32.method8199() + 4;
+            local130 += Static517.aSprite_32.method8199() + 4;
         }
         return local130;
     }

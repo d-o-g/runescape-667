@@ -352,7 +352,7 @@ public final class Static523 {
             Static570.method7549(Static163.aClass19_17);
             Static469.method6358(Static163.aClass19_17);
             Static239.method3472(Static721.aClass330_128, Static163.aClass19_17);
-            Static331.method4925(Static679.aClass23Array14);
+            Static331.method4925(Static679.aSpriteArray14);
         }
         return Static694.method9030();
     }

@@ -665,8 +665,8 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public final Class23 method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
-        return new Class23_Sub3(this, arg0, arg1, arg2);
+    public final Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+        return new Sprite_Sub3(this, arg0, arg1, arg2);
     }
 
     @OriginalMember(owner = "client!am", name = "M", descriptor = "()I")
@@ -1029,8 +1029,8 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     @Override
-    public final Class23 method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
-        @Pc(11) Class23_Sub3 local11 = new Class23_Sub3(this, arg2, arg3, arg4);
+    public final Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+        @Pc(11) Sprite_Sub3 local11 = new Sprite_Sub3(this, arg2, arg3, arg4);
         local11.method8201(0, 0, arg2, arg3, arg0, arg1);
         return local11;
     }
@@ -1435,8 +1435,8 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public final Class23 method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(141) Class23 local141;
+    public final Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
+        @Pc(141) Sprite local141;
         if (arg0.anInt10847 == 0 || arg0.anInt10850 == 0) {
             local141 = this.method7946(1, 1, 1, new int[1]);
         } else {
@@ -2369,8 +2369,8 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "([IIIIIZ)Lclient!st;")
     @Override
-    public final Class23 method7958(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
-        return new Class23_Sub3(this, arg2, arg3, arg0, 0, arg1);
+    public final Sprite method7958(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
+        return new Sprite_Sub3(this, arg2, arg3, arg0, 0, arg1);
     }
 
     @OriginalMember(owner = "client!am", name = "z", descriptor = "(B)V")

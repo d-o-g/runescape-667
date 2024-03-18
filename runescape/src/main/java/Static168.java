@@ -60,7 +60,7 @@ public final class Static168 {
     }
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(I[B)Lclient!st;")
-    public static Class23 method2634(@OriginalArg(1) byte[] arg0) {
+    public static Sprite method2634(@OriginalArg(1) byte[] arg0) {
         if (arg0 == null) {
             throw new RuntimeException("");
         }

@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class109 implements Interface13 {
 
     @OriginalMember(owner = "client!en", name = "b", descriptor = "Lclient!st;")
-    public Class23 aClass23_9;
+    public Sprite aSprite_9;
 
     @OriginalMember(owner = "client!en", name = "a", descriptor = "Lclient!sb;")
     public final Class330 aClass330_27;
@@ -26,8 +26,8 @@ public final class Class109 implements Interface13 {
     public void method7749() {
         @Pc(11) int local11 = Static302.anInt4851 >= Static680.anInt10289 ? Static302.anInt4851 : Static680.anInt10289;
         @Pc(19) int local19 = Static380.anInt5979 <= Static479.anInt7201 ? Static479.anInt7201 : Static380.anInt5979;
-        @Pc(23) int local23 = this.aClass23_9.method8203();
-        @Pc(27) int local27 = this.aClass23_9.method8192();
+        @Pc(23) int local23 = this.aSprite_9.method8203();
+        @Pc(27) int local27 = this.aSprite_9.method8192();
         @Pc(29) int local29 = 0;
         @Pc(31) int local31 = local11;
         @Pc(37) int local37 = local11 * local27 / local23;
@@ -38,13 +38,13 @@ public final class Class109 implements Interface13 {
             local44 = 0;
             local29 = (local11 - local31) / 2;
         }
-        this.aClass23_9.method8206(local29, local44, local31, local37);
+        this.aSprite_9.method8206(local29, local44, local31, local37);
     }
 
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(I)V")
     @Override
     public void method7748() {
-        this.aClass23_9 = Static652.method8533(this.aClass200_1.anInt4996, this.aClass330_27);
+        this.aSprite_9 = Static652.method8533(this.aClass200_1.anInt4996, this.aClass330_27);
     }
 
     @OriginalMember(owner = "client!en", name = "b", descriptor = "(I)Z")

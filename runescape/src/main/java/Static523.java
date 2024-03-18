@@ -89,7 +89,7 @@ public final class Static523 {
         }
         @Pc(184) boolean local184;
         if (Static198.aClass140_3 == Static473.aClass140_22) {
-            local184 = Static516.aJs5_97.method7591();
+            local184 = Static516.aJs5_97.isComplete();
             local74 = Static226.aClass47_Sub1Array8[33].method6644();
             local74 += Static226.aClass47_Sub1Array8[Static297.aBoolean368 ? 34 : 32].method6644();
             local74 += Static226.aClass47_Sub1Array8[13].method6644();
@@ -97,8 +97,8 @@ public final class Static523 {
             if (local74 != 400) {
                 return local74 / 4;
             }
-            Static324.anInt5129 = Static177.aJs5_35.method7576();
-            Static466.anInt7042 = Static516.aJs5_97.method7576();
+            Static324.anInt5129 = Static177.aJs5_35.indexCrc();
+            Static466.anInt7042 = Static516.aJs5_97.indexCrc();
             Static616.method8284(Static177.aJs5_35);
             @Pc(250) int local250 = Static400.instance.aClass57_Sub11_1.method3603();
             Static333.aClass279_1 = new Class279(Static392.aClass377_4, Static51.anInt1052, Static516.aJs5_97);
@@ -290,19 +290,19 @@ public final class Static523 {
                 Static511.anIntArray614[local12] = -1;
             }
             Static218.method3189();
-            Static93.aJs5_16.method7575(false);
-            Static398.aJs5_81.method7575(true);
-            Static721.aJs5_128.method7575(true);
-            Static697.aJs5_123.method7575(true);
-            Static463.aJs5_93.method7575(true);
-            Static6.aJs5_1.anInt8555 = 2;
+            Static93.aJs5_16.clearNames(false, true);
+            Static398.aJs5_81.clearNames(true, true);
+            Static721.aJs5_128.clearNames(true, true);
+            Static697.aJs5_123.clearNames(true, true);
+            Static463.aJs5_93.clearNames(true, true);
+            Static6.aJs5_1.discardunpacked = 2;
             Static666.aBoolean766 = true;
-            Static20.aJs5_3.anInt8555 = 2;
-            Static459.aJs5_91.anInt8555 = 2;
-            Static333.aJs5_66.anInt8555 = 2;
-            Static380.aJs5_79.anInt8555 = 2;
-            Static668.aJs5_119.anInt8555 = 2;
-            Static271.aJs5_59.anInt8555 = 2;
+            Static20.aJs5_3.discardunpacked = 2;
+            Static459.aJs5_91.discardunpacked = 2;
+            Static333.aJs5_66.discardunpacked = 2;
+            Static380.aJs5_79.discardunpacked = 2;
+            Static668.aJs5_119.discardunpacked = 2;
+            Static271.aJs5_59.discardunpacked = 2;
         }
         if (Static473.aClass140_22 == Static198.aClass140_18) {
             if (!Static571.method7566(GraphicsDefaults.instance.login_interface)) {

@@ -32,7 +32,7 @@ public final class Static402 {
         if (local10 != null) {
             return local10;
         }
-        @Pc(21) byte[] local21 = Static331.aJs5_65.method7595(arg0, 0);
+        @Pc(21) byte[] local21 = Static331.aJs5_65.getfile(arg0, 0);
         local10 = new Class376();
         if (local21 != null) {
             local10.method8511(arg0, new Packet(local21));

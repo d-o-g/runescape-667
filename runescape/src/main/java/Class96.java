@@ -55,7 +55,7 @@ public final class Class96 {
         @Pc(39) js5 local39 = this.aJs5_23;
         @Pc(48) byte[] local48;
         synchronized (this.aJs5_23) {
-            local48 = this.aJs5_23.method7595(arg0, 4);
+            local48 = this.aJs5_23.getfile(arg0, 4);
         }
         local25 = new Class318();
         local25.aClass96_5 = this;

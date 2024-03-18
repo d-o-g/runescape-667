@@ -32,7 +32,7 @@ public final class Static571 {
             }
             for (@Pc(53) int local53 = 0; local53 < local25; local53++) {
                 if (Static453.aClass158ArrayArray2[arg0][local53] == null) {
-                    @Pc(66) byte[] local66 = Static666.aJs5_118.method7595(local53, arg0);
+                    @Pc(66) byte[] local66 = Static666.aJs5_118.getfile(local53, arg0);
                     if (local66 != null) {
                         @Pc(78) Class158 local78 = Static453.aClass158ArrayArray2[arg0][local53] = new Class158();
                         local78.anInt3812 = local53 + (arg0 << 16);

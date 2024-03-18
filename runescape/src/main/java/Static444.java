@@ -39,7 +39,7 @@ public final class Static444 {
         if (local10 != null) {
             return local10;
         }
-        @Pc(21) byte[] local21 = Static409.aJs5_85.method7595(arg0, 0);
+        @Pc(21) byte[] local21 = Static409.aJs5_85.getfile(arg0, 0);
         local10 = new Class379();
         if (local21 != null) {
             local10.method8656(new Packet(local21));

@@ -137,7 +137,7 @@ public final class NPCTypeList {
         @Pc(38) js5 local38 = this.aJs5_101;
         @Pc(51) byte[] local51;
         synchronized (this.aJs5_101) {
-            local51 = this.aJs5_101.method7595(Static612.method8237(arg0), Static713.method9336(arg0));
+            local51 = this.aJs5_101.getfile(Static612.method8237(arg0), Static713.method9336(arg0));
         }
         local24 = new Class268();
         local24.aNPCTypeList_1 = this;

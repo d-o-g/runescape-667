@@ -139,7 +139,7 @@ public final class Class142 {
         @Pc(36) js5 local36 = this.aJs5_43;
         @Pc(49) byte[] local49;
         synchronized (this.aJs5_43) {
-            local49 = this.aJs5_43.method7595(Static570.method7551(arg0), Static705.method9197(arg0));
+            local49 = this.aJs5_43.getfile(Static570.method7551(arg0), Static705.method9197(arg0));
         }
         local22 = new Class54();
         local22.anInt1256 = arg0;

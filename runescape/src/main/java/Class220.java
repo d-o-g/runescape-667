@@ -76,7 +76,7 @@ public final class Class220 {
         @Pc(30) js5 local30 = this.aJs5_75;
         @Pc(39) byte[] local39;
         synchronized (this.aJs5_75) {
-            local39 = this.aJs5_75.method7595(arg0, 46);
+            local39 = this.aJs5_75.getfile(arg0, 46);
         }
         local16 = new Class285();
         local16.aClass220_1 = this;

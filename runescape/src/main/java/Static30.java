@@ -384,7 +384,7 @@ public final class Static30 {
         aClass363_3 = arg5;
         anVarDomain_3 = arg6;
         A_HASH_TABLE___27.clear();
-        @Pc(23) int local23 = aJs5_74.method7590("details");
+        @Pc(23) int local23 = aJs5_74.getgroupid("details");
         @Pc(28) int[] local28 = aJs5_74.method7603(local23);
         if (local28 != null) {
             for (@Pc(32) int local32 = 0; local32 < local28.length; local32++) {

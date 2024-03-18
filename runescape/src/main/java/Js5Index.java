@@ -46,7 +46,7 @@ public final class Js5Index {
     public int[] groupIds;
 
     @OriginalMember(owner = "client!pj", name = "c", descriptor = "Lclient!eha;")
-    public NameHashTable aNameHashTable_1;
+    public NameHashTable groupNameTable;
 
     @OriginalMember(owner = "client!pj", name = "l", descriptor = "[[I")
     public int[][] fileNames;
@@ -152,7 +152,7 @@ public final class Js5Index {
                 this.groupNames[this.groupIds[i]] = packet.g4();
             }
 
-            this.aNameHashTable_1 = new NameHashTable(this.groupNames);
+            this.groupNameTable = new NameHashTable(this.groupNames);
         }
 
         for (@Pc(115) int i = 0; i < this.groupCount; i++) {

@@ -1,6 +1,5 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static60 {
 
@@ -15,21 +14,6 @@ public final class Static60 {
 
     @OriginalMember(owner = "client!bw", name = "H", descriptor = "[I")
     public static final int[] anIntArray111 = new int[]{16, 32, 64, 128};
-
-    @OriginalMember(owner = "client!bw", name = "a", descriptor = "(ILjava/lang/Object;II)[B")
-    public static byte[] method1292(@OriginalArg(1) Object arg0, @OriginalArg(3) int arg1) {
-        if (arg0 == null) {
-            return null;
-        } else if (arg0 instanceof byte[]) {
-            @Pc(14) byte[] local14 = (byte[]) arg0;
-            return Static585.method7674(arg1, local14);
-        } else if (arg0 instanceof Class175) {
-            @Pc(32) Class175 local32 = (Class175) arg0;
-            return local32.method3848(arg1);
-        } else {
-            throw new IllegalArgumentException();
-        }
-    }
 
     @OriginalMember(owner = "client!bw", name = "a", descriptor = "(IZIII)V")
     public static void method1293(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {

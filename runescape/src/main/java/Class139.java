@@ -58,9 +58,9 @@ public final class Class139 {
         }
         @Pc(28) byte[] local28;
         if (arg0 >= 32768) {
-            local28 = this.aJs5_41.method7595(arg0 & 0x7FFF, 1);
+            local28 = this.aJs5_41.getfile(arg0 & 0x7FFF, 1);
         } else {
-            local28 = this.aJs5_40.method7595(arg0, 1);
+            local28 = this.aJs5_40.getfile(arg0, 1);
         }
         local11 = new DoublyLinkedNode_Sub2_Sub12();
         local11.aClass139_1 = this;

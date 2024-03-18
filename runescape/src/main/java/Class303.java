@@ -29,7 +29,7 @@ public final class Class303 implements TextureSource {
     public Class303(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_99 = arg2;
         this.aJs5_98 = arg1;
-        @Pc(24) Packet local24 = new Packet(arg0.method7595(0, 0));
+        @Pc(24) Packet local24 = new Packet(arg0.getfile(0, 0));
         this.anInt7709 = local24.g2();
         this.aTextureMetricsArray1 = new TextureMetrics[this.anInt7709];
         for (@Pc(36) int local36 = 0; local36 < this.anInt7709; local36++) {

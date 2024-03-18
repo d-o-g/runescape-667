@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -111,7 +112,7 @@ public final class Class381 {
         @Pc(24) int local24 = 0;
         @Pc(35) int local35 = arg3.length();
         for (@Pc(37) int local37 = 0; local37 < local35; local37++) {
-            @Pc(46) int local46 = Static41.method1028(arg3.charAt(local37)) & 0xFF;
+            @Pc(46) int local46 = Cp1252.encodeChar(arg3.charAt(local37)) & 0xFF;
             @Pc(48) int local48 = 0;
             if (local46 == 60) {
                 local20 = local37;
@@ -308,7 +309,7 @@ public final class Class381 {
                     }
                 }
                 if (local10 == -1) {
-                    local21 += this.aByteArray106[Static41.method1028(local31) & 0xFF] & 0xFF;
+                    local21 += this.aByteArray106[Cp1252.encodeChar(local31) & 0xFF] & 0xFF;
                     if (this.aByteArrayArray34 != null && local19 != -1) {
                         local21 += this.aByteArrayArray34[local19][local31];
                     }
@@ -372,7 +373,7 @@ public final class Class381 {
                     }
                 }
                 if (local29 == -1) {
-                    local33 += this.aByteArray106[Static41.method1028(local45) & 0xFF] & 0xFF;
+                    local33 += this.aByteArray106[Cp1252.encodeChar(local45) & 0xFF] & 0xFF;
                     if (this.aByteArrayArray34 != null && local31 != -1) {
                         local33 += this.aByteArrayArray34[local31][local45];
                     }

@@ -56,7 +56,7 @@ public final class Class342 {
         @Pc(30) js5 local30 = this.aJs5_111;
         @Pc(39) byte[] local39;
         synchronized (this.aJs5_111) {
-            local39 = this.aJs5_111.method7595(arg0, 47);
+            local39 = this.aJs5_111.getfile(arg0, 47);
         }
         local16 = new Class122();
         if (local39 != null) {

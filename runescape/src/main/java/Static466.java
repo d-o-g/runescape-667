@@ -386,10 +386,10 @@ public final class Static466 {
                             Static89.anIntArray169[local50] = local261;
                             @Pc(299) int local299 = local261 >> 8 & 0xFF;
                             @Pc(303) int local303 = local261 & 0xFF;
-                            Static267.anIntArray329[local50] = Static93.aJs5_16.method7590("m" + local299 + "_" + local303);
-                            Static266.anIntArray615[local50] = Static93.aJs5_16.method7590("l" + local299 + "_" + local303);
-                            Static68.anIntArray316[local50] = Static93.aJs5_16.method7590("um" + local299 + "_" + local303);
-                            Static298.anIntArray367[local50] = Static93.aJs5_16.method7590("ul" + local299 + "_" + local303);
+                            Static267.anIntArray329[local50] = Static93.aJs5_16.getgroupid("m" + local299 + "_" + local303);
+                            Static266.anIntArray615[local50] = Static93.aJs5_16.getgroupid("l" + local299 + "_" + local303);
+                            Static68.anIntArray316[local50] = Static93.aJs5_16.getgroupid("um" + local299 + "_" + local303);
+                            Static298.anIntArray367[local50] = Static93.aJs5_16.getgroupid("ul" + local299 + "_" + local303);
                             local50++;
                         }
                     }

@@ -14,7 +14,7 @@ public final class Static66 {
         if (local10 != null) {
             return local10;
         }
-        @Pc(21) byte[] local21 = Static309.aJs5_62.method7595(arg0, 1);
+        @Pc(21) byte[] local21 = Static309.aJs5_62.getfile(arg0, 1);
         local10 = new Class278();
         local10.anInt6980 = arg0;
         if (local21 != null) {

@@ -38,7 +38,7 @@ public final class AnimFrameset extends DoublyLinkedNode {
                 local36 = Static509.aJs5_96.method7603(this.anInt8535);
                 this.aByteArrayArray32 = new byte[local36.length][];
                 for (local43 = 0; local43 < local36.length; local43++) {
-                    this.aByteArrayArray32[local43] = Static509.aJs5_96.method7595(local36[local43], this.anInt8535);
+                    this.aByteArrayArray32[local43] = Static509.aJs5_96.getfile(local36[local43], this.anInt8535);
                 }
             }
         }

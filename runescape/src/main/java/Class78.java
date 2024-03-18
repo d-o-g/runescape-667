@@ -33,7 +33,7 @@ public final class Class78 {
         @Pc(30) js5 local30 = this.aJs5_17;
         @Pc(39) byte[] local39;
         synchronized (this.aJs5_17) {
-            local39 = this.aJs5_17.method7595(arg0, 30);
+            local39 = this.aJs5_17.getfile(arg0, 30);
         }
         local16 = new Class10();
         if (local39 != null) {

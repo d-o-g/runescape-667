@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -70,7 +71,7 @@ public abstract class Class14 {
         @Pc(17) int local17 = 0;
         @Pc(20) int local20 = arg1.length();
         for (@Pc(29) int local29 = 0; local29 < local20; local29++) {
-            @Pc(40) char local40 = (char) (Static41.method1028(arg1.charAt(local29)) & 0xFF);
+            @Pc(40) char local40 = (char) (Cp1252.encodeChar(arg1.charAt(local29)) & 0xFF);
             if (local40 == '<') {
                 local13 = local29;
             } else {
@@ -190,7 +191,7 @@ public abstract class Class14 {
         @Pc(18) int local18 = -1;
         @Pc(21) int local21 = arg3.length();
         for (@Pc(23) int local23 = 0; local23 < local21; local23++) {
-            @Pc(33) char local33 = (char) (Static41.method1028(arg3.charAt(local23)) & 0xFF);
+            @Pc(33) char local33 = (char) (Cp1252.encodeChar(arg3.charAt(local23)) & 0xFF);
             if (local33 == '<') {
                 local11 = local23;
             } else {

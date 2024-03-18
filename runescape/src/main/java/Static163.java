@@ -1,4 +1,3 @@
-import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -24,14 +23,6 @@ public final class Static163 {
         @Pc(39) int local39 = Static459.aCalendar3.get(12);
         @Pc(43) int local43 = Static459.aCalendar3.get(13);
         return Static146.aStringArray8[local19 - 1] + ", " + local23 / 10 + local23 % 10 + "-" + Static361.aStringArray29[local27] + "-" + local31 + " " + local35 / 10 + local35 % 10 + ":" + local39 / 10 + local39 % 10 + ":" + local43 / 10 + local43 % 10 + " GMT";
-    }
-
-    @OriginalMember(owner = "client!fb", name = "a", descriptor = "([BI)[B")
-    public static byte[] method8849(@OriginalArg(0) byte[] arg0) {
-        @Pc(13) int local13 = arg0.length;
-        @Pc(16) byte[] local16 = new byte[local13];
-        Arrays.copy(arg0, 0, local16, 0, local13);
-        return local16;
     }
 
     @OriginalMember(owner = "client!fb", name = "a", descriptor = "(IIIIZ)Lclient!aha;")

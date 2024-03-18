@@ -53,7 +53,7 @@ public final class Class161 {
         @Pc(40) js5 local40 = this.aJs5_53;
         @Pc(53) byte[] local53;
         synchronized (this.aJs5_53) {
-            local53 = this.aJs5_53.method7595(Static322.method9443(arg0), Static516.method6806(arg0));
+            local53 = this.aJs5_53.getfile(Static322.method9443(arg0), Static516.method6806(arg0));
         }
         local16 = new Class95();
         if (local53 != null) {

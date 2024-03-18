@@ -37,9 +37,9 @@ public final class Class151 {
         }
         @Pc(28) byte[] local28;
         if (arg0 < 32768) {
-            local28 = this.aJs5_50.method7595(arg0, 0);
+            local28 = this.aJs5_50.getfile(arg0, 0);
         } else {
-            local28 = this.aJs5_51.method7595(arg0 & 0x7FFF, 0);
+            local28 = this.aJs5_51.getfile(arg0 & 0x7FFF, 0);
         }
         local11 = new DoublyLinkedNode_Sub2_Sub3();
         if (local28 != null) {

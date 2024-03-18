@@ -45,7 +45,7 @@ public final class IDKTypeList {
         @Pc(38) js5 local38 = this.aJs5_71;
         @Pc(47) byte[] local47;
         synchronized (this.aJs5_71) {
-            local47 = this.aJs5_71.method7595(arg0, 3);
+            local47 = this.aJs5_71.getfile(arg0, 3);
         }
         local24 = new Class294();
         local24.aIDKTypeList_4 = this;

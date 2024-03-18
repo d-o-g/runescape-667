@@ -49,7 +49,7 @@ public final class Class307 {
         @Pc(36) js5 local36 = this.aJs5_100;
         @Pc(45) byte[] local45;
         synchronized (this.aJs5_100) {
-            local45 = this.aJs5_100.method7595(arg0, 29);
+            local45 = this.aJs5_100.getfile(arg0, 29);
         }
         local22 = new Class108();
         if (local45 != null) {

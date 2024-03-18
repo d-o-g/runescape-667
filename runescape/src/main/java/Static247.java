@@ -16,21 +16,4 @@ public final class Static247 {
             local16.method8236();
         }
     }
-
-    @OriginalMember(owner = "client!hla", name = "a", descriptor = "([BIZ)Ljava/lang/Object;")
-    public static Object method3524(@OriginalArg(0) byte[] arg0) {
-        if (arg0 == null) {
-            return null;
-        }
-        if (arg0.length > 136 && !Static132.aBoolean208) {
-            try {
-                @Pc(25) Class175 local25 = (Class175) Class.forName("Class175_Sub1").getDeclaredConstructor().newInstance();
-                local25.method3849(arg0);
-                return local25;
-            } catch (@Pc(32) Throwable local32) {
-                Static132.aBoolean208 = true;
-            }
-        }
-        return arg0;
-    }
 }

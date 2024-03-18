@@ -370,7 +370,22 @@ public final class Arrays {
         }
     }
 
+    @OriginalMember(owner = "client!fb", name = "a", descriptor = "([BI)[B")
+    public static byte[] copy(@OriginalArg(0) byte[] data) {
+        @Pc(13) int len = data.length;
+        @Pc(16) byte[] copy = new byte[len];
+        copy(data, 0, copy, 0, len);
+        return copy;
+    }
+
     private Arrays() {
         /* empty */
+    }
+
+    @OriginalMember(owner = "client!sh", name = "a", descriptor = "(IIZ[B)[B")
+    public static byte[] copy(@OriginalArg(0) int srcOff, @OriginalArg(1) int len, @OriginalArg(3) byte[] src) {
+        @Pc(6) byte[] dest = new byte[len];
+        copy(src, srcOff, dest, 0, len);
+        return dest;
     }
 }

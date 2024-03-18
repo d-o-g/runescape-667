@@ -40,7 +40,7 @@ public final class SeqTypeList {
         @Pc(30) js5 local30 = this.aJs5_11;
         @Pc(43) byte[] local43;
         synchronized (this.aJs5_11) {
-            local43 = this.aJs5_11.method7595(Static668.method8702(arg0), Static291.method4226(arg0));
+            local43 = this.aJs5_11.getfile(Static668.method8702(arg0), Static291.method4226(arg0));
         }
         local16 = new SeqType();
         local16.id = arg0;

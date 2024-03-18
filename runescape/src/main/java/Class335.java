@@ -33,7 +33,7 @@ public final class Class335 {
         @Pc(30) js5 local30 = this.aJs5_107;
         @Pc(39) byte[] local39;
         synchronized (this.aJs5_107) {
-            local39 = this.aJs5_107.method7595(arg0, 5);
+            local39 = this.aJs5_107.getfile(arg0, 5);
         }
         local16 = new DoublyLinkedNode_Sub2_Sub6();
         if (local39 != null) {

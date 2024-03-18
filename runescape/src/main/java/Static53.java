@@ -59,7 +59,7 @@ public final class Static53 {
                 Static196.method2947(local68, arg0);
                 return 100;
             } else {
-                return Static442.aJs5_90.method7593(local36);
+                return Static442.aJs5_90.completePercentage(local36);
             }
         }
     }

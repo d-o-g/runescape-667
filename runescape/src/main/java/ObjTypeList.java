@@ -221,7 +221,7 @@ public final class ObjTypeList {
         @Pc(40) js5 local40 = this.aJs5_29;
         @Pc(53) byte[] local53;
         synchronized (this.aJs5_29) {
-            local53 = this.aJs5_29.method7595(Static223.method9100(arg0), Static593.method7781(arg0));
+            local53 = this.aJs5_29.getfile(Static223.method9100(arg0), Static593.method7781(arg0));
         }
         local26 = new ObjType();
         local26.anInt10134 = arg0;

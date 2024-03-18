@@ -110,6 +110,73 @@ public final class Cp1252 {
         return new String(chars, 0, index);
     }
 
+    @OriginalMember(owner = "client!bg", name = "a", descriptor = "(CB)B")
+    public static byte encodeChar(@OriginalArg(0) char c) {
+        @Pc(36) byte b;
+
+        if (((c > 0) && (c < 128)) || ((c >= 160) && (c <= 255))) {
+            b = (byte) c;
+        } else if (c == '€') {
+            b = -128;
+        } else if (c == '‚') {
+            b = -126;
+        } else if (c == 'ƒ') {
+            b = -125;
+        } else if (c == '„') {
+            b = -124;
+        } else if (c == '…') {
+            b = -123;
+        } else if (c == '†') {
+            b = -122;
+        } else if (c == '‡') {
+            b = -121;
+        } else if (c == 'ˆ') {
+            b = -120;
+        } else if (c == '‰') {
+            b = -119;
+        } else if (c == 'Š') {
+            b = -118;
+        } else if (c == '‹') {
+            b = -117;
+        } else if (c == 'Œ') {
+            b = -116;
+        } else if (c == 'Ž') {
+            b = -114;
+        } else if (c == '‘') {
+            b = -111;
+        } else if (c == '’') {
+            b = -110;
+        } else if (c == '“') {
+            b = -109;
+        } else if (c == '”') {
+            b = -108;
+        } else if (c == '•') {
+            b = -107;
+        } else if (c == '–') {
+            b = -106;
+        } else if (c == '—') {
+            b = -105;
+        } else if (c == '˜') {
+            b = -104;
+        } else if (c == '™') {
+            b = -103;
+        } else if (c == 'š') {
+            b = -102;
+        } else if (c == '›') {
+            b = -101;
+        } else if (c == 'œ') {
+            b = -100;
+        } else if (c == 'ž') {
+            b = -98;
+        } else if (c == 'Ÿ') {
+            b = -97;
+        } else {
+            b = '?';
+        }
+
+        return b;
+    }
+
     @OriginalMember(owner = "client!kt", name = "a", descriptor = "(BB)C")
     public static char decodeChar(@OriginalArg(0) byte b) {
         @Pc(14) int c = b & 0xFF;

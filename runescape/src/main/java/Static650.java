@@ -190,7 +190,7 @@ public final class Static650 {
     @OriginalMember(owner = "client!uj", name = "a", descriptor = "(Lclient!sb;)Z")
     public static boolean method8505(@OriginalArg(0) js5 arg0) {
         if (!aBoolean746) {
-            @Pc(7) byte[] local7 = arg0.method7595(0, 0);
+            @Pc(7) byte[] local7 = arg0.getfile(0, 0);
             if (local7 == null) {
                 return false;
             }
@@ -202,7 +202,7 @@ public final class Static650 {
     @OriginalMember(owner = "client!uj", name = "a", descriptor = "(Lclient!sb;II)Lclient!uj;")
     public static Node_Sub53 method8506(@OriginalArg(0) js5 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         if (method8505(arg0)) {
-            @Pc(16) byte[] local16 = arg0.method7595(arg2, arg1);
+            @Pc(16) byte[] local16 = arg0.getfile(arg2, arg1);
             return local16 == null ? null : new Node_Sub53(local16);
         } else {
             arg0.method7586(arg2, arg1);

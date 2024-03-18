@@ -44,7 +44,7 @@ public final class Class128 {
         @Pc(38) js5 local38 = this.aJs5_33;
         @Pc(51) byte[] local51;
         synchronized (this.aJs5_33) {
-            local51 = this.aJs5_33.method7595(Static560.method7429(arg0), Static359.method5224(arg0));
+            local51 = this.aJs5_33.getfile(Static560.method7429(arg0), Static359.method5224(arg0));
         }
         local24 = new Class227();
         local24.anInt5833 = arg0;

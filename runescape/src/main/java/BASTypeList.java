@@ -61,7 +61,7 @@ public final class BASTypeList {
         @Pc(30) js5 local30 = this.aJs5_103;
         @Pc(39) byte[] local39;
         synchronized (this.aJs5_103) {
-            local39 = this.aJs5_103.method7595(arg0, 32);
+            local39 = this.aJs5_103.getfile(arg0, 32);
         }
         local16 = new BASType();
         local16.aBASTypeList_1 = this;

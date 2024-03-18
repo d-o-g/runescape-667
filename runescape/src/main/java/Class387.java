@@ -33,7 +33,7 @@ public final class Class387 {
         if (local16 != null) {
             return local16;
         }
-        @Pc(40) byte[] local40 = this.aJs5_122.method7595(Static61.method1313(arg0), Static188.method2857(arg0));
+        @Pc(40) byte[] local40 = this.aJs5_122.getfile(Static61.method1313(arg0), Static188.method2857(arg0));
         local16 = new Class53();
         if (local40 != null) {
             local16.method1222(new Packet(local40));

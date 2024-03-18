@@ -519,7 +519,7 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!ka;ILclient!tt;I)V")
-    public void method3384(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class114 arg1, @OriginalArg(3) Class73 arg2, @OriginalArg(4) int arg3) {
+    public void method3384(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Class73 arg2, @OriginalArg(4) int arg3) {
         arg1.method7476(arg2);
         @Pc(9) Class328[] local9 = arg1.method7482();
         @Pc(22) Class249[] local22 = arg1.method7480();
@@ -985,7 +985,7 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!gu;Lclient!qp;Lclient!kr;BLclient!bp;Lclient!ju;Lclient!uk;Lclient!ql;Lclient!es;ILclient!vk;)Lclient!ka;")
-    public Class114 method3401(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(3) Class215 arg3, @OriginalArg(5) Class50 arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Interface23 arg6, @OriginalArg(8) Class308 arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
+    public Model method3401(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(3) Class215 arg3, @OriginalArg(5) Class50 arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Interface23 arg6, @OriginalArg(8) Class308 arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
         Static544.aBoolean624 = false;
         if (this.anInt3823 == 0) {
             return null;
@@ -1017,7 +1017,7 @@ public final class Class158 {
                 arg9 |= 0x8000;
             }
             @Pc(271) long local271 = local53 & 0x3FFFFFFFFFL | (long) this.anInt3831 << 38 | (long) this.anInt3823 << 54 | (long) arg0.anInt8962 << 59;
-            @Pc(277) Class114 local277 = (Class114) Static312.aClass82_106.method2156(local271);
+            @Pc(277) Model local277 = (Model) Static312.aClass82_106.method2156(local271);
             if (local277 == null || arg0.method7960(local277.ua(), arg9) != 0) {
                 if (local277 != null) {
                     arg9 = arg0.method8013(arg9, local277.ua());
@@ -1027,8 +1027,8 @@ public final class Class158 {
                     Static544.aBoolean624 = true;
                     return null;
                 }
-                if (local307.anInt2379 < 13) {
-                    local307.method2232();
+                if (local307.version < 13) {
+                    local307.upscale();
                 }
                 local277 = arg0.method7952(local307, arg9, Static108.anInt2168, 64, 768);
                 @Pc(339) int local339;
@@ -1051,7 +1051,7 @@ public final class Class158 {
             local277.s(2048);
             return local277;
         } else {
-            @Pc(438) Class114 local438;
+            @Pc(438) Model local438;
             if (this.anInt3823 == 2) {
                 local438 = arg7.method7092(this.anInt3831).method5992(arg1, arg10, arg0, arg6);
                 if (local438 == null) {
@@ -1073,7 +1073,7 @@ public final class Class158 {
                 }
             } else if (this.anInt3823 == 4) {
                 @Pc(489) ObjType local489 = arg8.list(this.anInt3831);
-                @Pc(498) Class114 local498 = local489.method8805(arg1, 2048, arg5, 10, arg0);
+                @Pc(498) Model local498 = local489.method8805(arg1, 2048, arg5, 10, arg0);
                 if (local498 == null) {
                     Static544.aBoolean624 = true;
                     return null;
@@ -1096,7 +1096,7 @@ public final class Class158 {
                 @Pc(558) int local558 = this.anInt3831 >>> 16;
                 @Pc(563) int local563 = this.anInt3831 & 0xFFFF;
                 @Pc(566) int local566 = this.anInt3738;
-                @Pc(578) Class114 local578 = arg5.method4550(arg1, local558, local566, arg4, arg0, arg3, local563);
+                @Pc(578) Model local578 = arg5.method4550(arg1, local558, local566, arg4, arg0, arg3, local563);
                 if (local578 == null) {
                     Static544.aBoolean624 = true;
                     return null;

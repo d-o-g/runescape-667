@@ -4,13 +4,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ka")
-public abstract class Class114 {
+public abstract class Model {
 
     @OriginalMember(owner = "client!ka", name = "j", descriptor = "Z")
     protected boolean aBoolean645 = false;
 
     @OriginalMember(owner = "client!ka", name = "<init>", descriptor = "()V")
-    protected Class114() {
+    protected Model() {
     }
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
@@ -135,7 +135,7 @@ public abstract class Class114 {
     public abstract Class249[] method7480();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!ka;IIIZ)V")
-    public abstract void method7481(@OriginalArg(0) Class114 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4);
+    public abstract void method7481(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4);
 
     @OriginalMember(owner = "client!ka", name = "P", descriptor = "(IIII)V")
     protected abstract void P(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
@@ -314,7 +314,7 @@ public abstract class Class114 {
     protected abstract void method7494();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(BIZ)Lclient!ka;")
-    public abstract Class114 method7495(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
+    public abstract Model method7495(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
 
     @OriginalMember(owner = "client!ka", name = "C", descriptor = "(I)V")
     public abstract void C(@OriginalArg(0) int arg0);

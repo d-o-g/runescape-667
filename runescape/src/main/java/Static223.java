@@ -74,7 +74,7 @@ public final class Static223 {
     }
 
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(Lclient!ka;IIILclient!ke;I)V")
-    public static void method9103(@OriginalArg(0) Class114 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class205 arg4) {
+    public static void method9103(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class205 arg4) {
         if (arg0 != null) {
             arg4.method4629(arg0.fa(), arg0.HA(), arg2, arg3, arg0.G(), arg0.na(), arg1, arg0.EA(), arg0.V(), arg0.RA());
         }

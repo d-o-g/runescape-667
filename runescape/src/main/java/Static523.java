@@ -211,8 +211,8 @@ public final class Static523 {
             }
             Static502.method6721(Static336.aClass330_68.method7589(1));
             Static65.aClass3_1 = new Class3(Static336.aClass330_68);
-            Static76.aShortArrayArray2 = Static65.aClass3_1.aShortArrayArray1;
-            Static339.aShortArrayArrayArray2 = Static65.aClass3_1.aShortArrayArrayArray1;
+            Static76.bodycol_s = Static65.aClass3_1.aShortArrayArray1;
+            Static339.bodycol_d = Static65.aClass3_1.aShortArrayArrayArray1;
             Static125.aClass388_1 = new Class388(Static336.aClass330_68);
         }
         if (Static198.aClass140_13 == Static473.aClass140_22) {

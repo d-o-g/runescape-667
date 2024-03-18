@@ -8,7 +8,7 @@ import java.net.Socket;
 public final class Static76 {
 
     @OriginalMember(owner = "client!cha", name = "e", descriptor = "[[S")
-    public static short[][] aShortArrayArray2;
+    public static short[][] bodycol_s;
 
     @OriginalMember(owner = "client!cha", name = "h", descriptor = "I")
     public static int anInt1601 = 0;

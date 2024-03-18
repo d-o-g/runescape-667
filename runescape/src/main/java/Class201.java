@@ -10,7 +10,7 @@ public final class Class201 {
     public int anInt5007;
 
     @OriginalMember(owner = "client!ju", name = "e", descriptor = "[I")
-    public int[] anIntArray380;
+    public int[] bodycol_d_palette;
 
     @OriginalMember(owner = "client!ju", name = "c", descriptor = "[Lclient!bs;")
     public Class52[] aClass52Array1;
@@ -84,7 +84,7 @@ public final class Class201 {
             }
         }
         for (local156 = 0; local156 < 10; local156++) {
-            this.aLong160 = this.aLong160 >>> 8 ^ local5[(int) (((long) this.anIntArray380[local156] ^ this.aLong160) & 0xFFL)];
+            this.aLong160 = this.aLong160 >>> 8 ^ local5[(int) (((long) this.bodycol_d_palette[local156] ^ this.aLong160) & 0xFFL)];
         }
         this.aLong160 = local5[(int) (((long) (this.aBoolean385 ? 1 : 0) ^ this.aLong160) & 0xFFL)] ^ this.aLong160 >>> 8;
     }
@@ -92,7 +92,7 @@ public final class Class201 {
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "([I[I[Lclient!bs;IIZB)V")
     public void method4545(@OriginalArg(0) int[] arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) Class52[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
         this.aClass52Array1 = arg2;
-        this.anIntArray380 = arg0;
+        this.bodycol_d_palette = arg0;
         this.aBoolean385 = arg5;
         if (this.anInt5007 != arg4) {
             this.anInt5007 = arg4;
@@ -103,7 +103,7 @@ public final class Class201 {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!es;Lclient!gu;IZLclient!qp;Lclient!bp;I[ILclient!vl;Lclient!kr;Lclient!ha;Lclient!ql;[Lclient!gu;ILclient!gu;Lclient!uk;)Lclient!ka;")
-    public Class114 method4546(@OriginalArg(0) ObjTypeList arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(4) Class310 arg2, @OriginalArg(5) Class50 arg3, @OriginalArg(6) int arg4, @OriginalArg(7) int[] arg5, @OriginalArg(8) Class388 arg6, @OriginalArg(9) Class215 arg7, @OriginalArg(10) Class19 arg8, @OriginalArg(11) Class308 arg9, @OriginalArg(12) Class152[] arg10, @OriginalArg(13) int arg11, @OriginalArg(14) Class152 arg12, @OriginalArg(15) Interface23 arg13) {
+    public Model method4546(@OriginalArg(0) ObjTypeList arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(4) Class310 arg2, @OriginalArg(5) Class50 arg3, @OriginalArg(6) int arg4, @OriginalArg(7) int[] arg5, @OriginalArg(8) Class388 arg6, @OriginalArg(9) Class215 arg7, @OriginalArg(10) Class19 arg8, @OriginalArg(11) Class308 arg9, @OriginalArg(12) Class152[] arg10, @OriginalArg(13) int arg11, @OriginalArg(14) Class152 arg12, @OriginalArg(15) Interface23 arg13) {
         if (this.anInt5012 != -1) {
             return arg9.method7092(this.anInt5012).method5993(arg13, arg8, arg2, arg1, arg11, arg5, (Class386) null, arg12, arg4, arg10);
         }
@@ -181,9 +181,9 @@ public final class Class201 {
             }
         }
         @Pc(334) Class82 local334 = Static580.aClass82_186;
-        @Pc(342) Class114 local342;
+        @Pc(342) Model local342;
         synchronized (Static580.aClass82_186) {
-            local342 = (Class114) Static580.aClass82_186.method2156(local31);
+            local342 = (Model) Static580.aClass82_186.method2156(local31);
         }
         @Pc(350) Class289 local350 = null;
         if (this.anInt5007 != -1) {
@@ -206,7 +206,7 @@ public final class Class201 {
                         if (this.aLong159 != -1L) {
                             @Pc(552) Class82 local552 = Static580.aClass82_186;
                             synchronized (Static580.aClass82_186) {
-                                local342 = (Class114) Static580.aClass82_186.method2156(this.aLong159);
+                                local342 = (Model) Static580.aClass82_186.method2156(this.aLong159);
                             }
                         }
                         if (local342 == null || arg8.method7960(local342.ua(), local28) != 0) {
@@ -265,9 +265,9 @@ public final class Class201 {
                         @Pc(833) Mesh local833 = new Mesh(local584, local584.length);
                         local342 = arg8.method7952(local833, local826, Static294.anInt4766, 64, 850);
                         for (local409 = 0; local409 < 10; local409++) {
-                            for (local709 = 0; local709 < Static76.aShortArrayArray2[local409].length; local709++) {
-                                if (Static339.aShortArrayArrayArray2[local409][local709].length > this.anIntArray380[local409]) {
-                                    local342.ia(Static76.aShortArrayArray2[local409][local709], Static339.aShortArrayArrayArray2[local409][local709][this.anIntArray380[local409]]);
+                            for (local709 = 0; local709 < Static76.bodycol_s[local409].length; local709++) {
+                                if (Static339.bodycol_d[local409][local709].length > this.bodycol_d_palette[local409]) {
+                                    local342.ia(Static76.bodycol_s[local409][local709], Static339.bodycol_d[local409][local709][this.bodycol_d_palette[local409]]);
                                 }
                             }
                         }
@@ -320,7 +320,7 @@ public final class Class201 {
                 local390++;
             }
         }
-        @Pc(925) Class114 local925 = local342.method7495((byte) 4, local28, true);
+        @Pc(925) Model local925 = local342.method7495((byte) 4, local28, true);
         if (!local257 && !local310) {
             return local925;
         }
@@ -389,18 +389,18 @@ public final class Class201 {
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(IIB)V")
     public void method4549(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        this.anIntArray380[arg0] = arg1;
+        this.bodycol_d_palette[arg0] = arg1;
         this.method4543();
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!gu;IILclient!bp;Lclient!ha;BLclient!kr;II)Lclient!ka;")
-    public Class114 method4550(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class50 arg3, @OriginalArg(4) Class19 arg4, @OriginalArg(6) Class215 arg5, @OriginalArg(7) int arg6) {
+    public Model method4550(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class50 arg3, @OriginalArg(4) Class19 arg4, @OriginalArg(6) Class215 arg5, @OriginalArg(7) int arg6) {
         @Pc(16) int local16 = arg0 == null ? 2048 : arg0.method9101() | 0x800;
         @Pc(29) long local29 = (long) arg1 | (long) arg2 << 32 | (long) (arg6 << 16);
         @Pc(31) Class82 local31 = Static54.aClass82_25;
-        @Pc(39) Class114 local39;
+        @Pc(39) Model local39;
         synchronized (Static54.aClass82_25) {
-            local39 = (Class114) Static54.aClass82_25.method2156(local29);
+            local39 = (Model) Static54.aClass82_25.method2156(local29);
         }
         if (local39 == null || arg4.method7960(local39.ua(), local16) != 0) {
             if (local39 != null) {
@@ -428,9 +428,9 @@ public final class Class201 {
             local107 = new Mesh(local70, local72);
             local39 = arg4.method7952(local107, local152, Static294.anInt4766, 64, 768);
             for (@Pc(168) int local168 = 0; local168 < 10; local168++) {
-                for (@Pc(172) int local172 = 0; local172 < Static76.aShortArrayArray2[local168].length; local172++) {
-                    if (this.anIntArray380[local168] < Static339.aShortArrayArrayArray2[local168][local172].length) {
-                        local39.ia(Static76.aShortArrayArray2[local168][local172], Static339.aShortArrayArrayArray2[local168][local172][this.anIntArray380[local168]]);
+                for (@Pc(172) int local172 = 0; local172 < Static76.bodycol_s[local168].length; local172++) {
+                    if (this.bodycol_d_palette[local168] < Static339.bodycol_d[local168][local172].length) {
+                        local39.ia(Static76.bodycol_s[local168][local172], Static339.bodycol_d[local168][local172][this.bodycol_d_palette[local168]]);
                     }
                 }
             }
@@ -460,15 +460,15 @@ public final class Class201 {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!kr;BLclient!bp;Lclient!uk;Lclient!gu;Lclient!es;Lclient!ql;Lclient!ha;I)Lclient!ka;")
-    public Class114 method4552(@OriginalArg(0) Class215 arg0, @OriginalArg(2) Class50 arg1, @OriginalArg(3) Interface23 arg2, @OriginalArg(4) Class152 arg3, @OriginalArg(5) ObjTypeList arg4, @OriginalArg(6) Class308 arg5, @OriginalArg(7) Class19 arg6) {
+    public Model method4552(@OriginalArg(0) Class215 arg0, @OriginalArg(2) Class50 arg1, @OriginalArg(3) Interface23 arg2, @OriginalArg(4) Class152 arg3, @OriginalArg(5) ObjTypeList arg4, @OriginalArg(6) Class308 arg5, @OriginalArg(7) Class19 arg6) {
         if (this.anInt5012 != -1) {
             return arg5.method7092(this.anInt5012).method5992(arg3, (Class386) null, arg6, arg2);
         }
         @Pc(35) int local35 = arg3 == null ? 2048 : arg3.method9101() | 0x800;
         @Pc(37) Class82 local37 = Static54.aClass82_25;
-        @Pc(48) Class114 local48;
+        @Pc(48) Model local48;
         synchronized (Static54.aClass82_25) {
-            local48 = (Class114) Static54.aClass82_25.method2156(this.aLong160);
+            local48 = (Model) Static54.aClass82_25.method2156(this.aLong160);
         }
         if (local48 == null || arg6.method7960(local48.ua(), local35) != 0) {
             if (local48 != null) {
@@ -517,9 +517,9 @@ public final class Class201 {
             @Pc(270) int local270 = local35 | 0x4000;
             local48 = arg6.method7952(local266, local270, Static294.anInt4766, 64, 768);
             for (@Pc(282) int local282 = 0; local282 < 10; local282++) {
-                for (@Pc(286) int local286 = 0; local286 < Static76.aShortArrayArray2[local282].length; local286++) {
-                    if (this.anIntArray380[local282] < Static339.aShortArrayArrayArray2[local282][local286].length) {
-                        local48.ia(Static76.aShortArrayArray2[local282][local286], Static339.aShortArrayArrayArray2[local282][local286][this.anIntArray380[local282]]);
+                for (@Pc(286) int local286 = 0; local286 < Static76.bodycol_s[local282].length; local286++) {
+                    if (this.bodycol_d_palette[local282] < Static339.bodycol_d[local282][local286].length) {
+                        local48.ia(Static76.bodycol_s[local282][local286], Static339.bodycol_d[local282][local286][this.bodycol_d_palette[local282]]);
                     }
                 }
             }
@@ -532,7 +532,7 @@ public final class Class201 {
         if (arg3 == null) {
             return local48;
         } else {
-            @Pc(375) Class114 local375 = local48.method7495((byte) 4, local35, true);
+            @Pc(375) Model local375 = local48.method7495((byte) 4, local35, true);
             arg3.method9089(local375, 0);
             return local375;
         }

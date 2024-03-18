@@ -115,7 +115,7 @@ public final class Mesh {
     public byte aByte45 = 0;
 
     @OriginalMember(owner = "client!dv", name = "h", descriptor = "I")
-    public int anInt2379 = 12;
+    public int version = 12;
 
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "()V")
     public Mesh() {
@@ -400,7 +400,7 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(II)V")
-    public void method2232() {
+    public void upscale() {
         for (@Pc(1) int local1 = 0; local1 < this.anInt2372; local1++) {
             this.anIntArray213[local1] <<= 0x2;
             this.anIntArray205[local1] <<= 0x2;
@@ -475,7 +475,7 @@ public final class Mesh {
         @Pc(109) boolean local109 = (local63 & 0x8) == 8;
         if (local109) {
             local8.pos -= 7;
-            this.anInt2379 = local8.g1();
+            this.version = local8.g1();
             local8.pos += 6;
         }
         @Pc(134) int local134 = local8.g1();
@@ -554,9 +554,9 @@ public final class Mesh {
         @Pc(370) int local370 = local192;
         local192 += local174 * 6;
         @Pc(378) byte local378 = 6;
-        if (this.anInt2379 == 14) {
+        if (this.version == 14) {
             local378 = 7;
-        } else if (this.anInt2379 >= 15) {
+        } else if (this.version >= 15) {
             local378 = 9;
         }
         @Pc(395) int local395 = local192;
@@ -762,9 +762,9 @@ public final class Mesh {
                 this.aShortArray29[local882] = (short) local13.g2();
                 this.aShortArray21[local882] = (short) local13.g2();
                 this.aShortArray28[local882] = (short) local13.g2();
-                if (this.anInt2379 < 15) {
+                if (this.version < 15) {
                     this.anIntArray211[local882] = local18.g2();
-                    if (this.anInt2379 < 14) {
+                    if (this.version < 14) {
                         this.anIntArray207[local882] = local18.g2();
                     } else {
                         this.anIntArray207[local882] = local18.g3();
@@ -783,9 +783,9 @@ public final class Mesh {
                 this.aShortArray29[local882] = (short) local13.g2();
                 this.aShortArray21[local882] = (short) local13.g2();
                 this.aShortArray28[local882] = (short) local13.g2();
-                if (this.anInt2379 < 15) {
+                if (this.version < 15) {
                     this.anIntArray211[local882] = local18.g2();
-                    if (this.anInt2379 >= 14) {
+                    if (this.version >= 14) {
                         this.anIntArray207[local882] = local18.g3();
                     } else {
                         this.anIntArray207[local882] = local18.g2();
@@ -806,9 +806,9 @@ public final class Mesh {
                 this.aShortArray29[local882] = (short) local13.g2();
                 this.aShortArray21[local882] = (short) local13.g2();
                 this.aShortArray28[local882] = (short) local13.g2();
-                if (this.anInt2379 < 15) {
+                if (this.version < 15) {
                     this.anIntArray211[local882] = local18.g2();
-                    if (this.anInt2379 < 14) {
+                    if (this.version < 14) {
                         this.anIntArray207[local882] = local18.g2();
                     } else {
                         this.anIntArray207[local882] = local18.g3();
@@ -928,7 +928,7 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(SSI)V")
-    public void method2238(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1) {
+    public void retexture(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1) {
         if (this.aShortArray25 == null) {
             return;
         }
@@ -970,7 +970,7 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "b", descriptor = "(SSI)V")
-    public void method2240(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1) {
+    public void recolour(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1) {
         for (@Pc(5) int local5 = 0; local5 < this.anInt2362; local5++) {
             if (arg0 == this.aShortArray22[local5]) {
                 this.aShortArray22[local5] = arg1;

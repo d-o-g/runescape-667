@@ -64,16 +64,16 @@ public final class Static231 {
         for (@Pc(34) int local34 = 0; local34 < 2048; local34++) {
             @Pc(39) Class8_Sub2_Sub1_Sub2_Sub1 local39 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local34];
             if (local39 != null) {
-                for (@Pc(43) int local43 = 0; local43 < local39.aClass114Array3.length; local43++) {
-                    local39.aClass114Array3[local43] = null;
+                for (@Pc(43) int local43 = 0; local43 < local39.aModelArray3.length; local43++) {
+                    local39.aModelArray3[local43] = null;
                 }
             }
         }
         for (@Pc(65) int local65 = 0; local65 < Static416.anInt6378; local65++) {
             @Pc(71) Class8_Sub2_Sub1_Sub2_Sub2 local71 = Static592.aClass2_Sub45Array1[local65].aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local71 != null) {
-                for (@Pc(75) int local75 = 0; local75 < local71.aClass114Array3.length; local75++) {
-                    local71.aClass114Array3[local75] = null;
+                for (@Pc(75) int local75 = 0; local75 < local71.aModelArray3.length; local75++) {
+                    local71.aModelArray3[local75] = null;
                 }
             }
         }

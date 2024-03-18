@@ -45,7 +45,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(Lclient!tt;Lclient!ka;ILclient!ha;)V")
-    public void method6593(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Class114 arg1, @OriginalArg(3) Class19 arg2) {
+    public void method6593(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Class19 arg2) {
         arg1.method7476(arg0);
         @Pc(9) Class328[] local9 = arg1.method7482();
         @Pc(19) Class249[] local19 = arg1.method7480();
@@ -59,7 +59,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IILclient!ha;I)Lclient!ka;")
-    public Class114 method6594(@OriginalArg(1) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2) {
+    public Model method6594(@OriginalArg(1) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2) {
         @Pc(8) Class227 local8 = Static23.aClass128_1.method2694(arg0);
         @Pc(22) Class178 local22 = Static706.aClass178Array3[super.aByte144];
         @Pc(36) Class178 local36 = super.aByte143 < 3 ? Static706.aClass178Array3[super.aByte143 + 1] : null;
@@ -80,7 +80,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
         if (arg1 != -5) {
             this.method9289((Class19) null, 72);
         }
-        @Pc(20) Class114 local20 = this.method6594(this.anInt7402, arg0, 0);
+        @Pc(20) Model local20 = this.method6594(this.anInt7402, arg0, 0);
         if (local20 != null) {
             @Pc(25) Class73 local25 = arg0.method7985();
             local25.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
@@ -178,7 +178,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0) {
-        @Pc(24) Class114 local24 = this.method6594(this.anInt7402, arg0, (this.anInt7400 == 0 ? 0 : 5) | 0x800);
+        @Pc(24) Model local24 = this.method6594(this.anInt7402, arg0, (this.anInt7400 == 0 ? 0 : 5) | 0x800);
         if (local24 == null) {
             return null;
         }

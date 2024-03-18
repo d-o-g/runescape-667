@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static345 {
 
     @OriginalMember(owner = "client!ks", name = "l", descriptor = "Lclient!ka;")
-    public static Class114 aClass114_6;
+    public static Model aModel_6;
 
     @OriginalMember(owner = "client!ks", name = "j", descriptor = "Lclient!st;")
     public static Class23 aClass23_23;
@@ -18,13 +18,13 @@ public final class Static345 {
 
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "()V")
     public static void method5049() {
-        aClass114_6 = null;
+        aModel_6 = null;
         aClass23_25 = null;
     }
 
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "(Lclient!ha;)V")
     public static void method5051(@OriginalArg(0) Class19 arg0) {
-        if (aClass114_6 != null) {
+        if (aModel_6 != null) {
             return;
         }
         @Pc(8) Mesh local8 = new Mesh(580, 1104, 1);
@@ -65,7 +65,7 @@ public final class Static345 {
         local8.anIntArray210 = null;
         local8.anIntArray209 = null;
         local8.aByteArray26 = null;
-        aClass114_6 = arg0.method7952(local8, 51200, 33, 64, 768);
+        aModel_6 = arg0.method7952(local8, 51200, 33, 64, 768);
     }
 
     @OriginalMember(owner = "client!ks", name = "b", descriptor = "(Lclient!ha;)V")

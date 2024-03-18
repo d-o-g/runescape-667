@@ -33,8 +33,8 @@ public final class Node_Sub22 extends Node {
     }
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(IILclient!ha;IZLclient!gu;Lclient!ju;)Lclient!ka;")
-    public Class114 method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(4) boolean arg2, @OriginalArg(5) Class152 arg3, @OriginalArg(6) Class201 arg4) {
-        @Pc(7) Class114 local7 = null;
+    public Model method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(4) boolean arg2, @OriginalArg(5) Class152 arg3, @OriginalArg(6) Class201 arg4) {
+        @Pc(7) Model local7 = null;
         @Pc(9) int local9 = 2048;
         @Pc(11) Class289 local11 = null;
         if (arg0 != -1) {
@@ -55,9 +55,9 @@ public final class Node_Sub22 extends Node {
         if (arg3 != null) {
             local9 = arg3.method9101() | 0x800;
         }
-        @Pc(116) long local116 = this.method3077(arg2, arg0, local23, arg4 == null ? null : arg4.anIntArray380);
+        @Pc(116) long local116 = this.method3077(arg2, arg0, local23, arg4 == null ? null : arg4.bodycol_d_palette);
         if (Static166.aClass82_59 != null) {
-            local7 = (Class114) Static166.aClass82_59.method2156(local116);
+            local7 = (Model) Static166.aClass82_59.method2156(local116);
         }
         if (local7 == null || arg1.method7960(local7.ua(), local9) != 0) {
             if (local7 != null) {
@@ -106,9 +106,9 @@ public final class Node_Sub22 extends Node {
             local7 = arg1.method7952(local382, local151, Static584.anInt8635, 64, 850);
             if (arg4 != null) {
                 for (local278 = 0; local278 < 10; local278++) {
-                    for (local285 = 0; local285 < Static76.aShortArrayArray2[local278].length; local285++) {
-                        if (Static339.aShortArrayArrayArray2[local278][local285].length > arg4.anIntArray380[local278]) {
-                            local7.ia(Static76.aShortArrayArray2[local278][local285], Static339.aShortArrayArrayArray2[local278][local285][arg4.anIntArray380[local278]]);
+                    for (local285 = 0; local285 < Static76.bodycol_s[local278].length; local285++) {
+                        if (Static339.bodycol_d[local278][local285].length > arg4.bodycol_d_palette[local278]) {
+                            local7.ia(Static76.bodycol_s[local278][local285], Static339.bodycol_d[local278][local285][arg4.bodycol_d_palette[local278]]);
                         }
                     }
                 }
@@ -121,7 +121,7 @@ public final class Node_Sub22 extends Node {
         if (arg3 == null) {
             return local7;
         } else {
-            @Pc(478) Class114 local478 = local7.method7495((byte) 1, local9, true);
+            @Pc(478) Model local478 = local7.method7495((byte) 1, local9, true);
             arg3.method9089(local478, 0);
             return local478;
         }

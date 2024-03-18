@@ -429,7 +429,7 @@ public final class Static71 {
                                 } else if (local19.anInt3820 == 6) {
                                     Static104.method2033();
                                     Class386 local1215 = null;
-                                    @Pc(2313) Class114 local2313 = null;
+                                    @Pc(2313) Model local2313 = null;
                                     local744 = 0;
                                     if (local19.anInt3760 != -1) {
                                         local1543 = Static419.aObjTypeList_1.list(local19.anInt3760);

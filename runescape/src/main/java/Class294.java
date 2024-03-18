@@ -94,19 +94,19 @@ public final class Class294 {
             }
         }
         for (@Pc(66) int local66 = 0; local66 < 5; local66++) {
-            if (local8[local66] != null && local8[local66].anInt2379 < 13) {
-                local8[local66].method2232();
+            if (local8[local66] != null && local8[local66].version < 13) {
+                local8[local66].upscale();
             }
         }
         @Pc(102) Mesh local102 = new Mesh(local8, local10);
         if (this.aShortArray105 != null) {
             for (local26 = 0; local26 < this.aShortArray105.length; local26++) {
-                local102.method2240(this.aShortArray105[local26], this.aShortArray108[local26]);
+                local102.recolour(this.aShortArray105[local26], this.aShortArray108[local26]);
             }
         }
         if (this.aShortArray107 != null) {
             for (local26 = 0; local26 < this.aShortArray107.length; local26++) {
-                local102.method2238(this.aShortArray107[local26], this.aShortArray106[local26]);
+                local102.retexture(this.aShortArray107[local26], this.aShortArray106[local26]);
             }
         }
         return local102;
@@ -162,8 +162,8 @@ public final class Class294 {
             }
         }
         for (@Pc(56) int local56 = 0; local56 < this.anIntArray602.length; local56++) {
-            if (local14[local56].anInt2379 < 13) {
-                local14[local56].method2232();
+            if (local14[local56].version < 13) {
+                local14[local56].upscale();
             }
         }
         @Pc(93) Mesh local93;
@@ -177,12 +177,12 @@ public final class Class294 {
         }
         if (this.aShortArray105 != null) {
             for (local22 = 0; local22 < this.aShortArray105.length; local22++) {
-                local93.method2240(this.aShortArray105[local22], this.aShortArray108[local22]);
+                local93.recolour(this.aShortArray105[local22], this.aShortArray108[local22]);
             }
         }
         if (this.aShortArray107 != null) {
             for (local22 = 0; local22 < this.aShortArray107.length; local22++) {
-                local93.method2238(this.aShortArray107[local22], this.aShortArray106[local22]);
+                local93.retexture(this.aShortArray107[local22], this.aShortArray106[local22]);
             }
         }
         return local93;

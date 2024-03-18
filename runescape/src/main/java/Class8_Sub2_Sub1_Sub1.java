@@ -179,7 +179,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;I)Lclient!ka;")
-    public Class114 method814(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2) {
+    public Model method814(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2) {
         @Pc(17) Class227 local17 = Static23.aClass128_1.method2694(this.anInt715);
         return local17.method5252(this.aClass152_1, (byte) 2, arg0, arg1);
     }
@@ -272,7 +272,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(BLclient!ha;Lclient!tt;Lclient!ka;)V")
-    public void method817(@OriginalArg(1) Class19 arg0, @OriginalArg(2) Class73 arg1, @OriginalArg(3) Class114 arg2) {
+    public void method817(@OriginalArg(1) Class19 arg0, @OriginalArg(2) Class73 arg1, @OriginalArg(3) Model arg2) {
         arg2.method7476(arg1);
         @Pc(9) Class328[] local9 = arg2.method7482();
         @Pc(12) Class249[] local12 = arg2.method7480();
@@ -297,7 +297,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         if (arg1 != -5) {
             Static29.aClass131_1 = null;
         }
-        @Pc(18) Class114 local18 = this.method814(0, arg0, arg1 + 75);
+        @Pc(18) Model local18 = this.method814(0, arg0, arg1 + 75);
         if (local18 == null) {
             return;
         }
@@ -313,7 +313,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0) {
-        @Pc(19) Class114 local19 = this.method814(2048, arg0, 46);
+        @Pc(19) Model local19 = this.method814(2048, arg0, 46);
         if (local19 == null) {
             return null;
         }

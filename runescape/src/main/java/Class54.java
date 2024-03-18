@@ -786,10 +786,10 @@ public final class Class54 {
         synchronized (this.aClass142_2.aClass82_75) {
             local106 = (Class272) this.aClass142_2.aClass82_75.method2156(local21);
         }
-        @Pc(120) Class114 local120 = local106 == null ? null : local106.aClass114_7;
+        @Pc(120) Model local120 = local106 == null ? null : local106.aModel_7;
         @Pc(122) Node_Sub2_Sub9 local122 = null;
         if (local120 != null && arg7.method7960(local120.ua(), local40) == 0) {
-            local120 = local106.aClass114_7;
+            local120 = local106.aModel_7;
             local122 = local106.aClass2_Sub2_Sub9_5;
             if (arg4 && local122 == null) {
                 local122 = local106.aClass2_Sub2_Sub9_5 = local120.ba((Node_Sub2_Sub9) null);
@@ -815,7 +815,7 @@ public final class Class54 {
             local120.s(local40);
             local106 = new Class272();
             local106.aClass2_Sub2_Sub9_5 = local122;
-            local106.aClass114_7 = local120;
+            local106.aModel_7 = local120;
             @Pc(210) Class82 local210 = this.aClass142_2.aClass82_75;
             synchronized (this.aClass142_2.aClass82_75) {
                 this.aClass142_2.aClass82_75.method2150(local106, local21);
@@ -835,13 +835,13 @@ public final class Class54 {
         } else {
             local120 = local120.method7495((byte) 0, arg9, true);
         }
-        Static270.aClass272_1.aClass114_7 = local120;
+        Static270.aClass272_1.aModel_7 = local120;
         Static270.aClass272_1.aClass2_Sub2_Sub9_5 = local122;
         return Static270.aClass272_1;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(IIIILclient!s;Lclient!gu;ILclient!ha;Lclient!s;Lclient!gp;II)Lclient!ka;")
-    public Class114 method1311(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class178 arg4, @OriginalArg(5) Class152 arg5, @OriginalArg(7) Class19 arg6, @OriginalArg(8) Class178 arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public Model method1311(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class178 arg4, @OriginalArg(5) Class152 arg5, @OriginalArg(7) Class19 arg6, @OriginalArg(8) Class178 arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         if (Static449.method6117(arg2)) {
             arg2 = 4;
         }
@@ -871,9 +871,9 @@ public final class Class54 {
             arg9 |= 0x5;
         }
         @Pc(116) Class82 local116 = this.aClass142_2.aClass82_76;
-        @Pc(126) Class114 local126;
+        @Pc(126) Model local126;
         synchronized (this.aClass142_2.aClass82_76) {
-            local126 = (Class114) this.aClass142_2.aClass82_76.method2156(local22);
+            local126 = (Model) this.aClass142_2.aClass82_76.method2156(local22);
         }
         if (local126 == null || arg6.method7960(local126.ua(), arg9) != 0) {
             if (local126 != null) {
@@ -922,7 +922,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Lclient!ha;ILclient!gp;BII)Lclient!ka;")
-    public Class114 method1314(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class150 arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public Model method1314(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class150 arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(8) int local8 = this.anInt1263 + 64;
         @Pc(13) int local13 = this.anInt1254 + 850;
         @Pc(15) int local15 = arg1;
@@ -952,7 +952,7 @@ public final class Class54 {
         if (this.aByte10 != 0) {
             arg1 |= 0x80000;
         }
-        @Pc(123) Class114 local123 = null;
+        @Pc(123) Model local123 = null;
         if (this.aByteArray13 == null) {
             return null;
         }
@@ -976,7 +976,7 @@ public final class Class54 {
             }
             @Pc(211) Class82 local211 = this.aClass142_2.aClass82_74;
             synchronized (this.aClass142_2.aClass82_74) {
-                local123 = (Class114) this.aClass142_2.aClass82_74.method2156(local191);
+                local123 = (Model) this.aClass142_2.aClass82_74.method2156(local191);
             }
             if (local123 != null) {
                 if (local123.WA() != local8) {
@@ -1009,8 +1009,8 @@ public final class Class54 {
                         if (local275 == null) {
                             return null;
                         }
-                        if (local275.anInt2379 < 13) {
-                            local275.method2232();
+                        if (local275.version < 13) {
+                            local275.upscale();
                         }
                         if (local182 > 1) {
                             Static600.A_MESH_ARRAY_1[local281] = local275;
@@ -1028,7 +1028,7 @@ public final class Class54 {
         if (local123 == null) {
             return null;
         }
-        @Pc(398) Class114 local398 = local123.method7495((byte) 0, arg1, true);
+        @Pc(398) Model local398 = local123.method7495((byte) 0, arg1, true);
         if (local8 != local123.WA()) {
             local398.C(local8);
         }

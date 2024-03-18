@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!eu")
-public final class Class114_Sub1 extends Class114 {
+public final class Model_Sub1 extends Model {
 
     @OriginalMember(owner = "client!eu", name = "sc", descriptor = "I")
     public int anInt2701;
@@ -192,7 +192,7 @@ public final class Class114_Sub1 extends Class114 {
     public int[][] anIntArrayArray68;
 
     @OriginalMember(owner = "client!eu", name = "<init>", descriptor = "(Lclient!am;Lclient!dv;IIII)V")
-    public Class114_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Model_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this(arg0, arg2, arg5, true, false);
         @Pc(11) Interface4 local11 = arg0.anInterface4_10;
         @Pc(15) int[] local15 = new int[arg1.anInt2362];
@@ -755,7 +755,7 @@ public final class Class114_Sub1 extends Class114 {
     }
 
     @OriginalMember(owner = "client!eu", name = "<init>", descriptor = "(Lclient!am;IIZZ)V")
-    public Class114_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) boolean arg4) {
+    public Model_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) boolean arg4) {
         this.aBoolean228 = false;
         this.anInt2715 = 0;
         this.aBoolean230 = false;
@@ -2803,7 +2803,7 @@ public final class Class114_Sub1 extends Class114 {
     }
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(ILclient!eu;ZZLclient!eu;I)Lclient!ka;")
-    public Class114 method2557(@OriginalArg(0) int arg0, @OriginalArg(1) Class114_Sub1 arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) Class114_Sub1 arg4) {
+    public Model method2557(@OriginalArg(0) int arg0, @OriginalArg(1) Model_Sub1 arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) Model_Sub1 arg4) {
         arg4.anInt2765 = this.anInt2765;
         arg4.aShort36 = this.aShort36;
         arg4.anInt2713 = this.anInt2713;
@@ -3325,8 +3325,8 @@ public final class Class114_Sub1 extends Class114 {
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(Lclient!ka;IIIZ)V")
     @Override
-    public void method7481(@OriginalArg(0) Class114 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
-        @Pc(8) Class114_Sub1 local8 = (Class114_Sub1) arg0;
+    public void method7481(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+        @Pc(8) Model_Sub1 local8 = (Model_Sub1) arg0;
         if (this.anInt2715 == 0 || local8.anInt2715 == 0) {
             return;
         }
@@ -3632,16 +3632,16 @@ public final class Class114_Sub1 extends Class114 {
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(BIZ)Lclient!ka;")
     @Override
-    public Class114 method7495(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+    public Model method7495(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
         @Pc(5) boolean local5 = false;
-        @Pc(24) Class114_Sub1 local24;
-        @Pc(23) Class114_Sub1 local23;
+        @Pc(24) Model_Sub1 local24;
+        @Pc(23) Model_Sub1 local23;
         if (arg0 > 0 && arg0 <= 7) {
             local24 = this.aClass19_Sub1_6.aClass114_Sub1Array6[arg0 - 1];
             local5 = true;
             local23 = this.aClass19_Sub1_6.aClass114_Sub1Array5[arg0 - 1];
         } else {
-            local24 = local23 = new Class114_Sub1(this.aClass19_Sub1_6, 0, 0, true, false);
+            local24 = local23 = new Model_Sub1(this.aClass19_Sub1_6, 0, 0, true, false);
         }
         return this.method2557(arg1, local23, arg2, local5, local24);
     }

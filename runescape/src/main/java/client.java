@@ -730,7 +730,7 @@ public final class client extends Applet_Sub1 {
             Static660.aClass229_4.anInt5853 = Static660.aClass229_4.anInt5856 + 50000;
         }
         Static344.aClass229_1 = Static527.aClass229_3;
-        Static637.aShortArray132 = Static419.aShortArray96 = Static553.aShortArray112 = Static238.aShortArray62 = new short[256];
+        Static637.aShortArray132 = Static419.aShortArray96 = Static553.aShortArray112 = ObjType.clientpalette = new short[256];
         if (Static392.aClass377_4 == Static673.aClass377_8) {
             Static273.aBoolean340 = false;
         }

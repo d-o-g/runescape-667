@@ -7,6 +7,8 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!vfa")
 public final class ObjType {
 
+    @OriginalMember(owner = "client!hh", name = "b", descriptor = "[S")
+    public static short[] clientpalette = new short[256];
     @OriginalMember(owner = "client!vfa", name = "Cb", descriptor = "[S")
     public short[] retex_s;
 
@@ -494,64 +496,69 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
-    public int[] method8798(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Class19 arg6, @OriginalArg(8) Class14 arg7, @OriginalArg(9) int arg8) {
-        @Pc(14) Mesh local14 = Static121.method2201(this.mesh, this.myList.meshes);
-        if (local14 == null) {
+    public int[] method8798(@OriginalArg(0) int objNumMode, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) Class201 appearance, @OriginalArg(7) Class19 arg6, @OriginalArg(8) Class14 arg7, @OriginalArg(9) int arg8) {
+        @Pc(14) Mesh mesh = Static121.method2201(this.mesh, this.myList.meshes);
+        if (mesh == null) {
             return null;
         }
-        if (local14.anInt2379 < 13) {
-            local14.method2232();
+
+        if (mesh.version < 13) {
+            mesh.upscale();
         }
-        @Pc(36) int local36;
+
+        @Pc(36) int i;
         if (this.recol_s != null) {
-            for (local36 = 0; local36 < this.recol_s.length; local36++) {
-                if (this.recol_d_palette == null || local36 >= this.recol_d_palette.length) {
-                    local14.method2240(this.recol_s[local36], this.recol_d[local36]);
+            for (i = 0; i < this.recol_s.length; i++) {
+                if (this.recol_d_palette == null || i >= this.recol_d_palette.length) {
+                    mesh.recolour(this.recol_s[i], this.recol_d[i]);
                 } else {
-                    local14.method2240(this.recol_s[local36], Static238.aShortArray62[this.recol_d_palette[local36] & 0xFF]);
+                    mesh.recolour(this.recol_s[i], clientpalette[this.recol_d_palette[i] & 0xFF]);
                 }
             }
         }
+
         if (this.retex_s != null) {
-            for (local36 = 0; local36 < this.retex_s.length; local36++) {
-                local14.method2238(this.retex_s[local36], this.retex_d[local36]);
+            for (i = 0; i < this.retex_s.length; i++) {
+                mesh.retexture(this.retex_s[i], this.retex_d[i]);
             }
         }
-        if (arg5 != null) {
-            for (local36 = 0; local36 < 10; local36++) {
-                for (@Pc(138) int local138 = 0; local138 < Static76.aShortArrayArray2[local36].length; local138++) {
-                    if (arg5.anIntArray380[local36] < Static339.aShortArrayArrayArray2[local36][local138].length) {
-                        local14.method2240(Static76.aShortArrayArray2[local36][local138], Static339.aShortArrayArrayArray2[local36][local138][arg5.anIntArray380[local36]]);
+
+        if (appearance != null) {
+            for (i = 0; i < 10; i++) {
+                for (@Pc(138) int local138 = 0; local138 < Static76.bodycol_s[i].length; local138++) {
+                    if (appearance.bodycol_d_palette[i] < Static339.bodycol_d[i][local138].length) {
+                        mesh.recolour(Static76.bodycol_s[i][local138], Static339.bodycol_d[i][local138][appearance.bodycol_d_palette[i]]);
                     }
                 }
             }
         }
-        @Pc(198) short local198 = 2048;
-        @Pc(200) boolean local200 = false;
+
+        @Pc(198) short functionMask = 2048;
+        @Pc(200) boolean scaled = false;
         if (this.resizex != 128 || this.resizey != 128 || this.resizez != 128) {
-            local200 = true;
-            local198 = 2055;
+            scaled = true;
+            functionMask = 2055;
         }
-        @Pc(244) Class114 local244 = arg6.method7952(local14, local198, 64, this.ambient + 64, this.contrast + 768);
+        @Pc(244) Model local244 = arg6.method7952(mesh, functionMask, 64, this.ambient + 64, this.contrast + 768);
         if (!local244.method7474()) {
             return null;
         }
-        if (local200) {
+        if (scaled) {
             local244.O(this.resizex, this.resizey, this.resizez);
         }
         @Pc(272) Class23 local272 = null;
         if (this.certtemplate != -1) {
-            local272 = this.myList.method2478(1, arg6, arg1, arg5, true, 0, 10, true, 0, arg7, this.certlink);
+            local272 = this.myList.method2478(1, arg6, arg1, appearance, true, 0, 10, true, 0, arg7, this.certlink);
             if (local272 == null) {
                 return null;
             }
         } else if (this.lenttemplate != -1) {
-            local272 = this.myList.method2478(arg8, arg6, arg1, arg5, true, arg3, arg2, false, 0, arg7, this.lentlink);
+            local272 = this.myList.method2478(arg8, arg6, arg1, appearance, true, arg3, arg2, false, 0, arg7, this.lentlink);
             if (local272 == null) {
                 return null;
             }
         } else if (this.boughttemplate != -1) {
-            local272 = this.myList.method2478(arg8, arg6, arg1, arg5, true, arg3, arg2, false, 0, arg7, this.boughtlink);
+            local272 = this.myList.method2478(arg8, arg6, arg1, appearance, true, arg3, arg2, false, 0, arg7, this.boughtlink);
             if (local272 == null) {
                 return null;
             }
@@ -601,7 +608,7 @@ public final class ObjType {
         } else if (this.boughttemplate != -1) {
             local272.method8202(0, 0);
         }
-        if (arg0 == 1 || arg0 == 2 && (this.stackable == 1 || arg2 != 1) && arg2 != -1) {
+        if (objNumMode == 1 || objNumMode == 2 && (this.stackable == 1 || arg2 != 1) && arg2 != -1) {
             arg7.method8829(0, 9, this.method8803(arg2), -16777215, -256);
         }
         local515 = arg6.na(0, 0, 36, 32);
@@ -646,21 +653,21 @@ public final class ObjType {
         if (local86 == null) {
             return null;
         }
-        if (local86.anInt2379 < 13) {
-            local86.method2232();
+        if (local86.version < 13) {
+            local86.upscale();
         }
         if (local24 != -1) {
             @Pc(113) Mesh local113 = Static121.method2201(local24, this.myList.meshes);
-            if (local113.anInt2379 < 13) {
-                local113.method2232();
+            if (local113.version < 13) {
+                local113.upscale();
             }
             if (local29 == -1) {
                 @Pc(180) Mesh[] local180 = new Mesh[]{local86, local113};
                 local86 = new Mesh(local180, 2);
             } else {
                 @Pc(137) Mesh local137 = Static121.method2201(local29, this.myList.meshes);
-                if (local137.anInt2379 < 13) {
-                    local137.method2232();
+                if (local137.version < 13) {
+                    local137.upscale();
                 }
                 @Pc(162) Mesh[] local162 = new Mesh[]{local86, local113, local137};
                 local86 = new Mesh(local162, 3);
@@ -681,7 +688,7 @@ public final class ObjType {
                 local269 = arg0.aShortArray11;
             }
             for (local275 = 0; local275 < this.recol_s.length; local275++) {
-                local86.method2240(this.recol_s[local275], local269[local275]);
+                local86.recolour(this.recol_s[local275], local269[local275]);
             }
         }
         if (this.retex_s != null) {
@@ -691,7 +698,7 @@ public final class ObjType {
                 local269 = arg0.aShortArray10;
             }
             for (local275 = 0; local275 < this.retex_s.length; local275++) {
-                local86.method2238(this.retex_s[local275], local269[local275]);
+                local86.retexture(this.retex_s[local275], local269[local275]);
             }
         }
         return local86;
@@ -730,13 +737,13 @@ public final class ObjType {
             return null;
         }
         @Pc(84) Mesh local84 = Static121.method2201(local21, this.myList.meshes);
-        if (local84.anInt2379 < 13) {
-            local84.method2232();
+        if (local84.version < 13) {
+            local84.upscale();
         }
         if (local26 != -1) {
             @Pc(105) Mesh local105 = Static121.method2201(local26, this.myList.meshes);
-            if (local105.anInt2379 < 13) {
-                local105.method2232();
+            if (local105.version < 13) {
+                local105.upscale();
             }
             @Pc(128) Mesh[] local128 = new Mesh[]{local84, local105};
             local84 = new Mesh(local128, 2);
@@ -750,7 +757,7 @@ public final class ObjType {
                 local149 = arg1.aShortArray11;
             }
             for (local156 = 0; local156 < this.recol_s.length; local156++) {
-                local84.method2240(this.recol_s[local156], local149[local156]);
+                local84.recolour(this.recol_s[local156], local149[local156]);
             }
         }
         if (this.retex_s != null) {
@@ -760,7 +767,7 @@ public final class ObjType {
                 local149 = arg1.aShortArray10;
             }
             for (local156 = 0; local156 < this.retex_s.length; local156++) {
-                local84.method2238(this.retex_s[local156], local149[local156]);
+                local84.retexture(this.retex_s[local156], local149[local156]);
             }
         }
         return local84;
@@ -831,7 +838,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!gu;ILclient!ju;ILclient!ha;I)Lclient!ka;")
-    public Class114 method8805(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class201 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class19 arg4) {
+    public Model method8805(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class201 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class19 arg4) {
         @Pc(17) int local17;
         if (this.countobj != null && arg3 > 1) {
             local17 = -1;
@@ -849,9 +856,9 @@ public final class ObjType {
             local17 = arg1 | arg0.method9101();
         }
         @Pc(87) Class82 local87 = this.myList.aClass82_58;
-        @Pc(104) Class114 local104;
+        @Pc(104) Model local104;
         synchronized (this.myList.aClass82_58) {
-            local104 = (Class114) this.myList.aClass82_58.method2156((long) (this.anInt10134 | arg4.anInt8962 << 29));
+            local104 = (Model) this.myList.aClass82_58.method2156((long) (this.anInt10134 | arg4.anInt8962 << 29));
         }
         if (local104 == null || arg4.method7960(local104.ua(), local17) != 0) {
             if (local104 != null) {
@@ -877,8 +884,8 @@ public final class ObjType {
             if (local196 == null) {
                 return null;
             }
-            if (local196.anInt2379 < 13) {
-                local196.method2232();
+            if (local196.version < 13) {
+                local196.upscale();
             }
             local104 = arg4.method7952(local196, local141, this.myList.anInt2673, this.ambient + 64, 850 - -this.contrast);
             if (this.resizex != 128 || this.resizey != 128 || this.resizez != 128) {
@@ -890,7 +897,7 @@ public final class ObjType {
                     if (this.recol_d_palette == null || this.recol_d_palette.length <= local265) {
                         local104.ia(this.recol_s[local265], this.recol_d[local265]);
                     } else {
-                        local104.ia(this.recol_s[local265], Static238.aShortArray62[this.recol_d_palette[local265] & 0xFF]);
+                        local104.ia(this.recol_s[local265], clientpalette[this.recol_d_palette[local265] & 0xFF]);
                     }
                 }
             }
@@ -901,9 +908,9 @@ public final class ObjType {
             }
             if (arg2 != null) {
                 for (local265 = 0; local265 < 10; local265++) {
-                    for (@Pc(360) int local360 = 0; local360 < Static76.aShortArrayArray2[local265].length; local360++) {
-                        if (Static339.aShortArrayArrayArray2[local265][local360].length > arg2.anIntArray380[local265]) {
-                            local104.ia(Static76.aShortArrayArray2[local265][local360], Static339.aShortArrayArrayArray2[local265][local360][arg2.anIntArray380[local265]]);
+                    for (@Pc(360) int local360 = 0; local360 < Static76.bodycol_s[local265].length; local360++) {
+                        if (Static339.bodycol_d[local265][local360].length > arg2.bodycol_d_palette[local265]) {
+                            local104.ia(Static76.bodycol_s[local265][local360], Static339.bodycol_d[local265][local360][arg2.bodycol_d_palette[local265]]);
                         }
                     }
                 }

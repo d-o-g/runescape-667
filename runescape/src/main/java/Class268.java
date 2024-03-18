@@ -493,7 +493,7 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(ILclient!gu;Lclient!vk;ILclient!ha;Lclient!uk;)Lclient!ka;")
-    public Class114 method5992(@OriginalArg(1) Class152 arg0, @OriginalArg(2) Class386 arg1, @OriginalArg(4) Class19 arg2, @OriginalArg(5) Interface23 arg3) {
+    public Model method5992(@OriginalArg(1) Class152 arg0, @OriginalArg(2) Class386 arg1, @OriginalArg(4) Class19 arg2, @OriginalArg(5) Interface23 arg3) {
         if (this.anIntArray532 != null) {
             @Pc(15) Class268 local15 = this.method5985(65535, arg3);
             return local15 == null ? null : local15.method5992(arg0, arg1, arg2, arg3);
@@ -509,9 +509,9 @@ public final class Class268 {
                 local71 |= arg1.aLong312 << 24;
             }
             @Pc(84) Class82 local84 = this.aClass308_1.aClass82_171;
-            @Pc(94) Class114 local94;
+            @Pc(94) Model local94;
             synchronized (this.aClass308_1.aClass82_171) {
-                local94 = (Class114) this.aClass308_1.aClass82_171.method2156(local71);
+                local94 = (Model) this.aClass308_1.aClass82_171.method2156(local71);
             }
             if (local94 == null || (local94.ua() & local54) != local54) {
                 if (local94 != null) {
@@ -553,8 +553,8 @@ public final class Class268 {
                     }
                 }
                 for (@Pc(258) int local258 = 0; local258 < local163.length; local258++) {
-                    if (local215[local258] != null && local215[local258].anInt2379 < 13) {
-                        local215[local258].method2232();
+                    if (local215[local258] != null && local215[local258].version < 13) {
+                        local215[local258].upscale();
                     }
                 }
                 @Pc(304) Mesh local304;
@@ -609,7 +609,7 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(Lclient!uk;Lclient!ha;Lclient!qp;BLclient!gu;I[ILclient!vk;Lclient!gu;I[Lclient!gu;)Lclient!ka;")
-    public Class114 method5993(@OriginalArg(0) Interface23 arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(4) Class152 arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int[] arg5, @OriginalArg(7) Class386 arg6, @OriginalArg(8) Class152 arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Class152[] arg9) {
+    public Model method5993(@OriginalArg(0) Interface23 arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(4) Class152 arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int[] arg5, @OriginalArg(7) Class386 arg6, @OriginalArg(8) Class152 arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Class152[] arg9) {
         if (this.anIntArray532 != null) {
             @Pc(11) Class268 local11 = this.method5985(65535, arg0);
             return local11 == null ? null : local11.method5993(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
@@ -642,9 +642,9 @@ public final class Class268 {
             local116 |= arg6.aLong312 << 24;
         }
         @Pc(129) Class82 local129 = this.aClass308_1.aClass82_170;
-        @Pc(139) Class114 local139;
+        @Pc(139) Model local139;
         synchronized (this.aClass308_1.aClass82_170) {
-            local139 = (Class114) this.aClass308_1.aClass82_170.method2156(local116);
+            local139 = (Model) this.aClass308_1.aClass82_170.method2156(local116);
         }
         @Pc(147) Class289 local147 = null;
         if (this.anInt6726 != -1) {
@@ -688,8 +688,8 @@ public final class Class268 {
                         local267[local226] = Static121.method2201(local216[local226], this.aClass308_1.aClass330_102);
                     }
                     if (local267[local226] != null) {
-                        if (local267[local226].anInt2379 < 13) {
-                            local267[local226].method2232();
+                        if (local267[local226].version < 13) {
+                            local267[local226].upscale();
                         }
                         if (this.anIntArrayArray166 != null && this.anIntArrayArray166[local226] != null) {
                             local267[local226].method2233(this.anIntArrayArray166[local226][0], this.anIntArrayArray166[local226][1], this.anIntArrayArray166[local226][2]);
@@ -764,7 +764,7 @@ public final class Class268 {
                 this.aClass308_1.aClass82_170.method2150(local139, local116);
             }
         }
-        @Pc(706) Class114 local706 = local139.method7495((byte) 4, local32, true);
+        @Pc(706) Model local706 = local139.method7495((byte) 4, local32, true);
         @Pc(716) boolean local716 = false;
         if (arg5 != null) {
             for (@Pc(720) int local720 = 0; local720 < 12; local720++) {

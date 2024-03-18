@@ -205,7 +205,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public final byte[] aByteArray111;
 
     @OriginalMember(owner = "client!cg", name = "jb", descriptor = "[Lclient!ka;")
-    public final Class114[] aClass114Array3;
+    public final Model[] aModelArray3;
 
     @OriginalMember(owner = "client!cg", name = "cb", descriptor = "[Lclient!wb;")
     public final Class152_Sub2_Sub1[] aClass152_Sub2_Sub1Array3;
@@ -255,7 +255,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         this.anIntArray879 = new int[arg0];
         this.aClass199Array3 = new Class199[4];
         this.aByteArray111 = new byte[arg0];
-        this.aClass114Array3 = new Class114[5];
+        this.aModelArray3 = new Model[5];
         for (@Pc(174) int local174 = 0; local174 < 4; local174++) {
             this.aClass199Array3[local174] = new Class199(this);
         }
@@ -292,7 +292,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             }
             @Pc(50) Class199 local50 = this.aClass199Array3[local13];
             if (local50.anInt4930 == -1 || local50.aClass152_7.method9106()) {
-                this.aClass114Array3[local13 + 1] = null;
+                this.aModelArray3[local13 + 1] = null;
             } else {
                 @Pc(76) Class227 local76 = Static23.aClass128_1.method2694(local50.anInt4930);
                 @Pc(95) boolean local95 = local76.aByte96 == 3 && (arg5 != 0 || arg1 != 0);
@@ -310,7 +310,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                         local97 |= 0x7;
                     }
                 }
-                @Pc(146) Class114 local146 = this.aClass114Array3[local13 + 1] = local76.method5252(local50.aClass152_7, local16, local97, arg2);
+                @Pc(146) Model local146 = this.aModelArray3[local13 + 1] = local76.method5252(local50.aClass152_7, local16, local97, arg2);
                 if (local146 != null) {
                     if (local50.anInt4928 >= 0 && arg3.anIntArrayArray181 != null && arg3.anIntArrayArray181[local50.anInt4928] != null) {
                         @Pc(171) int local171 = 0;
@@ -553,7 +553,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(Lclient!ka;Z)V")
-    protected final void method9306(@OriginalArg(0) Class114 arg0) {
+    protected final void method9306(@OriginalArg(0) Model arg0) {
         @Pc(15) int local15 = this.aClass126_8.anInt2889;
         @Pc(19) int local19 = this.aClass126_9.anInt2889;
         if (local15 == 0 && local19 == 0) {
@@ -813,7 +813,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public abstract Class80 method9318(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(Lclient!ha;BZ[Lclient!ka;Lclient!tt;)V")
-    protected final void method9319(@OriginalArg(0) Class19 arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Class114[] arg2, @OriginalArg(4) Class73 arg3) {
+    protected final void method9319(@OriginalArg(0) Class19 arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Model[] arg2, @OriginalArg(4) Class73 arg3) {
         if (!arg1) {
             @Pc(15) int local15 = 0;
             @Pc(17) int local17 = 0;

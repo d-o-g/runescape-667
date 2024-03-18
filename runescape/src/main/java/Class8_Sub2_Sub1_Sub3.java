@@ -31,7 +31,7 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
     public final boolean aBoolean362;
 
     @OriginalMember(owner = "client!jda", name = "gb", descriptor = "Lclient!ka;")
-    public Class114 aClass114_4;
+    public Model aModel_4;
 
     @OriginalMember(owner = "client!jda", name = "eb", descriptor = "Lclient!r;")
     public Node_Sub2_Sub9 aClass2_Sub2_Sub9_3;
@@ -53,10 +53,10 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
         }
         @Pc(98) Class272 local98 = this.method4223(arg0, this.aBoolean362, local83);
         if (local98 != null) {
-            this.aClass114_4 = local98.aClass114_7;
+            this.aModel_4 = local98.aModel_7;
             this.aClass2_Sub2_Sub9_3 = local98.aClass2_Sub2_Sub9_5;
             if (this.aBoolean365) {
-                this.aClass114_4 = this.aClass114_4.method7495((byte) 0, local83, false);
+                this.aModel_4 = this.aModel_4.method7495((byte) 0, local83, false);
                 return;
             }
         }
@@ -65,8 +65,8 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
     @OriginalMember(owner = "client!jda", name = "d", descriptor = "(I)V")
     @Override
     public void method6856() {
-        if (this.aClass114_4 != null) {
-            this.aClass114_4.method7479();
+        if (this.aModel_4 != null) {
+            this.aModel_4.method7479();
         }
     }
 
@@ -85,7 +85,7 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
             Static292.method4618(local16, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
         }
         if (arg1 > -42) {
-            this.aClass114_4 = null;
+            this.aModel_4 = null;
         }
     }
 
@@ -101,10 +101,10 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
     @OriginalMember(owner = "client!jda", name = "b", descriptor = "(B)Z")
     @Override
     public boolean method9283() {
-        if (this.aClass114_4 == null) {
+        if (this.aModel_4 == null) {
             return true;
         } else {
-            return !this.aClass114_4.r();
+            return !this.aModel_4.r();
         }
     }
 
@@ -114,7 +114,7 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
         if (arg0 != 2) {
             this.method9283();
         }
-        return this.aClass114_4 == null ? 0 : this.aClass114_4.fa();
+        return this.aModel_4 == null ? 0 : this.aModel_4.fa();
     }
 
     @OriginalMember(owner = "client!jda", name = "i", descriptor = "(I)Z")
@@ -127,12 +127,12 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
     }
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(BLclient!ha;I)Lclient!ka;")
-    public Class114 method4221(@OriginalArg(1) Class19 arg0, @OriginalArg(2) int arg1) {
-        if (this.aClass114_4 != null && arg0.method7960(this.aClass114_4.ua(), arg1) == 0) {
-            return this.aClass114_4;
+    public Model method4221(@OriginalArg(1) Class19 arg0, @OriginalArg(2) int arg1) {
+        if (this.aModel_4 != null && arg0.method7960(this.aModel_4.ua(), arg1) == 0) {
+            return this.aModel_4;
         } else {
             @Pc(34) Class272 local34 = this.method4223(arg0, false, arg1);
-            return local34 == null ? null : local34.aClass114_7;
+            return local34 == null ? null : local34.aModel_7;
         }
     }
 
@@ -148,7 +148,7 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
     public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class19 arg3) {
-        @Pc(9) Class114 local9 = this.method4221(arg3, 131072);
+        @Pc(9) Model local9 = this.method4221(arg3, 131072);
         if (local9 == null) {
             return arg2 ? false : false;
         } else {
@@ -165,8 +165,8 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
         if (arg0 != 27811) {
             this.aClass205_5 = null;
         }
-        if (this.aClass114_4 != null) {
-            this.aClass114_4.s(this.aClass114_4.ua() & 0xFFFEFFFF);
+        if (this.aModel_4 != null) {
+            this.aModel_4.s(this.aModel_4.ua() & 0xFFFEFFFF);
         }
     }
 
@@ -178,7 +178,7 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
 
     @OriginalMember(owner = "client!jda", name = "m", descriptor = "(I)I")
     public int method4222() {
-        return this.aClass114_4 == null ? 15 : this.aClass114_4.na() / 4;
+        return this.aModel_4 == null ? 15 : this.aModel_4.na() / 4;
     }
 
     @OriginalMember(owner = "client!jda", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
@@ -214,7 +214,7 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
     @Override
     public int method9292(@OriginalArg(0) byte arg0) {
         if (arg0 == -21) {
-            return this.aClass114_4 == null ? 0 : this.aClass114_4.ma();
+            return this.aModel_4 == null ? 0 : this.aModel_4.ma();
         } else {
             return -59;
         }
@@ -234,22 +234,22 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
         if (arg0 != 0) {
             this.aClass2_Sub2_Sub9_3 = null;
         }
-        return this.aClass114_4 == null ? false : this.aClass114_4.F();
+        return this.aModel_4 == null ? false : this.aModel_4.F();
     }
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0) {
-        if (this.aClass114_4 == null) {
+        if (this.aModel_4 == null) {
             return null;
         }
         @Pc(20) Class73 local20 = arg0.method7985();
         local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(34) Class8_Sub7 local34 = Static642.method8441(this.aBoolean364, 1);
         if (Static504.aBoolean579) {
-            this.aClass114_4.method7484(local20, local34.aClass8_Sub6Array1[0], Static582.anInt8627, 0);
+            this.aModel_4.method7484(local20, local34.aClass8_Sub6Array1[0], Static582.anInt8627, 0);
         } else {
-            this.aClass114_4.method7473(local20, local34.aClass8_Sub6Array1[0], 0);
+            this.aModel_4.method7473(local20, local34.aClass8_Sub6Array1[0], 0);
         }
         return local34;
     }
@@ -259,13 +259,13 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Int
     public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Class19 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
         if (arg6 instanceof Class8_Sub2_Sub3_Sub2) {
             @Pc(38) Class8_Sub2_Sub3_Sub2 local38 = (Class8_Sub2_Sub3_Sub2) arg6;
-            if (this.aClass114_4 != null && local38.aClass114_5 != null) {
-                this.aClass114_4.method7481(local38.aClass114_5, arg5, arg0, arg3, arg1);
+            if (this.aModel_4 != null && local38.aModel_5 != null) {
+                this.aModel_4.method7481(local38.aModel_5, arg5, arg0, arg3, arg1);
             }
         } else if (arg6 instanceof Class8_Sub2_Sub1_Sub3) {
             @Pc(14) Class8_Sub2_Sub1_Sub3 local14 = (Class8_Sub2_Sub1_Sub3) arg6;
-            if (this.aClass114_4 != null && local14.aClass114_4 != null) {
-                this.aClass114_4.method7481(local14.aClass114_4, arg5, arg0, arg3, arg1);
+            if (this.aModel_4 != null && local14.aModel_4 != null) {
+                this.aModel_4.method7481(local14.aModel_4, arg5, arg0, arg3, arg1);
             }
         }
         if (arg4 <= 101) {

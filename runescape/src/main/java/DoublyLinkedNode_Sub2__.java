@@ -1,4 +1,5 @@
 import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -48,7 +49,7 @@ public final class DoublyLinkedNode_Sub2__ extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!aj", name = "c", descriptor = "(B)V")
     public void method205() {
-        super.key2 = Static588.method7715() + 500L | super.key2 & Long.MIN_VALUE;
+        super.key2 = SystemTimer.safetime() + 500L | super.key2 & Long.MIN_VALUE;
         Static59.A_QUEUE___9.add(this);
     }
 }

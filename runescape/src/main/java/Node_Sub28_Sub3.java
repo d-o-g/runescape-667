@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggStreamState;
 import jagtheora.theora.DecoderContext;
@@ -152,7 +153,7 @@ public final class Node_Sub28_Sub3 extends Node_Sub28 {
             }
             return;
         }
-        this.aLong188 = Static588.method7715();
+        this.aLong188 = SystemTimer.safetime();
         local19 = this.aDecoderContext1.decodePacketIn(arg0, this.aGranulePos1);
         if (local19 < 0) {
             throw new IllegalStateException(String.valueOf(local19));

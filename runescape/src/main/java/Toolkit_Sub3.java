@@ -2,6 +2,7 @@ import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.collect.Queue;
 import com.jagex.core.stringtools.general.StringTools;
+import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
 import jaclib.memory.Buffer;
@@ -2704,9 +2705,9 @@ public final class Toolkit_Sub3 extends Toolkit {
             OpenGL.glDeleteLists((int) local19.key, local19.anInt6379);
         }
         this.aClass169_1.method3528();
-        if (this.E() > 100663296 && this.aLong248 + 60000L < Static588.method7715()) {
+        if (this.E() > 100663296 && this.aLong248 + 60000L < SystemTimer.safetime()) {
             System.gc();
-            this.aLong248 = Static588.method7715();
+            this.aLong248 = SystemTimer.safetime();
         }
         this.anInt7987 = local9;
     }

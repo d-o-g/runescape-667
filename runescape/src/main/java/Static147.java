@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -368,7 +369,7 @@ public final class Static147 {
         Static424.anInt6459 = 0;
         Static111.anInt2220 = 0;
         Static530.anInt8093 = 0;
-        @Pc(16) long local16 = Static588.method7715();
+        @Pc(16) long local16 = SystemTimer.safetime();
         for (@Pc(21) Class8_Sub5 local21 = (Class8_Sub5) Static342.aClass130_7.method2790(); local21 != null; local21 = (Class8_Sub5) Static342.aClass130_7.method2785()) {
             if (local21.method3653(arg1, arg0)) {
                 Static111.anInt2220++;
@@ -376,7 +377,7 @@ public final class Static147 {
         }
         if (Static615.aBoolean719 && arg0 % 100L == 0L) {
             System.out.println("Particle system count: " + Static342.aClass130_7.method2784() + ", running: " + Static111.anInt2220);
-            System.out.println("Emitters: " + Static424.anInt6459 + " Particles: " + Static530.anInt8093 + ". Time taken: " + (Static588.method7715() - local16) + "ms");
+            System.out.println("Emitters: " + Static424.anInt6459 + " Particles: " + Static530.anInt8093 + ". Time taken: " + (SystemTimer.safetime() - local16) + "ms");
         }
     }
 }

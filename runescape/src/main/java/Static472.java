@@ -4,6 +4,7 @@ import com.jagex.collect.Queue;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.Arrays;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -5430,11 +5431,11 @@ public final class Static472 {
                     }
                 } else if (arg0 < 6400) {
                     if (arg0 == 6300) {
-                        anIntArray578[anInt7142++] = (int) (Static588.method7715() / 60000L);
+                        anIntArray578[anInt7142++] = (int) (SystemTimer.safetime() / 60000L);
                         return;
                     }
                     if (arg0 == 6301) {
-                        anIntArray578[anInt7142++] = (int) (Static588.method7715() / 86400000L) - 11745;
+                        anIntArray578[anInt7142++] = (int) (SystemTimer.safetime() / 86400000L) - 11745;
                         return;
                     }
                     if (arg0 == 6302) {
@@ -5451,7 +5452,7 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 6303) {
-                        anIntArray578[anInt7142++] = Static614.method8242(Static588.method7715());
+                        anIntArray578[anInt7142++] = Static614.method8242(SystemTimer.safetime());
                         return;
                     }
                     if (arg0 == 6304) {
@@ -5499,7 +5500,7 @@ public final class Static472 {
                                 anIntArray578[anInt7142++] = 0;
                                 return;
                             }
-                            if (Static363.aLong219 > Static588.method7715() - 1000L) {
+                            if (Static363.aLong219 > SystemTimer.safetime() - 1000L) {
                                 anIntArray578[anInt7142++] = 1;
                                 return;
                             }
@@ -5839,7 +5840,7 @@ public final class Static472 {
                         }
                         if (arg0 == 6901) {
                             anIntArray578[anInt7142++] = (int) (Static416.aLong207 / 60000L);
-                            anIntArray578[anInt7142++] = (int) ((Static416.aLong207 - Static588.method7715() - Static94.aLong70) / 60000L);
+                            anIntArray578[anInt7142++] = (int) ((Static416.aLong207 - SystemTimer.safetime() - Static94.aLong70) / 60000L);
                             anIntArray578[anInt7142++] = Static425.aBoolean482 ? 1 : 0;
                             return;
                         }

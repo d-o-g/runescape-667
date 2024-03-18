@@ -1,5 +1,6 @@
 import com.jagex.collect.Queue;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -98,7 +99,7 @@ public final class Class295 {
     public boolean method6624() {
         @Pc(14) int local14;
         if (this.aClass263_1 != null) {
-            @Pc(7) long local7 = Static588.method7715();
+            @Pc(7) long local7 = SystemTimer.safetime();
             local14 = (int) (local7 - this.aLong238);
             this.aLong238 = local7;
             if (local14 > 200) {
@@ -302,7 +303,7 @@ public final class Class295 {
                             }
                         }
                         this.anInt7451 = 0;
-                        this.aLong238 = Static588.method7715();
+                        this.aLong238 = SystemTimer.safetime();
                         return;
                     }
                     this.aQueue_12.add(local48);

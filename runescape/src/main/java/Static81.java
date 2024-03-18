@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -96,7 +97,7 @@ public final class Static81 {
             if (local17 == null) {
                 return null;
             }
-            if (local17.method201() > Static588.method7715()) {
+            if (local17.method201() > SystemTimer.safetime()) {
                 return null;
             }
             local17.remove();

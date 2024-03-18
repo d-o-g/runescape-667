@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -425,7 +426,7 @@ public final class Static364 {
                         Static34.aBoolean62 = local1435.g1() == 1;
                         Static298.aBoolean369 = local1435.g1() == 1;
                         Static416.aLong207 = local1435.g8();
-                        Static94.aLong70 = Static416.aLong207 - Static588.method7715() - local1435.g5();
+                        Static94.aLong70 = Static416.aLong207 - SystemTimer.safetime() - local1435.g5();
                         local203 = local1435.g1();
                         Static126.aBoolean200 = (local203 & 0x1) != 0;
                         Static425.aBoolean482 = (local203 & 0x2) != 0;

@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -355,7 +356,7 @@ public final class Static489 {
         Static199.method2977();
         Static75.aBoolean521 = true;
         if (Static28.aBoolean43) {
-            Static79.method1579("Took: " + (Static588.method7715() - Static690.aLong318) + "ms");
+            Static79.method1579("Took: " + (SystemTimer.safetime() - Static690.aLong318) + "ms");
             Static28.aBoolean43 = false;
         }
     }

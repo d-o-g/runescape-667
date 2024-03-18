@@ -1,4 +1,5 @@
 import com.jagex.collect.HashTable;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -21,10 +22,10 @@ public final class Class304 implements VarDomain {
         this.anIntArray621[arg0] = arg1;
         @Pc(24) Node_Sub48 local24 = (Node_Sub48) this.aHashTable_39.get((long) arg0);
         if (local24 == null) {
-            local24 = new Node_Sub48(Static588.method7715() + 500L);
+            local24 = new Node_Sub48(SystemTimer.safetime() + 500L);
             this.aHashTable_39.put((long) arg0, local24);
         } else {
-            local24.aLong264 = Static588.method7715() + 500L;
+            local24.aLong264 = SystemTimer.safetime() + 500L;
         }
     }
 
@@ -87,7 +88,7 @@ public final class Class304 implements VarDomain {
 
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(IZ)I")
     public int method6872(@OriginalArg(1) boolean arg0) {
-        @Pc(8) long local8 = Static588.method7715();
+        @Pc(8) long local8 = SystemTimer.safetime();
         for (@Pc(23) Node_Sub48 local23 = arg0 ? (Node_Sub48) this.aHashTable_39.first() : (Node_Sub48) this.aHashTable_39.next(); local23 != null; local23 = (Node_Sub48) this.aHashTable_39.next()) {
             if ((local23.aLong264 & 0x3FFFFFFFFFFFFFFFL) < local8) {
                 if ((local23.aLong264 & 0x4000000000000000L) != 0L) {
@@ -110,7 +111,7 @@ public final class Class304 implements VarDomain {
             local24 = new Node_Sub48(4611686018427387905L);
             this.aHashTable_39.put((long) arg0, local24);
         } else if (local24.aLong264 != 4611686018427387905L) {
-            local24.aLong264 = Static588.method7715() + 500L | 0x4000000000000000L;
+            local24.aLong264 = SystemTimer.safetime() + 500L | 0x4000000000000000L;
         }
     }
 }

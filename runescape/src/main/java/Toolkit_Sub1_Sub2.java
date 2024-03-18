@@ -1,5 +1,6 @@
 import com.jagex.collect.Node;
 import com.jagex.core.stringtools.general.StringTools;
+import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.TextureSource;
 import com.jagex.math.IntMath;
 import jaclib.memory.Stream;
@@ -524,9 +525,9 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
             local19 = (IntNode) this.aDeque_60.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.anInt6379);
         }
-        if (this.E() > 100663296 && this.aLong279 + 60000L < Static588.method7715()) {
+        if (this.E() > 100663296 && this.aLong279 + 60000L < SystemTimer.safetime()) {
             System.gc();
-            this.aLong279 = Static588.method7715();
+            this.aLong279 = SystemTimer.safetime();
         }
         super.method7977(local11);
     }

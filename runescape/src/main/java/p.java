@@ -1,4 +1,5 @@
 import com.jagex.collect.Node;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -60,9 +61,9 @@ public final class p extends Node implements Interface5 {
     @OriginalMember(owner = "client!p", name = "a", descriptor = "(Ljava/lang/Exception;)V")
     public void method6440(@OriginalArg(0) Exception arg0) {
         if (!Static474.aBoolean542) {
-            Static474.aLong229 = Static588.method7715();
+            Static474.aLong229 = SystemTimer.safetime();
             Static474.aBoolean542 = true;
-        } else if (Static588.method7715() - Static474.aLong229 < 30000L) {
+        } else if (SystemTimer.safetime() - Static474.aLong229 < 30000L) {
             this.aCanvas9.repaint();
         } else {
             throw new RuntimeException(arg0.getMessage());

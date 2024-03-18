@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -68,7 +69,7 @@ public final class Class27_Sub1 extends Class27 {
 
     @OriginalMember(owner = "client!au", name = "c", descriptor = "(B)J")
     public long method734() {
-        @Pc(10) long local10 = Static588.method7715() * 1000000L;
+        @Pc(10) long local10 = SystemTimer.safetime() * 1000000L;
         @Pc(16) long local16 = local10 - this.aLong20;
         this.aLong20 = local10;
         if (local16 > -5000000000L && local16 < 5000000000L) {

@@ -52,7 +52,7 @@ public final class Static53 {
                 }
                 try {
                     if (!local80) {
-                        Static93.aSignLink_1.method8987(local68, local62);
+                        Static93.aSignLink_1.writeFile(local68, local62);
                     }
                 } catch (@Pc(145) Throwable local145) {
                     return -1;

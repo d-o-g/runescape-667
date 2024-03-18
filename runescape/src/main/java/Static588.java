@@ -51,13 +51,4 @@ public final class Static588 {
         }
     }
 
-    @OriginalMember(owner = "client!sj", name = "a", descriptor = "(Z)J")
-    public static synchronized long method7715() {
-        @Pc(5) long local5 = System.currentTimeMillis();
-        if (Static278.aLong144 > local5) {
-            Static672.aLong305 += Static278.aLong144 - local5;
-        }
-        Static278.aLong144 = local5;
-        return local5 + Static672.aLong305;
-    }
 }

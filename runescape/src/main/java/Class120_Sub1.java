@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -83,7 +84,7 @@ public final class Class120_Sub1 extends Class120 implements MouseListener, Mous
         local3.anInt1889 = arg1;
         local3.anInt1888 = arg2;
         local3.anInt1887 = arg0;
-        local3.aLong68 = Static588.method7715();
+        local3.aLong68 = SystemTimer.safetime();
         local3.anInt1890 = arg3;
         this.aDeque_21.addLast(local3);
     }

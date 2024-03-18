@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.SystemTimer;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -62,7 +63,7 @@ public final class Static523 {
         if (Static198.aClass140_1 == Static473.aClass140_22) {
             @Pc(65) Runtime local65 = Runtime.getRuntime();
             local74 = (int) ((local65.totalMemory() - local65.freeMemory()) / 1024L);
-            @Pc(77) long local77 = Static588.method7715();
+            @Pc(77) long local77 = SystemTimer.safetime();
             if (Static6.aLong8 == 0L) {
                 Static6.aLong8 = local77;
             }

@@ -1,6 +1,7 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.core.crypto.Whirlpool;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -221,7 +222,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
                 this.aDeque_42 = null;
             }
         }
-        if (!this.aBoolean569 || Static588.method7715() < this.aLong239) {
+        if (!this.aBoolean569 || SystemTimer.safetime() < this.aLong239) {
             return;
         }
         for (@Pc(366) DoublyLinkedNode_Sub2_Sub17 local366 = (DoublyLinkedNode_Sub2_Sub17) this.aHashTable_36.first(); local366 != null; local366 = (DoublyLinkedNode_Sub2_Sub17) this.aHashTable_36.next()) {
@@ -236,7 +237,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
                 }
             }
         }
-        this.aLong239 = Static588.method7715() + 1000L;
+        this.aLong239 = SystemTimer.safetime() + 1000L;
     }
 
     @OriginalMember(owner = "client!pm", name = "d", descriptor = "(B)I")

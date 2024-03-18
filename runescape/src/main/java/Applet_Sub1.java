@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -190,7 +191,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
 
     @OriginalMember(owner = "client!kh", name = "e", descriptor = "(I)V")
     public void method1639() {
-        @Pc(6) long local6 = Static588.method7715();
+        @Pc(6) long local6 = SystemTimer.safetime();
         @Pc(17) long local17 = Static475.aLongArray16[Static708.anInt10644];
         Static475.aLongArray16[Static708.anInt10644] = local6;
         if (local17 != 0L && local17 < local6) {
@@ -298,7 +299,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             this.method1641();
             this.method1647();
             Static600.aClass27_1 = Static570.method7550();
-            while (Static604.aLong278 == 0L || Static588.method7715() < Static604.aLong278) {
+            while (Static604.aLong278 == 0L || SystemTimer.safetime() < Static604.aLong278) {
                 Static32.anInt776 = Static600.aClass27_1.method5598(Static324.aLong164);
                 for (@Pc(213) int local213 = 0; local213 < Static32.anInt776; local213++) {
                     this.method1646();
@@ -334,7 +335,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             return;
         }
         Static664.aBoolean759 = true;
-        if (Static463.aBoolean531 && Static588.method7715() - Static149.aLong96 > 1000L) {
+        if (Static463.aBoolean531 && SystemTimer.safetime() - Static149.aLong96 > 1000L) {
             @Pc(28) Rectangle local28 = arg0.getClipBounds();
             if (local28 == null || Static52.anInt1059 <= local28.width && local28.height >= Static54.anInt1084) {
                 Static723.aBoolean827 = true;
@@ -357,7 +358,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @Override
     public final void stop() {
         if (Static149.anApplet_Sub1_1 == this && !Static250.aBoolean311) {
-            Static604.aLong278 = Static588.method7715() + 4000L;
+            Static604.aLong278 = SystemTimer.safetime() + 4000L;
         }
     }
 
@@ -398,7 +399,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
         Static206.aBoolean268 = true;
         Static664.aBoolean759 = true;
         Static723.aBoolean827 = false;
-        Static149.aLong96 = Static588.method7715();
+        Static149.aLong96 = SystemTimer.safetime();
     }
 
     @OriginalMember(owner = "client!kh", name = "d", descriptor = "(B)Z")
@@ -435,7 +436,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
 
     @OriginalMember(owner = "client!kh", name = "f", descriptor = "(I)V")
     public void method1646() {
-        @Pc(6) long local6 = Static588.method7715();
+        @Pc(6) long local6 = SystemTimer.safetime();
         @Pc(10) long local10 = Static221.aLongArray18[Static392.anInt6142];
         Static221.aLongArray18[Static392.anInt6142] = local6;
         @Pc(31) boolean local31;
@@ -479,7 +480,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @Override
     public final void destroy() {
         if (Static149.anApplet_Sub1_1 == this && !Static250.aBoolean311) {
-            Static604.aLong278 = Static588.method7715();
+            Static604.aLong278 = SystemTimer.safetime();
             Static638.sleep(5000L);
             Static284.aSignLink_4 = null;
             this.method1632(false);

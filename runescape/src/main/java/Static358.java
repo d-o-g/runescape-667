@@ -1,4 +1,5 @@
 import com.jagex.core.util.Arrays;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -134,7 +135,7 @@ public final class Static358 {
         }
         try {
             @Pc(23) String local23 = Static166.anApplet1.getParameter("cookiehost");
-            @Pc(31) int local31 = (int) (Static588.method7715() / 86400000L) - 11745;
+            @Pc(31) int local31 = (int) (SystemTimer.safetime() / 86400000L) - 11745;
             @Pc(47) String local47 = "usrdob=" + local31 + "; version=1; path=/; domain=" + local23;
             Static727.method98("document.cookie=\"" + local47 + "\"", Static166.anApplet1);
         } catch (@Pc(63) Throwable local63) {

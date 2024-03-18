@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -197,7 +198,7 @@ public final class client extends Applet_Sub1 {
                 local251.p4(667);
                 Static672.aClass263_2.method5829(5, local251.data);
                 Static92.anInt1874++;
-                Static678.aLong310 = Static588.method7715();
+                Static678.aLong310 = SystemTimer.safetime();
             }
             if (Static92.anInt1874 == 3) {
                 if (Static181.method2778(Static283.anInt4574) || Static672.aClass263_2.method5828() > 0) {
@@ -207,7 +208,7 @@ public final class client extends Applet_Sub1 {
                         return;
                     }
                     Static92.anInt1874++;
-                } else if (Static588.method7715() - Static678.aLong310 > 30000L) {
+                } else if (SystemTimer.safetime() - Static678.aLong310 > 30000L) {
                     this.method1667(1001);
                     return;
                 }
@@ -330,11 +331,11 @@ public final class client extends Applet_Sub1 {
                                                 Static320.method4598();
                                             }
                                             Static587.method7704();
-                                            if (Static624.aBoolean727 && Static588.method7715() - 60000L > Static98.aLong71) {
+                                            if (Static624.aBoolean727 && SystemTimer.safetime() - 60000L > Static98.aLong71) {
                                                 Static266.method6777();
                                             }
                                             for (@Pc(672) Class8_Sub4_Sub1 local672 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2790(); local672 != null; local672 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2785()) {
-                                                if ((long) local672.anInt6433 < Static588.method7715() / 1000L - 5L) {
+                                                if ((long) local672.anInt6433 < SystemTimer.safetime() / 1000L - 5L) {
                                                     if (local672.aShort74 > 0) {
                                                         Static44.method1072(local672.aString72 + Static32.aClass32_19.method877(Static51.anInt1052), "", 0, "", "", 5);
                                                     }
@@ -423,7 +424,7 @@ public final class client extends Applet_Sub1 {
             Static719.aClass56_5.method3592();
         }
         if (Static475.method6445(Static283.anInt4574)) {
-            if (Static297.aLong153 != 0L && Static588.method7715() > Static297.aLong153) {
+            if (Static297.aLong153 != 0L && SystemTimer.safetime() > Static297.aLong153) {
                 Static409.method5657(Static36.method978(3), Static560.anInt8429, false, Static433.anInt6258);
             } else if (!Static163.aToolkit_17.method8001() && Static723.aBoolean827) {
                 Static574.method7572();
@@ -454,7 +455,7 @@ public final class client extends Applet_Sub1 {
                     Static52.anInt1059 = local110;
                     Static54.anInt1084 = local114;
                 }
-                Static297.aLong153 = Static588.method7715() + 500L;
+                Static297.aLong153 = SystemTimer.safetime() + 500L;
                 Static284.aBoolean355 = false;
             }
         }
@@ -616,7 +617,7 @@ public final class client extends Applet_Sub1 {
         Static334.aClass319_1.method8481();
         Static189.aClass120_1.method8841();
         if (Static163.aToolkit_17 != null) {
-            Static163.aToolkit_17.method7977((int) Static588.method7715());
+            Static163.aToolkit_17.method7977((int) SystemTimer.safetime());
         }
         Static711.method9272();
         Static671.anInt10026 = 0;

@@ -1,4 +1,5 @@
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -26,7 +27,7 @@ public final class Static153 {
             return;
         }
         Static346.aClass367_1 = arg1;
-        Static344.aLong169 = Static588.method7715();
+        Static344.aLong169 = SystemTimer.safetime();
         Static173.anInt2913 = arg0;
         Static587.anInt8673 = arg0;
         if (Static587.anInt8673 == 0) {

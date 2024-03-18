@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.SystemTimer;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -33,7 +34,7 @@ public final class Static709 {
         if (Static655.aClass140Array1 == null) {
             Static655.aClass140Array1 = Static198.method2955();
             Static473.aClass140_22 = Static655.aClass140Array1[0];
-            Static72.aLong52 = Static588.method7715();
+            Static72.aLong52 = SystemTimer.safetime();
         }
         if (Static449.aClass364_1 == null) {
             Static229.method3368();
@@ -58,7 +59,7 @@ public final class Static709 {
             }
             Static376.anInt5919 = local27.anInt3270;
             if (Static473.aClass140_22.aBoolean264 || local27.aBoolean264) {
-                Static72.aLong52 = Static588.method7715();
+                Static72.aLong52 = SystemTimer.safetime();
             }
         }
         if (Static449.aClass364_1 == null) {
@@ -116,7 +117,7 @@ public final class Static709 {
             Static405.aClass153_2.method3275(local71);
         }
         if (Static211.aClass2_Sub12_3 == null) {
-            if (Static675.aLong307 <= Static588.method7715()) {
+            if (Static675.aLong307 <= SystemTimer.safetime()) {
                 Static211.aClass2_Sub12_3 = Static151.aClass226_20.method5245(Static344.aClass229_1.aString60);
             }
         } else if (Static211.aClass2_Sub12_3.anInt1631 != -1) {
@@ -124,7 +125,7 @@ public final class Static709 {
             local71.aClass2_Sub21_Sub2_1.p2(Static211.aClass2_Sub12_3.anInt1631);
             Static405.aClass153_2.method3275(local71);
             Static211.aClass2_Sub12_3 = null;
-            Static675.aLong307 = Static588.method7715() + 30000L;
+            Static675.aLong307 = SystemTimer.safetime() + 30000L;
         }
         @Pc(166) Node_Sub9 local166 = (Node_Sub9) Static226.A_DEQUE___58.first(65280);
         @Pc(181) int local181;
@@ -134,7 +135,7 @@ public final class Static709 {
         @Pc(288) int local288;
         @Pc(300) int local300;
         @Pc(179) Node_Sub19 local179;
-        if (local166 != null || Static56.aLong38 < Static588.method7715() - 2000L) {
+        if (local166 != null || Static56.aLong38 < SystemTimer.safetime() - 2000L) {
             local179 = null;
             local181 = 0;
             for (@Pc(186) Node_Sub9 local186 = (Node_Sub9) Static677.A_DEQUE___76.first(65280); local186 != null && (local179 == null || local179.aClass2_Sub21_Sub2_1.pos - local181 < 240); local186 = (Node_Sub9) Static677.A_DEQUE___76.next()) {
@@ -551,11 +552,11 @@ public final class Static709 {
                                             for (local541 = 0; local541 < 5; local541++) {
                                                 @Pc(2246) int local2246 = Static194.anIntArray268[local541]++;
                                             }
-                                            if (Static624.aBoolean727 && Static98.aLong71 < Static588.method7715() - 60000L) {
+                                            if (Static624.aBoolean727 && Static98.aLong71 < SystemTimer.safetime() - 60000L) {
                                                 Static266.method6777();
                                             }
                                             for (@Pc(2281) Class8_Sub4_Sub1 local2281 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2790(); local2281 != null; local2281 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2785()) {
-                                                if (Static588.method7715() / 1000L - 5L > (long) local2281.anInt6433) {
+                                                if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.anInt6433) {
                                                     if (local2281.aShort74 > 0) {
                                                         Static44.method1072(local2281.aString72 + Static32.aClass32_19.method877(Static51.anInt1052), "", 0, "", "", 5);
                                                     }

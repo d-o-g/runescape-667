@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -62,7 +63,7 @@ public final class Class364 implements Runnable {
     public synchronized void method8373(@OriginalArg(1) Interface22 arg0) {
         this.anInterface22_2 = this.anInterface22_1;
         this.anInterface22_1 = arg0;
-        this.aLong286 = Static588.method7715();
+        this.aLong286 = SystemTimer.safetime();
     }
 
     @OriginalMember(owner = "client!uaa", name = "a", descriptor = "(ILjava/lang/String;Lclient!gca;IJ)V")
@@ -107,14 +108,14 @@ public final class Class364 implements Runnable {
     @Override
     public void run() {
         while (!this.aBoolean732) {
-            @Pc(8) long local8 = Static588.method7715();
+            @Pc(8) long local8 = SystemTimer.safetime();
             synchronized (this) {
                 try {
                     this.anInt9523++;
                     if (this.anInterface22_1 instanceof Class374) {
                         this.anInterface22_1.method8465(this.aBoolean731);
                     } else {
-                        @Pc(25) long local25 = Static588.method7715();
+                        @Pc(25) long local25 = SystemTimer.safetime();
                         if (Static163.aToolkit_17 == null || this.anInterface22_2 == null || this.anInterface22_2.method8462() == 0 || this.aLong286 < local25 - (long) this.anInterface22_2.method8462()) {
                             if (this.anInterface22_2 != null) {
                                 this.aBoolean731 = true;
@@ -176,7 +177,7 @@ public final class Class364 implements Runnable {
                     continue;
                 }
             }
-            @Pc(304) long local304 = Static588.method7715();
+            @Pc(304) long local304 = SystemTimer.safetime();
             @Pc(312) int local312 = (int) (local8 + 20L - local304);
             if (local312 > 0) {
                 Static638.sleep((long) local312);

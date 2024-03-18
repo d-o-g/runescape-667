@@ -1,4 +1,5 @@
 import com.jagex.core.stringtools.general.Cp1252;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -53,7 +54,7 @@ public final class Class319_Sub1 extends Class319 implements KeyListener, FocusL
         local7.aChar4 = arg0;
         local7.anInt2881 = arg1;
         local7.anInt2886 = arg2;
-        local7.aLong99 = Static588.method7715();
+        local7.aLong99 = SystemTimer.safetime();
         this.aDeque_71.addLast(local7);
     }
 

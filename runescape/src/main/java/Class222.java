@@ -1,4 +1,5 @@
 import com.jagex.collect.HashTable;
+import com.jagex.core.util.SystemTimer;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggPage;
 import jagtheora.ogg.OggStreamState;
@@ -157,7 +158,7 @@ public abstract class Class222 {
     public boolean method9176() {
         if (this.aClass2_Sub28_Sub1_2 == null) {
             @Pc(42) double local42 = (double) this.aClass2_Sub28_Sub3_2.method5488();
-            return local42 == 0.0D || (double) Static588.method7715() >= 1000.0D / local42 + (double) this.aClass2_Sub28_Sub3_2.method5496();
+            return local42 == 0.0D || (double) SystemTimer.safetime() >= 1000.0D / local42 + (double) this.aClass2_Sub28_Sub3_2.method5496();
         } else {
             return !this.aClass2_Sub28_Sub3_2.method5498() || this.method9185() > this.aClass2_Sub28_Sub3_2.method5497();
         }

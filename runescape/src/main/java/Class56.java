@@ -1,4 +1,5 @@
 import com.jagex.core.util.Arrays;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -31,7 +32,7 @@ public class Class56 {
     public boolean aBoolean319 = false;
 
     @OriginalMember(owner = "client!cd", name = "e", descriptor = "J")
-    public long aLong128 = Static588.method7715();
+    public long aLong128 = SystemTimer.safetime();
 
     @OriginalMember(owner = "client!cd", name = "h", descriptor = "J")
     public long aLong129 = 0L;
@@ -138,7 +139,7 @@ public class Class56 {
             this.method3583();
         } catch (@Pc(19) Exception local19) {
             this.method3596();
-            this.aLong129 = Static588.method7715() + 2000L;
+            this.aLong129 = SystemTimer.safetime() + 2000L;
         }
     }
 
@@ -151,7 +152,7 @@ public class Class56 {
         if (this.aBoolean319) {
             return;
         }
-        @Pc(11) long local11 = Static588.method7715();
+        @Pc(11) long local11 = SystemTimer.safetime();
         try {
             if (this.aLong128 + 6000L < local11) {
                 this.aLong128 = local11 - 6000L;
@@ -159,7 +160,7 @@ public class Class56 {
             while (local11 > this.aLong128 + 5000L) {
                 this.method3584();
                 this.aLong128 += (long) (256000 / Static686.anInt8944);
-                local11 = Static588.method7715();
+                local11 = SystemTimer.safetime();
             }
         } catch (@Pc(54) Exception local54) {
             this.aLong128 = local11;
@@ -320,7 +321,7 @@ public class Class56 {
         if (this.aClass2_Sub6_6 != null) {
             this.aClass2_Sub6_6.method9131(arg0, 0, 256);
         }
-        this.aLong128 = Static588.method7715();
+        this.aLong128 = SystemTimer.safetime();
     }
 
     @OriginalMember(owner = "client!cd", name = "c", descriptor = "()V")

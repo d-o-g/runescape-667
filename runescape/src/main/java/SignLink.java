@@ -1,4 +1,5 @@
 import com.jagex.FileCache;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -353,11 +354,11 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/io/File;I[B)Z")
-    public boolean method8987(@OriginalArg(0) File arg0, @OriginalArg(2) byte[] arg1) {
+    public boolean writeFile(@OriginalArg(0) File arg0, @OriginalArg(2) byte[] data) {
         try {
-            @Pc(4) FileOutputStream local4 = new FileOutputStream(arg0);
-            local4.write(arg1, 0, arg1.length);
-            local4.close();
+            @Pc(4) FileOutputStream out = new FileOutputStream(arg0);
+            out.write(data, 0, data.length);
+            out.close();
             return true;
         } catch (@Pc(15) IOException local15) {
             throw new RuntimeException();
@@ -416,7 +417,7 @@ public final class SignLink implements Runnable {
 
     @OriginalMember(owner = "client!vq", name = "b", descriptor = "(B)V")
     public void method8994() {
-        Static689.aLong317 = Static588.method7715() + 5000L;
+        Static689.aLong317 = SystemTimer.safetime() + 5000L;
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(IB[ILjava/awt/Component;Ljava/awt/Point;I)Lclient!oba;")
@@ -451,12 +452,12 @@ public final class SignLink implements Runnable {
             try {
                 @Pc(42) int local42 = local15.anInt6790;
                 if (local42 == 1) {
-                    if (Static588.method7715() < Static689.aLong317) {
+                    if (SystemTimer.safetime() < Static689.aLong317) {
                         throw new IOException();
                     }
                     local15.result = new Socket(InetAddress.getByName((String) local15.objectData), local15.anInt6788);
                 } else if (local42 == 22) {
-                    if (Static689.aLong317 > Static588.method7715()) {
+                    if (Static689.aLong317 > SystemTimer.safetime()) {
                         throw new IOException();
                     }
                     try {
@@ -472,7 +473,7 @@ public final class SignLink implements Runnable {
                     local911.setPriority(local15.anInt6788);
                     local15.result = local911;
                 } else if (local42 == 4) {
-                    if (Static588.method7715() < Static689.aLong317) {
+                    if (SystemTimer.safetime() < Static689.aLong317) {
                         throw new IOException();
                     }
                     local15.result = new DataInputStream(((URL) local15.objectData).openStream());
@@ -500,13 +501,13 @@ public final class SignLink implements Runnable {
                     } else if (this.signed) {
                         @Pc(220) String local220;
                         if (local42 == 3) {
-                            if (Static588.method7715() < Static689.aLong317) {
+                            if (SystemTimer.safetime() < Static689.aLong317) {
                                 throw new IOException();
                             }
                             local220 = (local15.anInt6788 >> 24 & 0xFF) + "." + (local15.anInt6788 >> 16 & 0xFF) + "." + (local15.anInt6788 >> 8 & 0xFF) + "." + (local15.anInt6788 & 0xFF);
                             local15.result = InetAddress.getByName(local220).getHostName();
                         } else if (local42 == 21) {
-                            if (Static588.method7715() < Static689.aLong317) {
+                            if (SystemTimer.safetime() < Static689.aLong317) {
                                 throw new IOException();
                             }
                             local15.result = InetAddress.getByName((String) local15.objectData).getAddress();

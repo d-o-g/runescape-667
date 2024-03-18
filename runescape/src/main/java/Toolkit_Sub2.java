@@ -1,6 +1,7 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.util.Arrays;
+import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -193,7 +194,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             this.method8020(0);
             Static198.method2954(true, true);
             this.aBoolean330 = true;
-            this.anInt4184 = (int) Static588.method7715();
+            this.anInt4184 = (int) SystemTimer.safetime();
         } catch (@Pc(99) Throwable local99) {
             local99.printStackTrace();
             this.free();

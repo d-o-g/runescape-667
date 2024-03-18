@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -295,7 +296,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("rebuildprofile")) {
-                    Static690.aLong318 = Static588.method7715();
+                    Static690.aLong318 = SystemTimer.safetime();
                     Static28.aBoolean43 = true;
                     Static449.mapBuild();
                     Static244.method3512();
@@ -733,7 +734,7 @@ public final class Static231 {
                 if (arg2.startsWith("setoutput ")) {
                     local2592 = new File(arg2.substring(10));
                     if (local2592.exists()) {
-                        local2592 = new File(arg2.substring(10) + "." + Static588.method7715() + ".log");
+                        local2592 = new File(arg2.substring(10) + "." + SystemTimer.safetime() + ".log");
                         if (local2592.exists()) {
                             Static79.method1579("file already exists!");
                             return;

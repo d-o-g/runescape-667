@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -152,7 +153,7 @@ public final class Static266 {
             }
         } catch (@Pc(74) Exception local74) {
         }
-        Static98.aLong71 = Static588.method7715();
+        Static98.aLong71 = SystemTimer.safetime();
         Static624.aBoolean727 = false;
     }
 }

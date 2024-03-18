@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -30,7 +31,7 @@ public final class Class354 implements Interface22 {
     @OriginalMember(owner = "client!tha", name = "a", descriptor = "(ZJ)Z")
     @Override
     public boolean method8463(@OriginalArg(1) long arg0) {
-        return Static588.method7715() >= (long) this.aClass76_1.anInt2140 + arg0;
+        return SystemTimer.safetime() >= (long) this.aClass76_1.anInt2140 + arg0;
     }
 
     @OriginalMember(owner = "client!tha", name = "c", descriptor = "(I)I")

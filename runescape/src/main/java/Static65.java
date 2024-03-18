@@ -1,3 +1,4 @@
+import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -26,11 +27,11 @@ public final class Static65 {
             local7 = true;
             local5 = Static255.method3612((js5) null, (TextureSource) null, 0, local19, 0);
         }
-        @Pc(36) long local36 = Static588.method7715();
+        @Pc(36) long local36 = SystemTimer.safetime();
         for (@Pc(38) int local38 = 0; local38 < 10000; local38++) {
             local5.method7994();
         }
-        @Pc(71) int local71 = (int) (Static588.method7715() - local36);
+        @Pc(71) int local71 = (int) (SystemTimer.safetime() - local36);
         local5.method7971(100, 100, 0, 0, -16777216);
         if (local7) {
             local5.free();

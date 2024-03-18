@@ -1,5 +1,6 @@
 import com.jagex.collect.HashTable;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -45,7 +46,7 @@ public final class Static113 {
             }
         }
         Static149.aBoolean221 = false;
-        Static363.aLong219 = Static588.method7715();
+        Static363.aLong219 = SystemTimer.safetime();
         Static339.aClass2_Sub21_9 = null;
     }
 }

@@ -210,7 +210,7 @@ public final class Static409 {
         if (!Static163.aToolkit_17.method7983()) {
             arg2 = true;
         }
-        Static363.method6236(local10, arg3, arg0, arg1, arg2);
+        Static363.windowModeChanged(local10, arg3, arg0, arg1, arg2);
     }
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(IIIBII)V")

@@ -8,7 +8,7 @@ public final class Static110 {
     public static int anInt2186;
 
     @OriginalMember(owner = "client!dha", name = "s", descriptor = "I")
-    public static int anInt2189;
+    public static int fullscreenHeight;
 
     @OriginalMember(owner = "client!dha", name = "v", descriptor = "Ljava/lang/String;")
     public static String aString19 = "";

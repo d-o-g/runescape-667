@@ -1,4 +1,8 @@
 import com.jagex.FileCache;
+import com.jagex.core.constants.FileStore;
+import com.jagex.core.constants.SignedResourceType;
+import com.jagex.core.io.socket.ProxyAuthenticationException;
+import com.jagex.core.io.socket.SocketFactory;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -11,7 +15,6 @@ import java.awt.Frame;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.Transferable;
 import java.io.DataInputStream;
 import java.io.File;
@@ -25,33 +28,26 @@ import java.net.URL;
 @OriginalClass("client!vq")
 public final class SignLink implements Runnable {
 
-    private static final int TYPE_SOCKET = 1;
-    private static final int TYPE_START_THREAD = 2;
-    private static final int TYPE_HOSTNAME = 3;
-    private static final int TYPE_OPEN_STREAM = 4;
-    private static final int TYPE_DISPLAY_PROPERTIES = 5;
-    private static final int TYPE_ENTER_FULLSCREEN = 6;
-    private static final int TYPE_EXIT_FULLSCREEN = 7;
-    private static final int TYPE_METHOD = 8;
-    private static final int TYPE_FIELD = 9;
-    private static final int TYPE_PREFERENCES_SPECIFIC_GAME = 12;
-    private static final int TYPE_PREFERENCES = 13;
-    private static final int TYPE_MOVE_MOUSE = 14;
-    private static final int TYPE_UPDATE_MOUSE_COMPONENT = 15;
-    private static final int TYPE_OPEN_PAGE = 16;
-    private static final int TYPE_UPDATE_MOUSE_CURSOR = 17;
-    private static final int TYPE_GET_CLIPBOARD_CONTENTS = 18;
-    private static final int TYPE_SET_CLIPBOARD_CONTENTS = 19;
-    private static final int TYPE_ADDRESS = 21;
-    private static final int TYPE_SOCKET_PROXY = 22;
-
-    public static final int STORE_RC = 33;
-    public static final int STORE_WIP = 34;
-
     private static final String UIDFileName = "random.dat";
     private static final String cacheDatFilename = "main_file_cache.dat2";
     private static final String cacheMasterIndexFilename = "main_file_cache.idx255";
     private static final String cacheIndexFilename = "main_file_cache.idx";
+
+    // $FF: synthetic field
+    @OriginalMember(owner = "client!vq", name = "s", descriptor = "Ljava/lang/Class;")
+    public static Class frameClass;
+
+    // $FF: synthetic field
+    @OriginalMember(owner = "client!vq", name = "p", descriptor = "Ljava/lang/Class;")
+    public static Class componentClass;
+
+    // $FF: synthetic field
+    @OriginalMember(owner = "client!vq", name = "g", descriptor = "Ljava/lang/Class;")
+    public static Class intArrayClass;
+
+    // $FF: synthetic field
+    @OriginalMember(owner = "client!vq", name = "d", descriptor = "Ljava/lang/Class;")
+    public static Class pointClass;
 
     @OriginalMember(owner = "client!vq", name = "D", descriptor = "Ljava/lang/String;")
     public static String javaVendor;
@@ -61,22 +57,33 @@ public final class SignLink implements Runnable {
 
     @OriginalMember(owner = "client!vq", name = "f", descriptor = "Ljava/lang/String;")
     public static String game;
+
     @OriginalMember(owner = "client!vq", name = "z", descriptor = "Ljava/lang/String;")
     public static String osNameRaw;
+
     @OriginalMember(owner = "client!vq", name = "y", descriptor = "Ljava/lang/String;")
     public static String osNameLower;
+
     @OriginalMember(owner = "client!vq", name = "c", descriptor = "Ljava/lang/String;")
     public static String osArchRaw;
+
     @OriginalMember(owner = "client!vq", name = "C", descriptor = "Ljava/lang/String;")
     public static String osVersionRaw;
+
     @OriginalMember(owner = "client!vq", name = "B", descriptor = "Ljava/lang/String;")
     public static String homeDir;
+
     @OriginalMember(owner = "client!vq", name = "A", descriptor = "Ljava/lang/reflect/Method;")
     public static Method setFocusTraversalKeysEnabled;
+
     @OriginalMember(owner = "client!vq", name = "v", descriptor = "Ljava/lang/reflect/Method;")
     public static Method setFocusCycleRoot;
+
     @OriginalMember(owner = "client!vq", name = "w", descriptor = "I")
     public static int storeId;
+
+    @OriginalMember(owner = "client!vq", name = "t", descriptor = "J")
+    public static volatile long timeout = 0L;
 
     @OriginalMember(owner = "client!vq", name = "m", descriptor = "Lclient!dm;")
     public FileOnDisk cacheDat = null;
@@ -263,43 +270,121 @@ public final class SignLink implements Runnable {
         this.thread.start();
     }
 
+    @OriginalMember(owner = "client!vf", name = "a", descriptor = "(Lclient!vq;Z)[Lclient!oga;")
+    public static DisplayProperties[] getDisplayProperties(@OriginalArg(0) SignLink signlink, @OriginalArg(1) boolean arg1) {
+        if (!signlink.supportsFullscreen()) {
+            return new DisplayProperties[0];
+        }
+
+        @Pc(15) SignedResource resource = signlink.getDisplayProperties();
+        while (resource.status == 0) {
+            Static638.sleep(10L);
+        }
+
+        if (resource.status == 2) {
+            return new DisplayProperties[0];
+        }
+
+        @Pc(38) int[] result = (int[]) resource.result;
+        @Pc(44) DisplayProperties[] properties = new DisplayProperties[result.length >> 2];
+        for (@Pc(46) int i = 0; i < properties.length; i++) {
+            @Pc(51) DisplayProperties current = new DisplayProperties();
+            properties[i] = current;
+            current.width = result[i << 2];
+            current.height = result[(i << 2) + 1];
+            current.oldWidth = result[(i << 2) + 2];
+            current.oldHeight = result[(i << 2) + 3];
+        }
+
+        if (arg1) {
+            return properties;
+        } else {
+            return null;
+        }
+    }
+
+    @OriginalMember(owner = "client!vq", name = "a", descriptor = "(ILjava/lang/String;)Lclient!dm;")
+    public static FileOnDisk openPrefs(@OriginalArg(1) String name) {
+        return openPrefs(game, storeId, name);
+    }
+
+    @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/String;ILjava/lang/String;I)Lclient!dm;")
+    public static FileOnDisk openPrefs(@OriginalArg(0) String game, @OriginalArg(1) int storeId, @OriginalArg(2) String name) {
+        @Pc(29) String path;
+        if (storeId == FileStore.RC) {
+            path = "jagex_" + game + "_preferences" + name + "_rc.dat";
+        } else if (storeId == FileStore.WIP) {
+            path = "jagex_" + game + "_preferences" + name + "_wip.dat";
+        } else {
+            path = "jagex_" + game + "_preferences" + name + ".dat";
+        }
+
+        @Pc(121) String[] dirs = {
+            "c:/rscache/",
+            "/rscache/",
+            homeDir,
+            "c:/windows/",
+            "c:/winnt/",
+            "c:/",
+            "/tmp/",
+            ""
+        };
+
+        for (@Pc(123) int i = 0; i < dirs.length; i++) {
+            @Pc(128) String dir = dirs[i];
+            if (dir.length() <= 0 || (new File(dir)).exists()) {
+                try {
+                    return new FileOnDisk(new File(dir, path), "rw", 10000L);
+                } catch (@Pc(158) Exception ignored) {
+                    /* empty */
+                }
+            }
+        }
+
+        return null;
+    }
+
     @OriginalMember(owner = "client!vq", name = "c", descriptor = "(B)Ljava/lang/Object;")
     public Object method8976() {
         return this.anObject21;
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(IIIII)Lclient!oba;")
-    public SignedResource method8977(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
-        return this.request(arg0 << 16, 6, (Object) null, (arg2 << 16) + arg1);
+    public SignedResource enterFullscreen(@OriginalArg(3) int width, @OriginalArg(1) int height, @OriginalArg(0) int oldWidth, @OriginalArg(2) int oldHeight) {
+        return this.request(SignedResourceType.ENTER_FULLSCREEN, null, (width << 16) + height, (oldWidth << 16) + oldHeight);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/Class;Ljava/lang/String;I)Lclient!oba;")
-    public SignedResource method8978(@OriginalArg(0) Class arg0, @OriginalArg(1) String arg1) {
-        return this.request(0, 9, new Object[]{arg0, arg1}, 0);
+    public SignedResource getField(@OriginalArg(0) Class owner, @OriginalArg(1) String name) {
+        return this.request(SignedResourceType.FIELD, new Object[]{owner, name}, 0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/String;ZZI)Lclient!oba;")
-    public SignedResource method8979(@OriginalArg(0) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
-        return this.request(0, arg1 ? 22 : 1, arg0, arg2);
+    public SignedResource openSocket(@OriginalArg(0) String host, @OriginalArg(3) int port, @OriginalArg(2) boolean proxy) {
+        return this.request(proxy ? SignedResourceType.SOCKET_PROXY : SignedResourceType.SOCKET, host, port, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(ZLjava/lang/String;B)Lclient!oba;")
-    public SignedResource method8981(@OriginalArg(1) String arg0) {
-        return this.request(0, 12, arg0, 0);
+    public SignedResource openPrefs(@OriginalArg(1) String string, boolean specific) {
+        if (specific) {
+            return this.request(SignedResourceType.PREFERENCES_SPECIFIC_GAME, string, 0, 0);
+        } else {
+            return this.request(SignedResourceType.PREFERENCES, string, 0, 0);
+        }
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(BI)Lclient!oba;")
-    public SignedResource method8982(@OriginalArg(1) int arg0) {
-        return this.request(0, 3, (Object) null, arg0);
+    public SignedResource lookupHostname(@OriginalArg(1) int ip) {
+        return this.request(SignedResourceType.HOSTNAME, null, ip, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(B)Lclient!oba;")
-    public SignedResource method8984() {
-        return this.request(0, 5, (Object) null, 0);
+    public SignedResource getDisplayProperties() {
+        return this.request(SignedResourceType.DISPLAY_PROPERTIES, null, 0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "b", descriptor = "(I)V")
-    public void stopb() {
+    public void stop() {
         synchronized (this) {
             this.stopped = true;
             this.notifyAll();
@@ -349,8 +434,8 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/String;B)Lclient!oba;")
-    public SignedResource method8986(@OriginalArg(0) String arg0) {
-        return this.request(0, 16, arg0, 0);
+    public SignedResource openPage(@OriginalArg(0) String string) {
+        return this.request(SignedResourceType.OPEN_PAGE, string, 0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/io/File;I[B)Z")
@@ -366,17 +451,17 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/Class;[Ljava/lang/Class;Ljava/lang/String;Z)Lclient!oba;")
-    public SignedResource method8988(@OriginalArg(0) Class arg0, @OriginalArg(1) Class[] arg1, @OriginalArg(2) String arg2) {
-        return this.request(0, 8, new Object[]{arg0, arg2, arg1}, 0);
+    public SignedResource getMethod(@OriginalArg(0) Class owner, @OriginalArg(2) String name, @OriginalArg(1) Class[] parameters) {
+        return this.request(SignedResourceType.METHOD, new Object[]{owner, name, parameters}, 0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/awt/Frame;I)Lclient!oba;")
-    public SignedResource method8989(@OriginalArg(0) Frame arg0) {
-        return this.request(0, 7, arg0, 0);
+    public SignedResource exitFullscreen(@OriginalArg(0) Frame frame) {
+        return this.request(SignedResourceType.EXIT_FULLSCREEN, frame, 0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(I)Z")
-    public boolean method8990() {
+    public boolean supportsFullscreen() {
         if (!this.signed) {
             return false;
         } else if (this.microsoftjava) {
@@ -387,22 +472,22 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(BLjava/lang/Runnable;I)Lclient!oba;")
-    public SignedResource method8991(@OriginalArg(1) Runnable arg0, @OriginalArg(2) int arg1) {
-        return this.request(0, 2, arg0, arg1);
+    public SignedResource startThread(@OriginalArg(1) Runnable runnable, @OriginalArg(2) int priority) {
+        return this.request(SignedResourceType.START_THREAD, runnable, priority, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(BLjava/net/URL;)Lclient!oba;")
-    public SignedResource openStream(@OriginalArg(1) URL arg0) {
-        return this.request(0, 4, arg0, 0);
+    public SignedResource openStream(@OriginalArg(1) URL url) {
+        return this.request(SignedResourceType.OPEN_STREAM, url, 0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(IILjava/lang/Object;II)Lclient!oba;")
-    public SignedResource request(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Object arg2, @OriginalArg(4) int arg3) {
+    public SignedResource request(@OriginalArg(1) int type, @OriginalArg(2) Object objectData, @OriginalArg(4) int intData1, @OriginalArg(0) int intData2) {
         @Pc(3) SignedResource resource = new SignedResource();
-        resource.objectData = arg2;
-        resource.anInt6788 = arg3;
-        resource.anInt6790 = arg1;
-        resource.anInt6787 = arg0;
+        resource.objectData = objectData;
+        resource.intData1 = intData1;
+        resource.type = type;
+        resource.intData2 = intData2;
         synchronized (this) {
             if (this.last == null) {
                 this.last = this.current = resource;
@@ -416,27 +501,27 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "b", descriptor = "(B)V")
-    public void method8994() {
-        Static689.aLong317 = SystemTimer.safetime() + 5000L;
+    public void timeout() {
+        timeout = SystemTimer.safetime() + 5000L;
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(IB[ILjava/awt/Component;Ljava/awt/Point;I)Lclient!oba;")
-    public SignedResource method8995(@OriginalArg(0) int arg0, @OriginalArg(2) int[] arg1, @OriginalArg(3) Component arg2, @OriginalArg(4) Point arg3, @OriginalArg(5) int arg4) {
-        return this.request(arg0, 17, new Object[]{arg2, arg1, arg3}, arg4);
+    public SignedResource method8995(@OriginalArg(3) Component component, @OriginalArg(2) int[] arg1, @OriginalArg(4) Point point, @OriginalArg(5) int arg4, @OriginalArg(0) int arg0) {
+        return this.request(SignedResourceType.UPDATE_MOUSE_CURSOR, new Object[]{component, arg1, point}, arg4, arg0);
     }
 
     @OriginalMember(owner = "client!vq", name = "run", descriptor = "()V")
     @Override
     public void run() {
         while (true) {
-            @Pc(15) SignedResource local15;
+            @Pc(15) SignedResource request;
             synchronized (this) {
                 while (true) {
                     if (this.stopped) {
                         return;
                     }
                     if (this.current != null) {
-                        local15 = this.current;
+                        request = this.current;
                         this.current = this.current.next;
                         if (this.current == null) {
                             this.last = null;
@@ -450,150 +535,164 @@ public final class SignLink implements Runnable {
                 }
             }
             try {
-                @Pc(42) int local42 = local15.anInt6790;
-                if (local42 == 1) {
-                    if (SystemTimer.safetime() < Static689.aLong317) {
+                @Pc(42) int type = request.type;
+                if (type == SignedResourceType.SOCKET) {
+                    if (SystemTimer.safetime() < timeout) {
                         throw new IOException();
                     }
-                    local15.result = new Socket(InetAddress.getByName((String) local15.objectData), local15.anInt6788);
-                } else if (local42 == 22) {
-                    if (Static689.aLong317 > SystemTimer.safetime()) {
+
+                    request.result = new Socket(InetAddress.getByName((String) request.objectData), request.intData1);
+                } else if (type == SignedResourceType.SOCKET_PROXY) {
+                    if (timeout > SystemTimer.safetime()) {
                         throw new IOException();
                     }
+
                     try {
-                        local15.result = Static327.method4894((String) local15.objectData, local15.anInt6788).method6097();
-                    } catch (@Pc(947) IOException_Sub1 local947) {
-                        local15.result = local947.getMessage();
-                        throw local947;
+                        request.result = SocketFactory.create((String) request.objectData, request.intData1).open();
+                    } catch (@Pc(947) ProxyAuthenticationException exception) {
+                        request.result = exception.getMessage();
+                        throw exception;
                     }
-                } else if (local42 == 2) {
-                    @Pc(911) Thread local911 = new Thread((Runnable) local15.objectData);
-                    local911.setDaemon(true);
-                    local911.start();
-                    local911.setPriority(local15.anInt6788);
-                    local15.result = local911;
-                } else if (local42 == 4) {
-                    if (SystemTimer.safetime() < Static689.aLong317) {
+                } else if (type == SignedResourceType.START_THREAD) {
+                    @Pc(911) Thread thread = new Thread((Runnable) request.objectData);
+                    thread.setDaemon(true);
+                    thread.start();
+                    thread.setPriority(request.intData1);
+                    request.result = thread;
+                } else if (type == SignedResourceType.OPEN_STREAM) {
+                    if (SystemTimer.safetime() < timeout) {
                         throw new IOException();
                     }
-                    local15.result = new DataInputStream(((URL) local15.objectData).openStream());
-                } else {
-                    @Pc(102) Object[] local102;
-                    if (local42 == 8) {
-                        local102 = (Object[]) local15.objectData;
-                        if (this.signed && ((Class) local102[0]).getClassLoader() == null) {
-                            throw new SecurityException();
+
+                    request.result = new DataInputStream(((URL) request.objectData).openStream());
+                } else if (type == SignedResourceType.METHOD) {
+                    @Pc(102) Object[] objectData = (Object[]) request.objectData;
+                    if (this.signed && ((Class) objectData[0]).getClassLoader() == null) {
+                        throw new SecurityException();
+                    }
+
+                    request.result = ((Class) objectData[0]).getDeclaredMethod((String) objectData[1], (Class[]) objectData[2]);
+                } else if (type == SignedResourceType.FIELD) {
+                    @Pc(102) Object[] objectData = (Object[]) request.objectData;
+                    if (this.signed && ((Class) objectData[0]).getClassLoader() == null) {
+                        throw new SecurityException();
+                    }
+
+                    request.result = ((Class) objectData[0]).getDeclaredField((String) objectData[1]);
+                } else if (type == SignedResourceType.GET_CLIPBOARD_CONTENTS) {
+                    @Pc(136) Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    request.result = clipboard.getContents(null);
+                } else if (type == SignedResourceType.SET_CLIPBOARD_CONTENTS) {
+                    @Pc(149) Transferable transferable = (Transferable) request.objectData;
+                    @Pc(152) Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    clipboard.setContents(transferable, null);
+                } else if (this.signed) {
+                    if (type == SignedResourceType.HOSTNAME) {
+                        if (SystemTimer.safetime() < timeout) {
+                            throw new IOException();
                         }
-                        local15.result = ((Class) local102[0]).getDeclaredMethod((String) local102[1], (Class[]) local102[2]);
-                    } else if (local42 == 9) {
-                        local102 = (Object[]) local15.objectData;
-                        if (this.signed && ((Class) local102[0]).getClassLoader() == null) {
-                            throw new SecurityException();
+
+                        @Pc(220) String ip = ((request.intData1 >> 24) & 0xFF)
+                            + "." + ((request.intData1 >> 16) & 0xFF)
+                            + "." + ((request.intData1 >> 8) & 0xFF)
+                            + "." + (request.intData1 & 0xFF);
+
+                        request.result = InetAddress.getByName(ip).getHostName();
+                    } else if (type == SignedResourceType.ADDRESS) {
+                        if (SystemTimer.safetime() < timeout) {
+                            throw new IOException();
                         }
-                        local15.result = ((Class) local102[0]).getDeclaredField((String) local102[1]);
-                    } else if (local42 == 18) {
-                        @Pc(136) Clipboard local136 = Toolkit.getDefaultToolkit().getSystemClipboard();
-                        local15.result = local136.getContents((Object) null);
-                    } else if (local42 == 19) {
-                        @Pc(149) Transferable local149 = (Transferable) local15.objectData;
-                        @Pc(152) Clipboard local152 = Toolkit.getDefaultToolkit().getSystemClipboard();
-                        local152.setContents(local149, (ClipboardOwner) null);
-                    } else if (this.signed) {
-                        @Pc(220) String local220;
-                        if (local42 == 3) {
-                            if (SystemTimer.safetime() < Static689.aLong317) {
-                                throw new IOException();
-                            }
-                            local220 = (local15.anInt6788 >> 24 & 0xFF) + "." + (local15.anInt6788 >> 16 & 0xFF) + "." + (local15.anInt6788 >> 8 & 0xFF) + "." + (local15.anInt6788 & 0xFF);
-                            local15.result = InetAddress.getByName(local220).getHostName();
-                        } else if (local42 == 21) {
-                            if (SystemTimer.safetime() < Static689.aLong317) {
-                                throw new IOException();
-                            }
-                            local15.result = InetAddress.getByName((String) local15.objectData).getAddress();
-                        } else if (local42 == 5) {
-                            if (this.microsoftjava) {
-                                local15.result = this.aClass15_1.method250();
-                            } else {
-                                local15.result = Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("listmodes").invoke(this.fullscreenAdapter);
-                            }
-                        } else if (local42 == 6) {
-                            @Pc(268) Frame local268 = new Frame("Jagex Full Screen");
-                            local15.result = local268;
-                            local268.setResizable(false);
-                            if (this.microsoftjava) {
-                                this.aClass15_1.method248(local268, local15.anInt6787 >> 16, local15.anInt6787 & 0xFFFF, local15.anInt6788 & 0xFFFF, local15.anInt6788 >>> 16);
-                            } else {
-                                Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("enter", Static689.aClass24 == null ? (Static689.aClass24 = Class.forName("java.awt.Frame")) : Static689.aClass24, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE).invoke(this.fullscreenAdapter, local268, Integer.valueOf(local15.anInt6788 >>> 16), new Integer(local15.anInt6788 & 0xFFFF), Integer.valueOf(local15.anInt6787 >> 16), new Integer(local15.anInt6787 & 0xFFFF));
-                            }
-                        } else if (local42 != 7) {
-                            @Pc(438) FileOnDisk local438;
-                            if (local42 == 12) {
-                                local438 = Static689.method8980(game, storeId, (String) local15.objectData);
-                                local15.result = local438;
-                            } else if (local42 == 13) {
-                                local438 = Static689.method8980("", storeId, (String) local15.objectData);
-                                local15.result = local438;
-                            } else if (this.signed && local42 == 14) {
-                                @Pc(460) int local460 = local15.anInt6788;
-                                @Pc(463) int local463 = local15.anInt6787;
-                                if (this.microsoftjava) {
-                                    this.mouseCallback.movemouse(local460, local463);
-                                } else {
-                                    Class.forName("MouseAdapter").getDeclaredMethod("movemouse", Integer.TYPE, Integer.TYPE).invoke(this.mouseAdapter, Integer.valueOf(local460), new Integer(local463));
-                                }
-                            } else if (this.signed && local42 == 15) {
-                                @Pc(534) boolean local534 = local15.anInt6788 != 0;
-                                @Pc(538) Component local538 = (Component) local15.objectData;
-                                if (this.microsoftjava) {
-                                    this.mouseCallback.showcursor(local534, local538);
-                                } else {
-                                    Class.forName("MouseAdapter").getDeclaredMethod("showcursor", Static689.aClass25 == null ? (Static689.aClass25 = Class.forName("java.awt.Component")) : Static689.aClass25, Boolean.TYPE).invoke(this.mouseAdapter, local538, Boolean.valueOf(local534));
-                                }
-                            } else if (!this.microsoftjava && local42 == 17) {
-                                local102 = (Object[]) local15.objectData;
-                                Class.forName("MouseAdapter").getDeclaredMethod("setcustomcursor", Static689.aClass25 == null ? (Static689.aClass25 = Class.forName("java.awt.Component")) : Static689.aClass25, Static689.aClass26 == null ? (Static689.aClass26 = Class.forName("[I")) : Static689.aClass26, Integer.TYPE, Integer.TYPE, Static689.aClass27 == null ? (Static689.aClass27 = Class.forName("java.awt.Point")) : Static689.aClass27).invoke(this.mouseAdapter, (Component) local102[0], (int[]) local102[1], Integer.valueOf(local15.anInt6788), new Integer(local15.anInt6787), (Point) local102[2]);
-                            } else if (local42 == 16) {
-                                try {
-                                    if (!osNameLower.startsWith("win")) {
-                                        throw new Exception();
-                                    }
-                                    local220 = (String) local15.objectData;
-                                    if (!local220.startsWith("http://") && !local220.startsWith("https://")) {
-                                        throw new Exception();
-                                    }
-                                    @Pc(754) String local754 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*";
-                                    for (@Pc(756) int local756 = 0; local220.length() > local756; local756++) {
-                                        if (local754.indexOf(local220.charAt(local756)) == -1) {
-                                            throw new Exception();
-                                        }
-                                    }
-                                    Runtime.getRuntime().exec("cmd /c start \"j\" \"" + local220 + "\"");
-                                    local15.result = null;
-                                } catch (@Pc(793) Exception local793) {
-                                    local15.result = local793;
-                                    throw local793;
-                                }
-                            } else {
-                                throw new Exception("");
-                            }
-                        } else if (this.microsoftjava) {
-                            this.aClass15_1.method249((Frame) local15.objectData);
+
+                        request.result = InetAddress.getByName((String) request.objectData).getAddress();
+                    } else if (type == SignedResourceType.DISPLAY_PROPERTIES) {
+                        if (this.microsoftjava) {
+                            request.result = this.aClass15_1.method250();
+                        } else {
+                            request.result = Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("listmodes").invoke(this.fullscreenAdapter);
+                        }
+                    } else if (type == SignedResourceType.ENTER_FULLSCREEN) {
+                        @Pc(268) Frame frame = new Frame("Jagex Full Screen");
+                        request.result = frame;
+                        frame.setResizable(false);
+
+                        if (this.microsoftjava) {
+                            this.aClass15_1.method248(frame, request.intData2 >> 16, request.intData2 & 0xFFFF, request.intData1 & 0xFFFF, request.intData1 >>> 16);
+                        } else {
+                            Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("enter", frameClass == null ? (frameClass = Class.forName("java.awt.Frame")) : frameClass, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE).invoke(this.fullscreenAdapter, frame, Integer.valueOf(request.intData1 >>> 16), new Integer(request.intData1 & 0xFFFF), Integer.valueOf(request.intData2 >> 16), new Integer(request.intData2 & 0xFFFF));
+                        }
+                    } else if (type == SignedResourceType.EXIT_FULLSCREEN) {
+                        if (this.microsoftjava) {
+                            this.aClass15_1.method249((Frame) request.objectData);
                         } else {
                             Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("exit").invoke(this.fullscreenAdapter);
+                        }
+                    } else if (type == SignedResourceType.PREFERENCES_SPECIFIC_GAME) {
+                        @Pc(438) FileOnDisk file = openPrefs(game, storeId, (String) request.objectData);
+                        request.result = file;
+                    } else if (type == SignedResourceType.PREFERENCES) {
+                        @Pc(438) FileOnDisk file = openPrefs("", storeId, (String) request.objectData);
+                        request.result = file;
+                    } else if (this.signed && type == SignedResourceType.MOVE_MOUSE) {
+                        @Pc(460) int x = request.intData1;
+                        @Pc(463) int y = request.intData2;
+
+                        if (this.microsoftjava) {
+                            this.mouseCallback.movemouse(x, y);
+                        } else {
+                            Class.forName("MouseAdapter").getDeclaredMethod("movemouse", Integer.TYPE, Integer.TYPE).invoke(this.mouseAdapter, Integer.valueOf(x), new Integer(y));
+                        }
+                    } else if (this.signed && type == SignedResourceType.UPDATE_MOUSE_COMPONENT) {
+                        @Pc(534) boolean delete = request.intData1 != 0;
+                        @Pc(538) Component component = (Component) request.objectData;
+
+                        if (this.microsoftjava) {
+                            this.mouseCallback.showcursor(delete, component);
+                        } else {
+                            Class.forName("MouseAdapter").getDeclaredMethod("showcursor", componentClass == null ? (componentClass = Class.forName("java.awt.Component")) : componentClass, Boolean.TYPE).invoke(this.mouseAdapter, component, Boolean.valueOf(delete));
+                        }
+                    } else if (!this.microsoftjava && type == SignedResourceType.UPDATE_MOUSE_CURSOR) {
+                        @Pc(102) Object[] objectData = (Object[]) request.objectData;
+                        Class.forName("MouseAdapter").getDeclaredMethod("setcustomcursor", componentClass == null ? (componentClass = Class.forName("java.awt.Component")) : componentClass, intArrayClass == null ? (intArrayClass = Class.forName("[I")) : intArrayClass, Integer.TYPE, Integer.TYPE, pointClass == null ? (pointClass = Class.forName("java.awt.Point")) : pointClass).invoke(this.mouseAdapter, objectData[0], objectData[1], Integer.valueOf(request.intData1), new Integer(request.intData2), objectData[2]);
+                    } else if (type == SignedResourceType.OPEN_PAGE) {
+                        try {
+                            if (!osNameLower.startsWith("win")) {
+                                throw new Exception();
+                            }
+
+                            @Pc(220) String url = (String) request.objectData;
+                            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                                throw new Exception();
+                            }
+
+                            @Pc(754) String validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*";
+                            for (@Pc(756) int i = 0; url.length() > i; i++) {
+                                if (validChars.indexOf(url.charAt(i)) == -1) {
+                                    throw new Exception();
+                                }
+                            }
+
+                            Runtime.getRuntime().exec("cmd /c start \"j\" \"" + url + "\"");
+                            request.result = null;
+                        } catch (@Pc(793) Exception local793) {
+                            request.result = local793;
+                            throw local793;
                         }
                     } else {
                         throw new Exception("");
                     }
+                } else {
+                    throw new Exception("");
                 }
-                local15.status = 1;
-            } catch (@Pc(958) ThreadDeath local958) {
-                throw local958;
+
+                request.status = 1;
+            } catch (@Pc(958) ThreadDeath death) {
+                throw death;
             } catch (@Pc(961) Throwable local961) {
-                local15.status = 2;
+                request.status = 2;
             }
-            synchronized (local15) {
-                local15.notify();
+
+            synchronized (request) {
+                request.notify();
             }
         }
     }

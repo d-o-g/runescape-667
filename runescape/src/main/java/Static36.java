@@ -36,7 +36,7 @@ public final class Static36 {
         if (arg0 != 3) {
             method977(127, (byte) 11);
         }
-        if (Static316.aFrame8 == null) {
+        if (Static316.fsframe == null) {
             return Static152.aBoolean811 ? 2 : 1;
         } else {
             return 3;
@@ -46,7 +46,7 @@ public final class Static36 {
     @OriginalMember(owner = "client!bda", name = "a", descriptor = "(BLclient!vq;Ljava/lang/String;Ljava/lang/String;I)Lclient!oba;")
     public static SignedResource method980(@OriginalArg(1) SignLink arg0, @OriginalArg(2) String arg1, @OriginalArg(3) String arg2, @OriginalArg(4) int arg3) {
         if (arg3 == 0) {
-            return arg0.method8986(arg1);
+            return arg0.openPage(arg1);
         }
         @Pc(57) SignedResource local57;
         if (arg3 == 1) {

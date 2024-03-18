@@ -17,33 +17,38 @@ public final class Static489 {
     public static final Class283[] aClass283Array1 = new Class283[100];
 
     @OriginalMember(owner = "client!ph", name = "a", descriptor = "(ILclient!vq;IIII)Ljava/awt/Frame;")
-    public static Frame method6543(@OriginalArg(0) int arg0, @OriginalArg(1) SignLink arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        if (!arg1.method8990()) {
+    public static Frame createFullscreenFrame(@OriginalArg(1) SignLink signlink, @OriginalArg(4) int width, @OriginalArg(3) int height, @OriginalArg(0) int oldWidth, @OriginalArg(2) int oldHeight) {
+        if (!signlink.supportsFullscreen()) {
             return null;
         }
-        @Pc(18) Class273[] local18 = Static673.method8787(arg1, true);
-        if (local18 == null) {
+
+        @Pc(18) DisplayProperties[] properties = SignLink.getDisplayProperties(signlink, true);
+        if (properties == null) {
             return null;
         }
-        @Pc(25) boolean local25 = false;
-        for (@Pc(27) int local27 = 0; local27 < local18.length; local27++) {
-            if (local18[local27].anInt6918 == arg3 && local18[local27].anInt6912 == arg2 && (!local25 || local18[local27].anInt6913 > arg0)) {
-                local25 = true;
-                arg0 = local18[local27].anInt6913;
+
+        @Pc(25) boolean found = false;
+        for (@Pc(27) int i = 0; i < properties.length; i++) {
+            if (properties[i].width == width && properties[i].height == height && (oldHeight == 0 || oldHeight == properties[i].oldHeight) && (!found || properties[i].oldWidth > oldWidth)) {
+                found = true;
+                oldWidth = properties[i].oldWidth;
             }
         }
-        if (!local25) {
+
+        if (!found) {
             return null;
         }
-        @Pc(101) SignedResource local101 = arg1.method8977(arg0, arg2, arg3);
-        while (local101.status == 0) {
+
+        @Pc(101) SignedResource resource = signlink.enterFullscreen(width, height, oldWidth, oldHeight);
+        while (resource.status == 0) {
             Static638.sleep(10L);
         }
-        @Pc(112) Frame local112 = (Frame) local101.result;
+
+        @Pc(112) Frame local112 = (Frame) resource.result;
         if (local112 == null) {
             return null;
-        } else if (local101.status == 2) {
-            Static655.method8562(arg1, local112);
+        } else if (resource.status == 2) {
+            Static655.method8562(signlink, local112);
             return null;
         } else {
             return local112;

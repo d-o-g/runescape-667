@@ -41,8 +41,21 @@ public final class FileCache {
             return file;
         }
 
-        @Pc(64) String[] cacheLocations = {"c:/rscache/", "/rscache/", "c:/windows/", "c:/winnt/", "c:/", homeDir, "/tmp/", ""};
-        @Pc(91) String[] cacheDirectories = {".jagex_cache_" + storeId, ".file_store_" + storeId};
+        @Pc(64) String[] cacheLocations = {
+            "c:/rscache/",
+            "/rscache/",
+            "c:/windows/",
+            "c:/winnt/",
+            "c:/",
+            homeDir,
+            "/tmp/",
+            ""
+        };
+
+        @Pc(91) String[] cacheDirectories = {
+            ".jagex_cache_" + storeId,
+            ".file_store_" + storeId
+        };
 
         for (@Pc(99) int i = 0; i < 2; i++) {
             for (@Pc(102) int j = 0; j < cacheDirectories.length; j++) {

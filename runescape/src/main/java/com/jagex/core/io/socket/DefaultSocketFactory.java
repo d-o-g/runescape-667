@@ -1,3 +1,5 @@
+package com.jagex.core.io.socket;
+
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -5,11 +7,11 @@ import java.io.IOException;
 import java.net.Socket;
 
 @OriginalClass("client!gk")
-public final class Class58_Sub1 extends Class58 {
+public final class DefaultSocketFactory extends SocketFactory {
 
     @OriginalMember(owner = "client!gk", name = "b", descriptor = "(I)Ljava/net/Socket;")
     @Override
-    public Socket method6097() throws IOException {
-        return this.method6096();
+    public Socket open() throws IOException {
+        return this.create();
     }
 }

@@ -18,7 +18,7 @@ public final class Static666 {
     public static void method8693(@OriginalArg(0) int arg0) {
         @Pc(5) FileOnDisk local5 = null;
         try {
-            @Pc(18) SignedResource local18 = Static446.aSignLink_6.method8981("");
+            @Pc(18) SignedResource local18 = Static446.aSignLink_6.openPrefs("", true);
             while (local18.status == 0) {
                 Static638.sleep(1L);
             }

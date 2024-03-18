@@ -37,7 +37,7 @@ public final class Static638 {
                 if (Static156.anInt2679 > 0 && Static232.aClass119_1 == null) {
                     Static232.aClass119_1 = new Class119();
                     Static232.aClass119_1.aSignLink_2 = arg0;
-                    arg0.method8991(Static232.aClass119_1, Static156.anInt2679);
+                    arg0.startThread(Static232.aClass119_1, Static156.anInt2679);
                 }
                 if (Static232.aClass119_1 != null) {
                     if (Static232.aClass119_1.aClass56Array1[arg1] != null) {
@@ -57,7 +57,7 @@ public final class Static638 {
                     if (Static156.anInt2679 > 0 && Static232.aClass119_1 == null) {
                         Static232.aClass119_1 = new Class119();
                         Static232.aClass119_1.aSignLink_2 = arg0;
-                        arg0.method8991(Static232.aClass119_1, Static156.anInt2679);
+                        arg0.startThread(Static232.aClass119_1, Static156.anInt2679);
                     }
                     if (Static232.aClass119_1 != null) {
                         if (Static232.aClass119_1.aClass56Array1[arg1] != null) {

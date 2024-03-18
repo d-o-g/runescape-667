@@ -100,29 +100,29 @@ public final class Static363 {
     }
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(IIIIIZ)V")
-    public static void method6236(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
-        if (Static316.aFrame8 != null && (arg2 != 3 || arg3 != Static328.anInt5427 || Static110.anInt2189 != arg1)) {
-            Static655.method8562(Static446.aSignLink_6, Static316.aFrame8);
-            Static316.aFrame8 = null;
+    public static void windowModeChanged(@OriginalArg(0) int oldMode, @OriginalArg(1) int height, @OriginalArg(2) int newMode, @OriginalArg(4) int width, @OriginalArg(5) boolean modeChanged) {
+        if (Static316.fsframe != null && (newMode != 3 || width != Static328.fullscreenWidth || Static110.fullscreenHeight != height)) {
+            Static655.method8562(Static446.aSignLink_6, Static316.fsframe);
+            Static316.fsframe = null;
         }
-        if (arg2 == 3 && Static316.aFrame8 == null) {
-            Static316.aFrame8 = Static489.method6543(0, Static446.aSignLink_6, arg1, arg3);
-            if (Static316.aFrame8 != null) {
-                Static328.anInt5427 = arg3;
-                Static110.anInt2189 = arg1;
+        if (newMode == 3 && Static316.fsframe == null) {
+            Static316.fsframe = Static489.createFullscreenFrame(Static446.aSignLink_6, width, height, 0, 0);
+            if (Static316.fsframe != null) {
+                Static328.fullscreenWidth = width;
+                Static110.fullscreenHeight = height;
                 Static666.method8693(1);
             }
         }
-        if (arg2 == 3 && Static316.aFrame8 == null) {
-            method6236(arg0, -1, Static400.instance.aClass57_Sub1_1.method1485(), -1, true);
+        if (newMode == 3 && Static316.fsframe == null) {
+            windowModeChanged(oldMode, -1, Static400.instance.screenSize.getValue(), -1, true);
             return;
         }
         @Pc(95) Container local95;
         @Pc(110) Insets local110;
-        if (Static316.aFrame8 != null) {
-            Static54.anInt1084 = arg1;
-            Static52.anInt1059 = arg3;
-            local95 = Static316.aFrame8;
+        if (Static316.fsframe != null) {
+            Static54.anInt1084 = height;
+            Static52.anInt1059 = width;
+            local95 = Static316.fsframe;
         } else if (Static353.aFrame10 == null) {
             if (Static166.anApplet1 == null) {
                 local95 = Static149.anApplet_Sub1_1;
@@ -138,7 +138,7 @@ public final class Static363 {
             Static54.anInt1084 = Static353.aFrame10.getSize().height + local126 - local110.bottom;
             local95 = Static353.aFrame10;
         }
-        if (arg2 == 1) {
+        if (newMode == 1) {
             Static241.anInt3962 = 0;
             Static134.anInt10329 = (Static52.anInt1059 - Static302.anInt4851) / 2;
             Static380.anInt5979 = Static479.anInt7201;
@@ -154,7 +154,7 @@ public final class Static363 {
                 local178 = false;
             }
         }
-        if (arg4) {
+        if (modeChanged) {
             Static574.method7572();
         } else {
             Static434.aCanvas7.setSize(Static680.anInt10289, Static380.anInt5979);
@@ -170,7 +170,7 @@ public final class Static363 {
                 Static434.aCanvas7.setLocation(Static134.anInt10329, Static241.anInt3962);
             }
         }
-        if (arg2 >= 2) {
+        if (newMode >= 2) {
             Static152.aBoolean811 = true;
         } else {
             Static152.aBoolean811 = false;

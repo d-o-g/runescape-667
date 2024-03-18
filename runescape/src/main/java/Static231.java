@@ -277,7 +277,7 @@ public final class Static231 {
                 }
                 @Pc(725) int local725;
                 if (arg2.equalsIgnoreCase("breakcon")) {
-                    Static446.aSignLink_6.method8994();
+                    Static446.aSignLink_6.timeout();
                     @Pc(723) Class153[] local723 = Static405.aClass153Array1;
                     for (local725 = 0; local725 < local723.length; local725++) {
                         @Pc(730) Class153 local730 = local723[local725];

@@ -5,10 +5,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class SignedResource {
 
     @OriginalMember(owner = "client!oba", name = "a", descriptor = "I")
-    public int anInt6787;
+    public int intData2;
 
     @OriginalMember(owner = "client!oba", name = "b", descriptor = "I")
-    public int anInt6788;
+    public int intData1;
 
     @OriginalMember(owner = "client!oba", name = "e", descriptor = "Ljava/lang/Object;")
     public Object objectData;
@@ -20,7 +20,7 @@ public final class SignedResource {
     public volatile Object result;
 
     @OriginalMember(owner = "client!oba", name = "d", descriptor = "I")
-    public int anInt6790;
+    public int type;
 
     @OriginalMember(owner = "client!oba", name = "g", descriptor = "I")
     public volatile int status = 0;

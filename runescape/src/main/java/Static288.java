@@ -28,7 +28,7 @@ public final class Static288 {
 
     @OriginalMember(owner = "client!jb", name = "a", descriptor = "(I)V")
     public static void method4182() {
-        if (Static316.aFrame8 != null) {
+        if (Static316.fsframe != null) {
             return;
         }
         @Pc(17) int local17 = Static134.anInt10329;

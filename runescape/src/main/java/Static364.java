@@ -437,7 +437,7 @@ public final class Static364 {
                         Static476.anInt7175 = local1435.g2();
                         Static323.anInt5118 = local1435.g2();
                         Static392.anInt6141 = local1435.g4();
-                        Static439.aSignedResource_4 = Static446.aSignLink_6.method8982(Static392.anInt6141);
+                        Static439.aSignedResource_4 = Static446.aSignLink_6.lookupHostname(Static392.anInt6141);
                         Static335.anInt5462 = local1435.g1();
                         Static626.anInt9473 = local1435.g2();
                         Static636.anInt9527 = local1435.g2();

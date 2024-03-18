@@ -112,9 +112,9 @@ public final class client extends Applet_Sub1 {
         if (Static163.aToolkit_17 != null) {
             Static163.aToolkit_17.free();
         }
-        if (Static316.aFrame8 != null) {
-            Static655.method8562(Static446.aSignLink_6, Static316.aFrame8);
-            Static316.aFrame8 = null;
+        if (Static316.fsframe != null) {
+            Static655.method8562(Static446.aSignLink_6, Static316.fsframe);
+            Static316.fsframe = null;
         }
         Static405.aClass153_2.method3274();
         Static405.aClass153_1.method3274();
@@ -432,7 +432,7 @@ public final class client extends Applet_Sub1 {
         }
         @Pc(110) int local110;
         @Pc(114) int local114;
-        if (Static316.aFrame8 == null) {
+        if (Static316.fsframe == null) {
             @Pc(98) Container local98;
             if (Static353.aFrame10 != null) {
                 local98 = Static353.aFrame10;
@@ -459,8 +459,8 @@ public final class client extends Applet_Sub1 {
                 Static284.aBoolean355 = false;
             }
         }
-        if (Static316.aFrame8 != null && !Static91.aBoolean750 && Static475.method6445(Static283.anInt4574)) {
-            Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
+        if (Static316.fsframe != null && !Static91.aBoolean750 && Static475.method6445(Static283.anInt4574)) {
+            Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
         }
         @Pc(209) boolean local209 = false;
         if (Static664.aBoolean759) {

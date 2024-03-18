@@ -130,7 +130,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             @Pc(54) Insets local54 = Static353.aFrame10.getInsets();
             Static353.aFrame10.setSize(Static52.anInt1059 + local54.left + local54.right, local54.bottom + local54.top + Static54.anInt1084);
             Static284.aSignLink_4 = Static446.aSignLink_6 = new SignLink(arg0, arg1, 37, true);
-            @Pc(88) SignedResource local88 = Static446.aSignLink_6.method8991(this, 1);
+            @Pc(88) SignedResource local88 = Static446.aSignLink_6.startThread(this, 1);
             while (local88.status == 0) {
                 Static638.sleep(10L);
             }
@@ -204,7 +204,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             Static169.anInt2850 -= 50;
             Static434.aCanvas7.setSize(Static680.anInt10289, Static380.anInt5979);
             Static434.aCanvas7.setVisible(true);
-            if (Static353.aFrame10 != null && Static316.aFrame8 == null) {
+            if (Static353.aFrame10 != null && Static316.fsframe == null) {
                 @Pc(86) Insets local86 = Static353.aFrame10.getInsets();
                 Static434.aCanvas7.setLocation(local86.left + Static134.anInt10329, Static241.anInt3962 + local86.top);
             } else {
@@ -233,7 +233,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
                 Static241.anInt3962 = 0;
                 Static149.anApplet_Sub1_1 = this;
                 Static284.aSignLink_4 = Static446.aSignLink_6 = new SignLink(arg1, arg2, 37, Static166.anApplet1 != null);
-                @Pc(80) SignedResource local80 = Static446.aSignLink_6.method8991(this, 1);
+                @Pc(80) SignedResource local80 = Static446.aSignLink_6.startThread(this, 1);
                 while (local80.status == 0) {
                     Static638.sleep(10L);
                 }
@@ -373,8 +373,8 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             Static434.aCanvas7.getParent().remove(Static434.aCanvas7);
         }
         @Pc(30) Container local30;
-        if (Static316.aFrame8 != null) {
-            local30 = Static316.aFrame8;
+        if (Static316.fsframe != null) {
+            local30 = Static316.fsframe;
         } else if (Static353.aFrame10 != null) {
             local30 = Static353.aFrame10;
         } else if (Static166.anApplet1 == null) {

@@ -27,7 +27,7 @@ public final class Class57_Sub3 extends Class57 {
             if (super.aClass2_Sub34_34.aClass57_Sub29_1.method7913() && !Static386.method5436(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915())) {
                 super.anInt9489 = 1;
             }
-            if (super.aClass2_Sub34_34.aClass57_Sub1_2.method1485() == 1) {
+            if (super.aClass2_Sub34_34.aClass57_Sub1_2.getValue() == 1) {
                 super.anInt9489 = 1;
             }
         }
@@ -51,7 +51,7 @@ public final class Class57_Sub3 extends Class57 {
             if (super.aClass2_Sub34_34.aClass57_Sub29_1.method7913() && !Static386.method5436(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915())) {
                 return 3;
             }
-            if (super.aClass2_Sub34_34.aClass57_Sub1_2.method1485() == 1) {
+            if (super.aClass2_Sub34_34.aClass57_Sub1_2.getValue() == 1) {
                 return 3;
             }
         }

@@ -4327,35 +4327,35 @@ public final class Static472 {
                     local192 = anIntArray578[anInt7142];
                     local834 = anIntArray578[anInt7142 + 1];
                     Static409.method5657(3, local192, false, local834);
-                    anIntArray578[anInt7142++] = Static316.aFrame8 == null ? 0 : 1;
+                    anIntArray578[anInt7142++] = Static316.fsframe == null ? 0 : 1;
                     return;
                 }
                 if (arg0 == 5301) {
-                    if (Static316.aFrame8 != null) {
-                        Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
+                    if (Static316.fsframe != null) {
+                        Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
                     }
                     return;
                 }
                 if (arg0 == 5302) {
-                    @Pc(3186) Class273[] local3186 = Static587.method7710();
+                    @Pc(3186) DisplayProperties[] local3186 = Static587.method7710();
                     anIntArray578[anInt7142++] = local3186.length;
                     return;
                 }
                 if (arg0 == 5303) {
                     local192 = anIntArray578[--anInt7142];
-                    @Pc(3210) Class273[] local3210 = Static587.method7710();
-                    anIntArray578[anInt7142++] = local3210[local192].anInt6918;
-                    anIntArray578[anInt7142++] = local3210[local192].anInt6912;
+                    @Pc(3210) DisplayProperties[] local3210 = Static587.method7710();
+                    anIntArray578[anInt7142++] = local3210[local192].width;
+                    anIntArray578[anInt7142++] = local3210[local192].height;
                     return;
                 }
                 if (arg0 == 5305) {
-                    local192 = Static328.anInt5427;
-                    local834 = Static110.anInt2189;
+                    local192 = Static328.fullscreenWidth;
+                    local834 = Static110.fullscreenHeight;
                     local109 = -1;
-                    @Pc(3245) Class273[] local3245 = Static587.method7710();
+                    @Pc(3245) DisplayProperties[] local3245 = Static587.method7710();
                     for (local375 = 0; local375 < local3245.length; local375++) {
-                        @Pc(3252) Class273 local3252 = local3245[local375];
-                        if (local3252.anInt6918 == local192 && local3252.anInt6912 == local834) {
+                        @Pc(3252) DisplayProperties local3252 = local3245[local375];
+                        if (local3252.width == local192 && local3252.height == local834) {
                             local109 = local375;
                             break;
                         }
@@ -4376,13 +4376,13 @@ public final class Static472 {
                     return;
                 }
                 if (arg0 == 5308) {
-                    anIntArray578[anInt7142++] = Static400.instance.aClass57_Sub1_1.method1485();
+                    anIntArray578[anInt7142++] = Static400.instance.screenSize.getValue();
                     return;
                 }
                 if (arg0 == 5309) {
                     local192 = anIntArray578[--anInt7142];
                     if (local192 >= 1 && local192 <= 2) {
-                        Static400.instance.method5104(local192, Static400.instance.aClass57_Sub1_1);
+                        Static400.instance.method5104(local192, Static400.instance.screenSize);
                         Static400.instance.method5104(local192, Static400.instance.aClass57_Sub1_2);
                         Static666.method8693(1);
                         return;
@@ -4445,8 +4445,8 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 5411) {
-                        if (Static316.aFrame8 != null) {
-                            Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
+                        if (Static316.fsframe != null) {
+                            Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
                         }
                         if (Static353.aFrame10 != null) {
                             Static266.method6777();
@@ -4461,7 +4461,7 @@ public final class Static472 {
                         local95 = "";
                         if (Static439.aSignedResource_4 != null) {
                             if (Static439.aSignedResource_4.result == null) {
-                                local95 = Static419.method5756(Static439.aSignedResource_4.anInt6788);
+                                local95 = Static419.method5756(Static439.aSignedResource_4.intData1);
                             } else {
                                 local95 = (String) Static439.aSignedResource_4.result;
                             }
@@ -4474,8 +4474,8 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 5421) {
-                        if (Static316.aFrame8 != null) {
-                            Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
+                        if (Static316.fsframe != null) {
+                            Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
                         }
                         local95 = aStringArray37[--anInt7139];
                         local1578 = anIntArray578[--anInt7142] == 1;
@@ -5860,7 +5860,7 @@ public final class Static472 {
                             local95 = "";
                             if (Static439.aSignedResource_4 != null) {
                                 if (Static439.aSignedResource_4.result == null) {
-                                    local95 = Static419.method5756(Static439.aSignedResource_4.anInt6788);
+                                    local95 = Static419.method5756(Static439.aSignedResource_4.intData1);
                                 } else {
                                     local95 = (String) Static439.aSignedResource_4.result;
                                 }

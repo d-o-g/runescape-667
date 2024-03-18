@@ -27,7 +27,7 @@ public final class Static655 {
     @OriginalMember(owner = "client!un", name = "a", descriptor = "(Lclient!vq;ILjava/awt/Frame;)V")
     public static void method8562(@OriginalArg(0) SignLink arg0, @OriginalArg(2) Frame arg1) {
         while (true) {
-            @Pc(10) SignedResource local10 = arg0.method8989(arg1);
+            @Pc(10) SignedResource local10 = arg0.exitFullscreen(arg1);
             while (local10.status == 0) {
                 Static638.sleep(10L);
             }

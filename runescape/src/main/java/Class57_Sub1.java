@@ -28,7 +28,7 @@ public final class Class57_Sub1 extends Class57 {
     }
 
     @OriginalMember(owner = "client!cc", name = "a", descriptor = "(Z)I")
-    public int method1485() {
+    public int getValue() {
         return super.anInt9489;
     }
 

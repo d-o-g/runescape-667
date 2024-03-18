@@ -590,7 +590,7 @@ public final class Static293 {
                                             return true;
                                         } else if (Static663.aClass225_240 == arg0.aClass225_93) {
                                             local277 = local11.g4();
-                                            Static439.aSignedResource_4 = Static446.aSignLink_6.method8982(local277);
+                                            Static439.aSignedResource_4 = Static446.aSignLink_6.lookupHostname(local277);
                                             arg0.aClass225_93 = null;
                                             return true;
                                         } else if (Static312.aClass225_131 == arg0.aClass225_93) {
@@ -808,8 +808,8 @@ public final class Static293 {
                                         } else {
                                             @Pc(3044) byte[] local3044;
                                             if (Static692.aClass225_251 == arg0.aClass225_93) {
-                                                if (Static316.aFrame8 != null) {
-                                                    Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
+                                                if (Static316.fsframe != null) {
+                                                    Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
                                                 }
                                                 local3044 = new byte[arg0.anInt3648];
                                                 local11.method7416(local3044, arg0.anInt3648);
@@ -1520,8 +1520,8 @@ public final class Static293 {
                                                                     arg0.aClass225_93 = null;
                                                                     return true;
                                                                 } else if (Static272.aClass225_112 == arg0.aClass225_93) {
-                                                                    if (Static316.aFrame8 != null) {
-                                                                        Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
+                                                                    if (Static316.fsframe != null) {
+                                                                        Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
                                                                     }
                                                                     local3044 = new byte[arg0.anInt3648];
                                                                     local11.method7416(local3044, arg0.anInt3648);

@@ -350,7 +350,7 @@ public final class Static523 {
             } else {
                 Static32.method880(Static400.instance.aClass57_Sub29_2.method7915(), false);
             }
-            Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
+            Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
             Static570.method7549(Static163.aToolkit_17);
             Static469.method6358(Static163.aToolkit_17);
             Static239.method3472(Static721.aJs5_128, Static163.aToolkit_17);

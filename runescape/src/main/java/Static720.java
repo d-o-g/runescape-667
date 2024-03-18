@@ -58,7 +58,7 @@ public final class Static720 {
         @Pc(13) FileOnDisk local13 = null;
         @Pc(19) Node_Sub34 local19 = new Node_Sub34(Static392.aClass377_4, 0);
         try {
-            @Pc(25) SignedResource local25 = Static446.aSignLink_6.method8981("");
+            @Pc(25) SignedResource local25 = Static446.aSignLink_6.openPrefs("", true);
             while (local25.status == 0) {
                 Static638.sleep(1L);
             }

@@ -37,7 +37,7 @@ public final class Class229 {
 
     @OriginalMember(owner = "client!lja", name = "a", descriptor = "(BLclient!vq;)Lclient!oba;")
     public SignedResource method5263(@OriginalArg(1) SignLink arg0) {
-        return arg0.method8979(this.aString60, this.aBoolean449, this.aBoolean450 ? this.anInt5853 : this.anInt5854);
+        return arg0.openSocket(this.aString60, this.aBoolean450 ? this.anInt5853 : this.anInt5854, this.aBoolean449);
     }
 
     @OriginalMember(owner = "client!lja", name = "a", descriptor = "(ILclient!lja;)Z")

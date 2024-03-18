@@ -113,7 +113,7 @@ public final class Static595 {
         Static613.method8239(Static163.aToolkit_17, Static501.anInt7568 >> 3, Static720.anInt10859 >> 3);
         Static218.method3187();
         Static284.aBoolean355 = true;
-        Static679.aClass273Array1 = null;
+        Static679.aDisplayPropertiesArray1 = null;
         Static503.aBoolean578 = false;
         Static498.method6646();
     }

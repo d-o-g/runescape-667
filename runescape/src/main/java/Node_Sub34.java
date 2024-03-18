@@ -59,7 +59,7 @@ public final class Node_Sub34 extends Node {
     public Class57_Sub13 aClass57_Sub13_2;
 
     @OriginalMember(owner = "client!kv", name = "k", descriptor = "Lclient!cc;")
-    public Class57_Sub1 aClass57_Sub1_1;
+    public Class57_Sub1 screenSize;
 
     @OriginalMember(owner = "client!kv", name = "m", descriptor = "Lclient!qia;")
     public Class57_Sub23 aClass57_Sub23_1;
@@ -193,8 +193,8 @@ public final class Node_Sub34 extends Node {
                 this.aClass57_Sub19_1 = new Class57_Sub19(arg0.g1(), this);
                 this.aClass57_Sub19_2 = new Class57_Sub19(this.aClass57_Sub19_1.method5960(), this);
                 this.aClass57_Sub26_1 = new Class57_Sub26(arg0.g1(), this);
-                this.aClass57_Sub1_1 = new Class57_Sub1(arg0.g1(), this);
-                this.aClass57_Sub1_2 = new Class57_Sub1(this.aClass57_Sub1_1.method1485(), this);
+                this.screenSize = new Class57_Sub1(arg0.g1(), this);
+                this.aClass57_Sub1_2 = new Class57_Sub1(this.screenSize.getValue(), this);
                 this.aClass57_Sub14_1 = new Class57_Sub14(arg0.g1(), this);
                 this.aClass57_Sub15_1 = new Class57_Sub15(arg0.g1(), this);
                 this.aClass57_Sub21_1 = new Class57_Sub21(arg0.g1(), this);
@@ -294,11 +294,11 @@ public final class Node_Sub34 extends Node {
         if (arg0 || this.aClass57_Sub26_1 == null) {
             this.aClass57_Sub26_1 = new Class57_Sub26(this);
         }
-        if (arg0 || this.aClass57_Sub1_1 == null) {
-            this.aClass57_Sub1_1 = new Class57_Sub1(this);
+        if (arg0 || this.screenSize == null) {
+            this.screenSize = new Class57_Sub1(this);
         }
         if (arg0 || this.aClass57_Sub1_2 == null) {
-            this.aClass57_Sub1_2 = new Class57_Sub1(this.aClass57_Sub1_1.method1485(), this);
+            this.aClass57_Sub1_2 = new Class57_Sub1(this.screenSize.getValue(), this);
         }
         if (arg0 || this.aClass57_Sub14_1 == null) {
             this.aClass57_Sub14_1 = new Class57_Sub14(this);
@@ -402,7 +402,7 @@ public final class Node_Sub34 extends Node {
         local9.p1(this.aClass57_Sub29_2.method7915());
         local9.p1(this.aClass57_Sub19_1.method5960());
         local9.p1(this.aClass57_Sub26_1.method7463());
-        local9.p1(this.aClass57_Sub1_1.method1485());
+        local9.p1(this.screenSize.getValue());
         local9.p1(this.aClass57_Sub14_1.method5302());
         local9.p1(this.aClass57_Sub15_1.method5320());
         local9.p1(this.aClass57_Sub21_1.method6360());
@@ -480,7 +480,7 @@ public final class Node_Sub34 extends Node {
         }
         arg1.g4();
         if (arg0 >= 6) {
-            this.aClass57_Sub1_1 = new Class57_Sub1(arg1.g1(), this);
+            this.screenSize = new Class57_Sub1(arg1.g1(), this);
         }
         if (arg0 >= 7) {
             this.aClass57_Sub10_1 = new Class57_Sub10(arg1.g1(), this);

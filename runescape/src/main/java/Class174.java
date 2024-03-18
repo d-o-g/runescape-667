@@ -32,7 +32,7 @@ public final class Class174 implements Runnable {
 
     @OriginalMember(owner = "client!iba", name = "<init>", descriptor = "(Lclient!vq;)V")
     public Class174(@OriginalArg(0) SignLink arg0) {
-        @Pc(20) SignedResource local20 = arg0.method8991(this, 5);
+        @Pc(20) SignedResource local20 = arg0.startThread(this, 5);
         while (local20.status == 0) {
             Static638.sleep(10L);
         }

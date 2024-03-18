@@ -24,7 +24,7 @@ public final class Static712 {
     public static void method9329(@OriginalArg(0) byte arg0) {
         @Pc(7) client local7 = Static295.aClient1;
         synchronized (Static295.aClient1) {
-            if (Static316.aFrame8 != null) {
+            if (Static316.fsframe != null) {
                 return;
             }
             @Pc(22) Container local22;

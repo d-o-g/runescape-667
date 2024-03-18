@@ -188,7 +188,7 @@ public final class Class263 implements Runnable {
                 }
             }
             if (this.aSignedResource_3 == null) {
-                this.aSignedResource_3 = this.aSignLink_5.method8991(this, 3);
+                this.aSignedResource_3 = this.aSignLink_5.startThread(this, 3);
             }
             this.notifyAll();
         }

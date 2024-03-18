@@ -134,7 +134,7 @@ public final class Static266 {
     public static void method6777() {
         @Pc(5) FileOnDisk local5 = null;
         try {
-            local5 = Static689.method8983("2");
+            local5 = SignLink.openPrefs("2");
             @Pc(25) Packet local25 = new Packet(Static319.anInt5078 * 6 + 3);
             local25.p1(1);
             local25.p2(Static319.anInt5078);

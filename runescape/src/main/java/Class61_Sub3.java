@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import jagdx.IDirect3DBaseTexture;
 import jagdx.IDirect3DTexture;
 import jagdx.PixelBuffer;
@@ -32,8 +33,8 @@ public final class Class61_Sub3 extends Class61 implements Interface18 {
             this.anInt10425 = arg1;
             this.anInt10426 = arg2;
         } else {
-            this.anInt10425 = Static440.method5962(arg1);
-            this.anInt10426 = Static440.method5962(arg2);
+            this.anInt10425 = IntMath.nextPow2(arg1);
+            this.anInt10426 = IntMath.nextPow2(arg2);
         }
         if (arg3) {
             this.anIDirect3DTexture1 = this.aClass19_Sub1_Sub1_9.anIDirect3DDevice1.a(this.anInt10425, this.anInt10426, 0, 1024, 21, 1);
@@ -65,8 +66,8 @@ public final class Class61_Sub3 extends Class61 implements Interface18 {
             this.anInt10426 = arg4;
             this.anInt10425 = arg3;
         } else {
-            this.anInt10425 = Static440.method5962(arg3);
-            this.anInt10426 = Static440.method5962(arg4);
+            this.anInt10425 = IntMath.nextPow2(arg3);
+            this.anInt10426 = IntMath.nextPow2(arg4);
         }
         this.anIDirect3DTexture1 = this.aClass19_Sub1_Sub1_9.anIDirect3DDevice1.a(arg3, arg4, 1, 0, Static325.method4868(this.aClass397_12, this.aClass92_17), 1);
     }
@@ -78,8 +79,8 @@ public final class Class61_Sub3 extends Class61 implements Interface18 {
             this.anInt10426 = arg3;
             this.anInt10425 = arg2;
         } else {
-            this.anInt10425 = Static440.method5962(arg2);
-            this.anInt10426 = Static440.method5962(arg3);
+            this.anInt10425 = IntMath.nextPow2(arg2);
+            this.anInt10426 = IntMath.nextPow2(arg3);
         }
         if (arg4) {
             this.anIDirect3DTexture1 = this.aClass19_Sub1_Sub1_9.anIDirect3DDevice1.a(this.anInt10425, this.anInt10426, 0, 1024, Static325.method4868(Static702.aClass397_16, this.aClass92_17), 1);

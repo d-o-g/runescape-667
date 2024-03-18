@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -134,7 +135,7 @@ public final class Node_Sub33 extends Node {
         } else {
             this.aClass2_Sub21_8 = new Packet(this.anInt5447 * 2);
             this.aClass2_Sub21_Sub1_2 = new Node_Sub21_Sub1(this.anInt5447 * 16);
-            this.aHashTable_26 = new HashTable(Static440.method5962(this.anInt5447));
+            this.aHashTable_26 = new HashTable(IntMath.nextPow2(this.anInt5447));
             local148 = 0;
             local121 = 0;
             for (local178 = this.anInt5449; local178 <= this.anInt5454; local178++) {

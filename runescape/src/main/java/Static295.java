@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -24,7 +25,7 @@ public final class Static295 {
         } else if (arg4.aBoolean595) {
             return new Class93_Sub2_Sub1(arg4, 34037, arg0, arg3, arg2, arg1, true);
         } else {
-            return new Class93_Sub2_Sub1(arg4, arg0, arg3, arg2, arg1, Static440.method5962(arg2), Static440.method5962(arg1), true);
+            return new Class93_Sub2_Sub1(arg4, arg0, arg3, arg2, arg1, IntMath.nextPow2(arg2), IntMath.nextPow2(arg1), true);
         }
     }
 

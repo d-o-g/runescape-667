@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -463,7 +464,7 @@ public final class Class268 {
             } else if (arg0 == 249) {
                 local12 = arg1.g1();
                 if (this.aHashTable_32 == null) {
-                    local18 = Static440.method5962(local12);
+                    local18 = IntMath.nextPow2(local12);
                     this.aHashTable_32 = new HashTable(local18);
                 }
                 for (local18 = 0; local18 < local12; local18++) {

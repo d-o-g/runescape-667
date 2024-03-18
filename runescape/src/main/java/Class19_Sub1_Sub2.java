@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import jaclib.memory.Stream;
 import jaggl.MapBuffer;
 import jaggl.OpenGL;
@@ -430,7 +431,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
         } else if (this.aBoolean705) {
             return new Class51_Sub3(this, arg0, arg5, arg1, 0, arg3);
         } else {
-            @Pc(64) Class51_Sub4 local64 = new Class51_Sub4(this, Static172.aClass92_8, Static702.aClass397_16, Static440.method5962(arg0), Static440.method5962(arg5));
+            @Pc(64) Class51_Sub4 local64 = new Class51_Sub4(this, Static172.aClass92_8, Static702.aClass397_16, IntMath.nextPow2(arg0), IntMath.nextPow2(arg5));
             local64.method9048(arg1, 0, 0, arg5, arg0, arg3);
             return local64;
         }
@@ -815,7 +816,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
         } else if (this.aBoolean705) {
             return new Class51_Sub3(this, arg0, arg4, arg2, arg3, 0, 0);
         } else {
-            @Pc(58) Class51_Sub4 local58 = new Class51_Sub4(this, arg0, Static702.aClass397_20, Static440.method5962(arg4), Static440.method5962(arg2));
+            @Pc(58) Class51_Sub4 local58 = new Class51_Sub4(this, arg0, Static702.aClass397_20, IntMath.nextPow2(arg4), IntMath.nextPow2(arg2));
             local58.method8651(arg0, arg2, arg3, arg4);
             return local58;
         }
@@ -897,7 +898,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
         } else if (this.aBoolean705) {
             return new Class51_Sub3(this, arg0, arg1, arg3, arg2);
         } else {
-            return new Class51_Sub4(this, arg0, arg1, Static440.method5962(arg3), Static440.method5962(arg2));
+            return new Class51_Sub4(this, arg0, arg1, IntMath.nextPow2(arg3), IntMath.nextPow2(arg2));
         }
     }
 
@@ -909,7 +910,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
         } else if (this.aBoolean705) {
             return new Class51_Sub3(this, arg0, arg1, arg3, arg4, 0, 0);
         } else {
-            @Pc(58) Class51_Sub4 local58 = new Class51_Sub4(this, arg0, Static702.aClass397_16, Static440.method5962(arg1), Static440.method5962(arg3));
+            @Pc(58) Class51_Sub4 local58 = new Class51_Sub4(this, arg0, Static702.aClass397_16, IntMath.nextPow2(arg1), IntMath.nextPow2(arg3));
             local58.method9051(0, arg3, arg4, arg0, arg1);
             return local58;
         }

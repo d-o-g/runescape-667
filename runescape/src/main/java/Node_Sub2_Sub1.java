@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -17,7 +18,7 @@ public final class Node_Sub2_Sub1 extends Node_Sub2 {
         @Pc(6) int local6 = arg1.g1();
         @Pc(13) int local13;
         if (this.aHashTable_1 == null) {
-            local13 = Static440.method5962(local6);
+            local13 = IntMath.nextPow2(local6);
             this.aHashTable_1 = new HashTable(local13);
         }
         for (local13 = 0; local13 < local6; local13++) {

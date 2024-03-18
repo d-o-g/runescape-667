@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -75,7 +76,7 @@ public final class Class56_Sub1 extends Class56 {
                 this.aSourceDataLine1 = null;
                 throw local39;
             } else {
-                this.method3588(Static440.method5962(arg0));
+                this.method3588(IntMath.nextPow2(arg0));
             }
         }
     }

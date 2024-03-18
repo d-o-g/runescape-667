@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -474,7 +475,7 @@ public final class ObjType {
             } else if (code == 249) {
                 len = packet.g1();
                 if (this.params == null) {
-                    i = Static440.method5962(len);
+                    i = IntMath.nextPow2(len);
                     this.params = new HashTable(i);
                 }
                 for (i = 0; i < len; i++) {

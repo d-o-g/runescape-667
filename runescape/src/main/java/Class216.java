@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -266,7 +267,7 @@ public final class Class216 {
             this.aClass23_24 = null;
             return false;
         }
-        @Pc(143) int local143 = Static440.method5962(this.anInt5627);
+        @Pc(143) int local143 = IntMath.nextPow2(this.anInt5627);
         if (local143 > arg3) {
             local143 = Static402.method5587(arg3);
         }

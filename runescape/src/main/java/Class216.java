@@ -117,7 +117,7 @@ public final class Class216 {
             local35 = local35 * local84 - local31 * local79 >> 14;
             local31 = local94;
         }
-        @Pc(147) Model local147 = Static345.aModel_6.method7495((byte) 0, 51200, true);
+        @Pc(147) Model local147 = Static345.aModel_6.copy((byte) 0, 51200, true);
         local147.aa((short) 0, (short) this.anInt5633);
         arg0.xa(1.0F);
         arg0.ZA(16777215, 1.0F, 1.0F, (float) local31, (float) local33, (float) local35);

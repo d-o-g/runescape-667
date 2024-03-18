@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qda")
-public final class Node_Sub44 extends Node {
+public final class AnimBase extends Node {
 
     @OriginalMember(owner = "client!qda", name = "w", descriptor = "I")
     public final int anInt7692;
@@ -25,7 +25,7 @@ public final class Node_Sub44 extends Node {
     public final int[] anIntArray619;
 
     @OriginalMember(owner = "client!qda", name = "<init>", descriptor = "(I[B)V")
-    public Node_Sub44(@OriginalArg(0) int arg0, @OriginalArg(1) byte[] arg1) {
+    public AnimBase(@OriginalArg(0) int arg0, @OriginalArg(1) byte[] arg1) {
         this.anInt7692 = arg0;
         @Pc(9) Packet local9 = new Packet(arg1);
         this.anInt7690 = local9.g1();

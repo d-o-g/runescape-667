@@ -320,7 +320,7 @@ public final class Class201 {
                 local390++;
             }
         }
-        @Pc(925) Model local925 = local342.method7495((byte) 4, local28, true);
+        @Pc(925) Model local925 = local342.copy((byte) 4, local28, true);
         if (!local257 && !local310) {
             return local925;
         }
@@ -443,7 +443,7 @@ public final class Class201 {
         if (arg0 == null) {
             return local39;
         } else {
-            local39 = local39.method7495((byte) 4, local16, true);
+            local39 = local39.copy((byte) 4, local16, true);
             arg0.method9089(local39, 0);
             return local39;
         }
@@ -532,7 +532,7 @@ public final class Class201 {
         if (arg3 == null) {
             return local48;
         } else {
-            @Pc(375) Model local375 = local48.method7495((byte) 4, local35, true);
+            @Pc(375) Model local375 = local48.copy((byte) 4, local35, true);
             arg3.method9089(local375, 0);
             return local375;
         }

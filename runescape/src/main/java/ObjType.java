@@ -922,7 +922,7 @@ public final class ObjType {
             }
         }
         if (arg0 != null) {
-            local104 = local104.method7495((byte) 1, local17, true);
+            local104 = local104.copy((byte) 1, local17, true);
             arg0.method9089(local104, 0);
         }
         local104.s(arg1);

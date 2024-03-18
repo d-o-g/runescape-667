@@ -100,7 +100,7 @@ public abstract class Model {
     public abstract void VA(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IILclient!rw;IIILclient!rw;Lclient!rw;IZILclient!rw;[ZII)V")
-    public final void method7477(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Node_Sub2_Sub18 arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) Node_Sub2_Sub18 arg5, @OriginalArg(7) Node_Sub2_Sub18 arg6, @OriginalArg(8) int arg7, @OriginalArg(9) boolean arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Node_Sub2_Sub18 arg10, @OriginalArg(12) boolean[] arg11, @OriginalArg(13) int arg12, @OriginalArg(14) int arg13) {
+    public final void method7477(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) AnimFrameset arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) AnimFrameset arg5, @OriginalArg(7) AnimFrameset arg6, @OriginalArg(8) int arg7, @OriginalArg(9) boolean arg8, @OriginalArg(10) int arg9, @OriginalArg(11) AnimFrameset arg10, @OriginalArg(12) boolean[] arg11, @OriginalArg(13) int arg12, @OriginalArg(14) int arg13) {
         if (arg1 == -1) {
             return;
         }
@@ -113,26 +113,26 @@ public abstract class Model {
             this.method7494();
             return;
         }
-        @Pc(44) Class253 local44 = arg6.aClass253Array1[arg1];
-        @Pc(47) Node_Sub44 local47 = local44.aClass2_Sub44_1;
-        @Pc(49) Class253 local49 = null;
+        @Pc(44) AnimFrame local44 = arg6.frames[arg1];
+        @Pc(47) AnimBase local47 = local44.base;
+        @Pc(49) AnimFrame local49 = null;
         if (arg2 != null) {
-            local49 = arg2.aClass253Array1[arg4];
-            if (local49.aClass2_Sub44_1 != local47) {
+            local49 = arg2.frames[arg4];
+            if (local49.base != local47) {
                 local49 = null;
             }
         }
         this.method7497(local49, arg11, arg7, false, (int[]) null, 0, arg12, local44, local47, 65535, arg8);
-        @Pc(81) Class253 local81 = arg10.aClass253Array1[arg13];
-        @Pc(83) Class253 local83 = null;
+        @Pc(81) AnimFrame local81 = arg10.frames[arg13];
+        @Pc(83) AnimFrame local83 = null;
         if (arg5 != null) {
-            local83 = arg5.aClass253Array1[arg3];
-            if (local47 != local83.aClass2_Sub44_1) {
+            local83 = arg5.frames[arg3];
+            if (local47 != local83.base) {
                 local83 = null;
             }
         }
         this.method7499(0, new int[0], 0, 0, 0, 0, arg8);
-        this.method7497(local83, arg11, arg0, true, (int[]) null, 0, arg9, local81, local81.aClass2_Sub44_1, 65535, arg8);
+        this.method7497(local83, arg11, arg0, true, (int[]) null, 0, arg9, local81, local81.base, 65535, arg8);
         this.wa();
         this.method7494();
     }
@@ -180,7 +180,7 @@ public abstract class Model {
     public abstract boolean method7486(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class73 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!rw;IILclient!rw;IIIIZ)V")
-    public final void method7487(@OriginalArg(0) Node_Sub2_Sub18 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Node_Sub2_Sub18 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) boolean arg7) {
+    public final void method7487(@OriginalArg(0) AnimFrameset arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) AnimFrameset arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) boolean arg7) {
         if (arg4 == -1) {
             return;
         }
@@ -189,12 +189,12 @@ public abstract class Model {
             this.method7494();
             return;
         }
-        @Pc(23) Class253 local23 = arg0.aClass253Array1[arg4];
-        @Pc(26) Node_Sub44 local26 = local23.aClass2_Sub44_1;
-        @Pc(28) Class253 local28 = null;
+        @Pc(23) AnimFrame local23 = arg0.frames[arg4];
+        @Pc(26) AnimBase local26 = local23.base;
+        @Pc(28) AnimFrame local28 = null;
         if (arg3 != null) {
-            local28 = arg3.aClass253Array1[arg5];
-            if (local28.aClass2_Sub44_1 != local26) {
+            local28 = arg3.frames[arg5];
+            if (local28.base != local26) {
                 local28 = null;
             }
         }
@@ -337,8 +337,8 @@ public abstract class Model {
     public abstract void method7492(@OriginalArg(0) Class73 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IILclient!rw;)V")
-    public final void method7493(@OriginalArg(0) int arg0, @OriginalArg(2) Node_Sub2_Sub18 arg1) {
-        if (arg0 == -1) {
+    public final void method7493(@OriginalArg(0) int i, @OriginalArg(2) AnimFrameset frameset) {
+        if (i == -1) {
             return;
         }
         this.method7491();
@@ -346,8 +346,8 @@ public abstract class Model {
             this.method7494();
             return;
         }
-        @Pc(33) Class253 local33 = arg1.aClass253Array1[arg0];
-        @Pc(36) Node_Sub44 local36 = local33.aClass2_Sub44_1;
+        @Pc(33) AnimFrame local33 = frameset.frames[i];
+        @Pc(36) AnimBase local36 = local33.base;
         for (@Pc(38) int local38 = 0; local38 < local33.anInt6359; local38++) {
             @Pc(45) short local45 = local33.aShortArray87[local38];
             if (local36.aBooleanArray25[local45]) {
@@ -365,7 +365,7 @@ public abstract class Model {
     protected abstract void method7494();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(BIZ)Lclient!ka;")
-    public abstract Model method7495(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
+    public abstract Model copy(@OriginalArg(0) byte arg0, @OriginalArg(1) int mask, @OriginalArg(2) boolean arg2);
 
     /**
      * setAmbient
@@ -386,7 +386,7 @@ public abstract class Model {
     public abstract boolean r();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(ILclient!rw;Lclient!rw;II[IBIZII)V")
-    public final void method7496(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub2_Sub18 arg1, @OriginalArg(2) Node_Sub2_Sub18 arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int[] arg4, @OriginalArg(7) int arg5, @OriginalArg(8) boolean arg6, @OriginalArg(9) int arg7, @OriginalArg(10) int arg8) {
+    public final void method7496(@OriginalArg(0) int arg0, @OriginalArg(1) AnimFrameset arg1, @OriginalArg(2) AnimFrameset arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int[] arg4, @OriginalArg(7) int arg5, @OriginalArg(8) boolean arg6, @OriginalArg(9) int arg7, @OriginalArg(10) int arg8) {
         if (arg3 == -1) {
             return;
         }
@@ -395,12 +395,12 @@ public abstract class Model {
             this.method7494();
             return;
         }
-        @Pc(29) Class253 local29 = arg1.aClass253Array1[arg3];
-        @Pc(32) Node_Sub44 local32 = local29.aClass2_Sub44_1;
-        @Pc(34) Class253 local34 = null;
+        @Pc(29) AnimFrame local29 = arg1.frames[arg3];
+        @Pc(32) AnimBase local32 = local29.base;
+        @Pc(34) AnimFrame local34 = null;
         if (arg2 != null) {
-            local34 = arg2.aClass253Array1[arg7];
-            if (local34.aClass2_Sub44_1 != local32) {
+            local34 = arg2.frames[arg7];
+            if (local34.base != local32) {
                 local34 = null;
             }
         }
@@ -410,7 +410,7 @@ public abstract class Model {
     }
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!nb;[ZIZB[IIILclient!nb;Lclient!qda;IZ)V")
-    public void method7497(@OriginalArg(0) Class253 arg0, @OriginalArg(1) boolean[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(5) int[] arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Class253 arg7, @OriginalArg(9) Node_Sub44 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) boolean arg10) {
+    public void method7497(@OriginalArg(0) AnimFrame arg0, @OriginalArg(1) boolean[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(5) int[] arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) AnimFrame arg7, @OriginalArg(9) AnimBase arg8, @OriginalArg(10) int arg9, @OriginalArg(11) boolean arg10) {
         @Pc(11) int local11;
         if (arg0 == null || arg2 == 0) {
             for (local11 = 0; local11 < arg7.anInt6359; local11++) {

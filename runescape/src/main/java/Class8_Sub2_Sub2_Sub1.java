@@ -53,7 +53,7 @@ public final class Class8_Sub2_Sub2_Sub1 extends Class8_Sub2_Sub2 implements Int
             this.aClass2_Sub2_Sub9_1 = local83.aClass2_Sub2_Sub9_5;
             this.aModel_1 = local83.aModel_7;
             if (this.aBoolean180) {
-                this.aModel_1 = this.aModel_1.method7495((byte) 0, local68, false);
+                this.aModel_1 = this.aModel_1.copy((byte) 0, local68, false);
                 return;
             }
         }

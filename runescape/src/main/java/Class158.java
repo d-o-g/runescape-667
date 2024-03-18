@@ -1045,7 +1045,7 @@ public final class Class158 {
                 Static312.aClass82_106.method2150(local277, local271);
             }
             if (arg1 != null) {
-                local277 = local277.method7495((byte) 1, arg9, true);
+                local277 = local277.copy((byte) 1, arg9, true);
                 arg1.method9089(local277, 0);
             }
             local277.s(2048);

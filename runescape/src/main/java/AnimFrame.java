@@ -4,13 +4,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!nb")
-public final class Class253 {
+public final class AnimFrame {
 
     @OriginalMember(owner = "client!nb", name = "l", descriptor = "Z")
     public boolean aBoolean469 = false;
 
     @OriginalMember(owner = "client!nb", name = "o", descriptor = "Lclient!qda;")
-    public Node_Sub44 aClass2_Sub44_1 = null;
+    public AnimBase base = null;
 
     @OriginalMember(owner = "client!nb", name = "e", descriptor = "Z")
     public boolean aBoolean470 = false;
@@ -40,8 +40,8 @@ public final class Class253 {
     public byte[] aByteArray70;
 
     @OriginalMember(owner = "client!nb", name = "<init>", descriptor = "([BLclient!qda;)V")
-    public Class253(@OriginalArg(0) byte[] arg0, @OriginalArg(1) Node_Sub44 arg1) {
-        this.aClass2_Sub44_1 = arg1;
+    public AnimFrame(@OriginalArg(0) byte[] arg0, @OriginalArg(1) AnimBase arg1) {
+        this.base = arg1;
         try {
             @Pc(24) Packet local24 = new Packet(arg0);
             @Pc(29) Packet local29 = new Packet(arg0);
@@ -54,7 +54,7 @@ public final class Class253 {
             local29.pos = local24.pos + local43;
             @Pc(64) int local64;
             for (@Pc(57) int local57 = 0; local57 < local43; local57++) {
-                local64 = this.aClass2_Sub44_1.anIntArray619[local57];
+                local64 = this.base.anIntArray619[local57];
                 if (local64 == 0) {
                     local47 = local57;
                 }

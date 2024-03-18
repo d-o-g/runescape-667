@@ -31,7 +31,7 @@ public final class Static691 {
             local19 = arg5.createModel(local29, 2055, Static391.anInt6133, 64, 768);
             Static186.aClass82_67.method2150(local19, local13);
         }
-        local19 = local19.method7495((byte) 6, 2055, true);
+        local19 = local19.copy((byte) 6, 2055, true);
         if (arg4 != 0) {
             local19.a(arg4);
         }

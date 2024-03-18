@@ -824,7 +824,7 @@ public final class Class54 {
         @Pc(271) boolean local271 = this.aByte12 != 0 && (arg3 != null || arg10 != null);
         @Pc(292) boolean local292 = this.anInt1214 != 0 || this.anInt1213 != 0 || this.anInt1248 != 0;
         if (local271 || local292) {
-            local120 = local120.method7495((byte) 0, local40, true);
+            local120 = local120.copy((byte) 0, local40, true);
             if (local271) {
                 local120.p(this.aByte12, this.anInt1252, arg3, arg10, arg2, arg5, arg1);
             }
@@ -833,7 +833,7 @@ public final class Class54 {
             }
             local120.s(arg9);
         } else {
-            local120 = local120.method7495((byte) 0, arg9, true);
+            local120 = local120.copy((byte) 0, arg9, true);
         }
         Static270.aClass272_1.aModel_7 = local120;
         Static270.aClass272_1.aClass2_Sub2_Sub9_5 = local122;
@@ -890,13 +890,13 @@ public final class Class54 {
         }
         @Pc(190) boolean local190 = false;
         if (arg5 != null) {
-            local126 = local126.method7495((byte) 1, arg9, true);
+            local126 = local126.copy((byte) 1, arg9, true);
             local190 = true;
             arg5.method9089(local126, arg0 & 0x3);
         }
         if (arg2 == 10 && arg0 > 3) {
             if (!local190) {
-                local126 = local126.method7495((byte) 3, arg9, true);
+                local126 = local126.copy((byte) 3, arg9, true);
                 local190 = true;
             }
             local126.a(2048);
@@ -904,13 +904,13 @@ public final class Class54 {
         if (this.aByte12 != 0) {
             if (!local190) {
                 local190 = true;
-                local126 = local126.method7495((byte) 3, arg9, true);
+                local126 = local126.copy((byte) 3, arg9, true);
             }
             local126.p(this.aByte12, this.anInt1252, arg7, arg4, arg3, arg10, arg1);
         }
         if (this.anInt1214 != 0 || this.anInt1213 != 0 || this.anInt1248 != 0) {
             if (!local190) {
-                local126 = local126.method7495((byte) 3, arg9, true);
+                local126 = local126.copy((byte) 3, arg9, true);
                 local190 = true;
             }
             local126.H(this.anInt1214, this.anInt1213, this.anInt1248);
@@ -1028,7 +1028,7 @@ public final class Class54 {
         if (local123 == null) {
             return null;
         }
-        @Pc(398) Model local398 = local123.method7495((byte) 0, arg1, true);
+        @Pc(398) Model local398 = local123.copy((byte) 0, arg1, true);
         if (local8 != local123.WA()) {
             local398.C(local8);
         }

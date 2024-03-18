@@ -122,7 +122,7 @@ public final class Class227 {
                 this.aClass128_2.aClass82_62.method2150(local85, (long) (this.anInt5833 |= arg9.anInt8962 << 29));
             }
         }
-        @Pc(263) Model local263 = local85.method7495(arg0, local15, true);
+        @Pc(263) Model local263 = local85.copy(arg0, local15, true);
         if (arg3 != null) {
             arg3.method9089(local263, 0);
         }

@@ -121,7 +121,7 @@ public final class Node_Sub22 extends Node {
         if (arg3 == null) {
             return local7;
         } else {
-            @Pc(478) Model local478 = local7.method7495((byte) 1, local9, true);
+            @Pc(478) Model local478 = local7.copy((byte) 1, local9, true);
             arg3.method9089(local478, 0);
             return local478;
         }

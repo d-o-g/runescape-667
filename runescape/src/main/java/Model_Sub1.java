@@ -3632,7 +3632,7 @@ public final class Model_Sub1 extends Model {
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(BIZ)Lclient!ka;")
     @Override
-    public Model method7495(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+    public Model copy(@OriginalArg(0) byte arg0, @OriginalArg(1) int mask, @OriginalArg(2) boolean arg2) {
         @Pc(5) boolean local5 = false;
         @Pc(24) Model_Sub1 local24;
         @Pc(23) Model_Sub1 local23;
@@ -3643,7 +3643,7 @@ public final class Model_Sub1 extends Model {
         } else {
             local24 = local23 = new Model_Sub1(this.aClass19_Sub1_6, 0, 0, true, false);
         }
-        return this.method2557(arg1, local23, arg2, local5, local24);
+        return this.method2557(mask, local23, arg2, local5, local24);
     }
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(ILclient!dn;)V")

@@ -90,12 +90,12 @@ public final class Class50 {
     }
 
     @OriginalMember(owner = "client!bp", name = "b", descriptor = "(II)Lclient!rw;")
-    public Node_Sub2_Sub18 method1166(@OriginalArg(0) int arg0) {
+    public AnimFrameset method1166(@OriginalArg(0) int arg0) {
         @Pc(12) Class82 local12 = this.aClass82_23;
         synchronized (this.aClass82_23) {
-            @Pc(22) Node_Sub2_Sub18 local22 = (Node_Sub2_Sub18) this.aClass82_23.method2156((long) arg0);
+            @Pc(22) AnimFrameset local22 = (AnimFrameset) this.aClass82_23.method2156((long) arg0);
             if (local22 == null) {
-                local22 = new Node_Sub2_Sub18(arg0);
+                local22 = new AnimFrameset(arg0);
                 this.aClass82_23.method2150(local22, (long) arg0);
             }
             return local22.method7565() ? local22 : null;

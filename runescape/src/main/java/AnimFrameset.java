@@ -4,10 +4,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rw")
-public final class Node_Sub2_Sub18 extends Node_Sub2 {
+public final class AnimFrameset extends Node_Sub2 {
 
     @OriginalMember(owner = "client!rw", name = "t", descriptor = "[Lclient!nb;")
-    public Class253[] aClass253Array1;
+    public AnimFrame[] frames;
 
     @OriginalMember(owner = "client!rw", name = "E", descriptor = "[[B")
     public byte[][] aByteArrayArray32;
@@ -16,13 +16,13 @@ public final class Node_Sub2_Sub18 extends Node_Sub2 {
     public final int anInt8535;
 
     @OriginalMember(owner = "client!rw", name = "<init>", descriptor = "(I)V")
-    public Node_Sub2_Sub18(@OriginalArg(0) int arg0) {
+    public AnimFrameset(@OriginalArg(0) int arg0) {
         this.anInt8535 = arg0;
     }
 
     @OriginalMember(owner = "client!rw", name = "a", descriptor = "(I)Z")
     public boolean method7565() {
-        if (this.aClass253Array1 != null) {
+        if (this.frames != null) {
             return true;
         }
         @Pc(36) int[] local36;
@@ -58,7 +58,7 @@ public final class Node_Sub2_Sub18 extends Node_Sub2 {
         @Pc(125) Class330 local125 = Static509.aClass330_96;
         synchronized (Static509.aClass330_96) {
             @Pc(133) int local133 = Static509.aClass330_96.method7608(this.anInt8535);
-            this.aClass253Array1 = new Class253[local133];
+            this.frames = new AnimFrame[local133];
             local36 = Static509.aClass330_96.method7603(this.anInt8535);
         }
         for (local43 = 0; local43 < local36.length; local43++) {
@@ -66,8 +66,8 @@ public final class Node_Sub2_Sub18 extends Node_Sub2 {
             @Pc(172) Packet local172 = new Packet(local167);
             local172.pos = 1;
             @Pc(179) int local179 = local172.g2();
-            @Pc(181) Node_Sub44 local181 = null;
-            for (@Pc(188) Node_Sub44 local188 = (Node_Sub44) local123.first(65280); local188 != null; local188 = (Node_Sub44) local123.next()) {
+            @Pc(181) AnimBase local181 = null;
+            for (@Pc(188) AnimBase local188 = (AnimBase) local123.first(65280); local188 != null; local188 = (AnimBase) local123.next()) {
                 if (local188.anInt7692 == local179) {
                     local181 = local188;
                     break;
@@ -76,11 +76,11 @@ public final class Node_Sub2_Sub18 extends Node_Sub2 {
             if (local181 == null) {
                 @Pc(209) Class330 local209 = Static269.aClass330_58;
                 synchronized (Static269.aClass330_58) {
-                    local181 = new Node_Sub44(local179, Static269.aClass330_58.method7589(local179));
+                    local181 = new AnimBase(local179, Static269.aClass330_58.method7589(local179));
                 }
                 local123.addLast(local181);
             }
-            this.aClass253Array1[local36[local43]] = new Class253(local167, local181);
+            this.frames[local36[local43]] = new AnimFrame(local167, local181);
         }
         this.aByteArrayArray32 = null;
         return true;
@@ -88,16 +88,16 @@ public final class Node_Sub2_Sub18 extends Node_Sub2 {
 
     @OriginalMember(owner = "client!rw", name = "a", descriptor = "(BI)Z")
     public boolean method7568(@OriginalArg(1) int arg0) {
-        return this.aClass253Array1[arg0].aBoolean470;
+        return this.frames[arg0].aBoolean470;
     }
 
     @OriginalMember(owner = "client!rw", name = "c", descriptor = "(II)Z")
     public boolean method7569(@OriginalArg(1) int arg0) {
-        return this.aClass253Array1[arg0].aBoolean471;
+        return this.frames[arg0].aBoolean471;
     }
 
     @OriginalMember(owner = "client!rw", name = "b", descriptor = "(II)Z")
     public boolean method7570(@OriginalArg(0) int arg0) {
-        return this.aClass253Array1[arg0].aBoolean469;
+        return this.frames[arg0].aBoolean469;
     }
 }

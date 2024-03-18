@@ -304,8 +304,8 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(BIZ)Lclient!ka;")
     @Override
-    public Model method7495(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
-        return this.anOa2.method6087().method3(this, arg0, arg1, arg2);
+    public Model copy(@OriginalArg(0) byte arg0, @OriginalArg(1) int mask, @OriginalArg(2) boolean arg2) {
+        return this.anOa2.method6087().method3(this, arg0, mask, arg2);
     }
 
     @OriginalMember(owner = "client!i", name = "finalize", descriptor = "()V")

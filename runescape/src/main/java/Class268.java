@@ -600,7 +600,7 @@ public final class Class268 {
                 }
             }
             if (arg0 != null) {
-                local94 = local94.method7495((byte) 1, local54, true);
+                local94 = local94.copy((byte) 1, local54, true);
                 arg0.method9089(local94, 0);
             }
             local94.s(2048);
@@ -764,7 +764,7 @@ public final class Class268 {
                 this.aClass308_1.aClass82_170.method2150(local139, local116);
             }
         }
-        @Pc(706) Model local706 = local139.method7495((byte) 4, local32, true);
+        @Pc(706) Model local706 = local139.copy((byte) 4, local32, true);
         @Pc(716) boolean local716 = false;
         if (arg5 != null) {
             for (@Pc(720) int local720 = 0; local720 < 12; local720++) {

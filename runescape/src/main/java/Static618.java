@@ -154,11 +154,11 @@ public final class Static618 {
         @Pc(462) int local462 = arg1.HA();
         @Pc(465) int local465 = arg1.G();
         if (arg8 == null) {
-            local68 = local68.method7495((byte) 3, local12, true);
+            local68 = local68.copy((byte) 3, local12, true);
             local68.O(local459 - local456 >> 1, 128, local465 - local462 >> 1);
             local68.H(local459 + local456 >> 1, 0, local465 + local462 >> 1);
         } else {
-            local68 = local68.method7495((byte) 3, local12, true);
+            local68 = local68.copy((byte) 3, local12, true);
             local68.O(local459 - local456 >> 1, 128, local465 - local462 >> 1);
             local68.H(local459 + local456 >> 1, 0, local462 + local465 >> 1);
             arg8.method9105(local68);

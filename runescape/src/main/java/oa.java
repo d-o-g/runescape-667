@@ -468,8 +468,8 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!dv;IIII)Lclient!ka;")
     @Override
-    public Model method7952(@OriginalArg(0) Mesh arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        return new i(this, this.aYa2, arg0, arg1, arg2, arg3, arg4);
+    public Model createModel(@OriginalArg(0) Mesh mesh, @OriginalArg(1) int functionMask, @OriginalArg(2) int featureMask, @OriginalArg(3) int ambient, @OriginalArg(4) int contrast) {
+        return new i(this, this.aYa2, mesh, functionMask, featureMask, ambient, contrast);
     }
 
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")

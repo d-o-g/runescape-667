@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public abstract class Model {
 
     @OriginalMember(owner = "client!ka", name = "j", descriptor = "Z")
-    protected boolean aBoolean645 = false;
+    protected boolean locked = false;
 
     @OriginalMember(owner = "client!ka", name = "<init>", descriptor = "()V")
     protected Model() {
@@ -16,11 +16,14 @@ public abstract class Model {
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
     public abstract void method7473(@OriginalArg(0) Class73 arg0, @OriginalArg(1) Class8_Sub6 arg1, @OriginalArg(2) int arg2);
 
+    /**
+     * animationPartialTransform
+     */
     @OriginalMember(owner = "client!ka", name = "I", descriptor = "(I[IIIIZI[I)V")
     protected abstract void I(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int[] arg7);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "()Z")
-    public abstract boolean method7474();
+    public abstract boolean loadedTextures();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(III[I[IZZIII)V")
     public void method7475(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) boolean arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
@@ -69,18 +72,30 @@ public abstract class Model {
         }
     }
 
+    /**
+     * isTransparent
+     */
     @OriginalMember(owner = "client!ka", name = "F", descriptor = "()Z")
     public abstract boolean F();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!tt;)V")
     public abstract void method7476(@OriginalArg(0) Class73 arg0);
 
+    /**
+     * setContrast
+     */
     @OriginalMember(owner = "client!ka", name = "LA", descriptor = "(I)V")
     public abstract void LA(@OriginalArg(0) int arg0);
 
+    /**
+     * retexture
+     */
     @OriginalMember(owner = "client!ka", name = "aa", descriptor = "(SS)V")
     public abstract void aa(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1);
 
+    /**
+     * rotateZAxis
+     */
     @OriginalMember(owner = "client!ka", name = "VA", descriptor = "(I)V")
     public abstract void VA(@OriginalArg(0) int arg0);
 
@@ -122,12 +137,18 @@ public abstract class Model {
         this.method7494();
     }
 
+    /**
+     * updateShadow
+     */
     @OriginalMember(owner = "client!ka", name = "ba", descriptor = "(Lclient!r;)Lclient!r;")
     public abstract Node_Sub2_Sub9 ba(@OriginalArg(0) Node_Sub2_Sub9 arg0);
 
     @OriginalMember(owner = "client!ka", name = "e", descriptor = "()V")
     public abstract void method7479();
 
+    /**
+     * setFunctionMask
+     */
     @OriginalMember(owner = "client!ka", name = "s", descriptor = "(I)V")
     public abstract void s(@OriginalArg(0) int arg0);
 
@@ -146,6 +167,9 @@ public abstract class Model {
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IILclient!tt;ZII)Z")
     public abstract boolean method7483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class73 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
 
+    /**
+     * getMinZ
+     */
     @OriginalMember(owner = "client!ka", name = "HA", descriptor = "()I")
     public abstract int HA();
 
@@ -179,30 +203,51 @@ public abstract class Model {
         this.method7494();
     }
 
+    /**
+     * translate
+     */
     @OriginalMember(owner = "client!ka", name = "H", descriptor = "(III)V")
     public abstract void H(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IIII)V")
     public abstract void method7488(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
+    /**
+     * endAnimation
+     */
     @OriginalMember(owner = "client!ka", name = "wa", descriptor = "()V")
     protected abstract void wa();
 
+    /**
+     * getContrast
+     */
     @OriginalMember(owner = "client!ka", name = "da", descriptor = "()I")
     public abstract int da();
 
     @OriginalMember(owner = "client!ka", name = "b", descriptor = "()[B")
     public abstract byte[] method7489();
 
+    /**
+     * rotateYAxis
+     */
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(I)V")
     public abstract void a(@OriginalArg(0) int arg0);
 
+    /**
+     * mirror
+     */
     @OriginalMember(owner = "client!ka", name = "v", descriptor = "()V")
     public abstract void v();
 
+    /**
+     * functionMask
+     */
     @OriginalMember(owner = "client!ka", name = "ua", descriptor = "()I")
     public abstract int ua();
 
+    /**
+     * startAnimation
+     */
     @OriginalMember(owner = "client!ka", name = "NA", descriptor = "()Z")
     protected abstract boolean NA();
 
@@ -276,9 +321,15 @@ public abstract class Model {
     @OriginalMember(owner = "client!ka", name = "g", descriptor = "()V")
     protected abstract void method7491();
 
+    /**
+     * recolour
+     */
     @OriginalMember(owner = "client!ka", name = "ia", descriptor = "(SS)V")
     public abstract void ia(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1);
 
+    /**
+     * getMaxY
+     */
     @OriginalMember(owner = "client!ka", name = "EA", descriptor = "()I")
     public abstract int EA();
 
@@ -316,12 +367,21 @@ public abstract class Model {
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(BIZ)Lclient!ka;")
     public abstract Model method7495(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
 
+    /**
+     * setAmbient
+     */
     @OriginalMember(owner = "client!ka", name = "C", descriptor = "(I)V")
     public abstract void C(@OriginalArg(0) int arg0);
 
+    /**
+     * rotateXAxis
+     */
     @OriginalMember(owner = "client!ka", name = "FA", descriptor = "(I)V")
     public abstract void FA(@OriginalArg(0) int arg0);
 
+    /**
+     * getMovingTextures
+     */
     @OriginalMember(owner = "client!ka", name = "r", descriptor = "()Z")
     public abstract boolean r();
 
@@ -487,32 +547,56 @@ public abstract class Model {
     }
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(B[B)V")
-    public abstract void method7498(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1);
+    public abstract void updateAlphas(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1);
 
+    /**
+     * getMaxX
+     */
     @OriginalMember(owner = "client!ka", name = "RA", descriptor = "()I")
     public abstract int RA();
 
+    /**
+     * getMinY
+     */
     @OriginalMember(owner = "client!ka", name = "fa", descriptor = "()I")
     public abstract int fa();
 
+    /**
+     * hillChange
+     */
     @OriginalMember(owner = "client!ka", name = "p", descriptor = "(IILclient!s;Lclient!s;III)V")
-    public abstract void p(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class178 arg2, @OriginalArg(3) Class178 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6);
+    public abstract void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Class178 floor, @OriginalArg(3) Class178 ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z);
 
+    /**
+     * getAmbient
+     */
     @OriginalMember(owner = "client!ka", name = "WA", descriptor = "()I")
     public abstract int WA();
 
+    /**
+     * getSphereRadius
+     */
     @OriginalMember(owner = "client!ka", name = "ma", descriptor = "()I")
     public abstract int ma();
 
+    /**
+     * scale
+     */
     @OriginalMember(owner = "client!ka", name = "O", descriptor = "(III)V")
     public abstract void O(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
+    /**
+     * getMinX
+     */
     @OriginalMember(owner = "client!ka", name = "V", descriptor = "()I")
     public abstract int V();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(I[IIIIIZ)V")
     protected abstract void method7499(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) boolean arg6);
 
+    /**
+     * rotateYAxisWithNormals
+     */
     @OriginalMember(owner = "client!ka", name = "k", descriptor = "(I)V")
     public abstract void k(@OriginalArg(0) int arg0);
 }

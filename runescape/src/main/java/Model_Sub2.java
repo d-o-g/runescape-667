@@ -2684,7 +2684,7 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "()Z")
     @Override
-    public boolean method7474() {
+    public boolean loadedTextures() {
         if (this.aShortArray75 == null) {
             return true;
         }
@@ -3082,7 +3082,7 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(B[B)V")
     @Override
-    public void method7498(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1) {
+    public void updateAlphas(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1) {
         @Pc(5) int local5;
         if (arg1 == null) {
             for (local5 = 0; local5 < this.anInt5560; local5++) {
@@ -3728,77 +3728,77 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "p", descriptor = "(IILclient!s;Lclient!s;III)V")
     @Override
-    public void p(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class178 arg2, @OriginalArg(3) Class178 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Class178 floor, @OriginalArg(3) Class178 ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z) {
         if (!this.aBoolean424) {
             this.method4982();
         }
-        @Pc(18) int local18 = this.aShort66 + arg4;
-        @Pc(24) int local24 = arg4 + this.aShort62;
-        @Pc(29) int local29 = this.aShort61 + arg6;
-        @Pc(34) int local34 = this.aShort69 + arg6;
-        if ((arg0 == 1 || arg0 == 2 || arg0 == 3 || arg0 == 5) && (local18 < 0 || arg2.anInt8894 <= arg2.anInt8888 + local24 >> arg2.anInt8895 || local29 < 0 || local34 + arg2.anInt8888 >> arg2.anInt8895 >= arg2.anInt8892)) {
+        @Pc(18) int local18 = this.aShort66 + x;
+        @Pc(24) int local24 = x + this.aShort62;
+        @Pc(29) int local29 = this.aShort61 + z;
+        @Pc(34) int local34 = this.aShort69 + z;
+        if ((hillType == 1 || hillType == 2 || hillType == 3 || hillType == 5) && (local18 < 0 || floor.anInt8894 <= floor.anInt8888 + local24 >> floor.anInt8895 || local29 < 0 || local34 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8892)) {
             return;
         }
-        if (arg0 == 4 || arg0 == 5) {
-            if (arg3 == null) {
+        if (hillType == 4 || hillType == 5) {
+            if (ceiling == null) {
                 return;
             }
-            if (local18 < 0 || arg3.anInt8894 <= local24 + arg3.anInt8888 >> arg3.anInt8895 || local29 < 0 || arg3.anInt8892 <= arg3.anInt8888 + local34 >> arg3.anInt8895) {
+            if (local18 < 0 || ceiling.anInt8894 <= local24 + ceiling.anInt8888 >> ceiling.anInt8895 || local29 < 0 || ceiling.anInt8892 <= ceiling.anInt8888 + local34 >> ceiling.anInt8895) {
                 return;
             }
         } else {
-            local18 >>= arg2.anInt8895;
-            local24 = local24 + arg2.anInt8888 - 1 >> arg2.anInt8895;
-            local29 >>= arg2.anInt8895;
-            local34 = arg2.anInt8888 + local34 - 1 >> arg2.anInt8895;
-            if (arg2.method7869(local29, local18) == arg5 && arg5 == arg2.method7869(local29, local24) && arg2.method7869(local34, local18) == arg5 && arg5 == arg2.method7869(local34, local24)) {
+            local18 >>= floor.anInt8895;
+            local24 = local24 + floor.anInt8888 - 1 >> floor.anInt8895;
+            local29 >>= floor.anInt8895;
+            local34 = floor.anInt8888 + local34 - 1 >> floor.anInt8895;
+            if (floor.method7869(local29, local18) == y && y == floor.method7869(local29, local24) && floor.method7869(local34, local18) == y && y == floor.method7869(local34, local24)) {
                 return;
             }
         }
         @Pc(314) int local314;
-        if (arg0 == 1) {
+        if (hillType == 1) {
             for (local314 = 0; local314 < this.anInt5543; local314++) {
-                this.anIntArray409[local314] = this.anIntArray409[local314] + arg2.method7878(arg6 + this.anIntArray412[local314], arg4 + this.anIntArray410[local314]) - arg5;
+                this.anIntArray409[local314] = this.anIntArray409[local314] + floor.method7878(z + this.anIntArray412[local314], x + this.anIntArray410[local314]) - y;
             }
         } else {
             @Pc(240) int local240;
             @Pc(251) int local251;
-            if (arg0 == 2) {
+            if (hillType == 2) {
                 @Pc(231) short local231 = this.aShort63;
                 if (local231 == 0) {
                     return;
                 }
                 for (local240 = 0; local240 < this.anInt5543; local240++) {
                     local251 = (this.anIntArray409[local240] << 16) / local231;
-                    if (local251 < arg1) {
-                        this.anIntArray409[local240] += (arg2.method7878(this.anIntArray412[local240] + arg6, this.anIntArray410[local240] + arg4) - arg5) * (arg1 - local251) / arg1;
+                    if (local251 < hillValue) {
+                        this.anIntArray409[local240] += (floor.method7878(this.anIntArray412[local240] + z, this.anIntArray410[local240] + x) - y) * (hillValue - local251) / hillValue;
                     }
                 }
             } else {
                 @Pc(338) int local338;
-                if (arg0 == 3) {
-                    local314 = (arg1 & 0xFF) * 4;
-                    local240 = (arg1 >> 8 & 0xFF) * 4;
-                    local251 = (arg1 >> 16 & 0xFF) << 6;
-                    local338 = (arg1 >> 24 & 0xFF) << 6;
-                    if (arg4 - (local314 >> 1) < 0 || arg2.anInt8894 << arg2.anInt8895 <= (local314 >> 1) + arg4 + arg2.anInt8888 || arg6 - (local240 >> 1) < 0 || arg6 + (local240 >> 1) + arg2.anInt8888 >= arg2.anInt8892 << arg2.anInt8895) {
+                if (hillType == 3) {
+                    local314 = (hillValue & 0xFF) * 4;
+                    local240 = (hillValue >> 8 & 0xFF) * 4;
+                    local251 = (hillValue >> 16 & 0xFF) << 6;
+                    local338 = (hillValue >> 24 & 0xFF) << 6;
+                    if (x - (local314 >> 1) < 0 || floor.anInt8894 << floor.anInt8895 <= (local314 >> 1) + x + floor.anInt8888 || z - (local240 >> 1) < 0 || z + (local240 >> 1) + floor.anInt8888 >= floor.anInt8892 << floor.anInt8895) {
                         return;
                     }
-                    this.method7490(arg5, local251, arg4, local314, arg6, local240, arg2, local338);
-                } else if (arg0 == 4) {
+                    this.method7490(y, local251, x, local314, z, local240, floor, local338);
+                } else if (hillType == 4) {
                     local314 = this.aShort68 - this.aShort63;
                     for (local240 = 0; local240 < this.anInt5543; local240++) {
-                        this.anIntArray409[local240] = local314 + this.anIntArray409[local240] + arg3.method7878(this.anIntArray412[local240] + arg6, arg4 + this.anIntArray410[local240]) - arg5;
+                        this.anIntArray409[local240] = local314 + this.anIntArray409[local240] + ceiling.method7878(this.anIntArray412[local240] + z, x + this.anIntArray410[local240]) - y;
                     }
-                } else if (arg0 == 5) {
+                } else if (hillType == 5) {
                     local314 = this.aShort68 - this.aShort63;
                     for (local240 = 0; local240 < this.anInt5543; local240++) {
-                        local251 = arg4 + this.anIntArray410[local240];
-                        local338 = this.anIntArray412[local240] + arg6;
-                        @Pc(454) int local454 = arg2.method7878(local338, local251);
-                        @Pc(460) int local460 = arg3.method7878(local338, local251);
-                        @Pc(468) int local468 = local454 - local460 - arg1;
-                        this.anIntArray409[local240] = (local468 * ((this.anIntArray409[local240] << 8) / local314) >> 8) + local454 - arg5;
+                        local251 = x + this.anIntArray410[local240];
+                        local338 = this.anIntArray412[local240] + z;
+                        @Pc(454) int local454 = floor.method7878(local338, local251);
+                        @Pc(460) int local460 = ceiling.method7878(local338, local251);
+                        @Pc(468) int local468 = local454 - local460 - hillValue;
+                        this.anIntArray409[local240] = (local468 * ((this.anIntArray409[local240] << 8) / local314) >> 8) + local454 - y;
                     }
                 }
             }

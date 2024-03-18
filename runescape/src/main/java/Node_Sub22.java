@@ -103,7 +103,7 @@ public final class Node_Sub22 extends Node {
             if (arg4 != null) {
                 local151 = local9 | 0x4000;
             }
-            local7 = arg1.method7952(local382, local151, Static584.anInt8635, 64, 850);
+            local7 = arg1.createModel(local382, local151, Static584.anInt8635, 64, 850);
             if (arg4 != null) {
                 for (local278 = 0; local278 < 10; local278++) {
                     for (local285 = 0; local285 < Static76.bodycol_s[local278].length; local285++) {

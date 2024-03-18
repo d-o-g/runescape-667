@@ -1018,7 +1018,7 @@ public final class Class54 {
                         local281++;
                     }
                 }
-                local123 = arg0.method7952(local275, local265, this.aClass142_2.anInt3390, local8, local13);
+                local123 = arg0.createModel(local275, local265, this.aClass142_2.anInt3390, local8, local13);
                 @Pc(372) Class82 local372 = this.aClass142_2.aClass82_74;
                 synchronized (this.aClass142_2.aClass82_74) {
                     this.aClass142_2.aClass82_74.method2150(local123, local191);

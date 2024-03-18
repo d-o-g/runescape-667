@@ -926,77 +926,77 @@ public final class Model_Sub1 extends Model {
 
     @OriginalMember(owner = "client!eu", name = "p", descriptor = "(IILclient!s;Lclient!s;III)V")
     @Override
-    public void p(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class178 arg2, @OriginalArg(3) Class178 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Class178 floor, @OriginalArg(3) Class178 ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z) {
         if (!this.aBoolean232) {
             this.method2561();
         }
-        @Pc(19) int local19 = arg4 + this.anInt2723;
-        @Pc(25) int local25 = arg4 + this.anInt2716;
-        @Pc(30) int local30 = arg6 + this.anInt2758;
-        @Pc(35) int local35 = this.anInt2771 + arg6;
-        if ((arg0 == 1 || arg0 == 2 || arg0 == 3 || arg0 == 5) && (local19 < 0 || arg2.anInt8894 <= arg2.anInt8888 + local25 >> arg2.anInt8895 || local30 < 0 || local35 + arg2.anInt8888 >> arg2.anInt8895 >= arg2.anInt8892)) {
+        @Pc(19) int local19 = x + this.anInt2723;
+        @Pc(25) int local25 = x + this.anInt2716;
+        @Pc(30) int local30 = z + this.anInt2758;
+        @Pc(35) int local35 = this.anInt2771 + z;
+        if ((hillType == 1 || hillType == 2 || hillType == 3 || hillType == 5) && (local19 < 0 || floor.anInt8894 <= floor.anInt8888 + local25 >> floor.anInt8895 || local30 < 0 || local35 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8892)) {
             return;
         }
-        if (arg0 == 4 || arg0 == 5) {
-            if (arg3 == null) {
+        if (hillType == 4 || hillType == 5) {
+            if (ceiling == null) {
                 return;
             }
-            if (local19 < 0 || arg3.anInt8894 <= arg3.anInt8888 + local25 >> arg3.anInt8895 || local30 < 0 || arg3.anInt8888 + local35 >> arg3.anInt8895 >= arg3.anInt8892) {
+            if (local19 < 0 || ceiling.anInt8894 <= ceiling.anInt8888 + local25 >> ceiling.anInt8895 || local30 < 0 || ceiling.anInt8888 + local35 >> ceiling.anInt8895 >= ceiling.anInt8892) {
                 return;
             }
         } else {
-            local19 >>= arg2.anInt8895;
-            local25 = arg2.anInt8888 + local25 - 1 >> arg2.anInt8895;
-            local30 >>= arg2.anInt8895;
-            local35 = arg2.anInt8888 + local35 - 1 >> arg2.anInt8895;
-            if (arg2.method7869(local30, local19) == arg5 && arg2.method7869(local30, local25) == arg5 && arg5 == arg2.method7869(local35, local19) && arg2.method7869(local35, local25) == arg5) {
+            local19 >>= floor.anInt8895;
+            local25 = floor.anInt8888 + local25 - 1 >> floor.anInt8895;
+            local30 >>= floor.anInt8895;
+            local35 = floor.anInt8888 + local35 - 1 >> floor.anInt8895;
+            if (floor.method7869(local30, local19) == y && floor.method7869(local30, local25) == y && y == floor.method7869(local35, local19) && floor.method7869(local35, local25) == y) {
                 return;
             }
         }
         @Pc(230) int local230;
-        if (arg0 == 1) {
+        if (hillType == 1) {
             for (local230 = 0; local230 < this.anInt2773; local230++) {
-                this.anIntArray242[local230] = this.anIntArray242[local230] + arg2.method7878(arg6 + this.anIntArray244[local230], this.anIntArray240[local230] + arg4) - arg5;
+                this.anIntArray242[local230] = this.anIntArray242[local230] + floor.method7878(z + this.anIntArray244[local230], this.anIntArray240[local230] + x) - y;
             }
         } else {
             @Pc(303) int local303;
             @Pc(312) int local312;
-            if (arg0 == 2) {
+            if (hillType == 2) {
                 local230 = this.anInt2768;
                 if (local230 == 0) {
                     return;
                 }
                 for (local303 = 0; local303 < this.anInt2773; local303++) {
                     local312 = (this.anIntArray242[local303] << 16) / local230;
-                    if (local312 < arg1) {
-                        this.anIntArray242[local303] -= -((arg1 - local312) * (arg2.method7878(this.anIntArray244[local303] - -arg6, this.anIntArray240[local303] - -arg4) + -arg5) / arg1);
+                    if (local312 < hillValue) {
+                        this.anIntArray242[local303] -= -((hillValue - local312) * (floor.method7878(this.anIntArray244[local303] - -z, this.anIntArray240[local303] - -x) + -y) / hillValue);
                     }
                 }
             } else {
                 @Pc(319) int local319;
-                if (arg0 == 3) {
-                    local230 = (arg1 & 0xFF) * 4;
-                    local303 = (arg1 >> 8 & 0xFF) * 4;
-                    local312 = (arg1 >> 16 & 0xFF) << 6;
-                    local319 = (arg1 >> 24 & 0xFF) << 6;
-                    if (arg4 - (local230 >> 1) < 0 || arg2.anInt8894 << arg2.anInt8895 <= (local230 >> 1) + arg4 + arg2.anInt8888 || arg6 - (local303 >> 1) < 0 || arg6 + (local303 >> 1) + arg2.anInt8888 >= arg2.anInt8892 << arg2.anInt8895) {
+                if (hillType == 3) {
+                    local230 = (hillValue & 0xFF) * 4;
+                    local303 = (hillValue >> 8 & 0xFF) * 4;
+                    local312 = (hillValue >> 16 & 0xFF) << 6;
+                    local319 = (hillValue >> 24 & 0xFF) << 6;
+                    if (x - (local230 >> 1) < 0 || floor.anInt8894 << floor.anInt8895 <= (local230 >> 1) + x + floor.anInt8888 || z - (local303 >> 1) < 0 || z + (local303 >> 1) + floor.anInt8888 >= floor.anInt8892 << floor.anInt8895) {
                         return;
                     }
-                    this.method7490(arg5, local312, arg4, local230, arg6, local303, arg2, local319);
-                } else if (arg0 == 4) {
+                    this.method7490(y, local312, x, local230, z, local303, floor, local319);
+                } else if (hillType == 4) {
                     local230 = this.anInt2720 - this.anInt2768;
                     for (local303 = 0; local303 < this.anInt2773; local303++) {
-                        this.anIntArray242[local303] = local230 + this.anIntArray242[local303] + arg3.method7878(arg6 + this.anIntArray244[local303], this.anIntArray240[local303] + arg4) - arg5;
+                        this.anIntArray242[local303] = local230 + this.anIntArray242[local303] + ceiling.method7878(z + this.anIntArray244[local303], this.anIntArray240[local303] + x) - y;
                     }
-                } else if (arg0 == 5) {
+                } else if (hillType == 5) {
                     local230 = this.anInt2720 - this.anInt2768;
                     for (local303 = 0; local303 < this.anInt2773; local303++) {
-                        local312 = this.anIntArray240[local303] + arg4;
-                        local319 = arg6 + this.anIntArray244[local303];
-                        @Pc(325) int local325 = arg2.method7878(local319, local312);
-                        @Pc(331) int local331 = arg3.method7878(local319, local312);
-                        @Pc(339) int local339 = local325 - arg1 - local331;
-                        this.anIntArray242[local303] = (local339 * ((this.anIntArray242[local303] << 8) / local230) >> 8) + local325 - arg5;
+                        local312 = this.anIntArray240[local303] + x;
+                        local319 = z + this.anIntArray244[local303];
+                        @Pc(325) int local325 = floor.method7878(local319, local312);
+                        @Pc(331) int local331 = ceiling.method7878(local319, local312);
+                        @Pc(339) int local339 = local325 - hillValue - local331;
+                        this.anIntArray242[local303] = (local339 * ((this.anIntArray242[local303] << 8) / local230) >> 8) + local325 - y;
                     }
                 }
             }
@@ -1007,7 +1007,7 @@ public final class Model_Sub1 extends Model {
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(B[B)V")
     @Override
-    public void method7498(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1) {
+    public void updateAlphas(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1) {
         @Pc(9) int local9;
         if (arg1 == null) {
             for (local9 = 0; local9 < this.anInt2715; local9++) {
@@ -2663,7 +2663,7 @@ public final class Model_Sub1 extends Model {
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "()Z")
     @Override
-    public boolean method7474() {
+    public boolean loadedTextures() {
         if (this.aShortArray46 == null) {
             return true;
         }

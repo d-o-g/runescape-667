@@ -68,7 +68,7 @@ public final class i extends Model implements Interface5 {
     }
 
     @OriginalMember(owner = "client!i", name = "p", descriptor = "(IILclient!s;Lclient!s;III)V")
-    public native void p(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class178 arg2, @OriginalArg(3) Class178 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6);
+    public native void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Class178 floor, @OriginalArg(3) Class178 ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z);
 
     @OriginalMember(owner = "client!i", name = "LA", descriptor = "(I)V")
     public native void LA(@OriginalArg(0) int arg0);
@@ -92,13 +92,13 @@ public final class i extends Model implements Interface5 {
             return;
         }
         synchronized (this) {
-            while (super.aBoolean645) {
+            while (super.locked) {
                 try {
                     this.wait();
                 } catch (@Pc(13) InterruptedException local13) {
                 }
             }
-            super.aBoolean645 = true;
+            super.locked = true;
         }
     }
 
@@ -116,7 +116,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(B[B)V")
     @Override
-    public void method7498(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1) {
+    public void updateAlphas(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1) {
         throw new RuntimeException();
     }
 
@@ -284,7 +284,7 @@ public final class i extends Model implements Interface5 {
     protected void method7494() {
         if (this.anOa2.anInt6770 > 1) {
             synchronized (this) {
-                super.aBoolean645 = false;
+                super.locked = false;
                 this.notifyAll();
             }
         }
@@ -321,7 +321,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "()Z")
     @Override
-    public boolean method7474() {
+    public boolean loadedTextures() {
         return true;
     }
 

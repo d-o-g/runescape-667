@@ -65,7 +65,7 @@ public final class Static345 {
         local8.anIntArray210 = null;
         local8.anIntArray209 = null;
         local8.aByteArray26 = null;
-        aModel_6 = arg0.method7952(local8, 51200, 33, 64, 768);
+        aModel_6 = arg0.createModel(local8, 51200, 33, 64, 768);
     }
 
     @OriginalMember(owner = "client!ks", name = "b", descriptor = "(Lclient!ha;)V")

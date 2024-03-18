@@ -263,7 +263,7 @@ public final class Class201 {
                         }
                         @Pc(826) int local826 = local28 | 0x4000;
                         @Pc(833) Mesh local833 = new Mesh(local584, local584.length);
-                        local342 = arg8.method7952(local833, local826, Static294.anInt4766, 64, 850);
+                        local342 = arg8.createModel(local833, local826, Static294.anInt4766, 64, 850);
                         for (local409 = 0; local409 < 10; local409++) {
                             for (local709 = 0; local709 < Static76.bodycol_s[local409].length; local709++) {
                                 if (Static339.bodycol_d[local409][local709].length > this.bodycol_d_palette[local409]) {
@@ -426,7 +426,7 @@ public final class Class201 {
             }
             @Pc(152) int local152 = local16 | 0x4000;
             local107 = new Mesh(local70, local72);
-            local39 = arg4.method7952(local107, local152, Static294.anInt4766, 64, 768);
+            local39 = arg4.createModel(local107, local152, Static294.anInt4766, 64, 768);
             for (@Pc(168) int local168 = 0; local168 < 10; local168++) {
                 for (@Pc(172) int local172 = 0; local172 < Static76.bodycol_s[local168].length; local172++) {
                     if (this.bodycol_d_palette[local168] < Static339.bodycol_d[local168][local172].length) {
@@ -515,7 +515,7 @@ public final class Class201 {
             }
             @Pc(266) Mesh local266 = new Mesh(local172, local174);
             @Pc(270) int local270 = local35 | 0x4000;
-            local48 = arg6.method7952(local266, local270, Static294.anInt4766, 64, 768);
+            local48 = arg6.createModel(local266, local270, Static294.anInt4766, 64, 768);
             for (@Pc(282) int local282 = 0; local282 < 10; local282++) {
                 for (@Pc(286) int local286 = 0; local286 < Static76.bodycol_s[local282].length; local286++) {
                     if (this.bodycol_d_palette[local282] < Static339.bodycol_d[local282][local286].length) {

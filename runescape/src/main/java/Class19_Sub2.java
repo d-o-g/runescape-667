@@ -995,8 +995,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!dv;IIII)Lclient!ka;")
     @Override
-    public Model method7952(@OriginalArg(0) Mesh arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        return new Model_Sub3(this, arg0, arg1, arg3, arg4, arg2);
+    public Model createModel(@OriginalArg(0) Mesh mesh, @OriginalArg(1) int functionMask, @OriginalArg(2) int featureMask, @OriginalArg(3) int ambient, @OriginalArg(4) int contrast) {
+        return new Model_Sub3(this, mesh, functionMask, ambient, contrast, featureMask);
     }
 
     @OriginalMember(owner = "client!iaa", name = "B", descriptor = "()Z")

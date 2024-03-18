@@ -1549,13 +1549,13 @@ public final class Model_Sub3 extends Model {
             return;
         }
         synchronized (this) {
-            while (super.aBoolean645) {
+            while (super.locked) {
                 try {
                     this.wait();
                 } catch (@Pc(13) InterruptedException local13) {
                 }
             }
-            super.aBoolean645 = true;
+            super.locked = true;
         }
     }
 
@@ -1844,7 +1844,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(B[B)V")
     @Override
-    public void method7498(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1) {
+    public void updateAlphas(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1) {
         if ((this.anInt8489 & 0x100000) == 0) {
             throw new RuntimeException();
         }
@@ -3568,7 +3568,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "()Z")
     @Override
-    public boolean method7474() {
+    public boolean loadedTextures() {
         if (this.aShortArray123 == null) {
             return true;
         }
@@ -3758,7 +3758,7 @@ public final class Model_Sub3 extends Model {
     protected void method7494() {
         if (this.aClass19_Sub2_9.anInt4211 > 1) {
             synchronized (this) {
-                super.aBoolean645 = false;
+                super.locked = false;
                 this.notifyAll();
             }
         }
@@ -4369,8 +4369,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "p", descriptor = "(IILclient!s;Lclient!s;III)V")
     @Override
-    public void p(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class178 arg2, @OriginalArg(3) Class178 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        if (arg0 == 3) {
+    public void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Class178 floor, @OriginalArg(3) Class178 ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z) {
+        if (hillType == 3) {
             if ((this.anInt8489 & 0x7) != 7) {
                 throw new IllegalStateException();
             }
@@ -4380,31 +4380,31 @@ public final class Model_Sub3 extends Model {
         if (!this.aBoolean652) {
             this.method7525();
         }
-        @Pc(38) int local38 = arg4 + this.aShort115;
-        @Pc(43) int local43 = arg4 + this.aShort117;
-        @Pc(48) int local48 = arg6 + this.aShort112;
-        @Pc(53) int local53 = arg6 + this.aShort111;
-        if (arg0 != 4 && (local38 < 0 || local43 + arg2.anInt8888 >> arg2.anInt8895 >= arg2.anInt8894 || local48 < 0 || local53 + arg2.anInt8888 >> arg2.anInt8895 >= arg2.anInt8892)) {
+        @Pc(38) int local38 = x + this.aShort115;
+        @Pc(43) int local43 = x + this.aShort117;
+        @Pc(48) int local48 = z + this.aShort112;
+        @Pc(53) int local53 = z + this.aShort111;
+        if (hillType != 4 && (local38 < 0 || local43 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8894 || local48 < 0 || local53 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8892)) {
             return;
         }
-        @Pc(94) int[][] local94 = ((Class178_Sub3) arg2).anIntArrayArray226;
+        @Pc(94) int[][] local94 = ((Class178_Sub3) floor).anIntArrayArray226;
         @Pc(96) int[][] local96 = null;
-        if (arg3 != null) {
-            local96 = ((Class178_Sub3) arg3).anIntArrayArray226;
+        if (ceiling != null) {
+            local96 = ((Class178_Sub3) ceiling).anIntArrayArray226;
         }
-        if (arg0 == 4 || arg0 == 5) {
-            if (arg3 == null) {
+        if (hillType == 4 || hillType == 5) {
+            if (ceiling == null) {
                 return;
             }
-            if (local38 < 0 || local43 + arg3.anInt8888 >> arg3.anInt8895 >= arg3.anInt8894 || local48 < 0 || local53 + arg3.anInt8888 >> arg3.anInt8895 >= arg3.anInt8892) {
+            if (local38 < 0 || local43 + ceiling.anInt8888 >> ceiling.anInt8895 >= ceiling.anInt8894 || local48 < 0 || local53 + ceiling.anInt8888 >> ceiling.anInt8895 >= ceiling.anInt8892) {
                 return;
             }
         } else {
-            local38 >>= arg2.anInt8895;
-            local43 = local43 + arg2.anInt8888 - 1 >> arg2.anInt8895;
-            local48 >>= arg2.anInt8895;
-            local53 = local53 + arg2.anInt8888 - 1 >> arg2.anInt8895;
-            if (local94[local38][local48] == arg5 && local94[local43][local48] == arg5 && local94[local38][local53] == arg5 && local94[local43][local53] == arg5) {
+            local38 >>= floor.anInt8895;
+            local43 = local43 + floor.anInt8888 - 1 >> floor.anInt8895;
+            local48 >>= floor.anInt8895;
+            local53 = local53 + floor.anInt8888 - 1 >> floor.anInt8895;
+            if (local94[local38][local48] == y && local94[local43][local48] == y && local94[local38][local53] == y && local94[local43][local53] == y) {
                 return;
             }
         }
@@ -4421,148 +4421,148 @@ public final class Model_Sub3 extends Model {
             @Pc(313) int local313;
             @Pc(327) int local327;
             @Pc(472) int local472;
-            if (arg0 == 1) {
-                local226 = arg2.anInt8888 - 1;
+            if (hillType == 1) {
+                local226 = floor.anInt8888 - 1;
                 for (local228 = 0; local228 < this.anInt8491; local228++) {
-                    local236 = this.anIntArray666[local228] + arg4;
-                    local243 = this.anIntArray658[local228] + arg6;
+                    local236 = this.anIntArray666[local228] + x;
+                    local243 = this.anIntArray658[local228] + z;
                     local247 = local236 & local226;
                     local251 = local243 & local226;
-                    local256 = local236 >> arg2.anInt8895;
-                    local261 = local243 >> arg2.anInt8895;
-                    local285 = local94[local256][local261] * (arg2.anInt8888 - local247) + local94[local256 + 1][local261] * local247 >> arg2.anInt8895;
-                    local313 = local94[local256][local261 + 1] * (arg2.anInt8888 - local247) + local94[local256 + 1][local261 + 1] * local247 >> arg2.anInt8895;
-                    local327 = local285 * (arg2.anInt8888 - local251) + local313 * local251 >> arg2.anInt8895;
-                    this.anIntArray675[local228] = this.anIntArray675[local228] + local327 - arg5;
+                    local256 = local236 >> floor.anInt8895;
+                    local261 = local243 >> floor.anInt8895;
+                    local285 = local94[local256][local261] * (floor.anInt8888 - local247) + local94[local256 + 1][local261] * local247 >> floor.anInt8895;
+                    local313 = local94[local256][local261 + 1] * (floor.anInt8888 - local247) + local94[local256 + 1][local261 + 1] * local247 >> floor.anInt8895;
+                    local327 = local285 * (floor.anInt8888 - local251) + local313 * local251 >> floor.anInt8895;
+                    this.anIntArray675[local228] = this.anIntArray675[local228] + local327 - y;
                 }
                 for (local236 = this.anInt8491; local236 < this.anInt8483; local236++) {
-                    local243 = this.anIntArray666[local236] + arg4;
-                    local247 = this.anIntArray658[local236] + arg6;
+                    local243 = this.anIntArray666[local236] + x;
+                    local247 = this.anIntArray658[local236] + z;
                     local251 = local243 & local226;
                     local256 = local247 & local226;
-                    local261 = local243 >> arg2.anInt8895;
-                    local285 = local247 >> arg2.anInt8895;
+                    local261 = local243 >> floor.anInt8895;
+                    local285 = local247 >> floor.anInt8895;
                     if (local261 >= 0 && local261 < local94.length - 1 && local285 >= 0 && local285 < local94[0].length - 1) {
-                        local313 = local94[local261][local285] * (arg2.anInt8888 - local251) + local94[local261 + 1][local285] * local251 >> arg2.anInt8895;
-                        local327 = local94[local261][local285 + 1] * (arg2.anInt8888 - local251) + local94[local261 + 1][local285 + 1] * local251 >> arg2.anInt8895;
-                        local472 = local313 * (arg2.anInt8888 - local256) + local327 * local256 >> arg2.anInt8895;
-                        this.anIntArray675[local236] = this.anIntArray675[local236] + local472 - arg5;
+                        local313 = local94[local261][local285] * (floor.anInt8888 - local251) + local94[local261 + 1][local285] * local251 >> floor.anInt8895;
+                        local327 = local94[local261][local285 + 1] * (floor.anInt8888 - local251) + local94[local261 + 1][local285 + 1] * local251 >> floor.anInt8895;
+                        local472 = local313 * (floor.anInt8888 - local256) + local327 * local256 >> floor.anInt8895;
+                        this.anIntArray675[local236] = this.anIntArray675[local236] + local472 - y;
                     }
                 }
             } else {
                 @Pc(784) int local784;
-                if (arg0 == 2) {
-                    local226 = arg2.anInt8888 - 1;
+                if (hillType == 2) {
+                    local226 = floor.anInt8888 - 1;
                     for (local228 = 0; local228 < this.anInt8491; local228++) {
                         local236 = (this.anIntArray675[local228] << 16) / this.aShort116;
-                        if (local236 < arg1) {
-                            local243 = this.anIntArray666[local228] + arg4;
-                            local247 = this.anIntArray658[local228] + arg6;
+                        if (local236 < hillValue) {
+                            local243 = this.anIntArray666[local228] + x;
+                            local247 = this.anIntArray658[local228] + z;
                             local251 = local243 & local226;
                             local256 = local247 & local226;
-                            local261 = local243 >> arg2.anInt8895;
-                            local285 = local247 >> arg2.anInt8895;
-                            local313 = local94[local261][local285] * (arg2.anInt8888 - local251) + local94[local261 + 1][local285] * local251 >> arg2.anInt8895;
-                            local327 = local94[local261][local285 + 1] * (arg2.anInt8888 - local251) + local94[local261 + 1][local285 + 1] * local251 >> arg2.anInt8895;
-                            local472 = local313 * (arg2.anInt8888 - local256) + local327 * local256 >> arg2.anInt8895;
-                            this.anIntArray675[local228] += (local472 - arg5) * (arg1 - local236) / arg1;
+                            local261 = local243 >> floor.anInt8895;
+                            local285 = local247 >> floor.anInt8895;
+                            local313 = local94[local261][local285] * (floor.anInt8888 - local251) + local94[local261 + 1][local285] * local251 >> floor.anInt8895;
+                            local327 = local94[local261][local285 + 1] * (floor.anInt8888 - local251) + local94[local261 + 1][local285 + 1] * local251 >> floor.anInt8895;
+                            local472 = local313 * (floor.anInt8888 - local256) + local327 * local256 >> floor.anInt8895;
+                            this.anIntArray675[local228] += (local472 - y) * (hillValue - local236) / hillValue;
                         } else {
                             this.anIntArray675[local228] = this.anIntArray675[local228];
                         }
                     }
                     for (local236 = this.anInt8491; local236 < this.anInt8483; local236++) {
                         local243 = (this.anIntArray675[local236] << 16) / this.aShort116;
-                        if (local243 < arg1) {
-                            local247 = this.anIntArray666[local236] + arg4;
-                            local251 = this.anIntArray658[local236] + arg6;
+                        if (local243 < hillValue) {
+                            local247 = this.anIntArray666[local236] + x;
+                            local251 = this.anIntArray658[local236] + z;
                             local256 = local247 & local226;
                             local261 = local251 & local226;
-                            local285 = local247 >> arg2.anInt8895;
-                            local313 = local251 >> arg2.anInt8895;
-                            if (local285 >= 0 && local285 < arg2.anInt8894 - 1 && local313 >= 0 && local313 < arg2.anInt8892 - 1) {
-                                local327 = local94[local285][local313] * (arg2.anInt8888 - local256) + local94[local285 + 1][local313] * local256 >> arg2.anInt8895;
-                                local472 = local94[local285][local313 + 1] * (arg2.anInt8888 - local256) + local94[local285 + 1][local313 + 1] * local256 >> arg2.anInt8895;
-                                local784 = local327 * (arg2.anInt8888 - local261) + local472 * local261 >> arg2.anInt8895;
-                                this.anIntArray675[local236] += (local784 - arg5) * (arg1 - local243) / arg1;
+                            local285 = local247 >> floor.anInt8895;
+                            local313 = local251 >> floor.anInt8895;
+                            if (local285 >= 0 && local285 < floor.anInt8894 - 1 && local313 >= 0 && local313 < floor.anInt8892 - 1) {
+                                local327 = local94[local285][local313] * (floor.anInt8888 - local256) + local94[local285 + 1][local313] * local256 >> floor.anInt8895;
+                                local472 = local94[local285][local313 + 1] * (floor.anInt8888 - local256) + local94[local285 + 1][local313 + 1] * local256 >> floor.anInt8895;
+                                local784 = local327 * (floor.anInt8888 - local261) + local472 * local261 >> floor.anInt8895;
+                                this.anIntArray675[local236] += (local784 - y) * (hillValue - local243) / hillValue;
                             }
                         } else {
                             this.anIntArray675[local236] = this.anIntArray675[local236];
                         }
                     }
-                } else if (arg0 == 3) {
-                    local226 = (arg1 & 0xFF) * 4;
-                    local228 = (arg1 >> 8 & 0xFF) * 4;
-                    local236 = (arg1 >> 16 & 0xFF) << 6;
-                    local243 = (arg1 >> 24 & 0xFF) << 6;
-                    if (arg4 - (local226 >> 1) < 0 || arg4 + (local226 >> 1) + arg2.anInt8888 >= arg2.anInt8894 << arg2.anInt8895 || arg6 - (local228 >> 1) < 0 || arg6 + (local228 >> 1) + arg2.anInt8888 >= arg2.anInt8892 << arg2.anInt8895) {
+                } else if (hillType == 3) {
+                    local226 = (hillValue & 0xFF) * 4;
+                    local228 = (hillValue >> 8 & 0xFF) * 4;
+                    local236 = (hillValue >> 16 & 0xFF) << 6;
+                    local243 = (hillValue >> 24 & 0xFF) << 6;
+                    if (x - (local226 >> 1) < 0 || x + (local226 >> 1) + floor.anInt8888 >= floor.anInt8894 << floor.anInt8895 || z - (local228 >> 1) < 0 || z + (local228 >> 1) + floor.anInt8888 >= floor.anInt8892 << floor.anInt8895) {
                         return;
                     }
-                    this.method7490(arg5, local236, arg4, local226, arg6, local228, arg2, local243);
-                } else if (arg0 == 4) {
-                    local226 = arg3.anInt8888 - 1;
+                    this.method7490(y, local236, x, local226, z, local228, floor, local243);
+                } else if (hillType == 4) {
+                    local226 = ceiling.anInt8888 - 1;
                     local228 = this.aShort113 - this.aShort116;
                     for (local236 = 0; local236 < this.anInt8491; local236++) {
-                        local243 = this.anIntArray666[local236] + arg4;
-                        local247 = this.anIntArray658[local236] + arg6;
+                        local243 = this.anIntArray666[local236] + x;
+                        local247 = this.anIntArray658[local236] + z;
                         local251 = local243 & local226;
                         local256 = local247 & local226;
-                        local261 = local243 >> arg3.anInt8895;
-                        local285 = local247 >> arg3.anInt8895;
-                        local313 = local96[local261][local285] * (arg3.anInt8888 - local251) + local96[local261 + 1][local285] * local251 >> arg3.anInt8895;
-                        local327 = local96[local261][local285 + 1] * (arg3.anInt8888 - local251) + local96[local261 + 1][local285 + 1] * local251 >> arg3.anInt8895;
-                        local472 = local313 * (arg3.anInt8888 - local256) + local327 * local256 >> arg3.anInt8895;
-                        this.anIntArray675[local236] = this.anIntArray675[local236] + local472 + local228 - arg5;
+                        local261 = local243 >> ceiling.anInt8895;
+                        local285 = local247 >> ceiling.anInt8895;
+                        local313 = local96[local261][local285] * (ceiling.anInt8888 - local251) + local96[local261 + 1][local285] * local251 >> ceiling.anInt8895;
+                        local327 = local96[local261][local285 + 1] * (ceiling.anInt8888 - local251) + local96[local261 + 1][local285 + 1] * local251 >> ceiling.anInt8895;
+                        local472 = local313 * (ceiling.anInt8888 - local256) + local327 * local256 >> ceiling.anInt8895;
+                        this.anIntArray675[local236] = this.anIntArray675[local236] + local472 + local228 - y;
                     }
                     for (local243 = this.anInt8491; local243 < this.anInt8483; local243++) {
-                        local247 = this.anIntArray666[local243] + arg4;
-                        local251 = this.anIntArray658[local243] + arg6;
+                        local247 = this.anIntArray666[local243] + x;
+                        local251 = this.anIntArray658[local243] + z;
                         local256 = local247 & local226;
                         local261 = local251 & local226;
-                        local285 = local247 >> arg3.anInt8895;
-                        local313 = local251 >> arg3.anInt8895;
-                        if (local285 >= 0 && local285 < arg3.anInt8894 - 1 && local313 >= 0 && local313 < arg3.anInt8892 - 1) {
-                            local327 = local96[local285][local313] * (arg3.anInt8888 - local256) + local96[local285 + 1][local313] * local256 >> arg3.anInt8895;
-                            local472 = local96[local285][local313 + 1] * (arg3.anInt8888 - local256) + local96[local285 + 1][local313 + 1] * local256 >> arg3.anInt8895;
-                            local784 = local327 * (arg3.anInt8888 - local261) + local472 * local261 >> arg3.anInt8895;
-                            this.anIntArray675[local243] = this.anIntArray675[local243] + local784 + local228 - arg5;
+                        local285 = local247 >> ceiling.anInt8895;
+                        local313 = local251 >> ceiling.anInt8895;
+                        if (local285 >= 0 && local285 < ceiling.anInt8894 - 1 && local313 >= 0 && local313 < ceiling.anInt8892 - 1) {
+                            local327 = local96[local285][local313] * (ceiling.anInt8888 - local256) + local96[local285 + 1][local313] * local256 >> ceiling.anInt8895;
+                            local472 = local96[local285][local313 + 1] * (ceiling.anInt8888 - local256) + local96[local285 + 1][local313 + 1] * local256 >> ceiling.anInt8895;
+                            local784 = local327 * (ceiling.anInt8888 - local261) + local472 * local261 >> ceiling.anInt8895;
+                            this.anIntArray675[local243] = this.anIntArray675[local243] + local784 + local228 - y;
                         }
                     }
-                } else if (arg0 == 5) {
-                    local226 = arg3.anInt8888 - 1;
+                } else if (hillType == 5) {
+                    local226 = ceiling.anInt8888 - 1;
                     local228 = this.aShort113 - this.aShort116;
                     @Pc(1380) int local1380;
                     for (local236 = 0; local236 < this.anInt8491; local236++) {
-                        local243 = this.anIntArray666[local236] + arg4;
-                        local247 = this.anIntArray658[local236] + arg6;
+                        local243 = this.anIntArray666[local236] + x;
+                        local247 = this.anIntArray658[local236] + z;
                         local251 = local243 & local226;
                         local256 = local247 & local226;
-                        local261 = local243 >> arg2.anInt8895;
-                        local285 = local247 >> arg2.anInt8895;
-                        local313 = local94[local261][local285] * (arg2.anInt8888 - local251) + local94[local261 + 1][local285] * local251 >> arg2.anInt8895;
-                        local327 = local94[local261][local285 + 1] * (arg2.anInt8888 - local251) + local94[local261 + 1][local285 + 1] * local251 >> arg2.anInt8895;
-                        local472 = local313 * (arg2.anInt8888 - local256) + local327 * local256 >> arg2.anInt8895;
-                        local313 = local96[local261][local285] * (arg3.anInt8888 - local251) + local96[local261 + 1][local285] * local251 >> arg3.anInt8895;
-                        local327 = local96[local261][local285 + 1] * (arg3.anInt8888 - local251) + local96[local261 + 1][local285 + 1] * local251 >> arg3.anInt8895;
-                        local784 = local313 * (arg3.anInt8888 - local256) + local327 * local256 >> arg3.anInt8895;
-                        local1380 = local472 - local784 - arg1;
-                        this.anIntArray675[local236] = ((this.anIntArray675[local236] << 8) / local228 * local1380 >> 8) - (arg5 - local472);
+                        local261 = local243 >> floor.anInt8895;
+                        local285 = local247 >> floor.anInt8895;
+                        local313 = local94[local261][local285] * (floor.anInt8888 - local251) + local94[local261 + 1][local285] * local251 >> floor.anInt8895;
+                        local327 = local94[local261][local285 + 1] * (floor.anInt8888 - local251) + local94[local261 + 1][local285 + 1] * local251 >> floor.anInt8895;
+                        local472 = local313 * (floor.anInt8888 - local256) + local327 * local256 >> floor.anInt8895;
+                        local313 = local96[local261][local285] * (ceiling.anInt8888 - local251) + local96[local261 + 1][local285] * local251 >> ceiling.anInt8895;
+                        local327 = local96[local261][local285 + 1] * (ceiling.anInt8888 - local251) + local96[local261 + 1][local285 + 1] * local251 >> ceiling.anInt8895;
+                        local784 = local313 * (ceiling.anInt8888 - local256) + local327 * local256 >> ceiling.anInt8895;
+                        local1380 = local472 - local784 - hillValue;
+                        this.anIntArray675[local236] = ((this.anIntArray675[local236] << 8) / local228 * local1380 >> 8) - (y - local472);
                     }
                     for (local243 = this.anInt8491; local243 < this.anInt8483; local243++) {
-                        local247 = this.anIntArray666[local243] + arg4;
-                        local251 = this.anIntArray658[local243] + arg6;
+                        local247 = this.anIntArray666[local243] + x;
+                        local251 = this.anIntArray658[local243] + z;
                         local256 = local247 & local226;
                         local261 = local251 & local226;
-                        local285 = local247 >> arg2.anInt8895;
-                        local313 = local251 >> arg2.anInt8895;
-                        if (local285 >= 0 && local285 < arg2.anInt8894 - 1 && local285 < arg3.anInt8894 - 1 && local313 >= 0 && local313 < arg2.anInt8892 - 1 && local313 < arg3.anInt8892 - 1) {
-                            local327 = local94[local285][local313] * (arg2.anInt8888 - local256) + local94[local285 + 1][local313] * local256 >> arg2.anInt8895;
-                            local472 = local94[local285][local313 + 1] * (arg2.anInt8888 - local256) + local94[local285 + 1][local313 + 1] * local256 >> arg2.anInt8895;
-                            local784 = local327 * (arg2.anInt8888 - local261) + local472 * local261 >> arg2.anInt8895;
-                            local327 = local96[local285][local313] * (arg3.anInt8888 - local256) + local96[local285 + 1][local313] * local256 >> arg3.anInt8895;
-                            local472 = local96[local285][local313 + 1] * (arg3.anInt8888 - local256) + local96[local285 + 1][local313 + 1] * local256 >> arg3.anInt8895;
-                            local1380 = local327 * (arg3.anInt8888 - local261) + local472 * local261 >> arg3.anInt8895;
-                            @Pc(1619) int local1619 = local784 - local1380 - arg1;
-                            this.anIntArray675[local243] = ((this.anIntArray675[local243] << 8) / local228 * local1619 >> 8) - (arg5 - local784);
+                        local285 = local247 >> floor.anInt8895;
+                        local313 = local251 >> floor.anInt8895;
+                        if (local285 >= 0 && local285 < floor.anInt8894 - 1 && local285 < ceiling.anInt8894 - 1 && local313 >= 0 && local313 < floor.anInt8892 - 1 && local313 < ceiling.anInt8892 - 1) {
+                            local327 = local94[local285][local313] * (floor.anInt8888 - local256) + local94[local285 + 1][local313] * local256 >> floor.anInt8895;
+                            local472 = local94[local285][local313 + 1] * (floor.anInt8888 - local256) + local94[local285 + 1][local313 + 1] * local256 >> floor.anInt8895;
+                            local784 = local327 * (floor.anInt8888 - local261) + local472 * local261 >> floor.anInt8895;
+                            local327 = local96[local285][local313] * (ceiling.anInt8888 - local256) + local96[local285 + 1][local313] * local256 >> ceiling.anInt8895;
+                            local472 = local96[local285][local313 + 1] * (ceiling.anInt8888 - local256) + local96[local285 + 1][local313 + 1] * local256 >> ceiling.anInt8895;
+                            local1380 = local327 * (ceiling.anInt8888 - local261) + local472 * local261 >> ceiling.anInt8895;
+                            @Pc(1619) int local1619 = local784 - local1380 - hillValue;
+                            this.anIntArray675[local243] = ((this.anIntArray675[local243] << 8) / local228 * local1619 >> 8) - (y - local784);
                         }
                     }
                 }

@@ -104,7 +104,7 @@ public final class Class227 {
             if (local144.version < 13) {
                 local144.upscale();
             }
-            local85 = arg9.method7952(local144, local121, this.aClass128_2.anInt2921, this.anInt5835 + 64, this.anInt5839 + 850);
+            local85 = arg9.createModel(local144, local121, this.aClass128_2.anInt2921, this.anInt5835 + 64, this.anInt5839 + 850);
             @Pc(180) int local180;
             if (this.aShortArray81 != null) {
                 for (local180 = 0; local180 < this.aShortArray81.length; local180++) {

@@ -1030,7 +1030,7 @@ public final class Class158 {
                 if (local307.version < 13) {
                     local307.upscale();
                 }
-                local277 = arg0.method7952(local307, arg9, Static108.anInt2168, 64, 768);
+                local277 = arg0.createModel(local307, arg9, Static108.anInt2168, 64, 768);
                 @Pc(339) int local339;
                 if (this.aShortArray57 != null) {
                     for (local339 = 0; local339 < this.aShortArray57.length; local339++) {

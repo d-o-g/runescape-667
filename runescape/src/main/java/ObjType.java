@@ -496,7 +496,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
-    public int[] method8798(@OriginalArg(0) int objNumMode, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) Class201 appearance, @OriginalArg(7) Class19 arg6, @OriginalArg(8) Class14 arg7, @OriginalArg(9) int arg8) {
+    public int[] method8798(@OriginalArg(0) int objNumMode, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) Class201 appearance, @OriginalArg(7) Class19 scratchToolkit, @OriginalArg(8) Class14 arg7, @OriginalArg(9) int arg8) {
         @Pc(14) Mesh mesh = Static121.method2201(this.mesh, this.myList.meshes);
         if (mesh == null) {
             return null;
@@ -539,26 +539,26 @@ public final class ObjType {
             scaled = true;
             functionMask = 2055;
         }
-        @Pc(244) Model local244 = arg6.method7952(mesh, functionMask, 64, this.ambient + 64, this.contrast + 768);
-        if (!local244.method7474()) {
+        @Pc(244) Model model = scratchToolkit.createModel(mesh, functionMask, 64, this.ambient + 64, this.contrast + 768);
+        if (!model.loadedTextures()) {
             return null;
         }
         if (scaled) {
-            local244.O(this.resizex, this.resizey, this.resizez);
+            model.O(this.resizex, this.resizey, this.resizez);
         }
         @Pc(272) Class23 local272 = null;
         if (this.certtemplate != -1) {
-            local272 = this.myList.method2478(1, arg6, arg1, appearance, true, 0, 10, true, 0, arg7, this.certlink);
+            local272 = this.myList.method2478(1, scratchToolkit, arg1, appearance, true, 0, 10, true, 0, arg7, this.certlink);
             if (local272 == null) {
                 return null;
             }
         } else if (this.lenttemplate != -1) {
-            local272 = this.myList.method2478(arg8, arg6, arg1, appearance, true, arg3, arg2, false, 0, arg7, this.lentlink);
+            local272 = this.myList.method2478(arg8, scratchToolkit, arg1, appearance, true, arg3, arg2, false, 0, arg7, this.lentlink);
             if (local272 == null) {
                 return null;
             }
         } else if (this.boughttemplate != -1) {
-            local272 = this.myList.method2478(arg8, arg6, arg1, appearance, true, arg3, arg2, false, 0, arg7, this.boughtlink);
+            local272 = this.myList.method2478(arg8, scratchToolkit, arg1, appearance, true, arg3, arg2, false, 0, arg7, this.boughtlink);
             if (local272 == null) {
                 return null;
             }
@@ -571,26 +571,26 @@ public final class ObjType {
         } else {
             local363 = this.zoom2d << 2;
         }
-        arg6.DA(16, 16, 512, 512);
-        @Pc(395) Class73 local395 = arg6.method7953();
+        scratchToolkit.DA(16, 16, 512, 512);
+        @Pc(395) Class73 local395 = scratchToolkit.method7953();
         local395.method7133();
-        arg6.method8000(local395);
-        arg6.xa(1.0F);
-        arg6.ZA(16777215, 1.0F, 1.0F, -50.0F, -10.0F, -50.0F);
-        @Pc(414) Class73 local414 = arg6.method7985();
+        scratchToolkit.method8000(local395);
+        scratchToolkit.xa(1.0F);
+        scratchToolkit.ZA(16777215, 1.0F, 1.0F, -50.0F, -10.0F, -50.0F);
+        @Pc(414) Class73 local414 = scratchToolkit.method7985();
         local414.method7132(-this.zan2d << 3);
         local414.method7127(this.yan2d << 3);
-        local414.method7134(this.xof2d << 2, (Class361.anIntArray741[this.xan2d << 3] * local363 >> 14) + (this.yof2d << 2) - (local244.fa() / 2), (Class361.anIntArray740[this.xan2d << 3] * local363 >> 14) - -(this.yof2d << 2));
+        local414.method7134(this.xof2d << 2, (Class361.anIntArray741[this.xan2d << 3] * local363 >> 14) + (this.yof2d << 2) - (model.fa() / 2), (Class361.anIntArray740[this.xan2d << 3] * local363 >> 14) - -(this.yof2d << 2));
         local414.method7130(this.xan2d << 3);
-        @Pc(480) int local480 = arg6.i();
-        @Pc(483) int local483 = arg6.XA();
-        arg6.f(50, Integer.MAX_VALUE);
-        arg6.ya();
-        arg6.la();
-        arg6.aa(0, 0, 36, 32, 0, 0);
-        local244.method7473(local414, (Class8_Sub6) null, 1);
-        arg6.f(local480, local483);
-        @Pc(515) int[] local515 = arg6.na(0, 0, 36, 32);
+        @Pc(480) int local480 = scratchToolkit.i();
+        @Pc(483) int local483 = scratchToolkit.XA();
+        scratchToolkit.f(50, Integer.MAX_VALUE);
+        scratchToolkit.ya();
+        scratchToolkit.la();
+        scratchToolkit.aa(0, 0, 36, 32, 0, 0);
+        model.method7473(local414, (Class8_Sub6) null, 1);
+        scratchToolkit.f(local480, local483);
+        @Pc(515) int[] local515 = scratchToolkit.na(0, 0, 36, 32);
         if (arg8 >= 1) {
             local515 = this.method8795(-16777214, local515);
             if (arg8 >= 2) {
@@ -600,7 +600,7 @@ public final class ObjType {
         if (arg3 != 0) {
             this.method8804(arg3, local515);
         }
-        arg6.method7946(36, 36, 32, local515).method8202(0, 0);
+        scratchToolkit.method7946(36, 36, 32, local515).method8202(0, 0);
         if (this.certtemplate != -1) {
             local272.method8202(0, 0);
         } else if (this.lenttemplate != -1) {
@@ -611,7 +611,7 @@ public final class ObjType {
         if (objNumMode == 1 || objNumMode == 2 && (this.stackable == 1 || arg2 != 1) && arg2 != -1) {
             arg7.method8829(0, 9, this.method8803(arg2), -16777215, -256);
         }
-        local515 = arg6.na(0, 0, 36, 32);
+        local515 = scratchToolkit.na(0, 0, 36, 32);
         for (@Pc(652) int local652 = 0; local652 < local515.length; local652++) {
             if ((local515[local652] & 0xFFFFFF) == 0) {
                 local515[local652] = 0;
@@ -887,7 +887,7 @@ public final class ObjType {
             if (local196.version < 13) {
                 local196.upscale();
             }
-            local104 = arg4.method7952(local196, local141, this.myList.anInt2673, this.ambient + 64, 850 - -this.contrast);
+            local104 = arg4.createModel(local196, local141, this.myList.anInt2673, this.ambient + 64, 850 - -this.contrast);
             if (this.resizex != 128 || this.resizey != 128 || this.resizez != 128) {
                 local104.O(this.resizex, this.resizey, this.resizez);
             }

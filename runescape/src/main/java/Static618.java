@@ -143,7 +143,7 @@ public final class Static618 {
                     }
                 }
             }
-            local68 = arg6.method7952(local162, local12, Static722.anInt10905, 64, 768);
+            local68 = arg6.createModel(local162, local12, Static722.anInt10905, 64, 768);
             @Pc(440) Class82 local440 = Static354.aClass82_120;
             synchronized (Static354.aClass82_120) {
                 Static354.aClass82_120.method2150(local68, local58);

@@ -563,7 +563,7 @@ public final class Class268 {
                 } else {
                     local304 = new Mesh(local215, local215.length);
                 }
-                local94 = arg2.method7952(local304, local125, this.aClass308_1.anInt8088, 64, 768);
+                local94 = arg2.createModel(local304, local125, this.aClass308_1.anInt8088, 64, 768);
                 @Pc(340) int local340;
                 @Pc(334) short[] local334;
                 if (this.aShortArray99 != null) {
@@ -729,7 +729,7 @@ public final class Class268 {
             } else {
                 local529 = new Mesh(local267, local267.length);
             }
-            local139 = arg1.method7952(local529, local178, this.aClass308_1.anInt8088, this.anInt6732 + 64, this.anInt6747 + 850);
+            local139 = arg1.createModel(local529, local178, this.aClass308_1.anInt8088, this.anInt6732 + 64, this.anInt6747 + 850);
             @Pc(568) short[] local568;
             if (this.aShortArray99 != null) {
                 if (arg6 == null || arg6.aShortArray145 == null) {

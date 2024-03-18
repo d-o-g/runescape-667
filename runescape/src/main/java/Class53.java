@@ -1,5 +1,6 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
+import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;

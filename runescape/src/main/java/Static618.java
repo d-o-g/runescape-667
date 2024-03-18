@@ -1,4 +1,5 @@
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.io.Packet;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

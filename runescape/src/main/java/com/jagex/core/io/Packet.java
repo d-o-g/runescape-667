@@ -1,3 +1,5 @@
+package com.jagex.core.io;
+
 import com.jagex.collect.Node;
 import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -10,8 +12,8 @@ import java.math.BigInteger;
 @OriginalClass("client!ge")
 public class Packet extends Node {
 
-    public static final int CRC32_POLYNOMIAL = 0xEDB88320;
-    public static final long CRC64_POLYNOMIAL = 0xC96C5795D7870F42L;
+    private static final int CRC32_POLYNOMIAL = 0xEDB88320;
+    private static final long CRC64_POLYNOMIAL = 0xC96C5795D7870F42L;
 
     @OriginalMember(owner = "client!vl", name = "i", descriptor = "[I")
     public static final int[] crctable = new int[256];

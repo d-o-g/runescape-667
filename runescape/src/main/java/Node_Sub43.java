@@ -1,4 +1,5 @@
 import com.jagex.collect.Node;
+import com.jagex.core.io.Packet;
 import jaclib.hardware_info.HardwareInfo;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

@@ -1,4 +1,5 @@
 import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.core.io.Packet;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;

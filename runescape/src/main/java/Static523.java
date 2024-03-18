@@ -1,3 +1,4 @@
+import com.jagex.core.io.Packet;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

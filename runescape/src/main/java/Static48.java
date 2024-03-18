@@ -1,4 +1,5 @@
 import com.jagex.collect.HashTable;
+import com.jagex.core.io.Packet;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

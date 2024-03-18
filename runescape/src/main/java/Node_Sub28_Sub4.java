@@ -1,3 +1,4 @@
+import com.jagex.core.io.Packet;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggStreamState;
 import org.openrs2.deob.annotation.OriginalArg;

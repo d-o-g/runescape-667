@@ -1,3 +1,4 @@
+import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

@@ -1,3 +1,4 @@
+import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -27,7 +28,7 @@ public final class Static303 {
     public static int method4429() {
         @Pc(13) ReferenceCache local13 = PlayerModel.BIG_CACHE;
         synchronized (PlayerModel.BIG_CACHE) {
-            return PlayerModel.BIG_CACHE.method2148();
+            return PlayerModel.BIG_CACHE.hardCount();
         }
     }
 

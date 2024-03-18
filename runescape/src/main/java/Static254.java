@@ -1,3 +1,4 @@
+import com.jagex.collect.HashTable;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 

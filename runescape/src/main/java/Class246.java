@@ -1,3 +1,4 @@
+import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -29,11 +30,11 @@ public final class Class246 {
     public void method5581() {
         @Pc(12) ReferenceCache local12 = this.aReferenceCache_134;
         synchronized (this.aReferenceCache_134) {
-            this.aReferenceCache_134.method2147(5);
+            this.aReferenceCache_134.clean(5);
         }
         local12 = this.aReferenceCache_135;
         synchronized (this.aReferenceCache_135) {
-            this.aReferenceCache_135.method2147(5);
+            this.aReferenceCache_135.clean(5);
         }
     }
 
@@ -76,11 +77,11 @@ public final class Class246 {
     public void method5585() {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_134;
         synchronized (this.aReferenceCache_134) {
-            this.aReferenceCache_134.method2151();
+            this.aReferenceCache_134.clearSoft();
         }
         local6 = this.aReferenceCache_135;
         synchronized (this.aReferenceCache_135) {
-            this.aReferenceCache_135.method2151();
+            this.aReferenceCache_135.clearSoft();
         }
     }
 

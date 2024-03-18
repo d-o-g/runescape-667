@@ -86,15 +86,6 @@ public final class Static638 {
         }
     }
 
-    @OriginalMember(owner = "client!uca", name = "b", descriptor = "(Z)Lclient!gh;")
-    public static Class145 method8396() {
-        try {
-            return (Class145) Class.forName("Class145_Sub1").getDeclaredConstructor().newInstance();
-        } catch (@Pc(16) Throwable local16) {
-            return null;
-        }
-    }
-
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(IIIIII)V")
     public static void method8397(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         Static12.anInt5741 = arg1;

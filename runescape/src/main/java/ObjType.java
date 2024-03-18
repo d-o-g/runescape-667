@@ -1,3 +1,6 @@
+import com.jagex.collect.HashTable;
+import com.jagex.collect.Node;
+import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.math.IntMath;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;

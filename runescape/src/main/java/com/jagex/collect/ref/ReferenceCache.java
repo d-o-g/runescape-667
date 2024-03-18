@@ -1,3 +1,8 @@
+package com.jagex.collect.ref;
+
+import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.HashTable;
+import com.jagex.collect.Queue;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -40,7 +45,7 @@ public final class ReferenceCache {
     }
 
     @OriginalMember(owner = "client!dla", name = "b", descriptor = "(I)Ljava/lang/Object;")
-    public Object removeFirst() {
+    public Object first() {
         @Pc(19) ReferenceNode current = (ReferenceNode) this.table.first();
         while (current != null) {
             @Pc(25) Object object = current.get();
@@ -64,36 +69,37 @@ public final class ReferenceCache {
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(II)V")
-    public void method2147(@OriginalArg(0) int arg0) {
-        if (Static443.aClass145_1 == null) {
+    public void clean(@OriginalArg(0) int maxAge) {
+        if (SoftReferenceFactory.INSTANCE == null) {
             return;
         }
-        for (@Pc(15) ReferenceNode local15 = (ReferenceNode) this.history.first(); local15 != null; local15 = (ReferenceNode) this.history.next()) {
-            if (local15.isSoft()) {
-                if (local15.get() == null) {
-                    local15.remove();
-                    local15.remove2();
-                    this.remaining += local15.size;
+
+        for (@Pc(15) ReferenceNode node = (ReferenceNode) this.history.first(); node != null; node = (ReferenceNode) this.history.next()) {
+            if (node.isSoft()) {
+                if (node.get() == null) {
+                    node.remove();
+                    node.remove2();
+                    this.remaining += node.size;
                 }
-            } else if (++local15.key2 > (long) arg0) {
-                @Pc(42) ReferenceNode local42 = Static443.aClass145_1.method4433(local15);
-                this.table.put(local15.key, local42);
-                Static409.method5654(local15, local42);
-                local15.remove();
-                local15.remove2();
+            } else if (++node.key2 > (long) maxAge) {
+                @Pc(42) ReferenceNode softReference = SoftReferenceFactory.INSTANCE.create(node);
+                this.table.put(node.key, softReference);
+                DoublyLinkedNode.attachAfter(node, softReference);
+                node.remove();
+                node.remove2();
             }
         }
     }
 
     @OriginalMember(owner = "client!dla", name = "b", descriptor = "(B)I")
-    public int method2148() {
-        @Pc(5) int local5 = 0;
-        for (@Pc(11) ReferenceNode local11 = (ReferenceNode) this.history.first(); local11 != null; local11 = (ReferenceNode) this.history.next()) {
-            if (!local11.isSoft()) {
-                local5++;
+    public int hardCount() {
+        @Pc(5) int count = 0;
+        for (@Pc(11) ReferenceNode node = (ReferenceNode) this.history.first(); node != null; node = (ReferenceNode) this.history.next()) {
+            if (!node.isSoft()) {
+                count++;
             }
         }
-        return local5;
+        return count;
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(ILclient!vw;)V")
@@ -111,7 +117,7 @@ public final class ReferenceCache {
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(B)V")
-    public void method2151() {
+    public void clearSoft() {
         for (@Pc(14) ReferenceNode local14 = (ReferenceNode) this.history.first(); local14 != null; local14 = (ReferenceNode) this.history.next()) {
             if (local14.isSoft()) {
                 local14.remove();
@@ -122,18 +128,18 @@ public final class ReferenceCache {
     }
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "(B)Ljava/lang/Object;")
-    public Object method2152() {
-        @Pc(19) ReferenceNode local19 = (ReferenceNode) this.table.next();
-        while (local19 != null) {
-            @Pc(25) Object local25 = local19.get();
-            if (local25 != null) {
-                return local25;
+    public Object next() {
+        @Pc(19) ReferenceNode current = (ReferenceNode) this.table.next();
+        while (current != null) {
+            @Pc(25) Object object = current.get();
+            if (object != null) {
+                return object;
             }
-            @Pc(29) ReferenceNode local29 = local19;
-            local19 = (ReferenceNode) this.table.next();
-            local29.remove();
-            local29.remove2();
-            this.remaining += local29.size;
+            @Pc(29) ReferenceNode copy = current;
+            current = (ReferenceNode) this.table.next();
+            copy.remove();
+            copy.remove2();
+            this.remaining += copy.size;
         }
         return null;
     }

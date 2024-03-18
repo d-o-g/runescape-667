@@ -1,3 +1,5 @@
+import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.HashTable;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 

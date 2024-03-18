@@ -1,3 +1,4 @@
+import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -58,15 +59,15 @@ public final class NPCTypeList {
     public void method7085() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_169;
         synchronized (this.aReferenceCache_169) {
-            this.aReferenceCache_169.method2147(5);
+            this.aReferenceCache_169.clean(5);
         }
         local2 = this.aReferenceCache_170;
         synchronized (this.aReferenceCache_170) {
-            this.aReferenceCache_170.method2147(5);
+            this.aReferenceCache_170.clean(5);
         }
         local2 = this.aReferenceCache_171;
         synchronized (this.aReferenceCache_171) {
-            this.aReferenceCache_171.method2147(5);
+            this.aReferenceCache_171.clean(5);
         }
     }
 
@@ -90,15 +91,15 @@ public final class NPCTypeList {
     public void method7089() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_169;
         synchronized (this.aReferenceCache_169) {
-            this.aReferenceCache_169.method2151();
+            this.aReferenceCache_169.clearSoft();
         }
         local2 = this.aReferenceCache_170;
         synchronized (this.aReferenceCache_170) {
-            this.aReferenceCache_170.method2151();
+            this.aReferenceCache_170.clearSoft();
         }
         local2 = this.aReferenceCache_171;
         synchronized (this.aReferenceCache_171) {
-            this.aReferenceCache_171.method2151();
+            this.aReferenceCache_171.clearSoft();
         }
     }
 

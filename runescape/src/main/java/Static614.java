@@ -64,10 +64,10 @@ public final class Static614 {
         Static402.method5580();
         Static198.method2951();
         Static194.method2907();
-        Static230.A_WEIGHTED_CACHE___81.method2147(5);
-        Static669.A_WEIGHTED_CACHE___215.method2147(5);
-        Static541.A_WEIGHTED_CACHE___174.method2147(5);
-        Static452.A_WEIGHTED_CACHE___149.method2147(5);
-        Static472.A_WEIGHTED_CACHE___156.method2147(5);
+        Static230.A_WEIGHTED_CACHE___81.clean(5);
+        Static669.A_WEIGHTED_CACHE___215.clean(5);
+        Static541.A_WEIGHTED_CACHE___174.clean(5);
+        Static452.A_WEIGHTED_CACHE___149.clean(5);
+        Static472.A_WEIGHTED_CACHE___156.clean(5);
     }
 }

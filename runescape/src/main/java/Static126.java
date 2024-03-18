@@ -1,3 +1,4 @@
+import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -51,7 +52,7 @@ public final class Static126 {
     public static void method2229() {
         @Pc(1) ReferenceCache local1 = Static354.A_WEIGHTED_CACHE___120;
         synchronized (Static354.A_WEIGHTED_CACHE___120) {
-            Static354.A_WEIGHTED_CACHE___120.method2151();
+            Static354.A_WEIGHTED_CACHE___120.clearSoft();
         }
     }
 }

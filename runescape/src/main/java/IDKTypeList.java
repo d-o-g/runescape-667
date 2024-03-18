@@ -1,3 +1,4 @@
+import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -26,7 +27,7 @@ public final class IDKTypeList {
     public void method5041() {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_115;
         synchronized (this.aReferenceCache_115) {
-            this.aReferenceCache_115.method2151();
+            this.aReferenceCache_115.clearSoft();
         }
     }
 
@@ -69,7 +70,7 @@ public final class IDKTypeList {
     public void method5045() {
         @Pc(7) ReferenceCache local7 = this.aReferenceCache_115;
         synchronized (this.aReferenceCache_115) {
-            this.aReferenceCache_115.method2147(5);
+            this.aReferenceCache_115.clean(5);
         }
     }
 }

@@ -1,3 +1,4 @@
+import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -34,7 +35,7 @@ public final class BASTypeList {
     public void method7115() {
         @Pc(14) ReferenceCache local14 = this.aReferenceCache_172;
         synchronized (this.aReferenceCache_172) {
-            this.aReferenceCache_172.method2147(5);
+            this.aReferenceCache_172.clean(5);
         }
     }
 
@@ -42,7 +43,7 @@ public final class BASTypeList {
     public void method7117() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_172;
         synchronized (this.aReferenceCache_172) {
-            this.aReferenceCache_172.method2151();
+            this.aReferenceCache_172.clearSoft();
         }
     }
 

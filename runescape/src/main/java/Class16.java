@@ -1,3 +1,6 @@
+import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.HashTable;
+import com.jagex.collect.Queue;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -81,7 +84,7 @@ public final class Class16 {
             } else if (++local11.key2 > (long) 5) {
                 @Pc(38) DoublyLinkedNode_Sub2_Sub11 local38 = Static515.aClass22_1.method593(local11);
                 this.aHashTable_3.put(local11.key, local38);
-                Static409.method5654(local11, local38);
+                DoublyLinkedNode.attachAfter(local11, local38);
                 local11.remove();
                 local11.remove2();
             }

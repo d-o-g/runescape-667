@@ -1,3 +1,4 @@
+import com.jagex.collect.DoublyLinkedNode;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

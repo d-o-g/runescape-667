@@ -22,7 +22,7 @@ public final class Static402 {
 
     @OriginalMember(owner = "client!ml", name = "a", descriptor = "(II)V")
     public static void method5580() {
-        Static627.A_WEIGHTED_CACHE___200.method2147(50);
+        Static627.A_WEIGHTED_CACHE___200.clean(50);
     }
 
     @OriginalMember(owner = "client!ml", name = "c", descriptor = "(II)Lclient!uja;")

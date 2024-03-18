@@ -1,3 +1,4 @@
+import com.jagex.collect.Queue;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static138 {

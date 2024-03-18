@@ -1,3 +1,4 @@
+import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -64,19 +65,19 @@ public final class Class142 {
     public void method3058() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_73;
         synchronized (this.aReferenceCache_73) {
-            this.aReferenceCache_73.method2151();
+            this.aReferenceCache_73.clearSoft();
         }
         local2 = this.aReferenceCache_74;
         synchronized (this.aReferenceCache_74) {
-            this.aReferenceCache_74.method2151();
+            this.aReferenceCache_74.clearSoft();
         }
         local2 = this.aReferenceCache_75;
         synchronized (this.aReferenceCache_75) {
-            this.aReferenceCache_75.method2151();
+            this.aReferenceCache_75.clearSoft();
         }
         local2 = this.aReferenceCache_76;
         synchronized (this.aReferenceCache_76) {
-            this.aReferenceCache_76.method2151();
+            this.aReferenceCache_76.clearSoft();
         }
     }
 
@@ -166,19 +167,19 @@ public final class Class142 {
     public void method3064() {
         @Pc(11) ReferenceCache local11 = this.aReferenceCache_73;
         synchronized (this.aReferenceCache_73) {
-            this.aReferenceCache_73.method2147(5);
+            this.aReferenceCache_73.clean(5);
         }
         local11 = this.aReferenceCache_74;
         synchronized (this.aReferenceCache_74) {
-            this.aReferenceCache_74.method2147(5);
+            this.aReferenceCache_74.clean(5);
         }
         local11 = this.aReferenceCache_75;
         synchronized (this.aReferenceCache_75) {
-            this.aReferenceCache_75.method2147(5);
+            this.aReferenceCache_75.clean(5);
         }
         local11 = this.aReferenceCache_76;
         synchronized (this.aReferenceCache_76) {
-            this.aReferenceCache_76.method2147(5);
+            this.aReferenceCache_76.clean(5);
         }
     }
 

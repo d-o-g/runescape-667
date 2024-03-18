@@ -56,10 +56,10 @@ public final class Static534 {
 
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IB)V")
     public static void method7121() {
-        Static473.A_WEIGHTED_CACHE___157.method2147(50);
-        Static312.A_WEIGHTED_CACHE___106.method2147(50);
-        Static449.A_WEIGHTED_CACHE___146.method2147(50);
-        Static444.A_WEIGHTED_CACHE___145.method2147(50);
+        Static473.A_WEIGHTED_CACHE___157.clean(50);
+        Static312.A_WEIGHTED_CACHE___106.clean(50);
+        Static449.A_WEIGHTED_CACHE___146.clean(50);
+        Static444.A_WEIGHTED_CACHE___145.clean(50);
     }
 
 }

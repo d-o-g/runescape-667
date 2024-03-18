@@ -1,3 +1,4 @@
+import com.jagex.collect.Node;
 import com.jagex.graphics.TextureMetrics;
 import jaclib.memory.Stream;
 import jaclib.memory.heap.NativeHeapBuffer;

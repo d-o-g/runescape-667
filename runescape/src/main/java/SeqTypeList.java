@@ -1,3 +1,4 @@
+import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -57,11 +58,11 @@ public final class SeqTypeList {
     public void method1163() {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_22;
         synchronized (this.aReferenceCache_22) {
-            this.aReferenceCache_22.method2147(5);
+            this.aReferenceCache_22.clean(5);
         }
         local6 = this.aReferenceCache_23;
         synchronized (this.aReferenceCache_23) {
-            this.aReferenceCache_23.method2147(5);
+            this.aReferenceCache_23.clean(5);
         }
     }
 
@@ -69,11 +70,11 @@ public final class SeqTypeList {
     public void method1164() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_22;
         synchronized (this.aReferenceCache_22) {
-            this.aReferenceCache_22.method2151();
+            this.aReferenceCache_22.clearSoft();
         }
         local2 = this.aReferenceCache_23;
         synchronized (this.aReferenceCache_23) {
-            this.aReferenceCache_23.method2151();
+            this.aReferenceCache_23.clearSoft();
         }
     }
 

@@ -115,10 +115,10 @@ public final class Static664 {
         Static553.method7290();
         Static149.method2450();
         Static126.method2229();
-        Static230.A_WEIGHTED_CACHE___81.method2151();
-        Static669.A_WEIGHTED_CACHE___215.method2151();
-        Static541.A_WEIGHTED_CACHE___174.method2151();
-        Static452.A_WEIGHTED_CACHE___149.method2151();
-        Static472.A_WEIGHTED_CACHE___156.method2151();
+        Static230.A_WEIGHTED_CACHE___81.clearSoft();
+        Static669.A_WEIGHTED_CACHE___215.clearSoft();
+        Static541.A_WEIGHTED_CACHE___174.clearSoft();
+        Static452.A_WEIGHTED_CACHE___149.clearSoft();
+        Static472.A_WEIGHTED_CACHE___156.clearSoft();
     }
 }

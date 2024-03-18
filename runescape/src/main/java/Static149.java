@@ -108,6 +108,6 @@ public final class Static149 {
 
     @OriginalMember(owner = "client!ema", name = "a", descriptor = "(I)V")
     public static void method2450() {
-        Static186.A_WEIGHTED_CACHE___67.method2151();
+        Static186.A_WEIGHTED_CACHE___67.clearSoft();
     }
 }

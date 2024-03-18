@@ -6,6 +6,9 @@ import java.io.IOException;
 
 public final class Static293 {
 
+    @OriginalMember(owner = "client!av", name = "m", descriptor = "[I")
+    public static final int[] XP_TABLE = new int[120];
+
     // $FF: synthetic field
     @OriginalMember(owner = "client!jfa", name = "Mb", descriptor = "Ljava/lang/Class;")
     public static Class aClass10;
@@ -868,7 +871,7 @@ public final class Static293 {
                                                 Static498.anIntArray604[local100] = 1;
                                                 local1409 = Static245.anIntArray773[local100] - 1;
                                                 for (local1413 = 0; local1413 < local1409; local1413++) {
-                                                    if (HashTable.anIntArray34[local1413] <= local526) {
+                                                    if (XP_TABLE[local1413] <= local526) {
                                                         Static498.anIntArray604[local100] = local1413 + 2;
                                                     }
                                                 }
@@ -2250,5 +2253,15 @@ public final class Static293 {
         local6.aClass2_Sub21_Sub2_1.method7418(local6.aClass345_32.method7826());
         local6.anInt2989 = 0;
         return local6;
+    }
+
+    static {
+        @Pc(85) int local85 = 0;
+        for (@Pc(87) int local87 = 0; local87 < 120; local87++) {
+            @Pc(92) int local92 = local87 + 1;
+            @Pc(105) int local105 = (int) (Math.pow(2.0D, (double) local92 / 7.0D) * 300.0D + (double) local92);
+            local85 += local105;
+            XP_TABLE[local87] = local85 / 4;
+        }
     }
 }

@@ -1,3 +1,4 @@
+import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -30,7 +31,7 @@ public final class Class169 {
 
     @OriginalMember(owner = "client!hm", name = "a", descriptor = "(Z)V")
     public void method3528() {
-        this.aReferenceCache_85.method2147(5);
+        this.aReferenceCache_85.clean(5);
     }
 
     @OriginalMember(owner = "client!hm", name = "a", descriptor = "(BI)Lclient!rq;")

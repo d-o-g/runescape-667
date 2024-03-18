@@ -1,3 +1,5 @@
+import com.jagex.collect.HashTable;
+import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -1871,7 +1873,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     @Override
     public void method7977(@OriginalArg(0) int arg0) {
         @Pc(4) int local4 = arg0 - this.anInt4184;
-        for (@Pc(9) Object local9 = this.aReferenceCache_89.removeFirst(); local9 != null; local9 = this.aReferenceCache_89.method2152()) {
+        for (@Pc(9) Object local9 = this.aReferenceCache_89.first(); local9 != null; local9 = this.aReferenceCache_89.next()) {
             @Pc(13) Node_Sub29 local13 = (Node_Sub29) local9;
             if (local13.aBoolean341) {
                 local13.anInt4409 += local4;
@@ -1885,8 +1887,8 @@ public final class Toolkit_Sub2 extends Toolkit {
             }
         }
         this.anInt4184 = arg0;
-        this.aReferenceCache_88.method2147(5);
-        this.aReferenceCache_89.method2147(5);
+        this.aReferenceCache_88.clean(5);
+        this.aReferenceCache_89.clean(5);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(FFF)V")

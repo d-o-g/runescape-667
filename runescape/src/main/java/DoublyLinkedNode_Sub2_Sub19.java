@@ -1,3 +1,4 @@
+import com.jagex.collect.DoublyLinkedNode;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

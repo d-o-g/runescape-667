@@ -19,17 +19,6 @@ public final class Static409 {
     @OriginalMember(owner = "client!mt", name = "G", descriptor = "I")
     public static int anInt6318 = -1;
 
-    @OriginalMember(owner = "client!mt", name = "a", descriptor = "(ILclient!cm;Lclient!cm;)V")
-    public static void method5654(@OriginalArg(1) DoublyLinkedNode arg0, @OriginalArg(2) DoublyLinkedNode arg1) {
-        if (arg1.prev2 != null) {
-            arg1.remove2();
-        }
-        arg1.next2 = arg0.next2;
-        arg1.prev2 = arg0;
-        arg1.prev2.next2 = arg1;
-        arg1.next2.prev2 = arg1;
-    }
-
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(II[[[Lclient!pha;IIZ)Z")
     public static boolean method5656(@OriginalArg(1) int arg0, @OriginalArg(2) Class291[][][] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
         @Pc(21) byte local21 = arg4 ? 1 : (byte) (Static198.anInt3276 & 0xFF);

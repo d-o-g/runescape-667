@@ -4,7 +4,11 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 @OriginalClass("client!ht")
 public final class Class120_Sub1 extends Class120 implements MouseListener, MouseMotionListener, MouseWheelListener {

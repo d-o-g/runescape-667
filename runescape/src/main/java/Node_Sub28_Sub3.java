@@ -1,6 +1,11 @@
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggStreamState;
-import jagtheora.theora.*;
+import jagtheora.theora.DecoderContext;
+import jagtheora.theora.Frame;
+import jagtheora.theora.GranulePos;
+import jagtheora.theora.SetupInfo;
+import jagtheora.theora.TheoraComment;
+import jagtheora.theora.TheoraInfo;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

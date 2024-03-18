@@ -122,11 +122,11 @@ public final class js5 {
         }
         @Pc(13) String local13 = arg0.toLowerCase();
         @Pc(16) String local16 = arg1.toLowerCase();
-        @Pc(25) int local25 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local13));
+        @Pc(25) int local25 = this.aJs5Index_2.aNameHashTable_1.find(Static95.method1894(local13));
         if (local25 < 0) {
             return false;
         } else {
-            @Pc(41) int local41 = this.aJs5Index_2.fileNameTables[local25].method2382(Static95.method1894(local16));
+            @Pc(41) int local41 = this.aJs5Index_2.fileNameTables[local25].find(Static95.method1894(local16));
             return local41 >= 0;
         }
     }
@@ -414,7 +414,7 @@ public final class js5 {
     public boolean method7587(@OriginalArg(0) String arg0) {
         if (this.method7601()) {
             @Pc(21) String local21 = arg0.toLowerCase();
-            @Pc(30) int local30 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local21));
+            @Pc(30) int local30 = this.aJs5Index_2.aNameHashTable_1.find(Static95.method1894(local21));
             return local30 >= 0;
         } else {
             return false;
@@ -445,7 +445,7 @@ public final class js5 {
     public int method7590(@OriginalArg(0) String arg0) {
         if (this.method7601()) {
             @Pc(19) String local19 = arg0.toLowerCase();
-            @Pc(28) int local28 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local19));
+            @Pc(28) int local28 = this.aJs5Index_2.aNameHashTable_1.find(Static95.method1894(local19));
             return this.method7596(local28) ? local28 : -1;
         } else {
             return -1;
@@ -483,7 +483,7 @@ public final class js5 {
     public int method7593(@OriginalArg(1) String arg0) {
         if (this.method7601()) {
             @Pc(24) String local24 = arg0.toLowerCase();
-            @Pc(33) int local33 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local24));
+            @Pc(33) int local33 = this.aJs5Index_2.aNameHashTable_1.find(Static95.method1894(local24));
             return this.method7580(local33);
         } else {
             return 0;
@@ -526,7 +526,7 @@ public final class js5 {
     public boolean method7598(@OriginalArg(0) String arg0) {
         if (this.method7601()) {
             @Pc(13) String local13 = arg0.toLowerCase();
-            @Pc(22) int local22 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local13));
+            @Pc(22) int local22 = this.aJs5Index_2.aNameHashTable_1.find(Static95.method1894(local13));
             return this.method7607(local22);
         } else {
             return false;
@@ -536,7 +536,7 @@ public final class js5 {
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(BI)I")
     public int method7599(@OriginalArg(1) int arg0) {
         if (this.method7601()) {
-            @Pc(17) int local17 = this.aJs5Index_2.aNameHashTable_1.method2382(arg0);
+            @Pc(17) int local17 = this.aJs5Index_2.aNameHashTable_1.find(arg0);
             return this.method7596(local17) ? local17 : -1;
         } else {
             return -1;
@@ -550,9 +550,9 @@ public final class js5 {
         }
         @Pc(13) String local13 = arg0.toLowerCase();
         @Pc(16) String local16 = arg1.toLowerCase();
-        @Pc(25) int local25 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local13));
+        @Pc(25) int local25 = this.aJs5Index_2.aNameHashTable_1.find(Static95.method1894(local13));
         if (this.method7596(local25)) {
-            @Pc(53) int local53 = this.aJs5Index_2.fileNameTables[local25].method2382(Static95.method1894(local16));
+            @Pc(53) int local53 = this.aJs5Index_2.fileNameTables[local25].find(Static95.method1894(local16));
             return this.method7595(local53, local25);
         } else {
             return null;
@@ -576,7 +576,7 @@ public final class js5 {
     public void method7602(@OriginalArg(0) String arg0) {
         if (this.method7601()) {
             @Pc(12) String local12 = arg0.toLowerCase();
-            @Pc(29) int local29 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local12));
+            @Pc(29) int local29 = this.aJs5Index_2.aNameHashTable_1.find(Static95.method1894(local12));
             this.method7588(local29);
         }
     }
@@ -604,9 +604,9 @@ public final class js5 {
         }
         @Pc(13) String local13 = arg0.toLowerCase();
         @Pc(16) String local16 = arg1.toLowerCase();
-        @Pc(25) int local25 = this.aJs5Index_2.aNameHashTable_1.method2382(Static95.method1894(local13));
+        @Pc(25) int local25 = this.aJs5Index_2.aNameHashTable_1.find(Static95.method1894(local13));
         if (this.method7596(local25)) {
-            @Pc(44) int local44 = this.aJs5Index_2.fileNameTables[local25].method2382(Static95.method1894(local16));
+            @Pc(44) int local44 = this.aJs5Index_2.fileNameTables[local25].find(Static95.method1894(local16));
             return this.method7586(local44, local25);
         } else {
             return false;

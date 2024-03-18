@@ -315,7 +315,7 @@ public final class Static71 {
                                         @Pc(1533) String local1533 = local19.aString44;
                                         if (local19.anInt3760 != -1) {
                                             local1543 = Static419.aObjTypeList_1.list(local19.anInt3760);
-                                            local1533 = local1543.aString118;
+                                            local1533 = local1543.name;
                                             if (local1533 == null) {
                                                 local1533 = "null";
                                             }

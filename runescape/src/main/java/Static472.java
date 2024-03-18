@@ -705,12 +705,12 @@ public final class Static472 {
                             local220.aBoolean288 = false;
                         }
                         @Pc(2236) ObjType local2236 = Static419.aObjTypeList_1.list(local21);
-                        local220.anInt3807 = local2236.anInt10107;
-                        local220.anInt3811 = local2236.anInt10096;
-                        local220.anInt3737 = local2236.anInt10094;
-                        local220.anInt3736 = local2236.anInt10126;
-                        local220.anInt3804 = local2236.anInt10099;
-                        local220.anInt3793 = local2236.anInt10098;
+                        local220.anInt3807 = local2236.xan2d;
+                        local220.anInt3811 = local2236.yan2d;
+                        local220.anInt3737 = local2236.zan2d;
+                        local220.anInt3736 = local2236.xof2d;
+                        local220.anInt3804 = local2236.yof2d;
+                        local220.anInt3793 = local2236.zoom2d;
                         if (arg0 == 1205 || arg0 == 1209) {
                             local220.anInt3757 = 0;
                         } else if (arg0 == 1212 || arg0 == 1213) {
@@ -2826,7 +2826,7 @@ public final class Static472 {
                                         } else if (arg0 < 4300) {
                                             if (arg0 == 4200) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = Static419.aObjTypeList_1.list(local15).aString118;
+                                                aStringArray37[anInt7139++] = Static419.aObjTypeList_1.list(local15).name;
                                                 return;
                                             }
                                             @Pc(11206) ObjType local11206;
@@ -2835,8 +2835,8 @@ public final class Static472 {
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
                                                 local11206 = Static419.aObjTypeList_1.list(local15);
-                                                if (local21 >= 1 && local21 <= 5 && local11206.aStringArray46[local21 - 1] != null) {
-                                                    aStringArray37[anInt7139++] = local11206.aStringArray46[local21 - 1];
+                                                if (local21 >= 1 && local21 <= 5 && local11206.op[local21 - 1] != null) {
+                                                    aStringArray37[anInt7139++] = local11206.op[local21 - 1];
                                                     return;
                                                 }
                                                 aStringArray37[anInt7139++] = "";
@@ -2847,8 +2847,8 @@ public final class Static472 {
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
                                                 local11206 = Static419.aObjTypeList_1.list(local15);
-                                                if (local21 >= 1 && local21 <= 5 && local11206.aStringArray45[local21 - 1] != null) {
-                                                    aStringArray37[anInt7139++] = local11206.aStringArray45[local21 - 1];
+                                                if (local21 >= 1 && local21 <= 5 && local11206.iop[local21 - 1] != null) {
+                                                    aStringArray37[anInt7139++] = local11206.iop[local21 - 1];
                                                     return;
                                                 }
                                                 aStringArray37[anInt7139++] = "";
@@ -2868,8 +2868,8 @@ public final class Static472 {
                                             if (arg0 == 4205) {
                                                 local15 = anIntArray578[--anInt7142];
                                                 local11380 = Static419.aObjTypeList_1.list(local15);
-                                                if (local11380.anInt10087 == -1 && local11380.anInt10110 >= 0) {
-                                                    anIntArray578[anInt7142++] = local11380.anInt10110;
+                                                if (local11380.certtemplate == -1 && local11380.certlink >= 0) {
+                                                    anIntArray578[anInt7142++] = local11380.certlink;
                                                     return;
                                                 }
                                                 anIntArray578[anInt7142++] = local15;
@@ -2878,8 +2878,8 @@ public final class Static472 {
                                             if (arg0 == 4206) {
                                                 local15 = anIntArray578[--anInt7142];
                                                 local11380 = Static419.aObjTypeList_1.list(local15);
-                                                if (local11380.anInt10087 >= 0 && local11380.anInt10110 >= 0) {
-                                                    anIntArray578[anInt7142++] = local11380.anInt10110;
+                                                if (local11380.certtemplate >= 0 && local11380.certlink >= 0) {
+                                                    anIntArray578[anInt7142++] = local11380.certlink;
                                                     return;
                                                 }
                                                 anIntArray578[anInt7142++] = local15;
@@ -2887,7 +2887,7 @@ public final class Static472 {
                                             }
                                             if (arg0 == 4207) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Static419.aObjTypeList_1.list(local15).aBoolean770 ? 1 : 0;
+                                                anIntArray578[anInt7142++] = Static419.aObjTypeList_1.list(local15).members ? 1 : 0;
                                                 return;
                                             }
                                             if (arg0 == 4208) {
@@ -2907,12 +2907,12 @@ public final class Static472 {
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1] - 1;
                                                 local11206 = Static419.aObjTypeList_1.list(local15);
-                                                if (local11206.anInt10122 == local21) {
-                                                    anIntArray578[anInt7142++] = local11206.anInt10089;
+                                                if (local11206.cursor1iop == local21) {
+                                                    anIntArray578[anInt7142++] = local11206.icursor1;
                                                     return;
                                                 }
-                                                if (local11206.anInt10093 == local21) {
-                                                    anIntArray578[anInt7142++] = local11206.anInt10091;
+                                                if (local11206.cursor2iop == local21) {
+                                                    anIntArray578[anInt7142++] = local11206.icursor2;
                                                     return;
                                                 }
                                                 anIntArray578[anInt7142++] = -1;
@@ -2939,7 +2939,7 @@ public final class Static472 {
                                             }
                                             if (arg0 == 4213) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Static419.aObjTypeList_1.list(local15).anInt10103;
+                                                anIntArray578[anInt7142++] = Static419.aObjTypeList_1.list(local15).multistacksize;
                                                 return;
                                             }
                                             if (arg0 == 4214) {

@@ -156,11 +156,11 @@ public final class Static595 {
         if (local23) {
             local10.anIntArray97[0] = arg0.gSmart2or4null();
             local10.anIntArray99[0] = arg0.gSmart2or4null();
-            if (arg1.anInt10102 != -1 || arg1.anInt10106 != -1) {
+            if (arg1.womanwear != -1 || arg1.womanwear2 != -1) {
                 local10.anIntArray97[1] = arg0.gSmart2or4null();
                 local10.anIntArray99[1] = arg0.gSmart2or4null();
             }
-            if (arg1.anInt10095 != -1 || arg1.anInt10135 != -1) {
+            if (arg1.manwear3 != -1 || arg1.womanwear3 != -1) {
                 local10.anIntArray97[2] = arg0.gSmart2or4null();
                 local10.anIntArray99[2] = arg0.gSmart2or4null();
             }
@@ -168,7 +168,7 @@ public final class Static595 {
         if (local35) {
             local10.anIntArray98[0] = arg0.gSmart2or4null();
             local10.anIntArray100[0] = arg0.gSmart2or4null();
-            if (arg1.anInt10111 != -1 || arg1.anInt10119 != -1) {
+            if (arg1.manhead2 != -1 || arg1.womanhead2 != -1) {
                 local10.anIntArray98[1] = arg0.gSmart2or4null();
                 local10.anIntArray100[1] = arg0.gSmart2or4null();
             }

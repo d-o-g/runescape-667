@@ -233,11 +233,11 @@ public final class Static147 {
                                 if (Static156.aBoolean223 && Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 == local543.aClass8_Sub2_18.aByte144) {
                                     @Pc(1451) Class296 local1451 = Static610.anInt9329 == -1 ? null : Static386.aClass49_2.method1161(Static610.anInt9329);
                                     if ((Static717.anInt10822 & 0x1) != 0 && (local1451 == null || local1424.method8794(Static610.anInt9329, local1451.anInt7509) != local1451.anInt7509)) {
-                                        Static416.method5707(false, -1, (long) local1416.id, local186, local584, Static153.aString27, 17, true, Static369.anInt4263, Static128.aString108 + " -> <col=ff9040>" + local1424.aString118, (long) local295, false);
+                                        Static416.method5707(false, -1, (long) local1416.id, local186, local584, Static153.aString27, 17, true, Static369.anInt4263, Static128.aString108 + " -> <col=ff9040>" + local1424.name, (long) local295, false);
                                     }
                                 }
                                 if (local543.aClass8_Sub2_18.aByte144 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
-                                    @Pc(1525) String[] local1525 = local1424.aStringArray46;
+                                    @Pc(1525) String[] local1525 = local1424.op;
                                     for (local723 = local1525.length - 1; local723 >= 0; local723--) {
                                         if (local1525[local723] != null) {
                                             @Pc(1540) short local1540 = 0;
@@ -260,13 +260,13 @@ public final class Static147 {
                                             if (local723 == 5) {
                                                 local1540 = 1007;
                                             }
-                                            if (local723 == local1424.anInt10129) {
-                                                local864 = local1424.anInt10112;
+                                            if (local723 == local1424.cursor1op) {
+                                                local864 = local1424.cursor1;
                                             }
-                                            if (local723 == local1424.anInt10081) {
-                                                local864 = local1424.anInt10082;
+                                            if (local723 == local1424.cursor2op) {
+                                                local864 = local1424.cursor2;
                                             }
-                                            Static416.method5707(false, -1, (long) local1416.id, local186, local584, local1525[local723], local1540, true, local864, "<col=ff9040>" + local1424.aString118, (long) local295, false);
+                                            Static416.method5707(false, -1, (long) local1416.id, local186, local584, local1525[local723], local1540, true, local864, "<col=ff9040>" + local1424.name, (long) local295, false);
                                         }
                                     }
                                 }

@@ -1011,8 +1011,8 @@ public final class Static293 {
                                                     Static574.method7573();
                                                     Static301.method4394(local526, local100, local277);
                                                     @Pc(4005) ObjType local4005 = Static419.aObjTypeList_1.list(local277);
-                                                    Static231.method3378(local4005.anInt10107, local4005.anInt10098, local526, local4005.anInt10096);
-                                                    Static528.method7087(local4005.anInt10094, local526, local4005.anInt10099, local4005.anInt10126);
+                                                    Static231.method3378(local4005.xan2d, local4005.zoom2d, local526, local4005.yan2d);
+                                                    Static528.method7087(local4005.zan2d, local526, local4005.yof2d, local4005.xof2d);
                                                     arg0.aClass225_93 = null;
                                                     return true;
                                                 } else if (arg0.aClass225_93 == Static208.aClass225_83) {

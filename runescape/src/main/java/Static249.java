@@ -38,9 +38,9 @@ public final class Static249 {
         @Pc(15) String local15 = Static518.method9293(arg0);
         @Pc(17) int[] local17 = null;
         if (Static245.method8635(arg0.anInt7314)) {
-            local17 = Static419.aObjTypeList_1.list((int) arg0.aLong233).anIntArray800;
+            local17 = Static419.aObjTypeList_1.list((int) arg0.aLong233).quests;
         } else if (arg0.anInt7317 != -1) {
-            local17 = Static419.aObjTypeList_1.list(arg0.anInt7317).anIntArray800;
+            local17 = Static419.aObjTypeList_1.list(arg0.anInt7317).quests;
         } else if (Static598.method7825(arg0.anInt7314)) {
             @Pc(51) Node_Sub45 local51 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) arg0.aLong233);
             if (local51 != null) {

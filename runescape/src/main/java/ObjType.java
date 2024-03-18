@@ -7,13 +7,13 @@ import org.openrs2.deob.annotation.Pc;
 public final class ObjType {
 
     @OriginalMember(owner = "client!vfa", name = "Cb", descriptor = "[S")
-    public short[] aShortArray134;
+    public short[] retex_s;
 
     @OriginalMember(owner = "client!vfa", name = "t", descriptor = "[S")
-    public short[] aShortArray135;
+    public short[] recol_s;
 
     @OriginalMember(owner = "client!vfa", name = "I", descriptor = "[S")
-    public short[] aShortArray136;
+    public short[] recol_d;
 
     @OriginalMember(owner = "client!vfa", name = "j", descriptor = "Lclient!es;")
     public ObjTypeList myList;
@@ -22,19 +22,19 @@ public final class ObjType {
     public int[] countco;
 
     @OriginalMember(owner = "client!vfa", name = "nb", descriptor = "Lclient!av;")
-    public HashTable aHashTable_44;
+    public HashTable params;
 
     @OriginalMember(owner = "client!vfa", name = "n", descriptor = "[B")
-    public byte[] aByteArray107;
+    public byte[] recol_d_palette;
 
     @OriginalMember(owner = "client!vfa", name = "f", descriptor = "I")
-    public int anInt10120;
+    public int mesh;
 
     @OriginalMember(owner = "client!vfa", name = "ib", descriptor = "[Ljava/lang/String;")
-    public String[] aStringArray45;
+    public String[] iop;
 
     @OriginalMember(owner = "client!vfa", name = "vb", descriptor = "[S")
-    public short[] aShortArray137;
+    public short[] retex_d;
 
     @OriginalMember(owner = "client!vfa", name = "O", descriptor = "I")
     public int anInt10134;
@@ -43,160 +43,160 @@ public final class ObjType {
     public int[] countobj;
 
     @OriginalMember(owner = "client!vfa", name = "G", descriptor = "[Ljava/lang/String;")
-    public String[] aStringArray46;
+    public String[] op;
 
     @OriginalMember(owner = "client!vfa", name = "H", descriptor = "[I")
-    public int[] anIntArray800;
+    public int[] quests;
 
     @OriginalMember(owner = "client!vfa", name = "v", descriptor = "I")
-    public int anInt10082 = -1;
+    public int cursor2 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "cb", descriptor = "I")
-    public int anInt10081 = -1;
+    public int cursor2op = -1;
 
     @OriginalMember(owner = "client!vfa", name = "W", descriptor = "I")
-    public int anInt10084 = -1;
+    public int manwear = -1;
 
     @OriginalMember(owner = "client!vfa", name = "J", descriptor = "I")
-    public int anInt10093 = -1;
+    public int cursor2iop = -1;
 
     @OriginalMember(owner = "client!vfa", name = "wb", descriptor = "I")
-    public int anInt10102 = -1;
+    public int womanwear = -1;
 
     @OriginalMember(owner = "client!vfa", name = "U", descriptor = "I")
-    public int anInt10094 = 0;
+    public int zan2d = 0;
 
     @OriginalMember(owner = "client!vfa", name = "N", descriptor = "I")
-    public int anInt10083 = -1;
+    public int lenttemplate = -1;
 
     @OriginalMember(owner = "client!vfa", name = "ob", descriptor = "I")
-    public int anInt10091 = -1;
+    public int icursor2 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "Q", descriptor = "I")
-    public int anInt10114 = -1;
+    public int boughtlink = -1;
 
     @OriginalMember(owner = "client!vfa", name = "y", descriptor = "I")
-    public int anInt10095 = -1;
+    public int manwear3 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "M", descriptor = "I")
-    public int anInt10100 = 0;
+    public int ambient = 0;
 
     @OriginalMember(owner = "client!vfa", name = "Ab", descriptor = "I")
-    public int anInt10109 = 0;
+    public int contrast = 0;
 
     @OriginalMember(owner = "client!vfa", name = "w", descriptor = "I")
-    public int anInt10092 = -1;
+    public int womanhead = -1;
 
     @OriginalMember(owner = "client!vfa", name = "F", descriptor = "I")
-    public int anInt10098 = 2000;
+    public int zoom2d = 2000;
 
     @OriginalMember(owner = "client!vfa", name = "A", descriptor = "I")
-    public int anInt10103 = -1;
+    public int multistacksize = -1;
 
     @OriginalMember(owner = "client!vfa", name = "D", descriptor = "I")
-    public int anInt10121 = 0;
+    public int team = 0;
 
     @OriginalMember(owner = "client!vfa", name = "z", descriptor = "Z")
-    public boolean aBoolean770 = false;
+    public boolean members = false;
 
     @OriginalMember(owner = "client!vfa", name = "Db", descriptor = "I")
-    public int anInt10131 = 128;
+    public int resizey = 128;
 
     @OriginalMember(owner = "client!vfa", name = "yb", descriptor = "I")
-    public int anInt10126 = 0;
+    public int xof2d = 0;
 
     @OriginalMember(owner = "client!vfa", name = "xb", descriptor = "Ljava/lang/String;")
-    public String aString118 = "null";
+    public String name = "null";
 
     @OriginalMember(owner = "client!vfa", name = "ub", descriptor = "I")
-    public int anInt10089 = -1;
+    public int icursor1 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "Z", descriptor = "I")
-    public int anInt10125 = 128;
+    public int resizex = 128;
 
     @OriginalMember(owner = "client!vfa", name = "Y", descriptor = "I")
-    public int anInt10111 = -1;
+    public int manhead2 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "jb", descriptor = "I")
-    public int anInt10119 = -1;
+    public int womanhead2 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "x", descriptor = "I")
-    public int anInt10129 = -1;
+    public int cursor1op = -1;
 
     @OriginalMember(owner = "client!vfa", name = "s", descriptor = "I")
-    public int anInt10096 = 0;
+    public int yan2d = 0;
 
     @OriginalMember(owner = "client!vfa", name = "mb", descriptor = "I")
-    public int anInt10118 = 0;
+    public int manwearzoff = 0;
 
     @OriginalMember(owner = "client!vfa", name = "R", descriptor = "I")
-    public int anInt10112 = -1;
+    public int cursor1 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "k", descriptor = "I")
-    public int anInt10122 = -1;
+    public int cursor1iop = -1;
 
     @OriginalMember(owner = "client!vfa", name = "b", descriptor = "I")
-    public int anInt10116 = 0;
+    public int womanwearyoff = 0;
 
     @OriginalMember(owner = "client!vfa", name = "Eb", descriptor = "I")
-    public int anInt10106 = -1;
+    public int womanwear2 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "P", descriptor = "I")
-    public int anInt10099 = 0;
+    public int yof2d = 0;
 
     @OriginalMember(owner = "client!vfa", name = "zb", descriptor = "I")
-    public int anInt10113 = 0;
+    public int womanwearxoff = 0;
 
     @OriginalMember(owner = "client!vfa", name = "tb", descriptor = "I")
-    public int anInt10133 = -1;
+    public int manhead = -1;
 
     @OriginalMember(owner = "client!vfa", name = "fb", descriptor = "I")
-    public int anInt10138 = 0;
+    public int picksizeshift = 0;
 
     @OriginalMember(owner = "client!vfa", name = "T", descriptor = "I")
     public int stackable = 0;
 
     @OriginalMember(owner = "client!vfa", name = "lb", descriptor = "I")
-    public int lb = 128;
+    public int resizez = 128;
 
     @OriginalMember(owner = "client!vfa", name = "pb", descriptor = "I")
-    public int anInt10135 = -1;
+    public int womanwear3 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "K", descriptor = "I")
-    public int anInt10087 = -1;
+    public int certtemplate = -1;
 
     @OriginalMember(owner = "client!vfa", name = "rb", descriptor = "I")
-    public int anInt10110 = -1;
+    public int certlink = -1;
 
     @OriginalMember(owner = "client!vfa", name = "r", descriptor = "I")
     public int cost = 1;
 
     @OriginalMember(owner = "client!vfa", name = "p", descriptor = "I")
-    public int anInt10101 = 0;
+    public int dummyitem = 0;
 
     @OriginalMember(owner = "client!vfa", name = "l", descriptor = "I")
-    public int anInt10144 = -1;
+    public int boughttemplate = -1;
 
     @OriginalMember(owner = "client!vfa", name = "qb", descriptor = "I")
-    public int anInt10107 = 0;
+    public int xan2d = 0;
 
     @OriginalMember(owner = "client!vfa", name = "Bb", descriptor = "I")
-    public int anInt10143 = -1;
+    public int lentlink = -1;
 
     @OriginalMember(owner = "client!vfa", name = "S", descriptor = "I")
-    public int anInt10104 = -1;
+    public int manwear2 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "q", descriptor = "I")
-    public int anInt10146 = 0;
+    public int manwearyoff = 0;
 
     @OriginalMember(owner = "client!vfa", name = "eb", descriptor = "I")
-    public int anInt10136 = 0;
+    public int womanwearzoff = 0;
 
     @OriginalMember(owner = "client!vfa", name = "gb", descriptor = "I")
-    public int anInt10147 = 0;
+    public int manwearxoff = 0;
 
     @OriginalMember(owner = "client!vfa", name = "L", descriptor = "Z")
-    public boolean aBoolean771 = false;
+    public boolean stockmarket = false;
 
     @OriginalMember(owner = "client!vfa", name = "b", descriptor = "(II)Lclient!vfa;")
     public ObjType getStacked(@OriginalArg(0) int count) {
@@ -221,81 +221,81 @@ public final class ObjType {
             if (local15 == 0) {
                 return;
             }
-            this.method8797(arg0, local15);
+            this.decode(arg0, local15);
         }
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(BLclient!vfa;Lclient!vfa;)V")
     public void method8792(@OriginalArg(1) ObjType arg0, @OriginalArg(2) ObjType arg1) {
-        this.aShortArray136 = arg0.aShortArray136;
-        this.anInt10133 = arg0.anInt10133;
-        this.anInt10111 = arg0.anInt10111;
-        this.anInt10095 = arg0.anInt10095;
-        this.anInt10121 = arg0.anInt10121;
-        this.aHashTable_44 = arg0.aHashTable_44;
-        this.aBoolean770 = arg0.aBoolean770;
-        this.aShortArray137 = arg0.aShortArray137;
-        this.anInt10146 = arg0.anInt10146;
-        this.anInt10106 = arg0.anInt10106;
-        this.anInt10094 = arg1.anInt10094;
-        this.aStringArray46 = arg0.aStringArray46;
-        this.anInt10119 = arg0.anInt10119;
-        this.aByteArray107 = arg0.aByteArray107;
-        this.anInt10116 = arg0.anInt10116;
-        this.anInt10107 = arg1.anInt10107;
-        this.anInt10104 = arg0.anInt10104;
-        this.anInt10120 = arg1.anInt10120;
-        this.aStringArray45 = new String[5];
-        this.anInt10096 = arg1.anInt10096;
-        this.anInt10099 = arg1.anInt10099;
-        this.aShortArray134 = arg0.aShortArray134;
-        this.anInt10113 = arg0.anInt10113;
-        this.anInt10102 = arg0.anInt10102;
+        this.recol_d = arg0.recol_d;
+        this.manhead = arg0.manhead;
+        this.manhead2 = arg0.manhead2;
+        this.manwear3 = arg0.manwear3;
+        this.team = arg0.team;
+        this.params = arg0.params;
+        this.members = arg0.members;
+        this.retex_d = arg0.retex_d;
+        this.manwearyoff = arg0.manwearyoff;
+        this.womanwear2 = arg0.womanwear2;
+        this.zan2d = arg1.zan2d;
+        this.op = arg0.op;
+        this.womanhead2 = arg0.womanhead2;
+        this.recol_d_palette = arg0.recol_d_palette;
+        this.womanwearyoff = arg0.womanwearyoff;
+        this.xan2d = arg1.xan2d;
+        this.manwear2 = arg0.manwear2;
+        this.mesh = arg1.mesh;
+        this.iop = new String[5];
+        this.yan2d = arg1.yan2d;
+        this.yof2d = arg1.yof2d;
+        this.retex_s = arg0.retex_s;
+        this.womanwearxoff = arg0.womanwearxoff;
+        this.womanwear = arg0.womanwear;
         this.cost = 0;
-        this.anInt10118 = arg0.anInt10118;
-        this.aShortArray135 = arg0.aShortArray135;
-        this.anInt10126 = arg1.anInt10126;
-        this.anInt10136 = arg0.anInt10136;
-        this.anInt10092 = arg0.anInt10092;
-        this.anInt10098 = arg1.anInt10098;
-        this.aString118 = arg0.aString118;
-        this.anInt10135 = arg0.anInt10135;
-        this.anInt10084 = arg0.anInt10084;
-        this.anInt10147 = arg0.anInt10147;
-        if (arg0.aStringArray45 != null) {
+        this.manwearzoff = arg0.manwearzoff;
+        this.recol_s = arg0.recol_s;
+        this.xof2d = arg1.xof2d;
+        this.womanwearzoff = arg0.womanwearzoff;
+        this.womanhead = arg0.womanhead;
+        this.zoom2d = arg1.zoom2d;
+        this.name = arg0.name;
+        this.womanwear3 = arg0.womanwear3;
+        this.manwear = arg0.manwear;
+        this.manwearxoff = arg0.manwearxoff;
+        if (arg0.iop != null) {
             for (@Pc(155) int local155 = 0; local155 < 4; local155++) {
-                this.aStringArray45[local155] = arg0.aStringArray45[local155];
+                this.iop[local155] = arg0.iop[local155];
             }
         }
-        this.aStringArray45[4] = Static32.aClass32_6.method877(this.myList.anInt2662);
+        this.iop[4] = Static32.aClass32_6.method877(this.myList.anInt2662);
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!vfa;ILclient!vfa;)V")
     public void method8793(@OriginalArg(0) ObjType arg0, @OriginalArg(2) ObjType arg1) {
-        this.anInt10099 = arg0.anInt10099;
-        this.aShortArray135 = arg0.aShortArray135;
+        this.yof2d = arg0.yof2d;
+        this.recol_s = arg0.recol_s;
         this.cost = arg1.cost;
-        this.aString118 = arg1.aString118;
-        this.aShortArray137 = arg0.aShortArray137;
-        this.anInt10096 = arg0.anInt10096;
-        this.anInt10094 = arg0.anInt10094;
-        this.aShortArray134 = arg0.aShortArray134;
-        this.anInt10120 = arg0.anInt10120;
-        this.anInt10098 = arg0.anInt10098;
-        this.aByteArray107 = arg0.aByteArray107;
+        this.name = arg1.name;
+        this.retex_d = arg0.retex_d;
+        this.yan2d = arg0.yan2d;
+        this.zan2d = arg0.zan2d;
+        this.retex_s = arg0.retex_s;
+        this.mesh = arg0.mesh;
+        this.zoom2d = arg0.zoom2d;
+        this.recol_d_palette = arg0.recol_d_palette;
         this.stackable = 1;
-        this.anInt10107 = arg0.anInt10107;
-        this.anInt10126 = arg0.anInt10126;
-        this.aBoolean770 = arg1.aBoolean770;
-        this.aShortArray136 = arg0.aShortArray136;
+        this.xan2d = arg0.xan2d;
+        this.xof2d = arg0.xof2d;
+        this.members = arg1.members;
+        this.recol_d = arg0.recol_d;
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(III)I")
     public int method8794(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (this.aHashTable_44 == null) {
+        if (this.params == null) {
             return arg1;
         } else {
-            @Pc(19) Node_Sub38 local19 = (Node_Sub38) this.aHashTable_44.get((long) arg0);
+            @Pc(19) Node_Sub38 local19 = (Node_Sub38) this.params.get((long) arg0);
             return local19 == null ? arg1 : local19.anInt6379;
         }
     }
@@ -322,171 +322,171 @@ public final class ObjType {
             }
         }
         if (-1 != -1) {
-            this.aShortArray135 = null;
+            this.recol_s = null;
         }
         return local8;
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!ge;ZI)V")
-    public void method8797(@OriginalArg(0) Packet arg0, @OriginalArg(2) int arg1) {
-        if (arg1 == 1) {
-            this.anInt10120 = arg0.g2();
-        } else if (arg1 == 2) {
-            this.aString118 = arg0.gjstr();
-        } else if (arg1 == 4) {
-            this.anInt10098 = arg0.g2();
-        } else if (arg1 == 5) {
-            this.anInt10107 = arg0.g2();
-        } else if (arg1 == 6) {
-            this.anInt10096 = arg0.g2();
-        } else if (arg1 == 7) {
-            this.anInt10126 = arg0.g2();
-            if (this.anInt10126 > 32767) {
-                this.anInt10126 -= 65536;
+    public void decode(@OriginalArg(0) Packet packet, @OriginalArg(2) int code) {
+        if (code == 1) {
+            this.mesh = packet.g2();
+        } else if (code == 2) {
+            this.name = packet.gjstr();
+        } else if (code == 4) {
+            this.zoom2d = packet.g2();
+        } else if (code == 5) {
+            this.xan2d = packet.g2();
+        } else if (code == 6) {
+            this.yan2d = packet.g2();
+        } else if (code == 7) {
+            this.xof2d = packet.g2();
+            if (this.xof2d > Short.MAX_VALUE) {
+                this.xof2d -= 65536;
             }
-        } else if (arg1 == 8) {
-            this.anInt10099 = arg0.g2();
-            if (this.anInt10099 > 32767) {
-                this.anInt10099 -= 65536;
+        } else if (code == 8) {
+            this.yof2d = packet.g2();
+            if (this.yof2d > Short.MAX_VALUE) {
+                this.yof2d -= 65536;
             }
-        } else if (arg1 == 11) {
+        } else if (code == 11) {
             this.stackable = 1;
-        } else if (arg1 == 12) {
-            this.cost = arg0.g4();
-        } else if (arg1 == 16) {
-            this.aBoolean770 = true;
-        } else if (arg1 == 18) {
-            this.anInt10103 = arg0.g2();
-        } else if (arg1 == 23) {
-            this.anInt10084 = arg0.g2();
-        } else if (arg1 == 24) {
-            this.anInt10102 = arg0.g2();
-        } else if (arg1 == 25) {
-            this.anInt10104 = arg0.g2();
-        } else if (arg1 == 26) {
-            this.anInt10106 = arg0.g2();
-        } else if (arg1 >= 30 && arg1 < 35) {
-            this.aStringArray46[arg1 - 30] = arg0.gjstr();
-        } else if (arg1 >= 35 && arg1 < 40) {
-            this.aStringArray45[arg1 - 35] = arg0.gjstr();
+        } else if (code == 12) {
+            this.cost = packet.g4();
+        } else if (code == 16) {
+            this.members = true;
+        } else if (code == 18) {
+            this.multistacksize = packet.g2();
+        } else if (code == 23) {
+            this.manwear = packet.g2();
+        } else if (code == 24) {
+            this.womanwear = packet.g2();
+        } else if (code == 25) {
+            this.manwear2 = packet.g2();
+        } else if (code == 26) {
+            this.womanwear2 = packet.g2();
+        } else if (code >= 30 && code < 35) {
+            this.op[code - 30] = packet.gjstr();
+        } else if (code >= 35 && code < 40) {
+            this.iop[code - 35] = packet.gjstr();
         } else {
-            @Pc(202) int local202;
-            @Pc(212) int local212;
-            if (arg1 == 40) {
-                local202 = arg0.g1();
-                this.aShortArray135 = new short[local202];
-                this.aShortArray136 = new short[local202];
-                for (local212 = 0; local212 < local202; local212++) {
-                    this.aShortArray135[local212] = (short) arg0.g2();
-                    this.aShortArray136[local212] = (short) arg0.g2();
+            @Pc(202) int len;
+            @Pc(212) int i;
+            if (code == 40) {
+                len = packet.g1();
+                this.recol_s = new short[len];
+                this.recol_d = new short[len];
+                for (i = 0; i < len; i++) {
+                    this.recol_s[i] = (short) packet.g2();
+                    this.recol_d[i] = (short) packet.g2();
                 }
-            } else if (arg1 == 41) {
-                local202 = arg0.g1();
-                this.aShortArray134 = new short[local202];
-                this.aShortArray137 = new short[local202];
-                for (local212 = 0; local212 < local202; local212++) {
-                    this.aShortArray134[local212] = (short) arg0.g2();
-                    this.aShortArray137[local212] = (short) arg0.g2();
+            } else if (code == 41) {
+                len = packet.g1();
+                this.retex_s = new short[len];
+                this.retex_d = new short[len];
+                for (i = 0; i < len; i++) {
+                    this.retex_s[i] = (short) packet.g2();
+                    this.retex_d[i] = (short) packet.g2();
                 }
-            } else if (arg1 == 42) {
-                local202 = arg0.g1();
-                this.aByteArray107 = new byte[local202];
-                for (local212 = 0; local212 < local202; local212++) {
-                    this.aByteArray107[local212] = arg0.g1b();
+            } else if (code == 42) {
+                len = packet.g1();
+                this.recol_d_palette = new byte[len];
+                for (i = 0; i < len; i++) {
+                    this.recol_d_palette[i] = packet.g1b();
                 }
-            } else if (arg1 == 65) {
-                this.aBoolean771 = true;
-            } else if (arg1 == 78) {
-                this.anInt10095 = arg0.g2();
-            } else if (arg1 == 79) {
-                this.anInt10135 = arg0.g2();
-            } else if (arg1 == 90) {
-                this.anInt10133 = arg0.g2();
-            } else if (arg1 == 91) {
-                this.anInt10092 = arg0.g2();
-            } else if (arg1 == 92) {
-                this.anInt10111 = arg0.g2();
-            } else if (arg1 == 93) {
-                this.anInt10119 = arg0.g2();
-            } else if (arg1 == 95) {
-                this.anInt10094 = arg0.g2();
-            } else if (arg1 == 96) {
-                this.anInt10101 = arg0.g1();
-            } else if (arg1 == 97) {
-                this.anInt10110 = arg0.g2();
-            } else if (arg1 == 98) {
-                this.anInt10087 = arg0.g2();
-            } else if (arg1 >= 100 && arg1 < 110) {
+            } else if (code == 65) {
+                this.stockmarket = true;
+            } else if (code == 78) {
+                this.manwear3 = packet.g2();
+            } else if (code == 79) {
+                this.womanwear3 = packet.g2();
+            } else if (code == 90) {
+                this.manhead = packet.g2();
+            } else if (code == 91) {
+                this.womanhead = packet.g2();
+            } else if (code == 92) {
+                this.manhead2 = packet.g2();
+            } else if (code == 93) {
+                this.womanhead2 = packet.g2();
+            } else if (code == 95) {
+                this.zan2d = packet.g2();
+            } else if (code == 96) {
+                this.dummyitem = packet.g1();
+            } else if (code == 97) {
+                this.certlink = packet.g2();
+            } else if (code == 98) {
+                this.certtemplate = packet.g2();
+            } else if (code >= 100 && code < 110) {
                 if (this.countobj == null) {
                     this.countco = new int[10];
                     this.countobj = new int[10];
                 }
-                this.countobj[arg1 - 100] = arg0.g2();
-                this.countco[arg1 - 100] = arg0.g2();
-            } else if (arg1 == 110) {
-                this.anInt10125 = arg0.g2();
-            } else if (arg1 == 111) {
-                this.anInt10131 = arg0.g2();
-            } else if (arg1 == 112) {
-                this.lb = arg0.g2();
-            } else if (arg1 == 113) {
-                this.anInt10100 = arg0.g1b();
-            } else if (arg1 == 114) {
-                this.anInt10109 = arg0.g1b() * 5;
-            } else if (arg1 == 115) {
-                this.anInt10121 = arg0.g1();
-            } else if (arg1 == 121) {
-                this.anInt10143 = arg0.g2();
-            } else if (arg1 == 122) {
-                this.anInt10083 = arg0.g2();
-            } else if (arg1 == 125) {
-                this.anInt10147 = arg0.g1b() << 2;
-                this.anInt10146 = arg0.g1b() << 2;
-                this.anInt10118 = arg0.g1b() << 2;
-            } else if (arg1 == 126) {
-                this.anInt10113 = arg0.g1b() << 2;
-                this.anInt10116 = arg0.g1b() << 2;
-                this.anInt10136 = arg0.g1b() << 2;
-            } else if (arg1 == 127) {
-                this.anInt10129 = arg0.g1();
-                this.anInt10112 = arg0.g2();
-            } else if (arg1 == 128) {
-                this.anInt10081 = arg0.g1();
-                this.anInt10082 = arg0.g2();
-            } else if (arg1 == 129) {
-                this.anInt10122 = arg0.g1();
-                this.anInt10089 = arg0.g2();
-            } else if (arg1 == 130) {
-                this.anInt10093 = arg0.g1();
-                this.anInt10091 = arg0.g2();
-            } else if (arg1 == 132) {
-                local202 = arg0.g1();
-                this.anIntArray800 = new int[local202];
-                for (local212 = 0; local212 < local202; local212++) {
-                    this.anIntArray800[local212] = arg0.g2();
+                this.countobj[code - 100] = packet.g2();
+                this.countco[code - 100] = packet.g2();
+            } else if (code == 110) {
+                this.resizex = packet.g2();
+            } else if (code == 111) {
+                this.resizey = packet.g2();
+            } else if (code == 112) {
+                this.resizez = packet.g2();
+            } else if (code == 113) {
+                this.ambient = packet.g1b();
+            } else if (code == 114) {
+                this.contrast = packet.g1b() * 5;
+            } else if (code == 115) {
+                this.team = packet.g1();
+            } else if (code == 121) {
+                this.lentlink = packet.g2();
+            } else if (code == 122) {
+                this.lenttemplate = packet.g2();
+            } else if (code == 125) {
+                this.manwearxoff = packet.g1b() << 2;
+                this.manwearyoff = packet.g1b() << 2;
+                this.manwearzoff = packet.g1b() << 2;
+            } else if (code == 126) {
+                this.womanwearxoff = packet.g1b() << 2;
+                this.womanwearyoff = packet.g1b() << 2;
+                this.womanwearzoff = packet.g1b() << 2;
+            } else if (code == 127) {
+                this.cursor1op = packet.g1();
+                this.cursor1 = packet.g2();
+            } else if (code == 128) {
+                this.cursor2op = packet.g1();
+                this.cursor2 = packet.g2();
+            } else if (code == 129) {
+                this.cursor1iop = packet.g1();
+                this.icursor1 = packet.g2();
+            } else if (code == 130) {
+                this.cursor2iop = packet.g1();
+                this.icursor2 = packet.g2();
+            } else if (code == 132) {
+                len = packet.g1();
+                this.quests = new int[len];
+                for (i = 0; i < len; i++) {
+                    this.quests[i] = packet.g2();
                 }
-            } else if (arg1 == 134) {
-                this.anInt10138 = arg0.g1();
-            } else if (arg1 == 139) {
-                this.anInt10114 = arg0.g2();
-            } else if (arg1 == 140) {
-                this.anInt10144 = arg0.g2();
-            } else if (arg1 == 249) {
-                local202 = arg0.g1();
-                if (this.aHashTable_44 == null) {
-                    local212 = Static440.method5962(local202);
-                    this.aHashTable_44 = new HashTable(local212);
+            } else if (code == 134) {
+                this.picksizeshift = packet.g1();
+            } else if (code == 139) {
+                this.boughtlink = packet.g2();
+            } else if (code == 140) {
+                this.boughttemplate = packet.g2();
+            } else if (code == 249) {
+                len = packet.g1();
+                if (this.params == null) {
+                    i = Static440.method5962(len);
+                    this.params = new HashTable(i);
                 }
-                for (local212 = 0; local212 < local202; local212++) {
-                    @Pc(554) boolean local554 = arg0.g1() == 1;
-                    @Pc(558) int local558 = arg0.g3();
-                    @Pc(567) Node local567;
-                    if (local554) {
-                        local567 = new Node_Sub24(arg0.gjstr());
+                for (i = 0; i < len; i++) {
+                    @Pc(554) boolean string = packet.g1() == 1;
+                    @Pc(558) int id = packet.g3();
+                    @Pc(567) Node node;
+                    if (string) {
+                        node = new Node_Sub24(packet.gjstr());
                     } else {
-                        local567 = new Node_Sub38(arg0.g4());
+                        node = new Node_Sub38(packet.g4());
                     }
-                    this.aHashTable_44.put((long) local558, local567);
+                    this.params.put((long) id, node);
                 }
             }
         }
@@ -494,7 +494,7 @@ public final class ObjType {
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
     public int[] method8798(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Class19 arg6, @OriginalArg(8) Class14 arg7, @OriginalArg(9) int arg8) {
-        @Pc(14) Class88 local14 = Static121.method2201(this.anInt10120, this.myList.aClass330_28);
+        @Pc(14) Class88 local14 = Static121.method2201(this.mesh, this.myList.aClass330_28);
         if (local14 == null) {
             return null;
         }
@@ -502,18 +502,18 @@ public final class ObjType {
             local14.method2232();
         }
         @Pc(36) int local36;
-        if (this.aShortArray135 != null) {
-            for (local36 = 0; local36 < this.aShortArray135.length; local36++) {
-                if (this.aByteArray107 == null || local36 >= this.aByteArray107.length) {
-                    local14.method2240(this.aShortArray135[local36], this.aShortArray136[local36]);
+        if (this.recol_s != null) {
+            for (local36 = 0; local36 < this.recol_s.length; local36++) {
+                if (this.recol_d_palette == null || local36 >= this.recol_d_palette.length) {
+                    local14.method2240(this.recol_s[local36], this.recol_d[local36]);
                 } else {
-                    local14.method2240(this.aShortArray135[local36], Static238.aShortArray62[this.aByteArray107[local36] & 0xFF]);
+                    local14.method2240(this.recol_s[local36], Static238.aShortArray62[this.recol_d_palette[local36] & 0xFF]);
                 }
             }
         }
-        if (this.aShortArray134 != null) {
-            for (local36 = 0; local36 < this.aShortArray134.length; local36++) {
-                local14.method2238(this.aShortArray134[local36], this.aShortArray137[local36]);
+        if (this.retex_s != null) {
+            for (local36 = 0; local36 < this.retex_s.length; local36++) {
+                local14.method2238(this.retex_s[local36], this.retex_d[local36]);
             }
         }
         if (arg5 != null) {
@@ -527,41 +527,41 @@ public final class ObjType {
         }
         @Pc(198) short local198 = 2048;
         @Pc(200) boolean local200 = false;
-        if (this.anInt10125 != 128 || this.anInt10131 != 128 || this.lb != 128) {
+        if (this.resizex != 128 || this.resizey != 128 || this.resizez != 128) {
             local200 = true;
             local198 = 2055;
         }
-        @Pc(244) Class114 local244 = arg6.method7952(local14, local198, 64, this.anInt10100 + 64, this.anInt10109 + 768);
+        @Pc(244) Class114 local244 = arg6.method7952(local14, local198, 64, this.ambient + 64, this.contrast + 768);
         if (!local244.method7474()) {
             return null;
         }
         if (local200) {
-            local244.O(this.anInt10125, this.anInt10131, this.lb);
+            local244.O(this.resizex, this.resizey, this.resizez);
         }
         @Pc(272) Class23 local272 = null;
-        if (this.anInt10087 != -1) {
-            local272 = this.myList.method2478(1, arg6, arg1, arg5, true, 0, 10, true, 0, arg7, this.anInt10110);
+        if (this.certtemplate != -1) {
+            local272 = this.myList.method2478(1, arg6, arg1, arg5, true, 0, 10, true, 0, arg7, this.certlink);
             if (local272 == null) {
                 return null;
             }
-        } else if (this.anInt10083 != -1) {
-            local272 = this.myList.method2478(arg8, arg6, arg1, arg5, true, arg3, arg2, false, 0, arg7, this.anInt10143);
+        } else if (this.lenttemplate != -1) {
+            local272 = this.myList.method2478(arg8, arg6, arg1, arg5, true, arg3, arg2, false, 0, arg7, this.lentlink);
             if (local272 == null) {
                 return null;
             }
-        } else if (this.anInt10144 != -1) {
-            local272 = this.myList.method2478(arg8, arg6, arg1, arg5, true, arg3, arg2, false, 0, arg7, this.anInt10114);
+        } else if (this.boughttemplate != -1) {
+            local272 = this.myList.method2478(arg8, arg6, arg1, arg5, true, arg3, arg2, false, 0, arg7, this.boughtlink);
             if (local272 == null) {
                 return null;
             }
         }
         @Pc(363) int local363;
         if (arg4) {
-            local363 = (int) ((double) this.anInt10098 * 1.5D) << 2;
+            local363 = (int) ((double) this.zoom2d * 1.5D) << 2;
         } else if (arg8 == 2) {
-            local363 = (int) ((double) this.anInt10098 * 1.04D) << 2;
+            local363 = (int) ((double) this.zoom2d * 1.04D) << 2;
         } else {
-            local363 = this.anInt10098 << 2;
+            local363 = this.zoom2d << 2;
         }
         arg6.DA(16, 16, 512, 512);
         @Pc(395) Class73 local395 = arg6.method7953();
@@ -570,10 +570,10 @@ public final class ObjType {
         arg6.xa(1.0F);
         arg6.ZA(16777215, 1.0F, 1.0F, -50.0F, -10.0F, -50.0F);
         @Pc(414) Class73 local414 = arg6.method7985();
-        local414.method7132(-this.anInt10094 << 3);
-        local414.method7127(this.anInt10096 << 3);
-        local414.method7134(this.anInt10126 << 2, (Class361.anIntArray741[this.anInt10107 << 3] * local363 >> 14) + (this.anInt10099 << 2) - (local244.fa() / 2), (Class361.anIntArray740[this.anInt10107 << 3] * local363 >> 14) - -(this.anInt10099 << 2));
-        local414.method7130(this.anInt10107 << 3);
+        local414.method7132(-this.zan2d << 3);
+        local414.method7127(this.yan2d << 3);
+        local414.method7134(this.xof2d << 2, (Class361.anIntArray741[this.xan2d << 3] * local363 >> 14) + (this.yof2d << 2) - (local244.fa() / 2), (Class361.anIntArray740[this.xan2d << 3] * local363 >> 14) - -(this.yof2d << 2));
+        local414.method7130(this.xan2d << 3);
         @Pc(480) int local480 = arg6.i();
         @Pc(483) int local483 = arg6.XA();
         arg6.f(50, Integer.MAX_VALUE);
@@ -593,11 +593,11 @@ public final class ObjType {
             this.method8804(arg3, local515);
         }
         arg6.method7946(36, 36, 32, local515).method8202(0, 0);
-        if (this.anInt10087 != -1) {
+        if (this.certtemplate != -1) {
             local272.method8202(0, 0);
-        } else if (this.anInt10083 != -1) {
+        } else if (this.lenttemplate != -1) {
             local272.method8202(0, 0);
-        } else if (this.anInt10144 != -1) {
+        } else if (this.boughttemplate != -1) {
             local272.method8202(0, 0);
         }
         if (arg0 == 1 || arg0 == 2 && (this.stackable == 1 || arg2 != 1) && arg2 != -1) {
@@ -621,18 +621,18 @@ public final class ObjType {
         @Pc(29) int local29;
         if (arg1) {
             if (arg0 == null || arg0.anIntArray99 == null) {
-                local19 = this.anInt10104;
-                local24 = this.anInt10106;
-                local29 = this.anInt10135;
+                local19 = this.manwear2;
+                local24 = this.womanwear2;
+                local29 = this.womanwear3;
             } else {
                 local29 = arg0.anIntArray99[2];
                 local19 = arg0.anIntArray99[0];
                 local24 = arg0.anIntArray99[1];
             }
         } else if (arg0 == null || arg0.anIntArray97 == null) {
-            local29 = this.anInt10095;
-            local19 = this.anInt10084;
-            local24 = this.anInt10102;
+            local29 = this.manwear3;
+            local19 = this.manwear;
+            local24 = this.womanwear;
         } else {
             local19 = arg0.anIntArray97[0];
             local24 = arg0.anIntArray97[1];
@@ -665,32 +665,32 @@ public final class ObjType {
                 local86 = new Class88(local162, 3);
             }
         }
-        if (!arg1 && (this.anInt10147 != 0 || this.anInt10146 != 0 || this.anInt10118 != 0)) {
-            local86.method2233(this.anInt10147, this.anInt10146, this.anInt10118);
+        if (!arg1 && (this.manwearxoff != 0 || this.manwearyoff != 0 || this.manwearzoff != 0)) {
+            local86.method2233(this.manwearxoff, this.manwearyoff, this.manwearzoff);
         }
-        if (arg1 && (this.anInt10113 != 0 || this.anInt10116 != 0 || this.anInt10136 != 0)) {
-            local86.method2233(this.anInt10113, this.anInt10116, this.anInt10136);
+        if (arg1 && (this.womanwearxoff != 0 || this.womanwearyoff != 0 || this.womanwearzoff != 0)) {
+            local86.method2233(this.womanwearxoff, this.womanwearyoff, this.womanwearzoff);
         }
         @Pc(269) short[] local269;
         @Pc(275) int local275;
-        if (this.aShortArray135 != null) {
+        if (this.recol_s != null) {
             if (arg0 == null || arg0.aShortArray11 == null) {
-                local269 = this.aShortArray136;
+                local269 = this.recol_d;
             } else {
                 local269 = arg0.aShortArray11;
             }
-            for (local275 = 0; local275 < this.aShortArray135.length; local275++) {
-                local86.method2240(this.aShortArray135[local275], local269[local275]);
+            for (local275 = 0; local275 < this.recol_s.length; local275++) {
+                local86.method2240(this.recol_s[local275], local269[local275]);
             }
         }
-        if (this.aShortArray134 != null) {
+        if (this.retex_s != null) {
             if (arg0 == null || arg0.aShortArray10 == null) {
-                local269 = this.aShortArray137;
+                local269 = this.retex_d;
             } else {
                 local269 = arg0.aShortArray10;
             }
-            for (local275 = 0; local275 < this.aShortArray134.length; local275++) {
-                local86.method2238(this.aShortArray134[local275], local269[local275]);
+            for (local275 = 0; local275 < this.retex_s.length; local275++) {
+                local86.method2238(this.retex_s[local275], local269[local275]);
             }
         }
         return local86;
@@ -698,10 +698,10 @@ public final class ObjType {
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Ljava/lang/String;II)Ljava/lang/String;")
     public String method8800(@OriginalArg(0) String arg0, @OriginalArg(2) int arg1) {
-        if (this.aHashTable_44 == null) {
+        if (this.params == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub24 local17 = (Node_Sub24) this.aHashTable_44.get((long) arg1);
+            @Pc(17) Node_Sub24 local17 = (Node_Sub24) this.params.get((long) arg1);
             return local17 == null ? arg0 : local17.aString46;
         }
     }
@@ -712,15 +712,15 @@ public final class ObjType {
         @Pc(26) int local26;
         if (arg0) {
             if (arg1 == null || arg1.anIntArray100 == null) {
-                local21 = this.anInt10092;
-                local26 = this.anInt10119;
+                local21 = this.womanhead;
+                local26 = this.womanhead2;
             } else {
                 local26 = arg1.anIntArray100[1];
                 local21 = arg1.anIntArray100[0];
             }
         } else if (arg1 == null || arg1.anIntArray98 == null) {
-            local26 = this.anInt10111;
-            local21 = this.anInt10133;
+            local26 = this.manhead2;
+            local21 = this.manhead;
         } else {
             local21 = arg1.anIntArray98[0];
             local26 = arg1.anIntArray98[1];
@@ -742,24 +742,24 @@ public final class ObjType {
         }
         @Pc(149) short[] local149;
         @Pc(156) int local156;
-        if (this.aShortArray135 != null) {
+        if (this.recol_s != null) {
             if (arg1 == null || arg1.aShortArray11 == null) {
-                local149 = this.aShortArray136;
+                local149 = this.recol_d;
             } else {
                 local149 = arg1.aShortArray11;
             }
-            for (local156 = 0; local156 < this.aShortArray135.length; local156++) {
-                local84.method2240(this.aShortArray135[local156], local149[local156]);
+            for (local156 = 0; local156 < this.recol_s.length; local156++) {
+                local84.method2240(this.recol_s[local156], local149[local156]);
             }
         }
-        if (this.aShortArray134 != null) {
+        if (this.retex_s != null) {
             if (arg1 == null || arg1.aShortArray10 == null) {
-                local149 = this.aShortArray137;
+                local149 = this.retex_d;
             } else {
                 local149 = arg1.aShortArray10;
             }
-            for (local156 = 0; local156 < this.aShortArray134.length; local156++) {
-                local84.method2238(this.aShortArray134[local156], local149[local156]);
+            for (local156 = 0; local156 < this.retex_s.length; local156++) {
+                local84.method2238(this.retex_s[local156], local149[local156]);
             }
         }
         return local84;
@@ -772,18 +772,18 @@ public final class ObjType {
         @Pc(20) int local20;
         if (arg0) {
             if (arg1 == null || arg1.anIntArray99 == null) {
-                local17 = this.anInt10104;
-                local20 = this.anInt10135;
-                local23 = this.anInt10106;
+                local17 = this.manwear2;
+                local20 = this.womanwear3;
+                local23 = this.womanwear2;
             } else {
                 local17 = arg1.anIntArray99[0];
                 local23 = arg1.anIntArray99[1];
                 local20 = arg1.anIntArray99[2];
             }
         } else if (arg1 == null || arg1.anIntArray97 == null) {
-            local20 = this.anInt10095;
-            local17 = this.anInt10084;
-            local23 = this.anInt10102;
+            local20 = this.manwear3;
+            local17 = this.manwear;
+            local23 = this.womanwear;
         } else {
             local23 = arg1.anIntArray97[1];
             local20 = arg1.anIntArray97[2];
@@ -857,45 +857,45 @@ public final class ObjType {
                 local17 = arg4.method8013(local17, local104.ua());
             }
             @Pc(141) int local141 = local17;
-            if (this.aShortArray134 != null) {
+            if (this.retex_s != null) {
                 local141 = local17 | 0x8000;
             }
-            if (this.aShortArray135 != null || arg2 != null) {
+            if (this.recol_s != null || arg2 != null) {
                 local141 |= 0x4000;
             }
-            if (this.anInt10125 != 128) {
+            if (this.resizex != 128) {
                 local141 |= 0x1;
             }
-            if (this.anInt10125 != 128) {
+            if (this.resizex != 128) {
                 local141 |= 0x2;
             }
-            if (this.anInt10125 != 128) {
+            if (this.resizex != 128) {
                 local141 |= 0x4;
             }
-            @Pc(196) Class88 local196 = Static121.method2201(this.anInt10120, this.myList.aClass330_28);
+            @Pc(196) Class88 local196 = Static121.method2201(this.mesh, this.myList.aClass330_28);
             if (local196 == null) {
                 return null;
             }
             if (local196.anInt2379 < 13) {
                 local196.method2232();
             }
-            local104 = arg4.method7952(local196, local141, this.myList.anInt2673, this.anInt10100 + 64, 850 - -this.anInt10109);
-            if (this.anInt10125 != 128 || this.anInt10131 != 128 || this.lb != 128) {
-                local104.O(this.anInt10125, this.anInt10131, this.lb);
+            local104 = arg4.method7952(local196, local141, this.myList.anInt2673, this.ambient + 64, 850 - -this.contrast);
+            if (this.resizex != 128 || this.resizey != 128 || this.resizez != 128) {
+                local104.O(this.resizex, this.resizey, this.resizez);
             }
             @Pc(265) int local265;
-            if (this.aShortArray135 != null) {
-                for (local265 = 0; local265 < this.aShortArray135.length; local265++) {
-                    if (this.aByteArray107 == null || this.aByteArray107.length <= local265) {
-                        local104.ia(this.aShortArray135[local265], this.aShortArray136[local265]);
+            if (this.recol_s != null) {
+                for (local265 = 0; local265 < this.recol_s.length; local265++) {
+                    if (this.recol_d_palette == null || this.recol_d_palette.length <= local265) {
+                        local104.ia(this.recol_s[local265], this.recol_d[local265]);
                     } else {
-                        local104.ia(this.aShortArray135[local265], Static238.aShortArray62[this.aByteArray107[local265] & 0xFF]);
+                        local104.ia(this.recol_s[local265], Static238.aShortArray62[this.recol_d_palette[local265] & 0xFF]);
                     }
                 }
             }
-            if (this.aShortArray134 != null) {
-                for (local265 = 0; local265 < this.aShortArray134.length; local265++) {
-                    local104.aa(this.aShortArray134[local265], this.aShortArray137[local265]);
+            if (this.retex_s != null) {
+                for (local265 = 0; local265 < this.retex_s.length; local265++) {
+                    local104.aa(this.retex_s[local265], this.retex_d[local265]);
                 }
             }
             if (arg2 != null) {
@@ -931,15 +931,15 @@ public final class ObjType {
         @Pc(22) int local22;
         if (arg1) {
             if (arg0 == null || arg0.anIntArray100 == null) {
-                local19 = this.anInt10092;
-                local22 = this.anInt10119;
+                local19 = this.womanhead;
+                local22 = this.womanhead2;
             } else {
                 local19 = arg0.anIntArray100[0];
                 local22 = arg0.anIntArray100[1];
             }
         } else if (arg0 == null || arg0.anIntArray98 == null) {
-            local22 = this.anInt10111;
-            local19 = this.anInt10133;
+            local22 = this.manhead2;
+            local19 = this.manhead;
         } else {
             local22 = arg0.anIntArray98[1];
             local19 = arg0.anIntArray98[0];
@@ -960,46 +960,46 @@ public final class ObjType {
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!vfa;BLclient!vfa;)V")
     public void method8809(@OriginalArg(0) ObjType arg0, @OriginalArg(2) ObjType arg1) {
         this.cost = 0;
-        this.anInt10095 = arg1.anInt10095;
+        this.manwear3 = arg1.manwear3;
         this.stackable = arg1.stackable;
-        this.aBoolean770 = arg1.aBoolean770;
-        this.aByteArray107 = arg1.aByteArray107;
-        this.anInt10099 = arg0.anInt10099;
-        this.anInt10121 = arg1.anInt10121;
-        this.anInt10102 = arg1.anInt10102;
-        this.aStringArray45 = new String[5];
-        this.aStringArray46 = arg1.aStringArray46;
-        this.anInt10146 = arg1.anInt10146;
-        this.anInt10133 = arg1.anInt10133;
-        this.anInt10116 = arg1.anInt10116;
-        this.aString118 = arg1.aString118;
-        this.anInt10098 = arg0.anInt10098;
-        this.aShortArray135 = arg1.aShortArray135;
-        this.anInt10119 = arg1.anInt10119;
-        this.aHashTable_44 = arg1.aHashTable_44;
-        this.anInt10104 = arg1.anInt10104;
-        this.anInt10107 = arg0.anInt10107;
-        this.anInt10096 = arg0.anInt10096;
-        this.anInt10113 = arg1.anInt10113;
-        this.anInt10111 = arg1.anInt10111;
-        this.anInt10135 = arg1.anInt10135;
-        this.aShortArray137 = arg1.aShortArray137;
-        this.anInt10147 = arg1.anInt10147;
-        this.anInt10092 = arg1.anInt10092;
-        this.anInt10120 = arg0.anInt10120;
-        this.aShortArray136 = arg1.aShortArray136;
-        this.anInt10106 = arg1.anInt10106;
-        this.anInt10126 = arg0.anInt10126;
-        this.anInt10094 = arg0.anInt10094;
-        this.anInt10084 = arg1.anInt10084;
-        this.anInt10136 = arg1.anInt10136;
-        this.anInt10118 = arg1.anInt10118;
-        this.aShortArray134 = arg1.aShortArray134;
-        if (arg1.aStringArray45 != null) {
+        this.members = arg1.members;
+        this.recol_d_palette = arg1.recol_d_palette;
+        this.yof2d = arg0.yof2d;
+        this.team = arg1.team;
+        this.womanwear = arg1.womanwear;
+        this.iop = new String[5];
+        this.op = arg1.op;
+        this.manwearyoff = arg1.manwearyoff;
+        this.manhead = arg1.manhead;
+        this.womanwearyoff = arg1.womanwearyoff;
+        this.name = arg1.name;
+        this.zoom2d = arg0.zoom2d;
+        this.recol_s = arg1.recol_s;
+        this.womanhead2 = arg1.womanhead2;
+        this.params = arg1.params;
+        this.manwear2 = arg1.manwear2;
+        this.xan2d = arg0.xan2d;
+        this.yan2d = arg0.yan2d;
+        this.womanwearxoff = arg1.womanwearxoff;
+        this.manhead2 = arg1.manhead2;
+        this.womanwear3 = arg1.womanwear3;
+        this.retex_d = arg1.retex_d;
+        this.manwearxoff = arg1.manwearxoff;
+        this.womanhead = arg1.womanhead;
+        this.mesh = arg0.mesh;
+        this.recol_d = arg1.recol_d;
+        this.womanwear2 = arg1.womanwear2;
+        this.xof2d = arg0.xof2d;
+        this.zan2d = arg0.zan2d;
+        this.manwear = arg1.manwear;
+        this.womanwearzoff = arg1.womanwearzoff;
+        this.manwearzoff = arg1.manwearzoff;
+        this.retex_s = arg1.retex_s;
+        if (arg1.iop != null) {
             for (@Pc(161) int local161 = 0; local161 < 4; local161++) {
-                this.aStringArray45[local161] = arg1.aStringArray45[local161];
+                this.iop[local161] = arg1.iop[local161];
             }
         }
-        this.aStringArray45[4] = Static32.aClass32_7.method877(this.myList.anInt2662);
+        this.iop[4] = Static32.aClass32_7.method877(this.myList.anInt2662);
     }
 }

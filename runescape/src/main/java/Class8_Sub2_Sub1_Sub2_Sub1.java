@@ -454,7 +454,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                         local191 = Static349.anIntArray426[local191 - 32768];
                         local139[local151] = local191 | 0x40000000;
                         local149[local151] = Static419.aObjTypeList_1.list(local191);
-                        local240 = local149[local151].anInt10121;
+                        local240 = local149[local151].team;
                         if (local240 != 0) {
                             this.anInt1433 = local240;
                         }

@@ -223,31 +223,31 @@ public final class ObjTypeList {
         local26 = new ObjType();
         local26.anInt10134 = arg0;
         local26.myList = this;
-        local26.aStringArray46 = (String[]) this.aStringArray11.clone();
-        local26.aStringArray45 = (String[]) this.aStringArray10.clone();
+        local26.op = (String[]) this.aStringArray11.clone();
+        local26.iop = (String[]) this.aStringArray10.clone();
         if (local53 != null) {
             local26.method8791(new Packet(local53));
         }
         local26.method8807();
-        if (local26.anInt10087 != -1) {
-            local26.method8793(this.list(local26.anInt10087), this.list(local26.anInt10110));
+        if (local26.certtemplate != -1) {
+            local26.method8793(this.list(local26.certtemplate), this.list(local26.certlink));
         }
-        if (local26.anInt10083 != -1) {
-            local26.method8792(this.list(local26.anInt10143), this.list(local26.anInt10083));
+        if (local26.lenttemplate != -1) {
+            local26.method8792(this.list(local26.lentlink), this.list(local26.lenttemplate));
         }
-        if (local26.anInt10144 != -1) {
-            local26.method8809(this.list(local26.anInt10144), this.list(local26.anInt10114));
+        if (local26.boughttemplate != -1) {
+            local26.method8809(this.list(local26.boughttemplate), this.list(local26.boughtlink));
         }
-        if (!this.aBoolean222 && local26.aBoolean770) {
-            local26.aString118 = Static32.aClass32_5.method877(this.anInt2662);
-            local26.aStringArray46 = this.aStringArray11;
-            local26.aStringArray45 = this.aStringArray10;
-            local26.anIntArray800 = null;
-            local26.anInt10121 = 0;
-            local26.aBoolean771 = false;
-            if (local26.aHashTable_44 != null) {
+        if (!this.aBoolean222 && local26.members) {
+            local26.name = Static32.aClass32_5.method877(this.anInt2662);
+            local26.op = this.aStringArray11;
+            local26.iop = this.aStringArray10;
+            local26.quests = null;
+            local26.team = 0;
+            local26.stockmarket = false;
+            if (local26.params != null) {
                 @Pc(195) boolean local195 = false;
-                for (@Pc(200) Node local200 = local26.aHashTable_44.first(); local200 != null; local200 = local26.aHashTable_44.next()) {
+                for (@Pc(200) Node local200 = local26.params.first(); local200 != null; local200 = local26.params.next()) {
                     @Pc(209) Class296 local209 = this.aClass49_1.method1161((int) local200.key);
                     if (local209.aBoolean570) {
                         local200.remove();
@@ -256,7 +256,7 @@ public final class ObjTypeList {
                     }
                 }
                 if (!local195) {
-                    local26.aHashTable_44 = null;
+                    local26.params = null;
                 }
             }
         }

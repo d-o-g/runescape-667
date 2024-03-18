@@ -58,7 +58,7 @@ public final class Static311 {
         @Pc(54) int local54 = 0;
         for (@Pc(56) int local56 = 0; local56 < Static419.aObjTypeList_1.anInt2670; local56++) {
             @Pc(62) ObjType local62 = Static419.aObjTypeList_1.list(local56);
-            if ((!arg1 || local62.aBoolean771) && local62.anInt10087 == -1 && local62.anInt10083 == -1 && local62.anInt10144 == -1 && local62.anInt10101 == 0 && local62.aString118.toLowerCase().indexOf(local9) != -1) {
+            if ((!arg1 || local62.stockmarket) && local62.certtemplate == -1 && local62.lenttemplate == -1 && local62.boughttemplate == -1 && local62.dummyitem == 0 && local62.name.toLowerCase().indexOf(local9) != -1) {
                 if (arg3 != -1) {
                     if (arg0) {
                         if (!arg5.equals(local62.method8800(local16, arg3))) {
@@ -88,7 +88,7 @@ public final class Static311 {
         Static256.aShortArray63 = local12;
         @Pc(203) String[] local203 = new String[Static606.anInt8947];
         for (@Pc(205) int local205 = 0; local205 < Static606.anInt8947; local205++) {
-            local203[local205] = Static419.aObjTypeList_1.list(local12[local205]).aString118;
+            local203[local205] = Static419.aObjTypeList_1.list(local12[local205]).name;
         }
         Static554.method7292(local203, Static256.aShortArray63);
         Static380.aClass330_79.method7592();

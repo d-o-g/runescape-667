@@ -42,17 +42,17 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
     @Override
     public int method9287() {
         @Pc(9) ObjType local9 = Static419.aObjTypeList_1.list(this.anInt8867);
-        @Pc(12) int local12 = local9.anInt10138;
+        @Pc(12) int local12 = local9.picksizeshift;
         if (this.anInt8878 != -1) {
             @Pc(22) ObjType local22 = Static419.aObjTypeList_1.list(this.anInt8878);
-            if (local22.anInt10138 > local12) {
-                local12 = local22.anInt10138;
+            if (local22.picksizeshift > local12) {
+                local12 = local22.picksizeshift;
             }
         }
         if (this.anInt8876 != -1) {
             @Pc(48) ObjType local48 = Static419.aObjTypeList_1.list(this.anInt8876);
-            if (local48.anInt10138 > local12) {
-                local12 = local48.anInt10138;
+            if (local48.picksizeshift > local12) {
+                local12 = local48.picksizeshift;
             }
         }
         return local12;
@@ -106,21 +106,21 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         local16.method7125(super.anInt10690, super.anInt10691 - 10, super.anInt10694);
         @Pc(32) ObjType local32 = Static419.aObjTypeList_1.list(this.anInt8867);
         @Pc(42) Class114 local42 = local32.method8805((Class152) null, 131072, (Class201) null, this.anInt8873, arg3);
-        if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local32.anInt10138, Static582.anInt8627) : local42.method7486(arg1, arg0, local16, true, local32.anInt10138))) {
+        if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local32.picksizeshift, Static582.anInt8627) : local42.method7486(arg1, arg0, local16, true, local32.picksizeshift))) {
             return true;
         }
         @Pc(82) ObjType local82;
         if (this.anInt8878 != -1) {
             local82 = Static419.aObjTypeList_1.list(this.anInt8878);
             local42 = local82.method8805((Class152) null, 131072, (Class201) null, this.anInt8874, arg3);
-            if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local82.anInt10138, Static582.anInt8627) : local42.method7486(arg1, arg0, local16, true, local82.anInt10138))) {
+            if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.method7486(arg1, arg0, local16, true, local82.picksizeshift))) {
                 return true;
             }
         }
         if (this.anInt8876 != -1) {
             local82 = Static419.aObjTypeList_1.list(this.anInt8876);
             local42 = local82.method8805((Class152) null, 131072, (Class201) null, this.anInt8872, arg3);
-            if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local82.anInt10138, Static582.anInt8627) : local42.method7486(arg1, arg0, local16, true, local82.anInt10138))) {
+            if (local42 != null && (Static504.aBoolean579 ? local42.method7483(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.method7486(arg1, arg0, local16, true, local82.picksizeshift))) {
                 return true;
             }
         }

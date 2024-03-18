@@ -25,23 +25,23 @@ public final class Class52 {
 
     @OriginalMember(owner = "client!bs", name = "<init>", descriptor = "(Lclient!vfa;)V")
     public Class52(@OriginalArg(0) ObjType arg0) {
-        this.anIntArray97[0] = arg0.anInt10084;
-        this.anIntArray97[1] = arg0.anInt10102;
-        this.anIntArray97[2] = arg0.anInt10095;
-        this.anIntArray99[0] = arg0.anInt10104;
-        this.anIntArray99[1] = arg0.anInt10106;
-        this.anIntArray99[2] = arg0.anInt10135;
-        this.anIntArray98[0] = arg0.anInt10133;
-        this.anIntArray98[1] = arg0.anInt10111;
-        this.anIntArray100[0] = arg0.anInt10092;
-        this.anIntArray100[1] = arg0.anInt10119;
-        if (arg0.aShortArray136 != null) {
-            this.aShortArray11 = new short[arg0.aShortArray136.length];
-            Static734.method7692(arg0.aShortArray136, 0, this.aShortArray11, 0, this.aShortArray11.length);
+        this.anIntArray97[0] = arg0.manwear;
+        this.anIntArray97[1] = arg0.womanwear;
+        this.anIntArray97[2] = arg0.manwear3;
+        this.anIntArray99[0] = arg0.manwear2;
+        this.anIntArray99[1] = arg0.womanwear2;
+        this.anIntArray99[2] = arg0.womanwear3;
+        this.anIntArray98[0] = arg0.manhead;
+        this.anIntArray98[1] = arg0.manhead2;
+        this.anIntArray100[0] = arg0.womanhead;
+        this.anIntArray100[1] = arg0.womanhead2;
+        if (arg0.recol_d != null) {
+            this.aShortArray11 = new short[arg0.recol_d.length];
+            Static734.method7692(arg0.recol_d, 0, this.aShortArray11, 0, this.aShortArray11.length);
         }
-        if (arg0.aShortArray137 != null) {
-            this.aShortArray10 = new short[arg0.aShortArray137.length];
-            Static734.method7692(arg0.aShortArray137, 0, this.aShortArray10, 0, this.aShortArray10.length);
+        if (arg0.retex_d != null) {
+            this.aShortArray10 = new short[arg0.retex_d.length];
+            Static734.method7692(arg0.retex_d, 0, this.aShortArray10, 0, this.aShortArray10.length);
         }
     }
 }

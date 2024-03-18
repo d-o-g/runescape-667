@@ -540,7 +540,7 @@ public final class Class268 {
                 if (local165) {
                     return null;
                 }
-                @Pc(215) Class88[] local215 = new Class88[local163.length];
+                @Pc(215) Mesh[] local215 = new Mesh[local163.length];
                 @Pc(219) Class330 local219 = this.aClass308_1.aClass330_102;
                 synchronized (this.aClass308_1.aClass330_102) {
                     @Pc(223) int local223 = 0;
@@ -557,11 +557,11 @@ public final class Class268 {
                         local215[local258].method2232();
                     }
                 }
-                @Pc(304) Class88 local304;
+                @Pc(304) Mesh local304;
                 if (local215.length == 1) {
                     local304 = local215[0];
                 } else {
-                    local304 = new Class88(local215, local215.length);
+                    local304 = new Mesh(local215, local215.length);
                 }
                 local94 = arg2.method7952(local304, local125, this.aClass308_1.anInt8088, 64, 768);
                 @Pc(340) int local340;
@@ -680,7 +680,7 @@ public final class Class268 {
             if (local218) {
                 return null;
             }
-            @Pc(267) Class88[] local267 = new Class88[local216.length];
+            @Pc(267) Mesh[] local267 = new Mesh[local216.length];
             for (local226 = 0; local226 < local216.length; local226++) {
                 if (local216[local226] != -1) {
                     @Pc(280) Class330 local280 = this.aClass308_1.aClass330_102;
@@ -723,11 +723,11 @@ public final class Class268 {
                     }
                 }
             }
-            @Pc(529) Class88 local529;
+            @Pc(529) Mesh local529;
             if (local267.length == 1) {
                 local529 = local267[0];
             } else {
-                local529 = new Class88(local267, local267.length);
+                local529 = new Mesh(local267, local267.length);
             }
             local139 = arg1.method7952(local529, local178, this.aClass308_1.anInt8088, this.anInt6732 + 64, this.anInt6747 + 850);
             @Pc(568) short[] local568;

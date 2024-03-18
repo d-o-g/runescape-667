@@ -27,7 +27,7 @@ public final class Static345 {
         if (aClass114_6 != null) {
             return;
         }
-        @Pc(8) Class88 local8 = new Class88(580, 1104, 1);
+        @Pc(8) Mesh local8 = new Mesh(580, 1104, 1);
         local8.method2237();
         local8.method2230(0, 128, 0);
         local8.method2230(0, -128, 0);

@@ -196,7 +196,7 @@ public final class Class114_Sub2 extends Class114 {
     }
 
     @OriginalMember(owner = "client!kla", name = "<init>", descriptor = "(Lclient!qha;Lclient!dv;IIII)V")
-    public Class114_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Class88 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Class114_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass19_Sub3_24 = arg0;
         this.anInt5520 = arg2;
         this.anInt5529 = arg5;
@@ -3872,7 +3872,7 @@ public final class Class114_Sub2 extends Class114 {
     }
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(JIFFIIILclient!dv;II)S")
-    public short method4993(@OriginalArg(0) long arg0, @OriginalArg(1) int arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) Class88 arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
+    public short method4993(@OriginalArg(0) long arg0, @OriginalArg(1) int arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) Mesh arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
         @Pc(25) int local25 = this.anIntArray411[arg8];
         @Pc(32) int local32 = this.anIntArray411[arg8 + 1];
         @Pc(34) int local34 = 0;

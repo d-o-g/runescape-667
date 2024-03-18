@@ -991,14 +991,14 @@ public final class Class54 {
                 if (local123 != null) {
                     local265 = arg0.method8013(local265, local123.ua());
                 }
-                @Pc(275) Class88 local275 = null;
-                @Pc(277) Class88[] local277 = Static600.aClass88Array1;
-                synchronized (Static600.aClass88Array1) {
+                @Pc(275) Mesh local275 = null;
+                @Pc(277) Mesh[] local277 = Static600.A_MESH_ARRAY_1;
+                synchronized (Static600.A_MESH_ARRAY_1) {
                     @Pc(281) int local281 = 0;
                     while (true) {
                         if (local281 >= local182) {
                             if (local182 > 1) {
-                                local275 = new Class88(Static600.aClass88Array1, local182);
+                                local275 = new Mesh(Static600.A_MESH_ARRAY_1, local182);
                             }
                             break;
                         }
@@ -1013,7 +1013,7 @@ public final class Class54 {
                             local275.method2232();
                         }
                         if (local182 > 1) {
-                            Static600.aClass88Array1[local281] = local275;
+                            Static600.A_MESH_ARRAY_1[local281] = local275;
                         }
                         local281++;
                     }

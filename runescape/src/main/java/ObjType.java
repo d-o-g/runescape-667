@@ -495,7 +495,7 @@ public final class ObjType {
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
     public int[] method8798(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Class19 arg6, @OriginalArg(8) Class14 arg7, @OriginalArg(9) int arg8) {
-        @Pc(14) Class88 local14 = Static121.method2201(this.mesh, this.myList.aClass330_28);
+        @Pc(14) Mesh local14 = Static121.method2201(this.mesh, this.myList.meshes);
         if (local14 == null) {
             return null;
         }
@@ -616,7 +616,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!bs;ZI)Lclient!dv;")
-    public Class88 method8799(@OriginalArg(0) Class52 arg0, @OriginalArg(1) boolean arg1) {
+    public Mesh method8799(@OriginalArg(0) Class52 arg0, @OriginalArg(1) boolean arg1) {
         @Pc(19) int local19;
         @Pc(24) int local24;
         @Pc(29) int local29;
@@ -642,7 +642,7 @@ public final class ObjType {
         if (local19 == -1) {
             return null;
         }
-        @Pc(86) Class88 local86 = Static121.method2201(local19, this.myList.aClass330_28);
+        @Pc(86) Mesh local86 = Static121.method2201(local19, this.myList.meshes);
         if (local86 == null) {
             return null;
         }
@@ -650,20 +650,20 @@ public final class ObjType {
             local86.method2232();
         }
         if (local24 != -1) {
-            @Pc(113) Class88 local113 = Static121.method2201(local24, this.myList.aClass330_28);
+            @Pc(113) Mesh local113 = Static121.method2201(local24, this.myList.meshes);
             if (local113.anInt2379 < 13) {
                 local113.method2232();
             }
             if (local29 == -1) {
-                @Pc(180) Class88[] local180 = new Class88[]{local86, local113};
-                local86 = new Class88(local180, 2);
+                @Pc(180) Mesh[] local180 = new Mesh[]{local86, local113};
+                local86 = new Mesh(local180, 2);
             } else {
-                @Pc(137) Class88 local137 = Static121.method2201(local29, this.myList.aClass330_28);
+                @Pc(137) Mesh local137 = Static121.method2201(local29, this.myList.meshes);
                 if (local137.anInt2379 < 13) {
                     local137.method2232();
                 }
-                @Pc(162) Class88[] local162 = new Class88[]{local86, local113, local137};
-                local86 = new Class88(local162, 3);
+                @Pc(162) Mesh[] local162 = new Mesh[]{local86, local113, local137};
+                local86 = new Mesh(local162, 3);
             }
         }
         if (!arg1 && (this.manwearxoff != 0 || this.manwearyoff != 0 || this.manwearzoff != 0)) {
@@ -708,7 +708,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ZLclient!bs;I)Lclient!dv;")
-    public Class88 method8801(@OriginalArg(0) boolean arg0, @OriginalArg(1) Class52 arg1) {
+    public Mesh method8801(@OriginalArg(0) boolean arg0, @OriginalArg(1) Class52 arg1) {
         @Pc(21) int local21;
         @Pc(26) int local26;
         if (arg0) {
@@ -729,17 +729,17 @@ public final class ObjType {
         if (local21 == -1) {
             return null;
         }
-        @Pc(84) Class88 local84 = Static121.method2201(local21, this.myList.aClass330_28);
+        @Pc(84) Mesh local84 = Static121.method2201(local21, this.myList.meshes);
         if (local84.anInt2379 < 13) {
             local84.method2232();
         }
         if (local26 != -1) {
-            @Pc(105) Class88 local105 = Static121.method2201(local26, this.myList.aClass330_28);
+            @Pc(105) Mesh local105 = Static121.method2201(local26, this.myList.meshes);
             if (local105.anInt2379 < 13) {
                 local105.method2232();
             }
-            @Pc(128) Class88[] local128 = new Class88[]{local84, local105};
-            local84 = new Class88(local128, 2);
+            @Pc(128) Mesh[] local128 = new Mesh[]{local84, local105};
+            local84 = new Mesh(local128, 2);
         }
         @Pc(149) short[] local149;
         @Pc(156) int local156;
@@ -794,13 +794,13 @@ public final class ObjType {
             return true;
         }
         @Pc(88) boolean local88 = true;
-        if (!this.myList.aClass330_28.method7586(0, local17)) {
+        if (!this.myList.meshes.method7586(0, local17)) {
             local88 = false;
         }
-        if (local23 != -1 && !this.myList.aClass330_28.method7586(0, local23)) {
+        if (local23 != -1 && !this.myList.meshes.method7586(0, local23)) {
             local88 = false;
         }
-        if (local20 != -1 && !this.myList.aClass330_28.method7586(0, local20)) {
+        if (local20 != -1 && !this.myList.meshes.method7586(0, local20)) {
             local88 = false;
         }
         return local88;
@@ -873,7 +873,7 @@ public final class ObjType {
             if (this.resizex != 128) {
                 local141 |= 0x4;
             }
-            @Pc(196) Class88 local196 = Static121.method2201(this.mesh, this.myList.aClass330_28);
+            @Pc(196) Mesh local196 = Static121.method2201(this.mesh, this.myList.meshes);
             if (local196 == null) {
                 return null;
             }
@@ -949,10 +949,10 @@ public final class ObjType {
             return true;
         }
         @Pc(71) boolean local71 = true;
-        if (!this.myList.aClass330_28.method7586(0, local19)) {
+        if (!this.myList.meshes.method7586(0, local19)) {
             local71 = false;
         }
-        if (local22 != -1 && !this.myList.aClass330_28.method7586(0, local22)) {
+        if (local22 != -1 && !this.myList.meshes.method7586(0, local22)) {
             local71 = false;
         }
         return local71;

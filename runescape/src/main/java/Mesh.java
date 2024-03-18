@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!dv")
-public final class Class88 {
+public final class Mesh {
 
     @OriginalMember(owner = "client!dv", name = "k", descriptor = "[I")
     public int[] anIntArray204;
@@ -118,11 +118,11 @@ public final class Class88 {
     public int anInt2379 = 12;
 
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "()V")
-    public Class88() {
+    public Mesh() {
     }
 
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "([B)V")
-    public Class88(@OriginalArg(0) byte[] arg0) {
+    public Mesh(@OriginalArg(0) byte[] arg0) {
         if (arg0[arg0.length - 1] == -1 && arg0[arg0.length - 2] == -1) {
             this.method2235(arg0);
         } else {
@@ -131,7 +131,7 @@ public final class Class88 {
     }
 
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "(III)V")
-    public Class88(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public Mesh(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.anIntArray210 = new int[arg1];
         this.aShortArray25 = new short[arg1];
         this.aShortArray22 = new short[arg1];
@@ -163,7 +163,7 @@ public final class Class88 {
     }
 
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "([Lclient!dv;I)V")
-    public Class88(@OriginalArg(0) Class88[] arg0, @OriginalArg(1) int arg1) {
+    public Mesh(@OriginalArg(0) Mesh[] arg0, @OriginalArg(1) int arg1) {
         this.anInt2377 = 0;
         this.anInt2372 = 0;
         this.anInt2362 = 0;
@@ -178,7 +178,7 @@ public final class Class88 {
         @Pc(46) boolean local46 = false;
         this.aByte45 = -1;
         for (@Pc(51) int local51 = 0; local51 < arg1; local51++) {
-            @Pc(56) Class88 local56 = arg0[local51];
+            @Pc(56) Mesh local56 = arg0[local51];
             if (local56 != null) {
                 this.anInt2362 += local56.anInt2362;
                 this.anInt2377 += local56.anInt2377;
@@ -270,7 +270,7 @@ public final class Class88 {
         @Pc(659) int local659;
         for (@Pc(401) int local401 = 0; local401 < arg1; local401++) {
             @Pc(407) short local407 = (short) (0x1 << local401);
-            @Pc(411) Class88 local411 = arg0[local401];
+            @Pc(411) Mesh local411 = arg0[local401];
             if (local411 != null) {
                 @Pc(420) int local420;
                 if (local411.aClass24Array1 != null) {
@@ -337,7 +337,7 @@ public final class Class88 {
         @Pc(747) int local747 = 0;
         for (@Pc(749) int local749 = 0; local749 < arg1; local749++) {
             @Pc(755) short local755 = (short) (0x1 << local749);
-            @Pc(759) Class88 local759 = arg0[local749];
+            @Pc(759) Mesh local759 = arg0[local749];
             if (local759 != null) {
                 for (local648 = 0; local648 < local759.anInt2362; local648++) {
                     if (local42) {
@@ -1260,7 +1260,7 @@ public final class Class88 {
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(Lclient!dv;IIS)I")
-    public int method2244(@OriginalArg(0) Class88 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) short arg2) {
+    public int method2244(@OriginalArg(0) Mesh arg0, @OriginalArg(2) int arg1, @OriginalArg(3) short arg2) {
         @Pc(8) int local8 = arg0.anIntArray213[arg1];
         @Pc(13) int local13 = arg0.anIntArray205[arg1];
         @Pc(18) int local18 = arg0.anIntArray204[arg1];

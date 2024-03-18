@@ -236,7 +236,7 @@ public final class Class148 {
             @Pc(17) boolean local17 = local9.method7607(this.anInt3514);
             if (local17) {
                 arg0.ZA(16777215, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F);
-                @Pc(36) Class88 local36 = Static121.method2201(this.anInt3514, Static386.aClass330_80);
+                @Pc(36) Mesh local36 = Static121.method2201(this.anInt3514, Static386.aClass330_80);
                 this.aClass114_2 = arg0.method7952(local36, 1099776, 0, 255, 1);
                 @Pc(49) byte[] local49 = this.aClass114_2.method7489();
                 if (local49 == null) {

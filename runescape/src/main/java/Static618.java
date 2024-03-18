@@ -112,7 +112,7 @@ public final class Static618 {
                 local106 = 21;
             }
             @Pc(143) int[] local143 = new int[]{64, 96, 128};
-            @Pc(162) Class88 local162 = new Class88(local106 * 3 + 1, -local106 + local106 * 6, 0);
+            @Pc(162) Mesh local162 = new Mesh(local106 * 3 + 1, -local106 + local106 * 6, 0);
             @Pc(169) int local169 = local162.method2230(0, 0, 0);
             @Pc(173) int[][] local173 = new int[3][local106];
             @Pc(181) int local181;

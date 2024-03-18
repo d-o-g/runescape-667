@@ -1022,7 +1022,7 @@ public final class Class158 {
                 if (local277 != null) {
                     arg9 = arg0.method8013(arg9, local277.ua());
                 }
-                @Pc(307) Class88 local307 = Static121.method2201(this.anInt3831, Static607.aClass330_113);
+                @Pc(307) Mesh local307 = Static121.method2201(this.anInt3831, Static607.aClass330_113);
                 if (local307 == null) {
                     Static544.aBoolean624 = true;
                     return null;

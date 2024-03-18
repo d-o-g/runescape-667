@@ -192,7 +192,7 @@ public final class Class114_Sub1 extends Class114 {
     public int[][] anIntArrayArray68;
 
     @OriginalMember(owner = "client!eu", name = "<init>", descriptor = "(Lclient!am;Lclient!dv;IIII)V")
-    public Class114_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Class88 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Class114_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this(arg0, arg2, arg5, true, false);
         @Pc(11) Interface4 local11 = arg0.anInterface4_10;
         @Pc(15) int[] local15 = new int[arg1.anInt2362];
@@ -2528,7 +2528,7 @@ public final class Class114_Sub1 extends Class114 {
     }
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(IIFIIIIFJILclient!dv;)S")
-    public short method2555(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) float arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) float arg6, @OriginalArg(8) long arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Class88 arg9) {
+    public short method2555(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) float arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) float arg6, @OriginalArg(8) long arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Mesh arg9) {
         @Pc(10) int local10 = this.anIntArray243[arg3];
         @Pc(17) int local17 = this.anIntArray243[arg3 + 1];
         @Pc(19) int local19 = 0;

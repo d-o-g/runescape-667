@@ -21,7 +21,7 @@ public final class Static691 {
         @Pc(13) long local13 = (long) arg2;
         @Pc(19) Class114 local19 = (Class114) Static186.aClass82_67.method2156(local13);
         if (local19 == null) {
-            @Pc(29) Class88 local29 = Static121.method2201(arg2, Static190.aClass330_38);
+            @Pc(29) Mesh local29 = Static121.method2201(arg2, Static190.aClass330_38);
             if (local29 == null) {
                 return null;
             }

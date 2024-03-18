@@ -2684,7 +2684,7 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!dv;IIII)Lclient!ka;")
     @Override
-    public final Class114 method7952(@OriginalArg(0) Class88 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public final Class114 method7952(@OriginalArg(0) Mesh arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         return new Class114_Sub1(this, arg0, arg1, arg3, arg4, arg2);
     }
 

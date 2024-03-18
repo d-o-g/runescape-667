@@ -76,8 +76,8 @@ public final class Class294 {
     }
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(B)Lclient!dv;")
-    public Class88 method6614() {
-        @Pc(8) Class88[] local8 = new Class88[5];
+    public Mesh method6614() {
+        @Pc(8) Mesh[] local8 = new Mesh[5];
         @Pc(10) int local10 = 0;
         @Pc(22) Class330 local22 = this.aClass215_4.aClass330_72;
         @Pc(26) int local26;
@@ -98,7 +98,7 @@ public final class Class294 {
                 local8[local66].method2232();
             }
         }
-        @Pc(102) Class88 local102 = new Class88(local8, local10);
+        @Pc(102) Mesh local102 = new Mesh(local8, local10);
         if (this.aShortArray105 != null) {
             for (local26 = 0; local26 < this.aShortArray105.length; local26++) {
                 local102.method2240(this.aShortArray105[local26], this.aShortArray108[local26]);
@@ -144,11 +144,11 @@ public final class Class294 {
     }
 
     @OriginalMember(owner = "client!pka", name = "b", descriptor = "(I)Lclient!dv;")
-    public Class88 method6618() {
+    public Mesh method6618() {
         if (this.anIntArray602 == null) {
             return null;
         }
-        @Pc(14) Class88[] local14 = new Class88[this.anIntArray602.length];
+        @Pc(14) Mesh[] local14 = new Mesh[this.anIntArray602.length];
         @Pc(18) Class330 local18 = this.aClass215_4.aClass330_72;
         @Pc(22) int local22;
         synchronized (this.aClass215_4.aClass330_72) {
@@ -166,11 +166,11 @@ public final class Class294 {
                 local14[local56].method2232();
             }
         }
-        @Pc(93) Class88 local93;
+        @Pc(93) Mesh local93;
         if (local14.length == 1) {
             local93 = local14[0];
         } else {
-            local93 = new Class88(local14, local14.length);
+            local93 = new Mesh(local14, local14.length);
         }
         if (local93 == null) {
             return null;

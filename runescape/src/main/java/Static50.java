@@ -14,7 +14,7 @@ public final class Static50 {
     public static boolean aBoolean566 = false;
 
     @OriginalMember(owner = "client!bm", name = "a", descriptor = "(ILclient!dv;I[I)Lclient!uea;")
-    public static Class369 method6635(@OriginalArg(1) Class88 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int[] arg2) {
+    public static Class369 method6635(@OriginalArg(1) Mesh arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int[] arg2) {
         @Pc(7) int[] local7 = null;
         @Pc(9) int[] local9 = null;
         @Pc(11) int[] local11 = null;

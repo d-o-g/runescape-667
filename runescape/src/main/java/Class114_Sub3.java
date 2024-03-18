@@ -249,7 +249,7 @@ public final class Class114_Sub3 extends Class114 {
     }
 
     @OriginalMember(owner = "client!rs", name = "<init>", descriptor = "(Lclient!iaa;Lclient!dv;IIII)V")
-    public Class114_Sub3(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) Class88 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Class114_Sub3(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass19_Sub2_9 = arg0;
         this.anInt8489 = arg2;
         this.anInt8495 = arg3;

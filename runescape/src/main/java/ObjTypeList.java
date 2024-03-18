@@ -28,7 +28,7 @@ public final class ObjTypeList {
     public final Class377 aClass377_1;
 
     @OriginalMember(owner = "client!es", name = "l", descriptor = "Lclient!sb;")
-    public final Class330 aClass330_28;
+    public final Class330 meshes;
 
     @OriginalMember(owner = "client!es", name = "q", descriptor = "Lclient!bo;")
     public final Class49 aClass49_1;
@@ -52,7 +52,7 @@ public final class ObjTypeList {
     public ObjTypeList(@OriginalArg(0) Class377 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class49 arg3, @OriginalArg(4) Class330 arg4, @OriginalArg(5) Class330 arg5) {
         this.anInt2662 = arg1;
         this.aClass377_1 = arg0;
-        this.aClass330_28 = arg5;
+        this.meshes = arg5;
         this.aClass49_1 = arg3;
         this.aClass330_29 = arg4;
         this.aBoolean222 = arg2;

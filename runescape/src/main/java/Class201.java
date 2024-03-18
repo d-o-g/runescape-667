@@ -213,12 +213,12 @@ public final class Class201 {
                             return null;
                         }
                     } else {
-                        @Pc(584) Class88[] local584 = new Class88[local34.length];
+                        @Pc(584) Mesh[] local584 = new Mesh[local34.length];
                         for (local586 = 0; local586 < local34.length; local586++) {
                             local591 = local34[local586];
                             @Pc(593) Class52 local593 = null;
                             @Pc(614) boolean local614 = local586 == 5 && local36 || local586 == 3 && local44;
-                            @Pc(633) Class88 local633;
+                            @Pc(633) Mesh local633;
                             if ((local591 & 0x40000000) != 0) {
                                 if (!local614 && this.aClass52Array1 != null && this.aClass52Array1[local586] != null) {
                                     local593 = this.aClass52Array1[local586];
@@ -262,7 +262,7 @@ public final class Class201 {
                             }
                         }
                         @Pc(826) int local826 = local28 | 0x4000;
-                        @Pc(833) Class88 local833 = new Class88(local584, local584.length);
+                        @Pc(833) Mesh local833 = new Mesh(local584, local584.length);
                         local342 = arg8.method7952(local833, local826, Static294.anInt4766, 64, 850);
                         for (local409 = 0; local409 < 10; local409++) {
                             for (local709 = 0; local709 < Static76.aShortArrayArray2[local409].length; local709++) {
@@ -406,12 +406,12 @@ public final class Class201 {
             if (local39 != null) {
                 local16 = arg4.method8013(local16, local39.ua());
             }
-            @Pc(70) Class88[] local70 = new Class88[3];
+            @Pc(70) Mesh[] local70 = new Mesh[3];
             @Pc(72) int local72 = 0;
             if (!arg5.method5042(arg1).method6615() || !arg5.method5042(arg6).method6615() || !arg5.method5042(arg2).method6615()) {
                 return null;
             }
-            @Pc(107) Class88 local107 = arg5.method5042(arg1).method6614();
+            @Pc(107) Mesh local107 = arg5.method5042(arg1).method6614();
             if (local107 != null) {
                 local72++;
                 local70[0] = local107;
@@ -425,7 +425,7 @@ public final class Class201 {
                 local70[local72++] = local107;
             }
             @Pc(152) int local152 = local16 | 0x4000;
-            local107 = new Class88(local70, local72);
+            local107 = new Mesh(local70, local72);
             local39 = arg4.method7952(local107, local152, Static294.anInt4766, 64, 768);
             for (@Pc(168) int local168 = 0; local168 < 10; local168++) {
                 for (@Pc(172) int local172 = 0; local172 < Static76.aShortArrayArray2[local168].length; local172++) {
@@ -492,12 +492,12 @@ public final class Class201 {
             if (local81) {
                 return null;
             }
-            @Pc(172) Class88[] local172 = new Class88[this.anIntArray381.length];
+            @Pc(172) Mesh[] local172 = new Mesh[this.anIntArray381.length];
             @Pc(174) int local174 = 0;
             for (@Pc(176) int local176 = 0; local176 < this.anIntArray381.length; local176++) {
                 @Pc(185) int local185 = this.anIntArray381[local176];
                 @Pc(187) Class52 local187 = null;
-                @Pc(220) Class88 local220;
+                @Pc(220) Mesh local220;
                 if ((local185 & 0x40000000) != 0) {
                     if (this.aClass52Array1 != null && this.aClass52Array1[local176] != null) {
                         local187 = this.aClass52Array1[local176];
@@ -513,7 +513,7 @@ public final class Class201 {
                     }
                 }
             }
-            @Pc(266) Class88 local266 = new Class88(local172, local174);
+            @Pc(266) Mesh local266 = new Mesh(local172, local174);
             @Pc(270) int local270 = local35 | 0x4000;
             local48 = arg6.method7952(local266, local270, Static294.anInt4766, 64, 768);
             for (@Pc(282) int local282 = 0; local282 < 10; local282++) {

@@ -73,7 +73,7 @@ public final class Node_Sub22 extends Node {
             if (local153) {
                 return null;
             }
-            @Pc(203) Class88[] local203 = new Class88[local23.length];
+            @Pc(203) Mesh[] local203 = new Mesh[local23.length];
             for (@Pc(205) int local205 = 0; local205 < local23.length; local205++) {
                 if (local23[local205] != -1) {
                     local203[local205] = Static419.aObjTypeList_1.list(local23[local205]).method8799((Class52) null, arg2);
@@ -99,7 +99,7 @@ public final class Node_Sub22 extends Node {
                     }
                 }
             }
-            @Pc(382) Class88 local382 = new Class88(local203, local203.length);
+            @Pc(382) Mesh local382 = new Mesh(local203, local203.length);
             if (arg4 != null) {
                 local151 = local9 | 0x4000;
             }

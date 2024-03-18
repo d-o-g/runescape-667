@@ -17,7 +17,7 @@ public final class Static600 {
     public static final Class345 aClass345_108 = new Class345(37, -1);
 
     @OriginalMember(owner = "client!sv", name = "N", descriptor = "[Lclient!dv;")
-    public static final Class88[] aClass88Array1 = new Class88[4];
+    public static final Mesh[] A_MESH_ARRAY_1 = new Mesh[4];
 
     @OriginalMember(owner = "client!sv", name = "L", descriptor = "I")
     public static int anInt8880 = 0;

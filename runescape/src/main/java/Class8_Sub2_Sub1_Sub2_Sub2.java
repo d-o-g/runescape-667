@@ -148,7 +148,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 if (Static504.aBoolean579) {
                     local223.renderOrtho(local22, local123.aPickingCylinderArray1[super.aModelArray3.length], Static582.anInt8627, 0);
                 } else {
-                    local223.method7473(local22, local123.aPickingCylinderArray1[super.aModelArray3.length], 0);
+                    local223.render(local22, local123.aPickingCylinderArray1[super.aModelArray3.length], 0);
                 }
                 arg0.C(true);
             }
@@ -169,7 +169,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         } else {
             for (local314 = 0; local314 < super.aModelArray3.length; local314++) {
                 if (super.aModelArray3[local314] != null) {
-                    super.aModelArray3[local314].method7473(local22, local123.aPickingCylinderArray1[local314], 0);
+                    super.aModelArray3[local314].render(local22, local123.aPickingCylinderArray1[local314], 0);
                 }
             }
         }

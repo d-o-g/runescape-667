@@ -1378,8 +1378,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(IILclient!tt;ZI)Z")
     @Override
-    public boolean picked(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
-        return this.method7513(arg0, arg1, arg2, arg3, arg4, -1);
+    public boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) Matrix matrix, @OriginalArg(3) boolean quick, @OriginalArg(4) int sizeShift) {
+        return this.method7513(x, y, matrix, quick, sizeShift, -1);
     }
 
     @OriginalMember(owner = "client!rs", name = "o", descriptor = "()V")
@@ -1396,7 +1396,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "ba", descriptor = "(Lclient!r;)Lclient!r;")
     @Override
-    public Node_Sub2_Sub9 ba(@OriginalArg(0) Node_Sub2_Sub9 arg0) {
+    public Shadow ba(@OriginalArg(0) Shadow shadow) {
         return null;
     }
 
@@ -1716,11 +1716,11 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "LA", descriptor = "(I)V")
     @Override
-    public void LA(@OriginalArg(0) int arg0) {
+    public void LA(@OriginalArg(0) int contrast) {
         if ((this.anInt8489 & 0x2000) != 8192) {
             throw new IllegalStateException();
         }
-        this.anInt8485 = arg0;
+        this.anInt8485 = contrast;
         this.anInt8488 = 0;
     }
 
@@ -1875,10 +1875,10 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "ia", descriptor = "(SS)V")
     @Override
-    public void ia(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1) {
+    public void ia(@OriginalArg(0) short src, @OriginalArg(1) short dest) {
         for (@Pc(1) int local1 = 0; local1 < this.anInt8482; local1++) {
-            if (this.aShortArray120[local1] == arg0) {
-                this.aShortArray120[local1] = arg1;
+            if (this.aShortArray120[local1] == src) {
+                this.aShortArray120[local1] = dest;
             }
         }
         if (this.aClass239Array1 != null) {
@@ -2101,17 +2101,17 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "H", descriptor = "(III)V")
     @Override
-    public void H(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        if (arg0 != 0 && (this.anInt8489 & 0x1) != 1) {
+    public void H(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z) {
+        if (x != 0 && (this.anInt8489 & 0x1) != 1) {
             throw new IllegalStateException();
-        } else if (arg1 != 0 && (this.anInt8489 & 0x2) != 2) {
+        } else if (y != 0 && (this.anInt8489 & 0x2) != 2) {
             throw new IllegalStateException();
-        } else if (arg2 == 0 || (this.anInt8489 & 0x4) == 4) {
+        } else if (z == 0 || (this.anInt8489 & 0x4) == 4) {
             synchronized (this) {
                 for (@Pc(50) int local50 = 0; local50 < this.anInt8483; local50++) {
-                    this.anIntArray666[local50] += arg0;
-                    this.anIntArray675[local50] += arg1;
-                    this.anIntArray658[local50] += arg2;
+                    this.anIntArray666[local50] += x;
+                    this.anIntArray675[local50] += y;
+                    this.anIntArray658[local50] += z;
                 }
             }
         } else {
@@ -3558,11 +3558,11 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "C", descriptor = "(I)V")
     @Override
-    public void C(@OriginalArg(0) int arg0) {
+    public void C(@OriginalArg(0) int ambient) {
         if ((this.anInt8489 & 0x1000) != 4096) {
             throw new IllegalStateException();
         }
-        this.anInt8495 = arg0;
+        this.anInt8495 = ambient;
         this.anInt8488 = 0;
     }
 
@@ -3582,8 +3582,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
     @Override
-    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder arg1, @OriginalArg(2) int arg2) {
-        this.method7528(arg0, arg1, -1, arg2);
+    public void render(@OriginalArg(0) Matrix matrix, @OriginalArg(1) PickingCylinder cylinder, @OriginalArg(2) int flags) {
+        this.method7528(matrix, cylinder, -1, flags);
     }
 
     @OriginalMember(owner = "client!rs", name = "FA", descriptor = "(I)V")
@@ -4104,19 +4104,19 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "s", descriptor = "(I)V")
     @Override
-    public void s(@OriginalArg(0) int arg0) {
+    public void s(@OriginalArg(0) int functionMask) {
         if (this.aClass19_Sub2_9.anInt4211 <= 1) {
-            if ((this.anInt8489 & 0x10000) == 65536 && (arg0 & 0x10000) == 0) {
+            if ((this.anInt8489 & 0x10000) == 65536 && (functionMask & 0x10000) == 0) {
                 this.method7503(true);
             }
-            this.anInt8489 = arg0;
+            this.anInt8489 = functionMask;
             return;
         }
         synchronized (this) {
-            if ((this.anInt8489 & 0x10000) == 65536 && (arg0 & 0x10000) == 0) {
+            if ((this.anInt8489 & 0x10000) == 65536 && (functionMask & 0x10000) == 0) {
                 this.method7503(true);
             }
-            this.anInt8489 = arg0;
+            this.anInt8489 = functionMask;
         }
     }
 
@@ -4175,19 +4175,19 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "aa", descriptor = "(SS)V")
     @Override
-    public void aa(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1) {
+    public void aa(@OriginalArg(0) short src, @OriginalArg(1) short dest) {
         if (this.aShortArray123 == null) {
             return;
         }
-        if (!this.aBoolean651 && arg1 >= 0) {
-            @Pc(20) Class118 local20 = this.aClass19_Sub2_9.anInterface4_10.method6817(arg1 & 0xFFFF);
+        if (!this.aBoolean651 && dest >= 0) {
+            @Pc(20) Class118 local20 = this.aClass19_Sub2_9.anInterface4_10.method6817(dest & 0xFFFF);
             if (local20.aByte54 != 0 || local20.aByte52 != 0) {
                 this.aBoolean651 = true;
             }
         }
         for (@Pc(35) int local35 = 0; local35 < this.anInt8482; local35++) {
-            if (this.aShortArray123[local35] == arg0) {
-                this.aShortArray123[local35] = arg1;
+            if (this.aShortArray123[local35] == src) {
+                this.aShortArray123[local35] = dest;
             }
         }
     }

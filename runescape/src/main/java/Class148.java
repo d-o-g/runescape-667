@@ -220,7 +220,7 @@ public final class Class148 {
             this.aModel_2.updateAlphas((byte) arg1, this.aByteArray35);
             this.anInt3503 = arg1;
         }
-        this.aModel_2.method7473(local36, (PickingCylinder) null, 0);
+        this.aModel_2.render(local36, (PickingCylinder) null, 0);
         arg4.method8000(local7);
     }
 

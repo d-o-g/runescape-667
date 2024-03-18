@@ -661,7 +661,7 @@ public final class Ground_Sub1 extends Ground {
 
     @OriginalMember(owner = "client!iga", name = "wa", descriptor = "(Lclient!r;IIIIZ)V")
     @Override
-    public void wa(@OriginalArg(0) Node_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
+    public void wa(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
         if (this.aClass293_1 != null && arg0 != null) {
             @Pc(27) int local27 = arg1 - (arg2 * this.aClass19_Sub1_9.anInt9168 >> 8) >> this.aClass19_Sub1_9.anInt9173;
             @Pc(42) int local42 = arg3 - (this.aClass19_Sub1_9.anInt9149 * arg2 >> 8) >> this.aClass19_Sub1_9.anInt9173;
@@ -791,7 +791,7 @@ public final class Ground_Sub1 extends Ground {
 
     @OriginalMember(owner = "client!iga", name = "a", descriptor = "(Lclient!r;IIIIZ)Z")
     @Override
-    public boolean method7874(@OriginalArg(0) Node_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public boolean method7874(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (this.aClass293_1 == null || arg0 == null) {
             return false;
         } else {
@@ -893,7 +893,7 @@ public final class Ground_Sub1 extends Ground {
 
     @OriginalMember(owner = "client!iga", name = "CA", descriptor = "(Lclient!r;IIIIZ)V")
     @Override
-    public void CA(@OriginalArg(0) Node_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
+    public void CA(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
         if (this.aClass293_1 != null && arg0 != null) {
             @Pc(27) int local27 = arg1 - (this.aClass19_Sub1_9.anInt9168 * arg2 >> 8) >> this.aClass19_Sub1_9.anInt9173;
             @Pc(42) int local42 = arg3 - (arg2 * this.aClass19_Sub1_9.anInt9149 >> 8) >> this.aClass19_Sub1_9.anInt9173;
@@ -903,7 +903,7 @@ public final class Ground_Sub1 extends Ground {
 
     @OriginalMember(owner = "client!iga", name = "fa", descriptor = "(IILclient!r;)Lclient!r;")
     @Override
-    public Node_Sub2_Sub9 fa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Node_Sub2_Sub9 arg2) {
+    public Shadow fa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Shadow arg2) {
         if ((this.aByteArrayArray12[arg0][arg1] & 0x1) == 0) {
             return null;
         }

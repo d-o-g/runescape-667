@@ -34,7 +34,7 @@ public final class Class8_Sub2_Sub4_Sub1 extends Class8_Sub2_Sub4 implements Int
     public Model aModel_3;
 
     @OriginalMember(owner = "client!im", name = "eb", descriptor = "Lclient!r;")
-    public Node_Sub2_Sub9 aClass2_Sub2_Sub9_2;
+    public Shadow aClass2_Sub2_Sub9_2;
 
     @OriginalMember(owner = "client!im", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIII)V")
     public Class8_Sub2_Sub4_Sub1(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11) {
@@ -127,7 +127,7 @@ public final class Class8_Sub2_Sub4_Sub1 extends Class8_Sub2_Sub4 implements Int
     @OriginalMember(owner = "client!im", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
     public void method6861(@OriginalArg(0) Class19 arg0) {
-        @Pc(37) Node_Sub2_Sub9 local37;
+        @Pc(37) Shadow local37;
         if (this.aClass2_Sub2_Sub9_2 == null && this.aBoolean349) {
             @Pc(29) Class272 local29 = this.method4045(arg0, 262144, true);
             local37 = local29 == null ? null : local29.aClass2_Sub2_Sub9_5;
@@ -161,7 +161,7 @@ public final class Class8_Sub2_Sub4_Sub1 extends Class8_Sub2_Sub4 implements Int
     @OriginalMember(owner = "client!im", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
     public void method6857(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
-        @Pc(28) Node_Sub2_Sub9 local28;
+        @Pc(28) Shadow local28;
         if (this.aClass2_Sub2_Sub9_2 == null && this.aBoolean349) {
             @Pc(20) Class272 local20 = this.method4045(arg0, 262144, true);
             local28 = local20 == null ? null : local20.aClass2_Sub2_Sub9_5;
@@ -227,7 +227,7 @@ public final class Class8_Sub2_Sub4_Sub1 extends Class8_Sub2_Sub4 implements Int
         if (Static504.aBoolean579) {
             this.aModel_3.renderOrtho(local12, local41.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {
-            this.aModel_3.method7473(local12, local41.aPickingCylinderArray1[0], 0);
+            this.aModel_3.render(local12, local41.aPickingCylinderArray1[0], 0);
         }
         return local41;
     }

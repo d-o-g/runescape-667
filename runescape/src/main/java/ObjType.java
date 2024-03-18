@@ -588,7 +588,7 @@ public final class ObjType {
         scratchToolkit.ya();
         scratchToolkit.la();
         scratchToolkit.aa(0, 0, 36, 32, 0, 0);
-        model.method7473(local414, (PickingCylinder) null, 1);
+        model.render(local414, (PickingCylinder) null, 1);
         scratchToolkit.f(local480, local483);
         @Pc(515) int[] local515 = scratchToolkit.na(0, 0, 36, 32);
         if (arg8 >= 1) {

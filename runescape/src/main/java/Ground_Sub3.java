@@ -137,13 +137,13 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(Lclient!r;IIIIZ)Z")
     @Override
-    public boolean method7874(@OriginalArg(0) Node_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public boolean method7874(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         return false;
     }
 
     @OriginalMember(owner = "client!qs", name = "CA", descriptor = "(Lclient!r;IIIIZ)V")
     @Override
-    public void CA(@OriginalArg(0) Node_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
+    public void CA(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
     }
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(IIZLclient!wf;Lclient!lb;[I[I[I[II)V")
@@ -1275,7 +1275,7 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "wa", descriptor = "(Lclient!r;IIIIZ)V")
     @Override
-    public void wa(@OriginalArg(0) Node_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
+    public void wa(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
     }
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(II[I[I[I[I[I[I[I[I[I[I[IIIIZ)V")
@@ -2118,7 +2118,7 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "fa", descriptor = "(IILclient!r;)Lclient!r;")
     @Override
-    public Node_Sub2_Sub9 fa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Node_Sub2_Sub9 arg2) {
+    public Shadow fa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Shadow arg2) {
         return null;
     }
 }

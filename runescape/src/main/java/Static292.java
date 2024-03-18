@@ -93,7 +93,7 @@ public final class Static292 {
     }
 
     @OriginalMember(owner = "client!jea", name = "a", descriptor = "(Lclient!r;III[Z)V")
-    public static void method4618(@OriginalArg(0) Node_Sub2_Sub9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean[] arg4) {
+    public static void method4618(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean[] arg4) {
         if (Static246.aGroundArray1 == Static693.aGroundArray2) {
             return;
         }

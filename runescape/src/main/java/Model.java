@@ -14,7 +14,7 @@ public abstract class Model {
     }
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
-    public abstract void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder arg1, @OriginalArg(2) int arg2);
+    public abstract void render(@OriginalArg(0) Matrix matrix, @OriginalArg(1) PickingCylinder cylinder, @OriginalArg(2) int flags);
 
     /**
      * animationPartialTransform
@@ -85,13 +85,13 @@ public abstract class Model {
      * setContrast
      */
     @OriginalMember(owner = "client!ka", name = "LA", descriptor = "(I)V")
-    public abstract void LA(@OriginalArg(0) int arg0);
+    public abstract void LA(@OriginalArg(0) int contrast);
 
     /**
      * retexture
      */
     @OriginalMember(owner = "client!ka", name = "aa", descriptor = "(SS)V")
-    public abstract void aa(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1);
+    public abstract void aa(@OriginalArg(0) short src, @OriginalArg(1) short dest);
 
     /**
      * rotateZAxis
@@ -141,7 +141,7 @@ public abstract class Model {
      * updateShadow
      */
     @OriginalMember(owner = "client!ka", name = "ba", descriptor = "(Lclient!r;)Lclient!r;")
-    public abstract Node_Sub2_Sub9 ba(@OriginalArg(0) Node_Sub2_Sub9 arg0);
+    public abstract Shadow ba(@OriginalArg(0) Shadow shadow);
 
     @OriginalMember(owner = "client!ka", name = "e", descriptor = "()V")
     public abstract void method7479();
@@ -150,7 +150,7 @@ public abstract class Model {
      * setFunctionMask
      */
     @OriginalMember(owner = "client!ka", name = "s", descriptor = "(I)V")
-    public abstract void s(@OriginalArg(0) int arg0);
+    public abstract void s(@OriginalArg(0) int functionMask);
 
     @OriginalMember(owner = "client!ka", name = "c", descriptor = "()[Lclient!mn;")
     public abstract MeshMagnet[] meshMagnets();
@@ -177,7 +177,7 @@ public abstract class Model {
     public abstract void renderOrtho(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder cylinder, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IILclient!tt;ZI)Z")
-    public abstract boolean picked(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4);
+    public abstract boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) Matrix matrix, @OriginalArg(3) boolean quick, @OriginalArg(4) int sizeShift);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!rw;IILclient!rw;IIIIZ)V")
     public final void method7487(@OriginalArg(0) AnimFrameset arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) AnimFrameset arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) boolean arg7) {
@@ -207,7 +207,7 @@ public abstract class Model {
      * translate
      */
     @OriginalMember(owner = "client!ka", name = "H", descriptor = "(III)V")
-    public abstract void H(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public abstract void H(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z);
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IIII)V")
     public abstract void adjustColours(@OriginalArg(0) int hue, @OriginalArg(1) int saturation, @OriginalArg(2) int lightness, @OriginalArg(3) int scale);
@@ -325,7 +325,7 @@ public abstract class Model {
      * recolour
      */
     @OriginalMember(owner = "client!ka", name = "ia", descriptor = "(SS)V")
-    public abstract void ia(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1);
+    public abstract void ia(@OriginalArg(0) short src, @OriginalArg(1) short dest);
 
     /**
      * getMaxY
@@ -371,7 +371,7 @@ public abstract class Model {
      * setAmbient
      */
     @OriginalMember(owner = "client!ka", name = "C", descriptor = "(I)V")
-    public abstract void C(@OriginalArg(0) int arg0);
+    public abstract void C(@OriginalArg(0) int ambient);
 
     /**
      * rotateXAxis

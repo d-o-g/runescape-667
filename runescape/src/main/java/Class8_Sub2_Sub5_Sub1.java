@@ -203,7 +203,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
                 if (Static504.aBoolean579) {
                     local369.renderOrtho(local94, local345.aPickingCylinderArray1[2], Static582.anInt8627, 0);
                 } else {
-                    local369.method7473(local94, local345.aPickingCylinderArray1[2], 0);
+                    local369.render(local94, local345.aPickingCylinderArray1[2], 0);
                 }
                 this.aBoolean672 |= local369.F();
                 this.anInt8879 = local369.ma();
@@ -215,7 +215,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
                 if (Static504.aBoolean579) {
                     local369.renderOrtho(local94, local345.aPickingCylinderArray1[1], Static582.anInt8627, 0);
                 } else {
-                    local369.method7473(local94, local345.aPickingCylinderArray1[1], 0);
+                    local369.render(local94, local345.aPickingCylinderArray1[1], 0);
                 }
                 this.aBoolean672 |= local369.F();
                 if (local369.ma() > this.anInt8879) {
@@ -228,7 +228,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             if (Static504.aBoolean579) {
                 local369.renderOrtho(local94, local345.aPickingCylinderArray1[0], Static582.anInt8627, 0);
             } else {
-                local369.method7473(local94, local345.aPickingCylinderArray1[0], 0);
+                local369.render(local94, local345.aPickingCylinderArray1[0], 0);
             }
             this.aBoolean672 |= local369.F();
             if (local369.ma() > this.anInt8879) {

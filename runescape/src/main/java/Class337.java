@@ -19,7 +19,7 @@ public final class Class337 {
     public Model aModel_8;
 
     @OriginalMember(owner = "client!sh", name = "d", descriptor = "Lclient!r;")
-    public Node_Sub2_Sub9 aClass2_Sub2_Sub9_6;
+    public Shadow aClass2_Sub2_Sub9_6;
 
     @OriginalMember(owner = "client!sh", name = "b", descriptor = "[Z")
     public boolean[] aBooleanArray27;

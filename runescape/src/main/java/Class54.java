@@ -787,12 +787,12 @@ public final class Class54 {
             local106 = (Class272) this.aClass142_2.aClass82_75.method2156(local21);
         }
         @Pc(120) Model local120 = local106 == null ? null : local106.aModel_7;
-        @Pc(122) Node_Sub2_Sub9 local122 = null;
+        @Pc(122) Shadow local122 = null;
         if (local120 != null && arg7.method7960(local120.ua(), local40) == 0) {
             local120 = local106.aModel_7;
             local122 = local106.aClass2_Sub2_Sub9_5;
             if (arg4 && local122 == null) {
-                local122 = local106.aClass2_Sub2_Sub9_5 = local120.ba((Node_Sub2_Sub9) null);
+                local122 = local106.aClass2_Sub2_Sub9_5 = local120.ba((Shadow) null);
             }
         } else {
             if (local120 != null) {
@@ -810,7 +810,7 @@ public final class Class54 {
                 local120.a(2048);
             }
             if (arg4) {
-                local122 = local120.ba((Node_Sub2_Sub9) null);
+                local122 = local120.ba((Shadow) null);
             }
             local120.s(local40);
             local106 = new Class272();

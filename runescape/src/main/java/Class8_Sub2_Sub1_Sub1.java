@@ -326,7 +326,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         if (Static504.aBoolean579) {
             local19.renderOrtho(local27, local57.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {
-            local19.method7473(local27, local57.aPickingCylinderArray1[0], 0);
+            local19.render(local27, local57.aPickingCylinderArray1[0], 0);
         }
         if (this.aClass8_Sub5_1 != null) {
             @Pc(89) Class230 local89 = this.aClass8_Sub5_1.method3645();

@@ -71,10 +71,10 @@ public final class i extends Model implements Interface5 {
     public native void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Ground floor, @OriginalArg(3) Ground ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z);
 
     @OriginalMember(owner = "client!i", name = "LA", descriptor = "(I)V")
-    public native void LA(@OriginalArg(0) int arg0);
+    public native void LA(@OriginalArg(0) int contrast);
 
     @OriginalMember(owner = "client!i", name = "ia", descriptor = "(SS)V")
-    public native void ia(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1);
+    public native void ia(@OriginalArg(0) short src, @OriginalArg(1) short dest);
 
     @OriginalMember(owner = "client!i", name = "ua", descriptor = "()I")
     public native int ua();
@@ -103,7 +103,7 @@ public final class i extends Model implements Interface5 {
     }
 
     @OriginalMember(owner = "client!i", name = "C", descriptor = "(I)V")
-    public native void C(@OriginalArg(0) int arg0);
+    public native void C(@OriginalArg(0) int ambient);
 
     @OriginalMember(owner = "client!i", name = "k", descriptor = "(I)V")
     public native void k(@OriginalArg(0) int arg0);
@@ -142,8 +142,8 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(IILclient!tt;ZI)Z")
     @Override
-    public boolean picked(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
-        return this.anOa2.method6087().method11(this, arg0, arg1, arg2, arg3);
+    public boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) Matrix matrix, @OriginalArg(3) boolean quick, @OriginalArg(4) int sizeShift) {
+        return this.anOa2.method6087().method11(this, x, y, matrix, quick);
     }
 
     @OriginalMember(owner = "client!i", name = "RA", descriptor = "()I")
@@ -223,7 +223,7 @@ public final class i extends Model implements Interface5 {
     public native int G();
 
     @OriginalMember(owner = "client!i", name = "H", descriptor = "(III)V")
-    public native void H(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public native void H(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z);
 
     @OriginalMember(owner = "client!i", name = "l", descriptor = "(JI[IIIIIZ)V")
     public native void l(@OriginalArg(0) long arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7);
@@ -235,7 +235,7 @@ public final class i extends Model implements Interface5 {
     }
 
     @OriginalMember(owner = "client!i", name = "aa", descriptor = "(SS)V")
-    public native void aa(@OriginalArg(0) short arg0, @OriginalArg(1) short arg1);
+    public native void aa(@OriginalArg(0) short src, @OriginalArg(1) short dest);
 
     @OriginalMember(owner = "client!i", name = "wa", descriptor = "()V")
     protected native void wa();
@@ -249,7 +249,7 @@ public final class i extends Model implements Interface5 {
     public native int HA();
 
     @OriginalMember(owner = "client!i", name = "ba", descriptor = "(Lclient!r;)Lclient!r;")
-    public native Node_Sub2_Sub9 ba(@OriginalArg(0) Node_Sub2_Sub9 arg0);
+    public native Shadow ba(@OriginalArg(0) Shadow shadow);
 
     @OriginalMember(owner = "client!i", name = "FA", descriptor = "(I)V")
     public native void FA(@OriginalArg(0) int arg0);
@@ -300,7 +300,7 @@ public final class i extends Model implements Interface5 {
     public native int WA();
 
     @OriginalMember(owner = "client!i", name = "s", descriptor = "(I)V")
-    public native void s(@OriginalArg(0) int arg0);
+    public native void s(@OriginalArg(0) int functionMask);
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(BIZ)Lclient!ka;")
     @Override
@@ -330,19 +330,19 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(Lclient!tt;Lclient!ima;I)V")
     @Override
-    public void method7473(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder arg1, @OriginalArg(2) int arg2) {
-        if (arg1 == null) {
-            this.anOa2.method6087().method8(this, arg0, (int[]) null, arg2);
+    public void render(@OriginalArg(0) Matrix matrix, @OriginalArg(1) PickingCylinder cylinder, @OriginalArg(2) int flags) {
+        if (cylinder == null) {
+            this.anOa2.method6087().method8(this, matrix, (int[]) null, flags);
             return;
         }
         Static445.anIntArray542[5] = 0;
-        this.anOa2.method6087().method8(this, arg0, Static445.anIntArray542, arg2);
-        arg1.anInt4504 = Static445.anIntArray542[0];
-        arg1.anInt4505 = Static445.anIntArray542[1];
-        arg1.anInt4501 = Static445.anIntArray542[2];
-        arg1.anInt4503 = Static445.anIntArray542[3];
-        arg1.anInt4502 = Static445.anIntArray542[4];
-        arg1.aBoolean352 = Static445.anIntArray542[5] != 0;
+        this.anOa2.method6087().method8(this, matrix, Static445.anIntArray542, flags);
+        cylinder.anInt4504 = Static445.anIntArray542[0];
+        cylinder.anInt4505 = Static445.anIntArray542[1];
+        cylinder.anInt4501 = Static445.anIntArray542[2];
+        cylinder.anInt4503 = Static445.anIntArray542[3];
+        cylinder.anInt4502 = Static445.anIntArray542[4];
+        cylinder.aBoolean352 = Static445.anIntArray542[5] != 0;
     }
 
     @OriginalMember(owner = "client!i", name = "ma", descriptor = "()I")

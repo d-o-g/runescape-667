@@ -34,7 +34,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
     public Model aModel_5;
 
     @OriginalMember(owner = "client!jn", name = "eb", descriptor = "Lclient!r;")
-    public Node_Sub2_Sub9 aClass2_Sub2_Sub9_4;
+    public Shadow aClass2_Sub2_Sub9_4;
 
     @OriginalMember(owner = "client!jn", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIZ)V")
     public Class8_Sub2_Sub3_Sub2(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) boolean arg10) {
@@ -85,7 +85,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
     @OriginalMember(owner = "client!jn", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
     public void method6861(@OriginalArg(0) Class19 arg0) {
-        @Pc(21) Node_Sub2_Sub9 local21;
+        @Pc(21) Shadow local21;
         if (this.aClass2_Sub2_Sub9_4 == null && this.aBoolean377) {
             @Pc(32) Class272 local32 = this.method4475(arg0, 262144, true);
             local21 = local32 == null ? null : local32.aClass2_Sub2_Sub9_5;
@@ -193,7 +193,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
         if (arg1 >= -42) {
             this.aClass205_6 = null;
         }
-        @Pc(24) Node_Sub2_Sub9 local24;
+        @Pc(24) Shadow local24;
         if (this.aClass2_Sub2_Sub9_4 == null && this.aBoolean377) {
             @Pc(35) Class272 local35 = this.method4475(arg0, 262144, true);
             local24 = local35 == null ? null : local35.aClass2_Sub2_Sub9_5;
@@ -280,7 +280,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
         if (Static504.aBoolean579) {
             this.aModel_5.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {
-            this.aModel_5.method7473(local20, local34.aPickingCylinderArray1[0], 0);
+            this.aModel_5.render(local20, local34.aPickingCylinderArray1[0], 0);
         }
         return local34;
     }

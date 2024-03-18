@@ -57,7 +57,7 @@ public final class Class170 {
     }
 
     @OriginalMember(owner = "client!hn", name = "a", descriptor = "(BIILclient!r;)V")
-    public void method3541(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Node_Sub2_Sub9 arg2) {
+    public void method3541(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Shadow arg2) {
         @Pc(6) Node_Sub2_Sub9_Sub2 local6 = (Node_Sub2_Sub9_Sub2) arg2;
         arg0 += local6.anInt7350 + 1;
         arg1 += local6.anInt7353 + 1;
@@ -192,7 +192,7 @@ public final class Class170 {
     }
 
     @OriginalMember(owner = "client!hn", name = "a", descriptor = "(IILclient!r;I)Z")
-    public boolean method3543(@OriginalArg(1) int arg0, @OriginalArg(2) Node_Sub2_Sub9 arg1, @OriginalArg(3) int arg2) {
+    public boolean method3543(@OriginalArg(1) int arg0, @OriginalArg(2) Shadow arg1, @OriginalArg(3) int arg2) {
         @Pc(6) Node_Sub2_Sub9_Sub2 local6 = (Node_Sub2_Sub9_Sub2) arg1;
         arg2 += local6.anInt7353 + 1;
         arg0 += local6.anInt7350 + 1;
@@ -232,7 +232,7 @@ public final class Class170 {
     }
 
     @OriginalMember(owner = "client!hn", name = "a", descriptor = "(ILclient!r;IB)V")
-    public void method3544(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub2_Sub9 arg1, @OriginalArg(2) int arg2) {
+    public void method3544(@OriginalArg(0) int arg0, @OriginalArg(1) Shadow arg1, @OriginalArg(2) int arg2) {
         @Pc(6) Node_Sub2_Sub9_Sub2 local6 = (Node_Sub2_Sub9_Sub2) arg1;
         arg0 += local6.anInt7353 + 1;
         arg2 += local6.anInt7350 + 1;

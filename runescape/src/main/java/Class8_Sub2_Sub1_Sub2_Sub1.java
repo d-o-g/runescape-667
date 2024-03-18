@@ -135,7 +135,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(65) Model local65 = Static691.method9004(super.anInt10746, super.anInt10742, arg3, super.anInt10716, local53, arg6);
         if (local65 != null) {
             arg6.C(false);
-            local65.method7473(arg5, (PickingCylinder) null, 0);
+            local65.render(arg5, (PickingCylinder) null, 0);
             arg6.C(true);
         }
     }
@@ -317,7 +317,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                     if (Static504.aBoolean579) {
                         local212.renderOrtho(local22, local114.aPickingCylinderArray1[super.aModelArray3.length], Static582.anInt8627, 0);
                     } else {
-                        local212.method7473(local22, local114.aPickingCylinderArray1[super.aModelArray3.length], 0);
+                        local212.render(local22, local114.aPickingCylinderArray1[super.aModelArray3.length], 0);
                     }
                     arg0.C(true);
                 }
@@ -386,7 +386,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         } else {
             for (local269 = 0; local269 < super.aModelArray3.length; local269++) {
                 if (super.aModelArray3[local269] != null) {
-                    super.aModelArray3[local269].method7473(local22, local114.aPickingCylinderArray1[local269], Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this ? 1 : 0);
+                    super.aModelArray3[local269].render(local22, local114.aPickingCylinderArray1[local269], Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this ? 1 : 0);
                 }
             }
         }

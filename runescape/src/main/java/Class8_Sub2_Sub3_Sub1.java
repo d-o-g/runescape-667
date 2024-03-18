@@ -85,7 +85,7 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
         if (Static504.aBoolean579) {
             local14.renderOrtho(local22, local36.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {
-            local14.method7473(local22, local36.aPickingCylinderArray1[0], 0);
+            local14.render(local22, local36.aPickingCylinderArray1[0], 0);
         }
         if (this.aClass337_1.aClass8_Sub5_7 != null) {
             @Pc(100) Class230 local100 = this.aClass337_1.aClass8_Sub5_7.method3645();

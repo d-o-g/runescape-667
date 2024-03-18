@@ -8,5 +8,5 @@ public final class Class272 {
     public Model aModel_7;
 
     @OriginalMember(owner = "client!od", name = "m", descriptor = "Lclient!r;")
-    public Node_Sub2_Sub9 aClass2_Sub2_Sub9_5;
+    public Shadow aClass2_Sub2_Sub9_5;
 }

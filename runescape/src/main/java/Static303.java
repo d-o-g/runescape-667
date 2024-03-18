@@ -25,9 +25,9 @@ public final class Static303 {
 
     @OriginalMember(owner = "client!jka", name = "g", descriptor = "(I)I")
     public static int method4429() {
-        @Pc(13) Class82 local13 = Static580.aClass82_186;
-        synchronized (Static580.aClass82_186) {
-            return Static580.aClass82_186.method2148();
+        @Pc(13) WeightedCache local13 = PlayerModel.BIG_CACHE;
+        synchronized (PlayerModel.BIG_CACHE) {
+            return PlayerModel.BIG_CACHE.method2148();
         }
     }
 

@@ -86,7 +86,7 @@ public final class Static249 {
         if (arg0 == local13) {
             return false;
         } else {
-            Static400.aClass2_Sub34_28.method5104(arg0 ? 1 : 0, Static400.aClass2_Sub34_28.aClass57_Sub20_1);
+            Static400.instance.method5104(arg0 ? 1 : 0, Static400.instance.aClass57_Sub20_1);
             Static666.method8693(1);
             return true;
         }

@@ -205,7 +205,7 @@ public final class Class158 {
     public int[] anIntArray301;
 
     @OriginalMember(owner = "client!hda", name = "Mb", descriptor = "I")
-    public int anInt3831;
+    public int obj;
 
     @OriginalMember(owner = "client!hda", name = "L", descriptor = "Z")
     public boolean aBoolean302;
@@ -427,7 +427,7 @@ public final class Class158 {
     public int anInt3825 = 0;
 
     @OriginalMember(owner = "client!hda", name = "E", descriptor = "I")
-    public int anInt3738 = -1;
+    public int objData = -1;
 
     @OriginalMember(owner = "client!hda", name = "zb", descriptor = "I")
     public int anInt3743 = -1;
@@ -484,7 +484,7 @@ public final class Class158 {
     public Sprite method3383(@OriginalArg(1) Toolkit arg0) {
         Static544.aBoolean624 = false;
         @Pc(54) long local54 = ((long) this.anInt3798 << 40) + (((this.aBoolean292 ? 1L : 0L) << 35) + (long) this.anInt3810 - (-((long) this.anInt3773 << 36) + -((this.aBoolean291 ? 1L : 0L) << 38)) + ((this.aBoolean293 ? 1L : 0L) << 39));
-        @Pc(60) Sprite local60 = (Sprite) Static473.aClass82_157.method2156(local54);
+        @Pc(60) Sprite local60 = (Sprite) Static473.A_WEIGHTED_CACHE___157.method2156(local54);
         if (local60 != null) {
             return local60;
         }
@@ -514,7 +514,7 @@ public final class Class158 {
             local71.method9381(this.anInt3798 | 0xFF000000);
         }
         local60 = arg0.method7948(local71, true);
-        Static473.aClass82_157.method2153(local54, local60, local60.getWidth() * local60.getHeight() * 4);
+        Static473.A_WEIGHTED_CACHE___157.method2153(local54, local60, local60.getWidth() * local60.getHeight() * 4);
         return local60;
     }
 
@@ -645,9 +645,9 @@ public final class Class158 {
         }
         if (this.anInt3820 == 6) {
             this.anInt3823 = 1;
-            this.anInt3831 = arg0.g2();
-            if (this.anInt3831 == 65535) {
-                this.anInt3831 = -1;
+            this.obj = arg0.g2();
+            if (this.obj == 65535) {
+                this.obj = -1;
             }
             local191 = arg0.g1();
             this.aBoolean285 = (local191 & 0x4) == 4;
@@ -852,11 +852,11 @@ public final class Class158 {
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;I)Lclient!he;")
     public Class159 method3393(@OriginalArg(0) Toolkit arg0) {
         @Pc(15) long local15 = (long) this.anInt3741 & 0xFFFFFFFFL | (long) this.anInt3812 << 32;
-        @Pc(21) Class159 local21 = (Class159) Static449.aClass82_146.method2156(local15);
+        @Pc(21) Class159 local21 = (Class159) Static449.A_WEIGHTED_CACHE___146.method2156(local15);
         if (local21 != null) {
             if (local21.anInt3836 != this.anInt3810) {
                 local21 = null;
-                Static449.aClass82_146.method2154(local15);
+                Static449.A_WEIGHTED_CACHE___146.method2154(local15);
             }
             if (local21 != null) {
                 return local21;
@@ -893,7 +893,7 @@ public final class Class158 {
             return null;
         } else {
             local21 = new Class159(local77, local86, local92, local89, local180, this.anInt3810);
-            Static449.aClass82_146.method2150(local21, local15);
+            Static449.A_WEIGHTED_CACHE___146.put(local21, local15);
             return local21;
         }
     }
@@ -985,11 +985,11 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!gu;Lclient!qp;Lclient!kr;BLclient!bp;Lclient!ju;Lclient!uk;Lclient!ql;Lclient!es;ILclient!vk;)Lclient!ka;")
-    public Model method3401(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Animator arg1, @OriginalArg(2) BASTypeList arg2, @OriginalArg(3) IDKTypeList arg3, @OriginalArg(5) Class50 arg4, @OriginalArg(6) PlayerModel arg5, @OriginalArg(7) VarDomain arg6, @OriginalArg(8) NPCTypeList arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
+    public Model method3401(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Animator arg1, @OriginalArg(2) BASTypeList arg2, @OriginalArg(3) IDKTypeList arg3, @OriginalArg(5) SeqTypeList arg4, @OriginalArg(6) PlayerModel playerModel, @OriginalArg(7) VarDomain arg6, @OriginalArg(8) NPCTypeList arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
         Static544.aBoolean624 = false;
         if (this.anInt3823 == 0) {
             return null;
-        } else if (this.anInt3823 == 1 && this.anInt3831 == -1) {
+        } else if (this.anInt3823 == 1 && this.obj == -1) {
             return null;
         } else if (this.anInt3823 == 1) {
             if (arg1 != null) {
@@ -1016,13 +1016,13 @@ public final class Class158 {
                 }
                 arg9 |= 0x8000;
             }
-            @Pc(271) long local271 = local53 & 0x3FFFFFFFFFL | (long) this.anInt3831 << 38 | (long) this.anInt3823 << 54 | (long) arg0.index << 59;
-            @Pc(277) Model local277 = (Model) Static312.aClass82_106.method2156(local271);
+            @Pc(271) long local271 = local53 & 0x3FFFFFFFFFL | (long) this.obj << 38 | (long) this.anInt3823 << 54 | (long) arg0.index << 59;
+            @Pc(277) Model local277 = (Model) Static312.A_WEIGHTED_CACHE___106.method2156(local271);
             if (local277 == null || arg0.compareFunctionMasks(local277.ua(), arg9) != 0) {
                 if (local277 != null) {
                     arg9 = arg0.combineFunctionMasks(arg9, local277.ua());
                 }
-                @Pc(307) Mesh local307 = Static121.method2201(this.anInt3831, Static607.aClass330_113);
+                @Pc(307) Mesh local307 = Static121.method2201(this.obj, Static607.aClass330_113);
                 if (local307 == null) {
                     Static544.aBoolean624 = true;
                     return null;
@@ -1042,7 +1042,7 @@ public final class Class158 {
                         local277.aa(this.aShortArray58[local339], this.aShortArray56[local339]);
                     }
                 }
-                Static312.aClass82_106.method2150(local277, local271);
+                Static312.A_WEIGHTED_CACHE___106.put(local277, local271);
             }
             if (arg1 != null) {
                 local277 = local277.copy((byte) 1, arg9, true);
@@ -1053,7 +1053,7 @@ public final class Class158 {
         } else {
             @Pc(438) Model local438;
             if (this.anInt3823 == 2) {
-                local438 = arg7.list(this.anInt3831).method5992(arg1, arg10, arg0, arg6);
+                local438 = arg7.list(this.obj).headModel(arg1, arg10, arg0, arg6);
                 if (local438 == null) {
                     Static544.aBoolean624 = true;
                     return null;
@@ -1061,10 +1061,10 @@ public final class Class158 {
                     return local438;
                 }
             } else if (this.anInt3823 == 3) {
-                if (arg5 == null) {
+                if (playerModel == null) {
                     return null;
                 }
-                local438 = arg5.method4552(arg3, arg4, arg6, arg1, arg8, arg7, arg0);
+                local438 = playerModel.wornHeadModel(arg3, arg4, arg6, arg1, arg8, arg7, arg0);
                 if (local438 == null) {
                     Static544.aBoolean624 = true;
                     return null;
@@ -1072,8 +1072,8 @@ public final class Class158 {
                     return local438;
                 }
             } else if (this.anInt3823 == 4) {
-                @Pc(489) ObjType local489 = arg8.list(this.anInt3831);
-                @Pc(498) Model local498 = local489.model(arg1, 2048, arg5, 10, arg0);
+                @Pc(489) ObjType local489 = arg8.list(this.obj);
+                @Pc(498) Model local498 = local489.model(arg1, 2048, playerModel, 10, arg0);
                 if (local498 == null) {
                     Static544.aBoolean624 = true;
                     return null;
@@ -1081,28 +1081,30 @@ public final class Class158 {
                     return local498;
                 }
             } else if (this.anInt3823 == 6) {
-                local438 = arg7.list(this.anInt3831).getModel(arg6, arg0, arg2, arg1, 0, (int[]) null, arg10, (Animator) null, 2048, (Animator[]) null);
+                local438 = arg7.list(this.obj).getModel(arg6, arg0, arg2, arg1, 0, (int[]) null, arg10, (Animator) null, 2048, (Animator[]) null);
                 if (local438 == null) {
                     Static544.aBoolean624 = true;
                     return null;
                 } else {
                     return local438;
                 }
-            } else if (this.anInt3823 != 7) {
-                return null;
-            } else if (arg5 == null) {
-                return null;
-            } else {
-                @Pc(558) int local558 = this.anInt3831 >>> 16;
-                @Pc(563) int local563 = this.anInt3831 & 0xFFFF;
-                @Pc(566) int local566 = this.anInt3738;
-                @Pc(578) Model local578 = arg5.method4550(arg1, local558, local566, arg4, arg0, arg3, local563);
-                if (local578 == null) {
-                    Static544.aBoolean624 = true;
+            } else if (this.anInt3823 == 7) {
+                if (playerModel == null) {
                     return null;
                 } else {
-                    return local578;
+                    @Pc(558) int kit1 = this.obj >>> 16;
+                    @Pc(563) int kit2 = this.obj & 0xFFFF;
+                    @Pc(566) int kit3 = this.objData;
+                    @Pc(578) Model model = playerModel.headModel(arg1, kit1, kit3, arg4, arg0, arg3, kit2);
+                    if (model == null) {
+                        Static544.aBoolean624 = true;
+                        return null;
+                    } else {
+                        return model;
+                    }
                 }
+            } else {
+                return null;
             }
         }
     }
@@ -1140,10 +1142,10 @@ public final class Class158 {
             return null;
         }
         @Pc(48) long local48 = (long) this.anInt3824 & 0xFFFFL | ((long) this.anInt3782 & 0xFFFFL) << 16 | ((long) this.anInt3763 & 0xFFFFL) << 48 | 0xFFFFL << 32 & (long) this.anInt3796 << 32;
-        @Pc(54) Class148 local54 = (Class148) Static444.aClass82_145.method2156(local48);
+        @Pc(54) Class148 local54 = (Class148) Static444.A_WEIGHTED_CACHE___145.method2156(local48);
         if (local54 == null) {
             local54 = arg1.method7072(arg0, this.anInt3782, this.anInt3824, this.anInt3796, this.anInt3763);
-            Static444.aClass82_145.method2150(local54, local48);
+            Static444.A_WEIGHTED_CACHE___145.put(local54, local48);
         }
         return local54;
     }

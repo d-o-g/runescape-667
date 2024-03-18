@@ -16,7 +16,7 @@ public final class Static166 {
     public static final int[] anIntArray247 = new int[1];
 
     @OriginalMember(owner = "client!fca", name = "g", descriptor = "Lclient!dla;")
-    public static final Class82 aClass82_59 = new Class82(10);
+    public static final WeightedCache A_WEIGHTED_CACHE___59 = new WeightedCache(10);
 
     @OriginalMember(owner = "client!fca", name = "n", descriptor = "Lclient!kda;")
     public static final Class204 aClass204_6 = new Class204(4, 1);

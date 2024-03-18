@@ -61,7 +61,7 @@ public final class Static256 {
             if (arg0.aClass199Array3[local86].anInt4930 != -1 && arg0.aClass199Array3[local86].aAnimator_7.isDelayed()) {
                 @Pc(117) Class227 local117 = Static23.aClass128_1.method2694(arg0.aClass199Array3[local86].anInt4930);
                 if (local117.aBoolean448 && local117.anInt5842 != -1) {
-                    @Pc(133) SeqType local133 = Static25.aClass50_1.list(local117.anInt5842);
+                    @Pc(133) SeqType local133 = Static25.aSeqTypeList_1.list(local117.anInt5842);
                     if (arg0.anInt10762 > 0 && local133.anInt1642 == 0) {
                         Static521.anInt7756 = -1;
                         arg0.anInt10763++;

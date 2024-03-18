@@ -10,10 +10,10 @@ public final class ObjTypeList {
     public int anInt2673;
 
     @OriginalMember(owner = "client!es", name = "o", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_57 = new Class82(64);
+    public final WeightedCache aWeightedCache_57 = new WeightedCache(64);
 
     @OriginalMember(owner = "client!es", name = "b", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_58 = new Class82(50);
+    public final WeightedCache aWeightedCache_58 = new WeightedCache(50);
 
     @OriginalMember(owner = "client!es", name = "f", descriptor = "Lclient!aka;")
     public final Class16 aClass16_1 = new Class16(250);
@@ -72,13 +72,13 @@ public final class ObjTypeList {
 
     @OriginalMember(owner = "client!es", name = "b", descriptor = "(B)V")
     public void method2476() {
-        @Pc(6) Class82 local6 = this.aClass82_57;
-        synchronized (this.aClass82_57) {
-            this.aClass82_57.method2157();
+        @Pc(6) WeightedCache local6 = this.aWeightedCache_57;
+        synchronized (this.aWeightedCache_57) {
+            this.aWeightedCache_57.reset();
         }
-        local6 = this.aClass82_58;
-        synchronized (this.aClass82_58) {
-            this.aClass82_58.method2157();
+        local6 = this.aWeightedCache_58;
+        synchronized (this.aWeightedCache_58) {
+            this.aWeightedCache_58.reset();
         }
         @Pc(44) Class16 local44 = this.aClass16_1;
         synchronized (this.aClass16_1) {
@@ -130,13 +130,13 @@ public final class ObjTypeList {
 
     @OriginalMember(owner = "client!es", name = "c", descriptor = "(II)V")
     public void method2479() {
-        @Pc(14) Class82 local14 = this.aClass82_57;
-        synchronized (this.aClass82_57) {
-            this.aClass82_57.method2147(5);
+        @Pc(14) WeightedCache local14 = this.aWeightedCache_57;
+        synchronized (this.aWeightedCache_57) {
+            this.aWeightedCache_57.method2147(5);
         }
-        local14 = this.aClass82_58;
-        synchronized (this.aClass82_58) {
-            this.aClass82_58.method2147(5);
+        local14 = this.aWeightedCache_58;
+        synchronized (this.aWeightedCache_58) {
+            this.aWeightedCache_58.method2147(5);
         }
         @Pc(48) Class16 local48 = this.aClass16_1;
         synchronized (this.aClass16_1) {
@@ -146,13 +146,13 @@ public final class ObjTypeList {
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(B)V")
     public void method2480() {
-        @Pc(6) Class82 local6 = this.aClass82_57;
-        synchronized (this.aClass82_57) {
-            this.aClass82_57.method2151();
+        @Pc(6) WeightedCache local6 = this.aWeightedCache_57;
+        synchronized (this.aWeightedCache_57) {
+            this.aWeightedCache_57.method2151();
         }
-        local6 = this.aClass82_58;
-        synchronized (this.aClass82_58) {
-            this.aClass82_58.method2151();
+        local6 = this.aWeightedCache_58;
+        synchronized (this.aWeightedCache_58) {
+            this.aWeightedCache_58.method2151();
         }
         @Pc(44) Class16 local44 = this.aClass16_1;
         synchronized (this.aClass16_1) {
@@ -161,19 +161,19 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!es", name = "b", descriptor = "(II)V")
-    public void method2481(@OriginalArg(0) int arg0) {
+    public void setFeatureMask(@OriginalArg(0) int arg0) {
         this.anInt2673 = arg0;
-        @Pc(17) Class82 local17 = this.aClass82_58;
-        synchronized (this.aClass82_58) {
-            this.aClass82_58.method2157();
+        @Pc(17) WeightedCache local17 = this.aWeightedCache_58;
+        synchronized (this.aWeightedCache_58) {
+            this.aWeightedCache_58.reset();
         }
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(I)V")
     public void method2482() {
-        @Pc(2) Class82 local2 = this.aClass82_58;
-        synchronized (this.aClass82_58) {
-            this.aClass82_58.method2157();
+        @Pc(2) WeightedCache local2 = this.aWeightedCache_58;
+        synchronized (this.aWeightedCache_58) {
+            this.aWeightedCache_58.reset();
         }
     }
 
@@ -207,10 +207,10 @@ public final class ObjTypeList {
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(II)Lclient!vfa;")
     public ObjType list(@OriginalArg(0) int arg0) {
-        @Pc(14) Class82 local14 = this.aClass82_57;
+        @Pc(14) WeightedCache local14 = this.aWeightedCache_57;
         @Pc(26) ObjType local26;
-        synchronized (this.aClass82_57) {
-            local26 = (ObjType) this.aClass82_57.method2156((long) arg0);
+        synchronized (this.aWeightedCache_57) {
+            local26 = (ObjType) this.aWeightedCache_57.method2156((long) arg0);
         }
         if (local26 != null) {
             return local26;
@@ -260,9 +260,9 @@ public final class ObjTypeList {
                 }
             }
         }
-        @Pc(238) Class82 local238 = this.aClass82_57;
-        synchronized (this.aClass82_57) {
-            this.aClass82_57.method2150(local26, (long) arg0);
+        @Pc(238) WeightedCache local238 = this.aWeightedCache_57;
+        synchronized (this.aWeightedCache_57) {
+            this.aWeightedCache_57.put(local26, (long) arg0);
             return local26;
         }
     }

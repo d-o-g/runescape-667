@@ -48,10 +48,10 @@ public final class Static523 {
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(I)I")
     public static int method3448() {
         @Pc(12) int local12;
-        if (Static400.aClass2_Sub34_28.aClass57_Sub10_1.method3519() == 0) {
+        if (Static400.instance.aClass57_Sub10_1.method3519() == 0) {
             for (local12 = 0; local12 < Static671.anInt10026; local12++) {
                 if (Static194.anInterface27Array1[local12].method2666() == 's' || Static194.anInterface27Array1[local12].method2666() == 'S') {
-                    Static400.aClass2_Sub34_28.method5104(1, Static400.aClass2_Sub34_28.aClass57_Sub10_1);
+                    Static400.instance.method5104(1, Static400.instance.aClass57_Sub10_1);
                     Static416.aBoolean472 = true;
                     break;
                 }
@@ -99,7 +99,7 @@ public final class Static523 {
             Static324.anInt5129 = Static177.aClass330_35.method7576();
             Static466.anInt7042 = Static516.aClass330_97.method7576();
             Static616.method8284(Static177.aClass330_35);
-            @Pc(250) int local250 = Static400.aClass2_Sub34_28.aClass57_Sub11_1.method3603();
+            @Pc(250) int local250 = Static400.instance.aClass57_Sub11_1.method3603();
             Static333.aClass279_1 = new Class279(Static392.aClass377_4, Static51.anInt1052, Static516.aClass330_97);
             @Pc(262) int[] local262 = Static333.aClass279_1.method6275(local250);
             if (local262.length == 0) {
@@ -236,7 +236,7 @@ public final class Static523 {
             Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aClass377_4, Static51.anInt1052, true, Static333.aClass330_66, Static190.aClass330_38);
             Static419.aObjTypeList_1 = new ObjTypeList(Static392.aClass377_4, Static51.anInt1052, true, Static386.aClass49_2, Static380.aClass330_79, Static190.aClass330_38);
             Static272.aClass45_1 = new Class45(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
-            Static25.aClass50_1 = new Class50(Static392.aClass377_4, Static51.anInt1052, Static668.aClass330_119, Static344.aClass330_73, Static142.aClass330_25);
+            Static25.aSeqTypeList_1 = new SeqTypeList(Static392.aClass377_4, Static51.anInt1052, Static668.aClass330_119, Static344.aClass330_73, Static142.aClass330_25);
             Static324.aClass307_1 = new Class307(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
             Static99.aClass78_1 = new Class78(Static392.aClass377_4, Static51.anInt1052, Static6.aClass330_1);
             Static23.aClass128_1 = new Class128(Static392.aClass377_4, Static51.anInt1052, Static271.aClass330_59, Static190.aClass330_38);
@@ -252,10 +252,10 @@ public final class Static523 {
             Static68.aClass151_3 = new Class151(Static51.anInt1052, Static58.aClass330_12, Static244.aClass330_55);
             Static288.aClass139_2 = new Class139(Static51.anInt1052, Static58.aClass330_12, Static244.aClass330_55, new Class251());
             Static412.method5693();
-            Static354.aClass142_4.method3061(Static400.aClass2_Sub34_28.aClass57_Sub19_2.method5960() == 0);
+            Static354.aClass142_4.method3061(Static400.instance.aClass57_Sub19_2.method5960() == 0);
             Static34.aClass304_1 = new Class304();
-            Static296.method4362();
-            Static44.method1074(Static25.aClass50_1);
+            Static296.updateFeatureMask();
+            Static44.method1074(Static25.aSeqTypeList_1);
             Static187.method2844(Static88.aClass330_14);
             Static405.method5592(Static56.anTextureSource_3, Static190.aClass330_38);
             @Pc(1119) Class197 local1119 = new Class197(Static463.aClass330_93.method7600("huffman", ""));
@@ -335,20 +335,20 @@ public final class Static523 {
             Static242.aThread1 = null;
             Static333.aClass279_1 = null;
             Static9.method123();
-            Static3.aBoolean4 = Static400.aClass2_Sub34_28.aClass57_Sub10_1.method3519() == 1;
-            Static400.aClass2_Sub34_28.method5104(1, Static400.aClass2_Sub34_28.aClass57_Sub10_1);
+            Static3.aBoolean4 = Static400.instance.aClass57_Sub10_1.method3519() == 1;
+            Static400.instance.method5104(1, Static400.instance.aClass57_Sub10_1);
             if (Static3.aBoolean4) {
-                Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub29_2);
-            } else if (Static400.aClass2_Sub34_28.aClass57_Sub29_2.aBoolean674 && Static292.aClass2_Sub43_2.anInt7610 < 512 && Static292.aClass2_Sub43_2.anInt7610 != 0) {
-                Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub29_2);
+                Static400.instance.method5104(0, Static400.instance.aClass57_Sub29_2);
+            } else if (Static400.instance.aClass57_Sub29_2.aBoolean674 && Static292.aClass2_Sub43_2.anInt7610 < 512 && Static292.aClass2_Sub43_2.anInt7610 != 0) {
+                Static400.instance.method5104(0, Static400.instance.aClass57_Sub29_2);
             }
             Static666.method8693(1);
             if (Static3.aBoolean4) {
                 Static32.method880(0, false);
             } else {
-                Static32.method880(Static400.aClass2_Sub34_28.aClass57_Sub29_2.method7915(), false);
+                Static32.method880(Static400.instance.aClass57_Sub29_2.method7915(), false);
             }
-            Static409.method5657(Static400.aClass2_Sub34_28.aClass57_Sub1_1.method1485(), -1, false, -1);
+            Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
             Static570.method7549(Static163.aToolkit_17);
             Static469.method6358(Static163.aToolkit_17);
             Static239.method3472(Static721.aClass330_128, Static163.aToolkit_17);
@@ -363,15 +363,15 @@ public final class Static523 {
             return;
         }
         if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9 == null) {
-            arg0.anInt3831 = 0;
-            arg0.anInt3738 = 0;
+            arg0.obj = 0;
+            arg0.objData = 0;
             return;
         }
         arg0.anInt3807 = 150;
         arg0.anInt3811 = (int) (Math.sin((double) Static333.anInt5455 / 40.0D) * 256.0D) & 0x7FF;
         arg0.anInt3823 = 5;
-        arg0.anInt3831 = Static312.anInt5000;
-        arg0.anInt3738 = Static214.method3157(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9);
+        arg0.obj = Static312.anInt5000;
+        arg0.objData = Static214.method3157(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9);
         @Pc(55) Animator local55 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aAnimator_10;
         if (local55 == null) {
             arg0.aAnimator_6 = null;

@@ -76,7 +76,7 @@ public final class Class294 {
     }
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(B)Lclient!dv;")
-    public Mesh method6614() {
+    public Mesh headModel() {
         @Pc(8) Mesh[] local8 = new Mesh[5];
         @Pc(10) int local10 = 0;
         @Pc(22) Class330 local22 = this.aIDKTypeList_4.aClass330_72;
@@ -113,7 +113,7 @@ public final class Class294 {
     }
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(Z)Z")
-    public boolean method6615() {
+    public boolean isHeadLoaded() {
         @Pc(7) boolean local7 = true;
         @Pc(11) Class330 local11 = this.aIDKTypeList_4.aClass330_72;
         synchronized (this.aIDKTypeList_4.aClass330_72) {

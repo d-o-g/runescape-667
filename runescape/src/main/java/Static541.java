@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static541 {
 
     @OriginalMember(owner = "client!ra", name = "k", descriptor = "Lclient!dla;")
-    public static final Class82 aClass82_174 = new Class82(8);
+    public static final WeightedCache A_WEIGHTED_CACHE___174 = new WeightedCache(8);
 
     @OriginalMember(owner = "client!ra", name = "p", descriptor = "Lclient!ts;")
     public static final Class361 aClass361_4 = new Class361(16);

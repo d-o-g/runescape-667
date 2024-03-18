@@ -9,7 +9,7 @@ public final class Static66 {
 
     @OriginalMember(owner = "client!cc", name = "b", descriptor = "(II)Lclient!ok;")
     public static Class278 method1487(@OriginalArg(1) int arg0) {
-        @Pc(10) Class278 local10 = (Class278) Static713.aClass82_231.method2156((long) arg0);
+        @Pc(10) Class278 local10 = (Class278) Static713.A_WEIGHTED_CACHE___231.method2156((long) arg0);
         if (local10 != null) {
             return local10;
         }
@@ -24,7 +24,7 @@ public final class Static66 {
             Static503.A_HASH_TABLE___38.put((long) arg0, new IntNode(Static370.anInt5881));
             Static367.aClass278Array1[Static370.anInt5881++] = local10;
         }
-        Static713.aClass82_231.method2150(local10, (long) arg0);
+        Static713.A_WEIGHTED_CACHE___231.put(local10, (long) arg0);
         return local10;
     }
 

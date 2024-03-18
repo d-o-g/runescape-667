@@ -194,7 +194,7 @@ public final class Class337 {
         }
         this.method7680(this.aClass8_Sub2_21, arg2);
         if (arg3) {
-            arg3 &= this.aBoolean661 & !this.aBoolean662 & Static400.aClass2_Sub34_28.aClass57_Sub12_1.method4364() != 0;
+            arg3 &= this.aBoolean661 & !this.aBoolean662 & Static400.instance.aClass57_Sub12_1.method4364() != 0;
         }
         if (arg1 && !arg3) {
             this.anInt8647 = local11.anInt1256;
@@ -284,7 +284,7 @@ public final class Class337 {
         if (!this.aAnimator_9.isAnimating()) {
             this.method7676(0, -1, false);
         } else if (this.aAnimator_9.tick(Static333.anInt5455 - this.anInt8643)) {
-            if (Static400.aClass2_Sub34_28.aClass57_Sub12_1.method4364() == 2) {
+            if (Static400.instance.aClass57_Sub12_1.method4364() == 2) {
                 this.aBoolean662 = false;
             }
             if (this.aAnimator_9.isFinished()) {

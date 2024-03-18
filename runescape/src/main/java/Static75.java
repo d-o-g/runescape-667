@@ -29,30 +29,30 @@ public final class Static75 {
 
     @OriginalMember(owner = "client!ch", name = "b", descriptor = "(B)V")
     public static void method6239() {
-        Static400.aClass2_Sub34_28.method5104(1, Static400.aClass2_Sub34_28.aClass57_Sub19_1);
-        Static400.aClass2_Sub34_28.method5104(1, Static400.aClass2_Sub34_28.aClass57_Sub19_2);
-        Static400.aClass2_Sub34_28.method5104(1, Static400.aClass2_Sub34_28.aClass57_Sub4_1);
-        Static400.aClass2_Sub34_28.method5104(1, Static400.aClass2_Sub34_28.aClass57_Sub4_2);
-        Static400.aClass2_Sub34_28.method5104(1, Static400.aClass2_Sub34_28.aClass57_Sub6_1);
-        Static400.aClass2_Sub34_28.method5104(1, Static400.aClass2_Sub34_28.aClass57_Sub23_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub27_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub8_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub7_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub12_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub30_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub24_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub26_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub16_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub13_2);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub13_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub28_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub5_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub20_1);
-        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub2_1);
+        Static400.instance.method5104(1, Static400.instance.aClass57_Sub19_1);
+        Static400.instance.method5104(1, Static400.instance.aClass57_Sub19_2);
+        Static400.instance.method5104(1, Static400.instance.aClass57_Sub4_1);
+        Static400.instance.method5104(1, Static400.instance.aClass57_Sub4_2);
+        Static400.instance.method5104(1, Static400.instance.aClass57_Sub6_1);
+        Static400.instance.method5104(1, Static400.instance.aClass57_Sub23_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub27_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub8_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub7_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub12_1);
+        Static400.instance.method5104(0, Static400.instance.textures);
+        Static400.instance.method5104(0, Static400.instance.lightDetail);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub26_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub16_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub13_2);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub13_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub28_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub5_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub20_1);
+        Static400.instance.method5104(0, Static400.instance.aClass57_Sub2_1);
         Static376.method5313();
-        Static400.aClass2_Sub34_28.method5104(2, Static400.aClass2_Sub34_28.aClass57_Sub18_1);
-        Static400.aClass2_Sub34_28.method5104(2, Static400.aClass2_Sub34_28.aClass57_Sub15_1);
-        Static296.method4362();
+        Static400.instance.method5104(2, Static400.instance.aClass57_Sub18_1);
+        Static400.instance.method5104(2, Static400.instance.aClass57_Sub15_1);
+        Static296.updateFeatureMask();
         Static218.method3187();
         Static284.aBoolean355 = true;
     }

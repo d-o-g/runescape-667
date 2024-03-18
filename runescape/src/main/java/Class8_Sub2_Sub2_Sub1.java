@@ -43,7 +43,7 @@ public final class Class8_Sub2_Sub2_Sub1 extends Class8_Sub2_Sub2 implements Int
         super.anInt10690 = arg4;
         this.aBoolean183 = arg7;
         this.aBoolean180 = arg9;
-        this.aBoolean181 = arg0.method8006() && arg1.aBoolean89 && !this.aBoolean183 && Static400.aClass2_Sub34_28.aClass57_Sub12_1.method4364() != 0;
+        this.aBoolean181 = arg0.method8006() && arg1.aBoolean89 && !this.aBoolean183 && Static400.instance.aClass57_Sub12_1.method4364() != 0;
         @Pc(68) int local68 = 2048;
         if (this.aBoolean180) {
             local68 |= 0x10000;

@@ -146,13 +146,13 @@ public final class Toolkit_Sub2 extends Toolkit {
     public int anInt4205;
 
     @OriginalMember(owner = "client!iaa", name = "J", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_88;
+    public final WeightedCache aWeightedCache_88;
 
     @OriginalMember(owner = "client!iaa", name = "G", descriptor = "I")
     public int anInt4215;
 
     @OriginalMember(owner = "client!iaa", name = "W", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_89;
+    public final WeightedCache aWeightedCache_89;
 
     @OriginalMember(owner = "client!iaa", name = "db", descriptor = "Lclient!eaa;")
     public Matrix_Sub2 aClass73_Sub2_1;
@@ -181,10 +181,10 @@ public final class Toolkit_Sub2 extends Toolkit {
         this.anInt4213 = 0;
         this.anInt4214 = 50;
         this.anInt4205 = 512;
-        this.aClass82_88 = new Class82(16);
+        this.aWeightedCache_88 = new WeightedCache(16);
         this.anInt4215 = -1;
         try {
-            this.aClass82_89 = new Class82(256);
+            this.aWeightedCache_89 = new WeightedCache(256);
             this.aClass73_Sub2_1 = new Matrix_Sub2();
             this.method7956(1);
             this.method8020(0);
@@ -601,7 +601,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             return;
         }
         if (this.anInt4215 != local2) {
-            @Pc(34) Sprite local34 = (Sprite) this.aClass82_88.method2156((long) local2);
+            @Pc(34) Sprite local34 = (Sprite) this.aWeightedCache_88.method2156((long) local2);
             if (local34 == null) {
                 @Pc(40) int[] local40 = this.method3788(local2);
                 if (local40 == null) {
@@ -609,7 +609,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 }
                 @Pc(54) int local54 = this.method3798(local2) ? 64 : this.lb;
                 local34 = this.createSprite(local54, local54, local54, local40);
-                this.aClass82_88.method2150(local34, (long) local2);
+                this.aWeightedCache_88.put(local34, (long) local2);
             }
             this.anInt4215 = local2;
             this.aSprite_17 = local34;
@@ -1083,7 +1083,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     @Override
     public void method7997(@OriginalArg(0) boolean arg0) {
         this.aBoolean332 = arg0;
-        this.aClass82_89.method2157();
+        this.aWeightedCache_89.reset();
     }
 
     @OriginalMember(owner = "client!iaa", name = "A", descriptor = "()Lclient!tt;")
@@ -1173,16 +1173,16 @@ public final class Toolkit_Sub2 extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "q", descriptor = "()V")
     @Override
     public void method8012() {
-        this.aClass82_89.method2157();
-        this.aClass82_88.method2157();
+        this.aWeightedCache_89.reset();
+        this.aWeightedCache_88.reset();
     }
 
     @OriginalMember(owner = "client!iaa", name = "o", descriptor = "(I)[I")
     public int[] method3788(@OriginalArg(0) int arg0) {
-        @Pc(2) Class82 local2 = this.aClass82_89;
+        @Pc(2) WeightedCache local2 = this.aWeightedCache_89;
         @Pc(14) Node_Sub29 local14;
-        synchronized (this.aClass82_89) {
-            local14 = (Node_Sub29) this.aClass82_89.method2156((long) arg0 | Long.MIN_VALUE);
+        synchronized (this.aWeightedCache_89) {
+            local14 = (Node_Sub29) this.aWeightedCache_89.method2156((long) arg0 | Long.MIN_VALUE);
             if (local14 == null) {
                 if (!super.textureSource.textureAvailable(arg0)) {
                     return null;
@@ -1190,7 +1190,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 @Pc(36) TextureMetrics local36 = super.textureSource.getMetrics(arg0);
                 @Pc(50) int local50 = local36.small || this.aBoolean332 ? 64 : this.lb;
                 local14 = new Node_Sub29(arg0, local50, super.textureSource.argbOutput(0.7F, arg0, local50, local50), local36.alphaBlendMode != 1);
-                this.aClass82_89.method2150(local14, (long) arg0 | Long.MIN_VALUE);
+                this.aWeightedCache_89.put(local14, (long) arg0 | Long.MIN_VALUE);
             }
         }
         local14.aBoolean341 = true;
@@ -1404,7 +1404,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     @Override
     public void method7989(@OriginalArg(0) int arg0) {
         this.lb = arg0;
-        this.aClass82_89.method2157();
+        this.aWeightedCache_89.reset();
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
@@ -1871,7 +1871,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     @Override
     public void method7977(@OriginalArg(0) int arg0) {
         @Pc(4) int local4 = arg0 - this.anInt4184;
-        for (@Pc(9) Object local9 = this.aClass82_89.method2145(); local9 != null; local9 = this.aClass82_89.method2152()) {
+        for (@Pc(9) Object local9 = this.aWeightedCache_89.method2145(); local9 != null; local9 = this.aWeightedCache_89.method2152()) {
             @Pc(13) Node_Sub29 local13 = (Node_Sub29) local9;
             if (local13.aBoolean341) {
                 local13.anInt4409 += local4;
@@ -1885,8 +1885,8 @@ public final class Toolkit_Sub2 extends Toolkit {
             }
         }
         this.anInt4184 = arg0;
-        this.aClass82_88.method2147(5);
-        this.aClass82_89.method2147(5);
+        this.aWeightedCache_88.method2147(5);
+        this.aWeightedCache_89.method2147(5);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(FFF)V")
@@ -1904,7 +1904,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             return;
         }
         if (this.anInt4215 != arg6) {
-            @Pc(33) Sprite local33 = (Sprite) this.aClass82_88.method2156((long) arg6);
+            @Pc(33) Sprite local33 = (Sprite) this.aWeightedCache_88.method2156((long) arg6);
             if (local33 == null) {
                 @Pc(39) int[] local39 = this.method3788(arg6);
                 if (local39 == null) {
@@ -1912,7 +1912,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 }
                 @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.lb;
                 local33 = this.createSprite(local53, local53, local53, local39);
-                this.aClass82_88.method2150(local33, (long) arg6);
+                this.aWeightedCache_88.put(local33, (long) arg6);
             }
             this.anInt4215 = arg6;
             this.aSprite_17 = local33;
@@ -2199,10 +2199,10 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "l", descriptor = "(I)[I")
     public int[] method3792(@OriginalArg(0) int arg0) {
-        @Pc(2) Class82 local2 = this.aClass82_89;
+        @Pc(2) WeightedCache local2 = this.aWeightedCache_89;
         @Pc(12) Node_Sub29 local12;
-        synchronized (this.aClass82_89) {
-            local12 = (Node_Sub29) this.aClass82_89.method2156((long) arg0);
+        synchronized (this.aWeightedCache_89) {
+            local12 = (Node_Sub29) this.aWeightedCache_89.method2156((long) arg0);
             if (local12 == null) {
                 if (!super.textureSource.textureAvailable(arg0)) {
                     return null;
@@ -2210,7 +2210,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 @Pc(34) TextureMetrics local34 = super.textureSource.getMetrics(arg0);
                 @Pc(48) int local48 = local34.small || this.aBoolean332 ? 64 : this.lb;
                 local12 = new Node_Sub29(arg0, local48, super.textureSource.rgbOutput(local48, true, local48, arg0, 0.7F), local34.alphaBlendMode != 1);
-                this.aClass82_89.method2150(local12, (long) arg0);
+                this.aWeightedCache_89.put(local12, (long) arg0);
             }
         }
         local12.aBoolean341 = true;
@@ -2732,7 +2732,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             return;
         }
         if (this.anInt4215 != arg6) {
-            @Pc(33) Sprite local33 = (Sprite) this.aClass82_88.method2156((long) arg6);
+            @Pc(33) Sprite local33 = (Sprite) this.aWeightedCache_88.method2156((long) arg6);
             if (local33 == null) {
                 @Pc(39) int[] local39 = this.method3788(arg6);
                 if (local39 == null) {
@@ -2740,7 +2740,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 }
                 @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.lb;
                 local33 = this.createSprite(local53, local53, local53, local39);
-                this.aClass82_88.method2150(local33, (long) arg6);
+                this.aWeightedCache_88.put(local33, (long) arg6);
             }
             this.anInt4215 = arg6;
             this.aSprite_17 = local33;

@@ -301,7 +301,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("rebuild")) {
-                    Static449.method6116();
+                    Static449.mapBuild();
                     Static244.method3512();
                     Static79.method1579("Rebuilding map");
                     return;
@@ -309,7 +309,7 @@ public final class Static231 {
                 if (arg2.equalsIgnoreCase("rebuildprofile")) {
                     Static690.aLong318 = Static588.method7715();
                     Static28.aBoolean43 = true;
-                    Static449.method6116();
+                    Static449.mapBuild();
                     Static244.method3512();
                     Static79.method1579("Rebuilding map (with profiling)");
                     return;
@@ -343,9 +343,9 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk0")) {
                     Static32.method880(0, false);
-                    if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() == 0) {
+                    if (Static400.instance.aClass57_Sub29_1.method7915() == 0) {
                         Static79.method1579("Entered tk0");
-                        Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub29_2);
+                        Static400.instance.method5104(0, Static400.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -355,9 +355,9 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk1")) {
                     Static32.method880(1, false);
-                    if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() == 1) {
+                    if (Static400.instance.aClass57_Sub29_1.method7915() == 1) {
                         Static79.method1579("Entered tk1");
-                        Static400.aClass2_Sub34_28.method5104(1, Static400.aClass2_Sub34_28.aClass57_Sub29_2);
+                        Static400.instance.method5104(1, Static400.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -367,9 +367,9 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk2")) {
                     Static32.method880(2, false);
-                    if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() == 2) {
+                    if (Static400.instance.aClass57_Sub29_1.method7915() == 2) {
                         Static79.method1579("Entered tk2");
-                        Static400.aClass2_Sub34_28.method5104(2, Static400.aClass2_Sub34_28.aClass57_Sub29_2);
+                        Static400.instance.method5104(2, Static400.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -379,21 +379,21 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk3")) {
                     Static32.method880(3, false);
-                    if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() != 3) {
+                    if (Static400.instance.aClass57_Sub29_1.method7915() != 3) {
                         Static79.method1579("Failed to enter tk3");
                         return;
                     }
                     Static79.method1579("Entered tk3");
-                    Static400.aClass2_Sub34_28.method5104(3, Static400.aClass2_Sub34_28.aClass57_Sub29_2);
+                    Static400.instance.method5104(3, Static400.instance.aClass57_Sub29_2);
                     Static666.method8693(1);
                     Static503.aBoolean578 = false;
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk5")) {
                     Static32.method880(5, false);
-                    if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() == 5) {
+                    if (Static400.instance.aClass57_Sub29_1.method7915() == 5) {
                         Static79.method1579("Entered tk5");
-                        Static400.aClass2_Sub34_28.method5104(5, Static400.aClass2_Sub34_28.aClass57_Sub29_2);
+                        Static400.instance.method5104(5, Static400.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -408,10 +408,10 @@ public final class Static231 {
                     }
                     local501 = Static647.method8473(arg2.substring(6));
                     if (local501 >= 0 && local501 <= Static461.method6268(Static369.anInt4265)) {
-                        Static400.aClass2_Sub34_28.method5104(local501, Static400.aClass2_Sub34_28.aClass57_Sub5_1);
+                        Static400.instance.method5104(local501, Static400.instance.aClass57_Sub5_1);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
-                        Static79.method1579("maxbuildarea=" + Static400.aClass2_Sub34_28.aClass57_Sub5_1.method2172());
+                        Static79.method1579("maxbuildarea=" + Static400.instance.aClass57_Sub5_1.method2172());
                         return;
                     }
                     Static79.method1579("Invalid buildarea value");
@@ -495,7 +495,7 @@ public final class Static231 {
                             local501 = 4;
                         }
                         Static455.anInt6915 = local501;
-                        Static449.method6116();
+                        Static449.mapBuild();
                         Static79.method1579("Render cores now: " + Static455.anInt6915);
                         return;
                     }
@@ -503,8 +503,8 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("cachespace")) {
-                    Static79.method1579("I(s): " + Static473.aClass82_157.method2144() + "/" + Static473.aClass82_157.method2146());
-                    Static79.method1579("I(m): " + Static312.aClass82_106.method2144() + "/" + Static312.aClass82_106.method2146());
+                    Static79.method1579("I(s): " + Static473.A_WEIGHTED_CACHE___157.method2144() + "/" + Static473.A_WEIGHTED_CACHE___157.method2146());
+                    Static79.method1579("I(m): " + Static312.A_WEIGHTED_CACHE___106.method2144() + "/" + Static312.A_WEIGHTED_CACHE___106.method2146());
                     Static79.method1579("O(s): " + Static419.aObjTypeList_1.aClass16_1.method257() + "/" + Static419.aObjTypeList_1.aClass16_1.method256());
                     return;
                 }
@@ -665,7 +665,7 @@ public final class Static231 {
                 }
                 if (arg2.equals("autosetup")) {
                     Static519.method6831();
-                    Static79.method1579("Complete. Toolkit now: " + Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915());
+                    Static79.method1579("Complete. Toolkit now: " + Static400.instance.aClass57_Sub29_1.method7915());
                     return;
                 }
                 if (arg2.equals("errormessage")) {
@@ -690,7 +690,7 @@ public final class Static231 {
                 if (arg2.startsWith("w2debug")) {
                     local501 = Integer.parseInt(arg2.substring(8, 9));
                     Static699.anInt10539 = local501;
-                    Static449.method6116();
+                    Static449.mapBuild();
                     Static79.method1579("Toggled!");
                     return;
                 }
@@ -701,11 +701,11 @@ public final class Static231 {
                         return;
                     }
                     local725 = Static647.method8473(arg2.substring(local501 + 1));
-                    Static400.aClass2_Sub34_28.method5104(local725, Static400.aClass2_Sub34_28.aClass57_Sub3_1);
+                    Static400.instance.method5104(local725, Static400.instance.aClass57_Sub3_1);
                     Static666.method8693(1);
                     Static503.aBoolean578 = false;
                     Static498.method6646();
-                    if (local725 != Static400.aClass2_Sub34_28.aClass57_Sub3_1.method2120()) {
+                    if (local725 != Static400.instance.aClass57_Sub3_1.method2120()) {
                         Static79.method1579("Failed to change ortho mode");
                         return;
                     }
@@ -713,7 +713,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("orthozoom ")) {
-                    if (Static400.aClass2_Sub34_28.aClass57_Sub3_1.method2120() == 0) {
+                    if (Static400.instance.aClass57_Sub3_1.method2120() == 0) {
                         Static79.method1579("enable ortho mode first (use 'ortho <n>')");
                         return;
                     }
@@ -737,8 +737,8 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("skydetail ")) {
                     local501 = Static647.method8473(arg2.substring(arg2.indexOf(32) + 1));
-                    Static400.aClass2_Sub34_28.method5104(local501, Static400.aClass2_Sub34_28.aClass57_Sub2_1);
-                    Static79.method1579("skydetail is " + (Static400.aClass2_Sub34_28.aClass57_Sub2_1.method1989() == 0 ? "low" : "high"));
+                    Static400.instance.method5104(local501, Static400.instance.aClass57_Sub2_1);
+                    Static79.method1579("skydetail is " + (Static400.instance.aClass57_Sub2_1.method1989() == 0 ? "low" : "high"));
                     return;
                 }
                 @Pc(2592) File local2592;

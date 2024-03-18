@@ -12,8 +12,8 @@ public final class Static157 {
 
     @OriginalMember(owner = "client!eu", name = "f", descriptor = "(I)V")
     public static void method2560() {
-        Static264.aClass82_235.method2157();
-        Static123.aClass82_53.method2157();
+        Static264.A_WEIGHTED_CACHE___235.reset();
+        Static123.A_WEIGHTED_CACHE___53.reset();
     }
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(IIIILclient!nda;)V")

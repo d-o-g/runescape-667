@@ -65,10 +65,10 @@ public final class Static81 {
         if (local235 != local213) {
             if (local213) {
                 Static588.anInt8692 = Static597.anInt8821;
-                if (Static400.aClass2_Sub34_28.aClass57_Sub25_4.method7208() == 0) {
+                if (Static400.instance.aClass57_Sub25_4.method7208() == 0) {
                     Static312.method4541();
                 } else {
-                    Static57.method1225(Static597.anInt8821, Static400.aClass2_Sub34_28.aClass57_Sub25_4.method7208(), Static398.aClass330_81);
+                    Static57.method1225(Static597.anInt8821, Static400.instance.aClass57_Sub25_4.method7208(), Static398.aClass330_81);
                     Static550.method7266();
                 }
                 Static500.aClass295_3.method6626(false);

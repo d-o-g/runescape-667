@@ -16,7 +16,7 @@ public final class BASType {
     public BASTypeList aBASTypeList_1;
 
     @OriginalMember(owner = "client!pda", name = "M", descriptor = "[[I")
-    public int[][] equipmentTransformations;
+    public int[][] wornTransformations;
 
     @OriginalMember(owner = "client!pda", name = "D", descriptor = "[I")
     public int[] anIntArray586;
@@ -188,12 +188,12 @@ public final class BASType {
     public Matrix[] transformMatrices(@OriginalArg(1) Toolkit toolkit) {
         if (this.transformMatrices != null && this.toolkitIndex == toolkit.index) {
             return this.transformMatrices;
-        } else if (this.equipmentTransformations == null) {
+        } else if (this.wornTransformations == null) {
             return null;
         } else {
-            this.transformMatrices = new Matrix[this.equipmentTransformations.length];
+            this.transformMatrices = new Matrix[this.wornTransformations.length];
 
-            for (@Pc(35) int i = 0; i < this.equipmentTransformations.length; i++) {
+            for (@Pc(35) int i = 0; i < this.wornTransformations.length; i++) {
                 @Pc(38) int tx = 0;
                 @Pc(40) int ty = 0;
                 @Pc(42) int tz = 0;
@@ -201,13 +201,13 @@ public final class BASType {
                 @Pc(46) int ry = 0;
                 @Pc(48) int rz = 0;
 
-                if (this.equipmentTransformations[i] != null) {
-                    tx = this.equipmentTransformations[i][0];
-                    ty = this.equipmentTransformations[i][1];
-                    tz = this.equipmentTransformations[i][2];
-                    rx = this.equipmentTransformations[i][3] << 3;
-                    ry = this.equipmentTransformations[i][4] << 3;
-                    rz = this.equipmentTransformations[i][5] << 3;
+                if (this.wornTransformations[i] != null) {
+                    tx = this.wornTransformations[i][0];
+                    ty = this.wornTransformations[i][1];
+                    tz = this.wornTransformations[i][2];
+                    rx = this.wornTransformations[i][3] << 3;
+                    ry = this.wornTransformations[i][4] << 3;
+                    rz = this.wornTransformations[i][5] << 3;
                 }
 
                 if (tx != 0 || ty != 0 || tz != 0 || rx != 0 || ry != 0 || rz != 0) {
@@ -263,13 +263,13 @@ public final class BASType {
             @Pc(128) int local128;
             @Pc(136) int local136;
             if (arg1 == 27) {
-                if (this.equipmentTransformations == null) {
-                    this.equipmentTransformations = new int[this.aBASTypeList_1.aWearposDefaults_2.anIntArray821.length][];
+                if (this.wornTransformations == null) {
+                    this.wornTransformations = new int[this.aBASTypeList_1.aWearposDefaults_2.anIntArray821.length][];
                 }
                 local128 = arg0.g1();
-                this.equipmentTransformations[local128] = new int[6];
+                this.wornTransformations[local128] = new int[6];
                 for (local136 = 0; local136 < 6; local136++) {
-                    this.equipmentTransformations[local128][local136] = arg0.g2s();
+                    this.wornTransformations[local128][local136] = arg0.g2s();
                 }
             } else if (arg1 == 28) {
                 local128 = arg0.g1();

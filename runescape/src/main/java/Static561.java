@@ -47,7 +47,7 @@ public final class Static561 {
 
     @OriginalMember(owner = "client!rla", name = "b", descriptor = "(I)V")
     public static void method7436() {
-        Static289.aClass82_100.method2157();
+        Static289.A_WEIGHTED_CACHE___100.reset();
     }
 
     @OriginalMember(owner = "client!rla", name = "a", descriptor = "(IIIIII)V")

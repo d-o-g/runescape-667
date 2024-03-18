@@ -93,7 +93,7 @@ public final class Static664 {
         Static354.aClass142_4.method3058();
         Static690.aNPCTypeList_2.method7089();
         Static419.aObjTypeList_1.method2480();
-        Static25.aClass50_1.method1164();
+        Static25.aSeqTypeList_1.method1164();
         Static23.aClass128_1.method2697();
         Static529.aClass161_1.method3423();
         Static36.aClass260_1.method5781();
@@ -115,10 +115,10 @@ public final class Static664 {
         Static553.method7290();
         Static149.method2450();
         Static126.method2229();
-        Static230.aClass82_81.method2151();
-        Static669.aClass82_215.method2151();
-        Static541.aClass82_174.method2151();
-        Static452.aClass82_149.method2151();
-        Static472.aClass82_156.method2151();
+        Static230.A_WEIGHTED_CACHE___81.method2151();
+        Static669.A_WEIGHTED_CACHE___215.method2151();
+        Static541.A_WEIGHTED_CACHE___174.method2151();
+        Static452.A_WEIGHTED_CACHE___149.method2151();
+        Static472.A_WEIGHTED_CACHE___156.method2151();
     }
 }

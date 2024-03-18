@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class384 {
 
     @OriginalMember(owner = "client!vga", name = "l", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_219 = new Class82(64);
+    public final WeightedCache aWeightedCache_219 = new WeightedCache(64);
 
     @OriginalMember(owner = "client!vga", name = "k", descriptor = "Lclient!sb;")
     public final Class330 aClass330_120;
@@ -20,26 +20,26 @@ public final class Class384 {
 
     @OriginalMember(owner = "client!vga", name = "b", descriptor = "(I)V")
     public void method8812() {
-        @Pc(2) Class82 local2 = this.aClass82_219;
-        synchronized (this.aClass82_219) {
-            this.aClass82_219.method2157();
+        @Pc(2) WeightedCache local2 = this.aWeightedCache_219;
+        synchronized (this.aWeightedCache_219) {
+            this.aWeightedCache_219.reset();
         }
     }
 
     @OriginalMember(owner = "client!vga", name = "a", descriptor = "(II)V")
     public void method8813() {
-        @Pc(6) Class82 local6 = this.aClass82_219;
-        synchronized (this.aClass82_219) {
-            this.aClass82_219.method2147(5);
+        @Pc(6) WeightedCache local6 = this.aWeightedCache_219;
+        synchronized (this.aWeightedCache_219) {
+            this.aWeightedCache_219.method2147(5);
         }
     }
 
     @OriginalMember(owner = "client!vga", name = "a", descriptor = "(IB)Lclient!vt;")
     public Class392 method8814(@OriginalArg(0) int arg0) {
-        @Pc(13) Class82 local13 = this.aClass82_219;
+        @Pc(13) WeightedCache local13 = this.aWeightedCache_219;
         @Pc(23) Class392 local23;
-        synchronized (this.aClass82_219) {
-            local23 = (Class392) this.aClass82_219.method2156((long) arg0);
+        synchronized (this.aWeightedCache_219) {
+            local23 = (Class392) this.aWeightedCache_219.method2156((long) arg0);
         }
         if (local23 != null) {
             return local23;
@@ -53,18 +53,18 @@ public final class Class384 {
         if (local46 != null) {
             local23.method9006(new Packet(local46));
         }
-        @Pc(70) Class82 local70 = this.aClass82_219;
-        synchronized (this.aClass82_219) {
-            this.aClass82_219.method2150(local23, (long) arg0);
+        @Pc(70) WeightedCache local70 = this.aWeightedCache_219;
+        synchronized (this.aWeightedCache_219) {
+            this.aWeightedCache_219.put(local23, (long) arg0);
             return local23;
         }
     }
 
     @OriginalMember(owner = "client!vga", name = "a", descriptor = "(B)V")
     public void method8815() {
-        @Pc(2) Class82 local2 = this.aClass82_219;
-        synchronized (this.aClass82_219) {
-            this.aClass82_219.method2151();
+        @Pc(2) WeightedCache local2 = this.aWeightedCache_219;
+        synchronized (this.aWeightedCache_219) {
+            this.aWeightedCache_219.method2151();
         }
     }
 }

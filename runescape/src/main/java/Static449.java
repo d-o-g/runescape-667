@@ -11,7 +11,7 @@ public final class Static449 {
     public static int[] anIntArray546;
 
     @OriginalMember(owner = "client!od", name = "l", descriptor = "Lclient!dla;")
-    public static final Class82 aClass82_146 = new Class82(8);
+    public static final WeightedCache A_WEIGHTED_CACHE___146 = new WeightedCache(8);
 
     @OriginalMember(owner = "client!od", name = "e", descriptor = "Z")
     public static boolean aBoolean511 = false;
@@ -61,7 +61,7 @@ public final class Static449 {
     }
 
     @OriginalMember(owner = "client!od", name = "b", descriptor = "(I)V")
-    public static void method6116() {
+    public static void mapBuild() {
         if (Static283.anInt4574 == 3) {
             Static81.method1586(4);
         } else if (Static283.anInt4574 == 7) {

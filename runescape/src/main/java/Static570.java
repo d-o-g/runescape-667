@@ -59,9 +59,9 @@ public final class Static570 {
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(I)V")
     public static void method7553() {
-        Static473.aClass82_157.method2151();
-        Static312.aClass82_106.method2151();
-        Static449.aClass82_146.method2151();
-        Static444.aClass82_145.method2151();
+        Static473.A_WEIGHTED_CACHE___157.method2151();
+        Static312.A_WEIGHTED_CACHE___106.method2151();
+        Static449.A_WEIGHTED_CACHE___146.method2151();
+        Static444.A_WEIGHTED_CACHE___145.method2151();
     }
 }

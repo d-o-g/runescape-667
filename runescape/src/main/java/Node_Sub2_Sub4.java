@@ -37,7 +37,7 @@ public final class Node_Sub2_Sub4 extends Node_Sub2 {
         this.remove();
         this.method9260();
         Static31.anInt767--;
-        Static717.aClass82_232.method2150(this, arg0.aLong234);
+        Static717.A_WEIGHTED_CACHE___232.put(this, arg0.aLong234);
         return false;
     }
 

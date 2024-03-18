@@ -22,9 +22,9 @@ public final class Static675 {
 
     @OriginalMember(owner = "client!vga", name = "c", descriptor = "(I)V")
     public static void method8811() {
-        Static473.aClass82_157.method2157();
-        Static312.aClass82_106.method2157();
-        Static449.aClass82_146.method2157();
-        Static444.aClass82_145.method2157();
+        Static473.A_WEIGHTED_CACHE___157.reset();
+        Static312.A_WEIGHTED_CACHE___106.reset();
+        Static449.A_WEIGHTED_CACHE___146.reset();
+        Static444.A_WEIGHTED_CACHE___145.reset();
     }
 }

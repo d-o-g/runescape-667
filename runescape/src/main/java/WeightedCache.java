@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!dla")
-public final class Class82 {
+public final class WeightedCache {
 
     @OriginalMember(owner = "client!dla", name = "j", descriptor = "Lclient!jga;")
     public final Class192 aClass192_5;
@@ -19,12 +19,12 @@ public final class Class82 {
     public final int anInt2285;
 
     @OriginalMember(owner = "client!dla", name = "<init>", descriptor = "(I)V")
-    public Class82(@OriginalArg(0) int arg0) {
+    public WeightedCache(@OriginalArg(0) int arg0) {
         this(arg0, arg0);
     }
 
     @OriginalMember(owner = "client!dla", name = "<init>", descriptor = "(II)V")
-    public Class82(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public WeightedCache(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         this.aClass192_5 = new Class192();
         this.anInt2285 = arg0;
         this.anInt2281 = arg0;
@@ -104,7 +104,7 @@ public final class Class82 {
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(Ljava/lang/Object;IJ)V")
-    public void method2150(@OriginalArg(0) Object arg0, @OriginalArg(2) long arg1) {
+    public void put(@OriginalArg(0) Object arg0, @OriginalArg(2) long arg1) {
         this.method2153(arg1, arg0, 1);
     }
 
@@ -187,7 +187,7 @@ public final class Class82 {
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(Z)V")
-    public void method2157() {
+    public void reset() {
         this.aClass192_5.method4351();
         this.aHashTable_13.clear();
         this.anInt2281 = this.anInt2285;

@@ -444,25 +444,25 @@ public final class Static71 {
                                             }
                                         }
                                     } else if (local19.anInt3823 == 5) {
-                                        local1255 = local19.anInt3831;
+                                        local1255 = local19.obj;
                                         if (local1255 >= 0 && local1255 < 2048) {
                                             @Pc(2341) Class8_Sub2_Sub1_Sub2_Sub1 local2341 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local1255];
-                                            if (local2341 != null && (local1255 == Static312.anInt5000 || Static214.method3157(local2341.aString9) == local19.anInt3738)) {
-                                                local2313 = local2341.aPlayerModel_1.getBodyModel(Static419.aObjTypeList_1, local19.aAnimator_6, Static574.aBASTypeList_2, Static25.aClass50_1, 2048, (int[]) null, Static125.aWearposDefaults_1, Static68.aIDKTypeList_3, Static163.aToolkit_17, Static690.aNPCTypeList_2, (Animator[]) null, 0, (Animator) null, Static34.aClass304_1);
+                                            if (local2341 != null && (local1255 == Static312.anInt5000 || Static214.method3157(local2341.aString9) == local19.objData)) {
+                                                local2313 = local2341.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, local19.aAnimator_6, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, 2048, (int[]) null, Static125.aWearposDefaults_1, Static68.aIDKTypeList_3, Static163.aToolkit_17, Static690.aNPCTypeList_2, (Animator[]) null, 0, (Animator) null, Static34.aClass304_1);
                                             }
                                         }
                                     } else if (local19.anInt3823 == 8 || local19.anInt3823 == 9) {
-                                        @Pc(2468) Node_Sub22 local2468 = Static556.method7303(local19.anInt3831, false);
+                                        @Pc(2468) Node_Sub22 local2468 = Static556.method7303(local19.obj, false);
                                         if (local2468 != null) {
-                                            local2313 = local2468.method3078(local19.anInt3738, Static163.aToolkit_17, local19.anInt3823 == 9, local19.aAnimator_6, local19.aBoolean288 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null);
+                                            local2313 = local2468.method3078(local19.objData, Static163.aToolkit_17, local19.anInt3823 == 9, local19.aAnimator_6, local19.aBoolean288 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null);
                                         }
                                     } else if (local19.aAnimator_6 != null && local19.aAnimator_6.isAnimating()) {
-                                        local2313 = local19.method3401(Static163.aToolkit_17, local19.aAnimator_6, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aClass50_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
+                                        local2313 = local19.method3401(Static163.aToolkit_17, local19.aAnimator_6, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
                                         if (local2313 == null && Static544.aBoolean624) {
                                             Static178.method2729(local19);
                                         }
                                     } else {
-                                        local2313 = local19.method3401(Static163.aToolkit_17, (Animator) null, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aClass50_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
+                                        local2313 = local19.method3401(Static163.aToolkit_17, (Animator) null, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
                                         if (local2313 == null && Static544.aBoolean624) {
                                             Static178.method2729(local19);
                                         }

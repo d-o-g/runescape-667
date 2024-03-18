@@ -81,10 +81,10 @@ public final class Class227 {
         if (this.anInt5847 != 128 || this.anInt5838 != 0) {
             local15 |= 0x5;
         }
-        @Pc(65) Class82 local65 = this.aClass128_2.aClass82_62;
+        @Pc(65) WeightedCache local65 = this.aClass128_2.aWeightedCache_62;
         @Pc(85) Model local85;
-        synchronized (this.aClass128_2.aClass82_62) {
-            local85 = (Model) this.aClass128_2.aClass82_62.method2156((long) (this.anInt5833 |= arg9.index << 29));
+        synchronized (this.aClass128_2.aWeightedCache_62) {
+            local85 = (Model) this.aClass128_2.aWeightedCache_62.method2156((long) (this.anInt5833 |= arg9.index << 29));
         }
         if (local85 == null || arg9.compareFunctionMasks(local85.ua(), local15) != 0) {
             if (local85 != null) {
@@ -117,9 +117,9 @@ public final class Class227 {
                 }
             }
             local85.s(local15);
-            @Pc(232) Class82 local232 = this.aClass128_2.aClass82_62;
-            synchronized (this.aClass128_2.aClass82_62) {
-                this.aClass128_2.aClass82_62.method2150(local85, (long) (this.anInt5833 |= arg9.index << 29));
+            @Pc(232) WeightedCache local232 = this.aClass128_2.aWeightedCache_62;
+            synchronized (this.aClass128_2.aWeightedCache_62) {
+                this.aClass128_2.aWeightedCache_62.put(local85, (long) (this.anInt5833 |= arg9.index << 29));
             }
         }
         @Pc(263) Model local263 = local85.copy(arg0, local15, true);

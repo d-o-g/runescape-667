@@ -22,12 +22,12 @@ public final class Static402 {
 
     @OriginalMember(owner = "client!ml", name = "a", descriptor = "(II)V")
     public static void method5580() {
-        Static627.aClass82_200.method2147(50);
+        Static627.A_WEIGHTED_CACHE___200.method2147(50);
     }
 
     @OriginalMember(owner = "client!ml", name = "c", descriptor = "(II)Lclient!uja;")
     public static Class376 method5582(@OriginalArg(1) int arg0) {
-        @Pc(10) Class376 local10 = (Class376) Static153.aClass82_56.method2156((long) arg0);
+        @Pc(10) Class376 local10 = (Class376) Static153.A_WEIGHTED_CACHE___56.method2156((long) arg0);
         if (local10 != null) {
             return local10;
         }
@@ -36,7 +36,7 @@ public final class Static402 {
         if (local21 != null) {
             local10.method8511(arg0, new Packet(local21));
         }
-        Static153.aClass82_56.method2150(local10, (long) arg0);
+        Static153.A_WEIGHTED_CACHE___56.put(local10, (long) arg0);
         return local10;
     }
 

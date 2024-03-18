@@ -53,10 +53,10 @@ public final class Class285 {
         if (this.anInt7181 < 0) {
             return null;
         }
-        @Pc(22) Sprite local22 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7181);
+        @Pc(22) Sprite local22 = (Sprite) this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7181);
         if (local22 == null) {
             this.method6455(arg0);
-            local22 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7181);
+            local22 = (Sprite) this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7181);
         }
         return local22;
     }
@@ -66,10 +66,10 @@ public final class Class285 {
         if (this.anInt7180 < 0) {
             return null;
         }
-        @Pc(29) Sprite local29 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7180);
+        @Pc(29) Sprite local29 = (Sprite) this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7180);
         if (local29 == null) {
             this.method6455(arg0);
-            local29 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7180);
+            local29 = (Sprite) this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7180);
         }
         return local29;
     }
@@ -79,10 +79,10 @@ public final class Class285 {
         if (this.anInt7187 < 0) {
             return null;
         }
-        @Pc(27) Sprite local27 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7187);
+        @Pc(27) Sprite local27 = (Sprite) this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7187);
         if (local27 == null) {
             this.method6455(arg0);
-            local27 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7187);
+            local27 = (Sprite) this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7187);
         }
         return local27;
     }
@@ -92,10 +92,10 @@ public final class Class285 {
         if (this.anInt7183 < 0) {
             return null;
         }
-        @Pc(20) Sprite local20 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7183);
+        @Pc(20) Sprite local20 = (Sprite) this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7183);
         if (local20 == null) {
             this.method6455(arg0);
-            local20 = (Sprite) this.aClass220_1.aClass82_121.method2156((long) this.anInt7183);
+            local20 = (Sprite) this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7183);
         }
         return local20;
     }
@@ -104,21 +104,21 @@ public final class Class285 {
     public void method6455(@OriginalArg(1) Toolkit arg0) {
         @Pc(7) Class330 local7 = this.aClass220_1.aClass330_76;
         @Pc(34) Class407 local34;
-        if (this.anInt7183 >= 0 && this.aClass220_1.aClass82_121.method2156((long) this.anInt7183) == null && local7.method7581(this.anInt7183)) {
+        if (this.anInt7183 >= 0 && this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7183) == null && local7.method7581(this.anInt7183)) {
             local34 = Static735.method9379(local7, this.anInt7183);
-            this.aClass220_1.aClass82_121.method2150(arg0.method7948(local34, true), (long) this.anInt7183);
+            this.aClass220_1.aWeightedCache_121.put(arg0.method7948(local34, true), (long) this.anInt7183);
         }
-        if (this.anInt7181 >= 0 && this.aClass220_1.aClass82_121.method2156((long) this.anInt7181) == null && local7.method7581(this.anInt7181)) {
+        if (this.anInt7181 >= 0 && this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7181) == null && local7.method7581(this.anInt7181)) {
             local34 = Static735.method9379(local7, this.anInt7181);
-            this.aClass220_1.aClass82_121.method2150(arg0.method7948(local34, true), (long) this.anInt7181);
+            this.aClass220_1.aWeightedCache_121.put(arg0.method7948(local34, true), (long) this.anInt7181);
         }
-        if (this.anInt7180 >= 0 && this.aClass220_1.aClass82_121.method2156((long) this.anInt7180) == null && local7.method7581(this.anInt7180)) {
+        if (this.anInt7180 >= 0 && this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7180) == null && local7.method7581(this.anInt7180)) {
             local34 = Static735.method9379(local7, this.anInt7180);
-            this.aClass220_1.aClass82_121.method2150(arg0.method7948(local34, true), (long) this.anInt7180);
+            this.aClass220_1.aWeightedCache_121.put(arg0.method7948(local34, true), (long) this.anInt7180);
         }
-        if (this.anInt7187 >= 0 && this.aClass220_1.aClass82_121.method2156((long) this.anInt7187) == null && local7.method7581(this.anInt7187)) {
+        if (this.anInt7187 >= 0 && this.aClass220_1.aWeightedCache_121.method2156((long) this.anInt7187) == null && local7.method7581(this.anInt7187)) {
             local34 = Static735.method9379(local7, this.anInt7187);
-            this.aClass220_1.aClass82_121.method2150(arg0.method7948(local34, true), (long) this.anInt7187);
+            this.aClass220_1.aWeightedCache_121.put(arg0.method7948(local34, true), (long) this.anInt7187);
         }
     }
 

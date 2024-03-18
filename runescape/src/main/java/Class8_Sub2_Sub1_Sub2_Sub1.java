@@ -304,7 +304,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 20, super.anInt10694);
         super.aBoolean819 = false;
         @Pc(114) Class8_Sub7 local114 = null;
-        if (Static400.aClass2_Sub34_28.aClass57_Sub7_1.method2905() == 1) {
+        if (Static400.instance.aClass57_Sub7_1.method2905() == 1) {
             @Pc(126) BASType local126 = this.method9317();
             if (local126.aBoolean545 && (this.aPlayerModel_1.npcId == -1 || Static690.aNPCTypeList_2.list(this.aPlayerModel_1.npcId).aBoolean506)) {
                 @Pc(166) Animator local166 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
@@ -574,7 +574,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (local119) {
             arg0 |= 0x80000;
         }
-        @Pc(152) Model local152 = super.aModelArray3[0] = this.aPlayerModel_1.getBodyModel(Static419.aObjTypeList_1, local33, Static574.aBASTypeList_2, Static25.aClass50_1, arg0, super.anIntArray877, Static125.aWearposDefaults_1, Static68.aIDKTypeList_3, arg1, Static690.aNPCTypeList_2, super.aClass152_Sub2_Sub1Array3, local95, local58, Static34.aClass304_1);
+        @Pc(152) Model local152 = super.aModelArray3[0] = this.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, local33, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, arg0, super.anIntArray877, Static125.aWearposDefaults_1, Static68.aIDKTypeList_3, arg1, Static690.aNPCTypeList_2, super.aClass152_Sub2_Sub1Array3, local95, local58, Static34.aClass304_1);
         @Pc(155) int local155 = Static303.method4429();
         if (Static369.anInt4265 < 96 && local155 > 50) {
             Static358.method9191();
@@ -690,7 +690,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         for (@Pc(33) int local33 = 0; local33 < super.aClass199Array3.length; local33++) {
             if (super.aClass199Array3[local33].anInt4930 != -1) {
                 @Pc(56) Class227 local56 = Static23.aClass128_1.method2694(super.aClass199Array3[local33].anInt4930);
-                if (local56.aBoolean448 && local56.anInt5842 != -1 && Static25.aClass50_1.list(local56.anInt5842).anInt1654 == 1) {
+                if (local56.aBoolean448 && local56.anInt5842 != -1 && Static25.aSeqTypeList_1.list(local56.anInt5842).anInt1654 == 1) {
                     super.aClass199Array3[local33].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local33].anInt4930 = -1;
                 }

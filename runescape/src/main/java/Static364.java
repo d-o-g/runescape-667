@@ -180,7 +180,7 @@ public final class Static364 {
                 Static524.aClass153_3.aClass2_Sub21_Sub2_2.pos = 0;
                 @Pc(473) String local473 = "opensn";
                 if (!Static98.aBoolean191 || Static36.method980(Static446.aClass390_6, local465, local473, 1).anInt6789 == 2) {
-                    Static259.method3693(local465, local473, Static446.aClass390_6, Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() == 1, true);
+                    Static259.method3693(local465, local473, Static446.aClass390_6, Static400.instance.aClass57_Sub29_1.method7915() == 1, true);
                 }
                 Static135.anInt8223 = 6;
             }
@@ -237,11 +237,11 @@ public final class Static364 {
                     local618.p1(Static36.method978(3));
                     local618.p2(Static680.anInt10289);
                     local618.p2(Static380.anInt5979);
-                    local618.p1(Static400.aClass2_Sub34_28.aClass57_Sub13_1.method4373());
+                    local618.p1(Static400.instance.aClass57_Sub13_1.method4373());
                     Static176.method6690(local618);
                     local618.pjstr(Static150.aString26);
                     local618.p4(Static323.anInt5121);
-                    local672 = Static400.aClass2_Sub34_28.method5110();
+                    local672 = Static400.instance.method5110();
                     local618.p1(local672.pos);
                     local618.pdata(local672.pos, local672.data, 0);
                     Static503.aBoolean578 = true;

@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class BASTypeList {
 
     @OriginalMember(owner = "client!qp", name = "h", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_172 = new Class82(64);
+    public final WeightedCache aWeightedCache_172 = new WeightedCache(64);
 
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "Lclient!sb;")
     public final Class330 aClass330_103;
@@ -24,34 +24,34 @@ public final class BASTypeList {
 
     @OriginalMember(owner = "client!qp", name = "b", descriptor = "(B)V")
     public void method7114() {
-        @Pc(2) Class82 local2 = this.aClass82_172;
-        synchronized (this.aClass82_172) {
-            this.aClass82_172.method2157();
+        @Pc(2) WeightedCache local2 = this.aWeightedCache_172;
+        synchronized (this.aWeightedCache_172) {
+            this.aWeightedCache_172.reset();
         }
     }
 
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "(IZ)V")
     public void method7115() {
-        @Pc(14) Class82 local14 = this.aClass82_172;
-        synchronized (this.aClass82_172) {
-            this.aClass82_172.method2147(5);
+        @Pc(14) WeightedCache local14 = this.aWeightedCache_172;
+        synchronized (this.aWeightedCache_172) {
+            this.aWeightedCache_172.method2147(5);
         }
     }
 
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "(I)V")
     public void method7117() {
-        @Pc(2) Class82 local2 = this.aClass82_172;
-        synchronized (this.aClass82_172) {
-            this.aClass82_172.method2151();
+        @Pc(2) WeightedCache local2 = this.aWeightedCache_172;
+        synchronized (this.aWeightedCache_172) {
+            this.aWeightedCache_172.method2151();
         }
     }
 
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "(BI)Lclient!pda;")
     public BASType list(@OriginalArg(1) int arg0) {
-        @Pc(6) Class82 local6 = this.aClass82_172;
+        @Pc(6) WeightedCache local6 = this.aWeightedCache_172;
         @Pc(16) BASType local16;
-        synchronized (this.aClass82_172) {
-            local16 = (BASType) this.aClass82_172.method2156((long) arg0);
+        synchronized (this.aWeightedCache_172) {
+            local16 = (BASType) this.aWeightedCache_172.method2156((long) arg0);
         }
         if (local16 != null) {
             return local16;
@@ -66,9 +66,9 @@ public final class BASTypeList {
         if (local39 != null) {
             local16.method6483(new Packet(local39));
         }
-        @Pc(66) Class82 local66 = this.aClass82_172;
-        synchronized (this.aClass82_172) {
-            this.aClass82_172.method2150(local16, (long) arg0);
+        @Pc(66) WeightedCache local66 = this.aWeightedCache_172;
+        synchronized (this.aWeightedCache_172) {
+            this.aWeightedCache_172.put(local16, (long) arg0);
             return local16;
         }
     }

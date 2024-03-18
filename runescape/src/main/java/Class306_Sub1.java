@@ -249,14 +249,14 @@ public final class Class306_Sub1 extends Class306 {
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IILclient!eq;ILclient!ha;IIIIII)V")
     public void method7894(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class110 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
-        if (Static400.aClass2_Sub34_28.aClass57_Sub19_2.method5960() == 0 && !Static696.method9036(arg3, Static164.anInt2808, arg5, arg7)) {
+        if (Static400.instance.aClass57_Sub19_2.method5960() == 0 && !Static696.method9036(arg3, Static164.anInt2808, arg5, arg7)) {
             return;
         }
         if (arg8 < this.anInt8919) {
             this.anInt8919 = arg8;
         }
         @Pc(40) Class54 local40 = Static354.aClass142_4.method3063(arg1, 82);
-        if (Static400.aClass2_Sub34_28.aClass57_Sub30_1.method8356() == 0 && local40.aBoolean90) {
+        if (Static400.instance.textures.getValue() == 0 && local40.aBoolean90) {
             return;
         }
         @Pc(65) int local65;
@@ -613,7 +613,7 @@ public final class Class306_Sub1 extends Class306 {
                     }
                 }
             }
-        } else if (Static400.aClass2_Sub34_28.aClass57_Sub6_1.method2714() != 0 || local40.anInt1271 != 0 || local40.anInt1242 == 1 || local40.aBoolean101) {
+        } else if (Static400.instance.aClass57_Sub6_1.method2714() != 0 || local40.anInt1271 != 0 || local40.anInt1242 == 1 || local40.aBoolean101) {
             @Pc(325) Class8_Sub2_Sub2 local325;
             if (local248) {
                 @Pc(341) Class8_Sub2_Sub2_Sub1 local341 = new Class8_Sub2_Sub2_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.aBoolean673, arg6, local204);

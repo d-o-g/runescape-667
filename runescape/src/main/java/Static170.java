@@ -8,9 +8,9 @@ public final class Static170 {
     public static int anInt2864;
 
     @OriginalMember(owner = "client!fea", name = "a", descriptor = "(IB)V")
-    public static void method2651(@OriginalArg(0) int arg0) {
+    public static void setFeatureMask(@OriginalArg(0) int arg0) {
         Static584.anInt8635 = arg0;
-        Static166.aClass82_59.method2157();
+        Static166.A_WEIGHTED_CACHE___59.reset();
     }
 
     @OriginalMember(owner = "client!fea", name = "a", descriptor = "(BI)V")

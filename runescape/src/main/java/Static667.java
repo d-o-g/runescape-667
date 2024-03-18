@@ -19,7 +19,7 @@ public final class Static667 {
         Static329.method1649();
         Static331.method4925(Static679.aSpriteArray14);
         Static469.method6362();
-        Static296.method4362();
+        Static296.updateFeatureMask();
         if (Static283.anInt4574 == 3) {
             Static81.method1586(4);
         } else if (Static283.anInt4574 == 7) {

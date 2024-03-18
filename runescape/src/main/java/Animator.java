@@ -106,7 +106,7 @@ public class Animator {
             this.animation = null;
         } else {
             if (this.animation == null || animationId != this.animation.id) {
-                this.animation = Static692.aClass50_2.list(animationId);
+                this.animation = Static692.aSeqTypeList_2.list(animationId);
             } else if (this.animation.replayMode == SeqType.REPLAY_MODE_STOP) {
                 return;
             }
@@ -252,9 +252,9 @@ public class Animator {
         if (this.animation == null) {
             return false;
         }
-        @Pc(30) boolean local30 = this.primarySequences.method5769(Static692.aClass50_2, this.animation, this.nextFrame, this.currentFrame, this.animation.frames);
+        @Pc(30) boolean local30 = this.primarySequences.method5769(Static692.aSeqTypeList_2, this.animation, this.nextFrame, this.currentFrame, this.animation.frames);
         if (local30 && this.runSecondary && this.animation.secondaryFrames != null) {
-            this.secondarySequences.method5769(Static692.aClass50_2, this.animation, this.nextFrame, this.currentFrame, this.animation.secondaryFrames);
+            this.secondarySequences.method5769(Static692.aSeqTypeList_2, this.animation, this.nextFrame, this.currentFrame, this.animation.secondaryFrames);
         }
         return local30;
     }

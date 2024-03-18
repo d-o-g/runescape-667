@@ -49,9 +49,9 @@ public final class Static126 {
 
     @OriginalMember(owner = "client!du", name = "b", descriptor = "(I)V")
     public static void method2229() {
-        @Pc(1) Class82 local1 = Static354.aClass82_120;
-        synchronized (Static354.aClass82_120) {
-            Static354.aClass82_120.method2151();
+        @Pc(1) WeightedCache local1 = Static354.A_WEIGHTED_CACHE___120;
+        synchronized (Static354.A_WEIGHTED_CACHE___120) {
+            Static354.A_WEIGHTED_CACHE___120.method2151();
         }
     }
 }

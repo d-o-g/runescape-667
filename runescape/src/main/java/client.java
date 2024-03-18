@@ -458,7 +458,7 @@ public final class client extends Applet_Sub1 {
             }
         }
         if (Static316.aFrame8 != null && !Static91.aBoolean750 && Static475.method6445(Static283.anInt4574)) {
-            Static409.method5657(Static400.aClass2_Sub34_28.aClass57_Sub1_1.method1485(), -1, false, -1);
+            Static409.method5657(Static400.instance.aClass57_Sub1_1.method1485(), -1, false, -1);
         }
         @Pc(209) boolean local209 = false;
         if (Static664.aBoolean759) {
@@ -547,7 +547,7 @@ public final class client extends Applet_Sub1 {
             }
         }
         Static507.method6744();
-        local110 = Static400.aClass2_Sub34_28.aClass57_Sub21_1.method6360();
+        local110 = Static400.instance.aClass57_Sub21_1.method6360();
         if (local110 == 0) {
             Static638.method8395(15L);
         } else if (local110 == 1) {
@@ -560,8 +560,8 @@ public final class client extends Applet_Sub1 {
         if (Static666.aBoolean766) {
             Static614.method8245();
         }
-        if (Static400.aClass2_Sub34_28.aClass57_Sub10_1.method3519() == 1 && Static283.anInt4574 == 3 && Static377.anInt5930 != -1) {
-            Static400.aClass2_Sub34_28.method5104(0, Static400.aClass2_Sub34_28.aClass57_Sub10_1);
+        if (Static400.instance.aClass57_Sub10_1.method3519() == 1 && Static283.anInt4574 == 3 && Static377.anInt5930 != -1) {
+            Static400.instance.method5104(0, Static400.instance.aClass57_Sub10_1);
             Static666.method8693(1);
         }
     }
@@ -578,7 +578,7 @@ public final class client extends Applet_Sub1 {
     @OriginalMember(owner = "client!client", name = "k", descriptor = "(I)V")
     @Override
     protected void method1645() {
-        if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() != 2) {
+        if (Static400.instance.aClass57_Sub29_1.method7915() != 2) {
             this.method1668();
             return;
         }
@@ -712,7 +712,7 @@ public final class client extends Applet_Sub1 {
         if (Static446.aClass355_5 != Static2.aClass355_1) {
             Static163.aByteArrayArray36 = new byte[50][];
         }
-        Static400.aClass2_Sub34_28 = Static720.method9398();
+        Static400.instance = Static720.method9398();
         if (Static2.aClass355_1 == Static446.aClass355_5) {
             Static527.aClass229_3.aString60 = this.getCodeBase().getHost();
         } else if (Static179.method2769(Static2.aClass355_1)) {
@@ -775,20 +775,20 @@ public final class client extends Applet_Sub1 {
             if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 != null) {
                 local5 = local5 + "2)" + Static394.anInt6176 + "," + (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] + Static691.anInt10367) + "," + (Static116.anInt2270 + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0]) + "|";
             }
-            local5 = local5 + "3)" + Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() + "|4)" + Static400.aClass2_Sub34_28.aClass57_Sub13_2.method4373() + "|5)" + Static36.method978(3) + "|6)" + Static680.anInt10289 + "," + Static380.anInt5979 + "|";
-            local5 = local5 + "7)" + Static400.aClass2_Sub34_28.aClass57_Sub24_1.method7082() + "|";
-            local5 = local5 + "8)" + Static400.aClass2_Sub34_28.aClass57_Sub12_1.method4364() + "|";
-            local5 = local5 + "9)" + Static400.aClass2_Sub34_28.aClass57_Sub26_1.method7463() + "|";
-            local5 = local5 + "10)" + Static400.aClass2_Sub34_28.aClass57_Sub30_1.method8356() + "|";
-            local5 = local5 + "11)" + Static400.aClass2_Sub34_28.aClass57_Sub20_1.method6108() + "|";
-            local5 = local5 + "12)" + Static400.aClass2_Sub34_28.aClass57_Sub19_2.method5960() + "|";
+            local5 = local5 + "3)" + Static400.instance.aClass57_Sub29_1.method7915() + "|4)" + Static400.instance.aClass57_Sub13_2.method4373() + "|5)" + Static36.method978(3) + "|6)" + Static680.anInt10289 + "," + Static380.anInt5979 + "|";
+            local5 = local5 + "7)" + Static400.instance.lightDetail.getValue() + "|";
+            local5 = local5 + "8)" + Static400.instance.aClass57_Sub12_1.method4364() + "|";
+            local5 = local5 + "9)" + Static400.instance.aClass57_Sub26_1.method7463() + "|";
+            local5 = local5 + "10)" + Static400.instance.textures.getValue() + "|";
+            local5 = local5 + "11)" + Static400.instance.aClass57_Sub20_1.method6108() + "|";
+            local5 = local5 + "12)" + Static400.instance.aClass57_Sub19_2.method5960() + "|";
             local5 = local5 + "13)" + Static369.anInt4265 + "|";
             local5 = local5 + "14)" + Static283.anInt4574;
             if (Static292.aClass2_Sub43_2 != null) {
                 local5 = local5 + "|15)" + Static292.aClass2_Sub43_2.anInt7610;
             }
             try {
-                if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() == 2) {
+                if (Static400.instance.aClass57_Sub29_1.method7915() == 2) {
                     @Pc(273) Class local273 = Class.forName("java.lang.ClassLoader");
                     @Pc(279) Field local279 = local273.getDeclaredField("nativeLibraries");
                     @Pc(284) Class local284 = Class.forName("java.lang.reflect.AccessibleObject");
@@ -957,7 +957,7 @@ public final class client extends Applet_Sub1 {
     @OriginalMember(owner = "client!client", name = "c", descriptor = "(I)V")
     @Override
     protected void method1650() {
-        if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() != 2) {
+        if (Static400.instance.aClass57_Sub29_1.method7915() != 2) {
             this.method1666();
             return;
         }

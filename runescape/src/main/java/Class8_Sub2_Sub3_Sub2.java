@@ -47,7 +47,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
         this.aBoolean376 = arg7;
         this.aBoolean378 = arg10;
         this.aByte87 = (byte) arg9;
-        this.aBoolean377 = arg0.method8006() && arg1.aBoolean89 && !this.aBoolean376 && Static400.aClass2_Sub34_28.aClass57_Sub12_1.method4364() != 0;
+        this.aBoolean377 = arg0.method8006() && arg1.aBoolean89 && !this.aBoolean376 && Static400.instance.aClass57_Sub12_1.method4364() != 0;
         @Pc(77) int local77 = 2048;
         if (this.aBoolean378) {
             local77 |= 0x10000;

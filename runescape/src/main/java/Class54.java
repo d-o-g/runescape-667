@@ -781,10 +781,10 @@ public final class Class54 {
         if (arg4) {
             local40 |= 0x40000;
         }
-        @Pc(96) Class82 local96 = this.aClass142_2.aClass82_75;
+        @Pc(96) WeightedCache local96 = this.aClass142_2.aWeightedCache_75;
         @Pc(106) Class272 local106;
-        synchronized (this.aClass142_2.aClass82_75) {
-            local106 = (Class272) this.aClass142_2.aClass82_75.method2156(local21);
+        synchronized (this.aClass142_2.aWeightedCache_75) {
+            local106 = (Class272) this.aClass142_2.aWeightedCache_75.method2156(local21);
         }
         @Pc(120) Model local120 = local106 == null ? null : local106.aModel_7;
         @Pc(122) Shadow local122 = null;
@@ -816,9 +816,9 @@ public final class Class54 {
             local106 = new Class272();
             local106.aClass2_Sub2_Sub9_5 = local122;
             local106.aModel_7 = local120;
-            @Pc(210) Class82 local210 = this.aClass142_2.aClass82_75;
-            synchronized (this.aClass142_2.aClass82_75) {
-                this.aClass142_2.aClass82_75.method2150(local106, local21);
+            @Pc(210) WeightedCache local210 = this.aClass142_2.aWeightedCache_75;
+            synchronized (this.aClass142_2.aWeightedCache_75) {
+                this.aClass142_2.aWeightedCache_75.put(local106, local21);
             }
         }
         @Pc(271) boolean local271 = this.aByte12 != 0 && (arg3 != null || arg10 != null);
@@ -870,10 +870,10 @@ public final class Class54 {
         if (arg2 == 10 && arg0 > 3) {
             arg9 |= 0x5;
         }
-        @Pc(116) Class82 local116 = this.aClass142_2.aClass82_76;
+        @Pc(116) WeightedCache local116 = this.aClass142_2.aWeightedCache_76;
         @Pc(126) Model local126;
-        synchronized (this.aClass142_2.aClass82_76) {
-            local126 = (Model) this.aClass142_2.aClass82_76.method2156(local22);
+        synchronized (this.aClass142_2.aWeightedCache_76) {
+            local126 = (Model) this.aClass142_2.aWeightedCache_76.method2156(local22);
         }
         if (local126 == null || arg6.compareFunctionMasks(local126.ua(), arg9) != 0) {
             if (local126 != null) {
@@ -883,9 +883,9 @@ public final class Class54 {
             if (local126 == null) {
                 return null;
             }
-            local116 = this.aClass142_2.aClass82_76;
-            synchronized (this.aClass142_2.aClass82_76) {
-                this.aClass142_2.aClass82_76.method2150(local126, local22);
+            local116 = this.aClass142_2.aWeightedCache_76;
+            synchronized (this.aClass142_2.aWeightedCache_76) {
+                this.aClass142_2.aWeightedCache_76.put(local126, local22);
             }
         }
         @Pc(190) boolean local190 = false;
@@ -974,9 +974,9 @@ public final class Class54 {
             for (local193 = 0; local193 < local182; local193++) {
                 local191 = local191 * 67783L + (long) local179[local193];
             }
-            @Pc(211) Class82 local211 = this.aClass142_2.aClass82_74;
-            synchronized (this.aClass142_2.aClass82_74) {
-                local123 = (Model) this.aClass142_2.aClass82_74.method2156(local191);
+            @Pc(211) WeightedCache local211 = this.aClass142_2.aWeightedCache_74;
+            synchronized (this.aClass142_2.aWeightedCache_74) {
+                local123 = (Model) this.aClass142_2.aWeightedCache_74.method2156(local191);
             }
             if (local123 != null) {
                 if (local123.WA() != local8) {
@@ -1019,9 +1019,9 @@ public final class Class54 {
                     }
                 }
                 local123 = arg0.createModel(local275, local265, this.aClass142_2.anInt3390, local8, local13);
-                @Pc(372) Class82 local372 = this.aClass142_2.aClass82_74;
-                synchronized (this.aClass142_2.aClass82_74) {
-                    this.aClass142_2.aClass82_74.method2150(local123, local191);
+                @Pc(372) WeightedCache local372 = this.aClass142_2.aWeightedCache_74;
+                synchronized (this.aClass142_2.aWeightedCache_74) {
+                    this.aClass142_2.aWeightedCache_74.put(local123, local191);
                 }
             }
         }

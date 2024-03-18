@@ -9,5 +9,5 @@ public final class Static473 {
     public static boolean aBoolean539 = false;
 
     @OriginalMember(owner = "client!ov", name = "c", descriptor = "Lclient!dla;")
-    public static final Class82 aClass82_157 = new Class82(3000000, 200);
+    public static final WeightedCache A_WEIGHTED_CACHE___157 = new WeightedCache(3000000, 200);
 }

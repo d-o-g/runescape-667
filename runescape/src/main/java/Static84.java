@@ -147,7 +147,7 @@ public final class Static84 {
     public static void method1655() {
         @Pc(1) int local1 = Static338.anInt5564;
         @Pc(3) int[] local3 = Static210.anIntArray280;
-        @Pc(8) int local8 = Static400.aClass2_Sub34_28.aClass57_Sub27_1.method7667();
+        @Pc(8) int local8 = Static400.instance.aClass57_Sub27_1.method7667();
         @Pc(30) boolean local30 = local8 == 1 && local1 > 200 || local8 == 0 && local1 > 50;
         @Pc(103) int local103;
         for (@Pc(32) int local32 = 0; local32 < local1; local32++) {
@@ -298,7 +298,7 @@ public final class Static84 {
             for (local33 = (Node_Sub2_Sub4) Static490.A_HASH_TABLE___34.get(local41); local33 != null && !local33.aString10.equals(arg0.aString86); local33 = (Node_Sub2_Sub4) Static490.A_HASH_TABLE___34.nextWithSameKey()) {
             }
             if (local33 == null) {
-                local33 = (Node_Sub2_Sub4) Static717.aClass82_232.method2156(local41);
+                local33 = (Node_Sub2_Sub4) Static717.A_WEIGHTED_CACHE___232.method2156(local41);
                 if (local33 != null && !local33.aString10.equals(arg0.aString86)) {
                     local33 = null;
                 }
@@ -583,7 +583,7 @@ public final class Static84 {
                                     if (local6.anInt3806 == Static188.anInt3104 || local6.anInt3806 == Static190.anInt3113) {
                                         Static610.aClass158_16 = local6;
                                         if (Static456.aClass148_3 != null) {
-                                            Static456.aClass148_3.method3168(Static400.aClass2_Sub34_28.aClass57_Sub2_1.method1989(), local6.anInt3746, Static163.aToolkit_17);
+                                            Static456.aClass148_3.method3168(Static400.instance.aClass57_Sub2_1.method1989(), local6.anInt3746, Static163.aToolkit_17);
                                         }
                                         if (local6.anInt3806 == Static188.anInt3104) {
                                             if (Static400.aBoolean622 || arg10 < local30 || arg11 < local32 || arg10 >= local34 || arg11 >= local36) {
@@ -1002,7 +1002,7 @@ public final class Static84 {
                                 }
                             }
                             if (local6.anInt3820 == 5 && local6.anInt3824 != -1) {
-                                local6.method3405(Static99.aClass78_1, Static324.aClass307_1).method3168(Static400.aClass2_Sub34_28.aClass57_Sub2_1.method1989(), local6.anInt3746, Static163.aToolkit_17);
+                                local6.method3405(Static99.aClass78_1, Static324.aClass307_1).method3168(Static400.instance.aClass57_Sub2_1.method1989(), local6.anInt3746, Static163.aToolkit_17);
                             }
                             Static542.method7202(local6);
                             if (local6.anInt3820 == 0) {

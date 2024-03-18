@@ -56,22 +56,10 @@ public final class Static534 {
 
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IB)V")
     public static void method7121() {
-        Static473.aClass82_157.method2147(50);
-        Static312.aClass82_106.method2147(50);
-        Static449.aClass82_146.method2147(50);
-        Static444.aClass82_145.method2147(50);
+        Static473.A_WEIGHTED_CACHE___157.method2147(50);
+        Static312.A_WEIGHTED_CACHE___106.method2147(50);
+        Static449.A_WEIGHTED_CACHE___146.method2147(50);
+        Static444.A_WEIGHTED_CACHE___145.method2147(50);
     }
 
-    @OriginalMember(owner = "client!qq", name = "a", descriptor = "(II)V")
-    public static void method7122(@OriginalArg(1) int arg0) {
-        Static294.anInt4766 = arg0;
-        @Pc(7) Class82 local7 = Static54.aClass82_25;
-        synchronized (Static54.aClass82_25) {
-            Static54.aClass82_25.method2157();
-        }
-        local7 = Static580.aClass82_186;
-        synchronized (Static580.aClass82_186) {
-            Static580.aClass82_186.method2157();
-        }
-    }
 }

@@ -36,23 +36,27 @@ public final class Static296 {
     }
 
     @OriginalMember(owner = "client!jh", name = "b", descriptor = "(I)V")
-    public static void method4362() {
-        @Pc(5) int local5 = 0;
-        if (Static400.aClass2_Sub34_28.aClass57_Sub24_1.method7082() == 1) {
-            local5 = 55;
+    public static void updateFeatureMask() {
+        @Pc(5) int featureMask = 0;
+        if (Static400.instance.lightDetail.getValue() == 1) {
+            featureMask |= 0x1;
+            featureMask |= 0x10;
+            featureMask |= 0x20;
+            featureMask |= 0x2;
+            featureMask |= 0x4;
         }
-        if (Static400.aClass2_Sub34_28.aClass57_Sub30_1.method8356() == 0) {
-            local5 |= 0x40;
+        if (Static400.instance.textures.getValue() == 0) {
+            featureMask |= 0x40;
         }
-        Static335.method4945(local5);
-        Static354.aClass142_4.method3065(local5);
-        Static419.aObjTypeList_1.method2481(local5);
-        Static690.aNPCTypeList_2.method7093(local5);
-        Static23.aClass128_1.method2695(local5);
-        Static41.method1029(local5);
-        Static298.method4388(local5);
-        Static534.method7122(local5);
-        Static170.method2651(local5);
-        Static449.method6116();
+        Static335.setFeatureMask(featureMask);
+        Static354.aClass142_4.setFeatureMask(featureMask);
+        Static419.aObjTypeList_1.setFeatureMask(featureMask);
+        Static690.aNPCTypeList_2.setFeatureMask(featureMask);
+        Static23.aClass128_1.setFeatureMask(featureMask);
+        Static41.setFeatureMask(featureMask);
+        Static298.setFeatureMask(featureMask);
+        PlayerModel.setFeatureMask(featureMask);
+        Static170.setFeatureMask(featureMask);
+        Static449.mapBuild();
     }
 }

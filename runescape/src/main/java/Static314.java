@@ -14,13 +14,13 @@ public final class Static314 {
 
     @OriginalMember(owner = "client!jw", name = "c", descriptor = "(B)V")
     public static void method4560() {
-        @Pc(5) Class82 local5 = Static580.aClass82_186;
-        synchronized (Static580.aClass82_186) {
-            Static580.aClass82_186.method2157();
+        @Pc(5) WeightedCache local5 = PlayerModel.BIG_CACHE;
+        synchronized (PlayerModel.BIG_CACHE) {
+            PlayerModel.BIG_CACHE.reset();
         }
-        local5 = Static54.aClass82_25;
-        synchronized (Static54.aClass82_25) {
-            Static54.aClass82_25.method2157();
+        local5 = PlayerModel.SMALL_CACHE;
+        synchronized (PlayerModel.SMALL_CACHE) {
+            PlayerModel.SMALL_CACHE.reset();
         }
     }
 

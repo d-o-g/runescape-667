@@ -46,7 +46,7 @@ public final class Class8_Sub2_Sub4_Sub1 extends Class8_Sub2_Sub4 implements Int
         this.aByte77 = (byte) arg10;
         this.aBoolean350 = arg1.anInt1271 != 0 && !arg7;
         this.aBoolean348 = arg7;
-        this.aBoolean349 = arg0.method8006() && arg1.aBoolean89 && !this.aBoolean348 && Static400.aClass2_Sub34_28.aClass57_Sub12_1.method4364() != 0;
+        this.aBoolean349 = arg0.method8006() && arg1.aBoolean89 && !this.aBoolean348 && Static400.instance.aClass57_Sub12_1.method4364() != 0;
         @Pc(81) Class272 local81 = this.method4045(arg0, 2048, this.aBoolean349);
         if (local81 != null) {
             this.aModel_3 = local81.aModel_7;

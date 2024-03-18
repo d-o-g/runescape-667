@@ -259,7 +259,7 @@ public final class Static709 {
             local179 = Static293.method4335(Static600.aClass345_108, Static405.aClass153_2.aClass186_1);
             local179.aClass2_Sub21_Sub2_1.p1(0);
             local181 = local179.aClass2_Sub21_Sub2_1.pos;
-            @Pc(810) Packet local810 = Static400.aClass2_Sub34_28.method5110();
+            @Pc(810) Packet local810 = Static400.instance.method5110();
             local179.aClass2_Sub21_Sub2_1.pdata(local810.pos, local810.data, 0);
             local179.aClass2_Sub21_Sub2_1.psize1(local179.aClass2_Sub21_Sub2_1.pos - local181);
             Static405.aClass153_2.method3275(local179);
@@ -365,10 +365,10 @@ public final class Static709 {
                         local288 = local1099.anInt197;
                         local300 = local1099.anInt195;
                         local1739 = local1099.anInt192;
-                        if (local288 != local1143.anInt3823 || local300 != local1143.anInt3831 || local1739 != local1143.anInt3738) {
-                            local1143.anInt3738 = local1739;
+                        if (local288 != local1143.anInt3823 || local300 != local1143.obj || local1739 != local1143.objData) {
+                            local1143.objData = local1739;
                             local1143.anInt3823 = local288;
-                            local1143.anInt3831 = local300;
+                            local1143.obj = local300;
                             Static178.method2729(local1143);
                         }
                     } else if (local541 == 5) {

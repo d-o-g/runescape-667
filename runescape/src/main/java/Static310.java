@@ -19,7 +19,7 @@ public final class Static310 {
                     if (local20 == -1) {
                         arg3.aClass152_Sub2_Sub1Array3[local30] = null;
                     } else {
-                        @Pc(60) SeqType local60 = Static25.aClass50_1.list(local20);
+                        @Pc(60) SeqType local60 = Static25.aSeqTypeList_1.list(local20);
                         @Pc(63) int local63 = local60.replayMode;
                         @Pc(68) Animator_Sub2_Sub1 local68 = arg3.aClass152_Sub2_Sub1Array3[local30];
                         if (local68 != null && local68.isAnimating()) {

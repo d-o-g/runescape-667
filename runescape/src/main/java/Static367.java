@@ -8,9 +8,9 @@ public final class Static367 {
 
     @OriginalMember(owner = "client!lk", name = "a", descriptor = "(I)V")
     public static void method5267() {
-        @Pc(1) Class82 local1 = Static354.aClass82_120;
-        synchronized (Static354.aClass82_120) {
-            Static354.aClass82_120.method2157();
+        @Pc(1) WeightedCache local1 = Static354.A_WEIGHTED_CACHE___120;
+        synchronized (Static354.A_WEIGHTED_CACHE___120) {
+            Static354.A_WEIGHTED_CACHE___120.reset();
         }
     }
 

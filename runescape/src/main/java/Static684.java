@@ -19,13 +19,13 @@ public final class Static684 {
             Static1.anInt10798 = 0;
             Static717.anInt10817 = -1;
         }
-        if (!arg0 && Static62.anInt1465 == arg1 && Static525.anInt8907 == arg3 && (Static164.anInt2808 == Static394.anInt6176 || Static400.aClass2_Sub34_28.aClass57_Sub19_2.method5960() == 1)) {
+        if (!arg0 && Static62.anInt1465 == arg1 && Static525.anInt8907 == arg3 && (Static164.anInt2808 == Static394.anInt6176 || Static400.instance.aClass57_Sub19_2.method5960() == 1)) {
             return;
         }
         Static525.anInt8907 = arg3;
         Static62.anInt1465 = arg1;
         Static164.anInt2808 = Static394.anInt6176;
-        if (Static400.aClass2_Sub34_28.aClass57_Sub19_2.method5960() == 1) {
+        if (Static400.instance.aClass57_Sub19_2.method5960() == 1) {
             Static164.anInt2808 = 0;
         }
         Static81.method1586(arg2);

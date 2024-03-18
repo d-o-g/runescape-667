@@ -56,8 +56,8 @@ public final class Node_Sub22 extends Node {
             local9 = arg3.functionMask() | 0x800;
         }
         @Pc(116) long local116 = this.method3077(arg2, arg0, local23, arg4 == null ? null : arg4.bodycol_d_palette);
-        if (Static166.aClass82_59 != null) {
-            local7 = (Model) Static166.aClass82_59.method2156(local116);
+        if (Static166.A_WEIGHTED_CACHE___59 != null) {
+            local7 = (Model) Static166.A_WEIGHTED_CACHE___59.method2156(local116);
         }
         if (local7 == null || arg1.compareFunctionMasks(local7.ua(), local9) != 0) {
             if (local7 != null) {
@@ -81,15 +81,15 @@ public final class Node_Sub22 extends Node {
             }
             @Pc(278) int tx;
             @Pc(285) int ty;
-            if (local11 != null && local11.equipmentTransformations != null) {
-                for (@Pc(252) int local252 = 0; local252 < local11.equipmentTransformations.length; local252++) {
-                    if (local11.equipmentTransformations[local252] != null && meshes[local252] != null) {
-                        tx = local11.equipmentTransformations[local252][0];
-                        ty = local11.equipmentTransformations[local252][1];
-                        @Pc(292) int tz = local11.equipmentTransformations[local252][2];
-                        @Pc(299) int rx = local11.equipmentTransformations[local252][3];
-                        @Pc(306) int ry = local11.equipmentTransformations[local252][4];
-                        @Pc(313) int rz = local11.equipmentTransformations[local252][5];
+            if (local11 != null && local11.wornTransformations != null) {
+                for (@Pc(252) int local252 = 0; local252 < local11.wornTransformations.length; local252++) {
+                    if (local11.wornTransformations[local252] != null && meshes[local252] != null) {
+                        tx = local11.wornTransformations[local252][0];
+                        ty = local11.wornTransformations[local252][1];
+                        @Pc(292) int tz = local11.wornTransformations[local252][2];
+                        @Pc(299) int rx = local11.wornTransformations[local252][3];
+                        @Pc(306) int ry = local11.wornTransformations[local252][4];
+                        @Pc(313) int rz = local11.wornTransformations[local252][5];
                         if (rx != 0 || ry != 0 || rz != 0) {
                             meshes[local252].rotate(rz, rx, ry);
                         }
@@ -113,9 +113,9 @@ public final class Node_Sub22 extends Node {
                     }
                 }
             }
-            if (Static166.aClass82_59 != null) {
+            if (Static166.A_WEIGHTED_CACHE___59 != null) {
                 local7.s(local9);
-                Static166.aClass82_59.method2150(local7, local116);
+                Static166.A_WEIGHTED_CACHE___59.put(local7, local116);
             }
         }
         if (arg3 == null) {

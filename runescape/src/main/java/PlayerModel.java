@@ -6,10 +6,34 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ju")
 public final class PlayerModel {
 
+    @OriginalMember(owner = "client!bq", name = "t", descriptor = "Lclient!dla;")
+    public static final WeightedCache SMALL_CACHE = new WeightedCache(5);
+
+    @OriginalMember(owner = "client!sea", name = "y", descriptor = "Lclient!dla;")
+    public static final WeightedCache BIG_CACHE = new WeightedCache(260);
+
     @OriginalMember(owner = "client!kma", name = "n", descriptor = "[[[S")
     public static short[][][] bodycol_d;
+
     @OriginalMember(owner = "client!cha", name = "e", descriptor = "[[S")
     public static short[][] bodycol_s;
+
+    @OriginalMember(owner = "client!jg", name = "k", descriptor = "I")
+    public static int featureMask;
+
+    @OriginalMember(owner = "client!qq", name = "a", descriptor = "(II)V")
+    public static void setFeatureMask(@OriginalArg(1) int featureMask) {
+        PlayerModel.featureMask = featureMask;
+        @Pc(7) WeightedCache local7 = SMALL_CACHE;
+        synchronized (SMALL_CACHE) {
+            SMALL_CACHE.reset();
+        }
+        local7 = BIG_CACHE;
+        synchronized (BIG_CACHE) {
+            BIG_CACHE.reset();
+        }
+    }
+
     @OriginalMember(owner = "client!ju", name = "h", descriptor = "I")
     public int basId;
 
@@ -116,7 +140,7 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!es;Lclient!gu;IZLclient!qp;Lclient!bp;I[ILclient!vl;Lclient!kr;Lclient!ha;Lclient!ql;[Lclient!gu;ILclient!gu;Lclient!uk;)Lclient!ka;")
-    public Model getBodyModel(@OriginalArg(0) ObjTypeList objTypeList, @OriginalArg(1) Animator animator, @OriginalArg(4) BASTypeList basTypeList, @OriginalArg(5) Class50 arg3, @OriginalArg(6) int initialFunctionMask, @OriginalArg(7) int[] arg5, @OriginalArg(8) WearposDefaults wearposDefaults, @OriginalArg(9) IDKTypeList idkTypeList, @OriginalArg(10) Toolkit toolkit, @OriginalArg(11) NPCTypeList npcTypeList, @OriginalArg(12) Animator[] animators, @OriginalArg(13) int arg11, @OriginalArg(14) Animator arg12, @OriginalArg(15) VarDomain varDomain) {
+    public Model bodyModel(@OriginalArg(0) ObjTypeList objTypeList, @OriginalArg(1) Animator animator, @OriginalArg(4) BASTypeList basTypeList, @OriginalArg(5) SeqTypeList arg3, @OriginalArg(6) int initialFunctionMask, @OriginalArg(7) int[] arg5, @OriginalArg(8) WearposDefaults wearposDefaults, @OriginalArg(9) IDKTypeList idkTypeList, @OriginalArg(10) Toolkit toolkit, @OriginalArg(11) NPCTypeList npcTypeList, @OriginalArg(12) Animator[] animators, @OriginalArg(13) int arg11, @OriginalArg(14) Animator arg12, @OriginalArg(15) VarDomain varDomain) {
         if (this.npcId != -1) {
             return npcTypeList.list(this.npcId).getModel(varDomain, toolkit, basTypeList, animator, arg11, arg5, (Class386) null, arg12, initialFunctionMask, animators);
         }
@@ -202,10 +226,10 @@ public final class PlayerModel {
             }
         }
 
-        @Pc(334) Class82 local334 = Static580.aClass82_186;
+        @Pc(334) WeightedCache local334 = BIG_CACHE;
         @Pc(342) Model model;
-        synchronized (Static580.aClass82_186) {
-            model = (Model) Static580.aClass82_186.method2156(hash);
+        synchronized (BIG_CACHE) {
+            model = (Model) BIG_CACHE.method2156(hash);
         }
 
         @Pc(350) BASType basType = null;
@@ -229,9 +253,9 @@ public final class PlayerModel {
                 if (local390 >= identikit.length) {
                     if (local388) {
                         if (this.aLong159 != -1L) {
-                            @Pc(552) Class82 local552 = Static580.aClass82_186;
-                            synchronized (Static580.aClass82_186) {
-                                model = (Model) Static580.aClass82_186.method2156(this.aLong159);
+                            @Pc(552) WeightedCache local552 = BIG_CACHE;
+                            synchronized (BIG_CACHE) {
+                                model = (Model) BIG_CACHE.method2156(this.aLong159);
                             }
                         }
                         if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
@@ -261,8 +285,8 @@ public final class PlayerModel {
                         }
 
                         @Pc(709) int j;
-                        if (basType != null && basType.equipmentTransformations != null) {
-                            for (local591 = 0; local591 < basType.equipmentTransformations.length; local591++) {
+                        if (basType != null && basType.wornTransformations != null) {
+                            for (local591 = 0; local591 < basType.wornTransformations.length; local591++) {
                                 if (meshes[local591] != null) {
                                     i = 0;
                                     j = 0;
@@ -270,13 +294,13 @@ public final class PlayerModel {
                                     @Pc(713) int rx = 0;
                                     @Pc(715) int ry = 0;
                                     @Pc(717) int rz = 0;
-                                    if (basType.equipmentTransformations[local591] != null) {
-                                        i = basType.equipmentTransformations[local591][0];
-                                        j = basType.equipmentTransformations[local591][1];
-                                        tz = basType.equipmentTransformations[local591][2];
-                                        rx = basType.equipmentTransformations[local591][3] << 3;
-                                        ry = basType.equipmentTransformations[local591][4] << 3;
-                                        rz = basType.equipmentTransformations[local591][5] << 3;
+                                    if (basType.wornTransformations[local591] != null) {
+                                        i = basType.wornTransformations[local591][0];
+                                        j = basType.wornTransformations[local591][1];
+                                        tz = basType.wornTransformations[local591][2];
+                                        rx = basType.wornTransformations[local591][3] << 3;
+                                        ry = basType.wornTransformations[local591][4] << 3;
+                                        rz = basType.wornTransformations[local591][5] << 3;
                                     }
                                     if (rx != 0 || ry != 0 || rz != 0) {
                                         meshes[local591].rotate(rz, rx, ry);
@@ -290,7 +314,7 @@ public final class PlayerModel {
 
                         @Pc(826) int local826 = functionMask | 0x4000;
                         @Pc(833) Mesh mesh = new Mesh(meshes, meshes.length);
-                        model = toolkit.createModel(mesh, local826, Static294.anInt4766, 64, 850);
+                        model = toolkit.createModel(mesh, local826, featureMask, 64, 850);
 
                         for (i = 0; i < 10; i++) {
                             for (j = 0; j < bodycol_s[i].length; j++) {
@@ -302,9 +326,9 @@ public final class PlayerModel {
 
                         model.s(functionMask);
 
-                        @Pc(903) Class82 local903 = Static580.aClass82_186;
-                        synchronized (Static580.aClass82_186) {
-                            Static580.aClass82_186.method2150(model, hash);
+                        @Pc(903) WeightedCache local903 = BIG_CACHE;
+                        synchronized (BIG_CACHE) {
+                            BIG_CACHE.put(model, hash);
                         }
 
                         this.aLong159 = hash;
@@ -438,59 +462,66 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!gu;IILclient!bp;Lclient!ha;BLclient!kr;II)Lclient!ka;")
-    public Model method4550(@OriginalArg(0) Animator arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class50 arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(6) IDKTypeList arg5, @OriginalArg(7) int arg6) {
-        @Pc(16) int local16 = arg0 == null ? 2048 : arg0.functionMask() | 0x800;
-        @Pc(29) long local29 = (long) arg1 | (long) arg2 << 32 | (long) (arg6 << 16);
-        @Pc(31) Class82 local31 = Static54.aClass82_25;
-        @Pc(39) Model local39;
-        synchronized (Static54.aClass82_25) {
-            local39 = (Model) Static54.aClass82_25.method2156(local29);
+    public Model headModel(@OriginalArg(0) Animator animator, @OriginalArg(1) int ki1, @OriginalArg(2) int kit3, @OriginalArg(3) SeqTypeList arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(6) IDKTypeList idkTypeList, @OriginalArg(7) int kit2) {
+        @Pc(16) int functionMask = animator == null ? 2048 : animator.functionMask() | 0x800;
+        @Pc(29) long key = (long) ki1 | (long) kit3 << 32 | (long) (kit2 << 16);
+        @Pc(31) WeightedCache local31 = SMALL_CACHE;
+        @Pc(39) Model model;
+        synchronized (SMALL_CACHE) {
+            model = (Model) SMALL_CACHE.method2156(key);
         }
-        if (local39 == null || arg4.compareFunctionMasks(local39.ua(), local16) != 0) {
-            if (local39 != null) {
-                local16 = arg4.combineFunctionMasks(local16, local39.ua());
+
+        if (model == null || arg4.compareFunctionMasks(model.ua(), functionMask) != 0) {
+            if (model != null) {
+                functionMask = arg4.combineFunctionMasks(functionMask, model.ua());
             }
-            @Pc(70) Mesh[] local70 = new Mesh[3];
+
+            @Pc(70) Mesh[] meshes = new Mesh[3];
             @Pc(72) int local72 = 0;
-            if (!arg5.list(arg1).method6615() || !arg5.list(arg6).method6615() || !arg5.list(arg2).method6615()) {
+            if (!idkTypeList.list(ki1).isHeadLoaded() || !idkTypeList.list(kit2).isHeadLoaded() || !idkTypeList.list(kit3).isHeadLoaded()) {
                 return null;
             }
-            @Pc(107) Mesh local107 = arg5.list(arg1).method6614();
-            if (local107 != null) {
+
+            @Pc(107) Mesh mesh = idkTypeList.list(ki1).headModel();
+            if (mesh != null) {
                 local72++;
-                local70[0] = local107;
+                meshes[0] = mesh;
             }
-            local107 = arg5.list(arg6).method6614();
-            if (local107 != null) {
-                local70[local72++] = local107;
+
+            mesh = idkTypeList.list(kit2).headModel();
+            if (mesh != null) {
+                meshes[local72++] = mesh;
             }
-            local107 = arg5.list(arg2).method6614();
-            if (local107 != null) {
-                local70[local72++] = local107;
+
+            mesh = idkTypeList.list(kit3).headModel();
+            if (mesh != null) {
+                meshes[local72++] = mesh;
             }
-            @Pc(152) int local152 = local16 | 0x4000;
-            local107 = new Mesh(local70, local72);
-            local39 = arg4.createModel(local107, local152, Static294.anInt4766, 64, 768);
+
+            @Pc(152) int local152 = functionMask | 0x4000;
+            mesh = new Mesh(meshes, local72);
+            model = arg4.createModel(mesh, local152, featureMask, 64, 768);
             for (@Pc(168) int local168 = 0; local168 < 10; local168++) {
                 for (@Pc(172) int local172 = 0; local172 < bodycol_s[local168].length; local172++) {
                     if (this.bodycol_d_palette[local168] < bodycol_d[local168][local172].length) {
-                        local39.ia(bodycol_s[local168][local172], bodycol_d[local168][local172][this.bodycol_d_palette[local168]]);
+                        model.ia(bodycol_s[local168][local172], bodycol_d[local168][local172][this.bodycol_d_palette[local168]]);
                     }
                 }
             }
-            local39.s(local16);
-            @Pc(228) Class82 local228 = Static54.aClass82_25;
-            synchronized (Static54.aClass82_25) {
-                Static54.aClass82_25.method2150(local39, local29);
+
+            model.s(functionMask);
+            @Pc(228) WeightedCache local228 = SMALL_CACHE;
+            synchronized (SMALL_CACHE) {
+                SMALL_CACHE.put(model, key);
             }
         }
-        if (arg0 == null) {
-            return local39;
-        } else {
-            local39 = local39.copy((byte) 4, local16, true);
-            arg0.animate(local39, 0);
-            return local39;
+
+        if (animator != null) {
+            model = model.copy((byte) 4, functionMask, true);
+            animator.animate(model, 0);
         }
+
+        return model;
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(BIILclient!es;)V")
@@ -504,81 +535,94 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!kr;BLclient!bp;Lclient!uk;Lclient!gu;Lclient!es;Lclient!ql;Lclient!ha;I)Lclient!ka;")
-    public Model method4552(@OriginalArg(0) IDKTypeList arg0, @OriginalArg(2) Class50 arg1, @OriginalArg(3) VarDomain arg2, @OriginalArg(4) Animator arg3, @OriginalArg(5) ObjTypeList arg4, @OriginalArg(6) NPCTypeList arg5, @OriginalArg(7) Toolkit arg6) {
+    public Model wornHeadModel(@OriginalArg(0) IDKTypeList idkTypeList, @OriginalArg(2) SeqTypeList seqTypeList, @OriginalArg(3) VarDomain varDomain, @OriginalArg(4) Animator animator, @OriginalArg(5) ObjTypeList objTypeList, @OriginalArg(6) NPCTypeList npcTypeList, @OriginalArg(7) Toolkit toolkit) {
         if (this.npcId != -1) {
-            return arg5.list(this.npcId).method5992(arg3, (Class386) null, arg6, arg2);
+            return npcTypeList.list(this.npcId).headModel(animator, (Class386) null, toolkit, varDomain);
         }
-        @Pc(35) int local35 = arg3 == null ? 2048 : arg3.functionMask() | 0x800;
-        @Pc(37) Class82 local37 = Static54.aClass82_25;
-        @Pc(48) Model local48;
-        synchronized (Static54.aClass82_25) {
-            local48 = (Model) Static54.aClass82_25.method2156(this.hash);
+
+        @Pc(35) int functionMask = animator == null ? 2048 : animator.functionMask() | 0x800;
+        @Pc(37) WeightedCache local37 = SMALL_CACHE;
+
+        @Pc(48) Model model;
+        synchronized (SMALL_CACHE) {
+            model = (Model) SMALL_CACHE.method2156(this.hash);
         }
-        if (local48 == null || arg6.compareFunctionMasks(local48.ua(), local35) != 0) {
-            if (local48 != null) {
-                local35 = arg6.combineFunctionMasks(local35, local48.ua());
+
+        if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
+            if (model != null) {
+                functionMask = toolkit.combineFunctionMasks(functionMask, model.ua());
             }
-            @Pc(81) boolean local81 = false;
-            for (@Pc(83) int local83 = 0; local83 < this.identikit.length; local83++) {
-                @Pc(92) int local92 = this.identikit[local83];
-                @Pc(94) ObjTypeCustomisation local94 = null;
-                if ((local92 & 0x40000000) != 0) {
-                    if (this.customisations != null && this.customisations[local83] != null) {
-                        local94 = this.customisations[local83];
+
+            @Pc(81) boolean loading = false;
+            for (@Pc(83) int part = 0; part < this.identikit.length; part++) {
+                @Pc(92) int kit = this.identikit[part];
+                @Pc(94) ObjTypeCustomisation customisation = null;
+
+                if ((kit & 0x40000000) != 0) {
+                    if (this.customisations != null && this.customisations[part] != null) {
+                        customisation = this.customisations[part];
                     }
-                    if (!arg4.list(local92 & 0x3FFFFFFF).method8808(local94, this.female)) {
-                        local81 = true;
+
+                    if (!objTypeList.list(kit & 0x3FFFFFFF).loadedHeadModels(customisation, this.female)) {
+                        loading = true;
                     }
-                } else if ((Integer.MIN_VALUE & local92) != 0 && !arg0.list(local92 & 0x3FFFFFFF).method6615()) {
-                    local81 = true;
+                } else if ((kit & Integer.MIN_VALUE) != 0 && !idkTypeList.list(kit & 0x3FFFFFFF).isHeadLoaded()) {
+                    loading = true;
                 }
             }
-            if (local81) {
+
+            if (loading) {
                 return null;
             }
-            @Pc(172) Mesh[] local172 = new Mesh[this.identikit.length];
+
+            @Pc(172) Mesh[] meshes = new Mesh[this.identikit.length];
             @Pc(174) int local174 = 0;
-            for (@Pc(176) int local176 = 0; local176 < this.identikit.length; local176++) {
-                @Pc(185) int local185 = this.identikit[local176];
-                @Pc(187) ObjTypeCustomisation local187 = null;
-                @Pc(220) Mesh local220;
-                if ((local185 & 0x40000000) != 0) {
-                    if (this.customisations != null && this.customisations[local176] != null) {
-                        local187 = this.customisations[local176];
+            for (@Pc(176) int part = 0; part < this.identikit.length; part++) {
+                @Pc(185) int kit = this.identikit[part];
+                @Pc(187) ObjTypeCustomisation customisation = null;
+                @Pc(220) Mesh mesh;
+
+                if ((kit & 0x40000000) != 0) {
+                    if (this.customisations != null && this.customisations[part] != null) {
+                        customisation = this.customisations[part];
                     }
-                    local220 = arg4.list(local185 & 0x3FFFFFFF).method8801(this.female, local187);
-                    if (local220 != null) {
-                        local172[local174++] = local220;
+                    mesh = objTypeList.list(kit & 0x3FFFFFFF).headModel(this.female, customisation);
+                    if (mesh != null) {
+                        meshes[local174++] = mesh;
                     }
-                } else if ((Integer.MIN_VALUE & local185) != 0) {
-                    local220 = arg0.list(local185 & 0x3FFFFFFF).method6614();
-                    if (local220 != null) {
-                        local172[local174++] = local220;
+                } else if ((kit & Integer.MIN_VALUE) != 0) {
+                    mesh = idkTypeList.list(kit & 0x3FFFFFFF).headModel();
+                    if (mesh != null) {
+                        meshes[local174++] = mesh;
                     }
                 }
             }
-            @Pc(266) Mesh local266 = new Mesh(local172, local174);
-            @Pc(270) int local270 = local35 | 0x4000;
-            local48 = arg6.createModel(local266, local270, Static294.anInt4766, 64, 768);
+
+            @Pc(266) Mesh mesh = new Mesh(meshes, local174);
+            @Pc(270) int local270 = functionMask | 0x4000;
+            model = toolkit.createModel(mesh, local270, featureMask, 64, 768);
             for (@Pc(282) int local282 = 0; local282 < 10; local282++) {
                 for (@Pc(286) int local286 = 0; local286 < bodycol_s[local282].length; local286++) {
                     if (this.bodycol_d_palette[local282] < bodycol_d[local282][local286].length) {
-                        local48.ia(bodycol_s[local282][local286], bodycol_d[local282][local286][this.bodycol_d_palette[local282]]);
+                        model.ia(bodycol_s[local282][local286], bodycol_d[local282][local286][this.bodycol_d_palette[local282]]);
                     }
                 }
             }
-            local48.s(local35);
-            @Pc(340) Class82 local340 = Static54.aClass82_25;
-            synchronized (Static54.aClass82_25) {
-                Static54.aClass82_25.method2150(local48, this.hash);
+
+            model.s(functionMask);
+
+            @Pc(340) WeightedCache local340 = SMALL_CACHE;
+            synchronized (SMALL_CACHE) {
+                SMALL_CACHE.put(model, this.hash);
             }
         }
-        if (arg3 == null) {
-            return local48;
+
+        if (animator == null) {
+            return model;
         } else {
-            @Pc(375) Model local375 = local48.copy((byte) 4, local35, true);
-            arg3.animate(local375, 0);
-            return local375;
+            @Pc(375) Model animatedModel = model.copy((byte) 4, functionMask, true);
+            animator.animate(animatedModel, 0);
+            return animatedModel;
         }
     }
 }

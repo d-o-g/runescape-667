@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class151 {
 
     @OriginalMember(owner = "client!gt", name = "g", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_79 = new Class82(64);
+    public final WeightedCache aWeightedCache_79 = new WeightedCache(64);
 
     @OriginalMember(owner = "client!gt", name = "c", descriptor = "Lclient!sb;")
     public final Class330 aClass330_51;
@@ -29,7 +29,7 @@ public final class Class151 {
 
     @OriginalMember(owner = "client!gt", name = "a", descriptor = "(BI)Lclient!bq;")
     public Node_Sub2_Sub3 method3234(@OriginalArg(1) int arg0) {
-        @Pc(11) Node_Sub2_Sub3 local11 = (Node_Sub2_Sub3) this.aClass82_79.method2156((long) arg0);
+        @Pc(11) Node_Sub2_Sub3 local11 = (Node_Sub2_Sub3) this.aWeightedCache_79.method2156((long) arg0);
         if (local11 != null) {
             return local11;
         }
@@ -46,7 +46,7 @@ public final class Class151 {
         if (arg0 >= 32768) {
             local11.method1186();
         }
-        this.aClass82_79.method2150(local11, (long) arg0);
+        this.aWeightedCache_79.put(local11, (long) arg0);
         return local11;
     }
 }

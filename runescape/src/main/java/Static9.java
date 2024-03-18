@@ -21,7 +21,7 @@ public final class Static9 {
 
     @OriginalMember(owner = "client!af", name = "a", descriptor = "(B)V")
     public static void method123() {
-        Static594.aClass82_193.method2157();
+        Static594.A_WEIGHTED_CACHE___193.reset();
     }
 
     @OriginalMember(owner = "client!af", name = "a", descriptor = "([BZ)V")

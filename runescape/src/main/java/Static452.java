@@ -11,7 +11,7 @@ public final class Static452 {
     public static int anInt6869 = 0;
 
     @OriginalMember(owner = "client!oea", name = "w", descriptor = "Lclient!dla;")
-    public static final Class82 aClass82_149 = new Class82(8);
+    public static final WeightedCache A_WEIGHTED_CACHE___149 = new WeightedCache(8);
 
     @OriginalMember(owner = "client!oea", name = "a", descriptor = "(ILclient!ge;)Lclient!fea;")
     public static Class125 method6171(@OriginalArg(1) Packet arg0) {

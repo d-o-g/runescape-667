@@ -493,10 +493,10 @@ public final class Class268 {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(ILclient!gu;Lclient!vk;ILclient!ha;Lclient!uk;)Lclient!ka;")
-    public Model method5992(@OriginalArg(1) Animator arg0, @OriginalArg(2) Class386 arg1, @OriginalArg(4) Toolkit arg2, @OriginalArg(5) VarDomain arg3) {
+    public Model headModel(@OriginalArg(1) Animator arg0, @OriginalArg(2) Class386 arg1, @OriginalArg(4) Toolkit arg2, @OriginalArg(5) VarDomain arg3) {
         if (this.anIntArray532 != null) {
             @Pc(15) Class268 local15 = this.method5985(65535, arg3);
-            return local15 == null ? null : local15.method5992(arg0, arg1, arg2, arg3);
+            return local15 == null ? null : local15.headModel(arg0, arg1, arg2, arg3);
         } else if (this.anIntArray534 == null && (arg1 == null || arg1.anIntArray816 == null)) {
             return null;
         } else {
@@ -508,10 +508,10 @@ public final class Class268 {
             if (arg1 != null) {
                 local71 |= arg1.aLong312 << 24;
             }
-            @Pc(84) Class82 local84 = this.aNPCTypeList_1.aClass82_171;
+            @Pc(84) WeightedCache local84 = this.aNPCTypeList_1.aWeightedCache_171;
             @Pc(94) Model local94;
-            synchronized (this.aNPCTypeList_1.aClass82_171) {
-                local94 = (Model) this.aNPCTypeList_1.aClass82_171.method2156(local71);
+            synchronized (this.aNPCTypeList_1.aWeightedCache_171) {
+                local94 = (Model) this.aNPCTypeList_1.aWeightedCache_171.method2156(local71);
             }
             if (local94 == null || (local94.ua() & local54) != local54) {
                 if (local94 != null) {
@@ -594,9 +594,9 @@ public final class Class268 {
                     local94.adjustColours(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
                 }
                 local94.s(local54);
-                @Pc(469) Class82 local469 = this.aNPCTypeList_1.aClass82_171;
-                synchronized (this.aNPCTypeList_1.aClass82_171) {
-                    this.aNPCTypeList_1.aClass82_171.method2150(local94, local71);
+                @Pc(469) WeightedCache local469 = this.aNPCTypeList_1.aWeightedCache_171;
+                synchronized (this.aNPCTypeList_1.aWeightedCache_171) {
+                    this.aNPCTypeList_1.aWeightedCache_171.put(local94, local71);
                 }
             }
             if (arg0 != null) {
@@ -641,10 +641,10 @@ public final class Class268 {
         if (arg6 != null) {
             local116 |= arg6.aLong312 << 24;
         }
-        @Pc(129) Class82 local129 = this.aNPCTypeList_1.aClass82_170;
+        @Pc(129) WeightedCache local129 = this.aNPCTypeList_1.aWeightedCache_170;
         @Pc(139) Model local139;
-        synchronized (this.aNPCTypeList_1.aClass82_170) {
-            local139 = (Model) this.aNPCTypeList_1.aClass82_170.method2156(local116);
+        synchronized (this.aNPCTypeList_1.aWeightedCache_170) {
+            local139 = (Model) this.aNPCTypeList_1.aWeightedCache_170.method2156(local116);
         }
         @Pc(147) BASType local147 = null;
         if (this.anInt6726 != -1) {
@@ -697,8 +697,8 @@ public final class Class268 {
                     }
                 }
             }
-            if (local147 != null && local147.equipmentTransformations != null) {
-                for (local377 = 0; local377 < local147.equipmentTransformations.length; local377++) {
+            if (local147 != null && local147.wornTransformations != null) {
+                for (local377 = 0; local377 < local147.wornTransformations.length; local377++) {
                     if (local267.length > local377 && local267[local377] != null) {
                         local396 = 0;
                         @Pc(398) int local398 = 0;
@@ -706,13 +706,13 @@ public final class Class268 {
                         @Pc(402) int local402 = 0;
                         @Pc(404) int local404 = 0;
                         @Pc(406) int local406 = 0;
-                        if (local147.equipmentTransformations[local377] != null) {
-                            local402 = local147.equipmentTransformations[local377][3] << 3;
-                            local404 = local147.equipmentTransformations[local377][4] << 3;
-                            local398 = local147.equipmentTransformations[local377][1];
-                            local396 = local147.equipmentTransformations[local377][0];
-                            local406 = local147.equipmentTransformations[local377][5] << 3;
-                            local400 = local147.equipmentTransformations[local377][2];
+                        if (local147.wornTransformations[local377] != null) {
+                            local402 = local147.wornTransformations[local377][3] << 3;
+                            local404 = local147.wornTransformations[local377][4] << 3;
+                            local398 = local147.wornTransformations[local377][1];
+                            local396 = local147.wornTransformations[local377][0];
+                            local406 = local147.wornTransformations[local377][5] << 3;
+                            local400 = local147.wornTransformations[local377][2];
                         }
                         if (local402 != 0 || local404 != 0 || local406 != 0) {
                             local267[local377].rotate(local406, local402, local404);
@@ -759,9 +759,9 @@ public final class Class268 {
                 local139.adjustColours(this.aByte104, this.aByte106, this.aByte108, this.aByte105 & 0xFF);
             }
             local139.s(local32);
-            @Pc(685) Class82 local685 = this.aNPCTypeList_1.aClass82_170;
-            synchronized (this.aNPCTypeList_1.aClass82_170) {
-                this.aNPCTypeList_1.aClass82_170.method2150(local139, local116);
+            @Pc(685) WeightedCache local685 = this.aNPCTypeList_1.aWeightedCache_170;
+            synchronized (this.aNPCTypeList_1.aWeightedCache_170) {
+                this.aNPCTypeList_1.aWeightedCache_170.put(local139, local116);
             }
         }
         @Pc(706) Model local706 = local139.copy((byte) 4, local32, true);

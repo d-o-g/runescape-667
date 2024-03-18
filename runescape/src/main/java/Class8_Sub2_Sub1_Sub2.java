@@ -313,14 +313,14 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                 }
                 @Pc(146) Model local146 = this.aModelArray3[local13 + 1] = local76.method5252(local50.aAnimator_7, local16, local97, arg2);
                 if (local146 != null) {
-                    if (local50.anInt4928 >= 0 && arg3.equipmentTransformations != null && arg3.equipmentTransformations[local50.anInt4928] != null) {
+                    if (local50.anInt4928 >= 0 && arg3.wornTransformations != null && arg3.wornTransformations[local50.anInt4928] != null) {
                         @Pc(171) int local171 = 0;
                         @Pc(173) int local173 = 0;
                         @Pc(175) int local175 = 0;
-                        if (arg3.equipmentTransformations != null && arg3.equipmentTransformations[local50.anInt4928] != null) {
-                            local173 = arg3.equipmentTransformations[local50.anInt4928][1];
-                            local175 = arg3.equipmentTransformations[local50.anInt4928][2];
-                            local171 = arg3.equipmentTransformations[local50.anInt4928][0];
+                        if (arg3.wornTransformations != null && arg3.wornTransformations[local50.anInt4928] != null) {
+                            local173 = arg3.wornTransformations[local50.anInt4928][1];
+                            local175 = arg3.wornTransformations[local50.anInt4928][2];
+                            local171 = arg3.wornTransformations[local50.anInt4928][0];
                         }
                         if (arg3.anIntArrayArray180 != null && arg3.anIntArrayArray180[local50.anInt4928] != null) {
                             local173 += arg3.anIntArrayArray180[local50.anInt4928][1];
@@ -644,7 +644,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             if (local19 == arg5) {
                 local38 = Static23.aClass128_1.method2694(arg5);
                 if (local38.aBoolean448 && local38.anInt5842 != -1) {
-                    @Pc(54) SeqType local54 = Static25.aClass50_1.list(local38.anInt5842);
+                    @Pc(54) SeqType local54 = Static25.aSeqTypeList_1.list(local38.anInt5842);
                     @Pc(57) int local57 = local54.replayMode;
                     if (local57 == 0) {
                         return;
@@ -658,8 +658,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                 local38 = Static23.aClass128_1.method2694(arg5);
                 @Pc(86) Class227 local86 = Static23.aClass128_1.method2694(local19);
                 if (local38.anInt5842 != -1 && local86.anInt5842 != -1) {
-                    @Pc(103) SeqType local103 = Static25.aClass50_1.list(local38.anInt5842);
-                    @Pc(109) SeqType local109 = Static25.aClass50_1.list(local86.anInt5842);
+                    @Pc(103) SeqType local103 = Static25.aSeqTypeList_1.list(local38.anInt5842);
+                    @Pc(109) SeqType local109 = Static25.aSeqTypeList_1.list(local86.anInt5842);
                     if (local103.anInt1649 < local109.anInt1649) {
                         return;
                     }

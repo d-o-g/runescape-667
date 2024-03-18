@@ -7,10 +7,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class267 {
 
     @OriginalMember(owner = "client!nv", name = "e", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_142 = new Class82(64);
+    public final WeightedCache aWeightedCache_142 = new WeightedCache(64);
 
     @OriginalMember(owner = "client!nv", name = "g", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_143 = new Class82(2);
+    public final WeightedCache aWeightedCache_143 = new WeightedCache(2);
 
     @OriginalMember(owner = "client!nv", name = "b", descriptor = "Lclient!sb;")
     public final Class330 aClass330_88;
@@ -27,34 +27,34 @@ public final class Class267 {
 
     @OriginalMember(owner = "client!nv", name = "b", descriptor = "(II)V")
     public void method5970() {
-        @Pc(11) Class82 local11 = this.aClass82_142;
-        synchronized (this.aClass82_142) {
-            this.aClass82_142.method2147(5);
+        @Pc(11) WeightedCache local11 = this.aWeightedCache_142;
+        synchronized (this.aWeightedCache_142) {
+            this.aWeightedCache_142.method2147(5);
         }
-        local11 = this.aClass82_143;
-        synchronized (this.aClass82_143) {
-            this.aClass82_143.method2147(5);
+        local11 = this.aWeightedCache_143;
+        synchronized (this.aWeightedCache_143) {
+            this.aWeightedCache_143.method2147(5);
         }
     }
 
     @OriginalMember(owner = "client!nv", name = "a", descriptor = "(B)V")
     public void method5972() {
-        @Pc(9) Class82 local9 = this.aClass82_142;
-        synchronized (this.aClass82_142) {
-            this.aClass82_142.method2151();
+        @Pc(9) WeightedCache local9 = this.aWeightedCache_142;
+        synchronized (this.aWeightedCache_142) {
+            this.aWeightedCache_142.method2151();
         }
-        local9 = this.aClass82_143;
-        synchronized (this.aClass82_143) {
-            this.aClass82_143.method2151();
+        local9 = this.aWeightedCache_143;
+        synchronized (this.aWeightedCache_143) {
+            this.aWeightedCache_143.method2151();
         }
     }
 
     @OriginalMember(owner = "client!nv", name = "a", descriptor = "(II)Lclient!vla;")
     public Class389 method5973(@OriginalArg(1) int arg0) {
-        @Pc(6) Class82 local6 = this.aClass82_142;
+        @Pc(6) WeightedCache local6 = this.aWeightedCache_142;
         @Pc(18) Class389 local18;
-        synchronized (this.aClass82_142) {
-            local18 = (Class389) this.aClass82_142.method2156((long) arg0);
+        synchronized (this.aWeightedCache_142) {
+            local18 = (Class389) this.aWeightedCache_142.method2156((long) arg0);
         }
         if (local18 != null) {
             return local18;
@@ -69,22 +69,22 @@ public final class Class267 {
         if (local41 != null) {
             local18.method8935(new Packet(local41));
         }
-        @Pc(70) Class82 local70 = this.aClass82_142;
-        synchronized (this.aClass82_142) {
-            this.aClass82_142.method2150(local18, (long) arg0);
+        @Pc(70) WeightedCache local70 = this.aWeightedCache_142;
+        synchronized (this.aWeightedCache_142) {
+            this.aWeightedCache_142.put(local18, (long) arg0);
             return local18;
         }
     }
 
     @OriginalMember(owner = "client!nv", name = "b", descriptor = "(B)V")
     public void method5974() {
-        @Pc(7) Class82 local7 = this.aClass82_142;
-        synchronized (this.aClass82_142) {
-            this.aClass82_142.method2157();
+        @Pc(7) WeightedCache local7 = this.aWeightedCache_142;
+        synchronized (this.aWeightedCache_142) {
+            this.aWeightedCache_142.reset();
         }
-        local7 = this.aClass82_143;
-        synchronized (this.aClass82_143) {
-            this.aClass82_143.method2157();
+        local7 = this.aWeightedCache_143;
+        synchronized (this.aWeightedCache_143) {
+            this.aWeightedCache_143.reset();
         }
     }
 }

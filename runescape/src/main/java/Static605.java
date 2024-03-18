@@ -219,8 +219,8 @@ public final class Static605 {
                             }
                             if (local948 != null) {
                                 @Pc(991) BASType local991 = local948.method9317();
-                                if (local991.equipmentTransformations != null && local991.equipmentTransformations[local46] != null) {
-                                    local812 -= local991.equipmentTransformations[local46][1];
+                                if (local991.wornTransformations != null && local991.wornTransformations[local46] != null) {
+                                    local812 -= local991.wornTransformations[local46][1];
                                 }
                                 if (local991.anIntArrayArray180 != null && local991.anIntArrayArray180[local46] != null) {
                                     local812 -= local991.anIntArrayArray180[local46][1];

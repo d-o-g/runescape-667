@@ -7,9 +7,9 @@ public final class Static335 {
     public static int anInt5462;
 
     @OriginalMember(owner = "client!kk", name = "a", descriptor = "(II)V")
-    public static void method4945(@OriginalArg(1) int arg0) {
+    public static void setFeatureMask(@OriginalArg(1) int arg0) {
         Static108.anInt2168 = arg0;
-        Static312.aClass82_106.method2157();
+        Static312.A_WEIGHTED_CACHE___106.reset();
     }
 
     @OriginalMember(owner = "client!kk", name = "a", descriptor = "(IIZ)Z")

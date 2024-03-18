@@ -38,7 +38,7 @@ public final class Class57_Sub30 extends Class57 {
     }
 
     @OriginalMember(owner = "client!tv", name = "a", descriptor = "(Z)I")
-    public int method8356() {
+    public int getValue() {
         return super.anInt9489;
     }
 

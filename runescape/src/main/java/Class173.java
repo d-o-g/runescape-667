@@ -21,7 +21,7 @@ public final class Class173 {
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(ILclient!ha;ZI)Lclient!st;")
     public Sprite method3689(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) boolean arg2) {
         @Pc(23) long local23 = (long) (arg1.index << 19 | (arg2 ? 262144 : 0) | arg0 << 16 | this.anInt4167);
-        @Pc(31) Sprite local31 = (Sprite) this.aClass363_2.aClass82_202.method2156(local23);
+        @Pc(31) Sprite local31 = (Sprite) this.aClass363_2.aWeightedCache_202.method2156(local23);
         if (local31 != null) {
             return local31;
         } else if (this.aClass363_2.aClass330_116.method7581(this.anInt4167)) {
@@ -37,7 +37,7 @@ public final class Class173 {
             }
             local31 = arg1.method7948(local55, true);
             if (local31 != null) {
-                this.aClass363_2.aClass82_202.method2150(local31, local23);
+                this.aClass363_2.aWeightedCache_202.put(local31, local23);
             }
             return local31;
         } else {

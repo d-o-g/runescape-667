@@ -145,7 +145,7 @@ public final class Static651 {
             if (arg0[local10] != -1) {
                 local8 = false;
             }
-            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.aClass50_1.list(arg0[local10]).anInt1649 >= Static25.aClass50_1.list(arg3.anIntArray869[local10]).anInt1649) {
+            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.aSeqTypeList_1.list(arg0[local10]).anInt1649 >= Static25.aSeqTypeList_1.list(arg3.anIntArray869[local10]).anInt1649) {
                 arg3.anIntArray869 = arg0;
                 arg3.aAnimator_11.method9091(arg1);
                 if (arg2) {

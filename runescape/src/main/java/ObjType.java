@@ -736,7 +736,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ZLclient!bs;I)Lclient!dv;")
-    public Mesh method8801(@OriginalArg(0) boolean arg0, @OriginalArg(1) ObjTypeCustomisation arg1) {
+    public Mesh headModel(@OriginalArg(0) boolean arg0, @OriginalArg(1) ObjTypeCustomisation arg1) {
         @Pc(21) int local21;
         @Pc(26) int local26;
         if (arg0) {
@@ -876,10 +876,10 @@ public final class ObjType {
         if (animator != null) {
             i = initialFunctionMask | animator.functionMask();
         }
-        @Pc(87) Class82 local87 = this.myList.aClass82_58;
+        @Pc(87) WeightedCache local87 = this.myList.aWeightedCache_58;
         @Pc(104) Model local104;
-        synchronized (this.myList.aClass82_58) {
-            local104 = (Model) this.myList.aClass82_58.method2156((long) (this.anInt10134 | toolkit.index << 29));
+        synchronized (this.myList.aWeightedCache_58) {
+            local104 = (Model) this.myList.aWeightedCache_58.method2156((long) (this.anInt10134 | toolkit.index << 29));
         }
         if (local104 == null || toolkit.compareFunctionMasks(local104.ua(), i) != 0) {
             if (local104 != null) {
@@ -937,9 +937,9 @@ public final class ObjType {
                 }
             }
             local104.s(i);
-            @Pc(426) Class82 local426 = this.myList.aClass82_58;
-            synchronized (this.myList.aClass82_58) {
-                this.myList.aClass82_58.method2150(local104, (long) (this.anInt10134 | toolkit.index << 29));
+            @Pc(426) WeightedCache local426 = this.myList.aWeightedCache_58;
+            synchronized (this.myList.aWeightedCache_58) {
+                this.myList.aWeightedCache_58.put(local104, (long) (this.anInt10134 | toolkit.index << 29));
             }
         }
         if (animator != null) {
@@ -955,7 +955,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!bs;Z)Z")
-    public boolean method8808(@OriginalArg(1) ObjTypeCustomisation arg0, @OriginalArg(2) boolean arg1) {
+    public boolean loadedHeadModels(@OriginalArg(1) ObjTypeCustomisation arg0, @OriginalArg(2) boolean arg1) {
         @Pc(19) int local19;
         @Pc(22) int local22;
         if (arg1) {

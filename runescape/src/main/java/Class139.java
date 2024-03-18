@@ -13,7 +13,7 @@ public final class Class139 {
     public int anInt3264 = 0;
 
     @OriginalMember(owner = "client!gba", name = "e", descriptor = "Lclient!dla;")
-    public final Class82 aClass82_70 = new Class82(64);
+    public final WeightedCache aWeightedCache_70 = new WeightedCache(64);
 
     @OriginalMember(owner = "client!gba", name = "f", descriptor = "Lclient!raa;")
     public Interface19 anInterface19_1 = null;
@@ -50,7 +50,7 @@ public final class Class139 {
 
     @OriginalMember(owner = "client!gba", name = "a", descriptor = "(IZ)Lclient!ih;")
     public Node_Sub2_Sub12 method2950(@OriginalArg(0) int arg0) {
-        @Pc(11) Node_Sub2_Sub12 local11 = (Node_Sub2_Sub12) this.aClass82_70.method2156((long) arg0);
+        @Pc(11) Node_Sub2_Sub12 local11 = (Node_Sub2_Sub12) this.aWeightedCache_70.method2156((long) arg0);
         if (local11 != null) {
             return local11;
         }
@@ -68,7 +68,7 @@ public final class Class139 {
         if (arg0 >= 32768) {
             local11.method3902();
         }
-        this.aClass82_70.method2150(local11, (long) arg0);
+        this.aWeightedCache_70.put(local11, (long) arg0);
         return local11;
     }
 }

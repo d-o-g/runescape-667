@@ -47,7 +47,7 @@ public final class Static706 {
 
     @OriginalMember(owner = "client!wfa", name = "a", descriptor = "(BLclient!bn;I)V")
     public static void method9221(@OriginalArg(1) Node_Sub8 arg0, @OriginalArg(2) int arg1) {
-        Static400.aClass2_Sub34_28.aClass57_Sub25_2.method7208();
+        Static400.instance.aClass57_Sub25_2.method7208();
         if (arg0 == null) {
             Static100.method1988();
         }

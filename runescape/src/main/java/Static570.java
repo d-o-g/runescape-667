@@ -8,11 +8,6 @@ public final class Static570 {
     @OriginalMember(owner = "client!rv", name = "p", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_208 = new Class225(99, -1);
 
-    @OriginalMember(owner = "client!rv", name = "a", descriptor = "(JJ)J")
-    public static long method7548(@OriginalArg(0) long arg0, @OriginalArg(1) long arg1) {
-        return arg0 & arg1;
-    }
-
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(BLclient!ha;)V")
     public static void method7549(@OriginalArg(1) Toolkit arg0) {
         Static378.aClass70Array1 = new Class70[Static552.anIntArray753.length];

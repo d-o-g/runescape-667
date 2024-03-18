@@ -78,11 +78,6 @@ public final class Static713 {
         return local9.toString();
     }
 
-    @OriginalMember(owner = "client!wk", name = "a", descriptor = "(JJ)J")
-    public static long method9334(@OriginalArg(0) long arg0, @OriginalArg(1) long arg1) {
-        return arg0 | arg1;
-    }
-
     @OriginalMember(owner = "client!wk", name = "a", descriptor = "(IB)I")
     public static int method9336(@OriginalArg(0) int arg0) {
         return arg0 >>> 7;

@@ -1,5 +1,6 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
+import com.jagex.core.crypto.Whirlpool;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -318,7 +319,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
                             break label157;
                         }
                         local254 = this.aJs5Index_1.aByteArrayArray24[arg0];
-                        local263 = Static607.whirlpool(local194, local194.length - 2, 0);
+                        local263 = Whirlpool.digest(local194, local194.length - 2, 0);
                         local265 = 0;
                         while (true) {
                             if (local265 >= 64) {
@@ -369,7 +370,7 @@ public final class ResourceProvider_Sub1 extends ResourceProvider {
             }
             if (this.aJs5Index_1.aByteArrayArray24 != null && this.aJs5Index_1.aByteArrayArray24[arg0] != null) {
                 local254 = this.aJs5Index_1.aByteArrayArray24[arg0];
-                local263 = Static607.whirlpool(local194, local194.length - 2, 0);
+                local263 = Whirlpool.digest(local194, local194.length - 2, 0);
                 for (local265 = 0; local265 < 64; local265++) {
                     if (local263[local265] != local254[local265]) {
                         throw new RuntimeException();

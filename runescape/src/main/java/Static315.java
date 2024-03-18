@@ -74,11 +74,6 @@ public final class Static315 {
         }
     }
 
-    @OriginalMember(owner = "client!k", name = "a", descriptor = "(JJ)J")
-    public static long method4576(@OriginalArg(0) long arg0, @OriginalArg(1) long arg1) {
-        return arg0 ^ arg1;
-    }
-
     @OriginalMember(owner = "client!k", name = "a", descriptor = "(IILclient!cka;)V")
     public static void method4577(@OriginalArg(0) int arg0, @OriginalArg(2) SeqType arg1) {
         if (Static33.anInt779 >= 50 || (arg1 == null || arg1.anIntArrayArray38 == null || arg1.anIntArrayArray38.length <= arg0 || arg1.anIntArrayArray38[arg0] == null)) {

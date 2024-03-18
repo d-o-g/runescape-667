@@ -1,3 +1,4 @@
+import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -67,7 +68,7 @@ public final class Js5Index {
             if (expectedWhirlpool.length != 64) {
                 throw new RuntimeException();
             }
-            this.aByteArray86 = Static607.whirlpool(data, data.length, 0);
+            this.aByteArray86 = Whirlpool.digest(data, data.length, 0);
             for (@Pc(45) int local45 = 0; local45 < 64; local45++) {
                 if (expectedWhirlpool[local45] != this.aByteArray86[local45]) {
                     throw new RuntimeException();

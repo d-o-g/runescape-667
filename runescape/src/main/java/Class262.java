@@ -1,3 +1,4 @@
+import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -72,7 +73,7 @@ public final class Class262 {
         if (local102.length != 65) {
             throw new RuntimeException();
         }
-        @Pc(131) byte[] local131 = Static607.whirlpool(local49.data, local49.pos - local72.length - 5, 5);
+        @Pc(131) byte[] local131 = Whirlpool.digest(local49.data, local49.pos - local72.length - 5, 5);
         for (@Pc(140) int local140 = 0; local140 < 64; local140++) {
             if (local131[local140] != local102[local140 + 1]) {
                 throw new RuntimeException();

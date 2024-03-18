@@ -16,26 +16,6 @@ public final class Static607 {
     @OriginalMember(owner = "client!tca", name = "eh", descriptor = "I")
     public static int anInt9251 = -1;
 
-    @OriginalMember(owner = "client!tca", name = "a", descriptor = "(B[BII)[B")
-    public static byte[] whirlpool(@OriginalArg(1) byte[] arg0, @OriginalArg(2) int len, @OriginalArg(3) int off) {
-        @Pc(10) byte[] buf;
-        if (off > 0) {
-            buf = new byte[len];
-            for (@Pc(12) int i = 0; i < len; i++) {
-                buf[i] = arg0[i + off];
-            }
-        } else {
-            buf = arg0;
-        }
-
-        @Pc(40) Whirlpool whirlpool = new Whirlpool();
-        whirlpool.reset();
-        whirlpool.add((long) (len * 8), buf);
-        @Pc(60) byte[] hash = new byte[64];
-        whirlpool.finalize(hash);
-        return hash;
-    }
-
     @OriginalMember(owner = "client!tca", name = "bb", descriptor = "(I)Z")
     public static boolean method8163() {
         return Static236.aBoolean305;

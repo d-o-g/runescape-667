@@ -12,9 +12,6 @@ public final class Static688 {
     @OriginalMember(owner = "client!vp", name = "B", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_250 = new Class225(88, -2);
 
-    @OriginalMember(owner = "client!vp", name = "F", descriptor = "I")
-    public static int anInt10355 = 0;
-
     @OriginalMember(owner = "client!vp", name = "e", descriptor = "(B)I")
     public static int method8974() {
         return 15;

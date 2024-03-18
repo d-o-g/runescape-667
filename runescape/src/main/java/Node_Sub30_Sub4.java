@@ -20,12 +20,12 @@ public final class Node_Sub30_Sub4 extends Node_Sub30 {
 
     @OriginalMember(owner = "client!sea", name = "a", descriptor = "(Lclient!ge;I)V")
     @Override
-    public void method7647(@OriginalArg(0) Node_Sub21 arg0) {
-        this.anInt8616 = arg0.method7382();
-        this.aByte131 = arg0.method7377();
-        this.anInt8618 = arg0.method7382();
+    public void method7647(@OriginalArg(0) Packet arg0) {
+        this.anInt8616 = arg0.g2();
+        this.aByte131 = arg0.g1b();
+        this.anInt8618 = arg0.g2();
         arg0.method7398();
-        this.aString107 = arg0.method7358();
+        this.aString107 = arg0.gjstr();
     }
 
     @OriginalMember(owner = "client!sea", name = "a", descriptor = "(Lclient!rfa;I)V")

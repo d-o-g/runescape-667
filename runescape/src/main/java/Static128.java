@@ -20,8 +20,8 @@ public final class Static128 {
         }
         @Pc(21) Class153 local21 = Static668.method8701();
         @Pc(27) Node_Sub19 local27 = Static293.method4335(Static436.aClass345_45, local21.aClass186_1);
-        local27.aClass2_Sub21_Sub2_1.method7389(Static231.method3379(arg0));
-        local27.aClass2_Sub21_Sub2_1.method7391(arg0);
+        local27.aClass2_Sub21_Sub2_1.p1(Static231.method3379(arg0));
+        local27.aClass2_Sub21_Sub2_1.pjstr(arg0);
         local21.method3275(local27);
     }
 }

@@ -63,12 +63,12 @@ public final class Node_Sub1_Sub1 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(ZLclient!ge;I)V")
     @Override
-    public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Node_Sub21 arg1, @OriginalArg(2) int arg2) {
+    public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
             this.anInt55 = -36;
         }
         if (arg2 == 0) {
-            this.anInt55 = arg1.method7382();
+            this.anInt55 = arg1.g2();
         }
     }
 

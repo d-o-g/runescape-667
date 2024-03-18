@@ -434,7 +434,7 @@ public final class Static71 {
                                     if (local19.anInt3760 != -1) {
                                         local1543 = Static419.aObjTypeList_1.list(local19.anInt3760);
                                         if (local1543 != null) {
-                                            local1543 = local1543.method8790(local19.anInt3817);
+                                            local1543 = local1543.getStacked(local19.anInt3817);
                                             local2313 = local1543.method8805(local19.aClass152_6, 2048, local19.aBoolean288 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aClass201_1 : null, 1, Static163.aClass19_17);
                                             if (local2313 == null) {
                                                 Static178.method2729(local19);

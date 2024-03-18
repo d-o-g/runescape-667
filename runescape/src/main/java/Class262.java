@@ -9,7 +9,7 @@ import java.math.BigInteger;
 public final class Class262 {
 
     @OriginalMember(owner = "client!nj", name = "l", descriptor = "Lclient!ge;")
-    public Node_Sub21 aClass2_Sub21_10;
+    public Packet aClass2_Sub21_10;
 
     @OriginalMember(owner = "client!nj", name = "b", descriptor = "[Lclient!pm;")
     public Class47_Sub1[] aClass47_Sub1Array5;
@@ -54,12 +54,12 @@ public final class Class262 {
         if (this.aClass2_Sub2_Sub17_Sub1_1.aBoolean778) {
             return false;
         }
-        @Pc(49) Node_Sub21 local49 = new Node_Sub21(this.aClass2_Sub2_Sub17_Sub1_1.method8971());
-        local49.anInt8388 = 5;
-        @Pc(56) int local56 = local49.method7396();
-        local49.anInt8388 += local56 * 72;
-        @Pc(72) byte[] local72 = new byte[local49.aByteArray93.length - local49.anInt8388];
-        local49.method7344(0, local72.length, local72);
+        @Pc(49) Packet local49 = new Packet(this.aClass2_Sub2_Sub17_Sub1_1.method8971());
+        local49.pos = 5;
+        @Pc(56) int local56 = local49.g1();
+        local49.pos += local56 * 72;
+        @Pc(72) byte[] local72 = new byte[local49.data.length - local49.pos];
+        local49.gdata(0, local72.length, local72);
         @Pc(102) byte[] local102;
         if (this.aBigInteger3 == null || this.aBigInteger4 == null) {
             local102 = local72;
@@ -71,7 +71,7 @@ public final class Class262 {
         if (local102.length != 65) {
             throw new RuntimeException();
         }
-        @Pc(131) byte[] local131 = Static607.method8161(local49.aByteArray93, local49.anInt8388 - local72.length - 5, 5);
+        @Pc(131) byte[] local131 = Static607.method8161(local49.data, local49.pos - local72.length - 5, 5);
         for (@Pc(140) int local140 = 0; local140 < 64; local140++) {
             if (local131[local140] != local102[local140 + 1]) {
                 throw new RuntimeException();
@@ -94,11 +94,11 @@ public final class Class262 {
         } else if (arg1 < 0 || arg1 >= this.aClass47_Sub1Array5.length) {
             throw new RuntimeException();
         } else if (this.aClass47_Sub1Array5[arg1] == null) {
-            this.aClass2_Sub21_10.anInt8388 = arg1 * 72 + 6;
+            this.aClass2_Sub21_10.pos = arg1 * 72 + 6;
             @Pc(52) int local52 = this.aClass2_Sub21_10.method7349();
             @Pc(57) int local57 = this.aClass2_Sub21_10.method7349();
             @Pc(60) byte[] local60 = new byte[64];
-            this.aClass2_Sub21_10.method7344(0, 64, local60);
+            this.aClass2_Sub21_10.gdata(0, 64, local60);
             @Pc(84) Class47_Sub1 local84 = new Class47_Sub1(arg1, arg0, arg2, this.aClass295_1, this.aClass174_2, local52, local60, local57, true);
             this.aClass47_Sub1Array5[arg1] = local84;
             return local84;

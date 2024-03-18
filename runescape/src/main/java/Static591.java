@@ -22,8 +22,4 @@ public final class Static591 {
         }
     }
 
-    @OriginalMember(owner = "client!sl", name = "a", descriptor = "(IZ[B)I")
-    public static int method7758(@OriginalArg(0) int arg0, @OriginalArg(2) byte[] arg1) {
-        return Static12.method5163(arg0, 0, arg1);
-    }
 }

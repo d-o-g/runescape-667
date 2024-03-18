@@ -19,9 +19,9 @@ public final class Class39_Sub17 extends Class39 {
     public final int anInt7625;
 
     @OriginalMember(owner = "client!q", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class39_Sub17(@OriginalArg(0) Node_Sub21 arg0) {
+    public Class39_Sub17(@OriginalArg(0) Packet arg0) {
         super(arg0);
-        this.anInt7622 = arg0.method7382();
+        this.anInt7622 = arg0.g2();
         this.anIntArray611 = new int[4];
         this.anInt7624 = arg0.method7346();
         Static734.method7690(this.anIntArray611, 0, this.anIntArray611.length, this.anInt7624);

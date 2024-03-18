@@ -204,14 +204,14 @@ public final class Class330 {
                 local138 = Static377.method5321(false, this.anObjectArray37[arg2]);
             } else {
                 local138 = Static377.method5321(true, this.anObjectArray37[arg2]);
-                @Pc(152) Node_Sub21 local152 = new Node_Sub21(local138);
-                local152.method7394(arg0, local152.aByteArray93.length);
+                @Pc(152) Packet local152 = new Packet(local138);
+                local152.xteaEncrypt(arg0, local152.data.length);
             }
             @Pc(164) byte[] local164;
             try {
                 local164 = Static590.method7744(local138);
             } catch (@Pc(166) RuntimeException local166) {
-                throw Static231.method3380(local166, "T3 - " + (arg0 != null) + "," + arg2 + "," + local138.length + "," + Static591.method7758(local138.length, local138) + "," + Static591.method7758(local138.length - 2, local138) + "," + this.aClass292_2.anIntArray599[arg2] + "," + this.aClass292_2.anInt7365);
+                throw Static231.method3380(local166, "T3 - " + (arg0 != null) + "," + arg2 + "," + local138.length + "," + Packet.getcrc(local138.length, local138) + "," + Packet.getcrc(local138.length - 2, local138) + "," + this.aClass292_2.anIntArray599[arg2] + "," + this.aClass292_2.anInt7365);
             }
             if (this.aBoolean656) {
                 this.anObjectArray37[arg2] = null;
@@ -230,7 +230,7 @@ public final class Class330 {
                 }
             } else {
                 @Pc(279) int local279;
-                @Pc(292) Node_Sub21 local292;
+                @Pc(292) Packet local292;
                 @Pc(300) int local300;
                 @Pc(303) int local303;
                 @Pc(305) int local305;
@@ -243,9 +243,9 @@ public final class Class330 {
                     local243--;
                     local279 = local164[local243] & 0xFF;
                     local243 -= local279 * local32 * 4;
-                    local292 = new Node_Sub21(local164);
+                    local292 = new Packet(local164);
                     @Pc(474) int local474 = 0;
-                    local292.anInt8388 = local243;
+                    local292.pos = local243;
                     local300 = 0;
                     for (local303 = 0; local303 < local279; local303++) {
                         local305 = 0;
@@ -266,7 +266,7 @@ public final class Class330 {
                         return true;
                     }
                     @Pc(539) byte[] local539 = new byte[local474];
-                    local292.anInt8388 = local243;
+                    local292.pos = local243;
                     local474 = 0;
                     local363 = 0;
                     for (local365 = 0; local365 < local279; local365++) {
@@ -292,8 +292,8 @@ public final class Class330 {
                     local243--;
                     local279 = local164[local243] & 0xFF;
                     local243 -= local279 * local32 * 4;
-                    local292 = new Node_Sub21(local164);
-                    local292.anInt8388 = local243;
+                    local292 = new Packet(local164);
+                    local292.pos = local243;
                     @Pc(298) int[] local298 = new int[local32];
                     for (local300 = 0; local300 < local279; local300++) {
                         local303 = 0;
@@ -307,7 +307,7 @@ public final class Class330 {
                         local336[local305] = new byte[local298[local305]];
                         local298[local305] = 0;
                     }
-                    local292.anInt8388 = local243;
+                    local292.pos = local243;
                     local363 = 0;
                     for (local365 = 0; local365 < local279; local365++) {
                         local368 = 0;

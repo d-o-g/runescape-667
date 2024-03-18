@@ -124,7 +124,7 @@ public final class Static620 {
 
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "([BZ)Ljava/lang/String;")
     public static String method8323(@OriginalArg(0) byte[] arg0) {
-        return Static350.method5126(0, arg0, arg0.length);
+        return Static350.cp1252Decode(0, arg0, arg0.length);
     }
 
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "(IIIIIII)V")

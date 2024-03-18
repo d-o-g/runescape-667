@@ -15,8 +15,8 @@ public final class Static308 {
         if (Static358.aBoolean803) {
             System.out.println("---endgpp---");
         }
-        if (arg0.anInt8388 != arg1) {
-            throw new RuntimeException("gpi1 pos:" + arg0.anInt8388 + " psize:" + arg1);
+        if (arg0.pos != arg1) {
+            throw new RuntimeException("gpi1 pos:" + arg0.pos + " psize:" + arg1);
         }
     }
 

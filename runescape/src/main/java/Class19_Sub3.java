@@ -1458,7 +1458,7 @@ public final class Class19_Sub3 extends Class19 {
             local16.method4337(0.0F);
             local16.method4337(0.0F);
         }
-        this.anInterface12_7 = this.method7024(false, local16.anInt8388, local16.aByteArray93, 20);
+        this.anInterface12_7 = this.method7024(false, local16.pos, local16.data, 20);
         this.aClass94_15 = new Class94(this.anInterface12_7, 5126, 3, 0);
         this.aClass94_16 = new Class94(this.anInterface12_7, 5126, 2, 12);
         this.aClass42_1.method1081(this);

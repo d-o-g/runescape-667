@@ -10,9 +10,6 @@ public final class Static203 {
     @OriginalMember(owner = "client!gf", name = "j", descriptor = "Lclient!tt;")
     public static Class73 aClass73_4;
 
-    @OriginalMember(owner = "client!gf", name = "h", descriptor = "[[[B")
-    public static byte[][][] aByteArrayArrayArray2;
-
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(ZII)I")
     public static int method3066(@OriginalArg(2) int arg0) {
         if (arg0 == -2) {

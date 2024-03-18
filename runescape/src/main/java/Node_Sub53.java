@@ -52,7 +52,7 @@ public final class Node_Sub53 extends Node {
 
     @OriginalMember(owner = "client!uj", name = "a", descriptor = "([B)V")
     public void method8499(@OriginalArg(0) byte[] arg0) {
-        @Pc(4) Node_Sub21 local4 = new Node_Sub21(arg0);
+        @Pc(4) Packet local4 = new Packet(arg0);
         this.anInt9680 = local4.method7349();
         this.anInt9684 = local4.method7349();
         this.anInt9685 = local4.method7349();
@@ -67,11 +67,11 @@ public final class Node_Sub53 extends Node {
             @Pc(49) int local49 = 0;
             @Pc(53) int local53;
             do {
-                local53 = local4.method7396();
+                local53 = local4.g1();
                 local49 += local53;
             } while (local53 >= 255);
             @Pc(64) byte[] local64 = new byte[local49];
-            local4.method7344(0, local49, local64);
+            local4.gdata(0, local49, local64);
             this.aByteArrayArray33[local46] = local64;
         }
     }

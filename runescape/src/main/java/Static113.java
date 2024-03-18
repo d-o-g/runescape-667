@@ -27,13 +27,13 @@ public final class Static113 {
     @OriginalMember(owner = "client!dja", name = "a", descriptor = "([BBZ)V")
     public static void method2121(@OriginalArg(0) byte[] arg0, @OriginalArg(2) boolean arg1) {
         if (Static339.aClass2_Sub21_9 == null) {
-            Static339.aClass2_Sub21_9 = new Node_Sub21(20000);
+            Static339.aClass2_Sub21_9 = new Packet(20000);
         }
-        Static339.aClass2_Sub21_9.method7386(arg0.length, arg0, 0);
+        Static339.aClass2_Sub21_9.pdata(arg0.length, arg0, 0);
         if (!arg1) {
             return;
         }
-        Static681.method8919(Static339.aClass2_Sub21_9.aByteArray93);
+        Static681.method8919(Static339.aClass2_Sub21_9.data);
         Static343.aClass297_Sub1Array2 = new Class297_Sub1[Static476.anInt7177];
         @Pc(31) int local31 = 0;
         for (@Pc(33) int local33 = Static494.anInt7396; local33 <= Static699.anInt10532; local33++) {

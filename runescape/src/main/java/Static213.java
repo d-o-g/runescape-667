@@ -22,7 +22,7 @@ public final class Static213 {
     @OriginalMember(owner = "client!gl", name = "a", descriptor = "([BIIIII)Z")
     public static boolean method3141(@OriginalArg(0) byte[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(5) boolean local5 = true;
-        @Pc(10) Node_Sub21 local10 = new Node_Sub21(arg0);
+        @Pc(10) Packet local10 = new Packet(arg0);
         @Pc(12) int local12 = -1;
         label54:
         while (true) {
@@ -36,14 +36,14 @@ public final class Static213 {
             while (true) {
                 @Pc(32) int local32;
                 while (!local26) {
-                    local32 = local10.method7390();
+                    local32 = local10.gsmart();
                     if (local32 == 0) {
                         continue label54;
                     }
                     local24 += local32 - 1;
                     @Pc(59) int local59 = local24 & 0x3F;
                     @Pc(65) int local65 = local24 >> 6 & 0x3F;
-                    @Pc(71) int local71 = local10.method7396() >> 2;
+                    @Pc(71) int local71 = local10.g1() >> 2;
                     @Pc(75) int local75 = arg1 + local65;
                     @Pc(79) int local79 = local59 + arg3;
                     if (local75 > 0 && local79 > 0 && arg2 - 1 > local75 && arg4 - 1 > local79) {
@@ -57,11 +57,11 @@ public final class Static213 {
                         }
                     }
                 }
-                local32 = local10.method7390();
+                local32 = local10.gsmart();
                 if (local32 == 0) {
                     break;
                 }
-                local10.method7396();
+                local10.g1();
             }
         }
     }

@@ -56,7 +56,7 @@ public final class Class292 {
 
     @OriginalMember(owner = "client!pj", name = "<init>", descriptor = "([BI[B)V")
     public Class292(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2) {
-        this.anInt7365 = Static591.method7758(arg0.length, arg0);
+        this.anInt7365 = Packet.getcrc(arg0.length, arg0);
         if (arg1 != this.anInt7365) {
             throw new RuntimeException();
         }
@@ -76,8 +76,8 @@ public final class Class292 {
 
     @OriginalMember(owner = "client!pj", name = "a", descriptor = "([BZ)V")
     public void method6568(@OriginalArg(0) byte[] arg0) {
-        @Pc(12) Node_Sub21 local12 = new Node_Sub21(Static590.method7744(arg0));
-        @Pc(16) int local16 = local12.method7396();
+        @Pc(12) Packet local12 = new Packet(Static590.method7744(arg0));
+        @Pc(16) int local16 = local12.g1();
         if (local16 < 5 || local16 > 7) {
             throw new RuntimeException();
         }
@@ -86,13 +86,13 @@ public final class Class292 {
         } else {
             this.anInt7366 = 0;
         }
-        @Pc(54) int local54 = local12.method7396();
+        @Pc(54) int local54 = local12.g1();
         @Pc(63) boolean local63 = (local54 & 0x1) != 0;
         @Pc(75) boolean local75 = (local54 & 0x2) != 0;
         if (local16 >= 7) {
             this.anInt7367 = local12.method7364();
         } else {
-            this.anInt7367 = local12.method7382();
+            this.anInt7367 = local12.g2();
         }
         @Pc(101) int local101 = 0;
         @Pc(103) int local103 = -1;
@@ -107,7 +107,7 @@ public final class Class292 {
             }
         } else {
             for (local115 = 0; local115 < this.anInt7367; local115++) {
-                this.anIntArray600[local115] = local101 += local12.method7382();
+                this.anIntArray600[local115] = local101 += local12.g2();
                 if (local103 < this.anIntArray600[local115]) {
                     local103 = this.anIntArray600[local115];
                 }
@@ -139,7 +139,7 @@ public final class Class292 {
         if (local75) {
             for (local265 = 0; local265 < this.anInt7367; local265++) {
                 @Pc(339) byte[] local339 = new byte[64];
-                local12.method7344(0, 64, local339);
+                local12.gdata(0, 64, local339);
                 this.aByteArrayArray24[this.anIntArray600[local265]] = local339;
             }
         }
@@ -155,7 +155,7 @@ public final class Class292 {
         @Pc(398) int local398;
         if (local16 < 7) {
             for (local398 = 0; local398 < this.anInt7367; local398++) {
-                this.anIntArray598[this.anIntArray600[local398]] = local12.method7382();
+                this.anIntArray598[this.anIntArray600[local398]] = local12.g2();
             }
             for (local423 = 0; local423 < this.anInt7367; local423++) {
                 local432 = this.anIntArray600[local423];
@@ -164,7 +164,7 @@ public final class Class292 {
                 local441 = -1;
                 this.anIntArrayArray185[local432] = new int[local439];
                 for (local449 = 0; local449 < local439; local449++) {
-                    local466 = this.anIntArrayArray185[local432][local449] = local101 += local12.method7382();
+                    local466 = this.anIntArrayArray185[local432][local449] = local101 += local12.g2();
                     if (local441 < local466) {
                         local441 = local466;
                     }

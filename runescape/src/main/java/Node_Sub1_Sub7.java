@@ -312,28 +312,28 @@ public final class Node_Sub1_Sub7 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "(ZLclient!ge;I)V")
     @Override
-    public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Node_Sub21 arg1, @OriginalArg(2) int arg2) {
+    public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
             this.method9411(39, 29);
         }
         if (arg2 == 0) {
-            this.anInt2124 = arg1.method7396();
+            this.anInt2124 = arg1.g1();
         } else if (arg2 == 1) {
-            this.anInt2131 = arg1.method7382();
+            this.anInt2131 = arg1.g2();
         } else if (arg2 == 2) {
-            this.anInt2126 = arg1.method7382();
+            this.anInt2126 = arg1.g2();
         } else if (arg2 == 3) {
-            this.anInt2132 = arg1.method7382();
+            this.anInt2132 = arg1.g2();
         } else if (arg2 == 4) {
-            this.anInt2123 = arg1.method7382();
+            this.anInt2123 = arg1.g2();
         } else if (arg2 == 5) {
-            this.anInt2122 = arg1.method7382();
+            this.anInt2122 = arg1.g2();
         } else if (arg2 == 6) {
-            this.anInt2118 = arg1.method7396();
+            this.anInt2118 = arg1.g1();
         } else if (arg2 == 7) {
-            this.anInt2119 = arg1.method7382();
+            this.anInt2119 = arg1.g2();
         } else if (arg2 == 8) {
-            this.anInt2133 = arg1.method7382();
+            this.anInt2133 = arg1.g2();
         }
     }
 }

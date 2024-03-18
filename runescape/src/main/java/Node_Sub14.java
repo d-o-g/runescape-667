@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public abstract class Node_Sub14 extends Node {
 
     @OriginalMember(owner = "client!ga", name = "a", descriptor = "(ILclient!ge;)V")
-    public abstract void method8615(@OriginalArg(1) Node_Sub21 arg0);
+    public abstract void method8615(@OriginalArg(1) Packet arg0);
 
     @OriginalMember(owner = "client!ga", name = "a", descriptor = "(Lclient!hi;I)V")
     public abstract void method8617(@OriginalArg(0) Class164 arg0);

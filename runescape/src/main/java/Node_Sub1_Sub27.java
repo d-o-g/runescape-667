@@ -177,14 +177,14 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(ZLclient!ge;I)V")
     @Override
-    public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Node_Sub21 arg1, @OriginalArg(2) int arg2) {
+    public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
             this.method9411(17, -97);
         }
         if (arg2 == 0) {
-            this.aBoolean667 = arg1.method7396() == 1;
+            this.aBoolean667 = arg1.g1() == 1;
         } else if (arg2 == 1) {
-            this.anInt8803 = arg1.method7396();
+            this.anInt8803 = arg1.g1();
         } else if (arg2 == 2) {
             this.anInt8799 = arg1.method7356();
             if (this.anInt8799 < 0) {
@@ -195,16 +195,16 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
                 return;
             }
         } else if (arg2 == 3) {
-            this.anInt8810 = this.anInt8805 = arg1.method7396();
+            this.anInt8810 = this.anInt8805 = arg1.g1();
             return;
         } else if (arg2 == 4) {
-            this.anInt8809 = arg1.method7396();
+            this.anInt8809 = arg1.g1();
             return;
         } else if (arg2 == 5) {
-            this.anInt8810 = arg1.method7396();
+            this.anInt8810 = arg1.g1();
             return;
         } else if (arg2 == 6) {
-            this.anInt8805 = arg1.method7396();
+            this.anInt8805 = arg1.g1();
             return;
         }
     }

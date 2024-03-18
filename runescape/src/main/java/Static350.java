@@ -19,7 +19,7 @@ public final class Static350 {
     }
 
     @OriginalMember(owner = "client!la", name = "a", descriptor = "(I[BIB)Ljava/lang/String;")
-    public static String method5126(@OriginalArg(0) int arg0, @OriginalArg(1) byte[] arg1, @OriginalArg(2) int arg2) {
+    public static String cp1252Decode(@OriginalArg(0) int arg0, @OriginalArg(1) byte[] arg1, @OriginalArg(2) int arg2) {
         @Pc(13) char[] local13 = new char[arg2];
         @Pc(15) int local15 = 0;
         for (@Pc(17) int local17 = 0; local17 < arg2; local17++) {

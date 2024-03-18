@@ -10,9 +10,6 @@ public final class Static242 {
     @OriginalMember(owner = "client!hj", name = "b", descriptor = "Ljava/lang/Thread;")
     public static Thread aThread1;
 
-    @OriginalMember(owner = "client!hj", name = "l", descriptor = "[I")
-    public static int[] anIntArray311;
-
     @OriginalMember(owner = "client!hj", name = "i", descriptor = "I")
     public static int anInt3971 = 0;
 
@@ -77,8 +74,8 @@ public final class Static242 {
                 }
                 if (local47 != null) {
                     @Pc(108) Node_Sub19 local108 = Static293.method4335(local47, Static405.aClass153_2.aClass186_1);
-                    local108.aClass2_Sub21_Sub2_1.method7389(0);
-                    local108.aClass2_Sub21_Sub2_1.method7373(local7[local19]);
+                    local108.aClass2_Sub21_Sub2_1.p1(0);
+                    local108.aClass2_Sub21_Sub2_1.p2(local7[local19]);
                     Static405.aClass153_2.method3275(local108);
                 }
                 local9 = true;

@@ -41,7 +41,7 @@ public final class Static218 {
                         throw new IOException("EOF");
                     }
                 }
-                Static618.method8317(new Node_Sub21(local41));
+                Static618.method8317(new Packet(local41));
             }
         } catch (@Pc(88) Exception local88) {
         }

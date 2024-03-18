@@ -12,14 +12,14 @@ public final class Static590 {
 
     @OriginalMember(owner = "client!ska", name = "a", descriptor = "([BB)[B")
     public static byte[] method7744(@OriginalArg(0) byte[] arg0) {
-        @Pc(8) Node_Sub21 local8 = new Node_Sub21(arg0);
-        @Pc(18) int local18 = local8.method7396();
+        @Pc(8) Packet local8 = new Packet(arg0);
+        @Pc(18) int local18 = local8.g1();
         @Pc(22) int local22 = local8.method7349();
         if (local22 < 0 || Static112.anInt2222 != 0 && Static112.anInt2222 < local22) {
             throw new RuntimeException();
         } else if (local18 == 0) {
             @Pc(98) byte[] local98 = new byte[local22];
-            local8.method7344(0, local22, local98);
+            local8.gdata(0, local22, local98);
             return local98;
         } else {
             @Pc(44) int local44 = local8.method7349();

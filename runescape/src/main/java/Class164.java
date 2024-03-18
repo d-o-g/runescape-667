@@ -79,7 +79,7 @@ public final class Class164 {
     public int anInt3956 = -1;
 
     @OriginalMember(owner = "client!hi", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class164(@OriginalArg(0) Node_Sub21 arg0) {
+    public Class164(@OriginalArg(0) Packet arg0) {
         this.method3494(arg0);
     }
 
@@ -437,12 +437,12 @@ public final class Class164 {
     }
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(ILclient!ge;)V")
-    public void method3494(@OriginalArg(1) Node_Sub21 arg0) {
-        @Pc(9) int local9 = arg0.method7396();
+    public void method3494(@OriginalArg(1) Packet arg0) {
+        @Pc(9) int local9 = arg0.g1();
         if (local9 < 1 || local9 > 5) {
             throw new RuntimeException("Unsupported ClanSettings version: " + local9);
         }
-        @Pc(37) int local37 = arg0.method7396();
+        @Pc(37) int local37 = arg0.g1();
         if ((local37 & 0x2) != 0) {
             this.aBoolean306 = true;
         }
@@ -462,17 +462,17 @@ public final class Class164 {
         if (local9 <= 3 && this.anInt3944 != 0) {
             this.anInt3944 += 16912800;
         }
-        this.anInt3939 = arg0.method7382();
-        this.anInt3941 = arg0.method7396();
-        this.aString45 = arg0.method7358();
+        this.anInt3939 = arg0.g2();
+        this.anInt3941 = arg0.g1();
+        this.aString45 = arg0.gjstr();
         if (local9 >= 4) {
             arg0.method7349();
         }
-        this.aBoolean307 = arg0.method7396() == 1;
-        this.aByte68 = arg0.method7377();
-        this.aByte67 = arg0.method7377();
-        this.aByte66 = arg0.method7377();
-        this.aByte65 = arg0.method7377();
+        this.aBoolean307 = arg0.g1() == 1;
+        this.aByte68 = arg0.g1b();
+        this.aByte67 = arg0.g1b();
+        this.aByte66 = arg0.g1b();
+        this.aByte65 = arg0.g1b();
         @Pc(282) int local282;
         if (this.anInt3939 > 0) {
             if (this.aBoolean308 && (this.aLongArray8 == null || this.aLongArray8.length < this.anInt3939)) {
@@ -495,14 +495,14 @@ public final class Class164 {
                     this.aLongArray8[local282] = arg0.method7398();
                 }
                 if (this.aBoolean306) {
-                    this.aStringArray18[local282] = arg0.method7403();
+                    this.aStringArray18[local282] = arg0.fastgstr();
                 }
-                this.aByteArray40[local282] = arg0.method7377();
+                this.aByteArray40[local282] = arg0.g1b();
                 if (local9 >= 2) {
                     this.anIntArray309[local282] = arg0.method7349();
                 }
                 if (local9 >= 5) {
-                    this.anIntArray308[local282] = arg0.method7382();
+                    this.anIntArray308[local282] = arg0.g2();
                 } else {
                     this.anIntArray308[local282] = 0;
                 }
@@ -521,14 +521,14 @@ public final class Class164 {
                     this.aLongArray7[local282] = arg0.method7398();
                 }
                 if (this.aBoolean306) {
-                    this.aStringArray19[local282] = arg0.method7403();
+                    this.aStringArray19[local282] = arg0.fastgstr();
                 }
             }
         }
         if (local9 < 3) {
             return;
         }
-        local282 = arg0.method7382();
+        local282 = arg0.g2();
         if (local282 <= 0) {
             return;
         }
@@ -544,7 +544,7 @@ public final class Class164 {
                 @Pc(533) long local533 = arg0.method7398();
                 this.aHashTable_19.put((long) local497, new Node_Sub48(local533));
             } else if (local501 == 2) {
-                @Pc(556) String local556 = arg0.method7358();
+                @Pc(556) String local556 = arg0.gjstr();
                 this.aHashTable_19.put((long) local497, new Node_Sub24(local556));
             }
         }

@@ -48,7 +48,7 @@ public final class Static331 {
     }
 
     @OriginalMember(owner = "client!ki", name = "a", descriptor = "(Ljava/lang/String;I[BZII)I")
-    public static int method4926(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(4) int arg3) {
+    public static int cp1252Encode(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(4) int arg3) {
         @Pc(8) int local8 = arg1;
         for (@Pc(16) int local16 = 0; local16 < local8; local16++) {
             @Pc(23) char local23 = arg0.charAt(local16);

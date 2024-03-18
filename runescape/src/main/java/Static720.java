@@ -70,7 +70,7 @@ public final class Static720 {
                         throw new IOException("EOF");
                     }
                 }
-                local19 = new Node_Sub34(new Node_Sub21(local51), Static392.aClass377_4, 0);
+                local19 = new Node_Sub34(new Packet(local51), Static392.aClass377_4, 0);
             }
         } catch (@Pc(97) Exception local97) {
         }

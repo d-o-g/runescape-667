@@ -13,9 +13,6 @@ public final class Static534 {
     @OriginalMember(owner = "client!qq", name = "d", descriptor = "D")
     public static double aDouble21;
 
-    @OriginalMember(owner = "client!qq", name = "a", descriptor = "[[B")
-    public static final byte[][] aByteArrayArray29 = new byte[50][];
-
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IIIIIIIZI)V")
     public static void method7120(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7) {
         @Pc(17) int local17;

@@ -34,16 +34,16 @@ public final class Node_Sub35 extends Node {
     public final int anInt5689;
 
     @OriginalMember(owner = "client!kw", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Node_Sub35(@OriginalArg(0) Node_Sub21 arg0) {
+    public Node_Sub35(@OriginalArg(0) Packet arg0) {
         @Pc(5) int local5 = arg0.method7349();
         this.anInt5692 = local5 & 0x3FFF;
         this.anInt5695 = local5 >>> 28;
         this.anInt5691 = local5 >>> 14 & 0x3FFF;
-        this.anInt5686 = arg0.method7396();
-        this.anInt5694 = arg0.method7396();
-        this.anInt5690 = arg0.method7396();
-        this.anInt5685 = arg0.method7396();
-        this.anInt5696 = arg0.method7396();
-        this.anInt5689 = arg0.method7396();
+        this.anInt5686 = arg0.g1();
+        this.anInt5694 = arg0.g1();
+        this.anInt5690 = arg0.g1();
+        this.anInt5685 = arg0.g1();
+        this.anInt5696 = arg0.g1();
+        this.anInt5689 = arg0.g1();
     }
 }

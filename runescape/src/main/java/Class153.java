@@ -45,7 +45,7 @@ public final class Class153 {
     public int anInt3640 = 0;
 
     @OriginalMember(owner = "client!gw", name = "d", descriptor = "Lclient!ge;")
-    public final Node_Sub21 aClass2_Sub21_6 = new Node_Sub21(1350);
+    public final Packet aClass2_Sub21_6 = new Packet(1350);
 
     @OriginalMember(owner = "client!gw", name = "y", descriptor = "Lclient!rka;")
     public final Node_Sub21_Sub2 aClass2_Sub21_Sub2_2 = new Node_Sub21_Sub2(15000);
@@ -89,19 +89,19 @@ public final class Class153 {
         if (this.aClass348_1 == null || this.anInt3640 <= 0) {
             return;
         }
-        this.aClass2_Sub21_6.anInt8388 = 0;
+        this.aClass2_Sub21_6.pos = 0;
         while (true) {
             @Pc(23) Node_Sub19 local23 = (Node_Sub19) this.aDeque_17.first(65280);
-            if (local23 == null || local23.anInt2989 > this.aClass2_Sub21_6.aByteArray93.length - this.aClass2_Sub21_6.anInt8388) {
-                this.aClass348_1.method7931(this.aClass2_Sub21_6.aByteArray93, this.aClass2_Sub21_6.anInt8388);
+            if (local23 == null || local23.anInt2989 > this.aClass2_Sub21_6.data.length - this.aClass2_Sub21_6.pos) {
+                this.aClass348_1.method7931(this.aClass2_Sub21_6.data, this.aClass2_Sub21_6.pos);
                 this.anInt3647 = 0;
-                this.anInt3649 += this.aClass2_Sub21_6.anInt8388;
+                this.anInt3649 += this.aClass2_Sub21_6.pos;
                 break;
             }
-            this.aClass2_Sub21_6.method7386(local23.anInt2989, local23.aClass2_Sub21_Sub2_1.aByteArray93, 0);
+            this.aClass2_Sub21_6.pdata(local23.anInt2989, local23.aClass2_Sub21_Sub2_1.data, 0);
             this.anInt3640 -= local23.anInt2989;
             local23.remove();
-            local23.aClass2_Sub21_Sub2_1.method7365();
+            local23.aClass2_Sub21_Sub2_1.cache();
             local23.method2768();
         }
     }
@@ -117,8 +117,8 @@ public final class Class153 {
     @OriginalMember(owner = "client!gw", name = "a", descriptor = "(ILclient!fk;)V")
     public void method3275(@OriginalArg(1) Node_Sub19 arg0) {
         this.aDeque_17.addLast(arg0);
-        arg0.anInt2989 = arg0.aClass2_Sub21_Sub2_1.anInt8388;
-        arg0.aClass2_Sub21_Sub2_1.anInt8388 = 0;
+        arg0.anInt2989 = arg0.aClass2_Sub21_Sub2_1.pos;
+        arg0.aClass2_Sub21_Sub2_1.pos = 0;
         this.anInt3640 += arg0.anInt2989;
     }
 }

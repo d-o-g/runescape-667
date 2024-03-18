@@ -16,8 +16,8 @@ public final class Node_Sub14_Sub3 extends Node_Sub14 {
 
     @OriginalMember(owner = "client!dga", name = "a", descriptor = "(ILclient!ge;)V")
     @Override
-    public void method8615(@OriginalArg(1) Node_Sub21 arg0) {
-        this.aString18 = arg0.method7358();
+    public void method8615(@OriginalArg(1) Packet arg0) {
+        this.aString18 = arg0.gjstr();
         arg0.method7349();
     }
 }

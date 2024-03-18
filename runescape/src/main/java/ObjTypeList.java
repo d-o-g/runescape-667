@@ -93,11 +93,11 @@ public final class ObjTypeList {
             return local24;
         }
         @Pc(34) ObjType local34 = this.list(arg10);
-        if (arg6 > 1 && local34.anIntArray799 != null) {
+        if (arg6 > 1 && local34.countobj != null) {
             @Pc(44) int local44 = -1;
             for (@Pc(46) int local46 = 0; local46 < 10; local46++) {
-                if (local34.anIntArray798[local46] <= arg6 && local34.anIntArray798[local46] != 0) {
-                    local44 = local34.anIntArray799[local46];
+                if (local34.countco[local46] <= arg6 && local34.countco[local46] != 0) {
+                    local44 = local34.countobj[local46];
                 }
             }
             if (local44 != -1) {
@@ -222,11 +222,11 @@ public final class ObjTypeList {
         }
         local26 = new ObjType();
         local26.anInt10134 = arg0;
-        local26.aObjTypeList_2 = this;
+        local26.myList = this;
         local26.aStringArray46 = (String[]) this.aStringArray11.clone();
         local26.aStringArray45 = (String[]) this.aStringArray10.clone();
         if (local53 != null) {
-            local26.method8791(new Node_Sub21(local53));
+            local26.method8791(new Packet(local53));
         }
         local26.method8807();
         if (local26.anInt10087 != -1) {

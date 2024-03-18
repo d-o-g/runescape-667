@@ -31,8 +31,8 @@ public final class Static726 {
                 Static344.anInt5621 = Static642.anInt9599;
                 @Pc(101) Class153 local101 = Static668.method8701();
                 @Pc(107) Node_Sub19 local107 = Static293.method4335(Static8.aClass345_1, local101.aClass186_1);
-                local107.aClass2_Sub21_Sub2_1.method7389(Static231.method3379(arg0));
-                local107.aClass2_Sub21_Sub2_1.method7391(arg0);
+                local107.aClass2_Sub21_Sub2_1.p1(Static231.method3379(arg0));
+                local107.aClass2_Sub21_Sub2_1.pjstr(arg0);
                 local101.method3275(local107);
                 return;
             }

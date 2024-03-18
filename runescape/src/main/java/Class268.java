@@ -471,9 +471,9 @@ public final class Class268 {
                     @Pc(765) int local765 = arg1.g3();
                     @Pc(774) Node local774;
                     if (local761) {
-                        local774 = new Node_Sub24(arg1.gjstr());
+                        local774 = new StringNode(arg1.gjstr());
                     } else {
-                        local774 = new Node_Sub38(arg1.g4());
+                        local774 = new IntNode(arg1.g4());
                     }
                     this.aHashTable_32.put((long) local765, local774);
                 }
@@ -486,7 +486,7 @@ public final class Class268 {
         if (this.aHashTable_32 == null) {
             return arg0;
         } else {
-            @Pc(23) Node_Sub24 local23 = (Node_Sub24) this.aHashTable_32.get((long) arg1);
+            @Pc(23) StringNode local23 = (StringNode) this.aHashTable_32.get((long) arg1);
             return local23 == null ? arg0 : local23.aString46;
         }
     }
@@ -833,7 +833,7 @@ public final class Class268 {
         if (this.aHashTable_32 == null) {
             return arg1;
         } else {
-            @Pc(25) Node_Sub38 local25 = (Node_Sub38) this.aHashTable_32.get((long) arg0);
+            @Pc(25) IntNode local25 = (IntNode) this.aHashTable_32.get((long) arg0);
             return local25 == null ? arg1 : local25.anInt6379;
         }
     }

@@ -21,7 +21,7 @@ public final class Static66 {
         }
         local10.method6273();
         if (local10.anInt6982 == 2 && Static503.A_HASH_TABLE___38.get((long) arg0) == null) {
-            Static503.A_HASH_TABLE___38.put((long) arg0, new Node_Sub38(Static370.anInt5881));
+            Static503.A_HASH_TABLE___38.put((long) arg0, new IntNode(Static370.anInt5881));
             Static367.aClass278Array1[Static370.anInt5881++] = local10;
         }
         Static713.aClass82_231.method2150(local10, (long) arg0);

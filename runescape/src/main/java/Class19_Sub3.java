@@ -751,7 +751,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "i", descriptor = "(II)V")
     public synchronized void method6968(@OriginalArg(0) int arg0) {
-        @Pc(19) Node_Sub38 local19 = new Node_Sub38(arg0);
+        @Pc(19) IntNode local19 = new IntNode(arg0);
         this.aDeque_50.addLast(local19);
     }
 
@@ -783,7 +783,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "d", descriptor = "(III)V")
     public synchronized void method6971(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(8) Node_Sub38 local8 = new Node_Sub38(arg0);
+        @Pc(8) IntNode local8 = new IntNode(arg0);
         local8.key = (long) arg1;
         this.aDeque_48.addLast(local8);
     }
@@ -1270,7 +1270,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IBI)V")
     public synchronized void method6983(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(18) Node_Sub38 local18 = new Node_Sub38(arg1);
+        @Pc(18) IntNode local18 = new IntNode(arg1);
         local18.key = (long) arg0;
         this.aDeque_51.addLast(local18);
     }
@@ -2629,9 +2629,9 @@ public final class Class19_Sub3 extends Class19 {
     public synchronized void method7977(@OriginalArg(0) int arg0) {
         @Pc(9) int local9 = arg0 & Integer.MAX_VALUE;
         @Pc(11) int local11 = 0;
-        @Pc(19) Node_Sub38 local19;
+        @Pc(19) IntNode local19;
         while (!this.aDeque_48.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_48.removeFirst();
+            local19 = (IntNode) this.aDeque_48.removeFirst();
             Static154.anIntArray236[local11++] = (int) local19.key;
             this.anInt7993 -= local19.anInt6379;
             if (local11 == 1000) {
@@ -2644,7 +2644,7 @@ public final class Class19_Sub3 extends Class19 {
             local11 = 0;
         }
         while (!this.aDeque_49.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_49.removeFirst();
+            local19 = (IntNode) this.aDeque_49.removeFirst();
             Static154.anIntArray236[local11++] = (int) local19.key;
             this.anInt7994 -= local19.anInt6379;
             if (local11 == 1000) {
@@ -2657,7 +2657,7 @@ public final class Class19_Sub3 extends Class19 {
             local11 = 0;
         }
         while (!this.aDeque_50.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_50.removeFirst();
+            local19 = (IntNode) this.aDeque_50.removeFirst();
             Static154.anIntArray236[local11++] = local19.anInt6379;
             if (local11 == 1000) {
                 OpenGL.glDeleteFramebuffersEXT(local11, Static154.anIntArray236, 0);
@@ -2669,7 +2669,7 @@ public final class Class19_Sub3 extends Class19 {
             local11 = 0;
         }
         while (!this.aDeque_51.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_51.removeFirst();
+            local19 = (IntNode) this.aDeque_51.removeFirst();
             Static154.anIntArray236[local11++] = (int) local19.key;
             this.anInt7995 -= local19.anInt6379;
             if (local11 == 1000) {
@@ -2681,7 +2681,7 @@ public final class Class19_Sub3 extends Class19 {
             OpenGL.glDeleteRenderbuffersEXT(local11, Static154.anIntArray236, 0);
         }
         while (!this.aDeque_47.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_47.removeFirst();
+            local19 = (IntNode) this.aDeque_47.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.anInt6379);
         }
         @Pc(227) Node local227;
@@ -2694,7 +2694,7 @@ public final class Class19_Sub3 extends Class19 {
             OpenGL.glDeleteObjectARB(local227.key);
         }
         while (!this.aDeque_47.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_47.removeFirst();
+            local19 = (IntNode) this.aDeque_47.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.anInt6379);
         }
         this.aClass169_1.method3528();
@@ -2780,7 +2780,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(III)V")
     public synchronized void method7030(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(8) Node_Sub38 local8 = new Node_Sub38(arg1);
+        @Pc(8) IntNode local8 = new IntNode(arg1);
         local8.key = (long) arg0;
         this.aDeque_49.addLast(local8);
     }

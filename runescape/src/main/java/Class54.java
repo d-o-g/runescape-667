@@ -525,9 +525,9 @@ public final class Class54 {
                                                         local67 = arg0.g3();
                                                         @Pc(885) Node local885;
                                                         if (local872) {
-                                                            local885 = new Node_Sub24(arg0.gjstr());
+                                                            local885 = new StringNode(arg0.gjstr());
                                                         } else {
-                                                            local885 = new Node_Sub38(arg0.g4());
+                                                            local885 = new IntNode(arg0.g4());
                                                         }
                                                         this.aHashTable_10.put((long) local67, local885);
                                                     }
@@ -608,7 +608,7 @@ public final class Class54 {
         if (this.aHashTable_10 == null) {
             return arg0;
         } else {
-            @Pc(25) Node_Sub24 local25 = (Node_Sub24) this.aHashTable_10.get((long) arg1);
+            @Pc(25) StringNode local25 = (StringNode) this.aHashTable_10.get((long) arg1);
             return local25 == null ? arg0 : local25.aString46;
         }
     }
@@ -1102,7 +1102,7 @@ public final class Class54 {
         if (this.aHashTable_10 == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aHashTable_10.get((long) arg1);
+            @Pc(17) IntNode local17 = (IntNode) this.aHashTable_10.get((long) arg1);
             return local17 == null ? arg0 : local17.anInt6379;
         }
     }

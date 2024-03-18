@@ -3412,7 +3412,7 @@ public final class Static472 {
                             Static85.method9262(local96);
                         } else if (local34 == 51) {
                             @Pc(889) HashTable local889 = arg0.aHashTableArray1[local11[local5]];
-                            @Pc(902) Node_Sub38 local902 = (Node_Sub38) local889.get((long) anIntArray578[--anInt7142]);
+                            @Pc(902) IntNode local902 = (IntNode) local889.get((long) anIntArray578[--anInt7142]);
                             if (local902 != null) {
                                 local5 += local902.anInt6379;
                             }

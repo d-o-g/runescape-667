@@ -168,7 +168,7 @@ public final class Class105 {
         if (this.aHashTable_14 == null) {
             return arg1;
         } else {
-            @Pc(17) Node_Sub24 local17 = (Node_Sub24) this.aHashTable_14.get((long) arg0);
+            @Pc(17) StringNode local17 = (StringNode) this.aHashTable_14.get((long) arg0);
             return local17 == null ? arg1 : local17.aString46;
         }
     }
@@ -178,7 +178,7 @@ public final class Class105 {
         if (this.aHashTable_14 == null) {
             return arg0;
         } else {
-            @Pc(27) Node_Sub38 local27 = (Node_Sub38) this.aHashTable_14.get((long) arg1);
+            @Pc(27) IntNode local27 = (IntNode) this.aHashTable_14.get((long) arg1);
             return local27 == null ? arg0 : local27.anInt6379;
         }
     }
@@ -329,9 +329,9 @@ public final class Class105 {
                             local314 = arg0.g3();
                             @Pc(323) Node local323;
                             if (local310) {
-                                local323 = new Node_Sub24(arg0.gjstr());
+                                local323 = new StringNode(arg0.gjstr());
                             } else {
-                                local323 = new Node_Sub38(arg0.g4());
+                                local323 = new IntNode(arg0.g4());
                             }
                             this.aHashTable_14.put((long) local314, local323);
                         }

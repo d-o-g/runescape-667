@@ -158,9 +158,9 @@ public final class Class218 {
                         @Pc(228) int local228 = arg1.g3();
                         @Pc(237) Node local237;
                         if (local224) {
-                            local237 = new Node_Sub24(arg1.gjstr());
+                            local237 = new StringNode(arg1.gjstr());
                         } else {
-                            local237 = new Node_Sub38(arg1.g4());
+                            local237 = new IntNode(arg1.g4());
                         }
                         this.aHashTable_30.put((long) local228, local237);
                     }

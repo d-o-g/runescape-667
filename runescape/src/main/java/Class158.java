@@ -535,12 +535,12 @@ public final class Class158 {
     public void method3385(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
         if (this.aHashTable_17 == null) {
             this.aHashTable_17 = new HashTable(16);
-            this.aHashTable_17.put((long) arg0, new Node_Sub38(arg1));
+            this.aHashTable_17.put((long) arg0, new IntNode(arg1));
             return;
         }
-        @Pc(34) Node_Sub38 local34 = (Node_Sub38) this.aHashTable_17.get((long) arg0);
+        @Pc(34) IntNode local34 = (IntNode) this.aHashTable_17.get((long) arg0);
         if (local34 == null) {
-            this.aHashTable_17.put((long) arg0, new Node_Sub38(arg1));
+            this.aHashTable_17.put((long) arg0, new IntNode(arg1));
         } else {
             local34.anInt6379 = arg1;
         }
@@ -583,7 +583,7 @@ public final class Class158 {
         if (this.aHashTable_17 == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub24 local17 = (Node_Sub24) this.aHashTable_17.get((long) arg1);
+            @Pc(17) StringNode local17 = (StringNode) this.aHashTable_17.get((long) arg1);
             return local17 == null ? arg0 : local17.aString46;
         }
     }
@@ -796,13 +796,13 @@ public final class Class158 {
             for (@Pc(924) int local924 = 0; local924 < local767; local924++) {
                 local929 = arg0.g3();
                 local933 = arg0.g4();
-                this.aHashTable_17.put((long) local929, new Node_Sub38(local933));
+                this.aHashTable_17.put((long) local929, new IntNode(local933));
             }
             local929 = arg0.g1();
             for (local933 = 0; local933 < local929; local933++) {
                 @Pc(958) int local958 = arg0.g3();
                 @Pc(962) String local962 = arg0.gjstr2();
-                this.aHashTable_17.put((long) local958, new Node_Sub24(local962));
+                this.aHashTable_17.put((long) local958, new StringNode(local962));
             }
         }
         this.anObjectArray13 = this.method3386(arg0);
@@ -902,12 +902,12 @@ public final class Class158 {
     public void method3396(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
         if (this.aHashTable_17 == null) {
             this.aHashTable_17 = new HashTable(16);
-            this.aHashTable_17.put((long) arg1, new Node_Sub24(arg0));
+            this.aHashTable_17.put((long) arg1, new StringNode(arg0));
             return;
         }
-        @Pc(32) Node_Sub24 local32 = (Node_Sub24) this.aHashTable_17.get((long) arg1);
+        @Pc(32) StringNode local32 = (StringNode) this.aHashTable_17.get((long) arg1);
         if (local32 == null) {
-            this.aHashTable_17.put((long) arg1, new Node_Sub24(arg0));
+            this.aHashTable_17.put((long) arg1, new StringNode(arg0));
         } else {
             local32.aString46 = arg0;
         }
@@ -1129,7 +1129,7 @@ public final class Class158 {
         if (this.aHashTable_17 == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aHashTable_17.get((long) arg1);
+            @Pc(17) IntNode local17 = (IntNode) this.aHashTable_17.get((long) arg1);
             return local17 == null ? arg0 : local17.anInt6379;
         }
     }

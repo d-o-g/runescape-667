@@ -267,7 +267,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                 local35.anIntArray774 = new int[local35.anIntArray777.length];
                 for (local317 = 0; local317 < local35.anIntArray777.length; local317++) {
                     Static66.method1487(local35.anIntArray777[local317]);
-                    local35.anIntArray774[local317] = ((Node_Sub38) Static503.A_HASH_TABLE___38.get((long) local35.anIntArray777[local317])).anInt6379;
+                    local35.anIntArray774[local317] = ((IntNode) Static503.A_HASH_TABLE___38.get((long) local35.anIntArray777[local317])).anInt6379;
                 }
             }
             for (local317 = 0; local317 < local35.anIntArray774.length; local317++) {

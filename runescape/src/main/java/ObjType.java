@@ -295,7 +295,7 @@ public final class ObjType {
         if (this.params == null) {
             return arg1;
         } else {
-            @Pc(19) Node_Sub38 local19 = (Node_Sub38) this.params.get((long) arg0);
+            @Pc(19) IntNode local19 = (IntNode) this.params.get((long) arg0);
             return local19 == null ? arg1 : local19.anInt6379;
         }
     }
@@ -482,9 +482,9 @@ public final class ObjType {
                     @Pc(558) int id = packet.g3();
                     @Pc(567) Node node;
                     if (string) {
-                        node = new Node_Sub24(packet.gjstr());
+                        node = new StringNode(packet.gjstr());
                     } else {
-                        node = new Node_Sub38(packet.g4());
+                        node = new IntNode(packet.g4());
                     }
                     this.params.put((long) id, node);
                 }
@@ -701,7 +701,7 @@ public final class ObjType {
         if (this.params == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub24 local17 = (Node_Sub24) this.params.get((long) arg1);
+            @Pc(17) StringNode local17 = (StringNode) this.params.get((long) arg1);
             return local17 == null ? arg0 : local17.aString46;
         }
     }

@@ -25,9 +25,9 @@ public final class Node_Sub2_Sub1 extends Node_Sub2 {
             @Pc(36) int local36 = arg1.g3();
             @Pc(45) Node local45;
             if (local32) {
-                local45 = new Node_Sub24(arg1.gjstr());
+                local45 = new StringNode(arg1.gjstr());
             } else {
-                local45 = new Node_Sub38(arg1.g4());
+                local45 = new IntNode(arg1.g4());
             }
             this.aHashTable_1.put((long) local36, local45);
         }
@@ -38,7 +38,7 @@ public final class Node_Sub2_Sub1 extends Node_Sub2 {
         if (this.aHashTable_1 == null) {
             return arg0;
         } else {
-            @Pc(17) Node_Sub38 local17 = (Node_Sub38) this.aHashTable_1.get((long) arg1);
+            @Pc(17) IntNode local17 = (IntNode) this.aHashTable_1.get((long) arg1);
             return local17 == null ? arg0 : local17.anInt6379;
         }
     }
@@ -59,7 +59,7 @@ public final class Node_Sub2_Sub1 extends Node_Sub2 {
         if (this.aHashTable_1 == null) {
             return arg1;
         } else {
-            @Pc(23) Node_Sub24 local23 = (Node_Sub24) this.aHashTable_1.get((long) arg0);
+            @Pc(23) StringNode local23 = (StringNode) this.aHashTable_1.get((long) arg0);
             return local23 == null ? arg1 : local23.aString46;
         }
     }

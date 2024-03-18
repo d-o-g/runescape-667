@@ -322,7 +322,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
 
     @OriginalMember(owner = "client!tca", name = "b", descriptor = "(IIZ)V")
     public synchronized void method8160(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(20) Node_Sub38 local20 = new Node_Sub38(arg0);
+        @Pc(20) IntNode local20 = new IntNode(arg0);
         local20.key = (long) arg1;
         this.aDeque_62.addLast(local20);
     }
@@ -452,9 +452,9 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
     public synchronized void method7977(@OriginalArg(0) int arg0) {
         @Pc(7) int local7 = 0;
         @Pc(11) int local11 = arg0 & Integer.MAX_VALUE;
-        @Pc(19) Node_Sub38 local19;
+        @Pc(19) IntNode local19;
         while (!this.aDeque_61.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_61.removeFirst();
+            local19 = (IntNode) this.aDeque_61.removeFirst();
             Static382.anIntArray465[local7++] = (int) local19.key;
             super.anInt9141 -= local19.anInt6379;
             if (local7 == 1000) {
@@ -467,7 +467,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
             local7 = 0;
         }
         while (!this.aDeque_62.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_62.removeFirst();
+            local19 = (IntNode) this.aDeque_62.removeFirst();
             Static382.anIntArray465[local7++] = (int) local19.key;
             super.anInt9145 -= local19.anInt6379;
             if (local7 == 1000) {
@@ -480,7 +480,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
             local7 = 0;
         }
         while (!this.aDeque_63.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_63.removeFirst();
+            local19 = (IntNode) this.aDeque_63.removeFirst();
             Static382.anIntArray465[local7++] = local19.anInt6379;
             if (local7 == 1000) {
                 OpenGL.glDeleteFramebuffersEXT(local7, Static382.anIntArray465, 0);
@@ -492,7 +492,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
             local7 = 0;
         }
         while (!this.aDeque_64.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_64.removeFirst();
+            local19 = (IntNode) this.aDeque_64.removeFirst();
             Static382.anIntArray465[local7++] = (int) local19.key;
             super.anInt9143 -= local19.anInt6379;
             if (local7 == 1000) {
@@ -504,7 +504,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
             OpenGL.glDeleteRenderbuffersEXT(local7, Static382.anIntArray465, 0);
         }
         while (!this.aDeque_60.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_60.removeFirst();
+            local19 = (IntNode) this.aDeque_60.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.anInt6379);
         }
         @Pc(227) Node local227;
@@ -517,7 +517,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
             OpenGL.glDeleteObjectARB(local227.key);
         }
         while (!this.aDeque_60.isEmpty()) {
-            local19 = (Node_Sub38) this.aDeque_60.removeFirst();
+            local19 = (IntNode) this.aDeque_60.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.anInt6379);
         }
         if (this.E() > 100663296 && this.aLong279 + 60000L < Static588.method7715()) {
@@ -667,7 +667,7 @@ public final class Class19_Sub1_Sub2 extends Class19_Sub1 {
 
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(BII)V")
     public synchronized void method8164(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(13) Node_Sub38 local13 = new Node_Sub38(arg1);
+        @Pc(13) IntNode local13 = new IntNode(arg1);
         local13.key = (long) arg0;
         this.aDeque_61.addLast(local13);
     }

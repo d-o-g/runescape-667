@@ -73,7 +73,7 @@ public final class Class53 {
             @Pc(203) HashTable local203 = (HashTable) this.anObject3;
             this.aHashTable_9 = new HashTable(local203.getBucketCount());
             @Pc(218) HashTable local218 = new HashTable(local203.getBucketCount());
-            for (@Pc(223) Node_Sub24 local223 = (Node_Sub24) local203.first(); local223 != null; local223 = (Node_Sub24) local203.next()) {
+            for (@Pc(223) StringNode local223 = (StringNode) local203.first(); local223 != null; local223 = (StringNode) local203.next()) {
                 @Pc(229) long local229 = Static203.method3071(local223.aString46);
                 @Pc(235) Node_Sub46 local235;
                 for (local235 = (Node_Sub46) local218.get(local229); local235 != null && !local235.aString100.equals(local223.aString46); local235 = (Node_Sub46) local218.nextWithSameKey()) {
@@ -84,7 +84,7 @@ public final class Class53 {
                 }
                 local235.anInt8241++;
             }
-            for (@Pc(283) Node_Sub24 local283 = (Node_Sub24) local203.first(); local283 != null; local283 = (Node_Sub24) local203.next()) {
+            for (@Pc(283) StringNode local283 = (StringNode) local203.first(); local283 != null; local283 = (StringNode) local203.next()) {
                 @Pc(289) long local289 = Static203.method3071(local283.aString46);
                 @Pc(296) Node_Sub26 local296;
                 for (local296 = (Node_Sub26) this.aHashTable_9.get(local289); local296 != null && !local296.aString47.equals(local283.aString46); local296 = (Node_Sub26) this.aHashTable_9.nextWithSameKey()) {
@@ -142,7 +142,7 @@ public final class Class53 {
         if (this.anObject3 == null) {
             return this.anInt1142;
         } else if (this.anObject3 instanceof HashTable) {
-            @Pc(30) Node_Sub38 local30 = (Node_Sub38) ((HashTable) this.anObject3).get((long) arg0);
+            @Pc(30) IntNode local30 = (IntNode) ((HashTable) this.anObject3).get((long) arg0);
             return local30 == null ? this.anInt1142 : local30.anInt6379;
         } else {
             @Pc(43) Integer[] local43 = (Integer[]) this.anObject3;
@@ -165,7 +165,7 @@ public final class Class53 {
         if (this.anObject3 == null) {
             return this.aString5;
         } else if (this.anObject3 instanceof HashTable) {
-            @Pc(31) Node_Sub24 local31 = (Node_Sub24) ((HashTable) this.anObject3).get((long) arg0);
+            @Pc(31) StringNode local31 = (StringNode) ((HashTable) this.anObject3).get((long) arg0);
             return local31 == null ? this.aString5 : local31.aString46;
         } else {
             @Pc(44) String[] local44 = (String[]) this.anObject3;
@@ -209,9 +209,9 @@ public final class Class53 {
                     local69 = arg1.g4();
                     @Pc(79) Node local79;
                     if (arg0 == 5) {
-                        local79 = new Node_Sub24(arg1.gjstr());
+                        local79 = new StringNode(arg1.gjstr());
                     } else {
-                        local79 = new Node_Sub38(arg1.g4());
+                        local79 = new IntNode(arg1.g4());
                     }
                     local62.put((long) local69, local79);
                 }
@@ -249,18 +249,18 @@ public final class Class53 {
             @Pc(16) HashTable local16 = (HashTable) this.anObject3;
             this.aHashTable_9 = new HashTable(local16.getBucketCount());
             @Pc(31) HashTable local31 = new HashTable(local16.getBucketCount());
-            @Pc(45) Node_Sub38 local45;
-            for (@Pc(36) Node_Sub38 local36 = (Node_Sub38) local16.first(); local36 != null; local36 = (Node_Sub38) local16.next()) {
-                local45 = (Node_Sub38) local31.get((long) local36.anInt6379);
+            @Pc(45) IntNode local45;
+            for (@Pc(36) IntNode local36 = (IntNode) local16.first(); local36 != null; local36 = (IntNode) local16.next()) {
+                local45 = (IntNode) local31.get((long) local36.anInt6379);
                 if (local45 == null) {
-                    local45 = new Node_Sub38(0);
+                    local45 = new IntNode(0);
                     local31.put((long) local36.anInt6379, local45);
                 }
                 local45.anInt6379++;
             }
-            for (local45 = (Node_Sub38) local16.first(); local45 != null; local45 = (Node_Sub38) local16.next()) {
+            for (local45 = (IntNode) local16.first(); local45 != null; local45 = (IntNode) local16.next()) {
                 @Pc(87) Node_Sub40 local87 = (Node_Sub40) this.aHashTable_9.get((long) local45.anInt6379);
-                local101 = ((Node_Sub38) local31.get((long) local45.anInt6379)).anInt6379--;
+                local101 = ((IntNode) local31.get((long) local45.anInt6379)).anInt6379--;
                 if (local87 == null) {
                     local87 = new Node_Sub40(local101);
                     this.aHashTable_9.put((long) local45.anInt6379, local87);
@@ -277,9 +277,9 @@ public final class Class53 {
         for (@Pc(158) int local158 = 0; local158 < local140.length; local158++) {
             if (local140[local158] != null) {
                 local168 = local140[local158];
-                @Pc(175) Node_Sub38 local175 = (Node_Sub38) local156.get((long) local168);
+                @Pc(175) IntNode local175 = (IntNode) local156.get((long) local168);
                 if (local175 == null) {
-                    local175 = new Node_Sub38(0);
+                    local175 = new IntNode(0);
                     local156.put((long) local168, local175);
                 }
                 local175.anInt6379++;
@@ -289,7 +289,7 @@ public final class Class53 {
             if (local140[local168] != null) {
                 local101 = local140[local168];
                 @Pc(223) Node_Sub40 local223 = (Node_Sub40) this.aHashTable_9.get((long) local101);
-                @Pc(236) int local236 = ((Node_Sub38) local156.get((long) local101)).anInt6379--;
+                @Pc(236) int local236 = ((IntNode) local156.get((long) local101)).anInt6379--;
                 if (local223 == null) {
                     local223 = new Node_Sub40(local236);
                     this.aHashTable_9.put((long) local101, local223);

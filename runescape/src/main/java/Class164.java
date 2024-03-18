@@ -204,8 +204,8 @@ public final class Class164 {
         } else {
             @Pc(32) Node local32 = this.aHashTable_19.get((long) arg1);
             if (local32 != null) {
-                if (local32 instanceof Node_Sub24) {
-                    @Pc(42) Node_Sub24 local42 = (Node_Sub24) local32;
+                if (local32 instanceof StringNode) {
+                    @Pc(42) StringNode local42 = (StringNode) local32;
                     if (local42.aString46.equals(arg0)) {
                         return false;
                     }
@@ -215,7 +215,7 @@ public final class Class164 {
                 local32.remove();
             }
         }
-        this.aHashTable_19.put((long) arg1, new Node_Sub24(arg0));
+        this.aHashTable_19.put((long) arg1, new StringNode(arg0));
         return true;
     }
 
@@ -253,7 +253,7 @@ public final class Class164 {
             return null;
         } else {
             @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
-            return local24 != null && local24 instanceof Node_Sub24 ? ((Node_Sub24) local24).aString46 : null;
+            return local24 != null && local24 instanceof StringNode ? ((StringNode) local24).aString46 : null;
         }
     }
 
@@ -369,7 +369,7 @@ public final class Class164 {
             return null;
         } else {
             @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
-            return local24 != null && local24 instanceof Node_Sub38 ? Integer.valueOf(((Node_Sub38) local24).anInt6379) : null;
+            return local24 != null && local24 instanceof IntNode ? Integer.valueOf(((IntNode) local24).anInt6379) : null;
         }
     }
 
@@ -420,8 +420,8 @@ public final class Class164 {
         } else {
             @Pc(63) Node local63 = this.aHashTable_19.get((long) arg3);
             if (local63 != null) {
-                if (local63 instanceof Node_Sub38) {
-                    @Pc(73) Node_Sub38 local73 = (Node_Sub38) local63;
+                if (local63 instanceof IntNode) {
+                    @Pc(73) IntNode local73 = (IntNode) local63;
                     if ((local35 & local73.anInt6379) == local43) {
                         return false;
                     }
@@ -432,7 +432,7 @@ public final class Class164 {
                 local63.remove();
             }
         }
-        this.aHashTable_19.put((long) arg3, new Node_Sub38(local43));
+        this.aHashTable_19.put((long) arg3, new IntNode(local43));
         return true;
     }
 
@@ -539,13 +539,13 @@ public final class Class164 {
             @Pc(501) int local501 = local493 >>> 30;
             if (local501 == 0) {
                 @Pc(510) int local510 = arg0.g4();
-                this.aHashTable_19.put((long) local497, new Node_Sub38(local510));
+                this.aHashTable_19.put((long) local497, new IntNode(local510));
             } else if (local501 == 1) {
                 @Pc(533) long local533 = arg0.g8();
                 this.aHashTable_19.put((long) local497, new Node_Sub48(local533));
             } else if (local501 == 2) {
                 @Pc(556) String local556 = arg0.gjstr();
-                this.aHashTable_19.put((long) local497, new Node_Sub24(local556));
+                this.aHashTable_19.put((long) local497, new StringNode(local556));
             }
         }
         return;
@@ -557,9 +557,9 @@ public final class Class164 {
             return null;
         }
         @Pc(16) Node local16 = this.aHashTable_19.get((long) arg0);
-        if (local16 != null && local16 instanceof Node_Sub38) {
+        if (local16 != null && local16 instanceof IntNode) {
             @Pc(50) int local50 = arg1 == 31 ? -1 : (0x1 << arg1 + 1) - 1;
-            return Integer.valueOf((((Node_Sub38) local16).anInt6379 & local50) >>> arg2);
+            return Integer.valueOf((((IntNode) local16).anInt6379 & local50) >>> arg2);
         } else {
             return null;
         }
@@ -578,8 +578,8 @@ public final class Class164 {
         } else {
             @Pc(35) Node local35 = this.aHashTable_19.get((long) arg1);
             if (local35 != null) {
-                if (local35 instanceof Node_Sub38) {
-                    @Pc(45) Node_Sub38 local45 = (Node_Sub38) local35;
+                if (local35 instanceof IntNode) {
+                    @Pc(45) IntNode local45 = (IntNode) local35;
                     if (local45.anInt6379 == arg0) {
                         return false;
                     }
@@ -589,7 +589,7 @@ public final class Class164 {
                 local35.remove();
             }
         }
-        this.aHashTable_19.put((long) arg1, new Node_Sub38(arg0));
+        this.aHashTable_19.put((long) arg1, new IntNode(arg0));
         return true;
     }
 }

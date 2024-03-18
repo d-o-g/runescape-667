@@ -29,7 +29,7 @@ public final class Static652 {
         @Pc(16) Sprite local16 = (Sprite) Static594.aClass82_193.method2156((long) arg0);
         if (local16 == null) {
             if (Static297.aBoolean368) {
-                local16 = Static163.aClass19_17.method7948(Static735.method9379(arg1, arg0), true);
+                local16 = Static163.aToolkit_17.method7948(Static735.method9379(arg1, arg0), true);
             } else {
                 local16 = Static168.method2634(arg1.method7589(arg0));
             }

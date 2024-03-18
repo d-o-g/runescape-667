@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -16,7 +17,7 @@ public final class Static620 {
     }
 
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "(IIILclient!aa;Lclient!ha;IIILclient!hda;)V")
-    public static void method8322(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class1 arg2, @OriginalArg(4) Class19 arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Class158 arg7) {
+    public static void method8322(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) ClippingMask arg2, @OriginalArg(4) Toolkit arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Class158 arg7) {
         @Pc(10) Class105 local10 = Static577.aClass246_4.method5584(arg4);
         if (local10 == null || !local10.aBoolean218 || !local10.method2425(Static34.aClass304_1)) {
             return;
@@ -33,8 +34,8 @@ public final class Static620 {
                 } else {
                     local51 = (int) Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
                 }
-                local62 = Class361.anIntArray741[local51];
-                local66 = Class361.anIntArray740[local51];
+                local62 = Trig1.SIN[local51];
+                local66 = Trig1.COS[local51];
                 if (Static511.anInt7645 != 4) {
                     local62 = local62 * 256 / (Static660.anInt9835 + 256);
                     local66 = local66 * 256 / (Static660.anInt9835 + 256);

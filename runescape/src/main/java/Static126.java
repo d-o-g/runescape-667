@@ -23,11 +23,11 @@ public final class Static126 {
     }
 
     @OriginalMember(owner = "client!du", name = "a", descriptor = "(Lclient!ha;IIIIIBI)V")
-    public static void method2227(@OriginalArg(0) Class19 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(7) int arg4) {
-        Static74.aClass19_4 = arg0;
-        Static420.aMatrix_7 = Static74.aClass19_4.method7953();
-        Static203.aMatrix_4 = Static74.aClass19_4.method7953();
-        Static712.aMatrix_11 = Static74.aClass19_4.method7953();
+    public static void method2227(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(7) int arg4) {
+        Static74.aToolkit_4 = arg0;
+        Static420.aMatrix_7 = Static74.aToolkit_4.createMatrix();
+        Static203.aMatrix_4 = Static74.aToolkit_4.createMatrix();
+        Static712.aMatrix_11 = Static74.aToolkit_4.createMatrix();
         Static437.anInt6628 = arg2;
         Static116.anInt2268 = 2;
         Static448.anInt6796 = 1;

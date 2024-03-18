@@ -16,7 +16,7 @@ public final class Class8_Sub7 extends Class8 {
     public PickingCylinder[] aPickingCylinderArray1;
 
     @OriginalMember(owner = "client!pea", name = "a", descriptor = "(Lclient!ha;BII)Z")
-    public boolean method6496(@OriginalArg(0) Class19 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
+    public boolean method6496(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(10) int local10 = this.aClass8_Sub2_18.method9287();
         if (this.aPickingCylinderArray1 != null) {
             for (@Pc(15) int local15 = 0; local15 < this.aPickingCylinderArray1.length; local15++) {

@@ -15,7 +15,7 @@ public final class Class306_Sub1 extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(III[Lclient!eq;Lclient!ha;[B)V")
-    public void method7892(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Class110[] arg2, @OriginalArg(4) Class19 arg3, @OriginalArg(5) byte[] arg4) {
+    public void method7892(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Class110[] arg2, @OriginalArg(4) Toolkit arg3, @OriginalArg(5) byte[] arg4) {
         @Pc(8) Packet local8 = new Packet(arg4);
         @Pc(18) int local18 = -1;
         while (true) {
@@ -57,7 +57,7 @@ public final class Class306_Sub1 extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(ILclient!ge;ILclient!ha;I)V")
-    public void method7893(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class19 arg3) {
+    public void method7893(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Toolkit arg3) {
         if (super.aBoolean673) {
             return;
         }
@@ -87,7 +87,7 @@ public final class Class306_Sub1 extends Class306 {
                                                 @Pc(523) Class392 local523 = Static48.aClass384_1.method8814(arg1.g2());
                                                 local512.method8244(local523.anInt10374, local523.anInt10372, local523.anInt10373, local523.anInt10377);
                                             }
-                                            if (arg3.method7955() > 0) {
+                                            if (arg3.getMaxLights() > 0) {
                                                 @Pc(543) Node_Sub7 local543 = local512.aClass2_Sub7_3;
                                                 local149 = (arg2 << 9) + local543.method8426();
                                                 local153 = (arg0 << 9) + local543.method8429();
@@ -248,7 +248,7 @@ public final class Class306_Sub1 extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IILclient!eq;ILclient!ha;IIIIII)V")
-    public void method7894(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class110 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class19 arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
+    public void method7894(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class110 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
         if (Static400.aClass2_Sub34_28.aClass57_Sub19_2.method5960() == 0 && !Static696.method9036(arg3, Static164.anInt2808, arg5, arg7)) {
             return;
         }
@@ -632,7 +632,7 @@ public final class Class306_Sub1 extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IILclient!ha;ILclient!ge;IIIII)V")
-    public void method7895(@OriginalArg(0) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Packet arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
+    public void method7895(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Packet arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
         if (super.aBoolean673) {
             return;
         }
@@ -661,7 +661,7 @@ public final class Class306_Sub1 extends Class306 {
                                     @Pc(91) Class392 local91 = Static48.aClass384_1.method8814(arg3.g2());
                                     local78.method8244(local91.anInt10374, local91.anInt10372, local91.anInt10373, local91.anInt10377);
                                 }
-                                if (arg1.method7955() > 0) {
+                                if (arg1.getMaxLights() > 0) {
                                     @Pc(108) Node_Sub7 local108 = local78.aClass2_Sub7_3;
                                     local116 = local108.method8426() >> 9;
                                     local122 = local108.method8429() >> 9;
@@ -799,7 +799,7 @@ public final class Class306_Sub1 extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(I[Lclient!eq;ILclient!ha;BII[BIII)V")
-    public void method7897(@OriginalArg(0) int arg0, @OriginalArg(1) Class110[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class19 arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) byte[] arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
+    public void method7897(@OriginalArg(0) int arg0, @OriginalArg(1) Class110[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Toolkit arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) byte[] arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
         @Pc(26) Packet local26 = new Packet(arg6);
         @Pc(28) int local28 = -1;
         while (true) {
@@ -844,7 +844,7 @@ public final class Class306_Sub1 extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(ZLclient!ha;B)V")
-    public void method7898(@OriginalArg(0) boolean arg0, @OriginalArg(1) Class19 arg1) {
+    public void method7898(@OriginalArg(0) boolean arg0, @OriginalArg(1) Toolkit arg1) {
         Static323.method4624();
         if (!arg0) {
             @Pc(23) int local23;
@@ -910,7 +910,7 @@ public final class Class306_Sub1 extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IBILclient!eq;IILclient!ha;)V")
-    public void method7901(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class110 arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) Class19 arg5) {
+    public void method7901(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class110 arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) Toolkit arg5) {
         @Pc(13) Interface25 local13 = this.method7896(arg4, arg1, arg3, arg0);
         if (local13 == null) {
             return;

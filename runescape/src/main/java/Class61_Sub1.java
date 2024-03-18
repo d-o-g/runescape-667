@@ -23,7 +23,7 @@ public final class Class61_Sub1 extends Class61 implements Interface2 {
     public final IDirect3DVolumeTexture anIDirect3DVolumeTexture1;
 
     @OriginalMember(owner = "client!cfa", name = "<init>", descriptor = "(Lclient!kea;Lclient!eba;III[B)V")
-    public Class61_Sub1(@OriginalArg(0) Class19_Sub1_Sub1 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) byte[] arg5) {
+    public Class61_Sub1(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) byte[] arg5) {
         super(arg0, arg1, Static702.aClass397_16, false, arg4 * arg2 * arg3);
         this.anInt1586 = arg4;
         this.anInt1587 = arg2;

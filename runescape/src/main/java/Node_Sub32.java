@@ -14,7 +14,7 @@ public final class Node_Sub32 extends Node {
     public int anInt5028;
 
     @OriginalMember(owner = "client!jw", name = "s", descriptor = "Lclient!am;")
-    public final Class19_Sub1 aClass19_Sub1_11;
+    public final Toolkit_Sub1 aClass19_Sub1_11;
 
     @OriginalMember(owner = "client!jw", name = "o", descriptor = "Lclient!iga;")
     public final Ground_Sub1 aClass178_Sub1_1;
@@ -62,7 +62,7 @@ public final class Node_Sub32 extends Node {
     public Stream aStream2;
 
     @OriginalMember(owner = "client!jw", name = "<init>", descriptor = "(Lclient!am;Lclient!iga;Lclient!lca;[I)V")
-    public Node_Sub32(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Ground_Sub1 arg1, @OriginalArg(2) Node_Sub7 arg2, @OriginalArg(3) int[] arg3) {
+    public Node_Sub32(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Ground_Sub1 arg1, @OriginalArg(2) Node_Sub7 arg2, @OriginalArg(3) int[] arg3) {
         this.aClass19_Sub1_11 = arg0;
         this.aClass178_Sub1_1 = arg1;
         this.aClass2_Sub7_1 = arg2;

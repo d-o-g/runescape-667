@@ -32,10 +32,10 @@ public final class a implements Interface5 {
     }
 
     @OriginalMember(owner = "client!a", name = "na", descriptor = "(JLclient!ha;IIIIIII)V")
-    public native void na(@OriginalArg(0) long arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8);
+    public native void na(@OriginalArg(0) long arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8);
 
     @OriginalMember(owner = "client!a", name = "O", descriptor = "(JLclient!ha;[I[I[I[SI)V")
-    public native void O(@OriginalArg(0) long arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) short[] arg5, @OriginalArg(6) int arg6);
+    public native void O(@OriginalArg(0) long arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) short[] arg5, @OriginalArg(6) int arg6);
 
     @OriginalMember(owner = "client!a", name = "Z", descriptor = "(JJIII)V")
     public native void Z(@OriginalArg(0) long arg0, @OriginalArg(1) long arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
@@ -85,7 +85,7 @@ public final class a implements Interface5 {
     }
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!ha;[I[I[I[SI)V")
-    public void method4(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) short[] arg4, @OriginalArg(5) int arg5) {
+    public void method4(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) short[] arg4, @OriginalArg(5) int arg5) {
         this.O(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5);
     }
 
@@ -153,7 +153,7 @@ public final class a implements Interface5 {
     public native void e(@OriginalArg(0) long arg0, @OriginalArg(1) long arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) long arg3);
 
     @OriginalMember(owner = "client!a", name = "HA", descriptor = "(JLclient!ha;II)V")
-    public native void HA(@OriginalArg(0) long arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public native void HA(@OriginalArg(0) long arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!s;IIIIIII[[Z)V")
     public void method13(@OriginalArg(0) Ground arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) int arg4, @OriginalArg(8) boolean[][] arg5) {
@@ -181,7 +181,7 @@ public final class a implements Interface5 {
     }
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!ha;IIIIIII)V")
-    public void method16(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public void method16(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         this.na(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5, arg6, 0);
     }
 }

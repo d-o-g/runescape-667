@@ -14,7 +14,7 @@ public final class Static147 {
     public static final int[] anIntArray227 = new int[8];
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(IIILclient!ha;)V")
-    public static void method2417(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class19 arg2) {
+    public static void method2417(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Toolkit arg2) {
         if (arg1 < 0 || arg0 < 0 || Static240.anInt3955 == 0 || Static275.anInt4424 == 0) {
             return;
         }
@@ -42,10 +42,10 @@ public final class Static147 {
             local45 = Static232.anInt3829;
             local57 = Static168.anInt2842;
             arg2.KA(Static725.anInt10936, Static192.anInt3123, Static240.anInt3955, Static275.anInt4424);
-            local38 = arg2.method7953();
+            local38 = arg2.createMatrix();
             local38.method7135(Static428.anInt6487, Static427.anInt6480, Static523.anInt3888, Static524.anInt8044, Static271.anInt4363, Static707.anInt10641);
             local63 = arg1;
-            arg2.method8000(local38);
+            arg2.setCamera(local38);
             local69 = arg0;
         }
         Static501.method6716(true);
@@ -363,7 +363,7 @@ public final class Static147 {
     }
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(JILclient!ha;)V")
-    public static void method2421(@OriginalArg(0) long arg0, @OriginalArg(2) Class19 arg1) {
+    public static void method2421(@OriginalArg(0) long arg0, @OriginalArg(2) Toolkit arg1) {
         Static452.anInt6869 = Static530.anInt8093;
         Static424.anInt6459 = 0;
         Static111.anInt2220 = 0;

@@ -19,13 +19,13 @@ public final class Class7 {
     public Interface18[] anInterface18Array1 = null;
 
     @OriginalMember(owner = "client!ae", name = "f", descriptor = "Lclient!am;")
-    public final Class19_Sub1 aClass19_Sub1_1;
+    public final Toolkit_Sub1 aClass19_Sub1_1;
 
     @OriginalMember(owner = "client!ae", name = "d", descriptor = "Z")
     public boolean aBoolean7;
 
     @OriginalMember(owner = "client!ae", name = "<init>", descriptor = "(Lclient!am;)V")
-    public Class7(@OriginalArg(0) Class19_Sub1 arg0) {
+    public Class7(@OriginalArg(0) Toolkit_Sub1 arg0) {
         this.aClass19_Sub1_1 = arg0;
         this.aBoolean7 = this.aClass19_Sub1_1.aBoolean696;
         if (this.aBoolean7 && !this.aClass19_Sub1_1.method8153(Static702.aClass397_16, Static482.aClass92_13)) {

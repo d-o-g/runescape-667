@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class87 implements Interface9 {
 
     @OriginalMember(owner = "client!du", name = "i", descriptor = "Lclient!iaa;")
-    public final Class19_Sub2 aClass19_Sub2_3;
+    public final Toolkit_Sub2 aClass19_Sub2_3;
 
     @OriginalMember(owner = "client!du", name = "a", descriptor = "[I")
     public final int[] anIntArray203;
@@ -25,7 +25,7 @@ public final class Class87 implements Interface9 {
     public float[] aFloatArray16;
 
     @OriginalMember(owner = "client!du", name = "<init>", descriptor = "(Lclient!iaa;Lclient!st;Lclient!hia;)V")
-    public Class87(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) Sprite arg1, @OriginalArg(2) Class165 arg2) {
+    public Class87(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Sprite arg1, @OriginalArg(2) Class165 arg2) {
         this.aClass19_Sub2_3 = arg0;
         if (arg1 instanceof Sprite_Sub1_Sub1) {
             @Pc(35) Sprite_Sub1_Sub1 local35 = (Sprite_Sub1_Sub1) arg1;

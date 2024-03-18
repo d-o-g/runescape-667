@@ -11,12 +11,12 @@ public final class Static28 {
     public static boolean aBoolean43 = false;
 
     @OriginalMember(owner = "client!aw", name = "a", descriptor = "(ILclient!ha;ILclient!hda;I)V")
-    public static void method746(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(3) Class158 arg2, @OriginalArg(4) int arg3) {
+    public static void method746(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(3) Class158 arg2, @OriginalArg(4) int arg3) {
         @Pc(23) Class159 local23 = arg2.method3393(arg1);
         if (local23 == null) {
             return;
         }
-        @Pc(30) Class1 local30 = local23.aClass1_1;
+        @Pc(30) ClippingMask local30 = local23.aClippingMask;
         arg1.KA(arg3, arg0, arg3 + arg2.anInt3802, arg0 - -arg2.anInt3746);
         if (Static578.anInt8595 == 2 || Static578.anInt8595 == 5 || Static12.aSprite_26 == null) {
             arg1.A(-16777216, local30, arg3, arg0);

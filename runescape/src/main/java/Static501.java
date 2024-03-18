@@ -100,6 +100,6 @@ public final class Static501 {
             local5 <<= 0x1;
             local7 = -local5;
         }
-        Static163.aClass19_17.f(local7, local5);
+        Static163.aToolkit_17.f(local7, local5);
     }
 }

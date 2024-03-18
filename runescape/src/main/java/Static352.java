@@ -65,7 +65,7 @@ public final class Static352 {
         Static561.method7436();
         Static422.method5772();
         Static472.aClass82_156.method2157();
-        Static163.aClass19_17.method8012();
+        Static163.aToolkit_17.method8012();
         Static269.method3909();
         Static112.method2109();
         Static344.aClass330_73.method7592();

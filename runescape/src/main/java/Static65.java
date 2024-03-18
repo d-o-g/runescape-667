@@ -20,7 +20,7 @@ public final class Static65 {
 
     @OriginalMember(owner = "client!cba", name = "c", descriptor = "(B)I")
     public static int method1470() {
-        @Pc(5) Class19 local5 = Static163.aClass19_17;
+        @Pc(5) Toolkit local5 = Static163.aToolkit_17;
         @Pc(7) boolean local7 = false;
         if (Static400.aClass2_Sub34_28.aClass57_Sub29_1.method7915() != 0) {
             @Pc(19) Canvas local19 = new Canvas();
@@ -47,7 +47,7 @@ public final class Static65 {
         Static74.aClass148_1 = null;
         Static456.aClass148_3 = null;
         Static74.aClass67_3 = null;
-        Static425.aClass19_13 = null;
+        Static425.aToolkit_13 = null;
         Static226.aClass67_9 = null;
         Static665.aClass367ArrayArray1 = null;
     }

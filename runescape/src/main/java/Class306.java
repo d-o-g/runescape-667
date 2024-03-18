@@ -106,7 +106,7 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(I[[[ILclient!ha;[Lclient!eq;)V")
-    public final void method7881(@OriginalArg(1) int[][][] arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) Class110[] arg2) {
+    public final void method7881(@OriginalArg(1) int[][][] arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) Class110[] arg2) {
         @Pc(4) int local4;
         @Pc(7) int local7;
         @Pc(10) int local10;
@@ -151,12 +151,12 @@ public class Class306 {
                 local10 |= 0x20;
             }
             @Pc(165) int[][] local165 = arg0 == null || local4 >= arg0.length ? this.anIntArrayArrayArray17[local4] : arg0[local4];
-            Static429.method5805(local4, arg1.method7996(this.anInt8906, this.anInt8904, this.anIntArrayArrayArray17[local4], local165, local7, local10));
+            Static429.method5805(local4, arg1.createGround(this.anInt8906, this.anInt8904, this.anIntArrayArrayArray17[local4], local165, local7, local10));
         }
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(IBLclient!ha;[[ILclient!s;Lclient!s;Lclient!s;)V")
-    public void method7882(@OriginalArg(0) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int[][] arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Ground arg4, @OriginalArg(6) Ground arg5) {
+    public void method7882(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int[][] arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Ground arg4, @OriginalArg(6) Ground arg5) {
         for (@Pc(1) int local1 = 0; local1 < this.anInt8906; local1++) {
             for (@Pc(4) int local4 = 0; local4 < this.anInt8904; local4++) {
                 if (Static478.anInt7198 == -1 || Static696.method9036(local4, Static478.anInt7198, local1, arg0)) {
@@ -302,7 +302,7 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(ILclient!re;[[BIIIIILclient!ha;I[ZLclient!nq;[[B[[B)V")
-    public void method7883(@OriginalArg(0) int arg0, @OriginalArg(1) Class318 arg1, @OriginalArg(2) byte[][] arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Class19 arg7, @OriginalArg(9) int arg8, @OriginalArg(10) boolean[] arg9, @OriginalArg(11) Class264 arg10, @OriginalArg(12) byte[][] arg11, @OriginalArg(13) byte[][] arg12) {
+    public void method7883(@OriginalArg(0) int arg0, @OriginalArg(1) Class318 arg1, @OriginalArg(2) byte[][] arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Toolkit arg7, @OriginalArg(9) int arg8, @OriginalArg(10) boolean[] arg9, @OriginalArg(11) Class264 arg10, @OriginalArg(12) byte[][] arg11, @OriginalArg(13) byte[][] arg12) {
         @Pc(19) boolean[] local19 = arg1 != null && arg1.aBoolean628 ? Static463.aBooleanArrayArray6[arg0] : Static435.aBooleanArrayArray5[arg0];
         @Pc(37) int local37;
         @Pc(50) Class318 local50;
@@ -657,7 +657,7 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(BLclient!ha;Lclient!s;Lclient!s;)V")
-    public final void method7888(@OriginalArg(1) Class19 arg0, @OriginalArg(2) Ground arg1, @OriginalArg(3) Ground arg2) {
+    public final void method7888(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) Ground arg1, @OriginalArg(3) Ground arg2) {
         if (Static397.anIntArray482 == null || this.anInt8904 != Static397.anIntArray482.length) {
             Static501.anIntArray606 = new int[this.anInt8904];
             Static418.anIntArray704 = new int[this.anInt8904];
@@ -815,7 +815,7 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(Lclient!s;Z[[ILclient!s;Lclient!s;Lclient!ha;I)V")
-    public void method7890(@OriginalArg(0) Ground arg0, @OriginalArg(2) int[][] arg1, @OriginalArg(3) Ground arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Class19 arg4, @OriginalArg(6) int arg5) {
+    public void method7890(@OriginalArg(0) Ground arg0, @OriginalArg(2) int[][] arg1, @OriginalArg(3) Ground arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5) {
         @Pc(8) byte[][] local8 = this.aByteArrayArrayArray16[arg5];
         @Pc(13) byte[][] local13 = this.aByteArrayArrayArray13[arg5];
         @Pc(26) byte[][] local26 = this.aByteArrayArrayArray17[arg5];

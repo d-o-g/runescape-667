@@ -304,7 +304,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(Lclient!ha;J)V")
-    public void method6695(@OriginalArg(0) Class19 arg0, @OriginalArg(1) long arg1) {
+    public void method6695(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) long arg1) {
         @Pc(6) int local6 = super.anInt7537 >> Static52.anInt1066 + 12;
         @Pc(13) int local13 = super.anInt7536 >> Static52.anInt1066 + 12;
         @Pc(18) int local18 = super.anInt7534 >> 12;

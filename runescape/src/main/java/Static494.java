@@ -81,7 +81,7 @@ public final class Static494 {
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(ILclient!dda;ILclient!ha;)V")
-    public static void method6601(@OriginalArg(0) int arg0, @OriginalArg(1) Class75 arg1, @OriginalArg(3) Class19 arg2) {
+    public static void method6601(@OriginalArg(0) int arg0, @OriginalArg(1) Class75 arg1, @OriginalArg(3) Toolkit arg2) {
         @Pc(15) int local15;
         if (Static617.anIntArray726 != null && arg0 <= arg1.aByte44) {
             for (local15 = 0; local15 < Static617.anIntArray726.length; local15++) {

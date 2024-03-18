@@ -185,7 +185,7 @@ public final class Class289 {
     }
 
     @OriginalMember(owner = "client!pda", name = "a", descriptor = "(ILclient!ha;)[Lclient!tt;")
-    public Matrix[] method6480(@OriginalArg(1) Class19 arg0) {
+    public Matrix[] method6480(@OriginalArg(1) Toolkit arg0) {
         if (this.aMatrixArray1 != null && this.anInt7261 == arg0.anInt8962) {
             return this.aMatrixArray1;
         } else if (this.anIntArrayArray181 == null) {
@@ -208,7 +208,7 @@ public final class Class289 {
                     local38 = this.anIntArrayArray181[local35][0];
                 }
                 if (local38 != 0 || local40 != 0 || local42 != 0 || local44 != 0 || local46 != 0 || local48 != 0) {
-                    @Pc(137) Matrix local137 = this.aMatrixArray1[local35] = arg0.method7953();
+                    @Pc(137) Matrix local137 = this.aMatrixArray1[local35] = arg0.createMatrix();
                     if (local48 != 0) {
                         local137.method7139(local48);
                     }
@@ -216,9 +216,9 @@ public final class Class289 {
                         local137.method7130(local44);
                     }
                     if (local46 != 0) {
-                        local137.method7127(local46);
+                        local137.rotateAxisY(local46);
                     }
-                    local137.method7134(local38, local40, local42);
+                    local137.translate(local38, local40, local42);
                 }
             }
             return this.aMatrixArray1;

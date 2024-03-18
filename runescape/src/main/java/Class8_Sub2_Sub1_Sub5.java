@@ -45,7 +45,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(Lclient!tt;Lclient!ka;ILclient!ha;)V")
-    public void method6593(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Class19 arg2) {
+    public void method6593(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Toolkit arg2) {
         arg1.method7476(arg0);
         @Pc(9) MeshEmitter[] local9 = arg1.meshEmitters();
         @Pc(19) MeshMagnet[] local19 = arg1.meshMagnets();
@@ -59,7 +59,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IILclient!ha;I)Lclient!ka;")
-    public Model method6594(@OriginalArg(1) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2) {
+    public Model method6594(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2) {
         @Pc(8) Class227 local8 = Static23.aClass128_1.method2694(arg0);
         @Pc(22) Ground local22 = Static706.aGroundArray3[super.aByte144];
         @Pc(36) Ground local36 = super.aByte143 < 3 ? Static706.aGroundArray3[super.aByte143 + 1] : null;
@@ -76,13 +76,13 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method9289(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
-            this.method9289((Class19) null, 72);
+            this.method9289((Toolkit) null, 72);
         }
         @Pc(20) Model local20 = this.method6594(this.anInt7402, arg0, 0);
         if (local20 != null) {
-            @Pc(25) Matrix local25 = arg0.method7985();
+            @Pc(25) Matrix local25 = arg0.scratchMatrix();
             local25.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
             this.method6593(local25, local20, arg0);
         }
@@ -143,7 +143,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class19 arg3) {
+    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
         if (arg2) {
             this.method9286(-24);
         }
@@ -159,25 +159,25 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 >= -93) {
-            this.method9279(-78, 64, true, (Class19) null);
+            this.method9279(-78, 64, true, (Toolkit) null);
         }
         return null;
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Class19 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
         if (arg4 < 101) {
-            this.method9276((Class19) null);
+            this.method9276((Toolkit) null);
         }
         throw new IllegalStateException();
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0) {
+    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(24) Model local24 = this.method6594(this.anInt7402, arg0, (this.anInt7400 == 0 ? 0 : 5) | 0x800);
         if (local24 == null) {
             return null;
@@ -185,7 +185,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
         if (this.anInt7400 != 0) {
             local24.a(this.anInt7400 * 2048);
         }
-        @Pc(43) Matrix local43 = arg0.method7985();
+        @Pc(43) Matrix local43 = arg0.scratchMatrix();
         local43.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         this.method6593(local43, local24, arg0);
         @Pc(62) Class8_Sub7 local62 = Static642.method8441(false, 1);

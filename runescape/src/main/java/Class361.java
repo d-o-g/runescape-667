@@ -1,3 +1,4 @@
+import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -5,12 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ts")
 public final class Class361 {
-
-    @OriginalMember(owner = "client!ts", name = "l", descriptor = "[I")
-    public static final int[] anIntArray740 = new int[16384];
-
-    @OriginalMember(owner = "client!ts", name = "b", descriptor = "[I")
-    public static final int[] anIntArray741 = new int[16384];
 
     @OriginalMember(owner = "client!ts", name = "j", descriptor = "Lclient!cm;")
     public Node_Sub2 aClass2_Sub2_57 = new Node_Sub2();
@@ -26,14 +21,6 @@ public final class Class361 {
 
     @OriginalMember(owner = "client!ts", name = "c", descriptor = "Lclient!av;")
     public final HashTable aHashTable_42;
-
-    static {
-        @Pc(63) double local63 = 3.834951969714103E-4D;
-        for (@Pc(65) int local65 = 0; local65 < 16384; local65++) {
-            anIntArray741[local65] = (int) (Math.sin((double) local65 * local63) * 16384.0D);
-            anIntArray740[local65] = (int) (Math.cos(local63 * (double) local65) * 16384.0D);
-        }
-    }
 
     @OriginalMember(owner = "client!ts", name = "<init>", descriptor = "(I)V")
     public Class361(@OriginalArg(0) int arg0) {

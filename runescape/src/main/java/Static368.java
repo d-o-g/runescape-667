@@ -68,7 +68,7 @@ public final class Static368 {
     }
 
     @OriginalMember(owner = "client!lka", name = "a", descriptor = "(ILclient!sia;ILclient!ha;I)V")
-    public static void method5272(@OriginalArg(1) Deque arg0, @OriginalArg(3) Class19 arg1) {
+    public static void method5272(@OriginalArg(1) Deque arg0, @OriginalArg(3) Toolkit arg1) {
         Static551.aDeque_54.clear();
         if (Static178.aBoolean251) {
             return;

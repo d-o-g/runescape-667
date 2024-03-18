@@ -27,7 +27,7 @@ public final class Class61_Sub3 extends Class61 implements Interface18 {
     public final IDirect3DTexture anIDirect3DTexture1;
 
     @OriginalMember(owner = "client!waa", name = "<init>", descriptor = "(Lclient!kea;IIZ[III)V")
-    public Class61_Sub3(@OriginalArg(0) Class19_Sub1_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public Class61_Sub3(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         super(arg0, Static172.aClass92_8, Static702.aClass397_16, arg3 && arg0.aBoolean414, arg2 * arg1);
         if (this.aClass19_Sub1_Sub1_9.aBoolean413) {
             this.anInt10425 = arg1;
@@ -60,7 +60,7 @@ public final class Class61_Sub3 extends Class61 implements Interface18 {
     }
 
     @OriginalMember(owner = "client!waa", name = "<init>", descriptor = "(Lclient!kea;Lclient!eba;Lclient!wda;II)V")
-    public Class61_Sub3(@OriginalArg(0) Class19_Sub1_Sub1 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) Class397 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public Class61_Sub3(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) Class397 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         super(arg0, arg1, arg2, false, arg4 * arg3);
         if (this.aClass19_Sub1_Sub1_9.aBoolean413) {
             this.anInt10426 = arg4;
@@ -73,7 +73,7 @@ public final class Class61_Sub3 extends Class61 implements Interface18 {
     }
 
     @OriginalMember(owner = "client!waa", name = "<init>", descriptor = "(Lclient!kea;Lclient!eba;IIZ[BII)V")
-    public Class61_Sub3(@OriginalArg(0) Class19_Sub1_Sub1 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) byte[] arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+    public Class61_Sub3(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) byte[] arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
         super(arg0, arg1, Static702.aClass397_16, arg4 && arg0.aBoolean414, arg3 * arg2);
         if (this.aClass19_Sub1_Sub1_9.aBoolean413) {
             this.anInt10426 = arg3;

@@ -13,10 +13,10 @@ public final class Class334 {
     public final Interface4 anInterface4_9;
 
     @OriginalMember(owner = "client!sf", name = "j", descriptor = "Lclient!am;")
-    public final Class19_Sub1 aClass19_Sub1_20;
+    public final Toolkit_Sub1 aClass19_Sub1_20;
 
     @OriginalMember(owner = "client!sf", name = "<init>", descriptor = "(Lclient!am;Lclient!d;)V")
-    public Class334(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Interface4 arg1) {
+    public Class334(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Interface4 arg1) {
         this.anInterface4_9 = arg1;
         this.aClass19_Sub1_20 = arg0;
     }

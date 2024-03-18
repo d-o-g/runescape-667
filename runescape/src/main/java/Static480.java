@@ -144,7 +144,7 @@ public final class Static480 {
 
     @OriginalMember(owner = "client!pca", name = "c", descriptor = "(B)V")
     public static void method6469() {
-        Static74.aClass19_4.method8000(Static712.aMatrix_11);
-        Static74.aClass19_4.DA(Static338.anInt5563, Static637.anInt9536, Static172.anInt2888, Static630.anInt9494);
+        Static74.aToolkit_4.setCamera(Static712.aMatrix_11);
+        Static74.aToolkit_4.DA(Static338.anInt5563, Static637.anInt9536, Static172.anInt2888, Static630.anInt9494);
     }
 }

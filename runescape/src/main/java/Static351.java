@@ -19,7 +19,7 @@ public final class Static351 {
     }
 
     @OriginalMember(owner = "client!laa", name = "a", descriptor = "(Lclient!ha;ILclient!el;ILclient!fu;I)Z")
-    public static boolean method5138(@OriginalArg(0) Class19 arg0, @OriginalArg(2) Class105 arg1, @OriginalArg(4) Node_Sub20 arg2) {
+    public static boolean method5138(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) Class105 arg1, @OriginalArg(4) Node_Sub20 arg2) {
         @Pc(7) int local7 = Integer.MAX_VALUE;
         @Pc(9) int local9 = Integer.MIN_VALUE;
         @Pc(11) int local11 = Integer.MAX_VALUE;

@@ -20,7 +20,7 @@ public abstract class Class51 implements Interface17 {
     protected final Class397 aClass397_11;
 
     @OriginalMember(owner = "client!hka", name = "m", descriptor = "Lclient!tca;")
-    protected final Class19_Sub1_Sub2 aClass19_Sub1_Sub2_12;
+    protected final Toolkit_Sub1_Sub2 aClass19_Sub1_Sub2_12;
 
     @OriginalMember(owner = "client!hka", name = "c", descriptor = "I")
     public final int anInt9857;
@@ -32,7 +32,7 @@ public abstract class Class51 implements Interface17 {
     public int anInt9855;
 
     @OriginalMember(owner = "client!hka", name = "<init>", descriptor = "(Lclient!tca;ILclient!eba;Lclient!wda;IZ)V")
-    protected Class51(@OriginalArg(0) Class19_Sub1_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class92 arg2, @OriginalArg(3) Class397 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
+    protected Class51(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class92 arg2, @OriginalArg(3) Class397 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
         this.aClass92_14 = arg2;
         this.anInt9848 = arg1;
         this.aClass397_11 = arg3;

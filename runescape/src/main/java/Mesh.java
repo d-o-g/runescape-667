@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -880,8 +881,8 @@ public final class Mesh {
         @Pc(11) int local11;
         @Pc(28) int local28;
         if (arg0 != 0) {
-            local5 = Class361.anIntArray741[arg0];
-            local9 = Class361.anIntArray740[arg0];
+            local5 = Trig1.SIN[arg0];
+            local9 = Trig1.COS[arg0];
             for (local11 = 0; local11 < this.anInt2372; local11++) {
                 local28 = local9 * this.anIntArray213[local11] + local5 * this.anIntArray205[local11] >> 14;
                 this.anIntArray205[local11] = local9 * this.anIntArray205[local11] - this.anIntArray213[local11] * local5 >> 14;
@@ -889,8 +890,8 @@ public final class Mesh {
             }
         }
         if (arg1 != 0) {
-            local5 = Class361.anIntArray741[arg1];
-            local9 = Class361.anIntArray740[arg1];
+            local5 = Trig1.SIN[arg1];
+            local9 = Trig1.COS[arg1];
             for (local11 = 0; local11 < this.anInt2372; local11++) {
                 local28 = local9 * this.anIntArray205[local11] - local5 * this.anIntArray204[local11] >> 14;
                 this.anIntArray204[local11] = local5 * this.anIntArray205[local11] + this.anIntArray204[local11] * local9 >> 14;
@@ -900,8 +901,8 @@ public final class Mesh {
         if (arg2 == 0) {
             return;
         }
-        local5 = Class361.anIntArray741[arg2];
-        local9 = Class361.anIntArray740[arg2];
+        local5 = Trig1.SIN[arg2];
+        local9 = Trig1.COS[arg2];
         for (local11 = 0; local11 < this.anInt2372; local11++) {
             local28 = local5 * this.anIntArray204[local11] + local9 * this.anIntArray213[local11] >> 14;
             this.anIntArray204[local11] = this.anIntArray204[local11] * local9 - local5 * this.anIntArray213[local11] >> 14;

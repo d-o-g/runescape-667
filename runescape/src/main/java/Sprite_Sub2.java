@@ -29,25 +29,25 @@ public final class Sprite_Sub2 extends Sprite {
     public int anInt6041 = 0;
 
     @OriginalMember(owner = "client!mb", name = "u", descriptor = "Lclient!qha;")
-    public final Class19_Sub3 aClass19_Sub3_28;
+    public final Toolkit_Sub3 aClass19_Sub3_28;
 
     @OriginalMember(owner = "client!mb", name = "c", descriptor = "Lclient!gb;")
     public final Class93_Sub2_Sub1 aClass93_Sub2_Sub1_3;
 
     @OriginalMember(owner = "client!mb", name = "<init>", descriptor = "(Lclient!qha;IIZ)V")
-    public Sprite_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
+    public Sprite_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
         this.aClass19_Sub3_28 = arg0;
         this.aClass93_Sub2_Sub1_3 = Static709.method9251(arg2, arg1, arg3 ? 6408 : 6407, arg0);
     }
 
     @OriginalMember(owner = "client!mb", name = "<init>", descriptor = "(Lclient!qha;IIII)V")
-    public Sprite_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public Sprite_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         this.aClass19_Sub3_28 = arg0;
         this.aClass93_Sub2_Sub1_3 = Static295.method4353(arg1, arg4, arg3, arg2, arg0);
     }
 
     @OriginalMember(owner = "client!mb", name = "<init>", descriptor = "(Lclient!qha;II[III)V")
-    public Sprite_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Sprite_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass19_Sub3_28 = arg0;
         this.aClass93_Sub2_Sub1_3 = Static88.method1706(arg0, arg1, arg5, arg3, arg2, arg4);
     }
@@ -165,8 +165,8 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     @Override
-    protected void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) Class1 arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
-        @Pc(7) Class93_Sub2_Sub1 local7 = ((Class1_Sub3) arg6).aClass93_Sub2_Sub1_5;
+    protected void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) ClippingMask arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
+        @Pc(7) Class93_Sub2_Sub1 local7 = ((ClippingMask_Sub3) arg6).aClass93_Sub2_Sub1_5;
         @Pc(14) float local14;
         @Pc(18) float local18;
         @Pc(25) float local25;
@@ -229,8 +229,8 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class1 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        @Pc(6) Class1_Sub3 local6 = (Class1_Sub3) arg2;
+    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+        @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) arg2;
         @Pc(9) Class93_Sub2_Sub1 local9 = local6.aClass93_Sub2_Sub1_5;
         this.aClass93_Sub2_Sub1_3.method9438(false);
         this.aClass19_Sub3_28.method7018();

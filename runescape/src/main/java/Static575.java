@@ -12,9 +12,9 @@ public final class Static575 {
         @Pc(6) Dimension local6 = arg0.getSize();
         Static388.method5454(local6.height, local6.width);
         if (Static448.anInt6796 == 1) {
-            Static74.aClass19_4.method7935(arg0, Static571.anInt8534, Static576.anInt8585);
+            Static74.aToolkit_4.method7935(arg0, Static571.anInt8534, Static576.anInt8585);
         } else {
-            Static74.aClass19_4.method7935(arg0, Static252.anInt4078, Static281.anInt4566);
+            Static74.aToolkit_4.method7935(arg0, Static252.anInt4078, Static281.anInt4566);
         }
     }
 }

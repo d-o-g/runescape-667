@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -17,7 +18,7 @@ public final class Static6 {
     public static int anInt95 = 0;
 
     @OriginalMember(owner = "client!ad", name = "a", descriptor = "(BILclient!aa;Lclient!st;IILclient!hda;I)V")
-    public static void method107(@OriginalArg(1) int arg0, @OriginalArg(2) Class1 arg1, @OriginalArg(3) Sprite arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) Class158 arg5, @OriginalArg(7) int arg6) {
+    public static void method107(@OriginalArg(1) int arg0, @OriginalArg(2) ClippingMask arg1, @OriginalArg(3) Sprite arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) Class158 arg5, @OriginalArg(7) int arg6) {
         if (arg2 == null) {
             return;
         }
@@ -32,8 +33,8 @@ public final class Static6 {
         if (local37 * local37 < local45) {
             return;
         }
-        @Pc(60) int local60 = Class361.anIntArray741[local15];
-        @Pc(64) int local64 = Class361.anIntArray740[local15];
+        @Pc(60) int local60 = Trig1.SIN[local15];
+        @Pc(64) int local64 = Trig1.COS[local15];
         if (Static511.anInt7645 != 4) {
             local60 = local60 * 256 / (Static660.anInt9835 + 256);
             local64 = local64 * 256 / (Static660.anInt9835 + 256);

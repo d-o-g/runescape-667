@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -74,7 +75,7 @@ public final class Class278 {
 
     @OriginalMember(owner = "client!ok", name = "b", descriptor = "(B)V")
     public void method6273() {
-        this.anInt6976 = Class361.anIntArray740[this.anInt6988 << 3];
+        this.anInt6976 = Trig1.COS[this.anInt6988 << 3];
         @Pc(15) long local15 = (long) this.anInt6979;
         @Pc(19) long local19 = (long) this.anInt6987;
         @Pc(23) long local23 = (long) this.anInt6975;

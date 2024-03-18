@@ -45,7 +45,7 @@ public final class Static542 {
     @OriginalMember(owner = "client!rb", name = "a", descriptor = "(ILclient!hda;)V")
     public static void method7202(@OriginalArg(1) Class158 arg0) {
         if (arg0.anInt3820 == 5 && arg0.anInt3760 != -1) {
-            Static485.method9415(arg0, Static163.aClass19_17);
+            Static485.method9415(arg0, Static163.aToolkit_17);
         }
     }
 }

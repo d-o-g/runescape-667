@@ -17,7 +17,7 @@ public final class Static245 {
     }
 
     @OriginalMember(owner = "client!hka", name = "a", descriptor = "(Ljava/lang/String;Lclient!qha;II)Lclient!mfa;")
-    public static Class240 method8629(@OriginalArg(0) String arg0, @OriginalArg(1) Class19_Sub3 arg1, @OriginalArg(3) int arg2) {
+    public static Class240 method8629(@OriginalArg(0) String arg0, @OriginalArg(1) Toolkit_Sub3 arg1, @OriginalArg(3) int arg2) {
         @Pc(6) long local6 = OpenGL.glCreateShaderObjectARB(arg2);
         OpenGL.glShaderSourceARB(local6, arg0);
         OpenGL.glCompileShaderARB(local6);

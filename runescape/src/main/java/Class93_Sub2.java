@@ -20,7 +20,7 @@ public class Class93_Sub2 extends Class93 {
     public final int anInt3255;
 
     @OriginalMember(owner = "client!rq", name = "<init>", descriptor = "(Lclient!qha;IIIIZ[BIZ)V")
-    public Class93_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) boolean arg8) {
+    public Class93_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) boolean arg8) {
         super(arg0, arg1, arg2, arg3 * arg4, arg5);
         this.anInt3248 = arg3;
         this.anInt3255 = arg4;
@@ -49,7 +49,7 @@ public class Class93_Sub2 extends Class93 {
     }
 
     @OriginalMember(owner = "client!rq", name = "<init>", descriptor = "(Lclient!qha;IIIII)V")
-    public Class93_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Class93_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         super(arg0, arg1, 6407, arg5 * arg4, false);
         this.anInt3248 = arg4;
         this.anInt3255 = arg5;
@@ -60,7 +60,7 @@ public class Class93_Sub2 extends Class93 {
     }
 
     @OriginalMember(owner = "client!rq", name = "<init>", descriptor = "(Lclient!qha;IIII)V")
-    public Class93_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public Class93_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         super(arg0, arg1, arg2, arg3 * arg4, false);
         this.anInt3248 = arg3;
         this.anInt3255 = arg4;
@@ -70,7 +70,7 @@ public class Class93_Sub2 extends Class93 {
     }
 
     @OriginalMember(owner = "client!rq", name = "<init>", descriptor = "(Lclient!qha;IIIIZ[IIIZ)V")
-    public Class93_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) boolean arg9) {
+    public Class93_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) boolean arg9) {
         super(arg0, arg1, arg2, arg3 * arg4, arg5);
         this.anInt3255 = arg4;
         this.anInt3248 = arg3;
@@ -99,7 +99,7 @@ public class Class93_Sub2 extends Class93 {
     }
 
     @OriginalMember(owner = "client!rq", name = "<init>", descriptor = "(Lclient!qha;IIIIZ[FI)V")
-    public Class93_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) float[] arg6, @OriginalArg(7) int arg7) {
+    public Class93_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) float[] arg6, @OriginalArg(7) int arg7) {
         super(arg0, arg1, arg2, arg3 * arg4, arg5);
         this.anInt3248 = arg3;
         this.anInt3255 = arg4;

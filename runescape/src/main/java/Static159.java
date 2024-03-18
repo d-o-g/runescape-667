@@ -25,7 +25,7 @@ public final class Static159 {
     }
 
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "(Lclient!ha;B)V")
-    public static void method2574(@OriginalArg(0) Class19 arg0) {
+    public static void method2574(@OriginalArg(0) Toolkit arg0) {
         @Pc(7) int local7 = 0;
         @Pc(9) int local9 = 0;
         if (Static137.aBoolean210) {

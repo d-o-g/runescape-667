@@ -15,7 +15,7 @@ public final class Static484 {
     public static String aString85 = null;
 
     @OriginalMember(owner = "client!pea", name = "a", descriptor = "(Lclient!ha;II)Z")
-    public static boolean method6494(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public static boolean method6494(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         @Pc(9) int local9 = (Static720.anInt10859 - 104) / 2;
         @Pc(15) int local15 = (Static501.anInt7568 - 104) / 2;
         @Pc(17) boolean local17 = true;

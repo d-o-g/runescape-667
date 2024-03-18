@@ -30,7 +30,7 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     @Override
-    protected void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) Class1 arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
+    protected void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) ClippingMask arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
         this.UA(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5, 1, ((na) arg6).nativeid, arg7, arg8);
     }
 
@@ -173,7 +173,7 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class1 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         this.V(this.nativeid, arg0, arg1, ((na) arg2).nativeid, arg3, arg4);
     }
 

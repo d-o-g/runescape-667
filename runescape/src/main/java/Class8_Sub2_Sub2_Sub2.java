@@ -19,7 +19,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
     public final boolean aBoolean318;
 
     @OriginalMember(owner = "client!hp", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZII)V")
-    public Class8_Sub2_Sub2_Sub2(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9) {
+    public Class8_Sub2_Sub2_Sub2(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9) {
         super(arg4, arg5, arg6, arg2, arg3, arg1.anInt1227);
         this.aClass337_2 = new Class337(arg0, arg1, 22, arg8, arg2, arg3, this, arg7, arg9);
         this.aBoolean318 = arg1.anInt1271 != 0 && !arg7;
@@ -27,12 +27,12 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class19 arg3) {
+    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
         @Pc(12) Model local12 = this.aClass337_2.method7678(arg3, false, true, arg2, 131072);
         if (local12 == null) {
             return false;
         } else {
-            @Pc(20) Matrix local20 = arg3.method7985();
+            @Pc(20) Matrix local20 = arg3.scratchMatrix();
             local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
             return Static504.aBoolean579 ? local12.pickedOrtho(arg1, arg0, local20, false, 0, Static582.anInt8627) : local12.picked(arg1, arg0, local20, false, 0);
         }
@@ -49,7 +49,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
 
     @OriginalMember(owner = "client!hp", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method9289(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
             this.method3581((Class150) null);
         }
@@ -59,7 +59,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
         }
         @Pc(28) int local28 = super.anInt10690 >> 9;
         @Pc(33) int local33 = super.anInt10694 >> 9;
-        @Pc(36) Matrix local36 = arg0.method7985();
+        @Pc(36) Matrix local36 = arg0.scratchMatrix();
         local36.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         this.aClass337_2.method7681(local33, local21, false, -9827, arg0, local28, local28, local33, local36);
     }
@@ -71,7 +71,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6857(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         this.aClass337_2.method7669(arg0);
         if (arg1 > -42) {
             this.method9282(-38);
@@ -80,13 +80,13 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
 
     @OriginalMember(owner = "client!hp", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6861(@OriginalArg(0) Class19 arg0) {
+    public void method6861(@OriginalArg(0) Toolkit arg0) {
         this.aClass337_2.method7668(arg0);
     }
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Class19 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
         if (arg4 < 101) {
             this.aBoolean317 = true;
         }
@@ -110,7 +110,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
 
     @OriginalMember(owner = "client!hp", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 >= -93) {
             Static252.aBoolean316 = true;
         }
@@ -121,7 +121,7 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
     @Override
     public int method9286(@OriginalArg(0) int arg0) {
         if (arg0 != 2) {
-            this.method6857((Class19) null, 33);
+            this.method6857((Toolkit) null, 33);
         }
         return this.aClass337_2.method7671();
     }
@@ -146,12 +146,12 @@ public final class Class8_Sub2_Sub2_Sub2 extends Class8_Sub2_Sub2 implements Int
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0) {
+    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(22) Model local22 = this.aClass337_2.method7678(arg0, false, true, true, 2048);
         if (local22 == null) {
             return null;
         }
-        @Pc(30) Matrix local30 = arg0.method7985();
+        @Pc(30) Matrix local30 = arg0.scratchMatrix();
         local30.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(44) Class8_Sub7 local44 = Static642.method8441(this.aBoolean318, 1);
         @Pc(49) int local49 = super.anInt10690 >> 9;

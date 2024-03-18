@@ -8,7 +8,7 @@ public final class Static502 {
     public static short aShort97 = 320;
 
     @OriginalMember(owner = "client!pr", name = "a", descriptor = "(ZBLclient!ha;ZI)Lclient!cl;")
-    public static Class70 method6719(@OriginalArg(0) boolean arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) int arg3) {
+    public static Class70 method6719(@OriginalArg(0) boolean arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) int arg3) {
         if (arg3 == -1) {
             return null;
         }

@@ -26,13 +26,13 @@ public final class Class106 implements Interface16 {
     public boolean aBoolean220 = false;
 
     @OriginalMember(owner = "client!ela", name = "c", descriptor = "Lclient!kea;")
-    public final Class19_Sub1_Sub1 aClass19_Sub1_Sub1_4;
+    public final Toolkit_Sub1_Sub1 aClass19_Sub1_Sub1_4;
 
     @OriginalMember(owner = "client!ela", name = "a", descriptor = "Z")
     public final boolean aBoolean219;
 
     @OriginalMember(owner = "client!ela", name = "<init>", descriptor = "(Lclient!kea;Z)V")
-    public Class106(@OriginalArg(0) Class19_Sub1_Sub1 arg0, @OriginalArg(1) boolean arg1) {
+    public Class106(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) boolean arg1) {
         this.aClass19_Sub1_Sub1_4 = arg0;
         this.aBoolean219 = arg1;
     }

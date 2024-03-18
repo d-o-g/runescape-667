@@ -20,7 +20,7 @@ public final class Class101_Sub1 extends Class101 {
     public Class93_Sub1[] aClass93_Sub1Array1;
 
     @OriginalMember(owner = "client!ej", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Class101_Sub1(@OriginalArg(0) Class19_Sub3 arg0) {
+    public Class101_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0) {
         super(arg0);
         if (arg0.aBoolean598) {
             this.aBoolean212 = arg0.anInt8003 < 3;

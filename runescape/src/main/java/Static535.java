@@ -29,17 +29,17 @@ public final class Static535 {
                                     @Pc(166) Class8_Sub2_Sub3 local166 = local77.aClass8_Sub2_Sub3_2;
                                     @Pc(169) Class8_Sub2_Sub3 local169 = local77.aClass8_Sub2_Sub3_1;
                                     if (local166 != null && local166.method9290(0)) {
-                                        arg0.method9285(local163, local1, Static665.aClass19_15, (local35 - arg3) * Static340.anInt5586 + (1 - arg5) * Static247.anInt3993, (byte) 110, (local23 - arg2) * Static340.anInt5586 + (1 - arg4) * Static247.anInt3993, local166);
+                                        arg0.method9285(local163, local1, Static665.aToolkit_15, (local35 - arg3) * Static340.anInt5586 + (1 - arg5) * Static247.anInt3993, (byte) 110, (local23 - arg2) * Static340.anInt5586 + (1 - arg4) * Static247.anInt3993, local166);
                                     }
                                     if (local169 != null && local169.method9290(0)) {
-                                        arg0.method9285(local163, local1, Static665.aClass19_15, (local35 - arg3) * Static340.anInt5586 + (1 - arg5) * Static247.anInt3993, (byte) 115, (local23 - arg2) * Static340.anInt5586 + (1 - arg4) * Static247.anInt3993, local169);
+                                        arg0.method9285(local163, local1, Static665.aToolkit_15, (local35 - arg3) * Static340.anInt5586 + (1 - arg5) * Static247.anInt3993, (byte) 115, (local23 - arg2) * Static340.anInt5586 + (1 - arg4) * Static247.anInt3993, local169);
                                     }
                                     for (@Pc(250) Class286 local250 = local77.aClass286_2; local250 != null; local250 = local250.aClass286_1) {
                                         @Pc(254) Class8_Sub2_Sub1 local254 = local250.aClass8_Sub2_Sub1_1;
                                         if (local254 != null && local254.method9290(0) && (local23 == local254.aShort131 || local23 == local3) && (local35 == local254.aShort132 || local35 == local11)) {
                                             @Pc(294) int local294 = local254.aShort134 + 1 - local254.aShort131;
                                             @Pc(302) int local302 = local254.aShort133 + 1 - local254.aShort132;
-                                            arg0.method9285(local163, local1, Static665.aClass19_15, (local254.aShort132 - arg3) * Static340.anInt5586 + (local302 - arg5) * Static247.anInt3993, (byte) 114, (local254.aShort131 - arg2) * Static340.anInt5586 + (local294 - arg4) * Static247.anInt3993, local254);
+                                            arg0.method9285(local163, local1, Static665.aToolkit_15, (local254.aShort132 - arg3) * Static340.anInt5586 + (local302 - arg5) * Static247.anInt3993, (byte) 114, (local254.aShort131 - arg2) * Static340.anInt5586 + (local294 - arg4) * Static247.anInt3993, local254);
                                         }
                                     }
                                 }

@@ -44,12 +44,12 @@ public final class Matrix_Sub2 extends Matrix {
 
     @OriginalMember(owner = "client!eaa", name = "<init>", descriptor = "()V")
     public Matrix_Sub2() {
-        this.method7133();
+        this.makeIdentity();
     }
 
     @OriginalMember(owner = "client!eaa", name = "b", descriptor = "(III)V")
     @Override
-    public void method7134(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void translate(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aFloat58 += (float) arg1;
         this.aFloat62 += (float) arg2;
         this.aFloat60 += (float) arg0;
@@ -68,7 +68,7 @@ public final class Matrix_Sub2 extends Matrix {
 
     @OriginalMember(owner = "client!eaa", name = "e", descriptor = "(I)V")
     @Override
-    public void method7132(@OriginalArg(0) int arg0) {
+    public void makeRotationZ(@OriginalArg(0) int arg0) {
         this.aFloat61 = 1.0F;
         this.aFloat59 = this.aFloat52 = Class120.aFloatArray80[arg0 & 0x3FFF];
         this.aFloat57 = Class120.aFloatArray79[arg0 & 0x3FFF];
@@ -178,7 +178,7 @@ public final class Matrix_Sub2 extends Matrix {
 
     @OriginalMember(owner = "client!eaa", name = "a", descriptor = "()V")
     @Override
-    public void method7133() {
+    public void makeIdentity() {
         this.aFloat59 = this.aFloat52 = this.aFloat61 = 1.0F;
         this.aFloat57 = this.aFloat56 = this.aFloat55 = this.aFloat54 = this.aFloat53 = this.aFloat51 = this.aFloat60 = this.aFloat58 = this.aFloat62 = 0.0F;
     }
@@ -224,7 +224,7 @@ public final class Matrix_Sub2 extends Matrix {
 
     @OriginalMember(owner = "client!eaa", name = "f", descriptor = "(I)V")
     @Override
-    public void method7127(@OriginalArg(0) int arg0) {
+    public void rotateAxisY(@OriginalArg(0) int arg0) {
         @Pc(9) float local9 = Class120.aFloatArray80[arg0 & 0x3FFF];
         @Pc(15) float local15 = Class120.aFloatArray79[arg0 & 0x3FFF];
         @Pc(18) float local18 = this.aFloat59;

@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -23,7 +24,7 @@ public final class Static345 {
     }
 
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "(Lclient!ha;)V")
-    public static void method5051(@OriginalArg(0) Class19 arg0) {
+    public static void method5051(@OriginalArg(0) Toolkit arg0) {
         if (aModel_6 != null) {
             return;
         }
@@ -33,17 +34,17 @@ public final class Static345 {
         local8.method2230(0, -128, 0);
         for (@Pc(37) int local37 = 0; local37 <= 24; local37++) {
             @Pc(44) int local44 = local37 * 8192 / 24;
-            @Pc(48) int local48 = Class361.anIntArray741[local44];
-            @Pc(52) int local52 = Class361.anIntArray740[local44];
+            @Pc(48) int local48 = Trig1.SIN[local44];
+            @Pc(52) int local52 = Trig1.COS[local44];
             @Pc(61) int local61;
             @Pc(67) int local67;
             @Pc(75) int local75;
             @Pc(83) int local83;
             for (@Pc(54) int local54 = 1; local54 < 24; local54++) {
                 local61 = local54 * 8192 / 24;
-                local67 = Class361.anIntArray740[local61] >> 7;
-                local75 = Class361.anIntArray741[local61] * local48 >> 21;
-                local83 = Class361.anIntArray741[local61] * local52 >> 21;
+                local67 = Trig1.COS[local61] >> 7;
+                local75 = Trig1.SIN[local61] * local48 >> 21;
+                local83 = Trig1.SIN[local61] * local52 >> 21;
                 local8.method2230(-local75, local67, local83);
             }
             if (local37 > 0) {
@@ -69,7 +70,7 @@ public final class Static345 {
     }
 
     @OriginalMember(owner = "client!ks", name = "b", descriptor = "(Lclient!ha;)V")
-    public static void method5058(@OriginalArg(0) Class19 arg0) {
+    public static void method5058(@OriginalArg(0) Toolkit arg0) {
         if (aSprite_25 != null) {
             return;
         }

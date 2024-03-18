@@ -19,7 +19,7 @@ public final class Static295 {
     }
 
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(IIIBILclient!qha;)Lclient!gb;")
-    public static Class93_Sub2_Sub1 method4353(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Class19_Sub3 arg4) {
+    public static Class93_Sub2_Sub1 method4353(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Toolkit_Sub3 arg4) {
         if (arg4.aBoolean597 || Static700.method9150(arg2) && Static700.method9150(arg1)) {
             return new Class93_Sub2_Sub1(arg4, 3553, arg0, arg3, arg2, arg1, true);
         } else if (arg4.aBoolean595) {

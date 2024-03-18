@@ -67,7 +67,7 @@ public final class Class337 {
     public final Class152 aClass152_9;
 
     @OriginalMember(owner = "client!sh", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIILclient!eo;ZI)V")
-    public Class337(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8) {
+    public Class337(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8) {
         this.aByte133 = (byte) arg5;
         this.anInt8663 = arg3;
         this.aByte132 = (byte) arg4;
@@ -82,12 +82,12 @@ public final class Class337 {
     }
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!ha;I)V")
-    public void method7668(@OriginalArg(0) Class19 arg0) {
+    public void method7668(@OriginalArg(0) Toolkit arg0) {
         this.method7678(arg0, true, true, true, 262144);
     }
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!ha;B)V")
-    public void method7669(@OriginalArg(0) Class19 arg0) {
+    public void method7669(@OriginalArg(0) Toolkit arg0) {
         if (this.aClass2_Sub2_Sub9_6 != null) {
             Static292.method4618(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aClass8_Sub2_21.anInt10690, this.aClass8_Sub2_21.anInt10694, this.aBooleanArray27);
             this.aBooleanArray27 = null;
@@ -109,7 +109,7 @@ public final class Class337 {
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Z)I")
     public int method7673(@OriginalArg(0) boolean arg0) {
         if (!arg0) {
-            this.method7678((Class19) null, false, false, false, 98);
+            this.method7678((Toolkit) null, false, false, false, 98);
         }
         return this.anInt8652;
     }
@@ -177,7 +177,7 @@ public final class Class337 {
     }
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!ha;ZZZI)Lclient!ka;")
-    public Model method7678(@OriginalArg(0) Class19 arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
+    public Model method7678(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
         @Pc(11) Class54 local11 = Static354.aClass142_4.method3063(this.anInt8649, 119);
         if (local11.anIntArray113 != null) {
             local11 = local11.method1301(13, Static1.anInt10798 == 3 ? Static298.anInterface23_2 : Static34.aClass304_1);
@@ -299,7 +299,7 @@ public final class Class337 {
     }
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(ILclient!ka;ZILclient!ha;IIILclient!tt;)V")
-    public void method7681(@OriginalArg(0) int arg0, @OriginalArg(1) Model arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class19 arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) Matrix arg8) {
+    public void method7681(@OriginalArg(0) int arg0, @OriginalArg(1) Model arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) Matrix arg8) {
         if (arg3 != -9827) {
             return;
         }

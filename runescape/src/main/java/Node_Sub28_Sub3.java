@@ -85,7 +85,7 @@ public final class Node_Sub28_Sub3 extends Node_Sub28 {
     }
 
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(Lclient!ha;I)Lclient!st;")
-    public Sprite method5491(@OriginalArg(0) Class19 arg0) {
+    public Sprite method5491(@OriginalArg(0) Toolkit arg0) {
         if (this.aFrame7 == null) {
             return null;
         } else if (this.aBoolean462 || this.aSprite_29 == null) {

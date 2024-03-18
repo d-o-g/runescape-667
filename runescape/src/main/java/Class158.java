@@ -481,7 +481,7 @@ public final class Class158 {
     public int anInt3819 = -1;
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(ZLclient!ha;)Lclient!st;")
-    public Sprite method3383(@OriginalArg(1) Class19 arg0) {
+    public Sprite method3383(@OriginalArg(1) Toolkit arg0) {
         Static544.aBoolean624 = false;
         @Pc(54) long local54 = ((long) this.anInt3798 << 40) + (((this.aBoolean292 ? 1L : 0L) << 35) + (long) this.anInt3810 - (-((long) this.anInt3773 << 36) + -((this.aBoolean291 ? 1L : 0L) << 38)) + ((this.aBoolean293 ? 1L : 0L) << 39));
         @Pc(60) Sprite local60 = (Sprite) Static473.aClass82_157.method2156(local54);
@@ -519,7 +519,7 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!ka;ILclient!tt;I)V")
-    public void method3384(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Matrix arg2, @OriginalArg(4) int arg3) {
+    public void method3384(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Matrix arg2, @OriginalArg(4) int arg3) {
         arg1.method7476(arg2);
         @Pc(9) MeshEmitter[] local9 = arg1.meshEmitters();
         @Pc(22) MeshMagnet[] local22 = arg1.meshMagnets();
@@ -850,7 +850,7 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;I)Lclient!he;")
-    public Class159 method3393(@OriginalArg(0) Class19 arg0) {
+    public Class159 method3393(@OriginalArg(0) Toolkit arg0) {
         @Pc(15) long local15 = (long) this.anInt3741 & 0xFFFFFFFFL | (long) this.anInt3812 << 32;
         @Pc(21) Class159 local21 = (Class159) Static449.aClass82_146.method2156(local15);
         if (local21 != null) {
@@ -888,7 +888,7 @@ public final class Class158 {
             local89[local53.anInt10848 + local94] = local53.anInt10852 + local97;
             local92[local53.anInt10848 + local94] = local121 - local97;
         }
-        @Pc(180) Class1 local180 = arg0.method8004(local77, local86, local89, local92);
+        @Pc(180) ClippingMask local180 = arg0.createMask(local77, local86, local89, local92);
         if (local180 == null) {
             return null;
         } else {
@@ -985,7 +985,7 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!gu;Lclient!qp;Lclient!kr;BLclient!bp;Lclient!ju;Lclient!uk;Lclient!ql;Lclient!es;ILclient!vk;)Lclient!ka;")
-    public Model method3401(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(3) Class215 arg3, @OriginalArg(5) Class50 arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Interface23 arg6, @OriginalArg(8) Class308 arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
+    public Model method3401(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(2) Class310 arg2, @OriginalArg(3) Class215 arg3, @OriginalArg(5) Class50 arg4, @OriginalArg(6) Class201 arg5, @OriginalArg(7) Interface23 arg6, @OriginalArg(8) Class308 arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
         Static544.aBoolean624 = false;
         if (this.anInt3823 == 0) {
             return null;
@@ -1018,9 +1018,9 @@ public final class Class158 {
             }
             @Pc(271) long local271 = local53 & 0x3FFFFFFFFFL | (long) this.anInt3831 << 38 | (long) this.anInt3823 << 54 | (long) arg0.anInt8962 << 59;
             @Pc(277) Model local277 = (Model) Static312.aClass82_106.method2156(local271);
-            if (local277 == null || arg0.method7960(local277.ua(), arg9) != 0) {
+            if (local277 == null || arg0.compareFunctionMasks(local277.ua(), arg9) != 0) {
                 if (local277 != null) {
-                    arg9 = arg0.method8013(arg9, local277.ua());
+                    arg9 = arg0.combineFunctionMasks(arg9, local277.ua());
                 }
                 @Pc(307) Mesh local307 = Static121.method2201(this.anInt3831, Static607.aClass330_113);
                 if (local307 == null) {
@@ -1118,7 +1118,7 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(ZLclient!ha;)Lclient!da;")
-    public Class14 method3403(@OriginalArg(1) Class19 arg0) {
+    public Class14 method3403(@OriginalArg(1) Toolkit arg0) {
         @Pc(18) Class14 local18 = Static324.method4628(this.aBoolean299, false, this.anInt3781, arg0);
         Static544.aBoolean624 = local18 == null;
         return local18;

@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -241,15 +242,15 @@ public final class Model_Sub3 extends Model {
     public boolean aBoolean651 = false;
 
     @OriginalMember(owner = "client!rs", name = "ub", descriptor = "Lclient!iaa;")
-    public final Class19_Sub2 aClass19_Sub2_9;
+    public final Toolkit_Sub2 aClass19_Sub2_9;
 
     @OriginalMember(owner = "client!rs", name = "<init>", descriptor = "(Lclient!iaa;)V")
-    public Model_Sub3(@OriginalArg(0) Class19_Sub2 arg0) {
+    public Model_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0) {
         this.aClass19_Sub2_9 = arg0;
     }
 
     @OriginalMember(owner = "client!rs", name = "<init>", descriptor = "(Lclient!iaa;Lclient!dv;IIII)V")
-    public Model_Sub3(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Model_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass19_Sub2_9 = arg0;
         this.anInt8489 = arg2;
         this.anInt8495 = arg3;
@@ -720,8 +721,8 @@ public final class Model_Sub3 extends Model {
         } else if (arg0 == 12288) {
             this.method7515();
         } else {
-            @Pc(35) int local35 = Class361.anIntArray741[arg0];
-            @Pc(39) int local39 = Class361.anIntArray740[arg0];
+            @Pc(35) int local35 = Trig1.SIN[arg0];
+            @Pc(39) int local39 = Trig1.COS[arg0];
             synchronized (this) {
                 for (@Pc(45) int local45 = 0; local45 < this.anInt8483; local45++) {
                     @Pc(62) int local62 = this.anIntArray658[local45] * local35 + this.anIntArray666[local45] * local39 >> 14;
@@ -1029,22 +1030,22 @@ public final class Model_Sub3 extends Model {
                                 this.anIntArray675[local86] -= this.anInt8490;
                                 this.anIntArray658[local86] -= this.anInt8487;
                                 if (arg4 != 0) {
-                                    local91 = Class361.anIntArray741[arg4];
-                                    local506 = Class361.anIntArray740[arg4];
+                                    local91 = Trig1.SIN[arg4];
+                                    local506 = Trig1.COS[arg4];
                                     local531 = this.anIntArray675[local86] * local91 + this.anIntArray666[local86] * local506 + 16383 >> 14;
                                     this.anIntArray675[local86] = this.anIntArray675[local86] * local506 + 16383 - this.anIntArray666[local86] * local91 >> 14;
                                     this.anIntArray666[local86] = local531;
                                 }
                                 if (arg2 != 0) {
-                                    local91 = Class361.anIntArray741[arg2];
-                                    local506 = Class361.anIntArray740[arg2];
+                                    local91 = Trig1.SIN[arg2];
+                                    local506 = Trig1.COS[arg2];
                                     local531 = this.anIntArray675[local86] * local506 + 16383 - this.anIntArray658[local86] * local91 >> 14;
                                     this.anIntArray658[local86] = this.anIntArray675[local86] * local91 + this.anIntArray658[local86] * local506 + 16383 >> 14;
                                     this.anIntArray675[local86] = local531;
                                 }
                                 if (arg3 != 0) {
-                                    local91 = Class361.anIntArray741[arg3];
-                                    local506 = Class361.anIntArray740[arg3];
+                                    local91 = Trig1.SIN[arg3];
+                                    local506 = Trig1.COS[arg3];
                                     local531 = this.anIntArray658[local86] * local91 + this.anIntArray666[local86] * local506 + 16383 >> 14;
                                     this.anIntArray658[local86] = this.anIntArray658[local86] * local506 + 16383 - this.anIntArray666[local86] * local91 >> 14;
                                     this.anIntArray666[local86] = local531;
@@ -1084,12 +1085,12 @@ public final class Model_Sub3 extends Model {
                     this.aBoolean649 = false;
                 }
                 @Pc(583) int[] local583 = new int[9];
-                local531 = Class361.anIntArray740[arg2];
-                local556 = Class361.anIntArray741[arg2];
-                local595 = Class361.anIntArray740[arg3];
-                local599 = Class361.anIntArray741[arg3];
-                local603 = Class361.anIntArray740[arg4];
-                local607 = Class361.anIntArray741[arg4];
+                local531 = Trig1.COS[arg2];
+                local556 = Trig1.SIN[arg2];
+                local595 = Trig1.COS[arg3];
+                local599 = Trig1.SIN[arg3];
+                local603 = Trig1.COS[arg4];
+                local607 = Trig1.SIN[arg4];
                 local615 = local556 * local603 + 8192 >> 14;
                 local623 = local556 * local607 + 8192 >> 14;
                 local583[0] = local595 * local603 + local599 * local623 + 8192 >> 14;
@@ -1604,22 +1605,22 @@ public final class Model_Sub3 extends Model {
                     this.anIntArray675[local3] -= this.anInt8490;
                     this.anIntArray658[local3] -= this.anInt8487;
                     if (arg3 != 0) {
-                        local14 = Class361.anIntArray741[arg3];
-                        local168 = Class361.anIntArray740[arg3];
+                        local14 = Trig1.SIN[arg3];
+                        local168 = Trig1.COS[arg3];
                         local186 = this.anIntArray675[local3] * local14 + this.anIntArray666[local3] * local168 + 16383 >> 14;
                         this.anIntArray675[local3] = this.anIntArray675[local3] * local168 + 16383 - this.anIntArray666[local3] * local14 >> 14;
                         this.anIntArray666[local3] = local186;
                     }
                     if (arg1 != 0) {
-                        local14 = Class361.anIntArray741[arg1];
-                        local168 = Class361.anIntArray740[arg1];
+                        local14 = Trig1.SIN[arg1];
+                        local168 = Trig1.COS[arg1];
                         local186 = this.anIntArray675[local3] * local168 + 16383 - this.anIntArray658[local3] * local14 >> 14;
                         this.anIntArray658[local3] = this.anIntArray675[local3] * local14 + this.anIntArray658[local3] * local168 + 16383 >> 14;
                         this.anIntArray675[local3] = local186;
                     }
                     if (arg2 != 0) {
-                        local14 = Class361.anIntArray741[arg2];
-                        local168 = Class361.anIntArray740[arg2];
+                        local14 = Trig1.SIN[arg2];
+                        local168 = Trig1.COS[arg2];
                         local186 = this.anIntArray658[local3] * local14 + this.anIntArray666[local3] * local168 + 16383 >> 14;
                         this.anIntArray658[local3] = this.anIntArray658[local3] * local168 + 16383 - this.anIntArray666[local3] * local14 >> 14;
                         this.anIntArray666[local3] = local186;
@@ -2212,22 +2213,22 @@ public final class Model_Sub3 extends Model {
                             this.anIntArray675[local86] -= this.anInt8490;
                             this.anIntArray658[local86] -= this.anInt8487;
                             if (arg4 != 0) {
-                                local91 = Class361.anIntArray741[arg4];
-                                local354 = Class361.anIntArray740[arg4];
+                                local91 = Trig1.SIN[arg4];
+                                local354 = Trig1.COS[arg4];
                                 local372 = this.anIntArray675[local86] * local91 + this.anIntArray666[local86] * local354 + 16383 >> 14;
                                 this.anIntArray675[local86] = this.anIntArray675[local86] * local354 + 16383 - this.anIntArray666[local86] * local91 >> 14;
                                 this.anIntArray666[local86] = local372;
                             }
                             if (arg2 != 0) {
-                                local91 = Class361.anIntArray741[arg2];
-                                local354 = Class361.anIntArray740[arg2];
+                                local91 = Trig1.SIN[arg2];
+                                local354 = Trig1.COS[arg2];
                                 local372 = this.anIntArray675[local86] * local354 + 16383 - this.anIntArray658[local86] * local91 >> 14;
                                 this.anIntArray658[local86] = this.anIntArray675[local86] * local91 + this.anIntArray658[local86] * local354 + 16383 >> 14;
                                 this.anIntArray675[local86] = local372;
                             }
                             if (arg3 != 0) {
-                                local91 = Class361.anIntArray741[arg3];
-                                local354 = Class361.anIntArray740[arg3];
+                                local91 = Trig1.SIN[arg3];
+                                local354 = Trig1.COS[arg3];
                                 local372 = this.anIntArray658[local86] * local91 + this.anIntArray666[local86] * local354 + 16383 >> 14;
                                 this.anIntArray658[local86] = this.anIntArray658[local86] * local354 + 16383 - this.anIntArray666[local86] * local91 >> 14;
                                 this.anIntArray666[local86] = local372;
@@ -2243,22 +2244,22 @@ public final class Model_Sub3 extends Model {
                             this.anIntArray675[local86] -= this.anInt8490;
                             this.anIntArray658[local86] -= this.anInt8487;
                             if (arg2 != 0) {
-                                local91 = Class361.anIntArray741[arg2];
-                                local354 = Class361.anIntArray740[arg2];
+                                local91 = Trig1.SIN[arg2];
+                                local354 = Trig1.COS[arg2];
                                 local372 = this.anIntArray675[local86] * local354 + 16383 - this.anIntArray658[local86] * local91 >> 14;
                                 this.anIntArray658[local86] = this.anIntArray675[local86] * local91 + this.anIntArray658[local86] * local354 + 16383 >> 14;
                                 this.anIntArray675[local86] = local372;
                             }
                             if (arg4 != 0) {
-                                local91 = Class361.anIntArray741[arg4];
-                                local354 = Class361.anIntArray740[arg4];
+                                local91 = Trig1.SIN[arg4];
+                                local354 = Trig1.COS[arg4];
                                 local372 = this.anIntArray675[local86] * local91 + this.anIntArray666[local86] * local354 + 16383 >> 14;
                                 this.anIntArray675[local86] = this.anIntArray675[local86] * local354 + 16383 - this.anIntArray666[local86] * local91 >> 14;
                                 this.anIntArray666[local86] = local372;
                             }
                             if (arg3 != 0) {
-                                local91 = Class361.anIntArray741[arg3];
-                                local354 = Class361.anIntArray740[arg3];
+                                local91 = Trig1.SIN[arg3];
+                                local354 = Trig1.COS[arg3];
                                 local372 = this.anIntArray658[local86] * local91 + this.anIntArray666[local86] * local354 + 16383 >> 14;
                                 this.anIntArray658[local86] = this.anIntArray658[local86] * local354 + 16383 - this.anIntArray666[local86] * local91 >> 14;
                                 this.anIntArray666[local86] = local372;
@@ -3002,8 +3003,8 @@ public final class Model_Sub3 extends Model {
         } else if (arg0 == 12288) {
             this.method7532();
         } else {
-            @Pc(40) int local40 = Class361.anIntArray741[arg0];
-            @Pc(44) int local44 = Class361.anIntArray740[arg0];
+            @Pc(40) int local40 = Trig1.SIN[arg0];
+            @Pc(44) int local44 = Trig1.COS[arg0];
             synchronized (this) {
                 @Pc(67) int local67;
                 for (@Pc(50) int local50 = 0; local50 < this.anInt8491; local50++) {
@@ -3592,8 +3593,8 @@ public final class Model_Sub3 extends Model {
         if ((this.anInt8489 & 0x6) != 6) {
             throw new IllegalStateException();
         }
-        @Pc(14) int local14 = Class361.anIntArray741[arg0];
-        @Pc(18) int local18 = Class361.anIntArray740[arg0];
+        @Pc(14) int local14 = Trig1.SIN[arg0];
+        @Pc(18) int local18 = Trig1.COS[arg0];
         synchronized (this) {
             for (@Pc(24) int local24 = 0; local24 < this.anInt8483; local24++) {
                 @Pc(41) int local41 = this.anIntArray675[local24] * local18 - this.anIntArray658[local24] * local14 >> 14;
@@ -4263,8 +4264,8 @@ public final class Model_Sub3 extends Model {
         if ((this.anInt8489 & 0x3) != 3) {
             throw new IllegalStateException();
         }
-        @Pc(14) int local14 = Class361.anIntArray741[arg0];
-        @Pc(18) int local18 = Class361.anIntArray740[arg0];
+        @Pc(14) int local14 = Trig1.SIN[arg0];
+        @Pc(18) int local18 = Trig1.COS[arg0];
         synchronized (this) {
             for (@Pc(24) int local24 = 0; local24 < this.anInt8483; local24++) {
                 @Pc(41) int local41 = this.anIntArray675[local24] * local14 + this.anIntArray666[local24] * local18 >> 14;

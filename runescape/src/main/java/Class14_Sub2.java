@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class14_Sub2 extends Class14 {
 
     @OriginalMember(owner = "client!gs", name = "z", descriptor = "Lclient!qha;")
-    public final Class19_Sub3 aClass19_Sub3_16;
+    public final Toolkit_Sub3 aClass19_Sub3_16;
 
     @OriginalMember(owner = "client!gs", name = "A", descriptor = "Lclient!gb;")
     public final Class93_Sub2_Sub1 aClass93_Sub2_Sub1_1;
@@ -20,7 +20,7 @@ public final class Class14_Sub2 extends Class14 {
     public final Class36 aClass36_4;
 
     @OriginalMember(owner = "client!gs", name = "<init>", descriptor = "(Lclient!qha;Lclient!ve;[Lclient!wp;Z)V")
-    public Class14_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) Class407[] arg2, @OriginalArg(3) boolean arg3) {
+    public Class14_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) Class407[] arg2, @OriginalArg(3) boolean arg3) {
         super(arg0, arg1);
         this.aClass19_Sub3_16 = arg0;
         @Pc(8) int local8 = 0;
@@ -167,8 +167,8 @@ public final class Class14_Sub2 extends Class14 {
 
     @OriginalMember(owner = "client!gs", name = "a", descriptor = "(CIIIZLclient!aa;II)V")
     @Override
-    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) Class1 arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
-        @Pc(2) Class1_Sub3 local2 = (Class1_Sub3) arg5;
+    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) ClippingMask arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+        @Pc(2) ClippingMask_Sub3 local2 = (ClippingMask_Sub3) arg5;
         @Pc(5) Class93_Sub2_Sub1 local5 = local2.aClass93_Sub2_Sub1_5;
         this.aClass19_Sub3_16.method6974();
         this.aClass19_Sub3_16.method7001(this.aClass93_Sub2_Sub1_1);

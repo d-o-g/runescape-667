@@ -141,9 +141,9 @@ public abstract class Class8_Sub2_Sub1 extends Class8_Sub2 {
 
     @OriginalMember(owner = "client!qf", name = "a", descriptor = "(BLclient!ha;)Z")
     @Override
-    public final boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Class19 arg1) {
+    public final boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1) {
         if (arg0 != 59) {
-            this.method9284((byte) -4, (Class19) null);
+            this.method9284((byte) -4, (Toolkit) null);
         }
         return Static15.method188(this.aShort132, this.aShort134, this.method9278(arg1, -115), this.aShort133, this.aShort131, super.aByte143);
     }

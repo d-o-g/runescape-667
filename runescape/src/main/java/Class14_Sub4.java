@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class14_Sub4 extends Class14 {
 
     @OriginalMember(owner = "client!mq", name = "y", descriptor = "Lclient!iaa;")
-    public Class19_Sub2 aClass19_Sub2_6;
+    public Toolkit_Sub2 aClass19_Sub2_6;
 
     @OriginalMember(owner = "client!mq", name = "z", descriptor = "[I")
     public final int[] anIntArray486;
@@ -25,7 +25,7 @@ public final class Class14_Sub4 extends Class14 {
     public final int[] anIntArray485;
 
     @OriginalMember(owner = "client!mq", name = "<init>", descriptor = "(Lclient!iaa;Lclient!ve;[Lclient!wp;[I[I)V")
-    public Class14_Sub4(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) Class407[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
+    public Class14_Sub4(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) Class407[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
         super(arg0, arg1);
         this.aClass19_Sub2_6 = arg0;
         this.aClass19_Sub2_6 = arg0;
@@ -51,8 +51,8 @@ public final class Class14_Sub4 extends Class14 {
     }
 
     @OriginalMember(owner = "client!mq", name = "a", descriptor = "([B[IIIIIIIIIIILclient!aa;II)V")
-    public void method5625(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) Class1 arg12, @OriginalArg(13) int arg13, @OriginalArg(14) int arg14) {
-        @Pc(2) Class1_Sub1 local2 = (Class1_Sub1) arg12;
+    public void method5625(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) ClippingMask arg12, @OriginalArg(13) int arg13, @OriginalArg(14) int arg14) {
+        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) arg12;
         @Pc(5) int[] local5 = local2.anIntArray334;
         @Pc(8) int[] local8 = local2.anIntArray335;
         @Pc(14) int local14 = arg9 - this.aClass19_Sub2_6.anInt4192;
@@ -111,7 +111,7 @@ public final class Class14_Sub4 extends Class14 {
 
     @OriginalMember(owner = "client!mq", name = "a", descriptor = "(CIIIZLclient!aa;II)V")
     @Override
-    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) Class1 arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) ClippingMask arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
         if (arg5 == null) {
             this.fa(arg0, arg1, arg2, arg3, arg4);
             return;

@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Class26_Sub5 extends Class26 {
 
     @OriginalMember(owner = "client!jka", name = "<init>", descriptor = "(Lclient!am;)V")
-    public Class26_Sub5(@OriginalArg(0) Class19_Sub1 arg0) {
+    public Class26_Sub5(@OriginalArg(0) Toolkit_Sub1 arg0) {
         super(arg0);
     }
 

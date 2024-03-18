@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class14_Sub1 extends Class14 {
 
     @OriginalMember(owner = "client!aja", name = "y", descriptor = "Lclient!am;")
-    public final Class19_Sub1 aClass19_Sub1_2;
+    public final Toolkit_Sub1 aClass19_Sub1_2;
 
     @OriginalMember(owner = "client!aja", name = "A", descriptor = "Lclient!og;")
     public final Interface18 anInterface18_1;
@@ -21,7 +21,7 @@ public final class Class14_Sub1 extends Class14 {
     public final Interface16 anInterface16_1;
 
     @OriginalMember(owner = "client!aja", name = "<init>", descriptor = "(Lclient!am;Lclient!ve;[Lclient!wp;Z)V")
-    public Class14_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) Class407[] arg2, @OriginalArg(3) boolean arg3) {
+    public Class14_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) Class407[] arg2, @OriginalArg(3) boolean arg3) {
         super(arg0, arg1);
         this.aClass19_Sub1_2 = arg0;
         @Pc(8) int local8 = 0;
@@ -199,7 +199,7 @@ public final class Class14_Sub1 extends Class14 {
 
     @OriginalMember(owner = "client!aja", name = "a", descriptor = "(CIIIZLclient!aa;II)V")
     @Override
-    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) Class1 arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) ClippingMask arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
     }
 
     @OriginalMember(owner = "client!aja", name = "fa", descriptor = "(CIIIZ)V")

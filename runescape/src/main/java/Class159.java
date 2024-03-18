@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Class159 {
 
     @OriginalMember(owner = "client!he", name = "j", descriptor = "Lclient!aa;")
-    public final Class1 aClass1_1;
+    public final ClippingMask aClippingMask;
 
     @OriginalMember(owner = "client!he", name = "i", descriptor = "[I")
     public final int[] anIntArray302;
@@ -24,8 +24,8 @@ public final class Class159 {
     public final int anInt3832;
 
     @OriginalMember(owner = "client!he", name = "<init>", descriptor = "(II[I[ILclient!aa;I)V")
-    public Class159(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) Class1 arg4, @OriginalArg(5) int arg5) {
-        this.aClass1_1 = arg4;
+    public Class159(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) ClippingMask arg4, @OriginalArg(5) int arg5) {
+        this.aClippingMask = arg4;
         this.anIntArray302 = arg2;
         this.anIntArray303 = arg3;
         this.anInt3833 = arg1;

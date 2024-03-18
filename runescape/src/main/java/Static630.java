@@ -35,7 +35,7 @@ public final class Static630 {
         if (Static400.aClass2_Sub34_28.aClass57_Sub19_2.method5960() == 0 && Static164.anInt2808 != Static394.anInt6176) {
             Static684.method8931(false, Static62.anInt1465, 12, Static525.anInt8907);
         } else {
-            Static106.method2046(Static163.aClass19_17);
+            Static106.method2046(Static163.aToolkit_17);
             if (Static514.anInt7680 != Static394.anInt6176) {
                 Static77.method1561();
             }

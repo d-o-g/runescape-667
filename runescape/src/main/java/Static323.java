@@ -35,7 +35,7 @@ public final class Static323 {
                             Static535.method7148(local21, local1, local4, local7, 1, 1);
                             if (local24 != null && local24.method9290(0)) {
                                 Static535.method7148(local24, local1, local4, local7, 1, 1);
-                                local24.method9285(0, false, Static665.aClass19_15, 0, (byte) 126, 0, local21);
+                                local24.method9285(0, false, Static665.aToolkit_15, 0, (byte) 126, 0, local21);
                                 local24.method9280(27811);
                             }
                             local21.method9280(27811);

@@ -20,7 +20,7 @@ public abstract class Class8_Sub2_Sub2 extends Class8_Sub2 {
 
     @OriginalMember(owner = "client!eia", name = "a", descriptor = "(BLclient!ha;)Z")
     @Override
-    public final boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Class19 arg1) {
+    public final boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1) {
         if (arg0 != 59) {
             this.aShort46 = -95;
         }

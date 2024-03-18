@@ -28,7 +28,7 @@ public final class Sprite_Sub3 extends Sprite {
     public final int anInt6626;
 
     @OriginalMember(owner = "client!np", name = "i", descriptor = "Lclient!am;")
-    public final Class19_Sub1 aClass19_Sub1_12;
+    public final Toolkit_Sub1 aClass19_Sub1_12;
 
     @OriginalMember(owner = "client!np", name = "t", descriptor = "Lclient!og;")
     public final Interface18 anInterface18_3;
@@ -46,7 +46,7 @@ public final class Sprite_Sub3 extends Sprite {
     public final boolean aBoolean496;
 
     @OriginalMember(owner = "client!np", name = "<init>", descriptor = "(Lclient!am;IIZ)V")
-    public Sprite_Sub3(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
+    public Sprite_Sub3(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
         this.anInt6606 = arg2;
         this.anInt6626 = arg1;
         this.aClass19_Sub1_12 = arg0;
@@ -59,7 +59,7 @@ public final class Sprite_Sub3 extends Sprite {
     }
 
     @OriginalMember(owner = "client!np", name = "<init>", descriptor = "(Lclient!am;II[III)V")
-    public Sprite_Sub3(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Sprite_Sub3(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.anInt6626 = arg1;
         this.anInt6606 = arg2;
         this.aClass19_Sub1_12 = arg0;
@@ -100,8 +100,8 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class1 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        @Pc(6) Class1_Sub2 local6 = (Class1_Sub2) arg2;
+    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+        @Pc(6) ClippingMask_Sub2 local6 = (ClippingMask_Sub2) arg2;
         @Pc(9) Interface18 local9 = local6.anInterface18_2;
         @Pc(14) int local14 = arg0 + this.anInt6617;
         @Pc(19) int local19 = arg1 + this.anInt6624;
@@ -112,7 +112,7 @@ public final class Sprite_Sub3 extends Sprite {
         this.aClass19_Sub1_12.method8054(1);
         @Pc(49) Matrix_Sub1 local49 = this.aClass19_Sub1_12.method8040();
         local49.method1884(0.0F, (float) this.anInt6606, (float) this.anInt6626);
-        local49.method7134(local14, local19, 0);
+        local49.translate(local14, local19, 0);
         this.aClass19_Sub1_12.method8042();
         @Pc(73) Matrix_Sub1 local73 = this.aClass19_Sub1_12.method8082();
         local73.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) this.anInt6626));
@@ -150,7 +150,7 @@ public final class Sprite_Sub3 extends Sprite {
         this.aClass19_Sub1_12.method8142(Static454.aClass168_5, 1);
         this.aClass19_Sub1_12.method8112(arg3);
         local8.method1884(0.0F, (float) this.anInt6606, (float) this.anInt6626);
-        local8.method7134(local23, local18, 0);
+        local8.translate(local23, local18, 0);
         local13.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) this.anInt6626));
         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
         this.aClass19_Sub1_12.method8042();
@@ -196,7 +196,7 @@ public final class Sprite_Sub3 extends Sprite {
         if (local96 & local75) {
             local15.method1884(1.0F, this.anInterface18_3.method9050((float) arg3), this.anInterface18_3.method9046((float) arg2));
             local10.method1884(0.0F, (float) arg3, (float) arg2);
-            local10.method7134(arg0, arg1, 0);
+            local10.translate(arg0, arg1, 0);
             this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
             this.aClass19_Sub1_12.method8042();
             this.aClass19_Sub1_12.method8059();
@@ -215,7 +215,7 @@ public final class Sprite_Sub3 extends Sprite {
                 local191 = local185 + this.anInt6606;
                 while (local191 <= local155) {
                     local10.method1884(0.0F, (float) this.anInt6606, (float) arg2);
-                    local10.method7134(arg0, local185, 0);
+                    local10.translate(arg0, local185, 0);
                     this.aClass19_Sub1_12.method8042();
                     local191 += local158;
                     local185 += local158;
@@ -226,7 +226,7 @@ public final class Sprite_Sub3 extends Sprite {
                     local15.method1884(1.0F, this.anInterface18_3.method9050((float) local246), this.anInterface18_3.method9046((float) arg2));
                     this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
                     local10.method1884(0.0F, (float) local246, (float) arg2);
-                    local10.method7134(arg0, local185, 0);
+                    local10.translate(arg0, local185, 0);
                     this.aClass19_Sub1_12.method8042();
                     this.aClass19_Sub1_12.method8059();
                 }
@@ -239,7 +239,7 @@ public final class Sprite_Sub3 extends Sprite {
                 local191 = this.anInt6626 + local185;
                 while (local191 <= local155) {
                     local10.method1884(0.0F, (float) arg3, (float) this.anInt6626);
-                    local10.method7134(local185, arg1, 0);
+                    local10.translate(local185, arg1, 0);
                     this.aClass19_Sub1_12.method8042();
                     local185 += local158;
                     local191 += local158;
@@ -250,7 +250,7 @@ public final class Sprite_Sub3 extends Sprite {
                     local15.method1884(1.0F, this.anInterface18_3.method9050((float) arg3), this.anInterface18_3.method9046((float) local246));
                     this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
                     local10.method1884(0.0F, (float) arg3, (float) local246);
-                    local10.method7134(local185, arg1, 0);
+                    local10.translate(local185, arg1, 0);
                     this.aClass19_Sub1_12.method8042();
                     this.aClass19_Sub1_12.method8059();
                 }
@@ -269,7 +269,7 @@ public final class Sprite_Sub3 extends Sprite {
                     local351 = arg0 + this.anInt6617;
                     for (local356 = this.anInt6626 + local351; local356 <= local158; local356 += local185) {
                         local10.method1884(0.0F, (float) this.anInt6606, (float) this.anInt6626);
-                        local10.method7134(local351, local246, 0);
+                        local10.translate(local351, local246, 0);
                         this.aClass19_Sub1_12.method8042();
                         local351 += local185;
                         this.aClass19_Sub1_12.method8059();
@@ -279,7 +279,7 @@ public final class Sprite_Sub3 extends Sprite {
                         local15.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) local404));
                         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
                         local10.method1884(0.0F, (float) this.anInt6606, (float) local404);
-                        local10.method7134(local351, local246, 0);
+                        local10.translate(local351, local246, 0);
                         this.aClass19_Sub1_12.method8042();
                         this.aClass19_Sub1_12.method8059();
                     }
@@ -293,7 +293,7 @@ public final class Sprite_Sub3 extends Sprite {
                     local404 = this.anInt6626 + local356;
                     while (local158 >= local404) {
                         local10.method1884(0.0F, (float) local351, (float) this.anInt6626);
-                        local10.method7134(local356, local246, 0);
+                        local10.translate(local356, local246, 0);
                         this.aClass19_Sub1_12.method8042();
                         this.aClass19_Sub1_12.method8059();
                         local404 += local185;
@@ -304,7 +304,7 @@ public final class Sprite_Sub3 extends Sprite {
                         local15.method1884(1.0F, this.anInterface18_3.method9050((float) local351), this.anInterface18_3.method9046((float) local558));
                         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
                         local10.method1884(0.0F, (float) local351, (float) local558);
-                        local10.method7134(local356, local246, 0);
+                        local10.translate(local356, local246, 0);
                         this.aClass19_Sub1_12.method8042();
                         this.aClass19_Sub1_12.method8059();
                     }
@@ -352,7 +352,7 @@ public final class Sprite_Sub3 extends Sprite {
             arg1 += this.anInt6624 * arg3 / this.anInt6606;
         }
         local8.method1884(0.0F, (float) arg3, (float) arg2);
-        local8.method7134(arg0, arg1, 0);
+        local8.translate(arg0, arg1, 0);
         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
         this.aClass19_Sub1_12.method8042();
         this.aClass19_Sub1_12.method8059();
@@ -378,10 +378,10 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     @Override
-    protected void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) Class1 arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
+    protected void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) ClippingMask arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
         @Pc(8) Matrix_Sub1 local8 = this.aClass19_Sub1_12.method8040();
         @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_12.method8082();
-        @Pc(16) Class1_Sub2 local16 = (Class1_Sub2) arg6;
+        @Pc(16) ClippingMask_Sub2 local16 = (ClippingMask_Sub2) arg6;
         @Pc(19) Interface18 local19 = local16.anInterface18_2;
         this.anInterface18_3.method9041(this.aBoolean494 || this.aBoolean495 || (0x1 & 0x1) == 0 ? Static363.aClass259_14 : Static60.aClass259_3);
         this.aClass19_Sub1_12.method8099();
@@ -405,7 +405,7 @@ public final class Sprite_Sub3 extends Sprite {
         this.aClass19_Sub1_12.method8080(0, Static188.aClass168_1);
         @Pc(213) Matrix_Sub1 local213 = this.aClass19_Sub1_12.method8082();
         local213.method7128(local8);
-        local213.method7134(-arg7, -arg8, 0);
+        local213.translate(-arg7, -arg8, 0);
         local213.method1896(local19.method9050(1.0F), local19.method9046(1.0F), 1.0F);
         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
         this.aClass19_Sub1_12.method8042();

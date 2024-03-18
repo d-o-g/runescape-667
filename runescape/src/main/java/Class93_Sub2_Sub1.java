@@ -21,7 +21,7 @@ public final class Class93_Sub2_Sub1 extends Class93_Sub2 {
     public final boolean aBoolean261;
 
     @OriginalMember(owner = "client!gb", name = "<init>", descriptor = "(Lclient!qha;IIIIZ[BI)V")
-    public Class93_Sub2_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7) {
+    public Class93_Sub2_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7) {
         super(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, true);
         this.anInt3259 = arg3;
         this.anInt3257 = arg4;
@@ -36,7 +36,7 @@ public final class Class93_Sub2_Sub1 extends Class93_Sub2 {
     }
 
     @OriginalMember(owner = "client!gb", name = "<init>", descriptor = "(Lclient!qha;IIII)V")
-    public Class93_Sub2_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public Class93_Sub2_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         super(arg0, arg1, arg2, arg3, arg4);
         this.anInt3257 = arg4;
         if (super.anInt10912 == 34037) {
@@ -51,7 +51,7 @@ public final class Class93_Sub2_Sub1 extends Class93_Sub2 {
     }
 
     @OriginalMember(owner = "client!gb", name = "<init>", descriptor = "(Lclient!qha;IIIIIZ)V")
-    public Class93_Sub2_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) boolean arg6) {
+    public Class93_Sub2_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) boolean arg6) {
         super(arg0, arg1, arg2, arg3, arg4, arg5);
         if (super.anInt10912 == 34037) {
             this.aFloat68 = (float) arg5;
@@ -66,7 +66,7 @@ public final class Class93_Sub2_Sub1 extends Class93_Sub2 {
     }
 
     @OriginalMember(owner = "client!gb", name = "<init>", descriptor = "(Lclient!qha;IIIII)V")
-    public Class93_Sub2_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Class93_Sub2_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         super(arg0, 3553, arg1, arg4, arg5);
         this.aFloat68 = (float) arg3 / (float) arg5;
         this.anInt3259 = arg2;
@@ -77,7 +77,7 @@ public final class Class93_Sub2_Sub1 extends Class93_Sub2 {
     }
 
     @OriginalMember(owner = "client!gb", name = "<init>", descriptor = "(Lclient!qha;IIIII[BI)V")
-    public Class93_Sub2_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7) {
+    public Class93_Sub2_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7) {
         super(arg0, 3553, arg1, arg4, arg5);
         this.anInt3257 = arg3;
         this.anInt3259 = arg2;
@@ -89,7 +89,7 @@ public final class Class93_Sub2_Sub1 extends Class93_Sub2 {
     }
 
     @OriginalMember(owner = "client!gb", name = "<init>", descriptor = "(Lclient!qha;IIIIIIZ)V")
-    public Class93_Sub2_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7) {
+    public Class93_Sub2_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7) {
         super(arg0, 3553, arg1, arg2, arg5, arg6);
         this.aFloat67 = (float) arg3 / (float) arg5;
         this.aFloat68 = (float) arg4 / (float) arg6;
@@ -100,7 +100,7 @@ public final class Class93_Sub2_Sub1 extends Class93_Sub2 {
     }
 
     @OriginalMember(owner = "client!gb", name = "<init>", descriptor = "(Lclient!qha;IIIZ[III)V")
-    public Class93_Sub2_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+    public Class93_Sub2_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
         super(arg0, arg1, 6408, arg2, arg3, arg4, arg5, arg6, arg7, true);
         this.anInt3257 = arg3;
         this.anInt3259 = arg2;
@@ -115,7 +115,7 @@ public final class Class93_Sub2_Sub1 extends Class93_Sub2 {
     }
 
     @OriginalMember(owner = "client!gb", name = "<init>", descriptor = "(Lclient!qha;IIII[I)V")
-    public Class93_Sub2_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[] arg5) {
+    public Class93_Sub2_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[] arg5) {
         super(arg0, 3553, 6408, arg3, arg4);
         this.anInt3257 = arg2;
         this.anInt3259 = arg1;

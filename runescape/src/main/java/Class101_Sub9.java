@@ -26,7 +26,7 @@ public final class Class101_Sub9 extends Class101 {
     public float[] aFloatArray83;
 
     @OriginalMember(owner = "client!wt", name = "<init>", descriptor = "(Lclient!qha;Lclient!sa;)V")
-    public Class101_Sub9(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Class329 arg1) {
+    public Class101_Sub9(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Class329 arg1) {
         super(arg0);
         this.aClass329_6 = arg1;
         if (super.aClass19_Sub3_42.aBoolean608 && super.aClass19_Sub3_42.anInt8003 >= 2) {

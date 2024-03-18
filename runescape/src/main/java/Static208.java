@@ -66,7 +66,7 @@ public final class Static208 {
         for (@Pc(39) int local39 = local9; local39 <= local11; local39++) {
             for (@Pc(42) int local42 = local16; local42 <= local18; local42++) {
                 if (arg0.aByte143 < Static299.anInt4824 && local39 >= Static441.anInt6691 && local39 < Static77.anInt1613 && local42 >= Static220.anInt3562 && local42 < Static692.anInt10370) {
-                    if ((arg2 == null || arg0.aByte144 < arg3 || arg2[arg0.aByte144][local39][local42] != arg4) && arg0.method9275() && !arg0.method9284((byte) 59, Static665.aClass19_15)) {
+                    if ((arg2 == null || arg0.aByte144 < arg3 || arg2[arg0.aByte144][local39][local42] != arg4) && arg0.method9275() && !arg0.method9284((byte) 59, Static665.aToolkit_15)) {
                         return false;
                     }
                     if (!arg1 && local39 >= Static403.anInt6246 - 16 && local39 <= Static403.anInt6246 + 16 && local42 >= Static550.anInt8271 - 16 && local42 <= Static550.anInt8271 + 16) {
@@ -74,7 +74,7 @@ public final class Static208 {
                             Static684.aClass302Array1[Static29.anInt702++].method6809(arg0);
                             Static29.anInt702 %= Static549.anInt9424;
                         } else {
-                            arg0.method9289(Static665.aClass19_15, -5);
+                            arg0.method9289(Static665.aToolkit_15, -5);
                         }
                     }
                 }

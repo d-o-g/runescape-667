@@ -20,7 +20,7 @@ public final class Class101_Sub4 extends Class101 {
     public Class179 aClass179_6;
 
     @OriginalMember(owner = "client!laa", name = "<init>", descriptor = "(Lclient!qha;Lclient!sa;)V")
-    public Class101_Sub4(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Class329 arg1) {
+    public Class101_Sub4(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Class329 arg1) {
         super(arg0);
         this.aClass329_3 = arg1;
         if (this.aClass329_3.aClass93_Sub3_3 != null && super.aClass19_Sub3_42.bf && super.aClass19_Sub3_42.aBoolean619) {

@@ -8,7 +8,7 @@ public final class Static74 {
     public static Class407 aClass407_1;
 
     @OriginalMember(owner = "client!cga", name = "b", descriptor = "Lclient!ha;")
-    public static Class19 aClass19_4;
+    public static Toolkit aToolkit_4;
 
     @OriginalMember(owner = "client!cga", name = "e", descriptor = "Lclient!pu;")
     public static Class67 aClass67_3;

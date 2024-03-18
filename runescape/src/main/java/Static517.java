@@ -100,7 +100,7 @@ public final class Static517 {
             }
         }
         if (Static442.aBoolean500) {
-            Static665.aClass19_15.method8009(0, (Node_Sub7[]) null);
+            Static665.aToolkit_15.method8009(0, (Node_Sub7[]) null);
         }
         if ((arg5 & 0x2) == 0) {
             for (local225 = Static296.anInt4792; local225 < Static299.anInt4824; local225++) {
@@ -209,7 +209,7 @@ public final class Static517 {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(Lclient!eo;)V")
     public static void method6824(@OriginalArg(0) Class8_Sub2 arg0) {
-        Static665.aClass19_15.H(arg0.anInt10690, arg0.anInt10691 + (arg0.method9286(2) >> 1), arg0.anInt10694, Static486.anIntArray591);
+        Static665.aToolkit_15.H(arg0.anInt10690, arg0.anInt10691 + (arg0.method9286(2) >> 1), arg0.anInt10694, Static486.anIntArray591);
         arg0.anInt10692 = Static486.anIntArray591[0];
         arg0.anInt10698 = Static486.anIntArray591[1];
         arg0.anInt10697 = Static486.anIntArray591[2];

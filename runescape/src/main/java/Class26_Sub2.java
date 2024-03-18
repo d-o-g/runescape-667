@@ -13,7 +13,7 @@ public final class Class26_Sub2 extends Class26 {
     public final Class7 aClass7_3;
 
     @OriginalMember(owner = "client!cs", name = "<init>", descriptor = "(Lclient!am;Lclient!ae;)V")
-    public Class26_Sub2(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Class7 arg1) {
+    public Class26_Sub2(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Class7 arg1) {
         super(arg0);
         this.aClass7_3 = arg1;
     }

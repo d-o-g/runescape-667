@@ -9,7 +9,7 @@ public final class Static223 {
     public static final Class370 aClass370_9 = new Class370();
 
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(B[Lclient!ns;Lclient!tca;)Lclient!rda;")
-    public static Class317 method9088(@OriginalArg(1) Class265[] arg0, @OriginalArg(2) Class19_Sub1_Sub2 arg1) {
+    public static Class317 method9088(@OriginalArg(1) Class265[] arg0, @OriginalArg(2) Toolkit_Sub1_Sub2 arg1) {
         for (@Pc(7) int local7 = 0; local7 < arg0.length; local7++) {
             if (arg0[local7] == null || arg0[local7].aLong213 <= 0L) {
                 return null;

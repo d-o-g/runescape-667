@@ -17,7 +17,7 @@ public final class Class101_Sub2 extends Class101 {
     public final Class93_Sub4 aClass93_Sub4_1;
 
     @OriginalMember(owner = "client!fe", name = "<init>", descriptor = "(Lclient!qha;Lclient!sa;)V")
-    public Class101_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) Class329 arg1) {
+    public Class101_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Class329 arg1) {
         super(arg0);
         this.aClass329_2 = arg1;
         this.method2648();

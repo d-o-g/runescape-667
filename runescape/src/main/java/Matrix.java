@@ -15,7 +15,7 @@ public abstract class Matrix {
     public abstract void method7126(@OriginalArg(0) int[] arg0);
 
     @OriginalMember(owner = "client!tt", name = "f", descriptor = "(I)V")
-    public abstract void method7127(@OriginalArg(0) int arg0);
+    public abstract void rotateAxisY(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(Lclient!tt;)V")
     public abstract void method7128(@OriginalArg(0) Matrix arg0);
@@ -30,13 +30,13 @@ public abstract class Matrix {
     public abstract void method7131(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!tt", name = "e", descriptor = "(I)V")
-    public abstract void method7132(@OriginalArg(0) int arg0);
+    public abstract void makeRotationZ(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "()V")
-    public abstract void method7133();
+    public abstract void makeIdentity();
 
     @OriginalMember(owner = "client!tt", name = "b", descriptor = "(III)V")
-    public abstract void method7134(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public abstract void translate(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(IIIIII)V")
     public abstract void method7135(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);

@@ -1,4 +1,5 @@
 import com.jagex.math.IntMath;
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -74,12 +75,12 @@ public final class Class216 {
     }
 
     @OriginalMember(owner = "client!ks", name = "c", descriptor = "(Lclient!ha;Lclient!ks;)Z")
-    public boolean method5050(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class216 arg1) {
+    public boolean method5050(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
         return this.aSprite_24 != null || this.method5057(arg0, arg1);
     }
 
     @OriginalMember(owner = "client!ks", name = "d", descriptor = "(Lclient!ha;Lclient!ks;)V")
-    public void method5052(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class216 arg1) {
+    public void method5052(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
         Static345.method5051(arg0);
         Static345.method5058(arg0);
         arg0.K(Static345.anIntArray418);
@@ -104,15 +105,15 @@ public final class Class216 {
         @Pc(84) int local84;
         @Pc(94) int local94;
         if (this.anInt5639 != 0) {
-            local79 = Class361.anIntArray741[this.anInt5639];
-            local84 = Class361.anIntArray740[this.anInt5639];
+            local79 = Trig1.SIN[this.anInt5639];
+            local84 = Trig1.COS[this.anInt5639];
             local94 = local33 * local84 - local35 * local79 >> 14;
             local35 = local33 * local79 + local35 * local84 >> 14;
             local33 = local94;
         }
         if (this.anInt5628 != 0) {
-            local79 = Class361.anIntArray741[this.anInt5628];
-            local84 = Class361.anIntArray740[this.anInt5628];
+            local79 = Trig1.SIN[this.anInt5628];
+            local84 = Trig1.COS[this.anInt5628];
             local94 = local35 * local79 + local31 * local84 >> 14;
             local35 = local35 * local84 - local31 * local79 >> 14;
             local31 = local94;
@@ -127,8 +128,8 @@ public final class Class216 {
         }
         @Pc(190) int[] local190 = arg0.Y();
         arg0.DA(this.anInt5638 / 2, this.anInt5638 / 2, local84, local84);
-        arg0.method8000(arg0.method7953());
-        @Pc(209) Matrix local209 = arg0.method7953();
+        arg0.setCamera(arg0.createMatrix());
+        @Pc(209) Matrix local209 = arg0.createMatrix();
         local209.method7125(0, 0, arg0.i() - local147.HA());
         local147.renderOrtho(local209, (PickingCylinder) null, 1024, 1);
         @Pc(231) int local231 = this.anInt5638 * 13 / 16;
@@ -144,7 +145,7 @@ public final class Class216 {
     }
 
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "(Lclient!ha;Lclient!ks;)V")
-    public void method5054(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class216 arg1) {
+    public void method5054(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
         @Pc(6) Mesh local6 = Static121.method2201(this.anInt5633, Static386.aClass330_80);
         if (local6 == null) {
             return;
@@ -173,16 +174,16 @@ public final class Class216 {
         @Pc(101) int local101;
         if (this.anInt5639 != 0) {
             local83 = -this.anInt5639 & 0x3FFF;
-            local87 = Class361.anIntArray741[local83];
-            local91 = Class361.anIntArray740[local83];
+            local87 = Trig1.SIN[local83];
+            local91 = Trig1.COS[local83];
             local101 = local36 * local91 - local38 * local87 >> 14;
             local38 = local36 * local87 + local38 * local91 >> 14;
             local36 = local101;
         }
         if (this.anInt5628 != 0) {
             local83 = -this.anInt5628 & 0x3FFF;
-            local87 = Class361.anIntArray741[local83];
-            local91 = Class361.anIntArray740[local83];
+            local87 = Trig1.SIN[local83];
+            local91 = Trig1.COS[local83];
             local101 = local38 * local87 + local34 * local91 >> 14;
             local38 = local38 * local91 - local34 * local87 >> 14;
             local34 = local101;
@@ -197,8 +198,8 @@ public final class Class216 {
         @Pc(216) int local216 = this.anInt5638 * 1024 / local101;
         @Pc(219) int[] local219 = arg0.Y();
         arg0.DA(this.anInt5638 / 2, this.anInt5638 / 2, local216, local216);
-        arg0.method8000(arg0.method7953());
-        @Pc(238) Matrix local238 = arg0.method7985();
+        arg0.setCamera(arg0.createMatrix());
+        @Pc(238) Matrix local238 = arg0.scratchMatrix();
         local238.method7125(0, 0, arg0.i() - local190.HA());
         local190.renderOrtho(local238, (PickingCylinder) null, arg0.i(), 1);
         this.aSprite_24 = arg0.method7964(0, 0, this.anInt5638, this.anInt5638, true);
@@ -208,7 +209,7 @@ public final class Class216 {
     }
 
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "(Lclient!ha;IIIIIIIIII)V")
-    public void method5055(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10) {
+    public void method5055(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10) {
         if (this.aSprite_24 == null) {
             return;
         }
@@ -284,7 +285,7 @@ public final class Class216 {
     }
 
     @OriginalMember(owner = "client!ks", name = "b", descriptor = "(Lclient!ha;Lclient!ks;)Z")
-    public boolean method5057(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class216 arg1) {
+    public boolean method5057(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
         if (this.aSprite_24 == null) {
             if (this.anInt5640 == 0) {
                 if (Static708.anInterface4_12.method6814(this.anInt5633)) {

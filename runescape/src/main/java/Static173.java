@@ -25,7 +25,7 @@ public final class Static173 {
     }
 
     @OriginalMember(owner = "client!fga", name = "a", descriptor = "(Lclient!qha;I[Lclient!mfa;)Lclient!iha;")
-    public static Class179 method2691(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(2) Class240[] arg1) {
+    public static Class179 method2691(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(2) Class240[] arg1) {
         for (@Pc(5) int local5 = 0; local5 < arg1.length; local5++) {
             if (arg1[local5] == null || arg1[local5].aLong189 <= 0L) {
                 return null;

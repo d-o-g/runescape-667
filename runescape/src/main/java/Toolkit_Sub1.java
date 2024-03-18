@@ -15,7 +15,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 @OriginalClass("client!am")
-public abstract class Class19_Sub1 extends Class19 {
+public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "J", descriptor = "Lclient!jaclib/memory/heap/NativeHeap;")
     public NativeHeap aNativeHeap5;
@@ -447,7 +447,7 @@ public abstract class Class19_Sub1 extends Class19 {
     public final Class334 aClass334_3;
 
     @OriginalMember(owner = "client!am", name = "<init>", descriptor = "(Ljava/awt/Canvas;Ljava/lang/Object;Lclient!d;Lclient!sb;II)V")
-    protected Class19_Sub1(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Object arg1, @OriginalArg(2) Interface4 arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    protected Toolkit_Sub1(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Object arg1, @OriginalArg(2) Interface4 arg2, @OriginalArg(3) Class330 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         super(arg2);
         try {
             this.aClass330_112 = arg3;
@@ -566,14 +566,14 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "za", descriptor = "(IIIII)V")
     @Override
-    protected final void za(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    protected final void za(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int radius, @OriginalArg(3) int colour, @OriginalArg(4) int mode) {
         this.method8149();
-        this.method8112(arg3);
+        this.method8112(colour);
         this.method8080(0, Static454.aClass168_5);
         this.method8142(Static454.aClass168_5, 0);
-        this.method8053(arg4);
-        this.aClass73_Sub1_15.method1884(1.0F, (float) arg2, (float) arg2);
-        this.aClass73_Sub1_15.method7134(arg0, arg1, 0);
+        this.method8053(mode);
+        this.aClass73_Sub1_15.method1884(1.0F, (float) radius, (float) radius);
+        this.aClass73_Sub1_15.translate(x, y, 0);
         this.method8042();
         this.method8141(false);
         this.method8130(0, this.anInterface16_15);
@@ -646,8 +646,8 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "b", descriptor = "(II)I")
     @Override
-    public final int method7960(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return arg1 ^ arg0 & arg1;
+    public final int compareFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB) {
+        return maskB ^ maskA & maskB;
     }
 
     @OriginalMember(owner = "client!am", name = "o", descriptor = "(I)I")
@@ -731,14 +731,14 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
-    public final void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public final void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
     }
 
     @OriginalMember(owner = "client!am", name = "g", descriptor = "(B)V")
     public final void method8031() {
         if (this.aClass370Array3[this.anInt9148] != Static215.aClass370_2) {
             this.aClass370Array3[this.anInt9148] = Static215.aClass370_2;
-            this.aClass73_Sub1Array3[this.anInt9148].method7133();
+            this.aClass73_Sub1Array3[this.anInt9148].makeIdentity();
             this.method8033();
         }
     }
@@ -950,7 +950,7 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "y", descriptor = "()Lclient!tt;")
     @Override
-    public final Matrix method7953() {
+    public final Matrix createMatrix() {
         return new Matrix_Sub1();
     }
 
@@ -979,11 +979,11 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "DA", descriptor = "(IIII)V")
     @Override
-    public final void DA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this.anInt9163 = arg1;
-        this.anInt9151 = arg2;
-        this.anInt9180 = arg3;
-        this.anInt9170 = arg0;
+    public final void DA(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height) {
+        this.anInt9163 = y;
+        this.anInt9151 = width;
+        this.anInt9180 = height;
+        this.anInt9170 = x;
         this.method8135();
         this.method8062();
         this.method8152();
@@ -1008,8 +1008,8 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "c", descriptor = "(II)I")
     @Override
-    public final int method8013(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return arg1 | arg0;
+    public final int combineFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB) {
+        return maskB | maskA;
     }
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(BF)V")
@@ -1209,7 +1209,7 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "e", descriptor = "()I")
     @Override
-    public final int method7955() {
+    public final int getMaxLights() {
         return this.anInt9182 - 2;
     }
 
@@ -1386,14 +1386,14 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "aa", descriptor = "(IIIIII)V")
     @Override
-    public final void aa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public final void aa(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
         this.method8149();
-        this.method8112(arg4);
+        this.method8112(colour);
         this.method8080(0, Static454.aClass168_5);
         this.method8142(Static454.aClass168_5, 0);
-        this.method8053(arg5);
-        this.aClass73_Sub1_15.method1884(1.0F, (float) arg3, (float) arg2);
-        this.aClass73_Sub1_15.method7134(arg0, arg1, 0);
+        this.method8053(mode);
+        this.aClass73_Sub1_15.method1884(1.0F, (float) height, (float) width);
+        this.aClass73_Sub1_15.translate(x, y, 0);
         this.method8042();
         this.method8141(false);
         this.method8059();
@@ -1416,12 +1416,12 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "f", descriptor = "(II)V")
     @Override
-    public final void f(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (arg0 == this.anInt9181 && arg1 == this.anInt9167) {
+    public final void f(@OriginalArg(0) int near, @OriginalArg(1) int far) {
+        if (near == this.anInt9181 && far == this.anInt9167) {
             return;
         }
-        this.anInt9167 = arg1;
-        this.anInt9181 = arg0;
+        this.anInt9167 = far;
+        this.anInt9181 = near;
         this.method8062();
         this.method8135();
         this.method8093();
@@ -1658,14 +1658,14 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "A", descriptor = "()Lclient!tt;")
     @Override
-    public final Matrix method7985() {
+    public final Matrix scratchMatrix() {
         return this.aClass73_Sub1_21;
     }
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public final void method8000(@OriginalArg(0) Matrix arg0) {
-        this.aClass73_Sub1_16 = (Matrix_Sub1) arg0;
+    public final void setCamera(@OriginalArg(0) Matrix matrix) {
+        this.aClass73_Sub1_16 = (Matrix_Sub1) matrix;
         this.aClass73_Sub1_18.method7128(this.aClass73_Sub1_16);
         this.aClass73_Sub1_18.method1895();
         this.aClass73_Sub1_19.method1880(this.aClass73_Sub1_18);
@@ -1875,7 +1875,7 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "p", descriptor = "(B)V")
     public final void method8096() {
-        this.aClass73_Sub1_15.method7133();
+        this.aClass73_Sub1_15.makeIdentity();
         this.aBoolean676 = true;
         this.method8091();
     }
@@ -1897,9 +1897,9 @@ public abstract class Class19_Sub1 extends Class19 {
         this.method8142(Static454.aClass168_5, 0);
         this.method8053(0);
         this.aClass73_Sub1_15.method1884(1.0F, (float) arg5, local20);
-        this.aClass73_Sub1_15.method7134(0, -arg5 / 2, 0);
+        this.aClass73_Sub1_15.translate(0, -arg5 / 2, 0);
         this.aClass73_Sub1_15.method7139((int) ((double) local18 * 2607.5945876176133D) & 0x3FFF);
-        this.aClass73_Sub1_15.method7134(arg0, arg1, 0);
+        this.aClass73_Sub1_15.translate(arg0, arg1, 0);
         this.method8042();
         this.method8141(false);
         this.method8059();
@@ -1922,10 +1922,10 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "xa", descriptor = "(F)V")
     @Override
-    public final void xa(@OriginalArg(0) float arg0) {
-        if (this.aFloat186 != arg0) {
-            this.aFloat186 = arg0;
-            this.aNativeInterface3.setAmbient(arg0);
+    public final void xa(@OriginalArg(0) float globalAmbient) {
+        if (this.aFloat186 != globalAmbient) {
+            this.aFloat186 = globalAmbient;
+            this.aNativeInterface3.setAmbient(globalAmbient);
             this.method8129();
             this.method8109();
         }
@@ -2199,19 +2199,19 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "A", descriptor = "(ILclient!aa;II)V")
     @Override
-    public final void A(@OriginalArg(0) int arg0, @OriginalArg(1) Class1 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        @Pc(6) Class1_Sub2 local6 = (Class1_Sub2) arg1;
+    public final void A(@OriginalArg(0) int colour, @OriginalArg(1) ClippingMask clippingMask, @OriginalArg(2) int x, @OriginalArg(3) int y) {
+        @Pc(6) ClippingMask_Sub2 local6 = (ClippingMask_Sub2) clippingMask;
         @Pc(9) Interface18 local9 = local6.anInterface18_2;
         this.method8099();
         this.method8088(local9);
         this.method8053(1);
         this.method8094(Static185.aClass121_3, Static185.aClass121_3);
         this.method8080(0, Static454.aClass168_5);
-        this.method8112(arg0);
+        this.method8112(colour);
         this.aClass73_Sub1_15.method1884(0.0F, (float) this.anInt9013, (float) this.anInt9122);
         this.method8042();
         this.aClass73_Sub1Array3[0].method1884(1.0F, local9.method9050((float) this.anInt9013), local9.method9046((float) this.anInt9122));
-        this.aClass73_Sub1Array3[0].method1882(0.0F, local9.method9050((float) -arg3), local9.method9046((float) -arg2));
+        this.aClass73_Sub1Array3[0].method1882(0.0F, local9.method9050((float) -y), local9.method9046((float) -x));
         this.aClass370Array3[0] = Static431.aClass370_5;
         this.method8033();
         this.method8059();
@@ -2392,13 +2392,13 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(II[[I[[IIII)Lclient!s;")
     @Override
-    public final Ground method7996(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
+    public final Ground createGround(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         return new Ground_Sub1(this, arg4, arg5, arg0, arg1, arg2, arg3, 512);
     }
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public final void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
+    public final void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
     }
 
     @OriginalMember(owner = "client!am", name = "Q", descriptor = "(I)V")
@@ -2650,8 +2650,8 @@ public abstract class Class19_Sub1 extends Class19 {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(II[I[I)Lclient!aa;")
     @Override
-    public final Class1 method8004(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3) {
-        return Static532.method7113(arg2, arg3, arg0, this, arg1);
+    public final ClippingMask createMask(@OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(2) int[] offsets, @OriginalArg(3) int[] widths) {
+        return Static532.method7113(offsets, widths, width, this, height);
     }
 
     @OriginalMember(owner = "client!am", name = "t", descriptor = "(B)V")

@@ -22,7 +22,7 @@ public final class Node_Sub2_Sub9_Sub2 extends Shadow {
     public final byte[] aByteArray85;
 
     @OriginalMember(owner = "client!ph", name = "<init>", descriptor = "(Lclient!qha;II)V")
-    public Node_Sub2_Sub9_Sub2(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public Node_Sub2_Sub9_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aByteArray85 = new byte[arg1 * arg2];
     }
 

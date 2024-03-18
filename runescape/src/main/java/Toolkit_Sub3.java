@@ -15,7 +15,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 @OriginalClass("client!qha")
-public final class Class19_Sub3 extends Class19 {
+public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "Mf", descriptor = "I")
     public int anInt7864;
@@ -516,7 +516,7 @@ public final class Class19_Sub3 extends Class19 {
     public final Class98 aClass98_1;
 
     @OriginalMember(owner = "client!qha", name = "<init>", descriptor = "(Ljava/awt/Canvas;Lclient!d;I)V")
-    public Class19_Sub3(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Interface4 arg1, @OriginalArg(2) int arg2) {
+    public Toolkit_Sub3(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Interface4 arg1, @OriginalArg(2) int arg2) {
         super(arg1);
         new Class192();
         new HashTable(16);
@@ -888,9 +888,9 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "xa", descriptor = "(F)V")
     @Override
-    public void xa(@OriginalArg(0) float arg0) {
-        if (this.aFloat149 != arg0) {
-            this.aFloat149 = arg0;
+    public void xa(@OriginalArg(0) float globalAmbient) {
+        if (this.aFloat149 != globalAmbient) {
+            this.aFloat149 = globalAmbient;
             this.method7025();
         }
     }
@@ -956,8 +956,8 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "b", descriptor = "(II)I")
     @Override
-    public int method7960(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return arg1 ^ arg1 & arg0;
+    public int compareFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB) {
+        return maskB ^ maskB & maskA;
     }
 
     @OriginalMember(owner = "client!qha", name = "Y", descriptor = "()[I")
@@ -1049,14 +1049,14 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "aa", descriptor = "(IIIIII)V")
     @Override
-    public void aa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        @Pc(8) float local8 = (float) arg0 + 0.35F;
-        @Pc(13) float local13 = (float) arg1 + 0.35F;
-        @Pc(18) float local18 = local8 + (float) arg2;
+    public void aa(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
+        @Pc(8) float local8 = (float) x + 0.35F;
+        @Pc(13) float local13 = (float) y + 0.35F;
+        @Pc(18) float local18 = local8 + (float) width;
         this.method7026();
-        @Pc(26) float local26 = (float) arg3 + local13;
-        this.method7017(arg5);
-        OpenGL.glColor4ub((byte) (arg4 >> 16), (byte) (arg4 >> 8), (byte) arg4, (byte) (arg4 >> 24));
+        @Pc(26) float local26 = (float) height + local13;
+        this.method7017(mode);
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         if (this.aBoolean615) {
             OpenGL.glDisable(OpenGL.GL_MULTISAMPLE);
         }
@@ -1073,8 +1073,8 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "c", descriptor = "(II)I")
     @Override
-    public int method8013(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return arg0 | arg1;
+    public int combineFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB) {
+        return maskA | maskB;
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!lk;I)V")
@@ -1091,8 +1091,8 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "A", descriptor = "(ILclient!aa;II)V")
     @Override
-    public void A(@OriginalArg(0) int arg0, @OriginalArg(1) Class1 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        @Pc(6) Class1_Sub3 local6 = (Class1_Sub3) arg1;
+    public void A(@OriginalArg(0) int colour, @OriginalArg(1) ClippingMask clippingMask, @OriginalArg(2) int x, @OriginalArg(3) int y) {
+        @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) clippingMask;
         @Pc(9) Class93_Sub2_Sub1 local9 = local6.aClass93_Sub2_Sub1_5;
         this.method7018();
         this.method7001(local6.aClass93_Sub2_Sub1_5);
@@ -1101,15 +1101,15 @@ public final class Class19_Sub3 extends Class19 {
         this.method7021(34167, 768, 0);
         @Pc(39) float local39 = local9.aFloat67 / (float) local9.anInt3259;
         @Pc(46) float local46 = local9.aFloat68 / (float) local9.anInt3257;
-        OpenGL.glColor4ub((byte) (arg0 >> 16), (byte) (arg0 >> 8), (byte) arg0, (byte) (arg0 >> 24));
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         OpenGL.glBegin(OpenGL.GL_QUADS);
-        OpenGL.glTexCoord2f((float) (this.anInt8000 - arg2) * local39, (float) (this.anInt8032 - arg3) * local46);
+        OpenGL.glTexCoord2f((float) (this.anInt8000 - x) * local39, (float) (this.anInt8032 - y) * local46);
         OpenGL.glVertex2i(this.anInt8000, this.anInt8032);
-        OpenGL.glTexCoord2f(local39 * (float) (this.anInt8000 - arg2), (float) (this.anInt8012 - arg3) * local46);
+        OpenGL.glTexCoord2f(local39 * (float) (this.anInt8000 - x), (float) (this.anInt8012 - y) * local46);
         OpenGL.glVertex2i(this.anInt8000, this.anInt8012);
-        OpenGL.glTexCoord2f(local39 * (float) (this.anInt8028 - arg2), (float) (this.anInt8012 - arg3) * local46);
+        OpenGL.glTexCoord2f(local39 * (float) (this.anInt8028 - x), (float) (this.anInt8012 - y) * local46);
         OpenGL.glVertex2i(this.anInt8028, this.anInt8012);
-        OpenGL.glTexCoord2f(local39 * (float) (this.anInt8028 - arg2), local46 * (float) (this.anInt8032 - arg3));
+        OpenGL.glTexCoord2f(local39 * (float) (this.anInt8028 - x), local46 * (float) (this.anInt8032 - y));
         OpenGL.glVertex2i(this.anInt8028, this.anInt8032);
         OpenGL.glEnd();
         this.method7021(5890, 768, 0);
@@ -1283,7 +1283,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "e", descriptor = "()I")
     @Override
-    public int method7955() {
+    public int getMaxLights() {
         return 4;
     }
 
@@ -1709,11 +1709,11 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "DA", descriptor = "(IIII)V")
     @Override
-    public void DA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this.anInt8001 = arg2;
-        this.anInt8021 = arg0;
-        this.anInt8025 = arg3;
-        this.anInt8016 = arg1;
+    public void DA(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height) {
+        this.anInt8001 = width;
+        this.anInt8021 = x;
+        this.anInt8025 = height;
+        this.anInt8016 = y;
         this.method6990();
         this.method7037();
         if (this.anInt8005 == 3) {
@@ -1725,8 +1725,8 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
-        @Pc(6) Class1_Sub3 local6 = (Class1_Sub3) arg5;
+    public void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
+        @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) arg5;
         @Pc(9) Class93_Sub2_Sub1 local9 = local6.aClass93_Sub2_Sub1_5;
         this.method7018();
         this.method7001(local6.aClass93_Sub2_Sub1_5);
@@ -1972,7 +1972,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "A", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method7985() {
+    public Matrix scratchMatrix() {
         return this.aClass73_Sub3_1;
     }
 
@@ -2320,7 +2320,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(II[[I[[IIII)Lclient!s;")
     @Override
-    public Ground method7996(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
+    public Ground createGround(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         return new Ground_Sub2(this, arg4, arg5, arg0, arg1, arg2, arg3, 512);
     }
 
@@ -2340,7 +2340,7 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "y", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method7953() {
+    public Matrix createMatrix() {
         return new Matrix_Sub3();
     }
 
@@ -2363,12 +2363,12 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "f", descriptor = "(II)V")
     @Override
-    public void f(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (arg0 == this.anInt8010 && this.anInt8018 == arg1) {
+    public void f(@OriginalArg(0) int near, @OriginalArg(1) int far) {
+        if (near == this.anInt8010 && this.anInt8018 == far) {
             return;
         }
-        this.anInt8010 = arg0;
-        this.anInt8018 = arg1;
+        this.anInt8010 = near;
+        this.anInt8018 = far;
         this.method6990();
         this.method6969();
         if (this.anInt8005 == 3) {
@@ -2817,11 +2817,11 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
-    public void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         if (arg2 == arg0 && arg1 == arg3) {
             return;
         }
-        @Pc(22) Class1_Sub3 local22 = (Class1_Sub3) arg5;
+        @Pc(22) ClippingMask_Sub3 local22 = (ClippingMask_Sub3) arg5;
         @Pc(25) Class93_Sub2_Sub1 local25 = local22.aClass93_Sub2_Sub1_5;
         this.method7018();
         this.method7001(local22.aClass93_Sub2_Sub1_5);
@@ -2913,19 +2913,19 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "za", descriptor = "(IIIII)V")
     @Override
-    protected void za(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        if (arg2 < 0) {
-            arg2 = -arg2;
+    protected void za(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int radius, @OriginalArg(3) int colour, @OriginalArg(4) int mode) {
+        if (radius < 0) {
+            radius = -radius;
         }
-        if (arg0 + arg2 < this.anInt8000 || arg0 - arg2 > this.anInt8028 || this.anInt8032 > arg1 + arg2 || this.anInt8012 < arg1 - arg2) {
+        if (x + radius < this.anInt8000 || x - radius > this.anInt8028 || this.anInt8032 > y + radius || this.anInt8012 < y - radius) {
             return;
         }
         this.method7026();
-        this.method7017(arg4);
-        OpenGL.glColor4ub((byte) (arg3 >> 16), (byte) (arg3 >> 8), (byte) arg3, (byte) (arg3 >> 24));
-        @Pc(83) float local83 = (float) arg0 + 0.35F;
-        @Pc(88) float local88 = (float) arg1 + 0.35F;
-        @Pc(92) int local92 = arg2 << 1;
+        this.method7017(mode);
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
+        @Pc(83) float local83 = (float) x + 0.35F;
+        @Pc(88) float local88 = (float) y + 0.35F;
+        @Pc(92) int local92 = radius << 1;
         if (this.aFloat136 > (float) local92) {
             OpenGL.glBegin(OpenGL.GL_QUADS);
             OpenGL.glVertex2f(local83 + 1.0F, local88 + 1.0F);
@@ -2943,18 +2943,18 @@ public final class Class19_Sub3 extends Class19 {
         } else {
             OpenGL.glBegin(OpenGL.GL_TRIANGLE_FAN);
             OpenGL.glVertex2f(local83, local88);
-            @Pc(148) int local148 = 262144 / (arg2 * 6);
+            @Pc(148) int local148 = 262144 / (radius * 6);
             if (local148 <= 64) {
                 local148 = 64;
             } else if (local148 > 512) {
                 local148 = 512;
             }
             local148 = Static402.method5587(local148);
-            OpenGL.glVertex2f((float) arg2 + local83, local88);
+            OpenGL.glVertex2f((float) radius + local83, local88);
             for (@Pc(178) int local178 = 16384 - local148; local178 > 0; local178 -= local148) {
-                OpenGL.glVertex2f(Applet_Sub1.aFloatArray14[local178] * (float) arg2 + local83, Applet_Sub1.aFloatArray15[local178] * (float) arg2 + local88);
+                OpenGL.glVertex2f(Applet_Sub1.aFloatArray14[local178] * (float) radius + local83, Applet_Sub1.aFloatArray15[local178] * (float) radius + local88);
             }
-            OpenGL.glVertex2f(local83 + (float) arg2, local88);
+            OpenGL.glVertex2f(local83 + (float) radius, local88);
             OpenGL.glEnd();
         }
     }
@@ -2969,8 +2969,8 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method8000(@OriginalArg(0) Matrix arg0) {
-        this.aClass73_Sub3_3.method7128(arg0);
+    public void setCamera(@OriginalArg(0) Matrix matrix) {
+        this.aClass73_Sub3_3.method7128(matrix);
         this.aClass73_Sub3_4.method7128(this.aClass73_Sub3_3);
         this.aClass73_Sub3_4.method7141();
         this.aClass73_Sub3_5.method7142(this.aClass73_Sub3_4);
@@ -3178,8 +3178,8 @@ public final class Class19_Sub3 extends Class19 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(II[I[I)Lclient!aa;")
     @Override
-    public Class1 method8004(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3) {
-        return Static707.method9228(arg3, this, arg2, arg1, arg0);
+    public ClippingMask createMask(@OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(2) int[] offsets, @OriginalArg(3) int[] widths) {
+        return Static707.method9228(widths, this, offsets, height, width);
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")

@@ -98,12 +98,12 @@ public final class Static563 {
         Static272.aShortArrayArray5 = null;
         if (Static226.aClass46Array7 != null) {
             Static227.method3354();
-            Static665.aClass19_15.method7956(1);
-            Static665.aClass19_15.method8020(0);
+            Static665.aToolkit_15.method7956(1);
+            Static665.aToolkit_15.method8020(0);
         }
         if (Static684.aClass302Array1 != null) {
             Static684.aClass302Array1 = null;
         }
-        Static665.aClass19_15 = null;
+        Static665.aToolkit_15 = null;
     }
 }

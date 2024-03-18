@@ -20,7 +20,7 @@ public final class Static515 {
     public static final Class22 aClass22_1 = Static433.method5595();
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(IIIIILclient!ha;IIIIILclient!cba;)V")
-    public static void method6799(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Class19 arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Node_Sub2_Sub4 arg10) {
+    public static void method6799(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Node_Sub2_Sub4 arg10) {
         if (arg8 < arg5 && arg5 < arg1 + arg8 && arg2 - 13 < arg0 && arg0 < arg2 + 3) {
             arg6 = arg3;
         }
@@ -29,7 +29,7 @@ public final class Static515 {
     }
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(BILclient!ha;III)V")
-    public static void method6801(@OriginalArg(1) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public static void method6801(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         arg1.KA(arg3, arg4, arg3 + arg0, arg2 + arg4);
         arg1.method7971(arg0, arg2, arg4, arg3, -16777216);
         if (Static273.anInt4403 < 100) {

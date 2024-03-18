@@ -35,7 +35,7 @@ public final class Static556 {
     }
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(Lclient!ha;I)V")
-    public static void method7301(@OriginalArg(0) Class19 arg0) {
+    public static void method7301(@OriginalArg(0) Toolkit arg0) {
         if (Static594.anInt8777 < 2 && !Static156.aBoolean223 || Static109.aClass158_3 != null) {
             return;
         }

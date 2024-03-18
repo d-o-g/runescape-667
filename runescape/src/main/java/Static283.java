@@ -13,7 +13,7 @@ public final class Static283 {
     @OriginalMember(owner = "client!it", name = "a", descriptor = "(IIII[[[B[I[I[I[I[IIBIIZZIIZ)V")
     public static void method4100(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte[][][] arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int[] arg9, @OriginalArg(10) int arg10, @OriginalArg(11) byte arg11, @OriginalArg(12) int arg12, @OriginalArg(13) int arg13, @OriginalArg(14) boolean arg14, @OriginalArg(16) int arg15, @OriginalArg(17) int arg16, @OriginalArg(18) boolean arg17) {
         Static29.aBoolean60 = true;
-        Static442.aBoolean500 = Static665.aClass19_15.method7955() > 0;
+        Static442.aBoolean500 = Static665.aToolkit_15.getMaxLights() > 0;
         Static581.aBoolean657 = true;
         Static403.anInt6246 = arg1 >> Static52.anInt1066;
         Static550.anInt8271 = arg3 >> Static52.anInt1066;
@@ -64,7 +64,7 @@ public final class Static283 {
                         @Pc(142) int local142 = local118 << Static52.anInt1066;
                         @Pc(159) int local159 = Static706.aGroundArray3[Static706.aGroundArray3.length - 1].method7869(local118, local112) - (0x3E8 << Static52.anInt1066 - 7);
                         @Pc(188) int local188 = (Static693.aGroundArray2 == null ? Static706.aGroundArray3[0].method7869(local118, local112) + Static340.anInt5586 : Static693.aGroundArray2[0].method7869(local118, local112) + Static340.anInt5586) + (0x3E8 << Static52.anInt1066 - 7);
-                        local90 = arg15 >= 0 ? Static665.aClass19_15.r(local138, local159, local142, local138, local188, local142, arg15) : Static665.aClass19_15.JA(local138, local159, local142, local138, local188, local142);
+                        local90 = arg15 >= 0 ? Static665.aToolkit_15.r(local138, local159, local142, local138, local188, local142, arg15) : Static665.aToolkit_15.JA(local138, local159, local142, local138, local188, local142);
                         Static142.aBooleanArrayArray1[local85][local92] = local90 == 0;
                     } else {
                         local90 = -1;
@@ -86,7 +86,7 @@ public final class Static283 {
                 Static419.anIntArray500 = arg7;
                 Static219.anIntArray288 = arg8;
                 Static665.anIntArray779 = arg9;
-                Static725.method9454(Static665.aClass19_15, arg10);
+                Static725.method9454(Static665.aToolkit_15, arg10);
             }
         } else {
             if (Static222.aBooleanArrayArray2 == null) {
@@ -105,7 +105,7 @@ public final class Static283 {
             Static692.anInt10370 = Static662.anInt9843;
             Static29.aBoolean60 = false;
         }
-        Static497.method6623(Static665.aClass19_15);
+        Static497.method6623(Static665.aToolkit_15);
         if (!Static514.aClass213_2.aBoolean426) {
             @Pc(387) Class130 local387 = Static514.aClass213_2.aClass130_8;
             for (@Pc(392) Class8_Sub7 local392 = (Class8_Sub7) local387.method2790(); local392 != null; local392 = (Class8_Sub7) local387.method2785()) {
@@ -119,8 +119,8 @@ public final class Static283 {
             }
         }
         if (Static661.aBoolean457) {
-            Static346.anIntArray420 = Static665.aClass19_15.Y();
-            Static665.aClass19_15.K(Static238.anIntArray307);
+            Static346.anIntArray420 = Static665.aToolkit_15.Y();
+            Static665.aToolkit_15.K(Static238.anIntArray307);
             local85 = (Static238.anIntArray307[2] - Static238.anIntArray307[0]) / Static549.anInt9424;
             for (local88 = 0; local88 < Static549.anInt9424 - 1; local88++) {
                 Static537.anIntArray633[local88] = local85 * (local88 + 1) + Static621.anIntArray766[local88];
@@ -134,12 +134,12 @@ public final class Static283 {
                 Static341.method5033(0);
             }
             Static379.method5355(true);
-            Static665.aClass19_15.ra(-1, 1583160, 40, 127);
+            Static665.aToolkit_15.ra(-1, 1583160, 40, 127);
             Static517.method6823(true, arg4, arg10, arg11, arg15, arg16, arg17);
             if (Static661.aBoolean457) {
                 Static245.method8630();
             }
-            Static665.aClass19_15.pa();
+            Static665.aToolkit_15.pa();
             Static379.method5355(false);
         }
         Static517.method6823(false, arg4, arg10, arg11, arg15, arg16, arg17);

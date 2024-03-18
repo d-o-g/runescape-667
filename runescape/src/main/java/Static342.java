@@ -44,7 +44,7 @@ public final class Static342 {
         }
         Static328.aByteArrayArrayArray4 = new byte[4][Static720.anInt10859][Static501.anInt7568];
         Static708.method9231(Static720.anInt10859, Static501.anInt7568);
-        Static613.method8239(Static163.aClass19_17, Static501.anInt7568 >> 3, Static720.anInt10859 >> 3);
+        Static613.method8239(Static163.aToolkit_17, Static501.anInt7568 >> 3, Static720.anInt10859 >> 3);
         Static537.anInt8170 = arg0;
     }
 }

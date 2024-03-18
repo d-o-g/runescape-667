@@ -19,10 +19,10 @@ public abstract class Class61 {
     protected final Class397 aClass397_12;
 
     @OriginalMember(owner = "client!pl", name = "d", descriptor = "Lclient!kea;")
-    protected final Class19_Sub1_Sub1 aClass19_Sub1_Sub1_9;
+    protected final Toolkit_Sub1_Sub1 aClass19_Sub1_Sub1_9;
 
     @OriginalMember(owner = "client!pl", name = "<init>", descriptor = "(Lclient!kea;Lclient!eba;Lclient!wda;ZI)V")
-    protected Class61(@OriginalArg(0) Class19_Sub1_Sub1 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) Class397 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
+    protected Class61(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) Class397 arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
         this.aClass92_17 = arg1;
         this.aBoolean785 = arg3;
         this.aClass397_12 = arg2;

@@ -12,7 +12,7 @@ public final class Static665 {
     public static int[] anIntArray779;
 
     @OriginalMember(owner = "client!vb", name = "w", descriptor = "Lclient!ha;")
-    public static Class19 aClass19_15;
+    public static Toolkit aToolkit_15;
 
     @OriginalMember(owner = "client!vb", name = "u", descriptor = "[[Lclient!uc;")
     public static Class367[][] aClass367ArrayArray1;

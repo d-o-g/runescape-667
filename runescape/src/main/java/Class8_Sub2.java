@@ -47,7 +47,7 @@ public abstract class Class8_Sub2 extends Class8 {
     public abstract boolean method9275();
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
-    public abstract Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0);
+    public abstract Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0);
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(I[Lclient!lca;II)I")
     protected final int method9277(@OriginalArg(1) Node_Sub7[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
@@ -70,10 +70,10 @@ public abstract class Class8_Sub2 extends Class8 {
     }
 
     @OriginalMember(owner = "client!eo", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
-    public abstract Class205 method9278(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1);
+    public abstract Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1);
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(IIZLclient!ha;)Z")
-    public abstract boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class19 arg3);
+    public abstract boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3);
 
     @OriginalMember(owner = "client!eo", name = "j", descriptor = "(I)V")
     public abstract void method9280(@OriginalArg(0) int arg0);
@@ -85,10 +85,10 @@ public abstract class Class8_Sub2 extends Class8 {
     public abstract boolean method9283();
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(BLclient!ha;)Z")
-    public abstract boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Class19 arg1);
+    public abstract boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1);
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
-    public abstract void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Class19 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6);
+    public abstract void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6);
 
     @OriginalMember(owner = "client!eo", name = "k", descriptor = "(I)I")
     public abstract int method9286(@OriginalArg(0) int arg0);
@@ -102,7 +102,7 @@ public abstract class Class8_Sub2 extends Class8 {
     public abstract int method9288(@OriginalArg(0) Node_Sub7[] arg0);
 
     @OriginalMember(owner = "client!eo", name = "d", descriptor = "(Lclient!ha;I)V")
-    public abstract void method9289(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1);
+    public abstract void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1);
 
     @OriginalMember(owner = "client!eo", name = "i", descriptor = "(I)Z")
     public abstract boolean method9290(@OriginalArg(0) int arg0);

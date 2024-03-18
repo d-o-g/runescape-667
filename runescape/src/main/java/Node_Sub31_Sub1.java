@@ -47,7 +47,7 @@ public final class Node_Sub31_Sub1 extends Node_Sub31 {
     public Class93_Sub2 aClass93_Sub2_2;
 
     @OriginalMember(owner = "client!kca", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Node_Sub31_Sub1(@OriginalArg(0) Class19_Sub3 arg0) {
+    public Node_Sub31_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0) {
         super(arg0);
     }
 

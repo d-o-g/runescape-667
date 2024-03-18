@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static158 {
 
     @OriginalMember(owner = "client!ev", name = "a", descriptor = "Lclient!ha;")
-    public static Class19 aClass19_5;
+    public static Toolkit aToolkit_5;
 
     @OriginalMember(owner = "client!ev", name = "g", descriptor = "Ljava/lang/Object;")
     public static Object anObject5;

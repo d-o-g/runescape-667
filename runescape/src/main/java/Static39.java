@@ -31,7 +31,7 @@ public final class Static39 {
     }
 
     @OriginalMember(owner = "client!bf", name = "a", descriptor = "(ILclient!ha;)V")
-    public static void method1022(@OriginalArg(1) Class19 arg0) {
+    public static void method1022(@OriginalArg(1) Toolkit arg0) {
         if (Static60.aBoolean87) {
             Static149.method2449(arg0);
         } else {

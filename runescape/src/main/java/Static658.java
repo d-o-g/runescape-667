@@ -18,7 +18,7 @@ public final class Static658 {
         @Pc(6) int local6;
         if (Static442.aBoolean500) {
             local6 = arg0.method9288(arg1);
-            Static665.aClass19_15.method8009(local6, arg1);
+            Static665.aToolkit_15.method8009(local6, arg1);
         }
         if (Static693.aGroundArray2 == Static246.aGroundArray1) {
             @Pc(28) int local28;
@@ -29,9 +29,9 @@ public final class Static658 {
                 local6 = arg0.anInt10690 >> Static52.anInt1066;
                 local28 = arg0.anInt10694 >> Static52.anInt1066;
             }
-            Static665.aClass19_15.EA(Static706.aGroundArray3[0].method7878(arg0.anInt10694, arg0.anInt10690), Static100.method1987(local6, local28), Static350.method5124(local6, local28), Static339.method5005(local6, local28));
+            Static665.aToolkit_15.EA(Static706.aGroundArray3[0].method7878(arg0.anInt10694, arg0.anInt10690), Static100.method1987(local6, local28), Static350.method5124(local6, local28), Static339.method5005(local6, local28));
         }
-        @Pc(64) Class8_Sub7 local64 = arg0.method9276(Static665.aClass19_15);
+        @Pc(64) Class8_Sub7 local64 = arg0.method9276(Static665.aToolkit_15);
         if (local64 == null) {
             return;
         }

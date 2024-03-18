@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -61,7 +62,7 @@ public final class Class8_Sub8 extends Class8 {
     public final Class130 aClass130_11;
 
     @OriginalMember(owner = "client!rf", name = "<init>", descriptor = "(Lclient!ha;Lclient!rv;Lclient!hv;J)V")
-    public Class8_Sub8(@OriginalArg(0) Class19 arg0, @OriginalArg(1) MeshEmitter arg1, @OriginalArg(2) Class8_Sub5 arg2, @OriginalArg(3) long arg3) {
+    public Class8_Sub8(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) MeshEmitter arg1, @OriginalArg(2) Class8_Sub5 arg2, @OriginalArg(3) long arg3) {
         this.aMeshEmitter_1 = arg1;
         this.aLong254 = arg3;
         this.aClass8_Sub5_6 = arg2;
@@ -84,7 +85,7 @@ public final class Class8_Sub8 extends Class8 {
     }
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(IBZJLclient!ha;)V")
-    public void method7261(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) long arg2, @OriginalArg(4) Class19 arg3) {
+    public void method7261(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) long arg2, @OriginalArg(4) Toolkit arg3) {
         @Pc(46) int local46;
         if (this.aBoolean630) {
             arg1 = false;
@@ -173,12 +174,12 @@ public final class Class8_Sub8 extends Class8 {
                     } else {
                         local252 = (int) ((double) this.anInt8273 * Math.random()) + this.anInt8272;
                         local252 &= 0x3FFF;
-                        local362 = Class361.anIntArray741[local252];
-                        local414 = Class361.anIntArray740[local252];
+                        local362 = Trig1.SIN[local252];
+                        local414 = Trig1.COS[local252];
                         local435 = this.anInt8276 + (int) ((double) this.anInt8274 * Math.random());
                         local435 &= 0x1FFF;
-                        local577 = Class361.anIntArray741[local435];
-                        local581 = Class361.anIntArray740[local435];
+                        local577 = Trig1.SIN[local435];
+                        local581 = Trig1.COS[local435];
                         local218 = local414 * local577 >> 13;
                         local226 = (local581 << 1) * -1;
                         local235 = local577 * local362 >> 13;
@@ -252,7 +253,7 @@ public final class Class8_Sub8 extends Class8 {
     }
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(JLclient!ha;I)V")
-    public void method7263(@OriginalArg(0) long arg0, @OriginalArg(1) Class19 arg1) {
+    public void method7263(@OriginalArg(0) long arg0, @OriginalArg(1) Toolkit arg1) {
         for (@Pc(11) Class8_Sub4_Sub2_Sub1 local11 = (Class8_Sub4_Sub2_Sub1) this.aClass130_11.method2790(); local11 != null; local11 = (Class8_Sub4_Sub2_Sub1) this.aClass130_11.method2785()) {
             local11.method6695(arg1, arg0);
         }

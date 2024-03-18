@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 @OriginalClass("client!iaa")
-public final class Class19_Sub2 extends Class19 {
+public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "pb", descriptor = "I")
     public int anInt4183;
@@ -159,7 +159,7 @@ public final class Class19_Sub2 extends Class19 {
     public int anInt4184;
 
     @OriginalMember(owner = "client!iaa", name = "<init>", descriptor = "(Lclient!d;)V")
-    public Class19_Sub2(@OriginalArg(0) Interface4 arg0) {
+    public Toolkit_Sub2(@OriginalArg(0) Interface4 arg0) {
         super(arg0);
         this.aBoolean331 = false;
         this.aBoolean330 = false;
@@ -197,7 +197,7 @@ public final class Class19_Sub2 extends Class19 {
     }
 
     @OriginalMember(owner = "client!iaa", name = "<init>", descriptor = "(Ljava/awt/Canvas;Lclient!d;II)V")
-    public Class19_Sub2(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Interface4 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public Toolkit_Sub2(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Interface4 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         this(arg1);
         try {
             this.method8022(arg0, arg2, arg3);
@@ -226,8 +226,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
-        @Pc(2) Class1_Sub1 local2 = (Class1_Sub1) arg5;
+    public void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
+        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) arg5;
         @Pc(5) int[] local5 = local2.anIntArray334;
         @Pc(8) int[] local8 = local2.anIntArray335;
         @Pc(18) int local18 = this.anInt4186 > arg7 ? this.anInt4186 : arg7;
@@ -342,8 +342,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "xa", descriptor = "(F)V")
     @Override
-    public void xa(@OriginalArg(0) float arg0) {
-        this.anInt4202 = (int) (arg0 * 65535.0F);
+    public void xa(@OriginalArg(0) float globalAmbient) {
+        this.anInt4202 = (int) (globalAmbient * 65535.0F);
     }
 
     @OriginalMember(owner = "client!iaa", name = "M", descriptor = "()I")
@@ -650,75 +650,75 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "za", descriptor = "(IIIII)V")
     @Override
-    protected void za(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        if (arg2 < 0) {
-            arg2 = -arg2;
+    protected void za(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int radius, @OriginalArg(3) int colour, @OriginalArg(4) int mode) {
+        if (radius < 0) {
+            radius = -radius;
         }
-        @Pc(8) int local8 = arg1 - arg2;
+        @Pc(8) int local8 = y - radius;
         if (local8 < this.anInt4186) {
             local8 = this.anInt4186;
         }
-        @Pc(21) int local21 = arg1 + arg2 + 1;
+        @Pc(21) int local21 = y + radius + 1;
         if (local21 > this.anInt4196) {
             local21 = this.anInt4196;
         }
         @Pc(30) int local30 = local8;
-        @Pc(34) int local34 = arg2 * arg2;
+        @Pc(34) int local34 = radius * radius;
         @Pc(36) int local36 = 0;
-        @Pc(40) int local40 = arg1 - local8;
+        @Pc(40) int local40 = y - local8;
         @Pc(44) int local44 = local40 * local40;
         @Pc(48) int local48 = local44 - local40;
-        if (arg1 > local21) {
-            arg1 = local21;
+        if (y > local21) {
+            y = local21;
         }
-        @Pc(57) int local57 = arg3 >>> 24;
+        @Pc(57) int local57 = colour >>> 24;
         @Pc(98) int local98;
         @Pc(109) int local109;
         @Pc(123) int local123;
         @Pc(125) int local125;
-        if (arg4 == 1 && local57 == 255) {
-            while (local30 < arg1) {
+        if (mode == 1 && local57 == 255) {
+            while (local30 < y) {
                 while (local48 <= local34 || local44 <= local34) {
                     local44 += local36 + local36;
                     local48 += local36++ + local36;
                 }
-                local98 = arg0 + 1 - local36;
+                local98 = x + 1 - local36;
                 if (local98 < this.anInt4192) {
                     local98 = this.anInt4192;
                 }
-                local109 = arg0 + local36;
+                local109 = x + local36;
                 if (local109 > this.anInt4200) {
                     local109 = this.anInt4200;
                 }
                 local123 = local98 + local30 * this.anInt4207;
                 for (local125 = local98; local125 < local109; local125++) {
-                    this.anIntArray319[local123++] = arg3;
+                    this.anIntArray319[local123++] = colour;
                 }
                 local30++;
                 local44 -= local40-- + local40;
                 local48 -= local40 + local40;
             }
-            local36 = arg2;
-            local40 = local30 - arg1;
+            local36 = radius;
+            local40 = local30 - y;
             local48 = local40 * local40 + local34;
-            local44 = local48 - arg2;
+            local44 = local48 - radius;
             local48 -= local40;
             while (local30 < local21) {
                 while (local48 > local34 && local44 > local34) {
                     local48 -= local36-- + local36;
                     local44 -= local36 + local36;
                 }
-                local98 = arg0 - local36;
+                local98 = x - local36;
                 if (local98 < this.anInt4192) {
                     local98 = this.anInt4192;
                 }
-                local109 = arg0 + local36;
+                local109 = x + local36;
                 if (local109 > this.anInt4200 - 1) {
                     local109 = this.anInt4200 - 1;
                 }
                 local123 = local98 + local30 * this.anInt4207;
                 for (local125 = local98; local125 <= local109; local125++) {
-                    this.anIntArray319[local123++] = arg3;
+                    this.anIntArray319[local123++] = colour;
                 }
                 local30++;
                 local48 += local40 + local40;
@@ -726,20 +726,20 @@ public final class Class19_Sub2 extends Class19 {
             }
             return;
         }
-        @Pc(287) int local287 = ((arg3 & 0xFF00FF) * local57 >> 8 & 0xFF00FF) + ((arg3 & 0xFF00) * local57 >> 8 & 0xFF00) + (local57 << 24);
+        @Pc(287) int local287 = ((colour & 0xFF00FF) * local57 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local57 >> 8 & 0xFF00) + (local57 << 24);
         local98 = 256 - local57;
         @Pc(346) int local346;
         @Pc(352) int local352;
-        while (local30 < arg1) {
+        while (local30 < y) {
             while (local48 <= local34 || local44 <= local34) {
                 local44 += local36 + local36;
                 local48 += local36++ + local36;
             }
-            local109 = arg0 + 1 - local36;
+            local109 = x + 1 - local36;
             if (local109 < this.anInt4192) {
                 local109 = this.anInt4192;
             }
-            local123 = arg0 + local36;
+            local123 = x + local36;
             if (local123 > this.anInt4200) {
                 local123 = this.anInt4200;
             }
@@ -753,21 +753,21 @@ public final class Class19_Sub2 extends Class19 {
             local44 -= local40-- + local40;
             local48 -= local40 + local40;
         }
-        local36 = arg2;
+        local36 = radius;
         local40 = -local40;
         local48 = local40 * local40 + local34;
-        local44 = local48 - arg2;
+        local44 = local48 - radius;
         local48 -= local40;
         while (local30 < local21) {
             while (local48 > local34 && local44 > local34) {
                 local48 -= local36-- + local36;
                 local44 -= local36 + local36;
             }
-            local109 = arg0 - local36;
+            local109 = x - local36;
             if (local109 < this.anInt4192) {
                 local109 = this.anInt4192;
             }
-            local123 = arg0 + local36;
+            local123 = x + local36;
             if (local123 > this.anInt4200 - 1) {
                 local123 = this.anInt4200 - 1;
             }
@@ -797,59 +797,59 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "DA", descriptor = "(IIII)V")
     @Override
-    public void DA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this.anInt4206 = arg0;
-        this.anInt4194 = arg1;
-        this.anInt4205 = arg2;
-        this.anInt4188 = arg3;
+    public void DA(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height) {
+        this.anInt4206 = x;
+        this.anInt4194 = y;
+        this.anInt4205 = width;
+        this.anInt4188 = height;
         this.method3799();
     }
 
     @OriginalMember(owner = "client!iaa", name = "aa", descriptor = "(IIIIII)V")
     @Override
-    public void aa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        if (arg0 < this.anInt4192) {
-            arg2 -= this.anInt4192 - arg0;
-            arg0 = this.anInt4192;
+    public void aa(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
+        if (x < this.anInt4192) {
+            width -= this.anInt4192 - x;
+            x = this.anInt4192;
         }
-        if (arg1 < this.anInt4186) {
-            arg3 -= this.anInt4186 - arg1;
-            arg1 = this.anInt4186;
+        if (y < this.anInt4186) {
+            height -= this.anInt4186 - y;
+            y = this.anInt4186;
         }
-        if (arg0 + arg2 > this.anInt4200) {
-            arg2 = this.anInt4200 - arg0;
+        if (x + width > this.anInt4200) {
+            width = this.anInt4200 - x;
         }
-        if (arg1 + arg3 > this.anInt4196) {
-            arg3 = this.anInt4196 - arg1;
+        if (y + height > this.anInt4196) {
+            height = this.anInt4196 - y;
         }
-        if (arg2 <= 0 || arg3 <= 0 || arg0 > this.anInt4200 || arg1 > this.anInt4196) {
+        if (width <= 0 || height <= 0 || x > this.anInt4200 || y > this.anInt4196) {
             return;
         }
-        @Pc(74) int local74 = this.anInt4207 - arg2;
-        @Pc(81) int local81 = arg0 + arg1 * this.anInt4207;
-        @Pc(85) int local85 = arg4 >>> 24;
+        @Pc(74) int local74 = this.anInt4207 - width;
+        @Pc(81) int local81 = x + y * this.anInt4207;
+        @Pc(85) int local85 = colour >>> 24;
         @Pc(101) int local101;
         @Pc(105) int local105;
         @Pc(112) int local112;
-        if (arg5 != 0 && (arg5 != 1 || local85 != 255)) {
+        if (mode != 0 && (mode != 1 || local85 != 255)) {
             @Pc(231) int local231;
-            if (arg5 == 1) {
-                @Pc(215) int local215 = ((arg4 & 0xFF00FF) * local85 >> 8 & 0xFF00FF) + (((arg4 & 0xFF00FF00) >>> 8) * local85 & 0xFF00FF00);
+            if (mode == 1) {
+                @Pc(215) int local215 = ((colour & 0xFF00FF) * local85 >> 8 & 0xFF00FF) + (((colour & 0xFF00FF00) >>> 8) * local85 & 0xFF00FF00);
                 local101 = 256 - local85;
-                for (local105 = 0; local105 < arg3; local105++) {
-                    for (local112 = -arg2; local112 < 0; local112++) {
+                for (local105 = 0; local105 < height; local105++) {
+                    for (local112 = -width; local112 < 0; local112++) {
                         local231 = this.anIntArray319[local81];
                         local231 = ((local231 & 0xFF00FF) * local101 >> 8 & 0xFF00FF) + (((local231 & 0xFF00FF00) >>> 8) * local101 & 0xFF00FF00);
                         this.anIntArray319[local81++] = local215 + local231;
                     }
                     local81 += local74;
                 }
-            } else if (arg5 == 2) {
-                for (local101 = 0; local101 < arg3; local101++) {
-                    for (local105 = -arg2; local105 < 0; local105++) {
+            } else if (mode == 2) {
+                for (local101 = 0; local101 < height; local101++) {
+                    for (local105 = -width; local105 < 0; local105++) {
                         local112 = this.anIntArray319[local81];
-                        local231 = arg4 + local112;
-                        @Pc(299) int local299 = (arg4 & 0xFF00FF) + (local112 & 0xFF00FF);
+                        local231 = colour + local112;
+                        @Pc(299) int local299 = (colour & 0xFF00FF) + (local112 & 0xFF00FF);
                         @Pc(309) int local309 = (local299 & 0x1000100) + (local231 - local299 & 0x10000);
                         this.anIntArray319[local81++] = local231 - local309 | local309 - (local309 >>> 8);
                     }
@@ -860,41 +860,41 @@ public final class Class19_Sub2 extends Class19 {
             }
             return;
         }
-        local101 = arg2 >> 3;
-        local105 = arg2 & 0x7;
-        arg2 = local81 - 1;
-        for (local112 = -arg3; local112 < 0; local112++) {
+        local101 = width >> 3;
+        local105 = width & 0x7;
+        width = local81 - 1;
+        for (local112 = -height; local112 < 0; local112++) {
             if (local101 > 0) {
-                arg0 = local101;
+                x = local101;
                 do {
-                    arg2++;
-                    this.anIntArray319[arg2] = arg4;
-                    arg2++;
-                    this.anIntArray319[arg2] = arg4;
-                    arg2++;
-                    this.anIntArray319[arg2] = arg4;
-                    arg2++;
-                    this.anIntArray319[arg2] = arg4;
-                    arg2++;
-                    this.anIntArray319[arg2] = arg4;
-                    arg2++;
-                    this.anIntArray319[arg2] = arg4;
-                    arg2++;
-                    this.anIntArray319[arg2] = arg4;
-                    arg2++;
-                    this.anIntArray319[arg2] = arg4;
-                    arg0--;
-                } while (arg0 > 0);
+                    width++;
+                    this.anIntArray319[width] = colour;
+                    width++;
+                    this.anIntArray319[width] = colour;
+                    width++;
+                    this.anIntArray319[width] = colour;
+                    width++;
+                    this.anIntArray319[width] = colour;
+                    width++;
+                    this.anIntArray319[width] = colour;
+                    width++;
+                    this.anIntArray319[width] = colour;
+                    width++;
+                    this.anIntArray319[width] = colour;
+                    width++;
+                    this.anIntArray319[width] = colour;
+                    x--;
+                } while (x > 0);
             }
             if (local105 > 0) {
-                arg0 = local105;
+                x = local105;
                 do {
-                    arg2++;
-                    this.anIntArray319[arg2] = arg4;
-                    arg0--;
-                } while (arg0 > 0);
+                    width++;
+                    this.anIntArray319[width] = colour;
+                    x--;
+                } while (x > 0);
             }
-            arg2 += local74;
+            width += local74;
         }
     }
 
@@ -982,9 +982,9 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "b", descriptor = "(II)I")
     @Override
-    public int method7960(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(3) int local3 = arg0 | 0x20800;
-        return local3 & arg1 ^ arg1;
+    public int compareFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB) {
+        @Pc(3) int local3 = maskA | 0x20800;
+        return local3 & maskB ^ maskB;
     }
 
     @OriginalMember(owner = "client!iaa", name = "Y", descriptor = "()[I")
@@ -1022,10 +1022,10 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "f", descriptor = "(II)V")
     @Override
-    public void f(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public void f(@OriginalArg(0) int near, @OriginalArg(1) int far) {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
-        this.anInt4214 = arg0;
-        this.anInt4199 = arg1;
+        this.anInt4214 = near;
+        this.anInt4199 = far;
         local3.anInt10601 = this.anInt4199 - 255;
     }
 
@@ -1086,7 +1086,7 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "A", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method7985() {
+    public Matrix scratchMatrix() {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
         return local3.aClass73_Sub2_3;
     }
@@ -1202,29 +1202,29 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "A", descriptor = "(ILclient!aa;II)V")
     @Override
-    public void A(@OriginalArg(0) int arg0, @OriginalArg(1) Class1 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        @Pc(2) Class1_Sub1 local2 = (Class1_Sub1) arg1;
+    public void A(@OriginalArg(0) int colour, @OriginalArg(1) ClippingMask clippingMask, @OriginalArg(2) int x, @OriginalArg(3) int y) {
+        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) clippingMask;
         @Pc(5) int[] local5 = local2.anIntArray334;
         @Pc(8) int[] local8 = local2.anIntArray335;
         @Pc(20) int local20;
-        if (this.anInt4196 < arg3 + local5.length) {
-            local20 = this.anInt4196 - arg3;
+        if (this.anInt4196 < y + local5.length) {
+            local20 = this.anInt4196 - y;
         } else {
             local20 = local5.length;
         }
         @Pc(33) int local33;
-        if (this.anInt4186 > arg3) {
-            local33 = this.anInt4186 - arg3;
-            arg3 = this.anInt4186;
+        if (this.anInt4186 > y) {
+            local33 = this.anInt4186 - y;
+            y = this.anInt4186;
         } else {
             local33 = 0;
         }
         if (local20 - local33 <= 0) {
             return;
         }
-        @Pc(50) int local50 = arg3 * this.anInt4207;
+        @Pc(50) int local50 = y * this.anInt4207;
         for (@Pc(52) int local52 = local33; local52 < local20; local52++) {
-            @Pc(59) int local59 = arg2 + local5[local52];
+            @Pc(59) int local59 = x + local5[local52];
             @Pc(63) int local63 = local8[local52];
             if (this.anInt4192 > local59) {
                 local63 -= this.anInt4192 - local59;
@@ -1235,7 +1235,7 @@ public final class Class19_Sub2 extends Class19 {
             }
             local59 += local50;
             for (@Pc(95) int local95 = -local63; local95 < 0; local95++) {
-                this.anIntArray319[local59++] = arg0;
+                this.anIntArray319[local59++] = colour;
             }
             local50 += this.anInt4207;
         }
@@ -1463,8 +1463,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "c", descriptor = "(II)I")
     @Override
-    public int method8013(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return arg0 | arg1;
+    public int combineFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB) {
+        return maskA | maskB;
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(II)Lclient!eca;")
@@ -1743,8 +1743,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(II[I[I)Lclient!aa;")
     @Override
-    public Class1 method8004(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3) {
-        return new Class1_Sub1(arg0, arg1, arg2, arg3);
+    public ClippingMask createMask(@OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(2) int[] offsets, @OriginalArg(3) int[] widths) {
+        return new ClippingMask_Sub1(width, height, offsets, widths);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!pu;Lclient!pu;FLclient!pu;)Lclient!pu;")
@@ -2010,7 +2010,7 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(II[[I[[IIII)Lclient!s;")
     @Override
-    public Ground method7996(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
+    public Ground createGround(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         return new Ground_Sub3(this, arg4, arg5, arg0, arg1, arg2, arg3, 512);
     }
 
@@ -2490,8 +2490,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
-    public void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
-        @Pc(2) Class1_Sub1 local2 = (Class1_Sub1) arg5;
+    public void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) arg5;
         @Pc(5) int[] local5 = local2.anIntArray334;
         @Pc(8) int[] local8 = local2.anIntArray335;
         @Pc(18) int local18 = this.anInt4186 > arg7 ? this.anInt4186 : arg7;
@@ -2631,7 +2631,7 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "e", descriptor = "()I")
     @Override
-    public int method7955() {
+    public int getMaxLights() {
         return 0;
     }
 
@@ -2803,8 +2803,8 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method8000(@OriginalArg(0) Matrix arg0) {
-        this.aClass73_Sub2_1 = (Matrix_Sub2) arg0;
+    public void setCamera(@OriginalArg(0) Matrix matrix) {
+        this.aClass73_Sub2_1 = (Matrix_Sub2) matrix;
     }
 
     @OriginalMember(owner = "client!iaa", name = "na", descriptor = "(IIII)[I")
@@ -2874,7 +2874,7 @@ public final class Class19_Sub2 extends Class19 {
 
     @OriginalMember(owner = "client!iaa", name = "y", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method7953() {
+    public Matrix createMatrix() {
         return new Matrix_Sub2();
     }
 

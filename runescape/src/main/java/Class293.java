@@ -15,7 +15,7 @@ public final class Class293 {
     public final Ground_Sub1 aClass178_Sub1_2;
 
     @OriginalMember(owner = "client!pk", name = "q", descriptor = "Lclient!am;")
-    public final Class19_Sub1 aClass19_Sub1_17;
+    public final Toolkit_Sub1 aClass19_Sub1_17;
 
     @OriginalMember(owner = "client!pk", name = "d", descriptor = "I")
     public final int anInt7428;
@@ -36,7 +36,7 @@ public final class Class293 {
     public final int anInt7426;
 
     @OriginalMember(owner = "client!pk", name = "<init>", descriptor = "(Lclient!am;Lclient!iga;)V")
-    public Class293(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) Ground_Sub1 arg1) {
+    public Class293(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Ground_Sub1 arg1) {
         this.aClass178_Sub1_2 = arg1;
         this.aClass19_Sub1_17 = arg0;
         this.anInt7428 = (this.aClass178_Sub1_2.anInt8894 * this.aClass178_Sub1_2.anInt8888 >> this.aClass19_Sub1_17.anInt9173) + 2;
@@ -93,7 +93,7 @@ public final class Class293 {
                                     if (-arg1 <= local127 - arg2 && local127 - arg2 <= arg1 && arg0[arg1 + local99 - arg3][local127 + arg1 - arg2]) {
                                         @Pc(169) Matrix_Sub1 local169 = this.aClass19_Sub1_17.method8082();
                                         local169.method1884(1.0F, local54, local54);
-                                        local169.method7134(-local74, -local58, 0);
+                                        local169.translate(-local74, -local58, 0);
                                         this.aClass19_Sub1_17.method8073(Static431.aClass370_5);
                                         this.aClass274ArrayArray1[local74][local58].method6229();
                                         continue label138;
@@ -147,7 +147,7 @@ public final class Class293 {
                             if (local279.method8546() && local294 > 0) {
                                 @Pc(490) Matrix_Sub1 local490 = this.aClass19_Sub1_17.method8082();
                                 local490.method1884(1.0F, local54, local54);
-                                local490.method7134(-local74, -local58, 0);
+                                local490.translate(-local74, -local58, 0);
                                 this.aClass19_Sub1_17.method8073(Static431.aClass370_5);
                                 local266.method6226(local279, local294 / 3);
                             }

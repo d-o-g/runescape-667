@@ -12,9 +12,9 @@ public final class Static700 {
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(II[Ljava/awt/Rectangle;)V")
     public static void method9148(@OriginalArg(1) int arg0, @OriginalArg(2) Rectangle[] arg1) throws Exception_Sub1 {
         if (Static448.anInt6796 == 1) {
-            Static74.aClass19_4.method8011(arg1, arg0, Static2.anInt45, Static312.anInt5001);
+            Static74.aToolkit_4.method8011(arg1, arg0, Static2.anInt45, Static312.anInt5001);
         } else {
-            Static74.aClass19_4.method8011(arg1, arg0, 0, 0);
+            Static74.aToolkit_4.method8011(arg1, arg0, 0, 0);
         }
     }
 
@@ -33,7 +33,7 @@ public final class Static700 {
         Static352.method5180();
         Static46.method1084();
         System.gc();
-        Static163.aClass19_17.ya();
+        Static163.aToolkit_17.ya();
     }
 
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(III)V")

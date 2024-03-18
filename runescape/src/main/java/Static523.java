@@ -132,8 +132,8 @@ public final class Static523 {
                     return 0;
                 }
             }
-            Static570.method7549(Static163.aClass19_17);
-            Static469.method6358(Static163.aClass19_17);
+            Static570.method7549(Static163.aToolkit_17);
+            Static469.method6358(Static163.aToolkit_17);
             Static81.method1586(1);
         }
         if (Static198.aClass140_7 == Static473.aClass140_22) {
@@ -349,9 +349,9 @@ public final class Static523 {
                 Static32.method880(Static400.aClass2_Sub34_28.aClass57_Sub29_2.method7915(), false);
             }
             Static409.method5657(Static400.aClass2_Sub34_28.aClass57_Sub1_1.method1485(), -1, false, -1);
-            Static570.method7549(Static163.aClass19_17);
-            Static469.method6358(Static163.aClass19_17);
-            Static239.method3472(Static721.aClass330_128, Static163.aClass19_17);
+            Static570.method7549(Static163.aToolkit_17);
+            Static469.method6358(Static163.aToolkit_17);
+            Static239.method3472(Static721.aClass330_128, Static163.aToolkit_17);
             Static331.method4925(Static679.aSpriteArray14);
         }
         return Static694.method9030();

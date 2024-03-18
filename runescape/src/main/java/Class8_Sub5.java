@@ -54,7 +54,7 @@ public final class Class8_Sub5 extends Class8 {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J[Lclient!rv;[Lclient!mn;Z)V")
-    public void method3643(@OriginalArg(0) Class19 arg0, @OriginalArg(1) long arg1, @OriginalArg(2) MeshEmitter[] arg2, @OriginalArg(3) MeshMagnet[] arg3) {
+    public void method3643(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) long arg1, @OriginalArg(2) MeshEmitter[] arg2, @OriginalArg(3) MeshMagnet[] arg3) {
         if (!this.aBoolean324) {
             this.method3651(arg0, arg2);
             this.method3648(arg3);
@@ -73,7 +73,7 @@ public final class Class8_Sub5 extends Class8 {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;)V")
-    public void method3646(@OriginalArg(0) Class19 arg0) {
+    public void method3646(@OriginalArg(0) Toolkit arg0) {
         this.aClass230_1.aClass113_1.method2487();
         for (@Pc(10) Class8_Sub8 local10 = (Class8_Sub8) this.aClass130_6.method2790(); local10 != null; local10 = (Class8_Sub8) this.aClass130_6.method2785()) {
             local10.method7263(this.aLong132, arg0);
@@ -142,7 +142,7 @@ public final class Class8_Sub5 extends Class8 {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;[Lclient!rv;Z)V")
-    public void method3651(@OriginalArg(0) Class19 arg0, @OriginalArg(1) MeshEmitter[] arg1) {
+    public void method3651(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) MeshEmitter[] arg1) {
         for (@Pc(1) int local1 = 0; local1 < 32; local1++) {
             Static257.aBooleanArray7[local1] = false;
         }
@@ -204,7 +204,7 @@ public final class Class8_Sub5 extends Class8 {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J)Z")
-    public boolean method3653(@OriginalArg(0) Class19 arg0, @OriginalArg(1) long arg1) {
+    public boolean method3653(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) long arg1) {
         if (this.aLong133 == this.aLong132) {
             this.method3655();
         } else {

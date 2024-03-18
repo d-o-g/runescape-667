@@ -19,7 +19,7 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
     public final boolean aBoolean192;
 
     @OriginalMember(owner = "client!db", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIII)V")
-    public Class8_Sub2_Sub3_Sub1(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10) {
+    public Class8_Sub2_Sub3_Sub1(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10) {
         super(arg4, arg5, arg6, arg2, arg3, Static372.method5290(arg9, arg8));
         this.aClass337_1 = new Class337(arg0, arg1, arg8, arg9, super.aByte144, arg3, this, arg7, arg10);
         this.aBoolean192 = arg1.anInt1271 != 0 && !arg7;
@@ -41,7 +41,7 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!db", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6861(@OriginalArg(0) Class19 arg0) {
+    public void method6861(@OriginalArg(0) Toolkit arg0) {
         this.aClass337_1.method7668(arg0);
     }
 
@@ -58,7 +58,7 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
     @Override
     public void method9280(@OriginalArg(0) int arg0) {
         if (arg0 != 27811) {
-            this.method9279(-29, 50, false, (Class19) null);
+            this.method9279(-29, 50, false, (Toolkit) null);
         }
         throw new IllegalStateException();
     }
@@ -71,12 +71,12 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!db", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0) {
+    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(14) Model local14 = this.aClass337_1.method7678(arg0, false, true, true, 2048);
         if (local14 == null) {
             return null;
         }
-        @Pc(22) Matrix local22 = arg0.method7985();
+        @Pc(22) Matrix local22 = arg0.scratchMatrix();
         local22.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(36) Class8_Sub7 local36 = Static642.method8441(this.aBoolean192, 1);
         @Pc(49) int local49 = super.anInt10690 >> 9;
@@ -115,7 +115,7 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!db", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Class19 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
         if (arg4 >= 101) {
             throw new IllegalStateException();
         }
@@ -123,12 +123,12 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!db", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class19 arg3) {
+    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
         @Pc(12) Model local12 = this.aClass337_1.method7678(arg3, false, true, arg2, 131072);
         if (local12 == null) {
             return false;
         } else {
-            @Pc(20) Matrix local20 = arg3.method7985();
+            @Pc(20) Matrix local20 = arg3.scratchMatrix();
             local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
             return Static504.aBoolean579 ? local12.pickedOrtho(arg1, arg0, local20, false, 0, Static582.anInt8627) : local12.picked(arg1, arg0, local20, false, 0);
         }
@@ -145,7 +145,7 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!db", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method9289(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
             return;
         }
@@ -155,14 +155,14 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
         }
         @Pc(24) int local24 = super.anInt10690 >> 9;
         @Pc(29) int local29 = super.anInt10694 >> 9;
-        @Pc(32) Matrix local32 = arg0.method7985();
+        @Pc(32) Matrix local32 = arg0.scratchMatrix();
         local32.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         this.aClass337_1.method7681(local29, local17, false, -9827, arg0, local24, local24, local29, local32);
     }
 
     @OriginalMember(owner = "client!db", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6857(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 < -42) {
             this.aClass337_1.method7669(arg0);
         }
@@ -181,7 +181,7 @@ public final class Class8_Sub2_Sub3_Sub1 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!db", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 >= -93) {
             this.aClass205_2 = null;
         }

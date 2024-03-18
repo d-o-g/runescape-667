@@ -24,8 +24,8 @@ public final class Class90_Sub3 extends Class90 {
     @OriginalMember(owner = "client!lq", name = "a", descriptor = "(ZIBI)V")
     @Override
     protected void method7751(@OriginalArg(1) int arg0, @OriginalArg(3) int arg1) {
-        Static163.aClass19_17.method7976(arg0 - 2, arg1, super.aClass138_5.anInt4418 + 4, super.aClass138_5.anInt4413 - -2, ((Class138_Sub2) super.aClass138_5).anInt3439, 0);
-        Static163.aClass19_17.method7976(arg0 - 1, arg1 - -1, super.aClass138_5.anInt4418 + 2, super.aClass138_5.anInt4413, 0, 0);
+        Static163.aToolkit_17.method7976(arg0 - 2, arg1, super.aClass138_5.anInt4418 + 4, super.aClass138_5.anInt4413 - -2, ((Class138_Sub2) super.aClass138_5).anInt3439, 0);
+        Static163.aToolkit_17.method7976(arg0 - 1, arg1 - -1, super.aClass138_5.anInt4418 + 2, super.aClass138_5.anInt4413, 0, 0);
     }
 
     @OriginalMember(owner = "client!lq", name = "b", descriptor = "(I)Z")
@@ -39,9 +39,9 @@ public final class Class90_Sub3 extends Class90 {
     protected void method7753(@OriginalArg(0) int arg0, @OriginalArg(3) int arg1) {
         @Pc(13) int local13 = this.method7752() * super.aClass138_5.anInt4418 / 10000;
         @Pc(24) int[] local24 = new int[4];
-        Static163.aClass19_17.K(local24);
-        Static163.aClass19_17.KA(arg0, arg1 + 2, arg0 - -local13, arg1 + super.aClass138_5.anInt4413);
+        Static163.aToolkit_17.K(local24);
+        Static163.aToolkit_17.KA(arg0, arg1 + 2, arg0 - -local13, arg1 + super.aClass138_5.anInt4413);
         this.aSprite_28.method8198(arg0, arg1 + 2, super.aClass138_5.anInt4418, super.aClass138_5.anInt4413);
-        Static163.aClass19_17.KA(local24[0], local24[1], local24[2], local24[3]);
+        Static163.aToolkit_17.KA(local24[0], local24[1], local24[2], local24[3]);
     }
 }

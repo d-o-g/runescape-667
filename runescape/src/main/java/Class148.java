@@ -94,7 +94,7 @@ public final class Class148 {
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(ZILclient!ha;IIIIIIIIZB)V")
-    public void method3159(@OriginalArg(1) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
+    public void method3159(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
         @Pc(5) int local5 = 0;
         if (this.aBoolean272) {
             local5 = this.anInt3517;
@@ -120,7 +120,7 @@ public final class Class148 {
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(IIILclient!ha;ZZIIIIIIII)V")
-    public void method3161(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class19 arg3, @OriginalArg(4) boolean arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(9) int arg7, @OriginalArg(10) int arg8, @OriginalArg(11) int arg9, @OriginalArg(12) int arg10, @OriginalArg(13) int arg11) {
+    public void method3161(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Toolkit arg3, @OriginalArg(4) boolean arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(9) int arg7, @OriginalArg(10) int arg8, @OriginalArg(11) int arg9, @OriginalArg(12) int arg10, @OriginalArg(13) int arg11) {
         @Pc(10) int local10 = 255 - arg9;
         if (this.aModel_2 == null) {
             arg8 = arg8 + arg1 & 0x3FFF;
@@ -187,7 +187,7 @@ public final class Class148 {
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(IILclient!ha;IIIIIIII)V")
-    public void method3162(@OriginalArg(2) Class19 arg0, @OriginalArg(3) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(8) int arg4, @OriginalArg(9) int arg5, @OriginalArg(10) int arg6) {
+    public void method3162(@OriginalArg(2) Toolkit arg0, @OriginalArg(3) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(8) int arg4, @OriginalArg(9) int arg5, @OriginalArg(10) int arg6) {
         this.method3159(arg1, arg0, arg5, arg3, 0, 0, arg6, arg2, 0, arg4);
     }
 
@@ -206,22 +206,22 @@ public final class Class148 {
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(IIIIILclient!ha;)V")
-    public void method3164(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) Class19 arg4) {
+    public void method3164(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) Toolkit arg4) {
         @Pc(7) Matrix local7 = arg4.method8017().method7129();
-        @Pc(10) Matrix local10 = arg4.method7953();
+        @Pc(10) Matrix local10 = arg4.createMatrix();
         local10.method7125(0, 0, 0);
-        local10.method7127(arg0 & 0x3FFF);
+        local10.rotateAxisY(arg0 & 0x3FFF);
         local10.method7130(arg2 & 0x3FFF);
         local10.method7139(arg3 & 0x3FFF);
-        arg4.method8000(local10);
-        @Pc(36) Matrix local36 = arg4.method7953();
-        local36.method7133();
+        arg4.setCamera(local10);
+        @Pc(36) Matrix local36 = arg4.createMatrix();
+        local36.makeIdentity();
         if (this.anInt3503 != arg1) {
             this.aModel_2.updateAlphas((byte) arg1, this.aByteArray35);
             this.anInt3503 = arg1;
         }
         this.aModel_2.render(local36, (PickingCylinder) null, 0);
-        arg4.method8000(local7);
+        arg4.setCamera(local7);
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(B)Z")
@@ -230,7 +230,7 @@ public final class Class148 {
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(ILclient!ha;)V")
-    public void method3166(@OriginalArg(1) Class19 arg0) {
+    public void method3166(@OriginalArg(1) Toolkit arg0) {
         try {
             @Pc(9) Class330 local9 = Static386.aClass330_80;
             @Pc(17) boolean local17 = local9.method7607(this.anInt3514);
@@ -256,7 +256,7 @@ public final class Class148 {
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(IIILclient!ha;)Z")
-    public boolean method3168(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class19 arg2) {
+    public boolean method3168(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Toolkit arg2) {
         if (this.anInt3510 != arg1) {
             this.anInt3510 = arg1;
             @Pc(16) int local16 = Static402.method5587(arg1);

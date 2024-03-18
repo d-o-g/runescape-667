@@ -60,11 +60,11 @@ public final class Static712 {
                 }
             }
             Static434.aCanvas7.setSize(Static680.anInt10289, Static380.anInt5979);
-            if (Static163.aClass19_17 != null) {
+            if (Static163.aToolkit_17 != null) {
                 if (Static137.aBoolean210) {
                     Static575.method7606(Static434.aCanvas7);
                 } else {
-                    Static163.aClass19_17.method7935(Static434.aCanvas7, Static680.anInt10289, Static380.anInt5979);
+                    Static163.aToolkit_17.method7935(Static434.aCanvas7, Static680.anInt10289, Static380.anInt5979);
                 }
             }
             if (local22 == Static353.aFrame10) {

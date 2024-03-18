@@ -28,7 +28,7 @@ public final class Static587 {
     public static final Class345 aClass345_105 = new Class345(87, 6);
 
     @OriginalMember(owner = "client!sia", name = "a", descriptor = "(Lclient!d;IIILjava/awt/Canvas;)Lclient!ha;")
-    public static Class19 method7698(@OriginalArg(0) Interface4 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Canvas arg3) {
+    public static Toolkit method7698(@OriginalArg(0) Interface4 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Canvas arg3) {
         return new oa(arg3, arg0, arg1, arg2);
     }
 

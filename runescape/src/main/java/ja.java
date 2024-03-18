@@ -49,7 +49,7 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "e", descriptor = "(I)V")
     @Override
-    public void method7132(@OriginalArg(0) int arg0) {
+    public void makeRotationZ(@OriginalArg(0) int arg0) {
         this.NA(this.nativeid, arg0);
     }
 
@@ -61,7 +61,7 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "()V")
     @Override
-    public void method7133() {
+    public void makeIdentity() {
         this.u(this.nativeid);
     }
 
@@ -100,7 +100,7 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "f", descriptor = "(I)V")
     @Override
-    public void method7127(@OriginalArg(0) int arg0) {
+    public void rotateAxisY(@OriginalArg(0) int arg0) {
         this.m(this.nativeid, arg0);
     }
 
@@ -132,7 +132,7 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "b", descriptor = "(III)V")
     @Override
-    public void method7134(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void translate(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.a(this.nativeid, arg0, arg1, arg2);
     }
 

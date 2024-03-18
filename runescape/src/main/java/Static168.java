@@ -76,7 +76,7 @@ public final class Static168 {
                     @Pc(66) int[] local66 = new int[local41 * local37];
                     @Pc(78) PixelGrabber local78 = new PixelGrabber(local22, 0, 0, local37, local41, local66, 0, local37);
                     local78.grabPixels();
-                    return Static163.aClass19_17.method7946(local37, local37, local41, local66);
+                    return Static163.aToolkit_17.method7946(local37, local37, local41, local66);
                 }
                 throw new RuntimeException("");
             } catch (@Pc(91) InterruptedException local91) {

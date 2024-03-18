@@ -28,10 +28,10 @@ public final class Class67_Sub2_Sub1 extends Class67_Sub2 {
     public final int anInt10340;
 
     @OriginalMember(owner = "client!vo", name = "u", descriptor = "Lclient!am;")
-    public final Class19_Sub1 aClass19_Sub1_22;
+    public final Toolkit_Sub1 aClass19_Sub1_22;
 
     @OriginalMember(owner = "client!vo", name = "<init>", descriptor = "(Lclient!am;IIIIII)V")
-    public Class67_Sub2_Sub1(@OriginalArg(0) Class19_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public Class67_Sub2_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         this.anInt10332 = arg2;
         this.anInt10335 = arg3;
         this.anInt10339 = arg6;

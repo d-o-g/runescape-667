@@ -19,7 +19,7 @@ public final class Class173 {
     public boolean aBoolean329 = false;
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(ILclient!ha;ZI)Lclient!st;")
-    public Sprite method3689(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) boolean arg2) {
+    public Sprite method3689(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) boolean arg2) {
         @Pc(23) long local23 = (long) (arg1.anInt8962 << 19 | (arg2 ? 262144 : 0) | arg0 << 16 | this.anInt4167);
         @Pc(31) Sprite local31 = (Sprite) this.aClass363_2.aClass82_202.method2156(local23);
         if (local31 != null) {

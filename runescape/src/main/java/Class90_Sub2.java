@@ -33,20 +33,20 @@ public class Class90_Sub2 extends Class90 {
     @Override
     protected final void method7751(@OriginalArg(1) int arg0, @OriginalArg(3) int arg1) {
         @Pc(8) int[] local8 = new int[4];
-        Static163.aClass19_17.K(local8);
-        Static163.aClass19_17.KA(arg0, arg1, arg0 + super.aClass138_5.anInt4418, super.aClass138_5.anInt4413 + arg1);
+        Static163.aToolkit_17.K(local8);
+        Static163.aToolkit_17.KA(arg0, arg1, arg0 + super.aClass138_5.anInt4418, super.aClass138_5.anInt4413 + arg1);
         @Pc(30) int local30 = this.aSprite_36.method8203();
         @Pc(34) int local34 = this.aSprite_36.method8192();
         @Pc(38) int local38 = this.aSprite_35.method8203();
         @Pc(42) int local42 = this.aSprite_35.method8192();
         this.aSprite_36.method8202(arg0, (super.aClass138_5.anInt4413 - local34) / 2 + arg1);
         this.aSprite_35.method8202(super.aClass138_5.anInt4418 + arg0 - local38, (-local42 + super.aClass138_5.anInt4413) / 2 + arg1);
-        Static163.aClass19_17.KA(arg0, arg1, super.aClass138_5.anInt4418 + arg0, this.aSprite_37.method8192() + arg1);
+        Static163.aToolkit_17.KA(arg0, arg1, super.aClass138_5.anInt4418 + arg0, this.aSprite_37.method8192() + arg1);
         this.aSprite_37.method8198(local30 + arg0, arg1, super.aClass138_5.anInt4418 - local38 - local30, super.aClass138_5.anInt4413);
         @Pc(112) int local112 = this.aSprite_38.method8192();
-        Static163.aClass19_17.KA(arg0, super.aClass138_5.anInt4413 + arg1 - local112, arg0 + super.aClass138_5.anInt4418, arg1 + super.aClass138_5.anInt4413);
+        Static163.aToolkit_17.KA(arg0, super.aClass138_5.anInt4413 + arg1 - local112, arg0 + super.aClass138_5.anInt4418, arg1 + super.aClass138_5.anInt4413);
         this.aSprite_38.method8198(local30 + arg0, super.aClass138_5.anInt4413 + arg1 + -local112, super.aClass138_5.anInt4418 - local30 - local38, super.aClass138_5.anInt4413);
-        Static163.aClass19_17.KA(local8[0], local8[1], local8[2], local8[3]);
+        Static163.aToolkit_17.KA(local8[0], local8[1], local8[2], local8[3]);
     }
 
     @OriginalMember(owner = "client!gr", name = "a", descriptor = "(IIZI)V")
@@ -60,12 +60,12 @@ public class Class90_Sub2 extends Class90 {
         @Pc(55) int local55 = local45 - local33;
         @Pc(63) int local63 = this.method7752() * local50 / 10000;
         @Pc(66) int[] local66 = new int[4];
-        Static163.aClass19_17.K(local66);
-        Static163.aClass19_17.KA(local9, local33, local63 + local9, local45);
+        Static163.aToolkit_17.K(local66);
+        Static163.aToolkit_17.KA(local9, local33, local63 + local9, local45);
         this.method7756(local33, local9, local50, local55);
-        Static163.aClass19_17.KA(local63 + local9, local33, local27, local45);
+        Static163.aToolkit_17.KA(local63 + local9, local33, local27, local45);
         this.aSprite_39.method8198(local9, local33, local50, local55);
-        Static163.aClass19_17.KA(local66[0], local66[1], local66[2], local66[3]);
+        Static163.aToolkit_17.KA(local66[0], local66[1], local66[2], local66[3]);
     }
 
     @OriginalMember(owner = "client!gr", name = "a", descriptor = "(IIIII)V")

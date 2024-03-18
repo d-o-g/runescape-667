@@ -90,7 +90,7 @@ public final class Static141 {
     }
 
     @OriginalMember(owner = "client!eh", name = "a", descriptor = "(Lclient!ha;[II)V")
-    public static void method2371(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2) {
+    public static void method2371(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2) {
         method2376(arg0, arg1, arg1.length, arg2, (int[]) null, (int[]) null);
     }
 
@@ -187,7 +187,7 @@ public final class Static141 {
     }
 
     @OriginalMember(owner = "client!eh", name = "a", descriptor = "(Lclient!ha;[IIII[I[I)V")
-    public static void method2376(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int[] arg4, @OriginalArg(6) int[] arg5) {
+    public static void method2376(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int[] arg4, @OriginalArg(6) int[] arg5) {
         @Pc(2) int[] local2 = new int[4];
         arg0.K(local2);
         if (arg4 != null && local2[3] - local2[1] != arg4.length) {
@@ -223,7 +223,7 @@ public final class Static141 {
     }
 
     @OriginalMember(owner = "client!eh", name = "a", descriptor = "(Lclient!ha;[II[I[I)V")
-    public static void method2377(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
+    public static void method2377(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
         method2376(arg0, arg1, arg1.length, arg2, arg3, arg4);
     }
 

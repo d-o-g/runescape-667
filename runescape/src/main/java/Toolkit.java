@@ -7,7 +7,7 @@ import java.awt.Canvas;
 import java.awt.Rectangle;
 
 @OriginalClass("client!ha")
-public abstract class Class19 {
+public abstract class Toolkit {
 
     @OriginalMember(owner = "client!ha", name = "j", descriptor = "Lclient!d;")
     public final Interface4 anInterface4_10;
@@ -16,7 +16,7 @@ public abstract class Class19 {
     public final int anInt8962;
 
     @OriginalMember(owner = "client!ha", name = "<init>", descriptor = "(Lclient!d;)V")
-    public Class19(@OriginalArg(0) Interface4 arg0) {
+    public Toolkit(@OriginalArg(0) Interface4 arg0) {
         this.anInterface4_10 = arg0;
         @Pc(6) int local6 = -1;
         for (@Pc(8) int local8 = 0; local8 < 8; local8++) {
@@ -38,8 +38,11 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "P", descriptor = "(IIIII)V")
     public abstract void P(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
 
+    /**
+     * setZPlanes
+     */
     @OriginalMember(owner = "client!ha", name = "f", descriptor = "(II)V")
-    public abstract void f(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
+    public abstract void f(@OriginalArg(0) int near, @OriginalArg(1) int far);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     public abstract void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
@@ -53,12 +56,18 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!za;)V")
     public abstract void method7938(@OriginalArg(0) Node_Sub13 arg0);
 
+    /**
+     * fillRect
+     */
     @OriginalMember(owner = "client!ha", name = "aa", descriptor = "(IIIIII)V")
-    public abstract void aa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
+    public abstract void aa(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!gaa;)V")
     public abstract void method7939(@OriginalArg(0) Interface9 arg0);
 
+    /**
+     * setClipping
+     */
     @OriginalMember(owner = "client!ha", name = "KA", descriptor = "(IIII)V")
     public abstract void KA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
@@ -71,15 +80,24 @@ public abstract class Class19 {
         this.method7987();
     }
 
+    /**
+     * getClipping
+     */
     @OriginalMember(owner = "client!ha", name = "K", descriptor = "([I)V")
     public abstract void K(@OriginalArg(0) int[] arg0);
 
+    /**
+     * createPointLight
+     */
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIF)Lclient!lca;")
     public abstract Node_Sub7 method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
-    public abstract void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10);
+    public abstract void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10);
 
+    /**
+     * polyCount
+     */
     @OriginalMember(owner = "client!ha", name = "I", descriptor = "()I")
     public abstract int I();
 
@@ -89,6 +107,9 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "([I)V")
     public abstract void method7944(@OriginalArg(0) int[] arg0);
 
+    /**
+     * allocationSize
+     */
     @OriginalMember(owner = "client!ha", name = "E", descriptor = "()I")
     public abstract int E();
 
@@ -120,6 +141,9 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "j", descriptor = "()V")
     public abstract void method7950();
 
+    /**
+     * setSubclipping
+     */
     @OriginalMember(owner = "client!ha", name = "T", descriptor = "(IIII)V")
     public abstract void T(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
@@ -130,18 +154,21 @@ public abstract class Class19 {
     public abstract Model createModel(@OriginalArg(0) Mesh mesh, @OriginalArg(1) int functionMask, @OriginalArg(2) int featureMask, @OriginalArg(3) int ambient, @OriginalArg(4) int contrast);
 
     @OriginalMember(owner = "client!ha", name = "y", descriptor = "()Lclient!tt;")
-    public abstract Matrix method7953();
+    public abstract Matrix createMatrix();
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(IIIIII)V")
     public final void method7954(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
         this.method7951(arg4, arg1, arg2, arg0, arg3, 1);
     }
 
+    /**
+     * resetClipping
+     */
     @OriginalMember(owner = "client!ha", name = "la", descriptor = "()V")
     public abstract void la();
 
     @OriginalMember(owner = "client!ha", name = "e", descriptor = "()I")
-    public abstract int method7955();
+    public abstract int getMaxLights();
 
     @OriginalMember(owner = "client!ha", name = "j", descriptor = "(I)V")
     public abstract void method7956(@OriginalArg(0) int arg0);
@@ -153,7 +180,7 @@ public abstract class Class19 {
     public abstract void method7959(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(II)I")
-    public abstract int method7960(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
+    public abstract int compareFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(I)Lclient!za;")
     public abstract Node_Sub13 method7961(@OriginalArg(0) int arg0);
@@ -167,6 +194,9 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     public abstract Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4);
 
+    /**
+     * setGlobalSun
+     */
     @OriginalMember(owner = "client!ha", name = "ZA", descriptor = "(IFFFFF)V")
     public abstract void ZA(@OriginalArg(0) int arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5);
 
@@ -174,7 +204,7 @@ public abstract class Class19 {
     public abstract void GA(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
-    public abstract void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7);
+    public abstract void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIBI)V")
     public final void method7966(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
@@ -207,6 +237,9 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "d", descriptor = "()V")
     public abstract void method7974();
 
+    /**
+     * setZWrite
+     */
     @OriginalMember(owner = "client!ha", name = "C", descriptor = "(Z)V")
     public abstract void C(@OriginalArg(0) boolean arg0);
 
@@ -228,6 +261,9 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "s", descriptor = "()Z")
     public abstract boolean method7979();
 
+    /**
+     * getArea
+     */
     @OriginalMember(owner = "client!ha", name = "na", descriptor = "(IIII)[I")
     public abstract int[] na(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
@@ -249,7 +285,7 @@ public abstract class Class19 {
     }
 
     @OriginalMember(owner = "client!ha", name = "A", descriptor = "()Lclient!tt;")
-    public abstract Matrix method7985();
+    public abstract Matrix scratchMatrix();
 
     @OriginalMember(owner = "client!ha", name = "Q", descriptor = "(IIIIII[BII)V")
     public abstract void Q(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8);
@@ -275,9 +311,15 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "f", descriptor = "(I)V")
     public abstract void method7989(@OriginalArg(0) int arg0);
 
+    /**
+     * zFar
+     */
     @OriginalMember(owner = "client!ha", name = "XA", descriptor = "()I")
     public abstract int XA();
 
+    /**
+     * modelCount
+     */
     @OriginalMember(owner = "client!ha", name = "M", descriptor = "()I")
     public abstract int M();
 
@@ -305,7 +347,7 @@ public abstract class Class19 {
     public abstract void method7995(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(II[[I[[IIII)Lclient!s;")
-    public abstract Ground method7996(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5);
+    public abstract Ground createGround(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Z)V")
     public abstract void method7997(@OriginalArg(0) boolean arg0);
@@ -316,7 +358,7 @@ public abstract class Class19 {
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!tt;)V")
-    public abstract void method8000(@OriginalArg(0) Matrix arg0);
+    public abstract void setCamera(@OriginalArg(0) Matrix matrix);
 
     @OriginalMember(owner = "client!ha", name = "B", descriptor = "()Z")
     public abstract boolean method8001();
@@ -333,7 +375,7 @@ public abstract class Class19 {
     public abstract void method8003();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(II[I[I)Lclient!aa;")
-    public abstract Class1 method8004(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3);
+    public abstract ClippingMask createMask(@OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(2) int[] offsets, @OriginalArg(3) int[] widths);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IB[Ljava/awt/Rectangle;)V")
     public final void method8005(@OriginalArg(0) int arg0, @OriginalArg(2) Rectangle[] arg1) throws Exception_Sub1 {
@@ -346,15 +388,24 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "H", descriptor = "(III[I)V")
     public abstract void H(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3);
 
+    /**
+     * fillCircle
+     */
     @OriginalMember(owner = "client!ha", name = "za", descriptor = "(IIIII)V")
-    protected abstract void za(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
+    protected abstract void za(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int radius, @OriginalArg(3) int colour, @OriginalArg(4) int mode);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!pu;Lclient!pu;FLclient!pu;)Lclient!pu;")
     public abstract Class67 method8007(@OriginalArg(0) Class67 arg0, @OriginalArg(1) Class67 arg1, @OriginalArg(2) float arg2, @OriginalArg(3) Class67 arg3);
 
+    /**
+     * setGlobalAmbient
+     */
     @OriginalMember(owner = "client!ha", name = "xa", descriptor = "(F)V")
-    public abstract void xa(@OriginalArg(0) float arg0);
+    public abstract void xa(@OriginalArg(0) float globalAmbient);
 
+    /**
+     * clearZBuffer
+     */
     @OriginalMember(owner = "client!ha", name = "ya", descriptor = "()V")
     public abstract void ya();
 
@@ -373,15 +424,24 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     public abstract void method8011(@OriginalArg(0) Rectangle[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) throws Exception_Sub1;
 
+    /**
+     * clsMasked
+     */
     @OriginalMember(owner = "client!ha", name = "A", descriptor = "(ILclient!aa;II)V")
-    public abstract void A(@OriginalArg(0) int arg0, @OriginalArg(1) Class1 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public abstract void A(@OriginalArg(0) int colour, @OriginalArg(1) ClippingMask clippingMask, @OriginalArg(2) int x, @OriginalArg(3) int y);
 
     @OriginalMember(owner = "client!ha", name = "q", descriptor = "()V")
     public abstract void method8012();
 
+    /**
+     * combineFunctionMasks
+     */
     @OriginalMember(owner = "client!ha", name = "c", descriptor = "(II)I")
-    public abstract int method8013(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
+    public abstract int combineFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB);
 
+    /**
+     * zNear
+     */
     @OriginalMember(owner = "client!ha", name = "i", descriptor = "()I")
     public abstract int i();
 
@@ -403,8 +463,11 @@ public abstract class Class19 {
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(Z)V")
     public abstract void method8018(@OriginalArg(0) boolean arg0);
 
+    /**
+     * setProjection
+     */
     @OriginalMember(owner = "client!ha", name = "DA", descriptor = "(IIII)V")
-    public abstract void DA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public abstract void DA(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height);
 
     @OriginalMember(owner = "client!ha", name = "X", descriptor = "(I)V")
     public abstract void X(@OriginalArg(0) int arg0);

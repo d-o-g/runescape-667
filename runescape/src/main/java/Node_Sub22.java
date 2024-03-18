@@ -33,7 +33,7 @@ public final class Node_Sub22 extends Node {
     }
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(IILclient!ha;IZLclient!gu;Lclient!ju;)Lclient!ka;")
-    public Model method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(4) boolean arg2, @OriginalArg(5) Class152 arg3, @OriginalArg(6) Class201 arg4) {
+    public Model method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(4) boolean arg2, @OriginalArg(5) Class152 arg3, @OriginalArg(6) Class201 arg4) {
         @Pc(7) Model local7 = null;
         @Pc(9) int local9 = 2048;
         @Pc(11) Class289 local11 = null;
@@ -59,9 +59,9 @@ public final class Node_Sub22 extends Node {
         if (Static166.aClass82_59 != null) {
             local7 = (Model) Static166.aClass82_59.method2156(local116);
         }
-        if (local7 == null || arg1.method7960(local7.ua(), local9) != 0) {
+        if (local7 == null || arg1.compareFunctionMasks(local7.ua(), local9) != 0) {
             if (local7 != null) {
-                local9 = arg1.method8013(local9, local7.ua());
+                local9 = arg1.combineFunctionMasks(local9, local7.ua());
             }
             @Pc(151) int local151 = local9;
             @Pc(153) boolean local153 = false;

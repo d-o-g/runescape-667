@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -80,7 +81,7 @@ public final class Static618 {
     }
 
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(ILclient!ka;IIIIZLclient!ha;ILclient!gu;III)Lclient!ka;")
-    public static Model method8320(@OriginalArg(0) int arg0, @OriginalArg(1) Model arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Class19 arg6, @OriginalArg(8) int arg7, @OriginalArg(9) Class152 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10, @OriginalArg(12) int arg11) {
+    public static Model method8320(@OriginalArg(0) int arg0, @OriginalArg(1) Model arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Toolkit arg6, @OriginalArg(8) int arg7, @OriginalArg(9) Class152 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10, @OriginalArg(12) int arg11) {
         if (arg1 == null) {
             return null;
         }
@@ -95,9 +96,9 @@ public final class Static618 {
         synchronized (Static354.aClass82_120) {
             local68 = (Model) Static354.aClass82_120.method2156(local58);
         }
-        if (local68 == null || arg6.method7960(local68.ua(), local12) != 0) {
+        if (local68 == null || arg6.compareFunctionMasks(local68.ua(), local12) != 0) {
             if (local68 != null) {
-                local12 = arg6.method8013(local12, local68.ua());
+                local12 = arg6.combineFunctionMasks(local12, local68.ua());
             }
             @Pc(106) byte local106;
             if (arg5 == 1) {
@@ -124,8 +125,8 @@ public final class Static618 {
                 local185 = local143[local175];
                 for (local187 = 0; local187 < local106; local187++) {
                     @Pc(195) int local195 = (local187 << 14) / local106;
-                    @Pc(203) int local203 = Class361.anIntArray741[local195] * local181 >> 14;
-                    local211 = local185 * Class361.anIntArray740[local195] >> 14;
+                    @Pc(203) int local203 = Trig1.SIN[local195] * local181 >> 14;
+                    local211 = local185 * Trig1.COS[local195] >> 14;
                     local173[local175][local187] = local162.method2230(local211, 0, local203);
                 }
             }

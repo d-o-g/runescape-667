@@ -755,7 +755,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(IIILclient!s;ZBIILclient!ha;Lclient!gp;ILclient!s;)Lclient!od;")
-    public Class272 method1309(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Ground arg3, @OriginalArg(4) boolean arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Class19 arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Ground arg10) {
+    public Class272 method1309(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Ground arg3, @OriginalArg(4) boolean arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Toolkit arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Ground arg10) {
         if (Static449.method6117(arg6)) {
             arg6 = 4;
         }
@@ -788,7 +788,7 @@ public final class Class54 {
         }
         @Pc(120) Model local120 = local106 == null ? null : local106.aModel_7;
         @Pc(122) Shadow local122 = null;
-        if (local120 != null && arg7.method7960(local120.ua(), local40) == 0) {
+        if (local120 != null && arg7.compareFunctionMasks(local120.ua(), local40) == 0) {
             local120 = local106.aModel_7;
             local122 = local106.aClass2_Sub2_Sub9_5;
             if (arg4 && local122 == null) {
@@ -796,7 +796,7 @@ public final class Class54 {
             }
         } else {
             if (local120 != null) {
-                local40 = arg7.method8013(local40, local120.ua());
+                local40 = arg7.combineFunctionMasks(local40, local120.ua());
             }
             @Pc(144) int local144 = local40;
             if (arg6 == 10 && arg0 > 3) {
@@ -841,7 +841,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(IIIILclient!s;Lclient!gu;ILclient!ha;Lclient!s;Lclient!gp;II)Lclient!ka;")
-    public Model method1311(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Ground arg4, @OriginalArg(5) Class152 arg5, @OriginalArg(7) Class19 arg6, @OriginalArg(8) Ground arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public Model method1311(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Ground arg4, @OriginalArg(5) Class152 arg5, @OriginalArg(7) Toolkit arg6, @OriginalArg(8) Ground arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         if (Static449.method6117(arg2)) {
             arg2 = 4;
         }
@@ -875,9 +875,9 @@ public final class Class54 {
         synchronized (this.aClass142_2.aClass82_76) {
             local126 = (Model) this.aClass142_2.aClass82_76.method2156(local22);
         }
-        if (local126 == null || arg6.method7960(local126.ua(), arg9) != 0) {
+        if (local126 == null || arg6.compareFunctionMasks(local126.ua(), arg9) != 0) {
             if (local126 != null) {
-                arg9 = arg6.method8013(arg9, local126.ua());
+                arg9 = arg6.combineFunctionMasks(arg9, local126.ua());
             }
             local126 = this.method1314(arg6, arg9, arg8, arg0, arg2);
             if (local126 == null) {
@@ -922,7 +922,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Lclient!ha;ILclient!gp;BII)Lclient!ka;")
-    public Model method1314(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class150 arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public Model method1314(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class150 arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(8) int local8 = this.anInt1263 + 64;
         @Pc(13) int local13 = this.anInt1254 + 850;
         @Pc(15) int local15 = arg1;
@@ -986,10 +986,10 @@ public final class Class54 {
                     arg1 |= 0x2000;
                 }
             }
-            if (local123 == null || arg0.method7960(local123.ua(), arg1) != 0) {
+            if (local123 == null || arg0.compareFunctionMasks(local123.ua(), arg1) != 0) {
                 @Pc(265) int local265 = arg1 | 0x1F01F;
                 if (local123 != null) {
-                    local265 = arg0.method8013(local265, local123.ua());
+                    local265 = arg0.combineFunctionMasks(local265, local123.ua());
                 }
                 @Pc(275) Mesh local275 = null;
                 @Pc(277) Mesh[] local277 = Static600.A_MESH_ARRAY_1;

@@ -44,7 +44,7 @@ public final class Static694 {
     }
 
     @OriginalMember(owner = "client!vv", name = "a", descriptor = "(Lclient!ha;Ljava/lang/String;ZLclient!ve;Lclient!da;I)V")
-    public static void method9028(@OriginalArg(0) Class19 arg0, @OriginalArg(1) String arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class381 arg3, @OriginalArg(4) Class14 arg4) {
+    public static void method9028(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) String arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class381 arg3, @OriginalArg(4) Class14 arg4) {
         @Pc(15) boolean local15 = !Static483.aBoolean546 || Static71.method1525();
         if (!local15) {
             return;
@@ -89,14 +89,14 @@ public final class Static694 {
             Static535.aClass407_3.method9386();
             arg0.method7948(Static535.aClass407_3, true).method8198(local92 + Static414.aClass407_2.anInt10847, local49 + (local101 - local52), local40 - Static414.aClass407_2.anInt10847 * 2, local52);
             Static535.aClass407_3.method9386();
-            local33.method8826(0, (int[]) null, Static675.anInt10154 | 0xFF000000, arg1, (Class1) null, (Sprite[]) null, local56 + local101, -1, 0, 1, local92 + local56, 1, 0, local40 - local56 * 2, -(local56 * 2) + local49);
+            local33.method8826(0, (int[]) null, Static675.anInt10154 | 0xFF000000, arg1, (ClippingMask) null, (Sprite[]) null, local56 + local101, -1, 0, 1, local92 + local56, 1, 0, local40 - local56 * 2, -(local56 * 2) + local49);
             Static585.method7670(local40, local92, local49, local101);
         } else {
             local40 = arg3.method8741((Sprite[]) null, arg1, 250);
             local49 = arg3.method8739(arg1, (Sprite[]) null, 250) * 13;
             arg0.aa(6, 6, local40 + 4 + 4, local49 + 4 + 4, -16777216, 0);
             arg0.method7976(6, 6, local40 + 8, 4 + 4 + local49, -1, 0);
-            arg4.method8826(0, (int[]) null, -1, arg1, (Class1) null, (Sprite[]) null, 10, -1, 0, 1, 10, 1, 0, local40, local49);
+            arg4.method8826(0, (int[]) null, -1, arg1, (ClippingMask) null, (Sprite[]) null, 10, -1, 0, 1, 10, 1, 0, local40, local49);
             Static585.method7670(local40 + 8, 6, local49 + 4 + 4, 6);
         }
         if (!arg2) {

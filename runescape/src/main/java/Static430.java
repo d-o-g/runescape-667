@@ -57,9 +57,9 @@ public final class Static430 {
     @OriginalMember(owner = "client!nja", name = "d", descriptor = "(B)V")
     public static void method5818() throws Exception_Sub1 {
         if (Static448.anInt6796 == 1) {
-            Static74.aClass19_4.method7975(Static2.anInt45, Static312.anInt5001);
+            Static74.aToolkit_4.method7975(Static2.anInt45, Static312.anInt5001);
         } else {
-            Static74.aClass19_4.method7975(0, 0);
+            Static74.aToolkit_4.method7975(0, 0);
         }
     }
 

@@ -12,7 +12,7 @@ public interface Interface25 {
     void method6856();
 
     @OriginalMember(owner = "client!uv", name = "a", descriptor = "(Lclient!ha;I)V")
-    void method6857(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1);
+    void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1);
 
     @OriginalMember(owner = "client!uv", name = "b", descriptor = "(I)I")
     int method6858();
@@ -24,5 +24,5 @@ public interface Interface25 {
     boolean method6860(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!uv", name = "b", descriptor = "(Lclient!ha;I)V")
-    void method6861(@OriginalArg(0) Class19 arg0);
+    void method6861(@OriginalArg(0) Toolkit arg0);
 }

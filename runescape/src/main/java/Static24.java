@@ -15,7 +15,7 @@ public final class Static24 {
 
     @OriginalMember(owner = "client!aq", name = "a", descriptor = "(I)V")
     public static void method680() {
-        Static147.method2421((long) Static333.anInt5455, Static163.aClass19_17);
+        Static147.method2421((long) Static333.anInt5455, Static163.aToolkit_17);
         if (Static377.anInt5930 != -1) {
             Static26.method716(Static377.anInt5930);
         }
@@ -31,8 +31,8 @@ public final class Static24 {
             Static122.anInt2339 = 0;
             Static261.method3833();
         }
-        Static163.aClass19_17.la();
-        Static676.method8859(Static163.aClass19_17);
+        Static163.aToolkit_17.la();
+        Static676.method8859(Static163.aToolkit_17);
         @Pc(77) int local77 = Static679.method8909();
         if (local77 == -1) {
             local77 = Static442.anInt6699;

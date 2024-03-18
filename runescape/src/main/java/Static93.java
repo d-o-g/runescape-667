@@ -20,7 +20,7 @@ public final class Static93 {
     public static final Node_Sub41 aClass2_Sub41_1 = new Node_Sub41(0, -1);
 
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(IIIILclient!d;Lclient!ha;I)V")
-    public static void method1832(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Interface4 arg3, @OriginalArg(5) Class19 arg4, @OriginalArg(6) int arg5) {
+    public static void method1832(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Interface4 arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5) {
         if (Static273.anInt4403 < 100) {
             Static719.method9117(arg3, arg4);
         }

@@ -14,7 +14,7 @@ public final class Class101_Sub3 extends Class101 {
     public Class36 aClass36_3;
 
     @OriginalMember(owner = "client!gn", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Class101_Sub3(@OriginalArg(0) Class19_Sub3 arg0) {
+    public Class101_Sub3(@OriginalArg(0) Toolkit_Sub3 arg0) {
         super(arg0);
         if (arg0.aBoolean598) {
             this.aClass36_3 = new Class36(arg0, 2);

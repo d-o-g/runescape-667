@@ -18,8 +18,8 @@ public final class Static643 {
     }
 
     @OriginalMember(owner = "client!uf", name = "a", descriptor = "(IILclient!d;ILjava/awt/Canvas;)Lclient!ha;")
-    public static Class19 method8443(@OriginalArg(0) int arg0, @OriginalArg(2) Interface4 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Canvas arg3) {
-        return new Class19_Sub2(arg3, arg1, arg0, arg2);
+    public static Toolkit method8443(@OriginalArg(0) int arg0, @OriginalArg(2) Interface4 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Canvas arg3) {
+        return new Toolkit_Sub2(arg3, arg1, arg0, arg2);
     }
 
     @OriginalMember(owner = "client!uf", name = "a", descriptor = "(II[Lclient!hda;)V")

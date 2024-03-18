@@ -66,7 +66,7 @@ public final class Class227 {
     }
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(BZILclient!gu;Lclient!s;BILclient!s;IILclient!ha;)Lclient!ka;")
-    public Model method5249(@OriginalArg(0) byte arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class152 arg3, @OriginalArg(4) Ground arg4, @OriginalArg(6) int arg5, @OriginalArg(7) Ground arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Class19 arg9) {
+    public Model method5249(@OriginalArg(0) byte arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class152 arg3, @OriginalArg(4) Ground arg4, @OriginalArg(6) int arg5, @OriginalArg(7) Ground arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Toolkit arg9) {
         @Pc(13) boolean local13 = arg1 & this.aByte96 != 0;
         @Pc(15) int local15 = arg7;
         if (arg3 != null) {
@@ -86,9 +86,9 @@ public final class Class227 {
         synchronized (this.aClass128_2.aClass82_62) {
             local85 = (Model) this.aClass128_2.aClass82_62.method2156((long) (this.anInt5833 |= arg9.anInt8962 << 29));
         }
-        if (local85 == null || arg9.method7960(local85.ua(), local15) != 0) {
+        if (local85 == null || arg9.compareFunctionMasks(local85.ua(), local15) != 0) {
             if (local85 != null) {
-                local15 = arg9.method8013(local15, local85.ua());
+                local15 = arg9.combineFunctionMasks(local15, local85.ua());
             }
             @Pc(121) int local121 = local15;
             if (this.aShortArray81 != null) {
@@ -207,7 +207,7 @@ public final class Class227 {
     }
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Lclient!gu;BIBLclient!ha;)Lclient!ka;")
-    public Model method5252(@OriginalArg(0) Class152 arg0, @OriginalArg(1) byte arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Class19 arg3) {
+    public Model method5252(@OriginalArg(0) Class152 arg0, @OriginalArg(1) byte arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Toolkit arg3) {
         return this.method5249(arg1, false, 0, arg0, (Ground) null, 0, (Ground) null, arg2, 0, arg3);
     }
 }

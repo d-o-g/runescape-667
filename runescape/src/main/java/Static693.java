@@ -65,7 +65,7 @@ public final class Static693 {
                                 if (local70 == Static89.anIntArray169[local72] && arg0[local72] != null) {
                                     @Pc(91) Packet local91 = new Packet(arg0[local72]);
                                     arg1.method7891(local5, local32, local10 * 8, local60, local13 * 8, local91, local48, local54, Static577.aClass110Array1);
-                                    arg1.method7895(local10 * 8, Static163.aClass19_17, local60, local91, local5, local54, local48, local32, local13 * 8);
+                                    arg1.method7895(local10 * 8, Static163.aToolkit_17, local60, local91, local5, local54, local48, local32, local13 * 8);
                                     break;
                                 }
                             }

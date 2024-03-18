@@ -1,4 +1,5 @@
 import com.jagex.math.IntMath;
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -7,8 +8,16 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!vfa")
 public final class ObjType {
 
+    public static final int SHOWCOUNT_NEVER = 0;
+    public static final int SHOWCOUNT_ALWAYS = 1;
+    public static final int SHOWCOUNT_IFNOT1 = 2;
+
+    public static final int OBJ_STACKABILITY_SOMETIMES = 0;
+    public static final int OBJ_STACKABILITY_ALWAYS = 1;
+
     @OriginalMember(owner = "client!hh", name = "b", descriptor = "[S")
     public static short[] clientpalette = new short[256];
+
     @OriginalMember(owner = "client!vfa", name = "Cb", descriptor = "[S")
     public short[] retex_s;
 
@@ -496,7 +505,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
-    public int[] method8798(@OriginalArg(0) int objNumMode, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) Class201 appearance, @OriginalArg(7) Class19 scratchToolkit, @OriginalArg(8) Class14 arg7, @OriginalArg(9) int arg8) {
+    public int[] method8798(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) Class201 appearance, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Class14 font, @OriginalArg(9) int outline) {
         @Pc(14) Mesh mesh = Static121.method2201(this.mesh, this.myList.meshes);
         if (mesh == null) {
             return null;
@@ -547,70 +556,75 @@ public final class ObjType {
             model.O(this.resizex, this.resizey, this.resizez);
         }
 
-        @Pc(272) Sprite local272 = null;
+        @Pc(272) Sprite sprite = null;
         if (this.certtemplate != -1) {
-            local272 = this.myList.method2478(1, scratchToolkit, arg1, appearance, true, 0, 10, true, 0, arg7, this.certlink);
-            if (local272 == null) {
+            sprite = this.myList.sprite(1, scratchToolkit, toolkit, appearance, true, 0, 10, true, SHOWCOUNT_NEVER, font, this.certlink);
+            if (sprite == null) {
                 return null;
             }
         } else if (this.lenttemplate != -1) {
-            local272 = this.myList.method2478(arg8, scratchToolkit, arg1, appearance, true, arg3, arg2, false, 0, arg7, this.lentlink);
-            if (local272 == null) {
+            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, appearance, true, graphicShadow, invCount, false, SHOWCOUNT_NEVER, font, this.lentlink);
+            if (sprite == null) {
                 return null;
             }
         } else if (this.boughttemplate != -1) {
-            local272 = this.myList.method2478(arg8, scratchToolkit, arg1, appearance, true, arg3, arg2, false, 0, arg7, this.boughtlink);
-            if (local272 == null) {
+            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, appearance, true, graphicShadow, invCount, false, SHOWCOUNT_NEVER, font, this.boughtlink);
+            if (sprite == null) {
                 return null;
             }
         }
-        @Pc(363) int local363;
+
+        @Pc(363) int zoom;
         if (arg4) {
-            local363 = (int) ((double) this.zoom2d * 1.5D) << 2;
-        } else if (arg8 == 2) {
-            local363 = (int) ((double) this.zoom2d * 1.04D) << 2;
+            zoom = (int) ((double) this.zoom2d * 1.5D) << 2;
+        } else if (outline == 2) {
+            zoom = (int) ((double) this.zoom2d * 1.04D) << 2;
         } else {
-            local363 = this.zoom2d << 2;
+            zoom = this.zoom2d << 2;
         }
+
         scratchToolkit.DA(16, 16, 512, 512);
-        @Pc(395) Matrix local395 = scratchToolkit.method7953();
-        local395.method7133();
-        scratchToolkit.method8000(local395);
+
+        @Pc(395) Matrix matrix = scratchToolkit.createMatrix();
+        matrix.makeIdentity();
+        scratchToolkit.setCamera(matrix);
         scratchToolkit.xa(1.0F);
         scratchToolkit.ZA(16777215, 1.0F, 1.0F, -50.0F, -10.0F, -50.0F);
-        @Pc(414) Matrix local414 = scratchToolkit.method7985();
-        local414.method7132(-this.zan2d << 3);
-        local414.method7127(this.yan2d << 3);
-        local414.method7134(this.xof2d << 2, (Class361.anIntArray741[this.xan2d << 3] * local363 >> 14) + (this.yof2d << 2) - (model.fa() / 2), (Class361.anIntArray740[this.xan2d << 3] * local363 >> 14) - -(this.yof2d << 2));
-        local414.method7130(this.xan2d << 3);
-        @Pc(480) int local480 = scratchToolkit.i();
-        @Pc(483) int local483 = scratchToolkit.XA();
+
+        @Pc(414) Matrix scratch = scratchToolkit.scratchMatrix();
+        scratch.makeRotationZ(-this.zan2d << 3);
+        scratch.rotateAxisY(this.yan2d << 3);
+        scratch.translate(this.xof2d << 2, (Trig1.SIN[this.xan2d << 3] * zoom >> 14) + (this.yof2d << 2) - (model.fa() / 2), (Trig1.COS[this.xan2d << 3] * zoom >> 14) - -(this.yof2d << 2));
+        scratch.method7130(this.xan2d << 3);
+
+        @Pc(480) int zNear = scratchToolkit.i();
+        @Pc(483) int zFar = scratchToolkit.XA();
         scratchToolkit.f(50, Integer.MAX_VALUE);
         scratchToolkit.ya();
         scratchToolkit.la();
         scratchToolkit.aa(0, 0, 36, 32, 0, 0);
-        model.render(local414, (PickingCylinder) null, 1);
-        scratchToolkit.f(local480, local483);
+        model.render(scratch, (PickingCylinder) null, 1);
+        scratchToolkit.f(zNear, zFar);
         @Pc(515) int[] local515 = scratchToolkit.na(0, 0, 36, 32);
-        if (arg8 >= 1) {
+        if (outline >= 1) {
             local515 = this.method8795(-16777214, local515);
-            if (arg8 >= 2) {
+            if (outline >= 2) {
                 local515 = this.method8795(-1, local515);
             }
         }
-        if (arg3 != 0) {
-            this.method8804(arg3, local515);
+        if (graphicShadow != 0) {
+            this.method8804(graphicShadow, local515);
         }
         scratchToolkit.method7946(36, 36, 32, local515).method8202(0, 0);
         if (this.certtemplate != -1) {
-            local272.method8202(0, 0);
+            sprite.method8202(0, 0);
         } else if (this.lenttemplate != -1) {
-            local272.method8202(0, 0);
+            sprite.method8202(0, 0);
         } else if (this.boughttemplate != -1) {
-            local272.method8202(0, 0);
+            sprite.method8202(0, 0);
         }
-        if (objNumMode == 1 || objNumMode == 2 && (this.stackable == 1 || arg2 != 1) && arg2 != -1) {
-            arg7.method8829(0, 9, this.method8803(arg2), -16777215, -256);
+        if (objNumMode == 1 || objNumMode == 2 && (this.stackable == 1 || invCount != 1) && invCount != -1) {
+            font.method8829(0, 9, this.method8803(invCount), -16777215, -256);
         }
         local515 = scratchToolkit.na(0, 0, 36, 32);
         for (@Pc(652) int local652 = 0; local652 < local515.length; local652++) {
@@ -839,7 +853,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!gu;ILclient!ju;ILclient!ha;I)Lclient!ka;")
-    public Model method8805(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class201 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class19 arg4) {
+    public Model method8805(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class201 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit arg4) {
         @Pc(17) int local17;
         if (this.countobj != null && arg3 > 1) {
             local17 = -1;
@@ -861,9 +875,9 @@ public final class ObjType {
         synchronized (this.myList.aClass82_58) {
             local104 = (Model) this.myList.aClass82_58.method2156((long) (this.anInt10134 | arg4.anInt8962 << 29));
         }
-        if (local104 == null || arg4.method7960(local104.ua(), local17) != 0) {
+        if (local104 == null || arg4.compareFunctionMasks(local104.ua(), local17) != 0) {
             if (local104 != null) {
-                local17 = arg4.method8013(local17, local104.ua());
+                local17 = arg4.combineFunctionMasks(local17, local104.ua());
             }
             @Pc(141) int local141 = local17;
             if (this.retex_s != null) {

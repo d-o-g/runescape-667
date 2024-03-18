@@ -9,14 +9,14 @@ import java.util.Random;
 public abstract class Class14 {
 
     @OriginalMember(owner = "client!da", name = "i", descriptor = "Lclient!ha;")
-    public final Class19 aClass19_16;
+    public final Toolkit aToolkit_16;
 
     @OriginalMember(owner = "client!da", name = "m", descriptor = "Lclient!ve;")
     public final Class381 aClass381_12;
 
     @OriginalMember(owner = "client!da", name = "<init>", descriptor = "(Lclient!ha;Lclient!ve;)V")
-    protected Class14(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class381 arg1) {
-        this.aClass19_16 = arg0;
+    protected Class14(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class381 arg1) {
+        this.aToolkit_16 = arg0;
         this.aClass381_12 = arg1;
     }
 
@@ -42,7 +42,7 @@ public abstract class Class14 {
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(CIIIZLclient!aa;II)V")
-    protected abstract void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) Class1 arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7);
+    protected abstract void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) ClippingMask arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7);
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(IIIIILjava/lang/String;II)V")
     public final void method8818(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) String arg5) {
@@ -152,10 +152,10 @@ public abstract class Class14 {
                     local17++;
                     local174 = this.aClass381_12.method8738(local40);
                     if (Static633.anInt10897 != -1) {
-                        this.aClass19_16.method7991((int) ((double) this.aClass381_12.anInt10027 * 0.7D) + local7, Static633.anInt10897, arg4, local174);
+                        this.aToolkit_16.method7991((int) ((double) this.aClass381_12.anInt10027 * 0.7D) + local7, Static633.anInt10897, arg4, local174);
                     }
                     if (Static698.anInt10510 != -1) {
-                        this.aClass19_16.method7991(this.aClass381_12.anInt10027 + local7, Static698.anInt10510, arg4, local174);
+                        this.aToolkit_16.method7991(this.aClass381_12.anInt10027 + local7, Static698.anInt10510, arg4, local174);
                     }
                     arg4 += local174;
                     local15 = local40;
@@ -184,7 +184,7 @@ public abstract class Class14 {
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "([Lclient!st;IILjava/lang/String;IZLclient!aa;I[I)V")
-    public void method8824(@OriginalArg(0) Sprite[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) String arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int[] arg7) {
+    public void method8824(@OriginalArg(0) Sprite[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) String arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int[] arg7) {
         @Pc(5) int local5 = arg6 - this.aClass381_12.anInt10027;
         @Pc(11) int local11 = -1;
         @Pc(18) int local18 = -1;
@@ -258,10 +258,10 @@ public abstract class Class14 {
                     }
                     @Pc(328) int local328 = this.aClass381_12.method8738(local33);
                     if (Static633.anInt10897 != -1) {
-                        this.aClass19_16.method7991(local5 + (int) ((double) this.aClass381_12.anInt10027 * 0.7D), Static633.anInt10897, arg4, local328);
+                        this.aToolkit_16.method7991(local5 + (int) ((double) this.aClass381_12.anInt10027 * 0.7D), Static633.anInt10897, arg4, local328);
                     }
                     if (Static698.anInt10510 != -1) {
-                        this.aClass19_16.method7991(this.aClass381_12.anInt10027 + local5 + 1, Static698.anInt10510, arg4, local328);
+                        this.aToolkit_16.method7991(this.aClass381_12.anInt10027 + local5 + 1, Static698.anInt10510, arg4, local328);
                     }
                     local18 = local33;
                     arg4 += local328;
@@ -286,7 +286,7 @@ public abstract class Class14 {
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(I[IILjava/lang/String;Lclient!aa;[Lclient!st;IIIIIIIIII)I")
-    public final int method8826(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) String arg3, @OriginalArg(4) Class1 arg4, @OriginalArg(5) Sprite[] arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10, @OriginalArg(12) int arg11, @OriginalArg(13) int arg12, @OriginalArg(14) int arg13, @OriginalArg(15) int arg14) {
+    public final int method8826(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) String arg3, @OriginalArg(4) ClippingMask arg4, @OriginalArg(5) Sprite[] arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10, @OriginalArg(12) int arg11, @OriginalArg(13) int arg12, @OriginalArg(14) int arg13, @OriginalArg(15) int arg14) {
         return this.method8830(arg11, arg2, arg7, arg5, 0, arg0, arg6, arg14, arg8, arg4, arg12, arg13, arg10, arg9, arg1, arg3);
     }
 
@@ -297,7 +297,7 @@ public abstract class Class14 {
     public final void method8827(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) String arg2, @OriginalArg(5) int arg3, @OriginalArg(6) Sprite[] arg4, @OriginalArg(7) int[] arg5) {
         if (arg2 != null) {
             this.method8825(arg0, 0);
-            this.method8824(arg4, 0, 0, arg2, arg3, (Class1) null, arg1, arg5);
+            this.method8824(arg4, 0, 0, arg2, arg3, (ClippingMask) null, arg1, arg5);
         }
     }
 
@@ -305,7 +305,7 @@ public abstract class Class14 {
     public final void method8828(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) String arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         if (arg2 != null) {
             this.method8825(arg4, arg0);
-            this.method8824((Sprite[]) null, 0, 0, arg2, arg1 - this.aClass381_12.method8744(arg2) / 2, (Class1) null, arg3, (int[]) null);
+            this.method8824((Sprite[]) null, 0, 0, arg2, arg1 - this.aClass381_12.method8744(arg2) / 2, (ClippingMask) null, arg3, (int[]) null);
         }
     }
 
@@ -313,12 +313,12 @@ public abstract class Class14 {
     public final void method8829(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
         if (arg2 != null) {
             this.method8825(arg4, arg3);
-            this.method8824((Sprite[]) null, 0, 0, arg2, arg0, (Class1) null, arg1, (int[]) null);
+            this.method8824((Sprite[]) null, 0, 0, arg2, arg0, (ClippingMask) null, arg1, (int[]) null);
         }
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(IIII[Lclient!st;IIIIILclient!aa;IIII[ILjava/lang/String;)I")
-    public final int method8830(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Sprite[] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) Class1 arg9, @OriginalArg(11) int arg10, @OriginalArg(12) int arg11, @OriginalArg(13) int arg12, @OriginalArg(14) int arg13, @OriginalArg(15) int[] arg14, @OriginalArg(16) String arg15) {
+    public final int method8830(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Sprite[] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) ClippingMask arg9, @OriginalArg(11) int arg10, @OriginalArg(12) int arg11, @OriginalArg(13) int arg12, @OriginalArg(14) int arg13, @OriginalArg(15) int[] arg14, @OriginalArg(16) String arg15) {
         if (arg15 == null) {
             return 0;
         }
@@ -454,7 +454,7 @@ public abstract class Class14 {
     public final void method8834(@OriginalArg(1) int arg0, @OriginalArg(2) String arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         if (arg1 != null) {
             this.method8825(arg2, arg3);
-            this.method8824((Sprite[]) null, 0, 0, arg1, arg0 - this.aClass381_12.method8744(arg1), (Class1) null, arg4, (int[]) null);
+            this.method8824((Sprite[]) null, 0, 0, arg1, arg0 - this.aClass381_12.method8744(arg1), (ClippingMask) null, arg4, (int[]) null);
         }
     }
 

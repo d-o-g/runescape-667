@@ -12,10 +12,10 @@ public final class Static21 {
     public static Class aClass23;
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!ha;IIIIIIZZ)V")
-    public static void method8043(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(7) boolean arg5, @OriginalArg(8) boolean arg6) {
-        Static665.aClass19_15 = arg0;
+    public static void method8043(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(7) boolean arg5, @OriginalArg(8) boolean arg6) {
+        Static665.aToolkit_15 = arg0;
         Static32.anInt772 = arg1;
-        Static661.aBoolean457 = Static32.anInt772 > 1 && Static665.aClass19_15.method7979();
+        Static661.aBoolean457 = Static32.anInt772 > 1 && Static665.aToolkit_15.method7979();
         Static52.anInt1066 = 9;
         Static340.anInt5586 = 0x1 << Static52.anInt1066;
         Static247.anInt3993 = Static340.anInt5586 >> 1;
@@ -73,10 +73,10 @@ public final class Static21 {
                 Static227.method3354();
             }
             Static226.aClass46Array7 = new Class46[Static32.anInt772];
-            Static665.aClass19_15.method7956(Static226.aClass46Array7.length + 1);
-            Static665.aClass19_15.method8020(0);
+            Static665.aToolkit_15.method7956(Static226.aClass46Array7.length + 1);
+            Static665.aToolkit_15.method8020(0);
             for (@Pc(214) int local214 = 0; local214 < Static226.aClass46Array7.length; local214++) {
-                Static226.aClass46Array7[local214] = new Class46(local214 + 1, Static665.aClass19_15);
+                Static226.aClass46Array7[local214] = new Class46(local214 + 1, Static665.aToolkit_15);
                 (new Thread(Static226.aClass46Array7[local214], "wr" + local214)).start();
             }
             @Pc(253) byte local253;

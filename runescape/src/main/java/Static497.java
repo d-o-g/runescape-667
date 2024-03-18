@@ -11,7 +11,7 @@ public final class Static497 {
     public static HashTable stacks = new HashTable(64);
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ILclient!ha;)V")
-    public static void method6623(@OriginalArg(1) Class19 arg0) {
+    public static void method6623(@OriginalArg(1) Toolkit arg0) {
         for (@Pc(6) Class8_Sub5 local6 = (Class8_Sub5) Static342.aClass130_7.method2790(); local6 != null; local6 = (Class8_Sub5) Static342.aClass130_7.method2785()) {
             if (local6.aBoolean325) {
                 local6.method3646(arg0);

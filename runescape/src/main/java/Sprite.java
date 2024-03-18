@@ -14,7 +14,7 @@ public abstract class Sprite implements Interface6 {
     public abstract int method8182();
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "(FFIILclient!aa;II)V")
-    public final void method8183(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Class1 arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
+    public final void method8183(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(3) int arg2, @OriginalArg(4) ClippingMask arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         this.method8185(arg0, arg1, (float) this.method8203() / 2.0F, (float) this.method8192() / 2.0F, 4096, arg2, arg3, arg4, arg5);
     }
 
@@ -22,7 +22,7 @@ public abstract class Sprite implements Interface6 {
     public abstract void method8184(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "(FFFFIILclient!aa;II)V")
-    public final void method8185(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class1 arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8) {
+    public final void method8185(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) ClippingMask arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8) {
         if (arg4 == 0) {
             return;
         }
@@ -72,7 +72,7 @@ public abstract class Sprite implements Interface6 {
     protected abstract void method8190(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6);
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "(FFFFFFLclient!aa;II)V")
-    public void method8191(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) Class1 arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8) {
+    public void method8191(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) ClippingMask arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8) {
         this.method8194(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
     }
 
@@ -83,10 +83,10 @@ public abstract class Sprite implements Interface6 {
     public abstract void method8193(@OriginalArg(0) int[] arg0);
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
-    protected abstract void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) Class1 arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8);
+    protected abstract void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) ClippingMask arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8);
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "(IILclient!aa;II)V")
-    public abstract void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class1 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
+    public abstract void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "(III)V")
     public abstract void method8196();

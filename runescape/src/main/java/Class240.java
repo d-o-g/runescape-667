@@ -6,13 +6,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Class240 {
 
     @OriginalMember(owner = "client!mfa", name = "g", descriptor = "Lclient!qha;")
-    public final Class19_Sub3 aClass19_Sub3_29;
+    public final Toolkit_Sub3 aClass19_Sub3_29;
 
     @OriginalMember(owner = "client!mfa", name = "e", descriptor = "J")
     public final long aLong189;
 
     @OriginalMember(owner = "client!mfa", name = "<init>", descriptor = "(Lclient!qha;JI)V")
-    public Class240(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) long arg1, @OriginalArg(2) int arg2) {
+    public Class240(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) long arg1, @OriginalArg(2) int arg2) {
         this.aClass19_Sub3_29 = arg0;
         this.aLong189 = arg1;
     }

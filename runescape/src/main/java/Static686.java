@@ -19,7 +19,7 @@ public final class Static686 {
                 Static349.method5121(arg0);
             }
         }
-        Static147.method2421((long) Static333.anInt5455, Static163.aClass19_17);
+        Static147.method2421((long) Static333.anInt5455, Static163.aToolkit_17);
         if (Static377.anInt5930 != -1) {
             Static26.method716(Static377.anInt5930);
         }
@@ -39,8 +39,8 @@ public final class Static686 {
             Static122.anInt2339 = 0;
             Static261.method3833();
         }
-        Static163.aClass19_17.la();
-        Static676.method8859(Static163.aClass19_17);
+        Static163.aToolkit_17.la();
+        Static676.method8859(Static163.aToolkit_17);
         @Pc(116) int local116 = Static679.method8909();
         if (local116 == -1) {
             local116 = Static442.anInt6699;

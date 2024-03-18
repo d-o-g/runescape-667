@@ -18,7 +18,7 @@ public final class Class26_Sub8 extends Class26 {
     public boolean aBoolean554 = false;
 
     @OriginalMember(owner = "client!pia", name = "j", descriptor = "Lclient!kea;")
-    public final Class19_Sub1_Sub1 aClass19_Sub1_Sub1_6;
+    public final Toolkit_Sub1_Sub1 aClass19_Sub1_Sub1_6;
 
     @OriginalMember(owner = "client!pia", name = "l", descriptor = "Lclient!jagdx/IDirect3DVertexShader;")
     public IDirect3DVertexShader anIDirect3DVertexShader4;
@@ -39,7 +39,7 @@ public final class Class26_Sub8 extends Class26 {
     public Interface18 anInterface18_5;
 
     @OriginalMember(owner = "client!pia", name = "<init>", descriptor = "(Lclient!kea;Lclient!sb;)V")
-    public Class26_Sub8(@OriginalArg(0) Class19_Sub1_Sub1 arg0, @OriginalArg(1) Class330 arg1) {
+    public Class26_Sub8(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) Class330 arg1) {
         super(arg0);
         this.aClass19_Sub1_Sub1_6 = arg0;
         if (arg1 == null || (this.aClass19_Sub1_Sub1_6.aD3DCAPS1.VertexShaderVersion & 0xFFFF) < 257) {

@@ -32,7 +32,7 @@ public final class Static452 {
     }
 
     @OriginalMember(owner = "client!oea", name = "a", descriptor = "(Lclient!c;BILclient!ha;II)V")
-    public static void method6173(@OriginalArg(0) Class54 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class19 arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public static void method6173(@OriginalArg(0) Class54 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Toolkit arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(9) Class173 local9 = Static720.aClass363_4.method8362(arg0.anInt1239);
         if (local9.anInt4167 == -1) {
             return;

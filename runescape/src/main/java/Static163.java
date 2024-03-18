@@ -7,7 +7,7 @@ import java.util.Date;
 public final class Static163 {
 
     @OriginalMember(owner = "client!fb", name = "f", descriptor = "Lclient!ha;")
-    public static Class19 aClass19_17;
+    public static Toolkit aToolkit_17;
 
     @OriginalMember(owner = "client!fb", name = "d", descriptor = "[[B")
     public static byte[][] aByteArrayArray36;

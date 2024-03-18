@@ -9,7 +9,7 @@ public final class Class132_Sub1 extends Class132 implements Interface1 {
     public int anInt3048;
 
     @OriginalMember(owner = "client!fn", name = "<init>", descriptor = "(Lclient!qha;I[BIZ)V")
-    public Class132_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Class132_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         super(arg0, 34963, arg2, arg3, arg4);
         this.anInt3048 = arg1;
     }

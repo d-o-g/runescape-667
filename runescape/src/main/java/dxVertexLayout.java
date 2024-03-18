@@ -12,7 +12,7 @@ public final class dxVertexLayout extends Class244 {
     public final IDirect3DVertexDeclaration anIDirect3DVertexDeclaration1;
 
     @OriginalMember(owner = "client!dxVertexLayout", name = "<init>", descriptor = "(Lclient!kea;[Lclient!mc;)V")
-    public dxVertexLayout(@OriginalArg(0) Class19_Sub1_Sub1 arg0, @OriginalArg(1) Class237[] arg1) {
+    public dxVertexLayout(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) Class237[] arg1) {
         @Pc(7) VertexElementCollection local7 = new VertexElementCollection(arg0.aTi1);
         @Pc(9) int local9 = 0;
         for (@Pc(11) int local11 = 0; local11 < arg1.length; local11++) {

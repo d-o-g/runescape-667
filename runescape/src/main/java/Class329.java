@@ -25,7 +25,7 @@ public final class Class329 {
     public final boolean aBoolean655;
 
     @OriginalMember(owner = "client!sa", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Class329(@OriginalArg(0) Class19_Sub3 arg0) {
+    public Class329(@OriginalArg(0) Toolkit_Sub3 arg0) {
         this.aBoolean655 = arg0.aBoolean606;
         Static491.method9159(arg0);
         if (this.aBoolean655) {

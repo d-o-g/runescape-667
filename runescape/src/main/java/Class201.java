@@ -103,7 +103,7 @@ public final class Class201 {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!es;Lclient!gu;IZLclient!qp;Lclient!bp;I[ILclient!vl;Lclient!kr;Lclient!ha;Lclient!ql;[Lclient!gu;ILclient!gu;Lclient!uk;)Lclient!ka;")
-    public Model method4546(@OriginalArg(0) ObjTypeList arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(4) Class310 arg2, @OriginalArg(5) Class50 arg3, @OriginalArg(6) int arg4, @OriginalArg(7) int[] arg5, @OriginalArg(8) Class388 arg6, @OriginalArg(9) Class215 arg7, @OriginalArg(10) Class19 arg8, @OriginalArg(11) Class308 arg9, @OriginalArg(12) Class152[] arg10, @OriginalArg(13) int arg11, @OriginalArg(14) Class152 arg12, @OriginalArg(15) Interface23 arg13) {
+    public Model method4546(@OriginalArg(0) ObjTypeList arg0, @OriginalArg(1) Class152 arg1, @OriginalArg(4) Class310 arg2, @OriginalArg(5) Class50 arg3, @OriginalArg(6) int arg4, @OriginalArg(7) int[] arg5, @OriginalArg(8) Class388 arg6, @OriginalArg(9) Class215 arg7, @OriginalArg(10) Toolkit arg8, @OriginalArg(11) Class308 arg9, @OriginalArg(12) Class152[] arg10, @OriginalArg(13) int arg11, @OriginalArg(14) Class152 arg12, @OriginalArg(15) Interface23 arg13) {
         if (this.anInt5012 != -1) {
             return arg9.method7092(this.anInt5012).method5993(arg13, arg8, arg2, arg1, arg11, arg5, (Class386) null, arg12, arg4, arg10);
         }
@@ -193,9 +193,9 @@ public final class Class201 {
         @Pc(395) int local395;
         @Pc(586) int local586;
         @Pc(591) int local591;
-        if (local342 == null || arg8.method7960(local342.ua(), local28) != 0) {
+        if (local342 == null || arg8.compareFunctionMasks(local342.ua(), local28) != 0) {
             if (local342 != null) {
-                local28 = arg8.method8013(local28, local342.ua());
+                local28 = arg8.combineFunctionMasks(local28, local342.ua());
             }
             @Pc(388) boolean local388 = false;
             local390 = 0;
@@ -209,7 +209,7 @@ public final class Class201 {
                                 local342 = (Model) Static580.aClass82_186.method2156(this.aLong159);
                             }
                         }
-                        if (local342 == null || arg8.method7960(local342.ua(), local28) != 0) {
+                        if (local342 == null || arg8.compareFunctionMasks(local342.ua(), local28) != 0) {
                             return null;
                         }
                     } else {
@@ -349,7 +349,7 @@ public final class Class201 {
                 if (arg5[local586] != -1) {
                     local591 = arg5[local586] - arg11;
                     local591 &= 0x3FFF;
-                    @Pc(1034) Matrix local1034 = arg8.method7953();
+                    @Pc(1034) Matrix local1034 = arg8.createMatrix();
                     local1034.method7131(local591);
                     local925.transform(local1034, 0x1 << local586, false);
                 }
@@ -394,7 +394,7 @@ public final class Class201 {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!gu;IILclient!bp;Lclient!ha;BLclient!kr;II)Lclient!ka;")
-    public Model method4550(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class50 arg3, @OriginalArg(4) Class19 arg4, @OriginalArg(6) Class215 arg5, @OriginalArg(7) int arg6) {
+    public Model method4550(@OriginalArg(0) Class152 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class50 arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(6) Class215 arg5, @OriginalArg(7) int arg6) {
         @Pc(16) int local16 = arg0 == null ? 2048 : arg0.method9101() | 0x800;
         @Pc(29) long local29 = (long) arg1 | (long) arg2 << 32 | (long) (arg6 << 16);
         @Pc(31) Class82 local31 = Static54.aClass82_25;
@@ -402,9 +402,9 @@ public final class Class201 {
         synchronized (Static54.aClass82_25) {
             local39 = (Model) Static54.aClass82_25.method2156(local29);
         }
-        if (local39 == null || arg4.method7960(local39.ua(), local16) != 0) {
+        if (local39 == null || arg4.compareFunctionMasks(local39.ua(), local16) != 0) {
             if (local39 != null) {
-                local16 = arg4.method8013(local16, local39.ua());
+                local16 = arg4.combineFunctionMasks(local16, local39.ua());
             }
             @Pc(70) Mesh[] local70 = new Mesh[3];
             @Pc(72) int local72 = 0;
@@ -460,7 +460,7 @@ public final class Class201 {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!kr;BLclient!bp;Lclient!uk;Lclient!gu;Lclient!es;Lclient!ql;Lclient!ha;I)Lclient!ka;")
-    public Model method4552(@OriginalArg(0) Class215 arg0, @OriginalArg(2) Class50 arg1, @OriginalArg(3) Interface23 arg2, @OriginalArg(4) Class152 arg3, @OriginalArg(5) ObjTypeList arg4, @OriginalArg(6) Class308 arg5, @OriginalArg(7) Class19 arg6) {
+    public Model method4552(@OriginalArg(0) Class215 arg0, @OriginalArg(2) Class50 arg1, @OriginalArg(3) Interface23 arg2, @OriginalArg(4) Class152 arg3, @OriginalArg(5) ObjTypeList arg4, @OriginalArg(6) Class308 arg5, @OriginalArg(7) Toolkit arg6) {
         if (this.anInt5012 != -1) {
             return arg5.method7092(this.anInt5012).method5992(arg3, (Class386) null, arg6, arg2);
         }
@@ -470,9 +470,9 @@ public final class Class201 {
         synchronized (Static54.aClass82_25) {
             local48 = (Model) Static54.aClass82_25.method2156(this.aLong160);
         }
-        if (local48 == null || arg6.method7960(local48.ua(), local35) != 0) {
+        if (local48 == null || arg6.compareFunctionMasks(local48.ua(), local35) != 0) {
             if (local48 != null) {
-                local35 = arg6.method8013(local35, local48.ua());
+                local35 = arg6.combineFunctionMasks(local35, local48.ua());
             }
             @Pc(81) boolean local81 = false;
             for (@Pc(83) int local83 = 0; local83 < this.anIntArray381.length; local83++) {

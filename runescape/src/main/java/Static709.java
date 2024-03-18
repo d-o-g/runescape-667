@@ -17,7 +17,7 @@ public final class Static709 {
     public static int anInt10669 = 1;
 
     @OriginalMember(owner = "client!wh", name = "a", descriptor = "(IZIILclient!qha;)Lclient!gb;")
-    public static Class93_Sub2_Sub1 method9251(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Class19_Sub3 arg3) {
+    public static Class93_Sub2_Sub1 method9251(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Toolkit_Sub3 arg3) {
         if (arg3.aBoolean597 || Static700.method9150(arg1) && Static700.method9150(arg0)) {
             return new Class93_Sub2_Sub1(arg3, 3553, arg2, arg1, arg0);
         } else if (arg3.aBoolean595) {

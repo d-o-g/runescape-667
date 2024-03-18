@@ -8,13 +8,13 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class67_Sub1_Sub1 extends Class67_Sub1 {
 
     @OriginalMember(owner = "client!cj", name = "r", descriptor = "Lclient!qha;")
-    public final Class19_Sub3 aClass19_Sub3_1;
+    public final Toolkit_Sub3 aClass19_Sub3_1;
 
     @OriginalMember(owner = "client!cj", name = "j", descriptor = "Lclient!ec;")
     public final Class93_Sub1 aClass93_Sub1_1;
 
     @OriginalMember(owner = "client!cj", name = "<init>", descriptor = "(Lclient!qha;I)V")
-    public Class67_Sub1_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1) {
+    public Class67_Sub1_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1) {
         this.aClass19_Sub3_1 = arg0;
         this.aClass93_Sub1_1 = new Class93_Sub1(arg0, 6408, arg1);
     }

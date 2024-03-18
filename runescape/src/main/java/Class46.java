@@ -31,12 +31,12 @@ public final class Class46 implements Runnable {
     public final int anInt1012;
 
     @OriginalMember(owner = "client!bl", name = "i", descriptor = "Lclient!ha;")
-    public final Class19 aClass19_3;
+    public final Toolkit aToolkit_3;
 
     @OriginalMember(owner = "client!bl", name = "<init>", descriptor = "(ILclient!ha;)V")
-    public Class46(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1) {
+    public Class46(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1) {
         this.anInt1012 = arg0;
-        this.aClass19_3 = arg1;
+        this.aToolkit_3 = arg1;
     }
 
     @OriginalMember(owner = "client!bl", name = "run", descriptor = "()V")
@@ -63,7 +63,7 @@ public final class Class46 implements Runnable {
 
     @OriginalMember(owner = "client!bl", name = "a", descriptor = "()V")
     public void method1103() {
-        this.aClass19_3.method8020(this.anInt1012);
+        this.aToolkit_3.method8020(this.anInt1012);
         while (!this.aBoolean76 && this.aBoolean75) {
             if (this.aClass302_1 == null || this.aClass302_1.method6810()) {
                 this.aBoolean77 = false;
@@ -80,7 +80,7 @@ public final class Class46 implements Runnable {
                 if (local23 instanceof Class8_Sub2) {
                     @Pc(29) Class8_Sub2 local29 = (Class8_Sub2) local23;
                     if (local29.aBoolean812) {
-                        local29.method9289(Static665.aClass19_15, -5);
+                        local29.method9289(Static665.aToolkit_15, -5);
                     } else {
                         Static658.method8591(local29, this.aClass2_Sub7Array2);
                         if (Static242.aClass14_7 != null) {
@@ -97,7 +97,7 @@ public final class Class46 implements Runnable {
                                     @Pc(98) int local98 = Static403.anInt6246 + local78 - Static35.anInt813;
                                     @Pc(104) int local104 = Static550.anInt8271 + local81 - Static35.anInt813;
                                     if (local98 >= 0 && local98 < local76.anInt8894 && local104 >= 0 && local104 < local76.anInt8892) {
-                                        Static665.aClass19_15.H(local98 << Static52.anInt1066, local76.method7869(local104, local98), local104 << Static52.anInt1066, this.anIntArray85);
+                                        Static665.aToolkit_15.H(local98 << Static52.anInt1066, local76.method7869(local104, local98), local104 << Static52.anInt1066, this.anIntArray85);
                                         if (Static356.method5199(this.anIntArray85[0]) == this.anInt1012 - 1) {
                                             local76.method7875(local98, local104);
                                         }
@@ -109,7 +109,7 @@ public final class Class46 implements Runnable {
                 }
             }
         }
-        this.aClass19_3.method8016(this.anInt1012);
+        this.aToolkit_3.method8016(this.anInt1012);
         while (this.aBoolean76 && this.aBoolean75) {
             synchronized (this) {
                 try {

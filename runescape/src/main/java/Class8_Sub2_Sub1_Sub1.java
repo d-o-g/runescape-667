@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -147,7 +148,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!b", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 >= -93) {
             this.aDouble8 = 1.3103535335051488D;
         }
@@ -172,14 +173,14 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Class19 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
         if (arg4 >= 101) {
             throw new IllegalStateException();
         }
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;I)Lclient!ka;")
-    public Model method814(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) int arg2) {
+    public Model method814(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2) {
         @Pc(17) Class227 local17 = Static23.aClass128_1.method2694(this.anInt715);
         return local17.method5252(this.aClass152_1, (byte) 2, arg0, arg1);
     }
@@ -249,8 +250,8 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
                 local187 = local21.anIntArray877[this.anInt695];
             }
             @Pc(213) int local213 = local187 - local185 & 0x3FFF;
-            @Pc(217) int local217 = Class361.anIntArray741[local213];
-            @Pc(221) int local221 = Class361.anIntArray740[local213];
+            @Pc(217) int local217 = Trig1.SIN[local213];
+            @Pc(221) int local221 = Trig1.COS[local213];
             @Pc(232) int local232 = local217 * local109 + local221 * local107 >> 14;
             local109 = local109 * local221 - local217 * local107 >> 14;
             super.anInt10694 += local109;
@@ -272,7 +273,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(BLclient!ha;Lclient!tt;Lclient!ka;)V")
-    public void method817(@OriginalArg(1) Class19 arg0, @OriginalArg(2) Matrix arg1, @OriginalArg(3) Model arg2) {
+    public void method817(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) Matrix arg1, @OriginalArg(3) Model arg2) {
         arg2.method7476(arg1);
         @Pc(9) MeshEmitter[] local9 = arg2.meshEmitters();
         @Pc(12) MeshMagnet[] local12 = arg2.meshMagnets();
@@ -293,7 +294,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!b", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method9289(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
             Static29.aClass131_1 = null;
         }
@@ -301,10 +302,10 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
         if (local18 == null) {
             return;
         }
-        @Pc(25) Matrix local25 = arg0.method7985();
+        @Pc(25) Matrix local25 = arg0.scratchMatrix();
         local25.method7136(this.anInt703);
-        local25.method7127(this.anInt694);
-        local25.method7134((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);
+        local25.rotateAxisY(this.anInt694);
+        local25.translate((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);
         this.anInt717 = local18.fa();
         this.anInt692 = local18.ma();
         this.method817(arg0, local25, local18);
@@ -312,15 +313,15 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0) {
+    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(19) Model local19 = this.method814(2048, arg0, 46);
         if (local19 == null) {
             return null;
         }
-        @Pc(27) Matrix local27 = arg0.method7985();
+        @Pc(27) Matrix local27 = arg0.scratchMatrix();
         local27.method7136(this.anInt703);
-        local27.method7127(this.anInt694);
-        local27.method7134((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);
+        local27.rotateAxisY(this.anInt694);
+        local27.translate((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);
         this.method817(arg0, local27, local19);
         @Pc(57) Class8_Sub7 local57 = Static642.method8441(false, 1);
         if (Static504.aBoolean579) {
@@ -352,7 +353,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class19 arg3) {
+    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
         if (arg2) {
             this.aDouble5 = -0.10988590233715705D;
         }

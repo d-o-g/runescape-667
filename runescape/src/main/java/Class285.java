@@ -49,7 +49,7 @@ public final class Class285 {
     public int anInt7195 = -1;
 
     @OriginalMember(owner = "client!pb", name = "a", descriptor = "(Lclient!ha;I)Lclient!st;")
-    public Sprite method6451(@OriginalArg(0) Class19 arg0) {
+    public Sprite method6451(@OriginalArg(0) Toolkit arg0) {
         if (this.anInt7181 < 0) {
             return null;
         }
@@ -62,7 +62,7 @@ public final class Class285 {
     }
 
     @OriginalMember(owner = "client!pb", name = "c", descriptor = "(ILclient!ha;)Lclient!st;")
-    public Sprite method6452(@OriginalArg(1) Class19 arg0) {
+    public Sprite method6452(@OriginalArg(1) Toolkit arg0) {
         if (this.anInt7180 < 0) {
             return null;
         }
@@ -75,7 +75,7 @@ public final class Class285 {
     }
 
     @OriginalMember(owner = "client!pb", name = "a", descriptor = "(Lclient!ha;B)Lclient!st;")
-    public Sprite method6453(@OriginalArg(0) Class19 arg0) {
+    public Sprite method6453(@OriginalArg(0) Toolkit arg0) {
         if (this.anInt7187 < 0) {
             return null;
         }
@@ -88,7 +88,7 @@ public final class Class285 {
     }
 
     @OriginalMember(owner = "client!pb", name = "a", descriptor = "(ILclient!ha;)Lclient!st;")
-    public Sprite method6454(@OriginalArg(1) Class19 arg0) {
+    public Sprite method6454(@OriginalArg(1) Toolkit arg0) {
         if (this.anInt7183 < 0) {
             return null;
         }
@@ -101,7 +101,7 @@ public final class Class285 {
     }
 
     @OriginalMember(owner = "client!pb", name = "b", descriptor = "(ILclient!ha;)V")
-    public void method6455(@OriginalArg(1) Class19 arg0) {
+    public void method6455(@OriginalArg(1) Toolkit arg0) {
         @Pc(7) Class330 local7 = this.aClass220_1.aClass330_76;
         @Pc(34) Class407 local34;
         if (this.anInt7183 >= 0 && this.aClass220_1.aClass82_121.method2156((long) this.anInt7183) == null && local7.method7581(this.anInt7183)) {

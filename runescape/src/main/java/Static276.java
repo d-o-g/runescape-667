@@ -23,7 +23,7 @@ public final class Static276 {
         Static285.aClass75Array1 = new Class75[1000];
         Static469.anInt7072 = 0;
         Static560.aClass75Array3 = new Class75[500];
-        if (Static665.aClass19_15 instanceof oa) {
+        if (Static665.aToolkit_15 instanceof oa) {
             Static18.aBoolean20 = false;
         } else {
             Static18.aBoolean20 = true;

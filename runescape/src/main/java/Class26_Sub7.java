@@ -10,7 +10,7 @@ public final class Class26_Sub7 extends Class26 {
     public boolean aBoolean535 = false;
 
     @OriginalMember(owner = "client!oo", name = "<init>", descriptor = "(Lclient!am;)V")
-    public Class26_Sub7(@OriginalArg(0) Class19_Sub1 arg0) {
+    public Class26_Sub7(@OriginalArg(0) Toolkit_Sub1 arg0) {
         super(arg0);
     }
 

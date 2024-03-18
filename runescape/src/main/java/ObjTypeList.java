@@ -87,7 +87,7 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(ILclient!ha;Lclient!ha;Lclient!ju;ZIIZILclient!da;II)Lclient!st;")
-    public Sprite method2478(@OriginalArg(0) int arg0, @OriginalArg(1) Class19 arg1, @OriginalArg(2) Class19 arg2, @OriginalArg(3) Class201 arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) Class14 arg9, @OriginalArg(10) int arg10) {
+    public Sprite sprite(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) Class201 arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) Class14 arg9, @OriginalArg(10) int arg10) {
         @Pc(24) Sprite local24 = this.method2483(arg3, arg2, arg8, arg10, arg0, arg6, arg5);
         if (local24 != null) {
             return local24;
@@ -178,7 +178,7 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(Lclient!ju;BLclient!ha;IIIII)Lclient!st;")
-    public Sprite method2483(@OriginalArg(0) Class201 arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
+    public Sprite method2483(@OriginalArg(0) Class201 arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
         this.aClass324_1.anInt8430 = arg5;
         this.aClass324_1.anInt8432 = arg1.anInt8962;
         this.aClass324_1.anInt8435 = arg2;

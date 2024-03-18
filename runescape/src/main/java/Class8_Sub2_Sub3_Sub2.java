@@ -37,7 +37,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
     public Shadow aClass2_Sub2_Sub9_4;
 
     @OriginalMember(owner = "client!jn", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIZ)V")
-    public Class8_Sub2_Sub3_Sub2(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) boolean arg10) {
+    public Class8_Sub2_Sub3_Sub2(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) boolean arg10) {
         super(arg4, arg5, arg6, arg2, arg3, Static490.method6553(arg9, arg8));
         super.anInt10690 = arg4;
         super.anInt10694 = arg6;
@@ -84,7 +84,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!jn", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6861(@OriginalArg(0) Class19 arg0) {
+    public void method6861(@OriginalArg(0) Toolkit arg0) {
         @Pc(21) Shadow local21;
         if (this.aClass2_Sub2_Sub9_4 == null && this.aBoolean377) {
             @Pc(32) Class272 local32 = this.method4475(arg0, 262144, true);
@@ -100,7 +100,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Class19 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
         if (arg6 instanceof Class8_Sub2_Sub3_Sub2) {
             @Pc(34) Class8_Sub2_Sub3_Sub2 local34 = (Class8_Sub2_Sub3_Sub2) arg6;
             if (this.aModel_5 != null && local34.aModel_5 != null) {
@@ -147,7 +147,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!jn", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (this.aClass205_6 == null) {
             this.aClass205_6 = Static317.method4583(super.anInt10691, super.anInt10690, this.method4474(arg0, 0), super.anInt10694);
         }
@@ -158,8 +158,8 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
     }
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(Lclient!ha;BI)Lclient!ka;")
-    public Model method4474(@OriginalArg(0) Class19 arg0, @OriginalArg(2) int arg1) {
-        if (this.aModel_5 != null && arg0.method7960(this.aModel_5.ua(), arg1) == 0) {
+    public Model method4474(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) int arg1) {
+        if (this.aModel_5 != null && arg0.compareFunctionMasks(this.aModel_5.ua(), arg1) == 0) {
             return this.aModel_5;
         } else {
             @Pc(37) Class272 local37 = this.method4475(arg0, arg1, false);
@@ -189,7 +189,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6857(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 >= -42) {
             this.aClass205_6 = null;
         }
@@ -217,7 +217,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
     }
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(Lclient!ha;ZIZ)Lclient!od;")
-    public Class272 method4475(@OriginalArg(0) Class19 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2) {
+    public Class272 method4475(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2) {
         @Pc(11) Class54 local11 = Static354.aClass142_4.method3063(this.aShort60 & 0xFFFF, 56);
         @Pc(27) Ground local27;
         @Pc(38) Ground local38;
@@ -237,7 +237,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!jn", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method9289(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1) {
+    public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
             this.aBoolean378 = true;
         }
@@ -245,7 +245,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class19 arg3) {
+    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
         @Pc(9) Model local9 = this.method4474(arg3, 131072);
         if (local9 == null) {
             if (arg2) {
@@ -253,7 +253,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
             }
             return false;
         } else {
-            @Pc(14) Matrix local14 = arg3.method7985();
+            @Pc(14) Matrix local14 = arg3.scratchMatrix();
             local14.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
             return Static504.aBoolean579 ? local9.pickedOrtho(arg1, arg0, local14, false, 0, Static582.anInt8627) : local9.picked(arg1, arg0, local14, false, 0);
         }
@@ -270,11 +270,11 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Class19 arg0) {
+    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
         if (this.aModel_5 == null) {
             return null;
         }
-        @Pc(20) Matrix local20 = arg0.method7985();
+        @Pc(20) Matrix local20 = arg0.scratchMatrix();
         local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(34) Class8_Sub7 local34 = Static642.method8441(this.aBoolean379, 1);
         if (Static504.aBoolean579) {

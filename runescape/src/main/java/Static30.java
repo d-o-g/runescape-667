@@ -133,7 +133,7 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;)V")
-    public static void method5060(@OriginalArg(0) Class19 arg0) {
+    public static void method5060(@OriginalArg(0) Toolkit arg0) {
         @Pc(3) int local3 = anInt5647 - anInt5652;
         @Pc(7) int local7 = anInt5645 - anInt5654;
         @Pc(15) int local15 = (anInt5651 - anInt5649 << 16) / local3;
@@ -142,7 +142,7 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;IIIIIII[S[BZ)V")
-    public static void method5061(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) short[] arg8, @OriginalArg(9) byte[] arg9, @OriginalArg(10) boolean arg10) {
+    public static void method5061(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) short[] arg8, @OriginalArg(9) byte[] arg9, @OriginalArg(10) boolean arg10) {
         @Pc(20) int local20;
         @Pc(32) int local32;
         if (arg10 || arg5 != 0 || arg6 > 0) {
@@ -248,7 +248,7 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;IIII[S[B)V")
-    public static void method5063(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) short[] arg5, @OriginalArg(6) byte[] arg6) {
+    public static void method5063(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) short[] arg5, @OriginalArg(6) byte[] arg6) {
         if (arg5 == null) {
             return;
         }
@@ -392,7 +392,7 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;IIII)V")
-    public static void method5066(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static void method5066(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(3) int local3 = anInt5647 - anInt5652;
         @Pc(7) int local7 = anInt5645 - anInt5654;
         if (anInt5647 < anInt5650) {
@@ -655,7 +655,7 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!fu;Lclient!el;)V")
-    public static void method5071(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Node_Sub20 arg1, @OriginalArg(2) Class105 arg2) {
+    public static void method5071(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Node_Sub20 arg1, @OriginalArg(2) Class105 arg2) {
         if (arg2.anIntArray228 == null) {
             return;
         }
@@ -725,13 +725,13 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!fu;IIII)V")
-    public static void method5073(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Node_Sub20 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public static void method5073(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Node_Sub20 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         arg1.anInt3130 = anInt5649 + (arg2 * (arg1.anInt3129 - anInt5652) >> 16);
         arg1.anInt3122 = anInt5646 - (arg3 * (arg1.anInt3124 - anInt5654) >> 16);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!ge;IIII[I[I)V")
-    public static void method5074(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7) {
+    public static void method5074(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7) {
         @Pc(3) int local3 = arg1.g1();
         if ((local3 & 0x1) == 0) {
             @Pc(15) boolean local15 = (local3 & 0x2) == 0;
@@ -926,7 +926,7 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;II)V")
-    public static void method5080(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static void method5080(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(11) Packet local11 = new Packet(aClass330_74.method7600(aClass2_Sub2_Sub13_3.aString48, "area"));
         @Pc(15) int local15 = local11.g1();
         @Pc(18) int[] local18 = new int[local15];
@@ -1009,7 +1009,7 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(Lclient!ha;)Lclient!sia;")
-    public static Deque method5081(@OriginalArg(0) Class19 arg0) {
+    public static Deque method5081(@OriginalArg(0) Toolkit arg0) {
         @Pc(3) int local3 = anInt5647 - anInt5652;
         @Pc(7) int local7 = anInt5645 - anInt5654;
         @Pc(15) int local15 = (anInt5651 - anInt5649 << 16) / local3;
@@ -1018,7 +1018,7 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(Lclient!ha;IIII)Lclient!sia;")
-    public static Deque method5082(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static Deque method5082(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         for (@Pc(4) Node_Sub20 local4 = (Node_Sub20) A_DEQUE___31.first(65280); local4 != null; local4 = (Node_Sub20) A_DEQUE___31.next()) {
             method5073(arg0, local4, arg1, arg2);
         }

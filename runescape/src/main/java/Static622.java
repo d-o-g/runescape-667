@@ -14,7 +14,7 @@ public final class Static622 {
     }
 
     @OriginalMember(owner = "client!tla", name = "a", descriptor = "(Ljava/lang/String;ILclient!qha;B)Lclient!cn;")
-    public static Class71 method6854(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class19_Sub3 arg2, @OriginalArg(3) byte arg3) {
+    public static Class71 method6854(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Toolkit_Sub3 arg2, @OriginalArg(3) byte arg3) {
         if (arg3 <= 97) {
             return null;
         }

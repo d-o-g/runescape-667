@@ -23,7 +23,7 @@ public final class Static149 {
     public static Applet_Sub1 anApplet_Sub1_1 = null;
 
     @OriginalMember(owner = "client!ema", name = "a", descriptor = "(Lclient!ha;I)V")
-    public static void method2449(@OriginalArg(0) Class19 arg0) {
+    public static void method2449(@OriginalArg(0) Toolkit arg0) {
         @Pc(5) int local5 = 0;
         @Pc(7) int local7 = 0;
         if (Static137.aBoolean210) {

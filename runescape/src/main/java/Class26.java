@@ -6,10 +6,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 public abstract class Class26 {
 
     @OriginalMember(owner = "client!rea", name = "i", descriptor = "Lclient!am;")
-    protected final Class19_Sub1 aClass19_Sub1_21;
+    protected final Toolkit_Sub1 aClass19_Sub1_21;
 
     @OriginalMember(owner = "client!rea", name = "<init>", descriptor = "(Lclient!am;)V")
-    public Class26(@OriginalArg(0) Class19_Sub1 arg0) {
+    public Class26(@OriginalArg(0) Toolkit_Sub1 arg0) {
         this.aClass19_Sub1_21 = arg0;
     }
 

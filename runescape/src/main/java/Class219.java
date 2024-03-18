@@ -94,7 +94,7 @@ public final class Class219 {
     public int anInt5733 = 0;
 
     @OriginalMember(owner = "client!lb", name = "s", descriptor = "Lclient!iaa;")
-    public final Class19_Sub2 aClass19_Sub2_5;
+    public final Toolkit_Sub2 aClass19_Sub2_5;
 
     @OriginalMember(owner = "client!lb", name = "D", descriptor = "Lclient!wf;")
     public final Class399 aClass399_1;
@@ -109,7 +109,7 @@ public final class Class219 {
     public final float[] aFloatArray41;
 
     @OriginalMember(owner = "client!lb", name = "<init>", descriptor = "(Lclient!iaa;Lclient!wf;)V")
-    public Class219(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) Class399 arg1) {
+    public Class219(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Class399 arg1) {
         this.aClass19_Sub2_5 = arg0;
         this.aClass399_1 = arg1;
         this.anInt5722 = this.aClass19_Sub2_5.anInt4207;

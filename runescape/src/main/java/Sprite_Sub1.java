@@ -22,7 +22,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     public int[] anIntArray713;
 
     @OriginalMember(owner = "client!qc", name = "o", descriptor = "Lclient!iaa;")
-    protected final Class19_Sub2 aClass19_Sub2_10;
+    protected final Toolkit_Sub2 aClass19_Sub2_10;
 
     @OriginalMember(owner = "client!qc", name = "z", descriptor = "I")
     public final int anInt9302;
@@ -31,7 +31,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     public final int anInt9306;
 
     @OriginalMember(owner = "client!qc", name = "<init>", descriptor = "(Lclient!iaa;II)V")
-    public Sprite_Sub1(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public Sprite_Sub1(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aClass19_Sub2_10 = arg0;
         this.anInt9302 = arg1;
         this.anInt9306 = arg2;
@@ -44,7 +44,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     }
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(IILclient!aa;II)V")
-    public abstract void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class1 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
+    public abstract void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "([I)V")
     @Override
@@ -78,11 +78,11 @@ public abstract class Sprite_Sub1 extends Sprite {
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     @Override
-    protected final void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) Class1 arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
+    protected final void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) ClippingMask arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
         if (this.aClass19_Sub2_10.method3785()) {
             throw new IllegalStateException();
         } else if (this.method8211(arg0, arg1, arg2, arg3, arg4, arg5)) {
-            @Pc(22) Class1_Sub1 local22 = (Class1_Sub1) arg6;
+            @Pc(22) ClippingMask_Sub1 local22 = (ClippingMask_Sub1) arg6;
             this.method8210(local22.anIntArray334, local22.anIntArray335, Static513.anInt9301 - arg7, -arg8 - (Static513.anInt9297 - Static513.anInt9314));
         }
     }

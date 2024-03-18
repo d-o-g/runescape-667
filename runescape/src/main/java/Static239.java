@@ -8,7 +8,7 @@ public final class Static239 {
     public static final Deque A_DEQUE___19 = new Deque();
 
     @OriginalMember(owner = "client!hha", name = "a", descriptor = "(BLclient!sb;Lclient!ha;)V")
-    public static void method3472(@OriginalArg(1) Class330 arg0, @OriginalArg(2) Class19 arg1) {
+    public static void method3472(@OriginalArg(1) Class330 arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(8) Class407[] local8 = Static735.method9375(arg0, Static159.anInt2787);
         Static119.aSpriteArray3 = new Sprite[local8.length];
         for (@Pc(14) int local14 = 0; local14 < local8.length; local14++) {

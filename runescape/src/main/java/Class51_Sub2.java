@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class51_Sub2 extends Class51 implements Interface8 {
 
     @OriginalMember(owner = "client!nd", name = "<init>", descriptor = "(Lclient!tca;IZ[[I)V")
-    public Class51_Sub2(@OriginalArg(0) Class19_Sub1_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int[][] arg3) {
+    public Class51_Sub2(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int[][] arg3) {
         super(arg0, 34067, Static172.aClass92_8, Static702.aClass397_16, arg1 * 6 * arg1, arg2);
         super.aClass19_Sub1_Sub2_12.method8088(this);
         @Pc(22) int local22;

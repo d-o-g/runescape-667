@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class354 implements Interface22 {
 
     @OriginalMember(owner = "client!tha", name = "j", descriptor = "Lclient!ha;")
-    public Class19 aClass19_14;
+    public Toolkit aToolkit_14;
 
     @OriginalMember(owner = "client!tha", name = "d", descriptor = "Z")
     public boolean aBoolean720;
@@ -42,11 +42,11 @@ public final class Class354 implements Interface22 {
     @OriginalMember(owner = "client!tha", name = "b", descriptor = "(I)V")
     @Override
     public void method8464() {
-        if (this.aClass19_14 != Static163.aClass19_17) {
-            this.aClass19_14 = Static163.aClass19_17;
+        if (this.aToolkit_14 != Static163.aToolkit_17) {
+            this.aToolkit_14 = Static163.aToolkit_17;
             this.aBoolean720 = true;
         }
-        this.aClass19_14.GA(0);
+        this.aToolkit_14.GA(0);
         @Pc(29) Interface13[] local29 = this.anInterface13Array1;
         for (@Pc(31) int local31 = 0; local31 < local29.length; local31++) {
             @Pc(37) Interface13 local37 = local29[local31];

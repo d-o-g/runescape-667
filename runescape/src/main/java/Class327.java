@@ -46,7 +46,7 @@ public final class Class327 {
     }
 
     @OriginalMember(owner = "client!rt", name = "<init>", descriptor = "(Lclient!ha;IZLjava/awt/Component;)V")
-    public Class327(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Component arg3) {
+    public Class327(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Component arg3) {
         this.aBoolean653 = false;
         this.aSpriteArray13 = new Sprite[256];
         this.anIntArray678 = new int[256];
@@ -77,7 +77,7 @@ public final class Class327 {
     }
 
     @OriginalMember(owner = "client!rt", name = "a", descriptor = "(Lclient!ha;Ljava/lang/String;[IIIIZ)V")
-    public void method7537(@OriginalArg(0) Class19 arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) boolean arg6) {
+    public void method7537(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) boolean arg6) {
         if (arg5 == 0) {
             arg6 = false;
         }
@@ -108,7 +108,7 @@ public final class Class327 {
     }
 
     @OriginalMember(owner = "client!rt", name = "a", descriptor = "(Lclient!ha;Ljava/lang/String;IIIZ)V")
-    public void method7540(@OriginalArg(0) Class19 arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void method7540(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         @Pc(5) int local5 = this.method7539(arg1) / 2;
         arg0.K(this.anIntArray680);
         if (arg2 - local5 <= this.anIntArray680[2] && (arg2 + local5 >= this.anIntArray680[0] && (arg3 - this.anInt8496 <= this.anIntArray680[3] && arg3 + this.anInt8498 >= this.anIntArray680[1]))) {
@@ -117,7 +117,7 @@ public final class Class327 {
     }
 
     @OriginalMember(owner = "client!rt", name = "a", descriptor = "(Lclient!ha;Ljava/awt/Font;Ljava/awt/FontMetrics;CIZ)V")
-    public void method7541(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Font arg1, @OriginalArg(2) FontMetrics arg2, @OriginalArg(3) char arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
+    public void method7541(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Font arg1, @OriginalArg(2) FontMetrics arg2, @OriginalArg(3) char arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
         @Pc(3) int local3 = arg2.charWidth(arg3);
         @Pc(5) int local5 = local3;
         if (arg5) {

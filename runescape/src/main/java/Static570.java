@@ -13,7 +13,7 @@ public final class Static570 {
     }
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(BLclient!ha;)V")
-    public static void method7549(@OriginalArg(1) Class19 arg0) {
+    public static void method7549(@OriginalArg(1) Toolkit arg0) {
         Static378.aClass70Array1 = new Class70[Static552.anIntArray753.length];
         for (@Pc(14) int local14 = 0; local14 < Static552.anIntArray753.length; local14++) {
             @Pc(19) int local19 = Static552.anIntArray753[local14];

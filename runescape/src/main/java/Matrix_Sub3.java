@@ -44,12 +44,12 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "<init>", descriptor = "()V")
     public Matrix_Sub3() {
-        this.method7133();
+        this.makeIdentity();
     }
 
     @OriginalMember(owner = "client!qr", name = "f", descriptor = "(I)V")
     @Override
-    public void method7127(@OriginalArg(0) int arg0) {
+    public void rotateAxisY(@OriginalArg(0) int arg0) {
         @Pc(9) float local9 = Applet_Sub1.aFloatArray14[arg0 & 0x3FFF];
         @Pc(15) float local15 = Applet_Sub1.aFloatArray15[arg0 & 0x3FFF];
         @Pc(18) float local18 = this.aFloat153;
@@ -135,7 +135,7 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "()V")
     @Override
-    public void method7133() {
+    public void makeIdentity() {
         this.aFloat153 = this.aFloat156 = this.aFloat154 = 1.0F;
         this.aFloat161 = this.aFloat155 = this.aFloat157 = this.aFloat151 = this.aFloat160 = this.aFloat150 = this.aFloat152 = this.aFloat158 = this.aFloat159 = 0.0F;
     }
@@ -247,7 +247,7 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "b", descriptor = "(III)V")
     @Override
-    public void method7134(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void translate(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aFloat159 += (float) arg2;
         this.aFloat152 += (float) arg0;
         this.aFloat158 += (float) arg1;
@@ -272,7 +272,7 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "e", descriptor = "(I)V")
     @Override
-    public void method7132(@OriginalArg(0) int arg0) {
+    public void makeRotationZ(@OriginalArg(0) int arg0) {
         this.aFloat154 = 1.0F;
         this.aFloat153 = this.aFloat156 = Applet_Sub1.aFloatArray14[arg0 & 0x3FFF];
         this.aFloat161 = Applet_Sub1.aFloatArray15[arg0 & 0x3FFF];

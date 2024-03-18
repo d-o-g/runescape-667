@@ -23,26 +23,26 @@ public final class Static334 {
         if (Static684.anInt10304 == 0 || Static242.aClass14_7 == null) {
             return;
         }
-        Static665.aClass19_15.K(Static238.anIntArray307);
+        Static665.aToolkit_15.K(Static238.anIntArray307);
         for (@Pc(14) int local14 = 0; local14 < Static537.anIntArray633.length; local14++) {
-            Static665.aClass19_15.method7998(Static238.anIntArray307[3] - Static238.anIntArray307[1], Static238.anIntArray307[1], -256, Static537.anIntArray633[local14] + Static621.anIntArray766[local14]);
+            Static665.aToolkit_15.method7998(Static238.anIntArray307[3] - Static238.anIntArray307[1], Static238.anIntArray307[1], -256, Static537.anIntArray633[local14] + Static621.anIntArray766[local14]);
         }
         for (@Pc(43) int local43 = 0; local43 < Static469.anInt7072; local43++) {
             @Pc(48) Class75 local48 = Static560.aClass75Array3[local43];
-            Static665.aClass19_15.H(local48.anIntArray185[0], local48.anIntArray186[0], local48.anIntArray188[0], Static625.anIntArray737);
-            Static665.aClass19_15.H(local48.anIntArray185[1], local48.anIntArray186[1], local48.anIntArray188[1], Static9.anIntArray19);
-            Static665.aClass19_15.H(local48.anIntArray185[2], local48.anIntArray186[2], local48.anIntArray188[2], Static574.anIntArray683);
-            Static665.aClass19_15.H(local48.anIntArray185[3], local48.anIntArray186[3], local48.anIntArray188[3], Static300.anIntArray368);
+            Static665.aToolkit_15.H(local48.anIntArray185[0], local48.anIntArray186[0], local48.anIntArray188[0], Static625.anIntArray737);
+            Static665.aToolkit_15.H(local48.anIntArray185[1], local48.anIntArray186[1], local48.anIntArray188[1], Static9.anIntArray19);
+            Static665.aToolkit_15.H(local48.anIntArray185[2], local48.anIntArray186[2], local48.anIntArray188[2], Static574.anIntArray683);
+            Static665.aToolkit_15.H(local48.anIntArray185[3], local48.anIntArray186[3], local48.anIntArray188[3], Static300.anIntArray368);
             if (Static625.anIntArray737[2] != -1 && Static9.anIntArray19[2] != -1 && Static574.anIntArray683[2] != -1 && Static300.anIntArray368[2] != -1) {
                 @Pc(136) int local136 = -65536;
                 if (local48.aByte43 == 4) {
                     local136 = -16776961;
                 }
-                Static665.aClass19_15.method7954(Static9.anIntArray19[1], Static625.anIntArray737[1], Static9.anIntArray19[0], local136, Static625.anIntArray737[0]);
-                Static665.aClass19_15.method7954(Static574.anIntArray683[1], Static9.anIntArray19[1], Static574.anIntArray683[0], local136, Static9.anIntArray19[0]);
-                Static665.aClass19_15.method7954(Static300.anIntArray368[1], Static574.anIntArray683[1], Static300.anIntArray368[0], local136, Static574.anIntArray683[0]);
-                Static665.aClass19_15.method7954(Static625.anIntArray737[1], Static300.anIntArray368[1], Static625.anIntArray737[0], local136, Static300.anIntArray368[0]);
-                Static665.aClass19_15.method7954(Static574.anIntArray683[1], Static625.anIntArray737[1], Static574.anIntArray683[0], local136, Static625.anIntArray737[0]);
+                Static665.aToolkit_15.method7954(Static9.anIntArray19[1], Static625.anIntArray737[1], Static9.anIntArray19[0], local136, Static625.anIntArray737[0]);
+                Static665.aToolkit_15.method7954(Static574.anIntArray683[1], Static9.anIntArray19[1], Static574.anIntArray683[0], local136, Static9.anIntArray19[0]);
+                Static665.aToolkit_15.method7954(Static300.anIntArray368[1], Static574.anIntArray683[1], Static300.anIntArray368[0], local136, Static574.anIntArray683[0]);
+                Static665.aToolkit_15.method7954(Static625.anIntArray737[1], Static300.anIntArray368[1], Static625.anIntArray737[0], local136, Static300.anIntArray368[0]);
+                Static665.aToolkit_15.method7954(Static574.anIntArray683[1], Static625.anIntArray737[1], Static574.anIntArray683[0], local136, Static625.anIntArray737[0]);
             }
         }
         Static242.aClass14_7.method8829(10, 75, "Dynamic: " + Static125.anInt2352 + "/" + 5000, -16777216, -256);
@@ -65,7 +65,7 @@ public final class Static334 {
             @Pc(416) int local416 = (int) local395;
             Static485.anIntArray886[local389] = local416 | local416 << 8 | local416 << 16 | 0xFF000000;
         }
-        @Pc(444) Sprite local444 = Static665.aClass19_15.method7946(Static228.anInt3709, Static228.anInt3709, Static624.anInt9461, Static485.anIntArray886);
+        @Pc(444) Sprite local444 = Static665.aToolkit_15.method7946(Static228.anInt3709, Static228.anInt3709, Static624.anInt9461, Static485.anIntArray886);
         local444.method8197(10, 170, 1, 0, 0);
     }
 }

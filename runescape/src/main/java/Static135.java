@@ -25,7 +25,7 @@ public final class Static135 {
         Static420.aMatrix_7 = null;
         Static138.anInt2512 = -1;
         Static448.anInt6796 = -1;
-        Static74.aClass19_4 = null;
+        Static74.aToolkit_4 = null;
         Static693.anInt10382 = -1;
         Static651.anInterface9Array1 = null;
         Static712.aMatrix_11 = null;

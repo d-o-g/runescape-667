@@ -10,7 +10,7 @@ public final class Static676 {
     public static int anInt10206 = 0;
 
     @OriginalMember(owner = "client!vha", name = "a", descriptor = "(Lclient!ha;Z)V")
-    public static void method8859(@OriginalArg(0) Class19 arg0) {
+    public static void method8859(@OriginalArg(0) Toolkit arg0) {
         if (Static400.aBoolean622) {
             Static39.method1022(arg0);
         } else {

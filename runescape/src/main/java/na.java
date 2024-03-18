@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!na")
-public final class na extends Class1 implements Interface5 {
+public final class na extends ClippingMask implements Interface5 {
 
     @OriginalMember(owner = "client!na", name = "nativeid", descriptor = "J")
     public long nativeid;

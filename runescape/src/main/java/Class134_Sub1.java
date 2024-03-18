@@ -10,13 +10,13 @@ public final class Class134_Sub1 extends Class134 implements Interface12 {
     public int anInt3102;
 
     @OriginalMember(owner = "client!fq", name = "<init>", descriptor = "(Lclient!qha;I[BI)V")
-    public Class134_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3) {
+    public Class134_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3) {
         super(arg0, arg2, arg3);
         this.anInt3102 = arg1;
     }
 
     @OriginalMember(owner = "client!fq", name = "<init>", descriptor = "(Lclient!qha;ILclient!jaclib/memory/Buffer;)V")
-    public Class134_Sub1(@OriginalArg(0) Class19_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Buffer arg2) {
+    public Class134_Sub1(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Buffer arg2) {
         super(arg0, arg2);
         this.anInt3102 = arg1;
     }

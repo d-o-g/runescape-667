@@ -14,7 +14,7 @@ public final class Static485 {
     public static final int[] anIntArray888 = new int[3];
 
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(Lclient!hda;ILclient!ha;)V")
-    public static void method9415(@OriginalArg(0) Class158 arg0, @OriginalArg(2) Class19 arg1) {
+    public static void method9415(@OriginalArg(0) Class158 arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(38) boolean local38 = Static419.aObjTypeList_1.method2483(arg0.aBoolean288 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aClass201_1 : null, arg1, arg0.anInt3757, arg0.anInt3760, arg0.anInt3773, arg0.anInt3817, arg0.anInt3798 | 0xFF000000) == null;
         if (local38) {
             Static133.A_DEQUE___13.addLast(new Node_Sub36(arg0.anInt3760, arg0.anInt3817, arg0.anInt3773, arg0.anInt3798 | 0xFF000000, arg0.anInt3757, arg0.aBoolean288));

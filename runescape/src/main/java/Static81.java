@@ -78,7 +78,7 @@ public final class Static81 {
             }
         }
         if (Static594.method7782(arg0) || arg0 == 14 || arg0 == 15) {
-            Static163.aClass19_17.method7969();
+            Static163.aToolkit_17.method7969();
         }
         Static283.anInt4574 = arg0;
     }

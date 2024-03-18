@@ -22,7 +22,7 @@ public final class Static718 {
     public static final Color[] aColorArray3 = new Color[]{new Color(9179409), new Color(3289650), new Color(3289650), new Color(3289650)};
 
     @OriginalMember(owner = "client!wo", name = "a", descriptor = "(Lclient!re;BLclient!ha;)I")
-    public static int method9367(@OriginalArg(0) Class318 arg0, @OriginalArg(2) Class19 arg1) {
+    public static int method9367(@OriginalArg(0) Class318 arg0, @OriginalArg(2) Toolkit arg1) {
         if (arg0.anInt8248 != -1) {
             return arg0.anInt8248;
         }

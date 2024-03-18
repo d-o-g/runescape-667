@@ -16,7 +16,7 @@ public final class Class98 {
     public int anInt2522 = 0;
 
     @OriginalMember(owner = "client!eg", name = "g", descriptor = "Lclient!qha;")
-    public final Class19_Sub3 aClass19_Sub3_5;
+    public final Toolkit_Sub3 aClass19_Sub3_5;
 
     @OriginalMember(owner = "client!eg", name = "f", descriptor = "Lclient!sa;")
     public final Class329 aClass329_1;
@@ -28,7 +28,7 @@ public final class Class98 {
     public final Class101_Sub6 aClass101_Sub6_1;
 
     @OriginalMember(owner = "client!eg", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Class98(@OriginalArg(0) Class19_Sub3 arg0) {
+    public Class98(@OriginalArg(0) Toolkit_Sub3 arg0) {
         this.aClass19_Sub3_5 = arg0;
         this.aClass329_1 = new Class329(arg0);
         this.aClass101Array1 = new Class101[10];

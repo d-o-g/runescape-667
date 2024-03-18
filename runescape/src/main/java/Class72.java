@@ -33,10 +33,10 @@ public abstract class Class72 implements Interface21 {
     public final int anInt9723;
 
     @OriginalMember(owner = "client!cr", name = "i", descriptor = "Lclient!tca;")
-    protected final Class19_Sub1_Sub2 aClass19_Sub1_Sub2_11;
+    protected final Toolkit_Sub1_Sub2 aClass19_Sub1_Sub2_11;
 
     @OriginalMember(owner = "client!cr", name = "<init>", descriptor = "(Lclient!tca;IZ)V")
-    protected Class72(@OriginalArg(0) Class19_Sub1_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+    protected Class72(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
         this.aBoolean751 = arg2;
         this.anInt9723 = arg1;
         this.aClass19_Sub1_Sub2_11 = arg0;

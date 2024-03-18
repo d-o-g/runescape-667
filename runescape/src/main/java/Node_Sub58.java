@@ -28,7 +28,7 @@ public final class Node_Sub58 extends Node {
     public final int anInt10863;
 
     @OriginalMember(owner = "client!wr", name = "H", descriptor = "Lclient!am;")
-    public final Class19_Sub1 aClass19_Sub1_23;
+    public final Toolkit_Sub1 aClass19_Sub1_23;
 
     @OriginalMember(owner = "client!wr", name = "y", descriptor = "F")
     public final float aFloat219;

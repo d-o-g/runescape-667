@@ -16,7 +16,7 @@ public final class Class51_Sub1 extends Class51 implements Interface2 {
     public final int anInt1129;
 
     @OriginalMember(owner = "client!br", name = "<init>", descriptor = "(Lclient!tca;Lclient!eba;III[B)V")
-    public Class51_Sub1(@OriginalArg(0) Class19_Sub1_Sub2 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) byte[] arg5) {
+    public Class51_Sub1(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) byte[] arg5) {
         super(arg0, 32879, arg1, Static702.aClass397_16, arg2 * arg3 * arg4, false);
         this.anInt1128 = arg4;
         this.anInt1130 = arg2;

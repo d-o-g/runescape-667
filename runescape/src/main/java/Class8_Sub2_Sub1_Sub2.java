@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -278,7 +279,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(IILclient!ha;Lclient!pda;III)V")
-    protected final void method9297(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class19 arg2, @OriginalArg(3) Class289 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    protected final void method9297(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) Class289 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         for (@Pc(13) int local13 = 0; local13 < this.aClass199Array3.length; local13++) {
             @Pc(16) byte local16 = 0;
             if (local13 == 0) {
@@ -335,8 +336,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                             if (local299 != 0) {
                                 local146.a(local299);
                             }
-                            @Pc(310) int local310 = Class361.anIntArray741[local299];
-                            @Pc(314) int local314 = Class361.anIntArray740[local299];
+                            @Pc(310) int local310 = Trig1.SIN[local299];
+                            @Pc(314) int local314 = Trig1.COS[local299];
                             @Pc(324) int local324 = local310 * local175 + local171 * local314 >> 14;
                             local175 = local175 * local314 - local171 * local310 >> 14;
                             local171 = local324;
@@ -702,8 +703,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     protected final void method9314(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         @Pc(11) int local11 = super.aShort134 + super.aShort131 >> 1;
         @Pc(20) int local20 = super.aShort133 + super.aShort132 >> 1;
-        @Pc(24) int local24 = Class361.anIntArray741[arg0];
-        @Pc(28) int local28 = Class361.anIntArray740[arg0];
+        @Pc(24) int local24 = Trig1.SIN[arg0];
+        @Pc(28) int local28 = Trig1.COS[arg0];
         @Pc(33) int local33 = -arg3 / 2;
         @Pc(38) int local38 = -arg4 / 2;
         @Pc(48) int local48 = local24 * local38 + local33 * local28 >> 14;
@@ -813,7 +814,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public abstract Class80 method9318(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(Lclient!ha;BZ[Lclient!ka;Lclient!tt;)V")
-    protected final void method9319(@OriginalArg(0) Class19 arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Model[] arg2, @OriginalArg(4) Matrix arg3) {
+    protected final void method9319(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Model[] arg2, @OriginalArg(4) Matrix arg3) {
         if (!arg1) {
             @Pc(15) int local15 = 0;
             @Pc(17) int local17 = 0;

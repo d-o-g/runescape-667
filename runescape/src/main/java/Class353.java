@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -48,7 +49,7 @@ public final class Class353 {
     }
 
     @OriginalMember(owner = "client!th", name = "<init>", descriptor = "(Lclient!ha;Lclient!ge;I)V")
-    public Class353(@OriginalArg(0) Class19 arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
+    public Class353(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (Static695.anIntArray868 == null) {
             Static344.method5043();
         }
@@ -95,7 +96,7 @@ public final class Class353 {
             @Pc(27) int local27 = arg1 * this.anInt9377 / 50 + this.anInt9371 & 0x7FF;
             @Pc(30) int local30 = this.anInt9379;
             if (local30 == 1) {
-                local71 = (Class361.anIntArray741[local27 << 3] >> 4) + 1024;
+                local71 = (Trig1.SIN[local27 << 3] >> 4) + 1024;
             } else if (local30 == 3) {
                 local71 = Static695.anIntArray868[local27] >> 1;
             } else if (local30 == 4) {
@@ -120,7 +121,7 @@ public final class Class353 {
     }
 
     @OriginalMember(owner = "client!th", name = "a", descriptor = "(Lclient!ha;IIIIII)V")
-    public void method8246(@OriginalArg(0) Class19 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public void method8246(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass2_Sub7_3 = arg0.method7941(arg3, arg2, arg1, arg5, arg4, (float) 1);
     }
 

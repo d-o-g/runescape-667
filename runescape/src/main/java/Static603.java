@@ -89,7 +89,7 @@ public final class Static603 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(BLclient!fu;Lclient!ha;Lclient!el;)V")
-    public static void method7902(@OriginalArg(1) Node_Sub20 arg0, @OriginalArg(2) Class19 arg1, @OriginalArg(3) Class105 arg2) {
+    public static void method7902(@OriginalArg(1) Node_Sub20 arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) Class105 arg2) {
         @Pc(8) Sprite local8 = arg2.method2428(arg1);
         if (local8 == null) {
             return;

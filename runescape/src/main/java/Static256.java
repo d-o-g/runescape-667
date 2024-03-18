@@ -1,3 +1,4 @@
+import com.jagex.math.Trig1;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -14,7 +15,7 @@ public final class Static256 {
     public static final Class184 aClass184_10 = new Class184(14, 0, 4, 1);
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(IILclient!sb;Lclient!d;Ljava/awt/Canvas;)Lclient!ha;")
-    public static Class19 method3637(@OriginalArg(0) int arg0, @OriginalArg(2) Class330 arg1, @OriginalArg(3) Interface4 arg2, @OriginalArg(4) Canvas arg3) {
+    public static Toolkit method3637(@OriginalArg(0) int arg0, @OriginalArg(2) Class330 arg1, @OriginalArg(3) Interface4 arg2, @OriginalArg(4) Canvas arg3) {
         if (!Static651.method8516()) {
             throw new RuntimeException("");
         } else if (Static14.method179("jaggl")) {
@@ -23,7 +24,7 @@ public final class Static256 {
             if (local38 == 0L) {
                 throw new RuntimeException("");
             }
-            @Pc(58) Class19_Sub1_Sub2 local58 = new Class19_Sub1_Sub2(local28, arg3, local38, arg2, arg1, arg0);
+            @Pc(58) Toolkit_Sub1_Sub2 local58 = new Toolkit_Sub1_Sub2(local28, arg3, local38, arg2, arg1, arg0);
             local58.method8134();
             return local58;
         } else {
@@ -231,7 +232,7 @@ public final class Static256 {
     }
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(Lclient!da;Ljava/lang/String;Lclient!ve;IIIZLclient!hda;Lclient!aa;III)V")
-    public static void method3639(@OriginalArg(0) Class14 arg0, @OriginalArg(1) String arg1, @OriginalArg(2) Class381 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Class158 arg6, @OriginalArg(8) Class1 arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public static void method3639(@OriginalArg(0) Class14 arg0, @OriginalArg(1) String arg1, @OriginalArg(2) Class381 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Class158 arg6, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         @Pc(11) int local11;
         if (Static511.anInt7645 == 4) {
             local11 = (int) Static171.aFloat64 & 0x3FFF;
@@ -243,8 +244,8 @@ public final class Static256 {
         if (local33 * local33 < local59) {
             return;
         }
-        @Pc(74) int local74 = Class361.anIntArray741[local11];
-        @Pc(78) int local78 = Class361.anIntArray740[local11];
+        @Pc(74) int local74 = Trig1.SIN[local11];
+        @Pc(78) int local78 = Trig1.COS[local11];
         if (Static511.anInt7645 != 4) {
             local74 = local74 * 256 / (Static660.anInt9835 + 256);
             local78 = local78 * 256 / (Static660.anInt9835 + 256);

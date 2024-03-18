@@ -14,7 +14,7 @@ public final class Static719 {
     public static final Class155 aClass155_45 = new Class155(60);
 
     @OriginalMember(owner = "client!wq", name = "a", descriptor = "(Lclient!d;Lclient!ha;Z)V")
-    public static void method9117(@OriginalArg(0) Interface4 arg0, @OriginalArg(1) Class19 arg1) {
+    public static void method9117(@OriginalArg(0) Interface4 arg0, @OriginalArg(1) Toolkit arg1) {
         if (Static30.aClass2_Sub2_Sub13_3 == null) {
             return;
         }

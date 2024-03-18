@@ -13,7 +13,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     public final int[] anIntArray714;
 
     @OriginalMember(owner = "client!te", name = "<init>", descriptor = "(Lclient!iaa;[B[III)V")
-    public Sprite_Sub1_Sub3(@OriginalArg(0) Class19_Sub2 arg0, @OriginalArg(1) byte[] arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public Sprite_Sub1_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) byte[] arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         super(arg0, arg3, arg4);
         this.aByteArray100 = arg1;
         this.anIntArray714 = arg2;
@@ -2559,7 +2559,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
 
     @OriginalMember(owner = "client!te", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class1 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         if (super.aClass19_Sub2_10.method3785()) {
             throw new IllegalStateException();
         }
@@ -2601,7 +2601,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         if (local27 <= 0 || local30 <= 0) {
             return;
         }
-        @Pc(163) Class1_Sub1 local163 = (Class1_Sub1) arg2;
+        @Pc(163) ClippingMask_Sub1 local163 = (ClippingMask_Sub1) arg2;
         @Pc(166) int[] local166 = local163.anIntArray334;
         @Pc(169) int[] local169 = local163.anIntArray335;
         @Pc(173) int[] local173 = super.aClass19_Sub2_10.anIntArray319;

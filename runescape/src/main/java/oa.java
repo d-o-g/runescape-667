@@ -9,7 +9,7 @@ import java.awt.Rectangle;
 import java.lang.reflect.Method;
 
 @OriginalClass("client!oa")
-public final class oa extends Class19 implements Interface5 {
+public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "O", descriptor = "Lclient!ya;")
     public ya aYa2;
@@ -62,7 +62,7 @@ public final class oa extends Class19 implements Interface5 {
             Static198.method2954(true, false);
             this.aBoolean510 = true;
             this.aMatrix_8 = new ja();
-            this.method8000(new ja());
+            this.setCamera(new ja());
             this.method7956(1);
             this.method8020(0);
             if (arg0 != null) {
@@ -87,7 +87,7 @@ public final class oa extends Class19 implements Interface5 {
     }
 
     @OriginalMember(owner = "client!oa", name = "f", descriptor = "(II)V")
-    public native void f(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
+    public native void f(@OriginalArg(0) int near, @OriginalArg(1) int far);
 
     @OriginalMember(owner = "client!oa", name = "ra", descriptor = "(IIII)V")
     public native void ra(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
@@ -126,7 +126,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "e", descriptor = "()I")
     @Override
-    public int method7955() {
+    public int getMaxLights() {
         return 4;
     }
 
@@ -183,8 +183,8 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "c", descriptor = "(II)I")
     @Override
-    public int method8013(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return arg0 | arg1;
+    public int combineFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB) {
+        return maskA | maskB;
     }
 
     @OriginalMember(owner = "client!oa", name = "FA", descriptor = "()V")
@@ -339,7 +339,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
+    public void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
         this.Z(arg0, arg1, arg2, arg3, arg4, 1, arg5, arg6, arg7);
     }
 
@@ -367,7 +367,7 @@ public final class oa extends Class19 implements Interface5 {
     }
 
     @OriginalMember(owner = "client!oa", name = "DA", descriptor = "(IIII)V")
-    public native void DA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public native void DA(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height);
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(I)Lclient!za;")
     @Override
@@ -413,11 +413,11 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
-    public void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) Class1 arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
     }
 
     @OriginalMember(owner = "client!oa", name = "za", descriptor = "(IIIII)V")
-    protected native void za(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
+    protected native void za(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int radius, @OriginalArg(3) int colour, @OriginalArg(4) int mode);
 
     @OriginalMember(owner = "client!oa", name = "HA", descriptor = "(IIII[I)V")
     public native void HA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int[] arg4);
@@ -498,8 +498,8 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(II[I[I)Lclient!aa;")
     @Override
-    public Class1 method8004(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3) {
-        return new na(this, this.aYa2, arg0, arg1, arg2, arg3);
+    public ClippingMask createMask(@OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(2) int[] offsets, @OriginalArg(3) int[] widths) {
+        return new na(this, this.aYa2, width, height, offsets, widths);
     }
 
     @OriginalMember(owner = "client!oa", name = "c", descriptor = "()Lclient!dp;")
@@ -516,7 +516,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "y", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method7953() {
+    public Matrix createMatrix() {
         return new ja();
     }
 
@@ -572,7 +572,7 @@ public final class oa extends Class19 implements Interface5 {
     public native void pa();
 
     @OriginalMember(owner = "client!oa", name = "xa", descriptor = "(F)V")
-    public native void xa(@OriginalArg(0) float arg0);
+    public native void xa(@OriginalArg(0) float globalAmbient);
 
     @OriginalMember(owner = "client!oa", name = "L", descriptor = "(III)V")
     public native void L(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
@@ -646,9 +646,9 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(II)I")
     @Override
-    public int method7960(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(3) int local3 = arg0 & 0xFFFFF;
-        @Pc(7) int local7 = arg1 & 0xFFFFF;
+    public int compareFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB) {
+        @Pc(3) int local3 = maskA & 0xFFFFF;
+        @Pc(7) int local7 = maskB & 0xFFFFF;
         return local3 & local7 ^ local7;
     }
 
@@ -663,7 +663,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(II[[I[[IIII)Lclient!s;")
     @Override
-    public Ground method7996(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
+    public Ground createGround(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         return new t(this, this.aYa2, arg0, arg1, arg2, arg3, 512, arg4, arg5);
     }
 
@@ -705,9 +705,9 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method8000(@OriginalArg(0) Matrix arg0) {
-        this.aMatrix_9 = arg0;
-        this.ma(((ja) arg0).nativeid);
+    public void setCamera(@OriginalArg(0) Matrix matrix) {
+        this.aMatrix_9 = matrix;
+        this.ma(((ja) matrix).nativeid);
     }
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;)V")
@@ -761,7 +761,7 @@ public final class oa extends Class19 implements Interface5 {
     }
 
     @OriginalMember(owner = "client!oa", name = "Z", descriptor = "(IIIIIILclient!aa;II)V")
-    public native void Z(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class1 arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8);
+    public native void Z(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) ClippingMask arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8);
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(FFF)V")
     @Override
@@ -815,7 +815,7 @@ public final class oa extends Class19 implements Interface5 {
     public native void C(@OriginalArg(0) boolean arg0);
 
     @OriginalMember(owner = "client!oa", name = "aa", descriptor = "(IIIIII)V")
-    public native void aa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
+    public native void aa(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode);
 
     @OriginalMember(owner = "client!oa", name = "B", descriptor = "()Z")
     @Override
@@ -831,7 +831,7 @@ public final class oa extends Class19 implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "A", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method7985() {
+    public Matrix scratchMatrix() {
         return this.aMatrix_8;
     }
 
@@ -839,7 +839,7 @@ public final class oa extends Class19 implements Interface5 {
     public native int XA();
 
     @OriginalMember(owner = "client!oa", name = "A", descriptor = "(ILclient!aa;II)V")
-    public native void A(@OriginalArg(0) int arg0, @OriginalArg(1) Class1 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public native void A(@OriginalArg(0) int colour, @OriginalArg(1) ClippingMask clippingMask, @OriginalArg(2) int x, @OriginalArg(3) int y);
 
     @OriginalMember(owner = "client!oa", name = "GA", descriptor = "(I)V")
     public native void GA(@OriginalArg(0) int arg0);

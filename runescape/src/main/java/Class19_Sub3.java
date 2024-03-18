@@ -7,7 +7,9 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.*;
+import java.awt.Canvas;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.lang.reflect.Method;
 import java.util.Enumeration;
 import java.util.Hashtable;

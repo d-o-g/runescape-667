@@ -2,7 +2,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
-import java.awt.*;
+import java.awt.Component;
 
 @OriginalClass("client!hq")
 public final class Class56_Sub2 extends Class56 {

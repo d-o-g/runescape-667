@@ -6,7 +6,8 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.*;
+import java.awt.Canvas;
+import java.awt.Rectangle;
 
 @OriginalClass("client!tca")
 public final class Class19_Sub1_Sub2 extends Class19_Sub1 {

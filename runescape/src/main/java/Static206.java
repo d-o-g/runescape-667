@@ -1,7 +1,7 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
-import java.awt.*;
+import java.awt.Canvas;
 
 public final class Static206 {
 

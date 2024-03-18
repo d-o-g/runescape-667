@@ -1,7 +1,7 @@
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.*;
+import java.awt.Font;
 
 public final class Static589 {
 

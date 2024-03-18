@@ -1,6 +1,6 @@
 import org.openrs2.deob.annotation.OriginalMember;
 
-import java.awt.*;
+import java.awt.Color;
 
 public final class Static337 {
 

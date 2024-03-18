@@ -3,7 +3,11 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.*;
+import java.awt.Canvas;
+import java.awt.Container;
+import java.awt.Frame;
+import java.awt.Insets;
+import java.awt.Rectangle;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

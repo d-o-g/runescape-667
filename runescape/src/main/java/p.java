@@ -3,7 +3,9 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.*;
+import java.awt.Canvas;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 
 @OriginalClass("client!p")
 public final class p extends Node implements Interface5 {

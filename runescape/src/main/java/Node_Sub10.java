@@ -2,7 +2,8 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
-import java.awt.*;
+import java.awt.Canvas;
+import java.awt.Graphics;
 
 @OriginalClass("client!cda")
 public abstract class Node_Sub10 extends Node {

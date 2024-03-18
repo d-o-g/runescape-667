@@ -8,7 +8,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine.Info;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
-import java.awt.*;
+import java.awt.Component;
 
 @OriginalClass("client!cb")
 public final class Class56_Sub1 extends Class56 {

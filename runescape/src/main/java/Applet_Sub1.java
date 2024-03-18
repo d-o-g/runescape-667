@@ -6,7 +6,13 @@ import org.openrs2.deob.annotation.Pc;
 
 import java.applet.Applet;
 import java.applet.AppletContext;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Insets;
+import java.awt.LayoutManager;
+import java.awt.Rectangle;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.WindowEvent;

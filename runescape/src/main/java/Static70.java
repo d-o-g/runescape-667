@@ -2,7 +2,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.*;
+import java.awt.Component;
 import java.lang.reflect.Constructor;
 
 public final class Static70 {

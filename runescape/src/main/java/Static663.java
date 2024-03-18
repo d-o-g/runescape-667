@@ -1,6 +1,6 @@
 import org.openrs2.deob.annotation.OriginalMember;
 
-import java.awt.*;
+import java.awt.Rectangle;
 
 public final class Static663 {
 

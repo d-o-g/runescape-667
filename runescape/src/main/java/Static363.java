@@ -51,7 +51,7 @@ public final class Static363 {
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(III)I")
     public static int method6235(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (GraphicsDefaults.instance.profilingModel == -1) {
+        if (GraphicsDefaults.INSTANCE.profilingModel == -1) {
             return 1;
         }
         if (arg1 != Static400.instance.aClass57_Sub29_1.method7915()) {
@@ -62,21 +62,21 @@ public final class Static363 {
         }
         try {
             @Pc(43) Dimension local43 = Static434.aCanvas7.getSize();
-            Static694.method9028(Static163.aToolkit_17, Static32.A_LOCALISED_TEXT___13.localise(Static51.anInt1052), true, Static694.aClass381_13, Static437.aClass14_9);
-            @Pc(67) Mesh local67 = Static121.method2201(GraphicsDefaults.instance.profilingModel, Static190.aJs5_38);
+            Static694.method9028(Static163.activeToolkit, Static32.A_LOCALISED_TEXT___13.localise(Static51.anInt1052), true, Static694.aClass381_13, Static437.aClass14_9);
+            @Pc(67) Mesh local67 = Static121.method2201(GraphicsDefaults.INSTANCE.profilingModel, Static190.aJs5_38);
             @Pc(70) long local70 = SystemTimer.safetime();
-            Static163.aToolkit_17.la();
+            Static163.activeToolkit.la();
             Static460.aMatrix_10.method7125(0, Static247.anInt3993, 0);
-            Static163.aToolkit_17.setCamera(Static460.aMatrix_10);
-            Static163.aToolkit_17.DA(local43.width / 2, local43.height / 2, 512, 512);
-            Static163.aToolkit_17.xa(1.0F);
-            Static163.aToolkit_17.ZA(16777215, 0.5F, 0.5F, 20.0F, -50.0F, 30.0F);
-            @Pc(111) Model local111 = Static163.aToolkit_17.createModel(local67, 2048, 64, 64, 768);
+            Static163.activeToolkit.setCamera(Static460.aMatrix_10);
+            Static163.activeToolkit.DA(local43.width / 2, local43.height / 2, 512, 512);
+            Static163.activeToolkit.xa(1.0F);
+            Static163.activeToolkit.ZA(16777215, 0.5F, 0.5F, 20.0F, -50.0F, 30.0F);
+            @Pc(111) Model local111 = Static163.activeToolkit.createModel(local67, 2048, 64, 64, 768);
             @Pc(113) int local113 = 0;
             label41:
             for (@Pc(115) int local115 = 0; local115 < 500; local115++) {
-                Static163.aToolkit_17.GA(0);
-                Static163.aToolkit_17.ya();
+                Static163.activeToolkit.GA(0);
+                Static163.activeToolkit.ya();
                 for (@Pc(123) int local123 = 15; local123 >= 0; local123--) {
                     for (@Pc(126) int local126 = 0; local126 <= local123; local126++) {
                         Static59.aMatrix_5.method7125((int) ((float) Static340.anInt5586 * (-((float) local123 / 2.0F) + (float) local126)), 0, (local123 + 1) * Static340.anInt5586);
@@ -88,10 +88,10 @@ public final class Static363 {
                     }
                 }
             }
-            Static163.aToolkit_17.method7950();
+            Static163.activeToolkit.method7950();
             @Pc(195) long local195 = (long) (local113 * 1000) / (SystemTimer.safetime() - local70);
-            Static163.aToolkit_17.GA(0);
-            Static163.aToolkit_17.ya();
+            Static163.activeToolkit.GA(0);
+            Static163.activeToolkit.ya();
             return (int) local195;
         } catch (@Pc(204) Throwable local204) {
             local204.printStackTrace();
@@ -161,7 +161,7 @@ public final class Static363 {
             if (Static137.aBoolean210) {
                 Static575.method7606(Static434.aCanvas7);
             } else {
-                Static163.aToolkit_17.method7935(Static434.aCanvas7, Static680.anInt10289, Static380.anInt5979);
+                Static163.activeToolkit.method7935(Static434.aCanvas7, Static680.anInt10289, Static380.anInt5979);
             }
             if (local95 == Static353.aFrame10) {
                 local110 = Static353.aFrame10.getInsets();

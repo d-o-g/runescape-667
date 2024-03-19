@@ -1,3 +1,4 @@
+import com.jagex.core.compress.GzipDecompressor;
 import com.jagex.core.io.ByteArrayWrapper;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
@@ -48,9 +49,9 @@ public final class js5 {
             if (ctype == 1) {
                 Static160.bunzip(decoded, ulen, compressed, clen);
             } else {
-                @Pc(73) Class300 local73 = Static315.aClass300_1;
-                synchronized (Static315.aClass300_1) {
-                    Static315.aClass300_1.gunzip(packet, decoded);
+                @Pc(73) GzipDecompressor local73 = GzipDecompressor.INSTANCE;
+                synchronized (GzipDecompressor.INSTANCE) {
+                    GzipDecompressor.INSTANCE.gunzip(packet, decoded);
                 }
             }
 

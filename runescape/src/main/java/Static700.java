@@ -33,7 +33,7 @@ public final class Static700 {
         Static352.method5180();
         Static46.method1084();
         System.gc();
-        Static163.aToolkit_17.ya();
+        Static163.activeToolkit.ya();
     }
 
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(III)V")

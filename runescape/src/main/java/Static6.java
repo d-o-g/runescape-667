@@ -1,3 +1,5 @@
+import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Sprite;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

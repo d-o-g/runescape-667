@@ -65,7 +65,7 @@ public final class Static352 {
         MeshEmitterTypeList.cacheReset();
         MeshMagnetTypeList.cacheReset();
         Static472.A_WEIGHTED_CACHE___156.reset();
-        Static163.aToolkit_17.method8012();
+        Static163.activeToolkit.method8012();
         Static269.method3909();
         Static112.method2109();
         Static344.aJs5_73.discardUnpacked();

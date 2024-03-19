@@ -1,3 +1,4 @@
+import com.jagex.graphics.Sprite;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -102,7 +103,7 @@ public final class Static397 {
             if (local34 == null) {
                 return;
             }
-            local27 = Static163.aToolkit_17.method7948(local34[0], true);
+            local27 = Static163.activeToolkit.method7948(local34[0], true);
             Static541.A_WEIGHTED_CACHE___174.put(local27, (long) local7);
         }
         Static418.method7860(arg1.aByte144, arg1.anInt10694, 0, arg1.anInt10690, arg1.method9302((byte) 55) * 256);
@@ -112,7 +113,7 @@ public final class Static397 {
         @Pc(102) int local102 = local94 + arg6 % 4 * 18;
         local27.render(local83, local102);
         if (arg2 == arg1) {
-            Static163.aToolkit_17.method7945(local102 - 1, -256, 18, 18, local83 - 1);
+            Static163.activeToolkit.method7945(local102 - 1, -256, 18, 18, local83 - 1);
         }
         Static682.method8927(local102 - 1, local102 - -18, local83 - 1, local83 - -18);
         @Pc(140) Class8_Sub1 local140 = Static192.method2876();

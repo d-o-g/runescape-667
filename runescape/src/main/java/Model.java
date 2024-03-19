@@ -1,3 +1,7 @@
+import com.jagex.AnimBase;
+import com.jagex.AnimFrame;
+import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Shadow;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

@@ -1,3 +1,5 @@
+import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Shadow;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
 import com.jagex.math.Trig1;

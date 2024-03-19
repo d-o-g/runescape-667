@@ -3,6 +3,8 @@ import com.jagex.collect.Node;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.game.runetek6.config.objtype.ObjStackability;
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Sprite;
 import com.jagex.math.IntMath;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;

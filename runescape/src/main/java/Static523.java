@@ -134,8 +134,8 @@ public final class Static523 {
                     return 0;
                 }
             }
-            Static570.method7549(Static163.aToolkit_17);
-            Static469.method6358(Static163.aToolkit_17);
+            Static570.method7549(Static163.activeToolkit);
+            Static469.method6358(Static163.activeToolkit);
             Static81.method1586(1);
         }
         if (Static198.aClass140_7 == Static473.aClass140_22) {
@@ -212,13 +212,13 @@ public final class Static523 {
                 return local12;
             }
             Static502.method6721(js5.DEFAULTS.getfile(1));
-            GraphicsDefaults.instance = new GraphicsDefaults(js5.DEFAULTS);
-            PlayerModel.bodycol_s = GraphicsDefaults.instance.recol_s;
-            PlayerModel.bodycol_d = GraphicsDefaults.instance.recol_d;
+            GraphicsDefaults.INSTANCE = new GraphicsDefaults(js5.DEFAULTS);
+            PlayerModel.bodycol_s = GraphicsDefaults.INSTANCE.recol_s;
+            PlayerModel.bodycol_d = GraphicsDefaults.INSTANCE.recol_d;
             Static125.aWearposDefaults_1 = new WearposDefaults(js5.DEFAULTS);
         }
         if (Static198.aClass140_13 == Static473.aClass140_22) {
-            if (GraphicsDefaults.instance.profilingModel != -1 && !Static190.aJs5_38.method7586(0, GraphicsDefaults.instance.profilingModel)) {
+            if (GraphicsDefaults.INSTANCE.profilingModel != -1 && !Static190.aJs5_38.method7586(0, GraphicsDefaults.INSTANCE.profilingModel)) {
                 return 99;
             }
             Static56.anTextureSource_3 = new Class303(Static199.aJs5_42, Static534.aJs5_104, Static721.aJs5_128);
@@ -306,12 +306,12 @@ public final class Static523 {
             Static271.aJs5_59.discardunpacked = 2;
         }
         if (Static473.aClass140_22 == Static198.aClass140_18) {
-            if (!Static571.method7566(GraphicsDefaults.instance.login_interface)) {
+            if (!Static571.method7566(GraphicsDefaults.INSTANCE.login_interface)) {
                 return 0;
             }
             local184 = true;
-            for (local74 = 0; local74 < Static453.aClass158ArrayArray2[GraphicsDefaults.instance.login_interface].length; local74++) {
-                @Pc(1315) Class158 local1315 = Static453.aClass158ArrayArray2[GraphicsDefaults.instance.login_interface][local74];
+            for (local74 = 0; local74 < Static453.aClass158ArrayArray2[GraphicsDefaults.INSTANCE.login_interface].length; local74++) {
+                @Pc(1315) Class158 local1315 = Static453.aClass158ArrayArray2[GraphicsDefaults.INSTANCE.login_interface][local74];
                 if (local1315.anInt3820 == 5 && local1315.anInt3810 != -1 && !Static721.aJs5_128.method7586(0, local1315.anInt3810)) {
                     local184 = false;
                 }
@@ -351,9 +351,9 @@ public final class Static523 {
                 Static32.method880(Static400.instance.aClass57_Sub29_2.method7915(), false);
             }
             Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
-            Static570.method7549(Static163.aToolkit_17);
-            Static469.method6358(Static163.aToolkit_17);
-            Static239.method3472(Static721.aJs5_128, Static163.aToolkit_17);
+            Static570.method7549(Static163.activeToolkit);
+            Static469.method6358(Static163.activeToolkit);
+            Static239.method3472(Static721.aJs5_128, Static163.activeToolkit);
             Static331.method4925(Static679.aSpriteArray14);
         }
         return Static694.method9030();

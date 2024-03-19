@@ -1,3 +1,5 @@
+import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.Shadow;
 import com.jagex.graphics.TextureMetrics;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

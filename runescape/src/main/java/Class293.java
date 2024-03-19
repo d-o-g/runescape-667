@@ -1,3 +1,4 @@
+import com.jagex.graphics.Shadow;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
 import org.openrs2.deob.annotation.OriginalArg;

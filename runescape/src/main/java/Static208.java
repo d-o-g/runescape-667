@@ -1,3 +1,4 @@
+import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -41,7 +42,7 @@ public final class Static208 {
     public static void method3106() {
         Static334.aClass319_1.method8482();
         Static189.aClass120_1.method8848();
-        Static295.aClient1.method1641();
+        client.aClient1.method1641();
         Static434.aCanvas7.setBackground(Color.black);
         Static470.anInt7112 = -1;
         Static334.aClass319_1 = Static681.method8921(Static434.aCanvas7);

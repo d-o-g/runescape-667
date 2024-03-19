@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -120,7 +121,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(IILjava/lang/String;B)V")
     public void method1413(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2) {
-        this.method9313(Static504.method6733() * GraphicsDefaults.instance.playerChatTimeout, arg2, arg1, arg0);
+        this.method9313(Static504.method6733() * GraphicsDefaults.INSTANCE.playerChatTimeout, arg2, arg1, arg0);
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(BIIILclient!ka;Lclient!tt;Lclient!ha;I)V")
@@ -626,7 +627,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!ca", name = "e", descriptor = "(B)Z")
     @Override
     public boolean method9311() {
-        return GraphicsDefaults.instance.playerShouldDisplayChat;
+        return GraphicsDefaults.INSTANCE.playerShouldDisplayChat;
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ZI)Ljava/lang/String;")

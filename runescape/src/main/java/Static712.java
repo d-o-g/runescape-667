@@ -1,3 +1,4 @@
+import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -22,8 +23,8 @@ public final class Static712 {
 
     @OriginalMember(owner = "client!wj", name = "k", descriptor = "(B)V")
     public static void method9329(@OriginalArg(0) byte arg0) {
-        @Pc(7) client local7 = Static295.aClient1;
-        synchronized (Static295.aClient1) {
+        @Pc(7) client local7 = client.aClient1;
+        synchronized (client.aClient1) {
             if (Static316.fsframe != null) {
                 return;
             }
@@ -60,11 +61,11 @@ public final class Static712 {
                 }
             }
             Static434.aCanvas7.setSize(Static680.anInt10289, Static380.anInt5979);
-            if (Static163.aToolkit_17 != null) {
+            if (Static163.activeToolkit != null) {
                 if (Static137.aBoolean210) {
                     Static575.method7606(Static434.aCanvas7);
                 } else {
-                    Static163.aToolkit_17.method7935(Static434.aCanvas7, Static680.anInt10289, Static380.anInt5979);
+                    Static163.activeToolkit.method7935(Static434.aCanvas7, Static680.anInt10289, Static380.anInt5979);
                 }
             }
             if (local22 == Static353.aFrame10) {

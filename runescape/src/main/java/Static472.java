@@ -6021,7 +6021,7 @@ public final class Static472 {
                             return;
                         }
                         if (arg0 == 7205) {
-                            anIntArray578[anInt7142++] = Static400.instance.aClass57_Sub13_2.method4372() && Static163.aToolkit_17.method8015() ? 1 : 0;
+                            anIntArray578[anInt7142++] = Static400.instance.aClass57_Sub13_2.method4372() && Static163.activeToolkit.method8015() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7206) {
@@ -6033,7 +6033,7 @@ public final class Static472 {
                             return;
                         }
                         if (arg0 == 7208) {
-                            anIntArray578[anInt7142++] = Static400.instance.aClass57_Sub20_1.method6107() && Static163.aToolkit_17.method7936() ? 1 : 0;
+                            anIntArray578[anInt7142++] = Static400.instance.aClass57_Sub20_1.method6107() && Static163.activeToolkit.method7936() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7209) {
@@ -6087,7 +6087,7 @@ public final class Static472 {
                         }
                         if (arg0 == 7305) {
                             local192 = anIntArray578[--anInt7142];
-                            if (!Static163.aToolkit_17.method8015()) {
+                            if (!Static163.activeToolkit.method8015()) {
                                 anIntArray578[anInt7142++] = 3;
                                 return;
                             }
@@ -6106,7 +6106,7 @@ public final class Static472 {
                         }
                         if (arg0 == 7308) {
                             local192 = anIntArray578[--anInt7142];
-                            if (!Static163.aToolkit_17.method7936()) {
+                            if (!Static163.activeToolkit.method7936()) {
                                 anIntArray578[anInt7142++] = 3;
                                 return;
                             }

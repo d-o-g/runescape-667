@@ -1,3 +1,4 @@
+import com.jagex.graphics.Node_Sub13;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -11,13 +12,13 @@ public final class Static595 {
     public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
         Static164.method2606();
         if (arg2 == 0) {
-            Static163.aToolkit_17 = Static255.method3612(Static124.aJs5_20, Static56.anTextureSource_3, 0, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
+            Static163.activeToolkit = Static255.method3612(Static124.aJs5_20, Static56.anTextureSource_3, 0, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
             if (arg0 != null) {
-                Static163.aToolkit_17.GA(0);
+                Static163.activeToolkit.GA(0);
                 @Pc(36) Class381 local36 = Static74.method1535(Static539.anInt8173, Static697.aJs5_123);
-                @Pc(45) Class14 local45 = Static163.aToolkit_17.method8010(local36, Static735.method9375(Static721.aJs5_128, Static539.anInt8173), true);
+                @Pc(45) Class14 local45 = Static163.activeToolkit.method8010(local36, Static735.method9375(Static721.aJs5_128, Static539.anInt8173), true);
                 Static288.method4182();
-                Static694.method9028(Static163.aToolkit_17, arg0, true, local36, local45);
+                Static694.method9028(Static163.activeToolkit, arg0, true, local36, local45);
             }
         } else {
             @Pc(57) Toolkit local57 = null;
@@ -35,7 +36,7 @@ public final class Static595 {
             {
                 try {
                     var14 = true;
-                    Static163.aToolkit_17 = Static255.method3612(Static124.aJs5_20, Static56.anTextureSource_3, arg2, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
+                    Static163.activeToolkit = Static255.method3612(Static124.aJs5_20, Static56.anTextureSource_3, arg2, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
                         @Pc(118) Class381 local118 = Static74.method1535(Static539.anInt8173, Static697.aJs5_123);
@@ -43,7 +44,7 @@ public final class Static595 {
                         Static288.method4182();
                         Static694.method9028(local57, arg0, true, local118, local127);
                     }
-                    if (Static163.aToolkit_17.method7949()) {
+                    if (Static163.activeToolkit.method7949()) {
                         @Pc(141) boolean local141 = true;
                         try {
                             local141 = Static292.aClass2_Sub43_2.anInt7610 > 256;
@@ -51,11 +52,11 @@ public final class Static595 {
                         }
                         @Pc(158) Node_Sub13 local158;
                         if (local141) {
-                            local158 = Static163.aToolkit_17.method7961(146800640);
+                            local158 = Static163.activeToolkit.method7961(146800640);
                         } else {
-                            local158 = Static163.aToolkit_17.method7961(104857600);
+                            local158 = Static163.activeToolkit.method7961(104857600);
                         }
-                        Static163.aToolkit_17.method7938(local158);
+                        Static163.activeToolkit.method7938(local158);
                         var14 = false;
                     } else {
                         var14 = false;
@@ -100,16 +101,16 @@ public final class Static595 {
         Static400.instance.aClass57_Sub29_1.method7918(!arg1);
         Static400.instance.method5104(arg2, Static400.instance.aClass57_Sub29_1);
         Static112.method2109();
-        Static163.aToolkit_17.method8003();
-        Static163.aToolkit_17.X(32);
-        Static460.aMatrix_10 = Static163.aToolkit_17.createMatrix();
-        Static59.aMatrix_5 = Static163.aToolkit_17.createMatrix();
+        Static163.activeToolkit.method8003();
+        Static163.activeToolkit.X(32);
+        Static460.aMatrix_10 = Static163.activeToolkit.createMatrix();
+        Static59.aMatrix_5 = Static163.activeToolkit.createMatrix();
         Static209.method3110();
-        Static163.aToolkit_17.method7997(Static400.instance.aClass57_Sub9_1.method3199() == 1);
-        if (Static163.aToolkit_17.method7936()) {
+        Static163.activeToolkit.method7997(Static400.instance.aClass57_Sub9_1.method3199() == 1);
+        if (Static163.activeToolkit.method7936()) {
             Static249.method3537(Static400.instance.aClass57_Sub20_1.method6108() == 1);
         }
-        Static613.method8239(Static163.aToolkit_17, Static501.anInt7568 >> 3, Static720.anInt10859 >> 3);
+        Static613.method8239(Static163.activeToolkit, Static501.anInt7568 >> 3, Static720.anInt10859 >> 3);
         Static218.method3187();
         Static284.aBoolean355 = true;
         Static679.aDisplayPropertiesArray1 = null;

@@ -1,4 +1,5 @@
 import com.jagex.core.util.SystemTimer;
+import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -116,7 +117,7 @@ public final class Class364 implements Runnable {
                         this.anInterface22_1.method8465(this.aBoolean731);
                     } else {
                         @Pc(25) long local25 = SystemTimer.safetime();
-                        if (Static163.aToolkit_17 == null || this.anInterface22_2 == null || this.anInterface22_2.method8462() == 0 || this.aLong286 < local25 - (long) this.anInterface22_2.method8462()) {
+                        if (Static163.activeToolkit == null || this.anInterface22_2 == null || this.anInterface22_2.method8462() == 0 || this.aLong286 < local25 - (long) this.anInterface22_2.method8462()) {
                             if (this.anInterface22_2 != null) {
                                 this.aBoolean731 = true;
                                 this.anInterface22_2.method8461();
@@ -124,35 +125,35 @@ public final class Class364 implements Runnable {
                             }
                             if (this.aBoolean731) {
                                 Static288.method4182();
-                                if (Static163.aToolkit_17 != null) {
-                                    Static163.aToolkit_17.GA(0);
+                                if (Static163.activeToolkit != null) {
+                                    Static163.activeToolkit.GA(0);
                                 }
                             }
-                            this.anInterface22_1.method8465(this.aBoolean731 || Static163.aToolkit_17 != null && Static163.aToolkit_17.method8001());
+                            this.anInterface22_1.method8465(this.aBoolean731 || Static163.activeToolkit != null && Static163.activeToolkit.method8001());
                         } else {
                             @Pc(72) int local72 = (int) ((local25 - this.aLong286) * 255L / (long) this.anInterface22_2.method8462());
                             @Pc(77) int local77 = 255 - local72;
                             Static288.method4182();
                             @Pc(85) int local85 = local77 << 24 | 0xFFFFFF;
                             @Pc(91) int local91 = local72 << 24 | 0xFFFFFF;
-                            Static163.aToolkit_17.GA(0);
-                            @Pc(100) Sprite local100 = Static163.aToolkit_17.method7963(Static680.anInt10289, Static380.anInt5979, true);
-                            Static163.aToolkit_17.method8002(local100);
+                            Static163.activeToolkit.GA(0);
+                            @Pc(100) Sprite local100 = Static163.activeToolkit.method7963(Static680.anInt10289, Static380.anInt5979, true);
+                            Static163.activeToolkit.method8002(local100);
                             this.anInterface22_2.method8465(true);
-                            Static163.aToolkit_17.method7943();
+                            Static163.activeToolkit.method7943();
                             local100.render(0, 0, 0, local85, 1);
-                            Static163.aToolkit_17.method8002(local100);
-                            Static163.aToolkit_17.GA(0);
+                            Static163.activeToolkit.method8002(local100);
+                            Static163.activeToolkit.GA(0);
                             this.anInterface22_1.method8465(true);
-                            Static163.aToolkit_17.method7943();
+                            Static163.activeToolkit.method7943();
                             local100.render(0, 0, 0, local91, 1);
                         }
                         try {
-                            if (Static163.aToolkit_17 != null && !(this.anInterface22_1 instanceof Class374)) {
-                                Static163.aToolkit_17.method7984();
+                            if (Static163.activeToolkit != null && !(this.anInterface22_1 instanceof Class374)) {
+                                Static163.activeToolkit.method7984();
                             }
                         } catch (@Pc(205) Exception_Sub1 local205) {
-                            Static240.sendTrace(local205, local205.getMessage() + " (Recovered) " + Static295.aClient1.method1648());
+                            Static240.sendTrace(local205, local205.getMessage() + " (Recovered) " + client.aClient1.method1648());
                             Static32.method880(0, true);
                         }
                     }
@@ -170,7 +171,7 @@ public final class Class364 implements Runnable {
                         Static353.aFrame10.getInsets();
                     }
                     this.aBoolean731 = false;
-                    if (Static163.aToolkit_17 != null && !(this.anInterface22_1 instanceof Class374) && this.aClass140_23.method2952() < Static198.aClass140_19.method2952()) {
+                    if (Static163.activeToolkit != null && !(this.anInterface22_1 instanceof Class374) && this.aClass140_23.method2952() < Static198.aClass140_19.method2952()) {
                         Static712.method9329((byte) 11);
                     }
                 } catch (@Pc(292) Exception local292) {

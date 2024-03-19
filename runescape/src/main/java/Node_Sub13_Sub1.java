@@ -1,3 +1,4 @@
+import com.jagex.graphics.Node_Sub13;
 import jaclib.memory.heap.NativeHeap;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

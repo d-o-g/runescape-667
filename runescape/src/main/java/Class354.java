@@ -43,8 +43,8 @@ public final class Class354 implements Interface22 {
     @OriginalMember(owner = "client!tha", name = "b", descriptor = "(I)V")
     @Override
     public void method8464() {
-        if (this.aToolkit_14 != Static163.aToolkit_17) {
-            this.aToolkit_14 = Static163.aToolkit_17;
+        if (this.aToolkit_14 != Static163.activeToolkit) {
+            this.aToolkit_14 = Static163.activeToolkit;
             this.aBoolean720 = true;
         }
         this.aToolkit_14.GA(0);

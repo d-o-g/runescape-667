@@ -24,10 +24,10 @@ public final class Static81 {
             Static467.aClass348_2 = null;
         }
         if (arg0 == 3) {
-            Static456.method6228(GraphicsDefaults.instance.login_interface != Static377.anInt5930);
+            Static456.method6228(GraphicsDefaults.INSTANCE.login_interface != Static377.anInt5930);
         }
         if (arg0 == 7) {
-            Static25.method688(GraphicsDefaults.instance.lobby_interface != Static377.anInt5930);
+            Static25.method688(GraphicsDefaults.INSTANCE.lobby_interface != Static377.anInt5930);
         }
         if (arg0 == 5 || arg0 == 13) {
             Static369.method3852();
@@ -79,7 +79,7 @@ public final class Static81 {
             }
         }
         if (Static594.method7782(arg0) || arg0 == 14 || arg0 == 15) {
-            Static163.aToolkit_17.method7969();
+            Static163.activeToolkit.method7969();
         }
         Static283.anInt4574 = arg0;
     }

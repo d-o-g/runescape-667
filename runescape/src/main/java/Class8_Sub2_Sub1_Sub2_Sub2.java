@@ -1,3 +1,4 @@
+import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -269,7 +270,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "e", descriptor = "(B)Z")
     @Override
     public boolean method9311() {
-        return GraphicsDefaults.instance.npcShouldDisplayChat;
+        return GraphicsDefaults.INSTANCE.npcShouldDisplayChat;
     }
 
     @OriginalMember(owner = "client!wj", name = "h", descriptor = "(B)I")
@@ -396,7 +397,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IILjava/lang/String;B)V")
     public void method9327(@OriginalArg(2) String arg0) {
-        @Pc(17) int local17 = Static504.method6733() * GraphicsDefaults.instance.npcChatTimeout;
+        @Pc(17) int local17 = Static504.method6733() * GraphicsDefaults.INSTANCE.npcChatTimeout;
         this.method9313(local17, arg0, 0, 0);
     }
 

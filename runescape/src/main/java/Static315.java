@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static315 {
 
-    @OriginalMember(owner = "client!k", name = "j", descriptor = "Lclient!qaa;")
-    public static final Class300 aClass300_1 = new Class300();
-
     @OriginalMember(owner = "client!k", name = "a", descriptor = "(II)V")
     public static void method4574(@OriginalArg(0) int arg0) {
         if (Static430.anIntArray519 == null || Static430.anIntArray519.length < arg0) {

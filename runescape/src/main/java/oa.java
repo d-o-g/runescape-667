@@ -1,6 +1,5 @@
 import com.jagex.collect.HashTable;
-import com.jagex.graphics.TextureMetrics;
-import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.*;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

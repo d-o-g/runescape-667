@@ -1,3 +1,6 @@
+package com.jagex;
+
+import com.jagex.AnimBase;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -6,6 +9,24 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!nb")
 public final class AnimFrame {
+
+    @OriginalMember(owner = "client!nb", name = "i", descriptor = "[S")
+    public static final short[] aShortArray92 = new short[500];
+
+    @OriginalMember(owner = "client!nb", name = "d", descriptor = "[S")
+    public static final short[] aShortArray91 = new short[500];
+
+    @OriginalMember(owner = "client!nb", name = "f", descriptor = "[S")
+    public static final short[] aShortArray88 = new short[500];
+
+    @OriginalMember(owner = "client!nb", name = "q", descriptor = "[S")
+    public static final short[] aShortArray90 = new short[500];
+
+    @OriginalMember(owner = "client!nb", name = "a", descriptor = "[B")
+    public static final byte[] aByteArray69 = new byte[500];
+
+    @OriginalMember(owner = "client!nb", name = "g", descriptor = "[S")
+    public static final short[] aShortArray95 = new short[500];
 
     @OriginalMember(owner = "client!nb", name = "l", descriptor = "Z")
     public boolean aBoolean469 = false;
@@ -64,36 +85,36 @@ public final class AnimFrame {
                     if (local64 == 0) {
                         local49 = local57;
                     }
-                    Static413.aShortArray92[local45] = (short) local57;
+                    aShortArray92[local45] = (short) local57;
                     @Pc(87) short local87 = 0;
                     if (local64 == 3 || local64 == 10) {
                         local87 = 128;
                     }
                     if ((local72 & 0x1) == 0) {
-                        Static413.aShortArray91[local45] = local87;
+                        aShortArray91[local45] = local87;
                     } else {
-                        Static413.aShortArray91[local45] = (short) local29.gsmarts();
+                        aShortArray91[local45] = (short) local29.gsmarts();
                     }
                     if ((local72 & 0x2) == 0) {
-                        Static413.aShortArray88[local45] = local87;
+                        aShortArray88[local45] = local87;
                     } else {
-                        Static413.aShortArray88[local45] = (short) local29.gsmarts();
+                        aShortArray88[local45] = (short) local29.gsmarts();
                     }
                     if ((local72 & 0x4) == 0) {
-                        Static413.aShortArray90[local45] = local87;
+                        aShortArray90[local45] = local87;
                     } else {
-                        Static413.aShortArray90[local45] = (short) local29.gsmarts();
+                        aShortArray90[local45] = (short) local29.gsmarts();
                     }
-                    Static413.aByteArray69[local45] = (byte) (local72 >>> 3 & 0x3);
+                    aByteArray69[local45] = (byte) (local72 >>> 3 & 0x3);
                     if (local64 == 2 || local64 == 9) {
-                        Static413.aShortArray91[local45] = (short) (Static413.aShortArray91[local45] << 2 & 0x3FFF);
-                        Static413.aShortArray88[local45] = (short) (Static413.aShortArray88[local45] << 2 & 0x3FFF);
-                        Static413.aShortArray90[local45] = (short) (Static413.aShortArray90[local45] << 2 & 0x3FFF);
+                        aShortArray91[local45] = (short) (aShortArray91[local45] << 2 & 0x3FFF);
+                        aShortArray88[local45] = (short) (aShortArray88[local45] << 2 & 0x3FFF);
+                        aShortArray90[local45] = (short) (aShortArray90[local45] << 2 & 0x3FFF);
                     }
-                    Static413.aShortArray95[local45] = -1;
+                    aShortArray95[local45] = -1;
                     if (local64 == 1 || local64 == 2 || local64 == 3) {
                         if (local47 > local49) {
-                            Static413.aShortArray95[local45] = (short) local47;
+                            aShortArray95[local45] = (short) local47;
                             local49 = local47;
                         }
                     } else if (local64 == 5) {
@@ -117,12 +138,12 @@ public final class AnimFrame {
             this.aShortArray86 = new short[local45];
             this.aByteArray70 = new byte[local45];
             for (local64 = 0; local64 < local45; local64++) {
-                this.aShortArray87[local64] = Static413.aShortArray92[local64];
-                this.aShortArray93[local64] = Static413.aShortArray91[local64];
-                this.aShortArray94[local64] = Static413.aShortArray88[local64];
-                this.aShortArray89[local64] = Static413.aShortArray90[local64];
-                this.aShortArray86[local64] = Static413.aShortArray95[local64];
-                this.aByteArray70[local64] = Static413.aByteArray69[local64];
+                this.aShortArray87[local64] = aShortArray92[local64];
+                this.aShortArray93[local64] = aShortArray91[local64];
+                this.aShortArray94[local64] = aShortArray88[local64];
+                this.aShortArray89[local64] = aShortArray90[local64];
+                this.aShortArray86[local64] = aShortArray95[local64];
+                this.aByteArray70[local64] = aByteArray69[local64];
             }
         } catch (@Pc(359) Exception local359) {
             this.anInt6359 = 0;

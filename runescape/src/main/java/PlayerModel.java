@@ -1,5 +1,6 @@
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

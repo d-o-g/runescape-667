@@ -1,3 +1,5 @@
+import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -29,7 +31,7 @@ public final class Class133 implements Interface13 {
     @Override
     public void method7748() {
         @Pc(24) Class381 local24 = Static238.method3468(this.aClass125_1.anInt2858, this.aJs5_36);
-        this.aClass14_4 = Static163.aToolkit_17.method8010(local24, Static735.method9387(this.aJs5_37, this.aClass125_1.anInt2858), true);
+        this.aClass14_4 = Static163.activeToolkit.method8010(local24, Static735.method9387(this.aJs5_37, this.aClass125_1.anInt2858), true);
     }
 
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(ZI)V")

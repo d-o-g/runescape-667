@@ -74,13 +74,13 @@ public final class Static249 {
 
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(BZ)Z")
     public static boolean method3537(@OriginalArg(1) boolean arg0) {
-        @Pc(13) boolean local13 = Static163.aToolkit_17.method8014();
+        @Pc(13) boolean local13 = Static163.activeToolkit.method8014();
         if (local13 == arg0) {
             return true;
         }
         if (!arg0) {
-            Static163.aToolkit_17.method7980();
-        } else if (!Static163.aToolkit_17.method7970()) {
+            Static163.activeToolkit.method7980();
+        } else if (!Static163.activeToolkit.method7970()) {
             arg0 = false;
         }
         if (arg0 == local13) {

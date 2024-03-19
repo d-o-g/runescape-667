@@ -13,16 +13,16 @@ public final class Static574 {
 
     @OriginalMember(owner = "client!saa", name = "b", descriptor = "(I)V")
     public static void method7572() {
-        if (Static163.aToolkit_17.method7978()) {
-            Static163.aToolkit_17.method7972(Static434.aCanvas7);
+        if (Static163.activeToolkit.method7978()) {
+            Static163.activeToolkit.method7972(Static434.aCanvas7);
             Static208.method3106();
             if (Static137.aBoolean210) {
                 Static720.method9397(Static434.aCanvas7);
             } else {
                 @Pc(26) Dimension local26 = Static434.aCanvas7.getSize();
-                Static163.aToolkit_17.method8022(Static434.aCanvas7, local26.width, local26.height);
+                Static163.activeToolkit.method8022(Static434.aCanvas7, local26.width, local26.height);
             }
-            Static163.aToolkit_17.method8019(Static434.aCanvas7);
+            Static163.activeToolkit.method8019(Static434.aCanvas7);
         } else {
             Static32.method880(Static400.instance.aClass57_Sub29_1.method7915(), false);
         }

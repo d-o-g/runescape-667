@@ -1,6 +1,9 @@
 import com.jagex.collect.Node;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.graphics.Interface9;
+import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureSource;
 import com.jagex.math.IntMath;
 import jaclib.memory.Stream;

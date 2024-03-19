@@ -1,6 +1,9 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

@@ -1,4 +1,6 @@
 import com.jagex.core.util.Arrays;
+import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureMetrics;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

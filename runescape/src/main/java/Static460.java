@@ -1,3 +1,4 @@
+import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -26,7 +27,7 @@ public final class Static460 {
                 return 1;
             }
             if (!((Class64) Static566.aClass326_2.method7469()).method1554()) {
-                Static295.aClient1.method1644();
+                client.aClient1.method1644();
             }
             Static213.anInt3470 = 1;
         }
@@ -97,10 +98,10 @@ public final class Static460 {
         }
         if (local348) {
             if (!((Class64) Static566.aClass326_5.method7469()).method1554()) {
-                Static295.aClient1.method1634();
+                client.aClient1.method1634();
             }
             if (!((Class64) Static566.aClass326_8.method7469()).method1554()) {
-                Static234.aBoolean303 = Static295.aClient1.method1651();
+                Static234.aBoolean303 = client.aClient1.method1651();
             }
             Static522.aClass326Array1 = null;
         }

@@ -45,7 +45,7 @@ public final class Static231 {
 
     @OriginalMember(owner = "client!hd", name = "b", descriptor = "(I)V")
     public static void method3375() {
-        if (Static163.aToolkit_17 == null) {
+        if (Static163.activeToolkit == null) {
             return;
         }
         if (Static137.aBoolean210) {
@@ -80,8 +80,8 @@ public final class Static231 {
         }
         Static59.aMatrix_5 = null;
         Static460.aMatrix_10 = null;
-        Static163.aToolkit_17.free();
-        Static163.aToolkit_17 = null;
+        Static163.activeToolkit.free();
+        Static163.activeToolkit = null;
     }
 
     @OriginalMember(owner = "client!hd", name = "a", descriptor = "(II)Lclient!hd;")
@@ -140,7 +140,7 @@ public final class Static231 {
                         return;
                     }
                     if (arg2.equals("renderer")) {
-                        @Pc(103) Class84 local103 = Static163.aToolkit_17.method7981();
+                        @Pc(103) Class84 local103 = Static163.activeToolkit.method7981();
                         Static79.method1579("Vendor: " + local103.anInt2329);
                         Static79.method1579("Name: " + local103.aString22);
                         Static79.method1579("Version: " + local103.anInt2331);
@@ -426,7 +426,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("bloom")) {
-                    @Pc(1264) boolean local1264 = Static163.aToolkit_17.method8014();
+                    @Pc(1264) boolean local1264 = Static163.activeToolkit.method8014();
                     if (Static249.method3537(!local1264)) {
                         if (local1264) {
                             Static79.method1579("Bloom disabled");
@@ -476,7 +476,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("mc")) {
-                    if (Static163.aToolkit_17.method7979()) {
+                    if (Static163.activeToolkit.method7979()) {
                         local501 = Integer.parseInt(arg2.substring(3));
                         if (local501 < 1) {
                             local501 = 1;
@@ -499,7 +499,7 @@ public final class Static231 {
                 }
                 if (arg2.equals("renderprofile") || arg2.equals("rp")) {
                     Static354.aBoolean440 = !Static354.aBoolean440;
-                    Static163.aToolkit_17.method8018(Static354.aBoolean440);
+                    Static163.activeToolkit.method8018(Static354.aBoolean440);
                     Static126.method2228();
                     Static79.method1579("showprofiling=" + Static354.aBoolean440);
                     return;
@@ -645,7 +645,7 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("texsize")) {
                     local501 = Integer.parseInt(arg2.substring(8));
-                    Static163.aToolkit_17.method7989(local501);
+                    Static163.activeToolkit.method7989(local501);
                     return;
                 }
                 if (arg2.equals("soundstreamcount")) {
@@ -658,7 +658,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equals("errormessage")) {
-                    Static79.method1579(Static295.aClient1.method1648());
+                    Static79.method1579(client.aClient1.method1648());
                     return;
                 }
                 if (arg2.equals("heapdump")) {

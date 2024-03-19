@@ -1,3 +1,5 @@
+import com.jagex.AnimBase;
+import com.jagex.AnimFrame;
 import com.jagex.collect.DoublyLinkedNode;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;

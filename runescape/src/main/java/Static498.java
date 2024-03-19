@@ -39,9 +39,9 @@ public final class Static498 {
                 local115 = local49 * arg3 * 512 / (local86 * 334);
                 local122 = (arg4 - local115) / 2;
                 if (arg1) {
-                    Static163.aToolkit_17.la();
-                    Static163.aToolkit_17.method7971(local122, arg3, arg2, arg0, -16777216);
-                    Static163.aToolkit_17.method7971(local122, arg3, arg2, arg4 + arg0 - local122, -16777216);
+                    Static163.activeToolkit.la();
+                    Static163.activeToolkit.method7971(local122, arg3, arg2, arg0, -16777216);
+                    Static163.activeToolkit.method7971(local122, arg3, arg2, arg4 + arg0 - local122, -16777216);
                 }
                 arg0 += local122;
                 arg4 -= local122 * 2;
@@ -54,9 +54,9 @@ public final class Static498 {
                 local115 = arg4 * 334 * local86 / (local49 * 512);
                 local122 = (arg3 - local115) / 2;
                 if (arg1) {
-                    Static163.aToolkit_17.la();
-                    Static163.aToolkit_17.method7971(arg4, local122, arg2, arg0, -16777216);
-                    Static163.aToolkit_17.method7971(arg4, local122, arg2 + arg3 - local122, arg0, -16777216);
+                    Static163.activeToolkit.la();
+                    Static163.activeToolkit.method7971(arg4, local122, arg2, arg0, -16777216);
+                    Static163.activeToolkit.method7971(arg4, local122, arg2 + arg3 - local122, arg0, -16777216);
                 }
                 arg3 -= local122 * 2;
                 arg2 += local122;
@@ -74,14 +74,14 @@ public final class Static498 {
         Static135.method7237();
         @Pc(19) int local19 = Static400.instance.aClass57_Sub3_1.method2120();
         if (local19 == 2) {
-            Static85.method9264(Static380.anInt5979, Static680.anInt10289, Static163.aToolkit_17);
+            Static85.method9264(Static380.anInt5979, Static680.anInt10289, Static163.activeToolkit);
         } else if (local19 == 3) {
-            Static126.method2227(Static163.aToolkit_17, Static680.anInt10289, Static32.anInt777, Static288.anInt4620, Static380.anInt5979);
+            Static126.method2227(Static163.activeToolkit, Static680.anInt10289, Static32.anInt777, Static288.anInt4620, Static380.anInt5979);
         }
         if (Static400.instance.aClass57_Sub3_1.method2118()) {
             Static575.method7606(Static434.aCanvas7);
         }
-        if (Static163.aToolkit_17 != null) {
+        if (Static163.activeToolkit != null) {
             Static209.method3110();
         }
         Static504.aBoolean579 = Static400.instance.aClass57_Sub3_1.method2120() != 0;

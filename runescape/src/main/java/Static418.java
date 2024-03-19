@@ -50,18 +50,18 @@ public final class Static418 {
             Static713.method9331(true);
         } else {
             Static460.aMatrix_10.translate(arg4, 0, 0);
-            Static163.aToolkit_17.setCamera(Static460.aMatrix_10);
+            Static163.activeToolkit.setCamera(Static460.aMatrix_10);
         }
         if (Static504.aBoolean579) {
-            Static163.aToolkit_17.HA(arg3, local58, arg1, Static582.anInt8627, Static215.anIntArray284);
+            Static163.activeToolkit.HA(arg3, local58, arg1, Static582.anInt8627, Static215.anIntArray284);
         } else {
-            Static163.aToolkit_17.da(arg3, local58, arg1, Static215.anIntArray284);
+            Static163.activeToolkit.da(arg3, local58, arg1, Static215.anIntArray284);
         }
         if (Static137.aBoolean210) {
             Static480.method6469();
         } else {
             Static460.aMatrix_10.translate(-arg4, 0, 0);
-            Static163.aToolkit_17.setCamera(Static460.aMatrix_10);
+            Static163.activeToolkit.setCamera(Static460.aMatrix_10);
         }
     }
 

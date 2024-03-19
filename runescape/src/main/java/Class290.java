@@ -1,3 +1,5 @@
+import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -33,12 +35,12 @@ public final class Class290 implements Interface13 {
         @Pc(35) int local35 = this.aClass235_1.aClass403_11.method9332(Static302.anInt4851, this.aClass235_1.anInt5976) + this.aClass235_1.anInt5977;
         @Pc(49) int local49 = this.aClass235_1.aClass103_11.method2416(Static479.anInt7201, this.aClass235_1.anInt5970) + this.aClass235_1.anInt5974;
         if (this.aClass235_1.aBoolean454) {
-            Static163.aToolkit_17.method7976(local35, local49, this.aClass235_1.anInt5976, this.aClass235_1.anInt5970, this.aClass235_1.anInt5972, 0);
+            Static163.activeToolkit.method7976(local35, local49, this.aClass235_1.anInt5976, this.aClass235_1.anInt5970, this.aClass235_1.anInt5972, 0);
         }
         local49 += this.method6520(Static180.aClass14_3, local19.aString103, local35, local49) * 12;
         local49 += 8;
         if (this.aClass235_1.aBoolean454) {
-            Static163.aToolkit_17.method7951(local35, local49, this.aClass235_1.anInt5976 + local35 - 1, local49, this.aClass235_1.anInt5972, 0);
+            Static163.activeToolkit.method7951(local35, local49, this.aClass235_1.anInt5976 + local35 - 1, local49, this.aClass235_1.anInt5972, 0);
         }
         local49++;
         local49 += this.method6520(Static180.aClass14_3, local19.aString104, local35, local49) * 12;

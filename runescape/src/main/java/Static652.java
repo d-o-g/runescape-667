@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -30,7 +31,7 @@ public final class Static652 {
         @Pc(16) Sprite local16 = (Sprite) Static594.A_WEIGHTED_CACHE___193.get((long) arg0);
         if (local16 == null) {
             if (Static297.aBoolean368) {
-                local16 = Static163.aToolkit_17.method7948(Static735.method9379(arg1, arg0), true);
+                local16 = Static163.activeToolkit.method7948(Static735.method9379(arg1, arg0), true);
             } else {
                 local16 = Static168.method2634(arg1.getfile(arg0));
             }

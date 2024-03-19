@@ -19,7 +19,7 @@ public final class Static65 {
 
     @OriginalMember(owner = "client!cba", name = "c", descriptor = "(B)I")
     public static int method1470() {
-        @Pc(5) Toolkit local5 = Static163.aToolkit_17;
+        @Pc(5) Toolkit local5 = Static163.activeToolkit;
         @Pc(7) boolean local7 = false;
         if (Static400.instance.aClass57_Sub29_1.method7915() != 0) {
             @Pc(19) Canvas local19 = new Canvas();

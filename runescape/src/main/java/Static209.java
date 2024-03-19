@@ -19,7 +19,7 @@ public final class Static209 {
         Static329.anInt1752 = (int) ((double) Static720.anInt10859 * 34.46D);
         Static32.anInt775 = 200;
         Static329.anInt1752 <<= 0x2;
-        if (Static163.aToolkit_17.method7968()) {
+        if (Static163.activeToolkit.method7968()) {
             Static329.anInt1752 += 512;
         }
         Static501.method6716(false);

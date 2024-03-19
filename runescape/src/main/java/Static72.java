@@ -1,3 +1,4 @@
+import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -21,7 +22,7 @@ public final class Static72 {
                 if (local34 == null) {
                     @Pc(42) Class407 local42 = Static735.method9382(Static721.aJs5_128, local19.anInt5704, 0);
                     if (local42 != null) {
-                        local34 = Static163.aToolkit_17.method7948(local42, true);
+                        local34 = Static163.activeToolkit.method7948(local42, true);
                         Static452.A_WEIGHTED_CACHE___149.put(local34, (long) local19.anInt5704);
                     }
                 }

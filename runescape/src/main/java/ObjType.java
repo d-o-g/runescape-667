@@ -313,7 +313,7 @@ public final class ObjType {
             return arg1;
         } else {
             @Pc(19) IntNode local19 = (IntNode) this.params.get((long) arg0);
-            return local19 == null ? arg1 : local19.anInt6379;
+            return local19 == null ? arg1 : local19.value;
         }
     }
 

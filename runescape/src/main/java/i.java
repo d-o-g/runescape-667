@@ -37,7 +37,7 @@ public final class i extends Model implements Interface5 {
             local43[local36++] = this.aMeshEmitterArray3[local45].anInt8505;
         }
         for (@Pc(79) int local79 = 0; local79 < local34; local79++) {
-            local43[local36++] = this.aMeshMagnetArray3[local79].anInt6247;
+            local43[local36++] = this.aMeshMagnetArray3[local79].vertex;
         }
         @Pc(105) int local105 = arg2.billboards == null ? 0 : arg2.billboards.length;
         @Pc(110) int[] local110 = new int[local105 * 8];
@@ -196,10 +196,10 @@ public final class i extends Model implements Interface5 {
             if (local89.aMeshMagnet_2 != null) {
                 local91 = local89.aMeshMagnet_2;
             }
-            if (local89.aMatrix_6 == null) {
-                local89.aMatrix_6 = arg0.method7129();
+            if (local89.matrix == null) {
+                local89.matrix = arg0.method7129();
             } else {
-                local89.aMatrix_6.method7128(arg0);
+                local89.matrix.method7128(arg0);
             }
             local91.anInt6252 = Static445.anIntArray537[local5++];
             local91.anInt6250 = Static445.anIntArray537[local5++];

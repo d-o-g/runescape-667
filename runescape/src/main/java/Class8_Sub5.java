@@ -110,9 +110,9 @@ public final class Class8_Sub5 extends Class8 {
         for (local21 = 0; local21 < arg0.length && local21 != 8 && this.anInt4150 != 8; local21++) {
             if (!Static257.aBooleanArray6[local21]) {
                 @Pc(96) DoublyLinkedNode_Sub2_Sub5 local96 = null;
-                if (arg0[local21].method5590().anInt6982 == 1 && Static654.anInt9740 < 32) {
+                if (arg0[local21].type().visibility == 1 && Static654.anInt9740 < 32) {
                     local96 = new DoublyLinkedNode_Sub2_Sub5(arg0[local21], this);
-                    Static519.aClass144_1.method3094(local96, (long) arg0[local21].anInt6248);
+                    Static519.aClass144_1.method3094(local96, (long) arg0[local21].type);
                     Static654.anInt9740++;
                 }
                 if (local96 == null) {
@@ -183,7 +183,7 @@ public final class Class8_Sub5 extends Class8 {
     public void method3652() {
         this.aBoolean324 = true;
         for (@Pc(8) DoublyLinkedNode_Sub2_Sub5 local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.first(65280); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.next()) {
-            if (local8.aClass278_1.anInt6982 == 1) {
+            if (local8.aMeshMagnetType_1.visibility == 1) {
                 local8.remove2();
             }
         }

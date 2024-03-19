@@ -14,11 +14,6 @@ public final class Static422 {
         return Static448.anInt6796 == 1 ? Static312.anInt5001 : 0;
     }
 
-    @OriginalMember(owner = "client!nfa", name = "a", descriptor = "(I)V")
-    public static void method5772() {
-        Static713.A_WEIGHTED_CACHE___231.reset();
-    }
-
     @OriginalMember(owner = "client!nfa", name = "a", descriptor = "(IIIII)V")
     public static void method5773(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         for (@Pc(5) int local5 = 0; local5 < Static122.anInt2339; local5++) {

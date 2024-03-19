@@ -1,4 +1,3 @@
-import com.jagex.collect.HashTable;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static503 {
@@ -8,9 +7,6 @@ public final class Static503 {
 
     @OriginalMember(owner = "client!ps", name = "c", descriptor = "I")
     public static int anInt7582;
-
-    @OriginalMember(owner = "client!ps", name = "i", descriptor = "Lclient!av;")
-    public static final HashTable A_HASH_TABLE___38 = new HashTable(16);
 
     @OriginalMember(owner = "client!ps", name = "h", descriptor = "Lclient!ss;")
     public static final Class345 aClass345_94 = new Class345(65, 11);

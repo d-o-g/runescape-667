@@ -148,7 +148,7 @@ public final class Class53 {
             return this.anInt1142;
         } else if (this.anObject3 instanceof HashTable) {
             @Pc(30) IntNode local30 = (IntNode) ((HashTable) this.anObject3).get((long) arg0);
-            return local30 == null ? this.anInt1142 : local30.anInt6379;
+            return local30 == null ? this.anInt1142 : local30.value;
         } else {
             @Pc(43) Integer[] local43 = (Integer[]) this.anObject3;
             if (arg0 >= 0 && arg0 < local43.length) {
@@ -256,19 +256,19 @@ public final class Class53 {
             @Pc(31) HashTable local31 = new HashTable(local16.getBucketCount());
             @Pc(45) IntNode local45;
             for (@Pc(36) IntNode local36 = (IntNode) local16.first(); local36 != null; local36 = (IntNode) local16.next()) {
-                local45 = (IntNode) local31.get((long) local36.anInt6379);
+                local45 = (IntNode) local31.get((long) local36.value);
                 if (local45 == null) {
                     local45 = new IntNode(0);
-                    local31.put((long) local36.anInt6379, local45);
+                    local31.put((long) local36.value, local45);
                 }
-                local45.anInt6379++;
+                local45.value++;
             }
             for (local45 = (IntNode) local16.first(); local45 != null; local45 = (IntNode) local16.next()) {
-                @Pc(87) Node_Sub40 local87 = (Node_Sub40) this.aHashTable_9.get((long) local45.anInt6379);
-                local101 = ((IntNode) local31.get((long) local45.anInt6379)).anInt6379--;
+                @Pc(87) Node_Sub40 local87 = (Node_Sub40) this.aHashTable_9.get((long) local45.value);
+                local101 = ((IntNode) local31.get((long) local45.value)).value--;
                 if (local87 == null) {
                     local87 = new Node_Sub40(local101);
-                    this.aHashTable_9.put((long) local45.anInt6379, local87);
+                    this.aHashTable_9.put((long) local45.value, local87);
                 }
                 local87.anIntArray531[local87.anIntArray531.length - local101] = (int) local45.key;
             }
@@ -287,14 +287,14 @@ public final class Class53 {
                     local175 = new IntNode(0);
                     local156.put((long) local168, local175);
                 }
-                local175.anInt6379++;
+                local175.value++;
             }
         }
         for (local168 = 0; local168 < local140.length; local168++) {
             if (local140[local168] != null) {
                 local101 = local140[local168];
                 @Pc(223) Node_Sub40 local223 = (Node_Sub40) this.aHashTable_9.get((long) local101);
-                @Pc(236) int local236 = ((IntNode) local156.get((long) local101)).anInt6379--;
+                @Pc(236) int local236 = ((IntNode) local156.get((long) local101)).value--;
                 if (local223 == null) {
                     local223 = new Node_Sub40(local236);
                     this.aHashTable_9.put((long) local101, local223);

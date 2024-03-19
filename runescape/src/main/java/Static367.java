@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static367 {
 
-    @OriginalMember(owner = "client!lk", name = "a", descriptor = "[Lclient!ok;")
-    public static final Class278[] aClass278Array1 = new Class278[16];
-
     @OriginalMember(owner = "client!lk", name = "a", descriptor = "(I)V")
     public static void method5267() {
         @Pc(1) ReferenceCache local1 = Static354.A_WEIGHTED_CACHE___120;

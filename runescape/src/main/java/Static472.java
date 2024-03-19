@@ -3421,7 +3421,7 @@ public final class Static472 {
                             @Pc(889) HashTable local889 = arg0.aHashTableArray1[local11[local5]];
                             @Pc(902) IntNode local902 = (IntNode) local889.get((long) anIntArray578[--anInt7142]);
                             if (local902 != null) {
-                                local5 += local902.anInt6379;
+                                local5 += local902.value;
                             }
                         } else if (local34 == 54) {
                             aLongArray14[anInt7152++] = arg0.aLongArray4[local5];

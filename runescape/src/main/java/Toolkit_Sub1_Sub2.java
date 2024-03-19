@@ -461,7 +461,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
         while (!this.aDeque_61.isEmpty()) {
             local19 = (IntNode) this.aDeque_61.removeFirst();
             Static382.anIntArray465[local7++] = (int) local19.key;
-            super.anInt9141 -= local19.anInt6379;
+            super.anInt9141 -= local19.value;
             if (local7 == 1000) {
                 OpenGL.glDeleteBuffersARB(local7, Static382.anIntArray465, 0);
                 local7 = 0;
@@ -474,7 +474,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
         while (!this.aDeque_62.isEmpty()) {
             local19 = (IntNode) this.aDeque_62.removeFirst();
             Static382.anIntArray465[local7++] = (int) local19.key;
-            super.anInt9145 -= local19.anInt6379;
+            super.anInt9145 -= local19.value;
             if (local7 == 1000) {
                 OpenGL.glDeleteTextures(local7, Static382.anIntArray465, 0);
                 local7 = 0;
@@ -486,7 +486,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
         }
         while (!this.aDeque_63.isEmpty()) {
             local19 = (IntNode) this.aDeque_63.removeFirst();
-            Static382.anIntArray465[local7++] = local19.anInt6379;
+            Static382.anIntArray465[local7++] = local19.value;
             if (local7 == 1000) {
                 OpenGL.glDeleteFramebuffersEXT(local7, Static382.anIntArray465, 0);
                 local7 = 0;
@@ -499,7 +499,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
         while (!this.aDeque_64.isEmpty()) {
             local19 = (IntNode) this.aDeque_64.removeFirst();
             Static382.anIntArray465[local7++] = (int) local19.key;
-            super.anInt9143 -= local19.anInt6379;
+            super.anInt9143 -= local19.value;
             if (local7 == 1000) {
                 OpenGL.glDeleteRenderbuffersEXT(local7, Static382.anIntArray465, 0);
                 local7 = 0;
@@ -510,7 +510,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
         }
         while (!this.aDeque_60.isEmpty()) {
             local19 = (IntNode) this.aDeque_60.removeFirst();
-            OpenGL.glDeleteLists((int) local19.key, local19.anInt6379);
+            OpenGL.glDeleteLists((int) local19.key, local19.value);
         }
         @Pc(227) Node local227;
         while (!this.aDeque_65.isEmpty()) {
@@ -523,7 +523,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
         }
         while (!this.aDeque_60.isEmpty()) {
             local19 = (IntNode) this.aDeque_60.removeFirst();
-            OpenGL.glDeleteLists((int) local19.key, local19.anInt6379);
+            OpenGL.glDeleteLists((int) local19.key, local19.value);
         }
         if (this.E() > 100663296 && this.aLong279 + 60000L < SystemTimer.safetime()) {
             System.gc();

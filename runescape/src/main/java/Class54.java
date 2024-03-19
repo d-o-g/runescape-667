@@ -1108,7 +1108,7 @@ public final class Class54 {
             return arg0;
         } else {
             @Pc(17) IntNode local17 = (IntNode) this.aHashTable_10.get((long) arg1);
-            return local17 == null ? arg0 : local17.anInt6379;
+            return local17 == null ? arg0 : local17.value;
         }
     }
 }

@@ -840,7 +840,7 @@ public final class Class268 {
             return arg1;
         } else {
             @Pc(25) IntNode local25 = (IntNode) this.aHashTable_32.get((long) arg0);
-            return local25 == null ? arg1 : local25.anInt6379;
+            return local25 == null ? arg1 : local25.value;
         }
     }
 

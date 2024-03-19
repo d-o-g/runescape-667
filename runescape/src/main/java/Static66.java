@@ -1,33 +1,9 @@
-import com.jagex.core.io.Packet;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static66 {
 
     @OriginalMember(owner = "client!cc", name = "h", descriptor = "Lclient!iba;")
     public static Class174 aClass174_1;
-
-    @OriginalMember(owner = "client!cc", name = "b", descriptor = "(II)Lclient!ok;")
-    public static Class278 method1487(@OriginalArg(1) int arg0) {
-        @Pc(10) Class278 local10 = (Class278) Static713.A_WEIGHTED_CACHE___231.get((long) arg0);
-        if (local10 != null) {
-            return local10;
-        }
-        @Pc(21) byte[] local21 = Static309.aJs5_62.getfile(arg0, 1);
-        local10 = new Class278();
-        local10.anInt6980 = arg0;
-        if (local21 != null) {
-            local10.method6274(new Packet(local21));
-        }
-        local10.method6273();
-        if (local10.anInt6982 == 2 && Static503.A_HASH_TABLE___38.get((long) arg0) == null) {
-            Static503.A_HASH_TABLE___38.put((long) arg0, new IntNode(Static370.anInt5881));
-            Static367.aClass278Array1[Static370.anInt5881++] = local10;
-        }
-        Static713.A_WEIGHTED_CACHE___231.put(local10, (long) arg0);
-        return local10;
-    }
 
     @OriginalMember(owner = "client!cc", name = "b", descriptor = "(I)V")
     public static void method1488() {

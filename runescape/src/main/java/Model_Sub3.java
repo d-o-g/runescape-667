@@ -1759,14 +1759,14 @@ public final class Model_Sub3 extends Model {
             if (local355.aMeshMagnet_2 != null) {
                 local357 = local355.aMeshMagnet_2;
             }
-            if (local355.aMatrix_6 == null) {
-                local355.aMatrix_6 = local2.method7129();
+            if (local355.matrix == null) {
+                local355.matrix = local2.method7129();
             } else {
-                local355.aMatrix_6.method7128(local2);
+                local355.matrix.method7128(local2);
             }
-            local357.anInt6252 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local355.anInt6247] + local2.aFloat55 * (float) this.anIntArray675[local355.anInt6247] + local2.aFloat53 * (float) this.anIntArray658[local355.anInt6247]);
-            local357.anInt6250 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local355.anInt6247] + local2.aFloat52 * (float) this.anIntArray675[local355.anInt6247] + local2.aFloat51 * (float) this.anIntArray658[local355.anInt6247]);
-            local357.anInt6249 = (int) (local2.aFloat62 + local2.aFloat56 * (float) this.anIntArray666[local355.anInt6247] + local2.aFloat54 * (float) this.anIntArray675[local355.anInt6247] + local2.aFloat61 * (float) this.anIntArray658[local355.anInt6247]);
+            local357.anInt6252 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local355.vertex] + local2.aFloat55 * (float) this.anIntArray675[local355.vertex] + local2.aFloat53 * (float) this.anIntArray658[local355.vertex]);
+            local357.anInt6250 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local355.vertex] + local2.aFloat52 * (float) this.anIntArray675[local355.vertex] + local2.aFloat51 * (float) this.anIntArray658[local355.vertex]);
+            local357.anInt6249 = (int) (local2.aFloat62 + local2.aFloat56 * (float) this.anIntArray666[local355.vertex] + local2.aFloat54 * (float) this.anIntArray675[local355.vertex] + local2.aFloat61 * (float) this.anIntArray658[local355.vertex]);
         }
     }
 

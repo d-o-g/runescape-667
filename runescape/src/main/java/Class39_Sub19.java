@@ -32,7 +32,7 @@ public final class Class39_Sub19 extends Class39 {
         if (local10 == null) {
             Static25.A_HASH_TABLE___4.put(this.aLong257, new IntNode(this.anInt8296));
         } else {
-            local10.anInt6379 = this.anInt8296;
+            local10.value = this.anInt8296;
         }
     }
 }

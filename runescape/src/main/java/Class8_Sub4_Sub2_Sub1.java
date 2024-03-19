@@ -150,11 +150,11 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
             @Pc(437) Node local437 = local31.aDeque_22.tail;
             for (@Pc(440) Node local440 = local437.next; local440 != local437; local440 = local440.next) {
                 @Pc(444) DoublyLinkedNode_Sub2_Sub5 local444 = (DoublyLinkedNode_Sub2_Sub5) local440;
-                @Pc(447) Class278 local447 = local444.aClass278_1;
-                if (local447.anInt6982 != 1) {
+                @Pc(447) MeshMagnetType local447 = local444.aMeshMagnetType_1;
+                if (local447.visibility != 1) {
                     @Pc(453) boolean local453 = false;
                     for (@Pc(455) int local455 = 0; local455 < local35.anIntArray775.length; local455++) {
-                        if (local35.anIntArray775[local455] == local447.anInt6980) {
+                        if (local35.anIntArray775[local455] == local447.id) {
                             local453 = true;
                             break;
                         }
@@ -164,24 +164,24 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                         @Pc(486) double local486 = (double) (local22 - local444.anInt1824);
                         @Pc(492) double local492 = (double) (local27 - local444.anInt1821);
                         @Pc(504) double local504 = local480 * local480 + local486 * local486 + local492 * local492;
-                        if (!(local504 > (double) local447.aLong221)) {
+                        if (!(local504 > (double) local447.maxRange)) {
                             @Pc(513) double local513 = Math.sqrt(local504);
                             if (local513 == 0.0D) {
                                 local513 = 1.0D;
                             }
-                            @Pc(545) double local545 = (local480 * (double) local444.anInt1825 + local486 * (double) local447.anInt6987 + local492 * (double) local444.anInt1823) * 65535.0D / ((double) local447.anInt6986 * local513);
-                            if (!(local545 < (double) local447.anInt6976)) {
+                            @Pc(545) double local545 = (local480 * (double) local444.anInt1825 + local486 * (double) local447.dirY + local492 * (double) local444.anInt1823) * 65535.0D / ((double) local447.dirLength * local513);
+                            if (!(local545 < (double) local447.cosTheta)) {
                                 @Pc(553) double local553 = 0.0D;
-                                if (local447.anInt6985 == 1) {
-                                    local553 = local513 / 16.0D * (double) local447.anInt6973;
-                                } else if (local447.anInt6985 == 2) {
-                                    local553 = local513 / 16.0D * (local513 / 16.0D) * (double) local447.anInt6973;
+                                if (local447.effectType == 1) {
+                                    local553 = local513 / 16.0D * (double) local447.strength;
+                                } else if (local447.effectType == 2) {
+                                    local553 = local513 / 16.0D * (local513 / 16.0D) * (double) local447.strength;
                                 }
-                                if (local447.anInt6984 != 0) {
-                                    @Pc(678) double local678 = local480 / local513 * (double) local447.anInt6986;
-                                    @Pc(686) double local686 = local486 / local513 * (double) local447.anInt6986;
-                                    @Pc(694) double local694 = local492 / local513 * (double) local447.anInt6986;
-                                    if (local447.anInt6978 == 0) {
+                                if (local447.constantStrength != 0) {
+                                    @Pc(678) double local678 = local480 / local513 * (double) local447.dirLength;
+                                    @Pc(686) double local686 = local486 / local513 * (double) local447.dirLength;
+                                    @Pc(694) double local694 = local492 / local513 * (double) local447.dirLength;
+                                    if (local447.constantSpeed == 0) {
                                         local296 += local678 * (double) arg1;
                                         local300 += local686 * (double) arg1;
                                         local304 += local694 * (double) arg1;
@@ -191,14 +191,14 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                                         super.anInt7534 = (int) ((double) super.anInt7534 + local686 * (double) arg1);
                                         super.anInt7536 = (int) ((double) super.anInt7536 + local694 * (double) arg1);
                                     }
-                                } else if (local447.anInt6978 == 0) {
+                                } else if (local447.constantSpeed == 0) {
                                     local296 += ((double) local444.anInt1825 - local553) * (double) arg1;
-                                    local300 += ((double) local447.anInt6987 - local553) * (double) arg1;
+                                    local300 += ((double) local447.dirY - local553) * (double) arg1;
                                     local304 += ((double) local444.anInt1823 - local553) * (double) arg1;
                                     local306 = true;
                                 } else {
                                     super.anInt7537 = (int) ((double) super.anInt7537 + ((double) local444.anInt1825 - local553) * (double) arg1);
-                                    super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local447.anInt6987 - local553) * (double) arg1);
+                                    super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local447.dirY - local553) * (double) arg1);
                                     super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local444.anInt1823 - local553) * (double) arg1);
                                 }
                             }
@@ -211,33 +211,33 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
             for (local317 = 0; local317 < local35.anIntArray776.length; local317++) {
                 @Pc(776) DoublyLinkedNode_Sub2_Sub5 local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3095((long) local35.anIntArray776[local317]);
                 while (local776 != null) {
-                    @Pc(780) Class278 local780 = local776.aClass278_1;
+                    @Pc(780) MeshMagnetType local780 = local776.aMeshMagnetType_1;
                     @Pc(786) double local786 = (double) (local17 - local776.anInt1827);
                     @Pc(792) double local792 = (double) (local22 - local776.anInt1824);
                     @Pc(798) double local798 = (double) (local27 - local776.anInt1821);
                     @Pc(810) double local810 = local786 * local786 + local792 * local792 + local798 * local798;
-                    if (local810 > (double) local780.aLong221) {
+                    if (local810 > (double) local780.maxRange) {
                         local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3096();
                     } else {
                         @Pc(825) double local825 = Math.sqrt(local810);
                         if (local825 == 0.0D) {
                             local825 = 1.0D;
                         }
-                        @Pc(857) double local857 = (local786 * (double) local776.anInt1825 + local792 * (double) local780.anInt6987 + local798 * (double) local776.anInt1823) * 65535.0D / ((double) local780.anInt6986 * local825);
-                        if (local857 < (double) local780.anInt6976) {
+                        @Pc(857) double local857 = (local786 * (double) local776.anInt1825 + local792 * (double) local780.dirY + local798 * (double) local776.anInt1823) * 65535.0D / ((double) local780.dirLength * local825);
+                        if (local857 < (double) local780.cosTheta) {
                             local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3096();
                         } else {
                             @Pc(871) double local871 = 0.0D;
-                            if (local780.anInt6985 == 1) {
-                                local871 = local825 / 16.0D * (double) local780.anInt6973;
-                            } else if (local780.anInt6985 == 2) {
-                                local871 = local825 / 16.0D * (local825 / 16.0D) * (double) local780.anInt6973;
+                            if (local780.effectType == 1) {
+                                local871 = local825 / 16.0D * (double) local780.strength;
+                            } else if (local780.effectType == 2) {
+                                local871 = local825 / 16.0D * (local825 / 16.0D) * (double) local780.strength;
                             }
-                            if (local780.anInt6984 != 0) {
-                                @Pc(996) double local996 = local786 / local825 * (double) local780.anInt6986;
-                                @Pc(1004) double local1004 = local792 / local825 * (double) local780.anInt6986;
-                                @Pc(1012) double local1012 = local798 / local825 * (double) local780.anInt6986;
-                                if (local780.anInt6978 == 0) {
+                            if (local780.constantStrength != 0) {
+                                @Pc(996) double local996 = local786 / local825 * (double) local780.dirLength;
+                                @Pc(1004) double local1004 = local792 / local825 * (double) local780.dirLength;
+                                @Pc(1012) double local1012 = local798 / local825 * (double) local780.dirLength;
+                                if (local780.constantSpeed == 0) {
                                     local296 += local996 * (double) arg1;
                                     local300 += local1004 * (double) arg1;
                                     local304 += local1012 * (double) arg1;
@@ -247,14 +247,14 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                                     super.anInt7534 = (int) ((double) super.anInt7534 + local1004 * (double) arg1);
                                     super.anInt7536 = (int) ((double) super.anInt7536 + local1012 * (double) arg1);
                                 }
-                            } else if (local780.anInt6978 == 0) {
+                            } else if (local780.constantSpeed == 0) {
                                 local296 += ((double) local776.anInt1825 - local871) * (double) arg1;
-                                local300 += ((double) local780.anInt6987 - local871) * (double) arg1;
+                                local300 += ((double) local780.dirY - local871) * (double) arg1;
                                 local304 += ((double) local776.anInt1823 - local871) * (double) arg1;
                                 local306 = true;
                             } else {
                                 super.anInt7537 = (int) ((double) super.anInt7537 + ((double) local776.anInt1825 - local871) * (double) arg1);
-                                super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local780.anInt6987 - local871) * (double) arg1);
+                                super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local780.dirY - local871) * (double) arg1);
                                 super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local776.anInt1823 - local871) * (double) arg1);
                             }
                             local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3096();
@@ -267,21 +267,21 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
             if (local35.anIntArray774 == null) {
                 local35.anIntArray774 = new int[local35.anIntArray777.length];
                 for (local317 = 0; local317 < local35.anIntArray777.length; local317++) {
-                    Static66.method1487(local35.anIntArray777[local317]);
-                    local35.anIntArray774[local317] = ((IntNode) Static503.A_HASH_TABLE___38.get((long) local35.anIntArray777[local317])).anInt6379;
+                    MeshMagnetTypeList.get(local35.anIntArray777[local317]);
+                    local35.anIntArray774[local317] = ((IntNode) MeshMagnetTypeList.table.get((long) local35.anIntArray777[local317])).value;
                 }
             }
             for (local317 = 0; local317 < local35.anIntArray774.length; local317++) {
-                @Pc(1137) Class278 local1137 = Static367.aClass278Array1[local35.anIntArray774[local317]];
-                if (local1137.anInt6978 == 0) {
-                    local296 += (double) (local1137.anInt6979 * arg1);
-                    local300 += (double) (local1137.anInt6987 * arg1);
-                    local304 += (double) (local1137.anInt6975 * arg1);
+                @Pc(1137) MeshMagnetType local1137 = MeshMagnetTypeList.types[local35.anIntArray774[local317]];
+                if (local1137.constantSpeed == 0) {
+                    local296 += (double) (local1137.dirX * arg1);
+                    local300 += (double) (local1137.dirY * arg1);
+                    local304 += (double) (local1137.dirZ * arg1);
                     local306 = true;
                 } else {
-                    super.anInt7537 += local1137.anInt6979 * arg1;
-                    super.anInt7534 += local1137.anInt6987 * arg1;
-                    super.anInt7536 += local1137.anInt6975 * arg1;
+                    super.anInt7537 += local1137.dirX * arg1;
+                    super.anInt7534 += local1137.dirY * arg1;
+                    super.anInt7536 += local1137.dirZ * arg1;
                 }
             }
         }

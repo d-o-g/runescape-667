@@ -18,27 +18,27 @@ public final class MeshMagnet {
     public MeshMagnet aMeshMagnet_2;
 
     @OriginalMember(owner = "client!mn", name = "d", descriptor = "Lclient!tt;")
-    public Matrix aMatrix_6;
+    public Matrix matrix;
 
     @OriginalMember(owner = "client!mn", name = "n", descriptor = "I")
-    public final int anInt6248;
+    public final int type;
 
     @OriginalMember(owner = "client!mn", name = "a", descriptor = "I")
-    public final int anInt6247;
+    public final int vertex;
 
     @OriginalMember(owner = "client!mn", name = "<init>", descriptor = "(II)V")
-    public MeshMagnet(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        this.anInt6248 = arg0;
-        this.anInt6247 = arg1;
+    public MeshMagnet(@OriginalArg(0) int type, @OriginalArg(1) int vertex) {
+        this.type = type;
+        this.vertex = vertex;
     }
 
     @OriginalMember(owner = "client!mn", name = "a", descriptor = "(B)Lclient!ok;")
-    public Class278 method5590() {
-        return Static66.method1487(this.anInt6248);
+    public MeshMagnetType type() {
+        return MeshMagnetTypeList.get(this.type);
     }
 
     @OriginalMember(owner = "client!mn", name = "a", descriptor = "(ZI)Lclient!mn;")
-    public MeshMagnet method5593(@OriginalArg(1) int arg0) {
-        return new MeshMagnet(this.anInt6248, arg0);
+    public MeshMagnet copy(@OriginalArg(1) int v) {
+        return new MeshMagnet(this.type, v);
     }
 }

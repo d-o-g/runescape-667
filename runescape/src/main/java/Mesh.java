@@ -328,8 +328,8 @@ public final class Mesh {
                 }
                 if (local411.magnets != null) {
                     for (local636 = 0; local636 < local411.magnets.length; local636++) {
-                        local648 = this.addVertex(local411, local411.magnets[local636].anInt6247, local407);
-                        this.magnets[local32] = local411.magnets[local636].method5593(local648);
+                        local648 = this.addVertex(local411, local411.magnets[local636].vertex, local407);
+                        this.magnets[local32] = local411.magnets[local636].copy(local648);
                         local32++;
                     }
                 }

@@ -545,7 +545,7 @@ public final class Class158 {
         if (local34 == null) {
             this.aHashTable_17.put((long) arg0, new IntNode(arg1));
         } else {
-            local34.anInt6379 = arg1;
+            local34.value = arg1;
         }
     }
 
@@ -1135,7 +1135,7 @@ public final class Class158 {
             return arg0;
         } else {
             @Pc(17) IntNode local17 = (IntNode) this.aHashTable_17.get((long) arg1);
-            return local17 == null ? arg0 : local17.anInt6379;
+            return local17 == null ? arg0 : local17.value;
         }
     }
 

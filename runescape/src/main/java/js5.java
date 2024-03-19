@@ -14,6 +14,9 @@ public final class js5 {
     @OriginalMember(owner = "client!pfa", name = "v", descriptor = "Z")
     public static final boolean REPORT_INVALID_IDS = false;
 
+    @OriginalMember(owner = "client!jq", name = "g", descriptor = "Lclient!sb;")
+    public static js5 PARTICLES;
+
     @OriginalMember(owner = "client!kka", name = "c", descriptor = "Lclient!sb;")
     public static js5 DEFAULTS; // 28
 

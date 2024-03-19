@@ -1492,14 +1492,14 @@ public final class Model_Sub2 extends Model {
             if (local367.aMeshMagnet_2 != null) {
                 local369 = local367.aMeshMagnet_2;
             }
-            if (local367.aMatrix_6 == null) {
-                local367.aMatrix_6 = local8.method7129();
+            if (local367.matrix == null) {
+                local367.matrix = local8.method7129();
             } else {
-                local367.aMatrix_6.method7128(local8);
+                local367.matrix.method7128(local8);
             }
-            local369.anInt6252 = (int) (local8.aFloat157 * (float) this.anIntArray409[local367.anInt6247] + (float) this.anIntArray410[local367.anInt6247] * local8.aFloat153 + local8.aFloat160 * (float) this.anIntArray412[local367.anInt6247] + local8.aFloat152);
-            local369.anInt6250 = (int) ((float) this.anIntArray410[local367.anInt6247] * local8.aFloat161 + (float) this.anIntArray409[local367.anInt6247] * local8.aFloat156 + local8.aFloat150 * (float) this.anIntArray412[local367.anInt6247] + local8.aFloat158);
-            local369.anInt6249 = (int) (local8.aFloat155 * (float) this.anIntArray410[local367.anInt6247] + local8.aFloat151 * (float) this.anIntArray409[local367.anInt6247] + (float) this.anIntArray412[local367.anInt6247] * local8.aFloat154 + local8.aFloat159);
+            local369.anInt6252 = (int) (local8.aFloat157 * (float) this.anIntArray409[local367.vertex] + (float) this.anIntArray410[local367.vertex] * local8.aFloat153 + local8.aFloat160 * (float) this.anIntArray412[local367.vertex] + local8.aFloat152);
+            local369.anInt6250 = (int) ((float) this.anIntArray410[local367.vertex] * local8.aFloat161 + (float) this.anIntArray409[local367.vertex] * local8.aFloat156 + local8.aFloat150 * (float) this.anIntArray412[local367.vertex] + local8.aFloat158);
+            local369.anInt6249 = (int) (local8.aFloat155 * (float) this.anIntArray410[local367.vertex] + local8.aFloat151 * (float) this.anIntArray409[local367.vertex] + (float) this.anIntArray412[local367.vertex] * local8.aFloat154 + local8.aFloat159);
         }
     }
 

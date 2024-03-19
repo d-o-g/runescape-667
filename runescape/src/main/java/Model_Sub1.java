@@ -1358,14 +1358,14 @@ public final class Model_Sub1 extends Model {
             if (local367.aMeshMagnet_2 != null) {
                 local369 = local367.aMeshMagnet_2;
             }
-            if (local367.aMatrix_6 == null) {
-                local367.aMatrix_6 = local8.method7129();
+            if (local367.matrix == null) {
+                local367.matrix = local8.method7129();
             } else {
-                local367.aMatrix_6.method7128(local8);
+                local367.matrix.method7128(local8);
             }
-            local369.anInt6252 = (int) ((float) this.anIntArray244[local367.anInt6247] * local8.aFloat38 + local8.aFloat39 * (float) this.anIntArray240[local367.anInt6247] + (float) this.anIntArray242[local367.anInt6247] * local8.aFloat40 + local8.aFloat46);
-            local369.anInt6250 = (int) ((float) this.anIntArray244[local367.anInt6247] * local8.aFloat41 + local8.aFloat42 * (float) this.anIntArray242[local367.anInt6247] + local8.aFloat44 * (float) this.anIntArray240[local367.anInt6247] + local8.aFloat37);
-            local369.anInt6249 = (int) ((float) this.anIntArray242[local367.anInt6247] * local8.aFloat36 + (float) this.anIntArray240[local367.anInt6247] * local8.aFloat45 + local8.aFloat47 * (float) this.anIntArray244[local367.anInt6247] + local8.aFloat43);
+            local369.anInt6252 = (int) ((float) this.anIntArray244[local367.vertex] * local8.aFloat38 + local8.aFloat39 * (float) this.anIntArray240[local367.vertex] + (float) this.anIntArray242[local367.vertex] * local8.aFloat40 + local8.aFloat46);
+            local369.anInt6250 = (int) ((float) this.anIntArray244[local367.vertex] * local8.aFloat41 + local8.aFloat42 * (float) this.anIntArray242[local367.vertex] + local8.aFloat44 * (float) this.anIntArray240[local367.vertex] + local8.aFloat37);
+            local369.anInt6249 = (int) ((float) this.anIntArray242[local367.vertex] * local8.aFloat36 + (float) this.anIntArray240[local367.vertex] * local8.aFloat45 + local8.aFloat47 * (float) this.anIntArray244[local367.vertex] + local8.aFloat43);
         }
     }
 

@@ -25,12 +25,12 @@ public final class DoublyLinkedNode_Sub2_Sub5 extends DoublyLinkedNode {
     public final MeshMagnet aMeshMagnet_1;
 
     @OriginalMember(owner = "client!co", name = "w", descriptor = "Lclient!ok;")
-    public final Class278 aClass278_1;
+    public final MeshMagnetType aMeshMagnetType_1;
 
     @OriginalMember(owner = "client!co", name = "<init>", descriptor = "(Lclient!mn;Lclient!hv;)V")
     public DoublyLinkedNode_Sub2_Sub5(@OriginalArg(0) MeshMagnet arg0, @OriginalArg(1) Class8_Sub5 arg1) {
         this.aMeshMagnet_1 = arg0;
-        this.aClass278_1 = this.aMeshMagnet_1.method5590();
+        this.aMeshMagnetType_1 = this.aMeshMagnet_1.type();
         this.method1707();
     }
 
@@ -39,8 +39,8 @@ public final class DoublyLinkedNode_Sub2_Sub5 extends DoublyLinkedNode {
         this.anInt1827 = this.aMeshMagnet_1.anInt6252;
         this.anInt1824 = this.aMeshMagnet_1.anInt6250;
         this.anInt1821 = this.aMeshMagnet_1.anInt6249;
-        if (this.aMeshMagnet_1.aMatrix_6 != null) {
-            this.aMeshMagnet_1.aMatrix_6.method7138(this.aClass278_1.anInt6979, this.aClass278_1.anInt6987, this.aClass278_1.anInt6975, Static485.anIntArray888);
+        if (this.aMeshMagnet_1.matrix != null) {
+            this.aMeshMagnet_1.matrix.method7138(this.aMeshMagnetType_1.dirX, this.aMeshMagnetType_1.dirY, this.aMeshMagnetType_1.dirZ, Static485.anIntArray888);
         }
         this.anInt1823 = Static485.anIntArray888[2];
         this.anInt1825 = Static485.anIntArray888[0];

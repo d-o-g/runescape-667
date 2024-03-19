@@ -13,9 +13,6 @@ public final class Static370 {
     @OriginalMember(owner = "client!lm", name = "j", descriptor = "Lclient!pc;")
     public static final Class287 aClass287_11 = new Class287(9, -1);
 
-    @OriginalMember(owner = "client!lm", name = "k", descriptor = "I")
-    public static int anInt5881 = 0;
-
     @OriginalMember(owner = "client!lm", name = "b", descriptor = "(Z)V")
     public static void method5279() {
         if (Static620.method8321(Static283.anInt4574)) {

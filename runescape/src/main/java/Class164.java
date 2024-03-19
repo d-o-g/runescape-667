@@ -374,7 +374,7 @@ public final class Class164 {
             return null;
         } else {
             @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
-            return local24 != null && local24 instanceof IntNode ? Integer.valueOf(((IntNode) local24).anInt6379) : null;
+            return local24 != null && local24 instanceof IntNode ? Integer.valueOf(((IntNode) local24).value) : null;
         }
     }
 
@@ -427,11 +427,11 @@ public final class Class164 {
             if (local63 != null) {
                 if (local63 instanceof IntNode) {
                     @Pc(73) IntNode local73 = (IntNode) local63;
-                    if ((local35 & local73.anInt6379) == local43) {
+                    if ((local35 & local73.value) == local43) {
                         return false;
                     }
-                    local73.anInt6379 &= ~local35;
-                    local73.anInt6379 |= local43;
+                    local73.value &= ~local35;
+                    local73.value |= local43;
                     return true;
                 }
                 local63.remove();
@@ -564,7 +564,7 @@ public final class Class164 {
         @Pc(16) Node local16 = this.aHashTable_19.get((long) arg0);
         if (local16 != null && local16 instanceof IntNode) {
             @Pc(50) int local50 = arg1 == 31 ? -1 : (0x1 << arg1 + 1) - 1;
-            return Integer.valueOf((((IntNode) local16).anInt6379 & local50) >>> arg2);
+            return Integer.valueOf((((IntNode) local16).value & local50) >>> arg2);
         } else {
             return null;
         }
@@ -585,10 +585,10 @@ public final class Class164 {
             if (local35 != null) {
                 if (local35 instanceof IntNode) {
                     @Pc(45) IntNode local45 = (IntNode) local35;
-                    if (local45.anInt6379 == arg0) {
+                    if (local45.value == arg0) {
                         return false;
                     }
-                    local45.anInt6379 = arg0;
+                    local45.value = arg0;
                     return true;
                 }
                 local35.remove();

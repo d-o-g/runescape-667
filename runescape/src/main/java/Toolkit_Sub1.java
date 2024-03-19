@@ -1,5 +1,6 @@
 import com.jagex.collect.Node;
 import com.jagex.graphics.*;
+import com.jagex.js5.js5;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
 import jaclib.memory.heap.NativeHeap;

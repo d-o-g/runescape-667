@@ -2,6 +2,7 @@ import com.jagex.graphics.Interface9;
 import com.jagex.graphics.Node_Sub7;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureSource;
+import com.jagex.js5.js5;
 import jaclib.peer.ti;
 import jagdx.D3DADAPTER_IDENTIFIER;
 import jagdx.D3DCAPS;

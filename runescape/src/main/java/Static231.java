@@ -267,12 +267,12 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("clientjs5drop")) {
                     Static500.aClass295_3.method6621();
-                    Static79.method1579("Dropped client js5 net queue");
+                    Static79.method1579("Dropped client com.jagex.js5.js5 net queue");
                     return;
                 }
                 if (arg2.equalsIgnoreCase("serverjs5drop")) {
                     Static500.aClass295_3.method6628();
-                    Static79.method1579("Dropped server js5 net queue");
+                    Static79.method1579("Dropped server com.jagex.js5.js5 net queue");
                     return;
                 }
                 @Pc(725) int local725;

@@ -1,6 +1,7 @@
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.Node_Sub7;
 import com.jagex.graphics.Sprite;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

@@ -5,6 +5,7 @@ import com.jagex.graphics.Interface9;
 import com.jagex.graphics.Node_Sub7;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureSource;
+import com.jagex.js5.js5;
 import com.jagex.math.IntMath;
 import jaclib.memory.Stream;
 import jaggl.MapBuffer;

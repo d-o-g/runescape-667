@@ -2,6 +2,8 @@ import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.js5.Js5Index;
+import com.jagex.js5.ResourceProvider;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

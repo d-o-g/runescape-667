@@ -1,3 +1,5 @@
+package com.jagex.js5;
+
 import com.jagex.core.compress.BzipDecompressor;
 import com.jagex.core.compress.GzipDecompressor;
 import com.jagex.core.io.ByteArrayWrapper;
@@ -100,7 +102,7 @@ public final class js5 {
     @OriginalMember(owner = "client!sb", name = "<init>", descriptor = "(Lclient!bm;ZI)V")
     public js5(@OriginalArg(0) ResourceProvider provider, @OriginalArg(1) boolean discardpacked, @OriginalArg(2) int discardunpacked) {
         if (discardunpacked < 0 || discardunpacked > 2) {
-            throw new IllegalArgumentException("js5: Invalid value " + discardunpacked + " supplied for discardunpacked");
+            throw new IllegalArgumentException("com.jagex.js5.js5: Invalid value " + discardunpacked + " supplied for discardunpacked");
         }
         this.provider = provider;
         this.discardpacked = discardpacked;

@@ -1,3 +1,4 @@
+import com.jagex.js5.js5;
 import jagdx.IDirect3DDevice;
 import jagdx.IDirect3DVertexShader;
 import org.openrs2.deob.annotation.OriginalArg;

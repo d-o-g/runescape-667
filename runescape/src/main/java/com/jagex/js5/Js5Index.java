@@ -1,6 +1,7 @@
+package com.jagex.js5;
+
 import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.io.Packet;
-import com.jagex.js5.NameHashTable;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

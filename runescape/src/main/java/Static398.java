@@ -1,3 +1,4 @@
+import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

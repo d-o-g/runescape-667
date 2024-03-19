@@ -1,3 +1,4 @@
+import com.jagex.core.compress.BzipDecompressor;
 import com.jagex.core.compress.GzipDecompressor;
 import com.jagex.core.io.ByteArrayWrapper;
 import com.jagex.core.util.Arrays;
@@ -47,7 +48,7 @@ public final class js5 {
 
             @Pc(66) byte[] decoded = new byte[ulen];
             if (ctype == 1) {
-                Static160.bunzip(decoded, ulen, compressed, clen);
+                BzipDecompressor.bunzip(decoded, ulen, compressed, clen);
             } else {
                 @Pc(73) GzipDecompressor local73 = GzipDecompressor.INSTANCE;
                 synchronized (GzipDecompressor.INSTANCE) {

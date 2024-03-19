@@ -1,26 +1,28 @@
+package com.jagex.collect.hash;
+
 import com.jagex.collect.DoublyLinkedNode;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!pv")
-public abstract class DoublyLinkedNode_Sub2_Sub11 extends DoublyLinkedNode {
+public abstract class HashableReference extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!pv", name = "u", descriptor = "I")
-    public final int anInt9445;
+    public final int size;
 
     @OriginalMember(owner = "client!pv", name = "x", descriptor = "Lclient!uq;")
-    public final Interface24 anInterface24_3;
+    public final Hashable hashable;
 
     @OriginalMember(owner = "client!pv", name = "<init>", descriptor = "(Lclient!uq;I)V")
-    protected DoublyLinkedNode_Sub2_Sub11(@OriginalArg(0) Interface24 arg0, @OriginalArg(1) int arg1) {
-        this.anInt9445 = arg1;
-        this.anInterface24_3 = arg0;
+    protected HashableReference(@OriginalArg(0) Hashable hashable, @OriginalArg(1) int size) {
+        this.size = size;
+        this.hashable = hashable;
     }
 
     @OriginalMember(owner = "client!pv", name = "a", descriptor = "(I)Ljava/lang/Object;")
-    public abstract Object method8311();
+    public abstract Object get();
 
     @OriginalMember(owner = "client!pv", name = "c", descriptor = "(B)Z")
-    public abstract boolean method8314();
+    public abstract boolean isSoft();
 }

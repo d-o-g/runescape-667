@@ -18,9 +18,6 @@ public final class Static515 {
     @OriginalMember(owner = "client!qda", name = "x", descriptor = "Lclient!mia;")
     public static final Class242 aClass242_12 = new Class242("", 13);
 
-    @OriginalMember(owner = "client!qda", name = "p", descriptor = "Lclient!nka;")
-    public static final Class22 aClass22_1 = Static433.method5595();
-
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(IIIIILclient!ha;IIIIILclient!cba;)V")
     public static void method6799(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) DoublyLinkedNode_Sub2_Sub4 arg10) {
         if (arg8 < arg5 && arg5 < arg1 + arg8 && arg2 - 13 < arg0 && arg0 < arg2 + 3) {

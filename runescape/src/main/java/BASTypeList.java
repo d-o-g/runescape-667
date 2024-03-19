@@ -21,7 +21,7 @@ public final class BASTypeList {
     @OriginalMember(owner = "client!qp", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!vl;)V")
     public BASTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) WearposDefaults arg3) {
         this.aJs5_103 = arg2;
-        this.aJs5_103.method7608(32);
+        this.aJs5_103.fileLimit(32);
         this.aWearposDefaults_2 = arg3;
     }
 

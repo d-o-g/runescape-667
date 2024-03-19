@@ -192,7 +192,7 @@ public final class Static651 {
             local24 = local24 + Static693.method9009(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444, arg1.anInt10791) + " (" + local67 + arg1.anInt10791 + ")";
         }
         if (Static156.aBoolean223 && !arg0) {
-            @Pc(113) Class296 local113 = Static610.anInt9329 == -1 ? null : Static386.aClass49_2.method1161(Static610.anInt9329);
+            @Pc(113) ParamType local113 = Static610.anInt9329 == -1 ? null : Static386.aClass49_2.list(Static610.anInt9329);
             if ((Static717.anInt10822 & 0x2) != 0 && (local113 == null || local21.method5995(Static610.anInt9329, local113.anInt7509) != local113.anInt7509)) {
                 Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, Static153.aString27, 23, true, Static369.anInt4263, Static128.aString108 + " -> <col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
@@ -208,7 +208,7 @@ public final class Static651 {
             return;
         }
         for (@Pc(189) int local189 = local176.length - 1; local189 >= 0; local189--) {
-            if (local176[local189] != null && (local21.aByte107 == 0 || !local176[local189].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___23.localise(Static51.anInt1052)) && !local176[local189].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___22.localise(Static51.anInt1052)))) {
+            if (local176[local189] != null && (local21.aByte107 == 0 || !local176[local189].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___23.localise(Static51.anInt1052)) && !local176[local189].equalsIgnoreCase(Static32.EXAMINE.localise(Static51.anInt1052)))) {
                 @Pc(226) short local226 = 0;
                 @Pc(228) int local228 = Static39.anInt950;
                 if (local189 == 0) {
@@ -242,7 +242,7 @@ public final class Static651 {
             return;
         }
         for (@Pc(341) int local341 = 0; local341 < local176.length; local341++) {
-            if (local176[local341] != null && (local176[local341].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___23.localise(Static51.anInt1052)) || local176[local341].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___22.localise(Static51.anInt1052)))) {
+            if (local176[local341] != null && (local176[local341].equalsIgnoreCase(Static32.A_LOCALISED_TEXT___23.localise(Static51.anInt1052)) || local176[local341].equalsIgnoreCase(Static32.EXAMINE.localise(Static51.anInt1052)))) {
                 @Pc(372) short local372 = 0;
                 if (arg1.anInt10791 > Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444) {
                     local372 = 2000;

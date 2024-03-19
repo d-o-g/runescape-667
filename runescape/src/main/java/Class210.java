@@ -21,7 +21,7 @@ public final class Class210 {
     @OriginalMember(owner = "client!kka", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public Class210(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_67 = arg2;
-        this.anInt5473 = this.aJs5_67.method7608(19);
+        this.anInt5473 = this.aJs5_67.fileLimit(19);
     }
 
     @OriginalMember(owner = "client!kka", name = "a", descriptor = "(II)Lclient!paa;")

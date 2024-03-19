@@ -7,6 +7,12 @@ public final class LocalisedText {
 
     @OriginalMember(owner = "client!bba", name = "lb", descriptor = "Lclient!bba;")
     public static final LocalisedText lb;
+    @OriginalMember(owner = "client!bba", name = "T", descriptor = "Lclient!bba;")
+    public static final LocalisedText MEMBERS_OBJECT = new LocalisedText("Members object", "Gegenstand für Mitglieder", "Objet d'abonnés", "Objeto para membros");
+    @OriginalMember(owner = "client!bba", name = "C", descriptor = "Lclient!bba;")
+    public static final LocalisedText TAKE = new LocalisedText("Take", "Nehmen", "Prendre", "Pegar");
+    @OriginalMember(owner = "client!bba", name = "O", descriptor = "Lclient!bba;")
+    public static final LocalisedText DROP = new LocalisedText("Drop", "Fallen lassen", "Poser", "Largar");
 
     @OriginalMember(owner = "client!bba", name = "N", descriptor = "[Ljava/lang/String;")
     public final String[] aStringArray3;

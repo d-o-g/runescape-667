@@ -59,7 +59,7 @@ public final class AnimFrameset extends DoublyLinkedNode {
         @Pc(123) Deque local123 = new Deque();
         @Pc(125) js5 local125 = Static509.aJs5_96;
         synchronized (Static509.aJs5_96) {
-            @Pc(133) int local133 = Static509.aJs5_96.method7608(this.anInt8535);
+            @Pc(133) int local133 = Static509.aJs5_96.fileLimit(this.anInt8535);
             this.frames = new AnimFrame[local133];
             local36 = Static509.aJs5_96.method7603(this.anInt8535);
         }

@@ -25,20 +25,11 @@ public final class Static32 {
     @OriginalMember(owner = "client!bba", name = "t", descriptor = "Lclient!bba;")
     public static final LocalisedText A_LOCALISED_TEXT___4 = new LocalisedText("Cancel", "Abbrechen", "Annuler", "Cancelar");
 
-    @OriginalMember(owner = "client!bba", name = "T", descriptor = "Lclient!bba;")
-    public static final LocalisedText A_LOCALISED_TEXT___5 = new LocalisedText("Members object", "Gegenstand für Mitglieder", "Objet d'abonnés", "Objeto para membros");
-
     @OriginalMember(owner = "client!bba", name = "F", descriptor = "Lclient!bba;")
     public static final LocalisedText A_LOCALISED_TEXT___6 = new LocalisedText("Discard", "Ablegen", "Jeter", "Descartar");
 
     @OriginalMember(owner = "client!bba", name = "r", descriptor = "Lclient!bba;")
     public static final LocalisedText LENT_ITEM_RETURN = new LocalisedText("Discard", "Ablegen", "Jeter", "Descartar");
-
-    @OriginalMember(owner = "client!bba", name = "C", descriptor = "Lclient!bba;")
-    public static final LocalisedText A_LOCALISED_TEXT___8 = new LocalisedText("Take", "Nehmen", "Prendre", "Pegar");
-
-    @OriginalMember(owner = "client!bba", name = "O", descriptor = "Lclient!bba;")
-    public static final LocalisedText A_LOCALISED_TEXT___9 = new LocalisedText("Drop", "Fallen lassen", "Poser", "Largar");
 
     @OriginalMember(owner = "client!bba", name = "V", descriptor = "Lclient!bba;")
     public static final LocalisedText A_LOCALISED_TEXT___10 = new LocalisedText("Continue", "Weiter", "Continuer", "Continuar");
@@ -77,7 +68,7 @@ public final class Static32 {
     public static final LocalisedText A_LOCALISED_TEXT___21 = new LocalisedText("Unable to find ", "Spieler kann nicht gefunden werden: ", "Impossible de trouver ", "Não é possível encontrar ");
 
     @OriginalMember(owner = "client!bba", name = "qb", descriptor = "Lclient!bba;")
-    public static final LocalisedText A_LOCALISED_TEXT___22 = new LocalisedText("Examine", "Untersuchen", "Examiner", "Examinar");
+    public static final LocalisedText EXAMINE = new LocalisedText("Examine", "Untersuchen", "Examiner", "Examinar");
 
     @OriginalMember(owner = "client!bba", name = "U", descriptor = "Lclient!bba;")
     public static final LocalisedText A_LOCALISED_TEXT___23 = new LocalisedText("Attack", "Angreifen", "Attaquer", "Atacar");

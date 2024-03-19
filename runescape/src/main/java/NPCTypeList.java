@@ -47,11 +47,11 @@ public final class NPCTypeList {
         this.anInt8086 = arg1;
         this.aModeGame_6 = arg0;
         if (this.aJs5_101 != null) {
-            @Pc(44) int local44 = this.aJs5_101.method7597() - 1;
-            this.aJs5_101.method7608(local44);
+            @Pc(44) int local44 = this.aJs5_101.groupSize() - 1;
+            this.aJs5_101.fileLimit(local44);
         }
         if (ModeGame.RUNESCAPE == this.aModeGame_6) {
-            this.aStringArray39 = new String[]{null, null, null, null, null, Static32.A_LOCALISED_TEXT___22.localise(this.anInt8086)};
+            this.aStringArray39 = new String[]{null, null, null, null, null, Static32.EXAMINE.localise(this.anInt8086)};
         } else {
             this.aStringArray39 = new String[]{null, null, null, null, null, null};
         }

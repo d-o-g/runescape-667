@@ -22,7 +22,7 @@ public final class Static571 {
         if (Static132.aBooleanArray5[arg0]) {
             return true;
         } else if (Static666.aJs5_118.method7607(arg0)) {
-            @Pc(25) int local25 = Static666.aJs5_118.method7608(arg0);
+            @Pc(25) int local25 = Static666.aJs5_118.fileLimit(arg0);
             if (local25 == 0) {
                 Static132.aBooleanArray5[arg0] = true;
                 return true;

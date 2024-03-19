@@ -232,18 +232,18 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!ge;B)V")
-    public void method8791(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(15) int local15 = arg0.g1();
-            if (local15 == 0) {
+            @Pc(15) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.decode(arg0, local15);
+            this.decode(packet, code);
         }
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(BLclient!vfa;Lclient!vfa;)V")
-    public void method8792(@OriginalArg(1) ObjType arg0, @OriginalArg(2) ObjType arg1) {
+    public void genLent(@OriginalArg(1) ObjType arg0, @OriginalArg(2) ObjType arg1) {
         this.recol_d = arg0.recol_d;
         this.manhead = arg0.manhead;
         this.manhead2 = arg0.manhead2;
@@ -288,7 +288,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!vfa;ILclient!vfa;)V")
-    public void method8793(@OriginalArg(0) ObjType arg0, @OriginalArg(2) ObjType arg1) {
+    public void genCert(@OriginalArg(0) ObjType arg0, @OriginalArg(2) ObjType arg1) {
         this.yof2d = arg0.yof2d;
         this.recol_s = arg0.recol_s;
         this.cost = arg1.cost;
@@ -879,10 +879,10 @@ public final class ObjType {
         if (animator != null) {
             i = initialFunctionMask | animator.functionMask();
         }
-        @Pc(87) ReferenceCache local87 = this.myList.aReferenceCache_58;
+        @Pc(87) ReferenceCache local87 = this.myList.modelCache;
         @Pc(104) Model local104;
-        synchronized (this.myList.aReferenceCache_58) {
-            local104 = (Model) this.myList.aReferenceCache_58.get((long) (this.anInt10134 | toolkit.index << 29));
+        synchronized (this.myList.modelCache) {
+            local104 = (Model) this.myList.modelCache.get((long) (this.anInt10134 | toolkit.index << 29));
         }
         if (local104 == null || toolkit.compareFunctionMasks(local104.ua(), i) != 0) {
             if (local104 != null) {
@@ -940,9 +940,9 @@ public final class ObjType {
                 }
             }
             local104.s(i);
-            @Pc(426) ReferenceCache local426 = this.myList.aReferenceCache_58;
-            synchronized (this.myList.aReferenceCache_58) {
-                this.myList.aReferenceCache_58.put(local104, (long) (this.anInt10134 | toolkit.index << 29));
+            @Pc(426) ReferenceCache local426 = this.myList.modelCache;
+            synchronized (this.myList.modelCache) {
+                this.myList.modelCache.put(local104, (long) (this.anInt10134 | toolkit.index << 29));
             }
         }
         if (animator != null) {
@@ -954,7 +954,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(B)V")
-    public void method8807() {
+    public void postDecode() {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!bs;Z)Z")
@@ -990,7 +990,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!vfa;BLclient!vfa;)V")
-    public void method8809(@OriginalArg(0) ObjType template, @OriginalArg(2) ObjType original) {
+    public void genBought(@OriginalArg(0) ObjType template, @OriginalArg(2) ObjType original) {
         this.cost = 0;
         this.manwear3 = original.manwear3;
         this.stackable = original.stackable;

@@ -22,10 +22,10 @@ public final class Class151 {
         this.aJs5_51 = arg2;
         this.aJs5_50 = arg1;
         if (this.aJs5_50 != null) {
-            this.aJs5_50.method7608(0);
+            this.aJs5_50.fileLimit(0);
         }
         if (this.aJs5_51 != null) {
-            this.aJs5_51.method7608(0);
+            this.aJs5_51.fileLimit(0);
         }
     }
 

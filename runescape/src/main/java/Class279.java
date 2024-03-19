@@ -26,7 +26,7 @@ public final class Class279 {
     @OriginalMember(owner = "client!oka", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public Class279(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_92 = arg2;
-        this.aJs5_92.method7608(1);
+        this.aJs5_92.fileLimit(1);
         @Pc(22) Packet local22 = new Packet(this.aJs5_92.getfile(0, 0));
         @Pc(26) int local26 = local22.g1();
         if (local26 > 3) {

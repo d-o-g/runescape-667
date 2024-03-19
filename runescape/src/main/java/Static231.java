@@ -494,7 +494,7 @@ public final class Static231 {
                 if (arg2.startsWith("cachespace")) {
                     Static79.method1579("I(s): " + Static473.A_WEIGHTED_CACHE___157.remaining() + "/" + Static473.A_WEIGHTED_CACHE___157.capacity());
                     Static79.method1579("I(m): " + Static312.A_WEIGHTED_CACHE___106.remaining() + "/" + Static312.A_WEIGHTED_CACHE___106.capacity());
-                    Static79.method1579("O(s): " + Static419.aObjTypeList_1.aClass16_1.method257() + "/" + Static419.aObjTypeList_1.aClass16_1.method256());
+                    Static79.method1579("O(s): " + Static419.aObjTypeList_1.appearanceSpriteCache.remaining() + "/" + Static419.aObjTypeList_1.appearanceSpriteCache.capacity());
                     return;
                 }
                 if (arg2.equals("renderprofile") || arg2.equals("rp")) {

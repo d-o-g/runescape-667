@@ -25,7 +25,7 @@ public final class Class267 {
     public Class267(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3) {
         this.aJs5_88 = arg3;
         this.aJs5_89 = arg2;
-        this.aJs5_89.method7608(33);
+        this.aJs5_89.fileLimit(33);
     }
 
     @OriginalMember(owner = "client!nv", name = "b", descriptor = "(II)V")

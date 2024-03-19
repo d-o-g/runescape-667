@@ -19,7 +19,7 @@ public final class Class49 {
     public Class49(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_10 = arg2;
         if (this.aJs5_10 != null) {
-            this.aJs5_10.method7608(11);
+            this.aJs5_10.fileLimit(11);
         }
     }
 
@@ -48,11 +48,11 @@ public final class Class49 {
     }
 
     @OriginalMember(owner = "client!bo", name = "a", descriptor = "(II)Lclient!po;")
-    public Class296 method1161(@OriginalArg(0) int arg0) {
+    public ParamType list(@OriginalArg(0) int arg0) {
         @Pc(13) ReferenceCache local13 = this.aReferenceCache_21;
-        @Pc(23) Class296 local23;
+        @Pc(23) ParamType local23;
         synchronized (this.aReferenceCache_21) {
-            local23 = (Class296) this.aReferenceCache_21.get((long) arg0);
+            local23 = (ParamType) this.aReferenceCache_21.get((long) arg0);
         }
         if (local23 != null) {
             return local23;
@@ -62,7 +62,7 @@ public final class Class49 {
         synchronized (this.aJs5_10) {
             local46 = this.aJs5_10.getfile(arg0, 11);
         }
-        local23 = new Class296();
+        local23 = new ParamType();
         if (local46 != null) {
             local23.method6673(new Packet(local46));
         }

@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!po")
-public final class Class296 {
+public final class ParamType {
 
     @OriginalMember(owner = "client!po", name = "c", descriptor = "I")
     public int anInt7509;
@@ -18,7 +18,7 @@ public final class Class296 {
     public String aString89;
 
     @OriginalMember(owner = "client!po", name = "e", descriptor = "Z")
-    public boolean aBoolean570 = true;
+    public boolean autodisable = true;
 
     @OriginalMember(owner = "client!po", name = "b", descriptor = "(B)Z")
     public boolean method6672() {
@@ -43,7 +43,7 @@ public final class Class296 {
         } else if (arg0 == 2) {
             this.anInt7509 = arg1.g4();
         } else if (arg0 == 4) {
-            this.aBoolean570 = false;
+            this.autodisable = false;
         } else if (arg0 == 5) {
             this.aString89 = arg1.gjstr();
         }

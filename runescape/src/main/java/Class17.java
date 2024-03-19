@@ -19,7 +19,7 @@ public final class Class17 {
     public Class17(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_2 = arg2;
         if (this.aJs5_2 != null) {
-            this.aJs5_2.method7608(54);
+            this.aJs5_2.fileLimit(54);
         }
     }
 

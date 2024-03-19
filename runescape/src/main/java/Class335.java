@@ -18,7 +18,7 @@ public final class Class335 {
     @OriginalMember(owner = "client!sfa", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public Class335(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_107 = arg2;
-        this.aJs5_107.method7608(5);
+        this.aJs5_107.fileLimit(5);
     }
 
     @OriginalMember(owner = "client!sfa", name = "a", descriptor = "(II)Lclient!dba;")

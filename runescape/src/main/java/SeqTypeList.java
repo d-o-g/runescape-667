@@ -22,8 +22,8 @@ public final class SeqTypeList {
     public SeqTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
         this.aJs5_11 = arg2;
         if (this.aJs5_11 != null) {
-            @Pc(26) int local26 = this.aJs5_11.method7597() - 1;
-            this.aJs5_11.method7608(local26);
+            @Pc(26) int local26 = this.aJs5_11.groupSize() - 1;
+            this.aJs5_11.fileLimit(local26);
         }
         Static642.method8440(arg4, arg3);
     }

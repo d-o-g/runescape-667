@@ -32,10 +32,10 @@ public final class Class139 {
         this.aJs5_40 = arg1;
         this.aJs5_41 = arg2;
         if (this.aJs5_40 != null) {
-            this.anInt3264 = this.aJs5_40.method7608(1);
+            this.anInt3264 = this.aJs5_40.fileLimit(1);
         }
         if (this.aJs5_41 != null) {
-            this.anInt3261 = this.aJs5_41.method7608(1);
+            this.anInt3261 = this.aJs5_41.fileLimit(1);
         }
     }
 

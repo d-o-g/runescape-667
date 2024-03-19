@@ -25,7 +25,7 @@ public final class Class363 {
     public Class363(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3) {
         this.aJs5_116 = arg3;
         this.aJs5_115 = arg2;
-        this.aJs5_115.method7608(34);
+        this.aJs5_115.fileLimit(34);
     }
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(B)V")

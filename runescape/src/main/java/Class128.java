@@ -28,8 +28,8 @@ public final class Class128 {
     public Class128(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3) {
         this.aJs5_34 = arg3;
         this.aJs5_33 = arg2;
-        @Pc(26) int local26 = this.aJs5_33.method7597() - 1;
-        this.aJs5_33.method7608(local26);
+        @Pc(26) int local26 = this.aJs5_33.groupSize() - 1;
+        this.aJs5_33.fileLimit(local26);
     }
 
     @OriginalMember(owner = "client!fh", name = "a", descriptor = "(II)Lclient!lia;")

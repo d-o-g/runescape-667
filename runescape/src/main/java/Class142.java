@@ -53,11 +53,11 @@ public final class Class142 {
         this.aJs5_43 = arg3;
         this.aBoolean267 = arg2;
         if (this.aJs5_43 != null) {
-            @Pc(53) int local53 = this.aJs5_43.method7597() - 1;
-            this.aJs5_43.method7608(local53);
+            @Pc(53) int local53 = this.aJs5_43.groupSize() - 1;
+            this.aJs5_43.fileLimit(local53);
         }
         if (ModeGame.RUNESCAPE == this.aModeGame_2) {
-            this.aStringArray15 = new String[]{null, null, null, null, null, Static32.A_LOCALISED_TEXT___22.localise(this.anInt3383)};
+            this.aStringArray15 = new String[]{null, null, null, null, null, Static32.EXAMINE.localise(this.anInt3383)};
         } else {
             this.aStringArray15 = new String[]{null, null, null, null, null, null};
         }

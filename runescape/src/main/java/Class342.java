@@ -24,7 +24,7 @@ public final class Class342 {
         if (this.aJs5_111 == null) {
             this.anInt8769 = 0;
         } else {
-            this.anInt8769 = this.aJs5_111.method7608(47);
+            this.anInt8769 = this.aJs5_111.fileLimit(47);
         }
     }
 

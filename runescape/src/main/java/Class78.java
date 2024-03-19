@@ -18,7 +18,7 @@ public final class Class78 {
     @OriginalMember(owner = "client!dg", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public Class78(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_17 = arg2;
-        this.aJs5_17.method7608(30);
+        this.aJs5_17.fileLimit(30);
     }
 
     @OriginalMember(owner = "client!dg", name = "a", descriptor = "(II)Lclient!afa;")

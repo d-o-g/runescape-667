@@ -18,7 +18,7 @@ public final class Class307 {
     @OriginalMember(owner = "client!qk", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public Class307(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_100 = arg2;
-        this.aJs5_100.method7608(29);
+        this.aJs5_100.fileLimit(29);
     }
 
     @OriginalMember(owner = "client!qk", name = "b", descriptor = "(II)V")

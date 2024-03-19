@@ -24,7 +24,7 @@ public final class Class260 {
         if (this.aJs5_86 == null) {
             this.anInt6462 = 0;
         } else {
-            this.anInt6462 = this.aJs5_86.method7608(16);
+            this.anInt6462 = this.aJs5_86.fileLimit(16);
         }
     }
 

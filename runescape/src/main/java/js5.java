@@ -548,7 +548,7 @@ public final class js5 {
     }
 
     @OriginalMember(owner = "client!sb", name = "b", descriptor = "(I)I")
-    public int method7597() {
+    public int groupSize() {
         return this.indexReady() ? this.index.fileLimits.length : -1;
     }
 
@@ -663,7 +663,7 @@ public final class js5 {
     }
 
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(II)I")
-    public int method7608(@OriginalArg(1) int arg0) {
+    public int fileLimit(@OriginalArg(1) int arg0) {
         return this.isValidGroup(arg0) ? this.index.fileLimits[arg0] : 0;
     }
 }

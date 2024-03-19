@@ -18,7 +18,7 @@ public final class Class384 {
     @OriginalMember(owner = "client!vga", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public Class384(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_120 = arg2;
-        this.aJs5_120.method7608(31);
+        this.aJs5_120.fileLimit(31);
     }
 
     @OriginalMember(owner = "client!vga", name = "b", descriptor = "(I)V")

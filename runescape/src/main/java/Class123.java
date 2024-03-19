@@ -81,9 +81,9 @@ public final class Class123 {
 
     @OriginalMember(owner = "client!fca", name = "a", descriptor = "(Z[II)Lclient!sq;")
     public Node_Sub49_Sub1 method2614(@OriginalArg(1) int[] arg0, @OriginalArg(2) int arg1) {
-        if (this.aJs5_32.method7597() == 1) {
+        if (this.aJs5_32.groupSize() == 1) {
             return this.method2612(arg1, 0, arg0);
-        } else if (this.aJs5_32.method7608(arg1) == 1) {
+        } else if (this.aJs5_32.fileLimit(arg1) == 1) {
             return this.method2612(0, arg1, arg0);
         } else {
             throw new RuntimeException();
@@ -92,9 +92,9 @@ public final class Class123 {
 
     @OriginalMember(owner = "client!fca", name = "a", descriptor = "([IBI)Lclient!sq;")
     public Node_Sub49_Sub1 method2615(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1) {
-        if (this.aJs5_31.method7597() == 1) {
+        if (this.aJs5_31.groupSize() == 1) {
             return this.method2613(arg0, 0, arg1);
-        } else if (this.aJs5_31.method7608(arg1) == 1) {
+        } else if (this.aJs5_31.fileLimit(arg1) == 1) {
             return this.method2613(arg0, arg1, 0);
         } else {
             throw new RuntimeException();

@@ -19,8 +19,8 @@ public final class Class387 {
     public Class387(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_122 = arg2;
         if (this.aJs5_122 != null) {
-            @Pc(20) int local20 = this.aJs5_122.method7597() - 1;
-            this.aJs5_122.method7608(local20);
+            @Pc(20) int local20 = this.aJs5_122.groupSize() - 1;
+            this.aJs5_122.fileLimit(local20);
         }
     }
 

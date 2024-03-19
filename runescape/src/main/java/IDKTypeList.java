@@ -22,7 +22,7 @@ public final class IDKTypeList {
     public IDKTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3) {
         this.aJs5_72 = arg3;
         this.aJs5_71 = arg2;
-        this.aJs5_71.method7608(3);
+        this.aJs5_71.fileLimit(3);
     }
 
     @OriginalMember(owner = "client!kr", name = "d", descriptor = "(I)V")

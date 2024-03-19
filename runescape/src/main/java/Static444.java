@@ -23,8 +23,8 @@ public final class Static444 {
         Static262.aJs5_56 = arg2;
         Static666.aJs5_118 = arg0;
         Static607.aJs5_113 = arg3;
-        Static453.aClass158ArrayArray2 = new Class158[Static666.aJs5_118.method7597()][];
-        Static132.aBooleanArray5 = new boolean[Static666.aJs5_118.method7597()];
+        Static453.aClass158ArrayArray2 = new Class158[Static666.aJs5_118.groupSize()][];
+        Static132.aBooleanArray5 = new boolean[Static666.aJs5_118.groupSize()];
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(B)V")

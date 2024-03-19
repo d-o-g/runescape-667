@@ -26,7 +26,7 @@ public final class MeshMagnetTypeList {
             return type;
         }
 
-        @Pc(21) byte[] data = js5.PARTICLES.getfile(id, 1);
+        @Pc(21) byte[] data = js5.MAGNETS.getfile(id, 1);
         type = new MeshMagnetType();
         type.id = id;
         if (data != null) {
@@ -35,7 +35,7 @@ public final class MeshMagnetTypeList {
         type.postDecode();
 
         if (type.visibility == 2 && table.get(id) == null) {
-            table.put((long) id, new IntNode(ptr));
+            table.put(id, new IntNode(ptr));
             types[ptr++] = type;
         }
 

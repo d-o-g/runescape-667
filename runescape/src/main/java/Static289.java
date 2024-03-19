@@ -1,4 +1,3 @@
-import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,9 +6,6 @@ public final class Static289 {
 
     @OriginalMember(owner = "client!jba", name = "b", descriptor = "F")
     public static float aFloat84;
-
-    @OriginalMember(owner = "client!jba", name = "d", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___100 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!jba", name = "a", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_19 = new Class155(1);

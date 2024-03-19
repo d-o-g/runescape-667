@@ -11,7 +11,7 @@ public final class Static703 {
 
     @OriginalMember(owner = "client!we", name = "a", descriptor = "(ZLclient!sb;)V")
     public static void method9169(@OriginalArg(1) js5 arg0) {
-        Static409.aJs5_85 = arg0;
+        js5.EMITTERS = arg0;
     }
 
     @OriginalMember(owner = "client!we", name = "a", descriptor = "(Lclient!aea;I)V")

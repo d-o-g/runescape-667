@@ -15,7 +15,10 @@ public final class js5 {
     public static final boolean REPORT_INVALID_IDS = false;
 
     @OriginalMember(owner = "client!jq", name = "g", descriptor = "Lclient!sb;")
-    public static js5 PARTICLES;
+    public static js5 MAGNETS;
+
+    @OriginalMember(owner = "client!mt", name = "O", descriptor = "Lclient!sb;")
+    public static js5 EMITTERS;
 
     @OriginalMember(owner = "client!kka", name = "c", descriptor = "Lclient!sb;")
     public static js5 DEFAULTS; // 28

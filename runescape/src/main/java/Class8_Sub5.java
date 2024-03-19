@@ -218,7 +218,7 @@ public final class Class8_Sub5 extends Class8 {
         @Pc(36) Class8_Sub8 local36;
         if (this.aBoolean326) {
             for (local36 = (Class8_Sub8) this.aClass130_6.method2790(); local36 != null; local36 = (Class8_Sub8) this.aClass130_6.method2785()) {
-                for (@Pc(39) int local39 = 0; local39 < local36.aClass379_1.anInt9882; local39++) {
+                for (@Pc(39) int local39 = 0; local39 < local36.aMeshEmitterType_1.startupTicks; local39++) {
                     local36.method7261(1, !this.aBoolean323, arg1, arg0);
                 }
             }

@@ -1,5 +1,4 @@
 import com.jagex.collect.ref.ReferenceCache;
-import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -33,19 +32,4 @@ public final class Static444 {
         local13.method205();
     }
 
-    @OriginalMember(owner = "client!o", name = "a", descriptor = "(BI)Lclient!vaa;")
-    public static Class379 method5994(@OriginalArg(1) int arg0) {
-        @Pc(10) Class379 local10 = (Class379) Static289.A_WEIGHTED_CACHE___100.get((long) arg0);
-        if (local10 != null) {
-            return local10;
-        }
-        @Pc(21) byte[] local21 = Static409.aJs5_85.getfile(arg0, 0);
-        local10 = new Class379();
-        if (local21 != null) {
-            local10.method8656(new Packet(local21));
-        }
-        local10.method8654();
-        Static289.A_WEIGHTED_CACHE___100.put(local10, (long) arg0);
-        return local10;
-    }
 }

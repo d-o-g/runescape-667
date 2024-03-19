@@ -76,8 +76,8 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         @Pc(22) int local22 = super.anInt7534 >> 12;
         @Pc(27) int local27 = super.anInt7536 >> 12;
         @Pc(31) Class8_Sub5 local31 = this.aClass8_Sub8_1.aClass8_Sub5_6;
-        @Pc(35) Class379 local35 = this.aClass8_Sub8_1.aClass379_1;
-        if (local35.anInt9919 != 0) {
+        @Pc(35) MeshEmitterType local35 = this.aClass8_Sub8_1.aMeshEmitterType_1;
+        if (local35.fadeColour != 0) {
             @Pc(65) int local65;
             if (this.aShort93 - this.aShort96 <= local35.anInt9901) {
                 local65 = (super.anInt7539 >> 8 & 0xFF00) + (this.anInt7541 >> 16 & 0xFF) + local35.anInt9931 * arg1;
@@ -116,10 +116,10 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                 this.anInt7541 |= (local65 & 0xFF) << 24;
             }
         }
-        if (local35.anInt9923 != -1 && this.aShort93 - this.aShort96 <= local35.lb) {
+        if (local35.endSpeed != -1 && this.aShort93 - this.aShort96 <= local35.lb) {
             this.anInt7542 += local35.anInt9889 * arg1;
         }
-        if (local35.anInt9928 != -1 && this.aShort93 - this.aShort96 <= local35.anInt9909) {
+        if (local35.endSize != -1 && this.aShort93 - this.aShort96 <= local35.anInt9909) {
             super.anInt7535 += local35.anInt9910 * arg1;
         }
         @Pc(296) double local296 = (double) this.aShort92;
@@ -131,30 +131,30 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         @Pc(331) int local331;
         @Pc(348) int local348;
         @Pc(356) long local356;
-        if (local35.anInt9897 == 1) {
+        if (local35.decelerationType == 1) {
             local317 = local17 - this.aClass8_Sub8_1.aClass177_1.anInt4271;
             local324 = local22 - this.aClass8_Sub8_1.aClass177_1.anInt4278;
             local331 = local27 - this.aClass8_Sub8_1.aClass177_1.anInt4273;
             local348 = (int) Math.sqrt((double) (local317 * local317 + local324 * local324 + local331 * local331)) >> 2;
-            local356 = (long) (local35.anInt9915 * local348 * arg1);
+            local356 = (long) (local35.decelerationRate * local348 * arg1);
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 18));
-        } else if (local35.anInt9897 == 2) {
+        } else if (local35.decelerationType == 2) {
             local317 = local17 - this.aClass8_Sub8_1.aClass177_1.anInt4271;
             local324 = local22 - this.aClass8_Sub8_1.aClass177_1.anInt4278;
             local331 = local27 - this.aClass8_Sub8_1.aClass177_1.anInt4273;
             local348 = local317 * local317 + local324 * local324 + local331 * local331;
-            local356 = (long) (local35.anInt9915 * local348 * arg1);
+            local356 = (long) (local35.decelerationRate * local348 * arg1);
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 28));
         }
-        if (local35.anIntArray775 != null) {
+        if (local35.localMagnets != null) {
             @Pc(437) Node local437 = local31.aDeque_22.tail;
             for (@Pc(440) Node local440 = local437.next; local440 != local437; local440 = local440.next) {
                 @Pc(444) DoublyLinkedNode_Sub2_Sub5 local444 = (DoublyLinkedNode_Sub2_Sub5) local440;
                 @Pc(447) MeshMagnetType local447 = local444.aMeshMagnetType_1;
                 if (local447.visibility != 1) {
                     @Pc(453) boolean local453 = false;
-                    for (@Pc(455) int local455 = 0; local455 < local35.anIntArray775.length; local455++) {
-                        if (local35.anIntArray775[local455] == local447.id) {
+                    for (@Pc(455) int local455 = 0; local455 < local35.localMagnets.length; local455++) {
+                        if (local35.localMagnets[local455] == local447.id) {
                             local453 = true;
                             break;
                         }
@@ -207,9 +207,9 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                 }
             }
         }
-        if (local35.anIntArray776 != null) {
-            for (local317 = 0; local317 < local35.anIntArray776.length; local317++) {
-                @Pc(776) DoublyLinkedNode_Sub2_Sub5 local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3095((long) local35.anIntArray776[local317]);
+        if (local35.generalMagnets != null) {
+            for (local317 = 0; local317 < local35.generalMagnets.length; local317++) {
+                @Pc(776) DoublyLinkedNode_Sub2_Sub5 local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3095((long) local35.generalMagnets[local317]);
                 while (local776 != null) {
                     @Pc(780) MeshMagnetType local780 = local776.aMeshMagnetType_1;
                     @Pc(786) double local786 = (double) (local17 - local776.anInt1827);
@@ -263,12 +263,12 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                 }
             }
         }
-        if (local35.anIntArray777 != null) {
+        if (local35.globalMagnets != null) {
             if (local35.anIntArray774 == null) {
-                local35.anIntArray774 = new int[local35.anIntArray777.length];
-                for (local317 = 0; local317 < local35.anIntArray777.length; local317++) {
-                    MeshMagnetTypeList.get(local35.anIntArray777[local317]);
-                    local35.anIntArray774[local317] = ((IntNode) MeshMagnetTypeList.table.get((long) local35.anIntArray777[local317])).value;
+                local35.anIntArray774 = new int[local35.globalMagnets.length];
+                for (local317 = 0; local317 < local35.globalMagnets.length; local317++) {
+                    MeshMagnetTypeList.get(local35.globalMagnets[local317]);
+                    local35.anIntArray774[local317] = ((IntNode) MeshMagnetTypeList.table.get((long) local35.globalMagnets[local317])).value;
                 }
             }
             for (local317 = 0; local317 < local35.anIntArray774.length; local317++) {
@@ -314,7 +314,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
             return;
         }
         @Pc(40) Class8_Sub5 local40 = this.aClass8_Sub8_1.aClass8_Sub5_6;
-        @Pc(44) Class379 local44 = this.aClass8_Sub8_1.aClass379_1;
+        @Pc(44) MeshEmitterType local44 = this.aClass8_Sub8_1.aMeshEmitterType_1;
         @Pc(46) Ground[] local46 = Static246.aGroundArray1;
         @Pc(49) int local49 = local40.anInt4149;
         @Pc(58) Class291 local58 = Static334.aClass291ArrayArrayArray1[local40.anInt4149][local6][local13];
@@ -329,19 +329,19 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
             local86 = local71 - (0x8 << Static52.anInt1066);
         }
         if (local44.aBoolean764) {
-            if (local44.anInt9917 == -1 && local18 > local71) {
+            if (local44.minHeightLevel == -1 && local18 > local71) {
                 this.method6697();
                 return;
             }
-            if (local44.anInt9917 >= 0 && local18 > local46[local44.anInt9917].method7869(local13, local6)) {
+            if (local44.minHeightLevel >= 0 && local18 > local46[local44.minHeightLevel].method7869(local13, local6)) {
                 this.method6697();
                 return;
             }
-            if (local44.anInt9892 == -1 && local18 < local86) {
+            if (local44.maxHeightLevel == -1 && local18 < local86) {
                 this.method6697();
                 return;
             }
-            if (local44.anInt9892 >= 0 && local18 < local46[local44.anInt9892 + 1].method7869(local13, local6)) {
+            if (local44.maxHeightLevel >= 0 && local18 < local46[local44.maxHeightLevel + 1].method7869(local13, local6)) {
                 this.method6697();
                 return;
             }
@@ -349,7 +349,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         @Pc(154) int local154;
         for (local154 = Static299.anInt4824 - 1; local154 > 0 && local18 > local46[local154].method7869(local13, local6); local154--) {
         }
-        if (local44.aBoolean756 && local154 == 0 && local18 > local46[0].method7869(local13, local6)) {
+        if (local44.collidesWithGround && local154 == 0 && local18 > local46[0].method7869(local13, local6)) {
             this.method6697();
         } else if (local154 == Static299.anInt4824 - 1 && local46[local154].method7869(local13, local6) - local18 > 0x8 << Static52.anInt1066) {
             this.method6697();
@@ -374,7 +374,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                     }
                 }
             }
-            if (local44.aBoolean757) {
+            if (local44.collidesWithLocations) {
                 @Pc(304) int local304 = super.anInt7537 >> 12;
                 local261 = super.anInt7536 >> 12;
                 @Pc(318) Class205 local318;

@@ -20,6 +20,6 @@ public final class Static514 {
 
     @OriginalMember(owner = "client!qca", name = "a", descriptor = "(ZLclient!sb;)V")
     public static void method6792(@OriginalArg(1) js5 arg0) {
-        js5.PARTICLES = arg0;
+        js5.MAGNETS = arg0;
     }
 }

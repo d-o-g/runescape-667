@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.emittertype.MeshEmitterType;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

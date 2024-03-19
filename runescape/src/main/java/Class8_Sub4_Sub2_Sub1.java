@@ -1,4 +1,6 @@
 import com.jagex.collect.Node;
+import com.jagex.game.runetek6.config.emittertype.MeshEmitterType;
+import com.jagex.game.runetek6.config.magnettype.MeshMagnetType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.emittertype;
+
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

@@ -1,6 +1,7 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.magnettype.MeshMagnetType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

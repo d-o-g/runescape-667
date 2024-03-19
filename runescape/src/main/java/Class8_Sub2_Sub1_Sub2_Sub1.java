@@ -410,9 +410,9 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method1420(@OriginalArg(0) Packet arg0) {
-        arg0.pos = 0;
-        @Pc(12) int local12 = arg0.g1();
+    public void method1420(@OriginalArg(0) Packet packet) {
+        packet.pos = 0;
+        @Pc(12) int local12 = packet.g1();
         this.aByte32 = (byte) (local12 & 0x1);
         @Pc(21) boolean local21 = this.aBoolean126;
         this.aBoolean126 = (local12 & 0x2) != 0;
@@ -422,10 +422,10 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         this.aByte31 = (byte) (local12 >> 6 & 0x3);
         super.anInt10690 += this.method9302((byte) 44) - local44 << 8;
         super.anInt10694 += this.method9302((byte) 111) - local44 << 8;
-        this.aByte33 = arg0.g1b();
-        this.anInt1430 = arg0.g1b();
-        this.anInt1431 = arg0.g1b();
-        this.aBoolean124 = arg0.g1b() == 1;
+        this.aByte33 = packet.g1b();
+        this.anInt1430 = packet.g1b();
+        this.anInt1431 = packet.g1b();
+        this.aBoolean124 = packet.g1b() == 1;
         if (Static446.aClass355_5 == Static2.aClass355_1 && Static608.anInt9290 >= 2) {
             this.aBoolean124 = false;
         }
@@ -440,15 +440,15 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(240) int local240;
         for (@Pc(151) int local151 = 0; local151 < Static125.aWearposDefaults_1.anIntArray821.length; local151++) {
             if (Static125.aWearposDefaults_1.anIntArray821[local151] != 1) {
-                local165 = arg0.g1();
+                local165 = packet.g1();
                 if (local165 == 0) {
                     local139[local151] = 0;
                 } else {
-                    local184 = arg0.g1();
+                    local184 = packet.g1();
                     local191 = (local165 << 8) + local184;
                     if (local151 == 0 && local191 == 65535) {
-                        local134 = arg0.g2();
-                        this.anInt1433 = arg0.g1();
+                        local134 = packet.g2();
+                        this.anInt1433 = packet.g1();
                         break;
                     }
                     if (local191 >= 32768) {
@@ -466,12 +466,12 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             }
         }
         if (local134 == -1) {
-            local165 = arg0.g2();
+            local165 = packet.g2();
             local184 = 0;
             for (local191 = 0; local191 < Static125.aWearposDefaults_1.anIntArray821.length; local191++) {
                 if (Static125.aWearposDefaults_1.anIntArray821[local191] == 0) {
                     if ((local165 & 0x1 << local184) != 0) {
-                        local144[local191] = Static595.method7811(arg0, local149[local191]);
+                        local144[local191] = ObjTypeCustomisation.decode(packet, local149[local191]);
                     }
                     local184++;
                 }
@@ -479,21 +479,21 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         }
         @Pc(332) int[] local332 = new int[10];
         for (local184 = 0; local184 < 10; local184++) {
-            local191 = arg0.g1();
+            local191 = packet.g1();
             if (local184 >= PlayerModel.bodycol_d.length || local191 < 0 || PlayerModel.bodycol_d[local184][0].length <= local191) {
                 local191 = 0;
             }
             local332[local184] = local191;
         }
-        this.anInt1443 = arg0.g2();
-        this.aString8 = arg0.gjstr();
+        this.anInt1443 = packet.g2();
+        this.aString8 = packet.gjstr();
         if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this) {
             Static515.playerDisplayName = this.aString8;
         }
         this.aString9 = this.aString8;
-        this.anInt1444 = arg0.g1();
+        this.anInt1444 = packet.g1();
         if (local40) {
-            this.anInt1436 = arg0.g2();
+            this.anInt1436 = packet.g2();
             this.anInt1437 = this.anInt1444;
             if (this.anInt1436 == 65535) {
                 this.anInt1436 = -1;
@@ -501,14 +501,14 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             this.anInt1471 = -1;
         } else {
             this.anInt1436 = 0;
-            this.anInt1437 = arg0.g1();
-            this.anInt1471 = arg0.g1();
+            this.anInt1437 = packet.g1();
+            this.anInt1471 = packet.g1();
             if (this.anInt1471 == 255) {
                 this.anInt1471 = -1;
             }
         }
         local191 = this.anInt1452;
-        this.anInt1452 = arg0.g1();
+        this.anInt1452 = packet.g1();
         @Pc(490) int local490;
         if (this.anInt1452 == 0) {
             Static76.method1552(this);
@@ -518,11 +518,11 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             local490 = this.anInt1445;
             @Pc(493) int local493 = this.anInt1469;
             @Pc(496) int local496 = this.anInt1460;
-            this.anInt1455 = arg0.g2();
-            this.anInt1459 = arg0.g2();
-            this.anInt1445 = arg0.g2();
-            this.anInt1469 = arg0.g2();
-            this.anInt1460 = arg0.g1();
+            this.anInt1455 = packet.g2();
+            this.anInt1459 = packet.g2();
+            this.anInt1445 = packet.g2();
+            this.anInt1469 = packet.g2();
+            this.anInt1460 = packet.g1();
             if (this.aBoolean126 != local21 || this.anInt1452 != local191 || local240 != this.anInt1455 || local487 != this.anInt1459 || this.anInt1445 != local490 || this.anInt1469 != local493 || local496 != this.anInt1460) {
                 Static247.method3523(this);
             }

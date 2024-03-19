@@ -1,4 +1,3 @@
-import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -146,55 +145,4 @@ public final class Static595 {
         }
     }
 
-    @OriginalMember(owner = "client!so", name = "a", descriptor = "(Lclient!ge;Lclient!vfa;I)Lclient!bs;")
-    public static ObjTypeCustomisation method7811(@OriginalArg(0) Packet arg0, @OriginalArg(1) ObjType arg1) {
-        @Pc(10) ObjTypeCustomisation local10 = new ObjTypeCustomisation(arg1);
-        @Pc(14) int local14 = arg0.g1();
-        @Pc(23) boolean local23 = (local14 & 0x1) != 0;
-        @Pc(35) boolean local35 = (local14 & 0x2) != 0;
-        @Pc(47) boolean local47 = (local14 & 0x4) != 0;
-        @Pc(57) boolean local57 = (local14 & 0x8) != 0;
-        if (local23) {
-            local10.manwear[0] = arg0.gSmart2or4null();
-            local10.womanwear[0] = arg0.gSmart2or4null();
-            if (arg1.womanwear != -1 || arg1.womanwear2 != -1) {
-                local10.manwear[1] = arg0.gSmart2or4null();
-                local10.womanwear[1] = arg0.gSmart2or4null();
-            }
-            if (arg1.manwear3 != -1 || arg1.womanwear3 != -1) {
-                local10.manwear[2] = arg0.gSmart2or4null();
-                local10.womanwear[2] = arg0.gSmart2or4null();
-            }
-        }
-        if (local35) {
-            local10.manhead[0] = arg0.gSmart2or4null();
-            local10.womanhead[0] = arg0.gSmart2or4null();
-            if (arg1.manhead2 != -1 || arg1.womanhead2 != -1) {
-                local10.manhead[1] = arg0.gSmart2or4null();
-                local10.womanhead[1] = arg0.gSmart2or4null();
-            }
-        }
-        @Pc(178) int local178;
-        @Pc(181) int[] local181;
-        @Pc(213) int local213;
-        if (local47) {
-            local178 = arg0.g2();
-            local181 = new int[]{local178 & 0xF, local178 >> 4 & 0xF, local178 >> 8 & 0xF, local178 >> 12 & 0xF};
-            for (local213 = 0; local213 < 4; local213++) {
-                if (local181[local213] != 15) {
-                    local10.recol_d[local181[local213]] = (short) arg0.g2();
-                }
-            }
-        }
-        if (local57) {
-            local178 = arg0.g1();
-            local181 = new int[]{local178 & 0xF, local178 >> 4 & 0xF};
-            for (local213 = 0; local213 < 2; local213++) {
-                if (local181[local213] != 15) {
-                    local10.retex_d[local181[local213]] = (short) arg0.g2();
-                }
-            }
-        }
-        return local10;
-    }
 }

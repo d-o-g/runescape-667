@@ -1,6 +1,6 @@
 import com.jagex.collect.Node;
-import com.jagex.collect.ref.key.KeyedReferenceCache;
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.collect.ref.key.KeyedReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class ObjTypeList {
 
     @OriginalMember(owner = "client!es", name = "p", descriptor = "I")
-    public int anInt2673;
+    public int featureMask;
 
     @OriginalMember(owner = "client!es", name = "o", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(64);
@@ -21,7 +21,7 @@ public final class ObjTypeList {
     public final ReferenceCache modelCache = new ReferenceCache(50);
 
     @OriginalMember(owner = "client!es", name = "f", descriptor = "Lclient!aka;")
-    public final KeyedReferenceCache appearanceSpriteCache = new KeyedReferenceCache(250);
+    public final KeyedReferenceCache spriteCache = new KeyedReferenceCache(250);
 
     @OriginalMember(owner = "client!es", name = "j", descriptor = "Lclient!rla;")
     public final SpriteCacheKey spriteCacheKey = new SpriteCacheKey();
@@ -36,7 +36,7 @@ public final class ObjTypeList {
     public final js5 meshes;
 
     @OriginalMember(owner = "client!es", name = "q", descriptor = "Lclient!bo;")
-    public final Class49 paramsTL;
+    public final ParamTypeList paramsTL;
 
     @OriginalMember(owner = "client!es", name = "x", descriptor = "Lclient!sb;")
     public final js5 configClient;
@@ -54,7 +54,7 @@ public final class ObjTypeList {
     public final String[] defaultIops;
 
     @OriginalMember(owner = "client!es", name = "<init>", descriptor = "(Lclient!ul;IZLclient!bo;Lclient!sb;Lclient!sb;)V")
-    public ObjTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) boolean allowMembers, @OriginalArg(3) Class49 paramsTL, @OriginalArg(4) js5 configClient, @OriginalArg(5) js5 meshes) {
+    public ObjTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) boolean allowMembers, @OriginalArg(3) ParamTypeList paramsTL, @OriginalArg(4) js5 configClient, @OriginalArg(5) js5 meshes) {
         this.languageId = languageId;
         this.game = game;
         this.meshes = meshes;
@@ -90,16 +90,16 @@ public final class ObjTypeList {
         }
 
         this.defaultIops = new String[]{
-            null,
-            null,
-            null,
-            null,
-            LocalisedText.DROP.localise(this.languageId)
+            /* 0 */ null,
+            /* 1 */ null,
+            /* 2 */ null,
+            /* 3 */ null,
+            /* 4 */ LocalisedText.DROP.localise(this.languageId)
         };
     }
 
     @OriginalMember(owner = "client!gu", name = "b", descriptor = "(ZI)I")
-    public static int and(@OriginalArg(1) int arg0) {
+    public static int and0xff(@OriginalArg(1) int arg0) {
         return arg0 & 0xFF;
     }
 
@@ -120,9 +120,9 @@ public final class ObjTypeList {
             this.modelCache.reset();
         }
 
-        @Pc(44) KeyedReferenceCache local44 = this.appearanceSpriteCache;
-        synchronized (this.appearanceSpriteCache) {
-            this.appearanceSpriteCache.reset();
+        @Pc(44) KeyedReferenceCache local44 = this.spriteCache;
+        synchronized (this.spriteCache) {
+            this.spriteCache.reset();
         }
     }
 
@@ -160,15 +160,15 @@ public final class ObjTypeList {
         }
 
         if (!temporary) {
-            @Pc(136) SpriteCacheKey hashableSprite = new SpriteCacheKey();
-            hashableSprite.objNumMode = objNumMode;
-            hashableSprite.useAppearance = useAppearance != null;
-            hashableSprite.toolkitIndex = realToolkit.index;
-            hashableSprite.invCount = invCount;
-            hashableSprite.outline = outline;
-            hashableSprite.objId = objId;
-            hashableSprite.graphicShadow = graphicShadow;
-            this.appearanceSpriteCache.put(sprite, hashableSprite);
+            @Pc(136) SpriteCacheKey cacheKey = new SpriteCacheKey();
+            cacheKey.objNumMode = objNumMode;
+            cacheKey.useAppearance = useAppearance != null;
+            cacheKey.toolkitIndex = realToolkit.index;
+            cacheKey.invCount = invCount;
+            cacheKey.outline = outline;
+            cacheKey.objId = objId;
+            cacheKey.graphicShadow = graphicShadow;
+            this.spriteCache.put(sprite, cacheKey);
         }
 
         return sprite;
@@ -180,13 +180,15 @@ public final class ObjTypeList {
         synchronized (this.recentUse) {
             this.recentUse.clean(maxAge);
         }
+
         local14 = this.modelCache;
         synchronized (this.modelCache) {
             this.modelCache.clean(maxAge);
         }
-        @Pc(48) KeyedReferenceCache local48 = this.appearanceSpriteCache;
-        synchronized (this.appearanceSpriteCache) {
-            this.appearanceSpriteCache.clean(maxAge);
+
+        @Pc(48) KeyedReferenceCache local48 = this.spriteCache;
+        synchronized (this.spriteCache) {
+            this.spriteCache.clean(maxAge);
         }
     }
 
@@ -196,19 +198,22 @@ public final class ObjTypeList {
         synchronized (this.recentUse) {
             this.recentUse.removeSoftReferences();
         }
+
         local6 = this.modelCache;
         synchronized (this.modelCache) {
             this.modelCache.removeSoftReferences();
         }
-        @Pc(44) KeyedReferenceCache local44 = this.appearanceSpriteCache;
-        synchronized (this.appearanceSpriteCache) {
-            this.appearanceSpriteCache.removeSoftReferences();
+
+        @Pc(44) KeyedReferenceCache local44 = this.spriteCache;
+        synchronized (this.spriteCache) {
+            this.spriteCache.removeSoftReferences();
         }
     }
 
     @OriginalMember(owner = "client!es", name = "b", descriptor = "(II)V")
-    public void setFeatureMask(@OriginalArg(0) int arg0) {
-        this.anInt2673 = arg0;
+    public void setFeatureMask(@OriginalArg(0) int featureMask) {
+        this.featureMask = featureMask;
+
         @Pc(17) ReferenceCache local17 = this.modelCache;
         synchronized (this.modelCache) {
             this.modelCache.reset();
@@ -216,7 +221,7 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(I)V")
-    public void method2482() {
+    public void modelCacheReset() {
         @Pc(2) ReferenceCache local2 = this.modelCache;
         synchronized (this.modelCache) {
             this.modelCache.reset();
@@ -232,21 +237,21 @@ public final class ObjTypeList {
         this.spriteCacheKey.useAppearance = playerModel != null;
         this.spriteCacheKey.outline = outline;
         this.spriteCacheKey.objId = objId;
-        return (Sprite) this.appearanceSpriteCache.get(this.spriteCacheKey);
+        return (Sprite) this.spriteCache.get(this.spriteCacheKey);
     }
 
     @OriginalMember(owner = "client!es", name = "c", descriptor = "(I)V")
-    public void method2484() {
-        @Pc(6) KeyedReferenceCache local6 = this.appearanceSpriteCache;
-        synchronized (this.appearanceSpriteCache) {
-            this.appearanceSpriteCache.reset();
+    public void spriteCacheReset() {
+        @Pc(6) KeyedReferenceCache local6 = this.spriteCache;
+        synchronized (this.spriteCache) {
+            this.spriteCache.reset();
         }
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(BZ)V")
-    public void setAllowMembers(@OriginalArg(1) boolean arg0) {
-        if (this.allowMembers != arg0) {
-            this.allowMembers = arg0;
+    public void setAllowMembers(@OriginalArg(1) boolean allowMembers) {
+        if (this.allowMembers != allowMembers) {
+            this.allowMembers = allowMembers;
             this.cacheReset();
         }
     }
@@ -266,11 +271,11 @@ public final class ObjTypeList {
         @Pc(40) js5 local40 = this.configClient;
         @Pc(53) byte[] data;
         synchronized (this.configClient) {
-            data = this.configClient.getfile(and(id), shr8(id));
+            data = this.configClient.getfile(and0xff(id), shr8(id));
         }
 
         type = new ObjType();
-        type.anInt10134 = id;
+        type.myid = id;
         type.myList = this;
         type.op = this.defaultOps.clone();
         type.iop = this.defaultIops.clone();
@@ -291,7 +296,6 @@ public final class ObjTypeList {
         if (type.boughttemplate != -1) {
             type.genBought(this.list(type.boughttemplate), this.list(type.boughtlink));
         }
-
 
         if (!this.allowMembers && type.members) {
             type.name = LocalisedText.MEMBERS_OBJECT.localise(this.languageId);

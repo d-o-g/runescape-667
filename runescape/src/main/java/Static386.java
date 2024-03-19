@@ -10,9 +10,6 @@ public final class Static386 {
     @OriginalMember(owner = "client!mba", name = "E", descriptor = "Lclient!sb;")
     public static js5 aJs5_80;
 
-    @OriginalMember(owner = "client!mba", name = "F", descriptor = "Lclient!bo;")
-    public static Class49 aClass49_2;
-
     @OriginalMember(owner = "client!mba", name = "a", descriptor = "(II)Z")
     public static boolean method5436(@OriginalArg(0) int arg0) {
         return arg0 == 0 || arg0 == 2;

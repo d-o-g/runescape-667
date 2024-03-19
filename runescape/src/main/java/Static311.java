@@ -45,14 +45,14 @@ public final class Static311 {
         @Pc(14) int local14 = -1;
         @Pc(16) String local16 = null;
         if (arg3 != -1) {
-            @Pc(25) ParamType local25 = Static386.aClass49_2.list(arg3);
-            if (local25 == null || local25.method6672() != arg0) {
+            @Pc(25) ParamType local25 = ParamTypeList.instance.list(arg3);
+            if (local25 == null || local25.isString() != arg0) {
                 return;
             }
-            if (local25.method6672()) {
-                local16 = local25.aString89;
+            if (local25.isString()) {
+                local16 = local25.defaultstr;
             } else {
-                local14 = local25.anInt7509;
+                local14 = local25.defaultint;
             }
         }
         @Pc(54) int local54 = 0;

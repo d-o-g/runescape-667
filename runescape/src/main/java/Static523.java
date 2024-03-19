@@ -222,7 +222,7 @@ public final class Static523 {
                 return 99;
             }
             Static56.anTextureSource_3 = new Class303(Static199.aJs5_42, Static534.aJs5_104, Static721.aJs5_128);
-            Static386.aClass49_2 = new Class49(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
+            ParamTypeList.instance = new ParamTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static574.aBASTypeList_2 = new BASTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static125.aWearposDefaults_1);
             Static354.aClass267_1 = new Class267(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
             Static619.aClass387_2 = new Class387(Static392.aModeGame_4, Static51.anInt1052, Static20.aJs5_3);
@@ -236,7 +236,7 @@ public final class Static523 {
             Static577.aClass246_4 = new Class246(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
             Static720.aClass363_4 = new Class363(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
             Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aModeGame_4, Static51.anInt1052, true, Static333.aJs5_66, Static190.aJs5_38);
-            Static419.aObjTypeList_1 = new ObjTypeList(Static392.aModeGame_4, Static51.anInt1052, true, Static386.aClass49_2, Static380.aJs5_79, Static190.aJs5_38);
+            Static419.aObjTypeList_1 = new ObjTypeList(Static392.aModeGame_4, Static51.anInt1052, true, ParamTypeList.instance, Static380.aJs5_79, Static190.aJs5_38);
             Static272.aClass45_1 = new Class45(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static25.aSeqTypeList_1 = new SeqTypeList(Static392.aModeGame_4, Static51.anInt1052, Static668.aJs5_119, Static344.aJs5_73, Static142.aJs5_25);
             Static324.aClass307_1 = new Class307(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);

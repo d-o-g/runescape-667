@@ -54,7 +54,7 @@ public final class ObjType {
     public short[] retex_d;
 
     @OriginalMember(owner = "client!vfa", name = "O", descriptor = "I")
-    public int anInt10134;
+    public int myid;
 
     @OriginalMember(owner = "client!vfa", name = "db", descriptor = "[I")
     public int[] countobj;
@@ -882,7 +882,7 @@ public final class ObjType {
         @Pc(87) ReferenceCache local87 = this.myList.modelCache;
         @Pc(104) Model local104;
         synchronized (this.myList.modelCache) {
-            local104 = (Model) this.myList.modelCache.get((long) (this.anInt10134 | toolkit.index << 29));
+            local104 = (Model) this.myList.modelCache.get((long) (this.myid | toolkit.index << 29));
         }
         if (local104 == null || toolkit.compareFunctionMasks(local104.ua(), i) != 0) {
             if (local104 != null) {
@@ -911,7 +911,7 @@ public final class ObjType {
             if (local196.version < 13) {
                 local196.upscale();
             }
-            local104 = toolkit.createModel(local196, local141, this.myList.anInt2673, this.ambient + 64, 850 - -this.contrast);
+            local104 = toolkit.createModel(local196, local141, this.myList.featureMask, this.ambient + 64, 850 - -this.contrast);
             if (this.resizex != 128 || this.resizey != 128 || this.resizez != 128) {
                 local104.O(this.resizex, this.resizey, this.resizez);
             }
@@ -942,7 +942,7 @@ public final class ObjType {
             local104.s(i);
             @Pc(426) ReferenceCache local426 = this.myList.modelCache;
             synchronized (this.myList.modelCache) {
-                this.myList.modelCache.put(local104, (long) (this.anInt10134 | toolkit.index << 29));
+                this.myList.modelCache.put(local104, (long) (this.myid | toolkit.index << 29));
             }
         }
         if (animator != null) {

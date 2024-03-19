@@ -9,43 +9,43 @@ import org.openrs2.deob.annotation.Pc;
 public final class ParamType {
 
     @OriginalMember(owner = "client!po", name = "c", descriptor = "I")
-    public int anInt7509;
+    public int defaultint;
 
     @OriginalMember(owner = "client!po", name = "a", descriptor = "C")
-    public char aChar6;
+    public char type;
 
     @OriginalMember(owner = "client!po", name = "g", descriptor = "Ljava/lang/String;")
-    public String aString89;
+    public String defaultstr;
 
     @OriginalMember(owner = "client!po", name = "e", descriptor = "Z")
     public boolean autodisable = true;
 
     @OriginalMember(owner = "client!po", name = "b", descriptor = "(B)Z")
-    public boolean method6672() {
-        return this.aChar6 == 's';
+    public boolean isString() {
+        return this.type == 's';
     }
 
     @OriginalMember(owner = "client!po", name = "a", descriptor = "(Lclient!ge;B)V")
-    public void method6673(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(3) int local3 = arg0.g1();
-            if (local3 == 0) {
+            @Pc(3) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method6674(local3, arg0);
+            this.decode(code, packet);
         }
     }
 
     @OriginalMember(owner = "client!po", name = "a", descriptor = "(IILclient!ge;)V")
-    public void method6674(@OriginalArg(1) int arg0, @OriginalArg(2) Packet arg1) {
-        if (arg0 == 1) {
-            this.aChar6 = Cp1252.decodeChar(arg1.g1b());
-        } else if (arg0 == 2) {
-            this.anInt7509 = arg1.g4();
-        } else if (arg0 == 4) {
+    public void decode(@OriginalArg(1) int code, @OriginalArg(2) Packet packet) {
+        if (code == 1) {
+            this.type = Cp1252.decodeChar(packet.g1b());
+        } else if (code == 2) {
+            this.defaultint = packet.g4();
+        } else if (code == 4) {
             this.autodisable = false;
-        } else if (arg0 == 5) {
-            this.aString89 = arg1.gjstr();
+        } else if (code == 5) {
+            this.defaultstr = packet.gjstr();
         }
     }
 }

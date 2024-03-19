@@ -25,8 +25,8 @@ public final class Static420 {
     @OriginalMember(owner = "client!nea", name = "a", descriptor = "(ILclient!hda;II)V")
     public static void method5758(@OriginalArg(1) Class158 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         if (Static156.aBoolean223) {
-            @Pc(16) ParamType local16 = Static610.anInt9329 == -1 ? null : Static386.aClass49_2.list(Static610.anInt9329);
-            if (Static84.method1661(arg0).method6217() && (Static717.anInt10822 & 0x20) != 0 && (local16 == null || arg0.method3404(local16.anInt7509, Static610.anInt9329) != local16.anInt7509)) {
+            @Pc(16) ParamType local16 = Static610.anInt9329 == -1 ? null : ParamTypeList.instance.list(Static610.anInt9329);
+            if (Static84.method1661(arg0).method6217() && (Static717.anInt10822 & 0x20) != 0 && (local16 == null || arg0.method3404(local16.defaultint, Static610.anInt9329) != local16.defaultint)) {
                 Static416.method5707(false, arg0.anInt3760, 0L, arg0.anInt3741, arg0.anInt3812, Static153.aString27, 18, true, Static369.anInt4263, Static128.aString108 + " -> " + arg0.aString41, (long) (arg0.anInt3741 << 0 | arg0.anInt3812), false);
             }
         }

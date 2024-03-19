@@ -104,7 +104,7 @@ public final class Static664 {
         Static720.aClass363_4.method8360();
         Static577.aClass246_4.method5585();
         Static272.aClass45_1.method1093();
-        Static386.aClass49_2.method1156();
+        ParamTypeList.instance.cacheRemoveSoftReferences();
         Static324.aClass307_1.method7069();
         Static99.aClass78_1.method2053();
         Static48.aClass384_1.method8815();

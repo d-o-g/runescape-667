@@ -540,7 +540,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (Static312.anInt5000 == super.anInt10740 && local603 != null) {
             for (local490 = 0; local490 < local332.length; local490++) {
                 if (local332[local490] != local603[local490]) {
-                    Static419.aObjTypeList_1.method2484();
+                    Static419.aObjTypeList_1.spriteCacheReset();
                     break;
                 }
             }

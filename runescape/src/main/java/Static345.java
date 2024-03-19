@@ -29,7 +29,7 @@ public final class Static345 {
             return;
         }
         @Pc(8) Mesh local8 = new Mesh(580, 1104, 1);
-        local8.method2237();
+        local8.addSphericalSpace();
         local8.method2230(0, 128, 0);
         local8.method2230(0, -128, 0);
         for (@Pc(37) int local37 = 0; local37 <= 24; local37++) {
@@ -62,10 +62,10 @@ public final class Static345 {
                 local8.method2231(local61, 1, local67, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
             }
         }
-        local8.anInt2363 = local8.vertexCount;
-        local8.anIntArray210 = null;
-        local8.anIntArray209 = null;
-        local8.aByteArray26 = null;
+        local8.maxVertex = local8.vertexCount;
+        local8.faceGroup = null;
+        local8.vertexGroup = null;
+        local8.facePriorities = null;
         aModel_6 = arg0.createModel(local8, 51200, 33, 64, 768);
     }
 

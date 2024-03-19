@@ -19,8 +19,8 @@ public final class Static50 {
         @Pc(9) int[] local9 = null;
         @Pc(11) int[] local11 = null;
         @Pc(13) float[][] local13 = null;
-        if (arg0.aByteArray28 != null) {
-            @Pc(25) int local25 = arg0.anInt2377;
+        if (arg0.faceAlpha != null) {
+            @Pc(25) int local25 = arg0.texSpaceCount;
             @Pc(28) int[] local28 = new int[local25];
             @Pc(31) int[] local31 = new int[local25];
             @Pc(34) int[] local34 = new int[local25];
@@ -41,16 +41,16 @@ public final class Static50 {
             @Pc(158) int local158;
             for (@Pc(89) int local89 = 0; local89 < arg1; local89++) {
                 local97 = arg2[local89];
-                if (arg0.aByteArray28[local97] != -1) {
-                    @Pc(111) int local111 = arg0.aByteArray28[local97] & 0xFF;
+                if (arg0.faceAlpha[local97] != -1) {
+                    @Pc(111) int local111 = arg0.faceAlpha[local97] & 0xFF;
                     for (@Pc(113) int local113 = 0; local113 < 3; local113++) {
                         @Pc(134) short local134;
                         if (local113 == 0) {
-                            local134 = arg0.aShortArray27[local97];
+                            local134 = arg0.faceA[local97];
                         } else if (local113 == 1) {
-                            local134 = arg0.aShortArray24[local97];
+                            local134 = arg0.faceB[local97];
                         } else {
-                            local134 = arg0.aShortArray26[local97];
+                            local134 = arg0.faceC[local97];
                         }
                         @Pc(153) int local153 = arg0.vertexX[local134];
                         local158 = arg0.vertexY[local134];
@@ -79,7 +79,7 @@ public final class Static50 {
             local7 = new int[local25];
             local9 = new int[local25];
             for (local97 = 0; local97 < local25; local97++) {
-                @Pc(268) byte local268 = arg0.aByteArray24[local97];
+                @Pc(268) byte local268 = arg0.texMappingType[local97];
                 if (local268 > 0) {
                     local7[local97] = (local28[local97] + local31[local97]) / 2;
                     local9[local97] = (local34[local97] + local37[local97]) / 2;
@@ -88,8 +88,8 @@ public final class Static50 {
                     @Pc(326) float local326;
                     @Pc(334) float local334;
                     if (local268 == 1) {
-                        local158 = arg0.anIntArray211[local97];
-                        local326 = 64.0F / (float) arg0.anIntArray207[local97];
+                        local158 = arg0.texSpaceScaleX[local97];
+                        local326 = 64.0F / (float) arg0.texSpaceScaleY[local97];
                         if (local158 == 0) {
                             local340 = 1.0F;
                             local334 = 1.0F;
@@ -101,15 +101,15 @@ public final class Static50 {
                             local334 = (float) local158 / 1024.0F;
                         }
                     } else if (local268 == 2) {
-                        local326 = 64.0F / (float) arg0.anIntArray207[local97];
-                        local334 = 64.0F / (float) arg0.anIntArray208[local97];
-                        local340 = 64.0F / (float) arg0.anIntArray211[local97];
+                        local326 = 64.0F / (float) arg0.texSpaceScaleY[local97];
+                        local334 = 64.0F / (float) arg0.texSpaceScaleZ[local97];
+                        local340 = 64.0F / (float) arg0.texSpaceScaleX[local97];
                     } else {
-                        local340 = (float) arg0.anIntArray211[local97] / 1024.0F;
-                        local326 = (float) arg0.anIntArray207[local97] / 1024.0F;
-                        local334 = (float) arg0.anIntArray208[local97] / 1024.0F;
+                        local340 = (float) arg0.texSpaceScaleX[local97] / 1024.0F;
+                        local326 = (float) arg0.texSpaceScaleY[local97] / 1024.0F;
+                        local334 = (float) arg0.texSpaceScaleZ[local97] / 1024.0F;
                     }
-                    local13[local97] = Static395.method9163(local340, local326, local334, arg0.aShortArray29[local97], arg0.aShortArray28[local97], arg0.aByteArray27[local97] & 0xFF, arg0.aShortArray21[local97]);
+                    local13[local97] = Static395.method9163(local340, local326, local334, arg0.texSpaceDefA[local97], arg0.texSpaceDefC[local97], arg0.aByteArray27[local97] & 0xFF, arg0.texSpaceDefB[local97]);
                 }
             }
         }

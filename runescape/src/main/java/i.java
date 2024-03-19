@@ -25,10 +25,10 @@ public final class i extends Model implements Interface5 {
     public i(@OriginalArg(0) oa arg0, @OriginalArg(1) ya arg1, @OriginalArg(2) Mesh arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         this.anOa2 = arg0;
         this.aYa1 = arg1;
-        this.aMeshEmitterArray3 = arg2.aMeshEmitterArray1;
-        this.aMeshMagnetArray3 = arg2.aMeshMagnetArray1;
-        @Pc(24) int local24 = arg2.aMeshEmitterArray1 == null ? 0 : arg2.aMeshEmitterArray1.length;
-        @Pc(34) int local34 = arg2.aMeshMagnetArray1 == null ? 0 : arg2.aMeshMagnetArray1.length;
+        this.aMeshEmitterArray3 = arg2.emitters;
+        this.aMeshMagnetArray3 = arg2.magnets;
+        @Pc(24) int local24 = arg2.emitters == null ? 0 : arg2.emitters.length;
+        @Pc(34) int local34 = arg2.magnets == null ? 0 : arg2.magnets.length;
         @Pc(36) int local36 = 0;
         @Pc(43) int[] local43 = new int[local24 * 3 + local34];
         for (@Pc(45) int local45 = 0; local45 < local24; local45++) {
@@ -39,11 +39,11 @@ public final class i extends Model implements Interface5 {
         for (@Pc(79) int local79 = 0; local79 < local34; local79++) {
             local43[local36++] = this.aMeshMagnetArray3[local79].anInt6247;
         }
-        @Pc(105) int local105 = arg2.aClass24Array1 == null ? 0 : arg2.aClass24Array1.length;
+        @Pc(105) int local105 = arg2.billboards == null ? 0 : arg2.billboards.length;
         @Pc(110) int[] local110 = new int[local105 * 8];
         @Pc(112) int local112 = 0;
         for (@Pc(114) int local114 = 0; local114 < local105; local114++) {
-            @Pc(120) Class24 local120 = arg2.aClass24Array1[local114];
+            @Pc(120) MeshBillboard local120 = arg2.billboards[local114];
             @Pc(125) Class376 local125 = Static402.method5582(local120.anInt592);
             local110[local112++] = local120.anInt588;
             local110[local112++] = local125.anInt9696;
@@ -54,10 +54,10 @@ public final class i extends Model implements Interface5 {
             local110[local112++] = local125.aBoolean747 ? -1 : 0;
         }
         for (@Pc(178) int local178 = 0; local178 < local105; local178++) {
-            @Pc(184) Class24 local184 = arg2.aClass24Array1[local178];
-            local110[local112++] = local184.anInt589;
+            @Pc(184) MeshBillboard local184 = arg2.billboards[local178];
+            local110[local112++] = local184.group;
         }
-        this.R(this.anOa2, this.aYa1, arg2.vertexCount, arg2.anInt2363, arg2.vertexX, arg2.vertexY, arg2.vertexZ, arg2.anIntArray209, arg2.aShortArray23, arg2.anInt2362, arg2.aShortArray27, arg2.aShortArray24, arg2.aShortArray26, arg2.aByteArray25, arg2.aByteArray26, arg2.aByteArray29, arg2.aByteArray28, arg2.aShortArray22, arg2.aShortArray25, arg2.anIntArray210, arg2.aByte45, arg2.aShortArray20, arg2.anInt2377, arg2.aByteArray24, arg2.aShortArray29, arg2.aShortArray21, arg2.aShortArray28, arg2.anIntArray211, arg2.anIntArray207, arg2.anIntArray208, arg2.aByteArray27, arg2.aByteArray23, arg2.anIntArray214, arg2.anIntArray212, arg2.anIntArray206, local43, local24, local34, arg3, arg4, arg5, arg6, local110);
+        this.R(this.anOa2, this.aYa1, arg2.vertexCount, arg2.maxVertex, arg2.vertexX, arg2.vertexY, arg2.vertexZ, arg2.vertexGroup, arg2.originModels, arg2.faceCount, arg2.faceA, arg2.faceB, arg2.faceC, arg2.shadingTypes, arg2.facePriorities, arg2.faceTexSpace, arg2.faceAlpha, arg2.faceColour, arg2.faceTexture, arg2.faceGroup, arg2.globalPriority, arg2.aShortArray20, arg2.texSpaceCount, arg2.texMappingType, arg2.texSpaceDefA, arg2.texSpaceDefB, arg2.texSpaceDefC, arg2.texSpaceScaleX, arg2.texSpaceScaleY, arg2.texSpaceScaleZ, arg2.aByteArray27, arg2.aByteArray23, arg2.anIntArray214, arg2.anIntArray212, arg2.anIntArray206, local43, local24, local34, arg3, arg4, arg5, arg6, local110);
     }
 
     @OriginalMember(owner = "client!i", name = "<init>", descriptor = "(Lclient!oa;)V")

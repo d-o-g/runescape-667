@@ -859,7 +859,7 @@ public final class Class158 {
         if (local21 != null) {
             if (local21.anInt3836 != this.anInt3810) {
                 local21 = null;
-                Static449.A_WEIGHTED_CACHE___146.remove(local15);
+                Static449.A_WEIGHTED_CACHE___146.removeByKey(local15);
             }
             if (local21 != null) {
                 return local21;

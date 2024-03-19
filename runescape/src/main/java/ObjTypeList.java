@@ -1,5 +1,5 @@
 import com.jagex.collect.Node;
-import com.jagex.collect.hash.HashableCache;
+import com.jagex.collect.ref.key.KeyedReferenceCache;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
@@ -21,10 +21,10 @@ public final class ObjTypeList {
     public final ReferenceCache modelCache = new ReferenceCache(50);
 
     @OriginalMember(owner = "client!es", name = "f", descriptor = "Lclient!aka;")
-    public final HashableCache appearanceSpriteCache = new HashableCache(250);
+    public final KeyedReferenceCache appearanceSpriteCache = new KeyedReferenceCache(250);
 
     @OriginalMember(owner = "client!es", name = "j", descriptor = "Lclient!rla;")
-    public final HashableObjSprite aObjSpriteCacheKey_1 = new HashableObjSprite();
+    public final SpriteCacheKey spriteCacheKey = new SpriteCacheKey();
 
     @OriginalMember(owner = "client!es", name = "m", descriptor = "I")
     public final int languageId;
@@ -109,7 +109,7 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!es", name = "b", descriptor = "(B)V")
-    public void method2476() {
+    public void cacheReset() {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         synchronized (this.recentUse) {
             this.recentUse.reset();
@@ -120,56 +120,62 @@ public final class ObjTypeList {
             this.modelCache.reset();
         }
 
-        @Pc(44) HashableCache local44 = this.appearanceSpriteCache;
+        @Pc(44) KeyedReferenceCache local44 = this.appearanceSpriteCache;
         synchronized (this.appearanceSpriteCache) {
             this.appearanceSpriteCache.reset();
         }
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(ILclient!ha;Lclient!ha;Lclient!ju;ZIIZILclient!da;II)Lclient!st;")
-    public Sprite sprite(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) PlayerModel arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) Class14 arg9, @OriginalArg(10) int arg10) {
-        @Pc(24) Sprite local24 = this.method2483(arg3, arg2, arg8, arg10, arg0, arg6, arg5);
-        if (local24 != null) {
-            return local24;
+    public Sprite sprite(@OriginalArg(0) int outline, @OriginalArg(1) Toolkit scratchToolkit, @OriginalArg(2) Toolkit realToolkit, @OriginalArg(3) PlayerModel useAppearance, @OriginalArg(4) boolean temporary, @OriginalArg(5) int graphicShadow, @OriginalArg(6) int invCount, @OriginalArg(7) boolean arg7, @OriginalArg(8) int objNumMode, @OriginalArg(9) Class14 arg9, @OriginalArg(10) int objId) {
+        @Pc(24) Sprite cachedSprite = this.getCachedSprite(useAppearance, realToolkit, objNumMode, objId, outline, invCount, graphicShadow);
+        if (cachedSprite != null) {
+            return cachedSprite;
         }
-        @Pc(34) ObjType local34 = this.list(arg10);
-        if (arg6 > 1 && local34.countobj != null) {
-            @Pc(44) int local44 = -1;
-            for (@Pc(46) int local46 = 0; local46 < 10; local46++) {
-                if (local34.countco[local46] <= arg6 && local34.countco[local46] != 0) {
-                    local44 = local34.countobj[local46];
+
+        @Pc(34) ObjType type = this.list(objId);
+        if (invCount > 1 && type.countobj != null) {
+            @Pc(44) int stackId = -1;
+            for (@Pc(46) int i = 0; i < 10; i++) {
+                if (type.countco[i] <= invCount && type.countco[i] != 0) {
+                    stackId = type.countobj[i];
                 }
             }
-            if (local44 != -1) {
-                local34 = this.list(local44);
+
+            if (stackId != -1) {
+                type = this.list(stackId);
             }
         }
-        @Pc(101) int[] local101 = local34.sprite(arg8, arg2, arg6, arg5, arg7, arg3, arg1, arg9, arg0);
-        if (local101 == null) {
+
+        @Pc(101) int[] image = type.sprite(objNumMode, realToolkit, invCount, graphicShadow, arg7, useAppearance, scratchToolkit, arg9, outline);
+        if (image == null) {
             return null;
         }
-        @Pc(119) Sprite local119;
-        if (arg4) {
-            local119 = arg1.createSprite(36, 36, 32, local101);
+
+        @Pc(119) Sprite sprite;
+        if (temporary) {
+            sprite = scratchToolkit.createSprite(36, 36, 32, image);
         } else {
-            local119 = arg2.createSprite(36, 36, 32, local101);
+            sprite = realToolkit.createSprite(36, 36, 32, image);
         }
-        if (!arg4) {
-            @Pc(136) HashableObjSprite local136 = new HashableObjSprite();
-            local136.objNumMode = arg8;
-            local136.useAppearance = arg3 != null;
-            local136.toolkitIndex = arg2.index;
-            local136.invCount = arg6;
-            local136.outline = arg0;
-            local136.objId = arg10;
-            local136.graphicShadow = arg5;
-            this.appearanceSpriteCache.put(local119, local136);
+
+        if (!temporary) {
+            @Pc(136) SpriteCacheKey hashableSprite = new SpriteCacheKey();
+            hashableSprite.objNumMode = objNumMode;
+            hashableSprite.useAppearance = useAppearance != null;
+            hashableSprite.toolkitIndex = realToolkit.index;
+            hashableSprite.invCount = invCount;
+            hashableSprite.outline = outline;
+            hashableSprite.objId = objId;
+            hashableSprite.graphicShadow = graphicShadow;
+            this.appearanceSpriteCache.put(sprite, hashableSprite);
         }
-        return local119;
+
+        return sprite;
     }
 
     @OriginalMember(owner = "client!es", name = "c", descriptor = "(II)V")
-    public void method2479(int maxAge) {
+    public void cacheClean(int maxAge) {
         @Pc(14) ReferenceCache local14 = this.recentUse;
         synchronized (this.recentUse) {
             this.recentUse.clean(maxAge);
@@ -178,9 +184,9 @@ public final class ObjTypeList {
         synchronized (this.modelCache) {
             this.modelCache.clean(maxAge);
         }
-        @Pc(48) HashableCache local48 = this.appearanceSpriteCache;
+        @Pc(48) KeyedReferenceCache local48 = this.appearanceSpriteCache;
         synchronized (this.appearanceSpriteCache) {
-            this.appearanceSpriteCache.clearSoft(maxAge);
+            this.appearanceSpriteCache.clean(maxAge);
         }
     }
 
@@ -194,9 +200,9 @@ public final class ObjTypeList {
         synchronized (this.modelCache) {
             this.modelCache.removeSoftReferences();
         }
-        @Pc(44) HashableCache local44 = this.appearanceSpriteCache;
+        @Pc(44) KeyedReferenceCache local44 = this.appearanceSpriteCache;
         synchronized (this.appearanceSpriteCache) {
-            this.appearanceSpriteCache.method253();
+            this.appearanceSpriteCache.removeSoftReferences();
         }
     }
 
@@ -218,20 +224,20 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(Lclient!ju;BLclient!ha;IIIII)Lclient!st;")
-    public Sprite method2483(@OriginalArg(0) PlayerModel arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
-        this.aObjSpriteCacheKey_1.invCount = arg5;
-        this.aObjSpriteCacheKey_1.toolkitIndex = arg1.index;
-        this.aObjSpriteCacheKey_1.objNumMode = arg2;
-        this.aObjSpriteCacheKey_1.graphicShadow = arg6;
-        this.aObjSpriteCacheKey_1.useAppearance = arg0 != null;
-        this.aObjSpriteCacheKey_1.outline = arg4;
-        this.aObjSpriteCacheKey_1.objId = arg3;
-        return (Sprite) this.appearanceSpriteCache.method260(this.aObjSpriteCacheKey_1);
+    public Sprite getCachedSprite(@OriginalArg(0) PlayerModel playerModel, @OriginalArg(2) Toolkit toolkit, @OriginalArg(3) int objNumMode, @OriginalArg(4) int objId, @OriginalArg(5) int outline, @OriginalArg(6) int invCount, @OriginalArg(7) int graphicShadow) {
+        this.spriteCacheKey.invCount = invCount;
+        this.spriteCacheKey.toolkitIndex = toolkit.index;
+        this.spriteCacheKey.objNumMode = objNumMode;
+        this.spriteCacheKey.graphicShadow = graphicShadow;
+        this.spriteCacheKey.useAppearance = playerModel != null;
+        this.spriteCacheKey.outline = outline;
+        this.spriteCacheKey.objId = objId;
+        return (Sprite) this.appearanceSpriteCache.get(this.spriteCacheKey);
     }
 
     @OriginalMember(owner = "client!es", name = "c", descriptor = "(I)V")
     public void method2484() {
-        @Pc(6) HashableCache local6 = this.appearanceSpriteCache;
+        @Pc(6) KeyedReferenceCache local6 = this.appearanceSpriteCache;
         synchronized (this.appearanceSpriteCache) {
             this.appearanceSpriteCache.reset();
         }
@@ -241,7 +247,7 @@ public final class ObjTypeList {
     public void setAllowMembers(@OriginalArg(1) boolean arg0) {
         if (this.allowMembers != arg0) {
             this.allowMembers = arg0;
-            this.method2476();
+            this.cacheReset();
         }
     }
 

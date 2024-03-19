@@ -1,4 +1,4 @@
-package com.jagex.collect.hash;
+package com.jagex.collect.ref.key;
 
 import com.jagex.collect.DoublyLinkedNode;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -6,18 +6,18 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!pv")
-public abstract class HashableReference extends DoublyLinkedNode {
+public abstract class KeyedReferenceNode extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!pv", name = "u", descriptor = "I")
     public final int size;
 
     @OriginalMember(owner = "client!pv", name = "x", descriptor = "Lclient!uq;")
-    public final Hashable hashable;
+    public final CacheKey cacheKey;
 
     @OriginalMember(owner = "client!pv", name = "<init>", descriptor = "(Lclient!uq;I)V")
-    protected HashableReference(@OriginalArg(0) Hashable hashable, @OriginalArg(1) int size) {
+    protected KeyedReferenceNode(@OriginalArg(0) CacheKey cacheKey, @OriginalArg(1) int size) {
         this.size = size;
-        this.hashable = hashable;
+        this.cacheKey = cacheKey;
     }
 
     @OriginalMember(owner = "client!pv", name = "a", descriptor = "(I)Ljava/lang/Object;")

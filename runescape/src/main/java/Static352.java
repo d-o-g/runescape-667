@@ -31,7 +31,7 @@ public final class Static352 {
         Static68.aIDKTypeList_3.method5044();
         Static354.aClass142_4.method3060();
         Static690.aNPCTypeList_2.method7086();
-        Static419.aObjTypeList_1.method2476();
+        Static419.aObjTypeList_1.cacheReset();
         Static25.aSeqTypeList_1.method1165();
         Static23.aClass128_1.method2699();
         Static529.aClass161_1.method3429();

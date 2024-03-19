@@ -1,4 +1,4 @@
-import com.jagex.collect.hash.Hashable;
+import com.jagex.collect.ref.key.CacheKey;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rla")
-public final class HashableObjSprite implements Hashable {
+public final class SpriteCacheKey implements CacheKey {
 
     @OriginalMember(owner = "client!rla", name = "n", descriptor = "I")
     public int invCount;
@@ -31,7 +31,7 @@ public final class HashableObjSprite implements Hashable {
 
     @OriginalMember(owner = "client!rla", name = "a", descriptor = "(I)J")
     @Override
-    public long hash() {
+    public long toLong() {
         // @formatter:off
         @Pc(5)   long[] crc64 = Packet.crc64table;
         @Pc(7)   long hash01 = -1L;
@@ -55,12 +55,12 @@ public final class HashableObjSprite implements Hashable {
 
     @OriginalMember(owner = "client!rla", name = "a", descriptor = "(ILclient!uq;)Z")
     @Override
-    public boolean matches(@OriginalArg(1) Hashable other) {
-        if (!(other instanceof HashableObjSprite)) {
+    public boolean matches(@OriginalArg(1) CacheKey other) {
+        if (!(other instanceof SpriteCacheKey)) {
             return false;
         }
 
-        @Pc(12) HashableObjSprite data = (HashableObjSprite) other;
+        @Pc(12) SpriteCacheKey data = (SpriteCacheKey) other;
         if (this.toolkitIndex != data.toolkitIndex) {
             return false;
         } else if (data.objId != this.objId) {

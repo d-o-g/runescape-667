@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class ReferenceCache {
 
     @OriginalMember(owner = "client!dla", name = "j", descriptor = "Lclient!jga;")
-    public final Queue history;
+    public final Queue history = new Queue();
 
     @OriginalMember(owner = "client!dla", name = "h", descriptor = "I")
     public int remaining;
@@ -30,7 +30,6 @@ public final class ReferenceCache {
 
     @OriginalMember(owner = "client!dla", name = "<init>", descriptor = "(II)V")
     public ReferenceCache(@OriginalArg(0) int max, @OriginalArg(1) int min) {
-        this.history = new Queue();
         this.capacity = max;
         this.remaining = max;
         @Pc(14) int buckets;
@@ -70,7 +69,7 @@ public final class ReferenceCache {
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(II)V")
     public void clean(@OriginalArg(0) int maxAge) {
-        if (SoftReferenceFactory.INSTANCE == null) {
+        if (ReferenceNodeFactory.INSTANCE == null) {
             return;
         }
 
@@ -82,9 +81,9 @@ public final class ReferenceCache {
                     this.remaining += node.size;
                 }
             } else if (++node.key2 > (long) maxAge) {
-                @Pc(42) ReferenceNode softReference = SoftReferenceFactory.INSTANCE.create(node);
-                this.table.put(node.key, softReference);
-                DoublyLinkedNode.attachAfter(node, softReference);
+                @Pc(42) ReferenceNode newReference = ReferenceNodeFactory.INSTANCE.create(node);
+                this.table.put(node.key, newReference);
+                DoublyLinkedNode.attachAfter(node, newReference);
                 node.remove();
                 node.remove2();
             }
@@ -103,11 +102,11 @@ public final class ReferenceCache {
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(ILclient!vw;)V")
-    public void remove(@OriginalArg(1) ReferenceNode arg0) {
-        if (arg0 != null) {
-            arg0.remove();
-            arg0.remove2();
-            this.remaining += arg0.size;
+    public void remove(@OriginalArg(1) ReferenceNode node) {
+        if (node != null) {
+            node.remove();
+            node.remove2();
+            this.remaining += node.size;
         }
     }
 
@@ -118,11 +117,11 @@ public final class ReferenceCache {
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(B)V")
     public void removeSoftReferences() {
-        for (@Pc(14) ReferenceNode local14 = (ReferenceNode) this.history.first(); local14 != null; local14 = (ReferenceNode) this.history.next()) {
-            if (local14.isSoft()) {
-                local14.remove();
-                local14.remove2();
-                this.remaining += local14.size;
+        for (@Pc(14) ReferenceNode node = (ReferenceNode) this.history.first(); node != null; node = (ReferenceNode) this.history.next()) {
+            if (node.isSoft()) {
+                node.remove();
+                node.remove2();
+                this.remaining += node.size;
             }
         }
     }
@@ -145,12 +144,12 @@ public final class ReferenceCache {
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(JLjava/lang/Object;II)V")
-    public void put(@OriginalArg(0) long key, @OriginalArg(1) Object object, @OriginalArg(2) int size) {
+    public void put(@OriginalArg(0) long key, @OriginalArg(1) Object value, @OriginalArg(2) int size) {
         if (size > this.capacity) {
             throw new IllegalStateException("s>cs");
         }
 
-        this.remove(key);
+        this.removeByKey(key);
         this.remaining -= size;
 
         while (this.remaining < 0) {
@@ -158,14 +157,14 @@ public final class ReferenceCache {
             this.remove(first);
         }
 
-        @Pc(48) HardReferenceNode node = new HardReferenceNode(object, size);
+        @Pc(48) HardReferenceNode node = new HardReferenceNode(value, size);
         this.table.put(key, node);
         this.history.add(node);
         node.key2 = 0L;
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(JI)V")
-    public void remove(@OriginalArg(0) long key) {
+    public void removeByKey(@OriginalArg(0) long key) {
         @Pc(15) ReferenceNode node = (ReferenceNode) this.table.get(key);
         this.remove(node);
     }

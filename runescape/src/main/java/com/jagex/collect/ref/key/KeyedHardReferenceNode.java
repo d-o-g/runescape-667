@@ -1,18 +1,18 @@
-package com.jagex.collect.hash;
+package com.jagex.collect.ref.key;
 
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!tja")
-public final class HashableHardReference extends HashableReference {
+public final class KeyedHardReferenceNode extends KeyedReferenceNode {
 
     @OriginalMember(owner = "client!tja", name = "y", descriptor = "Ljava/lang/Object;")
     public final Object object;
 
     @OriginalMember(owner = "client!tja", name = "<init>", descriptor = "(Lclient!uq;Ljava/lang/Object;I)V")
-    public HashableHardReference(@OriginalArg(0) Hashable hashable, @OriginalArg(1) Object object, @OriginalArg(2) int size) {
-        super(hashable, size);
+    public KeyedHardReferenceNode(@OriginalArg(0) CacheKey cacheKey, @OriginalArg(1) Object object, @OriginalArg(2) int size) {
+        super(cacheKey, size);
         this.object = object;
     }
 

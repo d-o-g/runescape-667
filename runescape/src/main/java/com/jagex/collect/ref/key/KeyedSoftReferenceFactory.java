@@ -1,19 +1,19 @@
-package com.jagex.collect.hash;
+package com.jagex.collect.ref.key;
 
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ao")
-public final class HashableSoftReferenceFactory extends HashableReferenceFactory {
+public final class KeyedSoftReferenceFactory extends KeyedReferenceNodeFactory {
 
     @OriginalMember(owner = "client!ao", name = "<init>", descriptor = "()V")
-    public HashableSoftReferenceFactory() {
+    public KeyedSoftReferenceFactory() {
     }
 
     @OriginalMember(owner = "client!ao", name = "a", descriptor = "(Lclient!pv;I)Lclient!pv;")
     @Override
-    public HashableReference create(@OriginalArg(0) HashableReference reference) {
-        return new HashableSoftReference(reference.hashable, reference.get(), reference.size);
+    public KeyedReferenceNode create(@OriginalArg(0) KeyedReferenceNode node) {
+        return new KeyedSoftReferenceNode(node.cacheKey, node.get(), node.size);
     }
 }

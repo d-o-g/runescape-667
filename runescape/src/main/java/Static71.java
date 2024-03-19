@@ -369,7 +369,7 @@ public final class Static71 {
                                         @Pc(1816) Sprite local1816;
                                         if (local19.anInt3760 != -1) {
                                             @Pc(1836) PlayerModel local1836 = local19.aBoolean288 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null;
-                                            local1816 = Static419.aObjTypeList_1.method2483(local1836, Static163.aToolkit_17, local19.anInt3757, local19.anInt3760, local19.anInt3773, local19.anInt3817, local19.anInt3798 | 0xFF000000);
+                                            local1816 = Static419.aObjTypeList_1.getCachedSprite(local1836, Static163.aToolkit_17, local19.anInt3757, local19.anInt3760, local19.anInt3773, local19.anInt3817, local19.anInt3798 | 0xFF000000);
                                         } else if (local19.anInt3745 == -1) {
                                             local1816 = local19.method3383(Static163.aToolkit_17);
                                         } else {

@@ -1,15 +1,15 @@
-package com.jagex.collect.hash;
+package com.jagex.collect.ref.key;
 
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!uq")
-public interface Hashable {
+public interface CacheKey {
 
     @OriginalMember(owner = "client!uq", name = "a", descriptor = "(ILclient!uq;)Z")
-    boolean matches(@OriginalArg(1) Hashable other);
+    boolean matches(@OriginalArg(1) CacheKey other);
 
     @OriginalMember(owner = "client!uq", name = "a", descriptor = "(I)J")
-    long hash();
+    long toLong();
 }

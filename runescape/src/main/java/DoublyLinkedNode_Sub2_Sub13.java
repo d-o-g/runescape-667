@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.DoublyLinkedNode;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -60,7 +61,7 @@ public final class DoublyLinkedNode_Sub2_Sub13 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(III[I)Z")
     public boolean method4085(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int[] arg2) {
-        for (@Pc(23) Node_Sub56 local23 = (Node_Sub56) this.aDeque_26.first(65280); local23 != null; local23 = (Node_Sub56) this.aDeque_26.next()) {
+        for (@Pc(23) Node_Sub56 local23 = (Node_Sub56) this.aDeque_26.first(); local23 != null; local23 = (Node_Sub56) this.aDeque_26.next()) {
             if (local23.method8914(arg0, arg1)) {
                 local23.method8907(arg2, arg0, arg1);
                 return true;
@@ -71,7 +72,7 @@ public final class DoublyLinkedNode_Sub2_Sub13 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(BII)Z")
     public boolean method4086(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        for (@Pc(17) Node_Sub56 local17 = (Node_Sub56) this.aDeque_26.first(65280); local17 != null; local17 = (Node_Sub56) this.aDeque_26.next()) {
+        for (@Pc(17) Node_Sub56 local17 = (Node_Sub56) this.aDeque_26.first(); local17 != null; local17 = (Node_Sub56) this.aDeque_26.next()) {
             if (local17.method8914(arg0, arg1)) {
                 return true;
             }
@@ -81,7 +82,7 @@ public final class DoublyLinkedNode_Sub2_Sub13 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(I[IIII)Z")
     public boolean method4088(@OriginalArg(1) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        for (@Pc(15) Node_Sub56 local15 = (Node_Sub56) this.aDeque_26.first(65280); local15 != null; local15 = (Node_Sub56) this.aDeque_26.next()) {
+        for (@Pc(15) Node_Sub56 local15 = (Node_Sub56) this.aDeque_26.first(); local15 != null; local15 = (Node_Sub56) this.aDeque_26.next()) {
             if (local15.method8912(arg1, arg2, arg3)) {
                 local15.method8907(arg0, arg3, arg1);
                 return true;
@@ -96,7 +97,7 @@ public final class DoublyLinkedNode_Sub2_Sub13 extends DoublyLinkedNode {
         this.anInt4560 = 12800;
         this.anInt4559 = 12800;
         this.anInt4552 = 0;
-        for (@Pc(28) Node_Sub56 local28 = (Node_Sub56) this.aDeque_26.first(65280); local28 != null; local28 = (Node_Sub56) this.aDeque_26.next()) {
+        for (@Pc(28) Node_Sub56 local28 = (Node_Sub56) this.aDeque_26.first(); local28 != null; local28 = (Node_Sub56) this.aDeque_26.next()) {
             if (local28.anInt10275 < this.anInt4559) {
                 this.anInt4559 = local28.anInt10275;
             }
@@ -114,7 +115,7 @@ public final class DoublyLinkedNode_Sub2_Sub13 extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(IBI[I)Z")
     public boolean method4091(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int[] arg2) {
-        for (@Pc(9) Node_Sub56 local9 = (Node_Sub56) this.aDeque_26.first(65280); local9 != null; local9 = (Node_Sub56) this.aDeque_26.next()) {
+        for (@Pc(9) Node_Sub56 local9 = (Node_Sub56) this.aDeque_26.first(); local9 != null; local9 = (Node_Sub56) this.aDeque_26.next()) {
             if (local9.method8910(arg0, arg1)) {
                 local9.method8913(arg1, arg2, arg0);
                 return true;

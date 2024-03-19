@@ -1,12 +1,8 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static509 {
-
-    @OriginalMember(owner = "client!qa", name = "q", descriptor = "Lclient!sb;")
-    public static js5 aJs5_96;
 
     @OriginalMember(owner = "client!qa", name = "n", descriptor = "I")
     public static final int anInt7634 = 4;
@@ -60,7 +56,7 @@ public final class Static509 {
         if (!Static95.aBoolean184 || Static551.aDeque_54 == null) {
             return;
         }
-        for (@Pc(197) Node_Sub37 local197 = (Node_Sub37) Static551.aDeque_54.first(65280); local197 != null; local197 = (Node_Sub37) Static551.aDeque_54.next()) {
+        for (@Pc(197) Node_Sub37 local197 = (Node_Sub37) Static551.aDeque_54.first(); local197 != null; local197 = (Node_Sub37) Static551.aDeque_54.next()) {
             @Pc(206) Class105 local206 = Static30.aClass246_3.method5584(local197.aClass2_Sub20_1.anInt3131);
             if (local197.method5553(arg0, arg1)) {
                 if (local206.aStringArray9 != null) {

@@ -12,7 +12,7 @@ import java.awt.datatransfer.Transferable;
 public final class Static668 {
 
     @OriginalMember(owner = "client!vca", name = "r", descriptor = "Lclient!lja;")
-    public static Class229 aClass229_5;
+    public static ConnectionInfo aConnectionInfo_5;
 
     @OriginalMember(owner = "client!vca", name = "o", descriptor = "Lclient!sb;")
     public static js5 aJs5_119;
@@ -63,7 +63,7 @@ public final class Static668 {
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(B)Lclient!gw;")
     public static Class153 method8701() {
-        return Static620.method8321(Static283.anInt4574) ? Static405.aClass153_1 : Static405.aClass153_2;
+        return Static620.method8321(Static283.step) ? Static405.aClass153_1 : Static405.aClass153_2;
     }
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(II)I")

@@ -1,4 +1,8 @@
+import com.jagex.core.io.FileOnDisk;
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -58,16 +62,16 @@ public final class Static720 {
         @Pc(13) FileOnDisk local13 = null;
         @Pc(19) Node_Sub34 local19 = new Node_Sub34(Static392.aModeGame_4, 0);
         try {
-            @Pc(25) SignedResource local25 = Static446.aSignLink_6.openPrefs("", true);
+            @Pc(25) SignedResource local25 = SignLink.instance.openPrefs("", true);
             while (local25.status == 0) {
-                Static638.sleep(1L);
+                TimeUtils.sleep(1L);
             }
             if (local25.status == 1) {
                 local13 = (FileOnDisk) local25.result;
-                @Pc(51) byte[] local51 = new byte[(int) local13.method2161()];
+                @Pc(51) byte[] local51 = new byte[(int) local13.length()];
                 @Pc(66) int local66;
                 for (@Pc(53) int local53 = 0; local53 < local51.length; local53 += local66) {
-                    local66 = local13.method2163(local51.length - local53, local51, local53);
+                    local66 = local13.read(local51.length - local53, local51, local53);
                     if (local66 == -1) {
                         throw new IOException("EOF");
                     }

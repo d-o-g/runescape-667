@@ -1,3 +1,6 @@
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
+import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -51,7 +54,7 @@ public final class Static36 {
         @Pc(57) SignedResource local57;
         if (arg3 == 1) {
             try {
-                @Pc(36) Object local36 = Static727.method96(Static166.anApplet1, arg2, new Object[]{(new URL(Static166.anApplet1.getCodeBase(), arg1)).toString()});
+                @Pc(36) Object local36 = JavaScript.call(GameShell.loaderApplet, arg2, new Object[]{(new URL(GameShell.loaderApplet.getCodeBase(), arg1)).toString()});
                 if (local36 == null) {
                     throw new RuntimeException();
                 }
@@ -65,7 +68,7 @@ public final class Static36 {
             }
         } else if (arg3 == 2) {
             try {
-                Static166.anApplet1.getAppletContext().showDocument(new URL(Static166.anApplet1.getCodeBase(), arg1), "_blank");
+                GameShell.loaderApplet.getAppletContext().showDocument(new URL(GameShell.loaderApplet.getCodeBase(), arg1), "_blank");
                 local57 = new SignedResource();
                 local57.status = 1;
                 return local57;
@@ -76,11 +79,11 @@ public final class Static36 {
             }
         } else if (arg3 == 3) {
             try {
-                Static727.method97("loggedout", Static166.anApplet1);
+                JavaScript.call("loggedout", GameShell.loaderApplet);
             } catch (@Pc(115) Throwable local115) {
             }
             try {
-                Static166.anApplet1.getAppletContext().showDocument(new URL(Static166.anApplet1.getCodeBase(), arg1), "_top");
+                GameShell.loaderApplet.getAppletContext().showDocument(new URL(GameShell.loaderApplet.getCodeBase(), arg1), "_top");
                 local57 = new SignedResource();
                 local57.status = 1;
                 return local57;

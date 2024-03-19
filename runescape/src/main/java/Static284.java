@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static284 {
 
-    @OriginalMember(owner = "client!iu", name = "h", descriptor = "Lclient!vq;")
-    public static SignLink aSignLink_4;
-
     @OriginalMember(owner = "client!iu", name = "c", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_116 = new Class225(65, 6);
 

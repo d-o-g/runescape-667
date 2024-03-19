@@ -1,3 +1,4 @@
+import com.jagex.SignedResource;
 import com.jagex.collect.Node;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

@@ -1,3 +1,5 @@
+import com.jagex.SignLink;
+import com.jagex.collect.Deque;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;

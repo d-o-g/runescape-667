@@ -1,10 +1,8 @@
+import com.jagex.core.util.JagException;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static276 {
-
-    @OriginalMember(owner = "client!ila", name = "i", descriptor = "Lclient!af;")
-    public static Class9 aClass9_1;
 
     @OriginalMember(owner = "client!ila", name = "k", descriptor = "Lclient!ss;")
     public static final Class345 aClass345_56 = new Class345(59, -1);
@@ -150,7 +148,7 @@ public final class Static276 {
             }
             return;
         }
-        Static240.sendTrace((Throwable) null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + Static691.anInt10367 + "," + Static116.anInt2270);
+        JagException.sendTrace((Throwable) null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + Static691.anInt10367 + "," + Static116.anInt2270);
         return;
     }
 }

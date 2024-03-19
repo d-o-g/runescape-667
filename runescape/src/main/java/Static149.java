@@ -20,7 +20,7 @@ public final class Static149 {
     public static boolean aBoolean221 = false;
 
     @OriginalMember(owner = "client!ema", name = "j", descriptor = "Lclient!kh;")
-    public static Applet_Sub1 anApplet_Sub1_1 = null;
+    public static GameShell anGameShell = null;
 
     @OriginalMember(owner = "client!ema", name = "a", descriptor = "(Lclient!ha;I)V")
     public static void method2449(@OriginalArg(0) Toolkit arg0) {
@@ -66,7 +66,7 @@ public final class Static149 {
             }
         } else {
             local70 = 0;
-            for (local281 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(65280); local281 != null; local281 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
+            for (local281 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local281 != null; local281 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
                 local89 = (Static594.anInt8777 - local70 - 1) * 16 + local23 + 33;
                 local70++;
                 if (local5 + Static71.anInt1576 < local55 && local5 + Static71.anInt1576 + Static682.anInt10295 > local55 && local66 > local89 - 13 && local89 + 4 > local66 && local281.aBoolean552) {
@@ -97,7 +97,7 @@ public final class Static149 {
             }
         } else {
             local70 = 0;
-            for (local281 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(65280); local281 != null; local281 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
+            for (local281 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local281 != null; local281 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
                 local89 = local23 + (-local70 + -1 + Static594.anInt8777) * 16 + 13 + 20;
                 local70++;
                 Static232.method3387(arg0, local25, local29, local23, local89, Static634.anInt9510 | 0xFF000000, local281, Static563.anInt8455 | 0xFF000000, local66, local19, local55);

@@ -12,7 +12,7 @@ public final class Static55 {
 
     @OriginalMember(owner = "client!br", name = "a", descriptor = "(IILclient!pg;I)V")
     public static void method1217(@OriginalArg(0) int arg0, @OriginalArg(2) DoublyLinkedNode_Sub2_Sub16 arg1, @OriginalArg(3) int arg2) {
-        if (arg1 == null || arg1 == Static693.A_DEQUE___79.tail) {
+        if (arg1 == null || arg1 == Static693.A_DEQUE___79.last) {
             return;
         }
         @Pc(16) int local16 = arg1.anInt7316;

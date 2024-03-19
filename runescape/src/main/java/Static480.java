@@ -1,3 +1,5 @@
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
 import com.jagex.core.io.Packet;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;

@@ -9,9 +9,6 @@ public final class Static294 {
     @OriginalMember(owner = "client!jg", name = "d", descriptor = "D")
     public static double aDouble15;
 
-    @OriginalMember(owner = "client!jg", name = "a", descriptor = "[B")
-    public static final byte[] aByteArray49 = new byte[520];
-
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(Lclient!tca;II[B)Lclient!fr;")
     public static Class135 method4338(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(3) byte[] arg1) {
         if (arg1 == null) {
@@ -167,7 +164,7 @@ public final class Static294 {
             Static283.method4100(Static333.anInt5455, Static170.anInt2864, Static359.anInt5801, Static110.anInt2186, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 + 1, local688, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static504.aBoolean579 ? Static582.anInt8627 : -1, 0, false);
         }
         Static557.method7331();
-        if (Static283.anInt4574 == 11) {
+        if (Static283.step == 11) {
             Static205.method3091(local155, local161, local159, local153);
             Static608.method8176(local159, local155, local153, local161);
             Static233.method3407(local155, local159, local153, local161);
@@ -180,7 +177,7 @@ public final class Static294 {
         Static359.anInt5801 = local204;
         Static323.anInt5119 = local329;
         Static288.aBoolean356 = false;
-        if (Static426.aBoolean72 && Static500.aClass295_3.method6622() == 0) {
+        if (Static426.aBoolean72 && client.js5WorkerThread.urgentCount() == 0) {
             Static426.aBoolean72 = false;
         }
         if (Static426.aBoolean72) {

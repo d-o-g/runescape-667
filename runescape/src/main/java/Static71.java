@@ -225,10 +225,10 @@ public final class Static71 {
                                     local938 = 0;
                                     @Pc(940) int local940 = 0;
                                     for (@Pc(942) int local942 = 0; local942 < 37; local942++) {
-                                        if (Static226.aClass47_Sub1Array8[local942] != null) {
-                                            local936 += Static226.aClass47_Sub1Array8[local942].method6645();
-                                            local938 += Static226.aClass47_Sub1Array8[local942].method6649();
-                                            local940 += Static226.aClass47_Sub1Array8[local942].method6647();
+                                        if (client.js5ResourceProviders[local942] != null) {
+                                            local936 += client.js5ResourceProviders[local942].entryCount();
+                                            local938 += client.js5ResourceProviders[local942].method6649();
+                                            local940 += client.js5ResourceProviders[local942].extrasCount();
                                         }
                                     }
                                     @Pc(986) int local986 = local940 * 100 / local936;

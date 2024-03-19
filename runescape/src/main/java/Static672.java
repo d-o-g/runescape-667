@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static672 {
 
-    @OriginalMember(owner = "client!vea", name = "J", descriptor = "Lclient!nk;")
-    public static Class263 aClass263_2;
-
     @OriginalMember(owner = "client!vea", name = "I", descriptor = "Lclient!it;")
     public static final Class184 aClass184_18 = new Class184(2, 4, 4, 0);
 

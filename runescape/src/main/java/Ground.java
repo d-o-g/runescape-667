@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public abstract class Ground {
 
     @OriginalMember(owner = "client!s", name = "w", descriptor = "[Lclient!hja;")
-    public static final Class167[] aClass167Array5 = new Class167[32];
+    public static final LoginProt[] A_LOGIN_PROT_ARRAY_5 = new LoginProt[32];
 
     @OriginalMember(owner = "client!s", name = "t", descriptor = "I")
     public final int anInt8894;
@@ -27,9 +27,9 @@ public abstract class Ground {
     public final int[][] anIntArrayArray226;
 
     static {
-        @Pc(140) Class167[] local140 = Static254.method3604();
+        @Pc(140) LoginProt[] local140 = Static254.method3604();
         for (@Pc(142) int local142 = 0; local142 < local140.length; local142++) {
-            aClass167Array5[local140[local142].anInt3973] = local140[local142];
+            A_LOGIN_PROT_ARRAY_5[local140[local142].opcode] = local140[local142];
         }
     }
 

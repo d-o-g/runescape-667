@@ -24,7 +24,7 @@ public final class Static120 {
             local19.aClass158_14 = local8;
             Static472.method6420(local19);
         }
-        if (Static283.anInt4574 != 11 || !Static84.method1661(local8).method6221(arg3 - 1)) {
+        if (Static283.step != 11 || !Static84.method1661(local8).method6221(arg3 - 1)) {
             return;
         }
         @Pc(64) Node_Sub19 local64;

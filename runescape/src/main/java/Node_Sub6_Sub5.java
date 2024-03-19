@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -40,7 +41,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
         if (this.anInt10535 < 1) {
             return -1.0D;
         }
-        @Pc(16) DoublyLinkedNode_Sub2_Sub8 local16 = (DoublyLinkedNode_Sub2_Sub8) this.aDeque_80.first(65280);
+        @Pc(16) DoublyLinkedNode_Sub2_Sub8 local16 = (DoublyLinkedNode_Sub2_Sub8) this.aDeque_80.first();
         if (local16 == null) {
             return -1.0D;
         } else {
@@ -142,7 +143,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!wc", name = "c", descriptor = "(B)Lclient!dk;")
     public synchronized DoublyLinkedNode_Sub2_Sub8 method9145() {
-        return (DoublyLinkedNode_Sub2_Sub8) this.aDeque_80.first(65280);
+        return (DoublyLinkedNode_Sub2_Sub8) this.aDeque_80.first();
     }
 
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(IZ)V")

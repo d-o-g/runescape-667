@@ -18,10 +18,10 @@ public final class Static271 {
     @OriginalMember(owner = "client!ij", name = "c", descriptor = "(B)V")
     public static void method3930() {
         @Pc(10) Node_Sub25 local10;
-        for (local10 = (Node_Sub25) Static159.aDeque_15.first(65280); local10 != null; local10 = (Node_Sub25) Static159.aDeque_15.next()) {
+        for (local10 = (Node_Sub25) Static159.aDeque_15.first(); local10 != null; local10 = (Node_Sub25) Static159.aDeque_15.next()) {
             Static544.method7214(local10, false);
         }
-        for (local10 = (Node_Sub25) Static227.aDeque_18.first(65280); local10 != null; local10 = (Node_Sub25) Static227.aDeque_18.next()) {
+        for (local10 = (Node_Sub25) Static227.aDeque_18.first(); local10 != null; local10 = (Node_Sub25) Static227.aDeque_18.next()) {
             Static544.method7214(local10, true);
         }
     }

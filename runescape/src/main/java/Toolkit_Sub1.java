@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.Node;
 import com.jagex.graphics.*;
 import com.jagex.js5.js5;
@@ -1067,7 +1068,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
         if (this.aBoolean687) {
             return;
         }
-        for (@Pc(9) Node local9 = this.aDeque_59.first(65280); local9 != null; local9 = this.aDeque_59.next()) {
+        for (@Pc(9) Node local9 = this.aDeque_59.first(); local9 != null; local9 = this.aDeque_59.next()) {
             ((Node_Sub13_Sub2) local9).method2101();
         }
         @Pc(28) Enumeration local28 = this.aHashtable6.keys();

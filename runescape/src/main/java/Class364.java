@@ -1,4 +1,6 @@
+import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -153,17 +155,17 @@ public final class Class364 implements Runnable {
                                 Static163.activeToolkit.method7984();
                             }
                         } catch (@Pc(205) Exception_Sub1 local205) {
-                            Static240.sendTrace(local205, local205.getMessage() + " (Recovered) " + client.aClient1.method1648());
+                            JagException.sendTrace(local205, local205.getMessage() + " (Recovered) " + client.aClient1.method1648());
                             Static32.method880(0, true);
                         }
                     }
                     @Pc(245) Container local245;
                     if (Static353.aFrame10 != null) {
                         local245 = Static353.aFrame10;
-                    } else if (Static166.anApplet1 == null) {
-                        local245 = Static149.anApplet_Sub1_1;
+                    } else if (GameShell.loaderApplet == null) {
+                        local245 = Static149.anGameShell;
                     } else {
-                        local245 = Static166.anApplet1;
+                        local245 = GameShell.loaderApplet;
                     }
                     local245.getSize();
                     local245.getSize();
@@ -181,7 +183,7 @@ public final class Class364 implements Runnable {
             @Pc(304) long local304 = SystemTimer.safetime();
             @Pc(312) int local312 = (int) (local8 + 20L - local304);
             if (local312 > 0) {
-                Static638.sleep((long) local312);
+                TimeUtils.sleep((long) local312);
             }
         }
     }

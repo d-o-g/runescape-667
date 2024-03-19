@@ -1,4 +1,10 @@
+import com.jagex.Constants;
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
+import com.jagex.core.util.JagException;
+import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TimeUtils;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -22,19 +28,21 @@ import java.lang.reflect.Method;
 import java.net.URL;
 
 @OriginalClass("client!kh")
-public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListener, WindowListener {
+public abstract class GameShell extends Applet implements Runnable, FocusListener, WindowListener {
 
     @OriginalMember(owner = "client!kh", name = "N", descriptor = "[F")
     public static final float[] aFloatArray15 = new float[16384];
 
     @OriginalMember(owner = "client!kh", name = "f", descriptor = "[F")
     public static final float[] aFloatArray14 = new float[16384];
+    @OriginalMember(owner = "client!fca", name = "a", descriptor = "Ljava/applet/Applet;")
+    public static Applet loaderApplet;
 
     @OriginalMember(owner = "client!kh", name = "z", descriptor = "Z")
     public boolean aBoolean157 = false;
 
     @OriginalMember(owner = "client!kh", name = "h", descriptor = "Z")
-    public boolean aBoolean156 = false;
+    public boolean errored = false;
 
     static {
         @Pc(433) double local433 = 3.834951969714103E-4D;
@@ -46,7 +54,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
 
     @OriginalMember(owner = "client!kh", name = "provideLoaderApplet", descriptor = "(Ljava/applet/Applet;)V")
     public static void provideLoaderApplet(@OriginalArg(0) Applet arg0) {
-        Static166.anApplet1 = arg0;
+        loaderApplet = arg0;
     }
 
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(IZ)V")
@@ -58,8 +66,8 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             Static250.aBoolean311 = true;
         }
         System.out.println("Shutdown start - clean:" + arg0);
-        if (Static166.anApplet1 != null) {
-            Static166.anApplet1.destroy();
+        if (loaderApplet != null) {
+            loaderApplet.destroy();
         }
         try {
             this.method1633();
@@ -81,9 +89,9 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             } catch (@Pc(68) Exception local68) {
             }
         }
-        if (Static446.aSignLink_6 != null) {
+        if (SignLink.instance != null) {
             try {
-                Static446.aSignLink_6.stop();
+                SignLink.instance.stop();
             } catch (@Pc(76) Exception local76) {
             }
         }
@@ -112,15 +120,15 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(IBIIIZLjava/lang/String;I)V")
     protected final void method1635(@OriginalArg(3) int arg0, @OriginalArg(6) String arg1) {
         try {
-            Static631.sourceApplet = null;
-            Static373.clientBuild = 667;
+            Constants.sourceApplet = null;
+            Constants.clientBuild = 667;
             Static680.anInt10289 = 1024;
             Static52.anInt1059 = 1024;
             Static241.anInt3962 = 0;
             Static134.anInt10329 = 0;
             Static380.anInt5979 = 768;
             Static54.anInt1084 = 768;
-            Static149.anApplet_Sub1_1 = this;
+            Static149.anGameShell = this;
             Static353.aFrame10 = new Frame();
             Static353.aFrame10.setTitle("Jagex");
             Static353.aFrame10.setResizable(true);
@@ -129,13 +137,13 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             Static353.aFrame10.toFront();
             @Pc(54) Insets local54 = Static353.aFrame10.getInsets();
             Static353.aFrame10.setSize(Static52.anInt1059 + local54.left + local54.right, local54.bottom + local54.top + Static54.anInt1084);
-            Static284.aSignLink_4 = Static446.aSignLink_6 = new SignLink(arg0, arg1, 37, true);
-            @Pc(88) SignedResource local88 = Static446.aSignLink_6.startThread(this, 1);
+            SignLink.aSignLink_4 = SignLink.instance = new SignLink(arg0, arg1, 37, true);
+            @Pc(88) SignedResource local88 = SignLink.instance.startThread(this, 1);
             while (local88.status == 0) {
-                Static638.sleep(10L);
+                TimeUtils.sleep(10L);
             }
         } catch (@Pc(103) Exception local103) {
-            Static240.sendTrace(local103, (String) null);
+            JagException.sendTrace(local103, (String) null);
         }
     }
 
@@ -143,7 +151,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @Override
     public final URL getCodeBase() {
         if (Static353.aFrame10 == null) {
-            return Static166.anApplet1 == null || Static166.anApplet1 == this ? super.getCodeBase() : Static166.anApplet1.getCodeBase();
+            return loaderApplet == null || loaderApplet == this ? super.getCodeBase() : loaderApplet.getCodeBase();
         } else {
             return null;
         }
@@ -162,25 +170,29 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @OriginalMember(owner = "client!kh", name = "start", descriptor = "()V")
     @Override
     public final void start() {
-        if (Static149.anApplet_Sub1_1 == this && !Static250.aBoolean311) {
+        if (Static149.anGameShell == this && !Static250.aBoolean311) {
             Static604.aLong278 = 0L;
         }
     }
 
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(Ljava/lang/String;B)V")
-    protected final void method1638(@OriginalArg(0) String arg0) {
-        if (this.aBoolean156) {
+    protected final void error(@OriginalArg(0) String arg0) {
+        if (this.errored) {
             return;
         }
-        this.aBoolean156 = true;
+
+        this.errored = true;
         System.out.println("error_game_" + arg0);
         try {
-            Static727.method97("loggedout", Static166.anApplet1);
-        } catch (@Pc(31) Throwable local31) {
+            JavaScript.call("loggedout", loaderApplet);
+        } catch (@Pc(31) Throwable ignored) {
+            /* empty */
         }
+
         try {
             this.getAppletContext().showDocument(new URL(this.getCodeBase(), "error_game_" + arg0 + ".ws"), "_top");
-        } catch (@Pc(62) Exception local62) {
+        } catch (@Pc(62) Exception ignored) {
+            /* empty */
         }
     }
 
@@ -222,32 +234,32 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(IIIILjava/lang/String;II)V")
     protected final void method1640(@OriginalArg(2) int arg0, @OriginalArg(3) int arg1, @OriginalArg(4) String arg2, @OriginalArg(6) int arg3) {
         try {
-            if (Static149.anApplet_Sub1_1 == null) {
-                Static631.sourceApplet = Static166.anApplet1;
+            if (Static149.anGameShell == null) {
+                Constants.sourceApplet = loaderApplet;
                 Static680.anInt10289 = arg0;
                 Static52.anInt1059 = arg0;
-                Static373.clientBuild = 667;
+                Constants.clientBuild = 667;
                 Static134.anInt10329 = 0;
                 Static380.anInt5979 = arg3;
                 Static54.anInt1084 = arg3;
                 Static241.anInt3962 = 0;
-                Static149.anApplet_Sub1_1 = this;
-                Static284.aSignLink_4 = Static446.aSignLink_6 = new SignLink(arg1, arg2, 37, Static166.anApplet1 != null);
-                @Pc(80) SignedResource local80 = Static446.aSignLink_6.startThread(this, 1);
+                Static149.anGameShell = this;
+                SignLink.aSignLink_4 = SignLink.instance = new SignLink(arg1, arg2, 37, loaderApplet != null);
+                @Pc(80) SignedResource local80 = SignLink.instance.startThread(this, 1);
                 while (local80.status == 0) {
-                    Static638.sleep(10L);
+                    TimeUtils.sleep(10L);
                 }
             } else {
                 Static426.anInt941++;
                 if (Static426.anInt941 >= 3) {
-                    this.method1638("alreadyloaded");
+                    this.error("alreadyloaded");
                 } else {
                     this.getAppletContext().showDocument(this.getDocumentBase(), "_self");
                 }
             }
         } catch (@Pc(92) Throwable local92) {
-            Static240.sendTrace(local92, (String) null);
-            this.method1638("crash");
+            JagException.sendTrace(local92, (String) null);
+            this.error("crash");
         }
     }
 
@@ -260,11 +272,11 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
                 if (local10.indexOf("sun") != -1 || local10.indexOf("apple") != -1) {
                     @Pc(29) String local29 = SignLink.javaVersion;
                     if (local29.equals("1.1") || local29.startsWith("1.1.") || local29.equals("1.2") || local29.startsWith("1.2.")) {
-                        this.method1638("wrongjava");
+                        this.error("wrongjava");
                         return;
                     }
                 } else if (local10.indexOf("ibm") != -1 && (SignLink.javaVersion == null || SignLink.javaVersion.equals("1.4.2"))) {
-                    this.method1638("wrongjava");
+                    this.error("wrongjava");
                     return;
                 }
             }
@@ -283,9 +295,9 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
                     Static463.aBoolean531 = true;
                 }
             }
-            @Pc(168) Applet local168 = Static149.anApplet_Sub1_1;
-            if (Static166.anApplet1 != null) {
-                local168 = Static166.anApplet1;
+            @Pc(168) Applet local168 = Static149.anGameShell;
+            if (loaderApplet != null) {
+                local168 = loaderApplet;
             }
             @Pc(174) Method local174 = SignLink.setFocusCycleRoot;
             if (local174 != null) {
@@ -305,13 +317,13 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
                     this.method1646();
                 }
                 this.method1639();
-                Static61.method1312(Static446.aSignLink_6, Static434.aCanvas7);
+                Static61.method1312(SignLink.instance, Static434.aCanvas7);
             }
         } catch (@Pc(254) ThreadDeath local254) {
             throw local254;
         } catch (@Pc(257) Throwable local257) {
-            Static240.sendTrace(local257, this.method1648());
-            this.method1638("crash");
+            JagException.sendTrace(local257, this.method1648());
+            this.error("crash");
         } finally {
             @Pc(275) Object local275 = null;
             this.method1632(true);
@@ -322,7 +334,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @Override
     public final AppletContext getAppletContext() {
         if (Static353.aFrame10 == null) {
-            return Static166.anApplet1 == null || Static166.anApplet1 == this ? super.getAppletContext() : Static166.anApplet1.getAppletContext();
+            return loaderApplet == null || loaderApplet == this ? super.getAppletContext() : loaderApplet.getAppletContext();
         } else {
             return null;
         }
@@ -331,7 +343,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @OriginalMember(owner = "client!kh", name = "paint", descriptor = "(Ljava/awt/Graphics;)V")
     @Override
     public final synchronized void paint(@OriginalArg(0) Graphics arg0) {
-        if (Static149.anApplet_Sub1_1 != this || Static250.aBoolean311) {
+        if (Static149.anGameShell != this || Static250.aBoolean311) {
             return;
         }
         Static664.aBoolean759 = true;
@@ -357,7 +369,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @OriginalMember(owner = "client!kh", name = "stop", descriptor = "()V")
     @Override
     public final void stop() {
-        if (Static149.anApplet_Sub1_1 == this && !Static250.aBoolean311) {
+        if (Static149.anGameShell == this && !Static250.aBoolean311) {
             Static604.aLong278 = SystemTimer.safetime() + 4000L;
         }
     }
@@ -377,10 +389,10 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             local30 = Static316.fsframe;
         } else if (Static353.aFrame10 != null) {
             local30 = Static353.aFrame10;
-        } else if (Static166.anApplet1 == null) {
-            local30 = Static149.anApplet_Sub1_1;
+        } else if (loaderApplet == null) {
+            local30 = Static149.anGameShell;
         } else {
-            local30 = Static166.anApplet1;
+            local30 = loaderApplet;
         }
         local30.setLayout((LayoutManager) null);
         Static434.aCanvas7 = new Canvas_Sub1(this);
@@ -420,7 +432,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
             if (local16.endsWith("192.168.1.")) {
                 return true;
             } else {
-                this.method1638("invalidhost");
+                this.error("invalidhost");
                 return false;
             }
         }
@@ -462,7 +474,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @Override
     public final String getParameter(@OriginalArg(0) String arg0) {
         if (Static353.aFrame10 == null) {
-            return Static166.anApplet1 == null || Static166.anApplet1 == this ? super.getParameter(arg0) : Static166.anApplet1.getParameter(arg0);
+            return loaderApplet == null || loaderApplet == this ? super.getParameter(arg0) : loaderApplet.getParameter(arg0);
         } else {
             return null;
         }
@@ -479,10 +491,10 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @OriginalMember(owner = "client!kh", name = "destroy", descriptor = "()V")
     @Override
     public final void destroy() {
-        if (Static149.anApplet_Sub1_1 == this && !Static250.aBoolean311) {
+        if (Static149.anGameShell == this && !Static250.aBoolean311) {
             Static604.aLong278 = SystemTimer.safetime();
-            Static638.sleep(5000L);
-            Static284.aSignLink_4 = null;
+            TimeUtils.sleep(5000L);
+            SignLink.aSignLink_4 = null;
             this.method1632(false);
         }
     }
@@ -505,7 +517,7 @@ public abstract class Applet_Sub1 extends Applet implements Runnable, FocusListe
     @Override
     public final URL getDocumentBase() {
         if (Static353.aFrame10 == null) {
-            return Static166.anApplet1 == null || Static166.anApplet1 == this ? super.getDocumentBase() : Static166.anApplet1.getDocumentBase();
+            return loaderApplet == null || loaderApplet == this ? super.getDocumentBase() : loaderApplet.getDocumentBase();
         } else {
             return null;
         }

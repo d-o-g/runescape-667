@@ -38,7 +38,7 @@ public final class Static2 {
         if (type.stackable == 1) {
             totalCost *= entry.count + 1;
         }
-        for (@Pc(65) ObjStackEntry other = (ObjStackEntry) stack.objs.first(65280); other != null; other = (ObjStackEntry) stack.objs.next()) {
+        for (@Pc(65) ObjStackEntry other = (ObjStackEntry) stack.objs.first(); other != null; other = (ObjStackEntry) stack.objs.next()) {
             type = Static419.aObjTypeList_1.list(other.id);
             @Pc(78) int otherTotalCost = type.cost;
             if (type.stackable == 1) {

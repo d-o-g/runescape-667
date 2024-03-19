@@ -1,4 +1,5 @@
 import com.jagex.core.util.Arrays;
+import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.Node_Sub7;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -131,14 +132,14 @@ public final class Static358 {
 
     @OriginalMember(owner = "client!lf", name = "e", descriptor = "(I)V")
     public static void method9190() {
-        if (Static166.anApplet1 == null) {
+        if (GameShell.loaderApplet == null) {
             return;
         }
         try {
-            @Pc(23) String local23 = Static166.anApplet1.getParameter("cookiehost");
+            @Pc(23) String local23 = GameShell.loaderApplet.getParameter("cookiehost");
             @Pc(31) int local31 = (int) (SystemTimer.safetime() / 86400000L) - 11745;
             @Pc(47) String local47 = "usrdob=" + local31 + "; version=1; path=/; domain=" + local23;
-            Static727.method98("document.cookie=\"" + local47 + "\"", Static166.anApplet1);
+            JavaScript.eval("document.cookie=\"" + local47 + "\"", GameShell.loaderApplet);
         } catch (@Pc(63) Throwable local63) {
         }
     }

@@ -1,3 +1,4 @@
+import com.jagex.core.util.TimeUtils;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -78,7 +79,7 @@ public final class Static245 {
                                 Static226.aClass46Array7[0].notify();
                             }
                             try {
-                                Static638.sleep(1L);
+                                TimeUtils.sleep(1L);
                             } catch (@Pc(148) Exception local148) {
                             }
                         }
@@ -86,13 +87,13 @@ public final class Static245 {
                         return;
                     }
                     try {
-                        Static638.sleep(1L);
+                        TimeUtils.sleep(1L);
                     } catch (@Pc(103) Exception local103) {
                     }
                 }
             }
             try {
-                Static638.sleep(1L);
+                TimeUtils.sleep(1L);
             } catch (@Pc(49) Exception local49) {
             }
         }

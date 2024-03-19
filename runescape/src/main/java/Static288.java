@@ -42,10 +42,10 @@ public final class Static288 {
             @Pc(59) Container local59;
             if (Static353.aFrame10 != null) {
                 local59 = Static353.aFrame10;
-            } else if (Static166.anApplet1 == null) {
-                local59 = Static149.anApplet_Sub1_1;
+            } else if (GameShell.loaderApplet == null) {
+                local59 = Static149.anGameShell;
             } else {
-                local59 = Static166.anApplet1;
+                local59 = GameShell.loaderApplet;
             }
             @Pc(67) int local67 = 0;
             @Pc(69) int local69 = 0;

@@ -1,3 +1,6 @@
+import com.jagex.SignLink;
+import com.jagex.core.util.JagException;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -29,11 +32,11 @@ public final class Class119 implements Runnable {
                         local21.method3594();
                     }
                 }
-                Static638.sleep(10L);
+                TimeUtils.sleep(10L);
                 Static61.method1312(this.aSignLink_2, (Object) null);
             }
         } catch (@Pc(49) Exception local49) {
-            Static240.sendTrace(local49, (String) null);
+            JagException.sendTrace(local49, (String) null);
         } finally {
             @Pc(59) Object local59 = null;
             this.aBoolean242 = false;

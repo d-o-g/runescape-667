@@ -1,3 +1,6 @@
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -26,14 +29,14 @@ public final class Static655 {
         while (true) {
             @Pc(10) SignedResource local10 = arg0.exitFullscreen(arg1);
             while (local10.status == 0) {
-                Static638.sleep(10L);
+                TimeUtils.sleep(10L);
             }
             if (local10.status == 1) {
                 arg1.setVisible(false);
                 arg1.dispose();
                 return;
             }
-            Static638.sleep(100L);
+            TimeUtils.sleep(100L);
         }
     }
 }

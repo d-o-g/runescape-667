@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import com.jagex.collect.Node;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
@@ -137,7 +138,7 @@ public final class Node_Sub34 extends Node {
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ul;I)V")
     public Node_Sub34(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1) {
         this.aModeGame_3 = arg0;
-        this.aClass221_1 = new Class221(Static446.aSignLink_6.signed, Static369.anInt4265, Static495.anInt7422, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
+        this.aClass221_1 = new Class221(SignLink.instance.signed, Static369.anInt4265, Static495.anInt7422, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
         this.aClass57_Sub29_1 = new Class57_Sub29(arg1, this);
         this.method5103(true);
     }
@@ -145,7 +146,7 @@ public final class Node_Sub34 extends Node {
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ge;Lclient!ul;I)V")
     public Node_Sub34(@OriginalArg(0) Packet arg0, @OriginalArg(1) ModeGame arg1, @OriginalArg(2) int arg2) {
         this.aModeGame_3 = arg1;
-        this.aClass221_1 = new Class221(Static446.aSignLink_6.signed, Static369.anInt4265, Static495.anInt7422, SignLink.osArchRaw.indexOf("arm") != -1);
+        this.aClass221_1 = new Class221(SignLink.instance.signed, Static369.anInt4265, Static495.anInt7422, SignLink.osArchRaw.indexOf("arm") != -1);
         this.aClass57_Sub29_1 = new Class57_Sub29(arg2, this);
         this.method5102(arg0);
     }

@@ -1,3 +1,4 @@
+import com.jagex.core.util.JagException;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -33,7 +34,7 @@ public final class Static605 {
             if (Static497.stacks != null) {
                 @Pc(69) ObjStack local69 = (ObjStack) Static497.stacks.get((long) (Static87.anInt1810 << 28 | local25 << 14 | local38));
                 if (local69 != null) {
-                    for (@Pc(77) ObjStackEntry local77 = (ObjStackEntry) local69.objs.first(65280); local77 != null; local77 = (ObjStackEntry) local69.objs.next()) {
+                    for (@Pc(77) ObjStackEntry local77 = (ObjStackEntry) local69.objs.first(); local77 != null; local77 = (ObjStackEntry) local69.objs.next()) {
                         if ((local42 & 0x7FFF) == local77.id && local77.count == local46) {
                             local77.remove();
                             local77.count = local52;
@@ -278,7 +279,7 @@ public final class Static605 {
                     local42 = local38 + Static691.anInt10367;
                     @Pc(1389) ObjStack local1389 = (ObjStack) Static497.stacks.get((long) (local34 << 14 | Static87.anInt1810 << 28 | local42));
                     if (local1389 != null) {
-                        for (@Pc(1399) ObjStackEntry local1399 = (ObjStackEntry) local1389.objs.first(65280); local1399 != null; local1399 = (ObjStackEntry) local1389.objs.next()) {
+                        for (@Pc(1399) ObjStackEntry local1399 = (ObjStackEntry) local1389.objs.first(); local1399 != null; local1399 = (ObjStackEntry) local1389.objs.next()) {
                             if (local1399.id == (local15 & 0x7FFF)) {
                                 local1399.remove();
                                 break;
@@ -388,7 +389,7 @@ public final class Static605 {
                         }
                     }
                 } else {
-                    Static240.sendTrace((Throwable) null, "T3 - " + arg0);
+                    JagException.sendTrace((Throwable) null, "T3 - " + arg0);
                     Static233.method3409(false);
                 }
             }

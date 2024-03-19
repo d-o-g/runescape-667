@@ -1,3 +1,5 @@
+import com.jagex.SignLink;
+import com.jagex.collect.Deque;
 import com.jagex.graphics.TextureSource;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

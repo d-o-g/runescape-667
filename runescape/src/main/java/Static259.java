@@ -1,3 +1,5 @@
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -13,8 +15,8 @@ public final class Static259 {
         @Pc(31) String local31;
         if (SignLink.osNameLower.startsWith("win") && arg2.signed) {
             local31 = null;
-            if (Static166.anApplet1 != null) {
-                local31 = Static166.anApplet1.getParameter("haveie6");
+            if (GameShell.loaderApplet != null) {
+                local31 = GameShell.loaderApplet.getParameter("haveie6");
             }
             if (local31 == null || !local31.equals("1")) {
                 @Pc(53) SignedResource local53 = Static637.method8382(arg0, 0, arg2);
@@ -26,8 +28,8 @@ public final class Static259 {
         }
         if (SignLink.osNameLower.startsWith("mac")) {
             local31 = null;
-            if (Static166.anApplet1 != null) {
-                local31 = Static166.anApplet1.getParameter("havefirefox");
+            if (GameShell.loaderApplet != null) {
+                local31 = GameShell.loaderApplet.getParameter("havefirefox");
             }
             if (local31 != null && local31.equals("1") && arg3) {
                 Static36.method980(arg2, arg0, arg1, 1);

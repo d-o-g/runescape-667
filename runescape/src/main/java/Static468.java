@@ -23,7 +23,7 @@ public final class Static468 {
             Static638.method8398(arg0, arg2, arg1);
             return;
         }
-        @Pc(88) ObjStackEntry local88 = (ObjStackEntry) local73.objs.first(65280);
+        @Pc(88) ObjStackEntry local88 = (ObjStackEntry) local73.objs.first();
         if (local88 == null) {
             Static638.method8398(arg0, arg2, arg1);
             return;

@@ -1,5 +1,8 @@
 import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.io.Packet;
+import com.jagex.js5.CachedResourceWorker;
+import com.jagex.js5.FileSystem_Client;
+import com.jagex.js5.Js5WorkerRequestMessage;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -8,37 +11,37 @@ import org.openrs2.deob.annotation.Pc;
 import java.math.BigInteger;
 
 @OriginalClass("client!nj")
-public final class Class262 {
+public final class Js5MasterIndex {
 
     @OriginalMember(owner = "client!nj", name = "l", descriptor = "Lclient!ge;")
     public Packet aClass2_Sub21_10;
 
     @OriginalMember(owner = "client!nj", name = "b", descriptor = "[Lclient!pm;")
-    public ResourceProvider_Sub1[] aClass47_Sub1Array5;
+    public Js5ResourceProvider[] aClass47_Sub1Array5;
 
     @OriginalMember(owner = "client!nj", name = "e", descriptor = "Ljava/math/BigInteger;")
     public final BigInteger aBigInteger4;
 
     @OriginalMember(owner = "client!nj", name = "d", descriptor = "Lclient!pla;")
-    public final Class295 aClass295_1;
+    public final Js5WorkerThread workerThread;
 
     @OriginalMember(owner = "client!nj", name = "h", descriptor = "Lclient!iba;")
-    public final Class174 aClass174_2;
+    public final CachedResourceWorker aCachedResourceWorker_2;
 
     @OriginalMember(owner = "client!nj", name = "n", descriptor = "Ljava/math/BigInteger;")
     public final BigInteger aBigInteger3;
 
     @OriginalMember(owner = "client!nj", name = "f", descriptor = "Lclient!rja;")
-    public DoublyLinkedNode_Sub2_Sub17_Sub1 aClass2_Sub2_Sub17_Sub1_1;
+    public Js5WorkerRequestMessage aClass2_Sub2_Sub17_Sub1_1;
 
     @OriginalMember(owner = "client!nj", name = "<init>", descriptor = "(Lclient!pla;Lclient!iba;Ljava/math/BigInteger;Ljava/math/BigInteger;)V")
-    public Class262(@OriginalArg(0) Class295 arg0, @OriginalArg(1) Class174 arg1, @OriginalArg(2) BigInteger arg2, @OriginalArg(3) BigInteger arg3) {
+    public Js5MasterIndex(@OriginalArg(0) Js5WorkerThread workerThread, @OriginalArg(1) CachedResourceWorker arg1, @OriginalArg(2) BigInteger arg2, @OriginalArg(3) BigInteger arg3) {
         this.aBigInteger4 = arg3;
-        this.aClass295_1 = arg0;
-        this.aClass174_2 = arg1;
+        this.workerThread = workerThread;
+        this.aCachedResourceWorker_2 = arg1;
         this.aBigInteger3 = arg2;
-        if (!this.aClass295_1.method6630()) {
-            this.aClass2_Sub2_Sub17_Sub1_1 = this.aClass295_1.method6633(255, 255, true, (byte) 0);
+        if (!this.workerThread.isUrgentFull()) {
+            this.aClass2_Sub2_Sub17_Sub1_1 = this.workerThread.requestIndex(255, 255, true, (byte) 0);
         }
     }
 
@@ -48,15 +51,15 @@ public final class Class262 {
             return true;
         }
         if (this.aClass2_Sub2_Sub17_Sub1_1 == null) {
-            if (this.aClass295_1.method6630()) {
+            if (this.workerThread.isUrgentFull()) {
                 return false;
             }
-            this.aClass2_Sub2_Sub17_Sub1_1 = this.aClass295_1.method6633(255, 255, true, (byte) 0);
+            this.aClass2_Sub2_Sub17_Sub1_1 = this.workerThread.requestIndex(255, 255, true, (byte) 0);
         }
-        if (this.aClass2_Sub2_Sub17_Sub1_1.aBoolean778) {
+        if (this.aClass2_Sub2_Sub17_Sub1_1.incomplete) {
             return false;
         }
-        @Pc(49) Packet local49 = new Packet(this.aClass2_Sub2_Sub17_Sub1_1.method8971());
+        @Pc(49) Packet local49 = new Packet(this.aClass2_Sub2_Sub17_Sub1_1.getData());
         local49.pos = 5;
         @Pc(56) int local56 = local49.g1();
         local49.pos += local56 * 72;
@@ -79,18 +82,18 @@ public final class Class262 {
                 throw new RuntimeException();
             }
         }
-        this.aClass47_Sub1Array5 = new ResourceProvider_Sub1[local56];
+        this.aClass47_Sub1Array5 = new Js5ResourceProvider[local56];
         this.aClass2_Sub21_10 = local49;
         return true;
     }
 
     @OriginalMember(owner = "client!nj", name = "a", descriptor = "(Lclient!af;ILclient!af;B)Lclient!pm;")
-    public ResourceProvider_Sub1 method5801(@OriginalArg(0) Class9 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class9 arg2) {
+    public Js5ResourceProvider getProvider(@OriginalArg(0) FileSystem_Client arg0, @OriginalArg(1) int arg1, @OriginalArg(2) FileSystem_Client arg2) {
         return this.method5802(arg0, arg1, arg2);
     }
 
     @OriginalMember(owner = "client!nj", name = "a", descriptor = "(ZLclient!af;ILclient!af;I)Lclient!pm;")
-    public ResourceProvider_Sub1 method5802(@OriginalArg(1) Class9 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Class9 arg2) {
+    public Js5ResourceProvider method5802(@OriginalArg(1) FileSystem_Client arg0, @OriginalArg(2) int arg1, @OriginalArg(3) FileSystem_Client arg2) {
         if (this.aClass2_Sub21_10 == null) {
             throw new RuntimeException();
         } else if (arg1 < 0 || arg1 >= this.aClass47_Sub1Array5.length) {
@@ -101,7 +104,7 @@ public final class Class262 {
             @Pc(57) int local57 = this.aClass2_Sub21_10.g4();
             @Pc(60) byte[] local60 = new byte[64];
             this.aClass2_Sub21_10.gdata(0, 64, local60);
-            @Pc(84) ResourceProvider_Sub1 local84 = new ResourceProvider_Sub1(arg1, arg0, arg2, this.aClass295_1, this.aClass174_2, local52, local60, local57, true);
+            @Pc(84) Js5ResourceProvider local84 = new Js5ResourceProvider(arg1, arg0, arg2, this.workerThread, this.aCachedResourceWorker_2, local52, local60, local57, true);
             this.aClass47_Sub1Array5[arg1] = local84;
             return local84;
         } else {
@@ -121,7 +124,7 @@ public final class Class262 {
         }
         for (@Pc(41) int local41 = 0; local41 < this.aClass47_Sub1Array5.length; local41++) {
             if (this.aClass47_Sub1Array5[local41] != null) {
-                this.aClass47_Sub1Array5[local41].method6648();
+                this.aClass47_Sub1Array5[local41].processExtras();
             }
         }
     }

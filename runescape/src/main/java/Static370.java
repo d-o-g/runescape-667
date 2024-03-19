@@ -7,15 +7,12 @@ public final class Static370 {
     @OriginalMember(owner = "client!lm", name = "l", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_152 = new Class225(4, 0);
 
-    @OriginalMember(owner = "client!lm", name = "r", descriptor = "I")
-    public static int anInt5876 = 0;
-
     @OriginalMember(owner = "client!lm", name = "j", descriptor = "Lclient!pc;")
     public static final Class287 aClass287_11 = new Class287(9, -1);
 
     @OriginalMember(owner = "client!lm", name = "b", descriptor = "(Z)V")
     public static void method5279() {
-        if (Static620.method8321(Static283.anInt4574)) {
+        if (Static620.method8321(Static283.step)) {
             Static233.method3409(false);
         } else {
             Static467.aClass348_2 = Static405.aClass153_2.aClass348_1;

@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static446 {
 
-    @OriginalMember(owner = "client!oaa", name = "b", descriptor = "Lclient!vq;")
-    public static SignLink aSignLink_6;
-
     @OriginalMember(owner = "client!oaa", name = "p", descriptor = "[[[I")
     public static int[][][] anIntArrayArrayArray9;
 

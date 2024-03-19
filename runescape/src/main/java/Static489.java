@@ -1,4 +1,8 @@
+import com.jagex.DisplayProperties;
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -41,7 +45,7 @@ public final class Static489 {
 
         @Pc(101) SignedResource resource = signlink.enterFullscreen(width, height, oldWidth, oldHeight);
         while (resource.status == 0) {
-            Static638.sleep(10L);
+            TimeUtils.sleep(10L);
         }
 
         @Pc(112) Frame local112 = (Frame) resource.result;
@@ -324,7 +328,7 @@ public final class Static489 {
         Static352.method5180();
         Static442.method5969();
         @Pc(920) Node_Sub19 local920;
-        if (Static353.aFrame10 != null && Static405.aClass153_2.aClass348_1 != null && Static283.anInt4574 == 12) {
+        if (Static353.aFrame10 != null && Static405.aClass153_2.aClass348_1 != null && Static283.step == 12) {
             local920 = Static293.method4335(Static694.aClass345_122, Static405.aClass153_2.aClass186_1);
             local920.aClass2_Sub21_Sub2_1.p4(1057001181);
             Static405.aClass153_2.method3275(local920);
@@ -343,11 +347,11 @@ public final class Static489 {
                 }
             }
         }
-        if (Static283.anInt4574 == 4) {
+        if (Static283.step == 4) {
             Static81.method1586(3);
-        } else if (Static283.anInt4574 == 8) {
+        } else if (Static283.step == 8) {
             Static81.method1586(7);
-        } else if (Static283.anInt4574 == 10) {
+        } else if (Static283.step == 10) {
             Static81.method1586(9);
         } else {
             Static81.method1586(11);

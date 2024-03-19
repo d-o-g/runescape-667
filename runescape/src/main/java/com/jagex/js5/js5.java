@@ -29,6 +29,10 @@ public final class js5 {
 
     @OriginalMember(owner = "client!dj", name = "o", descriptor = "I")
     public static final int maxsize = 0;
+    @OriginalMember(owner = "client!qa", name = "q", descriptor = "Lclient!sb;")
+    public static js5 aJs5_96;
+    @OriginalMember(owner = "client!iha", name = "c", descriptor = "Lclient!sb;")
+    public static js5 aJs5_58;
 
     @OriginalMember(owner = "client!ska", name = "a", descriptor = "([BB)[B")
     public static byte[] decodeContainer(@OriginalArg(0) byte[] compressed) {

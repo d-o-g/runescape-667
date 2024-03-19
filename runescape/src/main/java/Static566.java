@@ -3,85 +3,85 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static566 {
 
     @OriginalMember(owner = "client!rr", name = "C", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_1 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___1 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "q", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_2 = new Class326(Static326.aClass206_4);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___2 = new LoadingRequirement(Static326.aClass206_4);
 
     @OriginalMember(owner = "client!rr", name = "s", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_3 = new Class326(Static326.aClass206_4);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___3 = new LoadingRequirement(Static326.aClass206_4);
 
     @OriginalMember(owner = "client!rr", name = "y", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_4 = new Class326(Static326.aClass206_4);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___4 = new LoadingRequirement(Static326.aClass206_4);
 
     @OriginalMember(owner = "client!rr", name = "u", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_5 = new Class326(Static326.aClass206_4);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___5 = new LoadingRequirement(Static326.aClass206_4);
 
     @OriginalMember(owner = "client!rr", name = "b", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_6 = new Class326(Static326.aClass206_4);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___6 = new LoadingRequirement(Static326.aClass206_4);
 
     @OriginalMember(owner = "client!rr", name = "p", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_7 = new Class326(Static326.aClass206_4);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___7 = new LoadingRequirement(Static326.aClass206_4);
 
     @OriginalMember(owner = "client!rr", name = "a", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_8 = new Class326(Static326.aClass206_4);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___8 = new LoadingRequirement(Static326.aClass206_4);
 
     @OriginalMember(owner = "client!rr", name = "t", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_9 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___9 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "w", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_10 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___10 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "H", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_11 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___11 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "g", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_12 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___12 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "n", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_13 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___13 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "E", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_14 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___14 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "i", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_15 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___15 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "z", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_16 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___16 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "M", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_17 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___17 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "c", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_18 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___18 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "K", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_19 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___19 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "o", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_20 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___20 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "h", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_21 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___21 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "e", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_22 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___22 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "I", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_23 = new Class326(Static326.aClass206_2);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___23 = new LoadingRequirement(Static326.aClass206_2);
 
     @OriginalMember(owner = "client!rr", name = "J", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_24 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___24 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "k", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_25 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___25 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "l", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_26 = new Class326(Static326.aClass206_1);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___26 = new LoadingRequirement(Static326.aClass206_1);
 
     @OriginalMember(owner = "client!rr", name = "L", descriptor = "Lclient!rr;")
-    public static final Class326 aClass326_27 = new Class326(Static326.aClass206_3);
+    public static final LoadingRequirement A_LOADING_REQUIREMENT___27 = new LoadingRequirement(Static326.aClass206_3);
 
     @OriginalMember(owner = "client!rr", name = "j", descriptor = "I")
     public static int anInt8472 = 0;
@@ -90,7 +90,7 @@ public final class Static566 {
     public static final int[] anIntArray654 = new int[1000];
 
     @OriginalMember(owner = "client!rr", name = "c", descriptor = "(I)[Lclient!rr;")
-    public static Class326[] method7467() {
-        return new Class326[]{aClass326_1, aClass326_2, aClass326_3, aClass326_4, aClass326_5, aClass326_6, aClass326_7, aClass326_8, aClass326_9, aClass326_10, aClass326_11, aClass326_12, aClass326_13, aClass326_14, aClass326_15, aClass326_16, aClass326_17, aClass326_18, aClass326_19, aClass326_20, aClass326_21, aClass326_22, aClass326_23, aClass326_24, aClass326_25, aClass326_26, aClass326_27};
+    public static LoadingRequirement[] method7467() {
+        return new LoadingRequirement[]{A_LOADING_REQUIREMENT___1, A_LOADING_REQUIREMENT___2, A_LOADING_REQUIREMENT___3, A_LOADING_REQUIREMENT___4, A_LOADING_REQUIREMENT___5, A_LOADING_REQUIREMENT___6, A_LOADING_REQUIREMENT___7, A_LOADING_REQUIREMENT___8, A_LOADING_REQUIREMENT___9, A_LOADING_REQUIREMENT___10, A_LOADING_REQUIREMENT___11, A_LOADING_REQUIREMENT___12, A_LOADING_REQUIREMENT___13, A_LOADING_REQUIREMENT___14, A_LOADING_REQUIREMENT___15, A_LOADING_REQUIREMENT___16, A_LOADING_REQUIREMENT___17, A_LOADING_REQUIREMENT___18, A_LOADING_REQUIREMENT___19, A_LOADING_REQUIREMENT___20, A_LOADING_REQUIREMENT___21, A_LOADING_REQUIREMENT___22, A_LOADING_REQUIREMENT___23, A_LOADING_REQUIREMENT___24, A_LOADING_REQUIREMENT___25, A_LOADING_REQUIREMENT___26, A_LOADING_REQUIREMENT___27};
     }
 }

@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -39,13 +40,13 @@ public final class Static76 {
                     Static580.anInt8621 = -5;
                     return;
                 }
-                Static660.aClass229_4.method5260();
+                Static660.aConnectionInfo_4.rotateMethods();
                 Static6.anInt95 = 1;
                 Static654.anInt9739 = 0;
                 Static720.anInt10865++;
             }
             if (Static6.anInt95 == 1) {
-                Static405.aClass153_1.aSignedResource_1 = Static660.aClass229_4.method5263(Static446.aSignLink_6);
+                Static405.aClass153_1.aSignedResource_1 = Static660.aConnectionInfo_4.openSocket(SignLink.instance);
                 Static6.anInt95 = 2;
             }
             if (Static6.anInt95 == 2) {
@@ -70,7 +71,7 @@ public final class Static76 {
         } catch (@Pc(148) IOException local148) {
             Static405.aClass153_1.method3274();
             if (Static720.anInt10865 < 2) {
-                Static660.aClass229_4.method5260();
+                Static660.aConnectionInfo_4.rotateMethods();
                 Static720.anInt10865++;
                 Static654.anInt9739 = 0;
                 Static6.anInt95 = 1;

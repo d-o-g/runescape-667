@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -62,7 +63,7 @@ public final class Static159 {
             }
         } else {
             local80 = 0;
-            for (@Pc(85) DoublyLinkedNode_Sub2_Sub16 local85 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(65280); local85 != null; local85 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
+            for (@Pc(85) DoublyLinkedNode_Sub2_Sub16 local85 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local85 != null; local85 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
                 local101 = (Static594.anInt8777 - local80 - 1) * 16 + local9 + Static84.anInt1775 + 31;
                 local80++;
                 Static232.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, local85, -1, local76, local7 + Static71.anInt1576, local69);
@@ -73,7 +74,7 @@ public final class Static159 {
 
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "(Z)V")
     public static void method2575() {
-        if (Static41.method1027(Static283.anInt4574) || Static620.method8321(Static283.anInt4574)) {
+        if (Static41.method1027(Static283.step) || Static620.method8321(Static283.step)) {
             Static127.method2243(Static412.anInt6358, Static170.anInt2864 >> 12, Static110.anInt2186 >> 12);
         } else {
             @Pc(20) int local20 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] >> 3;

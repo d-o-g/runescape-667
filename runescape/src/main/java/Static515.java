@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static515 {
 
-    @OriginalMember(owner = "client!qda", name = "q", descriptor = "Ljava/lang/String;")
-    public static String playerDisplayName;
-
     @OriginalMember(owner = "client!qda", name = "l", descriptor = "[[Ljava/lang/String;")
     public static final String[][] aStringArrayArray2 = new String[][]{{"M1", "M2", "S1", "F"}, {"M1", "M2", "M3", "S1", "S2", "F"}, {"M1", "M2", "M3", "M4", "S1", "S2", "S3", "F"}};
 
@@ -69,7 +66,7 @@ public final class Static515 {
         } else {
             local202 = Static212.anInt3467 * 5;
         }
-        for (@Pc(213) Node_Sub20 local213 = (Node_Sub20) Static30.A_DEQUE___31.first(65280); local213 != null; local213 = (Node_Sub20) Static30.A_DEQUE___31.next()) {
+        for (@Pc(213) Node_Sub20 local213 = (Node_Sub20) Static30.A_DEQUE___31.first(); local213 != null; local213 = (Node_Sub20) Static30.A_DEQUE___31.next()) {
             @Pc(221) Class105 local221 = Static30.aClass246_3.method5584(local213.anInt3131);
             if (Static408.method5634(local221)) {
                 @Pc(256) int local256;

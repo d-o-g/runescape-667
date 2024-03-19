@@ -1,8 +1,10 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.collect.Queue;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.graphics.*;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
@@ -1124,7 +1126,7 @@ public final class Toolkit_Sub3 extends Toolkit {
     @OriginalMember(owner = "client!qha", name = "u", descriptor = "()V")
     @Override
     protected void method7987() {
-        for (@Pc(8) Node local8 = this.aDeque_46.first(65280); local8 != null; local8 = this.aDeque_46.next()) {
+        for (@Pc(8) Node local8 = this.aDeque_46.first(); local8 != null; local8 = this.aDeque_46.next()) {
             ((Node_Sub13_Sub1) local8).method1609();
         }
         if (this.aClass276_1 != null) {
@@ -1242,7 +1244,7 @@ public final class Toolkit_Sub3 extends Toolkit {
             if (local13++ > 5) {
                 throw new RuntimeException("");
             }
-            Static638.sleep(1000L);
+            TimeUtils.sleep(1000L);
         }
     }
 
@@ -2958,7 +2960,7 @@ public final class Toolkit_Sub3 extends Toolkit {
             local148 = Static402.method5587(local148);
             OpenGL.glVertex2f((float) radius + local83, local88);
             for (@Pc(178) int local178 = 16384 - local148; local178 > 0; local178 -= local148) {
-                OpenGL.glVertex2f(Applet_Sub1.aFloatArray14[local178] * (float) radius + local83, Applet_Sub1.aFloatArray15[local178] * (float) radius + local88);
+                OpenGL.glVertex2f(GameShell.aFloatArray14[local178] * (float) radius + local83, GameShell.aFloatArray15[local178] * (float) radius + local88);
             }
             OpenGL.glVertex2f(local83 + (float) radius, local88);
             OpenGL.glEnd();

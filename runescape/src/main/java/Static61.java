@@ -1,3 +1,5 @@
+import com.jagex.SignLink;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -48,7 +50,7 @@ public final class Static61 {
             return;
         }
         for (@Pc(19) int local19 = 0; local19 < 50 && arg0.eventQueue.peekEvent() != null; local19++) {
-            Static638.sleep(1L);
+            TimeUtils.sleep(1L);
         }
         try {
             if (arg1 != null) {

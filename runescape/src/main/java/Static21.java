@@ -1,3 +1,4 @@
+import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -120,7 +121,7 @@ public final class Static21 {
     public static boolean method8119() {
         if (Static98.aBoolean191) {
             try {
-                Static727.method97("showVideoAd", Static166.anApplet1);
+                JavaScript.call("showVideoAd", GameShell.loaderApplet);
                 return true;
             } catch (@Pc(15) Throwable local15) {
             }

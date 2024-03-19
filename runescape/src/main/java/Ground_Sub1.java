@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.graphics.Node_Sub7;
@@ -287,7 +288,7 @@ public final class Ground_Sub1 extends Ground {
             this.aClass19_Sub1_9.method8094(Static185.aClass121_3, Static209.aClass121_4);
             this.aClass19_Sub1_9.method8080(0, Static454.aClass168_5);
             this.aClass19_Sub1_9.method8142(Static207.aClass168_4, 0);
-            for (@Pc(342) Node local342 = this.aDeque_24.first(65280); local342 != null; local342 = this.aDeque_24.next()) {
+            for (@Pc(342) Node local342 = this.aDeque_24.first(); local342 != null; local342 = this.aDeque_24.next()) {
                 @Pc(347) Node_Sub32 local347 = (Node_Sub32) local342;
                 local347.method4564(arg6, arg2, (byte) 51, arg4, arg0);
             }

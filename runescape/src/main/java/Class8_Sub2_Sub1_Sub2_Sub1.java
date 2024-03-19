@@ -1,4 +1,6 @@
+import com.jagex.Constants;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.JagException;
 import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -489,7 +491,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         this.anInt1443 = packet.g2();
         this.aString8 = packet.gjstr();
         if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this) {
-            Static515.playerDisplayName = this.aString8;
+            Constants.playerDisplayName = this.aString8;
         }
         this.aString9 = this.aString8;
         this.anInt1444 = packet.g1();
@@ -655,7 +657,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             if (local62.aChar1 == 's') {
                 local5 = local5 + local62.method1229(this.aByte33 & 0xFF);
             } else {
-                Static240.sendTrace(new Throwable(), "gdn1");
+                JagException.sendTrace(new Throwable(), "gdn1");
                 local40[this.aByte31] = -1;
             }
         }

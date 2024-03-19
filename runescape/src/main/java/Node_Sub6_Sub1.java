@@ -246,7 +246,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             local12.anInt2202 = 0;
             return;
         }
-        for (@Pc(47) Node_Sub16 local47 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(65280); local47 != null; local47 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
+        for (@Pc(47) Node_Sub16 local47 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local47 != null; local47 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if (local12.anInt2187 == local47.anInt2187 && local47.anInt2202 < 0 && local12 != local47) {
                 local12.anInt2202 = 0;
                 break;
@@ -262,7 +262,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     @OriginalMember(owner = "client!bd", name = "c", descriptor = "(II)V")
     public void method917(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if ((this.anIntArray56[arg1] & 0x4) != 0) {
-            for (@Pc(22) Node_Sub16 local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(arg0 + 65280); local22 != null; local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
+            for (@Pc(22) Node_Sub16 local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local22 != null; local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
                 if (arg1 == local22.anInt2187) {
                     local22.anInt2183 = 0;
                 }
@@ -565,7 +565,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(II)V")
     public void method930(@OriginalArg(1) int arg0) {
-        for (@Pc(14) Node_Sub16 local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(65280); local14 != null; local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
+        for (@Pc(14) Node_Sub16 local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local14 != null; local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if (arg0 < 0 || local14.anInt2187 == arg0) {
                 if (local14.aClass2_Sub6_Sub2_1 != null) {
                     local14.aClass2_Sub6_Sub2_1.method3320(Static686.anInt8944 / 100);
@@ -720,7 +720,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "e", descriptor = "(II)V")
     public void method938(@OriginalArg(1) int arg0) {
-        for (@Pc(6) Node_Sub16 local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(65280); local6 != null; local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
+        for (@Pc(6) Node_Sub16 local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local6 != null; local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if ((arg0 < 0 || arg0 == local6.anInt2187) && local6.anInt2202 < 0) {
                 this.aClass2_Sub16ArrayArray1[local6.anInt2187][local6.anInt2196] = null;
                 local6.anInt2202 = 0;
@@ -744,7 +744,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         if ((this.anIntArray56[arg0] & 0x2) == 0) {
             return;
         }
-        for (@Pc(28) Node_Sub16 local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(65280); local28 != null; local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
+        for (@Pc(28) Node_Sub16 local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local28 != null; local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if (arg0 == local28.anInt2187 && this.aClass2_Sub16ArrayArray1[arg0][local28.anInt2196] == null && local28.anInt2202 < 0) {
                 local28.anInt2202 = 0;
             }

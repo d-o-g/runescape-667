@@ -1,3 +1,5 @@
+import com.jagex.DisplayProperties;
+import com.jagex.SignLink;
 import com.jagex.core.util.Arrays;
 import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -64,7 +66,7 @@ public final class Static587 {
     @OriginalMember(owner = "client!sia", name = "g", descriptor = "(I)[Lclient!oga;")
     public static DisplayProperties[] method7710() {
         if (Static679.aDisplayPropertiesArray1 == null) {
-            @Pc(20) DisplayProperties[] local20 = SignLink.getDisplayProperties(Static446.aSignLink_6, true);
+            @Pc(20) DisplayProperties[] local20 = SignLink.getDisplayProperties(SignLink.instance, true);
             @Pc(24) DisplayProperties[] local24 = new DisplayProperties[local20.length];
             @Pc(26) int local26 = 0;
             @Pc(31) int local31 = Static400.instance.aClass57_Sub18_1.method5767();

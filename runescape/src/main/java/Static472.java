@@ -1,9 +1,13 @@
+import com.jagex.DisplayProperties;
+import com.jagex.SignLink;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.collect.Queue;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.Arrays;
+import com.jagex.core.util.JagException;
+import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -1685,7 +1689,7 @@ public final class Static472 {
                                         return;
                                     }
                                     if (arg0 == 3318) {
-                                        anIntArray578[anInt7142++] = Static344.aClass229_1.anInt5856;
+                                        anIntArray578[anInt7142++] = client.gameConnection.id;
                                         return;
                                     }
                                     if (arg0 == 3321) {
@@ -3035,7 +3039,7 @@ public final class Static472 {
                                             }
                                             if (arg0 == 4701) {
                                                 local4911 = aStringArray37[--anInt7139];
-                                                if (Static283.anInt4574 == 7 && !Static242.method3500()) {
+                                                if (Static283.step == 7 && !Static242.method3500()) {
                                                     if (local4911.length() > 20) {
                                                         Static486.aByte115 = -4;
                                                         return;
@@ -3530,7 +3534,7 @@ public final class Static472 {
                 local1484.append("v: ").append(aClass143Array1[local706].aClass2_Sub2_Sub10_1.key).append(" ");
             }
             local1484.append("op: ").append(local13);
-            Static240.sendTrace(local1479, local1484.toString());
+            JagException.sendTrace(local1479, local1484.toString());
         }
     }
 
@@ -4454,7 +4458,7 @@ public final class Static472 {
                             return;
                         }
                         local95 = Static360.aString59 == null ? Static659.method8605() : Static360.aString59;
-                        Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local95, false, Static446.aSignLink_6);
+                        Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local95, false, SignLink.instance);
                         return;
                     }
                     if (arg0 == 5419) {
@@ -4470,7 +4474,7 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 5420) {
-                        anIntArray578[anInt7142++] = Static446.aSignLink_6.signed ? 0 : 1;
+                        anIntArray578[anInt7142++] = SignLink.instance.signed ? 0 : 1;
                         return;
                     }
                     if (arg0 == 5421) {
@@ -4480,7 +4484,7 @@ public final class Static472 {
                         local95 = aStringArray37[--anInt7139];
                         local1578 = anIntArray578[--anInt7142] == 1;
                         local198 = Static659.method8605() + local95;
-                        Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local198, local1578, Static446.aSignLink_6);
+                        Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local198, local1578, SignLink.instance);
                         return;
                     }
                     if (arg0 == 5422) {
@@ -4563,7 +4567,7 @@ public final class Static472 {
                     }
                     if (arg0 == 5430) {
                         try {
-                            Static727.method97("accountcreated", Static166.anApplet1);
+                            JavaScript.call("accountcreated", GameShell.loaderApplet);
                             return;
                         } catch (@Pc(4148) Throwable local4148) {
                             return;
@@ -4571,7 +4575,7 @@ public final class Static472 {
                     }
                     if (arg0 == 5431) {
                         try {
-                            Static727.method97("accountcreatestarted", Static166.anApplet1);
+                            JavaScript.call("accountcreatestarted", GameShell.loaderApplet);
                             return;
                         } catch (@Pc(4161) Throwable local4161) {
                             return;
@@ -4781,7 +4785,7 @@ public final class Static472 {
                     }
                     if (arg0 == 5604) {
                         anInt7139--;
-                        if (Static283.anInt4574 != 3) {
+                        if (Static283.step != 3) {
                             return;
                         }
                         if (!Static242.method3500() && Static6.anInt95 == 0) {
@@ -4793,7 +4797,7 @@ public final class Static472 {
                     if (arg0 == 5605) {
                         anInt7139 -= 2;
                         anInt7142 -= 2;
-                        if (Static283.anInt4574 != 3) {
+                        if (Static283.step != 3) {
                             return;
                         }
                         if (!Static242.method3500() && Static6.anInt95 == 0) {
@@ -5033,7 +5037,7 @@ public final class Static472 {
                         local192 = anIntArray578[--anInt7142];
                         local834 = Static400.instance.aClass57_Sub25_2.method7208();
                         if (local192 != local834) {
-                            if (Static109.method2070(Static283.anInt4574)) {
+                            if (Static109.method2070(Static283.step)) {
                                 if (local834 == 0 && Static588.anInt8692 != -1) {
                                     Static611.method8229(Static588.anInt8692, local192, Static398.aJs5_81);
                                     Static550.method7266();
@@ -5160,7 +5164,7 @@ public final class Static472 {
                         local192 = anIntArray578[--anInt7142];
                         local834 = Static400.instance.aClass57_Sub25_4.method7208();
                         if (local192 != local834 && Static588.anInt8692 == Static597.anInt8821) {
-                            if (!Static109.method2070(Static283.anInt4574)) {
+                            if (!Static109.method2070(Static283.step)) {
                                 if (local834 == 0) {
                                     Static611.method8229(Static588.anInt8692, local192, Static398.aJs5_81);
                                     Static550.method7266();
@@ -5311,7 +5315,7 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 6133) {
-                        anIntArray578[anInt7142++] = Static446.aSignLink_6.signed && !Static446.aSignLink_6.microsoftjava ? 1 : 0;
+                        anIntArray578[anInt7142++] = SignLink.instance.signed && !SignLink.instance.microsoftjava ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6135) {
@@ -5495,7 +5499,7 @@ public final class Static472 {
                     }
                 } else if (arg0 < 6600) {
                     if (arg0 == 6500) {
-                        if (Static283.anInt4574 == 7 && !Static242.method3500() && Static6.anInt95 == 0) {
+                        if (Static283.step == 7 && !Static242.method3500() && Static6.anInt95 == 0) {
                             if (Static149.aBoolean221) {
                                 anIntArray578[anInt7142++] = 0;
                                 return;
@@ -5567,7 +5571,7 @@ public final class Static472 {
                     if (arg0 == 6503) {
                         local192 = anIntArray578[--anInt7142];
                         local101 = aStringArray37[--anInt7139];
-                        if (Static283.anInt4574 == 7 && !Static242.method3500() && Static6.anInt95 == 0) {
+                        if (Static283.step == 7 && !Static242.method3500() && Static6.anInt95 == 0) {
                             anIntArray578[anInt7142++] = Static430.method5817(local192, local101) ? 1 : 0;
                             return;
                         }
@@ -5611,7 +5615,7 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 6509) {
-                        if (Static283.anInt4574 != 7) {
+                        if (Static283.step != 7) {
                             return;
                         }
                         Static60.aBoolean86 = anIntArray578[--anInt7142] == 1;

@@ -13,7 +13,7 @@ public final class Static553 {
     @OriginalMember(owner = "client!rga", name = "a", descriptor = "(IIIIIIIZ)V")
     public static void method7289(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         @Pc(7) Node_Sub25 local7 = null;
-        for (@Pc(12) Node_Sub25 local12 = (Node_Sub25) Static159.aDeque_15.first(65280); local12 != null; local12 = (Node_Sub25) Static159.aDeque_15.next()) {
+        for (@Pc(12) Node_Sub25 local12 = (Node_Sub25) Static159.aDeque_15.first(); local12 != null; local12 = (Node_Sub25) Static159.aDeque_15.next()) {
             if (arg4 == local12.anInt4010 && local12.anInt4016 == arg3 && arg6 == local12.anInt4006 && local12.anInt4011 == arg2) {
                 local7 = local12;
                 break;

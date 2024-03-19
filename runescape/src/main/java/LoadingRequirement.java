@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!rr")
-public final class Class326 {
+public final class LoadingRequirement {
 
     @OriginalMember(owner = "client!rr", name = "f", descriptor = "Lclient!jma;")
     public Interface15 anInterface15_1;
@@ -15,13 +15,13 @@ public final class Class326 {
     public int anInt8468;
 
     @OriginalMember(owner = "client!rr", name = "<init>", descriptor = "(Lclient!kf;)V")
-    public Class326(@OriginalArg(0) Class206 arg0) {
+    public LoadingRequirement(@OriginalArg(0) Class206 arg0) {
         this.aClass206_5 = arg0;
         this.anInt8468 = 1;
     }
 
     @OriginalMember(owner = "client!rr", name = "a", descriptor = "(BI)V")
-    public void method7468(@OriginalArg(1) int arg0) {
+    public void setSize(@OriginalArg(1) int arg0) {
         this.anInt8468 = arg0;
     }
 

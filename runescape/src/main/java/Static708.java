@@ -1,3 +1,4 @@
+import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -18,19 +19,19 @@ public final class Static708 {
     @OriginalMember(owner = "client!wga", name = "a", descriptor = "(ILjava/lang/String;)V")
     public static void method9230(@OriginalArg(1) String arg0) {
         Static150.aString26 = arg0;
-        if (Static166.anApplet1 == null) {
+        if (GameShell.loaderApplet == null) {
             return;
         }
         try {
-            @Pc(15) String local15 = Static166.anApplet1.getParameter("cookieprefix");
-            @Pc(28) String local28 = Static166.anApplet1.getParameter("cookiehost");
+            @Pc(15) String local15 = GameShell.loaderApplet.getParameter("cookieprefix");
+            @Pc(28) String local28 = GameShell.loaderApplet.getParameter("cookiehost");
             @Pc(47) String local47 = local15 + "settings=" + arg0 + "; version=1; path=/; domain=" + local28;
             if (arg0.length() == 0) {
                 local47 = local47 + "; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0";
             } else {
                 local47 = local47 + "; Expires=" + Static163.method8846(SystemTimer.safetime() + 94608000000L) + "; Max-Age=" + 94608000L;
             }
-            Static727.method98("document.cookie=\"" + local47 + "\"", Static166.anApplet1);
+            JavaScript.eval("document.cookie=\"" + local47 + "\"", GameShell.loaderApplet);
         } catch (@Pc(104) Throwable local104) {
         }
     }

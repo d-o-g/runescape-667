@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -69,7 +70,7 @@ public final class Class20 {
         if (this.aLong15 != arg0.aLong125 || this.anInt519 != arg0.anInt3950) {
             throw new RuntimeException("ClanSettingsDelta.applyToClanSettings(): Credentials do not match! Settings.owner:" + Static287.method4154(arg0.aLong125) + " updateNum:" + arg0.anInt3950 + " delta.owner:" + Static287.method4154(this.aLong15) + " updateNum:" + this.anInt519);
         }
-        for (@Pc(82) Node_Sub14 local82 = (Node_Sub14) this.aDeque_4.first(65280); local82 != null; local82 = (Node_Sub14) this.aDeque_4.next()) {
+        for (@Pc(82) Node_Sub14 local82 = (Node_Sub14) this.aDeque_4.first(); local82 != null; local82 = (Node_Sub14) this.aDeque_4.next()) {
             local82.method8617(arg0);
         }
         arg0.anInt3950++;

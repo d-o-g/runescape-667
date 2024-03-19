@@ -13,8 +13,8 @@ public final class Static642 {
 
     @OriginalMember(owner = "client!uea", name = "a", descriptor = "(Lclient!sb;IZLclient!sb;)V")
     public static void method8440(@OriginalArg(0) js5 arg0, @OriginalArg(3) js5 arg1) {
-        Static509.aJs5_96 = arg1;
-        Static269.aJs5_58 = arg0;
+        js5.aJs5_96 = arg1;
+        js5.aJs5_58 = arg0;
     }
 
     @OriginalMember(owner = "client!uea", name = "a", descriptor = "(ZBI)Lclient!pea;")

@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -21,7 +22,7 @@ public final class Static418 {
 
     @OriginalMember(owner = "client!nda", name = "e", descriptor = "(B)V")
     public static void method7859() {
-        if (Static446.aSignLink_6.microsoftjava) {
+        if (SignLink.instance.microsoftjava) {
             Static369.anInt4265 = 96;
             return;
         }

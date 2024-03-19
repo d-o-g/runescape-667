@@ -89,7 +89,7 @@ public final class Client implements AppletStub {
 		applet.setPreferredSize(MINIMUM_SIZE);
 		applet.setSize(MINIMUM_SIZE);
 
-        Applet_Sub1.provideLoaderApplet(applet);
+        GameShell.provideLoaderApplet(applet);
 
 		client c = new client();
 		c.init();

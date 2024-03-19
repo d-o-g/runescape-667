@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static678 {
 
-    @OriginalMember(owner = "client!via", name = "O", descriptor = "J")
-    public static long aLong310;
-
     @OriginalMember(owner = "client!via", name = "a", descriptor = "(ILclient!ge;)V")
     public static void method8901(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
         for (@Pc(1) int local1 = 0; local1 < Static476.anInt7177; local1++) {

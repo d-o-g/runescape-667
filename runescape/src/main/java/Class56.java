@@ -1,5 +1,6 @@
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -96,7 +97,7 @@ public class Class56 {
             if (local11) {
                 Static232.aClass119_1.aBoolean241 = true;
                 while (Static232.aClass119_1.aBoolean242) {
-                    Static638.sleep(50L);
+                    TimeUtils.sleep(50L);
                 }
                 Static232.aClass119_1 = null;
             }

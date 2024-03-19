@@ -8,6 +8,17 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!qga")
 public final class Class304 implements VarDomain {
 
+    @OriginalMember(owner = "client!iba", name = "j", descriptor = "[I")
+    public static final int[] anIntArray325 = new int[32];
+
+    static {
+        @Pc(73) int local73 = 2;
+        for (@Pc(75) int local75 = 0; local75 < 32; local75++) {
+            anIntArray325[local75] = local73 - 1;
+            local73 += local73;
+        }
+    }
+
     @OriginalMember(owner = "client!qga", name = "b", descriptor = "Lclient!av;")
     public HashTable aHashTable_39 = new HashTable(128);
 
@@ -36,7 +47,7 @@ public final class Class304 implements VarDomain {
         @Pc(11) int local11 = local8.anInt2501;
         @Pc(22) int local22 = local8.anInt2497;
         @Pc(25) int local25 = local8.anInt2499;
-        @Pc(32) int local32 = Class174.anIntArray325[local25 - local22];
+        @Pc(32) int local32 = anIntArray325[local25 - local22];
         return this.anIntArray621[local11] >> local22 & local32;
     }
 
@@ -58,7 +69,7 @@ public final class Class304 implements VarDomain {
         @Pc(16) int local16 = local13.anInt2501;
         @Pc(19) int local19 = local13.anInt2497;
         @Pc(22) int local22 = local13.anInt2499;
-        @Pc(29) int local29 = Class174.anIntArray325[local22 - local19];
+        @Pc(29) int local29 = anIntArray325[local22 - local19];
         if (arg0 < 0 || local29 < arg0) {
             arg0 = 0;
         }
@@ -78,7 +89,7 @@ public final class Class304 implements VarDomain {
         @Pc(11) int local11 = local8.anInt2501;
         @Pc(14) int local14 = local8.anInt2497;
         @Pc(17) int local17 = local8.anInt2499;
-        @Pc(31) int local31 = Class174.anIntArray325[local17 - local14];
+        @Pc(31) int local31 = anIntArray325[local17 - local14];
         if (arg0 < 0 || arg0 > local31) {
             arg0 = 0;
         }

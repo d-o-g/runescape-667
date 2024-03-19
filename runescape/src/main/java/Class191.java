@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -25,7 +26,7 @@ public final class Class191 {
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(B)Lclient!ie;")
     public Node method4342() {
         @Pc(12) Node local12 = this.aNode_149;
-        if (this.aDeque_27.tail == local12) {
+        if (this.aDeque_27.last == local12) {
             this.aNode_149 = null;
             return null;
         } else {
@@ -36,8 +37,8 @@ public final class Class191 {
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(I)Lclient!ie;")
     public Node method4343() {
-        @Pc(8) Node local8 = this.aDeque_27.tail.next;
-        if (this.aDeque_27.tail == local8) {
+        @Pc(8) Node local8 = this.aDeque_27.last.next;
+        if (this.aDeque_27.last == local8) {
             this.aNode_149 = null;
             return null;
         } else {

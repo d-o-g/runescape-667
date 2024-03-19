@@ -114,14 +114,14 @@ public final class Static684 {
             }
         }
         @Pc(485) Node_Sub25 local485;
-        for (local485 = (Node_Sub25) Static159.aDeque_15.first(65280); local485 != null; local485 = (Node_Sub25) Static159.aDeque_15.next()) {
+        for (local485 = (Node_Sub25) Static159.aDeque_15.first(); local485 != null; local485 = (Node_Sub25) Static159.aDeque_15.next()) {
             local485.anInt4016 -= local109;
             local485.anInt4006 -= local113;
             if (Static117.anInt2282 != 4 && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.anInt10859 || local485.anInt4006 >= Static501.anInt7568)) {
                 local485.remove();
             }
         }
-        for (local485 = (Node_Sub25) Static227.aDeque_18.first(65280); local485 != null; local485 = (Node_Sub25) Static227.aDeque_18.next()) {
+        for (local485 = (Node_Sub25) Static227.aDeque_18.first(); local485 != null; local485 = (Node_Sub25) Static227.aDeque_18.next()) {
             local485.anInt4006 -= local113;
             local485.anInt4016 -= local109;
             if (Static117.anInt2282 != 4 && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.anInt10859 || local485.anInt4006 >= Static501.anInt7568)) {

@@ -26,7 +26,7 @@ public final class Static609 {
 
     @OriginalMember(owner = "client!tea", name = "a", descriptor = "(ZI)V")
     public static void method8213(@OriginalArg(0) boolean arg0) {
-        for (@Pc(8) Node_Sub51 local8 = (Node_Sub51) Static460.A_DEQUE___40.first(65280); local8 != null; local8 = (Node_Sub51) Static460.A_DEQUE___40.next()) {
+        for (@Pc(8) Node_Sub51 local8 = (Node_Sub51) Static460.A_DEQUE___40.first(); local8 != null; local8 = (Node_Sub51) Static460.A_DEQUE___40.next()) {
             if (local8.aClass2_Sub6_Sub2_4 != null) {
                 Static336.aClass2_Sub6_Sub3_1.method5883(local8.aClass2_Sub6_Sub2_4);
                 local8.aClass2_Sub6_Sub2_4 = null;
@@ -40,7 +40,7 @@ public final class Static609 {
         if (!arg0) {
             return;
         }
-        for (@Pc(57) Node_Sub51 local57 = (Node_Sub51) Static717.A_DEQUE___81.first(65280); local57 != null; local57 = (Node_Sub51) Static717.A_DEQUE___81.next()) {
+        for (@Pc(57) Node_Sub51 local57 = (Node_Sub51) Static717.A_DEQUE___81.first(); local57 != null; local57 = (Node_Sub51) Static717.A_DEQUE___81.next()) {
             if (local57.aClass2_Sub6_Sub2_4 != null) {
                 Static336.aClass2_Sub6_Sub3_1.method5883(local57.aClass2_Sub6_Sub2_4);
                 local57.aClass2_Sub6_Sub2_4 = null;

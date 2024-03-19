@@ -112,7 +112,7 @@ public final class Class374 implements Interface22 {
 
     @OriginalMember(owner = "client!uh", name = "f", descriptor = "(I)V")
     public void method8470() throws IllegalAccessException, NoSuchFieldException {
-        @Pc(6) Class local6 = Static166.anApplet1.getClass();
+        @Pc(6) Class local6 = GameShell.loaderApplet.getClass();
         this.anImage4 = (Image) this.method8476(local6, "bar");
         this.anImage6 = (Image) this.method8476(local6, "background");
         this.anImage11 = (Image) this.method8476(local6, "left");
@@ -166,8 +166,8 @@ public final class Class374 implements Interface22 {
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Ljava/lang/Class;Ljava/lang/String;B)Ljava/lang/Object;")
     public Object method8476(@OriginalArg(0) Class arg0, @OriginalArg(1) String arg1) throws IllegalAccessException, NoSuchFieldException {
         @Pc(7) Field local7 = arg0.getDeclaredField(arg1);
-        @Pc(17) Object local17 = local7.get(Static166.anApplet1);
-        local7.set(Static166.anApplet1, (Object) null);
+        @Pc(17) Object local17 = local7.get(GameShell.loaderApplet);
+        local7.set(GameShell.loaderApplet, (Object) null);
         return local17;
     }
 
@@ -181,7 +181,7 @@ public final class Class374 implements Interface22 {
     @Override
     public void method8465(@OriginalArg(0) boolean arg0) {
         if (!this.aBoolean741) {
-            if (Static166.anApplet1 == null) {
+            if (GameShell.loaderApplet == null) {
                 this.aBoolean741 = true;
             } else if (this.aFont2 == null) {
                 try {

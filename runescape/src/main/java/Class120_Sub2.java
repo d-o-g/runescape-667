@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

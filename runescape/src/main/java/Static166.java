@@ -3,12 +3,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.applet.Applet;
-
 public final class Static166 {
-
-    @OriginalMember(owner = "client!fca", name = "a", descriptor = "Ljava/applet/Applet;")
-    public static Applet anApplet1;
 
     @OriginalMember(owner = "client!fca", name = "b", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_63 = new Class225(41, 7);

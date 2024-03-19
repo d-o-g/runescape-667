@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.graphics.*;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -99,7 +100,7 @@ public final class oa extends Toolkit implements Interface5 {
     public void method7977(@OriginalArg(0) int arg0) {
         Static307.method4478();
         this.d(arg0);
-        for (@Pc(10) ya local10 = (ya) this.aDeque_38.first(65280); local10 != null; local10 = (ya) this.aDeque_38.next()) {
+        for (@Pc(10) ya local10 = (ya) this.aDeque_38.first(); local10 != null; local10 = (ya) this.aDeque_38.next()) {
             local10.r();
         }
     }
@@ -781,7 +782,7 @@ public final class oa extends Toolkit implements Interface5 {
         this.aYa2 = null;
         this.aMatrix_8 = null;
         this.aHashTable_33.clear();
-        for (@Pc(26) ya local26 = (ya) this.aDeque_38.first(65280); local26 != null; local26 = (ya) this.aDeque_38.next()) {
+        for (@Pc(26) ya local26 = (ya) this.aDeque_38.first(); local26 != null; local26 = (ya) this.aDeque_38.next()) {
             local26.ga();
         }
         this.aDeque_38.clear();

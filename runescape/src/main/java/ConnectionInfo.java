@@ -1,51 +1,53 @@
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!lja")
-public final class Class229 {
+public final class ConnectionInfo {
 
     @OriginalMember(owner = "client!lja", name = "e", descriptor = "I")
-    public int anInt5856;
+    public int id;
 
     @OriginalMember(owner = "client!lja", name = "i", descriptor = "Ljava/lang/String;")
-    public String aString60;
+    public String address;
 
     @OriginalMember(owner = "client!lja", name = "m", descriptor = "I")
-    public int anInt5854 = 43594;
+    public int defaultPort = 43594;
 
     @OriginalMember(owner = "client!lja", name = "k", descriptor = "I")
-    public int anInt5853 = 443;
+    public int alternatePort = 443;
 
     @OriginalMember(owner = "client!lja", name = "d", descriptor = "Z")
-    public boolean aBoolean449 = false;
+    public boolean proxy = false;
 
     @OriginalMember(owner = "client!lja", name = "f", descriptor = "Z")
-    public boolean aBoolean450 = true;
+    public boolean alternate = true;
 
     @OriginalMember(owner = "client!lja", name = "a", descriptor = "(I)V")
-    public void method5260() {
-        if (!this.aBoolean450) {
-            this.aBoolean449 = true;
-            this.aBoolean450 = true;
-        } else if (this.aBoolean449) {
-            this.aBoolean449 = false;
+    public void rotateMethods() {
+        if (!this.alternate) {
+            this.proxy = true;
+            this.alternate = true;
+        } else if (this.proxy) {
+            this.proxy = false;
         } else {
-            this.aBoolean450 = false;
+            this.alternate = false;
         }
     }
 
     @OriginalMember(owner = "client!lja", name = "a", descriptor = "(BLclient!vq;)Lclient!oba;")
-    public SignedResource method5263(@OriginalArg(1) SignLink arg0) {
-        return arg0.openSocket(this.aString60, this.aBoolean450 ? this.anInt5853 : this.anInt5854, this.aBoolean449);
+    public SignedResource openSocket(@OriginalArg(1) SignLink signLink) {
+        return signLink.openSocket(this.address, this.alternate ? this.alternatePort : this.defaultPort, this.proxy);
     }
 
     @OriginalMember(owner = "client!lja", name = "a", descriptor = "(ILclient!lja;)Z")
-    public boolean method5265(@OriginalArg(1) Class229 arg0) {
-        if (arg0 == null) {
+    public boolean equalTo(@OriginalArg(1) ConnectionInfo other) {
+        if (other == null) {
             return false;
         } else {
-            return arg0.anInt5856 == this.anInt5856 && this.aString60.equals(arg0.aString60);
+            return other.id == this.id && this.address.equals(other.address);
         }
     }
 }

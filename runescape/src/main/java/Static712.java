@@ -31,10 +31,10 @@ public final class Static712 {
             @Pc(22) Container local22;
             if (Static353.aFrame10 != null) {
                 local22 = Static353.aFrame10;
-            } else if (Static166.anApplet1 == null) {
-                local22 = Static149.anApplet_Sub1_1;
+            } else if (GameShell.loaderApplet == null) {
+                local22 = Static149.anGameShell;
             } else {
-                local22 = Static166.anApplet1;
+                local22 = GameShell.loaderApplet;
             }
             Static52.anInt1059 = local22.getSize().width;
             Static54.anInt1084 = local22.getSize().height;

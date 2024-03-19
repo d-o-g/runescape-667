@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import com.jagex.collect.Node;
 import com.jagex.core.io.Packet;
 import jaclib.hardware_info.HardwareInfo;

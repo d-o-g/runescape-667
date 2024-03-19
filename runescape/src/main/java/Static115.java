@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -32,12 +33,12 @@ public final class Static115 {
             if (local32 == null) {
                 arg0 = -1;
             } else {
-                Static446.aSignLink_6.method8995(Static434.aCanvas7, local32.method9383(), new Point(local28.anInt10303, local28.anInt10308), local32.method9378(), local32.method9384());
+                SignLink.instance.method8995(Static434.aCanvas7, local32.method9383(), new Point(local28.anInt10303, local28.anInt10308), local32.method9378(), local32.method9384());
                 Static470.anInt7112 = arg0;
             }
         }
         if (arg0 == -1 && Static470.anInt7112 != -1) {
-            Static446.aSignLink_6.method8995(Static434.aCanvas7, (int[]) null, new Point(), -1, -1);
+            SignLink.instance.method8995(Static434.aCanvas7, (int[]) null, new Point(), -1, -1);
             Static470.anInt7112 = -1;
         }
     }

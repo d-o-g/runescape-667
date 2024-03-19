@@ -1,3 +1,4 @@
+import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -16,7 +17,7 @@ public final class Static314 {
     public static void method4562() {
         if (Static2.aClass355_1 != Static16.aClass355_2) {
             try {
-                Static727.method97("tbrefresh", client.aClient1);
+                JavaScript.call("tbrefresh", client.aClient1);
             } catch (@Pc(34) Throwable local34) {
             }
         }
@@ -44,7 +45,7 @@ public final class Static314 {
     @OriginalMember(owner = "client!jw", name = "a", descriptor = "(ZI)V")
     public static void method4568(@OriginalArg(0) boolean arg0) {
         Static557.method7331();
-        if (!Static109.method2070(Static283.anInt4574)) {
+        if (!Static109.method2070(Static283.step)) {
             return;
         }
         @Pc(13) Class153[] local13 = Static405.aClass153Array1;

@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.js5.js5;
@@ -77,24 +78,24 @@ public final class Static523 {
             }
         }
         if (Static198.aClass140_2 == Static473.aClass140_22) {
-            if (Static228.aClass262_1 == null) {
-                Static228.aClass262_1 = new Class262(Static500.aClass295_3, Static66.aClass174_1, Static442.JS5_RSA_EXPONENT, Static670.JS5_RSA_MODULUS);
+            if (Static228.js5MasterIndex == null) {
+                Static228.js5MasterIndex = new Js5MasterIndex(client.js5WorkerThread, Static66.aCachedResourceWorker_1, Static442.JS5_RSA_EXPONENT, Static670.JS5_RSA_MODULUS);
             }
-            if (!Static228.aClass262_1.method5800()) {
+            if (!Static228.js5MasterIndex.method5800()) {
                 return 0;
             }
             Static595.method7807((String) null, true, 0);
             Static297.aBoolean368 = !Static589.method7721();
-            Static177.aJs5_35 = Static109.method2069(false, Static297.aBoolean368 ? 34 : 32, 1);
-            Static516.aJs5_97 = Static109.method2069(false, 33, 1);
-            Static697.aJs5_123 = Static109.method2069(false, 13, 1);
+            Static177.aJs5_35 = client.load(false, Static297.aBoolean368 ? 34 : 32, 1);
+            Static516.aJs5_97 = client.load(false, 33, 1);
+            Static697.aJs5_123 = client.load(false, 13, 1);
         }
         @Pc(184) boolean local184;
         if (Static198.aClass140_3 == Static473.aClass140_22) {
             local184 = Static516.aJs5_97.isComplete();
-            local74 = Static226.aClass47_Sub1Array8[33].method6644();
-            local74 += Static226.aClass47_Sub1Array8[Static297.aBoolean368 ? 34 : 32].method6644();
-            local74 += Static226.aClass47_Sub1Array8[13].method6644();
+            local74 = client.js5ResourceProviders[33].indexPercentage();
+            local74 += client.js5ResourceProviders[Static297.aBoolean368 ? 34 : 32].indexPercentage();
+            local74 += client.js5ResourceProviders[13].indexPercentage();
             local74 += local184 ? 100 : Static516.aJs5_97.method7582();
             if (local74 != 400) {
                 return local74 / 4;
@@ -145,45 +146,45 @@ public final class Static523 {
             }
         }
         if (Static473.aClass140_22 == Static198.aClass140_8) {
-            Static721.aJs5_128 = Static109.method2069(false, 8, 1);
-            Static344.aJs5_73 = Static109.method2069(false, 0, 1);
-            Static142.aJs5_25 = Static109.method2069(false, 1, 1);
-            Static6.aJs5_1 = Static109.method2069(false, 2, 1);
-            Static554.aJs5_105 = Static109.method2069(false, 3, 1);
-            Static281.aJs5_60 = Static109.method2069(false, 4, 1);
-            Static93.aJs5_16 = Static109.method2069(true, 5, 1);
-            Static398.aJs5_81 = Static109.method2069(true, 6, 1);
-            Static190.aJs5_38 = Static109.method2069(false, 7, 1);
-            Static534.aJs5_104 = Static109.method2069(false, 9, 1);
-            Static463.aJs5_93 = Static109.method2069(false, 10, 1);
-            Static340.aJs5_69 = Static109.method2069(false, 11, 1);
-            Static31.aJs5_6 = Static109.method2069(false, 12, 1);
-            Static147.aJs5_26 = Static109.method2069(false, 14, 1);
-            Static405.aJs5_84 = Static109.method2069(false, 15, 1);
-            Static459.aJs5_91 = Static109.method2069(false, 16, 1);
-            Static20.aJs5_3 = Static109.method2069(false, 17, 1);
-            Static333.aJs5_66 = Static109.method2069(false, 18, 1);
-            Static380.aJs5_79 = Static109.method2069(false, 19, 1);
-            Static668.aJs5_119 = Static109.method2069(false, 20, 1);
-            Static271.aJs5_59 = Static109.method2069(false, 21, 1);
-            Static233.aJs5_52 = Static109.method2069(false, 22, 1);
-            Static120.aJs5_19 = Static109.method2069(true, 23, 1);
-            Static58.aJs5_12 = Static109.method2069(false, 24, 1);
-            Static244.aJs5_55 = Static109.method2069(false, 25, 1);
-            Static199.aJs5_42 = Static109.method2069(true, 26, 1);
-            Static88.aJs5_14 = Static109.method2069(false, 27, 1);
-            js5.DEFAULTS = Static109.method2069(true, 28, 1);
-            Static140.aJs5_24 = Static109.method2069(false, 29, 1);
-            Static504.aJs5_95 = Static109.method2069(true, 35, 1);
-            Static614.aJs5_114 = Static109.method2069(true, 30, 1);
-            Static124.aJs5_20 = Static109.method2069(true, 31, 1);
-            Static709.aJs5_127 = Static109.method2069(true, 36, 2);
+            Static721.aJs5_128 = client.load(false, 8, 1);
+            Static344.aJs5_73 = client.load(false, 0, 1);
+            Static142.aJs5_25 = client.load(false, 1, 1);
+            Static6.aJs5_1 = client.load(false, 2, 1);
+            Static554.aJs5_105 = client.load(false, 3, 1);
+            Static281.aJs5_60 = client.load(false, 4, 1);
+            Static93.aJs5_16 = client.load(true, 5, 1);
+            Static398.aJs5_81 = client.load(true, 6, 1);
+            Static190.aJs5_38 = client.load(false, 7, 1);
+            Static534.aJs5_104 = client.load(false, 9, 1);
+            Static463.aJs5_93 = client.load(false, 10, 1);
+            Static340.aJs5_69 = client.load(false, 11, 1);
+            Static31.aJs5_6 = client.load(false, 12, 1);
+            Static147.aJs5_26 = client.load(false, 14, 1);
+            Static405.aJs5_84 = client.load(false, 15, 1);
+            Static459.aJs5_91 = client.load(false, 16, 1);
+            Static20.aJs5_3 = client.load(false, 17, 1);
+            Static333.aJs5_66 = client.load(false, 18, 1);
+            Static380.aJs5_79 = client.load(false, 19, 1);
+            Static668.aJs5_119 = client.load(false, 20, 1);
+            Static271.aJs5_59 = client.load(false, 21, 1);
+            Static233.aJs5_52 = client.load(false, 22, 1);
+            Static120.aJs5_19 = client.load(true, 23, 1);
+            Static58.aJs5_12 = client.load(false, 24, 1);
+            Static244.aJs5_55 = client.load(false, 25, 1);
+            Static199.aJs5_42 = client.load(true, 26, 1);
+            Static88.aJs5_14 = client.load(false, 27, 1);
+            js5.DEFAULTS = client.load(true, 28, 1);
+            Static140.aJs5_24 = client.load(false, 29, 1);
+            Static504.aJs5_95 = client.load(true, 35, 1);
+            Static614.aJs5_114 = client.load(true, 30, 1);
+            Static124.aJs5_20 = client.load(true, 31, 1);
+            Static709.aJs5_127 = client.load(true, 36, 2);
         }
         if (Static473.aClass140_22 == Static198.aClass140_9) {
             local12 = 0;
             for (local74 = 0; local74 < 37; local74++) {
-                if (Static226.aClass47_Sub1Array8[local74] != null) {
-                    local12 += Static226.aClass47_Sub1Array8[local74].method6644() * Static462.anIntArray556[local74] / 100;
+                if (client.js5ResourceProviders[local74] != null) {
+                    local12 += client.js5ResourceProviders[local74].indexPercentage() * Static462.anIntArray556[local74] / 100;
                 }
             }
             if (local12 != 100) {
@@ -205,7 +206,7 @@ public final class Static523 {
             Static81.method1586(2);
         }
         if (Static198.aClass140_11 == Static473.aClass140_22) {
-            Static529.method7096(Static614.aJs5_114, Static446.aSignLink_6);
+            Static529.method7096(Static614.aJs5_114, SignLink.instance);
         }
         if (Static198.aClass140_12 == Static473.aClass140_22) {
             local12 = Static460.method6266();
@@ -268,7 +269,7 @@ public final class Static523 {
             } catch (@Pc(1126) Throwable local1126) {
             }
             Static600.aClass27_1 = Static570.method7550();
-            Static292.aClass2_Sub43_2 = new Node_Sub43(true, Static446.aSignLink_6);
+            Static292.aClass2_Sub43_2 = new Node_Sub43(true, SignLink.instance);
         }
         if (Static198.aClass140_15 == Static473.aClass140_22) {
             local12 = Static188.method2860(Static721.aJs5_128) + Static372.method5291(true);

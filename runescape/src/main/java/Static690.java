@@ -9,9 +9,6 @@ public final class Static690 {
     @OriginalMember(owner = "client!vr", name = "e", descriptor = "J")
     public static long aLong318;
 
-    @OriginalMember(owner = "client!vr", name = "d", descriptor = "Lclient!mj;")
-    public static Class243 aClass243_5;
-
     @OriginalMember(owner = "client!vr", name = "c", descriptor = "Lclient!dfa;")
     public static final Class77 aClass77_7 = new Class77();
 

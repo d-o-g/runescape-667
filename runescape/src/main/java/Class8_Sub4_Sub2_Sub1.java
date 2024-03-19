@@ -149,7 +149,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 28));
         }
         if (local35.localMagnets != null) {
-            @Pc(437) Node local437 = local31.aDeque_22.tail;
+            @Pc(437) Node local437 = local31.aDeque_22.last;
             for (@Pc(440) Node local440 = local437.next; local440 != local437; local440 = local440.next) {
                 @Pc(444) DoublyLinkedNode_Sub2_Sub5 local444 = (DoublyLinkedNode_Sub2_Sub5) local440;
                 @Pc(447) MeshMagnetType local447 = local444.aMeshMagnetType_1;

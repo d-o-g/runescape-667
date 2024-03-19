@@ -57,14 +57,14 @@ public final class Static54 {
             Static298.anIntArray367[local99] = -1;
         }
         @Pc(309) byte local309;
-        if (Static283.anInt4574 == 3) {
+        if (Static283.step == 3) {
             local309 = 4;
-        } else if (Static283.anInt4574 == 9) {
+        } else if (Static283.step == 9) {
             local309 = 10;
-        } else if (Static283.anInt4574 == 7) {
+        } else if (Static283.step == 7) {
             local309 = 8;
         } else {
-            throw new RuntimeException(String.valueOf(Static283.anInt4574));
+            throw new RuntimeException(String.valueOf(Static283.step));
         }
         Static684.method8931(false, local19, local309, local28);
     }

@@ -1,9 +1,12 @@
-import com.jagex.FileCache;
+package com.jagex;
+
 import com.jagex.core.constants.FileStore;
 import com.jagex.core.constants.SignedResourceType;
+import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.socket.ProxyAuthenticationException;
 import com.jagex.core.io.socket.SocketFactory;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -32,6 +35,9 @@ public final class SignLink implements Runnable {
     private static final String cacheDatFilename = "main_file_cache.dat2";
     private static final String cacheMasterIndexFilename = "main_file_cache.idx255";
     private static final String cacheIndexFilename = "main_file_cache.idx";
+
+    @OriginalMember(owner = "client!oaa", name = "b", descriptor = "Lclient!vq;")
+    public static SignLink instance;
 
     // $FF: synthetic field
     @OriginalMember(owner = "client!vq", name = "s", descriptor = "Ljava/lang/Class;")
@@ -84,6 +90,8 @@ public final class SignLink implements Runnable {
 
     @OriginalMember(owner = "client!vq", name = "t", descriptor = "J")
     public static volatile long timeout = 0L;
+    @OriginalMember(owner = "client!iu", name = "h", descriptor = "Lclient!vq;")
+    public static SignLink aSignLink_4;
 
     @OriginalMember(owner = "client!vq", name = "m", descriptor = "Lclient!dm;")
     public FileOnDisk cacheDat = null;
@@ -278,7 +286,7 @@ public final class SignLink implements Runnable {
 
         @Pc(15) SignedResource resource = signlink.getDisplayProperties();
         while (resource.status == 0) {
-            Static638.sleep(10L);
+            TimeUtils.sleep(10L);
         }
 
         if (resource.status == 2) {

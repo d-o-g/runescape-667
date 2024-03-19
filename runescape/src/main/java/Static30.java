@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Queue;
 import com.jagex.core.io.Packet;
@@ -1025,7 +1026,7 @@ public final class Static30 {
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(Lclient!ha;IIII)Lclient!sia;")
     public static Deque method5082(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        for (@Pc(4) Node_Sub20 local4 = (Node_Sub20) A_DEQUE___31.first(65280); local4 != null; local4 = (Node_Sub20) A_DEQUE___31.next()) {
+        for (@Pc(4) Node_Sub20 local4 = (Node_Sub20) A_DEQUE___31.first(); local4 != null; local4 = (Node_Sub20) A_DEQUE___31.next()) {
             method5073(arg0, local4, arg1, arg2);
         }
         return A_DEQUE___31;

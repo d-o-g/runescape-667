@@ -26,11 +26,11 @@ public final class Static176 {
     @OriginalMember(owner = "client!fi", name = "a", descriptor = "(ILclient!ge;)V")
     public static void method6690(@OriginalArg(1) Packet arg0) {
         @Pc(6) byte[] local6 = new byte[24];
-        if (Static690.aClass243_5 != null) {
+        if (client.uidDat != null) {
             @Pc(18) int local18;
             try {
-                Static690.aClass243_5.method5568(0L);
-                Static690.aClass243_5.method5565(local6);
+                client.uidDat.seek(0L);
+                client.uidDat.read(local6);
                 for (local18 = 0; local18 < 24 && local6[local18] == 0; local18++) {
                 }
                 if (local18 >= 24) {

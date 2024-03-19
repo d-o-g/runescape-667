@@ -20,15 +20,15 @@ public final class Static667 {
         Static331.method4925(Static679.aSpriteArray14);
         Static469.method6362();
         Static296.updateFeatureMask();
-        if (Static283.anInt4574 == 3) {
+        if (Static283.step == 3) {
             Static81.method1586(4);
-        } else if (Static283.anInt4574 == 7) {
+        } else if (Static283.step == 7) {
             Static81.method1586(8);
-        } else if (Static283.anInt4574 == 9) {
+        } else if (Static283.step == 9) {
             Static81.method1586(10);
-        } else if (Static283.anInt4574 == 11) {
+        } else if (Static283.step == 11) {
             Static81.method1586(12);
-        } else if (Static283.anInt4574 == 1 || Static283.anInt4574 == 2) {
+        } else if (Static283.step == 1 || Static283.step == 2) {
             Static143.method3572();
         }
     }

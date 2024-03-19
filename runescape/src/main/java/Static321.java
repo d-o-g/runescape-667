@@ -29,7 +29,7 @@ public final class Static321 {
 
     @OriginalMember(owner = "client!kca", name = "a", descriptor = "(II)Z")
     public static boolean method4622(@OriginalArg(0) int arg0) {
-        for (@Pc(8) DoublyLinkedNode_Sub2_Sub16 local8 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(65280); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
+        for (@Pc(8) DoublyLinkedNode_Sub2_Sub16 local8 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
             if (Static598.method7825(local8.anInt7314) && local8.aLong233 == (long) arg0) {
                 return true;
             }

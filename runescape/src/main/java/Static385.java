@@ -1,4 +1,5 @@
 import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -64,7 +65,7 @@ public final class Static385 {
     public static boolean method5421() {
         if (Static98.aBoolean191) {
             try {
-                if ((Boolean) Static727.method97("showingVideoAd", Static166.anApplet1)) {
+                if ((Boolean) JavaScript.call("showingVideoAd", GameShell.loaderApplet)) {
                     return false;
                 }
                 return true;

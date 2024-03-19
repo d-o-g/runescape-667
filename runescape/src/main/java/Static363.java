@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -102,11 +103,11 @@ public final class Static363 {
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(IIIIIZ)V")
     public static void windowModeChanged(@OriginalArg(0) int oldMode, @OriginalArg(1) int height, @OriginalArg(2) int newMode, @OriginalArg(4) int width, @OriginalArg(5) boolean modeChanged) {
         if (Static316.fsframe != null && (newMode != 3 || width != Static328.fullscreenWidth || Static110.fullscreenHeight != height)) {
-            Static655.method8562(Static446.aSignLink_6, Static316.fsframe);
+            Static655.method8562(SignLink.instance, Static316.fsframe);
             Static316.fsframe = null;
         }
         if (newMode == 3 && Static316.fsframe == null) {
-            Static316.fsframe = Static489.createFullscreenFrame(Static446.aSignLink_6, width, height, 0, 0);
+            Static316.fsframe = Static489.createFullscreenFrame(SignLink.instance, width, height, 0, 0);
             if (Static316.fsframe != null) {
                 Static328.fullscreenWidth = width;
                 Static110.fullscreenHeight = height;
@@ -124,10 +125,10 @@ public final class Static363 {
             Static52.anInt1059 = width;
             local95 = Static316.fsframe;
         } else if (Static353.aFrame10 == null) {
-            if (Static166.anApplet1 == null) {
-                local95 = Static149.anApplet_Sub1_1;
+            if (GameShell.loaderApplet == null) {
+                local95 = Static149.anGameShell;
             } else {
-                local95 = Static166.anApplet1;
+                local95 = GameShell.loaderApplet;
             }
             Static52.anInt1059 = local95.getSize().width;
             Static54.anInt1084 = local95.getSize().height;
@@ -178,7 +179,7 @@ public final class Static363 {
         if (Static377.anInt5930 != -1) {
             Static640.method8435(true);
         }
-        if (Static405.aClass153_2.aClass348_1 != null && Static109.method2070(Static283.anInt4574)) {
+        if (Static405.aClass153_2.aClass348_1 != null && Static109.method2070(Static283.step)) {
             Static371.method5284();
         }
         for (@Pc(258) int local258 = 0; local258 < 100; local258++) {

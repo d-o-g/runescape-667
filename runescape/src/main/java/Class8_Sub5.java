@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -87,7 +88,7 @@ public final class Class8_Sub5 extends Class8 {
         }
         @Pc(21) int local21;
         label71:
-        for (@Pc(16) DoublyLinkedNode_Sub2_Sub5 local16 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.first(65280); local16 != null; local16 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.next()) {
+        for (@Pc(16) DoublyLinkedNode_Sub2_Sub5 local16 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.first(); local16 != null; local16 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.next()) {
             if (arg0 != null) {
                 for (local21 = 0; local21 < arg0.length; local21++) {
                     if (local16.aMeshMagnet_1 == arg0[local21] || local16.aMeshMagnet_1 == arg0[local21].aMeshMagnet_2) {
@@ -182,7 +183,7 @@ public final class Class8_Sub5 extends Class8 {
     @OriginalMember(owner = "client!hv", name = "d", descriptor = "()V")
     public void method3652() {
         this.aBoolean324 = true;
-        for (@Pc(8) DoublyLinkedNode_Sub2_Sub5 local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.first(65280); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.next()) {
+        for (@Pc(8) DoublyLinkedNode_Sub2_Sub5 local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.first(); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.next()) {
             if (local8.aMeshMagnetType_1.visibility == 1) {
                 local8.remove2();
             }

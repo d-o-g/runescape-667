@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.Node;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;

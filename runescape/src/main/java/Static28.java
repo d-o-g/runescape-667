@@ -46,7 +46,7 @@ public final class Static28 {
         @Pc(200) int local200;
         @Pc(211) int local211;
         @Pc(222) int local222;
-        for (@Pc(171) IntNode local171 = (IntNode) Static612.A_DEQUE___67.first(65280); local171 != null; local171 = (IntNode) Static612.A_DEQUE___67.next()) {
+        for (@Pc(171) IntNode local171 = (IntNode) Static612.A_DEQUE___67.first(); local171 != null; local171 = (IntNode) Static612.A_DEQUE___67.next()) {
             @Pc(178) int local178 = local171.value;
             local190 = (Static42.aClass255_2.anIntArray495[local178] >> 14 & 0x3FFF) - Static691.anInt10367;
             local200 = (Static42.aClass255_2.anIntArray495[local178] & 0x3FFF) - Static116.anInt2270;

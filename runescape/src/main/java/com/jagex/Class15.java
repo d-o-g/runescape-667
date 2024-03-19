@@ -1,3 +1,5 @@
+package com.jagex;
+
 import com.ms.awt.WComponentPeer;
 import com.ms.com.IUnknown;
 import com.ms.com._Guid;
@@ -16,6 +18,12 @@ import java.lang.reflect.Method;
 
 @OriginalClass("client!ak")
 public final class Class15 implements IEnumModesCallback {
+
+    @OriginalMember(owner = "client!ak", name = "b", descriptor = "[I")
+    public static int[] anIntArray28;
+
+    @OriginalMember(owner = "client!ak", name = "a", descriptor = "I")
+    public static int anInt240;
 
     @OriginalMember(owner = "client!ak", name = "c", descriptor = "Lcom/ms/directX/DirectDraw;")
     public final DirectDraw aDirectDraw1 = new DirectDraw();
@@ -54,24 +62,24 @@ public final class Class15 implements IEnumModesCallback {
     @OriginalMember(owner = "client!ak", name = "a", descriptor = "(I)[I")
     public int[] method250() {
         this.aDirectDraw1.enumDisplayModes(0, (DDSurfaceDesc) null, (IUnknown) null, this);
-        Static17.anIntArray28 = new int[Static17.anInt240];
-        Static17.anInt240 = 0;
+        anIntArray28 = new int[anInt240];
+        anInt240 = 0;
         this.aDirectDraw1.enumDisplayModes(0, (DDSurfaceDesc) null, (IUnknown) null, this);
-        @Pc(20) int[] local20 = Static17.anIntArray28;
-        Static17.anIntArray28 = null;
-        Static17.anInt240 = 0;
+        @Pc(20) int[] local20 = anIntArray28;
+        anIntArray28 = null;
+        anInt240 = 0;
         return local20;
     }
 
     @OriginalMember(owner = "client!ak", name = "callbackEnumModes", descriptor = "(Lcom/ms/directX/DDSurfaceDesc;Lcom/ms/com/IUnknown;)V")
     public void callbackEnumModes(@OriginalArg(0) DDSurfaceDesc arg0, @OriginalArg(1) IUnknown arg1) {
-        if (Static17.anIntArray28 == null) {
-            Static17.anInt240 += 4;
+        if (anIntArray28 == null) {
+            anInt240 += 4;
         } else {
-            Static17.anIntArray28[Static17.anInt240++] = arg0.width;
-            Static17.anIntArray28[Static17.anInt240++] = arg0.height;
-            Static17.anIntArray28[Static17.anInt240++] = arg0.rgbBitCount;
-            Static17.anIntArray28[Static17.anInt240++] = arg0.refreshRate;
+            anIntArray28[anInt240++] = arg0.width;
+            anIntArray28[anInt240++] = arg0.height;
+            anIntArray28[anInt240++] = arg0.rgbBitCount;
+            anIntArray28[anInt240++] = arg0.refreshRate;
         }
     }
 }

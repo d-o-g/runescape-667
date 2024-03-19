@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -8,14 +9,14 @@ public final class Static254 {
     public static int anInt4115;
 
     @OriginalMember(owner = "client!hr", name = "d", descriptor = "(I)[Lclient!hja;")
-    public static Class167[] method3604() {
-        return new Class167[]{Static572.aClass167_53, Static572.aClass167_54, Static572.aClass167_55, Static572.aClass167_56, Static572.aClass167_57, Static572.aClass167_58, Static572.aClass167_59, Static572.aClass167_60, Static572.aClass167_61, Static572.aClass167_62, Static572.aClass167_63, Static572.aClass167_64, Static572.aClass167_65};
+    public static LoginProt[] method3604() {
+        return new LoginProt[]{LoginProt.A_LOGIN_PROT___53, LoginProt.INIT_JS5REMOTE_CONNECTION, LoginProt.A_LOGIN_PROT___55, LoginProt.A_LOGIN_PROT___56, LoginProt.A_LOGIN_PROT___57, LoginProt.A_LOGIN_PROT___58, LoginProt.A_LOGIN_PROT___59, LoginProt.A_LOGIN_PROT___60, LoginProt.A_LOGIN_PROT___61, LoginProt.A_LOGIN_PROT___62, LoginProt.A_LOGIN_PROT___63, LoginProt.A_LOGIN_PROT___64, LoginProt.A_LOGIN_PROT___65};
     }
 
     @OriginalMember(owner = "client!hr", name = "c", descriptor = "(I)V")
     public static void method3605() {
         Static6.aJs5_1.discardunpacked = 1;
-        if (Static283.anInt4574 == 15) {
+        if (Static283.step == 15) {
             Static187.method2842();
         }
         Static408.method5632();

@@ -1,3 +1,5 @@
+import com.jagex.SignedResource;
+import com.jagex.collect.Deque;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -92,7 +94,7 @@ public final class Class153 {
         }
         this.aClass2_Sub21_6.pos = 0;
         while (true) {
-            @Pc(23) Node_Sub19 local23 = (Node_Sub19) this.aDeque_17.first(65280);
+            @Pc(23) Node_Sub19 local23 = (Node_Sub19) this.aDeque_17.first();
             if (local23 == null || local23.anInt2989 > this.aClass2_Sub21_6.data.length - this.aClass2_Sub21_6.pos) {
                 this.aClass348_1.method7931(this.aClass2_Sub21_6.data, this.aClass2_Sub21_6.pos);
                 this.anInt3647 = 0;

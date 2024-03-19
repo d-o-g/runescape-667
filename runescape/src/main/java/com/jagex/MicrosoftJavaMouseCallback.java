@@ -1,3 +1,5 @@
+package com.jagex;
+
 import com.ms.awt.WComponentPeer;
 import com.ms.dll.Callback;
 import com.ms.dll.Root;

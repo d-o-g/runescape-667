@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -24,7 +25,7 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
     @Override
     public void method9130(@OriginalArg(0) int arg0) {
         this.aClass2_Sub6_Sub3_2.method9130(arg0);
-        for (@Pc(15) Node_Sub16 local15 = (Node_Sub16) this.aDeque_72.first(65280); local15 != null; local15 = (Node_Sub16) this.aDeque_72.next()) {
+        for (@Pc(15) Node_Sub16 local15 = (Node_Sub16) this.aDeque_72.first(); local15 != null; local15 = (Node_Sub16) this.aDeque_72.next()) {
             if (!this.aClass2_Sub6_Sub1_4.method921(local15)) {
                 @Pc(27) int local27 = arg0;
                 do {
@@ -84,7 +85,7 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
     @OriginalMember(owner = "client!uka", name = "c", descriptor = "()Lclient!dea;")
     @Override
     public Node_Sub6 method9133() {
-        @Pc(9) Node_Sub16 local9 = (Node_Sub16) this.aDeque_72.first(65280);
+        @Pc(9) Node_Sub16 local9 = (Node_Sub16) this.aDeque_72.first();
         if (local9 == null) {
             return null;
         } else if (local9.aClass2_Sub6_Sub2_1 == null) {
@@ -138,7 +139,7 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
     @Override
     public void method9131(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aClass2_Sub6_Sub3_2.method9131(arg0, arg1, arg2);
-        for (@Pc(17) Node_Sub16 local17 = (Node_Sub16) this.aDeque_72.first(65280); local17 != null; local17 = (Node_Sub16) this.aDeque_72.next()) {
+        for (@Pc(17) Node_Sub16 local17 = (Node_Sub16) this.aDeque_72.first(); local17 != null; local17 = (Node_Sub16) this.aDeque_72.next()) {
             if (!this.aClass2_Sub6_Sub1_4.method921(local17)) {
                 @Pc(29) int local29 = arg1;
                 @Pc(31) int local31 = arg2;

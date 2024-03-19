@@ -1,16 +1,16 @@
 package com.jagex.core.util;
 
+import com.jagex.Constants;
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
 import com.jagex.core.stringtools.general.StringTools;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringReader;
-import java.io.StringWriter;
+import java.io.*;
+import java.net.URL;
 
 @OriginalClass("client!fl")
 public final class JagException extends RuntimeException {
@@ -79,6 +79,45 @@ public final class JagException extends RuntimeException {
             }
 
             message = message + ' ';
+        }
+    }
+
+    @OriginalMember(owner = "client!hi", name = "a", descriptor = "(Ljava/lang/Throwable;Ljava/lang/String;I)V")
+    public static void sendTrace(@OriginalArg(0) Throwable cause, @OriginalArg(1) String message) {
+        try {
+            @Pc(12) String trace = "";
+            if (cause != null) {
+                trace = stackTrace(cause);
+            }
+
+            if (message != null) {
+                if (cause != null) {
+                    trace = trace + " | ";
+                }
+                trace = trace + message;
+            }
+
+            print(trace);
+            trace = StringTools.replace(trace, ":", "%3a");
+            trace = StringTools.replace(trace, "@", "%40");
+            trace = StringTools.replace(trace, "&", "%26");
+            trace = StringTools.replace(trace, "#", "%23");
+
+            if (Constants.sourceApplet != null) {
+                @Pc(131) SignedResource resource = SignLink.aSignLink_4.openStream(new URL(Constants.sourceApplet.getCodeBase(), "clienterror.ws?c=" + Constants.clientBuild + "&u=" + (Constants.playerDisplayName == null ? String.valueOf(Constants.playerDisplayNameEncoded) : Constants.playerDisplayName) + "&v1=" + SignLink.javaVendor + "&v2=" + SignLink.javaVersion + "&e=" + trace));
+
+                while (resource.status == 0) {
+                    TimeUtils.sleep(1L);
+                }
+
+                if (resource.status == 1) {
+                    @Pc(148) DataInputStream input = (DataInputStream) resource.result;
+                    input.read();
+                    input.close();
+                }
+            }
+        } catch (@Pc(155) Exception ignored) {
+            /* empty */
         }
     }
 

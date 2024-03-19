@@ -10,9 +10,6 @@ public final class Static292 {
     @OriginalMember(owner = "client!jea", name = "m", descriptor = "Lclient!pw;")
     public static Node_Sub43 aClass2_Sub43_2;
 
-    @OriginalMember(owner = "client!jea", name = "t", descriptor = "J")
-    public static long playerDisplayNameEncoded;
-
     @OriginalMember(owner = "client!jea", name = "l", descriptor = "[I")
     public static int[] anIntArray387 = new int[1];
 

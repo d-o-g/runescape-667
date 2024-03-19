@@ -1,3 +1,4 @@
+import com.jagex.AnimFrameset;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;

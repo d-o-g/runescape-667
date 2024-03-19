@@ -1,3 +1,5 @@
+import com.jagex.SignedResource;
+import com.jagex.core.util.JagException;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -32,7 +34,7 @@ public final class Static236 {
         try {
             return Static293.method4334(arg0);
         } catch (@Pc(15) IOException local15) {
-            if (Static283.anInt4574 == 9) {
+            if (Static283.step == 9) {
                 arg0.aClass348_1 = null;
                 return false;
             } else {
@@ -44,7 +46,7 @@ public final class Static236 {
             for (@Pc(108) int local108 = 0; arg0.anInt3648 > local108 && local108 < 50; local108++) {
                 local106 = local106 + arg0.aClass2_Sub21_Sub2_2.data[local108] + ",";
             }
-            Static240.sendTrace(local29, local106);
+            JagException.sendTrace(local29, local106);
             Static233.method3409(false);
             return true;
         }
@@ -60,7 +62,7 @@ public final class Static236 {
                 try {
                     local16.aClass222_Sub1_1.method9179();
                 } catch (@Pc(43) Exception local43) {
-                    Static240.sendTrace(local43, "TV: " + local16.anInt182);
+                    JagException.sendTrace(local43, "TV: " + local16.anInt182);
                     Static121.method2199(local16.anInt182);
                 }
                 if (!local16.aBoolean14 && !local16.aBoolean16) {

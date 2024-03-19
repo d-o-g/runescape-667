@@ -5,10 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static522 {
 
     @OriginalMember(owner = "client!qha", name = "jd", descriptor = "[Lclient!rr;")
-    public static Class326[] aClass326Array1;
-
-    @OriginalMember(owner = "client!qha", name = "Kf", descriptor = "I")
-    public static int anInt7900 = 0;
+    public static LoadingRequirement[] aLoadingRequirementArray1;
 
     @OriginalMember(owner = "client!qha", name = "Xd", descriptor = "Lclient!cja;")
     public static Node_Sub12 aClass2_Sub12_4 = null;

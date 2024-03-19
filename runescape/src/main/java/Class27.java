@@ -1,3 +1,4 @@
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -16,7 +17,7 @@ public abstract class Class27 {
     public final int method5598(@OriginalArg(0) long arg0) {
         @Pc(13) long local13 = this.method5599();
         if (local13 > 0L) {
-            Static638.sleep(local13);
+            TimeUtils.sleep(local13);
         }
         return this.method5596(arg0);
     }

@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import com.jagex.core.util.SystemTimer;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -252,32 +253,32 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("clientdrop")) {
                     Static79.method1579("Dropped client connection");
-                    if (Static283.anInt4574 == 11) {
+                    if (Static283.step == 11) {
                         Static370.method5279();
-                    } else if (Static283.anInt4574 == 12) {
+                    } else if (Static283.step == 12) {
                         Static405.aClass153_2.aBoolean278 = true;
                         return;
                     }
                     return;
                 }
                 if (arg2.equalsIgnoreCase("rotateconnectmethods")) {
-                    Static344.aClass229_1.method5260();
+                    client.gameConnection.rotateMethods();
                     Static79.method1579("Rotated connection methods");
                     return;
                 }
                 if (arg2.equalsIgnoreCase("clientjs5drop")) {
-                    Static500.aClass295_3.method6621();
+                    client.js5WorkerThread.close();
                     Static79.method1579("Dropped client com.jagex.js5.js5 net queue");
                     return;
                 }
                 if (arg2.equalsIgnoreCase("serverjs5drop")) {
-                    Static500.aClass295_3.method6628();
+                    client.js5WorkerThread.closeServer();
                     Static79.method1579("Dropped server com.jagex.js5.js5 net queue");
                     return;
                 }
                 @Pc(725) int local725;
                 if (arg2.equalsIgnoreCase("breakcon")) {
-                    Static446.aSignLink_6.timeout();
+                    SignLink.instance.timeout();
                     @Pc(723) Class153[] local723 = Static405.aClass153Array1;
                     for (local725 = 0; local725 < local723.length; local725++) {
                         @Pc(730) Class153 local730 = local723[local725];
@@ -285,7 +286,7 @@ public final class Static231 {
                             local730.aClass348_1.method7927();
                         }
                     }
-                    Static500.aClass295_3.method6631();
+                    client.js5WorkerThread.stop();
                     Static79.method1579("Breaking new connections for 5 seconds");
                     return;
                 }
@@ -551,7 +552,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equals("getworld")) {
-                    Static79.method1579("w: " + Static344.aClass229_1.anInt5856);
+                    Static79.method1579("w: " + client.gameConnection.id);
                     return;
                 }
                 if (arg2.startsWith("pc")) {
@@ -795,7 +796,7 @@ public final class Static231 {
                     Static79.method1579("cs2debug:" + Static472.aBoolean538);
                     return;
                 }
-                if (Static283.anInt4574 == 11) {
+                if (Static283.step == 11) {
                     @Pc(2836) Node_Sub19 local2836 = Static293.method4335(Static459.aClass345_87, Static405.aClass153_2.aClass186_1);
                     local2836.aClass2_Sub21_Sub2_1.p1(arg2.length() + 3);
                     local2836.aClass2_Sub21_Sub2_1.p1(arg0 ? 1 : 0);
@@ -812,7 +813,7 @@ public final class Static231 {
                 return;
             }
         }
-        if (Static283.anInt4574 != 11) {
+        if (Static283.step != 11) {
             Static79.method1579(Static32.A_LOCALISED_TEXT___3.localise(Static51.anInt1052) + arg2);
         }
     }

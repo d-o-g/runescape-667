@@ -439,7 +439,7 @@ public final class Static84 {
                         }
                         if (local6.aBoolean296 || local30 < local34 && local32 < local36) {
                             if (local6.aBoolean300 && arg10 >= local30 && arg11 >= local32 && arg10 < local34 && arg11 < local36) {
-                                for (@Pc(220) Node_Sub42 local220 = (Node_Sub42) Static521.A_DEQUE___44.first(65280); local220 != null; local220 = (Node_Sub42) Static521.A_DEQUE___44.next()) {
+                                for (@Pc(220) Node_Sub42 local220 = (Node_Sub42) Static521.A_DEQUE___44.first(); local220 != null; local220 = (Node_Sub42) Static521.A_DEQUE___44.next()) {
                                     if (local220.aBoolean544) {
                                         local220.remove();
                                         local220.aClass158_14.aBoolean298 = false;
@@ -493,7 +493,7 @@ public final class Static84 {
                                 local462 = true;
                             }
                             @Pc(474) boolean local474 = false;
-                            @Pc(479) Node_Sub9 local479 = (Node_Sub9) Static226.A_DEQUE___58.first(65280);
+                            @Pc(479) Node_Sub9 local479 = (Node_Sub9) Static226.A_DEQUE___58.first();
                             @Pc(549) int local549;
                             @Pc(555) int local555;
                             @Pc(569) int local569;

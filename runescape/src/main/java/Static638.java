@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -70,19 +71,6 @@ public final class Static638 {
                     return new Class56();
                 }
             }
-        }
-    }
-
-    @OriginalMember(owner = "client!uca", name = "a", descriptor = "(JZ)V")
-    public static void sleep(@OriginalArg(0) long arg0) {
-        if (arg0 <= 0L) {
-            return;
-        }
-        if (arg0 % 10L == 0L) {
-            Static315.method4578(arg0 - 1L);
-            Static315.method4578(1L);
-        } else {
-            Static315.method4578(arg0);
         }
     }
 

@@ -13,9 +13,6 @@ public final class Static208 {
     @OriginalMember(owner = "client!gha", name = "w", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_83 = new Class225(113, 3);
 
-    @OriginalMember(owner = "client!gha", name = "t", descriptor = "[Lclient!mj;")
-    public static final Class243[] aClass243Array1 = new Class243[37];
-
     @OriginalMember(owner = "client!gha", name = "b", descriptor = "(IIIII)V")
     public static void method3105(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         @Pc(5) int local5 = Static676.anInt10206;

@@ -10,45 +10,6 @@ public final class Static572 {
     @OriginalMember(owner = "client!s", name = "a", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray42 = new String[200];
 
-    @OriginalMember(owner = "client!s", name = "g", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_53 = new Class167(14, 0);
-
-    @OriginalMember(owner = "client!s", name = "y", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_54 = new Class167(15, 4);
-
-    @OriginalMember(owner = "client!s", name = "u", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_55 = new Class167(16, -2);
-
-    @OriginalMember(owner = "client!s", name = "z", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_56 = new Class167(17, 0);
-
-    @OriginalMember(owner = "client!s", name = "r", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_57 = new Class167(19, -2);
-
-    @OriginalMember(owner = "client!s", name = "q", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_58 = new Class167(22, -2);
-
-    @OriginalMember(owner = "client!s", name = "v", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_59 = new Class167(23, 4);
-
-    @OriginalMember(owner = "client!s", name = "p", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_60 = new Class167(24, -1);
-
-    @OriginalMember(owner = "client!s", name = "h", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_61 = new Class167(26, 0);
-
-    @OriginalMember(owner = "client!s", name = "m", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_62 = new Class167(27, 0);
-
-    @OriginalMember(owner = "client!s", name = "f", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_63 = new Class167(28, -2);
-
-    @OriginalMember(owner = "client!s", name = "l", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_64 = new Class167(29, -2);
-
-    @OriginalMember(owner = "client!s", name = "j", descriptor = "Lclient!hja;")
-    public static final Class167 aClass167_65 = new Class167(30, -2);
-
     @OriginalMember(owner = "client!s", name = "o", descriptor = "I")
     public static int anInt8896 = 0;
 
@@ -79,7 +40,7 @@ public final class Static572 {
             Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + Static31.anInt767 * 16;
             local68 = Static31.anInt767 * 16 + 21;
         } else {
-            for (@Pc(74) DoublyLinkedNode_Sub2_Sub16 local74 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(65280); local74 != null; local74 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
+            for (@Pc(74) DoublyLinkedNode_Sub2_Sub16 local74 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local74 != null; local74 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
                 local27 = Static249.method3536(local74);
                 if (local11 < local27) {
                     local11 = local27;

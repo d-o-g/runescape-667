@@ -1,3 +1,4 @@
+import com.jagex.core.util.JavaScript;
 import com.jagex.graphics.Sprite;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -65,7 +66,7 @@ public final class Static233 {
         }
         Static81.method1586(3);
         try {
-            Static727.method97("loggedout", Static166.anApplet1);
+            JavaScript.call("loggedout", GameShell.loaderApplet);
         } catch (@Pc(86) Throwable local86) {
         }
     }

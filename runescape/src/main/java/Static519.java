@@ -1,3 +1,4 @@
+import com.jagex.SignLink;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -15,7 +16,7 @@ public final class Static519 {
         @Pc(5) boolean local5 = false;
         @Pc(7) boolean local7 = false;
         @Pc(9) boolean local9 = false;
-        if (Static446.aSignLink_6.signed && !Static446.aSignLink_6.microsoftjava) {
+        if (SignLink.instance.signed && !SignLink.instance.microsoftjava) {
             local5 = true;
             if (Static292.aClass2_Sub43_2.anInt7610 < 512 && Static292.aClass2_Sub43_2.anInt7610 != 0) {
                 local5 = false;

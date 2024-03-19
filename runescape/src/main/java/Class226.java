@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.Node;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;

@@ -1,4 +1,8 @@
+import com.jagex.core.io.FileOnDisk;
+import com.jagex.SignLink;
+import com.jagex.SignedResource;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -19,14 +23,14 @@ public final class Static666 {
     public static void method8693(@OriginalArg(0) int arg0) {
         @Pc(5) FileOnDisk local5 = null;
         try {
-            @Pc(18) SignedResource local18 = Static446.aSignLink_6.openPrefs("", true);
+            @Pc(18) SignedResource local18 = SignLink.instance.openPrefs("", true);
             while (local18.status == 0) {
-                Static638.sleep(1L);
+                TimeUtils.sleep(1L);
             }
             if (local18.status == 1) {
                 local5 = (FileOnDisk) local18.result;
                 @Pc(41) Packet local41 = Static400.instance.method5110();
-                local5.method2162(local41.data, 0, local41.pos);
+                local5.write(local41.data, 0, local41.pos);
             }
         } catch (@Pc(51) Exception local51) {
         }

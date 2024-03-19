@@ -13,7 +13,7 @@ public final class Static81 {
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(IB)V")
     public static void method1586(@OriginalArg(0) int arg0) {
-        if (Static283.anInt4574 == arg0) {
+        if (Static283.step == arg0) {
             return;
         }
         if (arg0 == 14 || arg0 == 15) {
@@ -31,10 +31,10 @@ public final class Static81 {
         }
         if (arg0 == 5 || arg0 == 13) {
             Static369.method3852();
-        } else if (arg0 == 6 || arg0 == 9 && Static283.anInt4574 != 10) {
+        } else if (arg0 == 6 || arg0 == 9 && Static283.step != 10) {
             Static670.method8735();
         }
-        if (Static594.method7782(Static283.anInt4574)) {
+        if (Static594.method7782(Static283.step)) {
             Static6.aJs5_1.discardunpacked = 2;
             Static20.aJs5_3.discardunpacked = 2;
             Static459.aJs5_91.discardunpacked = 2;
@@ -62,7 +62,7 @@ public final class Static81 {
             Static314.method4562();
         }
         @Pc(213) boolean local213 = arg0 == 2 || Static41.method1027(arg0) || Static620.method8321(arg0);
-        @Pc(235) boolean local235 = Static283.anInt4574 == 2 || Static41.method1027(Static283.anInt4574) || Static620.method8321(Static283.anInt4574);
+        @Pc(235) boolean local235 = Static283.step == 2 || Static41.method1027(Static283.step) || Static620.method8321(Static283.step);
         if (local235 != local213) {
             if (local213) {
                 Static588.anInt8692 = Static597.anInt8821;
@@ -72,16 +72,16 @@ public final class Static81 {
                     Static57.method1225(Static597.anInt8821, Static400.instance.aClass57_Sub25_4.method7208(), Static398.aJs5_81);
                     Static550.method7266();
                 }
-                Static500.aClass295_3.method6626(false);
+                client.js5WorkerThread.writeLoggedIn(false);
             } else {
                 Static312.method4541();
-                Static500.aClass295_3.method6626(true);
+                client.js5WorkerThread.writeLoggedIn(true);
             }
         }
         if (Static594.method7782(arg0) || arg0 == 14 || arg0 == 15) {
             Static163.activeToolkit.method7969();
         }
-        Static283.anInt4574 = arg0;
+        Static283.step = arg0;
     }
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(I)Lclient!aj;")
@@ -114,7 +114,7 @@ public final class Static81 {
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(Ljava/lang/String;ILjava/lang/String;ZI)V")
     public static void method1591(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2, @OriginalArg(3) boolean arg3) {
         @Pc(8) Node_Sub19 local8 = Static273.method3962();
-        local8.aClass2_Sub21_Sub2_1.p1(Static572.aClass167_58.anInt3973);
+        local8.aClass2_Sub21_Sub2_1.p1(LoginProt.A_LOGIN_PROT___58.opcode);
         local8.aClass2_Sub21_Sub2_1.p2(0);
         @Pc(25) int local25 = local8.aClass2_Sub21_Sub2_1.pos;
         local8.aClass2_Sub21_Sub2_1.p2(667);

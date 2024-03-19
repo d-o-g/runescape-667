@@ -114,7 +114,7 @@ public final class Static232 {
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(I)Z")
     public static boolean method3400() {
-        @Pc(10) Node_Sub57 local10 = (Node_Sub57) Static631.aDeque_78.first(65280);
+        @Pc(10) Node_Sub57 local10 = (Node_Sub57) Static631.aDeque_78.first();
         if (local10 == null) {
             return false;
         }

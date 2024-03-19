@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.graphics.Node_Sub7;
 import com.jagex.graphics.Shadow;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -44,7 +45,7 @@ public final class t extends Ground implements Interface5 {
         this.anInt8897 = -1;
         @Pc(4) int local4 = 0;
         @Pc(10) float[] local10 = new float[this.aDeque_57.size()];
-        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aDeque_57.first(65280); local16 != null; local16 = (Node_Sub7) this.aDeque_57.next()) {
+        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aDeque_57.first(); local16 != null; local16 = (Node_Sub7) this.aDeque_57.next()) {
             local10[local4++] = local16.method8428();
         }
         this.q(local10);
@@ -87,7 +88,7 @@ public final class t extends Ground implements Interface5 {
         this.anInt8897 = arg5;
         @Pc(4) int local4 = 0;
         @Pc(10) float[] local10 = new float[this.aDeque_57.size()];
-        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aDeque_57.first(65280); local16 != null; local16 = (Node_Sub7) this.aDeque_57.next()) {
+        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aDeque_57.first(); local16 != null; local16 = (Node_Sub7) this.aDeque_57.next()) {
             local10[local4++] = local16.method8428();
         }
         this.q(local10);

@@ -17,9 +17,6 @@ public final class Static376 {
     @OriginalMember(owner = "client!lr", name = "d", descriptor = "[F")
     public static final float[] aFloatArray42 = new float[4];
 
-    @OriginalMember(owner = "client!lr", name = "c", descriptor = "Ljava/lang/String;")
-    public static String aString62 = null;
-
     @OriginalMember(owner = "client!lr", name = "i", descriptor = "I")
     public static final int anInt5921 = 328;
 

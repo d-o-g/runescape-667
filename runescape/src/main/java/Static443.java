@@ -11,7 +11,7 @@ public final class Static443 {
         }
         @Pc(13) int local13 = Static189.aClass120_1.method8853();
         @Pc(22) int local22 = Static189.aClass120_1.method8854();
-        @Pc(27) Node_Sub9 local27 = (Node_Sub9) Static226.A_DEQUE___58.first(65280);
+        @Pc(27) Node_Sub9 local27 = (Node_Sub9) Static226.A_DEQUE___58.first();
         if (local27 != null) {
             local13 = local27.method5331();
             local22 = local27.method5333();

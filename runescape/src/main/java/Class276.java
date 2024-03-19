@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.Node;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -200,7 +201,7 @@ public final class Class276 {
         @Pc(90) int local90 = 0;
         @Pc(99) int local99 = 1;
         @Pc(115) Node_Sub31 local115;
-        for (@Pc(105) Node_Sub31 local105 = (Node_Sub31) this.aDeque_39.first(65280); local105 != null; local105 = local115) {
+        for (@Pc(105) Node_Sub31 local105 = (Node_Sub31) this.aDeque_39.first(); local105 != null; local105 = local115) {
             local115 = (Node_Sub31) this.aDeque_39.next();
             @Pc(119) int local119 = local105.method4605();
             for (@Pc(121) int local121 = 0; local121 < local119; local121++) {
@@ -272,7 +273,7 @@ public final class Class276 {
         @Pc(15) int local15 = 0;
         @Pc(17) int local17 = 0;
         @Pc(32) int local32;
-        for (@Pc(25) Node_Sub31 local25 = (Node_Sub31) this.aDeque_39.first(65280); local25 != null; local25 = (Node_Sub31) this.aDeque_39.next()) {
+        for (@Pc(25) Node_Sub31 local25 = (Node_Sub31) this.aDeque_39.first(); local25 != null; local25 = (Node_Sub31) this.aDeque_39.next()) {
             local32 = local25.method4612();
             if (local15 < local32) {
                 local15 = local32;
@@ -316,7 +317,7 @@ public final class Class276 {
         this.aClass93_Sub2Array2 = null;
         this.aClass93_Sub2_4 = null;
         if (!this.aDeque_39.isEmpty()) {
-            for (@Pc(41) Node local41 = this.aDeque_39.first(65280); local41 != this.aDeque_39.tail; local41 = local41.next) {
+            for (@Pc(41) Node local41 = this.aDeque_39.first(); local41 != this.aDeque_39.last; local41 = local41.next) {
                 ((Node_Sub31) local41).method4608();
             }
         }
@@ -331,7 +332,7 @@ public final class Class276 {
         if (arg0 != this.anInt6944 || arg2 != this.anInt6943) {
             this.anInt6944 = arg0;
             this.anInt6943 = arg2;
-            for (@Pc(43) Node local43 = this.aDeque_39.first(65280); local43 != this.aDeque_39.tail; local43 = local43.next) {
+            for (@Pc(43) Node local43 = this.aDeque_39.first(); local43 != this.aDeque_39.last; local43 = local43.next) {
                 ((Node_Sub31) local43).method4614(this.anInt6944, this.anInt6943);
             }
             this.aBoolean526 = true;

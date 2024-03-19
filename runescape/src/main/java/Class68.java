@@ -1,3 +1,4 @@
+import com.jagex.collect.Deque;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -51,7 +52,7 @@ public final class Class68 {
         if (arg0.key != this.aLong57 || this.aLong56 != arg0.aLong256) {
             throw new RuntimeException("ClanChannelDelta.applyToClanChannel(): Credentials do not match! cc.clanHash:" + arg0.key + " updateNum:" + arg0.aLong256 + " delta.clanHash:" + this.aLong57 + " updateNum:" + this.aLong56);
         }
-        for (@Pc(69) Node_Sub30 local69 = (Node_Sub30) this.aDeque_10.first(65280); local69 != null; local69 = (Node_Sub30) this.aDeque_10.next()) {
+        for (@Pc(69) Node_Sub30 local69 = (Node_Sub30) this.aDeque_10.first(); local69 != null; local69 = (Node_Sub30) this.aDeque_10.next()) {
             local69.method7642(arg0);
         }
         arg0.aLong256++;

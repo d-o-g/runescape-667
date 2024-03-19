@@ -8,7 +8,7 @@ import java.util.TimeZone;
 public final class Static459 {
 
     @OriginalMember(owner = "client!oia", name = "n", descriptor = "Lclient!lja;")
-    public static Class229 aClass229_2;
+    public static ConnectionInfo aConnectionInfo_2;
 
     @OriginalMember(owner = "client!oia", name = "f", descriptor = "Lclient!st;")
     public static Sprite aSprite_31;

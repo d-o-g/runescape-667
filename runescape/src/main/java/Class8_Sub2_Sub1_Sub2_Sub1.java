@@ -132,7 +132,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(IILjava/lang/String;B)V")
     public void method1413(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2) {
-        this.method9313(Static504.method6733() * GraphicsDefaults.INSTANCE.playerChatTimeout, arg2, arg1, arg0);
+        this.method9313(Static504.method6733() * Static523.graphicsDefaults.playerChatTimeout, arg2, arg1, arg0);
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(BIIILclient!ka;Lclient!tt;Lclient!ha;I)V")
@@ -443,15 +443,15 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         }
         this.anInt1433 = 0;
         @Pc(134) int local134 = -1;
-        @Pc(139) int[] local139 = new int[Static125.aWearposDefaults_1.anIntArray821.length];
-        @Pc(144) ObjTypeCustomisation[] local144 = new ObjTypeCustomisation[Static125.aWearposDefaults_1.anIntArray821.length];
-        @Pc(149) ObjType[] local149 = new ObjType[Static125.aWearposDefaults_1.anIntArray821.length];
+        @Pc(139) int[] local139 = new int[Static523.wearposDefaults.hidden.length];
+        @Pc(144) ObjTypeCustomisation[] local144 = new ObjTypeCustomisation[Static523.wearposDefaults.hidden.length];
+        @Pc(149) ObjType[] local149 = new ObjType[Static523.wearposDefaults.hidden.length];
         @Pc(165) int local165;
         @Pc(184) int local184;
         @Pc(191) int local191;
         @Pc(240) int local240;
-        for (@Pc(151) int local151 = 0; local151 < Static125.aWearposDefaults_1.anIntArray821.length; local151++) {
-            if (Static125.aWearposDefaults_1.anIntArray821[local151] != 1) {
+        for (@Pc(151) int local151 = 0; local151 < Static523.wearposDefaults.hidden.length; local151++) {
+            if (Static523.wearposDefaults.hidden[local151] != 1) {
                 local165 = packet.g1();
                 if (local165 == 0) {
                     local139[local151] = 0;
@@ -480,8 +480,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (local134 == -1) {
             local165 = packet.g2();
             local184 = 0;
-            for (local191 = 0; local191 < Static125.aWearposDefaults_1.anIntArray821.length; local191++) {
-                if (Static125.aWearposDefaults_1.anIntArray821[local191] == 0) {
+            for (local191 = 0; local191 < Static523.wearposDefaults.hidden.length; local191++) {
+                if (Static523.wearposDefaults.hidden[local191] == 0) {
                     if ((local165 & 0x1 << local184) != 0) {
                         local144[local191] = ObjTypeCustomisation.decode(packet, local149[local191]);
                     }
@@ -587,7 +587,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (local119) {
             arg0 |= 0x80000;
         }
-        @Pc(152) Model local152 = super.aModelArray3[0] = this.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, local33, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, arg0, super.anIntArray877, Static125.aWearposDefaults_1, Static68.aIDKTypeList_3, arg1, Static690.aNPCTypeList_2, super.aClass152_Sub2_Sub1Array3, local95, local58, Static34.aClass304_1);
+        @Pc(152) Model local152 = super.aModelArray3[0] = this.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, local33, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, arg0, super.anIntArray877, Static523.wearposDefaults, Static68.aIDKTypeList_3, arg1, Static690.aNPCTypeList_2, super.aClass152_Sub2_Sub1Array3, local95, local58, Static34.aClass304_1);
         @Pc(155) int local155 = PlayerModel.cacheHardReferenceCount();
         if (Static369.anInt4265 < 96 && local155 > 50) {
             Static358.method9191();
@@ -638,7 +638,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!ca", name = "e", descriptor = "(B)Z")
     @Override
     public boolean method9311() {
-        return GraphicsDefaults.INSTANCE.playerShouldDisplayChat;
+        return Static523.graphicsDefaults.playerShouldDisplayChat;
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ZI)Ljava/lang/String;")

@@ -56,7 +56,7 @@ public final class Static363 {
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(III)I")
     public static int method6235(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (GraphicsDefaults.INSTANCE.profilingModel == -1) {
+        if (Static523.graphicsDefaults.profilingModel == -1) {
             return 1;
         }
         if (arg1 != Static400.instance.aClass57_Sub29_1.method7915()) {
@@ -68,7 +68,7 @@ public final class Static363 {
         try {
             @Pc(43) Dimension local43 = Static434.aCanvas7.getSize();
             Static694.method9028(Static163.activeToolkit, LocalisedText.PROFILING.localise(Static51.anInt1052), true, Static694.aClass381_13, Static437.aClass14_9);
-            @Pc(67) Mesh local67 = Mesh.load(GraphicsDefaults.INSTANCE.profilingModel, Static190.aJs5_38);
+            @Pc(67) Mesh local67 = Mesh.load(Static523.graphicsDefaults.profilingModel, Static190.aJs5_38);
             @Pc(70) long local70 = SystemTimer.safetime();
             Static163.activeToolkit.la();
             Static460.aMatrix_10.method7125(0, Static247.anInt3993, 0);

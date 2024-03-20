@@ -1,7 +1,6 @@
 import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.game.PlayerModel;
-import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -107,7 +106,7 @@ public final class Static664 {
         Static720.aClass363_4.method8360();
         Static577.aClass246_4.method5585();
         Static272.aClass45_1.method1093();
-        ParamTypeList.instance.cacheRemoveSoftReferences();
+        Static523.instance.cacheRemoveSoftReferences();
         Static324.aClass307_1.method7069();
         Static99.aClass78_1.method2053();
         Static48.aClass384_1.method8815();

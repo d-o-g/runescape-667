@@ -1,6 +1,5 @@
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
-import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -48,7 +47,7 @@ public final class Static311 {
         @Pc(14) int local14 = -1;
         @Pc(16) String local16 = null;
         if (arg3 != -1) {
-            @Pc(25) ParamType local25 = ParamTypeList.instance.list(arg3);
+            @Pc(25) ParamType local25 = Static523.instance.list(arg3);
             if (local25 == null || local25.isString() != arg0) {
                 return;
             }

@@ -32,7 +32,7 @@ public final class Static456 {
             Static377.anInt5930 = -1;
             Static548.aHashTable_40 = new HashTable(8);
             Static656.method6692();
-            Static377.anInt5930 = GraphicsDefaults.INSTANCE.login_interface;
+            Static377.anInt5930 = Static523.graphicsDefaults.login_interface;
             Static640.method8435(false);
             Static469.method6362();
             Static472.method6414(Static377.anInt5930);

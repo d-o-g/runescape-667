@@ -3,8 +3,10 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
-import com.jagex.game.WearposDefaults;
+import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
+import com.jagex.game.runetek6.config.defaults.WearposDefaults;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
@@ -30,6 +32,12 @@ public final class Static523 {
 
     @OriginalMember(owner = "client!qi", name = "p", descriptor = "I")
     public static int anInt3885 = -1;
+    @OriginalMember(owner = "client!cba", name = "E", descriptor = "Lclient!aba;")
+    public static GraphicsDefaults graphicsDefaults;
+    @OriginalMember(owner = "client!dt", name = "a", descriptor = "Lclient!vl;")
+    public static WearposDefaults wearposDefaults;
+    @OriginalMember(owner = "client!mba", name = "F", descriptor = "Lclient!bo;")
+    public static ParamTypeList instance;
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(II)Z")
     public static boolean method3444(@OriginalArg(0) int arg0) {
@@ -223,19 +231,19 @@ public final class Static523 {
             if (local12 < 100) {
                 return local12;
             }
-            Static502.method6721(js5.DEFAULTS.getfile(1));
-            GraphicsDefaults.INSTANCE = new GraphicsDefaults(js5.DEFAULTS);
-            PlayerModel.recol_s = GraphicsDefaults.INSTANCE.recol_s;
-            PlayerModel.recol_d = GraphicsDefaults.INSTANCE.recol_d;
-            Static125.aWearposDefaults_1 = new WearposDefaults(js5.DEFAULTS);
+            Static502.decodeMapDefaults(js5.DEFAULTS.getfile(DefaultsGroup.MAP));
+            graphicsDefaults = new GraphicsDefaults(js5.DEFAULTS);
+            PlayerModel.recol_s = graphicsDefaults.recol_s;
+            PlayerModel.recol_d = graphicsDefaults.recol_d;
+            wearposDefaults = new WearposDefaults(js5.DEFAULTS);
         }
         if (Static198.aClass140_13 == Static473.aClass140_22) {
-            if (GraphicsDefaults.INSTANCE.profilingModel != -1 && !Static190.aJs5_38.requestdownload(0, GraphicsDefaults.INSTANCE.profilingModel)) {
+            if (graphicsDefaults.profilingModel != -1 && !Static190.aJs5_38.requestdownload(0, graphicsDefaults.profilingModel)) {
                 return 99;
             }
             Static56.anTextureSource_3 = new Class303(Static199.aJs5_42, Static534.aJs5_104, Static721.aJs5_128);
-            ParamTypeList.instance = new ParamTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static574.aBASTypeList_2 = new BASTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static125.aWearposDefaults_1);
+            instance = new ParamTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
+            Static574.aBASTypeList_2 = new BASTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, wearposDefaults);
             Static354.aClass267_1 = new Class267(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
             Static619.aClass387_2 = new Class387(Static392.aModeGame_4, Static51.anInt1052, Static20.aJs5_3);
             Static467.aClass96_3 = new Class96(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
@@ -248,7 +256,7 @@ public final class Static523 {
             Static577.aClass246_4 = new Class246(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
             Static720.aClass363_4 = new Class363(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
             Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aModeGame_4, Static51.anInt1052, true, Static333.aJs5_66, Static190.aJs5_38);
-            Static419.aObjTypeList_1 = new ObjTypeList(Static392.aModeGame_4, Static51.anInt1052, true, ParamTypeList.instance, Static380.aJs5_79, Static190.aJs5_38);
+            Static419.aObjTypeList_1 = new ObjTypeList(Static392.aModeGame_4, Static51.anInt1052, true, instance, Static380.aJs5_79, Static190.aJs5_38);
             Static272.aClass45_1 = new Class45(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static25.aSeqTypeList_1 = new SeqTypeList(Static392.aModeGame_4, Static51.anInt1052, Static668.aJs5_119, Static344.aJs5_73, Static142.aJs5_25);
             Static324.aClass307_1 = new Class307(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
@@ -318,12 +326,12 @@ public final class Static523 {
             Static271.aJs5_59.discardunpacked = 2;
         }
         if (Static473.aClass140_22 == Static198.aClass140_18) {
-            if (!Static571.method7566(GraphicsDefaults.INSTANCE.login_interface)) {
+            if (!Static571.method7566(graphicsDefaults.login_interface)) {
                 return 0;
             }
             local184 = true;
-            for (local74 = 0; local74 < Static453.aClass158ArrayArray2[GraphicsDefaults.INSTANCE.login_interface].length; local74++) {
-                @Pc(1315) Class158 local1315 = Static453.aClass158ArrayArray2[GraphicsDefaults.INSTANCE.login_interface][local74];
+            for (local74 = 0; local74 < Static453.aClass158ArrayArray2[graphicsDefaults.login_interface].length; local74++) {
+                @Pc(1315) Class158 local1315 = Static453.aClass158ArrayArray2[graphicsDefaults.login_interface][local74];
                 if (local1315.anInt3820 == 5 && local1315.anInt3810 != -1 && !Static721.aJs5_128.requestdownload(0, local1315.anInt3810)) {
                     local184 = false;
                 }

@@ -13,9 +13,6 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!bo")
 public final class ParamTypeList {
 
-    @OriginalMember(owner = "client!mba", name = "F", descriptor = "Lclient!bo;")
-    public static ParamTypeList instance;
-
     @OriginalMember(owner = "client!bo", name = "a", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(64);
 

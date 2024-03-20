@@ -460,7 +460,7 @@ public final class Static71 {
                                         if (local1255 >= 0 && local1255 < 2048) {
                                             @Pc(2341) Class8_Sub2_Sub1_Sub2_Sub1 local2341 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local1255];
                                             if (local2341 != null && (local1255 == Static312.anInt5000 || Static214.method3157(local2341.aString9) == local19.objData)) {
-                                                local2313 = local2341.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, local19.aAnimator_6, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, 2048, (int[]) null, Static125.aWearposDefaults_1, Static68.aIDKTypeList_3, Static163.activeToolkit, Static690.aNPCTypeList_2, (Animator[]) null, 0, (Animator) null, Static34.aClass304_1);
+                                                local2313 = local2341.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, local19.aAnimator_6, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, 2048, (int[]) null, Static523.wearposDefaults, Static68.aIDKTypeList_3, Static163.activeToolkit, Static690.aNPCTypeList_2, (Animator[]) null, 0, (Animator) null, Static34.aClass304_1);
                                             }
                                         }
                                     } else if (local19.objType == 8 || local19.objType == 9) {

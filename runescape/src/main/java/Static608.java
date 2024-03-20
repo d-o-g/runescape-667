@@ -268,7 +268,7 @@ public final class Static608 {
                     if (local267 > 0) {
                     }
                 }
-                for (local267 = 0; local267 < GraphicsDefaults.INSTANCE.maxhitmarks; local267++) {
+                for (local267 = 0; local267 < Static523.graphicsDefaults.maxhitmarks; local267++) {
                     local1179 = local51.anIntArray871[local267];
                     local504 = local51.anIntArray873[local267];
                     @Pc(1186) Class285 local1186 = null;
@@ -300,8 +300,8 @@ public final class Static608 {
                             local1274 = local51.method9299() / 2;
                             Static716.method9350(local51, arg3 >> 1, local1274, arg1 >> 1);
                             if (Static215.anIntArray284[0] > -1) {
-                                Static215.anIntArray284[0] += GraphicsDefaults.INSTANCE.hitmarkpos_x[local267];
-                                Static215.anIntArray284[1] += GraphicsDefaults.INSTANCE.hitmarkpos_y[local267];
+                                Static215.anIntArray284[0] += Static523.graphicsDefaults.hitmarkpos_x[local267];
+                                Static215.anIntArray284[1] += Static523.graphicsDefaults.hitmarkpos_y[local267];
                                 local1321 = 0;
                                 local1323 = 0;
                                 local1325 = 0;

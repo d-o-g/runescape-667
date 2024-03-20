@@ -225,7 +225,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public Class8_Sub2_Sub1_Sub2(@OriginalArg(0) int arg0) {
         super(0, 0, 0, 0, 0, 0, 0, 0, 0, false, (byte) 0);
         this.anIntArray869 = null;
-        this.anIntArray870 = new int[GraphicsDefaults.INSTANCE.maxhitmarks];
+        this.anIntArray870 = new int[Static523.graphicsDefaults.maxhitmarks];
         this.anInt10728 = 0;
         this.anInt10719 = -1000;
         this.drawPriority = 0;
@@ -235,14 +235,14 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         this.anInt10733 = 1;
         this.anInt10743 = -1;
         this.anInt10732 = 0;
-        this.anIntArray871 = new int[GraphicsDefaults.INSTANCE.maxhitmarks];
+        this.anIntArray871 = new int[Static523.graphicsDefaults.maxhitmarks];
         this.aBoolean817 = false;
-        this.anIntArray874 = new int[GraphicsDefaults.INSTANCE.maxhitmarks];
+        this.anIntArray874 = new int[Static523.graphicsDefaults.maxhitmarks];
         this.anInt10722 = -1;
-        this.anIntArray876 = new int[GraphicsDefaults.INSTANCE.maxhitmarks];
-        this.anIntArray875 = new int[GraphicsDefaults.INSTANCE.maxhitmarks];
+        this.anIntArray876 = new int[Static523.graphicsDefaults.maxhitmarks];
+        this.anIntArray875 = new int[Static523.graphicsDefaults.maxhitmarks];
         this.aBoolean818 = false;
-        this.anIntArray873 = new int[GraphicsDefaults.INSTANCE.maxhitmarks];
+        this.anIntArray873 = new int[Static523.graphicsDefaults.maxhitmarks];
         this.anInt10748 = -32768;
         this.anInt10747 = -1000;
         this.aAnimator_10 = new Animator_Sub2(this, false);
@@ -270,7 +270,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         for (@Pc(174) int local174 = 0; local174 < 4; local174++) {
             this.aClass199Array3[local174] = new Class199(this);
         }
-        this.aClass152_Sub2_Sub1Array3 = new Animator_Sub2_Sub1[Static125.aWearposDefaults_1.anIntArray821.length];
+        this.aClass152_Sub2_Sub1Array3 = new Animator_Sub2_Sub1[Static523.wearposDefaults.hidden.length];
     }
 
     @OriginalMember(owner = "client!cg", name = "<init>", descriptor = "()V")
@@ -429,7 +429,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public final void method9301(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
         @Pc(5) boolean local5 = true;
         @Pc(7) boolean local7 = true;
-        for (@Pc(21) int local21 = 0; local21 < GraphicsDefaults.INSTANCE.maxhitmarks; local21++) {
+        for (@Pc(21) int local21 = 0; local21 < Static523.graphicsDefaults.maxhitmarks; local21++) {
             if (arg4 < this.anIntArray871[local21]) {
                 local5 = false;
             } else {
@@ -456,7 +456,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             } else if (local50 == 1) {
                 local78 = this.anIntArray870[0];
             }
-            for (@Pc(98) int local98 = 1; local98 < GraphicsDefaults.INSTANCE.maxhitmarks; local98++) {
+            for (@Pc(98) int local98 = 1; local98 < Static523.graphicsDefaults.maxhitmarks; local98++) {
                 if (local50 == 0) {
                     if (local78 > this.anIntArray871[local98]) {
                         local78 = this.anIntArray871[local98];
@@ -474,9 +474,9 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             if (local5) {
                 this.aByte146 = 0;
             }
-            for (local78 = 0; local78 < GraphicsDefaults.INSTANCE.maxhitmarks; local78++) {
+            for (local78 = 0; local78 < Static523.graphicsDefaults.maxhitmarks; local78++) {
                 @Pc(176) byte local176 = this.aByte146;
-                this.aByte146 = (byte) ((this.aByte146 + 1) % GraphicsDefaults.INSTANCE.maxhitmarks);
+                this.aByte146 = (byte) ((this.aByte146 + 1) % Static523.graphicsDefaults.maxhitmarks);
                 if (this.anIntArray871[local176] <= arg4) {
                     local48 = local176;
                     break;
@@ -592,8 +592,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             if (arg1 == -1) {
                 return true;
             }
-            this.anIntArray877 = new int[Static125.aWearposDefaults_1.anIntArray821.length];
-            for (@Pc(24) int local24 = 0; local24 < Static125.aWearposDefaults_1.anIntArray821.length; local24++) {
+            this.anIntArray877 = new int[Static523.wearposDefaults.hidden.length];
+            for (@Pc(24) int local24 = 0; local24 < Static523.wearposDefaults.hidden.length; local24++) {
                 this.anIntArray877[local24] = -1;
             }
         }
@@ -635,7 +635,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                 return false;
             }
             this.anIntArray877[arg0] = -1;
-            for (@Pc(112) int local112 = 0; local112 < Static125.aWearposDefaults_1.anIntArray821.length; local112++) {
+            for (@Pc(112) int local112 = 0; local112 < Static523.wearposDefaults.hidden.length; local112++) {
                 if (this.anIntArray877[local112] != -1) {
                     return true;
                 }
@@ -775,7 +775,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "([I[IB)V")
     public final void method9315(@OriginalArg(0) int[] arg0, @OriginalArg(1) int[] arg1) {
         if (this.anIntArray872 == null && arg1 != null) {
-            this.anIntArray872 = new int[Static125.aWearposDefaults_1.anIntArray821.length];
+            this.anIntArray872 = new int[Static523.wearposDefaults.hidden.length];
         } else if (arg1 == null) {
             this.anIntArray872 = null;
             return;

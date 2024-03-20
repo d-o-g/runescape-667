@@ -269,7 +269,7 @@ public final class BASType {
             @Pc(136) int local136;
             if (arg1 == 27) {
                 if (this.wornTransformations == null) {
-                    this.wornTransformations = new int[this.aBASTypeList_1.aWearposDefaults_2.anIntArray821.length][];
+                    this.wornTransformations = new int[this.aBASTypeList_1.aWearposDefaults_2.hidden.length][];
                 }
                 local128 = arg0.g1();
                 this.wornTransformations[local128] = new int[6];
@@ -348,13 +348,13 @@ public final class BASType {
                 this.anInt7258 = arg0.g1() << 6;
             } else if (arg1 == 55) {
                 if (this.anIntArray585 == null) {
-                    this.anIntArray585 = new int[this.aBASTypeList_1.aWearposDefaults_2.anIntArray821.length];
+                    this.anIntArray585 = new int[this.aBASTypeList_1.aWearposDefaults_2.hidden.length];
                 }
                 local128 = arg0.g1();
                 this.anIntArray585[local128] = arg0.g2();
             } else if (arg1 == 56) {
                 if (this.anIntArrayArray180 == null) {
-                    this.anIntArrayArray180 = new int[this.aBASTypeList_1.aWearposDefaults_2.anIntArray821.length][];
+                    this.anIntArrayArray180 = new int[this.aBASTypeList_1.aWearposDefaults_2.hidden.length][];
                 }
                 local128 = arg0.g1();
                 this.anIntArrayArray180[local128] = new int[3];

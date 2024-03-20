@@ -24,10 +24,10 @@ public final class Static81 {
             Static467.aClass348_2 = null;
         }
         if (arg0 == 3) {
-            Static456.method6228(GraphicsDefaults.INSTANCE.login_interface != Static377.anInt5930);
+            Static456.method6228(Static523.graphicsDefaults.login_interface != Static377.anInt5930);
         }
         if (arg0 == 7) {
-            Static25.method688(GraphicsDefaults.INSTANCE.lobby_interface != Static377.anInt5930);
+            Static25.method688(Static523.graphicsDefaults.lobby_interface != Static377.anInt5930);
         }
         if (arg0 == 5 || arg0 == 13) {
             Static369.method3852();

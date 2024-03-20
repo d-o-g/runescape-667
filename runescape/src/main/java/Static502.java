@@ -60,7 +60,7 @@ public final class Static502 {
     }
 
     @OriginalMember(owner = "client!pr", name = "a", descriptor = "(B[B)V")
-    public static void method6721(@OriginalArg(1) byte[] arg0) {
+    public static void decodeMapDefaults(@OriginalArg(1) byte[] arg0) {
         @Pc(10) Packet local10 = new Packet(arg0);
         while (true) {
             @Pc(14) int local14;

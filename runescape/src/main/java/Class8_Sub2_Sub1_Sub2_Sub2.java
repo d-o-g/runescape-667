@@ -277,7 +277,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "e", descriptor = "(B)Z")
     @Override
     public boolean method9311() {
-        return GraphicsDefaults.INSTANCE.npcShouldDisplayChat;
+        return Static523.graphicsDefaults.npcShouldDisplayChat;
     }
 
     @OriginalMember(owner = "client!wj", name = "h", descriptor = "(B)I")
@@ -404,7 +404,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IILjava/lang/String;B)V")
     public void method9327(@OriginalArg(2) String arg0) {
-        @Pc(17) int local17 = Static504.method6733() * GraphicsDefaults.INSTANCE.npcChatTimeout;
+        @Pc(17) int local17 = Static504.method6733() * Static523.graphicsDefaults.npcChatTimeout;
         this.method9313(local17, arg0, 0, 0);
     }
 

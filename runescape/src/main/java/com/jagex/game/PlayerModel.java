@@ -3,6 +3,7 @@ package com.jagex.game;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.defaults.WearposDefaults;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;

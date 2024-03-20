@@ -16,7 +16,6 @@ import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
-import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -600,7 +599,7 @@ public final class Static472 {
                         anInt7142 -= 2;
                         local21 = anIntArray578[anInt7142];
                         local27 = anIntArray578[anInt7142 + 1];
-                        local1756 = ParamTypeList.instance.list(local21);
+                        local1756 = Static523.instance.list(local21);
                         if (local27 != local1756.defaultint) {
                             local220.method3385(local21, local27);
                             return;
@@ -611,7 +610,7 @@ public final class Static472 {
                     if (arg0 == 1128) {
                         local21 = anIntArray578[--anInt7142];
                         local1791 = aStringArray37[--anInt7139];
-                        local1756 = ParamTypeList.instance.list(local21);
+                        local1756 = Static523.instance.list(local21);
                         if (!local1756.defaultstr.equals(local1791)) {
                             local220.method3396(local1791, local21);
                             return;
@@ -677,7 +676,7 @@ public final class Static472 {
                         anInt7142 -= 2;
                         local21 = anIntArray578[anInt7142];
                         local27 = anIntArray578[anInt7142 + 1];
-                        local1756 = ParamTypeList.instance.list(local21);
+                        local1756 = Static523.instance.list(local21);
                         if (local27 != local1756.defaultint) {
                             local220.method3385(local21, local27);
                             return;
@@ -1148,7 +1147,7 @@ public final class Static472 {
                             }
                             if (arg0 == 1613) {
                                 local21 = anIntArray578[--anInt7142];
-                                local3848 = ParamTypeList.instance.list(local21);
+                                local3848 = Static523.instance.list(local21);
                                 if (local3848.isString()) {
                                     aStringArray37[anInt7139++] = local220.method3389(local3848.defaultstr, local21);
                                     return;
@@ -2913,7 +2912,7 @@ public final class Static472 {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = ParamTypeList.instance.list(local21);
+                                                local3848 = Static523.instance.list(local21);
                                                 if (local3848.isString()) {
                                                     aStringArray37[anInt7139++] = Static419.aObjTypeList_1.list(local15).param(local3848.defaultstr, local21);
                                                     return;
@@ -2987,7 +2986,7 @@ public final class Static472 {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = ParamTypeList.instance.list(local21);
+                                                local3848 = Static523.instance.list(local21);
                                                 if (local3848.isString()) {
                                                     aStringArray37[anInt7139++] = Static690.aNPCTypeList_2.list(local15).getParam(local3848.defaultstr, local21);
                                                     return;
@@ -3000,7 +2999,7 @@ public final class Static472 {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = ParamTypeList.instance.list(local21);
+                                                local3848 = Static523.instance.list(local21);
                                                 if (local3848.isString()) {
                                                     aStringArray37[anInt7139++] = Static354.aLocTypeList_4.list(local15, 46).method1297(local3848.defaultstr, local21);
                                                     return;
@@ -3013,7 +3012,7 @@ public final class Static472 {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = ParamTypeList.instance.list(local21);
+                                                local3848 = Static523.instance.list(local21);
                                                 if (local3848.isString()) {
                                                     aStringArray37[anInt7139++] = Static652.aClass214_1.method5038(local15).method91(local21, local3848.defaultstr);
                                                     return;
@@ -5837,7 +5836,7 @@ public final class Static472 {
                             anInt7142 -= 2;
                             local192 = anIntArray578[anInt7142];
                             local834 = anIntArray578[anInt7142 + 1];
-                            @Pc(9098) ParamType local9098 = ParamTypeList.instance.list(local834);
+                            @Pc(9098) ParamType local9098 = Static523.instance.list(local834);
                             if (local9098.isString()) {
                                 aStringArray37[anInt7139++] = Static577.aClass246_4.method5584(local192).method2426(local834, local9098.defaultstr);
                                 return;

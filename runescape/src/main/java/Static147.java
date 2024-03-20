@@ -2,7 +2,6 @@ import com.jagex.core.util.SystemTimer;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
-import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -239,7 +238,7 @@ public final class Static147 {
                             for (@Pc(1416) ObjStackEntry local1416 = (ObjStackEntry) local1406.objs.last(); local1416 != null; local1416 = (ObjStackEntry) local1406.objs.previous()) {
                                 @Pc(1424) ObjType local1424 = Static419.aObjTypeList_1.list(local1416.id);
                                 if (Static156.aBoolean223 && Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 == local543.aClass8_Sub2_18.aByte144) {
-                                    @Pc(1451) ParamType local1451 = Static610.anInt9329 == -1 ? null : ParamTypeList.instance.list(Static610.anInt9329);
+                                    @Pc(1451) ParamType local1451 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
                                     if ((Static717.anInt10822 & 0x1) != 0 && (local1451 == null || local1424.param(Static610.anInt9329, local1451.defaultint) != local1451.defaultint)) {
                                         Static416.method5707(false, -1, (long) local1416.id, local186, local584, Static153.aString27, 17, true, Static369.anInt4263, Static128.aString108 + " -> <col=ff9040>" + local1424.name, (long) local295, false);
                                     }
@@ -290,7 +289,7 @@ public final class Static147 {
                         }
                         if (local1661 != null) {
                             if (Static156.aBoolean223 && Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 == local543.aClass8_Sub2_18.aByte144) {
-                                @Pc(1697) ParamType local1697 = Static610.anInt9329 == -1 ? null : ParamTypeList.instance.list(Static610.anInt9329);
+                                @Pc(1697) ParamType local1697 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
                                 if ((Static717.anInt10822 & 0x4) != 0 && (local1697 == null || local1661.method1316(local1697.defaultint, Static610.anInt9329) != local1697.defaultint)) {
                                     Static416.method5707(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, Static153.aString27, 60, true, Static369.anInt4263, Static128.aString108 + " -> <col=00ffff>" + local1661.aString7, (long) local1654.hashCode(), false);
                                 }

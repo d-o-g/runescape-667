@@ -1,4 +1,4 @@
-package com.jagex.graphics;
+package com.jagex.game.runetek6.config.emittertype;
 
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.io.Packet;

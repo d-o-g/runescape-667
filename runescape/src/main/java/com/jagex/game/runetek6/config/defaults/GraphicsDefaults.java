@@ -1,5 +1,6 @@
+package com.jagex.game.runetek6.config.defaults;
+
 import com.jagex.core.io.Packet;
-import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,9 +11,6 @@ import org.openrs2.deob.annotation.Pc;
 public final class GraphicsDefaults {
 
     private static final int DEFAULT_MAXHITMARKS = 4;
-
-    @OriginalMember(owner = "client!cba", name = "E", descriptor = "Lclient!aba;")
-    public static GraphicsDefaults INSTANCE;
 
     @OriginalMember(owner = "client!aba", name = "l", descriptor = "[[S")
     public short[][] recol_s;

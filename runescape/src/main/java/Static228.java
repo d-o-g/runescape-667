@@ -1,3 +1,4 @@
+import com.jagex.js5.Js5MasterIndex;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static228 {

@@ -1,7 +1,6 @@
 package com.jagex.js5;
 
 import com.jagex.core.io.Packet;
-import com.jagex.js5.ResourceRequest;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 

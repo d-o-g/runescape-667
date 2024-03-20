@@ -2,8 +2,6 @@ package com.jagex.core.io;
 
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
-import com.jagex.core.io.DummyInputStream;
-import com.jagex.core.io.DummyOutputStream;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;

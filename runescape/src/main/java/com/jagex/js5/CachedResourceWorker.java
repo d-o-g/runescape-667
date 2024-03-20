@@ -5,7 +5,6 @@ import com.jagex.SignedResource;
 import com.jagex.collect.Queue;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.js5.FileSystem_Client;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

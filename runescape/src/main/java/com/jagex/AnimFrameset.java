@@ -1,7 +1,5 @@
 package com.jagex;
 
-import com.jagex.AnimBase;
-import com.jagex.AnimFrame;
 import com.jagex.collect.Deque;
 import com.jagex.collect.DoublyLinkedNode;
 import com.jagex.core.io.Packet;

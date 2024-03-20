@@ -1,6 +1,6 @@
-import com.jagex.core.io.FileOnDisk;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
+import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.js5.js5;

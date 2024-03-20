@@ -1,6 +1,5 @@
 package com.jagex.core.io;
 
-import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

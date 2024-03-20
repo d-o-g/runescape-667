@@ -1,6 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.js5.Js5MasterIndex;
 import com.jagex.js5.js5;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;

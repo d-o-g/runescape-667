@@ -1,8 +1,8 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.collect.ref.ReferenceCache;
-import com.jagex.game.runetek6.config.objtype.ObjStackability;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.objtype.ObjStackability;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Sprite;
 import com.jagex.math.IntMath;

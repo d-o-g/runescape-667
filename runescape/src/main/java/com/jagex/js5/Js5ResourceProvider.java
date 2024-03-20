@@ -1,18 +1,10 @@
+package com.jagex.js5;
+
 import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.js5.CachedResourceWorker;
-import com.jagex.js5.FileSystem_Client;
-import com.jagex.js5.Js5Archive;
-import com.jagex.js5.Js5Index;
-import com.jagex.js5.Js5ResourceRequest;
-import com.jagex.js5.Js5ResponseCode;
-import com.jagex.js5.Js5WorkerRequestMessage;
-import com.jagex.js5.Js5WorkerThread;
-import com.jagex.js5.ResourceProvider;
-import com.jagex.js5.ResourceRequest;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -91,7 +83,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public ResourceRequest indexRequest;
 
     @OriginalMember(owner = "client!pm", name = "<init>", descriptor = "(ILclient!af;Lclient!af;Lclient!pla;Lclient!iba;I[BIZ)V")
-    public Js5ResourceProvider(@OriginalArg(0) int archiveId, @OriginalArg(1) FileSystem_Client datafs, @OriginalArg(2) FileSystem_Client indexStore, @OriginalArg(3) Js5WorkerThread netWorker, @OriginalArg(4) CachedResourceWorker cacheWorker, @OriginalArg(5) int crc, @OriginalArg(6) byte[] whirlpool, @OriginalArg(7) int version, @OriginalArg(8) boolean arg8) {
+    public Js5ResourceProvider(@OriginalArg(0) int archiveId, @OriginalArg(1) FileSystem_Client datafs, @OriginalArg(2) FileSystem_Client indexStore, @OriginalArg(3) Js5WorkerThread netWorker, @OriginalArg(4) CachedResourceWorker cacheWorker, @OriginalArg(5) int crc, @OriginalArg(6) byte[] whirlpool, @OriginalArg(7) int version, @OriginalArg(8) boolean clearIdle) {
         this.archiveId = archiveId;
         this.datafs = datafs;
         if (this.datafs == null) {
@@ -100,7 +92,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
             this.verifyLocal = true;
             this.passives = new Deque();
         }
-        this.clearIdle = arg8;
+        this.clearIdle = clearIdle;
         this.netWorker = netWorker;
         this.crc = crc;
         this.version = version;

@@ -7,7 +7,14 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.js5.*;
+import com.jagex.js5.CachedResourceWorker;
+import com.jagex.js5.FileSystem_Client;
+import com.jagex.js5.Js5Archive;
+import com.jagex.js5.Js5ResourceProvider;
+import com.jagex.js5.Js5ResponseCode;
+import com.jagex.js5.Js5State;
+import com.jagex.js5.Js5WorkerThread;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -475,9 +482,10 @@ public final class client extends GameShell {
     }
 
     @OriginalMember(owner = "client!client", name = "m", descriptor = "(I)V")
-    public void method1659() {
-        @Pc(7) boolean local7 = js5WorkerThread.tick();
-        if (!local7) {
+    public void tickJs5() {
+        @Pc(7) boolean workerTick = js5WorkerThread.tick();
+
+        if (!workerTick) {
             this.js5Tick();
         }
     }
@@ -683,9 +691,9 @@ public final class client extends GameShell {
         }
         Static405.aClass153_2.method3271();
         Static405.aClass153_1.method3271();
-        this.method1659();
+        this.tickJs5();
         if (Static228.js5MasterIndex != null) {
-            Static228.js5MasterIndex.method5804();
+            Static228.js5MasterIndex.process();
         }
         Static601.method7865();
         Static236.method3453();

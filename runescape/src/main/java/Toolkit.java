@@ -1,4 +1,11 @@
-import com.jagex.graphics.*;
+import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Interface9;
+import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Node_Sub13;
+import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Surface;
+import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

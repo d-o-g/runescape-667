@@ -6,10 +6,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class SystemTimer {
 
     @OriginalMember(owner = "client!in", name = "I", descriptor = "J")
-    public static long lastTime;
+    private static long lastTime;
 
     @OriginalMember(owner = "client!vea", name = "G", descriptor = "J")
-    public static long timeOffset;
+    private static long timeOffset;
 
     @OriginalMember(owner = "client!sj", name = "a", descriptor = "(Z)J")
     public static synchronized long safetime() {

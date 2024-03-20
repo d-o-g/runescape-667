@@ -1,5 +1,5 @@
-import com.jagex.core.util.Arrays;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

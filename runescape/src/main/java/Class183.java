@@ -1,6 +1,10 @@
 import com.ms.com.ComFailException;
 import com.ms.com._Guid;
-import com.ms.directX.*;
+import com.ms.directX.DSBufferDesc;
+import com.ms.directX.DSCursors;
+import com.ms.directX.DirectSound;
+import com.ms.directX.DirectSoundBuffer;
+import com.ms.directX.WaveFormatEx;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

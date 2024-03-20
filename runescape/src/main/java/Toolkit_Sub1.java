@@ -1,6 +1,12 @@
 import com.jagex.collect.Deque;
 import com.jagex.collect.Node;
-import com.jagex.graphics.*;
+import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Node_Sub13;
+import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.Sprite;
+import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.TextureSource;
 import com.jagex.js5.js5;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;

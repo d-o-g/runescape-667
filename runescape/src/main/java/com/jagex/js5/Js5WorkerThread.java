@@ -1,12 +1,10 @@
 package com.jagex.js5;
 
 import com.jagex.collect.Queue;
+import com.jagex.core.constants.CompressionType;
 import com.jagex.core.io.BufferedSocket;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.js5.Js5RequestCode;
-import com.jagex.js5.Js5ResponseCode;
-import com.jagex.js5.Js5WorkerRequestMessage;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -17,11 +15,9 @@ import java.io.IOException;
 @OriginalClass("client!pla")
 public final class Js5WorkerThread {
 
-    private static final int COMPRESSION_TYPE_NONE = 0;
-
     private static final int PREFETCH_LIMIT = 20;
     private static final int URGENT_LIMIT = 20;
-    private static final int MAX_LATENCY_MS = 30000;
+    private static final int LATENCY_LIMIT = 30000;
 
     @OriginalMember(owner = "client!pla", name = "y", descriptor = "Lclient!nk;")
     public BufferedSocket socket;
@@ -126,7 +122,7 @@ public final class Js5WorkerThread {
 
             this.latency += deltaTime;
 
-            if (this.latency > MAX_LATENCY_MS) {
+            if (this.latency > LATENCY_LIMIT) {
                 try {
                     this.socket.close();
                 } catch (@Pc(42) Exception ignored) {
@@ -220,7 +216,7 @@ public final class Js5WorkerThread {
                             }
 
                             this.current = message;
-                            @Pc(454) int headerSize = compressionType == COMPRESSION_TYPE_NONE ? 5 : 9;
+                            @Pc(454) int headerSize = compressionType == CompressionType.NONE ? 5 : 9;
                             this.current.packet = new Packet(headerSize + compressedLength + this.current.padding);
                             this.current.packet.p1(compressionType);
                             this.current.packet.p4(compressedLength);

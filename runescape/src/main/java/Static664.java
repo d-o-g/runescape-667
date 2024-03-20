@@ -93,7 +93,7 @@ public final class Static664 {
     public static void method8659() {
         Static467.aClass96_3.method2351();
         Static540.aClass79_6.method2072();
-        Static68.aIDKTypeList_3.method5041();
+        Static68.aIDKTypeList_3.cacheRemoveSoftReferences();
         Static354.aLocTypeList_4.method3058();
         Static690.aNPCTypeList_2.cacheRemoveSoftReferences();
         Static419.aObjTypeList_1.method2480();

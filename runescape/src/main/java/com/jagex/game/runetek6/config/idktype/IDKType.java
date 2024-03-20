@@ -12,184 +12,182 @@ import org.openrs2.deob.annotation.Pc;
 public final class IDKType {
 
     @OriginalMember(owner = "client!pka", name = "f", descriptor = "[S")
-    public short[] aShortArray105;
+    public short[] recol_s;
 
     @OriginalMember(owner = "client!pka", name = "i", descriptor = "[S")
-    public short[] aShortArray106;
+    public short[] retex_d;
 
     @OriginalMember(owner = "client!pka", name = "j", descriptor = "[S")
-    public short[] aShortArray107;
+    public short[] retex_s;
 
     @OriginalMember(owner = "client!pka", name = "n", descriptor = "[I")
-    public int[] anIntArray602;
+    public int[] meshes;
 
     @OriginalMember(owner = "client!pka", name = "e", descriptor = "[S")
-    public short[] aShortArray108;
+    public short[] recol_d;
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "Lclient!kr;")
-    public IDKTypeList aIDKTypeList_4;
+    public IDKTypeList typeList;
 
     @OriginalMember(owner = "client!pka", name = "c", descriptor = "[I")
-    public final int[] anIntArray603 = new int[]{-1, -1, -1, -1, -1};
+    public final int[] headMeshes = new int[]{-1, -1, -1, -1, -1};
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(BILclient!ge;)V")
-    public void method6612(@OriginalArg(1) int arg0, @OriginalArg(2) Packet arg1) {
-        if (arg0 == 1) {
-            arg1.g1();
-            return;
-        }
-        @Pc(59) int local59;
-        @Pc(69) int local69;
-        if (arg0 == 2) {
-            local59 = arg1.g1();
-            this.anIntArray602 = new int[local59];
-            for (local69 = 0; local69 < local59; local69++) {
-                this.anIntArray602[local69] = arg1.g2();
+    public void decode(@OriginalArg(1) int code, @OriginalArg(2) Packet packet) {
+        if (code == 1) {
+            packet.g1();
+        } else if (code == 2) {
+            @Pc(59) int count = packet.g1();
+            this.meshes = new int[count];
+
+            for (@Pc(69) int i = 0; i < count; i++) {
+                this.meshes[i] = packet.g2();
             }
-        } else if (arg0 != 3) {
-            if (arg0 == 40) {
-                local59 = arg1.g1();
-                this.aShortArray108 = new short[local59];
-                this.aShortArray105 = new short[local59];
-                for (local69 = 0; local69 < local59; local69++) {
-                    this.aShortArray105[local69] = (short) arg1.g2();
-                    this.aShortArray108[local69] = (short) arg1.g2();
-                }
-            } else if (arg0 == 41) {
-                local59 = arg1.g1();
-                this.aShortArray106 = new short[local59];
-                this.aShortArray107 = new short[local59];
-                for (local69 = 0; local69 < local59; local69++) {
-                    this.aShortArray107[local69] = (short) arg1.g2();
-                    this.aShortArray106[local69] = (short) arg1.g2();
-                }
-            } else if (arg0 >= 60 && arg0 < 70) {
-                this.anIntArray603[arg0 - 60] = arg1.g2();
+        } else if (code == 3) {
+            /* empty */
+        } else if (code == 40) {
+            @Pc(59) int count = packet.g1();
+            this.recol_d = new short[count];
+            this.recol_s = new short[count];
+
+            for (@Pc(69) int local69 = 0; local69 < count; local69++) {
+                this.recol_s[local69] = (short) packet.g2();
+                this.recol_d[local69] = (short) packet.g2();
             }
+        } else if (code == 41) {
+            @Pc(59) int local59 = packet.g1();
+            this.retex_d = new short[local59];
+            this.retex_s = new short[local59];
+
+            for (@Pc(69) int i = 0; i < local59; i++) {
+                this.retex_s[i] = (short) packet.g2();
+                this.retex_d[i] = (short) packet.g2();
+            }
+        } else if (code >= 60 && code < 70) {
+            this.headMeshes[code - 60] = packet.g2();
         }
     }
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(Lclient!ge;B)V")
-    public void method6613(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(9) int local9 = arg0.g1();
-            if (local9 == 0) {
+            @Pc(9) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method6612(local9, arg0);
+            this.decode(code, packet);
         }
     }
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(B)Lclient!dv;")
     public Mesh headModel() {
-        @Pc(8) Mesh[] local8 = new Mesh[5];
-        @Pc(10) int local10 = 0;
-        @Pc(22) js5 local22 = this.aIDKTypeList_4.aJs5_72;
-        @Pc(26) int local26;
-        synchronized (this.aIDKTypeList_4.aJs5_72) {
-            local26 = 0;
-            while (true) {
-                if (local26 >= 5) {
-                    break;
+        @Pc(8) Mesh[] meshes = new Mesh[5];
+        @Pc(10) int count = 0;
+
+        @Pc(22) js5 local22 = this.typeList.meshes;
+        synchronized (this.typeList.meshes) {
+            for (@Pc(26) int i = 0; i < 5; i++) {
+                if (this.headMeshes[i] != -1) {
+                    meshes[count++] = Mesh.load(this.headMeshes[i], this.typeList.meshes);
                 }
-                if (this.anIntArray603[local26] != -1) {
-                    local8[local10++] = Mesh.load(this.anIntArray603[local26], this.aIDKTypeList_4.aJs5_72);
-                }
-                local26++;
             }
         }
-        for (@Pc(66) int local66 = 0; local66 < 5; local66++) {
-            if (local8[local66] != null && local8[local66].version < 13) {
-                local8[local66].upscale();
+
+        for (@Pc(66) int i = 0; i < 5; i++) {
+            if (meshes[i] != null && meshes[i].version < 13) {
+                meshes[i].upscale();
             }
         }
-        @Pc(102) Mesh local102 = new Mesh(local8, local10);
-        if (this.aShortArray105 != null) {
-            for (local26 = 0; local26 < this.aShortArray105.length; local26++) {
-                local102.recolour(this.aShortArray105[local26], this.aShortArray108[local26]);
+
+        @Pc(102) Mesh mesh = new Mesh(meshes, count);
+        if (this.recol_s != null) {
+            for (@Pc(26) int i = 0; i < this.recol_s.length; i++) {
+                mesh.recolour(this.recol_s[i], this.recol_d[i]);
             }
         }
-        if (this.aShortArray107 != null) {
-            for (local26 = 0; local26 < this.aShortArray107.length; local26++) {
-                local102.retexture(this.aShortArray107[local26], this.aShortArray106[local26]);
+        if (this.retex_s != null) {
+            for (@Pc(26) int i = 0; i < this.retex_s.length; i++) {
+                mesh.retexture(this.retex_s[i], this.retex_d[i]);
             }
         }
-        return local102;
+
+        return mesh;
     }
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(Z)Z")
     public boolean isHeadLoaded() {
-        @Pc(7) boolean local7 = true;
-        @Pc(11) js5 local11 = this.aIDKTypeList_4.aJs5_72;
-        synchronized (this.aIDKTypeList_4.aJs5_72) {
-            for (@Pc(15) int local15 = 0; local15 < 5; local15++) {
-                if (this.anIntArray603[local15] != -1 && !this.aIDKTypeList_4.aJs5_72.requestdownload(0, this.anIntArray603[local15])) {
-                    local7 = false;
+        @Pc(7) boolean loaded = true;
+        @Pc(11) js5 local11 = this.typeList.meshes;
+        synchronized (this.typeList.meshes) {
+            for (@Pc(15) int i = 0; i < 5; i++) {
+                if (this.headMeshes[i] != -1 && !this.typeList.meshes.requestdownload(0, this.headMeshes[i])) {
+                    loaded = false;
                 }
             }
-            return local7;
+            return loaded;
         }
     }
 
     @OriginalMember(owner = "client!pka", name = "a", descriptor = "(I)Z")
     public boolean isModelLoaded() {
-        if (this.anIntArray602 == null) {
+        if (this.meshes == null) {
             return true;
         }
-        @Pc(11) boolean local11 = true;
-        @Pc(15) js5 local15 = this.aIDKTypeList_4.aJs5_72;
-        synchronized (this.aIDKTypeList_4.aJs5_72) {
-            for (@Pc(19) int local19 = 0; local19 < this.anIntArray602.length; local19++) {
-                if (!this.aIDKTypeList_4.aJs5_72.requestdownload(0, this.anIntArray602[local19])) {
-                    local11 = false;
+
+        @Pc(11) boolean loaded = true;
+        @Pc(15) js5 local15 = this.typeList.meshes;
+        synchronized (this.typeList.meshes) {
+            for (@Pc(19) int i = 0; i < this.meshes.length; i++) {
+                if (!this.typeList.meshes.requestdownload(0, this.meshes[i])) {
+                    loaded = false;
                 }
             }
-            return local11;
+            return loaded;
         }
     }
 
     @OriginalMember(owner = "client!pka", name = "b", descriptor = "(I)Lclient!dv;")
     public Mesh model() {
-        if (this.anIntArray602 == null) {
+        if (this.meshes == null) {
             return null;
         }
-        @Pc(14) Mesh[] local14 = new Mesh[this.anIntArray602.length];
-        @Pc(18) js5 local18 = this.aIDKTypeList_4.aJs5_72;
-        @Pc(22) int local22;
-        synchronized (this.aIDKTypeList_4.aJs5_72) {
-            local22 = 0;
-            while (true) {
-                if (local22 >= this.anIntArray602.length) {
-                    break;
-                }
-                local14[local22] = Mesh.load(this.anIntArray602[local22], this.aIDKTypeList_4.aJs5_72);
-                local22++;
+
+        @Pc(14) Mesh[] parts = new Mesh[this.meshes.length];
+        @Pc(18) js5 local18 = this.typeList.meshes;
+        synchronized (typeList.meshes) {
+            for (@Pc(22) int i = 0; i < this.meshes.length; i++) {
+                parts[i] = Mesh.load(this.meshes[i], this.typeList.meshes);
             }
         }
-        for (@Pc(56) int local56 = 0; local56 < this.anIntArray602.length; local56++) {
-            if (local14[local56].version < 13) {
-                local14[local56].upscale();
+
+        for (@Pc(56) int i = 0; i < this.meshes.length; i++) {
+            if (parts[i].version < 13) {
+                parts[i].upscale();
             }
         }
-        @Pc(93) Mesh local93;
-        if (local14.length == 1) {
-            local93 = local14[0];
+
+        @Pc(93) Mesh mesh;
+        if (parts.length == 1) {
+            mesh = parts[0];
         } else {
-            local93 = new Mesh(local14, local14.length);
+            mesh = new Mesh(parts, parts.length);
         }
-        if (local93 == null) {
+
+        if (mesh == null) {
             return null;
         }
-        if (this.aShortArray105 != null) {
-            for (local22 = 0; local22 < this.aShortArray105.length; local22++) {
-                local93.recolour(this.aShortArray105[local22], this.aShortArray108[local22]);
+
+        if (this.recol_s != null) {
+            for (@Pc(22) int i = 0; i < this.recol_s.length; i++) {
+                mesh.recolour(this.recol_s[i], this.recol_d[i]);
             }
         }
-        if (this.aShortArray107 != null) {
-            for (local22 = 0; local22 < this.aShortArray107.length; local22++) {
-                local93.retexture(this.aShortArray107[local22], this.aShortArray106[local22]);
+        if (this.retex_s != null) {
+            for (@Pc(22) int i = 0; i < this.retex_s.length; i++) {
+                mesh.retexture(this.retex_s[i], this.retex_d[i]);
             }
         }
-        return local93;
+
+        return mesh;
     }
 }

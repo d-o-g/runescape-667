@@ -41,7 +41,7 @@ public final class Static614 {
     public static void method8245() {
         Static467.aClass96_3.method2355();
         Static540.aClass79_6.method2073();
-        Static68.aIDKTypeList_3.method5045();
+        Static68.aIDKTypeList_3.cacheClean(5);
         Static354.aLocTypeList_4.method3064();
         Static690.aNPCTypeList_2.cacheClean(5);
         Static419.aObjTypeList_1.cacheClean(5);

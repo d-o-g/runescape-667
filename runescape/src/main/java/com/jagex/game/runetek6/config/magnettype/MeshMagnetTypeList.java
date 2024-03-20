@@ -1,4 +1,4 @@
-package com.jagex.graphics;
+package com.jagex.game.runetek6.config.magnettype;
 
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;

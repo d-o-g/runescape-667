@@ -1,7 +1,7 @@
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.graphics.MeshEmitterTypeList;
-import com.jagex.graphics.MeshMagnetTypeList;
+import com.jagex.game.runetek6.config.magnettype.MeshMagnetTypeList;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -33,7 +33,7 @@ public final class Static352 {
     public static void method5180() {
         Static467.aClass96_3.method2349();
         Static540.aClass79_6.method2067();
-        Static68.aIDKTypeList_3.method5044();
+        Static68.aIDKTypeList_3.cacheReset();
         Static354.aLocTypeList_4.method3060();
         Static690.aNPCTypeList_2.cacheReset();
         Static419.aObjTypeList_1.cacheReset();

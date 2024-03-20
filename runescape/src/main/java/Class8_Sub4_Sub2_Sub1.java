@@ -3,7 +3,7 @@ import com.jagex.collect.Node;
 import com.jagex.game.runetek6.config.emittertype.MeshEmitterType;
 import com.jagex.game.runetek6.config.magnettype.MeshMagnetType;
 import com.jagex.graphics.Ground;
-import com.jagex.graphics.MeshMagnetTypeList;
+import com.jagex.game.runetek6.config.magnettype.MeshMagnetTypeList;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

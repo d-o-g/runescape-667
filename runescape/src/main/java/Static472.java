@@ -6239,114 +6239,114 @@ public final class Static472 {
         }
         @Pc(18) String local18 = arg0.toLowerCase();
         @Pc(20) byte local20 = 0;
-        if (local18.startsWith(Static32.A_LOCALISED_TEXT___47.localise(0))) {
+        if (local18.startsWith(LocalisedText.CHATCOL0.localise(0))) {
             local20 = 0;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___47.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___48.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL0.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL1.localise(0))) {
             local20 = 1;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___48.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___49.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL1.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL2.localise(0))) {
             local20 = 2;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___49.localise(0).length());
-        } else if (local18.startsWith(LocalisedText.lb.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL2.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL3.localise(0))) {
             local20 = 3;
-            arg0 = arg0.substring(LocalisedText.lb.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___50.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL3.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL4.localise(0))) {
             local20 = 4;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___50.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___51.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL4.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL5.localise(0))) {
             local20 = 5;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___51.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___52.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL5.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL6.localise(0))) {
             local20 = 6;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___52.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___53.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL6.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL7.localise(0))) {
             local20 = 7;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___53.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___54.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL7.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL8.localise(0))) {
             local20 = 8;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___54.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___55.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL8.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL9.localise(0))) {
             local20 = 9;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___55.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___56.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL9.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL10.localise(0))) {
             local20 = 10;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___56.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___57.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATCOL10.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATCOL11.localise(0))) {
             local20 = 11;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___57.localise(0).length());
+            arg0 = arg0.substring(LocalisedText.CHATCOL11.localise(0).length());
         } else if (Static51.anInt1052 != 0) {
-            if (local18.startsWith(Static32.A_LOCALISED_TEXT___47.localise(Static51.anInt1052))) {
+            if (local18.startsWith(LocalisedText.CHATCOL0.localise(Static51.anInt1052))) {
                 local20 = 0;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___47.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___48.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL0.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL1.localise(Static51.anInt1052))) {
                 local20 = 1;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___48.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___49.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL1.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL2.localise(Static51.anInt1052))) {
                 local20 = 2;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___49.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(LocalisedText.lb.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL2.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL3.localise(Static51.anInt1052))) {
                 local20 = 3;
-                arg0 = arg0.substring(LocalisedText.lb.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___50.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL3.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL4.localise(Static51.anInt1052))) {
                 local20 = 4;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___50.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___51.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL4.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL5.localise(Static51.anInt1052))) {
                 local20 = 5;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___51.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___52.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL5.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL6.localise(Static51.anInt1052))) {
                 local20 = 6;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___52.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___53.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL6.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL7.localise(Static51.anInt1052))) {
                 local20 = 7;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___53.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___54.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL7.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL8.localise(Static51.anInt1052))) {
                 local20 = 8;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___54.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___55.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL8.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL9.localise(Static51.anInt1052))) {
                 local20 = 9;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___55.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___56.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL9.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL10.localise(Static51.anInt1052))) {
                 local20 = 10;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___56.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___57.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL10.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL11.localise(Static51.anInt1052))) {
                 local20 = 11;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___57.localise(Static51.anInt1052).length());
+                arg0 = arg0.substring(LocalisedText.CHATCOL11.localise(Static51.anInt1052).length());
             }
         }
         local18 = arg0.toLowerCase();
         @Pc(460) byte local460 = 0;
-        if (local18.startsWith(Static32.A_LOCALISED_TEXT___58.localise(0))) {
+        if (local18.startsWith(LocalisedText.CHATEFFECT1.localise(0))) {
             local460 = 1;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___58.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___59.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATEFFECT1.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATEFFECT2.localise(0))) {
             local460 = 2;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___59.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___60.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATEFFECT2.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATEFFECT3.localise(0))) {
             local460 = 3;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___60.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___61.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATEFFECT3.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATEFFECT4.localise(0))) {
             local460 = 4;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___61.localise(0).length());
-        } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___62.localise(0))) {
+            arg0 = arg0.substring(LocalisedText.CHATEFFECT4.localise(0).length());
+        } else if (local18.startsWith(LocalisedText.CHATEFFECT5.localise(0))) {
             local460 = 5;
-            arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___62.localise(0).length());
+            arg0 = arg0.substring(LocalisedText.CHATEFFECT5.localise(0).length());
         } else if (Static51.anInt1052 != 0) {
-            if (local18.startsWith(Static32.A_LOCALISED_TEXT___58.localise(Static51.anInt1052))) {
+            if (local18.startsWith(LocalisedText.CHATEFFECT1.localise(Static51.anInt1052))) {
                 local460 = 1;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___58.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___59.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT1.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATEFFECT2.localise(Static51.anInt1052))) {
                 local460 = 2;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___59.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___60.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT2.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATEFFECT3.localise(Static51.anInt1052))) {
                 local460 = 3;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___60.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___61.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT3.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATEFFECT4.localise(Static51.anInt1052))) {
                 local460 = 4;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___61.localise(Static51.anInt1052).length());
-            } else if (local18.startsWith(Static32.A_LOCALISED_TEXT___62.localise(Static51.anInt1052))) {
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT4.localise(Static51.anInt1052).length());
+            } else if (local18.startsWith(LocalisedText.CHATEFFECT5.localise(Static51.anInt1052))) {
                 local460 = 5;
-                arg0 = arg0.substring(Static32.A_LOCALISED_TEXT___62.localise(Static51.anInt1052).length());
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT5.localise(Static51.anInt1052).length());
             }
         }
         @Pc(650) Class153 local650 = Static668.method8701();

@@ -651,7 +651,7 @@ public final class Static84 {
                                             continue;
                                         }
                                         if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
-                                            Static416.method5707(false, -1, 1L, local1191, local1199, Static32.A_LOCALISED_TEXT___27.localise(Static51.anInt1052), 11, true, -1, "", 0L, true);
+                                            Static416.method5707(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(Static51.anInt1052), 11, true, -1, "", 0L, true);
                                         }
                                         Static416.method5707(false, -1, 1L, local1191, local1199, Static331.aString52, 58, true, Static331.anInt5439, "", 0L, true);
                                         continue;

@@ -333,7 +333,7 @@ public final class Static71 {
                                             }
                                         }
                                         if (local19 == Static390.aClass158_9) {
-                                            local1533 = Static32.A_LOCALISED_TEXT___31.localise(Static51.anInt1052);
+                                            local1533 = LocalisedText.PLEASEWAIT.localise(Static51.anInt1052);
                                             local323 = local19.anInt3779;
                                         }
                                         if (Static376.aBoolean452) {

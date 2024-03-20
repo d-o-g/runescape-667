@@ -81,7 +81,7 @@ public final class ObjTypeList {
                 /* 2 */ LocalisedText.TAKE.localise(this.languageId),
                 /* 3 */ null,
                 /* 4 */ null,
-                /* 5 */ Static32.EXAMINE.localise(this.languageId)
+                /* 5 */ LocalisedText.EXAMINE.localise(this.languageId)
             };
         } else {
             this.defaultOps = new String[]{

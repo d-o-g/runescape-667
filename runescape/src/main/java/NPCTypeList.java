@@ -52,7 +52,7 @@ public final class NPCTypeList {
             this.aJs5_101.fileLimit(local44);
         }
         if (ModeGame.RUNESCAPE == this.aModeGame_6) {
-            this.aStringArray39 = new String[]{null, null, null, null, null, Static32.EXAMINE.localise(this.anInt8086)};
+            this.aStringArray39 = new String[]{null, null, null, null, null, LocalisedText.EXAMINE.localise(this.anInt8086)};
         } else {
             this.aStringArray39 = new String[]{null, null, null, null, null, null};
         }

@@ -58,7 +58,7 @@ public final class Class142 {
             this.aJs5_43.fileLimit(local53);
         }
         if (ModeGame.RUNESCAPE == this.aModeGame_2) {
-            this.aStringArray15 = new String[]{null, null, null, null, null, Static32.EXAMINE.localise(this.anInt3383)};
+            this.aStringArray15 = new String[]{null, null, null, null, null, LocalisedText.EXAMINE.localise(this.anInt3383)};
         } else {
             this.aStringArray15 = new String[]{null, null, null, null, null, null};
         }

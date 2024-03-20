@@ -245,48 +245,48 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(BLclient!vfa;Lclient!vfa;)V")
-    public void genLent(@OriginalArg(1) ObjType arg0, @OriginalArg(2) ObjType arg1) {
-        this.recol_d = arg0.recol_d;
-        this.manhead = arg0.manhead;
-        this.manhead2 = arg0.manhead2;
-        this.manwear3 = arg0.manwear3;
-        this.team = arg0.team;
-        this.params = arg0.params;
-        this.members = arg0.members;
-        this.retex_d = arg0.retex_d;
-        this.manwearyoff = arg0.manwearyoff;
-        this.womanwear2 = arg0.womanwear2;
-        this.zan2d = arg1.zan2d;
-        this.op = arg0.op;
-        this.womanhead2 = arg0.womanhead2;
-        this.recol_d_palette = arg0.recol_d_palette;
-        this.womanwearyoff = arg0.womanwearyoff;
-        this.xan2d = arg1.xan2d;
-        this.manwear2 = arg0.manwear2;
-        this.mesh = arg1.mesh;
+    public void genLent(@OriginalArg(1) ObjType original, @OriginalArg(2) ObjType template) {
+        this.recol_d = original.recol_d;
+        this.manhead = original.manhead;
+        this.manhead2 = original.manhead2;
+        this.manwear3 = original.manwear3;
+        this.team = original.team;
+        this.params = original.params;
+        this.members = original.members;
+        this.retex_d = original.retex_d;
+        this.manwearyoff = original.manwearyoff;
+        this.womanwear2 = original.womanwear2;
+        this.zan2d = template.zan2d;
+        this.op = original.op;
+        this.womanhead2 = original.womanhead2;
+        this.recol_d_palette = original.recol_d_palette;
+        this.womanwearyoff = original.womanwearyoff;
+        this.xan2d = template.xan2d;
+        this.manwear2 = original.manwear2;
+        this.mesh = template.mesh;
         this.iop = new String[MAX_IOP_COUNT];
-        this.yan2d = arg1.yan2d;
-        this.yof2d = arg1.yof2d;
-        this.retex_s = arg0.retex_s;
-        this.womanwearxoff = arg0.womanwearxoff;
-        this.womanwear = arg0.womanwear;
+        this.yan2d = template.yan2d;
+        this.yof2d = template.yof2d;
+        this.retex_s = original.retex_s;
+        this.womanwearxoff = original.womanwearxoff;
+        this.womanwear = original.womanwear;
         this.cost = 0;
-        this.manwearzoff = arg0.manwearzoff;
-        this.recol_s = arg0.recol_s;
-        this.xof2d = arg1.xof2d;
-        this.womanwearzoff = arg0.womanwearzoff;
-        this.womanhead = arg0.womanhead;
-        this.zoom2d = arg1.zoom2d;
-        this.name = arg0.name;
-        this.womanwear3 = arg0.womanwear3;
-        this.manwear = arg0.manwear;
-        this.manwearxoff = arg0.manwearxoff;
-        if (arg0.iop != null) {
-            for (@Pc(155) int local155 = 0; local155 < 4; local155++) {
-                this.iop[local155] = arg0.iop[local155];
+        this.manwearzoff = original.manwearzoff;
+        this.recol_s = original.recol_s;
+        this.xof2d = template.xof2d;
+        this.womanwearzoff = original.womanwearzoff;
+        this.womanhead = original.womanhead;
+        this.zoom2d = template.zoom2d;
+        this.name = original.name;
+        this.womanwear3 = original.womanwear3;
+        this.manwear = original.manwear;
+        this.manwearxoff = original.manwearxoff;
+        if (original.iop != null) {
+            for (@Pc(155) int i = 0; i < 4; i++) {
+                this.iop[i] = original.iop[i];
             }
         }
-        this.iop[4] = Static32.A_LOCALISED_TEXT___6.localise(this.myList.languageId);
+        this.iop[4] = LocalisedText.LENT_ITEM_RETURN.localise(this.myList.languageId);
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!vfa;ILclient!vfa;)V")
@@ -844,9 +844,9 @@ public final class ObjType {
         if (arg0 < 100000) {
             return "<col=ffff00>" + arg0 + "</col>";
         } else if (arg0 < 10000000) {
-            return "<col=ffffff>" + arg0 / 1000 + Static32.A_LOCALISED_TEXT___36.localise(this.myList.languageId) + "</col>";
+            return "<col=ffffff>" + arg0 / 1000 + LocalisedText.THOUSAND_SHORT.localise(this.myList.languageId) + "</col>";
         } else {
-            return "<col=00ff80>" + arg0 / 1000000 + Static32.A_LOCALISED_TEXT___34.localise(this.myList.languageId) + "</col>";
+            return "<col=00ff80>" + arg0 / 1000000 + LocalisedText.MILLION_SHORT.localise(this.myList.languageId) + "</col>";
         }
     }
 
@@ -1036,6 +1036,6 @@ public final class ObjType {
             }
         }
 
-        this.iop[4] = Static32.LENT_ITEM_RETURN.localise(this.myList.languageId);
+        this.iop[4] = LocalisedText.BOUGHT_ITEM_DISCARD.localise(this.myList.languageId);
     }
 }

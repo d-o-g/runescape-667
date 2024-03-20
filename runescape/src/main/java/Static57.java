@@ -105,7 +105,7 @@ public final class Static57 {
             }
         }
         if (!local22) {
-            Static67.method6098(Static32.A_LOCALISED_TEXT___21.localise(Static51.anInt1052) + arg0);
+            Static67.method6098(LocalisedText.UNABLETOFIND.localise(Static51.anInt1052) + arg0);
         }
         if (Static156.aBoolean223) {
             Static470.method6384();

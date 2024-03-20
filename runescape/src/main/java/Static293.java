@@ -162,7 +162,7 @@ public final class Static293 {
             arg0.aClass225_93 = null;
             return true;
         } else if (Static632.aClass225_229 == arg0.aClass225_93) {
-            Static331.aString52 = arg0.anInt3648 <= 2 ? Static32.A_LOCALISED_TEXT___26.localise(Static51.anInt1052) : local11.gjstr();
+            Static331.aString52 = arg0.anInt3648 <= 2 ? LocalisedText.WALKHERE.localise(Static51.anInt1052) : local11.gjstr();
             Static331.anInt5439 = arg0.anInt3648 <= 0 ? -1 : local11.g2();
             if (Static331.anInt5439 == 65535) {
                 Static331.anInt5439 = -1;

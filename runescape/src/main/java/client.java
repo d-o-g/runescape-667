@@ -419,10 +419,10 @@ public final class client extends GameShell {
                                             for (@Pc(672) Class8_Sub4_Sub1 local672 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2790(); local672 != null; local672 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2785()) {
                                                 if ((long) local672.anInt6433 < SystemTimer.safetime() / 1000L - 5L) {
                                                     if (local672.aShort74 > 0) {
-                                                        Static44.method1072(local672.aString72 + Static32.A_LOCALISED_TEXT___19.localise(Static51.anInt1052), "", 0, "", "", 5);
+                                                        Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGIN.localise(Static51.anInt1052), "", 0, "", "", 5);
                                                     }
                                                     if (local672.aShort74 == 0) {
-                                                        Static44.method1072(local672.aString72 + Static32.A_LOCALISED_TEXT___20.localise(Static51.anInt1052), "", 0, "", "", 5);
+                                                        Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGOUT.localise(Static51.anInt1052), "", 0, "", "", 5);
                                                     }
                                                     local672.method9274();
                                                 }
@@ -568,22 +568,22 @@ public final class client extends GameShell {
                     Static357.anInt6508 = Static593.anInt8763;
                 }
                 local110 = (Static357.anInt6508 - Static593.anInt8763) * 50 / Static357.anInt6508;
-                Static694.method9028(Static163.activeToolkit, Static32.A_LOCALISED_TEXT___12.localise(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Static694.aClass381_13, Static437.aClass14_9);
+                Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Static694.aClass381_13, Static437.aClass14_9);
             } else if (Static213.anInt3472 == 2) {
                 if (Static13.anInt150 > Static440.anInt6683) {
                     Static440.anInt6683 = Static13.anInt150;
                 }
                 local110 = (Static440.anInt6683 - Static13.anInt150) * 50 / Static440.anInt6683 + 50;
-                Static694.method9028(Static163.activeToolkit, Static32.A_LOCALISED_TEXT___12.localise(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Static694.aClass381_13, Static437.aClass14_9);
+                Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Static694.aClass381_13, Static437.aClass14_9);
             } else {
-                Static694.method9028(Static163.activeToolkit, Static32.A_LOCALISED_TEXT___12.localise(Static51.anInt1052), true, Static694.aClass381_13, Static437.aClass14_9);
+                Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052), true, Static694.aClass381_13, Static437.aClass14_9);
             }
         } else if (Static283.step == 11) {
             Static686.method7930(local20);
         } else if (Static283.step == 14) {
-            Static694.method9028(Static163.activeToolkit, Static32.A_LOCALISED_TEXT___14.localise(Static51.anInt1052) + "<br>" + Static32.A_LOCALISED_TEXT___15.localise(Static51.anInt1052), false, Static694.aClass381_13, Static437.aClass14_9);
+            Static694.method9028(Static163.activeToolkit, LocalisedText.CONLOST.localise(Static51.anInt1052) + "<br>" + LocalisedText.ATTEMPTING_TO_REESTABLISH.localise(Static51.anInt1052), false, Static694.aClass381_13, Static437.aClass14_9);
         } else if (Static283.step == 15) {
-            Static694.method9028(Static163.activeToolkit, Static32.A_LOCALISED_TEXT___31.localise(Static51.anInt1052), false, Static694.aClass381_13, Static437.aClass14_9);
+            Static694.method9028(Static163.activeToolkit, LocalisedText.PLEASEWAIT.localise(Static51.anInt1052), false, Static694.aClass381_13, Static437.aClass14_9);
         }
         if (Static18.anInt251 == 3) {
             for (local110 = 0; local110 < Static122.anInt2339; local110++) {
@@ -848,7 +848,7 @@ public final class client extends GameShell {
         if (Static446.aClass355_5 != Static2.aClass355_1) {
             Static105.aBoolean196 = true;
         }
-        Static484.aString85 = Static32.A_LOCALISED_TEXT___12.localise(Static51.anInt1052);
+        Static484.aString85 = LocalisedText.LOADING.localise(Static51.anInt1052);
     }
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "(I)Ljava/lang/String;")

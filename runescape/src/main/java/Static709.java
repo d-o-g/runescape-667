@@ -559,10 +559,10 @@ public final class Static709 {
                                             for (@Pc(2281) Class8_Sub4_Sub1 local2281 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2790(); local2281 != null; local2281 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2785()) {
                                                 if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.anInt6433) {
                                                     if (local2281.aShort74 > 0) {
-                                                        Static44.method1072(local2281.aString72 + Static32.A_LOCALISED_TEXT___19.localise(Static51.anInt1052), "", 0, "", "", 5);
+                                                        Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGIN.localise(Static51.anInt1052), "", 0, "", "", 5);
                                                     }
                                                     if (local2281.aShort74 == 0) {
-                                                        Static44.method1072(local2281.aString72 + Static32.A_LOCALISED_TEXT___20.localise(Static51.anInt1052), "", 0, "", "", 5);
+                                                        Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGOUT.localise(Static51.anInt1052), "", 0, "", "", 5);
                                                     }
                                                     local2281.method9274();
                                                 }

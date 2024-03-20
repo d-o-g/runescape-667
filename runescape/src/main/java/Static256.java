@@ -157,34 +157,34 @@ public final class Static256 {
         } else if (local348 == 0) {
             local422 >>= 0x1;
         }
-        if (local9.anInt7229 != -1) {
+        if (local9.movementAcceleration != -1) {
             local422 <<= 0x9;
             if (arg0.anInt10764 == 1) {
                 local468 = arg0.anInt10765 * arg0.anInt10765;
                 @Pc(642) int local642 = (local206 >= arg0.anInt10690 ? local206 - arg0.anInt10690 : arg0.anInt10690 - local206) << 9;
                 @Pc(661) int local661 = (arg0.anInt10694 <= local222 ? local222 - arg0.anInt10694 : arg0.anInt10694 + -local222) << 9;
                 @Pc(673) int local673 = local642 > local661 ? local642 : local661;
-                @Pc(680) int local680 = local673 * local9.anInt7229 * 2;
+                @Pc(680) int local680 = local673 * local9.movementAcceleration * 2;
                 if (local680 < local468) {
                     arg0.anInt10765 /= 2;
                 } else if (local468 / 2 > local673) {
-                    arg0.anInt10765 -= local9.anInt7229;
+                    arg0.anInt10765 -= local9.movementAcceleration;
                     if (arg0.anInt10765 < 0) {
                         arg0.anInt10765 = 0;
                     }
                 } else if (local422 > arg0.anInt10765) {
-                    arg0.anInt10765 += local9.anInt7229;
+                    arg0.anInt10765 += local9.movementAcceleration;
                     if (arg0.anInt10765 > local422) {
                         arg0.anInt10765 = local422;
                     }
                 }
             } else if (local422 > arg0.anInt10765) {
-                arg0.anInt10765 += local9.anInt7229;
+                arg0.anInt10765 += local9.movementAcceleration;
                 if (local422 < arg0.anInt10765) {
                     arg0.anInt10765 = local422;
                 }
             } else if (arg0.anInt10765 > 0) {
-                arg0.anInt10765 -= local9.anInt7229;
+                arg0.anInt10765 -= local9.movementAcceleration;
                 if (arg0.anInt10765 < 0) {
                     arg0.anInt10765 = 0;
                 }

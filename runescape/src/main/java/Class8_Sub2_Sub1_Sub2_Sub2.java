@@ -145,7 +145,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(118) NPCType local118 = this.aNPCType_1.multinpcs == null ? this.aNPCType_1 : this.aNPCType_1.getMultiNPC(65535, Static34.aClass304_1);
         super.aBoolean819 = false;
         @Pc(123) Class8_Sub7 local123 = null;
-        if (Static400.instance.aClass57_Sub7_1.method2905() == 1 && local118.hasShadow && local104.aBoolean545) {
+        if (Static400.instance.aClass57_Sub7_1.method2905() == 1 && local118.hasShadow && local104.animateShadow) {
             @Pc(159) Animator local159 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
             @Pc(179) Animator local179 = super.aAnimator_10.isAnimating() && (!super.aBoolean817 || local159 == null) ? super.aAnimator_10 : null;
             @Pc(223) Model local223 = Static618.method8320(this.aNPCType_1.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.anInt10742, this.aNPCType_1.shadowInnerColour & 0xFFFF, super.anInt10716, this.aNPCType_1.size, arg0, this.aNPCType_1.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.aNPCType_1.shadowOuterColour & 0xFFFF);
@@ -205,9 +205,9 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(9) BASType local9 = this.method9317();
         @Pc(27) Animator local27 = super.aAnimator_11.isAnimating() && !super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
         @Pc(47) Animator local47 = super.aAnimator_10.isAnimating() && (!super.aBoolean817 || local27 == null) ? super.aAnimator_10 : null;
-        @Pc(50) int local50 = local9.anInt7234;
-        @Pc(53) int local53 = local9.anInt7238;
-        if (local50 != 0 || local53 != 0 || local9.anInt7224 != 0 || local9.anInt7252 != 0) {
+        @Pc(50) int local50 = local9.hillWidth;
+        @Pc(53) int local53 = local9.hillHeight;
+        if (local50 != 0 || local53 != 0 || local9.rollTargetAngle != 0 || local9.pitchTargetAngle != 0) {
             arg0 |= 0x7;
         }
         @Pc(100) boolean local100 = super.aByte149 != 0 && super.anInt10760 <= Static333.anInt5455 && Static333.anInt5455 < super.anInt10752;
@@ -225,7 +225,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (local50 == 0 && local53 == 0) {
             this.method9314(local111, 0, 0, this.method9302((byte) 116) << 9, this.method9302((byte) 79) << 9, -86);
         } else {
-            this.method9314(local111, local9.anInt7236, local9.anInt7258, local50, local53, -119);
+            this.method9314(local111, local9.hillMaxAngleX, local9.hillMaxAngleY, local50, local53, -119);
             if (super.anInt10746 != 0) {
                 super.aModelArray3[0].FA(super.anInt10746);
             }

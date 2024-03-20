@@ -42,7 +42,7 @@ public final class Static352 {
         Static36.aClass260_1.method5784();
         Static628.aClass342_5.method7783();
         Static648.aClass17_1.method269();
-        Static574.aBASTypeList_2.method7114();
+        Static574.aBASTypeList_2.cacheReset();
         Static720.aClass363_4.method8361();
         Static577.aClass246_4.method5586();
         Static272.aClass45_1.method1098();

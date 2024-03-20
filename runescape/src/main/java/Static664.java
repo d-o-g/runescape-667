@@ -102,7 +102,7 @@ public final class Static664 {
         Static36.aClass260_1.method5781();
         Static628.aClass342_5.method7787();
         Static648.aClass17_1.method266();
-        Static574.aBASTypeList_2.method7117();
+        Static574.aBASTypeList_2.cacheRemoveSoftReferences();
         Static720.aClass363_4.method8360();
         Static577.aClass246_4.method5585();
         Static272.aClass45_1.method1093();

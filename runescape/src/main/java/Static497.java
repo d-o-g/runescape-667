@@ -37,9 +37,9 @@ public final class Static497 {
         @Pc(37) int local37 = arg0.aAnimator_10.getAnimationId();
         if (local37 == -1 || arg0.aBoolean817) {
             local22 = local6.readySound;
-        } else if (local32.anInt7226 == local37 || local32.anInt7241 == local37 || local32.anInt7260 == local37 || local37 == local32.anInt7240) {
+        } else if (local32.run == local37 || local32.runFollowTurn180 == local37 || local32.runFollowTurnCw == local37 || local37 == local32.runFollowTurnCcw) {
             local22 = local6.runSound;
-        } else if (local32.anInt7235 == local37 || local37 == local32.anInt7262 || local32.anInt7268 == local37 || local32.anInt7239 == local37) {
+        } else if (local32.crawl == local37 || local37 == local32.crawlFollowTurn180 || local32.crawlFollowTurnCw == local37 || local32.crawlFollowTurnCcw == local37) {
             local22 = local6.crawlSound;
         }
         return local22;

@@ -332,10 +332,10 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                             local175 = arg3.wornTransformations[local50.anInt4928][2];
                             local171 = arg3.wornTransformations[local50.anInt4928][0];
                         }
-                        if (arg3.anIntArrayArray180 != null && arg3.anIntArrayArray180[local50.anInt4928] != null) {
-                            local173 += arg3.anIntArrayArray180[local50.anInt4928][1];
-                            local175 += arg3.anIntArrayArray180[local50.anInt4928][2];
-                            local171 += arg3.anIntArrayArray180[local50.anInt4928][0];
+                        if (arg3.graphicOffsets != null && arg3.graphicOffsets[local50.anInt4928] != null) {
+                            local173 += arg3.graphicOffsets[local50.anInt4928][1];
+                            local175 += arg3.graphicOffsets[local50.anInt4928][2];
+                            local171 += arg3.graphicOffsets[local50.anInt4928][0];
                         }
                         if (local175 != 0 || local171 != 0) {
                             @Pc(268) int local268 = arg4;
@@ -388,7 +388,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(IIZ)V")
     public final void method9298(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
         @Pc(15) BASType local15 = this.method9317();
-        if (arg1 || local15.anInt7231 != 0 || this.anInt10757 != 0) {
+        if (arg1 || local15.yawAcceleration != 0 || this.anInt10757 != 0) {
             this.anInt10756 = arg0 & 0x3FFF;
             this.aClass126_7.method2675((byte) 83, this.anInt10756);
         }
@@ -398,8 +398,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public int method9299() {
         @Pc(17) BASType local17 = this.method9317();
         @Pc(31) int local31;
-        if (local17.anInt7267 != -1) {
-            local31 = local17.anInt7267;
+        if (local17.characterHeight != -1) {
+            local31 = local17.characterHeight;
         } else if (this.anInt10748 == -32768) {
             local31 = 200;
         } else {
@@ -507,10 +507,10 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         @Pc(9) BASType local9 = this.method9317();
         @Pc(13) int local13 = this.aClass126_7.anInt2889;
         @Pc(30) boolean local30;
-        if (local9.anInt7231 == 0) {
+        if (local9.yawAcceleration == 0) {
             local30 = this.aClass126_7.method2676(this.anInt10756, this.anInt10757, -21712, this.anInt10757);
         } else {
-            local30 = this.aClass126_7.method2676(this.anInt10756, local9.anInt7250, -21712, local9.anInt7231);
+            local30 = this.aClass126_7.method2676(this.anInt10756, local9.yawMaxSpeed, -21712, local9.yawAcceleration);
         }
         @Pc(55) int local55 = this.aClass126_7.anInt2889 - local13;
         if (local55 == 0) {
@@ -520,26 +520,26 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             this.anInt10749++;
         }
         if (local30) {
-            if (local9.anInt7246 != 0) {
+            if (local9.rollAcceleration != 0) {
                 if (local55 > 0) {
-                    this.aClass126_8.method2676(local9.anInt7224, local9.anInt7251, -21712, local9.anInt7246);
+                    this.aClass126_8.method2676(local9.rollTargetAngle, local9.rollMaxSpeed, -21712, local9.rollAcceleration);
                 } else {
-                    this.aClass126_8.method2676(-local9.anInt7224, local9.anInt7251, -21712, local9.anInt7246);
+                    this.aClass126_8.method2676(-local9.rollTargetAngle, local9.rollMaxSpeed, -21712, local9.rollAcceleration);
                 }
             }
-            if (local9.anInt7242 != 0) {
-                this.aClass126_9.method2676(local9.anInt7252, local9.anInt7256, -21712, local9.anInt7242);
+            if (local9.pitchAcceleration != 0) {
+                this.aClass126_9.method2676(local9.pitchTargetAngle, local9.pitchMaxSpeed, -21712, local9.pitchAcceleration);
             }
         } else {
-            if (local9.anInt7246 == 0) {
+            if (local9.rollAcceleration == 0) {
                 this.aClass126_8.method2675((byte) 73, 0);
             } else {
-                this.aClass126_8.method2676(0, local9.anInt7251, -21712, local9.anInt7246);
+                this.aClass126_8.method2676(0, local9.rollMaxSpeed, -21712, local9.rollAcceleration);
             }
-            if (local9.anInt7242 == 0) {
+            if (local9.pitchAcceleration == 0) {
                 this.aClass126_9.method2675((byte) 122, 0);
             } else {
-                this.aClass126_9.method2676(0, local9.anInt7256, -21712, local9.anInt7242);
+                this.aClass126_9.method2676(0, local9.pitchMaxSpeed, -21712, local9.pitchAcceleration);
             }
         }
         return local55;
@@ -551,7 +551,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(BI)V")
     public final void method9305(@OriginalArg(1) int arg0) {
         @Pc(15) BASType local15 = this.method9317();
-        if (local15.anInt7231 == 0 && this.anInt10757 == 0) {
+        if (local15.yawAcceleration == 0 && this.anInt10757 == 0) {
             return;
         }
         this.aClass126_7.method2671();
@@ -599,8 +599,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         }
         @Pc(43) BASType local43 = this.method9317();
         @Pc(45) int local45 = 256;
-        if (local43.anIntArray585 != null && local43.anIntArray585[arg0] > 0) {
-            local45 = local43.anIntArray585[arg0];
+        if (local43.maxWornRotation != null && local43.maxWornRotation[arg0] > 0) {
+            local45 = local43.maxWornRotation[arg0];
         }
         @Pc(82) int local82;
         @Pc(87) int local87;

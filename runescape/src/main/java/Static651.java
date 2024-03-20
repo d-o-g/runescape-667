@@ -44,84 +44,84 @@ public final class Static651 {
         @Pc(29) int local29 = arg3.anInt10756 - arg3.aClass126_7.anInt2889 & 0x3FFF;
         if (arg0 == -1) {
             if (local29 == 0 && arg3.anInt10749 <= 25) {
-                if (!arg3.aBoolean817 || !local9.method6479(local19.getAnimationId())) {
-                    local19.update(true, local9.method6477());
+                if (!arg3.aBoolean817 || !local9.isReady(local19.getAnimationId())) {
+                    local19.update(true, local9.ready());
                     arg3.aBoolean817 = local19.isAnimating();
                 }
-            } else if (arg1 < 0 && local9.anInt7264 != -1) {
-                local19.update(true, local9.anInt7264);
+            } else if (arg1 < 0 && local9.readyTurnCcw != -1) {
+                local19.update(true, local9.readyTurnCcw);
                 arg3.aBoolean817 = false;
-            } else if (arg1 > 0 && local9.anInt7243 != -1) {
-                local19.update(true, local9.anInt7243);
+            } else if (arg1 > 0 && local9.readyTurnCw != -1) {
+                local19.update(true, local9.readyTurnCw);
                 arg3.aBoolean817 = false;
-            } else if (!arg3.aBoolean817 || !local9.method6479(local19.getAnimationId())) {
-                local19.update(true, local9.method6477());
+            } else if (!arg3.aBoolean817 || !local9.isReady(local19.getAnimationId())) {
+                local19.update(true, local9.ready());
                 arg3.aBoolean817 = arg3.aAnimator_10.isAnimating();
             }
         } else if (arg3.anInt10722 != -1 && (local29 >= 10240 || local29 <= 2048)) {
             @Pc(172) int local172 = Static464.anIntArray561[arg2] - arg3.aClass126_7.anInt2889 & 0x3FFF;
-            if (arg0 == 2 && local9.anInt7226 != -1) {
-                if (local172 > 2048 && local172 <= 6144 && local9.anInt7260 != -1) {
-                    local19.update(true, local9.anInt7260);
-                } else if (local172 >= 10240 && local172 < 14336 && local9.anInt7240 != -1) {
-                    local19.update(true, local9.anInt7240);
-                } else if (local172 <= 6144 || local172 >= 10240 || local9.anInt7241 == -1) {
-                    local19.update(true, local9.anInt7226);
+            if (arg0 == 2 && local9.run != -1) {
+                if (local172 > 2048 && local172 <= 6144 && local9.runFollowTurnCw != -1) {
+                    local19.update(true, local9.runFollowTurnCw);
+                } else if (local172 >= 10240 && local172 < 14336 && local9.runFollowTurnCcw != -1) {
+                    local19.update(true, local9.runFollowTurnCcw);
+                } else if (local172 <= 6144 || local172 >= 10240 || local9.runFollowTurn180 == -1) {
+                    local19.update(true, local9.run);
                 } else {
-                    local19.update(true, local9.anInt7241);
+                    local19.update(true, local9.runFollowTurn180);
                 }
-            } else if (arg0 == 0 && local9.anInt7235 != -1) {
-                if (local172 > 2048 && local172 <= 6144 && local9.anInt7268 != -1) {
-                    local19.update(true, local9.anInt7268);
-                } else if (local172 >= 10240 && local172 < 14336 && local9.anInt7239 != -1) {
-                    local19.update(true, local9.anInt7239);
-                } else if (local172 <= 6144 || local172 >= 10240 || local9.anInt7262 == -1) {
-                    local19.update(true, local9.anInt7235);
+            } else if (arg0 == 0 && local9.crawl != -1) {
+                if (local172 > 2048 && local172 <= 6144 && local9.crawlFollowTurnCw != -1) {
+                    local19.update(true, local9.crawlFollowTurnCw);
+                } else if (local172 >= 10240 && local172 < 14336 && local9.crawlFollowTurnCcw != -1) {
+                    local19.update(true, local9.crawlFollowTurnCcw);
+                } else if (local172 <= 6144 || local172 >= 10240 || local9.crawlFollowTurn180 == -1) {
+                    local19.update(true, local9.crawl);
                 } else {
-                    local19.update(true, local9.anInt7262);
+                    local19.update(true, local9.crawlFollowTurn180);
                 }
-            } else if (local172 > 2048 && local172 <= 6144 && local9.anInt7254 != -1) {
-                local19.update(true, local9.anInt7254);
-            } else if (local172 >= 10240 && local172 < 14336 && local9.anInt7266 != -1) {
-                local19.update(true, local9.anInt7266);
-            } else if (local172 <= 6144 || local172 >= 10240 || local9.anInt7253 == -1) {
-                local19.update(true, local9.anInt7245);
+            } else if (local172 > 2048 && local172 <= 6144 && local9.walkFollowTurnCw != -1) {
+                local19.update(true, local9.walkFollowTurnCw);
+            } else if (local172 >= 10240 && local172 < 14336 && local9.walkFollowTurnCcw != -1) {
+                local19.update(true, local9.walkFollowTurnCcw);
+            } else if (local172 <= 6144 || local172 >= 10240 || local9.walkFollowTurn180 == -1) {
+                local19.update(true, local9.walk);
             } else {
-                local19.update(true, local9.anInt7253);
+                local19.update(true, local9.walkFollowTurn180);
             }
             arg3.aBoolean817 = false;
         } else if (local29 == 0 && arg3.anInt10749 <= 25) {
-            if (arg0 == 2 && local9.anInt7226 != -1) {
-                local19.update(true, local9.anInt7226);
-            } else if (arg0 == 0 && local9.anInt7235 != -1) {
-                local19.update(true, local9.anInt7235);
+            if (arg0 == 2 && local9.run != -1) {
+                local19.update(true, local9.run);
+            } else if (arg0 == 0 && local9.crawl != -1) {
+                local19.update(true, local9.crawl);
             } else {
-                local19.update(true, local9.anInt7245);
+                local19.update(true, local9.walk);
             }
             arg3.aBoolean817 = false;
         } else {
-            if (arg0 == 2 && local9.anInt7226 != -1) {
-                if (arg1 < 0 && local9.anInt7249 != -1) {
-                    local19.update(true, local9.anInt7249);
-                } else if (arg1 <= 0 || local9.anInt7227 == -1) {
-                    local19.update(true, local9.anInt7226);
+            if (arg0 == 2 && local9.run != -1) {
+                if (arg1 < 0 && local9.runTurnCcw != -1) {
+                    local19.update(true, local9.runTurnCcw);
+                } else if (arg1 <= 0 || local9.runTurnCw == -1) {
+                    local19.update(true, local9.run);
                 } else {
-                    local19.update(true, local9.anInt7227);
+                    local19.update(true, local9.runTurnCw);
                 }
-            } else if (arg0 == 0 && local9.anInt7235 != -1) {
-                if (arg1 < 0 && local9.anInt7244 != -1) {
-                    local19.update(true, local9.anInt7244);
-                } else if (arg1 <= 0 || local9.anInt7233 == -1) {
-                    local19.update(true, local9.anInt7235);
+            } else if (arg0 == 0 && local9.crawl != -1) {
+                if (arg1 < 0 && local9.crawlTurnCcw != -1) {
+                    local19.update(true, local9.crawlTurnCcw);
+                } else if (arg1 <= 0 || local9.crawlTurnCw == -1) {
+                    local19.update(true, local9.crawl);
                 } else {
-                    local19.update(true, local9.anInt7233);
+                    local19.update(true, local9.crawlTurnCw);
                 }
-            } else if (arg1 < 0 && local9.anInt7263 != -1) {
-                local19.update(true, local9.anInt7263);
-            } else if (arg1 <= 0 || local9.anInt7269 == -1) {
-                local19.update(true, local9.anInt7245);
+            } else if (arg1 < 0 && local9.walkTurnCcw != -1) {
+                local19.update(true, local9.walkTurnCcw);
+            } else if (arg1 <= 0 || local9.walkTurnCw == -1) {
+                local19.update(true, local9.walk);
             } else {
-                local19.update(true, local9.anInt7269);
+                local19.update(true, local9.walkTurnCw);
             }
             arg3.aBoolean817 = false;
         }

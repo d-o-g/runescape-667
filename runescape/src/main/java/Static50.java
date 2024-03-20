@@ -124,7 +124,7 @@ public final class Static50 {
         @Pc(8) Animator local8 = arg0.aAnimator_10;
         if (local8.isAnimating() && local8.tick(1) && local8.isFinished()) {
             if (arg0.aBoolean817) {
-                local8.update(true, arg0.method9317().method6477());
+                local8.update(true, arg0.method9317().ready());
                 arg0.aBoolean817 = local8.isAnimating();
             }
             local8.method9099();

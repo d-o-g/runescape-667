@@ -319,7 +319,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(114) Class8_Sub7 local114 = null;
         if (Static400.instance.aClass57_Sub7_1.method2905() == 1) {
             @Pc(126) BASType local126 = this.method9317();
-            if (local126.aBoolean545 && (this.aPlayerModel_1.npcId == -1 || Static690.aNPCTypeList_2.list(this.aPlayerModel_1.npcId).hasShadow)) {
+            if (local126.animateShadow && (this.aPlayerModel_1.npcId == -1 || Static690.aNPCTypeList_2.list(this.aPlayerModel_1.npcId).hasShadow)) {
                 @Pc(166) Animator local166 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
                 @Pc(186) Animator local186 = super.aAnimator_10.isAnimating() && (!super.aBoolean817 || local166 == null) ? super.aAnimator_10 : null;
                 @Pc(212) Model local212 = Static618.method8320(240, super.aModelArray3[0], super.anInt10742, 0, super.anInt10716, 1, arg0, 160, local186 == null ? local166 : local186, super.anInt10746, local27, 0);
@@ -564,7 +564,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             return;
         }
         @Pc(717) BASType local717 = this.method9317();
-        if (!local717.method6479(super.aAnimator_10.getAnimationId())) {
+        if (!local717.isReady(super.aAnimator_10.getAnimationId())) {
             super.aAnimator_10.update(true, -1);
             super.aBoolean817 = false;
             return;
@@ -577,9 +577,9 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(15) BASType local15 = this.method9317();
         @Pc(33) Animator local33 = super.aAnimator_11.isAnimating() && !super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
         @Pc(58) Animator local58 = !super.aAnimator_10.isAnimating() || this.aBoolean129 || super.aBoolean817 && local33 != null ? null : super.aAnimator_10;
-        @Pc(61) int local61 = local15.anInt7234;
-        @Pc(64) int local64 = local15.anInt7238;
-        if (local61 != 0 || local64 != 0 || local15.anInt7224 != 0 || local15.anInt7252 != 0) {
+        @Pc(61) int local61 = local15.hillWidth;
+        @Pc(64) int local64 = local15.hillHeight;
+        if (local61 != 0 || local64 != 0 || local15.rollTargetAngle != 0 || local15.pitchTargetAngle != 0) {
             arg0 |= 0x7;
         }
         @Pc(95) int local95 = super.aClass126_7.method2673(16383);
@@ -615,7 +615,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (local61 == 0 && local64 == 0) {
             this.method9314(local95, 0, 0, this.method9302((byte) 59) << 9, this.method9302((byte) 126) << 9, -81);
         } else {
-            this.method9314(local95, local15.anInt7236, local15.anInt7258, local61, local64, -104);
+            this.method9314(local95, local15.hillMaxAngleX, local15.hillMaxAngleY, local61, local64, -104);
             if (super.anInt10746 != 0) {
                 local152.FA(super.anInt10746);
             }

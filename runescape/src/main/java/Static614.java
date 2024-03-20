@@ -50,7 +50,7 @@ public final class Static614 {
         Static36.aClass260_1.method5785();
         Static628.aClass342_5.method7784();
         Static648.aClass17_1.method267();
-        Static574.aBASTypeList_2.method7115();
+        Static574.aBASTypeList_2.cacheClean(5);
         Static577.aClass246_4.method5581();
         Static720.aClass363_4.method8367();
         Static523.instance.cacheClean(5);

@@ -247,9 +247,9 @@ public final class Class8_Sub2_Sub1_Sub1 extends Class8_Sub2_Sub1 {
             local109 = local105.wornTransformations[this.anInt695][2];
             local107 = local105.wornTransformations[this.anInt695][0];
         }
-        if (local105.anIntArrayArray180 != null && local105.anIntArrayArray180[this.anInt695] != null) {
-            local109 += local105.anIntArrayArray180[this.anInt695][2];
-            local107 += local105.anIntArrayArray180[this.anInt695][0];
+        if (local105.graphicOffsets != null && local105.graphicOffsets[this.anInt695] != null) {
+            local109 += local105.graphicOffsets[this.anInt695][2];
+            local107 += local105.graphicOffsets[this.anInt695][0];
         }
         if (local107 != 0 || local109 != 0) {
             @Pc(185) int local185 = local21.aClass126_7.method2673(16383);

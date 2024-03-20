@@ -31,9 +31,9 @@ public final class Static220 {
             @Pc(57) int local57 = local42.aClass8_Sub2_Sub1_Sub2_Sub2_3.aAnimator_10.getAnimationId();
             if (local57 == -1 || local42.aClass8_Sub2_Sub1_Sub2_Sub2_3.aBoolean817) {
                 local46 = 0;
-            } else if (local57 == local51.anInt7226 || local57 == local51.anInt7241 || local57 == local51.anInt7260 || local51.anInt7240 == local57) {
+            } else if (local57 == local51.run || local57 == local51.runFollowTurn180 || local57 == local51.runFollowTurnCw || local51.runFollowTurnCcw == local57) {
                 local46 = 2;
-            } else if (local51.anInt7235 == local57 || local57 == local51.anInt7262 || local51.anInt7268 == local57 || local57 == local51.anInt7239) {
+            } else if (local51.crawl == local57 || local57 == local51.crawlFollowTurn180 || local51.crawlFollowTurnCw == local57 || local57 == local51.crawlFollowTurnCcw) {
                 local46 = 3;
             }
             if (local42.anInt9364 != local46) {
@@ -83,9 +83,9 @@ public final class Static220 {
             local154 = local329.aClass8_Sub2_Sub1_Sub2_Sub1_3.aAnimator_10.getAnimationId();
             if (local154 == -1 || local329.aClass8_Sub2_Sub1_Sub2_Sub1_3.aBoolean817) {
                 local333 = 0;
-            } else if (local154 == local338.anInt7226 || local154 == local338.anInt7241 || local338.anInt7260 == local154 || local154 == local338.anInt7240) {
+            } else if (local154 == local338.run || local154 == local338.runFollowTurn180 || local338.runFollowTurnCw == local154 || local154 == local338.runFollowTurnCcw) {
                 local333 = 2;
-            } else if (local338.anInt7235 == local154 || local154 == local338.anInt7262 || local338.anInt7268 == local154 || local154 == local338.anInt7239) {
+            } else if (local338.crawl == local154 || local154 == local338.crawlFollowTurn180 || local338.crawlFollowTurnCw == local154 || local154 == local338.crawlFollowTurnCcw) {
                 local333 = 3;
             }
             if (local333 != local329.anInt9364) {

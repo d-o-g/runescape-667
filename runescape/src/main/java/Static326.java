@@ -24,9 +24,9 @@ public final class Static326 {
         @Pc(15) int local15 = arg0.aAnimator_10.getAnimationId();
         if (local15 == -1 || arg0.aBoolean817) {
             local6 = arg0.anInt1455;
-        } else if (local10.anInt7226 == local15 || local15 == local10.anInt7241 || local10.anInt7260 == local15 || local10.anInt7240 == local15) {
+        } else if (local10.run == local15 || local15 == local10.runFollowTurn180 || local10.runFollowTurnCw == local15 || local10.runFollowTurnCcw == local15) {
             local6 = arg0.anInt1469;
-        } else if (local10.anInt7235 == local15 || local10.anInt7262 == local15 || local10.anInt7268 == local15 || local10.anInt7239 == local15) {
+        } else if (local10.crawl == local15 || local10.crawlFollowTurn180 == local15 || local10.crawlFollowTurnCw == local15 || local10.crawlFollowTurnCcw == local15) {
             local6 = arg0.anInt1459;
         }
         return local6;

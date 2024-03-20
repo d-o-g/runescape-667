@@ -50,10 +50,10 @@ public final class Node_Sub22 extends Node {
             local11 = Static574.aBASTypeList_2.list(arg0);
         }
         @Pc(23) int[] local23 = this.anIntArray278;
-        if (local11 != null && local11.anIntArray586 != null) {
-            local23 = new int[local11.anIntArray586.length];
-            for (@Pc(45) int local45 = 0; local45 < local11.anIntArray586.length; local45++) {
-                @Pc(52) int local52 = local11.anIntArray586[local45];
+        if (local11 != null && local11.invObjSlots != null) {
+            local23 = new int[local11.invObjSlots.length];
+            for (@Pc(45) int local45 = 0; local45 < local11.invObjSlots.length; local45++) {
+                @Pc(52) int local52 = local11.invObjSlots[local45];
                 if (local52 >= 0 && this.anIntArray278.length > local52) {
                     local23[local45] = this.anIntArray278[local52];
                 } else {

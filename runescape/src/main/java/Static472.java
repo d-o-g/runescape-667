@@ -3024,19 +3024,19 @@ public final class Static472 {
                                             if (arg0 == 4600) {
                                                 local15 = anIntArray578[--anInt7142];
                                                 @Pc(12037) BASType local12037 = Static574.aBASTypeList_2.list(local15);
-                                                if (local12037.anIntArray587 != null && local12037.anIntArray587.length > 0) {
+                                                if (local12037.readyAnimations != null && local12037.readyAnimations.length > 0) {
                                                     local27 = 0;
-                                                    local506 = local12037.anIntArray589[0];
-                                                    for (local2978 = 1; local2978 < local12037.anIntArray587.length; local2978++) {
-                                                        if (local12037.anIntArray589[local2978] > local506) {
+                                                    local506 = local12037.readyAnimationWeights[0];
+                                                    for (local2978 = 1; local2978 < local12037.readyAnimations.length; local2978++) {
+                                                        if (local12037.readyAnimationWeights[local2978] > local506) {
                                                             local27 = local2978;
-                                                            local506 = local12037.anIntArray589[local2978];
+                                                            local506 = local12037.readyAnimationWeights[local2978];
                                                         }
                                                     }
-                                                    anIntArray578[anInt7142++] = local12037.anIntArray587[local27];
+                                                    anIntArray578[anInt7142++] = local12037.readyAnimations[local27];
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = local12037.anInt7232;
+                                                anIntArray578[anInt7142++] = local12037.ready;
                                                 return;
                                             }
                                         } else if (arg0 < 4800) {

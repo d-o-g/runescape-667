@@ -105,14 +105,14 @@ public final class Static608 {
                     @Pc(262) byte local262 = 1;
                     if (local31 == null) {
                         @Pc(283) Class8_Sub2_Sub1_Sub2_Sub1 local283 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local11[local27]];
-                        local267 = local51.method9317().anInt7257;
+                        local267 = local51.method9317().hitbarSprite;
                         if (local283.aBoolean128) {
                             local262 = 2;
                         }
                     } else {
                         local267 = local31.healthBarSprite;
                         if (local267 == -1) {
-                            local267 = local51.method9317().anInt7257;
+                            local267 = local51.method9317().hitbarSprite;
                         }
                     }
                     @Pc(295) Sprite[] local295 = Static119.aSpriteArray3;
@@ -160,10 +160,10 @@ public final class Static608 {
                         if (local51 instanceof Class8_Sub2_Sub1_Sub2_Sub2) {
                             local504 = local31.timerbarSprite;
                             if (local504 == -1) {
-                                local504 = local51.method9317().anInt7259;
+                                local504 = local51.method9317().timerbarSprite;
                             }
                         } else {
-                            local504 = local51.method9317().anInt7259;
+                            local504 = local51.method9317().timerbarSprite;
                         }
                         if (local504 != -1) {
                             local306 = (Sprite[]) Static669.A_WEIGHTED_CACHE___215.get((long) local504);

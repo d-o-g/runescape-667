@@ -1,4 +1,6 @@
 import com.jagex.Class230;
+import com.jagex.game.runetek6.config.loctype.LocInteractivity;
+import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
@@ -8,7 +10,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qg")
-public final class Class8_Sub2_Sub4_Sub2 extends Class8_Sub2_Sub4 implements Location {
+public final class DynamicWallDecor extends WallDecor implements Location {
 
     @OriginalMember(owner = "client!qg", name = "I", descriptor = "Lclient!ke;")
     public Class205 aClass205_8;
@@ -23,10 +25,10 @@ public final class Class8_Sub2_Sub4_Sub2 extends Class8_Sub2_Sub4 implements Loc
     public final boolean aBoolean587;
 
     @OriginalMember(owner = "client!qg", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIIII)V")
-    public Class8_Sub2_Sub4_Sub2(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12) {
+    public DynamicWallDecor(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12) {
         super(arg4, arg5, arg6, arg2, arg3, arg8, arg9);
         this.aClass337_4 = new Class337(arg0, arg1, arg10, arg11, super.aByte144, arg3, this, arg7, arg12);
-        this.aBoolean587 = arg1.anInt1271 != 0 && !arg7;
+        this.aBoolean587 = arg1.interactivity != LocInteractivity.NONINTERACTIVE && !arg7;
     }
 
     @OriginalMember(owner = "client!qg", name = "c", descriptor = "(B)I")
@@ -110,13 +112,13 @@ public final class Class8_Sub2_Sub4_Sub2 extends Class8_Sub2_Sub4 implements Loc
     }
 
     @OriginalMember(owner = "client!qg", name = "a", descriptor = "(Lclient!gp;B)V")
-    public void method6862(@OriginalArg(0) Class150 arg0) {
+    public void method6862(@OriginalArg(0) LocTypeCustomisation arg0) {
         this.aClass337_4.method7679(arg0);
     }
 
     @OriginalMember(owner = "client!qg", name = "e", descriptor = "(I)Z")
     @Override
-    public boolean method6860(@OriginalArg(0) int arg0) {
+    public boolean castsShadow(@OriginalArg(0) int arg0) {
         if (arg0 != -19717) {
             this.method6856();
         }
@@ -137,7 +139,7 @@ public final class Class8_Sub2_Sub4_Sub2 extends Class8_Sub2_Sub4 implements Loc
 
     @OriginalMember(owner = "client!qg", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6861(@OriginalArg(0) Toolkit arg0) {
+    public void addShadow(@OriginalArg(0) Toolkit arg0) {
         this.aClass337_4.method7668(arg0);
     }
 
@@ -157,7 +159,7 @@ public final class Class8_Sub2_Sub4_Sub2 extends Class8_Sub2_Sub4 implements Loc
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
-            this.method6862((Class150) null);
+            this.method6862((LocTypeCustomisation) null);
         }
         @Pc(21) Model local21 = this.aClass337_4.method7678(arg0, false, true, true, 262144);
         if (local21 == null) {
@@ -172,7 +174,7 @@ public final class Class8_Sub2_Sub4_Sub2 extends Class8_Sub2_Sub4 implements Loc
 
     @OriginalMember(owner = "client!qg", name = "a", descriptor = "(I)I")
     @Override
-    public int method6859(@OriginalArg(0) int arg0) {
+    public int getId(@OriginalArg(0) int arg0) {
         if (arg0 != -32136) {
             this.aClass337_4 = null;
         }

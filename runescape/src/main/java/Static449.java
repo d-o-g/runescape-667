@@ -74,18 +74,13 @@ public final class Static449 {
         }
     }
 
-    @OriginalMember(owner = "client!od", name = "a", descriptor = "(IB)Z")
-    public static boolean method6117(@OriginalArg(0) int arg0) {
-        return arg0 >= 4 && arg0 <= 8;
-    }
-
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(ILclient!uv;)Z")
     public static boolean method6118(@OriginalArg(1) Location arg0) {
-        @Pc(17) LocType local17 = Static354.aLocTypeList_4.list(arg0.method6859(-32136), 49);
-        if (local17.anInt1239 == -1) {
+        @Pc(17) LocType local17 = Static354.aLocTypeList_4.list(arg0.getId(-32136));
+        if (local17.msi == -1) {
             return true;
         } else {
-            @Pc(31) Class173 local31 = Static720.aClass363_4.method8362(local17.anInt1239);
+            @Pc(31) Class173 local31 = Static720.aClass363_4.method8362(local17.msi);
             return local31.anInt4167 == -1 ? true : local31.method3690();
         }
     }

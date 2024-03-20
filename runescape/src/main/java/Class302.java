@@ -1,4 +1,4 @@
-import com.jagex.Class8;
+import com.jagex.Entity;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -40,10 +40,10 @@ public final class Class302 {
     }
 
     @OriginalMember(owner = "client!qe", name = "a", descriptor = "(Z)Lclient!ep;")
-    public Class8 method6807() {
+    public Entity method6807() {
         @Pc(14) Class130 local14 = this.aClass130_10;
         synchronized (this.aClass130_10) {
-            @Pc(21) Class8 local21 = this.aClass130_10.method2790();
+            @Pc(21) Entity local21 = this.aClass130_10.method2790();
             local21.method9274();
             this.anInt7701--;
             return local21;
@@ -51,7 +51,7 @@ public final class Class302 {
     }
 
     @OriginalMember(owner = "client!qe", name = "a", descriptor = "(Lclient!eo;B)V")
-    public void method6809(@OriginalArg(0) Class8_Sub2 arg0) {
+    public void method6809(@OriginalArg(0) Renderable arg0) {
         arg0.aBoolean812 = true;
         @Pc(18) Class130 local18 = this.aClass130_10;
         synchronized (this.aClass130_10) {
@@ -77,7 +77,7 @@ public final class Class302 {
     }
 
     @OriginalMember(owner = "client!qe", name = "a", descriptor = "(Lclient!eo;I)V")
-    public void method6812(@OriginalArg(0) Class8_Sub2 arg0) {
+    public void method6812(@OriginalArg(0) Renderable arg0) {
         arg0.aBoolean812 = false;
         @Pc(9) Class130 local9 = this.aClass130_10;
         synchronized (this.aClass130_10) {

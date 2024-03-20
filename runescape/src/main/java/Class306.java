@@ -43,7 +43,7 @@ public class Class306 {
     public final byte[][][] aByteArrayArrayArray17;
 
     @OriginalMember(owner = "client!qja", name = "u", descriptor = "[[[B")
-    protected byte[][][] aByteArrayArrayArray14;
+    protected byte[][][] occlurerFlags;
 
     @OriginalMember(owner = "client!qja", name = "s", descriptor = "[[[B")
     public final byte[][][] aByteArrayArrayArray15;
@@ -64,7 +64,7 @@ public class Class306 {
         this.aClass96_6 = arg4;
         this.aByteArrayArrayArray13 = new byte[this.levels][this.width][this.height];
         this.aByteArrayArrayArray17 = new byte[this.levels][this.width][this.height];
-        this.aByteArrayArrayArray14 = new byte[this.levels][this.width + 1][this.height + 1];
+        this.occlurerFlags = new byte[this.levels][this.width + 1][this.height + 1];
         this.aByteArrayArrayArray15 = new byte[this.levels][this.width][this.height];
         this.aByteArrayArrayArray16 = new byte[this.levels][this.width][this.height];
         this.tileHeights = new int[this.levels][this.width + 1][this.height + 1];
@@ -162,7 +162,7 @@ public class Class306 {
     public void method7882(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int[][] arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Ground arg4, @OriginalArg(6) Ground arg5) {
         for (@Pc(1) int local1 = 0; local1 < this.width; local1++) {
             for (@Pc(4) int local4 = 0; local4 < this.height; local4++) {
-                if (Static478.anInt7198 == -1 || Static696.method9036(local4, Static478.anInt7198, local1, arg0)) {
+                if (Static478.anInt7198 == -1 || Static696.isTileVisibleFrom(local4, Static478.anInt7198, local1, arg0)) {
                     @Pc(28) byte local28 = this.aByteArrayArrayArray16[arg0][local1][local4];
                     @Pc(37) byte local37 = this.aByteArrayArrayArray13[arg0][local1][local4];
                     @Pc(48) int local48 = this.aByteArrayArrayArray15[arg0][local1][local4] & 0xFF;
@@ -270,10 +270,10 @@ public class Class306 {
                                 }
                             }
                         }
-                        local383 = arg4.method7869(local4, local1);
-                        local388 = arg4.method7869(local4, local1 + 1);
-                        local477 = arg4.method7869(local4 + 1, local1 - -1);
-                        local485 = arg4.method7869(local4 + 1, local1);
+                        local383 = arg4.getHeight(local4, local1);
+                        local388 = arg4.getHeight(local4, local1 + 1);
+                        local477 = arg4.getHeight(local4 + 1, local1 - -1);
+                        local485 = arg4.getHeight(local4 + 1, local1);
                         @Pc(633) boolean local633 = Static441.method5968(local4, local1);
                         if (local633 && arg0 > 1 || !local633 && arg0 > 0) {
                             @Pc(652) boolean local652 = true;
@@ -285,7 +285,7 @@ public class Class306 {
                                 local652 = false;
                             }
                             if (local652 && local388 == local383 && local477 == local383 && local383 == local485) {
-                                this.aByteArrayArrayArray14[arg0][local1][local4] = (byte) (this.aByteArrayArrayArray14[arg0][local1][local4] | 0x4);
+                                this.occlurerFlags[arg0][local1][local4] = (byte) (this.occlurerFlags[arg0][local1][local4] | 0x4);
                             }
                         }
                         @Pc(740) int local740 = 0;
@@ -739,9 +739,9 @@ public class Class306 {
                 }
             }
             if (Static718.aBoolean822) {
-                this.method7890(local47 == 0 ? arg2 : null, local45, local47 == 0 ? arg1 : null, Static246.aGroundArray1[local47], arg0, local47);
+                this.method7890(local47 == 0 ? arg2 : null, local45, local47 == 0 ? arg1 : null, Static246.activeGround[local47], arg0, local47);
             } else {
-                this.method7882(local47, arg0, local45, local47 == 0 ? arg2 : null, Static246.aGroundArray1[local47], local47 == 0 ? arg1 : null);
+                this.method7882(local47, arg0, local45, local47 == 0 ? arg2 : null, Static246.activeGround[local47], local47 == 0 ? arg1 : null);
             }
             this.aByteArrayArrayArray17[local47] = null;
             this.aByteArrayArrayArray15[local47] = null;
@@ -757,7 +757,7 @@ public class Class306 {
             }
         }
         for (local50 = 0; local50 < this.levels; local50++) {
-            Static246.aGroundArray1[local50].YA();
+            Static246.activeGround[local50].YA();
         }
     }
 
@@ -827,7 +827,7 @@ public class Class306 {
             @Pc(47) int local47 = this.width - 1 > local33 ? local33 + 1 : local33;
             for (@Pc(49) int local49 = 0; local49 < this.height; local49++) {
                 @Pc(67) int local67 = local49 < this.height - 1 ? local49 + 1 : local49;
-                if (Static478.anInt7198 == -1 || Static696.method9036(local49, Static478.anInt7198, local33, arg5)) {
+                if (Static478.anInt7198 == -1 || Static696.isTileVisibleFrom(local49, Static478.anInt7198, local33, arg5)) {
                     @Pc(83) boolean local83 = false;
                     @Pc(85) boolean local85 = false;
                     @Pc(88) boolean[] local88 = new boolean[4];
@@ -899,11 +899,11 @@ public class Class306 {
                                 local403 = -local403;
                             }
                             if (local391 == local403) {
-                                local391 = arg3.method7869(local49, local33) - arg3.method7869(local67, local47);
+                                local391 = arg3.getHeight(local49, local33) - arg3.getHeight(local67, local47);
                                 if (local391 < 0) {
                                     local391 = -local391;
                                 }
-                                local403 = arg3.method7869(local49, local47) - arg3.method7869(local67, local33);
+                                local403 = arg3.getHeight(local49, local47) - arg3.getHeight(local67, local33);
                                 if (local403 < 0) {
                                     local403 = -local403;
                                 }
@@ -1288,10 +1288,10 @@ public class Class306 {
                                     local83 = true;
                                 }
                             }
-                            local1162 = arg3.method7869(local49, local33);
-                            local1164 = arg3.method7869(local49, local47);
-                            local1411 = arg3.method7869(local67, local47);
-                            local1416 = arg3.method7869(local67, local33);
+                            local1162 = arg3.getHeight(local49, local33);
+                            local1164 = arg3.getHeight(local49, local47);
+                            local1411 = arg3.getHeight(local67, local47);
+                            local1416 = arg3.getHeight(local67, local33);
                             @Pc(2560) boolean local2560 = Static441.method5968(local49, local33);
                             if (local2560 && arg5 > 1 || !local2560 && arg5 > 0) {
                                 @Pc(2579) boolean local2579 = true;
@@ -1303,7 +1303,7 @@ public class Class306 {
                                     local2579 = false;
                                 }
                                 if (local2579 && local1164 == local1162 && local1411 == local1162 && local1162 == local1416) {
-                                    this.aByteArrayArrayArray14[arg5][local33][local49] = (byte) (this.aByteArrayArrayArray14[arg5][local33][local49] | 0x4);
+                                    this.occlurerFlags[arg5][local33][local49] = (byte) (this.occlurerFlags[arg5][local33][local49] | 0x4);
                                 }
                             }
                             local1430 = 0;

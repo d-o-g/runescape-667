@@ -23,7 +23,7 @@ public final class Class57_Sub6 extends Class57 {
     }
 
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(Z)I")
-    public int method2714() {
+    public int value() {
         return super.anInt9489;
     }
 

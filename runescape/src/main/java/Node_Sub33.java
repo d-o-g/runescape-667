@@ -94,8 +94,8 @@ public final class Node_Sub33 extends Node {
                 for (local141 = 0; local141 <= local76; local141++) {
                     local148 = this.anInt5451 + local141;
                     if (local148 > 0 && this.aClass178_Sub2_2.anInt8894 - 1 > local148) {
-                        local178 = arg1.method7869(local121, local148 + 1) - arg1.method7869(local121, local148 - 1);
-                        local195 = arg1.method7869(local121 + 1, local148) - arg1.method7869(local121 - 1, local148);
+                        local178 = arg1.getHeight(local121, local148 + 1) - arg1.getHeight(local121, local148 - 1);
+                        local195 = arg1.getHeight(local121 + 1, local148) - arg1.getHeight(local121 - 1, local148);
                         @Pc(211) float local211 = (float) (1.0D / Math.sqrt((double) (local178 * local178 + local195 * local195 + 65536)));
                         this.aFloatArrayArray11[local141][local113] = (float) local178 * local211;
                         this.aFloatArrayArray9[local141][local113] = local211 * -256.0F;

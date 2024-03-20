@@ -9,7 +9,7 @@ public final class Static164 {
     public static final int[] anIntArray246 = new int[]{2047, 16383, 65535};
 
     @OriginalMember(owner = "client!fba", name = "b", descriptor = "I")
-    public static int anInt2808 = 0;
+    public static int areaLevel = 0;
 
     @OriginalMember(owner = "client!fba", name = "a", descriptor = "(I)V")
     public static void method2606() {

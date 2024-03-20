@@ -1,4 +1,6 @@
 import com.jagex.Class230;
+import com.jagex.game.runetek6.config.loctype.LocInteractivity;
+import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
@@ -8,7 +10,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!oe")
-public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Location {
+public final class DynamicLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!oe", name = "P", descriptor = "Lclient!ke;")
     public Class205 aClass205_7;
@@ -23,15 +25,15 @@ public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Loc
     public boolean aBoolean517;
 
     @OriginalMember(owner = "client!oe", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIIIIII)V")
-    public Class8_Sub2_Sub1_Sub4(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) int arg13, @OriginalArg(14) int arg14) {
+    public DynamicLocation(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) int arg13, @OriginalArg(14) int arg14) {
         super(arg2, arg3, arg4, arg5, arg6, arg8, arg9, arg10, arg11, arg1.lb == 1, Static609.method8215(arg12, arg13));
         this.aClass337_3 = new Class337(arg0, arg1, arg12, arg13, super.aByte144, arg3, this, arg7, arg14);
-        this.aBoolean517 = arg1.anInt1271 != 0 && !arg7;
+        this.aBoolean517 = arg1.interactivity != LocInteractivity.NONINTERACTIVE && !arg7;
     }
 
     @OriginalMember(owner = "client!oe", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
         if (arg4 < 101) {
             Static451.aClass225_171 = null;
         }
@@ -104,7 +106,7 @@ public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Loc
 
     @OriginalMember(owner = "client!oe", name = "e", descriptor = "(I)Z")
     @Override
-    public boolean method6860(@OriginalArg(0) int arg0) {
+    public boolean castsShadow(@OriginalArg(0) int arg0) {
         if (arg0 != -19717) {
             this.aBoolean517 = false;
         }
@@ -136,7 +138,7 @@ public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Loc
 
     @OriginalMember(owner = "client!oe", name = "a", descriptor = "(I)I")
     @Override
-    public int method6859(@OriginalArg(0) int arg0) {
+    public int getId(@OriginalArg(0) int arg0) {
         if (arg0 != -32136) {
             this.aClass337_3 = null;
         }
@@ -162,7 +164,7 @@ public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Loc
     }
 
     @OriginalMember(owner = "client!oe", name = "a", descriptor = "(ILclient!gp;)V")
-    public void method6160(@OriginalArg(1) Class150 arg0) {
+    public void method6160(@OriginalArg(1) LocTypeCustomisation arg0) {
         this.aClass337_3.method7679(arg0);
     }
 
@@ -176,7 +178,7 @@ public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Loc
     @Override
     public void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 >= -42) {
-            this.method9285(72, true, (Toolkit) null, -2, (byte) 37, -105, (Class8_Sub2) null);
+            this.method9285(72, true, (Toolkit) null, -2, (byte) 37, -105, (Renderable) null);
         }
         this.aClass337_3.method7669(arg0);
     }
@@ -192,7 +194,7 @@ public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Loc
 
     @OriginalMember(owner = "client!oe", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6861(@OriginalArg(0) Toolkit arg0) {
+    public void addShadow(@OriginalArg(0) Toolkit arg0) {
         this.aClass337_3.method7668(arg0);
     }
 

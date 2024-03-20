@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -15,15 +16,15 @@ public final class Static277 {
     public static long method4042(@OriginalArg(0) Location arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(5) long local5 = 4194304L;
         @Pc(18) long local18 = Long.MIN_VALUE;
-        @Pc(25) LocType local25 = Static354.aLocTypeList_4.list(arg0.method6859(-32136), 44);
+        @Pc(25) LocType local25 = Static354.aLocTypeList_4.list(arg0.getId(-32136));
         @Pc(46) long local46 = (long) (arg2 | arg1 << 7 | arg0.method6858() << 14 | arg0.method6855(23796) << 20 | 0x40000000);
-        if (local25.anInt1271 == 0) {
+        if (local25.interactivity == LocInteractivity.NONINTERACTIVE) {
             local46 |= local18;
         }
         if (local25.lb == 1) {
             local46 |= local5;
         }
-        return local46 | (long) arg0.method6859(-32136) << 32;
+        return local46 | (long) arg0.getId(-32136) << 32;
     }
 
     @OriginalMember(owner = "client!im", name = "a", descriptor = "(IC)Z")

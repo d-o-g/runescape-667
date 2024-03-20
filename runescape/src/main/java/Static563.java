@@ -49,31 +49,31 @@ public final class Static563 {
         Static420.aClass291ArrayArrayArray2 = null;
         Static693.aGroundArray2 = null;
         Static334.aClass291ArrayArrayArray1 = null;
-        Static246.aGroundArray1 = null;
+        Static246.activeGround = null;
         Static258.aBooleanArrayArray3 = null;
         Static142.aBooleanArrayArray1 = null;
         Static102.anIntArray184 = null;
         Static433.aBooleanArrayArrayArray5 = null;
         Static275.aBooleanArrayArrayArray4 = null;
         Static370.method5280();
-        if (Static679.aClass8_Sub2_Sub1Array1 != null) {
+        if (Static679.aPositionEntity != null) {
             for (local3 = 0; local3 < Static125.anInt2352; local3++) {
-                Static679.aClass8_Sub2_Sub1Array1[local3] = null;
+                Static679.aPositionEntity[local3] = null;
             }
             Static125.anInt2352 = 0;
         }
-        Static576.aClass8_Sub2Array9 = null;
-        Static398.aClass8_Sub2Array7 = null;
-        Static468.aClass8_Sub2Array10 = null;
-        if (Static48.aClass8_Sub2Array3 != null) {
-            for (local3 = 0; local3 < Static48.aClass8_Sub2Array3.length; local3++) {
-                Static48.aClass8_Sub2Array3[local3] = null;
+        Static576.aRenderableArray9 = null;
+        Static398.aRenderableArray7 = null;
+        Static468.aRenderableArray10 = null;
+        if (Static48.aRenderableArray3 != null) {
+            for (local3 = 0; local3 < Static48.aRenderableArray3.length; local3++) {
+                Static48.aRenderableArray3[local3] = null;
             }
             Static546.anInt8244 = 0;
         }
-        if (Static395.aClass8_Sub2Array11 != null) {
-            for (local3 = 0; local3 < Static395.aClass8_Sub2Array11.length; local3++) {
-                Static395.aClass8_Sub2Array11[local3] = null;
+        if (Static395.aRenderableArray11 != null) {
+            for (local3 = 0; local3 < Static395.aRenderableArray11.length; local3++) {
+                Static395.aRenderableArray11[local3] = null;
             }
             Static645.anInt9611 = 0;
         }

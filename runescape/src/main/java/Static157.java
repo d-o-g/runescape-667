@@ -26,19 +26,19 @@ public final class Static157 {
         arg4.anInt10691 = arg3;
         arg4.anInt10694 = (arg2 << Static52.anInt1066) + Static247.anInt3993;
         local4.aClass8_Sub2_Sub5_1 = arg4;
-        @Pc(36) int local36 = Static246.aGroundArray1 == Static693.aGroundArray2 ? 1 : 0;
+        @Pc(36) int local36 = Static246.activeGround == Static693.aGroundArray2 ? 1 : 0;
         if (arg4.method9283()) {
             if (arg4.method9282(0)) {
-                arg4.aClass8_Sub2_25 = Static398.aClass8_Sub2Array7[local36];
-                Static398.aClass8_Sub2Array7[local36] = arg4;
+                arg4.aRenderable_25 = Static398.aRenderableArray7[local36];
+                Static398.aRenderableArray7[local36] = arg4;
                 return;
             }
-            arg4.aClass8_Sub2_25 = Static576.aClass8_Sub2Array9[local36];
-            Static576.aClass8_Sub2Array9[local36] = arg4;
+            arg4.aRenderable_25 = Static576.aRenderableArray9[local36];
+            Static576.aRenderableArray9[local36] = arg4;
             Static75.aBoolean521 = true;
             return;
         }
-        arg4.aClass8_Sub2_25 = Static468.aClass8_Sub2Array10[local36];
-        Static468.aClass8_Sub2Array10[local36] = arg4;
+        arg4.aRenderable_25 = Static468.aRenderableArray10[local36];
+        Static468.aRenderableArray10[local36] = arg4;
     }
 }

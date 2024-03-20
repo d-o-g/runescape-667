@@ -10,7 +10,7 @@ public final class Static679 {
     public static int anInt10273;
 
     @OriginalMember(owner = "client!vj", name = "E", descriptor = "[Lclient!qf;")
-    public static Class8_Sub2_Sub1[] aClass8_Sub2_Sub1Array1;
+    public static PositionEntity[] aPositionEntity;
 
     @OriginalMember(owner = "client!vj", name = "t", descriptor = "I")
     public static int anInt10278;

@@ -1,4 +1,5 @@
 import com.jagex.game.PlayerModel;
+import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -16,7 +17,7 @@ public final class Static296 {
     public static int anInt4792 = 0;
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(Lclient!gp;BIIII)V")
-    public static void method4361(@OriginalArg(0) Class150 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public static void method4361(@OriginalArg(0) LocTypeCustomisation arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(15) Node_Sub25 local15 = null;
         for (@Pc(20) Node_Sub25 local20 = (Node_Sub25) Static227.aDeque_18.first(); local20 != null; local20 = (Node_Sub25) Static227.aDeque_18.next()) {
             if (local20.anInt4010 == arg1 && local20.anInt4016 == arg3 && local20.anInt4006 == arg4 && arg2 == local20.anInt4011) {
@@ -33,7 +34,7 @@ public final class Static296 {
             Static227.aDeque_18.addLast(local15);
         }
         local15.aBoolean309 = false;
-        local15.aClass150_1 = arg0;
+        local15.aLocTypeCustomisation_1 = arg0;
         local15.aBoolean310 = true;
     }
 
@@ -47,7 +48,7 @@ public final class Static296 {
             featureMask |= 0x2;
             featureMask |= 0x4;
         }
-        if (Static400.instance.textures.getValue() == 0) {
+        if (Static400.instance.textures.value() == 0) {
             featureMask |= 0x40;
         }
         Static335.setFeatureMask(featureMask);

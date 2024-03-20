@@ -19,7 +19,7 @@ public final class Static184 {
         @Pc(20) Class8_Sub2_Sub1_Sub2 local20 = null;
         @Pc(22) int local22 = -1;
         for (@Pc(31) Class286 local31 = local13.aClass286_2; local31 != null; local31 = local31.aClass286_1) {
-            @Pc(35) Class8_Sub2_Sub1 local35 = local31.aClass8_Sub2_Sub1_1;
+            @Pc(35) PositionEntity local35 = local31.aPositionEntity;
             if (local35 instanceof Class8_Sub2_Sub1_Sub2) {
                 @Pc(41) Class8_Sub2_Sub1_Sub2 local41 = (Class8_Sub2_Sub1_Sub2) local35;
                 @Pc(51) int local51 = local41.method9302((byte) 76) * 256 + 252 - 256;

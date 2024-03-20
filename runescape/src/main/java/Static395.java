@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static395 {
 
     @OriginalMember(owner = "client!mha", name = "l", descriptor = "[Lclient!eo;")
-    public static Class8_Sub2[] aClass8_Sub2Array11;
+    public static Renderable[] aRenderableArray11;
 
     @OriginalMember(owner = "client!mha", name = "j", descriptor = "[I")
     public static final int[] anIntArray833 = new int[32];
@@ -13,10 +13,10 @@ public final class Static395 {
     @OriginalMember(owner = "client!mha", name = "c", descriptor = "(I)V")
     public static void method9162() {
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub19_1);
-        Static400.instance.method5104(1, Static400.instance.aClass57_Sub19_2);
+        Static400.instance.method5104(1, Static400.instance.animatingBackground);
         Static400.instance.method5104(2, Static400.instance.aClass57_Sub4_1);
         Static400.instance.method5104(2, Static400.instance.aClass57_Sub4_2);
-        Static400.instance.method5104(1, Static400.instance.aClass57_Sub6_1);
+        Static400.instance.method5104(1, Static400.instance.groundDecor);
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub23_1);
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub27_1);
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub8_1);

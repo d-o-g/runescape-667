@@ -19,11 +19,11 @@ public interface Location {
     int method6858();
 
     @OriginalMember(owner = "client!uv", name = "a", descriptor = "(I)I")
-    int method6859(@OriginalArg(0) int arg0);
+    int getId(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!uv", name = "e", descriptor = "(I)Z")
-    boolean method6860(@OriginalArg(0) int arg0);
+    boolean castsShadow(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!uv", name = "b", descriptor = "(Lclient!ha;I)V")
-    void method6861(@OriginalArg(0) Toolkit arg0);
+    void addShadow(@OriginalArg(0) Toolkit arg0);
 }

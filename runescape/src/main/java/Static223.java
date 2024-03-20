@@ -55,7 +55,7 @@ public final class Static223 {
     }
 
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(ZLclient!qf;)Lclient!pba;")
-    public static Class286 method9095(@OriginalArg(1) Class8_Sub2_Sub1 arg0) {
+    public static Class286 method9095(@OriginalArg(1) PositionEntity arg0) {
         @Pc(7) Class286 local7;
         if (Static620.aClass286_3 == null) {
             local7 = new Class286();
@@ -65,7 +65,7 @@ public final class Static223 {
             local7.aClass286_1 = null;
             Static181.anInt3006--;
         }
-        local7.aClass8_Sub2_Sub1_1 = arg0;
+        local7.aPositionEntity = arg0;
         return local7;
     }
 

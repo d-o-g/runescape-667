@@ -7,9 +7,6 @@ public final class Static648 {
     @OriginalMember(owner = "client!ui", name = "y", descriptor = "Lclient!al;")
     public static Class17 aClass17_1;
 
-    @OriginalMember(owner = "client!ui", name = "m", descriptor = "Z")
-    public static final boolean aBoolean742 = false;
-
     @OriginalMember(owner = "client!ui", name = "w", descriptor = "[I")
     public static final int[] anIntArray754 = new int[8];
 

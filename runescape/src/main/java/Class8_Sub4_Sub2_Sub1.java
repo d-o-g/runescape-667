@@ -321,16 +321,16 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         }
         @Pc(40) Class8_Sub5 local40 = this.aClass8_Sub8_1.aClass8_Sub5_6;
         @Pc(44) MeshEmitterType local44 = this.aClass8_Sub8_1.aMeshEmitterType_1;
-        @Pc(46) Ground[] local46 = Static246.aGroundArray1;
+        @Pc(46) Ground[] local46 = Static246.activeGround;
         @Pc(49) int local49 = local40.anInt4149;
         @Pc(58) Class291 local58 = Static334.aClass291ArrayArrayArray1[local40.anInt4149][local6][local13];
         if (local58 != null) {
             local49 = local58.aByte116;
         }
-        @Pc(71) int local71 = local46[local49].method7869(local13, local6);
+        @Pc(71) int local71 = local46[local49].getHeight(local13, local6);
         @Pc(86) int local86;
         if (local49 < Static299.anInt4824 - 1) {
-            local86 = local46[local49 + 1].method7869(local13, local6);
+            local86 = local46[local49 + 1].getHeight(local13, local6);
         } else {
             local86 = local71 - (0x8 << Static52.anInt1066);
         }
@@ -339,7 +339,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                 this.method6697();
                 return;
             }
-            if (local44.minHeightLevel >= 0 && local18 > local46[local44.minHeightLevel].method7869(local13, local6)) {
+            if (local44.minHeightLevel >= 0 && local18 > local46[local44.minHeightLevel].getHeight(local13, local6)) {
                 this.method6697();
                 return;
             }
@@ -347,17 +347,17 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                 this.method6697();
                 return;
             }
-            if (local44.maxHeightLevel >= 0 && local18 < local46[local44.maxHeightLevel + 1].method7869(local13, local6)) {
+            if (local44.maxHeightLevel >= 0 && local18 < local46[local44.maxHeightLevel + 1].getHeight(local13, local6)) {
                 this.method6697();
                 return;
             }
         }
         @Pc(154) int local154;
-        for (local154 = Static299.anInt4824 - 1; local154 > 0 && local18 > local46[local154].method7869(local13, local6); local154--) {
+        for (local154 = Static299.anInt4824 - 1; local154 > 0 && local18 > local46[local154].getHeight(local13, local6); local154--) {
         }
-        if (local44.collidesWithGround && local154 == 0 && local18 > local46[0].method7869(local13, local6)) {
+        if (local44.collidesWithGround && local154 == 0 && local18 > local46[0].getHeight(local13, local6)) {
             this.method6697();
-        } else if (local154 == Static299.anInt4824 - 1 && local46[local154].method7869(local13, local6) - local18 > 0x8 << Static52.anInt1066) {
+        } else if (local154 == Static299.anInt4824 - 1 && local46[local154].getHeight(local13, local6) - local18 > 0x8 << Static52.anInt1066) {
             this.method6697();
         } else {
             local58 = Static334.aClass291ArrayArrayArray1[local154][local6][local13];
@@ -391,22 +391,22 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                         return;
                     }
                 }
-                if (local58.aClass8_Sub2_Sub3_1 != null) {
-                    local318 = local58.aClass8_Sub2_Sub3_1.method9278(arg0, -120);
+                if (local58.aWall_1 != null) {
+                    local318 = local58.aWall_1.method9278(arg0, -120);
                     if (local318 != null && local318.method4631(local18, local261, local304)) {
                         this.method6697();
                         return;
                     }
                 }
-                if (local58.aClass8_Sub2_Sub2_1 != null) {
-                    local318 = local58.aClass8_Sub2_Sub2_1.method9278(arg0, -109);
+                if (local58.aGroundDecor_1 != null) {
+                    local318 = local58.aGroundDecor_1.method9278(arg0, -109);
                     if (local318 != null && local318.method4631(local18, local261, local304)) {
                         this.method6697();
                         return;
                     }
                 }
                 for (@Pc(375) Class286 local375 = local58.aClass286_2; local375 != null; local375 = local375.aClass286_1) {
-                    @Pc(382) Class205 local382 = local375.aClass8_Sub2_Sub1_1.method9278(arg0, -117);
+                    @Pc(382) Class205 local382 = local375.aPositionEntity.method9278(arg0, -117);
                     if (local382 != null && local382.method4631(local18, local261, local304)) {
                         this.method6697();
                         return;

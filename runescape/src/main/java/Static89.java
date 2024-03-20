@@ -19,15 +19,15 @@ public final class Static89 {
         local7.anInt9352 = arg3 << 9;
         if (arg5 != null) {
             local7.aLocType_1 = arg5;
-            @Pc(173) int local173 = arg5.anInt1270;
-            @Pc(176) int local176 = arg5.anInt1229;
+            @Pc(173) int local173 = arg5.width;
+            @Pc(176) int local176 = arg5.length;
             if (arg6 == 1 || arg6 == 3) {
-                local176 = arg5.anInt1270;
-                local173 = arg5.anInt1229;
+                local176 = arg5.width;
+                local173 = arg5.length;
             }
-            local7.anInt9358 = arg5.anInt1253;
-            local7.anInt9356 = arg5.anInt1244 << 9;
-            local7.anInt9353 = arg5.anInt1246;
+            local7.anInt9358 = arg5.ambientSoundVolume;
+            local7.anInt9356 = arg5.soundDistance << 9;
+            local7.anInt9353 = arg5.sound;
             local7.anInt9354 = arg5.anInt1219;
             local7.anInt9349 = arg3 + local176 << 9;
             local7.anInt9360 = arg5.anInt1249;
@@ -38,7 +38,7 @@ public final class Static89 {
             local7.anInt9359 = arg5.anInt1268;
             local7.anIntArray718 = arg5.anIntArray116;
             local7.anInt9362 = arg2 + local173 << 9;
-            if (arg5.anIntArray113 != null) {
+            if (arg5.multiLocs != null) {
                 local7.aBoolean713 = true;
                 local7.method8236();
             }

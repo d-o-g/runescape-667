@@ -3,12 +3,17 @@ import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
 import com.jagex.collect.StringNode;
 import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.constants.LocShapes;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.game.VarDomain;
+import com.jagex.game.runetek6.config.loctype.LocInteractivity;
+import com.jagex.game.runetek6.config.loctype.LocOcclusionMode;
+import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
+import com.jagex.graphics.ModelAndShadow;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -21,73 +26,82 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!c")
 public final class LocType {
 
+    public static final int INVISIBLE_ID = -1;
+
+    @OriginalMember(owner = "client!iia", name = "o", descriptor = "Lclient!od;")
+    public static final ModelAndShadow modelAndShadow = new ModelAndShadow();
+
+    @OriginalMember(owner = "client!sv", name = "N", descriptor = "[Lclient!dv;")
+    public static final Mesh[] A_MESH_ARRAY_1 = new Mesh[4];
+
     @OriginalMember(owner = "client!ne", name = "o", descriptor = "[S")
     public static short[] clientpalette = new short[256];
+
     @OriginalMember(owner = "client!c", name = "sb", descriptor = "[B")
-    public byte[] aByteArray13;
+    public byte[] modelShapes;
 
     @OriginalMember(owner = "client!c", name = "Wb", descriptor = "B")
-    public byte aByte11;
+    public byte targetHue;
 
     @OriginalMember(owner = "client!c", name = "Bb", descriptor = "[Ljava/lang/String;")
-    public String[] aStringArray6;
+    public String[] ops;
 
     @OriginalMember(owner = "client!c", name = "u", descriptor = "[I")
-    public int[] anIntArray112;
+    public int[] quests;
 
     @OriginalMember(owner = "client!c", name = "H", descriptor = "[I")
-    public int[] anIntArray113;
+    public int[] multiLocs;
 
     @OriginalMember(owner = "client!c", name = "ub", descriptor = "[S")
-    public short[] aShortArray12;
+    public short[] retex_d;
 
     @OriginalMember(owner = "client!c", name = "d", descriptor = "[B")
-    public byte[] aByteArray14;
+    public byte[] recol_d_palette;
 
     @OriginalMember(owner = "client!c", name = "kb", descriptor = "Lclient!av;")
-    public HashTable aHashTable_10;
+    public HashTable params;
 
     @OriginalMember(owner = "client!c", name = "mb", descriptor = "[S")
-    public short[] aShortArray13;
+    public short[] recol_d;
 
     @OriginalMember(owner = "client!c", name = "S", descriptor = "Lclient!gea;")
-    public LocTypeList aLocTypeList_2;
+    public LocTypeList typeList;
 
     @OriginalMember(owner = "client!c", name = "j", descriptor = "I")
-    public int anInt1256;
+    public int id;
 
     @OriginalMember(owner = "client!c", name = "I", descriptor = "[[I")
-    public int[][] anIntArrayArray30;
+    public int[][] models;
 
     @OriginalMember(owner = "client!c", name = "Tb", descriptor = "[I")
     public int[] anIntArray116;
 
     @OriginalMember(owner = "client!c", name = "ob", descriptor = "[S")
-    public short[] aShortArray14;
+    public short[] retex_s;
 
     @OriginalMember(owner = "client!c", name = "Vb", descriptor = "B")
-    public byte aByte13;
+    public byte targetSaturation;
 
     @OriginalMember(owner = "client!c", name = "Db", descriptor = "[S")
-    public short[] aShortArray15;
+    public short[] recol_s;
 
     @OriginalMember(owner = "client!c", name = "D", descriptor = "B")
-    public byte aByte14;
+    public byte targetLightness;
 
     @OriginalMember(owner = "client!c", name = "Rb", descriptor = "Z")
     public boolean aBoolean88 = false;
 
     @OriginalMember(owner = "client!c", name = "B", descriptor = "Z")
-    public boolean aBoolean89 = true;
+    public boolean hardShadow = true;
 
     @OriginalMember(owner = "client!c", name = "db", descriptor = "I")
-    public int anInt1220 = 128;
+    public int scaleY = 128;
 
     @OriginalMember(owner = "client!c", name = "x", descriptor = "I")
     public int anInt1213 = 0;
 
     @OriginalMember(owner = "client!c", name = "g", descriptor = "B")
-    public byte aByte10 = 0;
+    public byte colourShiftPercentage = 0;
 
     @OriginalMember(owner = "client!c", name = "O", descriptor = "I")
     public int anInt1227 = 0;
@@ -96,10 +110,10 @@ public final class LocType {
     public int anInt1219 = 0;
 
     @OriginalMember(owner = "client!c", name = "w", descriptor = "I")
-    public int anInt1229 = 1;
+    public int length = 1;
 
     @OriginalMember(owner = "client!c", name = "q", descriptor = "I")
-    public int anInt1230 = -1;
+    public int cursor1Op = -1;
 
     @OriginalMember(owner = "client!c", name = "h", descriptor = "I")
     public int anInt1221 = 0;
@@ -108,67 +122,67 @@ public final class LocType {
     public int anInt1214 = 0;
 
     @OriginalMember(owner = "client!c", name = "K", descriptor = "I")
-    public int anInt1218 = 128;
+    public int scaleX = 128;
 
     @OriginalMember(owner = "client!c", name = "qb", descriptor = "Ljava/lang/String;")
-    public String aString7 = "null";
+    public String name = "null";
 
     @OriginalMember(owner = "client!c", name = "G", descriptor = "I")
-    public int anInt1228 = 0;
+    public int translateZ = 0;
 
     @OriginalMember(owner = "client!c", name = "ib", descriptor = "Z")
-    public boolean aBoolean95 = false;
+    public boolean members = false;
 
     @OriginalMember(owner = "client!c", name = "lb", descriptor = "I")
     public int lb = -1;
 
     @OriginalMember(owner = "client!c", name = "s", descriptor = "I")
-    public int anInt1233 = -1;
+    public int mapElement = -1;
 
     @OriginalMember(owner = "client!c", name = "v", descriptor = "I")
-    public int anInt1223 = -1;
+    public int locOcclusionMode = -1;
 
     @OriginalMember(owner = "client!c", name = "p", descriptor = "I")
-    public int anInt1244 = 0;
+    public int soundDistance = 0;
 
     @OriginalMember(owner = "client!c", name = "z", descriptor = "I")
-    public int anInt1246 = -1;
+    public int sound = -1;
 
     @OriginalMember(owner = "client!c", name = "c", descriptor = "I")
-    public int anInt1247 = -1;
+    public int multiLocVarbit = -1;
 
     @OriginalMember(owner = "client!c", name = "Nb", descriptor = "Z")
-    public boolean aBoolean97 = false;
+    public boolean routingHint = false;
 
     @OriginalMember(owner = "client!c", name = "m", descriptor = "Z")
-    public boolean aBoolean96 = false;
+    public boolean msiFlip = false;
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "I")
-    public int anInt1241 = 128;
+    public int scaleZ = 128;
 
     @OriginalMember(owner = "client!c", name = "y", descriptor = "I")
     public int anInt1248 = 0;
 
     @OriginalMember(owner = "client!c", name = "f", descriptor = "I")
-    public int anInt1253 = 255;
+    public int ambientSoundVolume = 255;
 
     @OriginalMember(owner = "client!c", name = "n", descriptor = "I")
-    public int anInt1210 = 0;
+    public int msiRotateOffset = 0;
 
     @OriginalMember(owner = "client!c", name = "Cb", descriptor = "[I")
-    public int[] anIntArray115 = null;
+    public int[] animations = null;
 
     @OriginalMember(owner = "client!c", name = "nb", descriptor = "I")
-    public int anInt1252 = -1;
+    public int hillValue = -1;
 
     @OriginalMember(owner = "client!c", name = "Sb", descriptor = "I")
     public int anInt1231 = 0;
 
     @OriginalMember(owner = "client!c", name = "L", descriptor = "I")
-    public int anInt1240 = -1;
+    public int cursor1 = -1;
 
     @OriginalMember(owner = "client!c", name = "yb", descriptor = "I")
-    public int anInt1257 = 960;
+    public int occlusionHeight = 960;
 
     @OriginalMember(owner = "client!c", name = "W", descriptor = "Z")
     public boolean aBoolean94 = true;
@@ -177,464 +191,383 @@ public final class LocType {
     public int anInt1243 = 64;
 
     @OriginalMember(owner = "client!c", name = "vb", descriptor = "[I")
-    public int[] anIntArray114 = null;
+    public int[] animationChances = null;
 
     @OriginalMember(owner = "client!c", name = "X", descriptor = "B")
-    public byte aByte12 = 0;
+    public byte hillType = 0;
 
     @OriginalMember(owner = "client!c", name = "jb", descriptor = "I")
     public int anInt1249 = 256;
 
     @OriginalMember(owner = "client!c", name = "tb", descriptor = "I")
-    public int anInt1260 = -1;
+    public int cursor2Op = -1;
 
     @OriginalMember(owner = "client!c", name = "b", descriptor = "I")
-    public int anInt1217 = 0;
+    public int translateX = 0;
 
     @OriginalMember(owner = "client!c", name = "Y", descriptor = "I")
-    public int anInt1263 = 0;
+    public int ambient = 0;
 
     @OriginalMember(owner = "client!c", name = "M", descriptor = "I")
-    public int anInt1242 = 2;
+    public int movementPolicy = 2;
 
     @OriginalMember(owner = "client!c", name = "bb", descriptor = "Z")
     public boolean aBoolean92 = false;
 
     @OriginalMember(owner = "client!c", name = "N", descriptor = "Z")
-    public boolean aBoolean93 = false;
+    public boolean animated = false;
 
     @OriginalMember(owner = "client!c", name = "Eb", descriptor = "I")
-    public int anInt1259 = 0;
+    public int translateY = 0;
 
     @OriginalMember(owner = "client!c", name = "E", descriptor = "I")
-    public int anInt1261 = 0;
+    public int blockedDirections = 0;
 
     @OriginalMember(owner = "client!c", name = "fb", descriptor = "I")
     public int anInt1268 = 256;
 
     @OriginalMember(owner = "client!c", name = "o", descriptor = "I")
-    public int anInt1254 = 0;
+    public int contrast = 0;
 
     @OriginalMember(owner = "client!c", name = "gb", descriptor = "Z")
-    public boolean aBoolean101 = false;
+    public boolean obstructiveGround = false;
 
     @OriginalMember(owner = "client!c", name = "t", descriptor = "Z")
-    public boolean aBoolean90 = false;
+    public boolean requiresTextures = false;
 
     @OriginalMember(owner = "client!c", name = "P", descriptor = "Z")
-    public boolean aBoolean99 = true;
+    public boolean blockRanged = true;
 
     @OriginalMember(owner = "client!c", name = "Mb", descriptor = "Z")
     public boolean aBoolean91 = false;
 
     @OriginalMember(owner = "client!c", name = "e", descriptor = "Z")
-    public boolean aBoolean102 = false;
+    public boolean copyNormals = false;
 
     @OriginalMember(owner = "client!c", name = "Ub", descriptor = "I")
-    public int anInt1270 = 1;
+    public int width = 1;
 
     @OriginalMember(owner = "client!c", name = "Q", descriptor = "I")
-    public int anInt1212 = 0;
+    public int occlusionOffset = 0;
 
     @OriginalMember(owner = "client!c", name = "xb", descriptor = "I")
-    public int anInt1239 = -1;
+    public int msi = -1;
 
     @OriginalMember(owner = "client!c", name = "pb", descriptor = "I")
-    public int anInt1258 = -1;
+    public int multiLocVarp = -1;
 
     @OriginalMember(owner = "client!c", name = "Ab", descriptor = "I")
-    public int anInt1245 = -1;
+    public int cursor2 = -1;
 
     @OriginalMember(owner = "client!c", name = "Z", descriptor = "Z")
-    public boolean aBoolean98 = true;
+    public boolean castsShadow = true;
 
     @OriginalMember(owner = "client!c", name = "zb", descriptor = "Z")
-    public boolean aBoolean103 = false;
+    public boolean msiRotate = false;
 
     @OriginalMember(owner = "client!c", name = "Jb", descriptor = "Z")
-    public boolean aBoolean100 = false;
+    public boolean mirrorModel = false;
 
     @OriginalMember(owner = "client!c", name = "Ib", descriptor = "I")
-    public int anInt1271 = -1;
+    public int interactivity = LocInteractivity.UNSET;
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(B)Z")
-    public boolean method1295() {
-        return this.anIntArray115 != null && this.anIntArray115.length > 1;
+    public boolean hasMultipleAnimations() {
+        return this.animations != null && this.animations.length > 1;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Lclient!ge;II)V")
-    public void method1296(@OriginalArg(0) Packet arg0, @OriginalArg(1) int arg1) {
-        @Pc(37) int local37;
-        @Pc(47) int local47;
-        @Pc(59) int local59;
-        @Pc(67) int local67;
-        if (arg1 == 1 || arg1 == 5) {
-            if (arg1 == 5 && this.aLocTypeList_2.aBoolean266) {
-                this.method1315(arg0);
+    public void decode(@OriginalArg(0) Packet packet, @OriginalArg(1) int code) {
+        if (code == 1 || code == 5) {
+            if (code == 5 && this.typeList.animateBackground) {
+                this.skip(packet);
             }
-            local37 = arg0.g1();
-            this.aByteArray13 = new byte[local37];
-            this.anIntArrayArray30 = new int[local37][];
-            for (local47 = 0; local47 < local37; local47++) {
-                this.aByteArray13[local47] = arg0.g1b();
-                local59 = arg0.g1();
-                this.anIntArrayArray30[local47] = new int[local59];
-                for (local67 = 0; local67 < local59; local67++) {
-                    this.anIntArrayArray30[local47][local67] = arg0.g2();
+
+            @Pc(37) int shapeCount = packet.g1();
+            this.modelShapes = new byte[shapeCount];
+            this.models = new int[shapeCount][];
+
+            for (@Pc(47) int i = 0; i < shapeCount; i++) {
+                this.modelShapes[i] = packet.g1b();
+
+                @Pc(59) int modelCount = packet.g1();
+                this.models[i] = new int[modelCount];
+                for (@Pc(67) int j = 0; j < modelCount; j++) {
+                    this.models[i][j] = packet.g2();
                 }
             }
-            if (arg1 == 5 && !this.aLocTypeList_2.aBoolean266) {
-                this.method1315(arg0);
+
+            if (code == 5 && !this.typeList.animateBackground) {
+                this.skip(packet);
             }
-        } else if (arg1 == 2) {
-            this.aString7 = arg0.gjstr();
-        } else if (arg1 == 14) {
-            this.anInt1270 = arg0.g1();
-        } else if (arg1 == 15) {
-            this.anInt1229 = arg0.g1();
-        } else if (arg1 == 17) {
-            this.aBoolean99 = false;
-            this.anInt1242 = 0;
-        } else if (arg1 == 18) {
-            this.aBoolean99 = false;
-        } else if (arg1 == 19) {
-            this.anInt1271 = arg0.g1();
-        } else if (arg1 == 21) {
-            this.aByte12 = 1;
-        } else if (arg1 == 22) {
-            this.aBoolean102 = true;
-        } else if (arg1 == 23) {
-            this.anInt1223 = 1;
-        } else if (arg1 == 24) {
-            local37 = arg0.g2();
-            if (local37 != 65535) {
-                this.anIntArray115 = new int[]{local37};
-                return;
+        } else if (code == 2) {
+            this.name = packet.gjstr();
+        } else if (code == 14) {
+            this.width = packet.g1();
+        } else if (code == 15) {
+            this.length = packet.g1();
+        } else if (code == 17) {
+            this.blockRanged = false;
+            this.movementPolicy = 0;
+        } else if (code == 18) {
+            this.blockRanged = false;
+        } else if (code == 19) {
+            this.interactivity = packet.g1();
+        } else if (code == 21) {
+            this.hillType = 1;
+        } else if (code == 22) {
+            this.copyNormals = true;
+        } else if (code == 23) {
+            this.locOcclusionMode = LocOcclusionMode.ALL;
+        } else if (code == 24) {
+            @Pc(37) int animation = packet.g2();
+            if (animation != 65535) {
+                this.animations = new int[]{animation};
             }
-        } else if (arg1 == 27) {
-            this.anInt1242 = 1;
-            return;
-        } else if (arg1 == 28) {
-            this.anInt1243 = arg0.g1() << 2;
-            return;
-        } else if (arg1 == 29) {
-            this.anInt1263 = arg0.g1b();
-            return;
-        } else if (arg1 == 39) {
-            this.anInt1254 = arg0.g1b() * 5;
-            return;
-        } else if (arg1 < 30 || arg1 >= 35) {
-            if (arg1 != 40) {
-                if (arg1 != 41) {
-                    if (arg1 == 42) {
-                        local37 = arg0.g1();
-                        this.aByteArray14 = new byte[local37];
-                        for (local47 = 0; local47 < local37; local47++) {
-                            this.aByteArray14[local47] = arg0.g1b();
-                        }
-                        return;
-                    }
-                    if (arg1 != 62) {
-                        if (arg1 == 64) {
-                            this.aBoolean98 = false;
-                            return;
-                        }
-                        if (arg1 == 65) {
-                            this.anInt1218 = arg0.g2();
-                            return;
-                        }
-                        if (arg1 == 66) {
-                            this.anInt1220 = arg0.g2();
-                            return;
-                        }
-                        if (arg1 == 67) {
-                            this.anInt1241 = arg0.g2();
-                            return;
-                        }
-                        if (arg1 == 69) {
-                            this.anInt1261 = arg0.g1();
-                            return;
-                        }
-                        if (arg1 == 70) {
-                            this.anInt1217 = arg0.g2s() << 2;
-                            return;
-                        }
-                        if (arg1 == 71) {
-                            this.anInt1259 = arg0.g2s() << 2;
-                            return;
-                        }
-                        if (arg1 == 72) {
-                            this.anInt1228 = arg0.g2s() << 2;
-                            return;
-                        }
-                        if (arg1 == 73) {
-                            this.aBoolean101 = true;
-                            return;
-                        }
-                        if (arg1 == 74) {
-                            this.aBoolean97 = true;
-                            return;
-                        }
-                        if (arg1 == 75) {
-                            this.lb = arg0.g1();
-                            return;
-                        }
-                        if (arg1 != 77 && arg1 != 92) {
-                            if (arg1 == 78) {
-                                this.anInt1246 = arg0.g2();
-                                this.anInt1244 = arg0.g1();
-                                return;
-                            }
-                            if (arg1 == 79) {
-                                this.anInt1231 = arg0.g2();
-                                this.anInt1219 = arg0.g2();
-                                this.anInt1244 = arg0.g1();
-                                local37 = arg0.g1();
-                                this.anIntArray116 = new int[local37];
-                                for (local47 = 0; local47 < local37; local47++) {
-                                    this.anIntArray116[local47] = arg0.g2();
-                                }
-                                return;
-                            }
-                            if (arg1 == 81) {
-                                this.aByte12 = 2;
-                                this.anInt1252 = arg0.g1() * 256;
-                                return;
-                            }
-                            if (arg1 != 82) {
-                                if (arg1 == 88) {
-                                    this.aBoolean89 = false;
-                                    return;
-                                }
-                                if (arg1 != 89) {
-                                    if (arg1 == 91) {
-                                        this.aBoolean95 = true;
-                                        return;
-                                    }
-                                    if (arg1 == 93) {
-                                        this.aByte12 = 3;
-                                        this.anInt1252 = arg0.g2();
-                                        return;
-                                    }
-                                    if (arg1 == 94) {
-                                        this.aByte12 = 4;
-                                        return;
-                                    }
-                                    if (arg1 != 95) {
-                                        if (arg1 == 97) {
-                                            this.aBoolean103 = true;
-                                            return;
-                                        }
-                                        if (arg1 == 98) {
-                                            this.aBoolean93 = true;
-                                            return;
-                                        }
-                                        if (arg1 == 99) {
-                                            this.anInt1230 = arg0.g1();
-                                            this.anInt1240 = arg0.g2();
-                                            return;
-                                        }
-                                        if (arg1 != 100) {
-                                            if (arg1 == 101) {
-                                                this.anInt1210 = arg0.g1();
-                                                return;
-                                            }
-                                            if (arg1 == 102) {
-                                                this.anInt1239 = arg0.g2();
-                                                return;
-                                            }
-                                            if (arg1 == 103) {
-                                                this.anInt1223 = 0;
-                                                return;
-                                            }
-                                            if (arg1 == 104) {
-                                                this.anInt1253 = arg0.g1();
-                                                return;
-                                            }
-                                            if (arg1 == 105) {
-                                                this.aBoolean96 = true;
-                                                return;
-                                            }
-                                            if (arg1 == 106) {
-                                                local37 = arg0.g1();
-                                                local47 = 0;
-                                                this.anIntArray115 = new int[local37];
-                                                this.anIntArray114 = new int[local37];
-                                                for (local59 = 0; local59 < local37; local59++) {
-                                                    this.anIntArray115[local59] = arg0.g2();
-                                                    if (this.anIntArray115[local59] == 65535) {
-                                                        this.anIntArray115[local59] = -1;
-                                                    }
-                                                    local47 += this.anIntArray114[local59] = arg0.g1();
-                                                }
-                                                for (local67 = 0; local67 < local37; local67++) {
-                                                    this.anIntArray114[local67] = this.anIntArray114[local67] * 65535 / local47;
-                                                }
-                                                return;
-                                            }
-                                            if (arg1 == 107) {
-                                                this.anInt1233 = arg0.g2();
-                                            } else if (arg1 >= 150 && arg1 < 155) {
-                                                this.aStringArray6[arg1 - 150] = arg0.gjstr();
-                                                if (!this.aLocTypeList_2.aBoolean267) {
-                                                    this.aStringArray6[arg1 - 150] = null;
-                                                    return;
-                                                }
-                                            } else if (arg1 == 160) {
-                                                local37 = arg0.g1();
-                                                this.anIntArray112 = new int[local37];
-                                                for (local47 = 0; local47 < local37; local47++) {
-                                                    this.anIntArray112[local47] = arg0.g2();
-                                                }
-                                                return;
-                                            } else if (arg1 == 162) {
-                                                this.aByte12 = 3;
-                                                this.anInt1252 = arg0.g4();
-                                                return;
-                                            } else if (arg1 == 163) {
-                                                this.aByte11 = arg0.g1b();
-                                                this.aByte13 = arg0.g1b();
-                                                this.aByte14 = arg0.g1b();
-                                                this.aByte10 = arg0.g1b();
-                                                return;
-                                            } else if (arg1 == 164) {
-                                                this.anInt1214 = arg0.g2s();
-                                                return;
-                                            } else if (arg1 == 165) {
-                                                this.anInt1213 = arg0.g2s();
-                                                return;
-                                            } else if (arg1 == 166) {
-                                                this.anInt1248 = arg0.g2s();
-                                                return;
-                                            } else if (arg1 == 167) {
-                                                this.anInt1227 = arg0.g2();
-                                                return;
-                                            } else if (arg1 == 168) {
-                                                this.aBoolean88 = true;
-                                                return;
-                                            } else if (arg1 == 169) {
-                                                this.aBoolean92 = true;
-                                                return;
-                                            } else if (arg1 == 170) {
-                                                this.anInt1257 = arg0.gsmart();
-                                                return;
-                                            } else if (arg1 == 171) {
-                                                this.anInt1212 = arg0.gsmart();
-                                                return;
-                                            } else if (arg1 == 173) {
-                                                this.anInt1268 = arg0.g2();
-                                                this.anInt1249 = arg0.g2();
-                                                return;
-                                            } else {
-                                                if (arg1 == 177) {
-                                                    this.aBoolean91 = true;
-                                                } else if (arg1 == 178) {
-                                                    this.anInt1221 = arg0.g1();
-                                                    return;
-                                                } else if (arg1 == 249) {
-                                                    local37 = arg0.g1();
-                                                    if (this.aHashTable_10 == null) {
-                                                        local47 = IntMath.nextPow2(local37);
-                                                        this.aHashTable_10 = new HashTable(local47);
-                                                    }
-                                                    for (local47 = 0; local47 < local37; local47++) {
-                                                        @Pc(872) boolean local872 = arg0.g1() == 1;
-                                                        local67 = arg0.g3();
-                                                        @Pc(885) Node local885;
-                                                        if (local872) {
-                                                            local885 = new StringNode(arg0.gjstr());
-                                                        } else {
-                                                            local885 = new IntNode(arg0.g4());
-                                                        }
-                                                        this.aHashTable_10.put((long) local67, local885);
-                                                    }
-                                                    return;
-                                                }
-                                                return;
-                                            }
-                                            return;
-                                        }
-                                        this.anInt1260 = arg0.g1();
-                                        this.anInt1245 = arg0.g2();
-                                        return;
-                                    }
-                                    this.aByte12 = 5;
-                                    this.anInt1252 = arg0.g2s();
-                                    return;
-                                }
-                                this.aBoolean94 = false;
-                                return;
-                            }
-                            this.aBoolean90 = true;
-                            return;
-                        }
-                        this.anInt1247 = arg0.g2();
-                        if (this.anInt1247 == 65535) {
-                            this.anInt1247 = -1;
-                        }
-                        this.anInt1258 = arg0.g2();
-                        if (this.anInt1258 == 65535) {
-                            this.anInt1258 = -1;
-                        }
-                        local37 = -1;
-                        if (arg1 == 92) {
-                            local37 = arg0.g2();
-                            if (local37 == 65535) {
-                                local37 = -1;
-                            }
-                        }
-                        local47 = arg0.g1();
-                        this.anIntArray113 = new int[local47 + 2];
-                        for (local59 = 0; local59 <= local47; local59++) {
-                            this.anIntArray113[local59] = arg0.g2();
-                            if (this.anIntArray113[local59] == 65535) {
-                                this.anIntArray113[local59] = -1;
-                            }
-                        }
-                        this.anIntArray113[local47 + 1] = local37;
-                        return;
-                    }
-                    this.aBoolean100 = true;
-                    return;
+        } else if (code == 27) {
+            this.movementPolicy = 1;
+        } else if (code == 28) {
+            this.anInt1243 = packet.g1() << 2;
+        } else if (code == 29) {
+            this.ambient = packet.g1b();
+        } else if (code == 39) {
+            this.contrast = packet.g1b() * 5;
+        } else if (code >= 30 && code < 35) {
+            this.ops[code - 30] = packet.gjstr();
+        } else if (code == 40) {
+            @Pc(37) int count = packet.g1();
+            this.recol_d = new short[count];
+            this.recol_s = new short[count];
+
+            for (@Pc(47) int i = 0; i < count; i++) {
+                this.recol_s[i] = (short) packet.g2();
+                this.recol_d[i] = (short) packet.g2();
+            }
+        } else if (code == 41) {
+            @Pc(37) int count = packet.g1();
+            this.retex_d = new short[count];
+            this.retex_s = new short[count];
+
+            for (@Pc(47) int i = 0; i < count; i++) {
+                this.retex_s[i] = (short) packet.g2();
+                this.retex_d[i] = (short) packet.g2();
+            }
+        } else if (code == 42) {
+            @Pc(37) int count = packet.g1();
+            this.recol_d_palette = new byte[count];
+
+            for (@Pc(47) int local47 = 0; local47 < count; local47++) {
+                this.recol_d_palette[local47] = packet.g1b();
+            }
+        } else if (code == 62) {
+            this.mirrorModel = true;
+        } else if (code == 64) {
+            this.castsShadow = false;
+        } else if (code == 65) {
+            this.scaleX = packet.g2();
+        } else if (code == 66) {
+            this.scaleY = packet.g2();
+        } else if (code == 67) {
+            this.scaleZ = packet.g2();
+        } else if (code == 69) {
+            this.blockedDirections = packet.g1();
+        } else if (code == 70) {
+            this.translateX = packet.g2s() << 2;
+        } else if (code == 71) {
+            this.translateY = packet.g2s() << 2;
+        } else if (code == 72) {
+            this.translateZ = packet.g2s() << 2;
+        } else if (code == 73) {
+            this.obstructiveGround = true;
+        } else if (code == 74) {
+            this.routingHint = true;
+        } else if (code == 75) {
+            this.lb = packet.g1();
+        } else if (code == 77 || code == 92) {
+            this.multiLocVarbit = packet.g2();
+            if (this.multiLocVarbit == 65535) {
+                this.multiLocVarbit = -1;
+            }
+
+            this.multiLocVarp = packet.g2();
+            if (this.multiLocVarp == 65535) {
+                this.multiLocVarp = -1;
+            }
+
+            @Pc(37) int defaultId = INVISIBLE_ID;
+            if (code == 92) {
+                defaultId = packet.g2();
+
+                if (defaultId == 65535) {
+                    defaultId = INVISIBLE_ID;
                 }
-                local37 = arg0.g1();
-                this.aShortArray12 = new short[local37];
-                this.aShortArray14 = new short[local37];
-                for (local47 = 0; local47 < local37; local47++) {
-                    this.aShortArray14[local47] = (short) arg0.g2();
-                    this.aShortArray12[local47] = (short) arg0.g2();
+            }
+
+            @Pc(47) int count = packet.g1();
+            this.multiLocs = new int[count + 2];
+            for (@Pc(59) int i = 0; i <= count; i++) {
+                this.multiLocs[i] = packet.g2();
+
+                if (this.multiLocs[i] == 65535) {
+                    this.multiLocs[i] = INVISIBLE_ID;
                 }
-                return;
             }
-            local37 = arg0.g1();
-            this.aShortArray13 = new short[local37];
-            this.aShortArray15 = new short[local37];
-            for (local47 = 0; local47 < local37; local47++) {
-                this.aShortArray15[local47] = (short) arg0.g2();
-                this.aShortArray13[local47] = (short) arg0.g2();
+
+            this.multiLocs[count + 1] = defaultId;
+        } else if (code == 78) {
+            this.sound = packet.g2();
+            this.soundDistance = packet.g1();
+        } else if (code == 79) {
+            this.anInt1231 = packet.g2();
+            this.anInt1219 = packet.g2();
+            this.soundDistance = packet.g1();
+            @Pc(37) int local37 = packet.g1();
+            this.anIntArray116 = new int[local37];
+            for (@Pc(47) int local47 = 0; local47 < local37; local47++) {
+                this.anIntArray116[local47] = packet.g2();
             }
-            return;
-        } else {
-            this.aStringArray6[arg1 - 30] = arg0.gjstr();
-            return;
+        } else if (code == 81) {
+            this.hillType = 2;
+            this.hillValue = packet.g1() * 256;
+        } else if (code == 82) {
+            this.requiresTextures = true;
+        } else if (code == 88) {
+            this.hardShadow = false;
+        } else if (code == 89) {
+            this.aBoolean94 = false;
+        } else if (code == 91) {
+            this.members = true;
+        } else if (code == 93) {
+            this.hillType = 3;
+            this.hillValue = packet.g2();
+        } else if (code == 94) {
+            this.hillType = 4;
+        } else if (code == 95) {
+            this.hillType = 5;
+            this.hillValue = packet.g2s();
+        } else if (code == 97) {
+            this.msiRotate = true;
+        } else if (code == 98) {
+            this.animated = true;
+        } else if (code == 99) {
+            this.cursor1Op = packet.g1();
+            this.cursor1 = packet.g2();
+        } else if (code == 100) {
+            this.cursor2Op = packet.g1();
+            this.cursor2 = packet.g2();
+        } else if (code == 101) {
+            this.msiRotateOffset = packet.g1();
+        } else if (code == 102) {
+            this.msi = packet.g2();
+        } else if (code == 103) {
+            this.locOcclusionMode = LocOcclusionMode.ROOFS;
+        } else if (code == 104) {
+            this.ambientSoundVolume = packet.g1();
+        } else if (code == 105) {
+            this.msiFlip = true;
+        } else if (code == 106) {
+            @Pc(37) int count = packet.g1();
+            @Pc(47) int totalChance = 0;
+            this.animations = new int[count];
+            this.animationChances = new int[count];
+
+            for (@Pc(59) int i = 0; i < count; i++) {
+                this.animations[i] = packet.g2();
+
+                if (this.animations[i] == 65535) {
+                    this.animations[i] = -1;
+                }
+
+                totalChance += this.animationChances[i] = packet.g1();
+            }
+
+            for (@Pc(67) int i = 0; i < count; i++) {
+                this.animationChances[i] = (this.animationChances[i] * 65535) / totalChance;
+            }
+        } else if (code == 107) {
+            this.mapElement = packet.g2();
+        } else if (code >= 150 && code < 155) {
+            this.ops[code - 150] = packet.gjstr();
+
+            if (!this.typeList.allowMembers) {
+                this.ops[code - 150] = null;
+            }
+        } else if (code == 160) {
+            @Pc(37) int count = packet.g1();
+            this.quests = new int[count];
+
+            for (@Pc(47) int local47 = 0; local47 < count; local47++) {
+                this.quests[local47] = packet.g2();
+            }
+        } else if (code == 162) {
+            this.hillType = 3;
+            this.hillValue = packet.g4();
+        } else if (code == 163) {
+            this.targetHue = packet.g1b();
+            this.targetSaturation = packet.g1b();
+            this.targetLightness = packet.g1b();
+            this.colourShiftPercentage = packet.g1b();
+        } else if (code == 164) {
+            this.anInt1214 = packet.g2s();
+        } else if (code == 165) {
+            this.anInt1213 = packet.g2s();
+        } else if (code == 166) {
+            this.anInt1248 = packet.g2s();
+        } else if (code == 167) {
+            this.anInt1227 = packet.g2();
+        } else if (code == 168) {
+            this.aBoolean88 = true;
+        } else if (code == 169) {
+            this.aBoolean92 = true;
+        } else if (code == 170) {
+            this.occlusionHeight = packet.gsmart();
+        } else if (code == 171) {
+            this.occlusionOffset = packet.gsmart();
+        } else if (code == 173) {
+            this.anInt1268 = packet.g2();
+            this.anInt1249 = packet.g2();
+        } else if (code == 177) {
+            this.aBoolean91 = true;
+        } else if (code == 178) {
+            this.anInt1221 = packet.g1();
+        } else if (code == 249) {
+            @Pc(37) int count = packet.g1();
+            if (this.params == null) {
+                @Pc(47) int size = IntMath.nextPow2(count);
+                this.params = new HashTable(size);
+            }
+
+            for (@Pc(47) int i = 0; i < count; i++) {
+                @Pc(872) boolean string = packet.g1() == 1;
+                @Pc(67) int id = packet.g3();
+
+                @Pc(885) Node param;
+                if (string) {
+                    param = new StringNode(packet.gjstr());
+                } else {
+                    param = new IntNode(packet.g4());
+                }
+
+                this.params.put(id, param);
+            }
         }
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Ljava/lang/String;IZ)Ljava/lang/String;")
-    public String method1297(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        if (this.aHashTable_10 == null) {
-            return arg0;
+    public String param(@OriginalArg(0) String dflt, @OriginalArg(1) int id) {
+        if (this.params == null) {
+            return dflt;
         } else {
-            @Pc(25) StringNode local25 = (StringNode) this.aHashTable_10.get((long) arg1);
-            return local25 == null ? arg0 : local25.value;
+            @Pc(25) StringNode param = (StringNode) this.params.get(id);
+            return param == null ? dflt : param.value;
         }
     }
 
     @OriginalMember(owner = "client!c", name = "b", descriptor = "(II)Z")
-    public boolean method1298(@OriginalArg(0) int arg0) {
-        if (this.anIntArray115 != null && arg0 != -1) {
-            for (@Pc(21) int local21 = 0; local21 < this.anIntArray115.length; local21++) {
-                if (arg0 == this.anIntArray115[local21]) {
+    public boolean hasAnimation(@OriginalArg(0) int id) {
+        if (this.animations != null && id != -1) {
+            for (@Pc(21) int i = 0; i < this.animations.length; i++) {
+                if (id == this.animations[i]) {
                     return true;
                 }
             }
@@ -643,484 +576,563 @@ public final class LocType {
     }
 
     @OriginalMember(owner = "client!c", name = "c", descriptor = "(I)Z")
-    public boolean method1300() {
-        return this.anIntArray115 != null;
+    public boolean hasAnimations() {
+        return this.animations != null;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(ILclient!uk;)Lclient!c;")
-    public LocType method1301(@OriginalArg(0) int arg0, @OriginalArg(1) VarDomain arg1) {
-        @Pc(5) int local5 = -1;
-        if (arg0 != 13) {
-            this.method1295();
+    public LocType getMultiLoc(@OriginalArg(1) VarDomain varDomain) {
+        @Pc(5) int index = -1;
+        if (this.multiLocVarbit != -1) {
+            index = varDomain.getVarbitValue(this.multiLocVarbit);
+        } else if (this.multiLocVarp != -1) {
+            index = varDomain.getVarValueInt(this.multiLocVarp);
         }
-        if (this.anInt1247 != -1) {
-            local5 = arg1.getVarbitValue(this.anInt1247);
-        } else if (this.anInt1258 != -1) {
-            local5 = arg1.getVarValueInt(this.anInt1258);
-        }
-        if (local5 < 0 || this.anIntArray113.length - 1 <= local5 || this.anIntArray113[local5] == -1) {
-            @Pc(74) int local74 = this.anIntArray113[this.anIntArray113.length - 1];
-            return local74 == -1 ? null : this.aLocTypeList_2.list(local74, arg0 + 99);
+
+        if (index < 0 || this.multiLocs.length - 1 <= index || this.multiLocs[index] == -1) {
+            @Pc(74) int id = this.multiLocs[this.multiLocs.length - 1];
+            return id == -1 ? null : this.typeList.list(id);
         } else {
-            return this.aLocTypeList_2.list(this.anIntArray113[local5], 81);
+            return this.typeList.list(this.multiLocs[index]);
         }
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(I)Z")
-    public boolean method1302() {
-        if (this.anIntArrayArray30 == null) {
+    public boolean isLoaded() {
+        if (this.models == null) {
             return true;
         }
-        @Pc(11) boolean local11 = true;
-        @Pc(15) js5 local15 = this.aLocTypeList_2.aJs5_44;
-        synchronized (this.aLocTypeList_2.aJs5_44) {
-            for (@Pc(19) int local19 = 0; local19 < this.anIntArrayArray30.length; local19++) {
-                for (@Pc(22) int local22 = 0; local22 < this.anIntArrayArray30[local19].length; local22++) {
-                    local11 &= this.aLocTypeList_2.aJs5_44.requestdownload(0, this.anIntArrayArray30[local19][local22]);
+
+        @Pc(11) boolean loaded = true;
+        @Pc(15) js5 local15 = this.typeList.meshes;
+        synchronized (this.typeList.meshes) {
+            for (@Pc(19) int i = 0; i < this.models.length; i++) {
+                for (@Pc(22) int j = 0; j < this.models[i].length; j++) {
+                    loaded &= this.typeList.meshes.requestdownload(0, this.models[i][j]);
                 }
             }
-            return local11;
+            return loaded;
         }
     }
 
     @OriginalMember(owner = "client!c", name = "d", descriptor = "(I)Z")
-    public boolean method1303() {
-        if (this.anIntArray113 == null) {
-            return this.anInt1246 != -1 || this.anIntArray116 != null;
+    public boolean hasSounds() {
+        if (this.multiLocs == null) {
+            return this.sound != -1 || this.anIntArray116 != null;
         }
-        for (@Pc(35) int local35 = 0; local35 < this.anIntArray113.length; local35++) {
-            if (this.anIntArray113[local35] != -1) {
-                @Pc(52) LocType local52 = this.aLocTypeList_2.list(this.anIntArray113[local35], 59);
-                if (local52.anInt1246 != -1 || local52.anIntArray116 != null) {
+
+        for (@Pc(35) int i = 0; i < this.multiLocs.length; i++) {
+            if (this.multiLocs[i] != INVISIBLE_ID) {
+                @Pc(52) LocType locType = this.typeList.list(this.multiLocs[i]);
+                if (locType.sound != -1 || locType.anIntArray116 != null) {
                     return true;
                 }
             }
         }
+
         return false;
     }
 
     @OriginalMember(owner = "client!c", name = "c", descriptor = "(II)Z")
-    public boolean method1304(@OriginalArg(0) int arg0) {
-        if (this.anIntArrayArray30 == null) {
+    public boolean loadedModels(@OriginalArg(0) int shape) {
+        if (this.models == null) {
             return true;
         }
-        @Pc(13) js5 local13 = this.aLocTypeList_2.aJs5_44;
-        synchronized (this.aLocTypeList_2.aJs5_44) {
-            for (@Pc(26) int local26 = 0; local26 < this.aByteArray13.length; local26++) {
-                if (arg0 == this.aByteArray13[local26]) {
-                    for (@Pc(35) int local35 = 0; local35 < this.anIntArrayArray30[local26].length; local35++) {
-                        if (!this.aLocTypeList_2.aJs5_44.requestdownload(0, this.anIntArrayArray30[local26][local35])) {
+
+        @Pc(13) js5 local13 = this.typeList.meshes;
+        synchronized (this.typeList.meshes) {
+            for (@Pc(26) int i = 0; i < this.modelShapes.length; i++) {
+                if (shape == this.modelShapes[i]) {
+                    for (@Pc(35) int j = 0; j < this.models[i].length; j++) {
+                        if (!this.typeList.meshes.requestdownload(0, this.models[i][j])) {
                             return false;
                         }
                     }
                     return true;
                 }
             }
+
             return true;
         }
     }
 
     @OriginalMember(owner = "client!c", name = "b", descriptor = "(BLclient!ge;)V")
-    public void method1305(@OriginalArg(1) Packet arg0) {
+    public void decode(@OriginalArg(1) Packet packet) {
         while (true) {
-            @Pc(3) int local3 = arg0.g1();
-            if (local3 == 0) {
+            @Pc(3) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method1296(arg0, local3);
+
+            this.decode(packet, code);
         }
     }
 
     @OriginalMember(owner = "client!c", name = "b", descriptor = "(I)V")
-    public void method1306() {
-        if (this.anInt1271 == -1) {
-            this.anInt1271 = 0;
-            if (this.aByteArray13 != null && this.aByteArray13.length == 1 && this.aByteArray13[0] == 10) {
-                this.anInt1271 = 1;
+    public void postDecode() {
+        if (this.interactivity == LocInteractivity.UNSET) {
+            this.interactivity = LocInteractivity.NONINTERACTIVE;
+
+            if (this.modelShapes != null && this.modelShapes.length == 1 && this.modelShapes[0] == 10) {
+                this.interactivity = LocInteractivity.INTERACTIVE;
             }
-            for (@Pc(43) int local43 = 0; local43 < 5; local43++) {
-                if (this.aStringArray6[local43] != null) {
-                    this.anInt1271 = 1;
+
+            for (@Pc(43) int i = 0; i < 5; i++) {
+                if (this.ops[i] != null) {
+                    this.interactivity = LocInteractivity.INTERACTIVE;
                     break;
                 }
             }
         }
+
         if (this.lb == -1) {
-            this.lb = this.anInt1242 == 0 ? 0 : 1;
+            this.lb = this.movementPolicy == 0 ? 0 : 1;
         }
-        if (this.method1300() || this.aBoolean93 || this.anIntArray113 != null) {
+
+        if (this.hasAnimations() || this.animated || this.multiLocs != null) {
             this.aBoolean91 = true;
         }
     }
 
     @OriginalMember(owner = "client!c", name = "e", descriptor = "(I)I")
-    public int method1307() {
-        if (this.anIntArray115 != null) {
-            if (this.anIntArray115.length <= 1) {
-                return this.anIntArray115[0];
+    public int randomAnimation() {
+        if (this.animations != null) {
+            if (this.animations.length <= 1) {
+                return this.animations[0];
             }
-            @Pc(34) int local34 = (int) (Math.random() * 65535.0D);
-            for (@Pc(36) int local36 = 0; local36 < this.anIntArray115.length; local36++) {
-                if (local34 <= this.anIntArray114[local36]) {
-                    return this.anIntArray115[local36];
+
+            @Pc(34) int random = (int) (Math.random() * 65535.0D);
+            for (@Pc(36) int i = 0; i < this.animations.length; i++) {
+                if (random <= this.animationChances[i]) {
+                    return this.animations[i];
                 }
-                local34 -= this.anIntArray114[local36];
+
+                random -= this.animationChances[i];
             }
         }
+
         return -1;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(IIILclient!s;ZBIILclient!ha;Lclient!gp;ILclient!s;)Lclient!od;")
-    public Class272 method1309(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Ground arg3, @OriginalArg(4) boolean arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Toolkit arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Ground arg10) {
-        if (Static449.method6117(arg6)) {
-            arg6 = 4;
+    public ModelAndShadow modelAndShadow(@OriginalArg(0) int rotation, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Ground arg3, @OriginalArg(4) boolean addShadow, @OriginalArg(6) int arg5, @OriginalArg(7) int shape, @OriginalArg(8) Toolkit toolkit, @OriginalArg(9) LocTypeCustomisation customisation, @OriginalArg(10) int functionMask, @OriginalArg(11) Ground ground) {
+        if (LocShapes.isWallDecor(shape)) {
+            shape = LocShapes.WALLDECOR_STRAIGHT_NOOFFSET;
         }
-        @Pc(21) long local21 = (long) (arg0 + (this.anInt1256 << 10) + (arg6 << 3));
-        local21 |= (long) (arg7.index << 29);
-        if (arg8 != null) {
-            local21 |= arg8.aLong119 << 32;
+
+        @Pc(21) long key = (long) (rotation + (this.id << 10) + (shape << 3));
+        key |= (long) (toolkit.index << 29);
+        if (customisation != null) {
+            key |= customisation.id << 32;
         }
-        @Pc(40) int local40 = arg9;
-        if (this.aByte12 == 3) {
-            local40 = arg9 | 0x7;
+
+        @Pc(40) int newFunctionMask = functionMask;
+        if (this.hillType == 3) {
+            newFunctionMask = functionMask | 0x7;
         } else {
-            if (this.aByte12 != 0 || this.anInt1213 != 0) {
-                local40 = arg9 | 0x2;
+            if (this.hillType != 0 || this.anInt1213 != 0) {
+                newFunctionMask = functionMask | 0x2;
             }
             if (this.anInt1214 != 0) {
-                local40 |= 0x1;
+                newFunctionMask |= 0x1;
             }
             if (this.anInt1248 != 0) {
-                local40 |= 0x4;
+                newFunctionMask |= 0x4;
             }
         }
-        if (arg4) {
-            local40 |= 0x40000;
+
+        if (addShadow) {
+            newFunctionMask |= 0x40000;
         }
-        @Pc(96) ReferenceCache local96 = this.aLocTypeList_2.aReferenceCache_75;
-        @Pc(106) Class272 local106;
-        synchronized (this.aLocTypeList_2.aReferenceCache_75) {
-            local106 = (Class272) this.aLocTypeList_2.aReferenceCache_75.get(local21);
+
+        @Pc(96) ReferenceCache local96 = this.typeList.modelAndShadows;
+        @Pc(106) ModelAndShadow modelAndShadow;
+        synchronized (this.typeList.modelAndShadows) {
+            modelAndShadow = (ModelAndShadow) this.typeList.modelAndShadows.get(key);
         }
-        @Pc(120) Model local120 = local106 == null ? null : local106.aModel_7;
-        @Pc(122) Shadow local122 = null;
-        if (local120 != null && arg7.compareFunctionMasks(local120.ua(), local40) == 0) {
-            local120 = local106.aModel_7;
-            local122 = local106.aClass2_Sub2_Sub9_5;
-            if (arg4 && local122 == null) {
-                local122 = local106.aClass2_Sub2_Sub9_5 = local120.ba((Shadow) null);
+
+        @Pc(120) Model model = modelAndShadow == null ? null : modelAndShadow.model;
+        @Pc(122) Shadow shadow = null;
+        if (model != null && toolkit.compareFunctionMasks(model.ua(), newFunctionMask) == 0) {
+            model = modelAndShadow.model;
+            shadow = modelAndShadow.shadow;
+
+            if (addShadow && shadow == null) {
+                shadow = modelAndShadow.shadow = model.ba((Shadow) null);
             }
         } else {
-            if (local120 != null) {
-                local40 = arg7.combineFunctionMasks(local40, local120.ua());
+            if (model != null) {
+                newFunctionMask = toolkit.combineFunctionMasks(newFunctionMask, model.ua());
             }
-            @Pc(144) int local144 = local40;
-            if (arg6 == 10 && arg0 > 3) {
-                local144 = local40 | 0x5;
+
+            @Pc(144) int innerMask = newFunctionMask;
+            if (shape == LocShapes.CENTREPIECE_STRAIGHT && rotation > 3) {
+                innerMask = newFunctionMask | 0x5;
             }
-            local120 = this.method1314(arg7, local144, arg8, arg0, arg6);
-            if (local120 == null) {
+
+            model = this.model(toolkit, innerMask, customisation, rotation, shape);
+            if (model == null) {
                 return null;
             }
-            if (arg6 == 10 && arg0 > 3) {
-                local120.a(2048);
+
+            if (shape == LocShapes.CENTREPIECE_STRAIGHT && rotation > 3) {
+                model.a(2048);
             }
-            if (arg4) {
-                local122 = local120.ba((Shadow) null);
+
+            if (addShadow) {
+                shadow = model.ba((Shadow) null);
             }
-            local120.s(local40);
-            local106 = new Class272();
-            local106.aClass2_Sub2_Sub9_5 = local122;
-            local106.aModel_7 = local120;
-            @Pc(210) ReferenceCache local210 = this.aLocTypeList_2.aReferenceCache_75;
-            synchronized (this.aLocTypeList_2.aReferenceCache_75) {
-                this.aLocTypeList_2.aReferenceCache_75.put(local106, local21);
+
+            model.s(newFunctionMask);
+            modelAndShadow = new ModelAndShadow();
+            modelAndShadow.shadow = shadow;
+            modelAndShadow.model = model;
+
+            @Pc(210) ReferenceCache local210 = this.typeList.modelAndShadows;
+            synchronized (this.typeList.modelAndShadows) {
+                this.typeList.modelAndShadows.put(modelAndShadow, key);
             }
         }
-        @Pc(271) boolean local271 = this.aByte12 != 0 && (arg3 != null || arg10 != null);
+
+        @Pc(271) boolean local271 = this.hillType != 0 && (arg3 != null || ground != null);
         @Pc(292) boolean local292 = this.anInt1214 != 0 || this.anInt1213 != 0 || this.anInt1248 != 0;
         if (local271 || local292) {
-            local120 = local120.copy((byte) 0, local40, true);
+            model = model.copy((byte) 0, newFunctionMask, true);
+
             if (local271) {
-                local120.p(this.aByte12, this.anInt1252, arg3, arg10, arg2, arg5, arg1);
+                model.p(this.hillType, this.hillValue, arg3, ground, arg2, arg5, arg1);
             }
+
             if (local292) {
-                local120.H(this.anInt1214, this.anInt1213, this.anInt1248);
+                model.H(this.anInt1214, this.anInt1213, this.anInt1248);
             }
-            local120.s(arg9);
+
+            model.s(functionMask);
         } else {
-            local120 = local120.copy((byte) 0, arg9, true);
+            model = model.copy((byte) 0, functionMask, true);
         }
-        Static270.aClass272_1.aModel_7 = local120;
-        Static270.aClass272_1.aClass2_Sub2_Sub9_5 = local122;
-        return Static270.aClass272_1;
+
+        LocType.modelAndShadow.model = model;
+        LocType.modelAndShadow.shadow = shadow;
+
+        return LocType.modelAndShadow;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(IIIILclient!s;Lclient!gu;ILclient!ha;Lclient!s;Lclient!gp;II)Lclient!ka;")
-    public Model method1311(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Ground arg4, @OriginalArg(5) Animator arg5, @OriginalArg(7) Toolkit arg6, @OriginalArg(8) Ground arg7, @OriginalArg(9) Class150 arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
-        if (Static449.method6117(arg2)) {
-            arg2 = 4;
+    public Model wallModel(@OriginalArg(0) int rotation, @OriginalArg(1) int arg1, @OriginalArg(2) int shape, @OriginalArg(3) int arg3, @OriginalArg(4) Ground arg4, @OriginalArg(5) Animator animator, @OriginalArg(7) Toolkit toolkit, @OriginalArg(8) Ground arg7, @OriginalArg(9) LocTypeCustomisation customisation, @OriginalArg(10) int functionMask, @OriginalArg(11) int arg10) {
+        if (LocShapes.isWallDecor(shape)) {
+            shape = LocShapes.WALLDECOR_STRAIGHT_NOOFFSET;
         }
-        @Pc(22) long local22 = (long) ((this.anInt1256 << 10) + ((arg2 << 3) + arg0));
-        @Pc(24) int local24 = arg9;
-        local22 |= (long) (arg6.index << 29);
-        if (arg8 != null) {
-            local22 |= arg8.aLong119 << 32;
+
+        @Pc(22) long key = (long) ((this.id << 10) + ((shape << 3) + rotation));
+        @Pc(24) int functionMaskBefore = functionMask;
+        key |= (long) (toolkit.index << 29);
+        if (customisation != null) {
+            key |= customisation.id << 32;
         }
-        if (arg5 != null) {
-            arg9 |= arg5.functionMask();
+
+        if (animator != null) {
+            functionMask |= animator.functionMask();
         }
-        if (this.aByte12 == 3) {
-            arg9 |= 0x7;
+
+        if (this.hillType == 3) {
+            functionMask |= 0x7;
         } else {
-            if (this.aByte12 != 0 || this.anInt1213 != 0) {
-                arg9 |= 0x2;
+            if (this.hillType != 0 || this.anInt1213 != 0) {
+                functionMask |= 0x2;
             }
+
             if (this.anInt1214 != 0) {
-                arg9 |= 0x1;
+                functionMask |= 0x1;
             }
+
             if (this.anInt1248 != 0) {
-                arg9 |= 0x4;
+                functionMask |= 0x4;
             }
         }
-        if (arg2 == 10 && arg0 > 3) {
-            arg9 |= 0x5;
+
+        if (shape == LocShapes.CENTREPIECE_STRAIGHT && rotation > 3) {
+            functionMask |= 0x5;
         }
-        @Pc(116) ReferenceCache local116 = this.aLocTypeList_2.aReferenceCache_76;
-        @Pc(126) Model local126;
-        synchronized (this.aLocTypeList_2.aReferenceCache_76) {
-            local126 = (Model) this.aLocTypeList_2.aReferenceCache_76.get(local22);
+
+        @Pc(116) ReferenceCache local116 = this.typeList.wallModels;
+        @Pc(126) Model model;
+        synchronized (this.typeList.wallModels) {
+            model = (Model) this.typeList.wallModels.get(key);
         }
-        if (local126 == null || arg6.compareFunctionMasks(local126.ua(), arg9) != 0) {
-            if (local126 != null) {
-                arg9 = arg6.combineFunctionMasks(arg9, local126.ua());
+
+        if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
+            if (model != null) {
+                functionMask = toolkit.combineFunctionMasks(functionMask, model.ua());
             }
-            local126 = this.method1314(arg6, arg9, arg8, arg0, arg2);
-            if (local126 == null) {
+
+            model = this.model(toolkit, functionMask, customisation, rotation, shape);
+
+            if (model == null) {
                 return null;
             }
-            local116 = this.aLocTypeList_2.aReferenceCache_76;
-            synchronized (this.aLocTypeList_2.aReferenceCache_76) {
-                this.aLocTypeList_2.aReferenceCache_76.put(local126, local22);
+
+            local116 = this.typeList.wallModels;
+            synchronized (this.typeList.wallModels) {
+                this.typeList.wallModels.put(model, key);
             }
         }
-        @Pc(190) boolean local190 = false;
-        if (arg5 != null) {
-            local126 = local126.copy((byte) 1, arg9, true);
-            local190 = true;
-            arg5.animate(local126, arg0 & 0x3);
+
+        @Pc(190) boolean copied = false;
+        if (animator != null) {
+            model = model.copy((byte) 1, functionMask, true);
+            copied = true;
+            animator.animate(model, rotation & 0x3);
         }
-        if (arg2 == 10 && arg0 > 3) {
-            if (!local190) {
-                local126 = local126.copy((byte) 3, arg9, true);
-                local190 = true;
+
+        if (shape == LocShapes.CENTREPIECE_STRAIGHT && rotation > 3) {
+            if (!copied) {
+                model = model.copy((byte) 3, functionMask, true);
+                copied = true;
             }
-            local126.a(2048);
+            model.a(2048);
         }
-        if (this.aByte12 != 0) {
-            if (!local190) {
-                local190 = true;
-                local126 = local126.copy((byte) 3, arg9, true);
+
+        if (this.hillType != 0) {
+            if (!copied) {
+                copied = true;
+                model = model.copy((byte) 3, functionMask, true);
             }
-            local126.p(this.aByte12, this.anInt1252, arg7, arg4, arg3, arg10, arg1);
+            model.p(this.hillType, this.hillValue, arg7, arg4, arg3, arg10, arg1);
         }
+
         if (this.anInt1214 != 0 || this.anInt1213 != 0 || this.anInt1248 != 0) {
-            if (!local190) {
-                local126 = local126.copy((byte) 3, arg9, true);
-                local190 = true;
+            if (!copied) {
+                model = model.copy((byte) 3, functionMask, true);
+                copied = true;
             }
-            local126.H(this.anInt1214, this.anInt1213, this.anInt1248);
+            model.H(this.anInt1214, this.anInt1213, this.anInt1248);
         }
-        if (local190) {
-            local126.s(local24);
+
+        if (copied) {
+            model.s(functionMaskBefore);
         }
-        return local126;
+
+        return model;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Lclient!ha;ILclient!gp;BII)Lclient!ka;")
-    public Model method1314(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class150 arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        @Pc(8) int local8 = this.anInt1263 + 64;
-        @Pc(13) int local13 = this.anInt1254 + 850;
-        @Pc(15) int local15 = arg1;
-        @Pc(35) boolean local35 = this.aBoolean100 || arg4 == 2 && arg3 > 3;
-        if (local35) {
-            arg1 |= 0x10;
+    public Model model(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int functionMask, @OriginalArg(2) LocTypeCustomisation customisation, @OriginalArg(4) int rotation, @OriginalArg(5) int shape) {
+        @Pc(8) int ambient = this.ambient + 64;
+        @Pc(13) int contrast = this.contrast + 850;
+        @Pc(15) int functionMaskBefore = functionMask;
+
+        @Pc(35) boolean mirror = this.mirrorModel || shape == LocShapes.WALL_L && rotation > 3;
+        if (mirror) {
+            functionMask |= 0x10;
         }
-        if (arg3 == 0) {
-            if (this.anInt1218 != 128 || this.anInt1217 != 0) {
-                arg1 |= 0x1;
+
+        if (rotation == 0) {
+            if (this.scaleX != 128 || this.translateX != 0) {
+                functionMask |= 0x1;
             }
-            if (this.anInt1241 != 128 || this.anInt1228 != 0) {
-                arg1 |= 0x4;
+            if (this.scaleZ != 128 || this.translateZ != 0) {
+                functionMask |= 0x4;
             }
         } else {
-            arg1 |= 0xD;
+            functionMask |= 0xD;
         }
-        if (this.anInt1220 != 128 || this.anInt1259 != 0) {
-            arg1 |= 0x2;
+
+        if (this.scaleY != 128 || this.translateY != 0) {
+            functionMask |= 0x2;
         }
-        if (this.aShortArray15 != null) {
-            arg1 |= 0x4000;
+
+        if (this.recol_s != null) {
+            functionMask |= 0x4000;
         }
-        if (this.aShortArray14 != null) {
-            arg1 |= 0x8000;
+
+        if (this.retex_s != null) {
+            functionMask |= 0x8000;
         }
-        if (this.aByte10 != 0) {
-            arg1 |= 0x80000;
+
+        if (this.colourShiftPercentage != 0) {
+            functionMask |= 0x80000;
         }
-        @Pc(123) Model local123 = null;
-        if (this.aByteArray13 == null) {
+
+        @Pc(123) Model model = null;
+        if (this.modelShapes == null) {
             return null;
         }
-        @Pc(131) int local131 = -1;
-        for (@Pc(139) int local139 = 0; local139 < this.aByteArray13.length; local139++) {
-            if (this.aByteArray13[local139] == arg4) {
-                local131 = local139;
+
+        @Pc(131) int shapeIndex = -1;
+        for (@Pc(139) int i = 0; i < this.modelShapes.length; i++) {
+            if (this.modelShapes[i] == shape) {
+                shapeIndex = i;
                 break;
             }
         }
-        if (local131 == -1) {
+
+        if (shapeIndex == -1) {
             return null;
         }
-        @Pc(179) int[] local179 = arg2 == null || arg2.anIntArray286 == null ? this.anIntArrayArray30[local131] : arg2.anIntArray286;
-        @Pc(182) int local182 = local179.length;
-        @Pc(193) int local193;
-        if (local182 > 0) {
-            @Pc(191) long local191 = (long) arg0.index;
-            for (local193 = 0; local193 < local182; local193++) {
-                local191 = local191 * 67783L + (long) local179[local193];
+
+        @Pc(179) int[] models = (customisation != null && customisation.models != null) ? customisation.models : this.models[shapeIndex];
+        @Pc(182) int modelCount = models.length;
+        if (modelCount > 0) {
+            @Pc(191) long key = (long) toolkit.index;
+            for (@Pc(193) int i = 0; i < modelCount; i++) {
+                key = (key * 67783L) + (long) models[i];
             }
-            @Pc(211) ReferenceCache local211 = this.aLocTypeList_2.aReferenceCache_74;
-            synchronized (this.aLocTypeList_2.aReferenceCache_74) {
-                local123 = (Model) this.aLocTypeList_2.aReferenceCache_74.get(local191);
+
+            @Pc(211) ReferenceCache local211 = this.typeList.models;
+            synchronized (this.typeList.models) {
+                model = (Model) this.typeList.models.get(key);
             }
-            if (local123 != null) {
-                if (local123.WA() != local8) {
-                    arg1 |= 0x1000;
+
+            if (model != null) {
+                if (model.WA() != ambient) {
+                    functionMask |= 0x1000;
                 }
-                if (local13 != local123.da()) {
-                    arg1 |= 0x2000;
+
+                if (contrast != model.da()) {
+                    functionMask |= 0x2000;
                 }
             }
-            if (local123 == null || arg0.compareFunctionMasks(local123.ua(), arg1) != 0) {
-                @Pc(265) int local265 = arg1 | 0x1F01F;
-                if (local123 != null) {
-                    local265 = arg0.combineFunctionMasks(local265, local123.ua());
+
+            if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
+                @Pc(265) int innerFunctionMask = functionMask | 0x1F01F;
+                if (model != null) {
+                    innerFunctionMask = toolkit.combineFunctionMasks(innerFunctionMask, model.ua());
                 }
-                @Pc(275) Mesh local275 = null;
-                @Pc(277) Mesh[] local277 = Static600.A_MESH_ARRAY_1;
-                synchronized (Static600.A_MESH_ARRAY_1) {
-                    @Pc(281) int local281 = 0;
-                    while (true) {
-                        if (local281 >= local182) {
-                            if (local182 > 1) {
-                                local275 = new Mesh(Static600.A_MESH_ARRAY_1, local182);
-                            }
-                            break;
+
+                @Pc(275) Mesh mesh = null;
+                @Pc(277) Mesh[] local277 = A_MESH_ARRAY_1;
+                synchronized (A_MESH_ARRAY_1) {
+                    for (@Pc(281) int i = 0; i < modelCount; i++) {
+                        @Pc(286) js5 local286 = this.typeList.meshes;
+                        synchronized (this.typeList.meshes) {
+                            mesh = Mesh.load(models[i] & 0xFFFF, this.typeList.meshes);
                         }
-                        @Pc(286) js5 local286 = this.aLocTypeList_2.aJs5_44;
-                        synchronized (this.aLocTypeList_2.aJs5_44) {
-                            local275 = Mesh.load(local179[local281] & 0xFFFF, this.aLocTypeList_2.aJs5_44);
-                        }
-                        if (local275 == null) {
+
+                        if (mesh == null) {
                             return null;
                         }
-                        if (local275.version < 13) {
-                            local275.upscale();
+
+                        if (mesh.version < 13) {
+                            mesh.upscale();
                         }
-                        if (local182 > 1) {
-                            Static600.A_MESH_ARRAY_1[local281] = local275;
+
+                        if (modelCount > 1) {
+                            A_MESH_ARRAY_1[i] = mesh;
                         }
-                        local281++;
+                    }
+
+                    if (modelCount > 1) {
+                        mesh = new Mesh(A_MESH_ARRAY_1, modelCount);
                     }
                 }
-                local123 = arg0.createModel(local275, local265, this.aLocTypeList_2.anInt3390, local8, local13);
-                @Pc(372) ReferenceCache local372 = this.aLocTypeList_2.aReferenceCache_74;
-                synchronized (this.aLocTypeList_2.aReferenceCache_74) {
-                    this.aLocTypeList_2.aReferenceCache_74.put(local123, local191);
+
+                model = toolkit.createModel(mesh, innerFunctionMask, this.typeList.featureMask, ambient, contrast);
+
+                @Pc(372) ReferenceCache local372 = this.typeList.models;
+                synchronized (this.typeList.models) {
+                    this.typeList.models.put(model, key);
                 }
             }
         }
-        if (local123 == null) {
+
+        if (model == null) {
             return null;
         }
-        @Pc(398) Model local398 = local123.copy((byte) 0, arg1, true);
-        if (local8 != local123.WA()) {
-            local398.C(local8);
+
+        @Pc(398) Model result = model.copy((byte) 0, functionMask, true);
+
+        if (ambient != model.WA()) {
+            result.C(ambient);
         }
-        if (local123.da() != local13) {
-            local398.LA(local13);
+
+        if (model.da() != contrast) {
+            result.LA(contrast);
         }
-        if (local35) {
-            local398.v();
+
+        if (mirror) {
+            result.v();
         }
-        if (arg4 == 4 && arg3 > 3) {
-            local398.k(2048);
-            local398.H(180, 0, -180);
+
+        if (shape == 4 && rotation > 3) {
+            result.k(2048);
+            result.H(180, 0, -180);
         }
-        @Pc(448) int local448 = arg3 & 0x3;
-        if (local448 == 1) {
-            local398.k(4096);
-        } else if (local448 == 2) {
-            local398.k(8192);
-        } else if (local448 == 3) {
-            local398.k(12288);
+
+        @Pc(448) int rotationMask = rotation & 0x3;
+        if (rotationMask == 1) {
+            result.k(4096);
+        } else if (rotationMask == 2) {
+            result.k(8192);
+        } else if (rotationMask == 3) {
+            result.k(12288);
         }
-        @Pc(490) short[] local490;
-        if (this.aShortArray15 != null) {
-            if (arg2 == null || arg2.aShortArray53 == null) {
-                local490 = this.aShortArray13;
+
+        if (this.recol_s != null) {
+            @Pc(490) short[] recol_d;
+            if (customisation == null || customisation.recol_d == null) {
+                recol_d = this.recol_d;
             } else {
-                local490 = arg2.aShortArray53;
+                recol_d = customisation.recol_d;
             }
-            for (local193 = 0; local193 < this.aShortArray15.length; local193++) {
-                if (this.aByteArray14 == null || this.aByteArray14.length <= local193) {
-                    local398.ia(this.aShortArray15[local193], local490[local193]);
+
+            for (@Pc(193) int i = 0; i < this.recol_s.length; i++) {
+                if (this.recol_d_palette == null || this.recol_d_palette.length <= i) {
+                    result.ia(this.recol_s[i], recol_d[i]);
                 } else {
-                    local398.ia(this.aShortArray15[local193], clientpalette[this.aByteArray14[local193] & 0xFF]);
+                    result.ia(this.recol_s[i], clientpalette[this.recol_d_palette[i] & 0xFF]);
                 }
             }
         }
-        if (this.aShortArray14 != null) {
-            if (arg2 == null || arg2.aShortArray54 == null) {
-                local490 = this.aShortArray12;
+
+        if (this.retex_s != null) {
+            @Pc(490) short[] retex_d;
+            if (customisation == null || customisation.retex_d == null) {
+                retex_d = this.retex_d;
             } else {
-                local490 = arg2.aShortArray54;
+                retex_d = customisation.retex_d;
             }
-            for (local193 = 0; local193 < this.aShortArray14.length; local193++) {
-                local398.aa(this.aShortArray14[local193], local490[local193]);
+
+            for (@Pc(193) int i = 0; i < this.retex_s.length; i++) {
+                result.aa(this.retex_s[i], retex_d[i]);
             }
         }
-        if (this.aByte10 != 0) {
-            local398.adjustColours(this.aByte11, this.aByte13, this.aByte14, this.aByte10 & 0xFF);
+
+        if (this.colourShiftPercentage != 0) {
+            result.adjustColours(this.targetHue, this.targetSaturation, this.targetLightness, this.colourShiftPercentage & 0xFF);
         }
-        if (this.anInt1218 != 128 || this.anInt1220 != 128 || this.anInt1241 != 128) {
-            local398.O(this.anInt1218, this.anInt1220, this.anInt1241);
+
+        if (this.scaleX != 128 || this.scaleY != 128 || this.scaleZ != 128) {
+            result.O(this.scaleX, this.scaleY, this.scaleZ);
         }
-        if (this.anInt1217 != 0 || this.anInt1259 != 0 || this.anInt1228 != 0) {
-            local398.H(this.anInt1217, this.anInt1259, this.anInt1228);
+
+        if (this.translateX != 0 || this.translateY != 0 || this.translateZ != 0) {
+            result.H(this.translateX, this.translateY, this.translateZ);
         }
-        local398.s(local15);
-        return local398;
+
+        result.s(functionMaskBefore);
+        return result;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method1315(@OriginalArg(1) Packet arg0) {
-        @Pc(12) int local12 = arg0.g1();
-        for (@Pc(14) int local14 = 0; local14 < local12; local14++) {
-            arg0.pos++;
-            @Pc(25) int local25 = arg0.g1();
-            arg0.pos += local25 * 2;
+    public void skip(@OriginalArg(1) Packet packet) {
+        @Pc(12) int count = packet.g1();
+
+        for (@Pc(14) int i = 0; i < count; i++) {
+            packet.pos++;
+
+            @Pc(25) int skip = packet.g1();
+            packet.pos += skip * 2;
         }
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(III)I")
-    public int method1316(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        if (this.aHashTable_10 == null) {
-            return arg0;
+    public int param(@OriginalArg(0) int dflt, @OriginalArg(2) int id) {
+        if (this.params == null) {
+            return dflt;
         } else {
-            @Pc(17) IntNode local17 = (IntNode) this.aHashTable_10.get((long) arg1);
-            return local17 == null ? arg0 : local17.value;
+            @Pc(17) IntNode param = (IntNode) this.params.get(id);
+            return param == null ? dflt : param.value;
         }
     }
 }

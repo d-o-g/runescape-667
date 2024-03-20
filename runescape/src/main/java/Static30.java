@@ -3,6 +3,7 @@ import com.jagex.collect.HashTable;
 import com.jagex.collect.Queue;
 import com.jagex.core.io.Packet;
 import com.jagex.game.VarDomain;
+import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
@@ -186,10 +187,10 @@ public final class Static30 {
         for (@Pc(100) int local100 = 0; local100 < arg8.length; local100++) {
             @Pc(107) int local107 = arg9[local100] & 0x3F;
             if (local107 == 0 || local107 == 2 || local107 == 3 || local107 == 9) {
-                @Pc(127) LocType local127 = aLocTypeList_3.list(arg8[local100] & 0xFFFF, 55);
-                if (local127.anInt1239 == -1) {
+                @Pc(127) LocType local127 = aLocTypeList_3.list(arg8[local100] & 0xFFFF);
+                if (local127.msi == -1) {
                     @Pc(133) int local133 = -3355444;
-                    if (local127.anInt1271 == 1) {
+                    if (local127.interactivity == LocInteractivity.INTERACTIVE) {
                         local133 = -3407872;
                     }
                     @Pc(147) int local147 = arg9[local100] >> 6 & 0x3;
@@ -262,17 +263,17 @@ public final class Static30 {
             return;
         }
         for (@Pc(4) int local4 = 0; local4 < arg5.length; local4++) {
-            @Pc(14) LocType local14 = aLocTypeList_3.list(arg5[local4] & 0xFFFF, 116);
-            @Pc(17) int local17 = local14.anInt1239;
+            @Pc(14) LocType local14 = aLocTypeList_3.list(arg5[local4] & 0xFFFF);
+            @Pc(17) int local17 = local14.msi;
             if (local17 != -1) {
                 @Pc(25) Class173 local25 = aClass363_3.method8362(local17);
-                @Pc(49) Sprite local49 = local25.method3689(local14.aBoolean103 ? arg6[local4] >> 6 & 0x3 : 0, arg0, local14.aBoolean96 ? local14.aBoolean100 : false);
+                @Pc(49) Sprite local49 = local25.method3689(local14.msiRotate ? arg6[local4] >> 6 & 0x3 : 0, arg0, local14.msiFlip ? local14.mirrorModel : false);
                 if (local49 != null) {
                     @Pc(58) int local58 = arg3 * local49.scaleWidth() >> 2;
                     @Pc(65) int local65 = arg4 * local49.scaleHeight() >> 2;
                     if (local25.aBoolean329) {
-                        @Pc(71) int local71 = local14.anInt1270;
-                        @Pc(74) int local74 = local14.anInt1229;
+                        @Pc(71) int local71 = local14.width;
+                        @Pc(74) int local74 = local14.length;
                         if ((arg6[local4] >> 6 & 0x1) == 1) {
                             @Pc(85) int local85 = local71;
                             local71 = local74;
@@ -833,12 +834,12 @@ public final class Static30 {
                         @Pc(31) Node_Sub23 local31 = (Node_Sub23) aHashTable.get((long) (local1 << 16 | local4));
                         if (local31 != null) {
                             for (local35 = 0; local35 < local31.aShortArray59.length; local35++) {
-                                @Pc(46) LocType local46 = aLocTypeList_3.list(local31.aShortArray59[local35] & 0xFFFF, 115);
-                                local49 = local46.anInt1233;
-                                if (local46.anIntArray113 != null) {
-                                    local46 = local46.method1301(13, anVarDomain_3);
+                                @Pc(46) LocType local46 = aLocTypeList_3.list(local31.aShortArray59[local35] & 0xFFFF);
+                                local49 = local46.mapElement;
+                                if (local46.multiLocs != null) {
+                                    local46 = local46.getMultiLoc(anVarDomain_3);
                                     if (local46 != null) {
-                                        local49 = local46.anInt1233;
+                                        local49 = local46.mapElement;
                                     }
                                 }
                                 if (local49 != -1) {
@@ -850,12 +851,12 @@ public final class Static30 {
                             }
                         }
                     } else {
-                        @Pc(94) LocType local94 = aLocTypeList_3.list(local15 - 1, 115);
-                        local35 = local94.anInt1233;
-                        if (local94.anIntArray113 != null) {
-                            local94 = local94.method1301(13, anVarDomain_3);
+                        @Pc(94) LocType local94 = aLocTypeList_3.list(local15 - 1);
+                        local35 = local94.mapElement;
+                        if (local94.multiLocs != null) {
+                            local94 = local94.getMultiLoc(anVarDomain_3);
                             if (local94 != null) {
-                                local35 = local94.anInt1233;
+                                local35 = local94.mapElement;
                             }
                         }
                         if (local35 != -1) {
@@ -876,12 +877,12 @@ public final class Static30 {
                         for (@Pc(160) Class8_Sub10 local160 = (Class8_Sub10) local153.method2790(); local160 != null; local160 = (Class8_Sub10) local153.method2785()) {
                             if (local160.aShortArray133 != null) {
                                 for (local49 = 0; local49 < local160.aShortArray133.length; local49++) {
-                                    @Pc(177) LocType local177 = aLocTypeList_3.list(local160.aShortArray133[local49] & 0xFFFF, 126);
-                                    @Pc(180) int local180 = local177.anInt1233;
-                                    if (local177.anIntArray113 != null) {
-                                        local177 = local177.method1301(13, anVarDomain_3);
+                                    @Pc(177) LocType local177 = aLocTypeList_3.list(local160.aShortArray133[local49] & 0xFFFF);
+                                    @Pc(180) int local180 = local177.mapElement;
+                                    if (local177.multiLocs != null) {
+                                        local177 = local177.getMultiLoc(anVarDomain_3);
                                         if (local177 != null) {
-                                            local180 = local177.anInt1233;
+                                            local180 = local177.mapElement;
                                         }
                                     }
                                     if (local180 != -1) {

@@ -8,13 +8,13 @@ public final class Class286 {
     public Class286 aClass286_1;
 
     @OriginalMember(owner = "client!pba", name = "e", descriptor = "Lclient!qf;")
-    public Class8_Sub2_Sub1 aClass8_Sub2_Sub1_1;
+    public PositionEntity aPositionEntity;
 
     @OriginalMember(owner = "client!pba", name = "a", descriptor = "(I)V")
     public void method6459() {
         if (Static181.anInt3006 < 500) {
             this.aClass286_1 = Static620.aClass286_3;
-            this.aClass8_Sub2_Sub1_1 = null;
+            this.aPositionEntity = null;
             Static620.aClass286_3 = this;
             Static181.anInt3006++;
         }

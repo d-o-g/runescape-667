@@ -73,12 +73,12 @@ public final class Static556 {
                     }
                 }
             } else if (Static523.method3444(local55.anInt7314)) {
-                @Pc(131) LocType local131 = Static354.aLocTypeList_4.list((int) (local55.aLong233 >>> 32 & 0x7FFFFFFFL), 68);
-                if (local131.anIntArray113 != null) {
-                    local131 = local131.method1301(13, Static34.aClass304_1);
+                @Pc(131) LocType local131 = Static354.aLocTypeList_4.list((int) (local55.aLong233 >>> 32 & 0x7FFFFFFFL));
+                if (local131.multiLocs != null) {
+                    local131 = local131.getMultiLoc(Static34.aClass304_1);
                 }
                 if (local131 != null) {
-                    local65 = local131.anIntArray112;
+                    local65 = local131.quests;
                 }
             }
             if (local65 != null) {

@@ -12,7 +12,7 @@ public final class Static630 {
     @OriginalMember(owner = "client!tv", name = "a", descriptor = "(Lclient!r;III[Z)Z")
     public static boolean method8357(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean[] arg4) {
         @Pc(1) boolean local1 = false;
-        if (Static246.aGroundArray1 != Static693.aGroundArray2) {
+        if (Static246.activeGround != Static693.aGroundArray2) {
             @Pc(12) int local12 = Static706.aGroundArray3[arg1].method7878(arg3, arg2);
             for (@Pc(14) int local14 = 0; local14 <= arg1; local14++) {
                 @Pc(19) Ground local19 = Static706.aGroundArray3[local14];
@@ -34,7 +34,7 @@ public final class Static630 {
 
     @OriginalMember(owner = "client!tv", name = "b", descriptor = "(I)V")
     public static void method8358() {
-        if (Static400.instance.aClass57_Sub19_2.method5960() == 0 && Static164.anInt2808 != Static394.anInt6176) {
+        if (Static400.instance.animatingBackground.value() == 0 && Static164.areaLevel != Static394.anInt6176) {
             Static684.method8931(false, Static62.anInt1465, 12, Static525.anInt8907);
         } else {
             Static106.method2046(Static163.activeToolkit);

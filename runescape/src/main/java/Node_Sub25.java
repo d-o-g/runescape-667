@@ -1,4 +1,5 @@
 import com.jagex.collect.Node;
+import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -9,7 +10,7 @@ public final class Node_Sub25 extends Node {
     public int anInt4002;
 
     @OriginalMember(owner = "client!hma", name = "D", descriptor = "Lclient!gp;")
-    public Class150 aClass150_1;
+    public LocTypeCustomisation aLocTypeCustomisation_1;
 
     @OriginalMember(owner = "client!hma", name = "t", descriptor = "I")
     public int anInt4006;

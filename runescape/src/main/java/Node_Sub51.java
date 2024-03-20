@@ -96,7 +96,7 @@ public final class Node_Sub51 extends Node {
         @Pc(11) int local11 = this.anInt9353;
         @Pc(14) boolean local14 = this.aBoolean714;
         if (this.aLocType_1 != null) {
-            @Pc(148) LocType local148 = this.aLocType_1.method1301(13, Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
+            @Pc(148) LocType local148 = this.aLocType_1.getMultiLoc(Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
             if (local148 == null) {
                 this.anIntArray718 = null;
                 this.anInt9353 = -1;
@@ -113,10 +113,10 @@ public final class Node_Sub51 extends Node {
                 this.aBoolean714 = local148.aBoolean88;
                 this.anInt9360 = local148.anInt1249;
                 this.anInt9359 = local148.anInt1268;
-                this.anInt9356 = local148.anInt1244 << 9;
-                this.anInt9358 = local148.anInt1253;
+                this.anInt9356 = local148.soundDistance << 9;
+                this.anInt9358 = local148.ambientSoundVolume;
                 this.anInt9354 = local148.anInt1219;
-                this.anInt9353 = local148.anInt1246;
+                this.anInt9353 = local148.sound;
                 this.anIntArray718 = local148.anIntArray116;
                 this.aBoolean715 = local148.aBoolean92;
                 this.anInt9365 = local148.anInt1231;

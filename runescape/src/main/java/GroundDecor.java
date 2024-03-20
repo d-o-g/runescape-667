@@ -5,13 +5,13 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!eia")
-public abstract class Class8_Sub2_Sub2 extends Class8_Sub2 {
+public abstract class GroundDecor extends Renderable {
 
     @OriginalMember(owner = "client!eia", name = "z", descriptor = "S")
     public short aShort46;
 
     @OriginalMember(owner = "client!eia", name = "<init>", descriptor = "(IIIIII)V")
-    protected Class8_Sub2_Sub2(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    protected GroundDecor(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         super.aByte144 = (byte) arg3;
         super.anInt10691 = arg1;
         super.anInt10694 = arg2;

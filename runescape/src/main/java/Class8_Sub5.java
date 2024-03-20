@@ -1,5 +1,5 @@
 import com.jagex.Class230;
-import com.jagex.Class8;
+import com.jagex.Entity;
 import com.jagex.collect.Deque;
 import com.jagex.graphics.MeshEmitter;
 import com.jagex.graphics.MeshMagnet;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!hv")
-public final class Class8_Sub5 extends Class8 {
+public final class Class8_Sub5 extends Entity {
 
     @OriginalMember(owner = "client!hv", name = "u", descriptor = "J")
     public long aLong132;

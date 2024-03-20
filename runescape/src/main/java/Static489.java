@@ -244,9 +244,9 @@ public final class Static489 {
         Static428.aBoolean487 = Static369.anInt4265 >= 96;
         Static50.aBoolean566 = Static400.instance.aClass57_Sub26_1.method7463() == 2;
         Static305.aBoolean371 = Static400.instance.lightDetail.getValue() == 1;
-        Static478.anInt7198 = Static400.instance.aClass57_Sub19_2.method5960() == 1 ? -1 : Static164.anInt2808;
+        Static478.anInt7198 = Static400.instance.animatingBackground.value() == 1 ? -1 : Static164.areaLevel;
         Static718.aBoolean822 = Static400.instance.aClass57_Sub23_1.method7054() == 1;
-        Static196.aBoolean262 = Static400.instance.textures.getValue() == 1;
+        Static196.aBoolean262 = Static400.instance.textures.value() == 1;
         Static2.aMapRegion = new MapRegion(4, Static720.mapWidth, Static501.mapHeight, false);
         if (Static117.anInt2282 == 0) {
             Static73.method9312(Static319.aByteArrayArray16, Static2.aMapRegion);
@@ -311,7 +311,7 @@ public final class Static489 {
         if (Static394.anInt6176 - 1 > local825) {
             local825 = Static394.anInt6176 - 1;
         }
-        if (Static400.instance.aClass57_Sub19_2.method5960() == 0) {
+        if (Static400.instance.animatingBackground.value() == 0) {
             Static3.method87(local825);
         } else {
             Static3.method87(0);

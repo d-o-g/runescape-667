@@ -1,4 +1,3 @@
-import com.jagex.graphics.Mesh;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -16,9 +15,6 @@ public final class Static600 {
 
     @OriginalMember(owner = "client!sv", name = "V", descriptor = "Lclient!ss;")
     public static final Class345 aClass345_108 = new Class345(37, -1);
-
-    @OriginalMember(owner = "client!sv", name = "N", descriptor = "[Lclient!dv;")
-    public static final Mesh[] A_MESH_ARRAY_1 = new Mesh[4];
 
     @OriginalMember(owner = "client!sv", name = "L", descriptor = "I")
     public static int anInt8880 = 0;

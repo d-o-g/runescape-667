@@ -49,25 +49,25 @@ public final class Static409 {
                     label237:
                     for (local139 = Static394.anInt6176 + 1; local139 <= 3; local139++) {
                         if (arg1[local139] != null && (Static280.tileFlags[local139][local78][local100] & 0x8) == 0) {
-                            @Pc(341) Class8_Sub2_Sub1 local341;
+                            @Pc(341) PositionEntity local341;
                             @Pc(351) int local351;
                             @Pc(331) Class291 local331;
                             @Pc(337) Class286 local337;
                             if (local116 && arg1[local139][local78][local100] != null) {
                                 if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2 != null) {
                                     local185 = Static239.method3474(local86);
-                                    if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2.aShort58 == local185 || arg1[local139][local78][local100].aClass8_Sub2_Sub3_1 != null && local185 == arg1[local139][local78][local100].aClass8_Sub2_Sub3_1.aShort58) {
+                                    if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2.aShort58 == local185 || arg1[local139][local78][local100].aWall_1 != null && local185 == arg1[local139][local78][local100].aWall_1.aShort58) {
                                         continue;
                                     }
                                     if (local94 != 0) {
                                         local235 = Static239.method3474(local94);
-                                        if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2.aShort58 == local235 || arg1[local139][local78][local100].aClass8_Sub2_Sub3_1 != null && local235 == arg1[local139][local78][local100].aClass8_Sub2_Sub3_1.aShort58) {
+                                        if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2.aShort58 == local235 || arg1[local139][local78][local100].aWall_1 != null && local235 == arg1[local139][local78][local100].aWall_1.aShort58) {
                                             continue;
                                         }
                                     }
                                     if (local108 != 0) {
                                         local235 = Static239.method3474(local108);
-                                        if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2.aShort58 == local235 || arg1[local139][local78][local100].aClass8_Sub2_Sub3_1 != null && arg1[local139][local78][local100].aClass8_Sub2_Sub3_1.aShort58 == local235) {
+                                        if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2.aShort58 == local235 || arg1[local139][local78][local100].aWall_1 != null && arg1[local139][local78][local100].aWall_1.aShort58 == local235) {
                                             continue;
                                         }
                                     }
@@ -75,7 +75,7 @@ public final class Static409 {
                                 local331 = arg1[local139][local78][local100];
                                 if (local331.aClass286_2 != null) {
                                     for (local337 = local331.aClass286_2; local337 != null; local337 = local337.aClass286_1) {
-                                        local341 = local337.aClass8_Sub2_Sub1_1;
+                                        local341 = local337.aPositionEntity;
                                         if (local341 instanceof Location) {
                                             @Pc(347) Location local347 = (Location) local341;
                                             local351 = local347.method6858();
@@ -94,7 +94,7 @@ public final class Static409 {
                             local331 = arg1[local139][local78][local100];
                             if (local331 != null && local331.aClass286_2 != null) {
                                 for (local337 = local331.aClass286_2; local337 != null; local337 = local337.aClass286_1) {
-                                    local341 = local337.aClass8_Sub2_Sub1_1;
+                                    local341 = local337.aPositionEntity;
                                     if (local341.aShort134 != local341.aShort131 || local341.aShort132 != local341.aShort133) {
                                         for (@Pc(444) int local444 = local341.aShort131; local444 <= local341.aShort134; local444++) {
                                             for (local351 = local341.aShort132; local351 <= local341.aShort133; local351++) {
@@ -110,7 +110,7 @@ public final class Static409 {
                     }
                 }
                 if (local133) {
-                    local139 = Static246.aGroundArray1[Static394.anInt6176 + 1].method7869(local100, local78);
+                    local139 = Static246.activeGround[Static394.anInt6176 + 1].getHeight(local100, local78);
                     if (Static482.anIntArray588[arg2] < local139) {
                         Static482.anIntArray588[arg2] = local139;
                     }

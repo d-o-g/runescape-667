@@ -56,14 +56,14 @@ public final class Static21 {
             Static319.anInt5080 = 0;
         }
         Static379.method5355(false);
-        Static576.aClass8_Sub2Array9 = new Class8_Sub2[2];
-        Static398.aClass8_Sub2Array7 = new Class8_Sub2[2];
-        Static468.aClass8_Sub2Array10 = new Class8_Sub2[2];
-        Static48.aClass8_Sub2Array3 = new Class8_Sub2[10000];
+        Static576.aRenderableArray9 = new Renderable[2];
+        Static398.aRenderableArray7 = new Renderable[2];
+        Static468.aRenderableArray10 = new Renderable[2];
+        Static48.aRenderableArray3 = new Renderable[10000];
         Static546.anInt8244 = 0;
-        Static395.aClass8_Sub2Array11 = new Class8_Sub2[5000];
+        Static395.aRenderableArray11 = new Renderable[5000];
         Static645.anInt9611 = 0;
-        Static679.aClass8_Sub2_Sub1Array1 = new Class8_Sub2_Sub1[5000];
+        Static679.aPositionEntity = new PositionEntity[5000];
         Static125.anInt2352 = 0;
         Static258.aBooleanArrayArray3 = new boolean[Static35.anInt813 + Static35.anInt813 + 1][Static35.anInt813 + Static35.anInt813 + 1];
         Static142.aBooleanArrayArray1 = new boolean[Static35.anInt813 + Static35.anInt813 + 2][Static35.anInt813 + Static35.anInt813 + 2];

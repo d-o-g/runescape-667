@@ -9,7 +9,7 @@ public final class Animator_Sub2_Sub1 extends Animator_Sub2 {
     public int anInt10508;
 
     @OriginalMember(owner = "client!wb", name = "<init>", descriptor = "(Lclient!eo;)V")
-    public Animator_Sub2_Sub1(@OriginalArg(0) Class8_Sub2 arg0) {
+    public Animator_Sub2_Sub1(@OriginalArg(0) Renderable arg0) {
         super(arg0, false);
     }
 }

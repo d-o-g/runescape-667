@@ -1,6 +1,9 @@
+import com.jagex.game.runetek6.config.loctype.LocInteractivity;
+import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
+import com.jagex.graphics.ModelAndShadow;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -9,7 +12,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!jda")
-public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Location {
+public final class StaticLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!jda", name = "U", descriptor = "Lclient!ke;")
     public Class205 aClass205_5;
@@ -33,33 +36,33 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Loc
     public boolean aBoolean365;
 
     @OriginalMember(owner = "client!jda", name = "ib", descriptor = "Z")
-    public final boolean aBoolean362;
+    public final boolean castsShadow;
 
     @OriginalMember(owner = "client!jda", name = "gb", descriptor = "Lclient!ka;")
     public Model aModel_4;
 
     @OriginalMember(owner = "client!jda", name = "eb", descriptor = "Lclient!r;")
-    public Shadow aClass2_Sub2_Sub9_3;
+    public Shadow shadow;
 
     @OriginalMember(owner = "client!jda", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIIIIIZ)V")
-    public Class8_Sub2_Sub1_Sub3(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) int arg13, @OriginalArg(14) boolean arg14) {
+    public StaticLocation(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) int arg13, @OriginalArg(14) boolean arg14) {
         super(arg2, arg3, arg4, arg5, arg6, arg8, arg9, arg10, arg11, arg1.lb == 1, Static194.method2904(arg12, arg13));
-        this.aBoolean364 = arg1.anInt1271 != 0 && !arg7;
+        this.aBoolean364 = arg1.interactivity != LocInteractivity.NONINTERACTIVE && !arg7;
         this.aBoolean363 = arg7;
         this.aByte83 = (byte) arg13;
-        this.aShort57 = (short) arg1.anInt1256;
+        this.aShort57 = (short) arg1.id;
         this.aByte84 = (byte) arg12;
         super.aByte143 = (byte) arg3;
         this.aBoolean365 = arg14;
-        this.aBoolean362 = arg0.method8006() && arg1.aBoolean89 && !this.aBoolean363 && Static400.instance.aClass57_Sub12_1.method4364() != 0;
+        this.castsShadow = arg0.method8006() && arg1.hardShadow && !this.aBoolean363 && Static400.instance.aClass57_Sub12_1.method4364() != 0;
         @Pc(83) int local83 = 2048;
         if (this.aBoolean365) {
             local83 |= 0x10000;
         }
-        @Pc(98) Class272 local98 = this.method4223(arg0, this.aBoolean362, local83);
+        @Pc(98) ModelAndShadow local98 = this.method4223(arg0, this.castsShadow, local83);
         if (local98 != null) {
-            this.aModel_4 = local98.aModel_7;
-            this.aClass2_Sub2_Sub9_3 = local98.aClass2_Sub2_Sub9_5;
+            this.aModel_4 = local98.model;
+            this.shadow = local98.shadow;
             if (this.aBoolean365) {
                 this.aModel_4 = this.aModel_4.copy((byte) 0, local83, false);
                 return;
@@ -79,12 +82,12 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Loc
     @Override
     public void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         @Pc(16) Shadow local16;
-        if (this.aClass2_Sub2_Sub9_3 == null && this.aBoolean362) {
-            @Pc(27) Class272 local27 = this.method4223(arg0, true, 262144);
-            local16 = local27 == null ? null : local27.aClass2_Sub2_Sub9_5;
+        if (this.shadow == null && this.castsShadow) {
+            @Pc(27) ModelAndShadow local27 = this.method4223(arg0, true, 262144);
+            local16 = local27 == null ? null : local27.shadow;
         } else {
-            local16 = this.aClass2_Sub2_Sub9_3;
-            this.aClass2_Sub2_Sub9_3 = null;
+            local16 = this.shadow;
+            this.shadow = null;
         }
         if (local16 != null) {
             Static292.method4618(local16, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
@@ -96,11 +99,11 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Loc
 
     @OriginalMember(owner = "client!jda", name = "e", descriptor = "(I)Z")
     @Override
-    public boolean method6860(@OriginalArg(0) int arg0) {
+    public boolean castsShadow(@OriginalArg(0) int arg0) {
         if (arg0 != -19717) {
             this.aClass205_5 = null;
         }
-        return this.aBoolean362;
+        return this.castsShadow;
     }
 
     @OriginalMember(owner = "client!jda", name = "b", descriptor = "(B)Z")
@@ -136,14 +139,14 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Loc
         if (this.aModel_4 != null && arg0.compareFunctionMasks(this.aModel_4.ua(), arg1) == 0) {
             return this.aModel_4;
         } else {
-            @Pc(34) Class272 local34 = this.method4223(arg0, false, arg1);
-            return local34 == null ? null : local34.aModel_7;
+            @Pc(34) ModelAndShadow local34 = this.method4223(arg0, false, arg1);
+            return local34 == null ? null : local34.model;
         }
     }
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(I)I")
     @Override
-    public int method6859(@OriginalArg(0) int arg0) {
+    public int getId(@OriginalArg(0) int arg0) {
         if (arg0 != -32136) {
             Static290.anInt4657 = -2;
         }
@@ -201,17 +204,17 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Loc
 
     @OriginalMember(owner = "client!jda", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6861(@OriginalArg(0) Toolkit arg0) {
-        @Pc(21) Shadow local21;
-        if (this.aClass2_Sub2_Sub9_3 == null && this.aBoolean362) {
-            @Pc(32) Class272 local32 = this.method4223(arg0, true, 262144);
-            local21 = local32 == null ? null : local32.aClass2_Sub2_Sub9_5;
+    public void addShadow(@OriginalArg(0) Toolkit toolkit) {
+        @Pc(21) Shadow shadow;
+        if (this.shadow == null && this.castsShadow) {
+            @Pc(32) ModelAndShadow modelAndShadow = this.method4223(toolkit, true, 262144);
+            shadow = modelAndShadow == null ? null : modelAndShadow.shadow;
         } else {
-            local21 = this.aClass2_Sub2_Sub9_3;
-            this.aClass2_Sub2_Sub9_3 = null;
+            shadow = this.shadow;
+            this.shadow = null;
         }
-        if (local21 != null) {
-            Static630.method8357(local21, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
+        if (shadow != null) {
+            Static630.method8357(shadow, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
         }
     }
 
@@ -237,7 +240,7 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Loc
     @Override
     public boolean method9282(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
-            this.aClass2_Sub2_Sub9_3 = null;
+            this.shadow = null;
         }
         return this.aModel_4 == null ? false : this.aModel_4.F();
     }
@@ -261,14 +264,14 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Loc
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
-        if (arg6 instanceof Class8_Sub2_Sub3_Sub2) {
-            @Pc(38) Class8_Sub2_Sub3_Sub2 local38 = (Class8_Sub2_Sub3_Sub2) arg6;
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
+        if (arg6 instanceof StaticWall) {
+            @Pc(38) StaticWall local38 = (StaticWall) arg6;
             if (this.aModel_4 != null && local38.aModel_5 != null) {
                 this.aModel_4.method7481(local38.aModel_5, arg5, arg0, arg3, arg1);
             }
-        } else if (arg6 instanceof Class8_Sub2_Sub1_Sub3) {
-            @Pc(14) Class8_Sub2_Sub1_Sub3 local14 = (Class8_Sub2_Sub1_Sub3) arg6;
+        } else if (arg6 instanceof StaticLocation) {
+            @Pc(14) StaticLocation local14 = (StaticLocation) arg6;
             if (this.aModel_4 != null && local14.aModel_4 != null) {
                 this.aModel_4.method7481(local14.aModel_4, arg5, arg0, arg3, arg1);
             }
@@ -279,8 +282,8 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Loc
     }
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(Lclient!ha;BZI)Lclient!od;")
-    public Class272 method4223(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
-        @Pc(11) LocType local11 = Static354.aLocTypeList_4.list(this.aShort57 & 0xFFFF, 73);
+    public ModelAndShadow method4223(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
+        @Pc(11) LocType local11 = Static354.aLocTypeList_4.list(this.aShort57 & 0xFFFF);
         @Pc(27) Ground local27;
         @Pc(33) Ground local33;
         if (this.aBoolean363) {
@@ -294,7 +297,7 @@ public final class Class8_Sub2_Sub1_Sub3 extends Class8_Sub2_Sub1 implements Loc
                 local33 = Static706.aGroundArray3[super.aByte143 + 1];
             }
         }
-        return local11.method1309(this.aByte84 == 11 ? this.aByte83 + 4 : this.aByte83, super.anInt10694, super.anInt10690, local27, arg1, super.anInt10691, this.aByte84 == 11 ? 10 : this.aByte84, arg0, (Class150) null, arg2, local33);
+        return local11.modelAndShadow(this.aByte84 == 11 ? this.aByte83 + 4 : this.aByte83, super.anInt10694, super.anInt10690, local27, arg1, super.anInt10691, this.aByte84 == 11 ? 10 : this.aByte84, arg0, (LocTypeCustomisation) null, arg2, local33);
     }
 
     @OriginalMember(owner = "client!jda", name = "c", descriptor = "(I)I")

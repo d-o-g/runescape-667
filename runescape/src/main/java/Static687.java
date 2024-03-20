@@ -56,8 +56,8 @@ public final class Static687 {
     }
 
     @OriginalMember(owner = "client!vo", name = "a", descriptor = "(III)Lclient!eia;")
-    public static Class8_Sub2_Sub2 method8959(@OriginalArg(0) int level, @OriginalArg(1) int x, @OriginalArg(2) int z) {
+    public static GroundDecor method8959(@OriginalArg(0) int level, @OriginalArg(1) int x, @OriginalArg(2) int z) {
         @Pc(7) Class291 local7 = Static334.aClass291ArrayArrayArray1[level][x][z];
-        return local7 == null || local7.aClass8_Sub2_Sub2_1 == null ? null : local7.aClass8_Sub2_Sub2_1;
+        return local7 == null || local7.aGroundDecor_1 == null ? null : local7.aGroundDecor_1;
     }
 }

@@ -18,9 +18,6 @@ public final class Static614 {
     @OriginalMember(owner = "client!th", name = "c", descriptor = "[F")
     public static final float[] aFloatArray67 = new float[]{1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.0F};
 
-    @OriginalMember(owner = "client!th", name = "b", descriptor = "Z")
-    public static final boolean aBoolean718 = false;
-
     @OriginalMember(owner = "client!th", name = "a", descriptor = "(ZJ)I")
     public static int method8242(@OriginalArg(1) long arg0) {
         Static551.method7276(arg0);

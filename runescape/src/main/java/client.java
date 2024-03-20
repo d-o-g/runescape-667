@@ -870,9 +870,9 @@ public final class client extends GameShell {
             local5 = local5 + "7)" + Static400.instance.lightDetail.getValue() + "|";
             local5 = local5 + "8)" + Static400.instance.aClass57_Sub12_1.method4364() + "|";
             local5 = local5 + "9)" + Static400.instance.aClass57_Sub26_1.method7463() + "|";
-            local5 = local5 + "10)" + Static400.instance.textures.getValue() + "|";
+            local5 = local5 + "10)" + Static400.instance.textures.value() + "|";
             local5 = local5 + "11)" + Static400.instance.aClass57_Sub20_1.method6108() + "|";
-            local5 = local5 + "12)" + Static400.instance.aClass57_Sub19_2.method5960() + "|";
+            local5 = local5 + "12)" + Static400.instance.animatingBackground.value() + "|";
             local5 = local5 + "13)" + Static369.anInt4265 + "|";
             local5 = local5 + "14)" + Static283.step;
             if (Static292.aClass2_Sub43_2 != null) {

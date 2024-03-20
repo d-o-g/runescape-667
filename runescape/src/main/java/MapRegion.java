@@ -1,6 +1,9 @@
 import com.jagex.core.constants.LocLayer;
+import com.jagex.core.constants.LocShapes;
 import com.jagex.core.constants.TileFlag;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.loctype.LocInteractivity;
+import com.jagex.game.runetek6.config.loctype.LocOcclusionMode;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
@@ -12,6 +15,10 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!taa")
 public final class MapRegion extends Class306 {
 
+    @OriginalMember(owner = "client!th", name = "b", descriptor = "Z")
+    public static final boolean occlude = false;
+    @OriginalMember(owner = "client!ui", name = "m", descriptor = "Z")
+    public static final boolean forceOcclusion = false;
     // $FF: synthetic field
     @OriginalMember(owner = "client!taa", name = "O", descriptor = "Ljava/lang/Class;")
     public static Class locClass;
@@ -407,386 +414,482 @@ public final class MapRegion extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IILclient!eq;ILclient!ha;IIIIII)V")
-    public void loadLocation(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) CollisionMap arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
-        if (Static400.instance.aClass57_Sub19_2.method5960() == 0 && !Static696.method9036(arg3, Static164.anInt2808, arg5, arg7)) {
+    public void loadLocation(@OriginalArg(0) int shape, @OriginalArg(1) int arg1, @OriginalArg(2) CollisionMap collisionMap, @OriginalArg(3) int z, @OriginalArg(4) Toolkit toolkit, @OriginalArg(5) int x, @OriginalArg(6) int rotation, @OriginalArg(8) int arg7, @OriginalArg(9) int level, @OriginalArg(10) int animation) {
+        boolean animatingBackground = Static400.instance.animatingBackground.value() != 0;
+        boolean tileVisible = Static696.isTileVisibleFrom(z, Static164.areaLevel, x, arg7);
+        if (!animatingBackground && !tileVisible) {
             return;
         }
-        if (arg8 < this.maxLevel) {
-            this.maxLevel = arg8;
+
+        if (level < this.maxLevel) {
+            this.maxLevel = level;
         }
-        @Pc(40) LocType local40 = Static354.aLocTypeList_4.list(arg1, 82);
-        if (Static400.instance.textures.getValue() == 0 && local40.aBoolean90) {
+
+        @Pc(40) LocType locType = Static354.aLocTypeList_4.list(arg1);
+        boolean texturesEnabled = Static400.instance.textures.value() == 0;
+        if (texturesEnabled && locType.requiresTextures) {
             return;
         }
-        @Pc(65) int local65;
-        @Pc(68) int local68;
-        if (arg6 == 1 || arg6 == 3) {
-            local68 = local40.anInt1270;
-            local65 = local40.anInt1229;
+
+        @Pc(65) int locWidth;
+        @Pc(68) int locLength;
+        if (rotation == 1 || rotation == 3) {
+            locLength = locType.width;
+            locWidth = locType.length;
         } else {
-            local65 = local40.anInt1270;
-            local68 = local40.anInt1229;
+            locWidth = locType.width;
+            locLength = locType.length;
         }
-        @Pc(100) int local100;
-        @Pc(94) int local94;
-        if (arg5 + local65 <= super.width) {
-            local94 = (local65 + 1 >> 1) + arg5;
-            local100 = (local65 >> 1) + arg5;
+
+        @Pc(100) int x0;
+        @Pc(94) int x1;
+        if (x + locWidth <= super.width) {
+            x1 = (locWidth + 1 >> 1) + x;
+            x0 = (locWidth >> 1) + x;
         } else {
-            local94 = arg5 + 1;
-            local100 = arg5;
+            x1 = x + 1;
+            x0 = x;
         }
-        @Pc(123) int local123;
-        @Pc(121) int local121;
-        if (super.height < local68 + arg3) {
-            local121 = arg3 + 1;
-            local123 = arg3;
+
+        @Pc(123) int z0;
+        @Pc(121) int z1;
+        if (super.height < locLength + z) {
+            z1 = z + 1;
+            z0 = z;
         } else {
-            local123 = arg3 + (local68 >> 1);
-            local121 = arg3 + (local68 + 1 >> 1);
+            z0 = z + (locLength >> 1);
+            z1 = z + (locLength + 1 >> 1);
         }
-        @Pc(143) Ground local143 = Static246.aGroundArray1[arg7];
-        @Pc(170) int local170 = local143.method7869(local123, local100) + local143.method7869(local123, local94) + local143.method7869(local121, local100) + local143.method7869(local121, local94) >> 2;
-        @Pc(179) int local179 = (arg5 << 9) + (local65 << 8);
-        @Pc(187) int local187 = (local68 << 8) + (arg3 << 9);
-        @Pc(204) boolean local204 = Static404.aBoolean465 && !super.underwater && local40.aBoolean102;
-        if (local40.method1303()) {
-            Static89.method1714(arg8, (Class8_Sub2_Sub1_Sub2_Sub1) null, arg5, arg3, (Class8_Sub2_Sub1_Sub2_Sub2) null, local40, arg6);
+
+        @Pc(143) Ground ground = Static246.activeGround[arg7];
+        int bottomLeftHeight = ground.getHeight(z0, x0);
+        int bottomRightHeight = ground.getHeight(z0, x1);
+        int topLeftHeight = ground.getHeight(z1, x0);
+        int topRightHeight = ground.getHeight(z1, x1);
+        @Pc(170) int averageHeight = (bottomLeftHeight + bottomRightHeight + topLeftHeight + topRightHeight) >> 2;
+
+        @Pc(179) int absX = (x << 9) + (locWidth << 8);
+        @Pc(187) int absZ = (locLength << 8) + (z << 9);
+
+        @Pc(204) boolean local204 = Static404.aBoolean465 && !super.underwater && locType.copyNormals;
+
+        if (locType.hasSounds()) {
+            Static89.method1714(level, null, x, z, null, locType, rotation);
         }
-        @Pc(248) boolean local248 = arg9 == -1 && !local40.method1300() && local40.anIntArray113 == null && !local40.aBoolean93 && !local40.aBoolean91;
-        if (Static614.aBoolean718 && (Static540.method6540(arg0) && local40.anInt1223 != 1 || !(!Static389.method5474(arg0) || local40.anInt1223 != 0))) {
+
+        @Pc(248) boolean isStatic = animation == -1 && !locType.hasAnimations() && locType.multiLocs == null && !locType.animated && !locType.aBoolean91;
+
+        boolean occludeWall = LocShapes.isWall(shape) && locType.locOcclusionMode != LocOcclusionMode.ALL;
+        boolean occludeRoof = LocShapes.isRoof(shape) && locType.locOcclusionMode == LocOcclusionMode.ROOFS;
+        if (occlude && (occludeWall || occludeRoof)) {
             return;
         }
-        if (arg0 != 22) {
-            @Pc(420) Class8_Sub2_Sub1 local420;
-            @Pc(384) Class8_Sub2_Sub1_Sub3 local384;
+
+        if (shape == LocShapes.GROUNDDECOR) {
+            if (Static400.instance.groundDecor.value() == 0 && locType.interactivity == LocInteractivity.NONINTERACTIVE && locType.movementPolicy != 1 && !locType.obstructiveGround) {
+                return;
+            }
+
+            @Pc(325) GroundDecor decor;
+            if (isStatic) {
+                @Pc(341) StaticGroundDecor staticDecor = new StaticGroundDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, rotation, local204);
+
+                decor = staticDecor;
+
+                if (staticDecor.castsShadow(-19717)) {
+                    staticDecor.addShadow(toolkit);
+                }
+            } else {
+                decor = new DynamicGroundDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, rotation, animation);
+            }
+
+            Static61.method1299(level, x, z, decor);
+
+            if (locType.movementPolicy == 1 && collisionMap != null) {
+                collisionMap.flagGroundDecor(z, x);
+            }
+        } else if (shape == LocShapes.CENTREPIECE_STRAIGHT || shape == LocShapes.CENTREPIECE_DIAGONAL) {
+            @Pc(420) PositionEntity loc;
+            @Pc(384) StaticLocation staticLoc = null;
             @Pc(424) int local424;
-            @Pc(495) int local495;
-            @Pc(492) int local492;
-            if (arg0 == 10 || arg0 == 11) {
-                local384 = null;
-                if (local248) {
-                    @Pc(416) Class8_Sub2_Sub1_Sub3 local416 = new Class8_Sub2_Sub1_Sub3(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg5, arg5 + local65 - 1, arg3, arg3 + local68 - 1, arg0, arg6, local204);
-                    local384 = local416;
-                    local420 = local416;
-                    local424 = local416.method4222();
-                } else {
-                    local424 = 15;
-                    local420 = new Class8_Sub2_Sub1_Sub4(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg5, arg5 + local65 - 1, arg3, arg3 + local68 - 1, arg0, arg6, arg9);
+
+            if (isStatic) {
+                @Pc(416) StaticLocation staticLocation = new StaticLocation(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, x, x + locWidth - 1, z, z + locLength - 1, shape, rotation, local204);
+                staticLoc = staticLocation;
+                loc = staticLocation;
+                local424 = staticLocation.method4222();
+            } else {
+                local424 = 15;
+                loc = new DynamicLocation(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, x, x + locWidth - 1, z, z + locLength - 1, shape, rotation, animation);
+            }
+
+            if (Static102.method2026(loc, false)) {
+                if (staticLoc != null && staticLoc.castsShadow(-19717)) {
+                    staticLoc.addShadow(toolkit);
                 }
-                if (Static102.method2026(local420, false)) {
-                    if (local384 != null && local384.method6860(-19717)) {
-                        local384.method6861(arg4);
+
+                if (locType.castsShadow && Static404.aBoolean465) {
+                    if (local424 > 30) {
+                        local424 = 30;
                     }
-                    if (local40.aBoolean98 && Static404.aBoolean465) {
-                        if (local424 > 30) {
-                            local424 = 30;
+
+                    for (@Pc(492) int locX = 0; locX <= locWidth; locX++) {
+                        for (@Pc(495) int locZ = 0; locZ <= locLength; locZ++) {
+                            ground.ka(locX + locX, locZ + locZ, local424);
                         }
-                        for (local492 = 0; local492 <= local65; local492++) {
-                            for (local495 = 0; local495 <= local68; local495++) {
-                                local143.ka(local492 + arg5, local495 + arg3, local424);
-                            }
-                        }
                     }
                 }
-                if (local40.anInt1242 != 0 && arg2 != null) {
-                    arg2.method2472(arg5, local68, arg3, !local40.aBoolean97, local65, local40.aBoolean99);
+            }
+
+            if (locType.movementPolicy != 0 && collisionMap != null) {
+                collisionMap.flagRect(x, locLength, z, !locType.routingHint, locWidth, locType.blockRanged);
+            }
+        } else if (shape >= LocShapes.ROOF_STRAIGHT && shape <= LocShapes.ROOF_FLAT || shape >= LocShapes.ROOFEDGE_STRAIGHT && shape <= LocShapes.ROOFEDGE_SQUARECORNER) {
+            @Pc(420) PositionEntity loc;
+            @Pc(384) StaticLocation staticLoc;
+
+            if (isStatic) {
+                staticLoc = new StaticLocation(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, x, x + locWidth - 1, z, z + locLength - 1, shape, rotation, local204);
+
+                if (staticLoc.castsShadow(-19717)) {
+                    staticLoc.addShadow(toolkit);
                 }
-            } else if (arg0 >= 12 && arg0 <= 17 || arg0 >= 18 && arg0 <= 21) {
-                if (local248) {
-                    local384 = new Class8_Sub2_Sub1_Sub3(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg5, arg5 + local65 - 1, arg3, arg3 + local68 - 1, arg0, arg6, local204);
-                    if (local384.method6860(-19717)) {
-                        local384.method6861(arg4);
-                    }
-                    local420 = local384;
-                } else {
-                    local420 = new Class8_Sub2_Sub1_Sub4(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg5, local65 + arg5 - 1, arg3, arg3 + local68 - 1, arg0, arg6, arg9);
-                }
-                Static102.method2026(local420, false);
-                if (Static404.aBoolean465 && !super.underwater && arg0 >= 12 && arg0 <= 17 && arg0 != 13 && arg8 > 0 && local40.anInt1223 != 0) {
-                    super.aByteArrayArrayArray14[arg8][arg5][arg3] = (byte) (super.aByteArrayArrayArray14[arg8][arg5][arg3] | 0x4);
-                }
-                if (local40.anInt1242 != 0 && arg2 != null) {
-                    arg2.method2472(arg5, local68, arg3, !local40.aBoolean97, local65, local40.aBoolean99);
+
+                loc = staticLoc;
+            } else {
+                loc = new DynamicLocation(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, x, locWidth + x - 1, z, z + locLength - 1, shape, rotation, animation);
+            }
+
+            Static102.method2026(loc, false);
+
+            boolean occludeRoofs = locType.locOcclusionMode == LocOcclusionMode.ROOFS;
+            if (Static404.aBoolean465 && !super.underwater && shape >= LocShapes.ROOF_STRAIGHT && shape <= LocShapes.ROOF_FLAT && shape != LocShapes.ROOF_DIAGONAL_WITH_ROOFEDGE && level > 0 && !occludeRoofs) {
+                super.occlurerFlags[level][x][z] = (byte) (super.occlurerFlags[level][x][z] | 0x4);
+            }
+
+            if (locType.movementPolicy != 0 && collisionMap != null) {
+                collisionMap.flagRect(x, locLength, z, !locType.routingHint, locWidth, locType.blockRanged);
+            }
+        } else if (shape == LocShapes.WALL_STRAIGHT) {
+            @Pc(774) Wall wall;
+
+            @Pc(744) int occlusionMode = locType.locOcclusionMode;
+            if (forceOcclusion && locType.locOcclusionMode == LocOcclusionMode.NONE) {
+                occlusionMode = LocOcclusionMode.ALL;
+            }
+
+            if (isStatic) {
+                @Pc(772) StaticWall staticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, local204);
+                wall = staticWall;
+
+                if (staticWall.castsShadow(-19717)) {
+                    staticWall.addShadow(toolkit);
                 }
             } else {
-                @Pc(774) Class8_Sub2_Sub3 local774;
-                if (arg0 == 0) {
-                    @Pc(744) int local744 = local40.anInt1223;
-                    if (Static648.aBoolean742 && local40.anInt1223 == -1) {
-                        local744 = 1;
-                    }
-                    if (local248) {
-                        @Pc(772) Class8_Sub2_Sub3_Sub2 local772 = new Class8_Sub2_Sub3_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, arg6, local204);
-                        local774 = local772;
-                        if (local772.method6860(-19717)) {
-                            local772.method6861(arg4);
-                        }
-                    } else {
-                        local774 = new Class8_Sub2_Sub3_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, arg6, arg9);
-                    }
-                    Static584.method7665(arg8, arg5, arg3, local774, (Class8_Sub2_Sub3) null);
-                    if (arg6 == 0) {
-                        if (Static404.aBoolean465 && local40.aBoolean98) {
-                            local143.ka(arg5, arg3, 50);
-                            local143.ka(arg5, arg3 + 1, 50);
-                        }
-                        if (local744 == 1 && !super.underwater) {
-                            Static177.method2716(1, local40.anInt1212, arg3, arg5, arg8, local40.anInt1257);
-                        }
-                    } else if (arg6 == 1) {
-                        if (Static404.aBoolean465 && local40.aBoolean98) {
-                            local143.ka(arg5, arg3 + 1, 50);
-                            local143.ka(arg5 + 1, arg3 - -1, 50);
-                        }
-                        if (local744 == 1 && !super.underwater) {
-                            Static177.method2716(2, -local40.anInt1212, arg3 + 1, arg5, arg8, local40.anInt1257);
-                        }
-                    } else if (arg6 == 2) {
-                        if (Static404.aBoolean465 && local40.aBoolean98) {
-                            local143.ka(arg5 + 1, arg3, 50);
-                            local143.ka(arg5 + 1, arg3 + 1, 50);
-                        }
-                        if (local744 == 1 && !super.underwater) {
-                            Static177.method2716(1, -local40.anInt1212, arg3, arg5 + 1, arg8, local40.anInt1257);
-                        }
-                    } else if (arg6 == 3) {
-                        if (Static404.aBoolean465 && local40.aBoolean98) {
-                            local143.ka(arg5, arg3, 50);
-                            local143.ka(arg5 + 1, arg3, 50);
-                        }
-                        if (local744 == 1 && !super.underwater) {
-                            Static177.method2716(2, local40.anInt1212, arg3, arg5, arg8, local40.anInt1257);
-                        }
-                    }
-                    if (local40.anInt1242 != 0 && arg2 != null) {
-                        arg2.method2462(local40.aBoolean99, !local40.aBoolean97, arg3, arg6, arg0, arg5);
-                    }
-                    if (local40.anInt1243 != 64) {
-                        Static411.method5666(arg8, arg5, arg3, local40.anInt1243);
-                    }
-                } else {
-                    @Pc(1079) Class8_Sub2_Sub3 local1079;
-                    @Pc(1096) Class8_Sub2_Sub3_Sub2 local1096;
-                    if (arg0 == 1) {
-                        if (local248) {
-                            local1096 = new Class8_Sub2_Sub3_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, arg6, local204);
-                            local1079 = local1096;
-                            if (local1096.method6860(-19717)) {
-                                local1096.method6861(arg4);
-                            }
-                        } else {
-                            local1079 = new Class8_Sub2_Sub3_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, arg6, arg9);
-                        }
-                        Static584.method7665(arg8, arg5, arg3, local1079, (Class8_Sub2_Sub3) null);
-                        if (local40.aBoolean98 && Static404.aBoolean465) {
-                            if (arg6 == 0) {
-                                local143.ka(arg5, arg3 + 1, 50);
-                            } else if (arg6 == 1) {
-                                local143.ka(arg5 + 1, arg3 - -1, 50);
-                            } else if (arg6 == 2) {
-                                local143.ka(arg5 + 1, arg3, 50);
-                            } else if (arg6 == 3) {
-                                local143.ka(arg5, arg3, 50);
-                            }
-                        }
-                        if (local40.anInt1242 != 0 && arg2 != null) {
-                            arg2.method2462(local40.aBoolean99, !local40.aBoolean97, arg3, arg6, arg0, arg5);
-                        }
-                    } else if (arg0 == 2) {
-                        local424 = arg6 + 1 & 0x3;
-                        if (local248) {
-                            @Pc(1267) Class8_Sub2_Sub3_Sub2 local1267 = new Class8_Sub2_Sub3_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, arg6 + 4, local204);
-                            @Pc(1283) Class8_Sub2_Sub3_Sub2 local1283 = new Class8_Sub2_Sub3_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, local424, local204);
-                            if (local1267.method6860(-19717)) {
-                                local1267.method6861(arg4);
-                            }
-                            local774 = local1283;
-                            if (local1283.method6860(-19717)) {
-                                local1283.method6861(arg4);
-                            }
-                            local1079 = local1267;
-                        } else {
-                            local1079 = new Class8_Sub2_Sub3_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, arg6 + 4, arg9);
-                            local774 = new Class8_Sub2_Sub3_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, local424, arg9);
-                        }
-                        Static584.method7665(arg8, arg5, arg3, local1079, local774);
-                        if ((local40.anInt1223 == 1 || Static648.aBoolean742 && local40.anInt1223 == -1) && !super.underwater) {
-                            if (arg6 == 0) {
-                                Static177.method2716(1, local40.anInt1212, arg3, arg5, arg8, local40.anInt1257);
-                                Static177.method2716(2, local40.anInt1212, arg3 + 1, arg5, arg8, local40.anInt1257);
-                            } else if (arg6 == 1) {
-                                Static177.method2716(1, local40.anInt1212, arg3, arg5 + 1, arg8, local40.anInt1257);
-                                Static177.method2716(2, local40.anInt1212, arg3 + 1, arg5, arg8, local40.anInt1257);
-                            } else if (arg6 == 2) {
-                                Static177.method2716(1, local40.anInt1212, arg3, arg5 + 1, arg8, local40.anInt1257);
-                                Static177.method2716(2, local40.anInt1212, arg3, arg5, arg8, local40.anInt1257);
-                            } else if (arg6 == 3) {
-                                Static177.method2716(1, local40.anInt1212, arg3, arg5, arg8, local40.anInt1257);
-                                Static177.method2716(2, local40.anInt1212, arg3, arg5, arg8, local40.anInt1257);
-                            }
-                        }
-                        if (local40.anInt1242 != 0 && arg2 != null) {
-                            arg2.method2462(local40.aBoolean99, !local40.aBoolean97, arg3, arg6, arg0, arg5);
-                        }
-                        if (local40.anInt1243 != 64) {
-                            Static411.method5666(arg8, arg5, arg3, local40.anInt1243);
-                        }
-                    } else if (arg0 == 3) {
-                        if (local248) {
-                            local1096 = new Class8_Sub2_Sub3_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, arg6, local204);
-                            if (local1096.method6860(-19717)) {
-                                local1096.method6861(arg4);
-                            }
-                            local1079 = local1096;
-                        } else {
-                            local1079 = new Class8_Sub2_Sub3_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg0, arg6, arg9);
-                        }
-                        Static584.method7665(arg8, arg5, arg3, local1079, (Class8_Sub2_Sub3) null);
-                        if (local40.aBoolean98 && Static404.aBoolean465) {
-                            if (arg6 == 0) {
-                                local143.ka(arg5, arg3 + 1, 50);
-                            } else if (arg6 == 1) {
-                                local143.ka(arg5 + 1, arg3 - -1, 50);
-                            } else if (arg6 == 2) {
-                                local143.ka(arg5 + 1, arg3, 50);
-                            } else if (arg6 == 3) {
-                                local143.ka(arg5, arg3, 50);
-                            }
-                        }
-                        if (local40.anInt1242 != 0 && arg2 != null) {
-                            arg2.method2462(local40.aBoolean99, !local40.aBoolean97, arg3, arg6, arg0, arg5);
-                        }
-                    } else if (arg0 == 9) {
-                        if (local248) {
-                            local384 = new Class8_Sub2_Sub1_Sub3(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg5, arg5, arg3, arg3, arg0, arg6, local204);
-                            if (local384.method6860(-19717)) {
-                                local384.method6861(arg4);
-                            }
-                            local420 = local384;
-                        } else {
-                            local420 = new Class8_Sub2_Sub1_Sub4(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg5, local65 + arg5 - 1, arg3, local68 + arg3 - 1, arg0, arg6, arg9);
-                        }
-                        Static102.method2026(local420, false);
-                        if (local40.anInt1223 == 1 && !super.underwater) {
-                            @Pc(1723) byte local1723;
-                            if ((arg6 & 0x1) == 0) {
-                                local1723 = 8;
-                            } else {
-                                local1723 = 16;
-                            }
-                            Static177.method2716(local1723, 0, arg3, arg5, arg8, local40.anInt1257);
-                        }
-                        if (local40.anInt1242 != 0 && arg2 != null) {
-                            arg2.method2472(arg5, local68, arg3, !local40.aBoolean97, local65, local40.aBoolean99);
-                        }
-                        if (local40.anInt1243 != 64) {
-                            Static411.method5666(arg8, arg5, arg3, local40.anInt1243);
-                        }
-                    } else {
-                        @Pc(1813) Class8_Sub2_Sub4 local1813;
-                        if (arg0 == 4) {
-                            if (local248) {
-                                @Pc(1801) Class8_Sub2_Sub4_Sub1 local1801 = new Class8_Sub2_Sub4_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, 0, 0, arg0, arg6);
-                                if (local1801.method6860(-19717)) {
-                                    local1801.method6861(arg4);
-                                }
-                                local1813 = local1801;
-                            } else {
-                                local1813 = new Class8_Sub2_Sub4_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, 0, 0, arg0, arg6, arg9);
-                            }
-                            Static177.method2718(arg8, arg5, arg3, local1813, (Class8_Sub2_Sub4) null);
-                        } else {
-                            @Pc(1844) int local1844;
-                            @Pc(1850) Location local1850;
-                            @Pc(1916) Class8_Sub2_Sub4_Sub1 local1916;
-                            if (arg0 == 5) {
-                                local1844 = 65;
-                                local1850 = (Location) Static302.getWall(arg8, arg5, arg3);
-                                if (local1850 != null) {
-                                    local1844 = Static354.aLocTypeList_4.list(local1850.method6859(-32136), 32).anInt1243 + 1;
-                                }
-                                if (local248) {
-                                    local1916 = new Class8_Sub2_Sub4_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, Static485.anIntArray887[arg6] * local1844, Static609.anIntArray715[arg6] * local1844, arg0, arg6);
-                                    if (local1916.method6860(-19717)) {
-                                        local1916.method6861(arg4);
-                                    }
-                                    local1813 = local1916;
-                                } else {
-                                    local1813 = new Class8_Sub2_Sub4_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, Static485.anIntArray887[arg6] * local1844, local1844 * Static609.anIntArray715[arg6], arg0, arg6, arg9);
-                                }
-                                Static177.method2718(arg8, arg5, arg3, local1813, (Class8_Sub2_Sub4) null);
-                            } else if (arg0 == 6) {
-                                local1844 = 33;
-                                local1850 = (Location) Static302.getWall(arg8, arg5, arg3);
-                                if (local1850 != null) {
-                                    local1844 = Static354.aLocTypeList_4.list(local1850.method6859(-32136), 115).anInt1243 / 2 + 1;
-                                }
-                                if (local248) {
-                                    local1916 = new Class8_Sub2_Sub4_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, Static485.anIntArray887[arg6] * local1844, local1844 * Static609.anIntArray715[arg6], arg0, arg6 + 4);
-                                    local1813 = local1916;
-                                    if (local1916.method6860(-19717)) {
-                                        local1916.method6861(arg4);
-                                    }
-                                } else {
-                                    local1813 = new Class8_Sub2_Sub4_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, Static407.anIntArray489[arg6] * local1844, Static636.anIntArray742[arg6] * local1844, arg0, arg6 + 4, arg9);
-                                }
-                                Static177.method2718(arg8, arg5, arg3, local1813, (Class8_Sub2_Sub4) null);
-                            } else if (arg0 == 7) {
-                                local1844 = arg6 + 2 & 0x3;
-                                if (local248) {
-                                    @Pc(2068) Class8_Sub2_Sub4_Sub1 local2068 = new Class8_Sub2_Sub4_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, 0, 0, arg0, local1844 + 4);
-                                    local1813 = local2068;
-                                    if (local2068.method6860(-19717)) {
-                                        local2068.method6861(arg4);
-                                    }
-                                } else {
-                                    local1813 = new Class8_Sub2_Sub4_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, 0, 0, arg0, local1844 + 4, arg9);
-                                }
-                                Static177.method2718(arg8, arg5, arg3, local1813, (Class8_Sub2_Sub4) null);
-                            } else if (arg0 == 8) {
-                                local492 = arg6 + 2 & 0x3;
-                                local495 = 33;
-                                @Pc(2134) Location local2134 = (Location) Static302.getWall(arg8, arg5, arg3);
-                                if (local2134 != null) {
-                                    local495 = Static354.aLocTypeList_4.list(local2134.method6859(-32136), 92).anInt1243 / 2 + 1;
-                                }
-                                @Pc(2178) Class8_Sub2_Sub4 local2178;
-                                @Pc(2200) Class8_Sub2_Sub4 local2200;
-                                if (local248) {
-                                    local2178 = new Class8_Sub2_Sub4_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, Static407.anIntArray489[arg6] * local495, Static636.anIntArray742[arg6] * local495, arg0, arg6 + 4);
-                                    local2200 = new Class8_Sub2_Sub4_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, 0, 0, arg0, local492 + 4);
-                                    if (local2178.method6860(-19717)) {
-                                        local2178.method6861(arg4);
-                                    }
-                                    if (local2200.method6860(-19717)) {
-                                        local2200.method6861(arg4);
-                                    }
-                                } else {
-                                    local2178 = new Class8_Sub2_Sub4_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, Static407.anIntArray489[arg6] * local495, Static636.anIntArray742[arg6] * local495, arg0, arg6 + 4, arg9);
-                                    local2200 = new Class8_Sub2_Sub4_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, 0, 0, arg0, local492 + 4, arg9);
-                                }
-                                Static177.method2718(arg8, arg5, arg3, local2178, local2200);
-                            }
-                        }
-                    }
+                wall = new DynamicWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, animation);
+            }
+
+            Static584.method7665(level, x, z, wall, (Wall) null);
+
+            if (rotation == 0) {
+                if (Static404.aBoolean465 && locType.castsShadow) {
+                    ground.ka(x, z, 50);
+                    ground.ka(x, z + 1, 50);
+                }
+
+                if (occlusionMode == LocOcclusionMode.ALL && !super.underwater) {
+                    Static177.addLocationOccluder(1, locType.occlusionOffset, z, x, level, locType.occlusionHeight);
+                }
+            } else if (rotation == 1) {
+                if (Static404.aBoolean465 && locType.castsShadow) {
+                    ground.ka(x, z + 1, 50);
+                    ground.ka(x + 1, z - -1, 50);
+                }
+
+                if (occlusionMode == LocOcclusionMode.ALL && !super.underwater) {
+                    Static177.addLocationOccluder(2, -locType.occlusionOffset, z + 1, x, level, locType.occlusionHeight);
+                }
+            } else if (rotation == 2) {
+                if (Static404.aBoolean465 && locType.castsShadow) {
+                    ground.ka(x + 1, z, 50);
+                    ground.ka(x + 1, z + 1, 50);
+                }
+
+                if (occlusionMode == LocOcclusionMode.ALL && !super.underwater) {
+                    Static177.addLocationOccluder(1, -locType.occlusionOffset, z, x + 1, level, locType.occlusionHeight);
+                }
+            } else if (rotation == 3) {
+                if (Static404.aBoolean465 && locType.castsShadow) {
+                    ground.ka(x, z, 50);
+                    ground.ka(x + 1, z, 50);
+                }
+
+                if (occlusionMode == LocOcclusionMode.ALL && !super.underwater) {
+                    Static177.addLocationOccluder(2, locType.occlusionOffset, z, x, level, locType.occlusionHeight);
                 }
             }
-        } else if (Static400.instance.aClass57_Sub6_1.method2714() != 0 || local40.anInt1271 != 0 || local40.anInt1242 == 1 || local40.aBoolean101) {
-            @Pc(325) Class8_Sub2_Sub2 local325;
-            if (local248) {
-                @Pc(341) Class8_Sub2_Sub2_Sub1 local341 = new Class8_Sub2_Sub2_Sub1(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg6, local204);
-                local325 = local341;
-                if (local341.method6860(-19717)) {
-                    local341.method6861(arg4);
+
+            if (locType.movementPolicy != 0 && collisionMap != null) {
+                collisionMap.flagWall(locType.blockRanged, !locType.routingHint, z, rotation, shape, x);
+            }
+
+            if (locType.anInt1243 != 64) {
+                Static411.method5666(level, x, z, locType.anInt1243);
+            }
+        } else if (shape == LocShapes.WALL_DIAGONALCORNER) {
+            @Pc(1079) Wall wall;
+            @Pc(1096) StaticWall staticWall;
+
+            if (isStatic) {
+                staticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, local204);
+                wall = staticWall;
+
+                if (staticWall.castsShadow(-19717)) {
+                    staticWall.addShadow(toolkit);
                 }
             } else {
-                local325 = new Class8_Sub2_Sub2_Sub2(arg4, local40, arg8, arg7, local179, local170, local187, super.underwater, arg6, arg9);
+                wall = new DynamicWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, animation);
             }
-            Static61.method1299(arg8, arg5, arg3, local325);
-            if (local40.anInt1242 == 1 && arg2 != null) {
-                arg2.method2470(arg3, arg5);
+
+            Static584.method7665(level, x, z, wall, (Wall) null);
+
+            if (locType.castsShadow && Static404.aBoolean465) {
+                if (rotation == 0) {
+                    ground.ka(x, z + 1, 50);
+                } else if (rotation == 1) {
+                    ground.ka(x + 1, z - -1, 50);
+                } else if (rotation == 2) {
+                    ground.ka(x + 1, z, 50);
+                } else if (rotation == 3) {
+                    ground.ka(x, z, 50);
+                }
             }
+
+            if (locType.movementPolicy != 0 && collisionMap != null) {
+                collisionMap.flagWall(locType.blockRanged, !locType.routingHint, z, rotation, shape, x);
+            }
+        } else if (shape == LocShapes.WALL_L) {
+            @Pc(1079) Wall wall;
+            @Pc(774) Wall adjacentWall;
+
+            @Pc(424) int rotation90 = (rotation + 1) & 0x3;
+
+            if (isStatic) {
+                @Pc(1267) StaticWall staticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation + 4, local204);
+                @Pc(1283) StaticWall adjacentStaticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation90, local204);
+
+                if (staticWall.castsShadow(-19717)) {
+                    staticWall.addShadow(toolkit);
+                }
+
+                adjacentWall = adjacentStaticWall;
+
+                if (adjacentStaticWall.castsShadow(-19717)) {
+                    adjacentStaticWall.addShadow(toolkit);
+                }
+
+                wall = staticWall;
+            } else {
+                wall = new DynamicWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation + 4, animation);
+                adjacentWall = new DynamicWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation90, animation);
+            }
+
+            Static584.method7665(level, x, z, wall, adjacentWall);
+
+            boolean occlude = (locType.locOcclusionMode == LocOcclusionMode.ALL) || (forceOcclusion && locType.locOcclusionMode == -1);
+            if (occlude && !super.underwater) {
+                if (rotation == 0) {
+                    Static177.addLocationOccluder(1, locType.occlusionOffset, z, x, level, locType.occlusionHeight);
+                    Static177.addLocationOccluder(2, locType.occlusionOffset, z + 1, x, level, locType.occlusionHeight);
+                } else if (rotation == 1) {
+                    Static177.addLocationOccluder(1, locType.occlusionOffset, z, x + 1, level, locType.occlusionHeight);
+                    Static177.addLocationOccluder(2, locType.occlusionOffset, z + 1, x, level, locType.occlusionHeight);
+                } else if (rotation == 2) {
+                    Static177.addLocationOccluder(1, locType.occlusionOffset, z, x + 1, level, locType.occlusionHeight);
+                    Static177.addLocationOccluder(2, locType.occlusionOffset, z, x, level, locType.occlusionHeight);
+                } else if (rotation == 3) {
+                    Static177.addLocationOccluder(1, locType.occlusionOffset, z, x, level, locType.occlusionHeight);
+                    Static177.addLocationOccluder(2, locType.occlusionOffset, z, x, level, locType.occlusionHeight);
+                }
+            }
+
+            if (locType.movementPolicy != 0 && collisionMap != null) {
+                collisionMap.flagWall(locType.blockRanged, !locType.routingHint, z, rotation, shape, x);
+            }
+
+            if (locType.anInt1243 != 64) {
+                Static411.method5666(level, x, z, locType.anInt1243);
+            }
+        } else if (shape == LocShapes.WALL_SQUARECORNER) {
+            @Pc(1079) Wall wall;
+
+            if (isStatic) {
+                @Pc(1096) StaticWall staticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, local204);
+
+                if (staticWall.castsShadow(-19717)) {
+                    staticWall.addShadow(toolkit);
+                }
+
+                wall = staticWall;
+            } else {
+                wall = new DynamicWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, animation);
+            }
+
+            Static584.method7665(level, x, z, wall, null);
+
+            if (locType.castsShadow && Static404.aBoolean465) {
+                if (rotation == 0) {
+                    ground.ka(x, z + 1, 50);
+                } else if (rotation == 1) {
+                    ground.ka(x + 1, z - -1, 50);
+                } else if (rotation == 2) {
+                    ground.ka(x + 1, z, 50);
+                } else if (rotation == 3) {
+                    ground.ka(x, z, 50);
+                }
+            }
+
+            if (locType.movementPolicy != 0 && collisionMap != null) {
+                collisionMap.flagWall(locType.blockRanged, !locType.routingHint, z, rotation, shape, x);
+            }
+        } else if (shape == LocShapes.WALL_DIAGONAL) {
+            @Pc(420) PositionEntity loc;
+
+            if (isStatic) {
+                @Pc(384) StaticLocation staticLoc = new StaticLocation(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, x, x, z, z, shape, rotation, local204);
+
+                if (staticLoc.castsShadow(-19717)) {
+                    staticLoc.addShadow(toolkit);
+                }
+
+                loc = staticLoc;
+            } else {
+                loc = new DynamicLocation(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, x, locWidth + x - 1, z, locLength + z - 1, shape, rotation, animation);
+            }
+
+            Static102.method2026(loc, false);
+
+            if (locType.locOcclusionMode == 1 && !super.underwater) {
+                @Pc(1723) byte occlusionType;
+                if ((rotation & 0x1) == 0) {
+                    occlusionType = 8;
+                } else {
+                    occlusionType = 16;
+                }
+
+                Static177.addLocationOccluder(occlusionType, 0, z, x, level, locType.occlusionHeight);
+            }
+
+            if (locType.movementPolicy != 0 && collisionMap != null) {
+                collisionMap.flagRect(x, locLength, z, !locType.routingHint, locWidth, locType.blockRanged);
+            }
+
+            if (locType.anInt1243 != 64) {
+                Static411.method5666(level, x, z, locType.anInt1243);
+            }
+        } else if (shape == LocShapes.WALLDECOR_STRAIGHT_NOOFFSET) {
+            @Pc(1813) WallDecor decor;
+
+            if (isStatic) {
+                @Pc(1801) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, 0, 0, shape, rotation);
+
+                if (staticDecor.castsShadow(-19717)) {
+                    staticDecor.addShadow(toolkit);
+                }
+
+                decor = staticDecor;
+            } else {
+                decor = new DynamicWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, 0, 0, shape, rotation, animation);
+            }
+
+            Static177.setWallDecor(level, x, z, decor, null);
+        } else if (shape == LocShapes.WALLDECOR_STRAIGHT_OFFSET) {
+            @Pc(1813) WallDecor decor;
+
+            @Pc(1844) int local1844 = 65;
+            @Pc(1850) Location wall = (Location) Static302.getWall(level, x, z);
+            if (wall != null) {
+                local1844 = Static354.aLocTypeList_4.list(wall.getId(-32136)).anInt1243 + 1;
+            }
+
+            if (isStatic) {
+                @Pc(1916) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, Static485.anIntArray887[rotation] * local1844, Static609.anIntArray715[rotation] * local1844, shape, rotation);
+
+                if (staticDecor.castsShadow(-19717)) {
+                    staticDecor.addShadow(toolkit);
+                }
+
+                decor = staticDecor;
+            } else {
+                decor = new DynamicWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, Static485.anIntArray887[rotation] * local1844, local1844 * Static609.anIntArray715[rotation], shape, rotation, animation);
+            }
+
+            Static177.setWallDecor(level, x, z, decor, null);
+        } else if (shape == LocShapes.WALLDECOR_DIAGONAL_OFFSET) {
+            @Pc(1813) WallDecor decor;
+
+            @Pc(1844) int local1844 = 33;
+            @Pc(1850) Location wall = (Location) Static302.getWall(level, x, z);
+            if (wall != null) {
+                local1844 = (Static354.aLocTypeList_4.list(wall.getId(-32136)).anInt1243 / 2) + 1;
+            }
+
+            if (isStatic) {
+                @Pc(1916) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, Static485.anIntArray887[rotation] * local1844, local1844 * Static609.anIntArray715[rotation], shape, rotation + 4);
+                decor = staticDecor;
+
+                if (staticDecor.castsShadow(-19717)) {
+                    staticDecor.addShadow(toolkit);
+                }
+            } else {
+                decor = new DynamicWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, Static407.anIntArray489[rotation] * local1844, Static636.anIntArray742[rotation] * local1844, shape, rotation + 4, animation);
+            }
+
+            Static177.setWallDecor(level, x, z, decor, null);
+        } else if (shape == LocShapes.WALLDECOR_DIAGONAL_NOOFFSET) {
+            @Pc(1813) WallDecor decor;
+            @Pc(1844) int oppositeRotation = (rotation + 2) & 0x3;
+
+            if (isStatic) {
+                @Pc(2068) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, 0, 0, shape, oppositeRotation + 4);
+                decor = staticDecor;
+
+                if (staticDecor.castsShadow(-19717)) {
+                    staticDecor.addShadow(toolkit);
+                }
+            } else {
+                decor = new DynamicWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, 0, 0, shape, oppositeRotation + 4, animation);
+            }
+
+            Static177.setWallDecor(level, x, z, decor, null);
+        } else if (shape == LocShapes.WALLDECOR_DIAGONAL_BOTH) {
+            @Pc(492) int oppositeRotation = rotation + 2 & 0x3;
+
+            @Pc(495) int local495 = 33;
+            @Pc(2134) Location wall = (Location) Static302.getWall(level, x, z);
+            if (wall != null) {
+                local495 = (Static354.aLocTypeList_4.list(wall.getId(-32136)).anInt1243 / 2) + 1;
+            }
+
+            @Pc(2178) WallDecor primaryDecor;
+            @Pc(2200) WallDecor secondaryDecor;
+            if (isStatic) {
+                primaryDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, Static407.anIntArray489[rotation] * local495, Static636.anIntArray742[rotation] * local495, shape, rotation + 4);
+                secondaryDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, 0, 0, shape, oppositeRotation + 4);
+
+                if (primaryDecor.castsShadow(-19717)) {
+                    primaryDecor.addShadow(toolkit);
+                }
+
+                if (secondaryDecor.castsShadow(-19717)) {
+                    secondaryDecor.addShadow(toolkit);
+                }
+            } else {
+                primaryDecor = new DynamicWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, Static407.anIntArray489[rotation] * local495, Static636.anIntArray742[rotation] * local495, shape, rotation + 4, animation);
+                secondaryDecor = new DynamicWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, 0, 0, shape, oppositeRotation + 4, animation);
+            }
+
+            Static177.setWallDecor(level, x, z, primaryDecor, secondaryDecor);
         }
     }
 
@@ -986,9 +1089,9 @@ public final class MapRegion extends Class306 {
                 @Pc(77) int locShape = shapeAndRotation >> 2;
                 @Pc(81) int locRotation = shapeAndRotation & 0x3;
                 if ((locLevel == regionLevel) && (locX >= regionX) && (locX < (regionX + 8)) && (locZ >= regionZ) && (locZ < (regionZ + 8))) {
-                    @Pc(113) LocType locType = Static354.aLocTypeList_4.list(id, 89);
-                    @Pc(130) int rx = rotateLocX(locType.anInt1270, locZ & 0x7, locType.anInt1229, locRotation, locX & 0x7, regionRotation) + x;
-                    @Pc(147) int rz = rotateLocZ(regionRotation, locZ & 0x7, locType.anInt1229, locRotation, locType.anInt1270, locX & 0x7) + z;
+                    @Pc(113) LocType locType = Static354.aLocTypeList_4.list(id);
+                    @Pc(130) int rx = rotateLocX(locType.width, locZ & 0x7, locType.length, locRotation, locX & 0x7, regionRotation) + x;
+                    @Pc(147) int rz = rotateLocZ(regionRotation, locZ & 0x7, locType.length, locRotation, locType.width, locX & 0x7) + z;
                     if (rx > 0 && rz > 0 && rx < super.width - 1 && rz < super.height - 1) {
                         @Pc(173) CollisionMap collisionMap = null;
                         if (!super.underwater) {
@@ -1025,22 +1128,22 @@ public final class MapRegion extends Class306 {
             for (local23 = 0; super.levels > local23; local23++) {
                 for (local26 = 0; super.height >= local26; local26++) {
                     for (@Pc(71) int local71 = 0; local71 <= super.width; local71++) {
-                        if ((super.aByteArrayArrayArray14[local23][local71][local26] & 0x4) != 0) {
+                        if ((super.occlurerFlags[local23][local71][local26] & 0x4) != 0) {
                             @Pc(88) int local88 = local71;
                             @Pc(90) int local90 = local71;
                             @Pc(92) int local92 = local26;
                             @Pc(94) int local94 = local26;
-                            while (local92 > 0 && (super.aByteArrayArrayArray14[local23][local71][local92 - 1] & 0x4) != 0 && local26 - local92 < 10) {
+                            while (local92 > 0 && (super.occlurerFlags[local23][local71][local92 - 1] & 0x4) != 0 && local26 - local92 < 10) {
                                 local92--;
                             }
-                            while (local94 < super.height && (super.aByteArrayArrayArray14[local23][local71][local94 + 1] & 0x4) != 0 && local94 - local92 < 10) {
+                            while (local94 < super.height && (super.occlurerFlags[local23][local71][local94 + 1] & 0x4) != 0 && local94 - local92 < 10) {
                                 local94++;
                             }
                             @Pc(163) int local163;
                             label111:
                             while (local88 > 0 && local71 - local88 < 10) {
                                 for (local163 = local92; local163 <= local94; local163++) {
-                                    if ((super.aByteArrayArrayArray14[local23][local88 - 1][local163] & 0x4) == 0) {
+                                    if ((super.occlurerFlags[local23][local88 - 1][local163] & 0x4) == 0) {
                                         break label111;
                                     }
                                 }
@@ -1049,7 +1152,7 @@ public final class MapRegion extends Class306 {
                             label98:
                             while (super.width > local90 && local90 - local88 < 10) {
                                 for (local163 = local92; local163 <= local94; local163++) {
-                                    if ((super.aByteArrayArrayArray14[local23][local90 + 1][local163] & 0x4) == 0) {
+                                    if ((super.occlurerFlags[local23][local90 + 1][local163] & 0x4) == 0) {
                                         break label98;
                                     }
                                 }
@@ -1060,7 +1163,7 @@ public final class MapRegion extends Class306 {
                                 Static269.method3911((local94 << 9) + 512, local88 << 9, local163, local92 << 9, local163, local23, (local90 << 9) + 512);
                                 for (@Pc(297) int local297 = local88; local297 <= local90; local297++) {
                                     for (@Pc(300) int local300 = local92; local300 <= local94; local300++) {
-                                        super.aByteArrayArrayArray14[local23][local297][local300] &= 0xFFFFFFFB;
+                                        super.occlurerFlags[local23][local297][local300] &= 0xFFFFFFFB;
                                     }
                                 }
                             }
@@ -1070,7 +1173,7 @@ public final class MapRegion extends Class306 {
             }
             Static348.method5107();
         }
-        super.aByteArrayArrayArray14 = null;
+        super.occlurerFlags = null;
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IBILclient!eq;IILclient!ha;)V")
@@ -1079,21 +1182,21 @@ public final class MapRegion extends Class306 {
         if (local13 == null) {
             return;
         }
-        @Pc(22) LocType local22 = Static354.aLocTypeList_4.list(local13.method6859(-32136), 98);
+        @Pc(22) LocType local22 = Static354.aLocTypeList_4.list(local13.getId(-32136));
         @Pc(26) int local26 = local13.method6858();
         @Pc(30) int local30 = local13.method6855(23796);
-        if (local22.method1303()) {
+        if (local22.hasSounds()) {
             Static506.method8312(arg4, arg1, arg3, local22);
         }
-        if (local13.method6860(-19717)) {
+        if (local13.castsShadow(-19717)) {
             local13.method6857(arg5, -88);
         }
         if (arg0 == 0) {
             Static26.method717(arg3, arg4, arg1);
-            if (local22.anInt1242 != 0) {
-                arg2.method2463(arg1, local30, local26, !local22.aBoolean97, arg4, local22.aBoolean99);
+            if (local22.movementPolicy != 0) {
+                arg2.method2463(arg1, local30, local26, !local22.routingHint, arg4, local22.blockRanged);
             }
-            if (local22.anInt1223 == 1) {
+            if (local22.locOcclusionMode == 1) {
                 if (local30 == 0) {
                     Static687.method8958(arg4, arg3, 1, arg1);
                 } else if (local30 == 1) {
@@ -1108,8 +1211,8 @@ public final class MapRegion extends Class306 {
             Static173.method2692(arg3, arg4, arg1);
         } else if (arg0 == 2) {
             Static10.method130(arg3, arg4, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
-            if (local22.anInt1242 != 0 && super.width > local22.anInt1270 + arg4 && super.height > local22.anInt1270 + arg1 && arg4 + local22.anInt1229 < super.width && local22.anInt1229 + arg1 < super.height) {
-                arg2.method2468(local22.aBoolean99, !local22.aBoolean97, arg4, local22.anInt1270, local22.anInt1229, local30, arg1);
+            if (local22.movementPolicy != 0 && super.width > local22.width + arg4 && super.height > local22.width + arg1 && arg4 + local22.length < super.width && local22.length + arg1 < super.height) {
+                arg2.method2468(local22.blockRanged, !local22.routingHint, arg4, local22.width, local22.length, local30, arg1);
             }
             if (local26 == 9) {
                 if ((local30 & 0x1) == 0) {
@@ -1120,7 +1223,7 @@ public final class MapRegion extends Class306 {
             }
         } else if (arg0 == 3) {
             Static609.method8212(arg3, arg4, arg1);
-            if (local22.anInt1242 == 1) {
+            if (local22.movementPolicy == 1) {
                 arg2.method2473(arg1, arg4);
             }
         }

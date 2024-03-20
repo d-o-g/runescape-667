@@ -29,8 +29,8 @@ public final class Static323 {
                 for (@Pc(7) int local7 = 0; local7 < Static662.anInt9843; local7++) {
                     @Pc(16) Class291 local16 = Static334.aClass291ArrayArrayArray1[local1][local4][local7];
                     if (local16 != null) {
-                        @Pc(21) Class8_Sub2_Sub3 local21 = local16.aClass8_Sub2_Sub3_2;
-                        @Pc(24) Class8_Sub2_Sub3 local24 = local16.aClass8_Sub2_Sub3_1;
+                        @Pc(21) Wall local21 = local16.aClass8_Sub2_Sub3_2;
+                        @Pc(24) Wall local24 = local16.aWall_1;
                         if (local21 != null && local21.method9290(0)) {
                             Static535.method7148(local21, local1, local4, local7, 1, 1);
                             if (local24 != null && local24.method9290(0)) {
@@ -41,13 +41,13 @@ public final class Static323 {
                             local21.method9280(27811);
                         }
                         for (@Pc(76) Class286 local76 = local16.aClass286_2; local76 != null; local76 = local76.aClass286_1) {
-                            @Pc(80) Class8_Sub2_Sub1 local80 = local76.aClass8_Sub2_Sub1_1;
+                            @Pc(80) PositionEntity local80 = local76.aPositionEntity;
                             if (local80 != null && local80.method9290(0)) {
                                 Static535.method7148(local80, local1, local4, local7, local80.aShort134 + 1 - local80.aShort131, local80.aShort133 - local80.aShort132 + 1);
                                 local80.method9280(27811);
                             }
                         }
-                        @Pc(120) Class8_Sub2_Sub2 local120 = local16.aClass8_Sub2_Sub2_1;
+                        @Pc(120) GroundDecor local120 = local16.aGroundDecor_1;
                         if (local120 != null && local120.method9290(0)) {
                             Static453.method6209(local120, local1, local4, local7);
                             local120.method9280(27811);
@@ -90,7 +90,7 @@ public final class Static323 {
 
     @OriginalMember(owner = "client!kda", name = "a", descriptor = "(IIBIII)I")
     public static int method4626(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        if (Static246.aGroundArray1 == null) {
+        if (Static246.activeGround == null) {
             return 0;
         } else if (arg1 < 3) {
             @Pc(24) int local24 = arg4 >> 9;
@@ -118,12 +118,12 @@ public final class Static323 {
                 if (local108) {
                     arg1++;
                 }
-                return Static246.aGroundArray1[arg1].method7878(arg0, arg4);
+                return Static246.activeGround[arg1].method7878(arg0, arg4);
             } else {
                 return 0;
             }
         } else {
-            return Static246.aGroundArray1[arg1].method7878(arg0, arg4);
+            return Static246.activeGround[arg1].method7878(arg0, arg4);
         }
     }
 }

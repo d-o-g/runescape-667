@@ -12,9 +12,6 @@ public final class Static270 {
     @OriginalMember(owner = "client!iia", name = "m", descriptor = "Lclient!fca;")
     public static Class123 aClass123_2 = null;
 
-    @OriginalMember(owner = "client!iia", name = "o", descriptor = "Lclient!od;")
-    public static final Class272 aClass272_1 = new Class272();
-
     @OriginalMember(owner = "client!iia", name = "a", descriptor = "(ZI)V")
     public static void method3920(@OriginalArg(0) boolean arg0) {
         if (Static110.aString19.length() == 0) {

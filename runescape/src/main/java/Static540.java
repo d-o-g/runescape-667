@@ -126,9 +126,4 @@ public final class Static540 {
         local7.anInt956 = arg4;
         Static422.aClass130_9.method2787(local7);
     }
-
-    @OriginalMember(owner = "client!r", name = "b", descriptor = "(II)Z")
-    public static boolean method6540(@OriginalArg(0) int arg0) {
-        return arg0 >= 0 && arg0 <= 3 || arg0 == 9;
-    }
 }

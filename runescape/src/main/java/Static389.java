@@ -13,11 +13,6 @@ public final class Static389 {
     @OriginalMember(owner = "client!md", name = "G", descriptor = "Ljava/lang/String;")
     public static String aString64 = null;
 
-    @OriginalMember(owner = "client!md", name = "b", descriptor = "(IZ)Z")
-    public static boolean method5474(@OriginalArg(0) int arg0) {
-        return arg0 >= 12 && arg0 <= 17;
-    }
-
     @OriginalMember(owner = "client!md", name = "a", descriptor = "(IBLclient!hda;I)V")
     public static void method5476(@OriginalArg(0) int arg0, @OriginalArg(2) Class158 arg1, @OriginalArg(3) int arg2) {
         if (arg1 == null) {

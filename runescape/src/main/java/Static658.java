@@ -14,17 +14,17 @@ public final class Static658 {
     public static final HashTable A_HASH_TABLE___43 = new HashTable(16);
 
     @OriginalMember(owner = "client!us", name = "a", descriptor = "(Lclient!eo;[Lclient!lca;)V")
-    public static void method8591(@OriginalArg(0) Class8_Sub2 arg0, @OriginalArg(1) PointLight[] arg1) {
+    public static void method8591(@OriginalArg(0) Renderable arg0, @OriginalArg(1) PointLight[] arg1) {
         @Pc(6) int local6;
         if (Static442.aBoolean500) {
             local6 = arg0.method9288(arg1);
             Static665.aToolkit_15.method8009(local6, arg1);
         }
-        if (Static693.aGroundArray2 == Static246.aGroundArray1) {
+        if (Static693.aGroundArray2 == Static246.activeGround) {
             @Pc(28) int local28;
-            if (arg0 instanceof Class8_Sub2_Sub1) {
-                local6 = ((Class8_Sub2_Sub1) arg0).aShort131;
-                local28 = ((Class8_Sub2_Sub1) arg0).aShort132;
+            if (arg0 instanceof PositionEntity) {
+                local6 = ((PositionEntity) arg0).aShort131;
+                local28 = ((PositionEntity) arg0).aShort132;
             } else {
                 local6 = arg0.anInt10690 >> Static52.anInt1066;
                 local28 = arg0.anInt10694 >> Static52.anInt1066;
@@ -45,7 +45,7 @@ public final class Static658 {
             }
         }
         if (local64.aBoolean548) {
-            local64.aClass8_Sub2_18 = arg0;
+            local64.aRenderable_18 = arg0;
             if (Static661.aBoolean457) {
                 @Pc(127) Class213 local127 = Static514.aClass213_2;
                 synchronized (Static514.aClass213_2) {

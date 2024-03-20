@@ -60,7 +60,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
         if (arg4 <= 101) {
             Static712.method9329((byte) 99);
         }
@@ -134,10 +134,10 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
         local22.rotate(local27);
         @Pc(45) Class291 local45 = Static334.aClass291ArrayArrayArray1[super.aByte144][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
-        if (local45 == null || local45.aClass8_Sub2_Sub2_1 == null) {
+        if (local45 == null || local45.aGroundDecor_1 == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
         } else {
-            @Pc(75) int local75 = super.anInt10732 - local45.aClass8_Sub2_Sub2_1.aShort46;
+            @Pc(75) int local75 = super.anInt10732 - local45.aGroundDecor_1.aShort46;
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) local75 / 10.0F);
         }
         local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 20, super.anInt10694);

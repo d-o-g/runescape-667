@@ -22,7 +22,7 @@ public final class Node_Sub34 extends Node {
     public Class57_Sub27 aClass57_Sub27_1;
 
     @OriginalMember(owner = "client!kv", name = "H", descriptor = "Lclient!fia;")
-    public Class57_Sub6 aClass57_Sub6_1;
+    public Class57_Sub6 groundDecor;
 
     @OriginalMember(owner = "client!kv", name = "fb", descriptor = "Lclient!lo;")
     public Class57_Sub14 aClass57_Sub14_1;
@@ -88,7 +88,7 @@ public final class Node_Sub34 extends Node {
     public Class57_Sub10 aClass57_Sub10_1;
 
     @OriginalMember(owner = "client!kv", name = "A", descriptor = "Lclient!nt;")
-    public Class57_Sub19 aClass57_Sub19_2;
+    public Class57_Sub19 animatingBackground;
 
     @OriginalMember(owner = "client!kv", name = "P", descriptor = "Lclient!dl;")
     public Class57_Sub4 aClass57_Sub4_1;
@@ -173,7 +173,7 @@ public final class Node_Sub34 extends Node {
                 this.aClass57_Sub8_1 = new Class57_Sub8(arg0.g1(), this);
                 this.aClass57_Sub16_1 = new Class57_Sub16(arg0.g1(), this);
                 this.aClass57_Sub23_1 = new Class57_Sub23(arg0.g1(), this);
-                this.aClass57_Sub6_1 = new Class57_Sub6(arg0.g1(), this);
+                this.groundDecor = new Class57_Sub6(arg0.g1(), this);
                 this.aClass57_Sub27_1 = new Class57_Sub27(arg0.g1(), this);
                 this.lightDetail = new Class57_Sub24(arg0.g1(), this);
                 this.aClass57_Sub12_1 = new Class57_Sub12(arg0.g1(), this);
@@ -193,7 +193,7 @@ public final class Node_Sub34 extends Node {
                 this.aClass57_Sub29_2 = new Class57_Sub29(arg0.g1(), this);
                 this.aClass57_Sub29_1 = new Class57_Sub29(this.aClass57_Sub29_2.method7915(), this);
                 this.aClass57_Sub19_1 = new Class57_Sub19(arg0.g1(), this);
-                this.aClass57_Sub19_2 = new Class57_Sub19(this.aClass57_Sub19_1.method5960(), this);
+                this.animatingBackground = new Class57_Sub19(this.aClass57_Sub19_1.value(), this);
                 this.aClass57_Sub26_1 = new Class57_Sub26(arg0.g1(), this);
                 this.screenSize = new Class57_Sub1(arg0.g1(), this);
                 this.aClass57_Sub1_2 = new Class57_Sub1(this.screenSize.getValue(), this);
@@ -242,8 +242,8 @@ public final class Node_Sub34 extends Node {
         if (arg0 || this.aClass57_Sub23_1 == null) {
             this.aClass57_Sub23_1 = new Class57_Sub23(this);
         }
-        if (arg0 || this.aClass57_Sub6_1 == null) {
-            this.aClass57_Sub6_1 = new Class57_Sub6(this);
+        if (arg0 || this.groundDecor == null) {
+            this.groundDecor = new Class57_Sub6(this);
         }
         if (arg0 || this.aClass57_Sub27_1 == null) {
             this.aClass57_Sub27_1 = new Class57_Sub27(this);
@@ -290,8 +290,8 @@ public final class Node_Sub34 extends Node {
         if (arg0 || this.aClass57_Sub19_1 == null) {
             this.aClass57_Sub19_1 = new Class57_Sub19(this);
         }
-        if (arg0 || this.aClass57_Sub19_2 == null) {
-            this.aClass57_Sub19_2 = new Class57_Sub19(this.aClass57_Sub19_1.method5960(), this);
+        if (arg0 || this.animatingBackground == null) {
+            this.animatingBackground = new Class57_Sub19(this.aClass57_Sub19_1.value(), this);
         }
         if (arg0 || this.aClass57_Sub26_1 == null) {
             this.aClass57_Sub26_1 = new Class57_Sub26(this);
@@ -389,7 +389,7 @@ public final class Node_Sub34 extends Node {
         local9.p1(this.aClass57_Sub8_1.method3176());
         local9.p1(this.aClass57_Sub16_1.method5507());
         local9.p1(this.aClass57_Sub23_1.method7054());
-        local9.p1(this.aClass57_Sub6_1.method2714());
+        local9.p1(this.groundDecor.value());
         local9.p1(this.aClass57_Sub27_1.method7667());
         local9.p1(this.lightDetail.getValue());
         local9.p1(this.aClass57_Sub12_1.method4364());
@@ -400,9 +400,9 @@ public final class Node_Sub34 extends Node {
         local9.p1(this.aClass57_Sub2_1.method1989());
         local9.p1(this.aClass57_Sub7_1.method2905());
         local9.p1(this.aClass57_Sub9_1.method3199());
-        local9.p1(this.textures.getValue());
+        local9.p1(this.textures.value());
         local9.p1(this.aClass57_Sub29_2.method7915());
-        local9.p1(this.aClass57_Sub19_1.method5960());
+        local9.p1(this.aClass57_Sub19_1.value());
         local9.p1(this.aClass57_Sub26_1.method7463());
         local9.p1(this.screenSize.getValue());
         local9.p1(this.aClass57_Sub14_1.method5302());
@@ -429,7 +429,7 @@ public final class Node_Sub34 extends Node {
         this.aClass57_Sub22_1 = new Class57_Sub22(arg1.g1(), this);
         this.aClass57_Sub19_1 = new Class57_Sub19(arg1.g1(), this);
         this.aClass57_Sub4_1 = new Class57_Sub4(arg1.g1() + 1, this);
-        this.aClass57_Sub6_1 = new Class57_Sub6(arg1.g1(), this);
+        this.groundDecor = new Class57_Sub6(arg1.g1(), this);
         this.aClass57_Sub9_1 = new Class57_Sub9(arg1.g1(), this);
         this.aClass57_Sub27_1 = new Class57_Sub27(arg1.g1(), this);
         this.aClass57_Sub8_1 = new Class57_Sub8(arg1.g1(), this);

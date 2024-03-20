@@ -1,4 +1,4 @@
-import com.jagex.Class8;
+import com.jagex.Entity;
 import com.jagex.game.runetek6.config.emittertype.MeshEmitterType;
 import com.jagex.graphics.MeshEmitter;
 import com.jagex.game.runetek6.config.emittertype.MeshEmitterTypeList;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rf")
-public final class Class8_Sub8 extends Class8 {
+public final class Class8_Sub8 extends Entity {
 
     @OriginalMember(owner = "client!rf", name = "u", descriptor = "I")
     public int anInt8268;

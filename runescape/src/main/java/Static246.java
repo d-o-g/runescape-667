@@ -9,7 +9,7 @@ public final class Static246 {
     public static double aDouble13;
 
     @OriginalMember(owner = "client!hl", name = "n", descriptor = "[Lclient!s;")
-    public static Ground[] aGroundArray1;
+    public static Ground[] activeGround;
 
     @OriginalMember(owner = "client!hl", name = "e", descriptor = "I")
     public static int anInt3986;

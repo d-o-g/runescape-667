@@ -32,12 +32,12 @@ public final class Static710 {
         }
         @Pc(36) int local36;
         @Pc(38) int local38;
-        if (Static400.instance.aClass57_Sub19_2.method5960() == 1) {
+        if (Static400.instance.animatingBackground.value() == 1) {
             local36 = 0;
             local38 = 3;
         } else {
-            local38 = Static164.anInt2808;
-            local36 = Static164.anInt2808;
+            local38 = Static164.areaLevel;
+            local36 = Static164.areaLevel;
         }
         @Pc(56) int local56;
         if (Static1.anInt10798 == 3) {

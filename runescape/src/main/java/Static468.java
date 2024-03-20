@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static468 {
 
     @OriginalMember(owner = "client!op", name = "l", descriptor = "[Lclient!eo;")
-    public static Class8_Sub2[] aClass8_Sub2Array10;
+    public static Renderable[] aRenderableArray10;
 
     @OriginalMember(owner = "client!op", name = "r", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_212 = new Class225(77, -2);
@@ -14,7 +14,7 @@ public final class Static468 {
     public static void method7641(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(8) int local8 = arg2 + Static691.anInt10367;
         @Pc(12) int local12 = Static116.anInt2270 + arg1;
-        if (Static334.aClass291ArrayArrayArray1 == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.aClass57_Sub19_2.method5960() == 0 && arg0 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
+        if (Static334.aClass291ArrayArrayArray1 == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.animatingBackground.value() == 0 && arg0 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
             return;
         }
         @Pc(67) long local67 = (long) (local12 << 14 | arg0 << 28 | local8);
@@ -30,7 +30,7 @@ public final class Static468 {
         }
         @Pc(103) Class8_Sub2_Sub5_Sub1 local103 = (Class8_Sub2_Sub5_Sub1) Static638.method8398(arg0, arg2, arg1);
         if (local103 == null) {
-            local103 = new Class8_Sub2_Sub5_Sub1(arg2 << 9, Static246.aGroundArray1[arg0].method7869(arg1, arg2), arg1 << 9, arg0, arg0);
+            local103 = new Class8_Sub2_Sub5_Sub1(arg2 << 9, Static246.activeGround[arg0].getHeight(arg1, arg2), arg1 << 9, arg0, arg0);
         } else {
             local103.anInt8878 = local103.anInt8876 = -1;
         }
@@ -73,10 +73,10 @@ public final class Static468 {
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZZ)V")
     public static void method7643() {
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub19_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub19_2);
+        Static400.instance.method5104(0, Static400.instance.animatingBackground);
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub4_1);
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub4_2);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub6_1);
+        Static400.instance.method5104(0, Static400.instance.groundDecor);
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub16_1);
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub23_1);
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub27_1);

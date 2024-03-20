@@ -26,12 +26,12 @@ public final class Static185 {
         @Pc(30) int local30;
         @Pc(45) int local45;
         if (local9 != null) {
-            local20 = Static354.aLocTypeList_4.list(local9.method6859(-32136), 37);
+            local20 = Static354.aLocTypeList_4.list(local9.getId(-32136));
             local26 = local9.method6855(23796) & 0x3;
             local30 = local9.method6858();
-            if (local20.anInt1239 == -1) {
+            if (local20.msi == -1) {
                 local45 = arg1;
-                if (local20.anInt1271 > 0) {
+                if (local20.interactivity > 0) {
                     local45 = arg7;
                 }
                 if (local30 == 0 || local30 == 2) {
@@ -73,14 +73,14 @@ public final class Static185 {
         }
         local9 = (Location) Static578.getEntity(arg6, arg2, arg3, aClass8 == null ? (aClass8 = getClass("Location")) : aClass8);
         if (local9 != null) {
-            local20 = Static354.aLocTypeList_4.list(local9.method6859(-32136), 61);
+            local20 = Static354.aLocTypeList_4.list(local9.getId(-32136));
             local26 = local9.method6855(23796) & 0x3;
             local30 = local9.method6858();
-            if (local20.anInt1239 != -1) {
+            if (local20.msi != -1) {
                 Static452.method6173(local20, local26, arg0, arg4, arg5);
             } else if (local30 == 9) {
                 local45 = -1118482;
-                if (local20.anInt1271 > 0) {
+                if (local20.interactivity > 0) {
                     local45 = -1179648;
                 }
                 if (local26 == 0 || local26 == 2) {
@@ -94,9 +94,9 @@ public final class Static185 {
         if (local9 == null) {
             return;
         }
-        local20 = Static354.aLocTypeList_4.list(local9.method6859(-32136), 106);
+        local20 = Static354.aLocTypeList_4.list(local9.getId(-32136));
         local26 = local9.method6855(23796) & 0x3;
-        if (local20.anInt1239 != -1) {
+        if (local20.msi != -1) {
             Static452.method6173(local20, local26, arg0, arg4, arg5);
             return;
         }

@@ -20,7 +20,7 @@ public final class Class57_Sub12 extends Class57 {
         if (super.aClass2_Sub34_34.method5111()) {
             return false;
         } else {
-            return super.aClass2_Sub34_34.textures.getValue() != 0;
+            return super.aClass2_Sub34_34.textures.value() != 0;
         }
     }
 
@@ -46,7 +46,7 @@ public final class Class57_Sub12 extends Class57 {
     public int method8352(@OriginalArg(0) int arg0) {
         if (super.aClass2_Sub34_34.method5111()) {
             return 3;
-        } else if (super.aClass2_Sub34_34.textures.getValue() == 0) {
+        } else if (super.aClass2_Sub34_34.textures.value() == 0) {
             return 3;
         } else {
             return 1;
@@ -59,7 +59,7 @@ public final class Class57_Sub12 extends Class57 {
         if (super.aClass2_Sub34_34.method5111()) {
             super.anInt9489 = 0;
         }
-        if (super.aClass2_Sub34_34.textures.getValue() == 0) {
+        if (super.aClass2_Sub34_34.textures.value() == 0) {
             super.anInt9489 = 0;
         }
         if (super.anInt9489 < 0 || super.anInt9489 > 2) {

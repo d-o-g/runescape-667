@@ -9,7 +9,7 @@ public final class Static73 {
     public static final Class287 aClass287_18 = new Class287(6, 16);
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(IIILclient!kp;I)Z")
-    public static boolean method9308(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Class8_Sub2_Sub3 arg2, @OriginalArg(4) int arg3) {
+    public static boolean method9308(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Wall arg2, @OriginalArg(4) int arg3) {
         if (!Static18.aBoolean20 || !Static29.aBoolean60) {
             return false;
         } else if (Static432.anInt525 < 100) {
@@ -17,7 +17,7 @@ public final class Static73 {
         } else if (Static588.method7714(arg1, arg3, arg0)) {
             @Pc(31) int local31 = arg0 << Static52.anInt1066;
             @Pc(35) int local35 = arg1 << Static52.anInt1066;
-            @Pc(45) int local45 = Static246.aGroundArray1[arg3].method7869(arg1, arg0) - 1;
+            @Pc(45) int local45 = Static246.activeGround[arg3].getHeight(arg1, arg0) - 1;
             @Pc(51) int local51 = arg2.method9286(2) + local45;
             if (arg2.aShort58 == 1) {
                 if (!Static172.method2674(local31, local35, local51, local51, local45, local35, Static340.anInt5586 + local35, local31, local31)) {

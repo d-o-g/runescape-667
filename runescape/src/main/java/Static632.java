@@ -184,7 +184,7 @@ public final class Static632 {
     }
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(Lclient!eo;ZZ)V")
-    public static void method8368(@OriginalArg(0) Class8_Sub2 arg0, @OriginalArg(2) boolean arg1) {
+    public static void method8368(@OriginalArg(0) Renderable arg0, @OriginalArg(2) boolean arg1) {
         arg0.aBoolean813 = arg1;
         if (Static661.aBoolean457) {
             Static684.aClass302Array1[Static684.aClass302Array1.length - 1].method6812(arg0);

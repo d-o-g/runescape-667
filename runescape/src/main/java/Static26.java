@@ -22,12 +22,12 @@ public final class Static26 {
             return;
         }
         Static109.method2068(local7.aClass8_Sub2_Sub3_2);
-        Static109.method2068(local7.aClass8_Sub2_Sub3_1);
+        Static109.method2068(local7.aWall_1);
         if (local7.aClass8_Sub2_Sub3_2 != null) {
             local7.aClass8_Sub2_Sub3_2 = null;
         }
-        if (local7.aClass8_Sub2_Sub3_1 != null) {
-            local7.aClass8_Sub2_Sub3_1 = null;
+        if (local7.aWall_1 != null) {
+            local7.aWall_1 = null;
         }
     }
 }

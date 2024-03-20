@@ -44,7 +44,7 @@ public final class Static293 {
             arg0.anInt4002 = -1;
             arg0.anInt4015 = 0;
         } else {
-            arg0.anInt4002 = local9.method6859(-32136);
+            arg0.anInt4002 = local9.getId(-32136);
             arg0.anInt4009 = local9.method6858();
             arg0.anInt4015 = local9.method6855(23796);
         }

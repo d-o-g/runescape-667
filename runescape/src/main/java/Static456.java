@@ -41,7 +41,7 @@ public final class Static456 {
         Static461.aBoolean529 = false;
         Static242.method3502();
         Static442.anInt6699 = -1;
-        Static115.method2136(Class8_Sub2_Sub4_Sub1.lb);
+        Static115.method2136(StaticWallDecor.lb);
         Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 = new Class8_Sub2_Sub1_Sub2_Sub1();
         Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 = Static501.mapHeight * 512 / 2;
         Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 = Static720.mapWidth * 512 / 2;

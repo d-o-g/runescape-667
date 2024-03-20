@@ -37,7 +37,7 @@ public final class Static24 {
             local77 = Static442.anInt6699;
         }
         if (local77 == -1) {
-            local77 = Class8_Sub2_Sub4_Sub1.lb;
+            local77 = StaticWallDecor.lb;
         }
         Static115.method2136(local77);
         Static35.anInt800 = 0;

@@ -192,7 +192,7 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IZZIIII)V")
-    public void method2462(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
+    public void flagWall(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         @Pc(8) int local8 = arg2 - this.anInt2645;
         @Pc(13) int local13 = arg5 - this.anInt2647;
         if (arg4 == 0) {
@@ -886,7 +886,7 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "b", descriptor = "(III)V")
-    public void method2470(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public void flagGroundDecor(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(8) int local8 = arg1 - this.anInt2647;
         @Pc(13) int local13 = arg0 - this.anInt2645;
         this.anIntArrayArray65[local8][local13] |= 0x40000;
@@ -898,7 +898,7 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIIZIZ)V")
-    public void method2472(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) boolean arg3, @OriginalArg(5) int arg4, @OriginalArg(6) boolean arg5) {
+    public void flagRect(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) boolean arg3, @OriginalArg(5) int arg4, @OriginalArg(6) boolean arg5) {
         @Pc(5) int local5 = 256;
         if (arg5) {
             local5 = 131328;

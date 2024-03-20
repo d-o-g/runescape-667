@@ -1,10 +1,10 @@
-import com.jagex.Class8;
+import com.jagex.Entity;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!uo")
-public final class Class8_Sub10 extends Class8 {
+public final class Class8_Sub10 extends Entity {
 
     @OriginalMember(owner = "client!uo", name = "j", descriptor = "B")
     public final byte aByte138;

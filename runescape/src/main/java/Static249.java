@@ -55,12 +55,12 @@ public final class Static249 {
                 }
             }
         } else if (Static523.method3444(arg0.anInt7314)) {
-            @Pc(89) LocType local89 = Static354.aLocTypeList_4.list((int) (arg0.aLong233 >>> 32 & 0x7FFFFFFFL), 46);
-            if (local89.anIntArray113 != null) {
-                local89 = local89.method1301(13, Static34.aClass304_1);
+            @Pc(89) LocType local89 = Static354.aLocTypeList_4.list((int) (arg0.aLong233 >>> 32 & 0x7FFFFFFFL));
+            if (local89.multiLocs != null) {
+                local89 = local89.getMultiLoc(Static34.aClass304_1);
             }
             if (local89 != null) {
-                local17 = local89.anIntArray112;
+                local17 = local89.quests;
             }
         }
         if (local17 != null) {

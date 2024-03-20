@@ -1,5 +1,6 @@
 import com.jagex.core.util.JagException;
 import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -68,28 +69,28 @@ public final class Static605 {
             if (local21 == 11) {
                 local21 = 10;
             }
-            @Pc(210) LocType local210 = Static354.aLocTypeList_4.list(local52, 87);
+            @Pc(210) LocType local210 = Static354.aLocTypeList_4.list(local52);
             local212 = 0;
-            if (local210.aByteArray13 != null) {
+            if (local210.modelShapes != null) {
                 local217 = -1;
-                for (local219 = 0; local219 < local210.aByteArray13.length; local219++) {
-                    if (local210.aByteArray13[local219] == local21) {
+                for (local219 = 0; local219 < local210.modelShapes.length; local219++) {
+                    if (local210.modelShapes[local219] == local21) {
                         local217 = local219;
                         break;
                     }
                 }
-                local212 = local210.anIntArrayArray30[local217].length;
+                local212 = local210.models[local217].length;
             }
             local217 = 0;
-            if (local210.aShortArray13 != null) {
-                local217 = local210.aShortArray13.length;
+            if (local210.recol_d != null) {
+                local217 = local210.recol_d.length;
             }
             local219 = 0;
-            if (local210.aShortArray12 != null) {
-                local219 = local210.aShortArray12.length;
+            if (local210.retex_d != null) {
+                local219 = local210.retex_d.length;
             }
             if ((local34 & 0x1) == 1) {
-                Static296.method4361((Class150) null, Static87.anInt1810, local25, local42, local46);
+                Static296.method4361((LocTypeCustomisation) null, Static87.anInt1810, local25, local42, local46);
             } else {
                 @Pc(278) int[] local278 = null;
                 if ((local34 & 0x2) == 2) {
@@ -112,7 +113,7 @@ public final class Static605 {
                         local343[local353] = (short) local8.g2();
                     }
                 }
-                Static296.method4361(new Class150((long) Static356.aLong177++, local278, local310, local343), Static87.anInt1810, local25, local42, local46);
+                Static296.method4361(new LocTypeCustomisation((long) Static356.aLong177++, local278, local310, local343), Static87.anInt1810, local25, local42, local46);
             }
         } else if (arg0 == Static420.aClass287_13) {
             local15 = local8.g2_alt3();
@@ -130,7 +131,7 @@ public final class Static605 {
         } else if (arg0 == Static328.aClass287_10) {
             local15 = local8.g2();
             local21 = local8.g1();
-            Static354.aLocTypeList_4.list(local15, 82).method1304(local21);
+            Static354.aLocTypeList_4.list(local15).loadedModels(local21);
         } else {
             @Pc(537) int local537;
             if (arg0 == Static481.aClass287_15) {

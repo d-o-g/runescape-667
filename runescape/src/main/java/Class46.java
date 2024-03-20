@@ -1,4 +1,4 @@
-import com.jagex.Class8;
+import com.jagex.Entity;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
@@ -80,9 +80,9 @@ public final class Class46 implements Runnable {
                 }
             } else {
                 this.aBoolean77 = true;
-                @Pc(23) Class8 local23 = this.aClass302_1.method6807();
-                if (local23 instanceof Class8_Sub2) {
-                    @Pc(29) Class8_Sub2 local29 = (Class8_Sub2) local23;
+                @Pc(23) Entity local23 = this.aClass302_1.method6807();
+                if (local23 instanceof Renderable) {
+                    @Pc(29) Renderable local29 = (Renderable) local23;
                     if (local29.aBoolean812) {
                         local29.method9289(Static665.aToolkit_15, -5);
                     } else {
@@ -94,14 +94,14 @@ public final class Class46 implements Runnable {
                 } else {
                     @Pc(62) int local62 = ((Class8_Sub9) local23).anInt8501;
                     if (local62 >= 1 && local62 <= 4) {
-                        @Pc(76) Ground local76 = Static246.aGroundArray1[local62 - 1];
+                        @Pc(76) Ground local76 = Static246.activeGround[local62 - 1];
                         for (@Pc(78) int local78 = 0; local78 < Static35.anInt813 + Static35.anInt813; local78++) {
                             for (@Pc(81) int local81 = 0; local81 < Static35.anInt813 + Static35.anInt813; local81++) {
                                 if (Static433.aBooleanArrayArrayArray5[local62 - 1][local78][local81]) {
                                     @Pc(98) int local98 = Static403.anInt6246 + local78 - Static35.anInt813;
                                     @Pc(104) int local104 = Static550.anInt8271 + local81 - Static35.anInt813;
                                     if (local98 >= 0 && local98 < local76.anInt8894 && local104 >= 0 && local104 < local76.anInt8892) {
-                                        Static665.aToolkit_15.H(local98 << Static52.anInt1066, local76.method7869(local104, local98), local104 << Static52.anInt1066, this.anIntArray85);
+                                        Static665.aToolkit_15.H(local98 << Static52.anInt1066, local76.getHeight(local104, local98), local104 << Static52.anInt1066, this.anIntArray85);
                                         if (Static356.method5199(this.anIntArray85[0]) == this.anInt1012 - 1) {
                                             local76.method7875(local98, local104);
                                         }

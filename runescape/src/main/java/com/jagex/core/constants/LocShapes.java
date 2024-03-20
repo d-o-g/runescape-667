@@ -1,5 +1,8 @@
 package com.jagex.core.constants;
 
+import org.openrs2.deob.annotation.OriginalArg;
+import org.openrs2.deob.annotation.OriginalMember;
+
 public final class LocShapes {
 
 	public static int[] WALLDECOR_DIAGONAL_ZOFFSET = { -1, -1, +1, +1 };
@@ -62,21 +65,20 @@ public final class LocShapes {
 
 	public static final int GROUNDDECOR = 22;
 
-	public static boolean isWall(int shape) {
-		return (shape >= WALL_STRAIGHT && shape <= WALL_SQUARECORNER) || shape == WALL_DIAGONAL;
-	}
+    @OriginalMember(owner = "client!r", name = "b", descriptor = "(II)Z")
+    public static boolean isWall(@OriginalArg(0) int shape) {
+        return shape >= WALL_STRAIGHT && shape <= WALL_SQUARECORNER || shape == WALL_DIAGONAL;
+    }
 
-	public static boolean isWallDecor(int shape) {
-		return shape >= WALLDECOR_STRAIGHT_NOOFFSET && shape <= WALLDECOR_DIAGONAL_BOTH;
-	}
+    @OriginalMember(owner = "client!od", name = "a", descriptor = "(IB)Z")
+    public static boolean isWallDecor(@OriginalArg(0) int shape) {
+        return shape >= WALLDECOR_STRAIGHT_NOOFFSET && shape <= WALLDECOR_DIAGONAL_BOTH;
+    }
 
-	public static boolean isRoof(int shape) {
-		return shape >= ROOF_STRAIGHT && shape <= ROOF_FLAT;
-	}
-
-	public static boolean isRoofEdge(int shape) {
-		return shape >= ROOFEDGE_STRAIGHT && shape <= ROOFEDGE_SQUARECORNER;
-	}
+    @OriginalMember(owner = "client!md", name = "b", descriptor = "(IZ)Z")
+    public static boolean isRoof(@OriginalArg(0) int shape) {
+        return shape >= ROOF_STRAIGHT && shape <= ROOF_FLAT;
+    }
 
 	private LocShapes() {
 		/* empty */

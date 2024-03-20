@@ -59,8 +59,8 @@ public final class Static723 {
                     if (Static2.aMapRegion.aByteArrayArrayArray12 != null && Static2.aMapRegion.aByteArrayArrayArray12[local117] != null) {
                         local132 = (Static2.aMapRegion.aByteArrayArrayArray12[local117][local109][local114] & 0xFF) * 8 << 2;
                     }
-                    if (Static246.aGroundArray1 != null && Static246.aGroundArray1[local117] != null) {
-                        @Pc(177) int local177 = local132 + local77 - Static246.aGroundArray1[local117].method7869(local114, local109);
+                    if (Static246.activeGround != null && Static246.activeGround[local117] != null) {
+                        @Pc(177) int local177 = local132 + local77 - Static246.activeGround[local117].getHeight(local114, local109);
                         if (local79 < local177) {
                             local79 = local177;
                         }

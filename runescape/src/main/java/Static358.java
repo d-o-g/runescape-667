@@ -61,7 +61,7 @@ public final class Static358 {
                     }
                     for (@Pc(125) int local125 = local100; local125 <= local108; local125++) {
                         @Pc(128) byte local128 = 1;
-                        @Pc(144) Class8_Sub2_Sub1 local144 = Static578.getEntity(local16, local125, local78, aClass28 == null ? (aClass28 = getClass("Class8_Sub2_Sub1")) : aClass28);
+                        @Pc(144) PositionEntity local144 = Static578.getEntity(local16, local125, local78, aClass28 == null ? (aClass28 = getClass("Class8_Sub2_Sub1")) : aClass28);
                         if (local144 != null && local144.aByte145 != 0) {
                             @Pc(169) boolean local169;
                             @Pc(179) boolean local179;
@@ -115,7 +115,7 @@ public final class Static358 {
                     local32++;
                 }
                 Static279.aBooleanArray11[local1] = true;
-                Static246.aGroundArray1[local16].method7868(local13, local37);
+                Static246.activeGround[local16].method7868(local13, local37);
             }
         }
     }

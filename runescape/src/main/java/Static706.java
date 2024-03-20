@@ -1,4 +1,5 @@
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Ground;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -19,7 +20,7 @@ public final class Static706 {
     public static final Class225 aClass225_255 = new Class225(105, -1);
 
     @OriginalMember(owner = "client!wfa", name = "a", descriptor = "(IILclient!gp;III)V")
-    public static void method9220(@OriginalArg(0) int arg0, @OriginalArg(2) Class150 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public static void method9220(@OriginalArg(0) int arg0, @OriginalArg(2) LocTypeCustomisation arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         if (arg4 < 1 || arg2 < 1 || arg4 > Static720.mapWidth - 2 || Static501.mapHeight - 2 < arg2) {
             return;
         }
@@ -30,20 +31,20 @@ public final class Static706 {
         if (local52 == null) {
             return;
         }
-        if (local52 instanceof Class8_Sub2_Sub1_Sub4) {
-            ((Class8_Sub2_Sub1_Sub4) local52).method6160(arg1);
+        if (local52 instanceof DynamicLocation) {
+            ((DynamicLocation) local52).method6160(arg1);
             return;
         }
-        if (!(local52 instanceof Class8_Sub2_Sub2_Sub2)) {
-            if (local52 instanceof Class8_Sub2_Sub3_Sub1) {
-                ((Class8_Sub2_Sub3_Sub1) local52).method1963(arg1);
-            } else if (local52 instanceof Class8_Sub2_Sub4_Sub2) {
-                ((Class8_Sub2_Sub4_Sub2) local52).method6862(arg1);
+        if (!(local52 instanceof DynamicGroundDecor)) {
+            if (local52 instanceof DynamicWall) {
+                ((DynamicWall) local52).method1963(arg1);
+            } else if (local52 instanceof DynamicWallDecor) {
+                ((DynamicWallDecor) local52).method6862(arg1);
                 return;
             }
             return;
         }
-        ((Class8_Sub2_Sub2_Sub2) local52).method3581(arg1);
+        ((DynamicGroundDecor) local52).method3581(arg1);
         return;
     }
 

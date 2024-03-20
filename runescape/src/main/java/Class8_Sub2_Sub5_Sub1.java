@@ -144,10 +144,10 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(17) Class286 local17 = Static467.method6351(super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
-        @Pc(29) Class8_Sub2_Sub2 local29 = Static687.method8959(super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
+        @Pc(29) GroundDecor local29 = Static687.method8959(super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
         @Pc(31) int local31 = 0;
-        if (local17 != null && local17.aClass8_Sub2_Sub1_1.aBoolean815) {
-            local31 = local17.aClass8_Sub2_Sub1_1.method9286(2);
+        if (local17 != null && local17.aPositionEntity.aBoolean815) {
+            local31 = local17.aPositionEntity.method9286(2);
         }
         if (local29 != null && -local31 < local29.aShort46) {
             local31 = -local29.aShort46;
@@ -160,7 +160,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         @Pc(94) Matrix local94 = arg0.scratchMatrix();
         local94.makeIdentity();
         if (this.anInt8885 == 0) {
-            @Pc(110) Ground local110 = Static246.aGroundArray1[super.aByte143];
+            @Pc(110) Ground local110 = Static246.activeGround[super.aByte143];
             @Pc(115) int local115 = this.anInt8879 << 1;
             @Pc(122) int local122 = -local115 / 2;
             @Pc(127) int local127 = -local115 / 2;

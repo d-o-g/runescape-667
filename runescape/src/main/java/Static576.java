@@ -8,7 +8,7 @@ public final class Static576 {
     public static int anInt8580;
 
     @OriginalMember(owner = "client!sba", name = "e", descriptor = "[Lclient!eo;")
-    public static Class8_Sub2[] aClass8_Sub2Array9;
+    public static Renderable[] aRenderableArray9;
 
     @OriginalMember(owner = "client!sba", name = "d", descriptor = "I")
     public static int anInt8585;

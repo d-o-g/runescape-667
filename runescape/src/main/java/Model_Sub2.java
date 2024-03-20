@@ -3763,7 +3763,7 @@ public final class Model_Sub2 extends Model {
             local24 = local24 + floor.anInt8888 - 1 >> floor.anInt8895;
             local29 >>= floor.anInt8895;
             local34 = floor.anInt8888 + local34 - 1 >> floor.anInt8895;
-            if (floor.method7869(local29, local18) == y && y == floor.method7869(local29, local24) && floor.method7869(local34, local18) == y && y == floor.method7869(local34, local24)) {
+            if (floor.getHeight(local29, local18) == y && y == floor.getHeight(local29, local24) && floor.getHeight(local34, local18) == y && y == floor.getHeight(local34, local24)) {
                 return;
             }
         }

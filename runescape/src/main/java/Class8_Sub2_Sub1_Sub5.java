@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!pja")
-public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
+public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
 
     @OriginalMember(owner = "client!pja", name = "qb", descriptor = "Lclient!hv;")
     public Class8_Sub5 aClass8_Sub5_5;
@@ -176,7 +176,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends Class8_Sub2_Sub1 {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
         if (arg4 < 101) {
             this.method9276((Toolkit) null);
         }

@@ -12,7 +12,7 @@ public final class Static48 {
     public static Class384 aClass384_1;
 
     @OriginalMember(owner = "client!bka", name = "i", descriptor = "[Lclient!eo;")
-    public static Class8_Sub2[] aClass8_Sub2Array3;
+    public static Renderable[] aRenderableArray3;
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "([BZ)Lclient!fj;")
     public static DoublyLinkedNode_Sub2_Sub10 method1097(@OriginalArg(0) byte[] arg0) {

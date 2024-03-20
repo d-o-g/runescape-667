@@ -31,10 +31,10 @@ public final class Static75 {
     @OriginalMember(owner = "client!ch", name = "b", descriptor = "(B)V")
     public static void method6239() {
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub19_1);
-        Static400.instance.method5104(1, Static400.instance.aClass57_Sub19_2);
+        Static400.instance.method5104(1, Static400.instance.animatingBackground);
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub4_1);
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub4_2);
-        Static400.instance.method5104(1, Static400.instance.aClass57_Sub6_1);
+        Static400.instance.method5104(1, Static400.instance.groundDecor);
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub23_1);
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub27_1);
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub8_1);

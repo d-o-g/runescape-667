@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!nda")
-public abstract class Class8_Sub2_Sub5 extends Class8_Sub2 {
+public abstract class Class8_Sub2_Sub5 extends Renderable {
 
     @OriginalMember(owner = "client!nda", name = "<init>", descriptor = "(IIIII)V")
     public Class8_Sub2_Sub5(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
@@ -22,7 +22,7 @@ public abstract class Class8_Sub2_Sub5 extends Class8_Sub2 {
     public final boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1) {
         @Pc(15) Class286 local15 = Static467.method6351(super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
         if (arg0 == 59) {
-            return local15 != null && local15.aClass8_Sub2_Sub1_1.aBoolean815 ? Static282.method3976(local15.aClass8_Sub2_Sub1_1.method9286(2) + this.method9286(2), super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066) : Static588.method7714(super.anInt10694 >> Static52.anInt1066, super.aByte144, super.anInt10690 >> Static52.anInt1066);
+            return local15 != null && local15.aPositionEntity.aBoolean815 ? Static282.method3976(local15.aPositionEntity.method9286(2) + this.method9286(2), super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066) : Static588.method7714(super.anInt10694 >> Static52.anInt1066, super.aByte144, super.anInt10690 >> Static52.anInt1066);
         } else {
             return true;
         }
@@ -36,7 +36,7 @@ public abstract class Class8_Sub2_Sub5 extends Class8_Sub2 {
 
     @OriginalMember(owner = "client!nda", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public final void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6) {
+    public final void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
         if (arg4 >= 101) {
             throw new IllegalStateException();
         }

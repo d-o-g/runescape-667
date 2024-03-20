@@ -961,7 +961,7 @@ public final class Model_Sub1 extends Model {
             local25 = floor.anInt8888 + local25 - 1 >> floor.anInt8895;
             local30 >>= floor.anInt8895;
             local35 = floor.anInt8888 + local35 - 1 >> floor.anInt8895;
-            if (floor.method7869(local30, local19) == y && floor.method7869(local30, local25) == y && y == floor.method7869(local35, local19) && floor.method7869(local35, local25) == y) {
+            if (floor.getHeight(local30, local19) == y && floor.getHeight(local30, local25) == y && y == floor.getHeight(local35, local19) && floor.getHeight(local35, local25) == y) {
                 return;
             }
         }

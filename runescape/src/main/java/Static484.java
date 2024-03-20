@@ -26,7 +26,7 @@ public final class Static484 {
         for (@Pc(19) int local19 = local9; local19 < local9 + 104; local19++) {
             for (@Pc(22) int local22 = local15; local22 < local15 + 104; local22++) {
                 for (local25 = arg1; local25 <= 3; local25++) {
-                    if (Static696.method9036(local22, arg1, local19, local25)) {
+                    if (Static696.isTileVisibleFrom(local22, arg1, local19, local25)) {
                         local37 = local25;
                         if (Static441.method5968(local22, local19)) {
                             local37 = local25 - 1;
@@ -92,7 +92,7 @@ public final class Static484 {
                 for (local278 = arg1; local278 <= 3; local278++) {
                     for (local281 = 0; local281 <= Static200.anInt3302; local281++) {
                         for (local284 = 0; local284 <= Static200.anInt3302; local284++) {
-                            local206[local281][local284] = Static696.method9036(local284 + local229, arg1, local218 + local281, local278);
+                            local206[local281][local284] = Static696.isTileVisibleFrom(local284 + local229, arg1, local218 + local281, local278);
                         }
                     }
                     Static706.aGroundArray3[local278].method7873(local218, local229, local238, local249, local206);
@@ -101,7 +101,7 @@ public final class Static484 {
                             for (local331 = -4; local331 < Static200.anInt3302; local331++) {
                                 local336 = local284 + local208;
                                 local340 = local331 + local211;
-                                if (local9 <= local336 && local340 >= local15 && Static696.method9036(local340, arg1, local336, local278)) {
+                                if (local9 <= local336 && local340 >= local15 && Static696.isTileVisibleFrom(local340, arg1, local336, local278)) {
                                     local365 = local278;
                                     if (Static441.method5968(local340, local336)) {
                                         local365 = local278 - 1;
@@ -148,7 +148,7 @@ public final class Static484 {
             for (local211 = local9; local211 < local9 + 104; local211++) {
                 for (local214 = local15; local214 < local15 + 104; local214++) {
                     for (local216 = arg1; local216 <= arg1 + 1 && local216 <= 3; local216++) {
-                        if (Static696.method9036(local214, arg1, local211, local216)) {
+                        if (Static696.isTileVisibleFrom(local214, arg1, local211, local216)) {
                             @Pc(730) Location local730 = (Location) Static687.method8959(local216, local211, local214);
                             if (local730 == null) {
                                 local730 = (Location) Static578.getEntity(local216, local211, local214, aClass19 == null ? (aClass19 = getClass("Location")) : aClass19);
@@ -160,15 +160,15 @@ public final class Static484 {
                                 local730 = (Location) Static114.getWallDecor(local216, local211, local214);
                             }
                             if (local730 != null) {
-                                @Pc(776) LocType local776 = Static354.aLocTypeList_4.list(local730.method6859(-32136), 100);
-                                if (!local776.aBoolean95 || Static174.aBoolean249) {
-                                    local238 = local776.anInt1233;
-                                    if (local776.anIntArray113 != null) {
-                                        for (local249 = 0; local249 < local776.anIntArray113.length; local249++) {
-                                            if (local776.anIntArray113[local249] != -1) {
-                                                @Pc(808) LocType local808 = Static354.aLocTypeList_4.list(local776.anIntArray113[local249], 87);
-                                                if (local808.anInt1233 >= 0) {
-                                                    local238 = local808.anInt1233;
+                                @Pc(776) LocType local776 = Static354.aLocTypeList_4.list(local730.getId(-32136));
+                                if (!local776.members || Static174.aBoolean249) {
+                                    local238 = local776.mapElement;
+                                    if (local776.multiLocs != null) {
+                                        for (local249 = 0; local249 < local776.multiLocs.length; local249++) {
+                                            if (local776.multiLocs[local249] != -1) {
+                                                @Pc(808) LocType local808 = Static354.aLocTypeList_4.list(local776.multiLocs[local249]);
+                                                if (local808.mapElement >= 0) {
+                                                    local238 = local808.mapElement;
                                                 }
                                             }
                                         }
@@ -203,7 +203,7 @@ public final class Static484 {
                                                 }
                                             }
                                         }
-                                        Static533.anIntArray628[Static536.anInt8148] = local776.anInt1256;
+                                        Static533.anIntArray628[Static536.anInt8148] = local776.id;
                                         Static566.anIntArray654[Static536.anInt8148] = local278;
                                         Static350.anIntArray433[Static536.anInt8148] = local281;
                                         Static536.anInt8148++;

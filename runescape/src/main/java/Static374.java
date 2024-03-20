@@ -35,10 +35,10 @@ public final class Static374 {
                             for (@Pc(36) int local36 = local3 - 1; local36 >= 0; local36--) {
                                 @Pc(41) Ground local41 = Static706.aGroundArray3[local36];
                                 if (local41 != null) {
-                                    @Pc(55) int local55 = local8.method7869(local12, local15) - local41.method7869(local12, local15);
-                                    @Pc(71) int local71 = local8.method7869(local12, local15 + 1) - local41.method7869(local12, local15 + 1);
-                                    @Pc(91) int local91 = local8.method7869(local12 + 1, local15 + 1) - local41.method7869(local12 + 1, local15 + 1);
-                                    @Pc(107) int local107 = local8.method7869(local12 + 1, local15) - local41.method7869(local12 + 1, local15);
+                                    @Pc(55) int local55 = local8.getHeight(local12, local15) - local41.getHeight(local12, local15);
+                                    @Pc(71) int local71 = local8.getHeight(local12, local15 + 1) - local41.getHeight(local12, local15 + 1);
+                                    @Pc(91) int local91 = local8.getHeight(local12 + 1, local15 + 1) - local41.getHeight(local12 + 1, local15 + 1);
+                                    @Pc(107) int local107 = local8.getHeight(local12 + 1, local15) - local41.getHeight(local12 + 1, local15);
                                     local41.CA(local1, local28, (local55 + local71 + local91 + local107) / 4, local32, 0, false);
                                 }
                             }

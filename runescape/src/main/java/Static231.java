@@ -468,7 +468,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("getheight")) {
-                    Static79.method1579("Height: " + Static246.aGroundArray1[Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144].method7869(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9));
+                    Static79.method1579("Height: " + Static246.activeGround[Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144].getHeight(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9));
                     return;
                 }
                 if (arg2.equalsIgnoreCase("resetminimap")) {

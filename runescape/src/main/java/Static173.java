@@ -64,10 +64,10 @@ public final class Static173 {
         if (local7 == null) {
             return;
         }
-        Static109.method2068(local7.aClass8_Sub2_Sub4_1);
+        Static109.method2068(local7.aWallDecor_1);
         Static109.method2068(local7.aClass8_Sub2_Sub4_2);
-        if (local7.aClass8_Sub2_Sub4_1 != null) {
-            local7.aClass8_Sub2_Sub4_1 = null;
+        if (local7.aWallDecor_1 != null) {
+            local7.aWallDecor_1 = null;
         }
         if (local7.aClass8_Sub2_Sub4_2 != null) {
             local7.aClass8_Sub2_Sub4_2 = null;

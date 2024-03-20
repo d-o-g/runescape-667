@@ -67,8 +67,8 @@ public final class Static35 {
                                     local251 = 0;
                                 }
                                 local179 = Static400.instance.aClass57_Sub25_1.method7208() * (local199 - local251) * local13.anInt2577 / local199 >> 2;
-                                if (local13.aClass8_Sub2_10 != null && local13.aClass8_Sub2_10 instanceof Class8_Sub2_Sub1) {
-                                    @Pc(301) Class8_Sub2_Sub1 local301 = (Class8_Sub2_Sub1) local13.aClass8_Sub2_10;
+                                if (local13.aRenderable_10 != null && local13.aRenderable_10 instanceof PositionEntity) {
+                                    @Pc(301) PositionEntity local301 = (PositionEntity) local13.aRenderable_10;
                                     @Pc(304) short local304 = local301.aShort132;
                                     @Pc(307) short local307 = local301.aShort131;
                                 }

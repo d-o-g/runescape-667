@@ -29,9 +29,9 @@ public final class Static102 {
     @OriginalMember(owner = "client!dd", name = "b", descriptor = "(IIII)I")
     public static int method2025(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (arg1 != -29754) {
-            method2026((Class8_Sub2_Sub1) null, false);
+            method2026((PositionEntity) null, false);
         }
-        if (Static246.aGroundArray1 == null) {
+        if (Static246.activeGround == null) {
             return 0;
         }
         @Pc(21) int local21 = arg3 >> 9;
@@ -43,12 +43,12 @@ public final class Static102 {
         if (arg0 < 3 && (Static280.tileFlags[1][local21][local25] & 0x2) != 0) {
             local56 = arg0 + 1;
         }
-        return Static246.aGroundArray1[local56].method7878(arg2, arg3);
+        return Static246.activeGround[local56].method7878(arg2, arg3);
     }
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "(Lclient!qf;Z)Z")
-    public static boolean method2026(@OriginalArg(0) Class8_Sub2_Sub1 arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(7) boolean local7 = Static246.aGroundArray1 == Static693.aGroundArray2;
+    public static boolean method2026(@OriginalArg(0) PositionEntity arg0, @OriginalArg(1) boolean arg1) {
+        @Pc(7) boolean local7 = Static246.activeGround == Static693.aGroundArray2;
         @Pc(9) int local9 = 0;
         @Pc(11) short local11 = 0;
         @Pc(13) byte local13 = 0;
@@ -77,8 +77,8 @@ public final class Static102 {
                         local11 = Static272.aShortArrayArray5[local44][local48];
                         local13 = Static421.aByteArrayArray20[local44][local48];
                     }
-                    if (!arg1 && local55.aClass8_Sub2_Sub2_1 != null && local55.aClass8_Sub2_Sub2_1.aShort46 > local41) {
-                        local41 = local55.aClass8_Sub2_Sub2_1.aShort46;
+                    if (!arg1 && local55.aGroundDecor_1 != null && local55.aGroundDecor_1.aShort46 > local41) {
+                        local41 = local55.aGroundDecor_1.aShort46;
                     }
                 }
             }
@@ -95,18 +95,18 @@ public final class Static102 {
             }
         }
         if (arg1) {
-            Static679.aClass8_Sub2_Sub1Array1[Static125.anInt2352++] = arg0;
+            Static679.aPositionEntity[Static125.anInt2352++] = arg0;
         } else {
-            local48 = Static246.aGroundArray1 == Static693.aGroundArray2 ? 1 : 0;
+            local48 = Static246.activeGround == Static693.aGroundArray2 ? 1 : 0;
             if (!arg0.method9283()) {
-                arg0.aClass8_Sub2_25 = Static468.aClass8_Sub2Array10[local48];
-                Static468.aClass8_Sub2Array10[local48] = arg0;
+                arg0.aRenderable_25 = Static468.aRenderableArray10[local48];
+                Static468.aRenderableArray10[local48] = arg0;
             } else if (arg0.method9282(0)) {
-                arg0.aClass8_Sub2_25 = Static398.aClass8_Sub2Array7[local48];
-                Static398.aClass8_Sub2Array7[local48] = arg0;
+                arg0.aRenderable_25 = Static398.aRenderableArray7[local48];
+                Static398.aRenderableArray7[local48] = arg0;
             } else {
-                arg0.aClass8_Sub2_25 = Static576.aClass8_Sub2Array9[local48];
-                Static576.aClass8_Sub2Array9[local48] = arg0;
+                arg0.aRenderable_25 = Static576.aRenderableArray9[local48];
+                Static576.aRenderableArray9[local48] = arg0;
                 Static75.aBoolean521 = true;
             }
         }

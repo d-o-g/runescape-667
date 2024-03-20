@@ -15,7 +15,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!cg")
-public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
+public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "Ac", descriptor = "I")
     public int anInt10704;
@@ -406,7 +406,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
             local31 = -this.anInt10748;
         }
         @Pc(55) Class291 local55 = Static334.aClass291ArrayArrayArray1[super.aByte144][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
-        return local55 == null || local55.aClass8_Sub2_Sub2_1 == null ? local31 : local31 + local55.aClass8_Sub2_Sub2_1.aShort46;
+        return local55 == null || local55.aGroundDecor_1 == null ? local31 : local31 + local55.aGroundDecor_1.aShort46;
     }
 
     @OriginalMember(owner = "client!cg", name = "c", descriptor = "(B)I")

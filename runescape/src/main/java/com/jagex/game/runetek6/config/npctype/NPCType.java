@@ -373,11 +373,11 @@ public final class NPCType {
                 this.multinpcVarp = -1;
             }
 
-            @Pc(12) int defaultType = INVISIBLE_ID;
+            @Pc(12) int defaultId = INVISIBLE_ID;
             if (code == 118) {
-                defaultType = packet.g2();
-                if (defaultType == 65535) {
-                    defaultType = INVISIBLE_ID;
+                defaultId = packet.g2();
+                if (defaultId == 65535) {
+                    defaultId = INVISIBLE_ID;
                 }
             }
 
@@ -391,7 +391,7 @@ public final class NPCType {
                 }
             }
 
-            this.multinpcs[count + 1] = defaultType;
+            this.multinpcs[count + 1] = defaultId;
         } else if (code == 107) {
             this.interactive = false;
         } else if (code == 109) {

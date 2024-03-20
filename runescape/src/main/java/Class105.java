@@ -1,7 +1,12 @@
+import com.jagex.Class407;
 import com.jagex.collect.HashTable;
+import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
+import com.jagex.collect.StringNode;
 import com.jagex.core.io.Packet;
+import com.jagex.game.VarDomain;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Toolkit;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

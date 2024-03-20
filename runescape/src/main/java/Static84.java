@@ -1,4 +1,5 @@
 import com.jagex.core.constants.ModeGame;
+import com.jagex.game.LocalisedText;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -191,7 +192,7 @@ public final class Static84 {
         }
         for (@Pc(155) int local155 = 0; local155 < Static390.anInt6126; local155++) {
             @Pc(166) Class8_Sub2_Sub1_Sub2_Sub2 local166 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local155])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
-            if (local166.method9322() && local166.aClass268_1.method5996(Static34.aClass304_1)) {
+            if (local166.method9322() && local166.aNPCType_1.method5996(Static34.aClass304_1)) {
                 local166.method9294();
                 if (local166.aShort131 >= 0 && local166.aShort132 >= 0 && local166.aShort134 < Static720.anInt10859 && local166.aShort133 < Static501.anInt7568) {
                     @Pc(213) int local213 = 0;
@@ -203,21 +204,21 @@ public final class Static84 {
                     }
                     local213 += 5 - local166.method9302((byte) 88) << 2;
                     if (Static150.anInt2632 == 0) {
-                        if (local166.aClass268_1.aBoolean504) {
+                        if (local166.aNPCType_1.aBoolean504) {
                             local213 += 64;
                         } else {
                             local213 += 128;
                         }
                     } else if (Static150.anInt2632 == 1) {
-                        if (local166.aClass268_1.aBoolean504) {
+                        if (local166.aNPCType_1.aBoolean504) {
                             local213 += 32;
                         } else {
                             local213 += 64;
                         }
                     }
-                    if (local166.aClass268_1.aBoolean502) {
+                    if (local166.aNPCType_1.aBoolean502) {
                         local213 += 1024;
-                    } else if (!local166.aClass268_1.aBoolean503) {
+                    } else if (!local166.aNPCType_1.aBoolean503) {
                         local213 += 256;
                     }
                     local166.anInt10739 = local213 + 1;

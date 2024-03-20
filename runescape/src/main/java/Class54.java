@@ -1,8 +1,16 @@
 import com.jagex.collect.HashTable;
+import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
+import com.jagex.collect.StringNode;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.Animator;
+import com.jagex.game.VarDomain;
+import com.jagex.graphics.Ground;
+import com.jagex.graphics.Mesh;
+import com.jagex.graphics.Model;
 import com.jagex.graphics.Shadow;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;

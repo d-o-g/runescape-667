@@ -1,4 +1,5 @@
 import com.jagex.collect.HashTable;
+import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

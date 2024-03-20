@@ -1,5 +1,12 @@
 import com.jagex.collect.Node;
 import com.jagex.core.io.Packet;
+import com.jagex.game.Animator;
+import com.jagex.game.PlayerModel;
+import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.objtype.ObjTypeCustomisation;
+import com.jagex.graphics.Mesh;
+import com.jagex.graphics.Model;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

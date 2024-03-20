@@ -7,6 +7,10 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.graphics.Exception_Sub1;
 import com.jagex.js5.CachedResourceWorker;
 import com.jagex.js5.FileSystem_Client;
 import com.jagex.js5.Js5Archive;
@@ -335,7 +339,7 @@ public final class client extends GameShell {
         for (local46 = 0; local46 < Static416.anInt6378; local46++) {
             @Pc(97) Class8_Sub2_Sub1_Sub2_Sub2 local97 = Static592.aClass2_Sub45Array1[local46].aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local97 != null) {
-                @Pc(103) byte local103 = local97.aClass268_1.aByte103;
+                @Pc(103) byte local103 = local97.aNPCType_1.aByte103;
                 if ((local103 & 0x1) != 0) {
                     @Pc(114) int local114 = local97.method9302((byte) 48);
                     @Pc(142) int local142;
@@ -815,7 +819,7 @@ public final class client extends GameShell {
             Static660.aConnectionInfo_4.alternatePort = Static660.aConnectionInfo_4.id + 50000;
         }
         gameConnection = Static527.aConnectionInfo_3;
-        Static637.aShortArray132 = Static419.aShortArray96 = Static553.aShortArray112 = ObjType.clientpalette = new short[256];
+        Static637.aShortArray132 = Static419.aShortArray96 = NPCType.aShortArray112 = ObjType.clientpalette = new short[256];
         if (Static392.aModeGame_4 == ModeGame.RUNESCAPE) {
             Static273.aBoolean340 = false;
         }

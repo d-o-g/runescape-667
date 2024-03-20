@@ -8,9 +8,6 @@ public final class Static692 {
     @OriginalMember(owner = "client!vt", name = "c", descriptor = "I")
     public static int anInt10375;
 
-    @OriginalMember(owner = "client!vt", name = "d", descriptor = "Lclient!bp;")
-    public static SeqTypeList aSeqTypeList_2;
-
     @OriginalMember(owner = "client!vt", name = "h", descriptor = "I")
     public static int anInt10376;
 

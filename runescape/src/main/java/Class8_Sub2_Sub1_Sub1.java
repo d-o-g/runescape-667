@@ -1,4 +1,11 @@
+import com.jagex.Class230;
+import com.jagex.game.Animator;
+import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.graphics.Matrix;
+import com.jagex.graphics.MeshEmitter;
+import com.jagex.graphics.MeshMagnet;
+import com.jagex.graphics.Model;
+import com.jagex.graphics.Toolkit;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

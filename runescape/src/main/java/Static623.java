@@ -9,9 +9,6 @@ public final class Static623 {
     @OriginalMember(owner = "client!tm", name = "b", descriptor = "[[[I")
     public static int[][][] anIntArrayArrayArray19;
 
-    @OriginalMember(owner = "client!tm", name = "c", descriptor = "[Ljava/lang/String;")
-    public static final String[] aStringArray43 = new String[100];
-
     @OriginalMember(owner = "client!tm", name = "a", descriptor = "[Z")
     public static final boolean[] aBooleanArray30 = new boolean[200];
 

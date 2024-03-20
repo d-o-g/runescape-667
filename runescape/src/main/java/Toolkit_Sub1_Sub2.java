@@ -1,7 +1,13 @@
+import com.jagex.Class67;
+import com.jagex.Class84;
+import com.jagex.Interface26;
 import com.jagex.collect.Deque;
+import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.Class14;
+import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.Node_Sub7;
 import com.jagex.graphics.Surface;
@@ -130,8 +136,8 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
             }
             @Pc(140) int local140;
             try {
-                @Pc(134) int local134 = Static647.method8473(local122[0]);
-                local140 = Static647.method8473(local122[1]);
+                @Pc(134) int local134 = Class14.method8473(local122[0]);
+                local140 = Class14.method8473(local122[1]);
                 this.anInt9278 = local134 * 10 + local140;
             } catch (@Pc(150) NumberFormatException local150) {
                 throw new RuntimeException("");
@@ -181,7 +187,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
                                         local330 = true;
                                     }
                                     if (local348.length() >= 4 && StringTools.isNumeric(local348.substring(0, 4))) {
-                                        local140 = Static647.method8473(local348.substring(0, 4));
+                                        local140 = Class14.method8473(local348.substring(0, 4));
                                         break;
                                     }
                                 }

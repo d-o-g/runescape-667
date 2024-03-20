@@ -1,6 +1,8 @@
+import com.jagex.Class407;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

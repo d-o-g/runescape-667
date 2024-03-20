@@ -1,4 +1,7 @@
+import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
+import com.jagex.graphics.MeshEmitterTypeList;
+import com.jagex.graphics.MeshMagnetTypeList;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

@@ -1,4 +1,8 @@
 import com.jagex.core.constants.ModeGame;
+import com.jagex.game.Class14;
+import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -60,7 +64,7 @@ public final class Static556 {
                 @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) local55.aLong233);
                 if (local93 != null) {
                     @Pc(98) Class8_Sub2_Sub1_Sub2_Sub2 local98 = local93.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                    @Pc(101) Class268 local101 = local98.aClass268_1;
+                    @Pc(101) NPCType local101 = local98.aNPCType_1;
                     if (local101.anIntArray532 != null) {
                         local101 = local101.method5985(65535, Static34.aClass304_1);
                     }

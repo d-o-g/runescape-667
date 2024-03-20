@@ -1,3 +1,4 @@
+import com.jagex.graphics.Model;
 import com.jagex.graphics.Shadow;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

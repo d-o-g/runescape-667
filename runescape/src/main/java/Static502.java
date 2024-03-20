@@ -1,4 +1,7 @@
+import com.jagex.Class407;
 import com.jagex.core.io.Packet;
+import com.jagex.game.Class381;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

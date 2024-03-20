@@ -1,3 +1,4 @@
+import com.jagex.Class407;
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

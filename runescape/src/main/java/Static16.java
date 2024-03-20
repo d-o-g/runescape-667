@@ -1,3 +1,4 @@
+import com.jagex.game.Class381;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static16 {

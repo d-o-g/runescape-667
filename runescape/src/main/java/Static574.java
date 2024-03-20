@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 

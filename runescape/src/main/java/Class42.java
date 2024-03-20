@@ -1,3 +1,5 @@
+import com.jagex.Class230;
+import com.jagex.Class8_Sub4;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

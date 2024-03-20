@@ -1,4 +1,5 @@
 import com.jagex.core.util.JagException;
+import com.jagex.game.runetek6.config.bastype.BASType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

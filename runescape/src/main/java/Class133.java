@@ -1,3 +1,5 @@
+import com.jagex.game.Class14;
+import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
 import com.jagex.js5.js5;

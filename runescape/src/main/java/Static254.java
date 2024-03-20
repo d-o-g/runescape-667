@@ -1,5 +1,8 @@
 import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
+import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.game.runetek6.config.objtype.ObjType;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -23,7 +26,7 @@ public final class Static254 {
         Static694.anInt10405 = 0;
         Static393.anInt6147 = 0;
         Static618.anInt9449 = 0;
-        Static674.anInt10128 = 0;
+        ObjType.anInt10128 = 0;
         Static373.anInt5903 = 0;
         Static405.aClass153_1.method3274();
         Static50.aBoolean565 = true;
@@ -106,7 +109,7 @@ public final class Static254 {
         }
         Static218.method3187();
         Static273.aBoolean339 = true;
-        Static637.aShortArray132 = Static419.aShortArray96 = Static553.aShortArray112 = ObjType.clientpalette = new short[256];
+        Static637.aShortArray132 = Static419.aShortArray96 = NPCType.aShortArray112 = ObjType.clientpalette = new short[256];
         Static331.aString52 = LocalisedText.WALKHERE.localise(Static51.anInt1052);
         Static400.instance.method5104(Static400.instance.aClass57_Sub4_1.method2143(), Static400.instance.aClass57_Sub4_2);
         Static400.instance.method5104(Static400.instance.aClass57_Sub19_1.method5960(), Static400.instance.aClass57_Sub19_2);

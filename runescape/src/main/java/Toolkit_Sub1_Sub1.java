@@ -1,7 +1,12 @@
+import com.jagex.Class67;
+import com.jagex.Class84;
+import com.jagex.Interface26;
+import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.Node_Sub7;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import jaclib.peer.ti;
 import jagdx.D3DADAPTER_IDENTIFIER;

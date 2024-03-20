@@ -1,7 +1,10 @@
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -157,9 +160,9 @@ public final class Static147 {
                                 if (local690 != null) {
                                     @Pc(695) Class8_Sub2_Sub1_Sub2_Sub2 local695 = local690.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                                     if (Static333.anInt5455 != local695.anInt10743 && local695.aBoolean816) {
-                                        local723 = local695.anInt10690 - (local695.aClass268_1.anInt6713 - 1 << 8);
-                                        local735 = local695.anInt10694 - (local695.aClass268_1.anInt6713 - 1 << 8);
-                                        if (local286 <= local723 && local695.aClass268_1.anInt6713 <= local610.method9302((byte) 126) - (local723 - local286 >> 9) && local735 >= local295 && local695.aClass268_1.anInt6713 <= local610.method9302((byte) 121) - (local735 - local295 >> 9)) {
+                                        local723 = local695.anInt10690 - (local695.aNPCType_1.anInt6713 - 1 << 8);
+                                        local735 = local695.anInt10694 - (local695.aNPCType_1.anInt6713 - 1 << 8);
+                                        if (local286 <= local723 && local695.aNPCType_1.anInt6713 <= local610.method9302((byte) 126) - (local723 - local286 >> 9) && local735 >= local295 && local695.aNPCType_1.anInt6713 <= local610.method9302((byte) 121) - (local735 - local295 >> 9)) {
                                             Static651.method8517(local543.aClass8_Sub2_18.aByte144 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144, local695);
                                             local695.anInt10743 = Static333.anInt5455;
                                         }
@@ -188,18 +191,18 @@ public final class Static147 {
                     }
                     if (local543.aClass8_Sub2_18 instanceof Class8_Sub2_Sub1_Sub2_Sub2) {
                         @Pc(988) Class8_Sub2_Sub1_Sub2_Sub2 local988 = (Class8_Sub2_Sub1_Sub2_Sub2) local543.aClass8_Sub2_18;
-                        if (local988.aClass268_1 != null) {
-                            if ((local988.aClass268_1.anInt6713 & 0x1) == 0 && (local988.anInt10690 & 0x1FF) == 0 && (local988.anInt10694 & 0x1FF) == 0 || (local988.aClass268_1.anInt6713 & 0x1) == 1 && (local988.anInt10690 & 0x1FF) == 256 && (local988.anInt10694 & 0x1FF) == 256) {
-                                local614 = local988.anInt10690 - (local988.aClass268_1.anInt6713 - 1 << 8);
-                                local286 = local988.anInt10694 - (local988.aClass268_1.anInt6713 - 1 << 8);
+                        if (local988.aNPCType_1 != null) {
+                            if ((local988.aNPCType_1.anInt6713 & 0x1) == 0 && (local988.anInt10690 & 0x1FF) == 0 && (local988.anInt10694 & 0x1FF) == 0 || (local988.aNPCType_1.anInt6713 & 0x1) == 1 && (local988.anInt10690 & 0x1FF) == 256 && (local988.anInt10694 & 0x1FF) == 256) {
+                                local614 = local988.anInt10690 - (local988.aNPCType_1.anInt6713 - 1 << 8);
+                                local286 = local988.anInt10694 - (local988.aNPCType_1.anInt6713 - 1 << 8);
                                 for (local295 = 0; local295 < Static390.anInt6126; local295++) {
                                     @Pc(1081) Node_Sub45 local1081 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local295]);
                                     if (local1081 != null) {
                                         @Pc(1086) Class8_Sub2_Sub1_Sub2_Sub2 local1086 = local1081.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                                         if (local1086.anInt10743 != Static333.anInt5455 && local1086 != local988 && local1086.aBoolean816) {
-                                            local370 = local1086.anInt10690 - (local1086.aClass268_1.anInt6713 - 1 << 8);
-                                            local723 = local1086.anInt10694 - (local1086.aClass268_1.anInt6713 - 1 << 8);
-                                            if (local614 <= local370 && local988.aClass268_1.anInt6713 - (local370 - local614 >> 9) >= local1086.aClass268_1.anInt6713 && local723 >= local286 && local1086.aClass268_1.anInt6713 <= local988.aClass268_1.anInt6713 - (local723 - local286 >> 9)) {
+                                            local370 = local1086.anInt10690 - (local1086.aNPCType_1.anInt6713 - 1 << 8);
+                                            local723 = local1086.anInt10694 - (local1086.aNPCType_1.anInt6713 - 1 << 8);
+                                            if (local614 <= local370 && local988.aNPCType_1.anInt6713 - (local370 - local614 >> 9) >= local1086.aNPCType_1.anInt6713 && local723 >= local286 && local1086.aNPCType_1.anInt6713 <= local988.aNPCType_1.anInt6713 - (local723 - local286 >> 9)) {
                                                 Static651.method8517(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 != local543.aClass8_Sub2_18.aByte144, local1086);
                                                 local1086.anInt10743 = Static333.anInt5455;
                                             }
@@ -213,7 +216,7 @@ public final class Static147 {
                                     if (local1226 != null && local1226.anInt10743 != Static333.anInt5455 && local1226.aBoolean816) {
                                         local735 = local1226.anInt10690 - (local1226.method9302((byte) 125) - 1 << 8);
                                         local864 = local1226.anInt10694 - (local1226.method9302((byte) 76) - 1 << 8);
-                                        if (local614 <= local735 && local1226.method9302((byte) 98) <= local988.aClass268_1.anInt6713 - (local735 - local614 >> 9) && local286 <= local864 && local1226.method9302((byte) 127) <= local988.aClass268_1.anInt6713 - (local864 - local286 >> 9)) {
+                                        if (local614 <= local735 && local1226.method9302((byte) 98) <= local988.aNPCType_1.anInt6713 - (local735 - local614 >> 9) && local286 <= local864 && local1226.method9302((byte) 127) <= local988.aNPCType_1.anInt6713 - (local864 - local286 >> 9)) {
                                             Static414.method5696(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 != local543.aClass8_Sub2_18.aByte144, local1226);
                                             local1226.anInt10743 = Static333.anInt5455;
                                         }

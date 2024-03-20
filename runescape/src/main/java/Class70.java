@@ -1,3 +1,5 @@
+import com.jagex.game.Class14;
+import com.jagex.game.Class381;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

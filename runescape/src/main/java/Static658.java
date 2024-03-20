@@ -1,5 +1,6 @@
 import com.jagex.collect.HashTable;
 import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -11,9 +12,6 @@ public final class Static658 {
 
     @OriginalMember(owner = "client!us", name = "k", descriptor = "Lclient!av;")
     public static final HashTable A_HASH_TABLE___43 = new HashTable(16);
-
-    @OriginalMember(owner = "client!us", name = "m", descriptor = "I")
-    public static int anInt9801 = 0;
 
     @OriginalMember(owner = "client!us", name = "a", descriptor = "(Lclient!eo;[Lclient!lca;)V")
     public static void method8591(@OriginalArg(0) Class8_Sub2 arg0, @OriginalArg(1) Node_Sub7[] arg1) {

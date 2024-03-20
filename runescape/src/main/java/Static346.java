@@ -1,4 +1,5 @@
 import com.jagex.collect.HashTable;
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -37,10 +38,10 @@ public final class Static346 {
                 if (Static400.aBoolean622 && Static321.method4622(local33)) {
                     Static488.method6522();
                 }
-                if (local43.aClass268_1.method5984()) {
+                if (local43.aNPCType_1.method5984()) {
                     Static58.method1259(local43);
                 }
-                local43.method9328((Class268) null);
+                local43.method9328((NPCType) null);
                 local40.remove();
                 local23 = true;
             }

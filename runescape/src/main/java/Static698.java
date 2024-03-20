@@ -8,9 +8,6 @@ public final class Static698 {
     @OriginalMember(owner = "client!wba", name = "f", descriptor = "[I")
     public static final int[] anIntArray831 = new int[]{0, 1, 2, 3, 4, 5, 6, 14};
 
-    @OriginalMember(owner = "client!wba", name = "d", descriptor = "I")
-    public static int anInt10510 = -1;
-
     @OriginalMember(owner = "client!wba", name = "b", descriptor = "Z")
     public static boolean aBoolean792 = false;
 

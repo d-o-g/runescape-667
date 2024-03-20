@@ -1,5 +1,9 @@
 import com.jagex.SignLink;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.LocalisedText;
+import com.jagex.graphics.Mesh;
+import com.jagex.graphics.Model;
+import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

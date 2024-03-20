@@ -1,3 +1,6 @@
+import com.jagex.Class8;
+import com.jagex.graphics.PickingCylinder;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

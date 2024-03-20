@@ -1,6 +1,7 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.collect.HashTable;
+import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
 import com.jagex.collect.Queue;
 import com.jagex.collect.ref.ReferenceCache;
@@ -9,6 +10,11 @@ import com.jagex.core.util.Arrays;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.Class14;
+import com.jagex.game.Class381;
+import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -1428,7 +1434,7 @@ public final class Static472 {
                                         local4911 = aStringArray37[--anInt7139];
                                         local21 = 0;
                                         if (StringTools.isNumeric(local4911)) {
-                                            local21 = Static647.method8473(local4911);
+                                            local21 = Class14.method8473(local4911);
                                         }
                                         @Pc(4974) Node_Sub19 local4974 = Static293.method4335(Static330.aClass345_66, Static405.aClass153_2.aClass186_1);
                                         local4974.aClass2_Sub21_Sub2_1.p4(local21);

@@ -7,9 +7,6 @@ public final class Static674 {
     @OriginalMember(owner = "client!vfa", name = "o", descriptor = "I")
     public static int anInt10088;
 
-    @OriginalMember(owner = "client!vfa", name = "X", descriptor = "I")
-    public static int anInt10128;
-
     @OriginalMember(owner = "client!vfa", name = "Gb", descriptor = "Lclient!rfa;")
     public static Node_Sub47 aClass2_Sub47_3;
 

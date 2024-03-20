@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -49,7 +50,7 @@ public final class Static89 {
         }
         if (arg4 != null) {
             local7.aClass8_Sub2_Sub1_Sub2_Sub2_3 = arg4;
-            @Pc(37) Class268 local37 = arg4.aClass268_1;
+            @Pc(37) NPCType local37 = arg4.aNPCType_1;
             if (local37.anIntArray532 != null) {
                 local7.aBoolean713 = true;
                 local37 = local37.method5985(65535, Static34.aClass304_1);

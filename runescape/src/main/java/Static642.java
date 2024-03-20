@@ -1,4 +1,4 @@
-import com.jagex.js5.js5;
+import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -10,12 +10,6 @@ public final class Static642 {
 
     @OriginalMember(owner = "client!uea", name = "h", descriptor = "I")
     public static int anInt9599 = 1;
-
-    @OriginalMember(owner = "client!uea", name = "a", descriptor = "(Lclient!sb;IZLclient!sb;)V")
-    public static void method8440(@OriginalArg(0) js5 arg0, @OriginalArg(3) js5 arg1) {
-        js5.aJs5_96 = arg1;
-        js5.aJs5_58 = arg0;
-    }
 
     @OriginalMember(owner = "client!uea", name = "a", descriptor = "(ZBI)Lclient!pea;")
     public static Class8_Sub7 method8441(@OriginalArg(0) boolean arg0, @OriginalArg(2) int arg1) {

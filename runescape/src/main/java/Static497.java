@@ -1,4 +1,7 @@
 import com.jagex.collect.HashTable;
+import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -22,7 +25,7 @@ public final class Static497 {
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ILclient!wj;)I")
     public static int method6629(@OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub2 arg0) {
-        @Pc(6) Class268 local6 = arg0.aClass268_1;
+        @Pc(6) NPCType local6 = arg0.aNPCType_1;
         if (local6.anIntArray532 != null) {
             local6 = local6.method5985(65535, Static34.aClass304_1);
             if (local6 == null) {

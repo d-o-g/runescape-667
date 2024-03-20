@@ -21,11 +21,6 @@ public final class Static647 {
         return Static283.step >= 1;
     }
 
-    @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Ljava/lang/String;I)I")
-    public static int method8473(@OriginalArg(0) String arg0) {
-        return Static269.method3908(arg0, 10);
-    }
-
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(JZII)Ljava/lang/String;")
     public static String method8474(@OriginalArg(0) long arg0, @OriginalArg(2) int arg1) {
         Static356.method5196(arg0);

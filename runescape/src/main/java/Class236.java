@@ -67,8 +67,8 @@ public final class Class236 {
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10751 = Static333.anInt5455;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10740 = this.anInt5985;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9328(Static690.aNPCTypeList_2.list(this.anInt5980));
-                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9310(this.aClass8_Sub2_Sub1_Sub2_Sub2_1.aClass268_1.anInt6713);
-                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10757 = this.aClass8_Sub2_Sub1_Sub2_Sub2_1.aClass268_1.lb << 3;
+                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9310(this.aClass8_Sub2_Sub1_Sub2_Sub2_1.aNPCType_1.anInt6713);
+                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10757 = this.aClass8_Sub2_Sub1_Sub2_Sub2_1.aNPCType_1.lb << 3;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10739 = Static457.anInt6933++;
             } else {
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1 = new Class8_Sub2_Sub1_Sub2_Sub1(25);

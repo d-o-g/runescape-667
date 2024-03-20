@@ -1,4 +1,6 @@
 import com.jagex.collect.HashTable;
+import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -37,7 +39,7 @@ public final class Static232 {
             @Pc(110) Node_Sub45 local110 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) arg6.aLong233);
             if (local110 != null) {
                 @Pc(115) Class8_Sub2_Sub1_Sub2_Sub2 local115 = local110.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                @Pc(118) Class268 local118 = local115.aClass268_1;
+                @Pc(118) NPCType local118 = local115.aNPCType_1;
                 if (local118.anIntArray532 != null) {
                     local118 = local118.method5985(65535, Static34.aClass304_1);
                 }

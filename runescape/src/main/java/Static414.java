@@ -1,4 +1,6 @@
+import com.jagex.Class407;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.game.LocalisedText;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

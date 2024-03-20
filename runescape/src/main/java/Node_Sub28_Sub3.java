@@ -1,5 +1,6 @@
 import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Toolkit;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggStreamState;
 import jagtheora.theora.DecoderContext;

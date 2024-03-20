@@ -1,7 +1,15 @@
 import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.Animator;
+import com.jagex.game.PlayerModel;
+import com.jagex.game.WearposDefaults;
+import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.idktype.IDKTypeList;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
+import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.js5.Js5MasterIndex;
 import com.jagex.js5.js5;
 import jagex3.jagmisc.jagmisc;

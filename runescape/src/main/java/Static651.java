@@ -1,8 +1,14 @@
 import com.jagex.core.constants.ModeGame;
+import com.jagex.game.Animator;
+import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
+import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -179,7 +185,7 @@ public final class Static651 {
         if (Static594.anInt8777 >= 400) {
             return;
         }
-        @Pc(21) Class268 local21 = arg1.aClass268_1;
+        @Pc(21) NPCType local21 = arg1.aNPCType_1;
         @Pc(24) String local24 = arg1.aString128;
         if (local21.anIntArray532 != null) {
             local21 = local21.method5985(65535, Static34.aClass304_1);

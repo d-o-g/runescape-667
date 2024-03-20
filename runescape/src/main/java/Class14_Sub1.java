@@ -1,3 +1,6 @@
+import com.jagex.Class407;
+import com.jagex.game.Class14;
+import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;

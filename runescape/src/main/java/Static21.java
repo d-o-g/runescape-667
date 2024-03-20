@@ -1,4 +1,6 @@
 import com.jagex.core.util.JavaScript;
+import com.jagex.graphics.Ground;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

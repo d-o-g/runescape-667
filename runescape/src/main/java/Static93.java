@@ -1,6 +1,8 @@
 import com.jagex.SignLink;
 import com.jagex.collect.Deque;
+import com.jagex.game.LocalisedText;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

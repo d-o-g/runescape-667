@@ -7,9 +7,6 @@ public final class Static38 {
     @OriginalMember(owner = "client!bea", name = "c", descriptor = "I")
     public static int anInt920;
 
-    @OriginalMember(owner = "client!bea", name = "i", descriptor = "I")
-    public static int anInt922 = 0;
-
     @OriginalMember(owner = "client!bea", name = "f", descriptor = "I")
     public static int anInt928 = 0;
 

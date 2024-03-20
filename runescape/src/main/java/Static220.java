@@ -1,3 +1,5 @@
+import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -36,7 +38,7 @@ public final class Static220 {
             }
             if (local42.anInt9364 != local46) {
                 local154 = Static497.method6629(local42.aClass8_Sub2_Sub1_Sub2_Sub2_3);
-                @Pc(158) Class268 local158 = local42.aClass8_Sub2_Sub1_Sub2_Sub2_3.aClass268_1;
+                @Pc(158) NPCType local158 = local42.aClass8_Sub2_Sub1_Sub2_Sub2_3.aNPCType_1;
                 if (local158.anIntArray532 != null) {
                     local158 = local158.method5985(65535, Static34.aClass304_1);
                 }

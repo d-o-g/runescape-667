@@ -1,4 +1,9 @@
+import com.jagex.Class230;
+import com.jagex.Class8;
 import com.jagex.collect.Deque;
+import com.jagex.graphics.MeshEmitter;
+import com.jagex.graphics.MeshMagnet;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

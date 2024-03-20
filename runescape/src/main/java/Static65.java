@@ -1,5 +1,6 @@
 import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -14,9 +15,6 @@ public final class Static65 {
 
     @OriginalMember(owner = "client!cba", name = "v", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_8 = new Class155(11);
-
-    @OriginalMember(owner = "client!cba", name = "B", descriptor = "I")
-    public static int anInt1536 = 0;
 
     @OriginalMember(owner = "client!cba", name = "c", descriptor = "(B)I")
     public static int method1470() {

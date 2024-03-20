@@ -1,7 +1,16 @@
+import com.jagex.Class230;
 import com.jagex.Constants;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.JagException;
+import com.jagex.game.Animator;
+import com.jagex.game.PlayerModel;
+import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.objtype.ObjTypeCustomisation;
 import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Model;
+import com.jagex.graphics.PickingCylinder;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

@@ -1,3 +1,4 @@
+import com.jagex.Class407;
 import com.jagex.SignLink;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

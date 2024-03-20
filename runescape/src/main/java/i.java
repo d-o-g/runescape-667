@@ -1,4 +1,11 @@
+import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Mesh;
+import com.jagex.graphics.MeshBillboard;
+import com.jagex.graphics.MeshEmitter;
+import com.jagex.graphics.MeshMagnet;
+import com.jagex.graphics.Model;
+import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Shadow;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

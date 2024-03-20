@@ -1,3 +1,5 @@
+import com.jagex.Class230;
+import com.jagex.Class8_Sub4;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
 import org.openrs2.deob.annotation.OriginalArg;

@@ -1,3 +1,4 @@
+import com.jagex.Class407;
 import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalMember;
 

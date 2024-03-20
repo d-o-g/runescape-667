@@ -1,3 +1,7 @@
+import com.jagex.Class407;
+import com.jagex.game.Class14;
+import com.jagex.game.Class381;
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -42,7 +46,7 @@ public final class Static608 {
         @Pc(1179) int local1179;
         @Pc(651) int local651;
         for (@Pc(27) int local27 = 0; local27 < local20; local27++) {
-            @Pc(31) Class268 local31 = null;
+            @Pc(31) NPCType local31 = null;
             @Pc(51) Class8_Sub2_Sub1_Sub2 local51;
             if (Static1.anInt10798 == 3) {
                 @Pc(111) Class236 local111 = Static219.aClass236Array1[local27];
@@ -54,7 +58,7 @@ public final class Static608 {
                     continue;
                 }
                 if (local111.anInt5980 >= 0) {
-                    local31 = ((Class8_Sub2_Sub1_Sub2_Sub2) local51).aClass268_1;
+                    local31 = ((Class8_Sub2_Sub1_Sub2_Sub2) local51).aNPCType_1;
                     if (local31.anIntArray532 != null) {
                         local31 = local31.method5985(65535, Static34.aClass304_1);
                         if (local31 == null) {
@@ -67,7 +71,7 @@ public final class Static608 {
                     local51 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local11[local27]];
                 } else {
                     local51 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local27 - local7])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                    local31 = ((Class8_Sub2_Sub1_Sub2_Sub2) local51).aClass268_1;
+                    local31 = ((Class8_Sub2_Sub1_Sub2_Sub2) local51).aNPCType_1;
                     if (local31.anIntArray532 != null) {
                         local31 = local31.method5985(65535, Static34.aClass304_1);
                         if (local31 == null) {

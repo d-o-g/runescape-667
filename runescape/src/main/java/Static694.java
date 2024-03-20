@@ -1,5 +1,9 @@
+import com.jagex.game.Class14;
+import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

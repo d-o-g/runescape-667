@@ -1,6 +1,11 @@
+import com.jagex.game.Class14;
+import com.jagex.game.Class381;
+import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import jaggl.OpenGL;
@@ -121,7 +126,7 @@ public final class Static256 {
         @Pc(422) int local422 = 16;
         @Pc(424) boolean local424 = true;
         if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub2) {
-            local424 = ((Class8_Sub2_Sub1_Sub2_Sub2) arg0).aClass268_1.aBoolean501;
+            local424 = ((Class8_Sub2_Sub1_Sub2_Sub2) arg0).aNPCType_1.aBoolean501;
         }
         @Pc(468) int local468;
         if (local424) {

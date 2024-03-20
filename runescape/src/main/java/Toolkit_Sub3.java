@@ -1,19 +1,32 @@
+import com.jagex.Class230;
+import com.jagex.Class407;
+import com.jagex.Class67;
+import com.jagex.Class84;
+import com.jagex.Interface26;
 import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
+import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
 import com.jagex.collect.Queue;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.Class14;
+import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Exception_Sub1;
+import com.jagex.graphics.Ground;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Mesh;
+import com.jagex.graphics.Model;
 import com.jagex.graphics.Node_Sub13;
 import com.jagex.graphics.Node_Sub7;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.Toolkit;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
 import jaclib.memory.heap.NativeHeap;
@@ -632,7 +645,7 @@ public final class Toolkit_Sub3 extends Toolkit {
                                         local377 = true;
                                     }
                                     if (local395.length() >= 4 && StringTools.isNumeric(local395.substring(0, 4))) {
-                                        local375 = Static647.method8473(local395.substring(0, 4));
+                                        local375 = Class14.method8473(local395.substring(0, 4));
                                         break;
                                     }
                                 }
@@ -1645,8 +1658,8 @@ public final class Toolkit_Sub3 extends Toolkit {
         @Pc(63) String[] local63 = Static189.method2861(local55.replace('.', ' '), ' ');
         if (local63.length >= 2) {
             try {
-                @Pc(73) int local73 = Static647.method8473(local63[0]);
-                @Pc(79) int local79 = Static647.method8473(local63[1]);
+                @Pc(73) int local73 = Class14.method8473(local63[0]);
+                @Pc(79) int local79 = Class14.method8473(local63[1]);
                 this.anInt8020 = local73 * 10 + local79;
             } catch (@Pc(88) NumberFormatException local88) {
                 local10 |= 0x4;

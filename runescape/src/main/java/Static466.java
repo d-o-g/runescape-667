@@ -1,3 +1,4 @@
+import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -11,7 +12,7 @@ public final class Static466 {
     public static void method6322(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
         if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub2) {
             @Pc(5) Class8_Sub2_Sub1_Sub2_Sub2 local5 = (Class8_Sub2_Sub1_Sub2_Sub2) arg0;
-            if (local5.aClass268_1 != null) {
+            if (local5.aNPCType_1 != null) {
                 Static651.method8517(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 != local5.aByte144, local5);
             }
         } else if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub1) {

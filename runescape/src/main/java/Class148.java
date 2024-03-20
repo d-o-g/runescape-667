@@ -1,7 +1,11 @@
 import com.jagex.core.util.Arrays;
 import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Mesh;
+import com.jagex.graphics.Model;
+import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureMetrics;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

@@ -1,4 +1,13 @@
+import com.jagex.game.Animator;
+import com.jagex.game.Class14;
+import com.jagex.game.Class381;
+import com.jagex.game.Class386;
+import com.jagex.game.LocalisedText;
+import com.jagex.game.PlayerModel;
+import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Model;
+import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Sprite;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;

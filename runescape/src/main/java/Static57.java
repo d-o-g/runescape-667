@@ -1,4 +1,5 @@
 import com.jagex.core.util.Arrays;
+import com.jagex.game.LocalisedText;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

@@ -6,9 +6,6 @@ public final class Static11 {
     @OriginalMember(owner = "client!aga", name = "b", descriptor = "I")
     public static int anInt136;
 
-    @OriginalMember(owner = "client!aga", name = "a", descriptor = "[Ljava/lang/String;")
-    public static final String[] aStringArray2 = new String[100];
-
     @OriginalMember(owner = "client!aga", name = "a", descriptor = "(I)V")
     public static void method146() {
         Static338.anInt5564 = 0;

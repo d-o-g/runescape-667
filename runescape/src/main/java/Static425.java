@@ -1,3 +1,5 @@
+import com.jagex.Class67;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static425 {

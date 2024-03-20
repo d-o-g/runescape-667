@@ -1,4 +1,5 @@
 import com.jagex.collect.Node;
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -124,12 +125,12 @@ public final class Node_Sub51 extends Node {
             @Pc(27) int local27 = Static497.method6629(this.aClass8_Sub2_Sub1_Sub2_Sub2_3);
             if (local27 != local11) {
                 this.anInt9353 = local27;
-                @Pc(37) Class268 local37 = this.aClass8_Sub2_Sub1_Sub2_Sub2_3.aClass268_1;
+                @Pc(37) NPCType local37 = this.aClass8_Sub2_Sub1_Sub2_Sub2_3.aNPCType_1;
                 if (local37.anIntArray532 != null) {
                     local37 = local37.method5985(65535, Static34.aClass304_1);
                 }
                 if (local37 == null) {
-                    this.aBoolean714 = this.aClass8_Sub2_Sub1_Sub2_Sub2_3.aClass268_1.aBoolean508;
+                    this.aBoolean714 = this.aClass8_Sub2_Sub1_Sub2_Sub2_3.aNPCType_1.aBoolean508;
                     this.anInt9359 = 256;
                     this.anInt9360 = 256;
                     this.anInt9358 = this.anInt9356 = this.anInt9355 = 0;

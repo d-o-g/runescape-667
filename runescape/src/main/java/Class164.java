@@ -1,5 +1,7 @@
 import com.jagex.collect.HashTable;
+import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
+import com.jagex.collect.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
 import com.jagex.math.IntMath;

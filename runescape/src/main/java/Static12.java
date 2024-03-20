@@ -24,11 +24,6 @@ public final class Static12 {
     @OriginalMember(owner = "client!ah", name = "d", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_147 = new Class225(51, 0);
 
-    @OriginalMember(owner = "client!ah", name = "a", descriptor = "(Ljava/lang/String;IZ)I")
-    public static int method5162(@OriginalArg(0) String arg0) {
-        return Static269.method3908(arg0, 16);
-    }
-
     @OriginalMember(owner = "client!ah", name = "a", descriptor = "(Lclient!ge;I)V")
     public static void method5164(@OriginalArg(0) Packet arg0) {
         while (true) {

@@ -1,5 +1,8 @@
+import com.jagex.collect.IntNode;
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -84,7 +87,7 @@ public final class Static28 {
             if (local427 != null) {
                 @Pc(432) Class8_Sub2_Sub1_Sub2_Sub2 local432 = local427.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 if (local432.method9322() && local432.aByte144 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
-                    @Pc(446) Class268 local446 = local432.aClass268_1;
+                    @Pc(446) NPCType local446 = local432.aNPCType_1;
                     if (local446 != null && local446.anIntArray532 != null) {
                         local446 = local446.method5985(65535, Static34.aClass304_1);
                     }

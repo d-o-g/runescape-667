@@ -1,4 +1,7 @@
+import com.jagex.Class8;
+import com.jagex.graphics.Ground;
 import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

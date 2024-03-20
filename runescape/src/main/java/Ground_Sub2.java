@@ -1,6 +1,7 @@
 import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
+import com.jagex.graphics.Ground;
 import com.jagex.graphics.Node_Sub7;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.TextureSource;

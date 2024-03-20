@@ -1,6 +1,7 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!hja")
 public final class LoginProt {
@@ -31,6 +32,16 @@ public final class LoginProt {
     public static final LoginProt A_LOGIN_PROT___64 = new LoginProt(29, -2);
     @OriginalMember(owner = "client!s", name = "j", descriptor = "Lclient!hja;")
     public static final LoginProt A_LOGIN_PROT___65 = new LoginProt(30, -2);
+    @OriginalMember(owner = "client!s", name = "w", descriptor = "[Lclient!hja;")
+    public static final LoginProt[] A_LOGIN_PROT_ARRAY_5 = new LoginProt[32];
+
+    static {
+        @Pc(140) LoginProt[] local140 = Static254.method3604();
+        for (@Pc(142) int local142 = 0; local142 < local140.length; local142++) {
+            LoginProt.A_LOGIN_PROT_ARRAY_5[local140[local142].opcode] = local140[local142];
+        }
+    }
+
     @OriginalMember(owner = "client!hja", name = "a", descriptor = "I")
     public final int opcode;
 

@@ -1,3 +1,4 @@
+import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.graphics.Matrix;

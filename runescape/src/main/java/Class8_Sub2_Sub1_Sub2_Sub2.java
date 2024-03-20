@@ -1,4 +1,11 @@
+import com.jagex.Class230;
+import com.jagex.game.Animator;
+import com.jagex.game.Class386;
+import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Model;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -14,7 +21,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     public Class386 aClass386_1;
 
     @OriginalMember(owner = "client!wj", name = "Yc", descriptor = "Lclient!o;")
-    public Class268 aClass268_1;
+    public NPCType aNPCType_1;
 
     @OriginalMember(owner = "client!wj", name = "Sc", descriptor = "I")
     public int anInt10791;
@@ -48,7 +55,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "j", descriptor = "(B)Z")
     public boolean method9322() {
-        return this.aClass268_1 != null;
+        return this.aNPCType_1 != null;
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
@@ -63,7 +70,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
     public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
-        if (this.aClass268_1 == null || !this.method9324(131072, arg3)) {
+        if (this.aNPCType_1 == null || !this.method9324(131072, arg3)) {
             return false;
         }
         @Pc(20) Matrix local20 = arg3.scratchMatrix();
@@ -76,16 +83,16 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 @Pc(71) boolean var10000;
                 label50:
                 {
-                    if (this.aClass268_1.anInt6723 <= 0) {
+                    if (this.aNPCType_1.anInt6723 <= 0) {
                         label48:
                         {
-                            if (this.aClass268_1.anInt6706 == -1) {
-                                if (this.aClass268_1.anInt6713 == 1) {
+                            if (this.aNPCType_1.anInt6706 == -1) {
+                                if (this.aNPCType_1.anInt6713 == 1) {
                                     break label48;
                                 }
                                 var10000 = false;
                             } else {
-                                if (this.aClass268_1.anInt6706 == 1) {
+                                if (this.aNPCType_1.anInt6706 == 1) {
                                     break label48;
                                 }
                                 var10000 = false;
@@ -101,9 +108,9 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 @Pc(89) boolean local89 = var10000;
                 @Pc(105) boolean local105;
                 if (Static504.aBoolean579) {
-                    local105 = super.aModelArray3[local40].pickedOrtho(arg1, arg0, local20, local89, this.aClass268_1.anInt6723, Static582.anInt8627);
+                    local105 = super.aModelArray3[local40].pickedOrtho(arg1, arg0, local20, local89, this.aNPCType_1.anInt6723, Static582.anInt8627);
                 } else {
-                    local105 = super.aModelArray3[local40].picked(arg1, arg0, local20, local89, this.aClass268_1.anInt6723);
+                    local105 = super.aModelArray3[local40].picked(arg1, arg0, local20, local89, this.aNPCType_1.anInt6723);
                 }
                 if (local105) {
                     local38 = true;
@@ -120,7 +127,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
-        if (this.aClass268_1 == null || !this.method9324(2048, arg0)) {
+        if (this.aNPCType_1 == null || !this.method9324(2048, arg0)) {
             return null;
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
@@ -135,13 +142,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         }
         local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 20, super.anInt10694);
         @Pc(104) BASType local104 = this.method9317();
-        @Pc(118) Class268 local118 = this.aClass268_1.anIntArray532 == null ? this.aClass268_1 : this.aClass268_1.method5985(65535, Static34.aClass304_1);
+        @Pc(118) NPCType local118 = this.aNPCType_1.anIntArray532 == null ? this.aNPCType_1 : this.aNPCType_1.method5985(65535, Static34.aClass304_1);
         super.aBoolean819 = false;
         @Pc(123) Class8_Sub7 local123 = null;
         if (Static400.instance.aClass57_Sub7_1.method2905() == 1 && local118.aBoolean506 && local104.aBoolean545) {
             @Pc(159) Animator local159 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
             @Pc(179) Animator local179 = super.aAnimator_10.isAnimating() && (!super.aBoolean817 || local159 == null) ? super.aAnimator_10 : null;
-            @Pc(223) Model local223 = Static618.method8320(this.aClass268_1.aByte109 & 0xFF, super.aModelArray3[0], super.anInt10742, this.aClass268_1.aShort76 & 0xFFFF, super.anInt10716, this.aClass268_1.anInt6713, arg0, this.aClass268_1.aByte111 & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.aClass268_1.aShort75 & 0xFFFF);
+            @Pc(223) Model local223 = Static618.method8320(this.aNPCType_1.aByte109 & 0xFF, super.aModelArray3[0], super.anInt10742, this.aNPCType_1.aShort76 & 0xFFFF, super.anInt10716, this.aNPCType_1.anInt6713, arg0, this.aNPCType_1.aByte111 & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.aNPCType_1.aShort75 & 0xFFFF);
             if (local223 != null) {
                 local123 = Static642.method8441(this.method9330(), super.aModelArray3.length + 1);
                 super.aBoolean819 = true;
@@ -208,7 +215,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             arg0 |= 0x80000;
         }
         @Pc(111) int local111 = super.aClass126_7.method2673(16383);
-        @Pc(134) Model local134 = super.aModelArray3[0] = this.aClass268_1.getModel(Static34.aClass304_1, arg1, Static574.aBASTypeList_2, local27, local111, super.anIntArray877, this.aClass386_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
+        @Pc(134) Model local134 = super.aModelArray3[0] = this.aNPCType_1.getModel(Static34.aClass304_1, arg1, Static574.aBASTypeList_2, local27, local111, super.anIntArray877, this.aClass386_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
         if (local134 == null) {
             return false;
         }
@@ -239,13 +246,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "f", descriptor = "(B)I")
     @Override
     public int method9299() {
-        if (this.aClass268_1.anIntArray532 != null) {
-            @Pc(19) Class268 local19 = this.aClass268_1.method5985(65535, Static34.aClass304_1);
+        if (this.aNPCType_1.anIntArray532 != null) {
+            @Pc(19) NPCType local19 = this.aNPCType_1.method5985(65535, Static34.aClass304_1);
             if (local19 != null && local19.anInt6707 != -1) {
                 return local19.anInt6707;
             }
         }
-        return this.aClass268_1.anInt6707 == -1 ? super.method9299() : this.aClass268_1.anInt6707;
+        return this.aNPCType_1.anInt6707 == -1 ? super.method9299() : this.aNPCType_1.anInt6707;
     }
 
     @OriginalMember(owner = "client!wj", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
@@ -279,13 +286,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (arg0 >= -48) {
             this.method9290(117);
         }
-        if (this.aClass268_1.anIntArray532 != null) {
-            @Pc(22) Class268 local22 = this.aClass268_1.method5985(65535, Static34.aClass304_1);
+        if (this.aNPCType_1.anIntArray532 != null) {
+            @Pc(22) NPCType local22 = this.aNPCType_1.method5985(65535, Static34.aClass304_1);
             if (local22 != null && local22.anInt6715 != -1) {
                 return local22.anInt6715;
             }
         }
-        return this.aClass268_1.anInt6715;
+        return this.aNPCType_1.anInt6715;
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IIB)V")
@@ -404,7 +411,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
-        if (this.aClass268_1 == null || !super.aBoolean820 && !this.method9324(0, arg0)) {
+        if (this.aNPCType_1 == null || !super.aBoolean820 && !this.method9324(0, arg0)) {
             return;
         }
         @Pc(26) Matrix local26 = arg0.scratchMatrix();
@@ -429,14 +436,14 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(Lclient!o;Z)V")
-    public void method9328(@OriginalArg(0) Class268 arg0) {
-        if (arg0 != this.aClass268_1 && Static400.aBoolean622 && Static321.method4622(super.anInt10740)) {
+    public void method9328(@OriginalArg(0) NPCType arg0) {
+        if (arg0 != this.aNPCType_1 && Static400.aBoolean622 && Static321.method4622(super.anInt10740)) {
             Static488.method6522();
         }
-        this.aClass268_1 = arg0;
-        if (this.aClass268_1 != null) {
-            this.aString128 = this.aClass268_1.aString73;
-            this.anInt10791 = this.aClass268_1.anInt6727;
+        this.aNPCType_1 = arg0;
+        if (this.aNPCType_1 != null) {
+            this.aString128 = this.aNPCType_1.aString73;
+            this.anInt10791 = this.aNPCType_1.anInt6727;
         }
         if (super.aClass8_Sub5_8 != null) {
             super.aClass8_Sub5_8.method3656();
@@ -446,8 +453,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "m", descriptor = "(I)I")
     @Override
     protected int method9320(@OriginalArg(0) int arg0) {
-        if (this.aClass268_1.anIntArray532 != null) {
-            @Pc(15) Class268 local15 = this.aClass268_1.method5985(arg0 + 65535, Static34.aClass304_1);
+        if (this.aNPCType_1.anIntArray532 != null) {
+            @Pc(15) NPCType local15 = this.aNPCType_1.method5985(arg0 + 65535, Static34.aClass304_1);
             if (local15 != null && local15.anInt6726 != -1) {
                 return local15.anInt6726;
             }
@@ -455,17 +462,17 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (arg0 != 0) {
             this.anInt10774 = -66;
         }
-        return this.aClass268_1.anInt6726;
+        return this.aNPCType_1.anInt6726;
     }
 
     @OriginalMember(owner = "client!wj", name = "n", descriptor = "(I)Z")
     public boolean method9330() {
-        return this.aClass268_1.aBoolean505;
+        return this.aNPCType_1.aBoolean505;
     }
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(B)I")
     @Override
     public int method9287() {
-        return this.aClass268_1 == null ? 0 : this.aClass268_1.anInt6723;
+        return this.aNPCType_1 == null ? 0 : this.aNPCType_1.anInt6723;
     }
 }

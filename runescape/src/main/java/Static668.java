@@ -66,11 +66,6 @@ public final class Static668 {
         return Static620.method8321(Static283.step) ? Static405.aClass153_1 : Static405.aClass153_2;
     }
 
-    @OriginalMember(owner = "client!vca", name = "a", descriptor = "(II)I")
-    public static int method8702(@OriginalArg(0) int arg0) {
-        return arg0 & 0x7F;
-    }
-
     @OriginalMember(owner = "client!vca", name = "c", descriptor = "(I)V")
     public static void method8703() {
         if (Static566.anInt8472 < 102) {

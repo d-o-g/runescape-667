@@ -4,6 +4,8 @@ import com.jagex.collect.Queue;
 import com.jagex.core.io.Packet;
 import com.jagex.game.VarDomain;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
+import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;

@@ -1,4 +1,5 @@
 import com.jagex.game.Animator;
+import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;

@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.loctype;
+
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
@@ -11,6 +13,16 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!gea")
 public final class LocTypeList {
 
+    @OriginalMember(owner = "client!rv", name = "a", descriptor = "(IB)I")
+    private static int fileId(@OriginalArg(0) int id) {
+        return id & 0xFF;
+    }
+
+    @OriginalMember(owner = "client!wf", name = "a", descriptor = "(II)I")
+    private static int groupId(@OriginalArg(1) int id) {
+        return id >>> 8;
+    }
+
     @OriginalMember(owner = "client!gea", name = "r", descriptor = "I")
     public int featureMask;
 
@@ -18,7 +30,7 @@ public final class LocTypeList {
     public boolean animateBackground = false;
 
     @OriginalMember(owner = "client!gea", name = "l", descriptor = "Lclient!dla;")
-    public ReferenceCache aReferenceCache_73 = new ReferenceCache(64);
+    public ReferenceCache recentUse = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!gea", name = "f", descriptor = "Lclient!dla;")
     public final ReferenceCache models = new ReferenceCache(500);
@@ -33,53 +45,59 @@ public final class LocTypeList {
     public final js5 meshes;
 
     @OriginalMember(owner = "client!gea", name = "j", descriptor = "Lclient!ul;")
-    public final ModeGame aModeGame_2;
+    public final ModeGame game;
 
     @OriginalMember(owner = "client!gea", name = "h", descriptor = "I")
-    public final int anInt3383;
+    public final int languageId;
 
     @OriginalMember(owner = "client!gea", name = "p", descriptor = "Lclient!sb;")
-    public final js5 aJs5_43;
+    public final js5 configClient;
 
     @OriginalMember(owner = "client!gea", name = "d", descriptor = "Z")
     public boolean allowMembers;
 
     @OriginalMember(owner = "client!gea", name = "i", descriptor = "[Ljava/lang/String;")
-    public final String[] aStringArray15;
+    public final String[] defaultOps;
 
     @OriginalMember(owner = "client!gea", name = "<init>", descriptor = "(Lclient!ul;IZLclient!sb;Lclient!sb;)V")
-    public LocTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
-        this.meshes = arg4;
-        this.aModeGame_2 = arg0;
-        this.anInt3383 = arg1;
-        this.aJs5_43 = arg3;
-        this.allowMembers = arg2;
-        if (this.aJs5_43 != null) {
-            @Pc(53) int local53 = this.aJs5_43.groupSize() - 1;
-            this.aJs5_43.fileLimit(local53);
+    public LocTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) boolean allowMembers, @OriginalArg(3) js5 configClient, @OriginalArg(4) js5 meshes) {
+        this.meshes = meshes;
+        this.game = game;
+        this.languageId = languageId;
+        this.configClient = configClient;
+        this.allowMembers = allowMembers;
+
+        if (this.configClient != null) {
+            @Pc(53) int local53 = this.configClient.groupSize() - 1;
+            this.configClient.fileLimit(local53);
         }
-        if (ModeGame.RUNESCAPE == this.aModeGame_2) {
-            this.aStringArray15 = new String[]{null, null, null, null, null, LocalisedText.EXAMINE.localise(this.anInt3383)};
+
+        if (ModeGame.RUNESCAPE == this.game) {
+            this.defaultOps = new String[]{
+                /* 0 */ null,
+                /* 1 */ null,
+                /* 2 */ null,
+                /* 3 */ null,
+                /* 4 */ null,
+                /* 5 */ LocalisedText.EXAMINE.localise(this.languageId)
+            };
         } else {
-            this.aStringArray15 = new String[]{null, null, null, null, null, null};
+            this.defaultOps = new String[]{
+                /* 0 */ null,
+                /* 1 */ null,
+                /* 2 */ null,
+                /* 3 */ null,
+                /* 4 */ null,
+                /* 5 */ null
+            };
         }
-    }
-
-    @OriginalMember(owner = "client!rv", name = "a", descriptor = "(IB)I")
-    public static int fileId(@OriginalArg(0) int arg0) {
-        return arg0 & 0xFF;
-    }
-
-    @OriginalMember(owner = "client!wf", name = "a", descriptor = "(II)I")
-    public static int groupId(@OriginalArg(1) int arg0) {
-        return arg0 >>> 8;
     }
 
     @OriginalMember(owner = "client!gea", name = "a", descriptor = "(I)V")
-    public void method3058() {
-        @Pc(2) ReferenceCache local2 = this.aReferenceCache_73;
-        synchronized (this.aReferenceCache_73) {
-            this.aReferenceCache_73.removeSoftReferences();
+    public void cacheRemoveSoftReferences() {
+        @Pc(2) ReferenceCache local2 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.removeSoftReferences();
         }
         local2 = this.models;
         synchronized (this.models) {
@@ -96,18 +114,18 @@ public final class LocTypeList {
     }
 
     @OriginalMember(owner = "client!gea", name = "a", descriptor = "(ZI)V")
-    public void method3059(@OriginalArg(0) boolean arg0) {
-        if (arg0 != this.allowMembers) {
-            this.allowMembers = arg0;
-            this.method3060();
+    public void setAllowMembers(@OriginalArg(0) boolean allowMembers) {
+        if (allowMembers != this.allowMembers) {
+            this.allowMembers = allowMembers;
+            this.cacheReset();
         }
     }
 
     @OriginalMember(owner = "client!gea", name = "b", descriptor = "(I)V")
-    public void method3060() {
-        @Pc(14) ReferenceCache local14 = this.aReferenceCache_73;
-        synchronized (this.aReferenceCache_73) {
-            this.aReferenceCache_73.reset();
+    public void cacheReset() {
+        @Pc(14) ReferenceCache local14 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.reset();
         }
         local14 = this.models;
         synchronized (this.models) {
@@ -124,79 +142,84 @@ public final class LocTypeList {
     }
 
     @OriginalMember(owner = "client!gea", name = "a", descriptor = "(IZ)V")
-    public void method3061(@OriginalArg(1) boolean arg0) {
-        if (arg0 != this.animateBackground) {
-            this.animateBackground = arg0;
-            this.method3060();
+    public void setAnimateBackground(@OriginalArg(1) boolean animateBackground) {
+        if (animateBackground != this.animateBackground) {
+            this.animateBackground = animateBackground;
+            this.cacheReset();
         }
     }
 
     @OriginalMember(owner = "client!gea", name = "a", descriptor = "(II)V")
-    public void method3062(@OriginalArg(1) int arg0) {
-        this.aReferenceCache_73 = new ReferenceCache(arg0);
+    public void setRecentUse(@OriginalArg(1) int size) {
+        this.recentUse = new ReferenceCache(size);
     }
 
     @OriginalMember(owner = "client!gea", name = "d", descriptor = "(II)Lclient!c;")
     public LocType list(@OriginalArg(0) int id) {
-        @Pc(12) ReferenceCache local12 = this.aReferenceCache_73;
-        @Pc(22) LocType local22;
-        synchronized (this.aReferenceCache_73) {
-            local22 = (LocType) this.aReferenceCache_73.get((long) id);
+        @Pc(12) ReferenceCache local12 = this.recentUse;
+        @Pc(22) LocType type;
+        synchronized (this.recentUse) {
+            type = (LocType) this.recentUse.get((long) id);
         }
-        if (local22 != null) {
-            return local22;
+        if (type != null) {
+            return type;
         }
-        @Pc(36) js5 local36 = this.aJs5_43;
-        @Pc(49) byte[] local49;
-        synchronized (this.aJs5_43) {
-            local49 = this.aJs5_43.getfile(fileId(id), groupId(id));
+
+        @Pc(36) js5 local36 = this.configClient;
+        @Pc(49) byte[] data;
+        synchronized (this.configClient) {
+            data = this.configClient.getfile(fileId(id), groupId(id));
         }
-        local22 = new LocType();
-        local22.id = id;
-        local22.typeList = this;
-        local22.ops = (String[]) this.aStringArray15.clone();
-        if (local49 != null) {
-            local22.decode(new Packet(local49));
+
+        type = new LocType();
+        type.id = id;
+        type.typeList = this;
+        type.ops = this.defaultOps.clone();
+        if (data != null) {
+            type.decode(new Packet(data));
         }
-        local22.postDecode();
-        if (local22.routingHint) {
-            local22.movementPolicy = 0;
-            local22.blockRanged = false;
+        type.postDecode();
+
+        if (type.routingHint) {
+            type.movementPolicy = 0;
+            type.blockRanged = false;
         }
-        if (!this.allowMembers && local22.members) {
-            local22.ops = null;
-            local22.quests = null;
+
+        if (!this.allowMembers && type.members) {
+            type.ops = null;
+            type.quests = null;
         }
-        @Pc(115) ReferenceCache local115 = this.aReferenceCache_73;
-        synchronized (this.aReferenceCache_73) {
-            this.aReferenceCache_73.put(local22, (long) id);
-            return local22;
+
+        @Pc(115) ReferenceCache local115 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.put(type, id);
+            return type;
         }
     }
 
     @OriginalMember(owner = "client!gea", name = "c", descriptor = "(II)V")
-    public void method3064() {
-        @Pc(11) ReferenceCache local11 = this.aReferenceCache_73;
-        synchronized (this.aReferenceCache_73) {
-            this.aReferenceCache_73.clean(5);
+    public void cacheClean(@OriginalArg(0) int maxAge) {
+        @Pc(11) ReferenceCache local11 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.clean(maxAge);
         }
         local11 = this.models;
         synchronized (this.models) {
-            this.models.clean(5);
+            this.models.clean(maxAge);
         }
         local11 = this.modelAndShadows;
         synchronized (this.modelAndShadows) {
-            this.modelAndShadows.clean(5);
+            this.modelAndShadows.clean(maxAge);
         }
         local11 = this.wallModels;
         synchronized (this.wallModels) {
-            this.wallModels.clean(5);
+            this.wallModels.clean(maxAge);
         }
     }
 
     @OriginalMember(owner = "client!gea", name = "b", descriptor = "(II)V")
-    public void setFeatureMask(@OriginalArg(0) int arg0) {
-        this.featureMask = arg0;
+    public void setFeatureMask(@OriginalArg(0) int featureMask) {
+        this.featureMask = featureMask;
         @Pc(9) ReferenceCache local9 = this.models;
         synchronized (this.models) {
             this.models.reset();

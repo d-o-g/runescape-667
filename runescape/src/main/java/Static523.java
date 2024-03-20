@@ -8,6 +8,7 @@ import com.jagex.game.runetek6.config.defaults.WearposDefaults;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
@@ -274,7 +275,7 @@ public final class Static523 {
             Static68.aClass151_3 = new Class151(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55);
             Static288.aClass139_2 = new Class139(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55, new Class251());
             Static412.method5693();
-            Static354.aLocTypeList_4.method3061(Static400.instance.animatingBackground.value() == 0);
+            Static354.aLocTypeList_4.setAnimateBackground(Static400.instance.animatingBackground.value() == 0);
             Static34.aClass304_1 = new Class304();
             Static296.updateFeatureMask();
             Static44.method1074(Static25.aSeqTypeList_1);

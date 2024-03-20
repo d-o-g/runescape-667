@@ -4,6 +4,7 @@ import com.jagex.core.constants.TileFlag;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocOcclusionMode;
+import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;

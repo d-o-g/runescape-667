@@ -1,6 +1,7 @@
 import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import org.openrs2.deob.annotation.OriginalMember;

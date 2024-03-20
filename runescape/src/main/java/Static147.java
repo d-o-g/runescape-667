@@ -1,5 +1,6 @@
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.graphics.Matrix;

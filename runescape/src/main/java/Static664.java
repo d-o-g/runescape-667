@@ -93,7 +93,7 @@ public final class Static664 {
         Static467.aClass96_3.method2351();
         Static540.aClass79_6.method2072();
         Static68.aIDKTypeList_3.cacheRemoveSoftReferences();
-        Static354.aLocTypeList_4.method3058();
+        Static354.aLocTypeList_4.cacheRemoveSoftReferences();
         Static690.aNPCTypeList_2.cacheRemoveSoftReferences();
         Static419.aObjTypeList_1.method2480();
         Static25.aSeqTypeList_1.cacheRemoveSoftReferences();

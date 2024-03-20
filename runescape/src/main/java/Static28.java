@@ -1,4 +1,5 @@
 import com.jagex.collect.IntNode;
+import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;

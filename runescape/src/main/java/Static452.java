@@ -1,5 +1,6 @@
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;

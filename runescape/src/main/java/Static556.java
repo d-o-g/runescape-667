@@ -1,6 +1,7 @@
 import com.jagex.core.constants.ModeGame;
 import com.jagex.game.Class14;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;

@@ -8,6 +8,7 @@ import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.graphics.Exception_Sub1;

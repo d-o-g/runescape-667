@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.loctype;
+
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
@@ -7,9 +9,6 @@ import com.jagex.core.constants.LocShapes;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.game.VarDomain;
-import com.jagex.game.runetek6.config.loctype.LocInteractivity;
-import com.jagex.game.runetek6.config.loctype.LocOcclusionMode;
-import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;

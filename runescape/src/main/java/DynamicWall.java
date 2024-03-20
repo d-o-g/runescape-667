@@ -1,5 +1,6 @@
 import com.jagex.Class230;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
+import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;

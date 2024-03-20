@@ -25,6 +25,16 @@ public final class Class387 {
         }
     }
 
+    @OriginalMember(owner = "client!c", name = "a", descriptor = "(BI)I")
+    public static int fileId(@OriginalArg(1) int arg0) {
+        return arg0 & 0xFF;
+    }
+
+    @OriginalMember(owner = "client!fq", name = "a", descriptor = "(II)I")
+    public static int groupId(@OriginalArg(1) int arg0) {
+        return arg0 >>> 8;
+    }
+
     @OriginalMember(owner = "client!vka", name = "a", descriptor = "(II)Lclient!bt;")
     public Class53 method8925(@OriginalArg(0) int arg0) {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_223;
@@ -35,7 +45,7 @@ public final class Class387 {
         if (local16 != null) {
             return local16;
         }
-        @Pc(40) byte[] local40 = this.aJs5_122.getfile(Static61.method1313(arg0), Static188.method2857(arg0));
+        @Pc(40) byte[] local40 = this.aJs5_122.getfile(fileId(arg0), groupId(arg0));
         local16 = new Class53();
         if (local40 != null) {
             local16.method1222(new Packet(local40));

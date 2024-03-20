@@ -14,12 +14,12 @@ import org.openrs2.deob.annotation.Pc;
 public final class NPCTypeList {
 
     @OriginalMember(owner = "client!tg", name = "a", descriptor = "(ZI)I")
-    public static int method8237(@OriginalArg(1) int arg0) {
+    public static int fileId(@OriginalArg(1) int arg0) {
         return arg0 & 0x7F;
     }
 
     @OriginalMember(owner = "client!wk", name = "a", descriptor = "(IB)I")
-    public static int method9336(@OriginalArg(0) int arg0) {
+    public static int groupId(@OriginalArg(0) int arg0) {
         return arg0 >>> 7;
     }
 
@@ -140,11 +140,11 @@ public final class NPCTypeList {
     }
 
     @OriginalMember(owner = "client!ql", name = "a", descriptor = "(IB)Lclient!o;")
-    public NPCType list(@OriginalArg(0) int arg0) {
+    public NPCType list(@OriginalArg(0) int id) {
         @Pc(14) ReferenceCache local14 = this.aReferenceCache_169;
         @Pc(24) NPCType local24;
         synchronized (this.aReferenceCache_169) {
-            local24 = (NPCType) this.aReferenceCache_169.get((long) arg0);
+            local24 = (NPCType) this.aReferenceCache_169.get((long) id);
         }
         if (local24 != null) {
             return local24;
@@ -152,11 +152,11 @@ public final class NPCTypeList {
         @Pc(38) js5 local38 = this.aJs5_101;
         @Pc(51) byte[] local51;
         synchronized (this.aJs5_101) {
-            local51 = this.aJs5_101.getfile(method8237(arg0), method9336(arg0));
+            local51 = this.aJs5_101.getfile(fileId(id), groupId(id));
         }
         local24 = new NPCType();
         local24.aNPCTypeList_1 = this;
-        local24.anInt6744 = arg0;
+        local24.anInt6744 = id;
         local24.aStringArray34 = (String[]) this.aStringArray39.clone();
         if (local51 != null) {
             local24.method5986(new Packet(local51));
@@ -164,7 +164,7 @@ public final class NPCTypeList {
         local24.method5983();
         @Pc(90) ReferenceCache local90 = this.aReferenceCache_169;
         synchronized (this.aReferenceCache_169) {
-            this.aReferenceCache_169.put(local24, (long) arg0);
+            this.aReferenceCache_169.put(local24, (long) id);
             return local24;
         }
     }

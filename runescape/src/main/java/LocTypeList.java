@@ -65,6 +65,16 @@ public final class LocTypeList {
         }
     }
 
+    @OriginalMember(owner = "client!rv", name = "a", descriptor = "(IB)I")
+    public static int fileId(@OriginalArg(0) int arg0) {
+        return arg0 & 0xFF;
+    }
+
+    @OriginalMember(owner = "client!wf", name = "a", descriptor = "(II)I")
+    public static int groupId(@OriginalArg(1) int arg0) {
+        return arg0 >>> 8;
+    }
+
     @OriginalMember(owner = "client!gea", name = "a", descriptor = "(I)V")
     public void method3058() {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_73;
@@ -127,14 +137,14 @@ public final class LocTypeList {
     }
 
     @OriginalMember(owner = "client!gea", name = "d", descriptor = "(II)Lclient!c;")
-    public LocType list(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public LocType list(@OriginalArg(0) int id, @OriginalArg(1) int arg1) {
         if (arg1 <= 29) {
             return null;
         }
         @Pc(12) ReferenceCache local12 = this.aReferenceCache_73;
         @Pc(22) LocType local22;
         synchronized (this.aReferenceCache_73) {
-            local22 = (LocType) this.aReferenceCache_73.get((long) arg0);
+            local22 = (LocType) this.aReferenceCache_73.get((long) id);
         }
         if (local22 != null) {
             return local22;
@@ -142,10 +152,10 @@ public final class LocTypeList {
         @Pc(36) js5 local36 = this.aJs5_43;
         @Pc(49) byte[] local49;
         synchronized (this.aJs5_43) {
-            local49 = this.aJs5_43.getfile(Static570.method7551(arg0), Static705.method9197(arg0));
+            local49 = this.aJs5_43.getfile(fileId(id), groupId(id));
         }
         local22 = new LocType();
-        local22.anInt1256 = arg0;
+        local22.anInt1256 = id;
         local22.aLocTypeList_2 = this;
         local22.aStringArray6 = (String[]) this.aStringArray15.clone();
         if (local49 != null) {
@@ -162,7 +172,7 @@ public final class LocTypeList {
         }
         @Pc(115) ReferenceCache local115 = this.aReferenceCache_73;
         synchronized (this.aReferenceCache_73) {
-            this.aReferenceCache_73.put(local22, (long) arg0);
+            this.aReferenceCache_73.put(local22, (long) id);
             return local22;
         }
     }

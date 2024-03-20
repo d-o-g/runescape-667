@@ -14,106 +14,106 @@ import org.openrs2.deob.annotation.Pc;
 public final class SeqTypeList {
 
     @OriginalMember(owner = "client!bp", name = "a", descriptor = "Lclient!dla;")
-    public final ReferenceCache aReferenceCache_22 = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!bp", name = "f", descriptor = "Lclient!dla;")
-    public final ReferenceCache aReferenceCache_23 = new ReferenceCache(100);
+    public final ReferenceCache frameSets = new ReferenceCache(100);
 
     @OriginalMember(owner = "client!bp", name = "j", descriptor = "Lclient!sb;")
-    public final js5 aJs5_11;
+    public final js5 configClient;
 
     @OriginalMember(owner = "client!bp", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;Lclient!sb;)V")
-    public SeqTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 bases, @OriginalArg(4) js5 anims) {
-        this.aJs5_11 = arg2;
-        if (this.aJs5_11 != null) {
-            @Pc(26) int local26 = this.aJs5_11.groupSize() - 1;
-            this.aJs5_11.fileLimit(local26);
+    public SeqTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 bases, @OriginalArg(4) js5 anims) {
+        this.configClient = configClient;
+        if (this.configClient != null) {
+            @Pc(26) int local26 = this.configClient.groupSize() - 1;
+            this.configClient.fileLimit(local26);
         }
         AnimFrameset.initJs5(anims, bases);
     }
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(II)I")
-    public static int method8702(@OriginalArg(0) int arg0) {
+    public static int fileId(@OriginalArg(0) int arg0) {
         return arg0 & 0x7F;
     }
 
     @OriginalMember(owner = "client!je", name = "b", descriptor = "(II)I")
-    public static int method4226(@OriginalArg(1) int arg0) {
+    public static int groupId(@OriginalArg(1) int arg0) {
         return arg0 >>> 7;
     }
 
     @OriginalMember(owner = "client!bp", name = "a", descriptor = "(IB)Lclient!cka;")
-    public SeqType list(@OriginalArg(0) int arg0) {
-        @Pc(6) ReferenceCache local6 = this.aReferenceCache_22;
+    public SeqType list(@OriginalArg(0) int id) {
+        @Pc(6) ReferenceCache local6 = this.recentUse;
         @Pc(16) SeqType local16;
-        synchronized (this.aReferenceCache_22) {
-            local16 = (SeqType) this.aReferenceCache_22.get((long) arg0);
+        synchronized (this.recentUse) {
+            local16 = (SeqType) this.recentUse.get((long) id);
         }
         if (local16 != null) {
             return local16;
         }
-        @Pc(30) js5 local30 = this.aJs5_11;
+        @Pc(30) js5 local30 = this.configClient;
         @Pc(43) byte[] local43;
-        synchronized (this.aJs5_11) {
-            local43 = this.aJs5_11.getfile(method8702(arg0), method4226(arg0));
+        synchronized (this.configClient) {
+            local43 = this.configClient.getfile(fileId(id), groupId(id));
         }
         local16 = new SeqType();
-        local16.id = arg0;
+        local16.id = id;
         if (local43 != null) {
             local16.method1585(new Packet(local43));
         }
         local16.method1584();
-        @Pc(73) ReferenceCache local73 = this.aReferenceCache_22;
-        synchronized (this.aReferenceCache_22) {
-            this.aReferenceCache_22.put(local16, (long) arg0);
+        @Pc(73) ReferenceCache local73 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.put(local16, (long) id);
             return local16;
         }
     }
 
     @OriginalMember(owner = "client!bp", name = "a", descriptor = "(II)V")
     public void method1163() {
-        @Pc(6) ReferenceCache local6 = this.aReferenceCache_22;
-        synchronized (this.aReferenceCache_22) {
-            this.aReferenceCache_22.clean(5);
+        @Pc(6) ReferenceCache local6 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.clean(5);
         }
-        local6 = this.aReferenceCache_23;
-        synchronized (this.aReferenceCache_23) {
-            this.aReferenceCache_23.clean(5);
+        local6 = this.frameSets;
+        synchronized (this.frameSets) {
+            this.frameSets.clean(5);
         }
     }
 
     @OriginalMember(owner = "client!bp", name = "b", descriptor = "(I)V")
     public void method1164() {
-        @Pc(2) ReferenceCache local2 = this.aReferenceCache_22;
-        synchronized (this.aReferenceCache_22) {
-            this.aReferenceCache_22.removeSoftReferences();
+        @Pc(2) ReferenceCache local2 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.removeSoftReferences();
         }
-        local2 = this.aReferenceCache_23;
-        synchronized (this.aReferenceCache_23) {
-            this.aReferenceCache_23.removeSoftReferences();
+        local2 = this.frameSets;
+        synchronized (this.frameSets) {
+            this.frameSets.removeSoftReferences();
         }
     }
 
     @OriginalMember(owner = "client!bp", name = "a", descriptor = "(B)V")
     public void method1165() {
-        @Pc(7) ReferenceCache local7 = this.aReferenceCache_22;
-        synchronized (this.aReferenceCache_22) {
-            this.aReferenceCache_22.reset();
+        @Pc(7) ReferenceCache local7 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.reset();
         }
-        local7 = this.aReferenceCache_23;
-        synchronized (this.aReferenceCache_23) {
-            this.aReferenceCache_23.reset();
+        local7 = this.frameSets;
+        synchronized (this.frameSets) {
+            this.frameSets.reset();
         }
     }
 
     @OriginalMember(owner = "client!bp", name = "b", descriptor = "(II)Lclient!rw;")
     public AnimFrameset method1166(@OriginalArg(0) int arg0) {
-        @Pc(12) ReferenceCache local12 = this.aReferenceCache_23;
-        synchronized (this.aReferenceCache_23) {
-            @Pc(22) AnimFrameset local22 = (AnimFrameset) this.aReferenceCache_23.get((long) arg0);
+        @Pc(12) ReferenceCache local12 = this.frameSets;
+        synchronized (this.frameSets) {
+            @Pc(22) AnimFrameset local22 = (AnimFrameset) this.frameSets.get((long) arg0);
             if (local22 == null) {
                 local22 = new AnimFrameset(arg0);
-                this.aReferenceCache_23.put(local22, (long) arg0);
+                this.frameSets.put(local22, (long) arg0);
             }
             return local22.method7565() ? local22 : null;
         }

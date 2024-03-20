@@ -79,8 +79,4 @@ public final class Static322 {
         System.gc();
     }
 
-    @OriginalMember(owner = "client!kd", name = "b", descriptor = "(BI)I")
-    public static int method9443(@OriginalArg(1) int arg0) {
-        return arg0 & 0x3FF;
-    }
 }

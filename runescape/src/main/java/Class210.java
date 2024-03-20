@@ -26,11 +26,11 @@ public final class Class210 {
     }
 
     @OriginalMember(owner = "client!kka", name = "a", descriptor = "(II)Lclient!paa;")
-    public Class284 method4947(@OriginalArg(0) int arg0) {
+    public Class284 method4947(@OriginalArg(0) int id) {
         @Pc(12) ReferenceCache local12 = this.aReferenceCache_112;
         @Pc(22) Class284 local22;
         synchronized (this.aReferenceCache_112) {
-            local22 = (Class284) this.aReferenceCache_112.get((long) arg0);
+            local22 = (Class284) this.aReferenceCache_112.get((long) id);
         }
         if (local22 != null) {
             return local22;
@@ -38,7 +38,7 @@ public final class Class210 {
         @Pc(36) js5 local36 = this.aJs5_67;
         @Pc(45) byte[] local45;
         synchronized (this.aJs5_67) {
-            local45 = this.aJs5_67.getfile(arg0, 19);
+            local45 = this.aJs5_67.getfile(id, 19);
         }
         local22 = new Class284();
         if (local45 != null) {
@@ -46,7 +46,7 @@ public final class Class210 {
         }
         @Pc(69) ReferenceCache local69 = this.aReferenceCache_112;
         synchronized (this.aReferenceCache_112) {
-            this.aReferenceCache_112.put(local22, (long) arg0);
+            this.aReferenceCache_112.put(local22, (long) id);
             return local22;
         }
     }

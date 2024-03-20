@@ -33,6 +33,16 @@ public final class Class128 {
         this.aJs5_33.fileLimit(local26);
     }
 
+    @OriginalMember(owner = "client!rl", name = "a", descriptor = "(II)I")
+    public static int fileId(@OriginalArg(1) int arg0) {
+        return arg0 & 0xFF;
+    }
+
+    @OriginalMember(owner = "client!lfa", name = "a", descriptor = "(II)I")
+    public static int groupId(@OriginalArg(0) int arg0) {
+        return arg0 >>> 8;
+    }
+
     @OriginalMember(owner = "client!fh", name = "a", descriptor = "(II)Lclient!lia;")
     public Class227 method2694(@OriginalArg(1) int arg0) {
         @Pc(14) ReferenceCache local14 = this.aReferenceCache_61;
@@ -46,7 +56,7 @@ public final class Class128 {
         @Pc(38) js5 local38 = this.aJs5_33;
         @Pc(51) byte[] local51;
         synchronized (this.aJs5_33) {
-            local51 = this.aJs5_33.getfile(Static560.method7429(arg0), Static359.method5224(arg0));
+            local51 = this.aJs5_33.getfile(fileId(arg0), groupId(arg0));
         }
         local24 = new Class227();
         local24.anInt5833 = arg0;

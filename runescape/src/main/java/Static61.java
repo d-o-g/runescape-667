@@ -60,8 +60,4 @@ public final class Static61 {
         }
     }
 
-    @OriginalMember(owner = "client!c", name = "a", descriptor = "(BI)I")
-    public static int method1313(@OriginalArg(1) int arg0) {
-        return arg0 & 0xFF;
-    }
 }

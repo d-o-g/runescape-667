@@ -25,11 +25,11 @@ public final class Class17 {
     }
 
     @OriginalMember(owner = "client!al", name = "a", descriptor = "(II)Lclient!sla;")
-    public Class341 method263(@OriginalArg(0) int arg0) {
+    public Class341 method263(@OriginalArg(0) int id) {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_11;
         @Pc(16) Class341 local16;
         synchronized (this.aReferenceCache_11) {
-            local16 = (Class341) this.aReferenceCache_11.get((long) arg0);
+            local16 = (Class341) this.aReferenceCache_11.get((long) id);
         }
         if (local16 != null) {
             return local16;
@@ -37,7 +37,7 @@ public final class Class17 {
         @Pc(30) js5 local30 = this.aJs5_2;
         @Pc(39) byte[] local39;
         synchronized (this.aJs5_2) {
-            local39 = this.aJs5_2.getfile(arg0, 54);
+            local39 = this.aJs5_2.getfile(id, 54);
         }
         local16 = new Class341();
         if (local39 != null) {
@@ -45,7 +45,7 @@ public final class Class17 {
         }
         @Pc(63) ReferenceCache local63 = this.aReferenceCache_11;
         synchronized (this.aReferenceCache_11) {
-            this.aReferenceCache_11.put(local16, (long) arg0);
+            this.aReferenceCache_11.put(local16, (long) id);
             return local16;
         }
     }

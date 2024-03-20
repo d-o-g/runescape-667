@@ -25,6 +25,16 @@ public final class Class161 {
         }
     }
 
+    @OriginalMember(owner = "client!kd", name = "b", descriptor = "(BI)I")
+    public static int fileId(@OriginalArg(1) int arg0) {
+        return arg0 & 0x3FF;
+    }
+
+    @OriginalMember(owner = "client!qe", name = "a", descriptor = "(II)I")
+    public static int groupId(@OriginalArg(1) int arg0) {
+        return arg0 >>> 10;
+    }
+
     @OriginalMember(owner = "client!hf", name = "a", descriptor = "(II)V")
     public void method3420(@OriginalArg(1) int arg0) {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache;
@@ -55,7 +65,7 @@ public final class Class161 {
         @Pc(40) js5 local40 = this.aJs5_53;
         @Pc(53) byte[] local53;
         synchronized (this.aJs5_53) {
-            local53 = this.aJs5_53.getfile(Static322.method9443(arg0), Static516.method6806(arg0));
+            local53 = this.aJs5_53.getfile(fileId(arg0), groupId(arg0));
         }
         local16 = new Class95();
         if (local53 != null) {

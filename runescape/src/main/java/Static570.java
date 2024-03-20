@@ -36,11 +36,6 @@ public final class Static570 {
         }
     }
 
-    @OriginalMember(owner = "client!rv", name = "a", descriptor = "(IB)I")
-    public static int method7551(@OriginalArg(0) int arg0) {
-        return arg0 & 0xFF;
-    }
-
     @OriginalMember(owner = "client!rv", name = "b", descriptor = "(I)Lclient!ge;")
     public static Packet method7552() {
         @Pc(8) Packet local8 = new Packet(518);

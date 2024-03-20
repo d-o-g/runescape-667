@@ -39,11 +39,11 @@ public final class Class214 {
     }
 
     @OriginalMember(owner = "client!kq", name = "a", descriptor = "(II)Lclient!ab;")
-    public DoublyLinkedNode_Sub2_Sub1 method5038(@OriginalArg(1) int arg0) {
+    public DoublyLinkedNode_Sub2_Sub1 method5038(@OriginalArg(1) int id) {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_114;
         @Pc(16) DoublyLinkedNode_Sub2_Sub1 local16;
         synchronized (this.aReferenceCache_114) {
-            local16 = (DoublyLinkedNode_Sub2_Sub1) this.aReferenceCache_114.get((long) arg0);
+            local16 = (DoublyLinkedNode_Sub2_Sub1) this.aReferenceCache_114.get((long) id);
         }
         if (local16 != null) {
             return local16;
@@ -51,7 +51,7 @@ public final class Class214 {
         @Pc(30) js5 local30 = this.aJs5_70;
         @Pc(39) byte[] local39;
         synchronized (this.aJs5_70) {
-            local39 = this.aJs5_70.getfile(arg0, 26);
+            local39 = this.aJs5_70.getfile(id, 26);
         }
         local16 = new DoublyLinkedNode_Sub2_Sub1();
         if (local39 != null) {
@@ -59,7 +59,7 @@ public final class Class214 {
         }
         @Pc(71) ReferenceCache local71 = this.aReferenceCache_114;
         synchronized (this.aReferenceCache_114) {
-            this.aReferenceCache_114.put(local16, (long) arg0);
+            this.aReferenceCache_114.put(local16, (long) id);
             return local16;
         }
     }

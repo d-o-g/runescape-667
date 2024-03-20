@@ -9,7 +9,6 @@ import com.jagex.core.io.Packet;
 import com.jagex.game.Class14;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
-import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.graphics.Sprite;
@@ -111,12 +110,12 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!gu", name = "b", descriptor = "(ZI)I")
-    public static int and0xff(@OriginalArg(1) int arg0) {
+    public static int fileId(@OriginalArg(1) int arg0) {
         return arg0 & 0xFF;
     }
 
     @OriginalMember(owner = "client!sm", name = "a", descriptor = "(II)I")
-    public static int shr8(@OriginalArg(1) int arg0) {
+    public static int groupId(@OriginalArg(1) int arg0) {
         return arg0 >>> 8;
     }
 
@@ -283,7 +282,7 @@ public final class ObjTypeList {
         @Pc(40) js5 local40 = this.configClient;
         @Pc(53) byte[] data;
         synchronized (this.configClient) {
-            data = this.configClient.getfile(and0xff(id), shr8(id));
+            data = this.configClient.getfile(fileId(id), groupId(id));
         }
 
         type = new ObjType();

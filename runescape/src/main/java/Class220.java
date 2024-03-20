@@ -66,11 +66,11 @@ public final class Class220 {
     }
 
     @OriginalMember(owner = "client!ld", name = "b", descriptor = "(II)Lclient!pb;")
-    public Class285 method5186(@OriginalArg(0) int arg0) {
+    public Class285 method5186(@OriginalArg(0) int id) {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_122;
         @Pc(16) Class285 local16;
         synchronized (this.aReferenceCache_122) {
-            local16 = (Class285) this.aReferenceCache_122.get((long) arg0);
+            local16 = (Class285) this.aReferenceCache_122.get((long) id);
         }
         if (local16 != null) {
             return local16;
@@ -78,7 +78,7 @@ public final class Class220 {
         @Pc(30) js5 local30 = this.aJs5_75;
         @Pc(39) byte[] local39;
         synchronized (this.aJs5_75) {
-            local39 = this.aJs5_75.getfile(arg0, 46);
+            local39 = this.aJs5_75.getfile(id, 46);
         }
         local16 = new Class285();
         local16.aClass220_1 = this;
@@ -87,7 +87,7 @@ public final class Class220 {
         }
         @Pc(66) ReferenceCache local66 = this.aReferenceCache_122;
         synchronized (this.aReferenceCache_122) {
-            this.aReferenceCache_122.put(local16, (long) arg0);
+            this.aReferenceCache_122.put(local16, (long) id);
             return local16;
         }
     }

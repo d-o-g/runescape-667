@@ -118,7 +118,7 @@ public final class Static618 {
             }
             @Pc(143) int[] local143 = new int[]{64, 96, 128};
             @Pc(162) Mesh local162 = new Mesh(local106 * 3 + 1, -local106 + local106 * 6, 0);
-            @Pc(169) int local169 = local162.method2230(0, 0, 0);
+            @Pc(169) int local169 = local162.addVertex(0, 0, 0);
             @Pc(173) int[][] local173 = new int[3][local106];
             @Pc(181) int local181;
             @Pc(185) int local185;
@@ -131,7 +131,7 @@ public final class Static618 {
                     @Pc(195) int local195 = (local187 << 14) / local106;
                     @Pc(203) int local203 = Trig1.SIN[local195] * local181 >> 14;
                     local211 = local185 * Trig1.COS[local195] >> 14;
-                    local173[local175][local187] = local162.method2230(local211, 0, local203);
+                    local173[local175][local187] = local162.addVertex(local211, 0, local203);
                 }
             }
             for (local181 = 0; local181 < 3; local181++) {
@@ -141,10 +141,10 @@ public final class Static618 {
                 @Pc(310) short local310 = (short) ((local185 * (arg3 & 0x7F) + local187 * (arg11 & 0x7F) & 0x7F00) + ((arg11 & 0x380) * local187 + (arg3 & 0x380) * local185 & 0x38000) + ((arg11 & 0xFC00) * local187 + (arg3 & 0xFC00) * local185 & 0xFC0000) >> 8);
                 for (local211 = 0; local211 < local106; local211++) {
                     if (local181 == 0) {
-                        local162.method2231(local169, local173[0][local211], local173[0][(local211 + 1) % local106], local310, (short) -1, local265, (byte) 1, (byte) -1);
+                        local162.addFace(local169, local173[0][local211], local173[0][(local211 + 1) % local106], local310, (short) -1, local265, (byte) 1, (byte) -1);
                     } else {
-                        local162.method2231(local173[local181 - 1][local211], local173[local181][(local211 + 1) % local106], local173[local181 - 1][(local211 + 1) % local106], local310, (short) -1, local265, (byte) 1, (byte) -1);
-                        local162.method2231(local173[local181 - 1][local211], local173[local181][local211], local173[local181][(local211 + 1) % local106], local310, (short) -1, local265, (byte) 1, (byte) -1);
+                        local162.addFace(local173[local181 - 1][local211], local173[local181][(local211 + 1) % local106], local173[local181 - 1][(local211 + 1) % local106], local310, (short) -1, local265, (byte) 1, (byte) -1);
+                        local162.addFace(local173[local181 - 1][local211], local173[local181][local211], local173[local181][(local211 + 1) % local106], local310, (short) -1, local265, (byte) 1, (byte) -1);
                     }
                 }
             }

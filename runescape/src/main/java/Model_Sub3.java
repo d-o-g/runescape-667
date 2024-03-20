@@ -297,7 +297,7 @@ public final class Model_Sub3 extends Model {
                 @Pc(167) boolean local167 = false;
                 for (@Pc(169) int local169 = 0; local169 < arg1.billboards.length; local169++) {
                     @Pc(175) MeshBillboard local175 = arg1.billboards[local169];
-                    if (local152 == local175.anInt588) {
+                    if (local152 == local175.face) {
                         @Pc(184) Class376 local184 = Static402.method5582(local175.anInt592);
                         if (local184.aBoolean747) {
                             local167 = true;
@@ -349,9 +349,9 @@ public final class Model_Sub3 extends Model {
             for (local152 = 0; local152 < arg1.billboards.length; local152++) {
                 @Pc(394) MeshBillboard local394 = arg1.billboards[local152];
                 @Pc(399) Class376 local399 = Static402.method5582(local394.anInt592);
-                local335 = Static323.anIntArray389[arg1.faceColour[local394.anInt588] & 0xFFFF] & 0xFFFFFF;
-                local335 |= 255 - (arg1.faceTexSpace == null ? 0 : arg1.faceTexSpace[local394.anInt588] & 0xFF) << 24;
-                this.aClass239Array1[local152] = new Class239(local394.anInt588, arg1.faceA[local394.anInt588], arg1.faceB[local394.anInt588], arg1.faceC[local394.anInt588], local399.anInt9696, local399.anInt9690, local399.anInt9693, local399.anInt9697, local399.anInt9689, local399.aBoolean747, local394.anInt591);
+                local335 = Static323.anIntArray389[arg1.faceColour[local394.face] & 0xFFFF] & 0xFFFFFF;
+                local335 |= 255 - (arg1.faceTexSpace == null ? 0 : arg1.faceTexSpace[local394.face] & 0xFF) << 24;
+                this.aClass239Array1[local152] = new Class239(local394.face, arg1.faceA[local394.face], arg1.faceB[local394.face], arg1.faceC[local394.face], local399.anInt9696, local399.anInt9690, local399.anInt9693, local399.anInt9697, local399.anInt9689, local399.aBoolean747, local394.anInt591);
                 this.aClass245Array1[local152] = new Class245(local335);
             }
         }
@@ -563,7 +563,7 @@ public final class Model_Sub3 extends Model {
             this.aFloatArrayArray17 = this.aFloatArrayArray18 = null;
         }
         if (arg1.vertexGroup != null && (this.anInt8489 & 0x20) != 0) {
-            this.anIntArrayArray212 = arg1.method2234(true);
+            this.anIntArrayArray212 = arg1.vertexGroups(true);
         }
         if (arg1.faceGroup != null && (this.anInt8489 & 0x180) != 0) {
             this.anIntArrayArray213 = arg1.getFaceGroups();

@@ -1010,7 +1010,7 @@ public final class Class54 {
                         }
                         @Pc(286) js5 local286 = this.aClass142_2.aJs5_44;
                         synchronized (this.aClass142_2.aJs5_44) {
-                            local275 = Static121.method2201(local179[local281] & 0xFFFF, this.aClass142_2.aJs5_44);
+                            local275 = Mesh.load(local179[local281] & 0xFFFF, this.aClass142_2.aJs5_44);
                         }
                         if (local275 == null) {
                             return null;

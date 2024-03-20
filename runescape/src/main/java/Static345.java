@@ -31,8 +31,8 @@ public final class Static345 {
         }
         @Pc(8) Mesh local8 = new Mesh(580, 1104, 1);
         local8.addSphericalSpace();
-        local8.method2230(0, 128, 0);
-        local8.method2230(0, -128, 0);
+        local8.addVertex(0, 128, 0);
+        local8.addVertex(0, -128, 0);
         for (@Pc(37) int local37 = 0; local37 <= 24; local37++) {
             @Pc(44) int local44 = local37 * 8192 / 24;
             @Pc(48) int local48 = Trig1.SIN[local44];
@@ -46,21 +46,21 @@ public final class Static345 {
                 local67 = Trig1.COS[local61] >> 7;
                 local75 = Trig1.SIN[local61] * local48 >> 21;
                 local83 = Trig1.SIN[local61] * local52 >> 21;
-                local8.method2230(-local75, local67, local83);
+                local8.addVertex(-local75, local67, local83);
             }
             if (local37 > 0) {
                 local61 = local37 * 23 + 2;
                 local67 = local61 - 23;
-                local8.method2231(0, local61, local67, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
+                local8.addFace(0, local61, local67, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
                 for (local75 = 1; local75 < 23; local75++) {
                     local83 = local67 + 1;
                     @Pc(130) int local130 = local61 + 1;
-                    local8.method2231(local67, local61, local83, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
-                    local8.method2231(local83, local61, local130, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
+                    local8.addFace(local67, local61, local83, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
+                    local8.addFace(local83, local61, local130, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
                     local67 = local83;
                     local61 = local130;
                 }
-                local8.method2231(local61, 1, local67, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
+                local8.addFace(local61, 1, local67, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
             }
         }
         local8.maxVertex = local8.vertexCount;

@@ -99,7 +99,7 @@ public final class Class227 {
             if (this.aShortArray82 != null) {
                 local121 |= 0x8000;
             }
-            @Pc(144) Mesh local144 = Static121.method2201(this.anInt5834, this.aClass128_2.aJs5_34);
+            @Pc(144) Mesh local144 = Mesh.load(this.anInt5834, this.aClass128_2.aJs5_34);
             if (local144 == null) {
                 return null;
             }

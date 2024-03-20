@@ -148,7 +148,7 @@ public final class Class216 {
 
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "(Lclient!ha;Lclient!ks;)V")
     public void method5054(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
-        @Pc(6) Mesh local6 = Static121.method2201(this.anInt5633, Static386.aJs5_80);
+        @Pc(6) Mesh local6 = Mesh.load(this.anInt5633, Static386.aJs5_80);
         if (local6 == null) {
             return;
         }

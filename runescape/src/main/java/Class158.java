@@ -1028,7 +1028,7 @@ public final class Class158 {
                 if (local277 != null) {
                     arg9 = arg0.combineFunctionMasks(arg9, local277.ua());
                 }
-                @Pc(307) Mesh local307 = Static121.method2201(this.obj, Static607.aJs5_113);
+                @Pc(307) Mesh local307 = Mesh.load(this.obj, Static607.aJs5_113);
                 if (local307 == null) {
                     Static544.aBoolean624 = true;
                     return null;

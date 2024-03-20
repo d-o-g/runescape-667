@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -7,6 +8,12 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!dv")
 public final class Mesh {
+
+    @OriginalMember(owner = "client!dp", name = "a", descriptor = "(IIILclient!sb;)Lclient!dv;")
+    public static Mesh load(@OriginalArg(0) int id, @OriginalArg(3) js5 js5) {
+        @Pc(9) byte[] data = js5.getfile(0, id);
+        return data == null ? null : new Mesh(data);
+    }
 
     @OriginalMember(owner = "client!dv", name = "k", descriptor = "[I")
     public int[] vertexZ;
@@ -126,7 +133,7 @@ public final class Mesh {
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "([B)V")
     public Mesh(@OriginalArg(0) byte[] arg0) {
         if (arg0[arg0.length - 1] == -1 && arg0[arg0.length - 2] == -1) {
-            this.method2235(arg0);
+            this.decodeNew(arg0);
         } else {
             this.decodeOld(arg0);
         }
@@ -165,69 +172,79 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "([Lclient!dv;I)V")
-    public Mesh(@OriginalArg(0) Mesh[] arg0, @OriginalArg(1) int arg1) {
+    public Mesh(@OriginalArg(0) Mesh[] meshes, @OriginalArg(1) int meshCount) {
         this.texSpaceCount = 0;
         this.vertexCount = 0;
         this.faceCount = 0;
-        @Pc(30) int local30 = 0;
-        @Pc(32) int local32 = 0;
-        @Pc(34) int local34 = 0;
-        @Pc(36) boolean local36 = false;
-        @Pc(38) boolean local38 = false;
-        @Pc(40) boolean local40 = false;
-        @Pc(42) boolean local42 = false;
-        @Pc(44) boolean local44 = false;
-        @Pc(46) boolean local46 = false;
+        @Pc(30) int emitterCount = 0;
+        @Pc(32) int magnetCount = 0;
+        @Pc(34) int billboardCount = 0;
+        @Pc(36) boolean hasShadingTypes = false;
+        @Pc(38) boolean hasPriorities = false;
+        @Pc(40) boolean hasTexSpaces = false;
+        @Pc(42) boolean hasAlpha = false;
+        @Pc(44) boolean hasFaceTextures = false;
+        @Pc(46) boolean hasFaceGroups = false;
         this.globalPriority = -1;
-        for (@Pc(51) int local51 = 0; local51 < arg1; local51++) {
-            @Pc(56) Mesh local56 = arg0[local51];
-            if (local56 != null) {
-                this.faceCount += local56.faceCount;
-                this.texSpaceCount += local56.texSpaceCount;
-                this.vertexCount += local56.vertexCount;
-                if (local56.magnets != null) {
-                    local32 += local56.magnets.length;
+
+        for (@Pc(51) int i = 0; i < meshCount; i++) {
+            @Pc(56) Mesh mesh = meshes[i];
+
+            if (mesh != null) {
+                this.faceCount += mesh.faceCount;
+                this.texSpaceCount += mesh.texSpaceCount;
+                this.vertexCount += mesh.vertexCount;
+
+                if (mesh.magnets != null) {
+                    magnetCount += mesh.magnets.length;
                 }
-                if (local56.billboards != null) {
-                    local34 += local56.billboards.length;
+
+                if (mesh.billboards != null) {
+                    billboardCount += mesh.billboards.length;
                 }
-                if (local56.emitters != null) {
-                    local30 += local56.emitters.length;
+                if (mesh.emitters != null) {
+                    emitterCount += mesh.emitters.length;
                 }
-                local36 |= local56.shadingTypes != null;
-                local40 |= local56.faceTexSpace != null;
-                if (local56.facePriorities == null) {
-                    if (this.globalPriority == -1) {
-                        this.globalPriority = local56.globalPriority;
-                    }
-                    if (local56.globalPriority != this.globalPriority) {
-                        local38 = true;
-                    }
+
+                hasShadingTypes |= mesh.shadingTypes != null;
+                hasTexSpaces |= mesh.faceTexSpace != null;
+
+                if (mesh.facePriorities != null) {
+                    hasPriorities = true;
                 } else {
-                    local38 = true;
+                    if (this.globalPriority == -1) {
+                        this.globalPriority = mesh.globalPriority;
+                    }
+
+                    if (mesh.globalPriority != this.globalPriority) {
+                        hasPriorities = true;
+                    }
                 }
-                local42 |= local56.faceAlpha != null;
-                local46 |= local56.faceGroup != null;
-                local44 |= local56.faceTexture != null;
+
+                hasAlpha |= mesh.faceAlpha != null;
+                hasFaceGroups |= mesh.faceGroup != null;
+                hasFaceTextures |= mesh.faceTexture != null;
             }
         }
+
         this.vertexX = new int[this.vertexCount];
         this.faceA = new short[this.faceCount];
-        if (local36) {
+        if (hasShadingTypes) {
             this.shadingTypes = new byte[this.faceCount];
         }
-        if (local32 > 0) {
-            this.magnets = new MeshMagnet[local32];
+        if (magnetCount > 0) {
+            this.magnets = new MeshMagnet[magnetCount];
         }
         this.originModels = new short[this.vertexCount];
         this.vertexY = new int[this.vertexCount];
         this.aShortArray20 = new short[this.faceCount];
-        if (local46) {
+        if (hasFaceGroups) {
             this.faceGroup = new int[this.faceCount];
         }
         this.faceColour = new short[this.faceCount];
         this.faceB = new short[this.faceCount];
         this.faceC = new short[this.faceCount];
+
         if (this.texSpaceCount > 0) {
             this.texSpaceScaleX = new int[this.texSpaceCount];
             this.aByteArray27 = new byte[this.texSpaceCount];
@@ -242,132 +259,153 @@ public final class Mesh {
             this.texSpaceScaleY = new int[this.texSpaceCount];
             this.anIntArray206 = new int[this.texSpaceCount];
         }
-        if (local34 > 0) {
-            this.billboards = new MeshBillboard[local34];
+
+        if (billboardCount > 0) {
+            this.billboards = new MeshBillboard[billboardCount];
         }
-        if (local42) {
+
+        if (hasAlpha) {
             this.faceAlpha = new byte[this.faceCount];
         }
+
         this.vertexGroup = new int[this.vertexCount];
         this.vertexZ = new int[this.vertexCount];
-        if (local44) {
+
+        if (hasFaceTextures) {
             this.faceTexture = new short[this.faceCount];
         }
-        if (local40) {
+
+        if (hasTexSpaces) {
             this.faceTexSpace = new byte[this.faceCount];
         }
-        if (local30 > 0) {
-            this.emitters = new MeshEmitter[local30];
+
+        if (emitterCount > 0) {
+            this.emitters = new MeshEmitter[emitterCount];
         }
-        if (local38) {
+
+        if (hasPriorities) {
             this.facePriorities = new byte[this.faceCount];
         }
-        local32 = 0;
+
+        magnetCount = 0;
         this.texSpaceCount = 0;
-        local30 = 0;
-        local34 = 0;
+        emitterCount = 0;
+        billboardCount = 0;
         this.faceCount = 0;
         this.vertexCount = 0;
-        @Pc(648) int local648;
-        @Pc(659) int local659;
-        for (@Pc(401) int local401 = 0; local401 < arg1; local401++) {
-            @Pc(407) short local407 = (short) (0x1 << local401);
-            @Pc(411) Mesh local411 = arg0[local401];
-            if (local411 != null) {
-                @Pc(420) int local420;
-                if (local411.billboards != null) {
-                    for (local420 = 0; local420 < local411.billboards.length; local420++) {
-                        @Pc(426) MeshBillboard local426 = local411.billboards[local420];
-                        this.billboards[local34++] = local426.method682(local426.anInt588 + this.faceCount);
+
+        for (@Pc(401) int i = 0; i < meshCount; i++) {
+            @Pc(407) short s = (short) (0x1 << i);
+            @Pc(411) Mesh mesh = meshes[i];
+            if (mesh != null) {
+
+                if (mesh.billboards != null) {
+                    for (@Pc(420) int j = 0; j < mesh.billboards.length; j++) {
+                        @Pc(426) MeshBillboard billboard = mesh.billboards[j];
+                        this.billboards[billboardCount++] = billboard.copy(billboard.face + this.faceCount);
                     }
                 }
-                for (local420 = 0; local420 < local411.faceCount; local420++) {
-                    if (local36 && local411.shadingTypes != null) {
-                        this.shadingTypes[this.faceCount] = local411.shadingTypes[local420];
+
+                for (@Pc(420) int j = 0; j < mesh.faceCount; j++) {
+                    if (hasShadingTypes && mesh.shadingTypes != null) {
+                        this.shadingTypes[this.faceCount] = mesh.shadingTypes[j];
                     }
-                    if (local38) {
-                        if (local411.facePriorities == null) {
-                            this.facePriorities[this.faceCount] = local411.globalPriority;
+
+                    if (hasPriorities) {
+                        if (mesh.facePriorities == null) {
+                            this.facePriorities[this.faceCount] = mesh.globalPriority;
                         } else {
-                            this.facePriorities[this.faceCount] = local411.facePriorities[local420];
+                            this.facePriorities[this.faceCount] = mesh.facePriorities[j];
                         }
                     }
-                    if (local40 && local411.faceTexSpace != null) {
-                        this.faceTexSpace[this.faceCount] = local411.faceTexSpace[local420];
+
+                    if (hasTexSpaces && mesh.faceTexSpace != null) {
+                        this.faceTexSpace[this.faceCount] = mesh.faceTexSpace[j];
                     }
-                    if (local44) {
-                        if (local411.faceTexture == null) {
+
+                    if (hasFaceTextures) {
+                        if (mesh.faceTexture == null) {
                             this.faceTexture[this.faceCount] = -1;
                         } else {
-                            this.faceTexture[this.faceCount] = local411.faceTexture[local420];
+                            this.faceTexture[this.faceCount] = mesh.faceTexture[j];
                         }
                     }
-                    if (local46) {
-                        if (local411.faceGroup == null) {
+
+                    if (hasFaceGroups) {
+                        if (mesh.faceGroup == null) {
                             this.faceGroup[this.faceCount] = -1;
                         } else {
-                            this.faceGroup[this.faceCount] = local411.faceGroup[local420];
+                            this.faceGroup[this.faceCount] = mesh.faceGroup[j];
                         }
                     }
-                    this.faceA[this.faceCount] = (short) this.addVertex(local411, local411.faceA[local420], local407);
-                    this.faceB[this.faceCount] = (short) this.addVertex(local411, local411.faceB[local420], local407);
-                    this.faceC[this.faceCount] = (short) this.addVertex(local411, local411.faceC[local420], local407);
-                    this.aShortArray20[this.faceCount] = local407;
-                    this.faceColour[this.faceCount] = local411.faceColour[local420];
+
+                    this.faceA[this.faceCount] = (short) this.addVertex(mesh, mesh.faceA[j], s);
+                    this.faceB[this.faceCount] = (short) this.addVertex(mesh, mesh.faceB[j], s);
+                    this.faceC[this.faceCount] = (short) this.addVertex(mesh, mesh.faceC[j], s);
+                    this.aShortArray20[this.faceCount] = s;
+                    this.faceColour[this.faceCount] = mesh.faceColour[j];
                     this.faceCount++;
                 }
-                @Pc(636) int local636;
-                if (local411.emitters != null) {
-                    for (local636 = 0; local636 < local411.emitters.length; local636++) {
-                        local648 = this.addVertex(local411, local411.emitters[local636].anInt8514, local407);
-                        local659 = this.addVertex(local411, local411.emitters[local636].anInt8508, local407);
-                        @Pc(670) int local670 = this.addVertex(local411, local411.emitters[local636].anInt8505, local407);
-                        this.emitters[local30] = local411.emitters[local636].method7554(local648, local659, local670);
-                        local30++;
+
+                if (mesh.emitters != null) {
+                    for (@Pc(636) int j = 0; j < mesh.emitters.length; j++) {
+                        @Pc(648) int a = this.addVertex(mesh, mesh.emitters[j].anInt8514, s);
+                        @Pc(659) int b = this.addVertex(mesh, mesh.emitters[j].anInt8508, s);
+                        @Pc(670) int c = this.addVertex(mesh, mesh.emitters[j].anInt8505, s);
+                        this.emitters[emitterCount] = mesh.emitters[j].copy(a, b, c);
+                        emitterCount++;
                     }
                 }
-                if (local411.magnets != null) {
-                    for (local636 = 0; local636 < local411.magnets.length; local636++) {
-                        local648 = this.addVertex(local411, local411.magnets[local636].vertex, local407);
-                        this.magnets[local32] = local411.magnets[local636].copy(local648);
-                        local32++;
+
+                if (mesh.magnets != null) {
+                    for (@Pc(636) int j = 0; j < mesh.magnets.length; j++) {
+                        @Pc(648) int v = this.addVertex(mesh, mesh.magnets[j].vertex, s);
+                        this.magnets[magnetCount] = mesh.magnets[j].copy(v);
+                        magnetCount++;
                     }
                 }
             }
         }
+
         this.maxVertex = this.vertexCount;
-        @Pc(747) int local747 = 0;
-        for (@Pc(749) int local749 = 0; local749 < arg1; local749++) {
-            @Pc(755) short local755 = (short) (0x1 << local749);
-            @Pc(759) Mesh local759 = arg0[local749];
-            if (local759 != null) {
-                for (local648 = 0; local648 < local759.faceCount; local648++) {
-                    if (local42) {
-                        this.faceAlpha[local747++] = (byte) (local759.faceAlpha == null || local759.faceAlpha[local648] == -1 ? -1 : local759.faceAlpha[local648] + this.texSpaceCount);
+
+        @Pc(747) int textSpaceCount = 0;
+        for (@Pc(749) int local749 = 0; local749 < meshCount; local749++) {
+            @Pc(755) short modelFlag = (short) (0x1 << local749);
+            @Pc(759) Mesh mesh = meshes[local749];
+
+            if (mesh != null) {
+                for (@Pc(648) int i = 0; i < mesh.faceCount; i++) {
+                    if (hasAlpha) {
+                        this.faceAlpha[textSpaceCount++] = (byte) (mesh.faceAlpha == null || mesh.faceAlpha[i] == -1 ? -1 : mesh.faceAlpha[i] + this.texSpaceCount);
                     }
                 }
-                for (local659 = 0; local659 < local759.texSpaceCount; local659++) {
-                    @Pc(815) byte local815 = this.texMappingType[this.texSpaceCount] = local759.texMappingType[local659];
-                    if (local815 == 0) {
-                        this.texSpaceDefA[this.texSpaceCount] = (short) this.addVertex(local759, local759.texSpaceDefA[local659], local755);
-                        this.texSpaceDefB[this.texSpaceCount] = (short) this.addVertex(local759, local759.texSpaceDefB[local659], local755);
-                        this.texSpaceDefC[this.texSpaceCount] = (short) this.addVertex(local759, local759.texSpaceDefC[local659], local755);
+
+                for (@Pc(659) int i = 0; i < mesh.texSpaceCount; i++) {
+                    @Pc(815) byte type = this.texMappingType[this.texSpaceCount] = mesh.texMappingType[i];
+                    if (type == 0) {
+                        this.texSpaceDefA[this.texSpaceCount] = (short) this.addVertex(mesh, mesh.texSpaceDefA[i], modelFlag);
+                        this.texSpaceDefB[this.texSpaceCount] = (short) this.addVertex(mesh, mesh.texSpaceDefB[i], modelFlag);
+                        this.texSpaceDefC[this.texSpaceCount] = (short) this.addVertex(mesh, mesh.texSpaceDefC[i], modelFlag);
                     }
-                    if (local815 >= 1 && local815 <= 3) {
-                        this.texSpaceDefA[this.texSpaceCount] = local759.texSpaceDefA[local659];
-                        this.texSpaceDefB[this.texSpaceCount] = local759.texSpaceDefB[local659];
-                        this.texSpaceDefC[this.texSpaceCount] = local759.texSpaceDefC[local659];
-                        this.texSpaceScaleX[this.texSpaceCount] = local759.texSpaceScaleX[local659];
-                        this.texSpaceScaleY[this.texSpaceCount] = local759.texSpaceScaleY[local659];
-                        this.texSpaceScaleZ[this.texSpaceCount] = local759.texSpaceScaleZ[local659];
-                        this.aByteArray27[this.texSpaceCount] = local759.aByteArray27[local659];
-                        this.aByteArray23[this.texSpaceCount] = local759.aByteArray23[local659];
-                        this.anIntArray214[this.texSpaceCount] = local759.anIntArray214[local659];
+
+                    if (type >= 1 && type <= 3) {
+                        this.texSpaceDefA[this.texSpaceCount] = mesh.texSpaceDefA[i];
+                        this.texSpaceDefB[this.texSpaceCount] = mesh.texSpaceDefB[i];
+                        this.texSpaceDefC[this.texSpaceCount] = mesh.texSpaceDefC[i];
+                        this.texSpaceScaleX[this.texSpaceCount] = mesh.texSpaceScaleX[i];
+                        this.texSpaceScaleY[this.texSpaceCount] = mesh.texSpaceScaleY[i];
+                        this.texSpaceScaleZ[this.texSpaceCount] = mesh.texSpaceScaleZ[i];
+                        this.aByteArray27[this.texSpaceCount] = mesh.aByteArray27[i];
+                        this.aByteArray23[this.texSpaceCount] = mesh.aByteArray23[i];
+                        this.anIntArray214[this.texSpaceCount] = mesh.anIntArray214[i];
                     }
-                    if (local815 == 2) {
-                        this.anIntArray212[this.texSpaceCount] = local759.anIntArray212[local659];
-                        this.anIntArray206[this.texSpaceCount] = local759.anIntArray206[local659];
+
+                    if (type == 2) {
+                        this.anIntArray212[this.texSpaceCount] = mesh.anIntArray212[i];
+                        this.anIntArray206[this.texSpaceCount] = mesh.anIntArray206[i];
                     }
+
                     this.texSpaceCount++;
                 }
             }
@@ -375,29 +413,30 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(IIII)I")
-    public int method2230(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        for (@Pc(15) int local15 = 0; local15 < this.vertexCount; local15++) {
-            if (arg2 == this.vertexX[local15] && arg1 == this.vertexY[local15] && arg0 == this.vertexZ[local15]) {
-                return local15;
+    public int addVertex(@OriginalArg(1) int z, @OriginalArg(2) int y, @OriginalArg(3) int x) {
+        for (@Pc(15) int i = 0; i < this.vertexCount; i++) {
+            if (x == this.vertexX[i] && y == this.vertexY[i] && z == this.vertexZ[i]) {
+                return i;
             }
         }
-        this.vertexX[this.vertexCount] = arg2;
-        this.vertexY[this.vertexCount] = arg1;
-        this.vertexZ[this.vertexCount] = arg0;
+
+        this.vertexX[this.vertexCount] = x;
+        this.vertexY[this.vertexCount] = y;
+        this.vertexZ[this.vertexCount] = z;
         this.maxVertex = this.vertexCount + 1;
         return this.vertexCount++;
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(ZIIISSBBB)I")
-    public int method2231(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) short arg3, @OriginalArg(5) short arg4, @OriginalArg(6) byte arg5, @OriginalArg(7) byte arg6, @OriginalArg(8) byte arg7) {
-        this.faceA[this.faceCount] = (short) arg0;
-        this.faceB[this.faceCount] = (short) arg2;
-        this.faceC[this.faceCount] = (short) arg1;
-        this.shadingTypes[this.faceCount] = arg6;
-        this.faceAlpha[this.faceCount] = arg7;
-        this.faceColour[this.faceCount] = arg3;
-        this.faceTexSpace[this.faceCount] = arg5;
-        this.faceTexture[this.faceCount] = arg4;
+    public int addFace(@OriginalArg(1) int a, @OriginalArg(2) int c, @OriginalArg(3) int b, @OriginalArg(4) short colour, @OriginalArg(5) short texture, @OriginalArg(6) byte space, @OriginalArg(7) byte shading, @OriginalArg(8) byte alpha) {
+        this.faceA[this.faceCount] = (short) a;
+        this.faceB[this.faceCount] = (short) b;
+        this.faceC[this.faceCount] = (short) c;
+        this.shadingTypes[this.faceCount] = shading;
+        this.faceAlpha[this.faceCount] = alpha;
+        this.faceColour[this.faceCount] = colour;
+        this.faceTexSpace[this.faceCount] = space;
+        this.faceTexture[this.faceCount] = texture;
         return this.faceCount++;
     }
 
@@ -408,14 +447,17 @@ public final class Mesh {
             this.vertexY[local1] <<= 0x2;
             this.vertexZ[local1] <<= 0x2;
         }
+
         if (this.texSpaceCount <= 0 || this.texSpaceScaleX == null) {
             return;
         }
-        for (@Pc(51) int local51 = 0; local51 < this.texSpaceScaleX.length; local51++) {
-            this.texSpaceScaleX[local51] <<= 0x2;
-            this.texSpaceScaleY[local51] <<= 0x2;
-            if (this.texMappingType[local51] != 1) {
-                this.texSpaceScaleZ[local51] <<= 0x2;
+
+        for (@Pc(51) int i = 0; i < this.texSpaceScaleX.length; i++) {
+            this.texSpaceScaleX[i] <<= 0x2;
+            this.texSpaceScaleY[i] <<= 0x2;
+
+            if (this.texMappingType[i] != 1) {
+                this.texSpaceScaleZ[i] <<= 0x2;
             }
         }
     }
@@ -430,35 +472,41 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(IZ)[[I")
-    public int[][] method2234(@OriginalArg(1) boolean arg0) {
-        @Pc(8) int[] local8 = new int[256];
-        @Pc(10) int local10 = 0;
-        @Pc(19) int local19 = arg0 ? this.vertexCount : this.maxVertex;
-        for (@Pc(21) int local21 = 0; local21 < local19; local21++) {
-            @Pc(30) int local30 = this.vertexGroup[local21];
-            if (local30 >= 0) {
-                if (local10 < local30) {
-                    local10 = local30;
+    public int[][] vertexGroups(@OriginalArg(1) boolean flag) {
+        @Pc(8) int[] counts = new int[256];
+        @Pc(10) int max = 0;
+        @Pc(19) int count = flag ? this.vertexCount : this.maxVertex;
+
+        for (@Pc(21) int i = 0; i < count; i++) {
+            @Pc(30) int group = this.vertexGroup[i];
+            if (group >= 0) {
+                if (group > max) {
+                    max = group;
                 }
-                @Pc(50) int local50 = local8[local30]++;
+
+                @Pc(50) int local50 = counts[group]++;
             }
         }
-        @Pc(66) int[][] local66 = new int[local10 + 1][];
-        for (@Pc(70) int local70 = 0; local70 <= local10; local70++) {
-            local66[local70] = new int[local8[local70]];
-            local8[local70] = 0;
+
+        @Pc(66) int[][] groups = new int[max + 1][];
+        for (@Pc(70) int i = 0; i <= max; i++) {
+            groups[i] = new int[counts[i]];
+            counts[i] = 0;
         }
-        for (@Pc(95) int local95 = 0; local95 < local19; local95++) {
-            @Pc(104) int local104 = this.vertexGroup[local95];
-            if (local104 >= 0) {
-                local66[local104][local8[local104]++] = local95;
+
+        for (@Pc(95) int i = 0; i < count; i++) {
+            @Pc(104) int group = this.vertexGroup[i];
+
+            if (group >= 0) {
+                groups[group][counts[group]++] = i;
             }
         }
-        return local66;
+
+        return groups;
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "([BZ)V")
-    public void method2235(@OriginalArg(0) byte[] data) {
+    public void decodeNew(@OriginalArg(0) byte[] data) {
         @Pc(8) Packet packet1 = new Packet(data);
         @Pc(13) Packet packet2 = new Packet(data);
         @Pc(18) Packet packet3 = new Packet(data);

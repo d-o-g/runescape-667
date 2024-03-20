@@ -47,7 +47,7 @@ public final class i extends Model implements Interface5 {
         for (@Pc(114) int local114 = 0; local114 < local105; local114++) {
             @Pc(120) MeshBillboard local120 = arg2.billboards[local114];
             @Pc(125) Class376 local125 = Static402.method5582(local120.anInt592);
-            local110[local112++] = local120.anInt588;
+            local110[local112++] = local120.face;
             local110[local112++] = local125.anInt9696;
             local110[local112++] = local125.anInt9690;
             local110[local112++] = local125.anInt9693;

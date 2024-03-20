@@ -90,7 +90,7 @@ public final class Class294 {
                     break;
                 }
                 if (this.anIntArray603[local26] != -1) {
-                    local8[local10++] = Static121.method2201(this.anIntArray603[local26], this.aIDKTypeList_4.aJs5_72);
+                    local8[local10++] = Mesh.load(this.anIntArray603[local26], this.aIDKTypeList_4.aJs5_72);
                 }
                 local26++;
             }
@@ -159,7 +159,7 @@ public final class Class294 {
                 if (local22 >= this.anIntArray602.length) {
                     break;
                 }
-                local14[local22] = Static121.method2201(this.anIntArray602[local22], this.aIDKTypeList_4.aJs5_72);
+                local14[local22] = Mesh.load(this.anIntArray602[local22], this.aIDKTypeList_4.aJs5_72);
                 local22++;
             }
         }

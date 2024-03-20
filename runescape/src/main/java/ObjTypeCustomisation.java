@@ -22,7 +22,7 @@ public final class ObjTypeCustomisation {
             customisation.manwear[0] = packet.gSmart2or4null();
             customisation.womanwear[0] = packet.gSmart2or4null();
 
-            if (obj.womanwear != -1 || obj.womanwear2 != -1) {
+            if (obj.manwear2 != -1 || obj.womanwear2 != -1) {
                 customisation.manwear[1] = packet.gSmart2or4null();
                 customisation.womanwear[1] = packet.gSmart2or4null();
             }
@@ -99,9 +99,9 @@ public final class ObjTypeCustomisation {
     @OriginalMember(owner = "client!bs", name = "<init>", descriptor = "(Lclient!vfa;)V")
     public ObjTypeCustomisation(@OriginalArg(0) ObjType type) {
         this.manwear[0] = type.manwear;
-        this.manwear[1] = type.womanwear;
+        this.manwear[1] = type.manwear2;
         this.manwear[2] = type.manwear3;
-        this.womanwear[0] = type.manwear2;
+        this.womanwear[0] = type.womanwear;
         this.womanwear[1] = type.womanwear2;
         this.womanwear[2] = type.womanwear3;
         this.manhead[0] = type.manhead;

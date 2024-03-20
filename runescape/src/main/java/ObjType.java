@@ -80,7 +80,7 @@ public final class ObjType {
     public int cursor2iop = -1;
 
     @OriginalMember(owner = "client!vfa", name = "wb", descriptor = "I")
-    public int womanwear = -1;
+    public int manwear2 = -1;
 
     @OriginalMember(owner = "client!vfa", name = "U", descriptor = "I")
     public int zan2d = 0;
@@ -203,7 +203,7 @@ public final class ObjType {
     public int lentlink = -1;
 
     @OriginalMember(owner = "client!vfa", name = "S", descriptor = "I")
-    public int manwear2 = -1;
+    public int womanwear = -1;
 
     @OriginalMember(owner = "client!vfa", name = "q", descriptor = "I")
     public int manwearyoff = 0;
@@ -262,14 +262,14 @@ public final class ObjType {
         this.recol_d_palette = original.recol_d_palette;
         this.womanwearyoff = original.womanwearyoff;
         this.xan2d = template.xan2d;
-        this.manwear2 = original.manwear2;
+        this.womanwear = original.womanwear;
         this.mesh = template.mesh;
         this.iop = new String[MAX_IOP_COUNT];
         this.yan2d = template.yan2d;
         this.yof2d = template.yof2d;
         this.retex_s = original.retex_s;
         this.womanwearxoff = original.womanwearxoff;
-        this.womanwear = original.womanwear;
+        this.manwear2 = original.manwear2;
         this.cost = 0;
         this.manwearzoff = original.manwearzoff;
         this.recol_s = original.recol_s;
@@ -281,11 +281,13 @@ public final class ObjType {
         this.womanwear3 = original.womanwear3;
         this.manwear = original.manwear;
         this.manwearxoff = original.manwearxoff;
+
         if (original.iop != null) {
             for (@Pc(155) int i = 0; i < 4; i++) {
                 this.iop[i] = original.iop[i];
             }
         }
+
         this.iop[4] = LocalisedText.LENT_ITEM_RETURN.localise(this.myList.languageId);
     }
 
@@ -377,9 +379,9 @@ public final class ObjType {
         } else if (code == 23) {
             this.manwear = packet.g2();
         } else if (code == 24) {
-            this.womanwear = packet.g2();
-        } else if (code == 25) {
             this.manwear2 = packet.g2();
+        } else if (code == 25) {
+            this.womanwear = packet.g2();
         } else if (code == 26) {
             this.womanwear2 = packet.g2();
         } else if (code >= 30 && code < 35) {
@@ -507,7 +509,7 @@ public final class ObjType {
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
     public int[] sprite(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) PlayerModel appearance, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Class14 font, @OriginalArg(9) int outline) {
-        @Pc(14) Mesh mesh = Static121.method2201(this.mesh, this.myList.meshes);
+        @Pc(14) Mesh mesh = Mesh.load(this.mesh, this.myList.meshes);
         if (mesh == null) {
             return null;
         }
@@ -649,85 +651,95 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!bs;ZI)Lclient!dv;")
-    public Mesh model(@OriginalArg(0) ObjTypeCustomisation arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(19) int local19;
-        @Pc(24) int local24;
-        @Pc(29) int local29;
-        if (arg1) {
-            if (arg0 == null || arg0.womanwear == null) {
-                local19 = this.manwear2;
-                local24 = this.womanwear2;
-                local29 = this.womanwear3;
+    public Mesh playerModel(@OriginalArg(0) ObjTypeCustomisation customisation, @OriginalArg(1) boolean female) {
+        @Pc(19) int model;
+        @Pc(24) int model2;
+        @Pc(29) int model3;
+
+        if (female) {
+            if (customisation == null || customisation.womanwear == null) {
+                model = this.womanwear;
+                model2 = this.womanwear2;
+                model3 = this.womanwear3;
             } else {
-                local29 = arg0.womanwear[2];
-                local19 = arg0.womanwear[0];
-                local24 = arg0.womanwear[1];
+                model = customisation.womanwear[0];
+                model2 = customisation.womanwear[1];
+                model3 = customisation.womanwear[2];
             }
-        } else if (arg0 == null || arg0.manwear == null) {
-            local29 = this.manwear3;
-            local19 = this.manwear;
-            local24 = this.womanwear;
         } else {
-            local19 = arg0.manwear[0];
-            local24 = arg0.manwear[1];
-            local29 = arg0.manwear[2];
-        }
-        if (local19 == -1) {
-            return null;
-        }
-        @Pc(86) Mesh local86 = Static121.method2201(local19, this.myList.meshes);
-        if (local86 == null) {
-            return null;
-        }
-        if (local86.version < 13) {
-            local86.upscale();
-        }
-        if (local24 != -1) {
-            @Pc(113) Mesh local113 = Static121.method2201(local24, this.myList.meshes);
-            if (local113.version < 13) {
-                local113.upscale();
-            }
-            if (local29 == -1) {
-                @Pc(180) Mesh[] local180 = new Mesh[]{local86, local113};
-                local86 = new Mesh(local180, 2);
+            if (customisation == null || customisation.manwear == null) {
+                model = this.manwear;
+                model2 = this.manwear2;
+                model3 = this.manwear3;
             } else {
-                @Pc(137) Mesh local137 = Static121.method2201(local29, this.myList.meshes);
-                if (local137.version < 13) {
-                    local137.upscale();
-                }
-                @Pc(162) Mesh[] local162 = new Mesh[]{local86, local113, local137};
-                local86 = new Mesh(local162, 3);
+                model = customisation.manwear[0];
+                model2 = customisation.manwear[1];
+                model3 = customisation.manwear[2];
             }
         }
-        if (!arg1 && (this.manwearxoff != 0 || this.manwearyoff != 0 || this.manwearzoff != 0)) {
-            local86.translate(this.manwearxoff, this.manwearyoff, this.manwearzoff);
+
+        if (model == -1) {
+            return null;
         }
-        if (arg1 && (this.womanwearxoff != 0 || this.womanwearyoff != 0 || this.womanwearzoff != 0)) {
-            local86.translate(this.womanwearxoff, this.womanwearyoff, this.womanwearzoff);
+
+        @Pc(86) Mesh mesh = Mesh.load(model, this.myList.meshes);
+        if (mesh == null) {
+            return null;
+        }
+
+        if (mesh.version < 13) {
+            mesh.upscale();
+        }
+
+        if (model2 != -1) {
+            @Pc(113) Mesh mesh2 = Mesh.load(model2, this.myList.meshes);
+            if (mesh2.version < 13) {
+                mesh2.upscale();
+            }
+
+            if (model3 != -1) {
+                @Pc(137) Mesh mesh3 = Mesh.load(model3, this.myList.meshes);
+                if (mesh3.version < 13) {
+                    mesh3.upscale();
+                }
+
+                @Pc(162) Mesh[] meshes = {mesh, mesh2, mesh3};
+                mesh = new Mesh(meshes, 3);
+            } else {
+                @Pc(180) Mesh[] meshes = {mesh, mesh2};
+                mesh = new Mesh(meshes, 2);
+            }
+        }
+
+        if (!female && (this.manwearxoff != 0 || this.manwearyoff != 0 || this.manwearzoff != 0)) {
+            mesh.translate(this.manwearxoff, this.manwearyoff, this.manwearzoff);
+        }
+        if (female && (this.womanwearxoff != 0 || this.womanwearyoff != 0 || this.womanwearzoff != 0)) {
+            mesh.translate(this.womanwearxoff, this.womanwearyoff, this.womanwearzoff);
         }
         @Pc(269) short[] local269;
         @Pc(275) int local275;
         if (this.recol_s != null) {
-            if (arg0 == null || arg0.recol_d == null) {
+            if (customisation == null || customisation.recol_d == null) {
                 local269 = this.recol_d;
             } else {
-                local269 = arg0.recol_d;
+                local269 = customisation.recol_d;
             }
             for (local275 = 0; local275 < this.recol_s.length; local275++) {
-                local86.recolour(this.recol_s[local275], local269[local275]);
+                mesh.recolour(this.recol_s[local275], local269[local275]);
             }
         }
         if (this.retex_s != null) {
-            if (arg0 == null || arg0.retex_d == null) {
+            if (customisation == null || customisation.retex_d == null) {
                 local269 = this.retex_d;
             } else {
-                local269 = arg0.retex_d;
+                local269 = customisation.retex_d;
             }
             for (local275 = 0; local275 < this.retex_s.length; local275++) {
-                local86.retexture(this.retex_s[local275], local269[local275]);
+                mesh.retexture(this.retex_s[local275], local269[local275]);
             }
         }
-        return local86;
+        return mesh;
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Ljava/lang/String;II)Ljava/lang/String;")
@@ -762,12 +774,12 @@ public final class ObjType {
         if (local21 == -1) {
             return null;
         }
-        @Pc(84) Mesh local84 = Static121.method2201(local21, this.myList.meshes);
+        @Pc(84) Mesh local84 = Mesh.load(local21, this.myList.meshes);
         if (local84.version < 13) {
             local84.upscale();
         }
         if (local26 != -1) {
-            @Pc(105) Mesh local105 = Static121.method2201(local26, this.myList.meshes);
+            @Pc(105) Mesh local105 = Mesh.load(local26, this.myList.meshes);
             if (local105.version < 13) {
                 local105.upscale();
             }
@@ -806,7 +818,7 @@ public final class ObjType {
         @Pc(20) int local20;
         if (arg0) {
             if (arg1 == null || arg1.womanwear == null) {
-                local17 = this.manwear2;
+                local17 = this.womanwear;
                 local20 = this.womanwear3;
                 local23 = this.womanwear2;
             } else {
@@ -817,7 +829,7 @@ public final class ObjType {
         } else if (arg1 == null || arg1.manwear == null) {
             local20 = this.manwear3;
             local17 = this.manwear;
-            local23 = this.womanwear;
+            local23 = this.manwear2;
         } else {
             local23 = arg1.manwear[1];
             local20 = arg1.manwear[2];
@@ -906,7 +918,7 @@ public final class ObjType {
             if (this.resizex != 128) {
                 local141 |= 0x4;
             }
-            @Pc(196) Mesh local196 = Static121.method2201(this.mesh, this.myList.meshes);
+            @Pc(196) Mesh local196 = Mesh.load(this.mesh, this.myList.meshes);
             if (local196 == null) {
                 return null;
             }
@@ -1000,7 +1012,7 @@ public final class ObjType {
         this.recol_d_palette = original.recol_d_palette;
         this.yof2d = template.yof2d;
         this.team = original.team;
-        this.womanwear = original.womanwear;
+        this.manwear2 = original.manwear2;
         this.iop = new String[MAX_IOP_COUNT];
         this.op = original.op;
         this.manwearyoff = original.manwearyoff;
@@ -1011,7 +1023,7 @@ public final class ObjType {
         this.recol_s = original.recol_s;
         this.womanhead2 = original.womanhead2;
         this.params = original.params;
-        this.manwear2 = original.manwear2;
+        this.womanwear = original.womanwear;
         this.xan2d = template.xan2d;
         this.yan2d = template.yan2d;
         this.womanwearxoff = original.womanwearxoff;

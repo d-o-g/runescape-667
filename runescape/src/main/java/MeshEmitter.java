@@ -66,7 +66,7 @@ public final class MeshEmitter {
     }
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(ZIII)Lclient!rv;")
-    public MeshEmitter method7554(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
+    public MeshEmitter copy(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         return new MeshEmitter(this.id, arg0, arg1, arg2, this.aByte130);
     }
 }

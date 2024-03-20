@@ -78,7 +78,7 @@ public final class Node_Sub22 extends Node {
             @Pc(203) Mesh[] meshes = new Mesh[local23.length];
             for (@Pc(205) int local205 = 0; local205 < local23.length; local205++) {
                 if (local23[local205] != -1) {
-                    meshes[local205] = Static419.aObjTypeList_1.list(local23[local205]).model((ObjTypeCustomisation) null, arg2);
+                    meshes[local205] = Static419.aObjTypeList_1.list(local23[local205]).playerModel((ObjTypeCustomisation) null, arg2);
                 }
             }
             @Pc(278) int tx;

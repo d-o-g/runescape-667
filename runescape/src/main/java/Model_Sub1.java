@@ -233,7 +233,7 @@ public final class Model_Sub1 extends Model {
                 @Pc(182) boolean local182 = false;
                 for (local184 = 0; local184 < arg1.billboards.length; local184++) {
                     @Pc(191) MeshBillboard local191 = arg1.billboards[local184];
-                    if (local191.anInt588 == local167) {
+                    if (local191.face == local167) {
                         @Pc(204) Class376 local204 = Static402.method5582(local191.anInt592);
                         if (local204.aBoolean747) {
                             local182 = true;
@@ -303,7 +303,7 @@ public final class Model_Sub1 extends Model {
                 @Pc(508) Class376 local508 = Static402.method5582(local503.anInt592);
                 local510 = -1;
                 for (@Pc(512) int local512 = 0; local512 < this.anInt2715; local512++) {
-                    if (local503.anInt588 == local15[local512]) {
+                    if (local503.face == local15[local512]) {
                         local510 = local512;
                         break;
                     }
@@ -311,9 +311,9 @@ public final class Model_Sub1 extends Model {
                 if (local510 == -1) {
                     throw new RuntimeException();
                 }
-                local566 = Static154.anIntArray237[arg1.faceColour[local503.anInt588] & 0xFFFF] & 0xFFFFFF;
-                @Pc(585) int local585 = local566 | 255 - (arg1.faceTexSpace == null ? 0 : arg1.faceTexSpace[local503.anInt588]) << 24;
-                this.aClass298Array1[local494] = new Class298(local510, arg1.faceA[local503.anInt588], arg1.faceB[local503.anInt588], arg1.faceC[local503.anInt588], local508.anInt9696, local508.anInt9690, local508.anInt9693, local508.anInt9697, local508.anInt9689, local508.aBoolean747, local508.aBoolean748, local503.anInt591);
+                local566 = Static154.anIntArray237[arg1.faceColour[local503.face] & 0xFFFF] & 0xFFFFFF;
+                @Pc(585) int local585 = local566 | 255 - (arg1.faceTexSpace == null ? 0 : arg1.faceTexSpace[local503.face]) << 24;
+                this.aClass298Array1[local494] = new Class298(local510, arg1.faceA[local503.face], arg1.faceB[local503.face], arg1.faceC[local503.face], local508.anInt9696, local508.anInt9690, local508.anInt9693, local508.anInt9697, local508.anInt9689, local508.aBoolean747, local508.aBoolean748, local503.anInt591);
                 this.aClass18Array1[local494] = new Class18(local585);
             }
         }
@@ -728,7 +728,7 @@ public final class Model_Sub1 extends Model {
         this.aFloatArray18 = Static617.method8299(this.anInt2759, this.aFloatArray18);
         this.lb = Static617.method8299(this.anInt2759, this.lb);
         if (arg1.vertexGroup != null && Static1.method9338(this.anInt2765, arg2)) {
-            this.anIntArrayArray66 = arg1.method2234(false);
+            this.anIntArrayArray66 = arg1.vertexGroups(false);
         }
         if (arg1.billboards != null && Static178.method2730(arg2, this.anInt2765)) {
             this.anIntArrayArray67 = arg1.getBillboardGroups();

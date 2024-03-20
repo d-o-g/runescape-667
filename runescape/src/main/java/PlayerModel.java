@@ -322,7 +322,7 @@ public final class PlayerModel {
                                 if (!local614 && this.customisations != null && this.customisations[local586] != null) {
                                     customisation = this.customisations[local586];
                                 }
-                                local633 = objTypeList.list(local591 & 0x3FFFFFFF).model(customisation, this.female);
+                                local633 = objTypeList.list(local591 & 0x3FFFFFFF).playerModel(customisation, this.female);
                                 if (local633 != null) {
                                     meshes[local586] = local633;
                                 }

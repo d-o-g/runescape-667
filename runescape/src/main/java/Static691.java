@@ -22,7 +22,7 @@ public final class Static691 {
         @Pc(13) long local13 = (long) arg2;
         @Pc(19) Model local19 = (Model) Static186.A_WEIGHTED_CACHE___67.get(local13);
         if (local19 == null) {
-            @Pc(29) Mesh local29 = Static121.method2201(arg2, Static190.aJs5_38);
+            @Pc(29) Mesh local29 = Mesh.load(arg2, Static190.aJs5_38);
             if (local29 == null) {
                 return null;
             }

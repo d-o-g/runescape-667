@@ -555,7 +555,7 @@ public final class Class268 {
                         if (local223 >= local163.length) {
                             break;
                         }
-                        local215[local223] = Static121.method2201(local163[local223], this.aNPCTypeList_1.aJs5_102);
+                        local215[local223] = Mesh.load(local163[local223], this.aNPCTypeList_1.aJs5_102);
                         local223++;
                     }
                 }
@@ -692,7 +692,7 @@ public final class Class268 {
                 if (local216[local226] != -1) {
                     @Pc(280) js5 local280 = this.aNPCTypeList_1.aJs5_102;
                     synchronized (this.aNPCTypeList_1.aJs5_102) {
-                        local267[local226] = Static121.method2201(local216[local226], this.aNPCTypeList_1.aJs5_102);
+                        local267[local226] = Mesh.load(local216[local226], this.aNPCTypeList_1.aJs5_102);
                     }
                     if (local267[local226] != null) {
                         if (local267[local226].version < 13) {

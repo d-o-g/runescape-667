@@ -26,21 +26,21 @@ public final class Static497 {
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ILclient!wj;)I")
     public static int method6629(@OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub2 arg0) {
         @Pc(6) NPCType local6 = arg0.aNPCType_1;
-        if (local6.anIntArray532 != null) {
-            local6 = local6.method5985(65535, Static34.aClass304_1);
+        if (local6.multinpcs != null) {
+            local6 = local6.getMultiNPC(65535, Static34.aClass304_1);
             if (local6 == null) {
                 return -1;
             }
         }
-        @Pc(22) int local22 = local6.anInt6711;
+        @Pc(22) int local22 = local6.walkSound;
         @Pc(32) BASType local32 = arg0.method9317();
         @Pc(37) int local37 = arg0.aAnimator_10.getAnimationId();
         if (local37 == -1 || arg0.aBoolean817) {
-            local22 = local6.anInt6714;
+            local22 = local6.readySound;
         } else if (local32.anInt7226 == local37 || local32.anInt7241 == local37 || local32.anInt7260 == local37 || local37 == local32.anInt7240) {
-            local22 = local6.anInt6712;
+            local22 = local6.runSound;
         } else if (local32.anInt7235 == local37 || local37 == local32.anInt7262 || local32.anInt7268 == local37 || local32.anInt7239 == local37) {
-            local22 = local6.anInt6724;
+            local22 = local6.crawlSound;
         }
         return local22;
     }

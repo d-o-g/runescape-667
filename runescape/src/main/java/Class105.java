@@ -154,9 +154,9 @@ public final class Class105 {
             if (this.anInt2599 == -1) {
                 return true;
             }
-            local31 = arg0.method6864(this.anInt2599);
+            local31 = arg0.getVarbitValue(this.anInt2599);
         } else {
-            local31 = arg0.method6865(this.anInt2616);
+            local31 = arg0.getVarValueInt(this.anInt2616);
         }
         if (local31 < this.anInt2612 || local31 > this.anInt2582) {
             return false;
@@ -166,9 +166,9 @@ public final class Class105 {
             if (this.anInt2586 == -1) {
                 return true;
             }
-            local78 = arg0.method6864(this.anInt2586);
+            local78 = arg0.getVarbitValue(this.anInt2586);
         } else {
-            local78 = arg0.method6865(this.anInt2584);
+            local78 = arg0.getVarValueInt(this.anInt2584);
         }
         return this.anInt2606 <= local78 && this.anInt2601 >= local78;
     }

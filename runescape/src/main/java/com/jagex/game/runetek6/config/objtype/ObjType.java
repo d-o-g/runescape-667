@@ -401,25 +401,25 @@ public final class ObjType {
         } else if (code >= 35 && code < 40) {
             this.iop[code - 35] = packet.gjstr();
         } else if (code == 40) {
-            @Pc(202) int len = packet.g1();
-            this.recol_s = new short[len];
-            this.recol_d = new short[len];
-            for (@Pc(212) int i = 0; i < len; i++) {
+            @Pc(202) int count = packet.g1();
+            this.recol_s = new short[count];
+            this.recol_d = new short[count];
+            for (@Pc(212) int i = 0; i < count; i++) {
                 this.recol_s[i] = (short) packet.g2();
                 this.recol_d[i] = (short) packet.g2();
             }
         } else if (code == 41) {
-            @Pc(202) int len = packet.g1();
-            this.retex_s = new short[len];
-            this.retex_d = new short[len];
-            for (@Pc(212) int i = 0; i < len; i++) {
+            @Pc(202) int count = packet.g1();
+            this.retex_s = new short[count];
+            this.retex_d = new short[count];
+            for (@Pc(212) int i = 0; i < count; i++) {
                 this.retex_s[i] = (short) packet.g2();
                 this.retex_d[i] = (short) packet.g2();
             }
         } else if (code == 42) {
-            @Pc(202) int len = packet.g1();
-            this.recol_d_palette = new byte[len];
-            for (@Pc(212) int i = 0; i < len; i++) {
+            @Pc(202) int count = packet.g1();
+            this.recol_d_palette = new byte[count];
+            for (@Pc(212) int i = 0; i < count; i++) {
                 this.recol_d_palette[i] = packet.g1b();
             }
         } else if (code == 65) {
@@ -488,9 +488,9 @@ public final class ObjType {
             this.cursor2iop = packet.g1();
             this.icursor2 = packet.g2();
         } else if (code == 132) {
-            @Pc(202) int len = packet.g1();
-            this.quests = new int[len];
-            for (@Pc(212) int i = 0; i < len; i++) {
+            @Pc(202) int count = packet.g1();
+            this.quests = new int[count];
+            for (@Pc(212) int i = 0; i < count; i++) {
                 this.quests[i] = packet.g2();
             }
         } else if (code == 134) {
@@ -500,21 +500,25 @@ public final class ObjType {
         } else if (code == 140) {
             this.boughttemplate = packet.g2();
         } else if (code == 249) {
-            @Pc(202) int len = packet.g1();
+            @Pc(202) int count = packet.g1();
+
             if (this.params == null) {
-                @Pc(212) int count = IntMath.nextPow2(len);
-                this.params = new HashTable(count);
+                @Pc(212) int size = IntMath.nextPow2(count);
+                this.params = new HashTable(size);
             }
-            for (@Pc(212) int i = 0; i < len; i++) {
+
+            for (@Pc(212) int i = 0; i < count; i++) {
                 @Pc(554) boolean string = packet.g1() == 1;
                 @Pc(558) int id = packet.g3();
-                @Pc(567) Node node;
+
+                @Pc(567) Node param;
                 if (string) {
-                    node = new StringNode(packet.gjstr());
+                    param = new StringNode(packet.gjstr());
                 } else {
-                    node = new IntNode(packet.g4());
+                    param = new IntNode(packet.g4());
                 }
-                this.params.put((long) id, node);
+
+                this.params.put(id, param);
             }
         }
     }
@@ -910,7 +914,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!gu;ILclient!ju;ILclient!ha;I)Lclient!ka;")
-    public Model model(@OriginalArg(0) Animator animator, @OriginalArg(1) int initialFunctionMask, @OriginalArg(2) PlayerModel playerModel, @OriginalArg(3) int amount, @OriginalArg(4) Toolkit toolkit) {
+    public Model model(@OriginalArg(0) Animator animator, @OriginalArg(1) int functionMask, @OriginalArg(2) PlayerModel playerModel, @OriginalArg(3) int amount, @OriginalArg(4) Toolkit toolkit) {
         if (this.countobj != null && amount > 1) {
             @Pc(17) int id = -1;
 
@@ -921,13 +925,13 @@ public final class ObjType {
             }
 
             if (id != -1) {
-                return this.myList.list(id).model(animator, initialFunctionMask, playerModel, 1, toolkit);
+                return this.myList.list(id).model(animator, functionMask, playerModel, 1, toolkit);
             }
         }
 
-        @Pc(17) int functionMask = initialFunctionMask;
+        @Pc(17) int newFunctionMask = functionMask;
         if (animator != null) {
-            functionMask = initialFunctionMask | animator.functionMask();
+            newFunctionMask = functionMask | animator.functionMask();
         }
 
         @Pc(87) ReferenceCache local87 = this.myList.modelCache;
@@ -936,14 +940,14 @@ public final class ObjType {
             model = (Model) this.myList.modelCache.get((long) (this.myid | toolkit.index << 29));
         }
 
-        if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
+        if (model == null || toolkit.compareFunctionMasks(model.ua(), newFunctionMask) != 0) {
             if (model != null) {
-                functionMask = toolkit.combineFunctionMasks(functionMask, model.ua());
+                newFunctionMask = toolkit.combineFunctionMasks(newFunctionMask, model.ua());
             }
 
-            @Pc(141) int baseFunctionMask = functionMask;
+            @Pc(141) int baseFunctionMask = newFunctionMask;
             if (this.retex_s != null) {
-                baseFunctionMask = functionMask | 0x8000;
+                baseFunctionMask = newFunctionMask | 0x8000;
             }
             if (this.recol_s != null || playerModel != null) {
                 baseFunctionMask |= 0x4000;
@@ -998,7 +1002,7 @@ public final class ObjType {
                 }
             }
 
-            model.s(functionMask);
+            model.s(newFunctionMask);
             @Pc(426) ReferenceCache local426 = this.myList.modelCache;
             synchronized (this.myList.modelCache) {
                 this.myList.modelCache.put(model, (long) (this.myid | toolkit.index << 29));
@@ -1006,11 +1010,11 @@ public final class ObjType {
         }
 
         if (animator != null) {
-            model = model.copy((byte) 1, functionMask, true);
+            model = model.copy((byte) 1, newFunctionMask, true);
             animator.animate(model, 0);
         }
 
-        model.s(initialFunctionMask);
+        model.s(functionMask);
         return model;
     }
 

@@ -20,9 +20,6 @@ public final class Static419 {
     @OriginalMember(owner = "client!ne", name = "w", descriptor = "I")
     public static int anInt6434 = 0;
 
-    @OriginalMember(owner = "client!ne", name = "o", descriptor = "[S")
-    public static short[] aShortArray96 = new short[256];
-
     @OriginalMember(owner = "client!ne", name = "a", descriptor = "(BI)Ljava/lang/String;")
     public static String method5756(@OriginalArg(1) int arg0) {
         return (arg0 >> 24 & 0xFF) + "." + (arg0 >> 16 & 0xFF) + "." + (arg0 >> 8 & 0xFF) + "." + (arg0 & 0xFF);

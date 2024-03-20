@@ -612,12 +612,12 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("getclientvarpbit")) {
                     local501 = Integer.parseInt(arg2.substring(17));
-                    Static79.method1579("varpbit=" + Static34.aClass304_1.method6864(local501));
+                    Static79.method1579("varpbit=" + Static34.aClass304_1.getVarbitValue(local501));
                     return;
                 }
                 if (arg2.startsWith("getclientvarp")) {
                     local501 = Integer.parseInt(arg2.substring(14));
-                    Static79.method1579("varp=" + Static34.aClass304_1.method6865(local501));
+                    Static79.method1579("varp=" + Static34.aClass304_1.getVarValueInt(local501));
                     return;
                 }
                 @Pc(2083) String[] local2083;

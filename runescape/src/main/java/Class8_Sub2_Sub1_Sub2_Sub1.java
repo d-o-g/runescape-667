@@ -122,7 +122,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             return;
         }
         @Pc(24) Matrix local24 = arg0.scratchMatrix();
-        local24.method7131(super.aClass126_7.method2673(arg1 ^ 0xFFFFC004));
+        local24.rotate(super.aClass126_7.method2673(arg1 ^ 0xFFFFC004));
         local24.translate(super.anInt10690, arg1 + super.anInt10691, super.anInt10694);
         this.method9319(arg0, super.aBoolean820, super.aModelArray3, local24);
         for (@Pc(53) int local53 = 0; local53 < super.aModelArray3.length; local53++) {
@@ -170,7 +170,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         }
         @Pc(22) Matrix local22 = arg3.scratchMatrix();
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
-        local22.method7131(local27);
+        local22.rotate(local27);
         local22.translate(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(40) boolean local40 = arg2;
         for (@Pc(42) int local42 = 0; local42 < super.aModelArray3.length; local42++) {
@@ -267,7 +267,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             }
             return super.method9302((byte) 76);
         } else {
-            return Static690.aNPCTypeList_2.list(this.aPlayerModel_1.npcId).anInt6713;
+            return Static690.aNPCTypeList_2.list(this.aPlayerModel_1.npcId).size;
         }
     }
 
@@ -306,7 +306,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
-        local22.method7131(local27);
+        local22.rotate(local27);
         @Pc(53) Class291 local53 = Static334.aClass291ArrayArrayArray1[super.aByte144][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
         if (local53 == null || local53.aClass8_Sub2_Sub2_1 == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
@@ -319,7 +319,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(114) Class8_Sub7 local114 = null;
         if (Static400.instance.aClass57_Sub7_1.method2905() == 1) {
             @Pc(126) BASType local126 = this.method9317();
-            if (local126.aBoolean545 && (this.aPlayerModel_1.npcId == -1 || Static690.aNPCTypeList_2.list(this.aPlayerModel_1.npcId).aBoolean506)) {
+            if (local126.aBoolean545 && (this.aPlayerModel_1.npcId == -1 || Static690.aNPCTypeList_2.list(this.aPlayerModel_1.npcId).hasShadow)) {
                 @Pc(166) Animator local166 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
                 @Pc(186) Animator local186 = super.aAnimator_10.isAnimating() && (!super.aBoolean817 || local166 == null) ? super.aAnimator_10 : null;
                 @Pc(212) Model local212 = Static618.method8320(240, super.aModelArray3[0], super.anInt10742, 0, super.anInt10716, 1, arg0, 160, local186 == null ? local166 : local186, super.anInt10746, local27, 0);
@@ -381,10 +381,10 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                     }
                 }
             }
-            local22.method7131(local27);
+            local22.rotate(local27);
             local22.translate(super.anInt10690, super.anInt10691, super.anInt10694);
         }
-        local22.method7131(local27);
+        local22.rotate(local27);
         local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 5, super.anInt10694);
         if (local114 == null) {
             local114 = Static642.method8441(true, super.aModelArray3.length);

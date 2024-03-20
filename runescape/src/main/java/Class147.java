@@ -10,15 +10,15 @@ public final class Class147 implements VarDomain {
 
     @OriginalMember(owner = "client!gl", name = "a", descriptor = "(II)I")
     @Override
-    public int method6865(@OriginalArg(0) int arg0) {
+    public int getVarValueInt(@OriginalArg(0) int arg0) {
         @Pc(18) IntNode local18 = (IntNode) Static25.A_HASH_TABLE___4.get((long) arg0);
-        return local18 == null ? Static34.aClass304_1.method6865(arg0) : local18.value;
+        return local18 == null ? Static34.aClass304_1.getVarValueInt(arg0) : local18.value;
     }
 
     @OriginalMember(owner = "client!gl", name = "a", descriptor = "(IB)I")
     @Override
-    public int method6864(@OriginalArg(0) int arg0) {
+    public int getVarbitValue(@OriginalArg(0) int arg0) {
         @Pc(14) IntNode local14 = (IntNode) Static25.A_HASH_TABLE___4.get((long) arg0 | 0x100000000L);
-        return local14 == null ? Static34.aClass304_1.method6864(arg0) : local14.value;
+        return local14 == null ? Static34.aClass304_1.getVarbitValue(arg0) : local14.value;
     }
 }

@@ -80,6 +80,8 @@ public final class client extends GameShell {
     public static FileSystem_Client metaCache;
     @OriginalMember(owner = "client!vr", name = "d", descriptor = "Lclient!mj;")
     public static BufferedFile uidDat;
+    @OriginalMember(owner = "client!uc", name = "n", descriptor = "[S")
+    public static short[] clientpalette;
 
     @OriginalMember(owner = "client!client", name = "main", descriptor = "([Ljava/lang/String;)V")
     public static void main(@OriginalArg(0) String[] arg0) {
@@ -339,7 +341,7 @@ public final class client extends GameShell {
         for (local46 = 0; local46 < Static416.anInt6378; local46++) {
             @Pc(97) Class8_Sub2_Sub1_Sub2_Sub2 local97 = Static592.aClass2_Sub45Array1[local46].aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local97 != null) {
-                @Pc(103) byte local103 = local97.aNPCType_1.aByte103;
+                @Pc(103) byte local103 = local97.aNPCType_1.movementCapabilities;
                 if ((local103 & 0x1) != 0) {
                     @Pc(114) int local114 = local97.method9302((byte) 48);
                     @Pc(142) int local142;
@@ -819,7 +821,7 @@ public final class client extends GameShell {
             Static660.aConnectionInfo_4.alternatePort = Static660.aConnectionInfo_4.id + 50000;
         }
         gameConnection = Static527.aConnectionInfo_3;
-        Static637.aShortArray132 = Static419.aShortArray96 = NPCType.aShortArray112 = ObjType.clientpalette = new short[256];
+        clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
         if (Static392.aModeGame_4 == ModeGame.RUNESCAPE) {
             Static273.aBoolean340 = false;
         }

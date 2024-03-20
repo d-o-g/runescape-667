@@ -47,11 +47,11 @@ public final class Static249 {
             if (local51 != null) {
                 @Pc(56) Class8_Sub2_Sub1_Sub2_Sub2 local56 = local51.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 @Pc(59) NPCType local59 = local56.aNPCType_1;
-                if (local59.anIntArray532 != null) {
-                    local59 = local59.method5985(65535, Static34.aClass304_1);
+                if (local59.multinpcs != null) {
+                    local59 = local59.getMultiNPC(65535, Static34.aClass304_1);
                 }
                 if (local59 != null) {
-                    local17 = local59.anIntArray533;
+                    local17 = local59.quests;
                 }
             }
         } else if (Static523.method3444(arg0.anInt7314)) {

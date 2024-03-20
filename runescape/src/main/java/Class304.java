@@ -43,7 +43,7 @@ public final class Class304 implements VarDomain {
 
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(IB)I")
     @Override
-    public int method6864(@OriginalArg(0) int arg0) {
+    public int getVarbitValue(@OriginalArg(0) int arg0) {
         @Pc(8) Class95 local8 = Static529.aClass161_1.method3426(arg0);
         @Pc(11) int local11 = local8.anInt2501;
         @Pc(22) int local22 = local8.anInt2497;
@@ -80,7 +80,7 @@ public final class Class304 implements VarDomain {
 
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(II)I")
     @Override
-    public int method6865(@OriginalArg(0) int arg0) {
+    public int getVarValueInt(@OriginalArg(0) int arg0) {
         return this.anIntArray621[arg0];
     }
 

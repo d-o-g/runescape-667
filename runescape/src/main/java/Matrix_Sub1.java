@@ -70,10 +70,10 @@ public final class Matrix_Sub1 extends Matrix {
 
     @OriginalMember(owner = "client!cw", name = "g", descriptor = "(I)V")
     @Override
-    public void method7131(@OriginalArg(0) int arg0) {
+    public void rotate(@OriginalArg(0) int angle) {
         this.aFloat42 = 1.0F;
-        this.aFloat39 = this.aFloat47 = Class120.aFloatArray80[arg0 & 0x3FFF];
-        this.aFloat38 = Class120.aFloatArray79[arg0 & 0x3FFF];
+        this.aFloat39 = this.aFloat47 = Class120.aFloatArray80[angle & 0x3FFF];
+        this.aFloat38 = Class120.aFloatArray79[angle & 0x3FFF];
         this.aFloat45 = -this.aFloat38;
         this.aFloat40 = this.aFloat46 = this.aFloat44 = this.aFloat41 = this.aFloat37 = this.aFloat36 = this.aFloat43 = 0.0F;
     }

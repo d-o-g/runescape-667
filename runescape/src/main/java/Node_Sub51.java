@@ -126,21 +126,21 @@ public final class Node_Sub51 extends Node {
             if (local27 != local11) {
                 this.anInt9353 = local27;
                 @Pc(37) NPCType local37 = this.aClass8_Sub2_Sub1_Sub2_Sub2_3.aNPCType_1;
-                if (local37.anIntArray532 != null) {
-                    local37 = local37.method5985(65535, Static34.aClass304_1);
+                if (local37.multinpcs != null) {
+                    local37 = local37.getMultiNPC(65535, Static34.aClass304_1);
                 }
                 if (local37 == null) {
-                    this.aBoolean714 = this.aClass8_Sub2_Sub1_Sub2_Sub2_3.aNPCType_1.aBoolean508;
+                    this.aBoolean714 = this.aClass8_Sub2_Sub1_Sub2_Sub2_3.aNPCType_1.vorbisSound;
                     this.anInt9359 = 256;
                     this.anInt9360 = 256;
                     this.anInt9358 = this.anInt9356 = this.anInt9355 = 0;
                 } else {
                     this.anInt9360 = local37.anInt6736;
-                    this.anInt9358 = local37.anInt6721;
-                    this.anInt9356 = local37.anInt6742 << 9;
+                    this.anInt9358 = local37.soundVolume;
+                    this.anInt9356 = local37.soundDistance << 9;
                     this.anInt9359 = local37.anInt6729;
-                    this.aBoolean714 = local37.aBoolean508;
-                    this.anInt9355 = local37.anInt6741 << 9;
+                    this.aBoolean714 = local37.vorbisSound;
+                    this.anInt9355 = local37.soundStartDistance << 9;
                 }
             }
         } else if (this.aClass8_Sub2_Sub1_Sub2_Sub1_3 != null) {

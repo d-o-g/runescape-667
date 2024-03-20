@@ -337,10 +337,10 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "g", descriptor = "(I)V")
     @Override
-    public void method7131(@OriginalArg(0) int arg0) {
+    public void rotate(@OriginalArg(0) int angle) {
         this.aFloat156 = 1.0F;
-        this.aFloat153 = this.aFloat154 = GameShell.aFloatArray14[arg0 & 0x3FFF];
-        this.aFloat160 = GameShell.aFloatArray15[arg0 & 0x3FFF];
+        this.aFloat153 = this.aFloat154 = GameShell.aFloatArray14[angle & 0x3FFF];
+        this.aFloat160 = GameShell.aFloatArray15[angle & 0x3FFF];
         this.aFloat157 = this.aFloat152 = this.aFloat161 = this.aFloat150 = this.aFloat158 = this.aFloat151 = this.aFloat159 = 0.0F;
         this.aFloat155 = -this.aFloat160;
     }

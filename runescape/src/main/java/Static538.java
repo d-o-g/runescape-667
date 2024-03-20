@@ -1,4 +1,4 @@
-import com.jagex.game.Class386;
+import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -119,18 +119,18 @@ public final class Static538 {
             }
             if ((local35 & 0x40000) != 0) {
                 local31.aString128 = local15.gjstr();
-                if ("".equals(local31.aString128) || local31.aString128.equals(local31.aNPCType_1.aString73)) {
-                    local31.aString128 = local31.aNPCType_1.aString73;
+                if ("".equals(local31.aString128) || local31.aString128.equals(local31.aNPCType_1.name)) {
+                    local31.aString128 = local31.aNPCType_1.name;
                 }
             }
             if ((local35 & 0x20) != 0) {
-                if (local31.aNPCType_1.method5984()) {
+                if (local31.aNPCType_1.hasSounds()) {
                     Static58.method1259(local31);
                 }
                 local31.method9328(Static690.aNPCTypeList_2.list(local15.ig2()));
-                local31.method9310(local31.aNPCType_1.anInt6713);
-                local31.anInt10757 = local31.aNPCType_1.lb << 3;
-                if (local31.aNPCType_1.method5984()) {
+                local31.method9310(local31.aNPCType_1.size);
+                local31.anInt10757 = local31.aNPCType_1.rotationSpeed << 3;
+                if (local31.aNPCType_1.hasSounds()) {
                     Static89.method1714(local31.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local31.anIntArray879[0], local31.anIntArray878[0], local31, (LocType) null, 0);
                 }
             }
@@ -144,7 +144,7 @@ public final class Static538 {
             if ((local35 & 0x80000) != 0) {
                 local31.anInt10791 = local15.ig2();
                 if (local31.anInt10791 == 65535) {
-                    local31.anInt10791 = local31.aNPCType_1.anInt6727;
+                    local31.anInt10791 = local31.aNPCType_1.combatLevel;
                 }
             }
             @Pc(511) int[] local511;
@@ -170,13 +170,13 @@ public final class Static538 {
             @Pc(636) short[] local636;
             @Pc(708) long local708;
             if ((local35 & 0x10000) != 0) {
-                local73 = local31.aNPCType_1.anIntArray534.length;
+                local73 = local31.aNPCType_1.headModels.length;
                 local77 = 0;
-                if (local31.aNPCType_1.aShortArray100 != null) {
-                    local77 = local31.aNPCType_1.aShortArray100.length;
+                if (local31.aNPCType_1.recol_d != null) {
+                    local77 = local31.aNPCType_1.recol_d.length;
                 }
-                if (local31.aNPCType_1.aShortArray102 != null) {
-                    local77 = local31.aNPCType_1.aShortArray102.length;
+                if (local31.aNPCType_1.retex_d != null) {
+                    local77 = local31.aNPCType_1.retex_d.length;
                 }
                 local90 = local15.g1_alt3();
                 if ((local90 & 0x1) != 1) {
@@ -202,7 +202,7 @@ public final class Static538 {
                         }
                     }
                     local708 = (long) local31.anInt10788++ << 32 | (long) local23;
-                    new Class386(local708, local608, local636, local665);
+                    new NPCTypeCustomisation(local708, local608, local636, local665);
                 }
             }
             if ((local35 & 0x400) != 0) {
@@ -232,18 +232,18 @@ public final class Static538 {
                 Static651.method8515(local814, local86, true, local31);
             }
             if ((local35 & 0x800) != 0) {
-                local73 = local31.aNPCType_1.anIntArray535.length;
+                local73 = local31.aNPCType_1.models.length;
                 local77 = 0;
-                if (local31.aNPCType_1.aShortArray100 != null) {
-                    local77 = local31.aNPCType_1.aShortArray100.length;
+                if (local31.aNPCType_1.recol_d != null) {
+                    local77 = local31.aNPCType_1.recol_d.length;
                 }
                 local86 = 0;
-                if (local31.aNPCType_1.aShortArray102 != null) {
-                    local86 = local31.aNPCType_1.aShortArray102.length;
+                if (local31.aNPCType_1.retex_d != null) {
+                    local86 = local31.aNPCType_1.retex_d.length;
                 }
                 local90 = local15.g1_alt3();
                 if ((local90 & 0x1) == 1) {
-                    local31.aClass386_1 = null;
+                    local31.aNPCTypeCustomisation_1 = null;
                 } else {
                     local608 = null;
                     if ((local90 & 0x2) == 2) {
@@ -267,7 +267,7 @@ public final class Static538 {
                         }
                     }
                     local708 = (long) local23 | (long) local31.anInt10790++ << 32;
-                    local31.aClass386_1 = new Class386(local708, local608, local636, local665);
+                    local31.aNPCTypeCustomisation_1 = new NPCTypeCustomisation(local708, local608, local636, local665);
                 }
             }
             if ((local35 & 0x4000) != 0) {

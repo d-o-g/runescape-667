@@ -109,7 +109,7 @@ public final class Static254 {
         }
         Static218.method3187();
         Static273.aBoolean339 = true;
-        Static637.aShortArray132 = Static419.aShortArray96 = NPCType.aShortArray112 = ObjType.clientpalette = new short[256];
+        client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
         Static331.aString52 = LocalisedText.WALKHERE.localise(Static51.anInt1052);
         Static400.instance.method5104(Static400.instance.aClass57_Sub4_1.method2143(), Static400.instance.aClass57_Sub4_2);
         Static400.instance.method5104(Static400.instance.aClass57_Sub19_1.method5960(), Static400.instance.aClass57_Sub19_2);

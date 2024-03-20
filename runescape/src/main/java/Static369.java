@@ -47,7 +47,7 @@ public final class Static369 {
                     @Pc(135) int local135 = (Static89.anIntArray169[local13] & 0xFF) * 64 + local108 - Static116.anInt2270;
                     @Pc(142) NPCType local142 = Static690.aNPCTypeList_2.list(local66.g2());
                     @Pc(149) Node_Sub45 local149 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local88);
-                    if (local149 == null && (local142.aByte103 & 0x1) > 0 && local98 == Static164.anInt2808 && local121 >= 0 && local142.anInt6713 + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.anInt6713 < Static501.mapHeight) {
+                    if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.anInt2808 && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapHeight) {
                         @Pc(197) Class8_Sub2_Sub1_Sub2_Sub2 local197 = new Class8_Sub2_Sub1_Sub2_Sub2();
                         local197.anInt10740 = local88;
                         @Pc(205) Node_Sub45 local205 = new Node_Sub45(local197);
@@ -56,9 +56,9 @@ public final class Static369 {
                         Static103.anIntArray187[Static390.anInt6126++] = local88;
                         local197.anInt10751 = Static333.anInt5455;
                         local197.method9328(local142);
-                        local197.method9310(local197.aNPCType_1.anInt6713);
-                        local197.anInt10757 = local197.aNPCType_1.lb << 3;
-                        local197.method9298((local197.aNPCType_1.aByte110 + 4 & 0x80600007) << 11, true);
+                        local197.method9310(local197.aNPCType_1.size);
+                        local197.anInt10757 = local197.aNPCType_1.rotationSpeed << 3;
+                        local197.method9298((local197.aNPCType_1.spawnDirection + 4 & 0x80600007) << 11, true);
                         local197.method9326(true, local135, local121, local98, local197.method9302((byte) 119));
                     }
                 }

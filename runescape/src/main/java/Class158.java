@@ -6,7 +6,7 @@ import com.jagex.collect.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.game.Class14;
-import com.jagex.game.Class386;
+import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.VarDomain;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
@@ -434,7 +434,7 @@ public final class Class158 {
     public int anInt3805 = 0;
 
     @OriginalMember(owner = "client!hda", name = "jb", descriptor = "I")
-    public int anInt3823 = 1;
+    public int objType = 1;
 
     @OriginalMember(owner = "client!hda", name = "w", descriptor = "Lclient!ofa;")
     public Node_Sub41 aClass2_Sub41_2 = Static93.aClass2_Sub41_1;
@@ -669,7 +669,7 @@ public final class Class158 {
             }
         }
         if (this.anInt3820 == 6) {
-            this.anInt3823 = 1;
+            this.objType = 1;
             this.obj = arg0.g2();
             if (this.obj == 65535) {
                 this.obj = -1;
@@ -1010,15 +1010,16 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!gu;Lclient!qp;Lclient!kr;BLclient!bp;Lclient!ju;Lclient!uk;Lclient!ql;Lclient!es;ILclient!vk;)Lclient!ka;")
-    public Model method3401(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Animator arg1, @OriginalArg(2) BASTypeList arg2, @OriginalArg(3) IDKTypeList arg3, @OriginalArg(5) SeqTypeList arg4, @OriginalArg(6) PlayerModel playerModel, @OriginalArg(7) VarDomain arg6, @OriginalArg(8) NPCTypeList arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class386 arg10) {
+    public Model method3401(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Animator animator, @OriginalArg(2) BASTypeList arg2, @OriginalArg(3) IDKTypeList arg3, @OriginalArg(5) SeqTypeList arg4, @OriginalArg(6) PlayerModel playerModel, @OriginalArg(7) VarDomain arg6, @OriginalArg(8) NPCTypeList arg7, @OriginalArg(9) ObjTypeList arg8, @OriginalArg(10) int functionMask, @OriginalArg(11) NPCTypeCustomisation arg10) {
         Static544.aBoolean624 = false;
-        if (this.anInt3823 == 0) {
+        if (this.objType == 0) {
             return null;
-        } else if (this.anInt3823 == 1 && this.obj == -1) {
+        } else if (this.objType == 1 && this.obj == -1) {
             return null;
-        } else if (this.anInt3823 == 1) {
-            if (arg1 != null) {
-                arg9 = arg1.functionMask() | 0x800;
+        } else if (this.objType == 1) {
+            int functionMaskBefore = functionMask;
+            if (animator != null) {
+                functionMask = animator.functionMask() | 0x800;
             }
             @Pc(53) long local53 = -1L;
             @Pc(55) long[] local55 = Packet.crc64table;
@@ -1030,7 +1031,7 @@ public final class Class158 {
                     local53 = local55[(int) (((long) (this.aShortArray55[local60] >> 8) ^ local53) & 0xFFL)] ^ local53 >>> 8;
                     local53 = local55[(int) (((long) this.aShortArray55[local60] ^ local53) & 0xFFL)] ^ local53 >>> 8;
                 }
-                arg9 |= 0x4000;
+                functionMask |= 0x4000;
             }
             if (this.aShortArray58 != null) {
                 for (local60 = 0; local60 < this.aShortArray58.length; local60++) {
@@ -1039,13 +1040,13 @@ public final class Class158 {
                     local53 = local53 >>> 8 ^ local55[(int) (((long) (this.aShortArray56[local60] >> 8) ^ local53) & 0xFFL)];
                     local53 = local53 >>> 8 ^ local55[(int) (((long) this.aShortArray56[local60] ^ local53) & 0xFFL)];
                 }
-                arg9 |= 0x8000;
+                functionMask |= 0x8000;
             }
-            @Pc(271) long local271 = local53 & 0x3FFFFFFFFFL | (long) this.obj << 38 | (long) this.anInt3823 << 54 | (long) arg0.index << 59;
+            @Pc(271) long local271 = local53 & 0x3FFFFFFFFFL | (long) this.obj << 38 | (long) this.objType << 54 | (long) arg0.index << 59;
             @Pc(277) Model local277 = (Model) Static312.A_WEIGHTED_CACHE___106.get(local271);
-            if (local277 == null || arg0.compareFunctionMasks(local277.ua(), arg9) != 0) {
+            if (local277 == null || arg0.compareFunctionMasks(local277.ua(), functionMask) != 0) {
                 if (local277 != null) {
-                    arg9 = arg0.combineFunctionMasks(arg9, local277.ua());
+                    functionMask = arg0.combineFunctionMasks(functionMask, local277.ua());
                 }
                 @Pc(307) Mesh local307 = Mesh.load(this.obj, Static607.aJs5_113);
                 if (local307 == null) {
@@ -1055,7 +1056,7 @@ public final class Class158 {
                 if (local307.version < 13) {
                     local307.upscale();
                 }
-                local277 = arg0.createModel(local307, arg9, Static108.anInt2168, 64, 768);
+                local277 = arg0.createModel(local307, functionMask, Static108.anInt2168, 64, 768);
                 @Pc(339) int local339;
                 if (this.aShortArray57 != null) {
                     for (local339 = 0; local339 < this.aShortArray57.length; local339++) {
@@ -1069,58 +1070,58 @@ public final class Class158 {
                 }
                 Static312.A_WEIGHTED_CACHE___106.put(local277, local271);
             }
-            if (arg1 != null) {
-                local277 = local277.copy((byte) 1, arg9, true);
-                arg1.animate(local277, 0);
+            if (animator != null) {
+                local277 = local277.copy((byte) 1, functionMask, true);
+                animator.animate(local277, 0);
             }
-            local277.s(2048);
+            local277.s(functionMaskBefore);
             return local277;
         } else {
             @Pc(438) Model local438;
-            if (this.anInt3823 == 2) {
-                local438 = arg7.list(this.obj).headModel(arg1, arg10, arg0, arg6);
+            if (this.objType == 2) {
+                local438 = arg7.list(this.obj).headModel(functionMask, animator, arg10, arg0, arg6);
                 if (local438 == null) {
                     Static544.aBoolean624 = true;
                     return null;
                 } else {
                     return local438;
                 }
-            } else if (this.anInt3823 == 3) {
+            } else if (this.objType == 3) {
                 if (playerModel == null) {
                     return null;
                 }
-                local438 = playerModel.wornHeadModel(arg3, arg4, arg6, arg1, arg8, arg7, arg0);
+                local438 = playerModel.wornHeadModel(arg3, arg4, arg6, animator, arg8, arg7, arg0, functionMask);
                 if (local438 == null) {
                     Static544.aBoolean624 = true;
                     return null;
                 } else {
                     return local438;
                 }
-            } else if (this.anInt3823 == 4) {
+            } else if (this.objType == 4) {
                 @Pc(489) ObjType local489 = arg8.list(this.obj);
-                @Pc(498) Model local498 = local489.model(arg1, 2048, playerModel, 10, arg0);
+                @Pc(498) Model local498 = local489.model(animator, functionMask, playerModel, 10, arg0);
                 if (local498 == null) {
                     Static544.aBoolean624 = true;
                     return null;
                 } else {
                     return local498;
                 }
-            } else if (this.anInt3823 == 6) {
-                local438 = arg7.list(this.obj).getModel(arg6, arg0, arg2, arg1, 0, (int[]) null, arg10, (Animator) null, 2048, (Animator[]) null);
+            } else if (this.objType == 6) {
+                local438 = arg7.list(this.obj).getModel(arg6, arg0, arg2, animator, 0, (int[]) null, arg10, (Animator) null, 2048, (Animator[]) null);
                 if (local438 == null) {
                     Static544.aBoolean624 = true;
                     return null;
                 } else {
                     return local438;
                 }
-            } else if (this.anInt3823 == 7) {
+            } else if (this.objType == 7) {
                 if (playerModel == null) {
                     return null;
                 } else {
                     @Pc(558) int kit1 = this.obj >>> 16;
                     @Pc(563) int kit2 = this.obj & 0xFFFF;
                     @Pc(566) int kit3 = this.objData;
-                    @Pc(578) Model model = playerModel.headModel(arg1, kit1, kit3, arg4, arg0, arg3, kit2);
+                    @Pc(578) Model model = playerModel.headModel(animator, kit1, kit3, arg4, arg0, arg3, kit2);
                     if (model == null) {
                         Static544.aBoolean624 = true;
                         return null;

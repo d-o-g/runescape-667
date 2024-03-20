@@ -153,8 +153,8 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "g", descriptor = "(I)V")
     @Override
-    public void method7131(@OriginalArg(0) int arg0) {
-        this.t(this.nativeid, arg0);
+    public void rotate(@OriginalArg(0) int angle) {
+        this.t(this.nativeid, angle);
     }
 
     @OriginalMember(owner = "client!ja", name = "w", descriptor = "(J[I)V")

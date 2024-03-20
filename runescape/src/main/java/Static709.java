@@ -369,9 +369,9 @@ public final class Static709 {
                         local288 = local1099.anInt197;
                         local300 = local1099.anInt195;
                         local1739 = local1099.anInt192;
-                        if (local288 != local1143.anInt3823 || local300 != local1143.obj || local1739 != local1143.objData) {
+                        if (local288 != local1143.objType || local300 != local1143.obj || local1739 != local1143.objData) {
                             local1143.objData = local1739;
-                            local1143.anInt3823 = local288;
+                            local1143.objType = local288;
                             local1143.obj = local300;
                             Static178.method2729(local1143);
                         }

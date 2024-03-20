@@ -43,7 +43,7 @@ public final class Static614 {
         Static540.aClass79_6.method2073();
         Static68.aIDKTypeList_3.method5045();
         Static354.aLocTypeList_4.method3064();
-        Static690.aNPCTypeList_2.method7085();
+        Static690.aNPCTypeList_2.cacheClean(5);
         Static419.aObjTypeList_1.cacheClean(5);
         Static25.aSeqTypeList_1.cacheClean();
         Static23.aClass128_1.method2698();

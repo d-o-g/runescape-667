@@ -383,7 +383,7 @@ public final class Static523 {
         }
         arg0.anInt3807 = 150;
         arg0.anInt3811 = (int) (Math.sin((double) Static333.anInt5455 / 40.0D) * 256.0D) & 0x7FF;
-        arg0.anInt3823 = 5;
+        arg0.objType = 5;
         arg0.obj = Static312.anInt5000;
         arg0.objData = Static214.method3157(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9);
         @Pc(55) Animator local55 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aAnimator_10;

@@ -88,16 +88,16 @@ public final class Static28 {
                 @Pc(432) Class8_Sub2_Sub1_Sub2_Sub2 local432 = local427.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 if (local432.method9322() && local432.aByte144 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
                     @Pc(446) NPCType local446 = local432.aNPCType_1;
-                    if (local446 != null && local446.anIntArray532 != null) {
-                        local446 = local446.method5985(65535, Static34.aClass304_1);
+                    if (local446 != null && local446.multinpcs != null) {
+                        local446 = local446.getMultiNPC(65535, Static34.aClass304_1);
                     }
-                    if (local446 != null && local446.aBoolean507 && local446.aBoolean505) {
+                    if (local446 != null && local446.displayOnMiniMap && local446.interactive) {
                         local392 = local432.anInt10690 / 128 - local90 / 128;
                         local490 = local432.anInt10694 / 128 - local93 / 128;
-                        if (local446.anInt6733 == -1) {
+                        if (local446.mapElement == -1) {
                             Static6.method107(arg0, local30, Static471.aSpriteArray11[1], local490, local392, arg2, arg3);
                         } else {
-                            Static620.method8322(local490, arg3, local30, arg1, local446.anInt6733, arg0, local392, arg2);
+                            Static620.method8322(local490, arg3, local30, arg1, local446.mapElement, arg0, local392, arg2);
                         }
                     }
                 }

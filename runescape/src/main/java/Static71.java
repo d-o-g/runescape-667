@@ -2,7 +2,7 @@ import com.jagex.IndexedImage;
 import com.jagex.game.Animator;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
-import com.jagex.game.Class386;
+import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.objtype.ObjType;
@@ -441,7 +441,7 @@ public final class Static71 {
                                     }
                                 } else if (local19.anInt3820 == 6) {
                                     Static104.method2033();
-                                    Class386 local1215 = null;
+                                    NPCTypeCustomisation local1215 = null;
                                     @Pc(2313) Model local2313 = null;
                                     local744 = 0;
                                     if (local19.anInt3760 != -1) {
@@ -455,7 +455,7 @@ public final class Static71 {
                                                 local744 = -local2313.fa() >> 1;
                                             }
                                         }
-                                    } else if (local19.anInt3823 == 5) {
+                                    } else if (local19.objType == 5) {
                                         local1255 = local19.obj;
                                         if (local1255 >= 0 && local1255 < 2048) {
                                             @Pc(2341) Class8_Sub2_Sub1_Sub2_Sub1 local2341 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local1255];
@@ -463,10 +463,10 @@ public final class Static71 {
                                                 local2313 = local2341.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, local19.aAnimator_6, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, 2048, (int[]) null, Static125.aWearposDefaults_1, Static68.aIDKTypeList_3, Static163.activeToolkit, Static690.aNPCTypeList_2, (Animator[]) null, 0, (Animator) null, Static34.aClass304_1);
                                             }
                                         }
-                                    } else if (local19.anInt3823 == 8 || local19.anInt3823 == 9) {
+                                    } else if (local19.objType == 8 || local19.objType == 9) {
                                         @Pc(2468) Node_Sub22 local2468 = Static556.method7303(local19.obj, false);
                                         if (local2468 != null) {
-                                            local2313 = local2468.method3078(local19.objData, Static163.activeToolkit, local19.anInt3823 == 9, local19.aAnimator_6, local19.aBoolean288 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null);
+                                            local2313 = local2468.method3078(local19.objData, Static163.activeToolkit, local19.objType == 9, local19.aAnimator_6, local19.aBoolean288 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null);
                                         }
                                     } else if (local19.aAnimator_6 != null && local19.aAnimator_6.isAnimating()) {
                                         local2313 = local19.method3401(Static163.activeToolkit, local19.aAnimator_6, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);

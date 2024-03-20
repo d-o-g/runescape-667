@@ -102,7 +102,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
     public int anInt10719;
 
     @OriginalMember(owner = "client!cg", name = "gb", descriptor = "I")
-    public int anInt10739;
+    public int drawPriority;
 
     @OriginalMember(owner = "client!cg", name = "M", descriptor = "I")
     public int anInt10735;
@@ -228,7 +228,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
         this.anIntArray870 = new int[GraphicsDefaults.INSTANCE.maxhitmarks];
         this.anInt10728 = 0;
         this.anInt10719 = -1000;
-        this.anInt10739 = 0;
+        this.drawPriority = 0;
         this.anInt10735 = 0;
         this.aBoolean816 = true;
         this.aByte146 = 0;

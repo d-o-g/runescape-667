@@ -29,7 +29,7 @@ public abstract class Matrix {
     public abstract void rotateAxisX(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!tt", name = "g", descriptor = "(I)V")
-    public abstract void method7131(@OriginalArg(0) int arg0);
+    public abstract void rotate(@OriginalArg(0) int angle);
 
     @OriginalMember(owner = "client!tt", name = "e", descriptor = "(I)V")
     public abstract void makeRotationZ(@OriginalArg(0) int arg0);

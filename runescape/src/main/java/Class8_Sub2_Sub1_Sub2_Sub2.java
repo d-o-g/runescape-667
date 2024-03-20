@@ -1,6 +1,6 @@
 import com.jagex.Class230;
 import com.jagex.game.Animator;
-import com.jagex.game.Class386;
+import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Matrix;
@@ -18,7 +18,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     public String aString128;
 
     @OriginalMember(owner = "client!wj", name = "Gc", descriptor = "Lclient!vk;")
-    public Class386 aClass386_1;
+    public NPCTypeCustomisation aNPCTypeCustomisation_1;
 
     @OriginalMember(owner = "client!wj", name = "Yc", descriptor = "Lclient!o;")
     public NPCType aNPCType_1;
@@ -75,7 +75,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         }
         @Pc(20) Matrix local20 = arg3.scratchMatrix();
         @Pc(25) int local25 = super.aClass126_7.method2673(16383);
-        local20.method7131(local25);
+        local20.rotate(local25);
         local20.translate(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(38) boolean local38 = arg2;
         for (@Pc(40) int local40 = 0; local40 < super.aModelArray3.length; local40++) {
@@ -83,11 +83,11 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 @Pc(71) boolean var10000;
                 label50:
                 {
-                    if (this.aNPCType_1.anInt6723 <= 0) {
+                    if (this.aNPCType_1.pickSizeShift <= 0) {
                         label48:
                         {
                             if (this.aNPCType_1.anInt6706 == -1) {
-                                if (this.aNPCType_1.anInt6713 == 1) {
+                                if (this.aNPCType_1.size == 1) {
                                     break label48;
                                 }
                                 var10000 = false;
@@ -108,9 +108,9 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 @Pc(89) boolean local89 = var10000;
                 @Pc(105) boolean local105;
                 if (Static504.aBoolean579) {
-                    local105 = super.aModelArray3[local40].pickedOrtho(arg1, arg0, local20, local89, this.aNPCType_1.anInt6723, Static582.anInt8627);
+                    local105 = super.aModelArray3[local40].pickedOrtho(arg1, arg0, local20, local89, this.aNPCType_1.pickSizeShift, Static582.anInt8627);
                 } else {
-                    local105 = super.aModelArray3[local40].picked(arg1, arg0, local20, local89, this.aNPCType_1.anInt6723);
+                    local105 = super.aModelArray3[local40].picked(arg1, arg0, local20, local89, this.aNPCType_1.pickSizeShift);
                 }
                 if (local105) {
                     local38 = true;
@@ -132,7 +132,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
-        local22.method7131(local27);
+        local22.rotate(local27);
         @Pc(45) Class291 local45 = Static334.aClass291ArrayArrayArray1[super.aByte144][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
         if (local45 == null || local45.aClass8_Sub2_Sub2_1 == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
@@ -142,13 +142,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         }
         local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 20, super.anInt10694);
         @Pc(104) BASType local104 = this.method9317();
-        @Pc(118) NPCType local118 = this.aNPCType_1.anIntArray532 == null ? this.aNPCType_1 : this.aNPCType_1.method5985(65535, Static34.aClass304_1);
+        @Pc(118) NPCType local118 = this.aNPCType_1.multinpcs == null ? this.aNPCType_1 : this.aNPCType_1.getMultiNPC(65535, Static34.aClass304_1);
         super.aBoolean819 = false;
         @Pc(123) Class8_Sub7 local123 = null;
-        if (Static400.instance.aClass57_Sub7_1.method2905() == 1 && local118.aBoolean506 && local104.aBoolean545) {
+        if (Static400.instance.aClass57_Sub7_1.method2905() == 1 && local118.hasShadow && local104.aBoolean545) {
             @Pc(159) Animator local159 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
             @Pc(179) Animator local179 = super.aAnimator_10.isAnimating() && (!super.aBoolean817 || local159 == null) ? super.aAnimator_10 : null;
-            @Pc(223) Model local223 = Static618.method8320(this.aNPCType_1.aByte109 & 0xFF, super.aModelArray3[0], super.anInt10742, this.aNPCType_1.aShort76 & 0xFFFF, super.anInt10716, this.aNPCType_1.anInt6713, arg0, this.aNPCType_1.aByte111 & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.aNPCType_1.aShort75 & 0xFFFF);
+            @Pc(223) Model local223 = Static618.method8320(this.aNPCType_1.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.anInt10742, this.aNPCType_1.shadowInnerColour & 0xFFFF, super.anInt10716, this.aNPCType_1.size, arg0, this.aNPCType_1.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.aNPCType_1.shadowOuterColour & 0xFFFF);
             if (local223 != null) {
                 local123 = Static642.method8441(this.method9330(), super.aModelArray3.length + 1);
                 super.aBoolean819 = true;
@@ -161,7 +161,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 arg0.C(true);
             }
         }
-        local22.method7131(local27);
+        local22.rotate(local27);
         local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 5, super.anInt10694);
         if (local123 == null) {
             local123 = Static642.method8441(this.method9330(), super.aModelArray3.length);
@@ -215,7 +215,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             arg0 |= 0x80000;
         }
         @Pc(111) int local111 = super.aClass126_7.method2673(16383);
-        @Pc(134) Model local134 = super.aModelArray3[0] = this.aNPCType_1.getModel(Static34.aClass304_1, arg1, Static574.aBASTypeList_2, local27, local111, super.anIntArray877, this.aClass386_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
+        @Pc(134) Model local134 = super.aModelArray3[0] = this.aNPCType_1.getModel(Static34.aClass304_1, arg1, Static574.aBASTypeList_2, local27, local111, super.anIntArray877, this.aNPCTypeCustomisation_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
         if (local134 == null) {
             return false;
         }
@@ -246,13 +246,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "f", descriptor = "(B)I")
     @Override
     public int method9299() {
-        if (this.aNPCType_1.anIntArray532 != null) {
-            @Pc(19) NPCType local19 = this.aNPCType_1.method5985(65535, Static34.aClass304_1);
-            if (local19 != null && local19.anInt6707 != -1) {
-                return local19.anInt6707;
+        if (this.aNPCType_1.multinpcs != null) {
+            @Pc(19) NPCType local19 = this.aNPCType_1.getMultiNPC(65535, Static34.aClass304_1);
+            if (local19 != null && local19.height != -1) {
+                return local19.height;
             }
         }
-        return this.aNPCType_1.anInt6707 == -1 ? super.method9299() : this.aNPCType_1.anInt6707;
+        return this.aNPCType_1.height == -1 ? super.method9299() : this.aNPCType_1.height;
     }
 
     @OriginalMember(owner = "client!wj", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
@@ -286,13 +286,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (arg0 >= -48) {
             this.method9290(117);
         }
-        if (this.aNPCType_1.anIntArray532 != null) {
-            @Pc(22) NPCType local22 = this.aNPCType_1.method5985(65535, Static34.aClass304_1);
-            if (local22 != null && local22.anInt6715 != -1) {
-                return local22.anInt6715;
+        if (this.aNPCType_1.multinpcs != null) {
+            @Pc(22) NPCType local22 = this.aNPCType_1.getMultiNPC(65535, Static34.aClass304_1);
+            if (local22 != null && local22.mobilisingArmiesIcon != -1) {
+                return local22.mobilisingArmiesIcon;
             }
         }
-        return this.aNPCType_1.anInt6715;
+        return this.aNPCType_1.mobilisingArmiesIcon;
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IIB)V")
@@ -415,7 +415,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             return;
         }
         @Pc(26) Matrix local26 = arg0.scratchMatrix();
-        local26.method7131(super.aClass126_7.method2673(16383));
+        local26.rotate(super.aClass126_7.method2673(16383));
         local26.translate(super.anInt10690, super.anInt10691 - 20, super.anInt10694);
         this.method9319(arg0, super.aBoolean820, super.aModelArray3, local26);
         for (@Pc(53) int local53 = 0; local53 < super.aModelArray3.length; local53++) {
@@ -442,8 +442,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         }
         this.aNPCType_1 = arg0;
         if (this.aNPCType_1 != null) {
-            this.aString128 = this.aNPCType_1.aString73;
-            this.anInt10791 = this.aNPCType_1.anInt6727;
+            this.aString128 = this.aNPCType_1.name;
+            this.anInt10791 = this.aNPCType_1.combatLevel;
         }
         if (super.aClass8_Sub5_8 != null) {
             super.aClass8_Sub5_8.method3656();
@@ -453,26 +453,26 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "m", descriptor = "(I)I")
     @Override
     protected int method9320(@OriginalArg(0) int arg0) {
-        if (this.aNPCType_1.anIntArray532 != null) {
-            @Pc(15) NPCType local15 = this.aNPCType_1.method5985(arg0 + 65535, Static34.aClass304_1);
-            if (local15 != null && local15.anInt6726 != -1) {
-                return local15.anInt6726;
+        if (this.aNPCType_1.multinpcs != null) {
+            @Pc(15) NPCType local15 = this.aNPCType_1.getMultiNPC(arg0 + 65535, Static34.aClass304_1);
+            if (local15 != null && local15.basId != -1) {
+                return local15.basId;
             }
         }
         if (arg0 != 0) {
             this.anInt10774 = -66;
         }
-        return this.aNPCType_1.anInt6726;
+        return this.aNPCType_1.basId;
     }
 
     @OriginalMember(owner = "client!wj", name = "n", descriptor = "(I)Z")
     public boolean method9330() {
-        return this.aNPCType_1.aBoolean505;
+        return this.aNPCType_1.interactive;
     }
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(B)I")
     @Override
     public int method9287() {
-        return this.aNPCType_1 == null ? 0 : this.aNPCType_1.anInt6723;
+        return this.aNPCType_1 == null ? 0 : this.aNPCType_1.pickSizeShift;
     }
 }

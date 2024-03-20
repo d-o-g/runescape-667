@@ -4,6 +4,7 @@ import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
+import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeCustomisation;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
@@ -203,11 +204,11 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!es;Lclient!gu;IZLclient!qp;Lclient!bp;I[ILclient!vl;Lclient!kr;Lclient!ha;Lclient!ql;[Lclient!gu;ILclient!gu;Lclient!uk;)Lclient!ka;")
-    public Model bodyModel(@OriginalArg(0) ObjTypeList objTypeList, @OriginalArg(1) Animator animator, @OriginalArg(4) BASTypeList basTypeList, @OriginalArg(5) SeqTypeList arg3, @OriginalArg(6) int initialFunctionMask, @OriginalArg(7) int[] arg5, @OriginalArg(8) WearposDefaults wearposDefaults, @OriginalArg(9) IDKTypeList idkTypeList, @OriginalArg(10) Toolkit toolkit, @OriginalArg(11) NPCTypeList npcTypeList, @OriginalArg(12) Animator[] animators, @OriginalArg(13) int arg11, @OriginalArg(14) Animator arg12, @OriginalArg(15) VarDomain varDomain) {
+    public Model bodyModel(@OriginalArg(0) ObjTypeList objTypeList, @OriginalArg(1) Animator animator, @OriginalArg(4) BASTypeList basTypeList, @OriginalArg(5) SeqTypeList arg3, @OriginalArg(6) int functionMask, @OriginalArg(7) int[] arg5, @OriginalArg(8) WearposDefaults wearposDefaults, @OriginalArg(9) IDKTypeList idkTypeList, @OriginalArg(10) Toolkit toolkit, @OriginalArg(11) NPCTypeList npcTypeList, @OriginalArg(12) Animator[] animators, @OriginalArg(13) int arg11, @OriginalArg(14) Animator arg12, @OriginalArg(15) VarDomain varDomain) {
         if (this.npcId != -1) {
-            return npcTypeList.list(this.npcId).getModel(varDomain, toolkit, basTypeList, animator, arg11, arg5, (Class386) null, arg12, initialFunctionMask, animators);
+            return npcTypeList.list(this.npcId).getModel(varDomain, toolkit, basTypeList, animator, arg11, arg5, (NPCTypeCustomisation) null, arg12, functionMask, animators);
         }
-        @Pc(28) int functionMask = initialFunctionMask;
+        @Pc(28) int newFunctionMask = functionMask;
         @Pc(31) long hash = this.hash;
         @Pc(34) int[] identikit = this.identikit;
         @Pc(36) boolean leftHand = false;
@@ -264,19 +265,19 @@ public final class PlayerModel {
         local72 = animators == null ? 0 : animators.length;
         for (local116 = 0; local116 < local72; local116++) {
             if (animators[local116] != null) {
-                functionMask |= animators[local116].functionMask();
+                newFunctionMask |= animators[local116].functionMask();
                 animated = true;
             }
         }
 
         if (animator != null) {
-            functionMask |= animator.functionMask();
+            newFunctionMask |= animator.functionMask();
             animated = true;
         }
 
         if (arg12 != null) {
             animated = true;
-            functionMask |= arg12.functionMask();
+            newFunctionMask |= arg12.functionMask();
         }
 
         @Pc(310) boolean local310 = false;
@@ -284,7 +285,7 @@ public final class PlayerModel {
             for (@Pc(314) int local314 = 0; local314 < arg5.length; local314++) {
                 if (arg5[local314] != -1) {
                     local310 = true;
-                    functionMask |= 0x20;
+                    newFunctionMask |= 0x20;
                 }
             }
         }
@@ -304,9 +305,9 @@ public final class PlayerModel {
         @Pc(395) int local395;
         @Pc(586) int local586;
         @Pc(591) int local591;
-        if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
+        if (model == null || toolkit.compareFunctionMasks(model.ua(), newFunctionMask) != 0) {
             if (model != null) {
-                functionMask = toolkit.combineFunctionMasks(functionMask, model.ua());
+                newFunctionMask = toolkit.combineFunctionMasks(newFunctionMask, model.ua());
             }
 
             @Pc(388) boolean local388 = false;
@@ -321,7 +322,7 @@ public final class PlayerModel {
                                 model = (Model) recentUse.get(this.aLong159);
                             }
                         }
-                        if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
+                        if (model == null || toolkit.compareFunctionMasks(model.ua(), newFunctionMask) != 0) {
                             return null;
                         }
                     } else {
@@ -375,7 +376,7 @@ public final class PlayerModel {
                             }
                         }
 
-                        @Pc(826) int local826 = functionMask | 0x4000;
+                        @Pc(826) int local826 = newFunctionMask | 0x4000;
                         @Pc(833) Mesh mesh = new Mesh(meshes, meshes.length);
                         model = toolkit.createModel(mesh, local826, featureMask, 64, 850);
 
@@ -387,7 +388,7 @@ public final class PlayerModel {
                             }
                         }
 
-                        model.s(functionMask);
+                        model.s(newFunctionMask);
 
                         @Pc(903) ReferenceCache local903 = recentUse;
                         synchronized (recentUse) {
@@ -444,7 +445,7 @@ public final class PlayerModel {
             }
         }
 
-        @Pc(925) Model bodyModel = model.copy((byte) 4, functionMask, true);
+        @Pc(925) Model bodyModel = model.copy((byte) 4, newFunctionMask, true);
         if (!animated && !local310) {
             return bodyModel;
         }
@@ -478,7 +479,7 @@ public final class PlayerModel {
                     local591 = arg5[local586] - arg11;
                     local591 &= 0x3FFF;
                     @Pc(1034) Matrix matrix = toolkit.createMatrix();
-                    matrix.method7131(local591);
+                    matrix.rotate(local591);
                     bodyModel.transform(matrix, 0x1 << local586, false);
                 }
             }
@@ -598,12 +599,12 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!kr;BLclient!bp;Lclient!uk;Lclient!gu;Lclient!es;Lclient!ql;Lclient!ha;I)Lclient!ka;")
-    public Model wornHeadModel(@OriginalArg(0) IDKTypeList idkTypeList, @OriginalArg(2) SeqTypeList seqTypeList, @OriginalArg(3) VarDomain varDomain, @OriginalArg(4) Animator animator, @OriginalArg(5) ObjTypeList objTypeList, @OriginalArg(6) NPCTypeList npcTypeList, @OriginalArg(7) Toolkit toolkit) {
+    public Model wornHeadModel(@OriginalArg(0) IDKTypeList idkTypeList, @OriginalArg(2) SeqTypeList seqTypeList, @OriginalArg(3) VarDomain varDomain, @OriginalArg(4) Animator animator, @OriginalArg(5) ObjTypeList objTypeList, @OriginalArg(6) NPCTypeList npcTypeList, @OriginalArg(7) Toolkit toolkit, @OriginalArg(8) int functionMask) {
         if (this.npcId != -1) {
-            return npcTypeList.list(this.npcId).headModel(animator, (Class386) null, toolkit, varDomain);
+            return npcTypeList.list(this.npcId).headModel(functionMask, animator, (NPCTypeCustomisation) null, toolkit, varDomain);
         }
 
-        @Pc(35) int functionMask = animator == null ? 2048 : animator.functionMask() | 0x800;
+        @Pc(35) int newFunctionMask = animator == null ? functionMask : animator.functionMask() | 0x800;
         @Pc(37) ReferenceCache local37 = modelCache;
 
         @Pc(48) Model model;
@@ -611,9 +612,9 @@ public final class PlayerModel {
             model = (Model) modelCache.get(this.hash);
         }
 
-        if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
+        if (model == null || toolkit.compareFunctionMasks(model.ua(), newFunctionMask) != 0) {
             if (model != null) {
-                functionMask = toolkit.combineFunctionMasks(functionMask, model.ua());
+                newFunctionMask = toolkit.combineFunctionMasks(newFunctionMask, model.ua());
             }
 
             @Pc(81) boolean loading = false;
@@ -662,7 +663,7 @@ public final class PlayerModel {
             }
 
             @Pc(266) Mesh mesh = new Mesh(meshes, local174);
-            @Pc(270) int local270 = functionMask | 0x4000;
+            @Pc(270) int local270 = newFunctionMask | 0x4000;
             model = toolkit.createModel(mesh, local270, featureMask, 64, 768);
             for (@Pc(282) int local282 = 0; local282 < 10; local282++) {
                 for (@Pc(286) int local286 = 0; local286 < recol_s[local282].length; local286++) {
@@ -672,7 +673,7 @@ public final class PlayerModel {
                 }
             }
 
-            model.s(functionMask);
+            model.s(newFunctionMask);
 
             @Pc(340) ReferenceCache local340 = modelCache;
             synchronized (modelCache) {
@@ -683,7 +684,7 @@ public final class PlayerModel {
         if (animator == null) {
             return model;
         } else {
-            @Pc(375) Model animatedModel = model.copy((byte) 4, functionMask, true);
+            @Pc(375) Model animatedModel = model.copy((byte) 4, newFunctionMask, true);
             animator.animate(animatedModel, 0);
             return animatedModel;
         }

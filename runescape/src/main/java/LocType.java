@@ -21,6 +21,8 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!c")
 public final class LocType {
 
+    @OriginalMember(owner = "client!ne", name = "o", descriptor = "[S")
+    public static short[] clientpalette = new short[256];
     @OriginalMember(owner = "client!c", name = "sb", descriptor = "[B")
     public byte[] aByteArray13;
 
@@ -652,9 +654,9 @@ public final class LocType {
             this.method1295();
         }
         if (this.anInt1247 != -1) {
-            local5 = arg1.method6864(this.anInt1247);
+            local5 = arg1.getVarbitValue(this.anInt1247);
         } else if (this.anInt1258 != -1) {
-            local5 = arg1.method6865(this.anInt1258);
+            local5 = arg1.getVarValueInt(this.anInt1258);
         }
         if (local5 < 0 || this.anIntArray113.length - 1 <= local5 || this.anIntArray113[local5] == -1) {
             @Pc(74) int local74 = this.anIntArray113[this.anIntArray113.length - 1];
@@ -1075,7 +1077,7 @@ public final class LocType {
                 if (this.aByteArray14 == null || this.aByteArray14.length <= local193) {
                     local398.ia(this.aShortArray15[local193], local490[local193]);
                 } else {
-                    local398.ia(this.aShortArray15[local193], Static419.aShortArray96[this.aByteArray14[local193] & 0xFF]);
+                    local398.ia(this.aShortArray15[local193], clientpalette[this.aByteArray14[local193] & 0xFF]);
                 }
             }
         }

@@ -38,7 +38,7 @@ public final class Static346 {
                 if (Static400.aBoolean622 && Static321.method4622(local33)) {
                     Static488.method6522();
                 }
-                if (local43.aNPCType_1.method5984()) {
+                if (local43.aNPCType_1.hasSounds()) {
                     Static58.method1259(local43);
                 }
                 local43.method9328((NPCType) null);

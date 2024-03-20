@@ -188,14 +188,14 @@ public final class Static651 {
         }
         @Pc(21) NPCType local21 = arg1.aNPCType_1;
         @Pc(24) String local24 = arg1.aString128;
-        if (local21.anIntArray532 != null) {
-            local21 = local21.method5985(65535, Static34.aClass304_1);
+        if (local21.multinpcs != null) {
+            local21 = local21.getMultiNPC(65535, Static34.aClass304_1);
             if (local21 == null) {
                 return;
             }
-            local24 = local21.aString73;
+            local24 = local21.name;
         }
-        if (!local21.aBoolean505) {
+        if (!local21.interactive) {
             return;
         }
         if (arg1.anInt10791 != 0) {
@@ -204,14 +204,14 @@ public final class Static651 {
         }
         if (Static156.aBoolean223 && !arg0) {
             @Pc(113) ParamType local113 = Static610.anInt9329 == -1 ? null : ParamTypeList.instance.list(Static610.anInt9329);
-            if ((Static717.anInt10822 & 0x2) != 0 && (local113 == null || local21.method5995(Static610.anInt9329, local113.defaultint) != local113.defaultint)) {
+            if ((Static717.anInt10822 & 0x2) != 0 && (local113 == null || local21.param(Static610.anInt9329, local113.defaultint) != local113.defaultint)) {
                 Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, Static153.aString27, 23, true, Static369.anInt4263, Static128.aString108 + " -> <col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         if (arg0) {
             return;
         }
-        @Pc(176) String[] local176 = local21.aStringArray34;
+        @Pc(176) String[] local176 = local21.op;
         if (Static187.aBoolean255) {
             local176 = Static246.method3522(local176);
         }
@@ -240,13 +240,13 @@ public final class Static651 {
                 if (local189 == 5) {
                     local226 = 1011;
                 }
-                if (local189 == local21.anInt6716) {
-                    local228 = local21.anInt6739;
+                if (local189 == local21.cursor1Op) {
+                    local228 = local21.cursor1;
                 }
-                if (local21.anInt6737 == local189) {
-                    local228 = local21.anInt6752;
+                if (local21.cursor2Op == local189) {
+                    local228 = local21.cursor2;
                 }
-                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.anInt1052)) ? local21.anInt6740 : local228, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.anInt1052)) ? local21.attackCursor : local228, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         if (local21.aByte107 != 1) {
@@ -278,16 +278,16 @@ public final class Static651 {
                 if (local341 == 5) {
                     local385 = 1011;
                 }
-                if (local21.anInt6716 == local341) {
-                    local387 = local21.anInt6739;
+                if (local21.cursor1Op == local341) {
+                    local387 = local21.cursor1;
                 }
                 if (local385 != 0) {
                     local385 += local372;
                 }
-                if (local21.anInt6737 == local341) {
-                    local387 = local21.anInt6752;
+                if (local21.cursor2Op == local341) {
+                    local387 = local21.cursor2;
                 }
-                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.anInt1052)) ? local21.anInt6740 : local387, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.anInt1052)) ? local21.attackCursor : local387, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         return;

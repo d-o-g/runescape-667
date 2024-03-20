@@ -8,9 +8,6 @@ public final class Static637 {
     @OriginalMember(owner = "client!uc", name = "r", descriptor = "I")
     public static int anInt9536;
 
-    @OriginalMember(owner = "client!uc", name = "n", descriptor = "[S")
-    public static short[] aShortArray132;
-
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(Ljava/lang/String;IILclient!vq;)Lclient!oba;")
     public static SignedResource method8382(@OriginalArg(0) String arg0, @OriginalArg(2) int arg1, @OriginalArg(3) SignLink arg2) {
         return Static36.method980(arg2, arg0, "openjs", arg1);

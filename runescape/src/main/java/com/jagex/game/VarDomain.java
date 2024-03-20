@@ -8,8 +8,8 @@ import org.openrs2.deob.annotation.OriginalMember;
 public interface VarDomain {
 
     @OriginalMember(owner = "client!uk", name = "a", descriptor = "(IB)I")
-    int method6864(@OriginalArg(0) int arg0);
+    int getVarbitValue(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!uk", name = "a", descriptor = "(II)I")
-    int method6865(@OriginalArg(0) int arg0);
+    int getVarValueInt(@OriginalArg(0) int arg0);
 }

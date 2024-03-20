@@ -76,13 +76,17 @@ public final class Static449 {
     }
 
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(ILclient!uv;)Z")
-    public static boolean method6118(@OriginalArg(1) Location arg0) {
-        @Pc(17) LocType local17 = Static354.aLocTypeList_4.list(arg0.getId(-32136));
-        if (local17.msi == -1) {
+    public static boolean hasMsi(@OriginalArg(1) Location location) {
+        @Pc(17) LocType locType = Static354.aLocTypeList_4.list(location.getId());
+        if (locType.msi == -1) {
             return true;
-        } else {
-            @Pc(31) Class173 local31 = Static720.aClass363_4.method8362(local17.msi);
-            return local31.anInt4167 == -1 ? true : local31.method3690();
         }
+
+        @Pc(31) MSIType msiType = Static720.aMSITypeList_4.list(locType.msi);
+        if (msiType.image == -1) {
+            return true;
+        }
+
+        return msiType.ready();
     }
 }

@@ -23,7 +23,7 @@ public final class Static177 {
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(IBIIIII)V")
     public static void addLocationOccluder(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         if (arg0 != 8 && arg0 != 16) {
-            @Pc(163) Class291 local163 = Static334.aClass291ArrayArrayArray1[arg4][arg3][arg2];
+            @Pc(163) Class291 local163 = Static334.activeTiles[arg4][arg3][arg2];
             if (local163 == null) {
                 local163 = new Class291(arg4);
             }

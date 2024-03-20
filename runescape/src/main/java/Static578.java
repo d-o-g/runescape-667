@@ -9,7 +9,7 @@ public final class Static578 {
 
     @OriginalMember(owner = "client!sda", name = "a", descriptor = "(IIILjava/lang/Class;)Lclient!qf;")
     public static PositionEntity getEntity(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class arg3) {
-        @Pc(7) Class291 local7 = Static334.aClass291ArrayArrayArray1[arg0][arg1][arg2];
+        @Pc(7) Class291 local7 = Static334.activeTiles[arg0][arg1][arg2];
         if (local7 == null) {
             return null;
         }

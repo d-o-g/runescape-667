@@ -1,5 +1,3 @@
-import com.jagex.js5.js5;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static514 {
@@ -15,9 +13,4 @@ public final class Static514 {
 
     @OriginalMember(owner = "client!qca", name = "y", descriptor = "I")
     public static int anInt7680 = -1;
-
-    @OriginalMember(owner = "client!qca", name = "a", descriptor = "(ZLclient!sb;)V")
-    public static void method6792(@OriginalArg(1) js5 arg0) {
-        js5.MAGNETS = arg0;
-    }
 }

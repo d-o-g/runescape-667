@@ -1,28 +1,30 @@
+package com.jagex;
+
 import com.jagex.collect.Node;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!hma")
-public final class Node_Sub25 extends Node {
+public final class ChangeLocationRequest extends Node {
 
     @OriginalMember(owner = "client!hma", name = "u", descriptor = "I")
-    public int anInt4002;
+    public int originalId;
 
     @OriginalMember(owner = "client!hma", name = "D", descriptor = "Lclient!gp;")
-    public LocTypeCustomisation aLocTypeCustomisation_1;
+    public LocTypeCustomisation customisation;
 
     @OriginalMember(owner = "client!hma", name = "t", descriptor = "I")
     public int anInt4006;
 
     @OriginalMember(owner = "client!hma", name = "s", descriptor = "I")
-    public int anInt4009;
+    public int originalShape;
 
     @OriginalMember(owner = "client!hma", name = "o", descriptor = "I")
     public int anInt4010;
 
     @OriginalMember(owner = "client!hma", name = "z", descriptor = "I")
-    public int anInt4011;
+    public int layer;
 
     @OriginalMember(owner = "client!hma", name = "w", descriptor = "I")
     public int anInt4012;
@@ -34,7 +36,7 @@ public final class Node_Sub25 extends Node {
     public int anInt4014;
 
     @OriginalMember(owner = "client!hma", name = "y", descriptor = "I")
-    public int anInt4015;
+    public int originalRotation;
 
     @OriginalMember(owner = "client!hma", name = "m", descriptor = "I")
     public int anInt4016;

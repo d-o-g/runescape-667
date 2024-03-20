@@ -12,12 +12,12 @@ public final class Static379 {
     @OriginalMember(owner = "client!lu", name = "a", descriptor = "(Z)V")
     public static void method5355(@OriginalArg(0) boolean arg0) {
         if (arg0) {
-            Static334.aClass291ArrayArrayArray1 = Static420.aClass291ArrayArrayArray2;
+            Static334.activeTiles = Static420.aClass291ArrayArrayArray2;
             Static246.activeGround = Static693.aGroundArray2;
         } else {
-            Static334.aClass291ArrayArrayArray1 = Static478.aClass291ArrayArrayArray3;
+            Static334.activeTiles = Static478.aClass291ArrayArrayArray3;
             Static246.activeGround = Static706.aGroundArray3;
         }
-        Static299.anInt4824 = Static334.aClass291ArrayArrayArray1.length;
+        Static299.anInt4824 = Static334.activeTiles.length;
     }
 }

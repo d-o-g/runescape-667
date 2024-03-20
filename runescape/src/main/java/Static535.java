@@ -24,7 +24,7 @@ public final class Static535 {
                     if (local23 >= 0 && local23 < Static619.anInt1566) {
                         for (@Pc(35) int local35 = local11; local35 <= local15; local35++) {
                             if (local35 >= 0 && local35 < Static662.anInt9843 && (!local1 || local23 >= local7 || local35 >= local15 || local35 < arg3 && local23 != arg2)) {
-                                @Pc(77) Class291 local77 = Static334.aClass291ArrayArrayArray1[local17][local23][local35];
+                                @Pc(77) Class291 local77 = Static334.activeTiles[local17][local23][local35];
                                 if (local77 != null) {
                                     @Pc(163) int local163 = (Static246.activeGround[local17].getHeight(local35, local23) + Static246.activeGround[local17].getHeight(local35, local23 + 1) + Static246.activeGround[local17].getHeight(local35 + 1, local23) + Static246.activeGround[local17].getHeight(local35 + 1, local23 + 1)) / 4 - (Static246.activeGround[arg1].getHeight(arg3, arg2) + Static246.activeGround[arg1].getHeight(arg3, arg2 + 1) + Static246.activeGround[arg1].getHeight(arg3 + 1, arg2) + Static246.activeGround[arg1].getHeight(arg3 + 1, arg2 + 1)) / 4;
                                     @Pc(166) Wall local166 = local77.aClass8_Sub2_Sub3_2;

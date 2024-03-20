@@ -1,6 +1,8 @@
 package com.jagex.graphics;
 
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.particles.ParticleEffector;
+import com.jagex.graphics.particles.ParticleEmitter;
 import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -57,7 +59,7 @@ public final class Mesh {
     public short[] faceC;
 
     @OriginalMember(owner = "client!dv", name = "r", descriptor = "[Lclient!rv;")
-    public MeshEmitter[] emitters;
+    public ParticleEmitter[] emitters;
 
     @OriginalMember(owner = "client!dv", name = "M", descriptor = "[I")
     public int[] texSpaceScaleZ;
@@ -102,7 +104,7 @@ public final class Mesh {
     public int[] anIntArray214;
 
     @OriginalMember(owner = "client!dv", name = "p", descriptor = "[Lclient!mn;")
-    public MeshMagnet[] magnets;
+    public ParticleEffector[] effectors;
 
     @OriginalMember(owner = "client!dv", name = "d", descriptor = "[Lclient!aq;")
     public MeshBillboard[] billboards;
@@ -179,7 +181,7 @@ public final class Mesh {
         this.vertexCount = 0;
         this.faceCount = 0;
         @Pc(30) int emitterCount = 0;
-        @Pc(32) int magnetCount = 0;
+        @Pc(32) int effectorCount = 0;
         @Pc(34) int billboardCount = 0;
         @Pc(36) boolean hasShadingTypes = false;
         @Pc(38) boolean hasPriorities = false;
@@ -197,8 +199,8 @@ public final class Mesh {
                 this.texSpaceCount += mesh.texSpaceCount;
                 this.vertexCount += mesh.vertexCount;
 
-                if (mesh.magnets != null) {
-                    magnetCount += mesh.magnets.length;
+                if (mesh.effectors != null) {
+                    effectorCount += mesh.effectors.length;
                 }
 
                 if (mesh.billboards != null) {
@@ -234,8 +236,8 @@ public final class Mesh {
         if (hasShadingTypes) {
             this.shadingTypes = new byte[this.faceCount];
         }
-        if (magnetCount > 0) {
-            this.magnets = new MeshMagnet[magnetCount];
+        if (effectorCount > 0) {
+            this.effectors = new ParticleEffector[effectorCount];
         }
         this.originModels = new short[this.vertexCount];
         this.vertexY = new int[this.vertexCount];
@@ -282,14 +284,14 @@ public final class Mesh {
         }
 
         if (emitterCount > 0) {
-            this.emitters = new MeshEmitter[emitterCount];
+            this.emitters = new ParticleEmitter[emitterCount];
         }
 
         if (hasPriorities) {
             this.facePriorities = new byte[this.faceCount];
         }
 
-        magnetCount = 0;
+        effectorCount = 0;
         this.texSpaceCount = 0;
         emitterCount = 0;
         billboardCount = 0;
@@ -359,11 +361,11 @@ public final class Mesh {
                     }
                 }
 
-                if (mesh.magnets != null) {
-                    for (@Pc(636) int j = 0; j < mesh.magnets.length; j++) {
-                        @Pc(648) int v = this.addVertex(mesh, mesh.magnets[j].vertex, s);
-                        this.magnets[magnetCount] = mesh.magnets[j].copy(v);
-                        magnetCount++;
+                if (mesh.effectors != null) {
+                    for (@Pc(636) int j = 0; j < mesh.effectors.length; j++) {
+                        @Pc(648) int v = this.addVertex(mesh, mesh.effectors[j].vertex, s);
+                        this.effectors[effectorCount] = mesh.effectors[j].copy(v);
+                        effectorCount++;
                     }
                 }
             }
@@ -977,7 +979,7 @@ public final class Mesh {
         if (hasParticleEffects) {
             @Pc(1142) int emitterCount = packet1.g1();
             if (emitterCount > 0) {
-                this.emitters = new MeshEmitter[emitterCount];
+                this.emitters = new ParticleEmitter[emitterCount];
 
                 for (@Pc(1556) int i = 0; i < emitterCount; i++) {
                     @Pc(1561) int type = packet1.g2();
@@ -990,18 +992,18 @@ public final class Mesh {
                         priority = (byte) priorityFlag;
                     }
 
-                    this.emitters[i] = new MeshEmitter(type, this.faceA[face], this.faceB[face], this.faceC[face], priority);
+                    this.emitters[i] = new ParticleEmitter(type, this.faceA[face], this.faceB[face], this.faceC[face], priority);
                 }
             }
 
-            @Pc(1556) int magnetCount = packet1.g1();
-            if (magnetCount > 0) {
-                this.magnets = new MeshMagnet[magnetCount];
+            @Pc(1556) int effectorCount = packet1.g1();
+            if (effectorCount > 0) {
+                this.effectors = new ParticleEffector[effectorCount];
 
-                for (@Pc(1561) int i = 0; i < magnetCount; i++) {
+                for (@Pc(1561) int i = 0; i < effectorCount; i++) {
                     @Pc(1565) int type = packet1.g2();
                     @Pc(1627) int vertex = packet1.g2();
-                    this.magnets[i] = new MeshMagnet(type, vertex);
+                    this.effectors[i] = new ParticleEffector(type, vertex);
                 }
             }
         }

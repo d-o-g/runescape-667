@@ -9,10 +9,10 @@ public final class Static638 {
 
     @OriginalMember(owner = "client!uca", name = "c", descriptor = "(I)V")
     public static void method8393() {
-        @Pc(5) Class130[] local5 = Class43.aClass130Array1;
-        synchronized (Class43.aClass130Array1) {
-            for (@Pc(9) int local9 = 0; local9 < Class43.aClass130Array1.length; local9++) {
-                Class43.aClass130Array1[local9] = new Class130();
+        @Pc(5) EntityList[] local5 = Class43.A_ENTITY_LIST_ARRAY_1;
+        synchronized (Class43.A_ENTITY_LIST_ARRAY_1) {
+            for (@Pc(9) int local9 = 0; local9 < Class43.A_ENTITY_LIST_ARRAY_1.length; local9++) {
+                Class43.A_ENTITY_LIST_ARRAY_1[local9] = new EntityList();
                 Static159.anIntArray245[local9] = 0;
             }
         }
@@ -106,7 +106,7 @@ public final class Static638 {
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(III)Lclient!nda;")
     public static Class8_Sub2_Sub5 method8398(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(7) Class291 local7 = Static334.aClass291ArrayArrayArray1[arg0][arg1][arg2];
+        @Pc(7) Class291 local7 = Static334.activeTiles[arg0][arg1][arg2];
         if (local7 == null) {
             return null;
         } else {

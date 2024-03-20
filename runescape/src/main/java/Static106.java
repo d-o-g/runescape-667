@@ -16,7 +16,7 @@ public final class Static106 {
 
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ILclient!ha;)V")
     public static void method2046(@OriginalArg(1) Toolkit arg0) {
-        if (Static643.anInt9604 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 && (Static334.aClass291ArrayArrayArray1 != null && Static484.method6494(arg0, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144))) {
+        if (Static643.anInt9604 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 && (Static334.activeTiles != null && Static484.method6494(arg0, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144))) {
             Static643.anInt9604 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144;
         }
     }

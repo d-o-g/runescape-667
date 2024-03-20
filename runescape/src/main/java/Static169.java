@@ -26,7 +26,7 @@ public final class Static169 {
         arg0.p4(Static93.aJs5_16.indexCrc());
         arg0.p4(Static398.aJs5_81.indexCrc());
         arg0.p4(Static190.aJs5_38.indexCrc());
-        arg0.p4(Static721.aJs5_128.indexCrc());
+        arg0.p4(js5.SPRITES.indexCrc());
         arg0.p4(Static534.aJs5_104.indexCrc());
         arg0.p4(Static463.aJs5_93.indexCrc());
         arg0.p4(Static340.aJs5_69.indexCrc());
@@ -45,7 +45,7 @@ public final class Static169 {
         arg0.p4(Static58.aJs5_12.indexCrc());
         arg0.p4(Static244.aJs5_55.indexCrc());
         arg0.p4(Static199.aJs5_42.indexCrc());
-        arg0.p4(Static88.aJs5_14.indexCrc());
+        arg0.p4(js5.CONFIG_PARTICLE.indexCrc());
         arg0.p4(js5.DEFAULTS.indexCrc());
         arg0.p4(Static140.aJs5_24.indexCrc());
         arg0.p4(Static614.aJs5_114.indexCrc());

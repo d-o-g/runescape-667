@@ -40,7 +40,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     public Shadow aClass2_Sub2_Sub9_1;
 
     @OriginalMember(owner = "client!cu", name = "bb", descriptor = "Lclient!ka;")
-    public Model aModel_1;
+    public Model model;
 
     @OriginalMember(owner = "client!cu", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIZ)V")
     public StaticGroundDecor(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) boolean arg9) {
@@ -60,9 +60,9 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
         @Pc(83) ModelAndShadow local83 = this.method1831(local68, 20, arg0, this.aBoolean181);
         if (local83 != null) {
             this.aClass2_Sub2_Sub9_1 = local83.shadow;
-            this.aModel_1 = local83.model;
+            this.model = local83.model;
             if (this.aBoolean180) {
-                this.aModel_1 = this.aModel_1.copy((byte) 0, local68, false);
+                this.model = this.model.copy((byte) 0, local68, false);
                 return;
             }
         }
@@ -71,26 +71,26 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     @OriginalMember(owner = "client!cu", name = "b", descriptor = "(B)Z")
     @Override
     public boolean method9283() {
-        if (this.aModel_1 == null) {
+        if (this.model == null) {
             return true;
         } else {
-            return !this.aModel_1.r();
+            return !this.model.r();
         }
     }
 
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
-        if (this.aModel_1 == null) {
+        if (this.model == null) {
             return null;
         }
         @Pc(20) Matrix local20 = arg0.scratchMatrix();
         local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(34) Class8_Sub7 local34 = Static642.method8441(this.aBoolean182, 1);
         if (Static504.aBoolean579) {
-            this.aModel_1.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);
+            this.model.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {
-            this.aModel_1.render(local20, local34.aPickingCylinderArray1[0], 0);
+            this.model.render(local20, local34.aPickingCylinderArray1[0], 0);
         }
         return local34;
     }
@@ -99,7 +99,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     @Override
     public int method9286(@OriginalArg(0) int arg0) {
         if (arg0 == 2) {
-            return this.aModel_1 == null ? 0 : this.aModel_1.fa();
+            return this.model == null ? 0 : this.model.fa();
         } else {
             return 14;
         }
@@ -115,8 +115,8 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
             return;
         }
         @Pc(21) StaticGroundDecor local21 = (StaticGroundDecor) arg6;
-        if (this.aModel_1 != null && local21.aModel_1 != null) {
-            this.aModel_1.method7481(local21.aModel_1, arg5, arg0, arg3, arg1);
+        if (this.model != null && local21.model != null) {
+            this.model.method7481(local21.model, arg5, arg0, arg3, arg1);
             return;
         }
     }
@@ -139,10 +139,10 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!cu", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void addShadow(@OriginalArg(0) Toolkit arg0) {
+    public void addShadow(@OriginalArg(0) Toolkit toolkit) {
         @Pc(33) Shadow local33;
         if (this.aClass2_Sub2_Sub9_1 == null && this.aBoolean181) {
-            @Pc(25) ModelAndShadow local25 = this.method1831(262144, 20, arg0, true);
+            @Pc(25) ModelAndShadow local25 = this.method1831(262144, 20, toolkit, true);
             local33 = local25 == null ? null : local25.shadow;
         } else {
             local33 = this.aClass2_Sub2_Sub9_1;
@@ -181,7 +181,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
         if (arg0 != 0) {
             this.aByte38 = 33;
         }
-        return this.aModel_1 == null ? false : this.aModel_1.F();
+        return this.model == null ? false : this.model.F();
     }
 
     @OriginalMember(owner = "client!cu", name = "i", descriptor = "(I)Z")
@@ -207,18 +207,15 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!cu", name = "c", descriptor = "(I)I")
     @Override
-    public int method6855(@OriginalArg(0) int arg0) {
-        if (arg0 != 23796) {
-            this.method9285(90, false, (Toolkit) null, -97, (byte) -34, 87, (Renderable) null);
-        }
+    public int getRotation() {
         return this.aByte38;
     }
 
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public void removeShadow(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 >= -42) {
-            this.getId(-92);
+            this.getId();
         }
         @Pc(25) Shadow local25;
         if (this.aClass2_Sub2_Sub9_1 == null && this.aBoolean181) {
@@ -237,25 +234,22 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     @Override
     public void method9280(@OriginalArg(0) int arg0) {
         this.aBoolean180 = false;
-        if (arg0 == 27811 && this.aModel_1 != null) {
-            this.aModel_1.s(this.aModel_1.ua() & 0xFFFEFFFF);
+        if (arg0 == 27811 && this.model != null) {
+            this.model.s(this.model.ua() & 0xFFFEFFFF);
         }
     }
 
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(I)I")
     @Override
-    public int getId(@OriginalArg(0) int arg0) {
-        if (arg0 != -32136) {
-            this.aBoolean181 = false;
-        }
+    public int getId() {
         return this.aShort20 & 0xFFFF;
     }
 
     @OriginalMember(owner = "client!cu", name = "d", descriptor = "(I)V")
     @Override
     public void method6856() {
-        if (this.aModel_1 != null) {
-            this.aModel_1.method7479();
+        if (this.model != null) {
+            this.model.method7479();
         }
     }
 
@@ -269,20 +263,20 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!cu", name = "b", descriptor = "(I)I")
     @Override
-    public int method6858() {
+    public int getShape() {
         return 22;
     }
 
     @OriginalMember(owner = "client!cu", name = "e", descriptor = "(I)Z")
     @Override
-    public boolean castsShadow(@OriginalArg(0) int arg0) {
-        return arg0 == -19717 ? this.aBoolean181 : false;
+    public boolean castsShadow() {
+        return this.aBoolean181;
     }
 
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(ILclient!ha;I)Lclient!ka;")
     public Model method1834(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) int arg1) {
-        if (this.aModel_1 != null && arg0.compareFunctionMasks(this.aModel_1.ua(), arg1) == 0) {
-            return this.aModel_1;
+        if (this.model != null && arg0.compareFunctionMasks(this.model.ua(), arg1) == 0) {
+            return this.model;
         } else {
             @Pc(26) ModelAndShadow local26 = this.method1831(arg1, 20, arg0, false);
             return local26 == null ? null : local26.model;
@@ -293,7 +287,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     @Override
     public int method9292(@OriginalArg(0) byte arg0) {
         if (arg0 == -21) {
-            return this.aModel_1 == null ? 0 : this.aModel_1.ma();
+            return this.model == null ? 0 : this.model.ma();
         } else {
             return -86;
         }

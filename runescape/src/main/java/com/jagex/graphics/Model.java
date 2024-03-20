@@ -3,6 +3,8 @@ package com.jagex.graphics;
 import com.jagex.AnimBase;
 import com.jagex.AnimFrame;
 import com.jagex.AnimFrameset;
+import com.jagex.graphics.particles.ParticleEffector;
+import com.jagex.graphics.particles.ParticleEmitter;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -158,7 +160,7 @@ public abstract class Model {
     public abstract void s(@OriginalArg(0) int functionMask);
 
     @OriginalMember(owner = "client!ka", name = "c", descriptor = "()[Lclient!mn;")
-    public abstract MeshMagnet[] meshMagnets();
+    public abstract ParticleEffector[] particleEffectors();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!ka;IIIZ)V")
     public abstract void method7481(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4);
@@ -167,7 +169,7 @@ public abstract class Model {
     protected abstract void P(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!ka", name = "f", descriptor = "()[Lclient!rv;")
-    public abstract MeshEmitter[] meshEmitters();
+    public abstract ParticleEmitter[] particleEmitters();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(IILclient!tt;ZII)Z")
     public abstract boolean pickedOrtho(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) Matrix matrix, @OriginalArg(3) boolean quick, @OriginalArg(4) int sizeShift, @OriginalArg(5) int angle);

@@ -3,6 +3,7 @@ import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.graphics.Node_Sub13;
 import com.jagex.graphics.Toolkit;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -20,7 +21,7 @@ public final class Static595 {
             if (arg0 != null) {
                 Static163.activeToolkit.GA(0);
                 @Pc(36) Class381 local36 = Static74.method1535(Static539.anInt8173, Static697.aJs5_123);
-                @Pc(45) Class14 local45 = Static163.activeToolkit.method8010(local36, IndexedImage.load(Static721.aJs5_128, Static539.anInt8173, 0), true);
+                @Pc(45) Class14 local45 = Static163.activeToolkit.method8010(local36, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
                 Static288.method4182();
                 Static694.method9028(Static163.activeToolkit, arg0, true, local36, local45);
             }
@@ -31,7 +32,7 @@ public final class Static595 {
                 local57 = Static255.method3612(Static124.aJs5_20, Static56.anTextureSource_3, 0, Static434.aCanvas7, 0);
                 local57.GA(0);
                 @Pc(76) Class381 local76 = Static74.method1535(Static539.anInt8173, Static697.aJs5_123);
-                local85 = local57.method8010(local76, IndexedImage.load(Static721.aJs5_128, Static539.anInt8173, 0), true);
+                local85 = local57.method8010(local76, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
                 Static288.method4182();
                 Static694.method9028(local57, arg0, true, local76, local85);
             }
@@ -44,7 +45,7 @@ public final class Static595 {
                     if (arg0 != null) {
                         local57.GA(0);
                         @Pc(118) Class381 local118 = Static74.method1535(Static539.anInt8173, Static697.aJs5_123);
-                        @Pc(127) Class14 local127 = local57.method8010(local118, IndexedImage.load(Static721.aJs5_128, Static539.anInt8173, 0), true);
+                        @Pc(127) Class14 local127 = local57.method8010(local118, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
                         Static288.method4182();
                         Static694.method9028(local57, arg0, true, local118, local127);
                     }

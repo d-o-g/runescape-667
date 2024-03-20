@@ -2,8 +2,8 @@ import com.jagex.Class230;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.graphics.Matrix;
-import com.jagex.graphics.MeshEmitter;
-import com.jagex.graphics.MeshMagnet;
+import com.jagex.graphics.particles.ParticleEmitter;
+import com.jagex.graphics.particles.ParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
 import com.jagex.math.Trig1;
@@ -43,7 +43,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     public double aDouble7;
 
     @OriginalMember(owner = "client!b", name = "Ib", descriptor = "Lclient!hv;")
-    public Class8_Sub5 aClass8_Sub5_1;
+    public ParticleSystem aParticleSystem_1;
 
     @OriginalMember(owner = "client!b", name = "wb", descriptor = "D")
     public double aDouble8;
@@ -195,8 +195,8 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(I)V")
     public void method815() {
-        if (this.aClass8_Sub5_1 != null) {
-            this.aClass8_Sub5_1.method3644();
+        if (this.aParticleSystem_1 != null) {
+            this.aParticleSystem_1.method3644();
         }
     }
 
@@ -283,14 +283,14 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(BLclient!ha;Lclient!tt;Lclient!ka;)V")
     public void method817(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) Matrix arg1, @OriginalArg(3) Model arg2) {
         arg2.method7476(arg1);
-        @Pc(9) MeshEmitter[] local9 = arg2.meshEmitters();
-        @Pc(12) MeshMagnet[] local12 = arg2.meshMagnets();
-        if ((this.aClass8_Sub5_1 == null || this.aClass8_Sub5_1.aBoolean324) && (local9 != null || local12 != null)) {
-            this.aClass8_Sub5_1 = Static257.method3654(Static333.anInt5455, true);
+        @Pc(9) ParticleEmitter[] local9 = arg2.particleEmitters();
+        @Pc(12) ParticleEffector[] local12 = arg2.particleEffectors();
+        if ((this.aParticleSystem_1 == null || this.aParticleSystem_1.aBoolean324) && (local9 != null || local12 != null)) {
+            this.aParticleSystem_1 = Static257.method3654(Static333.anInt5455, true);
         }
-        if (this.aClass8_Sub5_1 != null) {
-            this.aClass8_Sub5_1.method3643(arg0, (long) Static333.anInt5455, local9, local12);
-            this.aClass8_Sub5_1.method3658(super.aByte144, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
+        if (this.aParticleSystem_1 != null) {
+            this.aParticleSystem_1.method3643(arg0, (long) Static333.anInt5455, local9, local12);
+            this.aParticleSystem_1.method3658(super.aByte144, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
         }
     }
 
@@ -337,8 +337,8 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         } else {
             local19.render(local27, local57.aPickingCylinderArray1[0], 0);
         }
-        if (this.aClass8_Sub5_1 != null) {
-            @Pc(89) Class230 local89 = this.aClass8_Sub5_1.method3645();
+        if (this.aParticleSystem_1 != null) {
+            @Pc(89) Class230 local89 = this.aParticleSystem_1.method3645();
             if (Static504.aBoolean579) {
                 arg0.method7967(local89, Static582.anInt8627);
             } else {
@@ -354,8 +354,8 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     @OriginalMember(owner = "client!b", name = "finalize", descriptor = "()V")
     @Override
     public void finalize() {
-        if (this.aClass8_Sub5_1 != null) {
-            this.aClass8_Sub5_1.method3644();
+        if (this.aParticleSystem_1 != null) {
+            this.aParticleSystem_1.method3644();
         }
     }
 

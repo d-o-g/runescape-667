@@ -27,7 +27,7 @@ public final class Static235 {
         if (Static400.instance.animatingBackground.value() == 0 && !Static696.isTileVisibleFrom(arg0, Static164.areaLevel, arg3, local39)) {
             return;
         }
-        if (Static334.aClass291ArrayArrayArray1 == null) {
+        if (Static334.activeTiles == null) {
             return;
         }
         Static2.aMapRegion.method7901(arg5, arg0, Static577.A_COLLISION_MAP_ARRAY_1[arg6], arg6, arg3, Static163.activeToolkit);

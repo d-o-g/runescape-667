@@ -2,8 +2,8 @@ import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.MeshBillboard;
-import com.jagex.graphics.MeshEmitter;
-import com.jagex.graphics.MeshMagnet;
+import com.jagex.graphics.particles.ParticleEmitter;
+import com.jagex.graphics.particles.ParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Shadow;
@@ -117,10 +117,10 @@ public final class Model_Sub1 extends Model {
     public short[] aShortArray41;
 
     @OriginalMember(owner = "client!eu", name = "Nb", descriptor = "[Lclient!mn;")
-    public MeshMagnet[] aMeshMagnetArray2;
+    public ParticleEffector[] aParticleEffectorArray2;
 
     @OriginalMember(owner = "client!eu", name = "wb", descriptor = "[Lclient!rv;")
-    public MeshEmitter[] aMeshEmitterArray2;
+    public ParticleEmitter[] aParticleEmitterArray2;
 
     @OriginalMember(owner = "client!eu", name = "Cc", descriptor = "I")
     public int anInt2713;
@@ -295,9 +295,9 @@ public final class Model_Sub1 extends Model {
         this.anInt2773 = arg1.maxVertex;
         this.anIntArray242 = arg1.vertexY;
         this.aShortArray41 = arg1.originModels;
-        this.aMeshMagnetArray2 = arg1.magnets;
+        this.aParticleEffectorArray2 = arg1.effectors;
         @Pc(470) Class368[] local470 = new Class368[this.anInt2773];
-        this.aMeshEmitterArray2 = arg1.emitters;
+        this.aParticleEmitterArray2 = arg1.emitters;
         @Pc(494) int local494;
         @Pc(510) int local510;
         @Pc(566) int local566;
@@ -1340,12 +1340,12 @@ public final class Model_Sub1 extends Model {
     public void method7476(@OriginalArg(0) Matrix arg0) {
         @Pc(8) Matrix_Sub1 local8 = (Matrix_Sub1) arg0;
         @Pc(13) int local13;
-        if (this.aMeshEmitterArray2 != null) {
-            for (local13 = 0; local13 < this.aMeshEmitterArray2.length; local13++) {
-                @Pc(20) MeshEmitter local20 = this.aMeshEmitterArray2[local13];
-                @Pc(22) MeshEmitter local22 = local20;
-                if (local20.aMeshEmitter_2 != null) {
-                    local22 = local20.aMeshEmitter_2;
+        if (this.aParticleEmitterArray2 != null) {
+            for (local13 = 0; local13 < this.aParticleEmitterArray2.length; local13++) {
+                @Pc(20) ParticleEmitter local20 = this.aParticleEmitterArray2[local13];
+                @Pc(22) ParticleEmitter local22 = local20;
+                if (local20.aParticleEmitter_2 != null) {
+                    local22 = local20.aParticleEmitter_2;
                 }
                 local22.anInt8518 = (int) (local8.aFloat46 + local8.aFloat38 * (float) this.anIntArray244[local20.anInt8514] + (float) this.anIntArray242[local20.anInt8514] * local8.aFloat40 + local8.aFloat39 * (float) this.anIntArray240[local20.anInt8514]);
                 local22.anInt8502 = (int) (local8.aFloat37 + local8.aFloat41 * (float) this.anIntArray244[local20.anInt8514] + (float) this.anIntArray242[local20.anInt8514] * local8.aFloat42 + local8.aFloat44 * (float) this.anIntArray240[local20.anInt8514]);
@@ -1358,14 +1358,14 @@ public final class Model_Sub1 extends Model {
                 local22.anInt8520 = (int) (local8.aFloat43 + (float) this.anIntArray240[local20.anInt8505] * local8.aFloat45 + local8.aFloat36 * (float) this.anIntArray242[local20.anInt8505] + (float) this.anIntArray244[local20.anInt8505] * local8.aFloat47);
             }
         }
-        if (this.aMeshMagnetArray2 == null) {
+        if (this.aParticleEffectorArray2 == null) {
             return;
         }
-        for (local13 = 0; local13 < this.aMeshMagnetArray2.length; local13++) {
-            @Pc(367) MeshMagnet local367 = this.aMeshMagnetArray2[local13];
-            @Pc(369) MeshMagnet local369 = local367;
-            if (local367.aMeshMagnet_2 != null) {
-                local369 = local367.aMeshMagnet_2;
+        for (local13 = 0; local13 < this.aParticleEffectorArray2.length; local13++) {
+            @Pc(367) ParticleEffector local367 = this.aParticleEffectorArray2[local13];
+            @Pc(369) ParticleEffector local369 = local367;
+            if (local367.aParticleEffector_2 != null) {
+                local369 = local367.aParticleEffector_2;
             }
             if (local367.matrix == null) {
                 local367.matrix = local8.method7129();
@@ -3088,9 +3088,9 @@ public final class Model_Sub1 extends Model {
         arg4.aShortArray48 = this.aShortArray48;
         arg4.anIntArray241 = this.anIntArray241;
         arg4.aShortArray42 = this.aShortArray42;
-        arg4.aMeshEmitterArray2 = this.aMeshEmitterArray2;
+        arg4.aParticleEmitterArray2 = this.aParticleEmitterArray2;
         arg4.anIntArray238 = this.anIntArray238;
-        arg4.aMeshMagnetArray2 = this.aMeshMagnetArray2;
+        arg4.aParticleEffectorArray2 = this.aParticleEffectorArray2;
         return arg4;
     }
 
@@ -3100,7 +3100,7 @@ public final class Model_Sub1 extends Model {
             return;
         }
         this.aBoolean229 = false;
-        if (this.aMeshEmitterArray2 == null && this.aMeshMagnetArray2 == null && this.aClass298Array1 == null && !Static2.method66(this.anInt2765, this.anInt2756)) {
+        if (this.aParticleEmitterArray2 == null && this.aParticleEffectorArray2 == null && this.aClass298Array1 == null && !Static2.method66(this.anInt2765, this.anInt2756)) {
             @Pc(39) boolean local39 = false;
             @Pc(41) boolean local41 = false;
             if (this.anIntArray240 != null && !Static577.method7616(this.anInt2756, this.anInt2765)) {
@@ -3485,8 +3485,8 @@ public final class Model_Sub1 extends Model {
 
     @OriginalMember(owner = "client!eu", name = "f", descriptor = "()[Lclient!rv;")
     @Override
-    public MeshEmitter[] meshEmitters() {
-        return this.aMeshEmitterArray2;
+    public ParticleEmitter[] particleEmitters() {
+        return this.aParticleEmitterArray2;
     }
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(IILclient!tt;ZII)Z")
@@ -3682,7 +3682,7 @@ public final class Model_Sub1 extends Model {
             }
         }
         if (-873913272 != -873913272) {
-            this.meshEmitters();
+            this.particleEmitters();
         }
         for (local50 = 0; local50 < this.anInt2745; local50++) {
             if (this.aByteArray33 == null || this.aByteArray33[local50] <= 128) {
@@ -3715,8 +3715,8 @@ public final class Model_Sub1 extends Model {
 
     @OriginalMember(owner = "client!eu", name = "c", descriptor = "()[Lclient!mn;")
     @Override
-    public MeshMagnet[] meshMagnets() {
-        return this.aMeshMagnetArray2;
+    public ParticleEffector[] particleEffectors() {
+        return this.aParticleEffectorArray2;
     }
 
     @OriginalMember(owner = "client!eu", name = "H", descriptor = "(III)V")

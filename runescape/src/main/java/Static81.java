@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static81 {
 
-    @OriginalMember(owner = "client!cka", name = "x", descriptor = "[Lclient!hv;")
-    public static Class8_Sub5[] aClass8_Sub5Array1;
-
     @OriginalMember(owner = "client!cka", name = "q", descriptor = "I")
     public static int anInt1644;
 

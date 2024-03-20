@@ -14,7 +14,7 @@ public final class Static468 {
     public static void method7641(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(8) int local8 = arg2 + Static691.anInt10367;
         @Pc(12) int local12 = Static116.anInt2270 + arg1;
-        if (Static334.aClass291ArrayArrayArray1 == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.animatingBackground.value() == 0 && arg0 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
+        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.animatingBackground.value() == 0 && arg0 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
             return;
         }
         @Pc(67) long local67 = (long) (local12 << 14 | arg0 << 28 | local8);

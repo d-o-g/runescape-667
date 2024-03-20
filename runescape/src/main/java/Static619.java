@@ -77,7 +77,7 @@ public final class Static619 {
 
     @OriginalMember(owner = "client!tk", name = "a", descriptor = "(III)Lclient!kp;")
     public static Wall method1510(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(7) Class291 local7 = Static334.aClass291ArrayArrayArray1[arg0][arg1][arg2];
+        @Pc(7) Class291 local7 = Static334.activeTiles[arg0][arg1][arg2];
         return local7 == null ? null : local7.aWall_1;
     }
 

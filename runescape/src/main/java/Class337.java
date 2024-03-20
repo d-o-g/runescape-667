@@ -3,8 +3,8 @@ import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
-import com.jagex.graphics.MeshEmitter;
-import com.jagex.graphics.MeshMagnet;
+import com.jagex.graphics.particles.ParticleEmitter;
+import com.jagex.graphics.particles.ParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.ModelAndShadow;
 import com.jagex.graphics.Shadow;
@@ -24,7 +24,7 @@ public final class Class337 {
     public LocTypeCustomisation aLocTypeCustomisation_2;
 
     @OriginalMember(owner = "client!sh", name = "r", descriptor = "Lclient!hv;")
-    public Class8_Sub5 aClass8_Sub5_7;
+    public ParticleSystem aParticleSystem_7;
 
     @OriginalMember(owner = "client!sh", name = "g", descriptor = "Lclient!ka;")
     public Model aModel_8;
@@ -126,10 +126,7 @@ public final class Class337 {
     }
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(I)Z")
-    public boolean method7675(@OriginalArg(0) int arg0) {
-        if (arg0 != 10) {
-            this.anInt8660 = 3;
-        }
+    public boolean method7675() {
         return this.aBoolean661;
     }
 
@@ -285,8 +282,8 @@ public final class Class337 {
     @OriginalMember(owner = "client!sh", name = "finalize", descriptor = "()V")
     @Override
     public void finalize() {
-        if (this.aClass8_Sub5_7 != null) {
-            this.aClass8_Sub5_7.method3644();
+        if (this.aParticleSystem_7 != null) {
+            this.aParticleSystem_7.method3644();
         }
     }
 
@@ -314,26 +311,26 @@ public final class Class337 {
         if (arg3 != -9827) {
             return;
         }
-        @Pc(11) MeshEmitter[] local11 = arg1.meshEmitters();
-        @Pc(14) MeshMagnet[] local14 = arg1.meshMagnets();
-        if ((this.aClass8_Sub5_7 == null || this.aClass8_Sub5_7.aBoolean324) && (local11 != null || local14 != null)) {
+        @Pc(11) ParticleEmitter[] local11 = arg1.particleEmitters();
+        @Pc(14) ParticleEffector[] local14 = arg1.particleEffectors();
+        if ((this.aParticleSystem_7 == null || this.aParticleSystem_7.aBoolean324) && (local11 != null || local14 != null)) {
             @Pc(37) LocType local37 = Static354.aLocTypeList_4.list(this.anInt8649);
             if (local37.multiLocs != null) {
                 local37 = local37.getMultiLoc(Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
             }
             if (local37 != null) {
-                this.aClass8_Sub5_7 = Static257.method3654(Static333.anInt5455, true);
+                this.aParticleSystem_7 = Static257.method3654(Static333.anInt5455, true);
             }
         }
-        if (this.aClass8_Sub5_7 == null) {
+        if (this.aParticleSystem_7 == null) {
             return;
         }
         arg1.method7476(arg8);
         if (arg2) {
-            this.aClass8_Sub5_7.method3643(arg4, (long) Static333.anInt5455, local11, local14);
+            this.aParticleSystem_7.method3643(arg4, (long) Static333.anInt5455, local11, local14);
         } else {
-            this.aClass8_Sub5_7.method3649((long) Static333.anInt5455);
+            this.aParticleSystem_7.method3649((long) Static333.anInt5455);
         }
-        this.aClass8_Sub5_7.method3658(this.aByte132, arg6, arg5, arg7, arg0);
+        this.aParticleSystem_7.method3658(this.aByte132, arg6, arg5, arg7, arg0);
     }
 }

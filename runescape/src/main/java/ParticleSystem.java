@@ -1,16 +1,17 @@
 import com.jagex.Class230;
 import com.jagex.Entity;
 import com.jagex.collect.Deque;
-import com.jagex.graphics.MeshEmitter;
-import com.jagex.graphics.MeshMagnet;
+import com.jagex.graphics.particles.ParticleEmitter;
+import com.jagex.graphics.particles.ParticleEffector;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.particles.ParticleLimits;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!hv")
-public final class Class8_Sub5 extends Entity {
+public final class ParticleSystem extends Entity {
 
     @OriginalMember(owner = "client!hv", name = "u", descriptor = "J")
     public long aLong132;
@@ -31,7 +32,7 @@ public final class Class8_Sub5 extends Entity {
     public int anInt4147 = 0;
 
     @OriginalMember(owner = "client!hv", name = "h", descriptor = "Lclient!fla;")
-    public Class130 aClass130_6 = new Class130();
+    public EntityList aEntityList_6 = new EntityList();
 
     @OriginalMember(owner = "client!hv", name = "o", descriptor = "I")
     public int anInt4148 = 0;
@@ -52,15 +53,15 @@ public final class Class8_Sub5 extends Entity {
     public final Class230 aClass230_1 = new Class230();
 
     @OriginalMember(owner = "client!hv", name = "n", descriptor = "[Lclient!pp;")
-    public final Class8_Sub4_Sub2_Sub1[] aClass8_Sub4_Sub2_Sub1Array1 = new Class8_Sub4_Sub2_Sub1[8192];
+    public final Particle[] aParticle = new Particle[8192];
 
     @OriginalMember(owner = "client!hv", name = "<init>", descriptor = "(IZ)V")
-    public Class8_Sub5(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
+    public ParticleSystem(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
         this.method3657(arg0, arg1);
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J[Lclient!rv;[Lclient!mn;Z)V")
-    public void method3643(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) long arg1, @OriginalArg(2) MeshEmitter[] arg2, @OriginalArg(3) MeshMagnet[] arg3) {
+    public void method3643(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) long arg1, @OriginalArg(2) ParticleEmitter[] arg2, @OriginalArg(3) ParticleEffector[] arg3) {
         if (!this.aBoolean324) {
             this.method3651(arg0, arg2);
             this.method3648(arg3);
@@ -81,13 +82,13 @@ public final class Class8_Sub5 extends Entity {
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;)V")
     public void method3646(@OriginalArg(0) Toolkit arg0) {
         this.aClass230_1.aClass113_1.method2487();
-        for (@Pc(10) Class8_Sub8 local10 = (Class8_Sub8) this.aClass130_6.method2790(); local10 != null; local10 = (Class8_Sub8) this.aClass130_6.method2785()) {
+        for (@Pc(10) Class8_Sub8 local10 = (Class8_Sub8) this.aEntityList_6.method2790(); local10 != null; local10 = (Class8_Sub8) this.aEntityList_6.method2785()) {
             local10.method7263(this.aLong132, arg0);
         }
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "([Lclient!mn;Z)V")
-    public void method3648(@OriginalArg(0) MeshMagnet[] arg0) {
+    public void method3648(@OriginalArg(0) ParticleEffector[] arg0) {
         for (@Pc(1) int local1 = 0; local1 < 8; local1++) {
             Static257.aBooleanArray6[local1] = false;
         }
@@ -96,7 +97,7 @@ public final class Class8_Sub5 extends Entity {
         for (@Pc(16) DoublyLinkedNode_Sub2_Sub5 local16 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.first(); local16 != null; local16 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.next()) {
             if (arg0 != null) {
                 for (local21 = 0; local21 < arg0.length; local21++) {
-                    if (local16.aMeshMagnet_1 == arg0[local21] || local16.aMeshMagnet_1 == arg0[local21].aMeshMagnet_2) {
+                    if (local16.aParticleEffector_1 == arg0[local21] || local16.aParticleEffector_1 == arg0[local21].aParticleEffector_2) {
                         Static257.aBooleanArray6[local21] = true;
                         local16.method1707();
                         continue label71;
@@ -139,25 +140,25 @@ public final class Class8_Sub5 extends Entity {
     @OriginalMember(owner = "client!hv", name = "b", descriptor = "()Lclient!lk;")
     public Class230 method3650() {
         this.aClass230_1.aClass113_1.method2487();
-        for (@Pc(6) int local6 = 0; local6 < this.aClass8_Sub4_Sub2_Sub1Array1.length; local6++) {
-            if (this.aClass8_Sub4_Sub2_Sub1Array1[local6] != null && this.aClass8_Sub4_Sub2_Sub1Array1[local6].aClass8_Sub8_1 != null) {
-                this.aClass230_1.aClass113_1.method2488(this.aClass8_Sub4_Sub2_Sub1Array1[local6]);
+        for (@Pc(6) int local6 = 0; local6 < this.aParticle.length; local6++) {
+            if (this.aParticle[local6] != null && this.aParticle[local6].aClass8_Sub8_1 != null) {
+                this.aClass230_1.aClass113_1.method2488(this.aParticle[local6]);
             }
         }
         return this.aClass230_1;
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;[Lclient!rv;Z)V")
-    public void method3651(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) MeshEmitter[] arg1) {
+    public void method3651(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) ParticleEmitter[] arg1) {
         for (@Pc(1) int local1 = 0; local1 < 32; local1++) {
             Static257.aBooleanArray7[local1] = false;
         }
         @Pc(21) int local21;
         label62:
-        for (@Pc(16) Class8_Sub8 local16 = (Class8_Sub8) this.aClass130_6.method2790(); local16 != null; local16 = (Class8_Sub8) this.aClass130_6.method2785()) {
+        for (@Pc(16) Class8_Sub8 local16 = (Class8_Sub8) this.aEntityList_6.method2790(); local16 != null; local16 = (Class8_Sub8) this.aEntityList_6.method2785()) {
             if (arg1 != null) {
                 for (local21 = 0; local21 < arg1.length; local21++) {
-                    if (local16.aMeshEmitter_1 == arg1[local21] || local16.aMeshEmitter_1 == arg1[local21].aMeshEmitter_2) {
+                    if (local16.aParticleEmitter_1 == arg1[local21] || local16.aParticleEmitter_1 == arg1[local21].aParticleEmitter_2) {
                         Static257.aBooleanArray7[local21] = true;
                         local16.method7264();
                         local16.aBoolean630 = false;
@@ -178,7 +179,7 @@ public final class Class8_Sub5 extends Entity {
         for (local21 = 0; local21 < arg1.length && local21 != 32 && this.anInt4148 != 32; local21++) {
             if (!Static257.aBooleanArray7[local21]) {
                 @Pc(104) Class8_Sub8 local104 = new Class8_Sub8(arg0, arg1[local21], this, this.aLong133);
-                this.aClass130_6.method2787(local104);
+                this.aEntityList_6.method2787(local104);
                 this.anInt4148++;
                 Static257.aBooleanArray7[local21] = true;
             }
@@ -189,24 +190,24 @@ public final class Class8_Sub5 extends Entity {
     public void method3652() {
         this.aBoolean324 = true;
         for (@Pc(8) DoublyLinkedNode_Sub2_Sub5 local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.first(); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub5) this.aDeque_22.next()) {
-            if (local8.aMeshMagnetType_1.visibility == 1) {
+            if (local8.aParticleEffectorType_1.visibility == 1) {
                 local8.remove2();
             }
         }
-        for (@Pc(27) int local27 = 0; local27 < this.aClass8_Sub4_Sub2_Sub1Array1.length; local27++) {
-            if (this.aClass8_Sub4_Sub2_Sub1Array1[local27] != null) {
-                this.aClass8_Sub4_Sub2_Sub1Array1[local27].method6697();
-                this.aClass8_Sub4_Sub2_Sub1Array1[local27] = null;
+        for (@Pc(27) int local27 = 0; local27 < this.aParticle.length; local27++) {
+            if (this.aParticle[local27] != null) {
+                this.aParticle[local27].method6697();
+                this.aParticle[local27] = null;
             }
         }
         this.anInt4147 = 0;
-        this.aClass130_6 = new Class130();
+        this.aEntityList_6 = new EntityList();
         this.anInt4148 = 0;
         this.aDeque_22 = new Deque();
         this.anInt4150 = 0;
         this.method9274();
-        Static81.aClass8_Sub5Array1[Static349.anInt5693] = this;
-        Static349.anInt5693 = Static349.anInt5693 + 1 & Static190.anIntArray265[Static507.anInt7618];
+        ParticleManager.systemCache[ParticleManager.systemFreePtr] = this;
+        ParticleManager.systemFreePtr = ParticleManager.systemFreePtr + 1 & ParticleLimits.anIntArray265[ParticleManager.setting];
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J)Z")
@@ -223,14 +224,14 @@ public final class Class8_Sub5 extends Entity {
         @Pc(27) int local27 = (int) (arg1 - this.aLong132);
         @Pc(36) Class8_Sub8 local36;
         if (this.aBoolean326) {
-            for (local36 = (Class8_Sub8) this.aClass130_6.method2790(); local36 != null; local36 = (Class8_Sub8) this.aClass130_6.method2785()) {
-                for (@Pc(39) int local39 = 0; local39 < local36.aMeshEmitterType_1.startupTicks; local39++) {
+            for (local36 = (Class8_Sub8) this.aEntityList_6.method2790(); local36 != null; local36 = (Class8_Sub8) this.aEntityList_6.method2785()) {
+                for (@Pc(39) int local39 = 0; local39 < local36.aParticleEmitterType_1.startupTicks; local39++) {
                     local36.method7261(1, !this.aBoolean323, arg1, arg0);
                 }
             }
             this.aBoolean326 = false;
         }
-        for (local36 = (Class8_Sub8) this.aClass130_6.method2790(); local36 != null; local36 = (Class8_Sub8) this.aClass130_6.method2785()) {
+        for (local36 = (Class8_Sub8) this.aEntityList_6.method2790(); local36 != null; local36 = (Class8_Sub8) this.aEntityList_6.method2785()) {
             local36.method7261(local27, !this.aBoolean323, arg1, arg0);
         }
         this.aLong132 = arg1;
@@ -249,7 +250,7 @@ public final class Class8_Sub5 extends Entity {
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(IZ)V")
     public void method3657(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        Static342.aClass130_7.method2787(this);
+        ParticleManager.systems.method2787(this);
         this.aLong133 = (long) arg0;
         this.aLong132 = (long) arg0;
         this.aBoolean326 = true;

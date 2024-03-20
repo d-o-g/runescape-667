@@ -10,6 +10,7 @@ import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Sprite;
+import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -525,16 +526,16 @@ public final class Static71 {
                                                 local2313.renderOrtho(Static59.aMatrix_5, (PickingCylinder) null, local19.anInt3793, 1);
                                             } else {
                                                 local2313.render(Static59.aMatrix_5, (PickingCylinder) null, 1);
-                                                if (local19.aClass8_Sub5_4 != null) {
-                                                    Static163.activeToolkit.method8021(local19.aClass8_Sub5_4.method3650());
+                                                if (local19.aParticleSystem_4 != null) {
+                                                    Static163.activeToolkit.method8021(local19.aParticleSystem_4.method3650());
                                                 }
                                             }
                                         } else if (local19.aBoolean285) {
                                             local2313.renderOrtho(Static59.aMatrix_5, (PickingCylinder) null, local19.anInt3793 << 2, 1);
                                         } else {
                                             local2313.render(Static59.aMatrix_5, (PickingCylinder) null, 1);
-                                            if (local19.aClass8_Sub5_4 != null) {
-                                                Static163.activeToolkit.method8021(local19.aClass8_Sub5_4.method3650());
+                                            if (local19.aParticleSystem_4 != null) {
+                                                Static163.activeToolkit.method8021(local19.aParticleSystem_4.method3650());
                                             }
                                         }
                                         if (Static376.aBoolean452) {
@@ -608,22 +609,22 @@ public final class Static71 {
     public static boolean method1525() {
         @Pc(5) boolean local5 = true;
         if (Static414.aIndexedImage_2 == null) {
-            if (Static721.aJs5_128.fileready(Static456.anInt6929)) {
-                Static414.aIndexedImage_2 = IndexedImage.loadFirst(Static721.aJs5_128, Static456.anInt6929);
+            if (js5.SPRITES.fileready(Static456.anInt6929)) {
+                Static414.aIndexedImage_2 = IndexedImage.loadFirst(js5.SPRITES, Static456.anInt6929);
             } else {
                 local5 = false;
             }
         }
         if (Static535.aIndexedImage_3 == null) {
-            if (Static721.aJs5_128.fileready(Static362.anInt5828)) {
-                Static535.aIndexedImage_3 = IndexedImage.loadFirst(Static721.aJs5_128, Static362.anInt5828);
+            if (js5.SPRITES.fileready(Static362.anInt5828)) {
+                Static535.aIndexedImage_3 = IndexedImage.loadFirst(js5.SPRITES, Static362.anInt5828);
             } else {
                 local5 = false;
             }
         }
         if (Static74.aIndexedImage_1 == null) {
-            if (Static721.aJs5_128.fileready(Static11.anInt136)) {
-                Static74.aIndexedImage_1 = IndexedImage.loadFirst(Static721.aJs5_128, Static11.anInt136);
+            if (js5.SPRITES.fileready(Static11.anInt136)) {
+                Static74.aIndexedImage_1 = IndexedImage.loadFirst(js5.SPRITES, Static11.anInt136);
             } else {
                 local5 = false;
             }
@@ -636,8 +637,8 @@ public final class Static71 {
             }
         }
         if (Static627.aIndexedImageArray1 == null) {
-            if (Static721.aJs5_128.fileready(Static723.anInt10929)) {
-                Static627.aIndexedImageArray1 = IndexedImage.load(Static721.aJs5_128, Static723.anInt10929);
+            if (js5.SPRITES.fileready(Static723.anInt10929)) {
+                Static627.aIndexedImageArray1 = IndexedImage.load(js5.SPRITES, Static723.anInt10929);
             } else {
                 local5 = false;
             }

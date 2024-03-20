@@ -30,7 +30,7 @@ public final class Static294 {
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(IIZIII)V")
     public static void method4339(@OriginalArg(1) int arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        if (Static334.aClass291ArrayArrayArray1 == null) {
+        if (Static334.activeTiles == null) {
             Static163.activeToolkit.method7971(arg2, arg3, arg0, arg4, -16777216);
             return;
         }

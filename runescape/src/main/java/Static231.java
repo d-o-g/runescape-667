@@ -4,6 +4,7 @@ import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
 import com.jagex.game.Class14;
 import com.jagex.game.LocalisedText;
+import com.jagex.js5.js5;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -216,7 +217,7 @@ public final class Static231 {
                     }
                 }
                 if (arg2.equalsIgnoreCase("cleartext")) {
-                    Static422.aClass130_9.method2789();
+                    Static422.A_ENTITY_LIST___9.method2789();
                     Static79.method1579("Text coords cleared");
                     return;
                 }
@@ -472,9 +473,9 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("resetminimap")) {
-                    Static721.aJs5_128.discardPacked();
-                    Static721.aJs5_128.discardUnpacked();
-                    Static720.aClass363_4.method8361();
+                    js5.SPRITES.discardPacked();
+                    js5.SPRITES.discardUnpacked();
+                    Static720.aMSITypeList_4.cacheReset();
                     Static577.aClass246_4.method5586();
                     Static244.method3512();
                     Static79.method1579("Minimap reset");

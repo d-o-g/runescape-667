@@ -27,7 +27,7 @@ public final class Static323 {
         for (@Pc(1) int local1 = Static296.anInt4792; local1 < Static299.anInt4824; local1++) {
             for (@Pc(4) int local4 = 0; local4 < Static619.anInt1566; local4++) {
                 for (@Pc(7) int local7 = 0; local7 < Static662.anInt9843; local7++) {
-                    @Pc(16) Class291 local16 = Static334.aClass291ArrayArrayArray1[local1][local4][local7];
+                    @Pc(16) Class291 local16 = Static334.activeTiles[local1][local4][local7];
                     if (local16 != null) {
                         @Pc(21) Wall local21 = local16.aClass8_Sub2_Sub3_2;
                         @Pc(24) Wall local24 = local16.aWall_1;

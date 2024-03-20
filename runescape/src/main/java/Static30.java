@@ -20,7 +20,7 @@ public final class Static30 {
     public static js5 aJs5_74;
 
     @OriginalMember(owner = "client!baa", name = "y", descriptor = "Lclient!u;")
-    public static Class363 aClass363_3;
+    public static MSITypeList aMSITypeList_3;
 
     @OriginalMember(owner = "client!baa", name = "I", descriptor = "Lclient!uk;")
     public static VarDomain anVarDomain_3;
@@ -116,7 +116,7 @@ public final class Static30 {
     public static int anInt5654;
 
     @OriginalMember(owner = "client!baa", name = "L", descriptor = "[[[Lclient!fla;")
-    public static Class130[][][] aClass130ArrayArrayArray2;
+    public static EntityList[][][] aEntityListArrayArrayArray2;
 
     @OriginalMember(owner = "client!baa", name = "t", descriptor = "I")
     public static int anInt5655;
@@ -268,12 +268,12 @@ public final class Static30 {
             @Pc(14) LocType local14 = aLocTypeList_3.list(arg5[local4] & 0xFFFF);
             @Pc(17) int local17 = local14.msi;
             if (local17 != -1) {
-                @Pc(25) Class173 local25 = aClass363_3.method8362(local17);
-                @Pc(49) Sprite local49 = local25.method3689(local14.msiRotate ? arg6[local4] >> 6 & 0x3 : 0, arg0, local14.msiFlip ? local14.mirrorModel : false);
+                @Pc(25) MSIType local25 = aMSITypeList_3.list(local17);
+                @Pc(49) Sprite local49 = local25.sprite(local14.msiRotate ? arg6[local4] >> 6 & 0x3 : 0, arg0, local14.msiFlip ? local14.mirrorModel : false);
                 if (local49 != null) {
                     @Pc(58) int local58 = arg3 * local49.scaleWidth() >> 2;
                     @Pc(65) int local65 = arg4 * local49.scaleHeight() >> 2;
-                    if (local25.aBoolean329) {
+                    if (local25.enlarge) {
                         @Pc(71) int local71 = local14.width;
                         @Pc(74) int local74 = local14.length;
                         if ((arg6[local4] >> 6 & 0x1) == 1) {
@@ -383,13 +383,13 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
-    public static void method5065(@OriginalArg(0) js5 arg0, @OriginalArg(1) Class96 arg1, @OriginalArg(2) Class79 arg2, @OriginalArg(3) LocTypeList arg3, @OriginalArg(4) Class246 arg4, @OriginalArg(5) Class363 arg5, @OriginalArg(6) VarDomain arg6) {
+    public static void method5065(@OriginalArg(0) js5 arg0, @OriginalArg(1) Class96 arg1, @OriginalArg(2) Class79 arg2, @OriginalArg(3) LocTypeList arg3, @OriginalArg(4) Class246 arg4, @OriginalArg(5) MSITypeList arg5, @OriginalArg(6) VarDomain arg6) {
         aJs5_74 = arg0;
         aClass96_2 = arg1;
         aClass79_5 = arg2;
         aLocTypeList_3 = arg3;
         aClass246_3 = arg4;
-        aClass363_3 = arg5;
+        aMSITypeList_3 = arg5;
         anVarDomain_3 = arg6;
         A_HASH_TABLE___27.clear();
         @Pc(23) int local23 = aJs5_74.getgroupid("details");
@@ -540,11 +540,11 @@ public final class Static30 {
         }
         local50 = anInt5647 >> 6;
         local57 = anInt5645 >> 6;
-        if (local50 >= aClass130ArrayArrayArray2[0].length) {
-            local50 = aClass130ArrayArrayArray2[0].length - 1;
+        if (local50 >= aEntityListArrayArrayArray2[0].length) {
+            local50 = aEntityListArrayArrayArray2[0].length - 1;
         }
-        if (local57 >= aClass130ArrayArrayArray2[0][0].length) {
-            local57 = aClass130ArrayArrayArray2[0][0].length - 1;
+        if (local57 >= aEntityListArrayArrayArray2[0][0].length) {
+            local57 = aEntityListArrayArrayArray2[0][0].length - 1;
         }
         for (local70 = 0; local70 < 3; local70++) {
             @Pc(641) int local641;
@@ -554,7 +554,7 @@ public final class Static30 {
             @Pc(631) int local631;
             for (local80 = local40; local80 <= local50; local80++) {
                 for (local84 = local44; local84 <= local57; local84++) {
-                    @Pc(589) Class130 local589 = aClass130ArrayArrayArray2[local70][local80][local84];
+                    @Pc(589) EntityList local589 = aEntityListArrayArrayArray2[local70][local80][local84];
                     if (local589 != null) {
                         local173 = (local80 + (anInt5655 >> 6)) * 64;
                         local175 = (local84 + (anInt5648 >> 6)) * 64;
@@ -572,7 +572,7 @@ public final class Static30 {
             }
             for (local84 = local40; local84 <= local50; local84++) {
                 for (local93 = local44; local93 <= local57; local93++) {
-                    @Pc(727) Class130 local727 = aClass130ArrayArrayArray2[local70][local84][local93];
+                    @Pc(727) EntityList local727 = aEntityListArrayArrayArray2[local70][local84][local93];
                     if (local727 != null) {
                         local175 = (local84 + (anInt5655 >> 6)) * 64;
                         local177 = (local93 + (anInt5648 >> 6)) * 64;
@@ -648,7 +648,7 @@ public final class Static30 {
         aShortArray78 = new short[anInt5650 * anInt5644];
         aByteArray58 = new byte[anInt5650 * anInt5644];
         aHashTable = new HashTable(1024);
-        aClass130ArrayArrayArray2 = new Class130[3][anInt5650 >> 6][anInt5644 >> 6];
+        aEntityListArrayArrayArray2 = new EntityList[3][anInt5650 >> 6][anInt5644 >> 6];
         anIntArray419 = new int[aClass96_2.anInt2506 + 1];
     }
 
@@ -662,7 +662,7 @@ public final class Static30 {
         aShortArray78 = null;
         aByteArray58 = null;
         aHashTable = null;
-        aClass130ArrayArrayArray2 = null;
+        aEntityListArrayArrayArray2 = null;
         anIntArray419 = null;
     }
 
@@ -813,11 +813,11 @@ public final class Static30 {
                         local218[local220] = arg1.g1b();
                     }
                 }
-                if (aClass130ArrayArrayArray2[local118 - 1][arg2 - (anInt5655 >> 6)][arg3 - (anInt5648 >> 6)] == null) {
-                    aClass130ArrayArrayArray2[local118 - 1][arg2 - (anInt5655 >> 6)][arg3 - (anInt5648 >> 6)] = new Class130();
+                if (aEntityListArrayArrayArray2[local118 - 1][arg2 - (anInt5655 >> 6)][arg3 - (anInt5648 >> 6)] == null) {
+                    aEntityListArrayArrayArray2[local118 - 1][arg2 - (anInt5655 >> 6)][arg3 - (anInt5648 >> 6)] = new EntityList();
                 }
                 @Pc(338) Class8_Sub10 local338 = new Class8_Sub10(arg4 & 0x3F, arg5 & 0x3F, local123, local125, local127, local215, local218);
-                aClass130ArrayArrayArray2[local118 - 1][arg2 - (anInt5655 >> 6)][arg3 - (anInt5648 >> 6)].method2787(local338);
+                aEntityListArrayArrayArray2[local118 - 1][arg2 - (anInt5655 >> 6)][arg3 - (anInt5648 >> 6)].method2787(local338);
             }
         }
     }
@@ -872,9 +872,9 @@ public final class Static30 {
             }
         }
         for (local4 = 0; local4 < 3; local4++) {
-            for (local15 = 0; local15 < aClass130ArrayArrayArray2[0].length; local15++) {
-                for (@Pc(144) int local144 = 0; local144 < aClass130ArrayArrayArray2[0][0].length; local144++) {
-                    @Pc(153) Class130 local153 = aClass130ArrayArrayArray2[local4][local15][local144];
+            for (local15 = 0; local15 < aEntityListArrayArrayArray2[0].length; local15++) {
+                for (@Pc(144) int local144 = 0; local144 < aEntityListArrayArrayArray2[0][0].length; local144++) {
+                    @Pc(153) EntityList local153 = aEntityListArrayArrayArray2[local4][local15][local144];
                     if (local153 != null) {
                         for (@Pc(160) Class8_Sub10 local160 = (Class8_Sub10) local153.method2790(); local160 != null; local160 = (Class8_Sub10) local153.method2785()) {
                             if (local160.aShortArray133 != null) {
@@ -987,9 +987,9 @@ public final class Static30 {
             aShortArray79 = new short[anInt5650 * anInt5644];
             for (local60 = 0; local60 < 3; local60++) {
                 @Pc(193) byte[] local193 = new byte[anInt5650 * anInt5644];
-                for (local66 = 0; local66 < aClass130ArrayArrayArray2[local60].length; local66++) {
-                    for (local69 = 0; local69 < aClass130ArrayArrayArray2[local60][0].length; local69++) {
-                        @Pc(207) Class130 local207 = aClass130ArrayArrayArray2[local60][local66][local69];
+                for (local66 = 0; local66 < aEntityListArrayArrayArray2[local60].length; local66++) {
+                    for (local69 = 0; local69 < aEntityListArrayArrayArray2[local60][0].length; local69++) {
+                        @Pc(207) EntityList local207 = aEntityListArrayArrayArray2[local60][local66][local69];
                         if (local207 != null) {
                             for (@Pc(214) Class8_Sub10 local214 = (Class8_Sub10) local207.method2790(); local214 != null; local214 = (Class8_Sub10) local207.method2785()) {
                                 local193[local66 * 64 + local214.aByte138 + (local69 * 64 + local214.aByte139) * anInt5650] = (byte) local214.anInt9770;
@@ -998,9 +998,9 @@ public final class Static30 {
                     }
                 }
                 method5064(local193, aByteArray56, aShortArray79, arg1, arg2);
-                for (local69 = 0; local69 < aClass130ArrayArrayArray2[local60].length; local69++) {
-                    for (local78 = 0; local78 < aClass130ArrayArrayArray2[local60][0].length; local78++) {
-                        @Pc(278) Class130 local278 = aClass130ArrayArrayArray2[local60][local69][local78];
+                for (local69 = 0; local69 < aEntityListArrayArrayArray2[local60].length; local69++) {
+                    for (local78 = 0; local78 < aEntityListArrayArrayArray2[local60][0].length; local78++) {
+                        @Pc(278) EntityList local278 = aEntityListArrayArrayArray2[local60][local69][local78];
                         if (local278 != null) {
                             for (@Pc(285) Class8_Sub10 local285 = (Class8_Sub10) local278.method2790(); local285 != null; local285 = (Class8_Sub10) local278.method2785()) {
                                 local150 = local69 * 64 + local285.aByte138 + (local78 * 64 + local285.aByte139) * anInt5650;

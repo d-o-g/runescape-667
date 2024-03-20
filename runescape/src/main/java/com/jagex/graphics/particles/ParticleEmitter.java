@@ -1,13 +1,13 @@
-package com.jagex.graphics;
+package com.jagex.graphics.particles;
 
-import com.jagex.game.runetek6.config.emittertype.MeshEmitterType;
-import com.jagex.game.runetek6.config.emittertype.MeshEmitterTypeList;
+import com.jagex.game.runetek6.config.emittertype.ParticleEmitterType;
+import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!rv")
-public final class MeshEmitter {
+public final class ParticleEmitter {
 
     @OriginalMember(owner = "client!rv", name = "d", descriptor = "I")
     public int anInt8502;
@@ -28,7 +28,7 @@ public final class MeshEmitter {
     public int anInt8512;
 
     @OriginalMember(owner = "client!rv", name = "m", descriptor = "Lclient!rv;")
-    public MeshEmitter aMeshEmitter_2;
+    public ParticleEmitter aParticleEmitter_2;
 
     @OriginalMember(owner = "client!rv", name = "q", descriptor = "I")
     public int anInt8516;
@@ -55,7 +55,7 @@ public final class MeshEmitter {
     public final int id;
 
     @OriginalMember(owner = "client!rv", name = "<init>", descriptor = "(IIIIB)V")
-    public MeshEmitter(@OriginalArg(0) int id, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4) {
+    public ParticleEmitter(@OriginalArg(0) int id, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4) {
         this.aByte130 = arg4;
         this.anInt8514 = arg1;
         this.anInt8508 = arg2;
@@ -64,12 +64,12 @@ public final class MeshEmitter {
     }
 
     @OriginalMember(owner = "client!rv", name = "d", descriptor = "(I)Lclient!vaa;")
-    public MeshEmitterType method7547() {
-        return MeshEmitterTypeList.get(this.id);
+    public ParticleEmitterType method7547() {
+        return ParticleEmitterTypeList.get(this.id);
     }
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(ZIII)Lclient!rv;")
-    public MeshEmitter copy(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        return new MeshEmitter(this.id, arg0, arg1, arg2, this.aByte130);
+    public ParticleEmitter copy(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
+        return new ParticleEmitter(this.id, arg0, arg1, arg2, this.aByte130);
     }
 }

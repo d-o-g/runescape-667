@@ -40,7 +40,7 @@ public final class StaticLocation extends PositionEntity implements Location {
     public final boolean castsShadow;
 
     @OriginalMember(owner = "client!jda", name = "gb", descriptor = "Lclient!ka;")
-    public Model aModel_4;
+    public Model model;
 
     @OriginalMember(owner = "client!jda", name = "eb", descriptor = "Lclient!r;")
     public Shadow shadow;
@@ -62,10 +62,10 @@ public final class StaticLocation extends PositionEntity implements Location {
         }
         @Pc(98) ModelAndShadow local98 = this.method4223(arg0, this.castsShadow, local83);
         if (local98 != null) {
-            this.aModel_4 = local98.model;
+            this.model = local98.model;
             this.shadow = local98.shadow;
             if (this.aBoolean365) {
-                this.aModel_4 = this.aModel_4.copy((byte) 0, local83, false);
+                this.model = this.model.copy((byte) 0, local83, false);
                 return;
             }
         }
@@ -74,14 +74,14 @@ public final class StaticLocation extends PositionEntity implements Location {
     @OriginalMember(owner = "client!jda", name = "d", descriptor = "(I)V")
     @Override
     public void method6856() {
-        if (this.aModel_4 != null) {
-            this.aModel_4.method7479();
+        if (this.model != null) {
+            this.model.method7479();
         }
     }
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public void removeShadow(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         @Pc(16) Shadow local16;
         if (this.shadow == null && this.castsShadow) {
             @Pc(27) ModelAndShadow local27 = this.method4223(arg0, true, 262144);
@@ -94,26 +94,23 @@ public final class StaticLocation extends PositionEntity implements Location {
             Static292.method4618(local16, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
         }
         if (arg1 > -42) {
-            this.aModel_4 = null;
+            this.model = null;
         }
     }
 
     @OriginalMember(owner = "client!jda", name = "e", descriptor = "(I)Z")
     @Override
-    public boolean castsShadow(@OriginalArg(0) int arg0) {
-        if (arg0 != -19717) {
-            this.aClass205_5 = null;
-        }
+    public boolean castsShadow() {
         return this.castsShadow;
     }
 
     @OriginalMember(owner = "client!jda", name = "b", descriptor = "(B)Z")
     @Override
     public boolean method9283() {
-        if (this.aModel_4 == null) {
+        if (this.model == null) {
             return true;
         } else {
-            return !this.aModel_4.r();
+            return !this.model.r();
         }
     }
 
@@ -123,7 +120,7 @@ public final class StaticLocation extends PositionEntity implements Location {
         if (arg0 != 2) {
             this.method9283();
         }
-        return this.aModel_4 == null ? 0 : this.aModel_4.fa();
+        return this.model == null ? 0 : this.model.fa();
     }
 
     @OriginalMember(owner = "client!jda", name = "i", descriptor = "(I)Z")
@@ -137,8 +134,8 @@ public final class StaticLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(BLclient!ha;I)Lclient!ka;")
     public Model method4221(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) int arg1) {
-        if (this.aModel_4 != null && arg0.compareFunctionMasks(this.aModel_4.ua(), arg1) == 0) {
-            return this.aModel_4;
+        if (this.model != null && arg0.compareFunctionMasks(this.model.ua(), arg1) == 0) {
+            return this.model;
         } else {
             @Pc(34) ModelAndShadow local34 = this.method4223(arg0, false, arg1);
             return local34 == null ? null : local34.model;
@@ -147,10 +144,7 @@ public final class StaticLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(I)I")
     @Override
-    public int getId(@OriginalArg(0) int arg0) {
-        if (arg0 != -32136) {
-            Static290.anInt4657 = -2;
-        }
+    public int getId() {
         return this.aShort57 & 0xFFFF;
     }
 
@@ -174,20 +168,20 @@ public final class StaticLocation extends PositionEntity implements Location {
         if (arg0 != 27811) {
             this.aClass205_5 = null;
         }
-        if (this.aModel_4 != null) {
-            this.aModel_4.s(this.aModel_4.ua() & 0xFFFEFFFF);
+        if (this.model != null) {
+            this.model.s(this.model.ua() & 0xFFFEFFFF);
         }
     }
 
     @OriginalMember(owner = "client!jda", name = "b", descriptor = "(I)I")
     @Override
-    public int method6858() {
+    public int getShape() {
         return this.aByte84;
     }
 
     @OriginalMember(owner = "client!jda", name = "m", descriptor = "(I)I")
     public int method4222() {
-        return this.aModel_4 == null ? 15 : this.aModel_4.na() / 4;
+        return this.model == null ? 15 : this.model.na() / 4;
     }
 
     @OriginalMember(owner = "client!jda", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
@@ -223,7 +217,7 @@ public final class StaticLocation extends PositionEntity implements Location {
     @Override
     public int method9292(@OriginalArg(0) byte arg0) {
         if (arg0 == -21) {
-            return this.aModel_4 == null ? 0 : this.aModel_4.ma();
+            return this.model == null ? 0 : this.model.ma();
         } else {
             return -59;
         }
@@ -243,22 +237,22 @@ public final class StaticLocation extends PositionEntity implements Location {
         if (arg0 != 0) {
             this.shadow = null;
         }
-        return this.aModel_4 == null ? false : this.aModel_4.F();
+        return this.model == null ? false : this.model.F();
     }
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
-        if (this.aModel_4 == null) {
+        if (this.model == null) {
             return null;
         }
         @Pc(20) Matrix local20 = arg0.scratchMatrix();
         local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
         @Pc(34) Class8_Sub7 local34 = Static642.method8441(this.aBoolean364, 1);
         if (Static504.aBoolean579) {
-            this.aModel_4.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);
+            this.model.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {
-            this.aModel_4.render(local20, local34.aPickingCylinderArray1[0], 0);
+            this.model.render(local20, local34.aPickingCylinderArray1[0], 0);
         }
         return local34;
     }
@@ -268,13 +262,13 @@ public final class StaticLocation extends PositionEntity implements Location {
     public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
         if (arg6 instanceof StaticWall) {
             @Pc(38) StaticWall local38 = (StaticWall) arg6;
-            if (this.aModel_4 != null && local38.aModel_5 != null) {
-                this.aModel_4.method7481(local38.aModel_5, arg5, arg0, arg3, arg1);
+            if (this.model != null && local38.model != null) {
+                this.model.method7481(local38.model, arg5, arg0, arg3, arg1);
             }
         } else if (arg6 instanceof StaticLocation) {
             @Pc(14) StaticLocation local14 = (StaticLocation) arg6;
-            if (this.aModel_4 != null && local14.aModel_4 != null) {
-                this.aModel_4.method7481(local14.aModel_4, arg5, arg0, arg3, arg1);
+            if (this.model != null && local14.model != null) {
+                this.model.method7481(local14.model, arg5, arg0, arg3, arg1);
             }
         }
         if (arg4 <= 101) {
@@ -303,7 +297,7 @@ public final class StaticLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!jda", name = "c", descriptor = "(I)I")
     @Override
-    public int method6855(@OriginalArg(0) int arg0) {
-        return arg0 == 23796 ? this.aByte83 : -53;
+    public int getRotation() {
+        return this.aByte83;
     }
 }

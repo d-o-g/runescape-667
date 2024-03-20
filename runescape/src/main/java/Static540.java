@@ -124,6 +124,6 @@ public final class Static540 {
         local7.anInt959 = arg5;
         local7.anInt953 = Static333.anInt5455 + arg1;
         local7.anInt956 = arg4;
-        Static422.aClass130_9.method2787(local7);
+        Static422.A_ENTITY_LIST___9.method2787(local7);
     }
 }

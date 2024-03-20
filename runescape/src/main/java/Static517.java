@@ -173,7 +173,7 @@ public final class Static517 {
                                 if (Static258.aBooleanArrayArray3[local316][local325]) {
                                     @Pc(344) int local344 = local325 + Static220.anInt3562 - Static13.anInt148;
                                     for (@Pc(346) int local346 = local225; local346 >= 0; local346--) {
-                                        if (Static334.aClass291ArrayArrayArray1[local346][local323][local344] != null && Static334.aClass291ArrayArrayArray1[local346][local323][local344].aByte116 == local225) {
+                                        if (Static334.activeTiles[local346][local323][local344] != null && Static334.activeTiles[local346][local323][local344].aByte116 == local225) {
                                             if ((local346 < arg2 || arg1[local346][local323][local344] != arg3) && !Static588.method7714(local344, local225, local323)) {
                                                 local304[local316][local325] = true;
                                                 break;

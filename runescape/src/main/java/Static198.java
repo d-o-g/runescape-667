@@ -85,7 +85,7 @@ public final class Static198 {
         if (arg4 < 0 || arg1 < 0 || Static720.mapWidth - 1 <= arg4 || Static501.mapHeight - 1 <= arg1) {
             return;
         }
-        if (Static334.aClass291ArrayArrayArray1 == null) {
+        if (Static334.activeTiles == null) {
             return;
         }
         @Pc(52) Location local52;
@@ -96,14 +96,14 @@ public final class Static198 {
                 if (local52 instanceof DynamicWall) {
                     ((DynamicWall) local52).aClass337_1.method7672(arg3);
                 } else {
-                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local52.getId(-32136));
+                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local52.getId());
                 }
             }
             if (local58 != null) {
                 if (local58 instanceof DynamicWall) {
                     ((DynamicWall) local58).aClass337_1.method7672(arg3);
                 } else {
-                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local58.getId(-32136));
+                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local58.getId());
                 }
             }
         } else if (arg6 == 1) {
@@ -112,7 +112,7 @@ public final class Static198 {
                 if (local52 instanceof DynamicWallDecor) {
                     ((DynamicWallDecor) local52).aClass337_4.method7672(arg3);
                 } else {
-                    @Pc(279) int local279 = local52.getId(-32136);
+                    @Pc(279) int local279 = local52.getId();
                     if (arg2 == 4 || arg2 == 5) {
                         Static235.method3421(arg1, 4, arg5, arg4, arg3, arg6, arg0, local279);
                     } else if (arg2 == 6) {
@@ -134,7 +134,7 @@ public final class Static198 {
                 if (local52 instanceof DynamicLocation) {
                     ((DynamicLocation) local52).aClass337_3.method7672(arg3);
                 } else {
-                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local52.getId(-32136));
+                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local52.getId());
                 }
             }
         } else if (arg6 == 3) {
@@ -143,7 +143,7 @@ public final class Static198 {
                 if (local52 instanceof DynamicGroundDecor) {
                     ((DynamicGroundDecor) local52).aClass337_2.method7672(arg3);
                 } else {
-                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local52.getId(-32136));
+                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local52.getId());
                 }
             }
         }

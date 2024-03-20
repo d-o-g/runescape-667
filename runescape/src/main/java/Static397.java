@@ -1,5 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.graphics.Sprite;
+import com.jagex.js5.js5;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -100,7 +101,7 @@ public final class Static397 {
         }
         @Pc(27) Sprite local27 = (Sprite) Static541.A_WEIGHTED_CACHE___174.get((long) local7);
         if (local27 == null) {
-            @Pc(34) IndexedImage[] local34 = IndexedImage.load(Static721.aJs5_128, local7, 0);
+            @Pc(34) IndexedImage[] local34 = IndexedImage.load(js5.SPRITES, local7, 0);
             if (local34 == null) {
                 return;
             }
@@ -123,6 +124,6 @@ public final class Static397 {
         local140.anInt112 = local102;
         local140.anInt109 = local83 + 16;
         local140.anInt111 = local102 + 16;
-        Static149.aClass130_4.method2787(local140);
+        Static149.A_ENTITY_LIST___4.method2787(local140);
     }
 }

@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static295 {
 
-    @OriginalMember(owner = "client!jga", name = "l", descriptor = "I")
-    public static int anInt4781 = 0;
-
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(III)V")
     public static void method4347(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         @Pc(14) DoublyLinkedNode_Sub2__ local14 = Static440.method5963(13, (long) arg0);

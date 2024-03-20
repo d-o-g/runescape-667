@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vaa")
-public final class MeshEmitterType {
+public final class ParticleEmitterType {
 
     @OriginalMember(owner = "client!vaa", name = "w", descriptor = "I")
     public int anInt9878;
@@ -31,7 +31,7 @@ public final class MeshEmitterType {
     public int minSize;
 
     @OriginalMember(owner = "client!vaa", name = "ib", descriptor = "[I")
-    public int[] localMagnets;
+    public int[] localEffectors;
 
     @OriginalMember(owner = "client!vaa", name = "Z", descriptor = "I")
     public int anInt9887;
@@ -49,7 +49,7 @@ public final class MeshEmitterType {
     public int anInt9890;
 
     @OriginalMember(owner = "client!vaa", name = "mb", descriptor = "[I")
-    public int[] generalMagnets;
+    public int[] generalEffectors;
 
     @OriginalMember(owner = "client!vaa", name = "D", descriptor = "I")
     public int minSpeed;
@@ -115,7 +115,7 @@ public final class MeshEmitterType {
     public int anInt9920;
 
     @OriginalMember(owner = "client!vaa", name = "o", descriptor = "[I")
-    public int[] globalMagnets;
+    public int[] globalEffectors;
 
     @OriginalMember(owner = "client!vaa", name = "O", descriptor = "I")
     public int anInt9924;
@@ -239,15 +239,15 @@ public final class MeshEmitterType {
             this.maxParticleRate = packet.g2();
         } else if (code == 9) {
             @Pc(159) int count = packet.g1();
-            this.localMagnets = new int[count];
+            this.localEffectors = new int[count];
             for (@Pc(165) int i = 0; i < count; i++) {
-                this.localMagnets[i] = packet.g2();
+                this.localEffectors[i] = packet.g2();
             }
         } else if (code == 10) {
             @Pc(159) int count = packet.g1();
-            this.globalMagnets = new int[count];
+            this.globalEffectors = new int[count];
             for (@Pc(165) int i = 0; i < count; i++) {
-                this.globalMagnets[i] = packet.g2();
+                this.globalEffectors[i] = packet.g2();
             }
         } else if (code == 12) {
             this.minHeightLevel = packet.g1b();
@@ -280,9 +280,9 @@ public final class MeshEmitterType {
             this.uniformColourVariance = false;
         } else if (code == 25) {
             @Pc(159) int count = packet.g1();
-            this.generalMagnets = new int[count];
+            this.generalEffectors = new int[count];
             for (@Pc(165) int i = 0; i < count; i++) {
-                this.generalMagnets[i] = packet.g2();
+                this.generalEffectors[i] = packet.g2();
             }
         } else if (code == 26) {
             this.disableHdLighting = false;

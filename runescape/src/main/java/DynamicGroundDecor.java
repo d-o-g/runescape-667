@@ -78,7 +78,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public void removeShadow(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         this.aClass337_2.method7669(arg0);
         if (arg1 > -42) {
             this.method9282(-38);
@@ -87,8 +87,8 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!hp", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void addShadow(@OriginalArg(0) Toolkit arg0) {
-        this.aClass337_2.method7668(arg0);
+    public void addShadow(@OriginalArg(0) Toolkit toolkit) {
+        this.aClass337_2.method7668(toolkit);
     }
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
@@ -102,10 +102,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(I)I")
     @Override
-    public int getId(@OriginalArg(0) int arg0) {
-        if (arg0 != -32136) {
-            this.method9282(69);
-        }
+    public int getId() {
         return this.aClass337_2.anInt8649;
     }
 
@@ -128,25 +125,22 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
     @Override
     public int method9286(@OriginalArg(0) int arg0) {
         if (arg0 != 2) {
-            this.method6857((Toolkit) null, 33);
+            this.removeShadow((Toolkit) null, 33);
         }
         return this.aClass337_2.method7671();
     }
 
     @OriginalMember(owner = "client!hp", name = "e", descriptor = "(I)Z")
     @Override
-    public boolean castsShadow(@OriginalArg(0) int arg0) {
-        if (arg0 != -19717) {
-            this.aClass337_2 = null;
-        }
-        return this.aClass337_2.method7675(arg0 + 19727);
+    public boolean castsShadow() {
+        return this.aClass337_2.method7675();
     }
 
     @OriginalMember(owner = "client!hp", name = "j", descriptor = "(I)V")
     @Override
     public void method9280(@OriginalArg(0) int arg0) {
         if (arg0 != 27811) {
-            this.castsShadow(81);
+            this.castsShadow();
         }
         throw new IllegalStateException();
     }
@@ -169,15 +163,15 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
         } else {
             local22.render(local30, local44.aPickingCylinderArray1[0], 0);
         }
-        if (this.aClass337_2.aClass8_Sub5_7 != null) {
-            @Pc(100) Class230 local100 = this.aClass337_2.aClass8_Sub5_7.method3645();
+        if (this.aClass337_2.aParticleSystem_7 != null) {
+            @Pc(100) Class230 local100 = this.aClass337_2.aParticleSystem_7.method3645();
             if (Static504.aBoolean579) {
                 arg0.method7967(local100, Static582.anInt8627);
             } else {
                 arg0.method8021(local100);
             }
         }
-        this.aBoolean317 = local22.F() || this.aClass337_2.aClass8_Sub5_7 != null;
+        this.aBoolean317 = local22.F() || this.aClass337_2.aParticleSystem_7 != null;
         if (this.aClass205_3 == null) {
             this.aClass205_3 = Static317.method4583(super.anInt10691, super.anInt10690, local22, super.anInt10694);
         } else {
@@ -188,10 +182,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!hp", name = "c", descriptor = "(I)I")
     @Override
-    public int method6855(@OriginalArg(0) int arg0) {
-        if (arg0 != 23796) {
-            Static252.aBoolean316 = false;
-        }
+    public int getRotation() {
         return this.aClass337_2.anInt8663;
     }
 
@@ -212,7 +203,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!hp", name = "b", descriptor = "(I)I")
     @Override
-    public int method6858() {
+    public int getShape() {
         return this.aClass337_2.anInt8645;
     }
 

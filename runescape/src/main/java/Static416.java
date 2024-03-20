@@ -36,7 +36,7 @@ public final class Static416 {
         for (@Pc(22) int local22 = 0; local22 < Static299.anInt4824; local22++) {
             for (local25 = 0; local25 < Static619.anInt1566; local25++) {
                 for (local28 = 0; local28 < Static662.anInt9843; local28++) {
-                    @Pc(37) Class291 local37 = Static334.aClass291ArrayArrayArray1[local22][local28][local25];
+                    @Pc(37) Class291 local37 = Static334.activeTiles[local22][local28][local25];
                     if (local37 != null) {
                         if (local37.aShort83 > 0) {
                             local37.aShort83 = (short) (local37.aShort83 * -1);
@@ -51,9 +51,9 @@ public final class Static416 {
         for (local25 = 0; local25 < Static299.anInt4824; local25++) {
             for (local28 = 0; local28 < Static619.anInt1566; local28++) {
                 for (@Pc(92) int local92 = 0; local92 < Static662.anInt9843; local92++) {
-                    @Pc(101) Class291 local101 = Static334.aClass291ArrayArrayArray1[local25][local92][local28];
+                    @Pc(101) Class291 local101 = Static334.activeTiles[local25][local92][local28];
                     if (local101 != null) {
-                        @Pc(129) boolean local129 = Static334.aClass291ArrayArrayArray1[0][local92][local28] != null && Static334.aClass291ArrayArrayArray1[0][local92][local28].aClass291_1 != null;
+                        @Pc(129) boolean local129 = Static334.activeTiles[0][local92][local28] != null && Static334.activeTiles[0][local92][local28].aClass291_1 != null;
                         @Pc(137) int local137;
                         @Pc(139) int local139;
                         @Pc(153) Class291 local153;
@@ -71,13 +71,13 @@ public final class Static416 {
                         if (local101.aShort84 < 0) {
                             local137 = local28;
                             local139 = local28;
-                            local153 = Static334.aClass291ArrayArrayArray1[local25][local92][local28 - 1];
+                            local153 = Static334.activeTiles[local25][local92][local28 - 1];
                             local161 = Static706.aGroundArray3[local25].getHeight(local28, local92);
                             while (local137 > 0 && local153 != null && local153.aShort84 < 0 && local101.aShort84 == local153.aShort84 && local101.aShort86 == local153.aShort86 && Static706.aGroundArray3[local25].getHeight(local137 - 1, local92) == local161 && (local137 - 1 <= 0 || local161 == Static706.aGroundArray3[local25].getHeight(local137 - 2, local92))) {
                                 local137--;
-                                local153 = Static334.aClass291ArrayArrayArray1[local25][local92][local137 - 1];
+                                local153 = Static334.activeTiles[local25][local92][local137 - 1];
                             }
-                            for (local153 = Static334.aClass291ArrayArrayArray1[local25][local92][local28 + 1]; Static662.anInt9843 > local139 && local153 != null && local153.aShort84 < 0 && local101.aShort84 == local153.aShort84 && local101.aShort86 == local153.aShort86 && local161 == Static706.aGroundArray3[local25].getHeight(local139 + 1, local92) && (Static662.anInt9843 <= local139 + 1 || local161 == Static706.aGroundArray3[local25].getHeight(local139 + 2, local92)); local153 = Static334.aClass291ArrayArrayArray1[local25][local92][local139 + 1]) {
+                            for (local153 = Static334.activeTiles[local25][local92][local28 + 1]; Static662.anInt9843 > local139 && local153 != null && local153.aShort84 < 0 && local101.aShort84 == local153.aShort84 && local101.aShort86 == local153.aShort86 && local161 == Static706.aGroundArray3[local25].getHeight(local139 + 1, local92) && (Static662.anInt9843 <= local139 + 1 || local161 == Static706.aGroundArray3[local25].getHeight(local139 + 2, local92)); local153 = Static334.activeTiles[local25][local92][local139 + 1]) {
                                 local139++;
                             }
                             local328 = local25 + 1 - local25;
@@ -91,20 +91,20 @@ public final class Static416 {
                             Static607.aClass75Array4[Static444.anInt6751++] = new Class75(1, local25, local101.aShort86 + local379, local379 - -local101.aShort86, local101.aShort86 + local379, local101.aShort86 + local379, local343, local367, local375, local350, local383, local389, local389, local383);
                             for (local428 = local25; local428 <= local25; local428++) {
                                 for (local431 = local137; local431 <= local139; local431++) {
-                                    Static334.aClass291ArrayArrayArray1[local428][local92][local431].aShort84 = (short) (Static334.aClass291ArrayArrayArray1[local428][local92][local431].aShort84 * -1);
+                                    Static334.activeTiles[local428][local92][local431].aShort84 = (short) (Static334.activeTiles[local428][local92][local431].aShort84 * -1);
                                 }
                             }
                         }
                         if (local101.aShort83 < 0) {
                             local137 = local92;
                             local139 = local92;
-                            local153 = Static334.aClass291ArrayArrayArray1[local25][local92 - 1][local28];
+                            local153 = Static334.activeTiles[local25][local92 - 1][local28];
                             local161 = Static706.aGroundArray3[local25].getHeight(local28, local92);
                             while (local137 > 0 && local153 != null && local153.aShort83 < 0 && local153.aShort83 == local101.aShort83 && local153.aShort85 == local101.aShort85 && local161 == Static706.aGroundArray3[local25].getHeight(local28, local137 - 1) && (local137 - 1 <= 0 || local161 == Static706.aGroundArray3[local25].getHeight(local28, local137 - 2))) {
                                 local137--;
-                                local153 = Static334.aClass291ArrayArrayArray1[local25][local137 - 1][local28];
+                                local153 = Static334.activeTiles[local25][local137 - 1][local28];
                             }
-                            for (local153 = Static334.aClass291ArrayArrayArray1[local25][local92 + 1][local28]; local139 < Static619.anInt1566 && local153 != null && local153.aShort83 < 0 && local101.aShort83 == local153.aShort83 && local101.aShort85 == local153.aShort85 && Static706.aGroundArray3[local25].getHeight(local28, local139 + 1) == local161 && (local139 + 1 >= Static619.anInt1566 || local161 == Static706.aGroundArray3[local25].getHeight(local28, local139 + 2)); local153 = Static334.aClass291ArrayArrayArray1[local25][local139 + 1][local28]) {
+                            for (local153 = Static334.activeTiles[local25][local92 + 1][local28]; local139 < Static619.anInt1566 && local153 != null && local153.aShort83 < 0 && local101.aShort83 == local153.aShort83 && local101.aShort85 == local153.aShort85 && Static706.aGroundArray3[local25].getHeight(local28, local139 + 1) == local161 && (local139 + 1 >= Static619.anInt1566 || local161 == Static706.aGroundArray3[local25].getHeight(local28, local139 + 2)); local153 = Static334.activeTiles[local25][local139 + 1][local28]) {
                                 local139++;
                             }
                             local328 = local25 + 1 - local25;
@@ -118,7 +118,7 @@ public final class Static416 {
                             Static607.aClass75Array4[Static444.anInt6751++] = new Class75(2, local25, local379, local383, local383, local379, local343, local367, local375, local350, local389 + local101.aShort85, local101.aShort85 + local389, local101.aShort85 + local389, local101.aShort85 + local389);
                             for (local428 = local25; local428 <= local25; local428++) {
                                 for (local431 = local137; local431 <= local139; local431++) {
-                                    Static334.aClass291ArrayArrayArray1[local428][local431][local28].aShort83 = (short) (Static334.aClass291ArrayArrayArray1[local428][local431][local28].aShort83 * -1);
+                                    Static334.activeTiles[local428][local431][local28].aShort83 = (short) (Static334.activeTiles[local428][local431][local28].aShort83 * -1);
                                 }
                             }
                         }

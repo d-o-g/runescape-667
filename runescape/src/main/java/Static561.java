@@ -23,15 +23,15 @@ public final class Static561 {
         @Pc(5) boolean local5 = true;
         @Pc(11) Location local11 = (Location) Static302.getWall(arg2, arg0, arg1);
         if (local11 != null) {
-            local5 = Static449.method6118(local11) & true;
+            local5 = Static449.hasMsi(local11) & true;
         }
         local11 = (Location) Static578.getEntity(arg2, arg0, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
         if (local11 != null) {
-            local5 &= Static449.method6118(local11);
+            local5 &= Static449.hasMsi(local11);
         }
         local11 = (Location) Static687.method8959(arg2, arg0, arg1);
         if (local11 != null) {
-            local5 &= Static449.method6118(local11);
+            local5 &= Static449.hasMsi(local11);
         }
         return local5;
     }

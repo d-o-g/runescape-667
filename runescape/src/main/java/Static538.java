@@ -8,9 +8,6 @@ import java.awt.Canvas;
 
 public final class Static538 {
 
-    @OriginalMember(owner = "client!qv", name = "e", descriptor = "[Lclient!pp;")
-    public static Class8_Sub4_Sub2_Sub1[] aClass8_Sub4_Sub2_Sub1Array2;
-
     @OriginalMember(owner = "client!qv", name = "f", descriptor = "F")
     public static float aFloat174;
 

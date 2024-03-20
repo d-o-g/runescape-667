@@ -14,7 +14,7 @@ public final class Static168 {
     public static int anInt2842;
 
     @OriginalMember(owner = "client!fda", name = "c", descriptor = "Lclient!fla;")
-    public static final Class130 aClass130_5 = new Class130();
+    public static final EntityList A_ENTITY_LIST___5 = new EntityList();
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(Lclient!rka;I)V")
     public static void method2633(@OriginalArg(0) Node_Sub21_Sub2 arg0) {

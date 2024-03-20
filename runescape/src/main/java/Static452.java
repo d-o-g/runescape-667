@@ -38,8 +38,8 @@ public final class Static452 {
 
     @OriginalMember(owner = "client!oea", name = "a", descriptor = "(Lclient!c;BILclient!ha;II)V")
     public static void method6173(@OriginalArg(0) LocType arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Toolkit arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        @Pc(9) Class173 local9 = Static720.aClass363_4.method8362(arg0.msi);
-        if (local9.anInt4167 == -1) {
+        @Pc(9) MSIType local9 = Static720.aMSITypeList_4.list(arg0.msi);
+        if (local9.image == -1) {
             return;
         }
         if (arg0.msiRotate) {
@@ -48,7 +48,7 @@ public final class Static452 {
         } else {
             arg1 = 0;
         }
-        @Pc(39) Sprite local39 = local9.method3689(arg1, arg2, arg0.msiFlip);
+        @Pc(39) Sprite local39 = local9.sprite(arg1, arg2, arg0.msiFlip);
         if (local39 == null) {
             return;
         }
@@ -60,7 +60,7 @@ public final class Static452 {
         }
         @Pc(72) int local72 = local39.scaleWidth();
         @Pc(75) int local75 = local39.scaleHeight();
-        if (local9.aBoolean329) {
+        if (local9.enlarge) {
             local75 = local49 * 4;
             local72 = local46 * 4;
         }

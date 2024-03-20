@@ -100,7 +100,7 @@ public final class Static719 {
             }
             Static30.method5067(arg0, Static30.anInt5641 >> 2 << 10, Static30.anInt5642 >> 1);
             Static30.aClass246_3.method5583(1024, 256);
-            Static30.aClass363_3.method8365(256, 256);
+            Static30.aMSITypeList_3.setCache(256, 256);
             Static30.aLocTypeList_3.setRecentUse(4096);
             Static529.aClass161_1.method3420(256);
             Static273.anInt4403 = 20;

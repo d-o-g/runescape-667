@@ -1,6 +1,6 @@
 import com.jagex.game.PlayerModel;
-import com.jagex.game.runetek6.config.emittertype.MeshEmitterTypeList;
-import com.jagex.game.runetek6.config.magnettype.MeshMagnetTypeList;
+import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
+import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -43,7 +43,7 @@ public final class Static352 {
         Static628.aClass342_5.method7783();
         Static648.aClass17_1.method269();
         Static574.aBASTypeList_2.cacheReset();
-        Static720.aClass363_4.method8361();
+        Static720.aMSITypeList_4.cacheReset();
         Static577.aClass246_4.method5586();
         Static272.aClass45_1.method1098();
         Static523.instance.cacheReset();
@@ -66,8 +66,8 @@ public final class Static352 {
         Static157.method2560();
         Static584.method7666();
         Static367.method5267();
-        MeshEmitterTypeList.cacheReset();
-        MeshMagnetTypeList.cacheReset();
+        ParticleEmitterTypeList.cacheReset();
+        ParticleEffectorTypeList.cacheReset();
         Static472.A_WEIGHTED_CACHE___156.reset();
         Static163.activeToolkit.method8012();
         Static269.method3909();
@@ -80,7 +80,7 @@ public final class Static352 {
         Static93.aJs5_16.discardUnpacked();
         Static398.aJs5_81.discardUnpacked();
         Static190.aJs5_38.discardUnpacked();
-        Static721.aJs5_128.discardUnpacked();
+        js5.SPRITES.discardUnpacked();
         Static534.aJs5_104.discardUnpacked();
         Static463.aJs5_93.discardUnpacked();
         Static340.aJs5_69.discardUnpacked();
@@ -99,7 +99,7 @@ public final class Static352 {
         Static58.aJs5_12.discardUnpacked();
         Static244.aJs5_55.discardUnpacked();
         Static199.aJs5_42.discardUnpacked();
-        Static88.aJs5_14.discardUnpacked();
+        js5.CONFIG_PARTICLE.discardUnpacked();
         js5.DEFAULTS.discardUnpacked();
         Static504.aJs5_95.discardUnpacked();
         Static140.aJs5_24.discardUnpacked();

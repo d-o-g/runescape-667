@@ -1,3 +1,4 @@
+import com.jagex.ChangeLocationRequest;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -8,8 +9,8 @@ public final class Static197 {
 
     @OriginalMember(owner = "client!gba", name = "a", descriptor = "(Z)V")
     public static void method2949() {
-        @Pc(8) Node_Sub25 local8;
-        for (local8 = (Node_Sub25) Static159.aDeque_15.first(); local8 != null; local8 = (Node_Sub25) Static159.aDeque_15.next()) {
+        @Pc(8) ChangeLocationRequest local8;
+        for (local8 = (ChangeLocationRequest) Static159.aDeque_15.first(); local8 != null; local8 = (ChangeLocationRequest) Static159.aDeque_15.next()) {
             if (local8.aBoolean309) {
                 local8.remove();
             } else {
@@ -19,7 +20,7 @@ public final class Static197 {
                 }
             }
         }
-        for (local8 = (Node_Sub25) Static227.aDeque_18.first(); local8 != null; local8 = (Node_Sub25) Static227.aDeque_18.next()) {
+        for (local8 = (ChangeLocationRequest) Static227.aDeque_18.first(); local8 != null; local8 = (ChangeLocationRequest) Static227.aDeque_18.next()) {
             if (local8.aBoolean309) {
                 local8.remove();
             } else {

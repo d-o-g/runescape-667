@@ -58,7 +58,7 @@ public final class Static460 {
             Static566.A_LOADING_REQUIREMENT___18.method7470(new Class137(Static233.aJs5_52));
             Static566.A_LOADING_REQUIREMENT___19.method7470(new Class137(Static58.aJs5_12));
             Static566.A_LOADING_REQUIREMENT___20.method7470(new Class137(Static244.aJs5_55));
-            Static566.A_LOADING_REQUIREMENT___21.method7470(new Class137(Static88.aJs5_14));
+            Static566.A_LOADING_REQUIREMENT___21.method7470(new Class137(js5.CONFIG_PARTICLE));
             Static566.A_LOADING_REQUIREMENT___22.method7470(new Class137(Static140.aJs5_24));
             Static566.A_LOADING_REQUIREMENT___23.method7470(new Class288(Static463.aJs5_93, "huffman"));
             Static566.A_LOADING_REQUIREMENT___24.method7470(new Class137(Static554.aJs5_105));

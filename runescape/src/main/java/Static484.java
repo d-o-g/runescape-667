@@ -161,7 +161,7 @@ public final class Static484 {
                                 local730 = (Location) Static114.getWallDecor(local216, local211, local214);
                             }
                             if (local730 != null) {
-                                @Pc(776) LocType local776 = Static354.aLocTypeList_4.list(local730.getId(-32136));
+                                @Pc(776) LocType local776 = Static354.aLocTypeList_4.list(local730.getId());
                                 if (!local776.members || Static174.aBoolean249) {
                                     local238 = local776.mapElement;
                                     if (local776.multiLocs != null) {

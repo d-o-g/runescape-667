@@ -52,8 +52,8 @@ public final class Static668 {
             Static30.aClass246_3.method5586();
             Static30.aClass246_3.method5583(128, 64);
         }
-        if (Static30.aClass363_3 != null) {
-            Static30.aClass363_3.method8365(64, 64);
+        if (Static30.aMSITypeList_3 != null) {
+            Static30.aMSITypeList_3.setCache(64, 64);
         }
         if (Static30.aLocTypeList_3 != null) {
             Static30.aLocTypeList_3.setRecentUse(64);

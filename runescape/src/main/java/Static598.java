@@ -36,7 +36,7 @@ public final class Static598 {
             if (local18.method6603()) {
                 local13.remove();
                 local18.method6600();
-            } else if (Static334.aClass291ArrayArrayArray1 != null && local18.method6595()) {
+            } else if (Static334.activeTiles != null && local18.method6595()) {
                 Static102.method2026(local18, true);
             }
         }

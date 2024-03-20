@@ -15,7 +15,7 @@ import java.io.IOException;
 public final class Static720 {
 
     @OriginalMember(owner = "client!wr", name = "s", descriptor = "Lclient!u;")
-    public static Class363 aClass363_4;
+    public static MSITypeList aMSITypeList_4;
 
     @OriginalMember(owner = "client!wr", name = "n", descriptor = "I")
     public static int mapWidth = 104;

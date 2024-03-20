@@ -18,11 +18,11 @@ public final class js5 {
     @OriginalMember(owner = "client!pfa", name = "v", descriptor = "Z")
     public static final boolean REPORT_INVALID_IDS = false;
 
-    @OriginalMember(owner = "client!jq", name = "g", descriptor = "Lclient!sb;")
-    public static js5 MAGNETS;
+    @OriginalMember(owner = "client!ws", name = "I", descriptor = "Lclient!sb;")
+    public static js5 SPRITES; // 8
 
-    @OriginalMember(owner = "client!mt", name = "O", descriptor = "Lclient!sb;")
-    public static js5 EMITTERS;
+    @OriginalMember(owner = "client!co", name = "t", descriptor = "Lclient!sb;")
+    public static js5 CONFIG_PARTICLE;
 
     @OriginalMember(owner = "client!kka", name = "c", descriptor = "Lclient!sb;")
     public static js5 DEFAULTS; // 28

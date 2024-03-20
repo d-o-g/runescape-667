@@ -16,9 +16,6 @@ public final class Static600 {
     @OriginalMember(owner = "client!sv", name = "V", descriptor = "Lclient!ss;")
     public static final Class345 aClass345_108 = new Class345(37, -1);
 
-    @OriginalMember(owner = "client!sv", name = "L", descriptor = "I")
-    public static int anInt8880 = 0;
-
     @OriginalMember(owner = "client!sv", name = "a", descriptor = "(BLjava/io/File;I)[B")
     public static byte[] method7864(@OriginalArg(1) File arg0, @OriginalArg(2) int arg1) {
         try {

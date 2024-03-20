@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!fla")
-public final class Class130 {
+public final class EntityList {
 
     @OriginalMember(owner = "client!fla", name = "f", descriptor = "Lclient!ep;")
     public Entity aEntity_28;
@@ -14,7 +14,7 @@ public final class Class130 {
     public final Entity aEntity_27 = new Entity();
 
     @OriginalMember(owner = "client!fla", name = "<init>", descriptor = "()V")
-    public Class130() {
+    public EntityList() {
         this.aEntity_27.aEntity_67 = this.aEntity_27;
         this.aEntity_27.aEntity_68 = this.aEntity_27;
     }

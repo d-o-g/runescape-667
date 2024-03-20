@@ -9,7 +9,7 @@ public final class Static129 {
     public static int anInt2406;
 
     @OriginalMember(owner = "client!eaa", name = "w", descriptor = "Lclient!fla;")
-    public static final Class130 aClass130_3 = new Class130();
+    public static final EntityList A_ENTITY_LIST___3 = new EntityList();
 
     @OriginalMember(owner = "client!eaa", name = "o", descriptor = "I")
     public static int anInt2409 = -1;

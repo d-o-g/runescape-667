@@ -1,3 +1,4 @@
+import com.jagex.ChangeLocationRequest;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -115,15 +116,15 @@ public final class Static684 {
                 local453.anInt6369 -= local109 * 512;
             }
         }
-        @Pc(485) Node_Sub25 local485;
-        for (local485 = (Node_Sub25) Static159.aDeque_15.first(); local485 != null; local485 = (Node_Sub25) Static159.aDeque_15.next()) {
+        @Pc(485) ChangeLocationRequest local485;
+        for (local485 = (ChangeLocationRequest) Static159.aDeque_15.first(); local485 != null; local485 = (ChangeLocationRequest) Static159.aDeque_15.next()) {
             local485.anInt4016 -= local109;
             local485.anInt4006 -= local113;
             if (Static117.anInt2282 != 4 && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
                 local485.remove();
             }
         }
-        for (local485 = (Node_Sub25) Static227.aDeque_18.first(); local485 != null; local485 = (Node_Sub25) Static227.aDeque_18.next()) {
+        for (local485 = (ChangeLocationRequest) Static227.aDeque_18.first(); local485 != null; local485 = (ChangeLocationRequest) Static227.aDeque_18.next()) {
             local485.anInt4006 -= local113;
             local485.anInt4016 -= local109;
             if (Static117.anInt2282 != 4 && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
@@ -170,7 +171,7 @@ public final class Static684 {
         Static244.method3512();
         Static346.A_HASH_TABLE___29.clear();
         Static505.A_DEQUE___77.clear();
-        Static422.aClass130_9.method2789();
+        Static422.A_ENTITY_LIST___9.method2789();
         Static105.method2044();
     }
 }

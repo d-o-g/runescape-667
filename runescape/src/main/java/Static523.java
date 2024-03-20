@@ -13,6 +13,7 @@ import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
+import com.jagex.js5.Js5Archive;
 import com.jagex.js5.Js5MasterIndex;
 import com.jagex.js5.js5;
 import jagex3.jagmisc.jagmisc;
@@ -165,7 +166,7 @@ public final class Static523 {
             }
         }
         if (Static473.aClass140_22 == Static198.aClass140_8) {
-            Static721.aJs5_128 = client.load(false, 8, 1);
+            js5.SPRITES = client.load(false, 8, 1);
             Static344.aJs5_73 = client.load(false, 0, 1);
             Static142.aJs5_25 = client.load(false, 1, 1);
             Static6.aJs5_1 = client.load(false, 2, 1);
@@ -191,8 +192,8 @@ public final class Static523 {
             Static58.aJs5_12 = client.load(false, 24, 1);
             Static244.aJs5_55 = client.load(false, 25, 1);
             Static199.aJs5_42 = client.load(true, 26, 1);
-            Static88.aJs5_14 = client.load(false, 27, 1);
-            js5.DEFAULTS = client.load(true, 28, 1);
+            js5.CONFIG_PARTICLE = client.load(false, Js5Archive.CONFIG_PARTICLE, 1);
+            js5.DEFAULTS = client.load(true, Js5Archive.DEFAULTS, 1);
             Static140.aJs5_24 = client.load(false, 29, 1);
             Static504.aJs5_95 = client.load(true, 35, 1);
             Static614.aJs5_114 = client.load(true, 30, 1);
@@ -212,8 +213,8 @@ public final class Static523 {
                 }
                 return (local12 - Static669.anInt9996) * 100 / (100 - Static669.anInt9996);
             }
-            Static204.method3079(Static721.aJs5_128);
-            Static82.method1592(Static697.aJs5_123, Static721.aJs5_128, Static52.method1159());
+            Static204.method3079(js5.SPRITES);
+            Static82.method1592(Static697.aJs5_123, js5.SPRITES, Static52.method1159());
         }
         if (Static473.aClass140_22 == Static198.aClass140_10) {
             @Pc(746) byte[] local746 = js5.DEFAULTS.getfile(4);
@@ -242,20 +243,20 @@ public final class Static523 {
             if (graphicsDefaults.profilingModel != -1 && !Static190.aJs5_38.requestdownload(0, graphicsDefaults.profilingModel)) {
                 return 99;
             }
-            Static56.anTextureSource_3 = new Class303(Static199.aJs5_42, Static534.aJs5_104, Static721.aJs5_128);
+            Static56.anTextureSource_3 = new Class303(Static199.aJs5_42, Static534.aJs5_104, js5.SPRITES);
             instance = new ParamTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static574.aBASTypeList_2 = new BASTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, wearposDefaults);
-            Static354.aClass267_1 = new Class267(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
+            Static354.aClass267_1 = new Class267(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, js5.SPRITES);
             Static619.aClass387_2 = new Class387(Static392.aModeGame_4, Static51.anInt1052, Static20.aJs5_3);
             Static467.aClass96_3 = new Class96(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static540.aClass79_6 = new Class79(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static561.aClass220_2 = new Class220(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
+            Static561.aClass220_2 = new Class220(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, js5.SPRITES);
             Static68.aIDKTypeList_3 = new IDKTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static190.aJs5_38);
             Static503.aClass335_1 = new Class335(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static48.aClass384_1 = new Class384(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static354.aLocTypeList_4 = new LocTypeList(Static392.aModeGame_4, Static51.anInt1052, true, Static459.aJs5_91, Static190.aJs5_38);
-            Static577.aClass246_4 = new Class246(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
-            Static720.aClass363_4 = new Class363(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
+            Static577.aClass246_4 = new Class246(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, js5.SPRITES);
+            Static720.aMSITypeList_4 = new MSITypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, js5.SPRITES);
             Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aModeGame_4, Static51.anInt1052, true, Static333.aJs5_66, Static190.aJs5_38);
             Static419.aObjTypeList_1 = new ObjTypeList(Static392.aModeGame_4, Static51.anInt1052, true, instance, Static380.aJs5_79, Static190.aJs5_38);
             Static272.aClass45_1 = new Class45(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
@@ -270,7 +271,7 @@ public final class Static523 {
             Static36.aClass260_1 = new Class260(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static628.aClass342_5 = new Class342(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static648.aClass17_1 = new Class17(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static444.method5987(Static554.aJs5_105, Static697.aJs5_123, Static721.aJs5_128, Static190.aJs5_38);
+            Static444.method5987(Static554.aJs5_105, Static697.aJs5_123, js5.SPRITES, Static190.aJs5_38);
             Static110.method2081(Static140.aJs5_24);
             Static68.aClass151_3 = new Class151(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55);
             Static288.aClass139_2 = new Class139(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55, new Class251());
@@ -279,7 +280,7 @@ public final class Static523 {
             Static34.aClass304_1 = new Class304();
             Static296.updateFeatureMask();
             Static44.method1074(Static25.aSeqTypeList_1);
-            Static187.method2844(Static88.aJs5_14);
+            ParticleManager.init(js5.CONFIG_PARTICLE);
             Static405.method5592(Static56.anTextureSource_3, Static190.aJs5_38);
             @Pc(1119) Class197 local1119 = new Class197(Static463.aJs5_93.getfile("huffman", ""));
             Static342.method4462(local1119);
@@ -291,14 +292,14 @@ public final class Static523 {
             Static292.aClass2_Sub43_2 = new Node_Sub43(true, SignLink.instance);
         }
         if (Static198.aClass140_15 == Static473.aClass140_22) {
-            local12 = Static188.method2860(Static721.aJs5_128) + Static372.method5291(true);
+            local12 = Static188.method2860(js5.SPRITES) + Static372.method5291(true);
             local74 = Static688.method8974() + Static714.method9339();
             if (local12 < local74) {
                 return local12 * 100 / local74;
             }
         }
         if (Static198.aClass140_16 == Static473.aClass140_22) {
-            Static30.method5065(Static120.aJs5_19, Static467.aClass96_3, Static540.aClass79_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aClass363_4, Static34.aClass304_1);
+            Static30.method5065(Static120.aJs5_19, Static467.aClass96_3, Static540.aClass79_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aMSITypeList_4, Static34.aClass304_1);
         }
         if (Static198.aClass140_17 == Static473.aClass140_22) {
             Static37.aStringArray4 = new String[Static718.aClass176_1.anInt4266];
@@ -314,7 +315,7 @@ public final class Static523 {
             Static218.method3189();
             Static93.aJs5_16.clearNames(false, true);
             Static398.aJs5_81.clearNames(true, true);
-            Static721.aJs5_128.clearNames(true, true);
+            js5.SPRITES.clearNames(true, true);
             Static697.aJs5_123.clearNames(true, true);
             Static463.aJs5_93.clearNames(true, true);
             Static6.aJs5_1.discardunpacked = 2;
@@ -333,7 +334,7 @@ public final class Static523 {
             local184 = true;
             for (local74 = 0; local74 < Static453.aClass158ArrayArray2[graphicsDefaults.login_interface].length; local74++) {
                 @Pc(1315) Class158 local1315 = Static453.aClass158ArrayArray2[graphicsDefaults.login_interface][local74];
-                if (local1315.anInt3820 == 5 && local1315.anInt3810 != -1 && !Static721.aJs5_128.requestdownload(0, local1315.anInt3810)) {
+                if (local1315.anInt3820 == 5 && local1315.anInt3810 != -1 && !js5.SPRITES.requestdownload(0, local1315.anInt3810)) {
                     local184 = false;
                 }
             }
@@ -374,7 +375,7 @@ public final class Static523 {
             Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
             Static570.method7549(Static163.activeToolkit);
             Static469.method6358(Static163.activeToolkit);
-            Static239.method3472(Static721.aJs5_128, Static163.activeToolkit);
+            Static239.method3472(js5.SPRITES, Static163.activeToolkit);
             Static331.method4925(Static679.aSpriteArray14);
         }
         return Static694.method9030();

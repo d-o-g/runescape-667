@@ -8,9 +8,6 @@ public final class Static349 {
     @OriginalMember(owner = "client!kw", name = "r", descriptor = "[I")
     public static int[] anIntArray426;
 
-    @OriginalMember(owner = "client!kw", name = "y", descriptor = "I")
-    public static int anInt5693 = 0;
-
     @OriginalMember(owner = "client!kw", name = "u", descriptor = "[C")
     public static final char[] aCharArray6 = new char[]{'[', ']', '#'};
 

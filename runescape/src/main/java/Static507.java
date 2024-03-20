@@ -16,9 +16,6 @@ public final class Static507 {
     @OriginalMember(owner = "client!pw", name = "q", descriptor = "[I")
     public static final int[] anIntArray610 = new int[4096];
 
-    @OriginalMember(owner = "client!pw", name = "G", descriptor = "I")
-    public static int anInt7618 = 2;
-
     @OriginalMember(owner = "client!pw", name = "a", descriptor = "(ZIIILclient!hda;)V")
     public static void method6743(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Class158 arg3) {
         @Pc(6) int local6 = arg3.anInt3802;

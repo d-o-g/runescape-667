@@ -50,9 +50,9 @@ public final class IndexedImage {
         }
 
         for (@Pc(114) int i = 0; i < count; i++) {
-            @Pc(119) IndexedImage local119 = images[i];
-            local119.offX2 = scaleWidth - local119.width - local119.offX1;
-            local119.offY2 = scaleHeight - local119.height - local119.offY1;
+            @Pc(119) IndexedImage image = images[i];
+            image.offX2 = scaleWidth - image.width - image.offX1;
+            image.offY2 = scaleHeight - image.height - image.offY1;
         }
 
         packet.pos = data.length - (count * 8) - ((paletteSize - 1) * 3) - 7;
@@ -115,7 +115,7 @@ public final class IndexedImage {
                 if (oblong) {
                     for (@Pc(227) int x = 0; x < image.width; x++) {
                         for (@Pc(245) int y = 0; y < image.height; y++) {
-                            image.raster[x + y * image.width] = packet.g1b();
+                            image.raster[x + (y * image.width)] = packet.g1b();
                         }
                     }
                 } else {
@@ -457,36 +457,38 @@ public final class IndexedImage {
 
     @OriginalMember(owner = "client!wp", name = "g", descriptor = "()V")
     public void method9386() {
-        @Pc(6) byte[] local6 = new byte[this.width * this.height];
-        @Pc(8) int local8 = 0;
-        @Pc(13) int local13;
-        @Pc(19) int local19;
+        @Pc(6) byte[] raster = new byte[this.width * this.height];
+        @Pc(8) int pixel = 0;
+
         if (this.alpha == null) {
-            for (local13 = 0; local13 < this.width; local13++) {
-                for (local19 = this.height - 1; local19 >= 0; local19--) {
-                    local6[local8++] = this.raster[local13 + local19 * this.width];
+            for (@Pc(13) int x = 0; x < this.width; x++) {
+                for (@Pc(19) int y = this.height - 1; y >= 0; y--) {
+                    raster[pixel++] = this.raster[x + (y * this.width)];
                 }
             }
-            this.raster = local6;
+
+            this.raster = raster;
         } else {
-            @Pc(52) byte[] local52 = new byte[this.width * this.height];
-            for (local19 = 0; local19 < this.width; local19++) {
-                for (@Pc(60) int local60 = this.height - 1; local60 >= 0; local60--) {
-                    local6[local8] = this.raster[local19 + local60 * this.width];
-                    local52[local8++] = this.alpha[local19 + local60 * this.width];
+            @Pc(52) byte[] alpha = new byte[this.width * this.height];
+            for (@Pc(19) int x = 0; x < this.width; x++) {
+                for (@Pc(60) int y = this.height - 1; y >= 0; y--) {
+                    raster[pixel] = this.raster[x + (y * this.width)];
+                    alpha[pixel++] = this.alpha[x + (y * this.width)];
                 }
             }
-            this.raster = local6;
-            this.alpha = local52;
+
+            this.raster = raster;
+            this.alpha = alpha;
         }
-        local13 = this.offY1;
+
+        @Pc(13) int temp = this.offY1;
         this.offY1 = this.offX1;
         this.offX1 = this.offY2;
         this.offY2 = this.offX2;
         this.offX2 = this.offY1;
-        local13 = this.height;
+        temp = this.height;
         this.height = this.width;
-        this.width = local13;
+        this.width = temp;
     }
 
     @OriginalMember(owner = "client!wp", name = "d", descriptor = "()V")

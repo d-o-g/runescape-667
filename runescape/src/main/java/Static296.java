@@ -1,3 +1,4 @@
+import com.jagex.ChangeLocationRequest;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.js5.js5;
@@ -18,23 +19,23 @@ public final class Static296 {
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(Lclient!gp;BIIII)V")
     public static void method4361(@OriginalArg(0) LocTypeCustomisation arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        @Pc(15) Node_Sub25 local15 = null;
-        for (@Pc(20) Node_Sub25 local20 = (Node_Sub25) Static227.aDeque_18.first(); local20 != null; local20 = (Node_Sub25) Static227.aDeque_18.next()) {
-            if (local20.anInt4010 == arg1 && local20.anInt4016 == arg3 && local20.anInt4006 == arg4 && arg2 == local20.anInt4011) {
+        @Pc(15) ChangeLocationRequest local15 = null;
+        for (@Pc(20) ChangeLocationRequest local20 = (ChangeLocationRequest) Static227.aDeque_18.first(); local20 != null; local20 = (ChangeLocationRequest) Static227.aDeque_18.next()) {
+            if (local20.anInt4010 == arg1 && local20.anInt4016 == arg3 && local20.anInt4006 == arg4 && arg2 == local20.layer) {
                 local15 = local20;
                 break;
             }
         }
         if (local15 == null) {
-            local15 = new Node_Sub25();
+            local15 = new ChangeLocationRequest();
             local15.anInt4010 = arg1;
             local15.anInt4016 = arg3;
             local15.anInt4006 = arg4;
-            local15.anInt4011 = arg2;
+            local15.layer = arg2;
             Static227.aDeque_18.addLast(local15);
         }
         local15.aBoolean309 = false;
-        local15.aLocTypeCustomisation_1 = arg0;
+        local15.customisation = arg0;
         local15.aBoolean310 = true;
     }
 

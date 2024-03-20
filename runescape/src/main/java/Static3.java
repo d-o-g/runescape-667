@@ -15,8 +15,8 @@ public final class Static3 {
         Static296.anInt4792 = arg0;
         for (@Pc(3) int local3 = 0; local3 < Static619.anInt1566; local3++) {
             for (@Pc(6) int local6 = 0; local6 < Static662.anInt9843; local6++) {
-                if (Static334.aClass291ArrayArrayArray1[arg0][local3][local6] == null) {
-                    Static334.aClass291ArrayArrayArray1[arg0][local3][local6] = new Class291(arg0);
+                if (Static334.activeTiles[arg0][local3][local6] == null) {
+                    Static334.activeTiles[arg0][local3][local6] = new Class291(arg0);
                 }
             }
         }

@@ -1,5 +1,3 @@
-import com.jagex.js5.js5;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -52,16 +50,4 @@ public final class Static187 {
         Static675.aLong307 = 0L;
     }
 
-    @OriginalMember(owner = "client!fp", name = "a", descriptor = "(Lclient!sb;I)V")
-    public static void method2844(@OriginalArg(0) js5 arg0) {
-        Static559.anInt8410 = 0;
-        Static600.anInt8880 = 0;
-        Static342.aClass130_7 = new Class130();
-        Static538.aClass8_Sub4_Sub2_Sub1Array2 = new Class8_Sub4_Sub2_Sub1[1024];
-        Static81.aClass8_Sub5Array1 = new Class8_Sub5[Static190.anIntArray265[Static507.anInt7618] + 1];
-        Static349.anInt5693 = 0;
-        Static295.anInt4781 = 0;
-        Static703.method9169(arg0);
-        Static514.method6792(arg0);
-    }
 }

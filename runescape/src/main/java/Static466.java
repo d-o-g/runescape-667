@@ -151,7 +151,7 @@ public final class Static466 {
                     local395 = local252;
                     local388 = local393;
                 }
-                @Pc(451) Class130 local451 = Static10.aClass213_1.aClass130_8;
+                @Pc(451) EntityList local451 = Static10.aClass213_1.aEntityList_8;
                 @Pc(465) int local465;
                 for (@Pc(456) Class8_Sub7 local456 = (Class8_Sub7) local451.method2790(); local456 != null; local456 = (Class8_Sub7) local451.method2785()) {
                     @Pc(461) PickingCylinder[] local461 = local456.aPickingCylinderArray1;

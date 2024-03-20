@@ -48,7 +48,7 @@ public final class Static563 {
         }
         Static420.aClass291ArrayArrayArray2 = null;
         Static693.aGroundArray2 = null;
-        Static334.aClass291ArrayArrayArray1 = null;
+        Static334.activeTiles = null;
         Static246.activeGround = null;
         Static258.aBooleanArrayArray3 = null;
         Static142.aBooleanArrayArray1 = null;

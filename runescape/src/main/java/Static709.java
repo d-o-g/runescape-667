@@ -269,7 +269,7 @@ public final class Static709 {
             Static405.aClass153_2.method3275(local179);
             Static503.aBoolean578 = true;
         }
-        if (Static334.aClass291ArrayArrayArray1 != null) {
+        if (Static334.activeTiles != null) {
             if (Static511.anInt7645 == 2) {
                 Static592.method7761();
             } else if (Static511.anInt7645 == 3) {
@@ -557,7 +557,7 @@ public final class Static709 {
                                             if (Static624.aBoolean727 && Static98.aLong71 < SystemTimer.safetime() - 60000L) {
                                                 Static266.method6777();
                                             }
-                                            for (@Pc(2281) Class8_Sub4_Sub1 local2281 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2790(); local2281 != null; local2281 = (Class8_Sub4_Sub1) Static168.aClass130_5.method2785()) {
+                                            for (@Pc(2281) Class8_Sub4_Sub1 local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.method2790(); local2281 != null; local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.method2785()) {
                                                 if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.anInt6433) {
                                                     if (local2281.aShort74 > 0) {
                                                         Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGIN.localise(Static51.anInt1052), "", 0, "", "", 5);

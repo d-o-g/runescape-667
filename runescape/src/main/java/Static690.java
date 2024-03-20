@@ -1,4 +1,5 @@
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
+import com.jagex.graphics.particles.ParticleLimits;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -18,10 +19,10 @@ public final class Static690 {
         if (arg0 < 0 || arg0 > 2) {
             arg0 = 0;
         }
-        Static507.anInt7618 = arg0;
-        Static81.aClass8_Sub5Array1 = new Class8_Sub5[Static190.anIntArray265[Static507.anInt7618] + 1];
-        Static295.anInt4781 = 0;
-        Static349.anInt5693 = 0;
+        ParticleManager.setting = arg0;
+        ParticleManager.systemCache = new ParticleSystem[ParticleLimits.anIntArray265[ParticleManager.setting] + 1];
+        ParticleManager.systemNextPtr = 0;
+        ParticleManager.systemFreePtr = 0;
     }
 
     @OriginalMember(owner = "client!vr", name = "a", descriptor = "(Z)Ljava/lang/String;")

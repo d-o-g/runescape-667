@@ -9,9 +9,9 @@ public final class Static646 {
 
     @OriginalMember(owner = "client!uga", name = "a", descriptor = "(II)V")
     public static void method8453(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(7) Class291 local7 = Static334.aClass291ArrayArrayArray1[0][arg0][arg1];
+        @Pc(7) Class291 local7 = Static334.activeTiles[0][arg0][arg1];
         for (@Pc(9) int local9 = 0; local9 < 3; local9++) {
-            @Pc(28) Class291 local28 = Static334.aClass291ArrayArrayArray1[local9][arg0][arg1] = Static334.aClass291ArrayArrayArray1[local9 + 1][arg0][arg1];
+            @Pc(28) Class291 local28 = Static334.activeTiles[local9][arg0][arg1] = Static334.activeTiles[local9 + 1][arg0][arg1];
             if (local28 != null) {
                 for (@Pc(33) Class286 local33 = local28.aClass286_2; local33 != null; local33 = local33.aClass286_1) {
                     @Pc(37) PositionEntity local37 = local33.aPositionEntity;
@@ -36,12 +36,12 @@ public final class Static646 {
                 }
             }
         }
-        if (Static334.aClass291ArrayArrayArray1[0][arg0][arg1] == null) {
-            Static334.aClass291ArrayArrayArray1[0][arg0][arg1] = new Class291(0);
-            Static334.aClass291ArrayArrayArray1[0][arg0][arg1].aByte116 = 1;
+        if (Static334.activeTiles[0][arg0][arg1] == null) {
+            Static334.activeTiles[0][arg0][arg1] = new Class291(0);
+            Static334.activeTiles[0][arg0][arg1].aByte116 = 1;
         }
-        Static334.aClass291ArrayArrayArray1[0][arg0][arg1].aClass291_1 = local7;
-        Static334.aClass291ArrayArrayArray1[3][arg0][arg1] = null;
+        Static334.activeTiles[0][arg0][arg1].aClass291_1 = local7;
+        Static334.activeTiles[3][arg0][arg1] = null;
     }
 
     @OriginalMember(owner = "client!uga", name = "a", descriptor = "(Lclient!hda;III)V")

@@ -497,7 +497,7 @@ public final class MapRegion extends Class306 {
 
                 decor = staticDecor;
 
-                if (staticDecor.castsShadow(-19717)) {
+                if (staticDecor.castsShadow()) {
                     staticDecor.addShadow(toolkit);
                 }
             } else {
@@ -525,7 +525,7 @@ public final class MapRegion extends Class306 {
             }
 
             if (Static102.method2026(loc, false)) {
-                if (staticLoc != null && staticLoc.castsShadow(-19717)) {
+                if (staticLoc != null && staticLoc.castsShadow()) {
                     staticLoc.addShadow(toolkit);
                 }
 
@@ -552,7 +552,7 @@ public final class MapRegion extends Class306 {
             if (isStatic) {
                 staticLoc = new StaticLocation(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, x, x + locWidth - 1, z, z + locLength - 1, shape, rotation, local204);
 
-                if (staticLoc.castsShadow(-19717)) {
+                if (staticLoc.castsShadow()) {
                     staticLoc.addShadow(toolkit);
                 }
 
@@ -583,7 +583,7 @@ public final class MapRegion extends Class306 {
                 @Pc(772) StaticWall staticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, local204);
                 wall = staticWall;
 
-                if (staticWall.castsShadow(-19717)) {
+                if (staticWall.castsShadow()) {
                     staticWall.addShadow(toolkit);
                 }
             } else {
@@ -645,7 +645,7 @@ public final class MapRegion extends Class306 {
                 staticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, local204);
                 wall = staticWall;
 
-                if (staticWall.castsShadow(-19717)) {
+                if (staticWall.castsShadow()) {
                     staticWall.addShadow(toolkit);
                 }
             } else {
@@ -679,13 +679,13 @@ public final class MapRegion extends Class306 {
                 @Pc(1267) StaticWall staticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation + 4, local204);
                 @Pc(1283) StaticWall adjacentStaticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation90, local204);
 
-                if (staticWall.castsShadow(-19717)) {
+                if (staticWall.castsShadow()) {
                     staticWall.addShadow(toolkit);
                 }
 
                 adjacentWall = adjacentStaticWall;
 
-                if (adjacentStaticWall.castsShadow(-19717)) {
+                if (adjacentStaticWall.castsShadow()) {
                     adjacentStaticWall.addShadow(toolkit);
                 }
 
@@ -727,7 +727,7 @@ public final class MapRegion extends Class306 {
             if (isStatic) {
                 @Pc(1096) StaticWall staticWall = new StaticWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, local204);
 
-                if (staticWall.castsShadow(-19717)) {
+                if (staticWall.castsShadow()) {
                     staticWall.addShadow(toolkit);
                 }
 
@@ -759,7 +759,7 @@ public final class MapRegion extends Class306 {
             if (isStatic) {
                 @Pc(384) StaticLocation staticLoc = new StaticLocation(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, x, x, z, z, shape, rotation, local204);
 
-                if (staticLoc.castsShadow(-19717)) {
+                if (staticLoc.castsShadow()) {
                     staticLoc.addShadow(toolkit);
                 }
 
@@ -794,7 +794,7 @@ public final class MapRegion extends Class306 {
             if (isStatic) {
                 @Pc(1801) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, 0, 0, shape, rotation);
 
-                if (staticDecor.castsShadow(-19717)) {
+                if (staticDecor.castsShadow()) {
                     staticDecor.addShadow(toolkit);
                 }
 
@@ -810,13 +810,13 @@ public final class MapRegion extends Class306 {
             @Pc(1844) int local1844 = 65;
             @Pc(1850) Location wall = (Location) Static302.getWall(level, x, z);
             if (wall != null) {
-                local1844 = Static354.aLocTypeList_4.list(wall.getId(-32136)).anInt1243 + 1;
+                local1844 = Static354.aLocTypeList_4.list(wall.getId()).anInt1243 + 1;
             }
 
             if (isStatic) {
                 @Pc(1916) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, Static485.anIntArray887[rotation] * local1844, Static609.anIntArray715[rotation] * local1844, shape, rotation);
 
-                if (staticDecor.castsShadow(-19717)) {
+                if (staticDecor.castsShadow()) {
                     staticDecor.addShadow(toolkit);
                 }
 
@@ -832,14 +832,14 @@ public final class MapRegion extends Class306 {
             @Pc(1844) int local1844 = 33;
             @Pc(1850) Location wall = (Location) Static302.getWall(level, x, z);
             if (wall != null) {
-                local1844 = (Static354.aLocTypeList_4.list(wall.getId(-32136)).anInt1243 / 2) + 1;
+                local1844 = (Static354.aLocTypeList_4.list(wall.getId()).anInt1243 / 2) + 1;
             }
 
             if (isStatic) {
                 @Pc(1916) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, Static485.anIntArray887[rotation] * local1844, local1844 * Static609.anIntArray715[rotation], shape, rotation + 4);
                 decor = staticDecor;
 
-                if (staticDecor.castsShadow(-19717)) {
+                if (staticDecor.castsShadow()) {
                     staticDecor.addShadow(toolkit);
                 }
             } else {
@@ -855,7 +855,7 @@ public final class MapRegion extends Class306 {
                 @Pc(2068) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, 0, 0, shape, oppositeRotation + 4);
                 decor = staticDecor;
 
-                if (staticDecor.castsShadow(-19717)) {
+                if (staticDecor.castsShadow()) {
                     staticDecor.addShadow(toolkit);
                 }
             } else {
@@ -869,7 +869,7 @@ public final class MapRegion extends Class306 {
             @Pc(495) int local495 = 33;
             @Pc(2134) Location wall = (Location) Static302.getWall(level, x, z);
             if (wall != null) {
-                local495 = (Static354.aLocTypeList_4.list(wall.getId(-32136)).anInt1243 / 2) + 1;
+                local495 = (Static354.aLocTypeList_4.list(wall.getId()).anInt1243 / 2) + 1;
             }
 
             @Pc(2178) WallDecor primaryDecor;
@@ -878,11 +878,11 @@ public final class MapRegion extends Class306 {
                 primaryDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, Static407.anIntArray489[rotation] * local495, Static636.anIntArray742[rotation] * local495, shape, rotation + 4);
                 secondaryDecor = new StaticWallDecor(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, 0, 0, shape, oppositeRotation + 4);
 
-                if (primaryDecor.castsShadow(-19717)) {
+                if (primaryDecor.castsShadow()) {
                     primaryDecor.addShadow(toolkit);
                 }
 
-                if (secondaryDecor.castsShadow(-19717)) {
+                if (secondaryDecor.castsShadow()) {
                     secondaryDecor.addShadow(toolkit);
                 }
             } else {
@@ -1183,14 +1183,14 @@ public final class MapRegion extends Class306 {
         if (local13 == null) {
             return;
         }
-        @Pc(22) LocType local22 = Static354.aLocTypeList_4.list(local13.getId(-32136));
-        @Pc(26) int local26 = local13.method6858();
-        @Pc(30) int local30 = local13.method6855(23796);
+        @Pc(22) LocType local22 = Static354.aLocTypeList_4.list(local13.getId());
+        @Pc(26) int local26 = local13.getShape();
+        @Pc(30) int local30 = local13.getRotation();
         if (local22.hasSounds()) {
             Static506.method8312(arg4, arg1, arg3, local22);
         }
-        if (local13.castsShadow(-19717)) {
-            local13.method6857(arg5, -88);
+        if (local13.castsShadow()) {
+            local13.removeShadow(arg5, -88);
         }
         if (arg0 == 0) {
             Static26.method717(arg3, arg4, arg1);

@@ -18,8 +18,8 @@ import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
-import com.jagex.graphics.MeshEmitter;
-import com.jagex.graphics.MeshMagnet;
+import com.jagex.graphics.particles.ParticleEmitter;
+import com.jagex.graphics.particles.ParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
@@ -65,7 +65,7 @@ public final class Class158 {
     public int anInt3763;
 
     @OriginalMember(owner = "client!hda", name = "mc", descriptor = "Lclient!hv;")
-    public Class8_Sub5 aClass8_Sub5_4;
+    public ParticleSystem aParticleSystem_4;
 
     @OriginalMember(owner = "client!hda", name = "bc", descriptor = "Z")
     public boolean aBoolean291;
@@ -546,13 +546,13 @@ public final class Class158 {
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!ka;ILclient!tt;I)V")
     public void method3384(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Matrix arg2, @OriginalArg(4) int arg3) {
         arg1.method7476(arg2);
-        @Pc(9) MeshEmitter[] local9 = arg1.meshEmitters();
-        @Pc(22) MeshMagnet[] local22 = arg1.meshMagnets();
-        if ((this.aClass8_Sub5_4 == null || this.aClass8_Sub5_4.aBoolean324) && (local9 != null || local22 != null)) {
-            this.aClass8_Sub5_4 = Static257.method3654(arg3, false);
+        @Pc(9) ParticleEmitter[] local9 = arg1.particleEmitters();
+        @Pc(22) ParticleEffector[] local22 = arg1.particleEffectors();
+        if ((this.aParticleSystem_4 == null || this.aParticleSystem_4.aBoolean324) && (local9 != null || local22 != null)) {
+            this.aParticleSystem_4 = Static257.method3654(arg3, false);
         }
-        if (this.aClass8_Sub5_4 != null) {
-            this.aClass8_Sub5_4.method3643(arg0, (long) arg3, local9, local22);
+        if (this.aParticleSystem_4 != null) {
+            this.aParticleSystem_4.method3643(arg0, (long) arg3, local9, local22);
         }
     }
 

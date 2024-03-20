@@ -78,8 +78,8 @@ public final class Static409 {
                                         local341 = local337.aPositionEntity;
                                         if (local341 instanceof Location) {
                                             @Pc(347) Location local347 = (Location) local341;
-                                            local351 = local347.method6858();
-                                            @Pc(355) int local355 = local347.method6855(23796);
+                                            local351 = local347.getShape();
+                                            @Pc(355) int local355 = local347.getRotation();
                                             if (local351 == 21) {
                                                 local351 = 19;
                                             }

@@ -3,6 +3,7 @@ import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Sprite;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -119,7 +120,7 @@ public final class Static608 {
                     if (local267 != -1) {
                         local306 = (Sprite[]) Static230.A_WEIGHTED_CACHE___81.get((long) local267);
                         if (local306 == null) {
-                            local313 = IndexedImage.load(Static721.aJs5_128, local267, 0);
+                            local313 = IndexedImage.load(js5.SPRITES, local267, 0);
                             if (local313 != null) {
                                 local306 = new Sprite[local313.length];
                                 for (local321 = 0; local321 < local313.length; local321++) {
@@ -168,7 +169,7 @@ public final class Static608 {
                         if (local504 != -1) {
                             local306 = (Sprite[]) Static669.A_WEIGHTED_CACHE___215.get((long) local504);
                             if (local306 == null) {
-                                local313 = IndexedImage.load(Static721.aJs5_128, local504, 0);
+                                local313 = IndexedImage.load(js5.SPRITES, local504, 0);
                                 if (local313 != null) {
                                     local306 = new Sprite[local313.length];
                                     for (local321 = 0; local321 < local313.length; local321++) {

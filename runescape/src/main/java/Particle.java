@@ -1,9 +1,9 @@
 import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
-import com.jagex.game.runetek6.config.emittertype.MeshEmitterType;
-import com.jagex.game.runetek6.config.magnettype.MeshMagnetType;
+import com.jagex.game.runetek6.config.emittertype.ParticleEmitterType;
+import com.jagex.game.runetek6.config.effectortype.ParticleEffectorType;
 import com.jagex.graphics.Ground;
-import com.jagex.game.runetek6.config.magnettype.MeshMagnetTypeList;
+import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!pp")
-public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
+public final class Particle extends Class8_Sub4_Sub2 {
 
     @OriginalMember(owner = "client!pp", name = "F", descriptor = "S")
     public short aShort91;
@@ -41,7 +41,7 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
     public int anInt7542;
 
     @OriginalMember(owner = "client!pp", name = "<init>", descriptor = "(Lclient!rf;IIIIIIIIIIIZZ)V")
-    public Class8_Sub4_Sub2_Sub1(@OriginalArg(0) Class8_Sub8 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) boolean arg12, @OriginalArg(13) boolean arg13) {
+    public Particle(@OriginalArg(0) Class8_Sub8 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) boolean arg12, @OriginalArg(13) boolean arg13) {
         this.aClass8_Sub8_1 = arg0;
         super.anInt7537 = arg1 << 12;
         super.anInt7534 = arg2 << 12;
@@ -55,20 +55,20 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aClass8_Sub8_1.aMeshEmitter_1.aByte130;
+        super.aByte122 = this.aClass8_Sub8_1.aParticleEmitter_1.aByte130;
         this.method6693();
     }
 
     @OriginalMember(owner = "client!pp", name = "c", descriptor = "()V")
     public void method6693() {
-        @Pc(4) int local4 = this.aClass8_Sub8_1.aClass8_Sub5_6.anInt4147;
-        if (this.aClass8_Sub8_1.aClass8_Sub5_6.aClass8_Sub4_Sub2_Sub1Array1[local4] != null) {
-            this.aClass8_Sub8_1.aClass8_Sub5_6.aClass8_Sub4_Sub2_Sub1Array1[local4].method6697();
+        @Pc(4) int local4 = this.aClass8_Sub8_1.aParticleSystem_6.anInt4147;
+        if (this.aClass8_Sub8_1.aParticleSystem_6.aParticle[local4] != null) {
+            this.aClass8_Sub8_1.aParticleSystem_6.aParticle[local4].method6697();
         }
-        this.aClass8_Sub8_1.aClass8_Sub5_6.aClass8_Sub4_Sub2_Sub1Array1[local4] = this;
-        this.aShort91 = (short) this.aClass8_Sub8_1.aClass8_Sub5_6.anInt4147;
-        this.aClass8_Sub8_1.aClass8_Sub5_6.anInt4147 = local4 + 1 & 0x1FFF;
-        this.aClass8_Sub8_1.aClass130_11.method2787(this);
+        this.aClass8_Sub8_1.aParticleSystem_6.aParticle[local4] = this;
+        this.aShort91 = (short) this.aClass8_Sub8_1.aParticleSystem_6.anInt4147;
+        this.aClass8_Sub8_1.aParticleSystem_6.anInt4147 = local4 + 1 & 0x1FFF;
+        this.aClass8_Sub8_1.aEntityList_11.method2787(this);
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(JI)V")
@@ -81,8 +81,8 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         @Pc(17) int local17 = super.anInt7537 >> 12;
         @Pc(22) int local22 = super.anInt7534 >> 12;
         @Pc(27) int local27 = super.anInt7536 >> 12;
-        @Pc(31) Class8_Sub5 local31 = this.aClass8_Sub8_1.aClass8_Sub5_6;
-        @Pc(35) MeshEmitterType local35 = this.aClass8_Sub8_1.aMeshEmitterType_1;
+        @Pc(31) ParticleSystem local31 = this.aClass8_Sub8_1.aParticleSystem_6;
+        @Pc(35) ParticleEmitterType local35 = this.aClass8_Sub8_1.aParticleEmitterType_1;
         if (local35.fadeColour != 0) {
             @Pc(65) int local65;
             if (this.aShort93 - this.aShort96 <= local35.anInt9901) {
@@ -152,15 +152,15 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
             local356 = (long) (local35.decelerationRate * local348 * arg1);
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 28));
         }
-        if (local35.localMagnets != null) {
+        if (local35.localEffectors != null) {
             @Pc(437) Node local437 = local31.aDeque_22.last;
             for (@Pc(440) Node local440 = local437.next; local440 != local437; local440 = local440.next) {
                 @Pc(444) DoublyLinkedNode_Sub2_Sub5 local444 = (DoublyLinkedNode_Sub2_Sub5) local440;
-                @Pc(447) MeshMagnetType local447 = local444.aMeshMagnetType_1;
+                @Pc(447) ParticleEffectorType local447 = local444.aParticleEffectorType_1;
                 if (local447.visibility != 1) {
                     @Pc(453) boolean local453 = false;
-                    for (@Pc(455) int local455 = 0; local455 < local35.localMagnets.length; local455++) {
-                        if (local35.localMagnets[local455] == local447.id) {
+                    for (@Pc(455) int local455 = 0; local455 < local35.localEffectors.length; local455++) {
+                        if (local35.localEffectors[local455] == local447.id) {
                             local453 = true;
                             break;
                         }
@@ -213,11 +213,11 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                 }
             }
         }
-        if (local35.generalMagnets != null) {
-            for (local317 = 0; local317 < local35.generalMagnets.length; local317++) {
-                @Pc(776) DoublyLinkedNode_Sub2_Sub5 local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3095((long) local35.generalMagnets[local317]);
+        if (local35.generalEffectors != null) {
+            for (local317 = 0; local317 < local35.generalEffectors.length; local317++) {
+                @Pc(776) DoublyLinkedNode_Sub2_Sub5 local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3095((long) local35.generalEffectors[local317]);
                 while (local776 != null) {
-                    @Pc(780) MeshMagnetType local780 = local776.aMeshMagnetType_1;
+                    @Pc(780) ParticleEffectorType local780 = local776.aParticleEffectorType_1;
                     @Pc(786) double local786 = (double) (local17 - local776.anInt1827);
                     @Pc(792) double local792 = (double) (local22 - local776.anInt1824);
                     @Pc(798) double local798 = (double) (local27 - local776.anInt1821);
@@ -269,16 +269,16 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
                 }
             }
         }
-        if (local35.globalMagnets != null) {
+        if (local35.globalEffectors != null) {
             if (local35.anIntArray774 == null) {
-                local35.anIntArray774 = new int[local35.globalMagnets.length];
-                for (local317 = 0; local317 < local35.globalMagnets.length; local317++) {
-                    MeshMagnetTypeList.get(local35.globalMagnets[local317]);
-                    local35.anIntArray774[local317] = ((IntNode) MeshMagnetTypeList.table.get((long) local35.globalMagnets[local317])).value;
+                local35.anIntArray774 = new int[local35.globalEffectors.length];
+                for (local317 = 0; local317 < local35.globalEffectors.length; local317++) {
+                    ParticleEffectorTypeList.get(local35.globalEffectors[local317]);
+                    local35.anIntArray774[local317] = ((IntNode) ParticleEffectorTypeList.table.get((long) local35.globalEffectors[local317])).value;
                 }
             }
             for (local317 = 0; local317 < local35.anIntArray774.length; local317++) {
-                @Pc(1137) MeshMagnetType local1137 = MeshMagnetTypeList.types[local35.anIntArray774[local317]];
+                @Pc(1137) ParticleEffectorType local1137 = ParticleEffectorTypeList.types[local35.anIntArray774[local317]];
                 if (local1137.constantSpeed == 0) {
                     local296 += (double) (local1137.dirX * arg1);
                     local300 += (double) (local1137.dirY * arg1);
@@ -319,11 +319,11 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
             this.method6697();
             return;
         }
-        @Pc(40) Class8_Sub5 local40 = this.aClass8_Sub8_1.aClass8_Sub5_6;
-        @Pc(44) MeshEmitterType local44 = this.aClass8_Sub8_1.aMeshEmitterType_1;
+        @Pc(40) ParticleSystem local40 = this.aClass8_Sub8_1.aParticleSystem_6;
+        @Pc(44) ParticleEmitterType local44 = this.aClass8_Sub8_1.aParticleEmitterType_1;
         @Pc(46) Ground[] local46 = Static246.activeGround;
         @Pc(49) int local49 = local40.anInt4149;
-        @Pc(58) Class291 local58 = Static334.aClass291ArrayArrayArray1[local40.anInt4149][local6][local13];
+        @Pc(58) Class291 local58 = Static334.activeTiles[local40.anInt4149][local6][local13];
         if (local58 != null) {
             local49 = local58.aByte116;
         }
@@ -360,20 +360,20 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         } else if (local154 == Static299.anInt4824 - 1 && local46[local154].getHeight(local13, local6) - local18 > 0x8 << Static52.anInt1066) {
             this.method6697();
         } else {
-            local58 = Static334.aClass291ArrayArrayArray1[local154][local6][local13];
+            local58 = Static334.activeTiles[local154][local6][local13];
             @Pc(261) int local261;
             if (local58 == null) {
-                if (local154 == 0 || Static334.aClass291ArrayArrayArray1[0][local6][local13] == null) {
-                    local58 = Static334.aClass291ArrayArrayArray1[0][local6][local13] = new Class291(0);
+                if (local154 == 0 || Static334.activeTiles[0][local6][local13] == null) {
+                    local58 = Static334.activeTiles[0][local6][local13] = new Class291(0);
                 }
-                @Pc(251) boolean local251 = Static334.aClass291ArrayArrayArray1[0][local6][local13].aClass291_1 != null;
+                @Pc(251) boolean local251 = Static334.activeTiles[0][local6][local13].aClass291_1 != null;
                 if (local154 == 3 && local251) {
                     this.method6697();
                     return;
                 }
                 for (local261 = 1; local261 <= local154; local261++) {
-                    if (Static334.aClass291ArrayArrayArray1[local261][local6][local13] == null) {
-                        local58 = Static334.aClass291ArrayArrayArray1[local261][local6][local13] = new Class291(local261);
+                    if (Static334.activeTiles[local261][local6][local13] == null) {
+                        local58 = Static334.activeTiles[local261][local6][local13] = new Class291(local261);
                         if (local251) {
                             local58.aByte116++;
                         }
@@ -432,15 +432,15 @@ public final class Class8_Sub4_Sub2_Sub1 extends Class8_Sub4_Sub2 {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aClass8_Sub8_1.aMeshEmitter_1.aByte130;
+        super.aByte122 = this.aClass8_Sub8_1.aParticleEmitter_1.aByte130;
         this.method6693();
     }
 
     @OriginalMember(owner = "client!pp", name = "b", descriptor = "()V")
     public void method6697() {
-        this.aClass8_Sub8_1.aClass8_Sub5_6.aClass8_Sub4_Sub2_Sub1Array1[this.aShort91] = null;
-        Static538.aClass8_Sub4_Sub2_Sub1Array2[Static559.anInt8410] = this;
-        Static559.anInt8410 = Static559.anInt8410 + 1 & 0x3FF;
+        this.aClass8_Sub8_1.aParticleSystem_6.aParticle[this.aShort91] = null;
+        ParticleManager.cache[ParticleManager.freePtr] = this;
+        ParticleManager.freePtr = ParticleManager.freePtr + 1 & 0x3FF;
         this.method9274();
         this.method6686();
     }

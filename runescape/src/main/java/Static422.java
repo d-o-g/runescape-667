@@ -7,7 +7,7 @@ import java.awt.Rectangle;
 public final class Static422 {
 
     @OriginalMember(owner = "client!nfa", name = "b", descriptor = "Lclient!fla;")
-    public static final Class130 aClass130_9 = new Class130();
+    public static final EntityList A_ENTITY_LIST___9 = new EntityList();
 
     @OriginalMember(owner = "client!nfa", name = "b", descriptor = "(I)I")
     public static int method5771() {

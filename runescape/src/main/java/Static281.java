@@ -18,10 +18,10 @@ public final class Static281 {
         for (@Pc(12) int local12 = 0; local12 < local10; local12++) {
             arg0.aPickingCylinderArray1[local12].aBoolean352 = false;
         }
-        @Pc(25) Class130[] local25 = Class43.aClass130Array1;
-        synchronized (Class43.aClass130Array1) {
-            if (local10 < Class43.aClass130Array1.length && Static159.anIntArray245[local10] < 200) {
-                Class43.aClass130Array1[local10].method2787(arg0);
+        @Pc(25) EntityList[] local25 = Class43.A_ENTITY_LIST_ARRAY_1;
+        synchronized (Class43.A_ENTITY_LIST_ARRAY_1) {
+            if (local10 < Class43.A_ENTITY_LIST_ARRAY_1.length && Static159.anIntArray245[local10] < 200) {
+                Class43.A_ENTITY_LIST_ARRAY_1[local10].method2787(arg0);
                 @Pc(48) int local48 = Static159.anIntArray245[local10]++;
             }
         }

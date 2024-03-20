@@ -39,25 +39,19 @@ public final class DynamicWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!db", name = "c", descriptor = "(I)I")
     @Override
-    public int method6855(@OriginalArg(0) int arg0) {
-        if (arg0 != 23796) {
-            this.method9286(52);
-        }
+    public int getRotation() {
         return this.aClass337_1.anInt8663;
     }
 
     @OriginalMember(owner = "client!db", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void addShadow(@OriginalArg(0) Toolkit arg0) {
-        this.aClass337_1.method7668(arg0);
+    public void addShadow(@OriginalArg(0) Toolkit toolkit) {
+        this.aClass337_1.method7668(toolkit);
     }
 
     @OriginalMember(owner = "client!db", name = "a", descriptor = "(I)I")
     @Override
-    public int getId(@OriginalArg(0) int arg0) {
-        if (arg0 != -32136) {
-            this.aClass205_2 = null;
-        }
+    public int getId() {
         return this.aClass337_1.anInt8649;
     }
 
@@ -94,15 +88,15 @@ public final class DynamicWall extends Wall implements Location {
         } else {
             local14.render(local22, local36.aPickingCylinderArray1[0], 0);
         }
-        if (this.aClass337_1.aClass8_Sub5_7 != null) {
-            @Pc(100) Class230 local100 = this.aClass337_1.aClass8_Sub5_7.method3645();
+        if (this.aClass337_1.aParticleSystem_7 != null) {
+            @Pc(100) Class230 local100 = this.aClass337_1.aParticleSystem_7.method3645();
             if (Static504.aBoolean579) {
                 arg0.method7967(local100, Static582.anInt8627);
             } else {
                 arg0.method8021(local100);
             }
         }
-        this.aBoolean193 = local14.F() || this.aClass337_1.aClass8_Sub5_7 != null;
+        this.aBoolean193 = local14.F() || this.aClass337_1.aParticleSystem_7 != null;
         if (this.aClass205_2 == null) {
             this.aClass205_2 = Static317.method4583(super.anInt10691, super.anInt10690, local14, super.anInt10694);
         } else {
@@ -169,7 +163,7 @@ public final class DynamicWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!db", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method6857(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public void removeShadow(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 < -42) {
             this.aClass337_1.method7669(arg0);
         }
@@ -197,11 +191,8 @@ public final class DynamicWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!db", name = "e", descriptor = "(I)Z")
     @Override
-    public boolean castsShadow(@OriginalArg(0) int arg0) {
-        if (arg0 != -19717) {
-            this.aClass337_1 = null;
-        }
-        return this.aClass337_1.method7675(arg0 + 19727);
+    public boolean castsShadow() {
+        return this.aClass337_1.method7675();
     }
 
     @OriginalMember(owner = "client!db", name = "k", descriptor = "(I)I")
@@ -212,7 +203,7 @@ public final class DynamicWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!db", name = "b", descriptor = "(I)I")
     @Override
-    public int method6858() {
+    public int getShape() {
         return this.aClass337_1.anInt8645;
     }
 }

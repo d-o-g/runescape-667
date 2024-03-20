@@ -1,4 +1,4 @@
-package com.jagex.game.runetek6.config.magnettype;
+package com.jagex.game.runetek6.config.effectortype;
 
 import com.jagex.core.io.Packet;
 import com.jagex.math.Trig1;
@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ok")
-public final class MeshMagnetType {
+public final class ParticleEffectorType {
 
     @OriginalMember(owner = "client!ok", name = "d", descriptor = "I")
     public int strength;

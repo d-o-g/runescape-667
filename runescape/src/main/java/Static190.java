@@ -12,9 +12,6 @@ public final class Static190 {
     @OriginalMember(owner = "client!fs", name = "d", descriptor = "Lclient!sb;")
     public static js5 aJs5_38;
 
-    @OriginalMember(owner = "client!fs", name = "c", descriptor = "[I")
-    public static final int[] anIntArray265 = new int[]{3, 7, 15};
-
     @OriginalMember(owner = "client!fs", name = "f", descriptor = "[I")
     public static int[] anIntArray266 = new int[1];
 

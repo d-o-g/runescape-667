@@ -12,7 +12,7 @@ public final class Static686 {
 
     @OriginalMember(owner = "client!vn", name = "a", descriptor = "(JI)V")
     public static void method7930(@OriginalArg(0) long arg0) {
-        if (Static334.aClass291ArrayArrayArray1 != null) {
+        if (Static334.activeTiles != null) {
             if (Static511.anInt7645 == 1 || Static511.anInt7645 == 5) {
                 Static604.method7903(arg0);
             } else if (Static511.anInt7645 == 4) {

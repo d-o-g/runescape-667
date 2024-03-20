@@ -24,7 +24,7 @@ public final class Static706 {
         if (arg4 < 1 || arg2 < 1 || arg4 > Static720.mapWidth - 2 || Static501.mapHeight - 2 < arg2) {
             return;
         }
-        if (Static334.aClass291ArrayArrayArray1 == null) {
+        if (Static334.activeTiles == null) {
             return;
         }
         @Pc(52) Location local52 = Static2.aMapRegion.getLoc(arg4, arg2, arg3, arg0);

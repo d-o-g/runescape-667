@@ -2,8 +2,8 @@ import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.MeshBillboard;
-import com.jagex.graphics.particles.ParticleEmitter;
-import com.jagex.graphics.particles.ParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Shadow;
@@ -148,7 +148,7 @@ public final class Model_Sub3 extends Model {
     public float[][] aFloatArrayArray17;
 
     @OriginalMember(owner = "client!rs", name = "Ob", descriptor = "[Lclient!mn;")
-    public ParticleEffector[] aParticleEffectorArray5;
+    public ModelParticleEffector[] aModelParticleEffectorArray5;
 
     @OriginalMember(owner = "client!rs", name = "W", descriptor = "[Lclient!mka;")
     public Class245[] aClass245Array1;
@@ -196,7 +196,7 @@ public final class Model_Sub3 extends Model {
     public int[] anIntArray676;
 
     @OriginalMember(owner = "client!rs", name = "mb", descriptor = "[Lclient!rv;")
-    public ParticleEmitter[] aParticleEmitterArray5;
+    public ModelParticleEmitter[] aModelParticleEmitterArray5;
 
     @OriginalMember(owner = "client!rs", name = "n", descriptor = "[[I")
     public int[][] anIntArrayArray214;
@@ -281,8 +281,8 @@ public final class Model_Sub3 extends Model {
         this.aByteArray96 = arg1.faceTexSpace;
         this.aShortArray124 = arg1.aShortArray20;
         this.aByteArray94 = arg1.shadingTypes;
-        this.aParticleEmitterArray5 = arg1.emitters;
-        this.aParticleEffectorArray5 = arg1.effectors;
+        this.aModelParticleEmitterArray5 = arg1.emitters;
+        this.aModelParticleEffectorArray5 = arg1.effectors;
         this.aShortArray121 = arg1.originModels;
         @Pc(119) int[] local119 = new int[this.anInt8482];
         @Pc(121) int local121 = 0;
@@ -1741,12 +1741,12 @@ public final class Model_Sub3 extends Model {
     public void method7476(@OriginalArg(0) Matrix arg0) {
         @Pc(2) Matrix_Sub2 local2 = (Matrix_Sub2) arg0;
         @Pc(7) int local7;
-        if (this.aParticleEmitterArray5 != null) {
-            for (local7 = 0; local7 < this.aParticleEmitterArray5.length; local7++) {
-                @Pc(13) ParticleEmitter local13 = this.aParticleEmitterArray5[local7];
-                @Pc(15) ParticleEmitter local15 = local13;
-                if (local13.aParticleEmitter_2 != null) {
-                    local15 = local13.aParticleEmitter_2;
+        if (this.aModelParticleEmitterArray5 != null) {
+            for (local7 = 0; local7 < this.aModelParticleEmitterArray5.length; local7++) {
+                @Pc(13) ModelParticleEmitter local13 = this.aModelParticleEmitterArray5[local7];
+                @Pc(15) ModelParticleEmitter local15 = local13;
+                if (local13.aModelParticleEmitter_2 != null) {
+                    local15 = local13.aModelParticleEmitter_2;
                 }
                 local15.anInt8518 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local13.anInt8514] + local2.aFloat55 * (float) this.anIntArray675[local13.anInt8514] + local2.aFloat53 * (float) this.anIntArray658[local13.anInt8514]);
                 local15.anInt8502 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local13.anInt8514] + local2.aFloat52 * (float) this.anIntArray675[local13.anInt8514] + local2.aFloat51 * (float) this.anIntArray658[local13.anInt8514]);
@@ -1759,14 +1759,14 @@ public final class Model_Sub3 extends Model {
                 local15.anInt8520 = (int) (local2.aFloat62 + local2.aFloat56 * (float) this.anIntArray666[local13.anInt8505] + local2.aFloat54 * (float) this.anIntArray675[local13.anInt8505] + local2.aFloat61 * (float) this.anIntArray658[local13.anInt8505]);
             }
         }
-        if (this.aParticleEffectorArray5 == null) {
+        if (this.aModelParticleEffectorArray5 == null) {
             return;
         }
-        for (local7 = 0; local7 < this.aParticleEffectorArray5.length; local7++) {
-            @Pc(355) ParticleEffector local355 = this.aParticleEffectorArray5[local7];
-            @Pc(357) ParticleEffector local357 = local355;
-            if (local355.aParticleEffector_2 != null) {
-                local357 = local355.aParticleEffector_2;
+        for (local7 = 0; local7 < this.aModelParticleEffectorArray5.length; local7++) {
+            @Pc(355) ModelParticleEffector local355 = this.aModelParticleEffectorArray5[local7];
+            @Pc(357) ModelParticleEffector local357 = local355;
+            if (local355.aModelParticleEffector_2 != null) {
+                local357 = local355.aModelParticleEffector_2;
             }
             if (local355.matrix == null) {
                 local355.matrix = local2.method7129();
@@ -1881,8 +1881,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "f", descriptor = "()[Lclient!rv;")
     @Override
-    public ParticleEmitter[] particleEmitters() {
-        return this.aParticleEmitterArray5;
+    public ModelParticleEmitter[] particleEmitters() {
+        return this.aModelParticleEmitterArray5;
     }
 
     @OriginalMember(owner = "client!rs", name = "ia", descriptor = "(SS)V")
@@ -1983,8 +1983,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "c", descriptor = "()[Lclient!mn;")
     @Override
-    public ParticleEffector[] particleEffectors() {
-        return this.aParticleEffectorArray5;
+    public ModelParticleEffector[] particleEffectors() {
+        return this.aModelParticleEffectorArray5;
     }
 
     @OriginalMember(owner = "client!rs", name = "l", descriptor = "()V")
@@ -2980,8 +2980,8 @@ public final class Model_Sub3 extends Model {
         arg0.aShortArray122 = this.aShortArray122;
         arg0.lb = this.lb;
         arg0.aShortArray125 = this.aShortArray125;
-        arg0.aParticleEmitterArray5 = this.aParticleEmitterArray5;
-        arg0.aParticleEffectorArray5 = this.aParticleEffectorArray5;
+        arg0.aModelParticleEmitterArray5 = this.aModelParticleEmitterArray5;
+        arg0.aModelParticleEffectorArray5 = this.aModelParticleEffectorArray5;
         arg0.aClass239Array1 = this.aClass239Array1;
         arg0.aShortArray119 = this.aShortArray119;
         arg0.anInt8489 = arg2;
@@ -3896,7 +3896,7 @@ public final class Model_Sub3 extends Model {
         }
         @Pc(694) boolean local694 = false;
         @Pc(704) boolean local704 = local171 <= this.aClass19_Sub2_9.anInt4214;
-        @Pc(721) boolean local721 = local704 || this.aParticleEmitterArray5 != null || this.aParticleEffectorArray5 != null;
+        @Pc(721) boolean local721 = local704 || this.aModelParticleEmitterArray5 != null || this.aModelParticleEffectorArray5 != null;
         this.aClass399_3.anInt10607 = this.aClass219_1.anInt5725;
         this.aClass399_3.anInt10606 = this.aClass219_1.anInt5723;
         this.aClass399_3.anInt10608 = this.aClass219_1.anInt5721;

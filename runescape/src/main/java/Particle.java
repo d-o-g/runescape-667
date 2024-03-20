@@ -20,7 +20,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
     public int anInt7541;
 
     @OriginalMember(owner = "client!pp", name = "D", descriptor = "Lclient!rf;")
-    public Class8_Sub8 aClass8_Sub8_1;
+    public ParticleEmitter aParticleEmitter_1;
 
     @OriginalMember(owner = "client!pp", name = "z", descriptor = "S")
     public short aShort96;
@@ -41,8 +41,8 @@ public final class Particle extends Class8_Sub4_Sub2 {
     public int anInt7542;
 
     @OriginalMember(owner = "client!pp", name = "<init>", descriptor = "(Lclient!rf;IIIIIIIIIIIZZ)V")
-    public Particle(@OriginalArg(0) Class8_Sub8 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) boolean arg12, @OriginalArg(13) boolean arg13) {
-        this.aClass8_Sub8_1 = arg0;
+    public Particle(@OriginalArg(0) ParticleEmitter arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) boolean arg12, @OriginalArg(13) boolean arg13) {
+        this.aParticleEmitter_1 = arg0;
         super.anInt7537 = arg1 << 12;
         super.anInt7534 = arg2 << 12;
         super.anInt7536 = arg3 << 12;
@@ -55,20 +55,20 @@ public final class Particle extends Class8_Sub4_Sub2 {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aClass8_Sub8_1.aParticleEmitter_1.aByte130;
+        super.aByte122 = this.aParticleEmitter_1.aModelParticleEmitter_1.aByte130;
         this.method6693();
     }
 
     @OriginalMember(owner = "client!pp", name = "c", descriptor = "()V")
     public void method6693() {
-        @Pc(4) int local4 = this.aClass8_Sub8_1.aParticleSystem_6.anInt4147;
-        if (this.aClass8_Sub8_1.aParticleSystem_6.aParticle[local4] != null) {
-            this.aClass8_Sub8_1.aParticleSystem_6.aParticle[local4].method6697();
+        @Pc(4) int local4 = this.aParticleEmitter_1.aParticleSystem_6.anInt4147;
+        if (this.aParticleEmitter_1.aParticleSystem_6.aParticle[local4] != null) {
+            this.aParticleEmitter_1.aParticleSystem_6.aParticle[local4].method6697();
         }
-        this.aClass8_Sub8_1.aParticleSystem_6.aParticle[local4] = this;
-        this.aShort91 = (short) this.aClass8_Sub8_1.aParticleSystem_6.anInt4147;
-        this.aClass8_Sub8_1.aParticleSystem_6.anInt4147 = local4 + 1 & 0x1FFF;
-        this.aClass8_Sub8_1.aEntityList_11.method2787(this);
+        this.aParticleEmitter_1.aParticleSystem_6.aParticle[local4] = this;
+        this.aShort91 = (short) this.aParticleEmitter_1.aParticleSystem_6.anInt4147;
+        this.aParticleEmitter_1.aParticleSystem_6.anInt4147 = local4 + 1 & 0x1FFF;
+        this.aParticleEmitter_1.aEntityList_11.method2787(this);
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(JI)V")
@@ -81,8 +81,8 @@ public final class Particle extends Class8_Sub4_Sub2 {
         @Pc(17) int local17 = super.anInt7537 >> 12;
         @Pc(22) int local22 = super.anInt7534 >> 12;
         @Pc(27) int local27 = super.anInt7536 >> 12;
-        @Pc(31) ParticleSystem local31 = this.aClass8_Sub8_1.aParticleSystem_6;
-        @Pc(35) ParticleEmitterType local35 = this.aClass8_Sub8_1.aParticleEmitterType_1;
+        @Pc(31) ParticleSystem local31 = this.aParticleEmitter_1.aParticleSystem_6;
+        @Pc(35) ParticleEmitterType local35 = this.aParticleEmitter_1.aParticleEmitterType_1;
         if (local35.fadeColour != 0) {
             @Pc(65) int local65;
             if (this.aShort93 - this.aShort96 <= local35.anInt9901) {
@@ -138,16 +138,16 @@ public final class Particle extends Class8_Sub4_Sub2 {
         @Pc(348) int local348;
         @Pc(356) long local356;
         if (local35.decelerationType == 1) {
-            local317 = local17 - this.aClass8_Sub8_1.aClass177_1.anInt4271;
-            local324 = local22 - this.aClass8_Sub8_1.aClass177_1.anInt4278;
-            local331 = local27 - this.aClass8_Sub8_1.aClass177_1.anInt4273;
+            local317 = local17 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4271;
+            local324 = local22 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4278;
+            local331 = local27 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4273;
             local348 = (int) Math.sqrt((double) (local317 * local317 + local324 * local324 + local331 * local331)) >> 2;
             local356 = (long) (local35.decelerationRate * local348 * arg1);
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 18));
         } else if (local35.decelerationType == 2) {
-            local317 = local17 - this.aClass8_Sub8_1.aClass177_1.anInt4271;
-            local324 = local22 - this.aClass8_Sub8_1.aClass177_1.anInt4278;
-            local331 = local27 - this.aClass8_Sub8_1.aClass177_1.anInt4273;
+            local317 = local17 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4271;
+            local324 = local22 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4278;
+            local331 = local27 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4273;
             local348 = local317 * local317 + local324 * local324 + local331 * local331;
             local356 = (long) (local35.decelerationRate * local348 * arg1);
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 28));
@@ -155,7 +155,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
         if (local35.localEffectors != null) {
             @Pc(437) Node local437 = local31.aDeque_22.last;
             for (@Pc(440) Node local440 = local437.next; local440 != local437; local440 = local440.next) {
-                @Pc(444) DoublyLinkedNode_Sub2_Sub5 local444 = (DoublyLinkedNode_Sub2_Sub5) local440;
+                @Pc(444) ParticleEffector local444 = (ParticleEffector) local440;
                 @Pc(447) ParticleEffectorType local447 = local444.aParticleEffectorType_1;
                 if (local447.visibility != 1) {
                     @Pc(453) boolean local453 = false;
@@ -215,7 +215,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
         }
         if (local35.generalEffectors != null) {
             for (local317 = 0; local317 < local35.generalEffectors.length; local317++) {
-                @Pc(776) DoublyLinkedNode_Sub2_Sub5 local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3095((long) local35.generalEffectors[local317]);
+                @Pc(776) ParticleEffector local776 = (ParticleEffector) Static519.aClass144_1.method3095((long) local35.generalEffectors[local317]);
                 while (local776 != null) {
                     @Pc(780) ParticleEffectorType local780 = local776.aParticleEffectorType_1;
                     @Pc(786) double local786 = (double) (local17 - local776.anInt1827);
@@ -223,7 +223,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
                     @Pc(798) double local798 = (double) (local27 - local776.anInt1821);
                     @Pc(810) double local810 = local786 * local786 + local792 * local792 + local798 * local798;
                     if (local810 > (double) local780.maxRange) {
-                        local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3096();
+                        local776 = (ParticleEffector) Static519.aClass144_1.method3096();
                     } else {
                         @Pc(825) double local825 = Math.sqrt(local810);
                         if (local825 == 0.0D) {
@@ -231,7 +231,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
                         }
                         @Pc(857) double local857 = (local786 * (double) local776.anInt1825 + local792 * (double) local780.dirY + local798 * (double) local776.anInt1823) * 65535.0D / ((double) local780.dirLength * local825);
                         if (local857 < (double) local780.cosTheta) {
-                            local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3096();
+                            local776 = (ParticleEffector) Static519.aClass144_1.method3096();
                         } else {
                             @Pc(871) double local871 = 0.0D;
                             if (local780.effectType == 1) {
@@ -263,7 +263,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
                                 super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local780.dirY - local871) * (double) arg1);
                                 super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local776.anInt1823 - local871) * (double) arg1);
                             }
-                            local776 = (DoublyLinkedNode_Sub2_Sub5) Static519.aClass144_1.method3096();
+                            local776 = (ParticleEffector) Static519.aClass144_1.method3096();
                         }
                     }
                 }
@@ -319,8 +319,8 @@ public final class Particle extends Class8_Sub4_Sub2 {
             this.method6697();
             return;
         }
-        @Pc(40) ParticleSystem local40 = this.aClass8_Sub8_1.aParticleSystem_6;
-        @Pc(44) ParticleEmitterType local44 = this.aClass8_Sub8_1.aParticleEmitterType_1;
+        @Pc(40) ParticleSystem local40 = this.aParticleEmitter_1.aParticleSystem_6;
+        @Pc(44) ParticleEmitterType local44 = this.aParticleEmitter_1.aParticleEmitterType_1;
         @Pc(46) Ground[] local46 = Static246.activeGround;
         @Pc(49) int local49 = local40.anInt4149;
         @Pc(58) Class291 local58 = Static334.activeTiles[local40.anInt4149][local6][local13];
@@ -418,8 +418,8 @@ public final class Particle extends Class8_Sub4_Sub2 {
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(Lclient!rf;IIIIIIIIIIIZZ)V")
-    public void method6696(@OriginalArg(0) Class8_Sub8 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) boolean arg12, @OriginalArg(13) boolean arg13) {
-        this.aClass8_Sub8_1 = arg0;
+    public void method6696(@OriginalArg(0) ParticleEmitter arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) boolean arg12, @OriginalArg(13) boolean arg13) {
+        this.aParticleEmitter_1 = arg0;
         super.anInt7537 = arg1 << 12;
         super.anInt7534 = arg2 << 12;
         super.anInt7536 = arg3 << 12;
@@ -432,13 +432,13 @@ public final class Particle extends Class8_Sub4_Sub2 {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aClass8_Sub8_1.aParticleEmitter_1.aByte130;
+        super.aByte122 = this.aParticleEmitter_1.aModelParticleEmitter_1.aByte130;
         this.method6693();
     }
 
     @OriginalMember(owner = "client!pp", name = "b", descriptor = "()V")
     public void method6697() {
-        this.aClass8_Sub8_1.aParticleSystem_6.aParticle[this.aShort91] = null;
+        this.aParticleEmitter_1.aParticleSystem_6.aParticle[this.aShort91] = null;
         ParticleManager.cache[ParticleManager.freePtr] = this;
         ParticleManager.freePtr = ParticleManager.freePtr + 1 & 0x3FF;
         this.method9274();

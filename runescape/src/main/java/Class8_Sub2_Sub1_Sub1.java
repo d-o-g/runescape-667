@@ -2,8 +2,8 @@ import com.jagex.Class230;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.graphics.Matrix;
-import com.jagex.graphics.particles.ParticleEmitter;
-import com.jagex.graphics.particles.ParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
 import com.jagex.math.Trig1;
@@ -283,8 +283,8 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(BLclient!ha;Lclient!tt;Lclient!ka;)V")
     public void method817(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) Matrix arg1, @OriginalArg(3) Model arg2) {
         arg2.method7476(arg1);
-        @Pc(9) ParticleEmitter[] local9 = arg2.particleEmitters();
-        @Pc(12) ParticleEffector[] local12 = arg2.particleEffectors();
+        @Pc(9) ModelParticleEmitter[] local9 = arg2.particleEmitters();
+        @Pc(12) ModelParticleEffector[] local12 = arg2.particleEffectors();
         if ((this.aParticleSystem_1 == null || this.aParticleSystem_1.aBoolean324) && (local9 != null || local12 != null)) {
             this.aParticleSystem_1 = Static257.method3654(Static333.anInt5455, true);
         }

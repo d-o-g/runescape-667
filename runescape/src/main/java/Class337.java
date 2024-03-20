@@ -3,8 +3,8 @@ import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
-import com.jagex.graphics.particles.ParticleEmitter;
-import com.jagex.graphics.particles.ParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.ModelAndShadow;
 import com.jagex.graphics.Shadow;
@@ -311,8 +311,8 @@ public final class Class337 {
         if (arg3 != -9827) {
             return;
         }
-        @Pc(11) ParticleEmitter[] local11 = arg1.particleEmitters();
-        @Pc(14) ParticleEffector[] local14 = arg1.particleEffectors();
+        @Pc(11) ModelParticleEmitter[] local11 = arg1.particleEmitters();
+        @Pc(14) ModelParticleEffector[] local14 = arg1.particleEffectors();
         if ((this.aParticleSystem_7 == null || this.aParticleSystem_7.aBoolean324) && (local11 != null || local14 != null)) {
             @Pc(37) LocType local37 = Static354.aLocTypeList_4.list(this.anInt8649);
             if (local37.multiLocs != null) {

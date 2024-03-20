@@ -4,8 +4,8 @@ import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.graphics.Matrix;
-import com.jagex.graphics.particles.ParticleEmitter;
-import com.jagex.graphics.particles.ParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
 import com.jagex.math.Trig1;
@@ -832,8 +832,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
             @Pc(21) int local21 = 0;
             @Pc(23) int local23 = -1;
             @Pc(25) int local25 = -1;
-            @Pc(29) ParticleEmitter[][] local29 = new ParticleEmitter[arg2.length][];
-            @Pc(33) ParticleEffector[][] local33 = new ParticleEffector[arg2.length][];
+            @Pc(29) ModelParticleEmitter[][] local29 = new ModelParticleEmitter[arg2.length][];
+            @Pc(33) ModelParticleEffector[][] local33 = new ModelParticleEffector[arg2.length][];
             for (@Pc(35) int local35 = 0; local35 < arg2.length; local35++) {
                 if (arg2[local35] != null) {
                     arg2[local35].method7476(arg3);
@@ -855,12 +855,12 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                 this.aClass8_Sub5_8 = Static257.method3654(Static333.anInt5455, true);
             }
             if (this.aClass8_Sub5_8 != null) {
-                @Pc(138) ParticleEmitter[] local138;
+                @Pc(138) ModelParticleEmitter[] local138;
                 @Pc(142) int local142;
                 if (local17 == 1) {
                     local138 = local29[local23];
                 } else {
-                    local138 = new ParticleEmitter[local15];
+                    local138 = new ModelParticleEmitter[local15];
                     @Pc(140) int local140 = 0;
                     for (local142 = 0; local142 < arg2.length; local142++) {
                         if (local29[local142] != null) {
@@ -869,11 +869,11 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                         }
                     }
                 }
-                @Pc(191) ParticleEffector[] local191;
+                @Pc(191) ModelParticleEffector[] local191;
                 if (local21 == 1) {
                     local191 = local33[local25];
                 } else {
-                    local191 = new ParticleEffector[local19];
+                    local191 = new ModelParticleEffector[local19];
                     local142 = 0;
                     for (@Pc(199) int local199 = 0; local199 < arg2.length; local199++) {
                         if (local33[local199] != null) {

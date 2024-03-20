@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!iea")
-public final class Class177 {
+public final class ParticleEmitterRelated {
 
     @OriginalMember(owner = "client!iea", name = "l", descriptor = "I")
     public int anInt4269;
@@ -42,7 +42,7 @@ public final class Class177 {
     public int anInt4283;
 
     @OriginalMember(owner = "client!iea", name = "a", descriptor = "(ILclient!iea;)Z")
-    public boolean method3860(@OriginalArg(1) Class177 arg0) {
+    public boolean method3860(@OriginalArg(1) ParticleEmitterRelated arg0) {
         return arg0.anInt4271 == this.anInt4271 && arg0.anInt4278 == this.anInt4278 && arg0.anInt4273 == this.anInt4273;
     }
 }

@@ -83,8 +83,8 @@ public final class a implements Interface5 {
             local20 = local13 = new i(this.anOa1);
         }
         arg0.ZA(local20, local13, arg2, local1, arg3);
-        local20.aParticleEmitterArray3 = arg0.aParticleEmitterArray3;
-        local20.aParticleEffectorArray3 = arg0.aParticleEffectorArray3;
+        local20.aModelParticleEmitterArray3 = arg0.aModelParticleEmitterArray3;
+        local20.aModelParticleEffectorArray3 = arg0.aModelParticleEffectorArray3;
         return local20;
     }
 

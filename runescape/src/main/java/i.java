@@ -2,8 +2,8 @@ import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.MeshBillboard;
-import com.jagex.graphics.particles.ParticleEmitter;
-import com.jagex.graphics.particles.ParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Shadow;
@@ -25,28 +25,28 @@ public final class i extends Model implements Interface5 {
     public final ya aYa1;
 
     @OriginalMember(owner = "client!i", name = "q", descriptor = "[Lclient!rv;")
-    public ParticleEmitter[] aParticleEmitterArray3;
+    public ModelParticleEmitter[] aModelParticleEmitterArray3;
 
     @OriginalMember(owner = "client!i", name = "p", descriptor = "[Lclient!mn;")
-    public ParticleEffector[] aParticleEffectorArray3;
+    public ModelParticleEffector[] aModelParticleEffectorArray3;
 
     @OriginalMember(owner = "client!i", name = "<init>", descriptor = "(Lclient!oa;Lclient!ya;Lclient!dv;IIII)V")
     public i(@OriginalArg(0) oa arg0, @OriginalArg(1) ya arg1, @OriginalArg(2) Mesh arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         this.anOa2 = arg0;
         this.aYa1 = arg1;
-        this.aParticleEmitterArray3 = arg2.emitters;
-        this.aParticleEffectorArray3 = arg2.effectors;
+        this.aModelParticleEmitterArray3 = arg2.emitters;
+        this.aModelParticleEffectorArray3 = arg2.effectors;
         @Pc(24) int local24 = arg2.emitters == null ? 0 : arg2.emitters.length;
         @Pc(34) int local34 = arg2.effectors == null ? 0 : arg2.effectors.length;
         @Pc(36) int local36 = 0;
         @Pc(43) int[] local43 = new int[local24 * 3 + local34];
         for (@Pc(45) int local45 = 0; local45 < local24; local45++) {
-            local43[local36++] = this.aParticleEmitterArray3[local45].anInt8514;
-            local43[local36++] = this.aParticleEmitterArray3[local45].anInt8508;
-            local43[local36++] = this.aParticleEmitterArray3[local45].anInt8505;
+            local43[local36++] = this.aModelParticleEmitterArray3[local45].anInt8514;
+            local43[local36++] = this.aModelParticleEmitterArray3[local45].anInt8508;
+            local43[local36++] = this.aModelParticleEmitterArray3[local45].anInt8505;
         }
         for (@Pc(79) int local79 = 0; local79 < local34; local79++) {
-            local43[local36++] = this.aParticleEffectorArray3[local79].vertex;
+            local43[local36++] = this.aModelParticleEffectorArray3[local79].vertex;
         }
         @Pc(105) int local105 = arg2.billboards == null ? 0 : arg2.billboards.length;
         @Pc(110) int[] local110 = new int[local105 * 8];
@@ -182,9 +182,9 @@ public final class i extends Model implements Interface5 {
         this.method3688(Static445.anIntArray537, arg0);
         @Pc(5) int local5 = 0;
         @Pc(10) int local10;
-        if (this.aParticleEmitterArray3 != null) {
-            for (local10 = 0; local10 < this.aParticleEmitterArray3.length; local10++) {
-                @Pc(16) ParticleEmitter local16 = this.aParticleEmitterArray3[local10];
+        if (this.aModelParticleEmitterArray3 != null) {
+            for (local10 = 0; local10 < this.aModelParticleEmitterArray3.length; local10++) {
+                @Pc(16) ModelParticleEmitter local16 = this.aModelParticleEmitterArray3[local10];
                 local16.anInt8518 = Static445.anIntArray537[local5++];
                 local16.anInt8502 = Static445.anIntArray537[local5++];
                 local16.anInt8504 = Static445.anIntArray537[local5++];
@@ -196,14 +196,14 @@ public final class i extends Model implements Interface5 {
                 local16.anInt8520 = Static445.anIntArray537[local5++];
             }
         }
-        if (this.aParticleEffectorArray3 == null) {
+        if (this.aModelParticleEffectorArray3 == null) {
             return;
         }
-        for (local10 = 0; local10 < this.aParticleEffectorArray3.length; local10++) {
-            @Pc(89) ParticleEffector local89 = this.aParticleEffectorArray3[local10];
-            @Pc(91) ParticleEffector local91 = local89;
-            if (local89.aParticleEffector_2 != null) {
-                local91 = local89.aParticleEffector_2;
+        for (local10 = 0; local10 < this.aModelParticleEffectorArray3.length; local10++) {
+            @Pc(89) ModelParticleEffector local89 = this.aModelParticleEffectorArray3[local10];
+            @Pc(91) ModelParticleEffector local91 = local89;
+            if (local89.aModelParticleEffector_2 != null) {
+                local91 = local89.aModelParticleEffector_2;
             }
             if (local89.matrix == null) {
                 local89.matrix = arg0.method7129();
@@ -224,8 +224,8 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "c", descriptor = "()[Lclient!mn;")
     @Override
-    public ParticleEffector[] particleEffectors() {
-        return this.aParticleEffectorArray3;
+    public ModelParticleEffector[] particleEffectors() {
+        return this.aModelParticleEffectorArray3;
     }
 
     @OriginalMember(owner = "client!i", name = "G", descriptor = "()I")
@@ -374,7 +374,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "f", descriptor = "()[Lclient!rv;")
     @Override
-    public ParticleEmitter[] particleEmitters() {
-        return this.aParticleEmitterArray3;
+    public ModelParticleEmitter[] particleEmitters() {
+        return this.aModelParticleEmitterArray3;
     }
 }

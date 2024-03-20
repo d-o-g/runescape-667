@@ -2,8 +2,8 @@ import com.jagex.Class230;
 import com.jagex.game.Animator;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
-import com.jagex.graphics.particles.ParticleEmitter;
-import com.jagex.graphics.particles.ParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -55,8 +55,8 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(Lclient!tt;Lclient!ka;ILclient!ha;)V")
     public void method6593(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Toolkit arg2) {
         arg1.method7476(arg0);
-        @Pc(9) ParticleEmitter[] local9 = arg1.particleEmitters();
-        @Pc(19) ParticleEffector[] local19 = arg1.particleEffectors();
+        @Pc(9) ModelParticleEmitter[] local9 = arg1.particleEmitters();
+        @Pc(19) ModelParticleEffector[] local19 = arg1.particleEffectors();
         if ((this.aParticleSystem == null || this.aParticleSystem.aBoolean324) && (local9 != null || local19 != null)) {
             this.aParticleSystem = Static257.method3654(Static333.anInt5455, true);
         }

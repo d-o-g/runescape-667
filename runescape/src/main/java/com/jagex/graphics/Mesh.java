@@ -1,8 +1,8 @@
 package com.jagex.graphics;
 
 import com.jagex.core.io.Packet;
-import com.jagex.graphics.particles.ParticleEffector;
-import com.jagex.graphics.particles.ParticleEmitter;
+import com.jagex.graphics.particles.ModelParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -59,7 +59,7 @@ public final class Mesh {
     public short[] faceC;
 
     @OriginalMember(owner = "client!dv", name = "r", descriptor = "[Lclient!rv;")
-    public ParticleEmitter[] emitters;
+    public ModelParticleEmitter[] emitters;
 
     @OriginalMember(owner = "client!dv", name = "M", descriptor = "[I")
     public int[] texSpaceScaleZ;
@@ -104,7 +104,7 @@ public final class Mesh {
     public int[] anIntArray214;
 
     @OriginalMember(owner = "client!dv", name = "p", descriptor = "[Lclient!mn;")
-    public ParticleEffector[] effectors;
+    public ModelParticleEffector[] effectors;
 
     @OriginalMember(owner = "client!dv", name = "d", descriptor = "[Lclient!aq;")
     public MeshBillboard[] billboards;
@@ -237,7 +237,7 @@ public final class Mesh {
             this.shadingTypes = new byte[this.faceCount];
         }
         if (effectorCount > 0) {
-            this.effectors = new ParticleEffector[effectorCount];
+            this.effectors = new ModelParticleEffector[effectorCount];
         }
         this.originModels = new short[this.vertexCount];
         this.vertexY = new int[this.vertexCount];
@@ -284,7 +284,7 @@ public final class Mesh {
         }
 
         if (emitterCount > 0) {
-            this.emitters = new ParticleEmitter[emitterCount];
+            this.emitters = new ModelParticleEmitter[emitterCount];
         }
 
         if (hasPriorities) {
@@ -979,7 +979,7 @@ public final class Mesh {
         if (hasParticleEffects) {
             @Pc(1142) int emitterCount = packet1.g1();
             if (emitterCount > 0) {
-                this.emitters = new ParticleEmitter[emitterCount];
+                this.emitters = new ModelParticleEmitter[emitterCount];
 
                 for (@Pc(1556) int i = 0; i < emitterCount; i++) {
                     @Pc(1561) int type = packet1.g2();
@@ -992,18 +992,18 @@ public final class Mesh {
                         priority = (byte) priorityFlag;
                     }
 
-                    this.emitters[i] = new ParticleEmitter(type, this.faceA[face], this.faceB[face], this.faceC[face], priority);
+                    this.emitters[i] = new ModelParticleEmitter(type, this.faceA[face], this.faceB[face], this.faceC[face], priority);
                 }
             }
 
             @Pc(1556) int effectorCount = packet1.g1();
             if (effectorCount > 0) {
-                this.effectors = new ParticleEffector[effectorCount];
+                this.effectors = new ModelParticleEffector[effectorCount];
 
                 for (@Pc(1561) int i = 0; i < effectorCount; i++) {
                     @Pc(1565) int type = packet1.g2();
                     @Pc(1627) int vertex = packet1.g2();
-                    this.effectors[i] = new ParticleEffector(type, vertex);
+                    this.effectors[i] = new ModelParticleEffector(type, vertex);
                 }
             }
         }

@@ -18,8 +18,8 @@ import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
-import com.jagex.graphics.particles.ParticleEmitter;
-import com.jagex.graphics.particles.ParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
@@ -546,8 +546,8 @@ public final class Class158 {
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!ka;ILclient!tt;I)V")
     public void method3384(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Model arg1, @OriginalArg(3) Matrix arg2, @OriginalArg(4) int arg3) {
         arg1.method7476(arg2);
-        @Pc(9) ParticleEmitter[] local9 = arg1.particleEmitters();
-        @Pc(22) ParticleEffector[] local22 = arg1.particleEffectors();
+        @Pc(9) ModelParticleEmitter[] local9 = arg1.particleEmitters();
+        @Pc(22) ModelParticleEffector[] local22 = arg1.particleEffectors();
         if ((this.aParticleSystem_4 == null || this.aParticleSystem_4.aBoolean324) && (local9 != null || local22 != null)) {
             this.aParticleSystem_4 = Static257.method3654(arg3, false);
         }

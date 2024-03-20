@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!rv")
-public final class ParticleEmitter {
+public final class ModelParticleEmitter {
 
     @OriginalMember(owner = "client!rv", name = "d", descriptor = "I")
     public int anInt8502;
@@ -28,7 +28,7 @@ public final class ParticleEmitter {
     public int anInt8512;
 
     @OriginalMember(owner = "client!rv", name = "m", descriptor = "Lclient!rv;")
-    public ParticleEmitter aParticleEmitter_2;
+    public ModelParticleEmitter aModelParticleEmitter_2;
 
     @OriginalMember(owner = "client!rv", name = "q", descriptor = "I")
     public int anInt8516;
@@ -55,7 +55,7 @@ public final class ParticleEmitter {
     public final int id;
 
     @OriginalMember(owner = "client!rv", name = "<init>", descriptor = "(IIIIB)V")
-    public ParticleEmitter(@OriginalArg(0) int id, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4) {
+    public ModelParticleEmitter(@OriginalArg(0) int id, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4) {
         this.aByte130 = arg4;
         this.anInt8514 = arg1;
         this.anInt8508 = arg2;
@@ -69,7 +69,7 @@ public final class ParticleEmitter {
     }
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(ZIII)Lclient!rv;")
-    public ParticleEmitter copy(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        return new ParticleEmitter(this.id, arg0, arg1, arg2, this.aByte130);
+    public ModelParticleEmitter copy(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
+        return new ModelParticleEmitter(this.id, arg0, arg1, arg2, this.aByte130);
     }
 }

@@ -1,10 +1,10 @@
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!hu")
-public final class Node_Sub26 extends Node {
+public final class Node_Sub26 extends Deque.Node {
 
     @OriginalMember(owner = "client!hu", name = "l", descriptor = "[I")
     public final int[] anIntArray318;

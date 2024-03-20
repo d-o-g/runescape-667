@@ -1,5 +1,5 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.IntNode;
-import com.jagex.collect.Node;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterType;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorType;
 import com.jagex.graphics.Ground;
@@ -153,8 +153,8 @@ public final class Particle extends Class8_Sub4_Sub2 {
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 28));
         }
         if (local35.localEffectors != null) {
-            @Pc(437) Node local437 = local31.aDeque_22.last;
-            for (@Pc(440) Node local440 = local437.next; local440 != local437; local440 = local440.next) {
+            @Pc(437) Deque.Node local437 = local31.aDeque_22.last;
+            for (@Pc(440) Deque.Node local440 = local437.next; local440 != local437; local440 = local440.next) {
                 @Pc(444) ParticleEffector local444 = (ParticleEffector) local440;
                 @Pc(447) ParticleEffectorType local447 = local444.aParticleEffectorType_1;
                 if (local447.visibility != 1) {

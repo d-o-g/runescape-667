@@ -13,21 +13,21 @@ public final class Static537 {
     @OriginalMember(owner = "client!qu", name = "a", descriptor = "(Lclient!mia;III)Lclient!fj;")
     public static DoublyLinkedNode_Sub2_Sub10 method7189(@OriginalArg(0) Class242 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(10) int local10 = arg0.anInt6197 | arg1 << 10;
-        @Pc(19) DoublyLinkedNode_Sub2_Sub10 local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.aClass361_2.method8342((long) local10 << 16);
+        @Pc(19) DoublyLinkedNode_Sub2_Sub10 local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.A_DOUBLY_LINKED_LIST___2.get((long) local10 << 16);
         if (local19 != null) {
             return local19;
         }
         @Pc(32) byte[] local32 = Static31.aJs5_6.getfile(Static31.aJs5_6.getgroupid(local10));
         if (local32 == null) {
             local10 = arg2 + 65536 << 10 | arg0.anInt6197;
-            local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.aClass361_2.method8342((long) local10 << 16);
+            local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.A_DOUBLY_LINKED_LIST___2.get((long) local10 << 16);
             if (local19 != null) {
                 return local19;
             }
             local32 = Static31.aJs5_6.getfile(Static31.aJs5_6.getgroupid(local10));
             if (local32 == null) {
                 local10 = arg0.anInt6197 | 0x3FFFC00;
-                local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.aClass361_2.method8342((long) local10 << 16);
+                local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.A_DOUBLY_LINKED_LIST___2.get((long) local10 << 16);
                 if (local19 != null) {
                     return local19;
                 }
@@ -43,7 +43,7 @@ public final class Static537 {
                         throw new RuntimeException(local211.getMessage() + " S: " + local10);
                     }
                     local19.aClass242_5 = arg0;
-                    Static480.aClass361_2.method8341(local19, (long) local10 << 16);
+                    Static480.A_DOUBLY_LINKED_LIST___2.put(local19, (long) local10 << 16);
                     return local19;
                 }
             } else if (local32.length <= 1) {
@@ -55,7 +55,7 @@ public final class Static537 {
                     throw new RuntimeException(local135.getMessage() + " S: " + local10);
                 }
                 local19.aClass242_5 = arg0;
-                Static480.aClass361_2.method8341(local19, (long) local10 << 16);
+                Static480.A_DOUBLY_LINKED_LIST___2.put(local19, (long) local10 << 16);
                 return local19;
             }
         } else if (local32.length <= 1) {
@@ -67,7 +67,7 @@ public final class Static537 {
                 throw new RuntimeException(local51.getMessage() + " S: " + local10);
             }
             local19.aClass242_5 = arg0;
-            Static480.aClass361_2.method8341(local19, (long) local10 << 16);
+            Static480.A_DOUBLY_LINKED_LIST___2.put(local19, (long) local10 << 16);
             return local19;
         }
     }

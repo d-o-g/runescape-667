@@ -1,5 +1,5 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
-import com.jagex.collect.Node;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!bn")
-public final class Node_Sub8 extends Node {
+public final class Node_Sub8 extends Deque.Node {
 
     @OriginalMember(owner = "client!bn", name = "l", descriptor = "Lclient!av;")
     public HashTable aHashTable_8;

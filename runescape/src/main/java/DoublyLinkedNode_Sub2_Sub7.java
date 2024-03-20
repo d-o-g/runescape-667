@@ -1,10 +1,10 @@
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!dca")
-public final class DoublyLinkedNode_Sub2_Sub7 extends DoublyLinkedNode {
+public final class DoublyLinkedNode_Sub2_Sub7 extends DoublyLinkedList.Node {
 
     @OriginalMember(owner = "client!dca", name = "u", descriptor = "[B")
     public final byte[] aByteArray21;

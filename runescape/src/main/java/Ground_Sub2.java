@@ -1,6 +1,5 @@
 import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
-import com.jagex.collect.Node;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
@@ -444,7 +443,7 @@ public final class Ground_Sub2 extends Ground {
                                     local581 = this.aClass19_Sub3_33.aFloat149 + local581 * (local581 > 0.0F ? this.aClass19_Sub3_33.aFloat129 : this.aClass19_Sub3_33.aFloat130);
                                 }
                             }
-                            @Pc(903) Node local903 = null;
+                            @Pc(903) Deque.Node local903 = null;
                             if ((this.anInt7499 - 1 & local512) == 0 && (this.anInt7499 - 1 & local522) == 0) {
                                 local903 = local206.get(local567);
                             }
@@ -701,7 +700,7 @@ public final class Ground_Sub2 extends Ground {
                 local118 = 128;
             }
             @Pc(164) long local164 = (long) local114 | (long) arg12 << 48 | (long) arg11 << 42 | (long) arg10 << 28 | (long) (local118 << 14);
-            @Pc(170) Node local170;
+            @Pc(170) Deque.Node local170;
             for (local170 = this.aHashTable_37.get(local164); local170 != null; local170 = this.aHashTable_37.nextWithSameKey()) {
                 @Pc(177) Node_Sub39 local177 = (Node_Sub39) local170;
                 if (local177.anInt6592 == local114 && (float) local118 == local177.aFloat121 && arg10 == local177.anInt6593 && local177.anInt6595 == arg11 && local177.anInt6585 == arg12) {
@@ -794,7 +793,7 @@ public final class Ground_Sub2 extends Ground {
             this.aClass19_Sub3_33.method7031(7681, 8448);
             this.aClass19_Sub3_33.method7021(34166, 770, 0);
             this.aClass19_Sub3_33.method7029(0, 34167);
-            for (@Pc(312) Node local312 = this.aDeque_43.first(); local312 != null; local312 = this.aDeque_43.next()) {
+            for (@Pc(312) Deque.Node local312 = this.aDeque_43.first(); local312 != null; local312 = this.aDeque_43.next()) {
                 @Pc(317) Node_Sub33 local317 = (Node_Sub33) local312;
                 local317.method4933(arg2, arg1, arg4, arg5);
             }

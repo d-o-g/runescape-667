@@ -1,4 +1,4 @@
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.TextureSource;
 import com.jagex.js5.js5;
@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vm")
-public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
+public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedList.Node {
 
     @OriginalMember(owner = "client!vm", name = "E", descriptor = "[I")
     public final int[] anIntArray824;

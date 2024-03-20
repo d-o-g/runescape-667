@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qda")
-public final class AnimBase extends Node {
+public final class AnimBase extends Deque.Node {
 
     @OriginalMember(owner = "client!qda", name = "w", descriptor = "I")
     public final int id;

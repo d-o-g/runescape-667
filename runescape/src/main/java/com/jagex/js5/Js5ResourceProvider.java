@@ -2,7 +2,6 @@ package com.jagex.js5;
 
 import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
-import com.jagex.collect.Node;
 import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -125,13 +124,13 @@ public final class Js5ResourceProvider extends ResourceProvider {
             return;
         }
 
-        for (@Pc(23) Node existing = this.groupRequests.first(); existing != null; existing = this.groupRequests.next()) {
+        for (@Pc(23) Deque.Node existing = this.groupRequests.first(); existing != null; existing = this.groupRequests.next()) {
             if (existing.key == (long) groupId) {
                 return;
             }
         }
 
-        @Pc(50) Node request = new Node();
+        @Pc(50) Deque.Node request = new Deque.Node();
         request.key = groupId;
         this.groupRequests.addLast(request);
     }
@@ -141,7 +140,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
         if (this.index == null) {
             return 0;
         } else if (this.verifyLocal) {
-            @Pc(29) Node node = this.passives.first();
+            @Pc(29) Deque.Node node = this.passives.first();
             return node == null ? 0 : (int) node.key;
         } else {
             return this.index.groupCount;
@@ -158,7 +157,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
             if (this.verifyLocal) {
                 @Pc(33) boolean done = true;
 
-                for (@Pc(38) Node passive = this.passives.first(); passive != null; passive = this.passives.next()) {
+                for (@Pc(38) Deque.Node passive = this.passives.first(); passive != null; passive = this.passives.next()) {
                     @Pc(44) int group = (int) passive.key;
 
                     if (this.groupStates[group] == 0) {
@@ -186,7 +185,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
                         }
 
                         if (this.groupStates[this.currentGroup] == 0) {
-                            @Pc(147) Node passive = new Node();
+                            @Pc(147) Deque.Node passive = new Deque.Node();
                             passive.key = this.currentGroup;
                             done = false;
                             this.passives.addLast(passive);
@@ -203,7 +202,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
             } else if (this.requestMissing) {
                 @Pc(33) boolean done = true;
 
-                for (@Pc(38) Node passive = this.passives.first(); passive != null; passive = this.passives.next()) {
+                for (@Pc(38) Deque.Node passive = this.passives.first(); passive != null; passive = this.passives.next()) {
                     @Pc(44) int group = (int) passive.key;
 
                     if (this.groupStates[group] != 1) {
@@ -231,7 +230,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
                         }
 
                         if (this.groupStates[this.currentGroup] != 1) {
-                            @Pc(147) Node node = new Node();
+                            @Pc(147) Deque.Node node = new Deque.Node();
                             node.key = this.currentGroup;
                             this.passives.addLast(node);
                             done = false;
@@ -454,7 +453,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
             return;
         }
 
-        for (@Pc(21) Node request = this.groupRequests.first(); request != null; request = this.groupRequests.next()) {
+        for (@Pc(21) Deque.Node request = this.groupRequests.first(); request != null; request = this.groupRequests.next()) {
             @Pc(29) int group = (int) request.key;
 
             if (group < 0 || group >= this.index.groupLimit || this.index.fileCounts[group] == 0) {

@@ -1,10 +1,10 @@
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!pg")
-public final class DoublyLinkedNode_Sub2_Sub16 extends DoublyLinkedNode {
+public final class DoublyLinkedNode_Sub2_Sub16 extends DoublyLinkedList.Node {
 
     @OriginalMember(owner = "client!pg", name = "C", descriptor = "Ljava/lang/String;")
     public String aString88;

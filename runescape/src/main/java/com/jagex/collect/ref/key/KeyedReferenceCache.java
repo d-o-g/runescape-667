@@ -1,6 +1,6 @@
 package com.jagex.collect.ref.key;
 
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Queue;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -27,10 +27,10 @@ public final class KeyedReferenceCache {
     public KeyedReferenceCache(@OriginalArg(0) int size) {
         this.capacity = size;
         this.remaining = size;
-        @Pc(16) int buckets;
-        for (buckets = 1; size > (buckets + buckets); buckets += buckets) {
+        @Pc(16) int bucketCount;
+        for (bucketCount = 1; size > (bucketCount + bucketCount); bucketCount += bucketCount) {
         }
-        this.table = new HashTable(buckets);
+        this.table = new HashTable(bucketCount);
     }
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(ILclient!uq;)V")
@@ -57,7 +57,7 @@ public final class KeyedReferenceCache {
         for (@Pc(5) KeyedReferenceNode node = (KeyedReferenceNode) this.history.first(); node != null; node = (KeyedReferenceNode) this.history.next()) {
             if (node.isSoft()) {
                 node.remove();
-                node.remove2();
+                node.unlink2();
                 this.remaining += node.size;
             }
         }
@@ -67,7 +67,7 @@ public final class KeyedReferenceCache {
     public void remove(@OriginalArg(1) KeyedReferenceNode node) {
         if (node != null) {
             node.remove();
-            node.remove2();
+            node.unlink2();
             this.remaining += node.size;
         }
     }
@@ -82,15 +82,15 @@ public final class KeyedReferenceCache {
             if (node.isSoft()) {
                 if (node.get() == null) {
                     node.remove();
-                    node.remove2();
+                    node.unlink2();
                     this.remaining += node.size;
                 }
             } else if (++node.key2 > (long) maxAge) {
                 @Pc(38) KeyedReferenceNode newReference = KeyedReferenceNodeFactory.INSTANCE.create(node);
                 this.table.put(node.key, newReference);
-                DoublyLinkedNode.attachAfter(node, newReference);
+                DoublyLinkedList.Node.attachAfter(node, newReference);
                 node.remove();
-                node.remove2();
+                node.unlink2();
             }
         }
     }
@@ -140,7 +140,7 @@ public final class KeyedReferenceCache {
                         this.history.add(hardReference);
                         hardReference.key2 = 0L;
                         node.remove();
-                        node.remove2();
+                        node.unlink2();
                     } else {
                         this.history.add(node);
                         node.key2 = 0L;
@@ -149,7 +149,7 @@ public final class KeyedReferenceCache {
                     return object;
                 } else {
                     node.remove();
-                    node.remove2();
+                    node.unlink2();
                     this.remaining += node.size;
                 }
             }

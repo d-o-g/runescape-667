@@ -226,7 +226,7 @@ public final class Static320 {
         local886 = new Class299(Static350.A_QUEUE___8);
         for (@Pc(891) DoublyLinkedNode_Sub2_Sub4 local891 = (DoublyLinkedNode_Sub2_Sub4) local886.method6724(); local891 != null; local891 = (DoublyLinkedNode_Sub2_Sub4) local886.method6723()) {
             if (local428 == local661) {
-                Static55.method1217(local321, (DoublyLinkedNode_Sub2_Sub16) local891.aQueue_3.tail.next2, local317);
+                Static55.method1217(local321, (DoublyLinkedNode_Sub2_Sub16) local891.aQueue_3.last.next2, local317);
                 Static488.method6522();
                 return;
             }

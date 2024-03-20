@@ -1,4 +1,4 @@
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class303 implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "k", descriptor = "Lclient!ts;")
-    public final Class361 aClass361_3 = new Class361(256);
+    public final DoublyLinkedList aDoublyLinkedList_3 = new DoublyLinkedList(256);
 
     @OriginalMember(owner = "client!qea", name = "b", descriptor = "Lclient!sb;")
     public final js5 aJs5_99;
@@ -137,7 +137,7 @@ public final class Class303 implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IB)Lclient!vm;")
     public DoublyLinkedNode_Sub2_Sub21 method6819(@OriginalArg(0) int arg0) {
-        @Pc(10) DoublyLinkedNode local10 = this.aClass361_3.method8342((long) arg0);
+        @Pc(10) DoublyLinkedList.Node local10 = this.aDoublyLinkedList_3.get((long) arg0);
         if (local10 != null) {
             return (DoublyLinkedNode_Sub2_Sub21) local10;
         }
@@ -146,7 +146,7 @@ public final class Class303 implements TextureSource {
             return null;
         } else {
             @Pc(43) DoublyLinkedNode_Sub2_Sub21 local43 = new DoublyLinkedNode_Sub2_Sub21(new Packet(local30));
-            this.aClass361_3.method8341(local43, (long) arg0);
+            this.aDoublyLinkedList_3.put(local43, (long) arg0);
             return local43;
         }
     }

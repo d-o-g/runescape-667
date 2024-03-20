@@ -1,6 +1,6 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;
-import com.jagex.collect.Node;
 import com.jagex.collect.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
@@ -214,7 +214,7 @@ public final class Class53 {
                 @Pc(62) HashTable local62 = new HashTable(IntMath.nextPow2(this.anInt1144));
                 for (@Pc(64) int local64 = 0; local64 < this.anInt1144; local64++) {
                     local69 = arg1.g4();
-                    @Pc(79) Node local79;
+                    @Pc(79) Deque.Node local79;
                     if (arg0 == 5) {
                         local79 = new StringNode(arg1.gjstr());
                     } else {

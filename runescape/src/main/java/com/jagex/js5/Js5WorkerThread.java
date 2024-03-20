@@ -258,7 +258,7 @@ public final class Js5WorkerThread {
                     this.current.blockPos += len;
 
                     if (remaining == this.current.packet.pos) {
-                        this.current.remove2();
+                        this.current.unlink2();
                         this.current.incomplete = false;
                         this.current = null;
                     } else if (this.current.blockPos == 512) {

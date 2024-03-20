@@ -1,6 +1,6 @@
 package com.jagex.collect.ref;
 
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Queue;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -32,10 +32,10 @@ public final class ReferenceCache {
     public ReferenceCache(@OriginalArg(0) int max, @OriginalArg(1) int min) {
         this.capacity = max;
         this.remaining = max;
-        @Pc(14) int buckets;
-        for (buckets = 1; (max > (buckets + buckets)) && (buckets < min); buckets += buckets) {
+        @Pc(14) int bucketCount;
+        for (bucketCount = 1; (max > (bucketCount + bucketCount)) && (bucketCount < min); bucketCount += bucketCount) {
         }
-        this.table = new HashTable(buckets);
+        this.table = new HashTable(bucketCount);
     }
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "(I)I")
@@ -53,7 +53,7 @@ public final class ReferenceCache {
                 @Pc(29) ReferenceNode copy = current;
                 current = (ReferenceNode) this.table.next();
                 copy.remove();
-                copy.remove2();
+                copy.unlink2();
                 this.remaining += copy.size;
             } else {
                 return object;
@@ -77,15 +77,15 @@ public final class ReferenceCache {
             if (node.isSoft()) {
                 if (node.get() == null) {
                     node.remove();
-                    node.remove2();
+                    node.unlink2();
                     this.remaining += node.size;
                 }
             } else if (++node.key2 > (long) maxAge) {
                 @Pc(42) ReferenceNode newReference = ReferenceNodeFactory.INSTANCE.create(node);
                 this.table.put(node.key, newReference);
-                DoublyLinkedNode.attachAfter(node, newReference);
+                DoublyLinkedList.Node.attachAfter(node, newReference);
                 node.remove();
-                node.remove2();
+                node.unlink2();
             }
         }
     }
@@ -105,7 +105,7 @@ public final class ReferenceCache {
     public void remove(@OriginalArg(1) ReferenceNode node) {
         if (node != null) {
             node.remove();
-            node.remove2();
+            node.unlink2();
             this.remaining += node.size;
         }
     }
@@ -120,7 +120,7 @@ public final class ReferenceCache {
         for (@Pc(14) ReferenceNode node = (ReferenceNode) this.history.first(); node != null; node = (ReferenceNode) this.history.next()) {
             if (node.isSoft()) {
                 node.remove();
-                node.remove2();
+                node.unlink2();
                 this.remaining += node.size;
             }
         }
@@ -137,7 +137,7 @@ public final class ReferenceCache {
             @Pc(29) ReferenceNode copy = current;
             current = (ReferenceNode) this.table.next();
             copy.remove();
-            copy.remove2();
+            copy.unlink2();
             this.remaining += copy.size;
         }
         return null;
@@ -179,7 +179,7 @@ public final class ReferenceCache {
         @Pc(26) Object object = node.get();
         if (object == null) {
             node.remove();
-            node.remove2();
+            node.unlink2();
             this.remaining += node.size;
             return null;
         }
@@ -190,7 +190,7 @@ public final class ReferenceCache {
             this.history.add(hardReference);
             hardReference.key2 = 0L;
             node.remove();
-            node.remove2();
+            node.unlink2();
         } else {
             this.history.add(node);
             node.key2 = 0L;

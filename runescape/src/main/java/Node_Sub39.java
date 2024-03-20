@@ -1,4 +1,4 @@
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import com.jagex.graphics.TextureMetrics;
 import jaclib.memory.Stream;
 import jaclib.memory.heap.NativeHeapBuffer;
@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!nm")
-public final class Node_Sub39 extends Node {
+public final class Node_Sub39 extends Deque.Node {
 
     @OriginalMember(owner = "client!nm", name = "u", descriptor = "Lclient!ed;")
     public Class94 aClass94_10;

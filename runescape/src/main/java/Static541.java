@@ -1,3 +1,4 @@
+import com.jagex.collect.DoublyLinkedList;
 import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -9,7 +10,7 @@ public final class Static541 {
     public static final ReferenceCache A_WEIGHTED_CACHE___174 = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!ra", name = "p", descriptor = "Lclient!ts;")
-    public static final Class361 aClass361_4 = new Class361(16);
+    public static final DoublyLinkedList A_DOUBLY_LINKED_LIST___4 = new DoublyLinkedList(16);
 
     @OriginalMember(owner = "client!ra", name = "q", descriptor = "Lclient!kda;")
     public static final Class204 aClass204_12 = new Class204(5, 1);

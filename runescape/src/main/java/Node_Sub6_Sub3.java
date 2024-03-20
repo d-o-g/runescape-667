@@ -1,5 +1,4 @@
 import com.jagex.collect.Deque;
-import com.jagex.collect.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -95,7 +94,7 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "(Lclient!ie;Lclient!ada;)V")
-    public void method5886(@OriginalArg(0) Node arg0, @OriginalArg(1) Node_Sub3 arg1) {
+    public void method5886(@OriginalArg(0) Deque.Node arg0, @OriginalArg(1) Node_Sub3 arg1) {
         while (arg0 != this.aDeque_36.last && ((Node_Sub3) arg0).anInt101 <= arg1.anInt101) {
             arg0 = arg0.next;
         }
@@ -157,7 +156,7 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
     public void method5888(@OriginalArg(0) Node_Sub3 arg0) {
         arg0.remove();
         arg0.method113();
-        @Pc(9) Node local9 = this.aDeque_36.last.next;
+        @Pc(9) Deque.Node local9 = this.aDeque_36.last.next;
         if (local9 == this.aDeque_36.last) {
             this.anInt6604 = -1;
         } else {

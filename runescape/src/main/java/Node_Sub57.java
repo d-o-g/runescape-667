@@ -1,10 +1,10 @@
 import com.jagex.SignedResource;
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!vs")
-public final class Node_Sub57 extends Node {
+public final class Node_Sub57 extends Deque.Node {
 
     @OriginalMember(owner = "client!vs", name = "r", descriptor = "[Lclient!oba;")
     public SignedResource[] aSignedResourceArray1;

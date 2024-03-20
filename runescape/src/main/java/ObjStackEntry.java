@@ -1,10 +1,10 @@
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!cv")
-public final class ObjStackEntry extends Node {
+public final class ObjStackEntry extends Deque.Node {
 
     @OriginalMember(owner = "client!cv", name = "o", descriptor = "I")
     public final int id;

@@ -1,8 +1,8 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;
-import com.jagex.collect.Node;
 import com.jagex.collect.Queue;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.stringtools.general.StringTools;
@@ -4255,7 +4255,7 @@ public final class Static472 {
                     Static170.method2653(local192);
                     return;
                 }
-                @Pc(2867) Node local2867;
+                @Pc(2867) Deque.Node local2867;
                 if (arg0 == 5231) {
                     anInt7142 -= 2;
                     local192 = anIntArray578[anInt7142];
@@ -4267,13 +4267,13 @@ public final class Static472 {
                             return;
                         }
                         if (local2867 == null && local1578) {
-                            local2867 = new Node();
+                            local2867 = new Deque.Node();
                             Static232.A_HASH_TABLE___18.put((long) local192, local2867);
                         }
                     }
                     return;
                 }
-                @Pc(2914) Node local2914;
+                @Pc(2914) Deque.Node local2914;
                 if (arg0 == 5232) {
                     local192 = anIntArray578[--anInt7142];
                     if (Static232.A_HASH_TABLE___18 != null) {
@@ -4295,7 +4295,7 @@ public final class Static472 {
                             return;
                         }
                         if (local2867 == null && local1578) {
-                            local2867 = new Node();
+                            local2867 = new Deque.Node();
                             Static268.A_HASH_TABLE___22.put((long) local192, local2867);
                         }
                     }

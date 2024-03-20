@@ -1,4 +1,4 @@
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rfa")
-public final class Node_Sub47 extends Node {
+public final class Node_Sub47 extends Deque.Node {
 
     @OriginalMember(owner = "client!rfa", name = "x", descriptor = "B")
     public byte aByte127;

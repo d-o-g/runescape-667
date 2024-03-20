@@ -29,7 +29,7 @@ public final class Static572 {
         if (Static236.aBoolean304) {
             for (@Pc(18) DoublyLinkedNode_Sub2_Sub4 local18 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local18 != null; local18 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
                 if (local18.anInt1534 == 1) {
-                    local27 = Static249.method3536((DoublyLinkedNode_Sub2_Sub16) local18.aQueue_3.tail.next2);
+                    local27 = Static249.method3536((DoublyLinkedNode_Sub2_Sub16) local18.aQueue_3.last.next2);
                 } else {
                     local27 = Static192.method2875(local18);
                 }

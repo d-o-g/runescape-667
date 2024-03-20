@@ -1,4 +1,4 @@
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -78,11 +78,11 @@ public final class Static385 {
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(Lclient!cba;B)V")
     public static void method5424(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub4 arg0) {
         @Pc(5) boolean local5 = false;
-        arg0.remove2();
+        arg0.unlink2();
         for (@Pc(21) DoublyLinkedNode_Sub2_Sub4 local21 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local21 != null; local21 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
             if (Static546.method7250(arg0.method1468(), local21.method1468())) {
                 local5 = true;
-                DoublyLinkedNode.attachAfter(local21, arg0);
+                DoublyLinkedList.Node.attachAfter(local21, arg0);
                 break;
             }
         }

@@ -1,4 +1,4 @@
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,7 +10,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 
 @OriginalClass("client!p")
-public final class p extends Node implements Interface5 {
+public final class p extends Deque.Node implements Interface5 {
 
     @OriginalMember(owner = "client!p", name = "nativeid", descriptor = "J")
     public long nativeid;

@@ -1,11 +1,11 @@
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ga")
-public abstract class Node_Sub14 extends Node {
+public abstract class Node_Sub14 extends Deque.Node {
 
     @OriginalMember(owner = "client!ga", name = "a", descriptor = "(ILclient!ge;)V")
     public abstract void method8615(@OriginalArg(1) Packet arg0);

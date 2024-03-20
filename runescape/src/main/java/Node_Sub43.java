@@ -1,5 +1,5 @@
 import com.jagex.SignLink;
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import com.jagex.core.io.Packet;
 import jaclib.hardware_info.HardwareInfo;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!pw")
-public final class Node_Sub43 extends Node {
+public final class Node_Sub43 extends Deque.Node {
 
     @OriginalMember(owner = "client!pw", name = "M", descriptor = "I")
     public int anInt7598;

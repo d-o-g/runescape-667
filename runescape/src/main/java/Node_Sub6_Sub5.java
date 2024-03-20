@@ -79,7 +79,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             if (local14 == null) {
                 if (this.aBoolean795) {
                     this.remove();
-                    Static341.aClass361_1.method8345();
+                    Static341.A_DOUBLY_LINKED_LIST___1.clear();
                 }
                 return;
             }
@@ -95,12 +95,12 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(IDI)Lclient!dk;")
     public DoublyLinkedNode_Sub2_Sub8 method9142(@OriginalArg(0) int arg0, @OriginalArg(1) double arg1) {
         @Pc(11) long local11 = (long) (arg0 | this.anInt10521 << 0);
-        @Pc(17) DoublyLinkedNode_Sub2_Sub8 local17 = (DoublyLinkedNode_Sub2_Sub8) Static341.aClass361_1.method8342(local11);
+        @Pc(17) DoublyLinkedNode_Sub2_Sub8 local17 = (DoublyLinkedNode_Sub2_Sub8) Static341.A_DOUBLY_LINKED_LIST___1.get(local11);
         if (local17 == null) {
             local17 = new DoublyLinkedNode_Sub2_Sub8(new short[this.anInt10521][arg0], arg1);
         } else {
             local17.aDouble10 = arg1;
-            Static341.aClass361_1.method8344(local11);
+            Static341.A_DOUBLY_LINKED_LIST___1.remove(local11);
         }
         return local17;
     }
@@ -125,7 +125,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             local7.remove();
             this.anInt10535--;
             this.anInt10536 = 0;
-            Static341.aClass361_1.method8341(local7, local7.method2133());
+            Static341.A_DOUBLY_LINKED_LIST___1.put(local7, local7.method2133());
         }
     }
 
@@ -194,7 +194,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             }
         } else if (this.aBoolean795) {
             this.remove();
-            Static341.aClass361_1.method8345();
+            Static341.A_DOUBLY_LINKED_LIST___1.clear();
         }
     }
 }

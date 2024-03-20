@@ -1,6 +1,6 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;
-import com.jagex.collect.Node;
 import com.jagex.collect.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
@@ -181,7 +181,7 @@ public final class Class164 {
         if (this.aHashTable_19 == null) {
             return null;
         } else {
-            @Pc(16) Node local16 = this.aHashTable_19.get((long) arg0);
+            @Pc(16) Deque.Node local16 = this.aHashTable_19.get((long) arg0);
             return local16 != null && local16 instanceof Node_Sub48 ? Long.valueOf(((Node_Sub48) local16).aLong264) : null;
         }
     }
@@ -209,7 +209,7 @@ public final class Class164 {
         if (this.aHashTable_19 == null) {
             this.aHashTable_19 = new HashTable(4);
         } else {
-            @Pc(32) Node local32 = this.aHashTable_19.get((long) arg1);
+            @Pc(32) Deque.Node local32 = this.aHashTable_19.get((long) arg1);
             if (local32 != null) {
                 if (local32 instanceof StringNode) {
                     @Pc(42) StringNode local42 = (StringNode) local32;
@@ -259,7 +259,7 @@ public final class Class164 {
         if (this.aHashTable_19 == null) {
             return null;
         } else {
-            @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
+            @Pc(24) Deque.Node local24 = this.aHashTable_19.get((long) arg0);
             return local24 != null && local24 instanceof StringNode ? ((StringNode) local24).value : null;
         }
     }
@@ -338,7 +338,7 @@ public final class Class164 {
         if (this.aHashTable_19 == null) {
             this.aHashTable_19 = new HashTable(4);
         } else {
-            @Pc(29) Node local29 = this.aHashTable_19.get((long) arg0);
+            @Pc(29) Deque.Node local29 = this.aHashTable_19.get((long) arg0);
             if (local29 != null) {
                 if (local29 instanceof Node_Sub48) {
                     @Pc(39) Node_Sub48 local39 = (Node_Sub48) local29;
@@ -375,7 +375,7 @@ public final class Class164 {
         if (this.aHashTable_19 == null) {
             return null;
         } else {
-            @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
+            @Pc(24) Deque.Node local24 = this.aHashTable_19.get((long) arg0);
             return local24 != null && local24 instanceof IntNode ? Integer.valueOf(((IntNode) local24).value) : null;
         }
     }
@@ -425,7 +425,7 @@ public final class Class164 {
         if (this.aHashTable_19 == null) {
             this.aHashTable_19 = new HashTable(4);
         } else {
-            @Pc(63) Node local63 = this.aHashTable_19.get((long) arg3);
+            @Pc(63) Deque.Node local63 = this.aHashTable_19.get((long) arg3);
             if (local63 != null) {
                 if (local63 instanceof IntNode) {
                     @Pc(73) IntNode local73 = (IntNode) local63;
@@ -563,7 +563,7 @@ public final class Class164 {
         if (this.aHashTable_19 == null) {
             return null;
         }
-        @Pc(16) Node local16 = this.aHashTable_19.get((long) arg0);
+        @Pc(16) Deque.Node local16 = this.aHashTable_19.get((long) arg0);
         if (local16 != null && local16 instanceof IntNode) {
             @Pc(50) int local50 = arg1 == 31 ? -1 : (0x1 << arg1 + 1) - 1;
             return Integer.valueOf((((IntNode) local16).value & local50) >>> arg2);
@@ -583,7 +583,7 @@ public final class Class164 {
         if (this.aHashTable_19 == null) {
             this.aHashTable_19 = new HashTable(4);
         } else {
-            @Pc(35) Node local35 = this.aHashTable_19.get((long) arg1);
+            @Pc(35) Deque.Node local35 = this.aHashTable_19.get((long) arg1);
             if (local35 != null) {
                 if (local35 instanceof IntNode) {
                     @Pc(45) IntNode local45 = (IntNode) local35;

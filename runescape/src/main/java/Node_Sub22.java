@@ -1,4 +1,4 @@
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
@@ -13,7 +13,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gfa")
-public final class Node_Sub22 extends Node {
+public final class Node_Sub22 extends Deque.Node {
 
     @OriginalMember(owner = "client!gfa", name = "t", descriptor = "[I")
     public int[] anIntArray278 = new int[]{-1};

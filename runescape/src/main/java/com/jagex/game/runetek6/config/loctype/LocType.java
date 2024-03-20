@@ -1,8 +1,8 @@
 package com.jagex.game.runetek6.config.loctype;
 
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;
-import com.jagex.collect.Node;
 import com.jagex.collect.StringNode;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.constants.LocShapes;
@@ -540,7 +540,7 @@ public final class LocType {
                 @Pc(872) boolean string = packet.g1() == 1;
                 @Pc(67) int id = packet.g3();
 
-                @Pc(885) Node param;
+                @Pc(885) Deque.Node param;
                 if (string) {
                     param = new StringNode(packet.gjstr());
                 } else {

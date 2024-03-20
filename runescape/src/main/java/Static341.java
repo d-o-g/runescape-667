@@ -1,3 +1,4 @@
+import com.jagex.collect.DoublyLinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -8,7 +9,7 @@ public final class Static341 {
     public static int[][] anIntArrayArray133;
 
     @OriginalMember(owner = "client!ko", name = "H", descriptor = "Lclient!ts;")
-    public static final Class361 aClass361_1 = new Class361(64);
+    public static final DoublyLinkedList A_DOUBLY_LINKED_LIST___1 = new DoublyLinkedList(64);
 
     @OriginalMember(owner = "client!ko", name = "g", descriptor = "(I)V")
     public static void method5033(@OriginalArg(0) int arg0) {

@@ -2,7 +2,6 @@ import com.jagex.Class230;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.collect.Deque;
-import com.jagex.collect.Node;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;
@@ -1083,7 +1082,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
         if (this.aBoolean687) {
             return;
         }
-        for (@Pc(9) Node local9 = this.aDeque_59.first(); local9 != null; local9 = this.aDeque_59.next()) {
+        for (@Pc(9) Deque.Node local9 = this.aDeque_59.first(); local9 != null; local9 = this.aDeque_59.next()) {
             ((Node_Sub13_Sub2) local9).method2101();
         }
         @Pc(28) Enumeration local28 = this.aHashtable6.keys();

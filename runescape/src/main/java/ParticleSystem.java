@@ -107,7 +107,7 @@ public final class ParticleSystem extends Entity {
             local16.remove();
             this.anInt4150--;
             if (local16.isLinked2()) {
-                local16.remove2();
+                local16.unlink2();
                 Static654.anInt9740--;
             }
         }
@@ -191,7 +191,7 @@ public final class ParticleSystem extends Entity {
         this.aBoolean324 = true;
         for (@Pc(8) ParticleEffector local8 = (ParticleEffector) this.aDeque_22.first(); local8 != null; local8 = (ParticleEffector) this.aDeque_22.next()) {
             if (local8.aParticleEffectorType_1.visibility == 1) {
-                local8.remove2();
+                local8.unlink2();
             }
         }
         for (@Pc(27) int local27 = 0; local27 < this.aParticle.length; local27++) {

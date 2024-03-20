@@ -1,4 +1,4 @@
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorType;
 import com.jagex.graphics.particles.ModelParticleEffector;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!co")
-public final class ParticleEffector extends DoublyLinkedNode {
+public final class ParticleEffector extends DoublyLinkedList.Node {
 
     @OriginalMember(owner = "client!co", name = "z", descriptor = "I")
     public int anInt1821;

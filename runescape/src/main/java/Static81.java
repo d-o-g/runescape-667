@@ -86,7 +86,7 @@ public final class Static81 {
         @Pc(17) DoublyLinkedNode_Sub2__ local17 = (DoublyLinkedNode_Sub2__) Static138.A_QUEUE___6.first();
         if (local17 != null) {
             local17.remove();
-            local17.remove2();
+            local17.unlink2();
             return local17;
         }
         do {
@@ -98,7 +98,7 @@ public final class Static81 {
                 return null;
             }
             local17.remove();
-            local17.remove2();
+            local17.unlink2();
         } while ((local17.key2 & Long.MIN_VALUE) == 0L);
         return local17;
     }

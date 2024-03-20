@@ -1,4 +1,4 @@
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -9,9 +9,9 @@ public final class Static145 {
     public static int anInt2561 = 0;
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(ZLclient!cm;Lclient!cm;)V")
-    public static void method2408(@OriginalArg(1) DoublyLinkedNode arg0, @OriginalArg(2) DoublyLinkedNode arg1) {
+    public static void method2408(@OriginalArg(1) DoublyLinkedList.Node arg0, @OriginalArg(2) DoublyLinkedList.Node arg1) {
         if (arg0.prev2 != null) {
-            arg0.remove2();
+            arg0.unlink2();
         }
         arg0.prev2 = arg1.prev2;
         arg0.next2 = arg1;

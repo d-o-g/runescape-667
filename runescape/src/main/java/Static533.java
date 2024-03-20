@@ -14,7 +14,7 @@ public final class Static533 {
         for (@Pc(8) DoublyLinkedNode_Sub2_Sub4 local8 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
             if (local8.anInt1534 > 1) {
                 local8.anInt1534 = 0;
-                Static717.A_WEIGHTED_CACHE___232.put(local8, ((DoublyLinkedNode_Sub2_Sub16) local8.aQueue_3.tail.next2).aLong234);
+                Static717.A_WEIGHTED_CACHE___232.put(local8, ((DoublyLinkedNode_Sub2_Sub16) local8.aQueue_3.last.next2).aLong234);
                 local8.aQueue_3.clear();
             }
         }

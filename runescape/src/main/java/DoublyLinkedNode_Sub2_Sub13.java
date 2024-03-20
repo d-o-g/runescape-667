@@ -1,12 +1,12 @@
 import com.jagex.collect.Deque;
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ip")
-public final class DoublyLinkedNode_Sub2_Sub13 extends DoublyLinkedNode {
+public final class DoublyLinkedNode_Sub2_Sub13 extends DoublyLinkedList.Node {
 
     @OriginalMember(owner = "client!ip", name = "J", descriptor = "I")
     public int anInt4552 = 0;

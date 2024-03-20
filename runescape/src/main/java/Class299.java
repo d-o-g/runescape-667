@@ -1,4 +1,4 @@
-import com.jagex.collect.DoublyLinkedNode;
+import com.jagex.collect.DoublyLinkedList;
 import com.jagex.collect.Queue;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class299 {
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "Lclient!cm;")
-    public DoublyLinkedNode aClass2_Sub2_48;
+    public DoublyLinkedList.Node aClass2_Sub2_48;
 
     @OriginalMember(owner = "client!ps", name = "e", descriptor = "Lclient!jga;")
     public Queue aQueue_14;
@@ -24,9 +24,9 @@ public final class Class299 {
     }
 
     @OriginalMember(owner = "client!ps", name = "b", descriptor = "(I)Lclient!cm;")
-    public DoublyLinkedNode method6723() {
-        @Pc(6) DoublyLinkedNode local6 = this.aClass2_Sub2_48;
-        if (local6 == this.aQueue_14.tail) {
+    public DoublyLinkedList.Node method6723() {
+        @Pc(6) DoublyLinkedList.Node local6 = this.aClass2_Sub2_48;
+        if (local6 == this.aQueue_14.last) {
             this.aClass2_Sub2_48 = null;
             return null;
         } else {
@@ -36,9 +36,9 @@ public final class Class299 {
     }
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "(I)Lclient!cm;")
-    public DoublyLinkedNode method6724() {
-        @Pc(14) DoublyLinkedNode local14 = this.aQueue_14.tail.next2;
-        if (this.aQueue_14.tail == local14) {
+    public DoublyLinkedList.Node method6724() {
+        @Pc(14) DoublyLinkedList.Node local14 = this.aQueue_14.last.next2;
+        if (this.aQueue_14.last == local14) {
             this.aClass2_Sub2_48 = null;
             return null;
         } else {

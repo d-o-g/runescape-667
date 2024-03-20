@@ -1,8 +1,8 @@
 package com.jagex.game.runetek6.config.npctype;
 
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;
-import com.jagex.collect.Node;
 import com.jagex.collect.StringNode;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
@@ -514,7 +514,7 @@ public final class NPCType {
                 @Pc(761) boolean string = packet.g1() == 1;
                 @Pc(765) int id = packet.g3();
 
-                @Pc(774) Node param;
+                @Pc(774) Deque.Node param;
                 if (string) {
                     param = new StringNode(packet.gjstr());
                 } else {

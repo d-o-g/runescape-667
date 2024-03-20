@@ -59,7 +59,7 @@ public final class Static488 {
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(II)Lclient!fj;")
     public static DoublyLinkedNode_Sub2_Sub10 method6525(@OriginalArg(0) int arg0) {
-        @Pc(10) DoublyLinkedNode_Sub2_Sub10 local10 = (DoublyLinkedNode_Sub2_Sub10) Static480.aClass361_2.method8342((long) arg0);
+        @Pc(10) DoublyLinkedNode_Sub2_Sub10 local10 = (DoublyLinkedNode_Sub2_Sub10) Static480.A_DOUBLY_LINKED_LIST___2.get((long) arg0);
         if (local10 != null) {
             return local10;
         }
@@ -72,7 +72,7 @@ public final class Static488 {
         } catch (@Pc(38) Exception local38) {
             throw new RuntimeException(local38.getMessage() + " S: " + arg0);
         }
-        Static480.aClass361_2.method8341(local10, (long) arg0);
+        Static480.A_DOUBLY_LINKED_LIST___2.put(local10, (long) arg0);
         return local10;
     }
 }

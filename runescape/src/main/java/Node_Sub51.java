@@ -1,4 +1,4 @@
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!tg")
-public final class Node_Sub51 extends Node {
+public final class Node_Sub51 extends Deque.Node {
 
     @OriginalMember(owner = "client!tg", name = "y", descriptor = "Lclient!haa;")
     public Node_Sub6_Sub2 aClass2_Sub6_Sub2_3;

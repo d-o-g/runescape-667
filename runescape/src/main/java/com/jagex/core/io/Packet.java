@@ -1,6 +1,6 @@
 package com.jagex.core.io;
 
-import com.jagex.collect.Node;
+import com.jagex.collect.Deque;
 import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 import java.math.BigInteger;
 
 @OriginalClass("client!ge")
-public class Packet extends Node {
+public class Packet extends Deque.Node {
 
     private static final int CRC32_POLYNOMIAL = 0xEDB88320;
     private static final long CRC64_POLYNOMIAL = 0xC96C5795D7870F42L;

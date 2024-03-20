@@ -1,5 +1,5 @@
+import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
-import com.jagex.collect.Node;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.PointLight;
 import com.jagex.math.IntMath;
@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!kia")
-public final class Node_Sub33 extends Node {
+public final class Node_Sub33 extends Deque.Node {
 
     @OriginalMember(owner = "client!kia", name = "n", descriptor = "I")
     public int anInt5452;
@@ -218,7 +218,7 @@ public final class Node_Sub33 extends Node {
         @Pc(30) int local30 = this.aClass178_Sub2_2.method7878(local23, local15);
         if ((arg1 & 0x7F) == 0 || (arg0 & 0x7F) == 0) {
             local7 = ((long) local23 & 0xFFFFL) << 16 | (long) local15 & 0xFFFFL;
-            @Pc(64) Node local64 = this.aHashTable_26.get(local7);
+            @Pc(64) Deque.Node local64 = this.aHashTable_26.get(local7);
             if (local64 != null) {
                 this.method4934(((Node_Sub50) local64).aShort119);
                 return;

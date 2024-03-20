@@ -47,7 +47,7 @@ public final class Static449 {
         }
         @Pc(55) Class331 local55 = new Class331(Static548.aHashTable_40);
         for (@Pc(60) Node_Sub4 local60 = (Node_Sub4) local55.method7613(); local60 != null; local60 = (Node_Sub4) local55.method7610()) {
-            if (!local60.hasPrev()) {
+            if (!local60.isLinked()) {
                 local60 = (Node_Sub4) local55.method7613();
                 if (local60 == null) {
                     break;

@@ -1,12 +1,12 @@
 package com.jagex.collect.ref;
 
-import com.jagex.collect.DoublyLinkedList;
+import com.jagex.collect.LinkedHashTable;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!vw")
-public abstract class ReferenceNode extends DoublyLinkedList.Node {
+public abstract class ReferenceNode extends LinkedHashTable.Node {
 
     @OriginalMember(owner = "client!vw", name = "w", descriptor = "I")
     public final int size;

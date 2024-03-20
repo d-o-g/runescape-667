@@ -1,4 +1,4 @@
-import com.jagex.collect.DoublyLinkedList;
+import com.jagex.collect.LinkedHashTable;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -9,7 +9,7 @@ public final class Static145 {
     public static int anInt2561 = 0;
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(ZLclient!cm;Lclient!cm;)V")
-    public static void method2408(@OriginalArg(1) DoublyLinkedList.Node arg0, @OriginalArg(2) DoublyLinkedList.Node arg1) {
+    public static void method2408(@OriginalArg(1) LinkedHashTable.Node arg0, @OriginalArg(2) LinkedHashTable.Node arg1) {
         if (arg0.prev2 != null) {
             arg0.unlink2();
         }

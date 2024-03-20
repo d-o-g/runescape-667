@@ -1,5 +1,5 @@
 import com.jagex.collect.Deque;
-import com.jagex.collect.DoublyLinkedList;
+import com.jagex.collect.LinkedHashTable;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;
 import com.jagex.collect.StringNode;
@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ab")
-public final class DoublyLinkedNode_Sub2_Sub1 extends DoublyLinkedList.Node {
+public final class DoublyLinkedNode_Sub2_Sub1 extends LinkedHashTable.Node {
 
     @OriginalMember(owner = "client!ab", name = "A", descriptor = "Lclient!av;")
     public HashTable aHashTable_1;

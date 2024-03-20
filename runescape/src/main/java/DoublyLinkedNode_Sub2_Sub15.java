@@ -1,10 +1,10 @@
-import com.jagex.collect.DoublyLinkedList;
+import com.jagex.collect.LinkedHashTable;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!oea")
-public final class DoublyLinkedNode_Sub2_Sub15 extends DoublyLinkedList.Node {
+public final class DoublyLinkedNode_Sub2_Sub15 extends LinkedHashTable.Node {
 
     @OriginalMember(owner = "client!oea", name = "t", descriptor = "Lclient!b;")
     public final Class8_Sub2_Sub1_Sub1 aClass8_Sub2_Sub1_Sub1_1;

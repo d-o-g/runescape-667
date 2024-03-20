@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ts")
-public final class DoublyLinkedList {
+public final class LinkedHashTable {
 
     @OriginalMember(owner = "client!ts", name = "j", descriptor = "Lclient!cm;")
     public Node pointer = new Node();
@@ -24,7 +24,7 @@ public final class DoublyLinkedList {
     public final HashTable table;
 
     @OriginalMember(owner = "client!ts", name = "<init>", descriptor = "(I)V")
-    public DoublyLinkedList(@OriginalArg(0) int size) {
+    public LinkedHashTable(@OriginalArg(0) int size) {
         this.size = size;
         this.capacity = size;
         @Pc(19) int bucketCount;

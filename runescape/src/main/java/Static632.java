@@ -142,7 +142,7 @@ public final class Static632 {
         if (arg1.aClass2_Sub6_Sub2_3 != null) {
             arg1.aClass2_Sub6_Sub2_3.method3327(local182);
             arg1.aClass2_Sub6_Sub2_3.method3333(local214);
-            if (!arg1.aClass2_Sub6_Sub2_3.hasPrev()) {
+            if (!arg1.aClass2_Sub6_Sub2_3.isLinked()) {
                 arg1.aClass2_Sub6_Sub2_3 = null;
                 arg1.aClass2_Sub53_2 = null;
                 arg1.aClass2_Sub49_Sub1_3 = null;

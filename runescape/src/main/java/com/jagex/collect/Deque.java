@@ -170,7 +170,7 @@ public final class Deque {
         }
 
         @OriginalMember(owner = "client!ie", name = "e", descriptor = "(I)Z")
-        public final boolean hasPrev() {
+        public final boolean isLinked() {
             return this.prev != null;
         }
     }

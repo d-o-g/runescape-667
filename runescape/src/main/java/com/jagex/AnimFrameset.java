@@ -1,7 +1,7 @@
 package com.jagex;
 
 import com.jagex.collect.Deque;
-import com.jagex.collect.DoublyLinkedList;
+import com.jagex.collect.LinkedHashTable;
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rw")
-public final class AnimFrameset extends DoublyLinkedList.Node {
+public final class AnimFrameset extends LinkedHashTable.Node {
 
     @OriginalMember(owner = "client!qa", name = "q", descriptor = "Lclient!sb;")
     private static js5 anims;

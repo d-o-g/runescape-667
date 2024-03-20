@@ -78,7 +78,7 @@ public final class Static254 {
             Static347.method5094(Static377.anInt5930);
         }
         for (@Pc(8803) Node_Sub4 local8803 = (Node_Sub4) Static548.aHashTable_40.first(); local8803 != null; local8803 = (Node_Sub4) Static548.aHashTable_40.next()) {
-            if (!local8803.hasPrev()) {
+            if (!local8803.isLinked()) {
                 local8803 = (Node_Sub4) Static548.aHashTable_40.first();
                 if (local8803 == null) {
                     break;

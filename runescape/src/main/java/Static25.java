@@ -28,7 +28,7 @@ public final class Static25 {
                 Static347.method5094(Static377.anInt5930);
             }
             for (@Pc(16) Node_Sub4 local16 = (Node_Sub4) Static548.aHashTable_40.first(); local16 != null; local16 = (Node_Sub4) Static548.aHashTable_40.next()) {
-                if (!local16.hasPrev()) {
+                if (!local16.isLinked()) {
                     local16 = (Node_Sub4) Static548.aHashTable_40.first();
                     if (local16 == null) {
                         break;

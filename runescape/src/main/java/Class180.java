@@ -82,7 +82,7 @@ public final class Class180 {
                     @Pc(59) Node_Sub54 local59 = (Node_Sub54) this.aDeque_25.last();
                     local34 = new Node_Sub54(arg0, local59.anInt9846);
                     this.aClass2_Sub54Array1[local59.anInt9844] = null;
-                    local59.remove();
+                    local59.unlink();
                 } else {
                     local34 = new Node_Sub54(arg0, this.anInt4369);
                     this.anInt4369++;

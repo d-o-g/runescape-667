@@ -4263,7 +4263,7 @@ public final class Static472 {
                     if (Static232.A_HASH_TABLE___18 != null) {
                         local2867 = Static232.A_HASH_TABLE___18.get((long) local192);
                         if (local2867 != null && !local1578) {
-                            local2867.remove();
+                            local2867.unlink();
                             return;
                         }
                         if (local2867 == null && local1578) {
@@ -4291,7 +4291,7 @@ public final class Static472 {
                     if (Static268.A_HASH_TABLE___22 != null) {
                         local2867 = Static268.A_HASH_TABLE___22.get((long) local192);
                         if (local2867 != null && !local1578) {
-                            local2867.remove();
+                            local2867.unlink();
                             return;
                         }
                         if (local2867 == null && local1578) {

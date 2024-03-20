@@ -85,7 +85,7 @@ public final class Static81 {
     public static DoublyLinkedNode_Sub2__ method1587() {
         @Pc(17) DoublyLinkedNode_Sub2__ local17 = (DoublyLinkedNode_Sub2__) Static138.A_QUEUE___6.first();
         if (local17 != null) {
-            local17.remove();
+            local17.unlink();
             local17.unlink2();
             return local17;
         }
@@ -97,7 +97,7 @@ public final class Static81 {
             if (local17.method201() > SystemTimer.safetime()) {
                 return null;
             }
-            local17.remove();
+            local17.unlink();
             local17.unlink2();
         } while ((local17.key2 & Long.MIN_VALUE) == 0L);
         return local17;

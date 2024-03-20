@@ -1,3 +1,4 @@
+import com.jagex.collect.LinkedList;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -13,7 +14,7 @@ public final class Static149 {
     public static volatile long aLong96 = 0L;
 
     @OriginalMember(owner = "client!ema", name = "c", descriptor = "Lclient!fla;")
-    public static final EntityList A_ENTITY_LIST___4 = new EntityList();
+    public static final LinkedList A_ENTITY_LIST___4 = new LinkedList();
 
     @OriginalMember(owner = "client!ema", name = "i", descriptor = "I")
     public static final int anInt2630 = 1408;

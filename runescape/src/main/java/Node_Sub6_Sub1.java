@@ -349,7 +349,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             return false;
         }
         if (arg0.anInt2202 >= 0) {
-            arg0.remove();
+            arg0.unlink();
             if (arg0.anInt2198 > 0 && this.aClass2_Sub16ArrayArray2[arg0.anInt2187][arg0.anInt2198] == arg0) {
                 this.aClass2_Sub16ArrayArray2[arg0.anInt2187][arg0.anInt2198] = null;
             }
@@ -548,7 +548,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(B)V")
     public synchronized void method927() {
         for (@Pc(5) Node_Sub11 local5 = (Node_Sub11) this.aHashTable_7.first(); local5 != null; local5 = (Node_Sub11) this.aHashTable_7.next()) {
-            local5.remove();
+            local5.unlink();
         }
     }
 
@@ -577,7 +577,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
                 if (local14.anInt2202 < 0) {
                     this.aClass2_Sub16ArrayArray1[local14.anInt2187][local14.anInt2196] = null;
                 }
-                local14.remove();
+                local14.unlink();
             }
         }
     }
@@ -837,7 +837,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         arg0.anInt2184 = Static686.anInt8944 / 100;
         if (arg0.anInt2202 >= 0 && (arg0.aClass2_Sub6_Sub2_1 == null || arg0.aClass2_Sub6_Sub2_1.method3311())) {
             arg0.method2083();
-            arg0.remove();
+            arg0.unlink();
             if (arg0.anInt2198 > 0 && this.aClass2_Sub16ArrayArray2[arg0.anInt2187][arg0.anInt2198] == arg0) {
                 this.aClass2_Sub16ArrayArray2[arg0.anInt2187][arg0.anInt2198] = null;
             }
@@ -908,7 +908,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         }
         arg0.method2083();
         if (arg0.anInt2202 >= 0) {
-            arg0.remove();
+            arg0.unlink();
             if (arg0.anInt2198 > 0 && this.aClass2_Sub16ArrayArray2[arg0.anInt2187][arg0.anInt2198] == arg0) {
                 this.aClass2_Sub16ArrayArray2[arg0.anInt2187][arg0.anInt2198] = null;
             }

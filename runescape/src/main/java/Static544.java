@@ -17,7 +17,7 @@ public final class Static544 {
                 } else {
                     Static235.method3421(arg0.anInt4006, arg0.originalShape, arg0.originalRotation, arg0.anInt4016, -1, arg0.layer, arg0.anInt4010, arg0.originalId);
                 }
-                arg0.remove();
+                arg0.unlink();
             }
         } else if (arg0.aBoolean310 && arg0.anInt4016 >= 1 && arg0.anInt4006 >= 1 && Static720.mapWidth - 2 >= arg0.anInt4016 && Static501.mapHeight - 2 >= arg0.anInt4006 && (arg0.anInt4014 < 0 || Static235.method3424(arg0.anInt4014, arg0.anInt4013))) {
             if (arg1) {
@@ -27,9 +27,9 @@ public final class Static544 {
             }
             arg0.aBoolean310 = false;
             if (!arg1 && arg0.originalId == arg0.anInt4014 && arg0.originalId == -1) {
-                arg0.remove();
+                arg0.unlink();
             } else if (!arg1 && arg0.originalId == arg0.anInt4014 && arg0.anInt4012 == arg0.originalRotation && arg0.anInt4013 == arg0.originalShape) {
-                arg0.remove();
+                arg0.unlink();
             }
         }
     }

@@ -40,7 +40,7 @@ public final class HashTable {
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(JLclient!ie;I)V")
     public void put(@OriginalArg(0) long key, @OriginalArg(1) Deque.Node node) {
         if (node.prev != null) {
-            node.remove();
+            node.unlink();
         }
         @Pc(28) Deque.Node tail = this.buckets[(int) (key & (long) (this.bucketCount - 1))];
         node.next = tail;
@@ -65,7 +65,7 @@ public final class HashTable {
                 if (current == tail) {
                     break;
                 }
-                current.remove();
+                current.unlink();
             }
         }
         this.searchPointer = null;

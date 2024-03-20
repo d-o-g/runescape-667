@@ -56,7 +56,7 @@ public final class KeyedReferenceCache {
     public void removeSoftReferences() {
         for (@Pc(5) KeyedReferenceNode node = (KeyedReferenceNode) this.history.first(); node != null; node = (KeyedReferenceNode) this.history.next()) {
             if (node.isSoft()) {
-                node.remove();
+                node.unlink();
                 node.unlink2();
                 this.remaining += node.size;
             }
@@ -66,7 +66,7 @@ public final class KeyedReferenceCache {
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(ZLclient!pv;)V")
     public void remove(@OriginalArg(1) KeyedReferenceNode node) {
         if (node != null) {
-            node.remove();
+            node.unlink();
             node.unlink2();
             this.remaining += node.size;
         }
@@ -81,7 +81,7 @@ public final class KeyedReferenceCache {
         for (@Pc(11) KeyedReferenceNode node = (KeyedReferenceNode) this.history.first(); node != null; node = (KeyedReferenceNode) this.history.next()) {
             if (node.isSoft()) {
                 if (node.get() == null) {
-                    node.remove();
+                    node.unlink();
                     node.unlink2();
                     this.remaining += node.size;
                 }
@@ -89,7 +89,7 @@ public final class KeyedReferenceCache {
                 @Pc(38) KeyedReferenceNode newReference = KeyedReferenceNodeFactory.INSTANCE.create(node);
                 this.table.put(node.key, newReference);
                 DoublyLinkedList.Node.attachAfter(node, newReference);
-                node.remove();
+                node.unlink();
                 node.unlink2();
             }
         }
@@ -139,7 +139,7 @@ public final class KeyedReferenceCache {
                         this.table.put(node.key, hardReference);
                         this.history.add(hardReference);
                         hardReference.key2 = 0L;
-                        node.remove();
+                        node.unlink();
                         node.unlink2();
                     } else {
                         this.history.add(node);
@@ -148,7 +148,7 @@ public final class KeyedReferenceCache {
 
                     return object;
                 } else {
-                    node.remove();
+                    node.unlink();
                     node.unlink2();
                     this.remaining += node.size;
                 }

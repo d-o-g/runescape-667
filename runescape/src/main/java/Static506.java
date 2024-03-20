@@ -21,7 +21,7 @@ public final class Static506 {
                     Static336.aClass2_Sub6_Sub3_1.method5883(local18.aClass2_Sub6_Sub2_3);
                     local18.aClass2_Sub6_Sub2_3 = null;
                 }
-                local18.remove();
+                local18.unlink();
                 return;
             }
         }

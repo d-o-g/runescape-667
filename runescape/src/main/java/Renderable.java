@@ -1,4 +1,4 @@
-import com.jagex.Entity;
+import com.jagex.collect.LinkedList;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!eo")
-public abstract class Renderable extends Entity {
+public abstract class Renderable extends LinkedList.Node {
 
     @OriginalMember(owner = "client!eo", name = "g", descriptor = "B")
     public byte aByte143;

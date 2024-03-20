@@ -83,12 +83,12 @@ public final class Static684 {
                         } else {
                             local146.method9328((NPCType) null);
                             local120 = true;
-                            local141.remove();
+                            local141.unlink();
                         }
                     } else {
                         local146.method9328((NPCType) null);
                         local120 = true;
-                        local141.remove();
+                        local141.unlink();
                     }
                 }
             }
@@ -121,14 +121,14 @@ public final class Static684 {
             local485.anInt4016 -= local109;
             local485.anInt4006 -= local113;
             if (Static117.anInt2282 != 4 && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
-                local485.remove();
+                local485.unlink();
             }
         }
         for (local485 = (ChangeLocationRequest) Static227.aDeque_18.first(); local485 != null; local485 = (ChangeLocationRequest) Static227.aDeque_18.next()) {
             local485.anInt4006 -= local113;
             local485.anInt4016 -= local109;
             if (Static117.anInt2282 != 4 && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
-                local485.remove();
+                local485.unlink();
             }
         }
         if (Static117.anInt2282 != 4) {
@@ -138,7 +138,7 @@ public final class Static684 {
                 local193 = (int) (local608.key >> 14 & 0x3FFFL);
                 @Pc(632) int local632 = local193 - Static116.anInt2270;
                 if (local619 < 0 || local632 < 0 || local619 >= Static720.mapWidth || local632 >= Static501.mapHeight) {
-                    local608.remove();
+                    local608.unlink();
                 }
             }
         }
@@ -171,7 +171,7 @@ public final class Static684 {
         Static244.method3512();
         Static346.A_HASH_TABLE___29.clear();
         Static505.A_DEQUE___77.clear();
-        Static422.A_ENTITY_LIST___9.method2789();
+        Static422.A_ENTITY_LIST___9.clear();
         Static105.method2044();
     }
 }

@@ -1140,7 +1140,7 @@ public final class Class158 {
         if (this.aHashTable_17 != null) {
             @Pc(14) Deque.Node local14 = this.aHashTable_17.get((long) arg0);
             if (local14 != null) {
-                local14.remove();
+                local14.unlink();
             }
         }
     }

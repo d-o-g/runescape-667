@@ -355,7 +355,7 @@ public final class oa extends Toolkit implements Interface5 {
         }
         @Pc(18) p local18 = (p) this.aHashTable_33.get((long) arg0.hashCode());
         if (local18 != null) {
-            local18.remove();
+            local18.unlink();
             local18.method6442();
         }
     }

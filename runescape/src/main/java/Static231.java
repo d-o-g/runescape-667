@@ -217,7 +217,7 @@ public final class Static231 {
                     }
                 }
                 if (arg2.equalsIgnoreCase("cleartext")) {
-                    Static422.A_ENTITY_LIST___9.method2789();
+                    Static422.A_ENTITY_LIST___9.clear();
                     Static79.method1579("Text coords cleared");
                     return;
                 }

@@ -68,7 +68,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
         this.aParticleEmitter_1.aParticleSystem_6.aParticle[local4] = this;
         this.aShort91 = (short) this.aParticleEmitter_1.aParticleSystem_6.anInt4147;
         this.aParticleEmitter_1.aParticleSystem_6.anInt4147 = local4 + 1 & 0x1FFF;
-        this.aParticleEmitter_1.aEntityList_11.method2787(this);
+        this.aParticleEmitter_1.aLinkedList_11.remove(this);
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(JI)V")
@@ -153,7 +153,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 28));
         }
         if (local35.localEffectors != null) {
-            @Pc(437) Deque.Node local437 = local31.aDeque_22.last;
+            @Pc(437) Deque.Node local437 = local31.aDeque_22.sentinel;
             for (@Pc(440) Deque.Node local440 = local437.next; local440 != local437; local440 = local440.next) {
                 @Pc(444) ParticleEffector local444 = (ParticleEffector) local440;
                 @Pc(447) ParticleEffectorType local447 = local444.aParticleEffectorType_1;
@@ -441,7 +441,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
         this.aParticleEmitter_1.aParticleSystem_6.aParticle[this.aShort91] = null;
         ParticleManager.cache[ParticleManager.freePtr] = this;
         ParticleManager.freePtr = ParticleManager.freePtr + 1 & 0x3FF;
-        this.method9274();
+        this.unlink();
         this.method6686();
     }
 }

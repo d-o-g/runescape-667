@@ -141,7 +141,7 @@ public final class Static709 {
             local179 = null;
             local181 = 0;
             for (@Pc(186) Node_Sub9 local186 = (Node_Sub9) Static677.A_DEQUE___76.first(); local186 != null && (local179 == null || local179.aClass2_Sub21_Sub2_1.pos - local181 < 240); local186 = (Node_Sub9) Static677.A_DEQUE___76.next()) {
-                local186.remove();
+                local186.unlink();
                 local208 = local186.method5333();
                 if (local208 < -1) {
                     local208 = -1;
@@ -557,7 +557,7 @@ public final class Static709 {
                                             if (Static624.aBoolean727 && Static98.aLong71 < SystemTimer.safetime() - 60000L) {
                                                 Static266.method6777();
                                             }
-                                            for (@Pc(2281) Class8_Sub4_Sub1 local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.method2790(); local2281 != null; local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.method2785()) {
+                                            for (@Pc(2281) Class8_Sub4_Sub1 local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.first(); local2281 != null; local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.next()) {
                                                 if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.anInt6433) {
                                                     if (local2281.aShort74 > 0) {
                                                         Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGIN.localise(Static51.anInt1052), "", 0, "", "", 5);
@@ -565,7 +565,7 @@ public final class Static709 {
                                                     if (local2281.aShort74 == 0) {
                                                         Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGOUT.localise(Static51.anInt1052), "", 0, "", "", 5);
                                                     }
-                                                    local2281.method9274();
+                                                    local2281.unlink();
                                                 }
                                             }
                                             if (14590 != 14590) {

@@ -937,7 +937,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         if (local8 == null) {
             return;
         }
-        local8.remove();
+        local8.unlink();
         local8 = Static538.method7192(arg2, arg0, arg1);
         this.aHashTable_20.put((long) arg0.hashCode(), local8);
         if (this.aCanvas3 != arg0 || this.aClass87_1 != null) {
@@ -2885,7 +2885,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         }
         @Pc(17) Node_Sub10 local17 = (Node_Sub10) this.aHashTable_20.get((long) arg0.hashCode());
         if (local17 != null) {
-            local17.remove();
+            local17.unlink();
         }
     }
 

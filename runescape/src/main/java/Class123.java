@@ -71,7 +71,7 @@ public final class Class123 {
             if (local33 == null) {
                 return null;
             } else {
-                local59.remove();
+                local59.unlink();
                 this.aHashTable_16.put(local26, local33);
                 return local33;
             }

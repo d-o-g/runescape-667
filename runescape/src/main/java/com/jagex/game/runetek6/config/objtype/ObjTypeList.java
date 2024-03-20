@@ -323,7 +323,7 @@ public final class ObjTypeList {
                     @Pc(209) ParamType param = this.paramsTL.list((int) node.key);
 
                     if (param.autodisable) {
-                        node.remove();
+                        node.unlink();
                     } else {
                         disable = true;
                     }

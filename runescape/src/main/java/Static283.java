@@ -1,3 +1,4 @@
+import com.jagex.collect.LinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -107,9 +108,9 @@ public final class Static283 {
         }
         Static497.method6623(Static665.aToolkit_15);
         if (!Static514.aClass213_2.aBoolean426) {
-            @Pc(387) EntityList local387 = Static514.aClass213_2.aEntityList_8;
-            for (@Pc(392) Class8_Sub7 local392 = (Class8_Sub7) local387.method2790(); local392 != null; local392 = (Class8_Sub7) local387.method2785()) {
-                local392.method9274();
+            @Pc(387) LinkedList local387 = Static514.aClass213_2.aLinkedList_8;
+            for (@Pc(392) Class8_Sub7 local392 = (Class8_Sub7) local387.first(); local392 != null; local392 = (Class8_Sub7) local387.next()) {
+                local392.unlink();
                 Static281.method4092(local392);
             }
         }

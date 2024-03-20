@@ -1,4 +1,5 @@
 import com.jagex.SignLink;
+import com.jagex.collect.LinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -9,10 +10,10 @@ public final class Static638 {
 
     @OriginalMember(owner = "client!uca", name = "c", descriptor = "(I)V")
     public static void method8393() {
-        @Pc(5) EntityList[] local5 = Class43.A_ENTITY_LIST_ARRAY_1;
+        @Pc(5) LinkedList[] local5 = Class43.A_ENTITY_LIST_ARRAY_1;
         synchronized (Class43.A_ENTITY_LIST_ARRAY_1) {
             for (@Pc(9) int local9 = 0; local9 < Class43.A_ENTITY_LIST_ARRAY_1.length; local9++) {
-                Class43.A_ENTITY_LIST_ARRAY_1[local9] = new EntityList();
+                Class43.A_ENTITY_LIST_ARRAY_1[local9] = new LinkedList();
                 Static159.anIntArray245[local9] = 0;
             }
         }

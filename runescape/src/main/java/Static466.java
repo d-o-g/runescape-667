@@ -1,3 +1,4 @@
+import com.jagex.collect.LinkedList;
 import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -151,9 +152,9 @@ public final class Static466 {
                     local395 = local252;
                     local388 = local393;
                 }
-                @Pc(451) EntityList local451 = Static10.aClass213_1.aEntityList_8;
+                @Pc(451) LinkedList local451 = Static10.aClass213_1.aLinkedList_8;
                 @Pc(465) int local465;
-                for (@Pc(456) Class8_Sub7 local456 = (Class8_Sub7) local451.method2790(); local456 != null; local456 = (Class8_Sub7) local451.method2785()) {
+                for (@Pc(456) Class8_Sub7 local456 = (Class8_Sub7) local451.first(); local456 != null; local456 = (Class8_Sub7) local451.next()) {
                     @Pc(461) PickingCylinder[] local461 = local456.aPickingCylinderArray1;
                     @Pc(463) boolean local463 = true;
                     for (local465 = 0; local465 < local461.length; local465++) {
@@ -188,7 +189,7 @@ public final class Static466 {
                         }
                     }
                     if (local463) {
-                        local456.method9274();
+                        local456.unlink();
                         Static281.method4092(local456);
                     }
                 }

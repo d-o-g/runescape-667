@@ -23,7 +23,7 @@ public final class Static527 {
         for (@Pc(15) DoublyLinkedNode_Sub2_Sub15 local15 = (DoublyLinkedNode_Sub2_Sub15) Static505.A_DEQUE___77.first(); local15 != null; local15 = (DoublyLinkedNode_Sub2_Sub15) Static505.A_DEQUE___77.next()) {
             @Pc(20) Class8_Sub2_Sub1_Sub1 local20 = local15.aClass8_Sub2_Sub1_Sub1_1;
             if (Static333.anInt5455 > local20.anInt697) {
-                local15.remove();
+                local15.unlink();
                 local20.method815();
             } else if (Static333.anInt5455 >= local20.anInt722) {
                 local20.method816();

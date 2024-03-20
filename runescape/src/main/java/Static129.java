@@ -1,3 +1,4 @@
+import com.jagex.collect.LinkedList;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static129 {
@@ -9,7 +10,7 @@ public final class Static129 {
     public static int anInt2406;
 
     @OriginalMember(owner = "client!eaa", name = "w", descriptor = "Lclient!fla;")
-    public static final EntityList A_ENTITY_LIST___3 = new EntityList();
+    public static final LinkedList A_ENTITY_LIST___3 = new LinkedList();
 
     @OriginalMember(owner = "client!eaa", name = "o", descriptor = "I")
     public static int anInt2409 = -1;

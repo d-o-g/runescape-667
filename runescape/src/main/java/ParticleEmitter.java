@@ -1,4 +1,4 @@
-import com.jagex.Entity;
+import com.jagex.collect.LinkedList;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterType;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rf")
-public final class ParticleEmitter extends Entity {
+public final class ParticleEmitter extends LinkedList.Node {
 
     @OriginalMember(owner = "client!rf", name = "u", descriptor = "I")
     public int anInt8268;
@@ -65,7 +65,7 @@ public final class ParticleEmitter extends Entity {
     public ParticleEmitterType aParticleEmitterType_1;
 
     @OriginalMember(owner = "client!rf", name = "j", descriptor = "Lclient!fla;")
-    public final EntityList aEntityList_11;
+    public final LinkedList aLinkedList_11;
 
     @OriginalMember(owner = "client!rf", name = "<init>", descriptor = "(Lclient!ha;Lclient!rv;Lclient!hv;J)V")
     public ParticleEmitter(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) ModelParticleEmitter arg1, @OriginalArg(2) ParticleSystem arg2, @OriginalArg(3) long arg3) {
@@ -76,7 +76,7 @@ public final class ParticleEmitter extends Entity {
         if (!arg0.method7937() && this.aParticleEmitterType_1.untextured != -1) {
             this.aParticleEmitterType_1 = ParticleEmitterTypeList.get(this.aParticleEmitterType_1.untextured);
         }
-        this.aEntityList_11 = new EntityList();
+        this.aLinkedList_11 = new LinkedList();
         this.anInt8264 = (int) ((double) this.anInt8264 + Math.random() * 64.0D);
         this.method7264();
         this.aParticleEmitterRelated_2.anInt4281 = this.aParticleEmitterRelated_1.anInt4281;
@@ -251,7 +251,7 @@ public final class ParticleEmitter extends Entity {
             this.aParticleEmitterRelated_1.anInt4269 = this.aModelParticleEmitter_1.anInt8503;
         }
         this.anInt8268 = 0;
-        for (@Pc(1171) Particle local1171 = (Particle) this.aEntityList_11.method2790(); local1171 != null; local1171 = (Particle) this.aEntityList_11.method2785()) {
+        for (@Pc(1171) Particle local1171 = (Particle) this.aLinkedList_11.first(); local1171 != null; local1171 = (Particle) this.aLinkedList_11.next()) {
             local1171.method6694(arg2, arg0);
             this.anInt8268++;
         }
@@ -260,7 +260,7 @@ public final class ParticleEmitter extends Entity {
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(JLclient!ha;I)V")
     public void method7263(@OriginalArg(0) long arg0, @OriginalArg(1) Toolkit arg1) {
-        for (@Pc(11) Particle local11 = (Particle) this.aEntityList_11.method2790(); local11 != null; local11 = (Particle) this.aEntityList_11.method2785()) {
+        for (@Pc(11) Particle local11 = (Particle) this.aLinkedList_11.first(); local11 != null; local11 = (Particle) this.aLinkedList_11.next()) {
             local11.method6695(arg1, arg0);
         }
     }

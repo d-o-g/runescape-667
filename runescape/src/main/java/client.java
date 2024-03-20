@@ -423,7 +423,7 @@ public final class client extends GameShell {
                                             if (Static624.aBoolean727 && SystemTimer.safetime() - 60000L > Static98.aLong71) {
                                                 Static266.method6777();
                                             }
-                                            for (@Pc(672) Class8_Sub4_Sub1 local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.method2790(); local672 != null; local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.method2785()) {
+                                            for (@Pc(672) Class8_Sub4_Sub1 local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.first(); local672 != null; local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.next()) {
                                                 if ((long) local672.anInt6433 < SystemTimer.safetime() / 1000L - 5L) {
                                                     if (local672.aShort74 > 0) {
                                                         Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGIN.localise(Static51.anInt1052), "", 0, "", "", 5);
@@ -431,7 +431,7 @@ public final class client extends GameShell {
                                                     if (local672.aShort74 == 0) {
                                                         Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGOUT.localise(Static51.anInt1052), "", 0, "", "", 5);
                                                     }
-                                                    local672.method9274();
+                                                    local672.unlink();
                                                 }
                                             }
                                             if (Static283.step == 7 && !Static242.method3500() || Static283.step == 9 && Static169.anInt2855 == 42) {

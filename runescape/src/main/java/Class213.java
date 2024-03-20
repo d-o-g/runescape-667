@@ -1,3 +1,4 @@
+import com.jagex.collect.LinkedList;
 import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -8,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class213 {
 
     @OriginalMember(owner = "client!kn", name = "a", descriptor = "Lclient!fla;")
-    public final EntityList aEntityList_8 = new EntityList();
+    public final LinkedList aLinkedList_8 = new LinkedList();
 
     @OriginalMember(owner = "client!kn", name = "f", descriptor = "Z")
     public boolean aBoolean426 = false;
@@ -34,30 +35,30 @@ public final class Class213 {
         }
         @Pc(42) Class8_Sub7 local42;
         if (this.aBoolean426) {
-            for (local42 = (Class8_Sub7) this.aEntityList_8.method2790(); local42 != null; local42 = (Class8_Sub7) this.aEntityList_8.method2785()) {
+            for (local42 = (Class8_Sub7) this.aLinkedList_8.first(); local42 != null; local42 = (Class8_Sub7) this.aLinkedList_8.next()) {
                 if (local42.aRenderable_18 == local6) {
-                    local42.method9274();
+                    local42.unlink();
                     Static281.method4092(local42);
                 }
             }
         }
-        for (local42 = (Class8_Sub7) this.aEntityList_8.method2790(); local42 != null; local42 = (Class8_Sub7) this.aEntityList_8.method2785()) {
+        for (local42 = (Class8_Sub7) this.aLinkedList_8.first(); local42 != null; local42 = (Class8_Sub7) this.aLinkedList_8.next()) {
             if (local6.anInt10697 >= local42.aRenderable_18.anInt10697) {
                 Static370.method5282(arg0, local42);
                 return;
             }
         }
-        this.aEntityList_8.method2787(arg0);
+        this.aLinkedList_8.remove(arg0);
     }
 
     @OriginalMember(owner = "client!kn", name = "a", descriptor = "(B)V")
     public void method5010() {
         while (true) {
-            @Pc(5) Class8_Sub7 local5 = (Class8_Sub7) this.aEntityList_8.method2783();
+            @Pc(5) Class8_Sub7 local5 = (Class8_Sub7) this.aLinkedList_8.removeFirst();
             if (local5 == null) {
                 return;
             }
-            local5.method9274();
+            local5.unlink();
             Static281.method4092(local5);
         }
     }

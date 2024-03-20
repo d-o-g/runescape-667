@@ -219,7 +219,7 @@ public final class Class164 {
                     local42.value = arg0;
                     return true;
                 }
-                local32.remove();
+                local32.unlink();
             }
         }
         this.aHashTable_19.put((long) arg1, new StringNode(arg0));
@@ -348,7 +348,7 @@ public final class Class164 {
                     local39.aLong264 = arg1;
                     return true;
                 }
-                local29.remove();
+                local29.unlink();
             }
         }
         this.aHashTable_19.put((long) arg0, new Node_Sub48(arg1));
@@ -436,7 +436,7 @@ public final class Class164 {
                     local73.value |= local43;
                     return true;
                 }
-                local63.remove();
+                local63.unlink();
             }
         }
         this.aHashTable_19.put((long) arg3, new IntNode(local43));
@@ -593,7 +593,7 @@ public final class Class164 {
                     local45.value = arg0;
                     return true;
                 }
-                local35.remove();
+                local35.unlink();
             }
         }
         this.aHashTable_19.put((long) arg1, new IntNode(arg0));

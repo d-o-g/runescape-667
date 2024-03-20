@@ -1,3 +1,4 @@
+import com.jagex.collect.LinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,7 +8,7 @@ import java.awt.Rectangle;
 public final class Static422 {
 
     @OriginalMember(owner = "client!nfa", name = "b", descriptor = "Lclient!fla;")
-    public static final EntityList A_ENTITY_LIST___9 = new EntityList();
+    public static final LinkedList A_ENTITY_LIST___9 = new LinkedList();
 
     @OriginalMember(owner = "client!nfa", name = "b", descriptor = "(I)I")
     public static int method5771() {

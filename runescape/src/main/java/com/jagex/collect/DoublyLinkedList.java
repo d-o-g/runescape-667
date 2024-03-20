@@ -37,16 +37,18 @@ public final class DoublyLinkedList {
     public void put(@OriginalArg(1) Node node, @OriginalArg(2) long key) {
         if (this.size == 0) {
             @Pc(19) Node first = this.history.removeFirst();
-            first.remove();
+            first.unlink();
             first.unlink2();
+
             if (this.pointer == first) {
                 first = this.history.removeFirst();
-                first.remove();
+                first.unlink();
                 first.unlink2();
             }
         } else {
             this.size--;
         }
+
         this.table.put(key, node);
         this.history.add(node);
     }
@@ -64,7 +66,7 @@ public final class DoublyLinkedList {
     public void remove(@OriginalArg(1) long key) {
         @Pc(18) Node node = (Node) this.table.get(key);
         if (node != null) {
-            node.remove();
+            node.unlink();
             node.unlink2();
             this.size++;
         }

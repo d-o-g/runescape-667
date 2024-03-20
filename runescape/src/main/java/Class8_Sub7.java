@@ -1,4 +1,4 @@
-import com.jagex.Entity;
+import com.jagex.collect.LinkedList;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!pea")
-public final class Class8_Sub7 extends Entity {
+public final class Class8_Sub7 extends LinkedList.Node {
 
     @OriginalMember(owner = "client!pea", name = "g", descriptor = "Lclient!eo;")
     public Renderable aRenderable_18;

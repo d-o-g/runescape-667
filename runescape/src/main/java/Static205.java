@@ -23,9 +23,9 @@ public final class Static205 {
 
     @OriginalMember(owner = "client!gg", name = "a", descriptor = "(BIIIIII)V")
     public static void method3091(@OriginalArg(1) int arg0, @OriginalArg(3) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3) {
-        for (@Pc(17) Class8_Sub3 local17 = (Class8_Sub3) Static422.A_ENTITY_LIST___9.method2790(); local17 != null; local17 = (Class8_Sub3) Static422.A_ENTITY_LIST___9.method2785()) {
+        for (@Pc(17) Class8_Sub3 local17 = (Class8_Sub3) Static422.A_ENTITY_LIST___9.first(); local17 != null; local17 = (Class8_Sub3) Static422.A_ENTITY_LIST___9.next()) {
             if (local17.anInt953 <= Static333.anInt5455) {
-                local17.method9274();
+                local17.unlink();
             } else {
                 Static143.method3573(local17.anInt956 * 2, (local17.anInt959 << 9) + 256, arg0 >> 1, (local17.anInt954 << 9) + 256, local17.anInt958, arg1 >> 1);
                 Static180.aClass14_3.method8828(0, Static215.anIntArray284[0] + arg3, local17.aString3, Static215.anIntArray284[1] + arg2, local17.anInt957 | 0xFF000000);

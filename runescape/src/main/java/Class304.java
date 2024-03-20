@@ -106,10 +106,10 @@ public final class Class304 implements VarDomain {
                 if ((local23.aLong264 & 0x4000000000000000L) != 0L) {
                     @Pc(55) int local55 = (int) local23.key;
                     this.anIntArray621[local55] = this.anIntArray622[local55];
-                    local23.remove();
+                    local23.unlink();
                     return local55;
                 }
-                local23.remove();
+                local23.unlink();
             }
         }
         return -1;

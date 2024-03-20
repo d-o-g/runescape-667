@@ -1,9 +1,9 @@
-import com.jagex.Entity;
+import com.jagex.collect.LinkedList;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!bfa")
-public final class Class8_Sub3 extends Entity {
+public final class Class8_Sub3 extends LinkedList.Node {
 
     @OriginalMember(owner = "client!bfa", name = "m", descriptor = "I")
     public int anInt953;

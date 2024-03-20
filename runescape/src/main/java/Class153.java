@@ -103,7 +103,7 @@ public final class Class153 {
             }
             this.aClass2_Sub21_6.pdata(local23.anInt2989, local23.aClass2_Sub21_Sub2_1.data, 0);
             this.anInt3640 -= local23.anInt2989;
-            local23.remove();
+            local23.unlink();
             local23.aClass2_Sub21_Sub2_1.cache();
             local23.method2768();
         }

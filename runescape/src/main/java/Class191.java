@@ -25,7 +25,7 @@ public final class Class191 {
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(B)Lclient!ie;")
     public Deque.Node method4342() {
         @Pc(12) Deque.Node local12 = this.aNode_149;
-        if (this.aDeque_27.last == local12) {
+        if (this.aDeque_27.sentinel == local12) {
             this.aNode_149 = null;
             return null;
         } else {
@@ -36,8 +36,8 @@ public final class Class191 {
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(I)Lclient!ie;")
     public Deque.Node method4343() {
-        @Pc(8) Deque.Node local8 = this.aDeque_27.last.next;
-        if (this.aDeque_27.last == local8) {
+        @Pc(8) Deque.Node local8 = this.aDeque_27.sentinel.next;
+        if (this.aDeque_27.sentinel == local8) {
             this.aNode_149 = null;
             return null;
         } else {

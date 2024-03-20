@@ -32,7 +32,7 @@ public final class Static449 {
     public static void method6115(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Node_Sub4 arg2) {
         @Pc(6) int local6 = arg2.anInt147;
         @Pc(10) int local10 = (int) arg2.key;
-        arg2.remove();
+        arg2.unlink();
         if (arg1) {
             Static347.method5094(local6);
         }

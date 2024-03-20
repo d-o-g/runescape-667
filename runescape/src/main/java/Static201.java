@@ -13,7 +13,7 @@ public final class Static201 {
     @OriginalMember(owner = "client!ge", name = "a", descriptor = "(ILclient!ie;Lclient!ie;)V")
     public static void addBefore(@OriginalArg(1) Deque.Node back, @OriginalArg(2) Deque.Node front) {
         if (front.prev != null) {
-            front.remove();
+            front.unlink();
         }
         front.next = back;
         front.prev = back.prev;

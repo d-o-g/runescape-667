@@ -52,7 +52,7 @@ public final class ReferenceCache {
             if (object == null) {
                 @Pc(29) ReferenceNode copy = current;
                 current = (ReferenceNode) this.table.next();
-                copy.remove();
+                copy.unlink();
                 copy.unlink2();
                 this.remaining += copy.size;
             } else {
@@ -76,7 +76,7 @@ public final class ReferenceCache {
         for (@Pc(15) ReferenceNode node = (ReferenceNode) this.history.first(); node != null; node = (ReferenceNode) this.history.next()) {
             if (node.isSoft()) {
                 if (node.get() == null) {
-                    node.remove();
+                    node.unlink();
                     node.unlink2();
                     this.remaining += node.size;
                 }
@@ -84,7 +84,7 @@ public final class ReferenceCache {
                 @Pc(42) ReferenceNode newReference = ReferenceNodeFactory.INSTANCE.create(node);
                 this.table.put(node.key, newReference);
                 DoublyLinkedList.Node.attachAfter(node, newReference);
-                node.remove();
+                node.unlink();
                 node.unlink2();
             }
         }
@@ -104,7 +104,7 @@ public final class ReferenceCache {
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(ILclient!vw;)V")
     public void remove(@OriginalArg(1) ReferenceNode node) {
         if (node != null) {
-            node.remove();
+            node.unlink();
             node.unlink2();
             this.remaining += node.size;
         }
@@ -119,7 +119,7 @@ public final class ReferenceCache {
     public void removeSoftReferences() {
         for (@Pc(14) ReferenceNode node = (ReferenceNode) this.history.first(); node != null; node = (ReferenceNode) this.history.next()) {
             if (node.isSoft()) {
-                node.remove();
+                node.unlink();
                 node.unlink2();
                 this.remaining += node.size;
             }
@@ -136,7 +136,7 @@ public final class ReferenceCache {
             }
             @Pc(29) ReferenceNode copy = current;
             current = (ReferenceNode) this.table.next();
-            copy.remove();
+            copy.unlink();
             copy.unlink2();
             this.remaining += copy.size;
         }
@@ -178,7 +178,7 @@ public final class ReferenceCache {
 
         @Pc(26) Object object = node.get();
         if (object == null) {
-            node.remove();
+            node.unlink();
             node.unlink2();
             this.remaining += node.size;
             return null;
@@ -189,7 +189,7 @@ public final class ReferenceCache {
             this.table.put(node.key, hardReference);
             this.history.add(hardReference);
             hardReference.key2 = 0L;
-            node.remove();
+            node.unlink();
             node.unlink2();
         } else {
             this.history.add(node);

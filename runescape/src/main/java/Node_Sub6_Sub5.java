@@ -78,7 +78,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             @Pc(14) DoublyLinkedNode_Sub2_Sub8 local14 = this.method9145();
             if (local14 == null) {
                 if (this.aBoolean795) {
-                    this.remove();
+                    this.unlink();
                     Static341.A_DOUBLY_LINKED_LIST___1.clear();
                 }
                 return;
@@ -122,7 +122,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
     public synchronized void method9144() {
         @Pc(7) DoublyLinkedNode_Sub2_Sub8 local7 = this.method9145();
         if (local7 != null) {
-            local7.remove();
+            local7.unlink();
             this.anInt10535--;
             this.anInt10536 = 0;
             Static341.A_DOUBLY_LINKED_LIST___1.put(local7, local7.method2133());
@@ -193,7 +193,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
                 }
             }
         } else if (this.aBoolean795) {
-            this.remove();
+            this.unlink();
             Static341.A_DOUBLY_LINKED_LIST___1.clear();
         }
     }

@@ -167,7 +167,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
                     if (this.groupStates[group] == 0) {
                         done = false;
                     } else {
-                        passive.remove();
+                        passive.unlink();
                     }
                 }
 
@@ -210,7 +210,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
                     }
 
                     if (this.groupStates[group] == 1) {
-                        passive.remove();
+                        passive.unlink();
                     } else {
                         done = false;
                     }
@@ -255,7 +255,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
                         if (!request.urgent) {
                             throw new RuntimeException("Unexpected non-urgent orphan! archiveid:" + archiveId);
                         }
-                        request.remove();
+                        request.unlink();
                     } else {
                         request.orphan = true;
                     }
@@ -280,7 +280,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
             return null;
         } else {
             @Pc(26) byte[] data = request.getData();
-            request.remove();
+            request.unlink();
             return data;
         }
     }
@@ -289,7 +289,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public ResourceRequest fetchgroup_inner(@OriginalArg(0) int groupId, @OriginalArg(1) int mode) {
         @Pc(19) ResourceRequest request = (ResourceRequest) this.waiting.get((long) groupId);
         if (request != null && mode == 0 && !request.urgent && request.incomplete) {
-            request.remove();
+            request.unlink();
             request = null;
         }
 
@@ -366,13 +366,13 @@ public final class Js5ResourceProvider extends ResourceProvider {
                 }
 
                 if (!request.urgent) {
-                    request.remove();
+                    request.unlink();
                 }
 
                 return request;
             } catch (@Pc(355) Exception ignored) {
                 this.groupStates[groupId] = -1;
-                request.remove();
+                request.unlink();
 
                 if (request.urgent && !this.netWorker.isUrgentFull()) {
                     @Pc(383) Js5WorkerRequestMessage message = this.netWorker.requestIndex(this.archiveId, groupId, true, (byte) 2);
@@ -410,7 +410,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
                 this.netWorker.response = Js5ResponseCode.OK;
             } catch (@Pc(498) RuntimeException ignored) {
                 this.netWorker.reset();
-                request.remove();
+                request.unlink();
 
                 if (request.urgent && !this.netWorker.isUrgentFull()) {
                     @Pc(383) Js5WorkerRequestMessage message = this.netWorker.requestIndex(this.archiveId, groupId, true, (byte) 2);
@@ -433,7 +433,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
             }
 
             if (!request.urgent) {
-                request.remove();
+                request.unlink();
             }
 
             return request;
@@ -457,7 +457,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
             @Pc(29) int group = (int) request.key;
 
             if (group < 0 || group >= this.index.groupLimit || this.index.fileCounts[group] == 0) {
-                request.remove();
+                request.unlink();
             } else {
                 if (this.groupStates[group] == 0) {
                     this.fetchgroup_inner(group, FETCHGROUP_MODE_VERIFY);
@@ -468,7 +468,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
                 }
 
                 if (this.groupStates[group] == 1) {
-                    request.remove();
+                    request.unlink();
                 }
             }
         }

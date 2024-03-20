@@ -42,7 +42,7 @@ public final class Static346 {
                     Static58.method1259(local43);
                 }
                 local43.method9328((NPCType) null);
-                local40.remove();
+                local40.unlink();
                 local23 = true;
             }
         }

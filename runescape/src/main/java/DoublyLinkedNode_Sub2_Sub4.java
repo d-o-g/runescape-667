@@ -36,7 +36,7 @@ public final class DoublyLinkedNode_Sub2_Sub4 extends DoublyLinkedList.Node {
         if (this.anInt1534 != 0) {
             return local15 != this.method1468();
         }
-        this.remove();
+        this.unlink();
         this.unlink2();
         Static31.anInt767--;
         Static717.A_WEIGHTED_CACHE___232.put(this, arg0.aLong234);

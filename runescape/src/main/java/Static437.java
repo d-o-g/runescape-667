@@ -133,7 +133,7 @@ public final class Static437 {
         }
         arg0.addcrc(local98);
         if (-2 == -2) {
-            local10.remove();
+            local10.unlink();
         }
     }
 

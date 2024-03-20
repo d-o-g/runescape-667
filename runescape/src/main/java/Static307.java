@@ -36,7 +36,7 @@ public final class Static307 {
                 return;
             }
             local4.anInterface5_1.w(true);
-            local4.remove();
+            local4.unlink();
         }
     }
 

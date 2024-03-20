@@ -39,7 +39,7 @@ public final class Static605 {
                 if (local69 != null) {
                     for (@Pc(77) ObjStackEntry local77 = (ObjStackEntry) local69.objs.first(); local77 != null; local77 = (ObjStackEntry) local69.objs.next()) {
                         if ((local42 & 0x7FFF) == local77.id && local77.count == local46) {
-                            local77.remove();
+                            local77.unlink();
                             local77.count = local52;
                             Static2.sortAllObjs(Static87.anInt1810, local25, local38, local77);
                             break;
@@ -284,12 +284,12 @@ public final class Static605 {
                     if (local1389 != null) {
                         for (@Pc(1399) ObjStackEntry local1399 = (ObjStackEntry) local1389.objs.first(); local1399 != null; local1399 = (ObjStackEntry) local1389.objs.next()) {
                             if (local1399.id == (local15 & 0x7FFF)) {
-                                local1399.remove();
+                                local1399.unlink();
                                 break;
                             }
                         }
                         if (local1389.objs.isEmpty()) {
-                            local1389.remove();
+                            local1389.unlink();
                         }
                         if (local38 >= 0 && local25 >= 0 && local38 < Static720.mapWidth && local25 < Static501.mapHeight) {
                             Static468.method7641(Static87.anInt1810, local25, local38);
@@ -377,7 +377,7 @@ public final class Static605 {
                             @Pc(2004) DoublyLinkedNode_Sub2_Sub20 local2004 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get((long) (local21 << 16 | local25));
                             if (local2004 != null) {
                                 local2004.aClass8_Sub2_Sub1_Sub5_1.method6600();
-                                local2004.remove();
+                                local2004.unlink();
                                 return;
                             }
                         } else {

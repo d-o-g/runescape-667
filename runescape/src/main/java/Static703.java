@@ -13,7 +13,7 @@ public final class Static703 {
     public static void method9171(@OriginalArg(0) Class8_Sub1 arg0) {
         arg0.aClass8_Sub2_Sub1_Sub2_1 = null;
         if (Static6.anInt94 < 20) {
-            Static129.A_ENTITY_LIST___3.method2787(arg0);
+            Static129.A_ENTITY_LIST___3.remove(arg0);
             Static6.anInt94++;
         }
     }

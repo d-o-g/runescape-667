@@ -1,10 +1,10 @@
-import com.jagex.Entity;
+import com.jagex.collect.LinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!uo")
-public final class Class8_Sub10 extends Entity {
+public final class Class8_Sub10 extends LinkedList.Node {
 
     @OriginalMember(owner = "client!uo", name = "j", descriptor = "B")
     public final byte aByte138;

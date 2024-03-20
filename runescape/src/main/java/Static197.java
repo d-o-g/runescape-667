@@ -12,7 +12,7 @@ public final class Static197 {
         @Pc(8) ChangeLocationRequest local8;
         for (local8 = (ChangeLocationRequest) Static159.aDeque_15.first(); local8 != null; local8 = (ChangeLocationRequest) Static159.aDeque_15.next()) {
             if (local8.aBoolean309) {
-                local8.remove();
+                local8.unlink();
             } else {
                 local8.aBoolean310 = true;
                 if (local8.anInt4016 >= 0 && local8.anInt4006 >= 0 && Static720.mapWidth > local8.anInt4016 && Static501.mapHeight > local8.anInt4006) {
@@ -22,7 +22,7 @@ public final class Static197 {
         }
         for (local8 = (ChangeLocationRequest) Static227.aDeque_18.first(); local8 != null; local8 = (ChangeLocationRequest) Static227.aDeque_18.next()) {
             if (local8.aBoolean309) {
-                local8.remove();
+                local8.unlink();
             } else {
                 local8.aBoolean310 = true;
             }

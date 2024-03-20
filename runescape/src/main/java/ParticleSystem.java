@@ -1,6 +1,6 @@
 import com.jagex.Class230;
-import com.jagex.Entity;
 import com.jagex.collect.Deque;
+import com.jagex.collect.LinkedList;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Toolkit;
@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!hv")
-public final class ParticleSystem extends Entity {
+public final class ParticleSystem extends LinkedList.Node {
 
     @OriginalMember(owner = "client!hv", name = "u", descriptor = "J")
     public long aLong132;
@@ -32,7 +32,7 @@ public final class ParticleSystem extends Entity {
     public int anInt4147 = 0;
 
     @OriginalMember(owner = "client!hv", name = "h", descriptor = "Lclient!fla;")
-    public EntityList aEntityList_6 = new EntityList();
+    public LinkedList aLinkedList_6 = new LinkedList();
 
     @OriginalMember(owner = "client!hv", name = "o", descriptor = "I")
     public int anInt4148 = 0;
@@ -82,7 +82,7 @@ public final class ParticleSystem extends Entity {
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;)V")
     public void method3646(@OriginalArg(0) Toolkit arg0) {
         this.aClass230_1.aClass113_1.method2487();
-        for (@Pc(10) ParticleEmitter local10 = (ParticleEmitter) this.aEntityList_6.method2790(); local10 != null; local10 = (ParticleEmitter) this.aEntityList_6.method2785()) {
+        for (@Pc(10) ParticleEmitter local10 = (ParticleEmitter) this.aLinkedList_6.first(); local10 != null; local10 = (ParticleEmitter) this.aLinkedList_6.next()) {
             local10.method7263(this.aLong132, arg0);
         }
     }
@@ -104,7 +104,7 @@ public final class ParticleSystem extends Entity {
                     }
                 }
             }
-            local16.remove();
+            local16.unlink();
             this.anInt4150--;
             if (local16.isLinked2()) {
                 local16.unlink2();
@@ -155,7 +155,7 @@ public final class ParticleSystem extends Entity {
         }
         @Pc(21) int local21;
         label62:
-        for (@Pc(16) ParticleEmitter local16 = (ParticleEmitter) this.aEntityList_6.method2790(); local16 != null; local16 = (ParticleEmitter) this.aEntityList_6.method2785()) {
+        for (@Pc(16) ParticleEmitter local16 = (ParticleEmitter) this.aLinkedList_6.first(); local16 != null; local16 = (ParticleEmitter) this.aLinkedList_6.next()) {
             if (arg1 != null) {
                 for (local21 = 0; local21 < arg1.length; local21++) {
                     if (local16.aModelParticleEmitter_1 == arg1[local21] || local16.aModelParticleEmitter_1 == arg1[local21].aModelParticleEmitter_2) {
@@ -167,7 +167,7 @@ public final class ParticleSystem extends Entity {
                 }
             }
             if (local16.anInt8268 == 0) {
-                local16.method9274();
+                local16.unlink();
                 this.anInt4148--;
             } else {
                 local16.aBoolean630 = true;
@@ -179,7 +179,7 @@ public final class ParticleSystem extends Entity {
         for (local21 = 0; local21 < arg1.length && local21 != 32 && this.anInt4148 != 32; local21++) {
             if (!Static257.aBooleanArray7[local21]) {
                 @Pc(104) ParticleEmitter local104 = new ParticleEmitter(arg0, arg1[local21], this, this.aLong133);
-                this.aEntityList_6.method2787(local104);
+                this.aLinkedList_6.remove(local104);
                 this.anInt4148++;
                 Static257.aBooleanArray7[local21] = true;
             }
@@ -201,11 +201,11 @@ public final class ParticleSystem extends Entity {
             }
         }
         this.anInt4147 = 0;
-        this.aEntityList_6 = new EntityList();
+        this.aLinkedList_6 = new LinkedList();
         this.anInt4148 = 0;
         this.aDeque_22 = new Deque();
         this.anInt4150 = 0;
-        this.method9274();
+        this.unlink();
         ParticleManager.systemCache[ParticleManager.systemFreePtr] = this;
         ParticleManager.systemFreePtr = ParticleManager.systemFreePtr + 1 & ParticleLimits.anIntArray265[ParticleManager.setting];
     }
@@ -224,14 +224,14 @@ public final class ParticleSystem extends Entity {
         @Pc(27) int local27 = (int) (arg1 - this.aLong132);
         @Pc(36) ParticleEmitter local36;
         if (this.aBoolean326) {
-            for (local36 = (ParticleEmitter) this.aEntityList_6.method2790(); local36 != null; local36 = (ParticleEmitter) this.aEntityList_6.method2785()) {
+            for (local36 = (ParticleEmitter) this.aLinkedList_6.first(); local36 != null; local36 = (ParticleEmitter) this.aLinkedList_6.next()) {
                 for (@Pc(39) int local39 = 0; local39 < local36.aParticleEmitterType_1.startupTicks; local39++) {
                     local36.method7261(1, !this.aBoolean323, arg1, arg0);
                 }
             }
             this.aBoolean326 = false;
         }
-        for (local36 = (ParticleEmitter) this.aEntityList_6.method2790(); local36 != null; local36 = (ParticleEmitter) this.aEntityList_6.method2785()) {
+        for (local36 = (ParticleEmitter) this.aLinkedList_6.first(); local36 != null; local36 = (ParticleEmitter) this.aLinkedList_6.next()) {
             local36.method7261(local27, !this.aBoolean323, arg1, arg0);
         }
         this.aLong132 = arg1;
@@ -250,7 +250,7 @@ public final class ParticleSystem extends Entity {
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(IZ)V")
     public void method3657(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        ParticleManager.systems.method2787(this);
+        ParticleManager.systems.remove(this);
         this.aLong133 = (long) arg0;
         this.aLong132 = (long) arg0;
         this.aBoolean326 = true;

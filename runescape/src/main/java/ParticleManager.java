@@ -1,3 +1,4 @@
+import com.jagex.collect.LinkedList;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.graphics.particles.ParticleLimits;
@@ -14,7 +15,7 @@ public final class ParticleManager {
     public static int nextPtr = 0;
 
     @OriginalMember(owner = "client!kp", name = "w", descriptor = "Lclient!fla;")
-    public static EntityList systems;
+    public static LinkedList systems;
 
     @OriginalMember(owner = "client!qv", name = "e", descriptor = "[Lclient!pp;")
     public static Particle[] cache;
@@ -35,7 +36,7 @@ public final class ParticleManager {
     public static void init(@OriginalArg(0) js5 configClient) {
         freePtr = 0;
         nextPtr = 0;
-        systems = new EntityList();
+        systems = new LinkedList();
         cache = new Particle[1024];
         systemCache = new ParticleSystem[ParticleLimits.anIntArray265[setting] + 1];
         systemFreePtr = 0;

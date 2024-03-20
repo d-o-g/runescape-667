@@ -1,3 +1,4 @@
+import com.jagex.collect.LinkedList;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -134,8 +135,8 @@ public final class Static147 {
                 local148 = arg1 + Static242.method3503(local503);
                 local177 = arg0 + Static580.method7649(local503);
             }
-            @Pc(538) EntityList local538 = local510.aEntityList_8;
-            for (@Pc(543) Class8_Sub7 local543 = (Class8_Sub7) local538.method2790(); local543 != null; local543 = (Class8_Sub7) local538.method2785()) {
+            @Pc(538) LinkedList local538 = local510.aLinkedList_8;
+            for (@Pc(543) Class8_Sub7 local543 = (Class8_Sub7) local538.first(); local543 != null; local543 = (Class8_Sub7) local538.next()) {
                 if ((Static273.aBoolean340 || local543.aRenderable_18.aByte144 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) && local543.method6496(arg2, local177, local148)) {
                     @Pc(584) int local584;
                     if (local543.aRenderable_18 instanceof PositionEntity) {
@@ -377,13 +378,13 @@ public final class Static147 {
         Static111.anInt2220 = 0;
         Static530.anInt8093 = 0;
         @Pc(16) long local16 = SystemTimer.safetime();
-        for (@Pc(21) ParticleSystem local21 = (ParticleSystem) ParticleManager.systems.method2790(); local21 != null; local21 = (ParticleSystem) ParticleManager.systems.method2785()) {
+        for (@Pc(21) ParticleSystem local21 = (ParticleSystem) ParticleManager.systems.first(); local21 != null; local21 = (ParticleSystem) ParticleManager.systems.next()) {
             if (local21.method3653(arg1, arg0)) {
                 Static111.anInt2220++;
             }
         }
         if (Static615.aBoolean719 && arg0 % 100L == 0L) {
-            System.out.println("Particle system count: " + ParticleManager.systems.method2784() + ", running: " + Static111.anInt2220);
+            System.out.println("Particle system count: " + ParticleManager.systems.size() + ", running: " + Static111.anInt2220);
             System.out.println("Emitters: " + Static424.anInt6459 + " Particles: " + Static530.anInt8093 + ". Time taken: " + (SystemTimer.safetime() - local16) + "ms");
         }
     }

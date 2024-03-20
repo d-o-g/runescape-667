@@ -1,3 +1,4 @@
+import com.jagex.collect.LinkedList;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -14,7 +15,7 @@ public final class Static168 {
     public static int anInt2842;
 
     @OriginalMember(owner = "client!fda", name = "c", descriptor = "Lclient!fla;")
-    public static final EntityList A_ENTITY_LIST___5 = new EntityList();
+    public static final LinkedList A_ENTITY_LIST___5 = new LinkedList();
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(Lclient!rka;I)V")
     public static void method2633(@OriginalArg(0) Node_Sub21_Sub2 arg0) {

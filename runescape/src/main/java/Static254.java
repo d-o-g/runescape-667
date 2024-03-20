@@ -53,7 +53,7 @@ public final class Static254 {
         Static18.A_HASH_TABLE___2.clear();
         Static505.A_DEQUE___77.clear();
         Static346.A_HASH_TABLE___29.clear();
-        Static422.A_ENTITY_LIST___9.method2789();
+        Static422.A_ENTITY_LIST___9.clear();
         Static497.stacks.clear();
         Static159.aDeque_15 = new Deque();
         Static227.aDeque_18 = new Deque();

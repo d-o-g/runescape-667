@@ -1,4 +1,6 @@
 import com.jagex.core.constants.ModeGame;
+import com.jagex.game.runetek6.config.paramtype.ParamType;
+import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;

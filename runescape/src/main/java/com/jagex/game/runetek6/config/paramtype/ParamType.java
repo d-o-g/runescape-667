@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.paramtype;
+
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;

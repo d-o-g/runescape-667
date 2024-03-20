@@ -1,3 +1,5 @@
+package com.jagex;
+
 import com.jagex.collect.ref.key.CacheKey;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;

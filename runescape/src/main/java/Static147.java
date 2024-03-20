@@ -1,4 +1,6 @@
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.runetek6.config.paramtype.ParamType;
+import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.graphics.Matrix;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

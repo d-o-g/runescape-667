@@ -1,8 +1,11 @@
+import com.jagex.SpriteCacheKey;
 import com.jagex.collect.Node;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.collect.ref.key.KeyedReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.paramtype.ParamType;
+import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.graphics.Sprite;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

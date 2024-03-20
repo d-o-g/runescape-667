@@ -151,7 +151,7 @@ public final class Static484 {
                         if (Static696.method9036(local214, arg1, local211, local216)) {
                             @Pc(730) Location local730 = (Location) Static687.method8959(local216, local211, local214);
                             if (local730 == null) {
-                                local730 = (Location) Static578.getEntity(local216, local211, local214, aClass19 == null ? (aClass19 = getClass("Interface25")) : aClass19);
+                                local730 = (Location) Static578.getEntity(local216, local211, local214, aClass19 == null ? (aClass19 = getClass("Location")) : aClass19);
                             }
                             if (local730 == null) {
                                 local730 = (Location) Static302.getWall(local216, local211, local214);

@@ -126,7 +126,7 @@ public final class Static198 {
                 }
             }
         } else if (arg6 == 2) {
-            local52 = (Location) Static578.getEntity(arg0, arg4, arg1, aClass9 == null ? (aClass9 = getClass("Interface25")) : aClass9);
+            local52 = (Location) Static578.getEntity(arg0, arg4, arg1, aClass9 == null ? (aClass9 = getClass("Location")) : aClass9);
             if (local52 != null) {
                 if (arg2 == 11) {
                     arg2 = 10;

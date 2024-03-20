@@ -1107,7 +1107,7 @@ public final class MapRegion extends Class306 {
         } else if (arg0 == 1) {
             Static173.method2692(arg3, arg4, arg1);
         } else if (arg0 == 2) {
-            Static10.method130(arg3, arg4, arg1, locClass == null ? (locClass = getClass("Interface25")) : locClass);
+            Static10.method130(arg3, arg4, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
             if (local22.anInt1242 != 0 && super.width > local22.anInt1270 + arg4 && super.height > local22.anInt1270 + arg1 && arg4 + local22.anInt1229 < super.width && local22.anInt1229 + arg1 < super.height) {
                 arg2.method2468(local22.aBoolean99, !local22.aBoolean97, arg4, local22.anInt1270, local22.anInt1229, local30, arg1);
             }

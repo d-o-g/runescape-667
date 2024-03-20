@@ -33,7 +33,7 @@ public final class Static293 {
             local9 = (Location) Static114.getWallDecor(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006);
         }
         if (arg0.anInt4011 == 2) {
-            local9 = (Location) Static578.getEntity(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006, aClass10 == null ? (aClass10 = getClass("Interface25")) : aClass10);
+            local9 = (Location) Static578.getEntity(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006, aClass10 == null ? (aClass10 = getClass("Location")) : aClass10);
         }
         if (arg0.anInt4011 == 3) {
             local9 = (Location) Static687.method8959(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006);

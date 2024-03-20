@@ -217,12 +217,12 @@ public final class Static523 {
             }
             Static502.method6721(js5.DEFAULTS.getfile(1));
             GraphicsDefaults.INSTANCE = new GraphicsDefaults(js5.DEFAULTS);
-            PlayerModel.bodycol_s = GraphicsDefaults.INSTANCE.recol_s;
-            PlayerModel.bodycol_d = GraphicsDefaults.INSTANCE.recol_d;
+            PlayerModel.recol_s = GraphicsDefaults.INSTANCE.recol_s;
+            PlayerModel.recol_d = GraphicsDefaults.INSTANCE.recol_d;
             Static125.aWearposDefaults_1 = new WearposDefaults(js5.DEFAULTS);
         }
         if (Static198.aClass140_13 == Static473.aClass140_22) {
-            if (GraphicsDefaults.INSTANCE.profilingModel != -1 && !Static190.aJs5_38.method7586(0, GraphicsDefaults.INSTANCE.profilingModel)) {
+            if (GraphicsDefaults.INSTANCE.profilingModel != -1 && !Static190.aJs5_38.requestdownload(0, GraphicsDefaults.INSTANCE.profilingModel)) {
                 return 99;
             }
             Static56.anTextureSource_3 = new Class303(Static199.aJs5_42, Static534.aJs5_104, Static721.aJs5_128);
@@ -316,7 +316,7 @@ public final class Static523 {
             local184 = true;
             for (local74 = 0; local74 < Static453.aClass158ArrayArray2[GraphicsDefaults.INSTANCE.login_interface].length; local74++) {
                 @Pc(1315) Class158 local1315 = Static453.aClass158ArrayArray2[GraphicsDefaults.INSTANCE.login_interface][local74];
-                if (local1315.anInt3820 == 5 && local1315.anInt3810 != -1 && !Static721.aJs5_128.method7586(0, local1315.anInt3810)) {
+                if (local1315.anInt3820 == 5 && local1315.anInt3810 != -1 && !Static721.aJs5_128.requestdownload(0, local1315.anInt3810)) {
                     local184 = false;
                 }
             }

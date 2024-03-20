@@ -183,11 +183,11 @@ public final class js5 {
         if (!this.indexReady()) {
             return false;
         } else if (this.index.fileLimits.length == 1) {
-            return this.method7586(arg0, 0);
+            return this.requestdownload(arg0, 0);
         } else if (!this.isValidGroup(arg0)) {
             return false;
         } else if (this.index.fileLimits[arg0] == 1) {
-            return this.method7586(0, arg0);
+            return this.requestdownload(0, arg0);
         } else {
             throw new RuntimeException();
         }
@@ -436,7 +436,7 @@ public final class js5 {
     }
 
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(III)Z")
-    public boolean method7586(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public boolean requestdownload(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (!this.isValidFile(arg0, arg1)) {
             return false;
         } else if (this.unpacked[arg1] != null && this.unpacked[arg1][arg0] != null) {
@@ -651,7 +651,7 @@ public final class js5 {
         @Pc(25) int local25 = this.index.groupNameTable.find(StringTools.hash(local13));
         if (this.isValidGroup(local25)) {
             @Pc(44) int local44 = this.index.fileNameTables[local25].find(StringTools.hash(local16));
-            return this.method7586(local44, local25);
+            return this.requestdownload(local44, local25);
         } else {
             return false;
         }

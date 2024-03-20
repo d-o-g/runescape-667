@@ -109,7 +109,7 @@ public final class Static390 {
         for (@Pc(27) int local27 = 0; local27 < local18.anIntArray278.length; local27++) {
             if (local18.anIntArray278[local27] >= 0 && local18.anIntArray278[local27] < Static419.aObjTypeList_1.num) {
                 @Pc(54) ObjType local54 = Static419.aObjTypeList_1.list(local18.anIntArray278[local27]);
-                @Pc(64) int local64 = local54.method8794(arg1, ParamTypeList.instance.list(arg1).defaultint);
+                @Pc(64) int local64 = local54.param(arg1, ParamTypeList.instance.list(arg1).defaultint);
                 if (arg0) {
                     local25 += local64 * local18.anIntArray279[local27];
                 } else {

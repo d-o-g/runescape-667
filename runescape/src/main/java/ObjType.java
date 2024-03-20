@@ -19,7 +19,7 @@ public final class ObjType {
     public static final int SHOWCOUNT_ALWAYS = 1;
     public static final int SHOWCOUNT_IFNOT1 = 2;
 
-    private static final int MAX_OP_COUNT = 6;
+    private static final int MAX_OP_COUNT = 5;
     private static final int MAX_IOP_COUNT = 5;
 
     @OriginalMember(owner = "client!hh", name = "b", descriptor = "[S")
@@ -312,12 +312,12 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(III)I")
-    public int method8794(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public int param(@OriginalArg(0) int id, @OriginalArg(1) int dflt) {
         if (this.params == null) {
-            return arg1;
+            return dflt;
         } else {
-            @Pc(19) IntNode local19 = (IntNode) this.params.get((long) arg0);
-            return local19 == null ? arg1 : local19.value;
+            @Pc(19) IntNode param = (IntNode) this.params.get(id);
+            return param == null ? dflt : param.value;
         }
     }
 
@@ -537,9 +537,9 @@ public final class ObjType {
 
         if (appearance != null) {
             for (i = 0; i < 10; i++) {
-                for (@Pc(138) int local138 = 0; local138 < PlayerModel.bodycol_s[i].length; local138++) {
-                    if (appearance.bodycol_d_palette[i] < PlayerModel.bodycol_d[i][local138].length) {
-                        mesh.recolour(PlayerModel.bodycol_s[i][local138], PlayerModel.bodycol_d[i][local138][appearance.bodycol_d_palette[i]]);
+                for (@Pc(138) int local138 = 0; local138 < PlayerModel.recol_s[i].length; local138++) {
+                    if (appearance.clientpalette[i] < PlayerModel.recol_d[i][local138].length) {
+                        mesh.recolour(PlayerModel.recol_s[i][local138], PlayerModel.recol_d[i][local138][appearance.clientpalette[i]]);
                     }
                 }
             }
@@ -714,141 +714,163 @@ public final class ObjType {
         if (!female && (this.manwearxoff != 0 || this.manwearyoff != 0 || this.manwearzoff != 0)) {
             mesh.translate(this.manwearxoff, this.manwearyoff, this.manwearzoff);
         }
+
         if (female && (this.womanwearxoff != 0 || this.womanwearyoff != 0 || this.womanwearzoff != 0)) {
             mesh.translate(this.womanwearxoff, this.womanwearyoff, this.womanwearzoff);
         }
-        @Pc(269) short[] local269;
-        @Pc(275) int local275;
+
         if (this.recol_s != null) {
+            @Pc(269) short[] recol_d;
             if (customisation == null || customisation.recol_d == null) {
-                local269 = this.recol_d;
+                recol_d = this.recol_d;
             } else {
-                local269 = customisation.recol_d;
+                recol_d = customisation.recol_d;
             }
-            for (local275 = 0; local275 < this.recol_s.length; local275++) {
-                mesh.recolour(this.recol_s[local275], local269[local275]);
+
+            for (@Pc(275) int i = 0; i < this.recol_s.length; i++) {
+                mesh.recolour(this.recol_s[i], recol_d[i]);
             }
         }
+
         if (this.retex_s != null) {
+            @Pc(269) short[] retex_d;
             if (customisation == null || customisation.retex_d == null) {
-                local269 = this.retex_d;
+                retex_d = this.retex_d;
             } else {
-                local269 = customisation.retex_d;
+                retex_d = customisation.retex_d;
             }
-            for (local275 = 0; local275 < this.retex_s.length; local275++) {
-                mesh.retexture(this.retex_s[local275], local269[local275]);
+
+            for (@Pc(275) int i = 0; i < this.retex_s.length; i++) {
+                mesh.retexture(this.retex_s[i], retex_d[i]);
             }
         }
+
         return mesh;
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Ljava/lang/String;II)Ljava/lang/String;")
-    public String method8800(@OriginalArg(0) String arg0, @OriginalArg(2) int arg1) {
+    public String param(@OriginalArg(0) String dflt, @OriginalArg(2) int id) {
         if (this.params == null) {
-            return arg0;
+            return dflt;
         } else {
-            @Pc(17) StringNode local17 = (StringNode) this.params.get((long) arg1);
-            return local17 == null ? arg0 : local17.aString46;
+            @Pc(17) StringNode param = (StringNode) this.params.get(id);
+            return param == null ? dflt : param.value;
         }
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ZLclient!bs;I)Lclient!dv;")
-    public Mesh headModel(@OriginalArg(0) boolean arg0, @OriginalArg(1) ObjTypeCustomisation arg1) {
-        @Pc(21) int local21;
-        @Pc(26) int local26;
-        if (arg0) {
-            if (arg1 == null || arg1.womanhead == null) {
-                local21 = this.womanhead;
-                local26 = this.womanhead2;
+    public Mesh headModel(@OriginalArg(0) boolean female, @OriginalArg(1) ObjTypeCustomisation customisation) {
+        @Pc(21) int model;
+        @Pc(26) int model2;
+
+        if (female) {
+            if (customisation == null || customisation.womanhead == null) {
+                model = this.womanhead;
+                model2 = this.womanhead2;
             } else {
-                local26 = arg1.womanhead[1];
-                local21 = arg1.womanhead[0];
+                model = customisation.womanhead[0];
+                model2 = customisation.womanhead[1];
             }
-        } else if (arg1 == null || arg1.manhead == null) {
-            local26 = this.manhead2;
-            local21 = this.manhead;
         } else {
-            local21 = arg1.manhead[0];
-            local26 = arg1.manhead[1];
+            if (customisation == null || customisation.manhead == null) {
+                model = this.manhead;
+                model2 = this.manhead2;
+            } else {
+                model = customisation.manhead[0];
+                model2 = customisation.manhead[1];
+            }
         }
-        if (local21 == -1) {
+
+        if (model == -1) {
             return null;
         }
-        @Pc(84) Mesh local84 = Mesh.load(local21, this.myList.meshes);
-        if (local84.version < 13) {
-            local84.upscale();
+
+        @Pc(84) Mesh mesh = Mesh.load(model, this.myList.meshes);
+        if (mesh.version < 13) {
+            mesh.upscale();
         }
-        if (local26 != -1) {
-            @Pc(105) Mesh local105 = Mesh.load(local26, this.myList.meshes);
-            if (local105.version < 13) {
-                local105.upscale();
+
+        if (model2 != -1) {
+            @Pc(105) Mesh mesh2 = Mesh.load(model2, this.myList.meshes);
+            if (mesh2.version < 13) {
+                mesh2.upscale();
             }
-            @Pc(128) Mesh[] local128 = new Mesh[]{local84, local105};
-            local84 = new Mesh(local128, 2);
+            @Pc(128) Mesh[] meshes = {mesh, mesh2};
+            mesh = new Mesh(meshes, 2);
         }
-        @Pc(149) short[] local149;
-        @Pc(156) int local156;
+
         if (this.recol_s != null) {
-            if (arg1 == null || arg1.recol_d == null) {
-                local149 = this.recol_d;
+            @Pc(149) short[] recol_d;
+            if (customisation == null || customisation.recol_d == null) {
+                recol_d = this.recol_d;
             } else {
-                local149 = arg1.recol_d;
+                recol_d = customisation.recol_d;
             }
-            for (local156 = 0; local156 < this.recol_s.length; local156++) {
-                local84.recolour(this.recol_s[local156], local149[local156]);
+
+            for (@Pc(156) int local156 = 0; local156 < this.recol_s.length; local156++) {
+                mesh.recolour(this.recol_s[local156], recol_d[local156]);
             }
         }
+
         if (this.retex_s != null) {
-            if (arg1 == null || arg1.retex_d == null) {
-                local149 = this.retex_d;
+            @Pc(149) short[] retex_d;
+            if (customisation == null || customisation.retex_d == null) {
+                retex_d = this.retex_d;
             } else {
-                local149 = arg1.retex_d;
+                retex_d = customisation.retex_d;
             }
-            for (local156 = 0; local156 < this.retex_s.length; local156++) {
-                local84.retexture(this.retex_s[local156], local149[local156]);
+
+            for (@Pc(156) int local156 = 0; local156 < this.retex_s.length; local156++) {
+                mesh.retexture(this.retex_s[local156], retex_d[local156]);
             }
         }
-        return local84;
+
+        return mesh;
     }
 
     @OriginalMember(owner = "client!vfa", name = "b", descriptor = "(ZLclient!bs;I)Z")
-    public boolean loadedModels(@OriginalArg(0) boolean arg0, @OriginalArg(1) ObjTypeCustomisation arg1) {
-        @Pc(17) int local17;
-        @Pc(23) int local23;
-        @Pc(20) int local20;
-        if (arg0) {
-            if (arg1 == null || arg1.womanwear == null) {
-                local17 = this.womanwear;
-                local20 = this.womanwear3;
-                local23 = this.womanwear2;
+    public boolean loadedModels(@OriginalArg(0) boolean female, @OriginalArg(1) ObjTypeCustomisation customisation) {
+        @Pc(17) int model;
+        @Pc(23) int model2;
+        @Pc(20) int model3;
+
+        if (female) {
+            if (customisation == null || customisation.womanwear == null) {
+                model = this.womanwear;
+                model3 = this.womanwear3;
+                model2 = this.womanwear2;
             } else {
-                local17 = arg1.womanwear[0];
-                local23 = arg1.womanwear[1];
-                local20 = arg1.womanwear[2];
+                model = customisation.womanwear[0];
+                model2 = customisation.womanwear[1];
+                model3 = customisation.womanwear[2];
             }
-        } else if (arg1 == null || arg1.manwear == null) {
-            local20 = this.manwear3;
-            local17 = this.manwear;
-            local23 = this.manwear2;
         } else {
-            local23 = arg1.manwear[1];
-            local20 = arg1.manwear[2];
-            local17 = arg1.manwear[0];
+            if (customisation == null || customisation.manwear == null) {
+                model3 = this.manwear3;
+                model = this.manwear;
+                model2 = this.manwear2;
+            } else {
+                model2 = customisation.manwear[1];
+                model3 = customisation.manwear[2];
+                model = customisation.manwear[0];
+            }
         }
-        if (local17 == -1) {
+
+        if (model == -1) {
             return true;
         }
-        @Pc(88) boolean local88 = true;
-        if (!this.myList.meshes.method7586(0, local17)) {
-            local88 = false;
+
+        @Pc(88) boolean loaded = true;
+        if (!this.myList.meshes.requestdownload(0, model)) {
+            loaded = false;
         }
-        if (local23 != -1 && !this.myList.meshes.method7586(0, local23)) {
-            local88 = false;
+        if (model2 != -1 && !this.myList.meshes.requestdownload(0, model2)) {
+            loaded = false;
         }
-        if (local20 != -1 && !this.myList.meshes.method7586(0, local20)) {
-            local88 = false;
+        if (model3 != -1 && !this.myList.meshes.requestdownload(0, model3)) {
+            loaded = false;
         }
-        return local88;
+        return loaded;
     }
 
     @OriginalMember(owner = "client!vfa", name = "c", descriptor = "(II)Ljava/lang/String;")
@@ -864,11 +886,11 @@ public final class ObjType {
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(I[II)V")
     public void applyShadow(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1) {
-        for (@Pc(11) int local11 = 31; local11 > 0; local11--) {
-            @Pc(19) int local19 = local11 * 36;
-            for (@Pc(21) int local21 = 35; local21 > 0; local21--) {
-                if (arg1[local21 + local19] == 0 && arg1[local19 + local21 - 1 - 36] != 0) {
-                    arg1[local21 + local19] = arg0;
+        for (@Pc(11) int y = 31; y > 0; y--) {
+            @Pc(19) int pos = y * 36;
+            for (@Pc(21) int x = 35; x > 0; x--) {
+                if (arg1[x + pos] == 0 && arg1[pos + x - 1 - 36] != 0) {
+                    arg1[x + pos] = arg0;
                 }
             }
         }
@@ -876,95 +898,108 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!gu;ILclient!ju;ILclient!ha;I)Lclient!ka;")
-    public Model model(@OriginalArg(0) Animator animator, @OriginalArg(1) int initialFunctionMask, @OriginalArg(2) PlayerModel playerModel, @OriginalArg(3) int arg3, @OriginalArg(4) Toolkit toolkit) {
-        @Pc(17) int i;
-        if (this.countobj != null && arg3 > 1) {
-            i = -1;
-            for (@Pc(19) int local19 = 0; local19 < 10; local19++) {
-                if (arg3 >= this.countco[local19] && this.countco[local19] != 0) {
-                    i = this.countobj[local19];
+    public Model model(@OriginalArg(0) Animator animator, @OriginalArg(1) int initialFunctionMask, @OriginalArg(2) PlayerModel playerModel, @OriginalArg(3) int amount, @OriginalArg(4) Toolkit toolkit) {
+        if (this.countobj != null && amount > 1) {
+            @Pc(17) int id = -1;
+
+            for (@Pc(19) int i = 0; i < 10; i++) {
+                if (amount >= this.countco[i] && this.countco[i] != 0) {
+                    id = this.countobj[i];
                 }
             }
-            if (i != -1) {
-                return this.myList.list(i).model(animator, initialFunctionMask, playerModel, 1, toolkit);
+
+            if (id != -1) {
+                return this.myList.list(id).model(animator, initialFunctionMask, playerModel, 1, toolkit);
             }
         }
-        i = initialFunctionMask;
+
+        @Pc(17) int functionMask = initialFunctionMask;
         if (animator != null) {
-            i = initialFunctionMask | animator.functionMask();
+            functionMask = initialFunctionMask | animator.functionMask();
         }
+
         @Pc(87) ReferenceCache local87 = this.myList.modelCache;
-        @Pc(104) Model local104;
+        @Pc(104) Model model;
         synchronized (this.myList.modelCache) {
-            local104 = (Model) this.myList.modelCache.get((long) (this.myid | toolkit.index << 29));
+            model = (Model) this.myList.modelCache.get((long) (this.myid | toolkit.index << 29));
         }
-        if (local104 == null || toolkit.compareFunctionMasks(local104.ua(), i) != 0) {
-            if (local104 != null) {
-                i = toolkit.combineFunctionMasks(i, local104.ua());
+
+        if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
+            if (model != null) {
+                functionMask = toolkit.combineFunctionMasks(functionMask, model.ua());
             }
-            @Pc(141) int local141 = i;
+
+            @Pc(141) int baseFunctionMask = functionMask;
             if (this.retex_s != null) {
-                local141 = i | 0x8000;
+                baseFunctionMask = functionMask | 0x8000;
             }
             if (this.recol_s != null || playerModel != null) {
-                local141 |= 0x4000;
+                baseFunctionMask |= 0x4000;
             }
             if (this.resizex != 128) {
-                local141 |= 0x1;
+                baseFunctionMask |= 0x1;
             }
             if (this.resizex != 128) {
-                local141 |= 0x2;
+                baseFunctionMask |= 0x2;
             }
             if (this.resizex != 128) {
-                local141 |= 0x4;
+                baseFunctionMask |= 0x4;
             }
-            @Pc(196) Mesh local196 = Mesh.load(this.mesh, this.myList.meshes);
-            if (local196 == null) {
+
+            @Pc(196) Mesh mesh = Mesh.load(this.mesh, this.myList.meshes);
+            if (mesh == null) {
                 return null;
             }
-            if (local196.version < 13) {
-                local196.upscale();
+            if (mesh.version < 13) {
+                mesh.upscale();
             }
-            local104 = toolkit.createModel(local196, local141, this.myList.featureMask, this.ambient + 64, 850 - -this.contrast);
+
+            model = toolkit.createModel(mesh, baseFunctionMask, this.myList.featureMask, this.ambient + 64, 850 - -this.contrast);
+
             if (this.resizex != 128 || this.resizey != 128 || this.resizez != 128) {
-                local104.O(this.resizex, this.resizey, this.resizez);
+                model.O(this.resizex, this.resizey, this.resizez);
             }
-            @Pc(265) int local265;
+
             if (this.recol_s != null) {
-                for (local265 = 0; local265 < this.recol_s.length; local265++) {
-                    if (this.recol_d_palette == null || this.recol_d_palette.length <= local265) {
-                        local104.ia(this.recol_s[local265], this.recol_d[local265]);
+                for (@Pc(265) int i = 0; i < this.recol_s.length; i++) {
+                    if (this.recol_d_palette == null || this.recol_d_palette.length <= i) {
+                        model.ia(this.recol_s[i], this.recol_d[i]);
                     } else {
-                        local104.ia(this.recol_s[local265], clientpalette[this.recol_d_palette[local265] & 0xFF]);
+                        model.ia(this.recol_s[i], clientpalette[this.recol_d_palette[i] & 0xFF]);
                     }
                 }
             }
+
             if (this.retex_s != null) {
-                for (local265 = 0; local265 < this.retex_s.length; local265++) {
-                    local104.aa(this.retex_s[local265], this.retex_d[local265]);
+                for (@Pc(265) int i = 0; i < this.retex_s.length; i++) {
+                    model.aa(this.retex_s[i], this.retex_d[i]);
                 }
             }
+
             if (playerModel != null) {
-                for (local265 = 0; local265 < 10; local265++) {
-                    for (@Pc(360) int local360 = 0; local360 < PlayerModel.bodycol_s[local265].length; local360++) {
-                        if (PlayerModel.bodycol_d[local265][local360].length > playerModel.bodycol_d_palette[local265]) {
-                            local104.ia(PlayerModel.bodycol_s[local265][local360], PlayerModel.bodycol_d[local265][local360][playerModel.bodycol_d_palette[local265]]);
+                for (@Pc(265) int i = 0; i < 10; i++) {
+                    for (@Pc(360) int j = 0; j < PlayerModel.recol_s[i].length; j++) {
+                        if (PlayerModel.recol_d[i][j].length > playerModel.clientpalette[i]) {
+                            model.ia(PlayerModel.recol_s[i][j], PlayerModel.recol_d[i][j][playerModel.clientpalette[i]]);
                         }
                     }
                 }
             }
-            local104.s(i);
+
+            model.s(functionMask);
             @Pc(426) ReferenceCache local426 = this.myList.modelCache;
             synchronized (this.myList.modelCache) {
-                this.myList.modelCache.put(local104, (long) (this.myid | toolkit.index << 29));
+                this.myList.modelCache.put(model, (long) (this.myid | toolkit.index << 29));
             }
         }
+
         if (animator != null) {
-            local104 = local104.copy((byte) 1, i, true);
-            animator.animate(local104, 0);
+            model = model.copy((byte) 1, functionMask, true);
+            animator.animate(model, 0);
         }
-        local104.s(initialFunctionMask);
-        return local104;
+
+        model.s(initialFunctionMask);
+        return model;
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(B)V")
@@ -972,35 +1007,40 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!bs;Z)Z")
-    public boolean loadedHeadModels(@OriginalArg(1) ObjTypeCustomisation arg0, @OriginalArg(2) boolean arg1) {
-        @Pc(19) int local19;
-        @Pc(22) int local22;
-        if (arg1) {
-            if (arg0 == null || arg0.womanhead == null) {
-                local19 = this.womanhead;
-                local22 = this.womanhead2;
+    public boolean loadedHeadModels(@OriginalArg(1) ObjTypeCustomisation customisation, @OriginalArg(2) boolean female) {
+        @Pc(19) int model;
+        @Pc(22) int model2;
+
+        if (female) {
+            if (customisation == null || customisation.womanhead == null) {
+                model = this.womanhead;
+                model2 = this.womanhead2;
             } else {
-                local19 = arg0.womanhead[0];
-                local22 = arg0.womanhead[1];
+                model = customisation.womanhead[0];
+                model2 = customisation.womanhead[1];
             }
-        } else if (arg0 == null || arg0.manhead == null) {
-            local22 = this.manhead2;
-            local19 = this.manhead;
         } else {
-            local22 = arg0.manhead[1];
-            local19 = arg0.manhead[0];
+            if (customisation == null || customisation.manhead == null) {
+                model = this.manhead;
+                model2 = this.manhead2;
+            } else {
+                model = customisation.manhead[0];
+                model2 = customisation.manhead[1];
+            }
         }
-        if (local19 == -1) {
+
+        if (model == -1) {
             return true;
         }
-        @Pc(71) boolean local71 = true;
-        if (!this.myList.meshes.method7586(0, local19)) {
-            local71 = false;
+
+        @Pc(71) boolean loaded = true;
+        if (!this.myList.meshes.requestdownload(0, model)) {
+            loaded = false;
         }
-        if (local22 != -1 && !this.myList.meshes.method7586(0, local22)) {
-            local71 = false;
+        if (model2 != -1 && !this.myList.meshes.requestdownload(0, model2)) {
+            loaded = false;
         }
-        return local71;
+        return loaded;
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!vfa;BLclient!vfa;)V")

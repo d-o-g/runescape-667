@@ -211,10 +211,10 @@ public final class Class164 {
             if (local32 != null) {
                 if (local32 instanceof StringNode) {
                     @Pc(42) StringNode local42 = (StringNode) local32;
-                    if (local42.aString46.equals(arg0)) {
+                    if (local42.value.equals(arg0)) {
                         return false;
                     }
-                    local42.aString46 = arg0;
+                    local42.value = arg0;
                     return true;
                 }
                 local32.remove();
@@ -258,7 +258,7 @@ public final class Class164 {
             return null;
         } else {
             @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
-            return local24 != null && local24 instanceof StringNode ? ((StringNode) local24).aString46 : null;
+            return local24 != null && local24 instanceof StringNode ? ((StringNode) local24).value : null;
         }
     }
 

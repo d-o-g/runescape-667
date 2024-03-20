@@ -65,7 +65,7 @@ public final class DoublyLinkedNode_Sub2_Sub1 extends DoublyLinkedNode {
             return arg1;
         } else {
             @Pc(23) StringNode local23 = (StringNode) this.aHashTable_1.get((long) arg0);
-            return local23 == null ? arg1 : local23.aString46;
+            return local23 == null ? arg1 : local23.value;
         }
     }
 }

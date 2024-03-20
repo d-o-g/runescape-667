@@ -163,7 +163,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
             }
         } else {
             for (local12 = 0; local12 < this.anIntArray824.length; local12++) {
-                if (!arg0.method7586(this.anIntArray824[local12], Static426.anInt940)) {
+                if (!arg0.requestdownload(this.anIntArray824[local12], Static426.anInt940)) {
                     return false;
                 }
             }

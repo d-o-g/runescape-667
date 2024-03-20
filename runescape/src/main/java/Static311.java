@@ -63,10 +63,10 @@ public final class Static311 {
             if ((!arg1 || local62.stockmarket) && local62.certtemplate == -1 && local62.lenttemplate == -1 && local62.boughttemplate == -1 && local62.dummyitem == 0 && local62.name.toLowerCase().indexOf(local9) != -1) {
                 if (arg3 != -1) {
                     if (arg0) {
-                        if (!arg5.equals(local62.method8800(local16, arg3))) {
+                        if (!arg5.equals(local62.param(local16, arg3))) {
                             continue;
                         }
-                    } else if (arg2 != local62.method8794(arg3, local14)) {
+                    } else if (arg2 != local62.param(arg3, local14)) {
                         continue;
                     }
                 }

@@ -483,7 +483,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(332) int[] local332 = new int[10];
         for (local184 = 0; local184 < 10; local184++) {
             local191 = packet.g1();
-            if (local184 >= PlayerModel.bodycol_d.length || local191 < 0 || PlayerModel.bodycol_d[local184][0].length <= local191) {
+            if (local184 >= PlayerModel.recol_d.length || local191 < 0 || PlayerModel.recol_d[local184][0].length <= local191) {
                 local191 = 0;
             }
             local332[local184] = local191;
@@ -534,7 +534,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             this.aPlayerModel_1 = new PlayerModel();
         }
         local240 = this.aPlayerModel_1.npcId;
-        @Pc(603) int[] local603 = this.aPlayerModel_1.bodycol_d_palette;
+        @Pc(603) int[] local603 = this.aPlayerModel_1.clientpalette;
         this.aPlayerModel_1.update(local332, local139, local144, local134, this.method9320(0), this.aByte32 == 1);
         if (local134 != local240) {
             super.anInt10690 = (super.anIntArray879[0] << 9) + (this.method9302((byte) 83) << 8);

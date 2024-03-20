@@ -174,7 +174,7 @@ public final class Class105 {
             return arg1;
         } else {
             @Pc(17) StringNode local17 = (StringNode) this.aHashTable_14.get((long) arg0);
-            return local17 == null ? arg1 : local17.aString46;
+            return local17 == null ? arg1 : local17.value;
         }
     }
 

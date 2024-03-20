@@ -2909,10 +2909,10 @@ public final class Static472 {
                                                 local21 = anIntArray578[anInt7142 + 1];
                                                 local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = Static419.aObjTypeList_1.list(local15).method8800(local3848.defaultstr, local21);
+                                                    aStringArray37[anInt7139++] = Static419.aObjTypeList_1.list(local15).param(local3848.defaultstr, local21);
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = Static419.aObjTypeList_1.list(local15).method8794(local21, local3848.defaultint);
+                                                anIntArray578[anInt7142++] = Static419.aObjTypeList_1.list(local15).param(local21, local3848.defaultint);
                                                 return;
                                             }
                                             if (arg0 == 4209) {

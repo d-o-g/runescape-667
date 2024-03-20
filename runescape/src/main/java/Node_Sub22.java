@@ -57,7 +57,7 @@ public final class Node_Sub22 extends Node {
         if (arg3 != null) {
             local9 = arg3.functionMask() | 0x800;
         }
-        @Pc(116) long local116 = this.method3077(arg2, arg0, local23, arg4 == null ? null : arg4.bodycol_d_palette);
+        @Pc(116) long local116 = this.method3077(arg2, arg0, local23, arg4 == null ? null : arg4.clientpalette);
         if (Static166.A_WEIGHTED_CACHE___59 != null) {
             local7 = (Model) Static166.A_WEIGHTED_CACHE___59.get(local116);
         }
@@ -108,9 +108,9 @@ public final class Node_Sub22 extends Node {
             local7 = arg1.createModel(local382, local151, Static584.anInt8635, 64, 850);
             if (arg4 != null) {
                 for (tx = 0; tx < 10; tx++) {
-                    for (ty = 0; ty < PlayerModel.bodycol_s[tx].length; ty++) {
-                        if (PlayerModel.bodycol_d[tx][ty].length > arg4.bodycol_d_palette[tx]) {
-                            local7.ia(PlayerModel.bodycol_s[tx][ty], PlayerModel.bodycol_d[tx][ty][arg4.bodycol_d_palette[tx]]);
+                    for (ty = 0; ty < PlayerModel.recol_s[tx].length; ty++) {
+                        if (PlayerModel.recol_d[tx][ty].length > arg4.clientpalette[tx]) {
+                            local7.ia(PlayerModel.recol_s[tx][ty], PlayerModel.recol_d[tx][ty][arg4.clientpalette[tx]]);
                         }
                     }
                 }

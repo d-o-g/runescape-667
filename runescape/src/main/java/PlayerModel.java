@@ -19,10 +19,10 @@ public final class PlayerModel {
     private static final ReferenceCache recentUse = new ReferenceCache(260);
 
     @OriginalMember(owner = "client!kma", name = "n", descriptor = "[[[S")
-    public static short[][][] bodycol_d;
+    public static short[][][] recol_d;
 
     @OriginalMember(owner = "client!cha", name = "e", descriptor = "[[S")
-    public static short[][] bodycol_s;
+    public static short[][] recol_s;
 
     @OriginalMember(owner = "client!jg", name = "k", descriptor = "I")
     public static int featureMask;
@@ -88,7 +88,7 @@ public final class PlayerModel {
     public int basId;
 
     @OriginalMember(owner = "client!ju", name = "e", descriptor = "[I")
-    public int[] bodycol_d_palette;
+    public int[] clientpalette;
 
     @OriginalMember(owner = "client!ju", name = "c", descriptor = "[Lclient!bs;")
     public ObjTypeCustomisation[] customisations;
@@ -170,7 +170,7 @@ public final class PlayerModel {
         }
 
         for (i = 0; i < 10; i++) {
-            this.hash = (this.hash >>> 8) ^ crc[(int) ((this.hash ^ (long) this.bodycol_d_palette[i]) & 0xFFL)];
+            this.hash = (this.hash >>> 8) ^ crc[(int) ((this.hash ^ (long) this.clientpalette[i]) & 0xFFL)];
         }
 
         this.hash = (this.hash >>> 8) ^ crc[(int) ((this.hash ^ (long) (this.female ? 1 : 0)) & 0xFFL)];
@@ -179,7 +179,7 @@ public final class PlayerModel {
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "([I[I[Lclient!bs;IIZB)V")
     public void update(@OriginalArg(0) int[] bodycol_d_palette, @OriginalArg(1) int[] identikit, @OriginalArg(2) ObjTypeCustomisation[] customisations, @OriginalArg(3) int npcId, @OriginalArg(4) int basId, @OriginalArg(5) boolean female) {
         this.customisations = customisations;
-        this.bodycol_d_palette = bodycol_d_palette;
+        this.clientpalette = bodycol_d_palette;
         this.female = female;
         if (this.basId != basId) {
             this.basId = basId;
@@ -367,9 +367,9 @@ public final class PlayerModel {
                         model = toolkit.createModel(mesh, local826, featureMask, 64, 850);
 
                         for (i = 0; i < 10; i++) {
-                            for (j = 0; j < bodycol_s[i].length; j++) {
-                                if (bodycol_d[i][j].length > this.bodycol_d_palette[i]) {
-                                    model.ia(bodycol_s[i][j], bodycol_d[i][j][this.bodycol_d_palette[i]]);
+                            for (j = 0; j < recol_s[i].length; j++) {
+                                if (recol_d[i][j].length > this.clientpalette[i]) {
+                                    model.ia(recol_s[i][j], recol_d[i][j][this.clientpalette[i]]);
                                 }
                             }
                         }
@@ -507,7 +507,7 @@ public final class PlayerModel {
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(IIB)V")
     public void method4549(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        this.bodycol_d_palette[arg0] = arg1;
+        this.clientpalette[arg0] = arg1;
         this.computeHash();
     }
 
@@ -552,9 +552,9 @@ public final class PlayerModel {
             mesh = new Mesh(meshes, local72);
             model = arg4.createModel(mesh, local152, featureMask, 64, 768);
             for (@Pc(168) int local168 = 0; local168 < 10; local168++) {
-                for (@Pc(172) int local172 = 0; local172 < bodycol_s[local168].length; local172++) {
-                    if (this.bodycol_d_palette[local168] < bodycol_d[local168][local172].length) {
-                        model.ia(bodycol_s[local168][local172], bodycol_d[local168][local172][this.bodycol_d_palette[local168]]);
+                for (@Pc(172) int local172 = 0; local172 < recol_s[local168].length; local172++) {
+                    if (this.clientpalette[local168] < recol_d[local168][local172].length) {
+                        model.ia(recol_s[local168][local172], recol_d[local168][local172][this.clientpalette[local168]]);
                     }
                 }
             }
@@ -652,9 +652,9 @@ public final class PlayerModel {
             @Pc(270) int local270 = functionMask | 0x4000;
             model = toolkit.createModel(mesh, local270, featureMask, 64, 768);
             for (@Pc(282) int local282 = 0; local282 < 10; local282++) {
-                for (@Pc(286) int local286 = 0; local286 < bodycol_s[local282].length; local286++) {
-                    if (this.bodycol_d_palette[local282] < bodycol_d[local282][local286].length) {
-                        model.ia(bodycol_s[local282][local286], bodycol_d[local282][local286][this.bodycol_d_palette[local282]]);
+                for (@Pc(286) int local286 = 0; local286 < recol_s[local282].length; local286++) {
+                    if (this.clientpalette[local282] < recol_d[local282][local286].length) {
+                        model.ia(recol_s[local282][local286], recol_d[local282][local286][this.clientpalette[local282]]);
                     }
                 }
             }

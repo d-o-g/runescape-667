@@ -590,7 +590,7 @@ public final class Class158 {
             return arg0;
         } else {
             @Pc(17) StringNode local17 = (StringNode) this.aHashTable_17.get((long) arg1);
-            return local17 == null ? arg0 : local17.aString46;
+            return local17 == null ? arg0 : local17.value;
         }
     }
 
@@ -915,7 +915,7 @@ public final class Class158 {
         if (local32 == null) {
             this.aHashTable_17.put((long) arg1, new StringNode(arg0));
         } else {
-            local32.aString46 = arg0;
+            local32.value = arg0;
         }
     }
 

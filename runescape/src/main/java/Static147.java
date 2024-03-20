@@ -237,7 +237,7 @@ public final class Static147 {
                                 @Pc(1424) ObjType local1424 = Static419.aObjTypeList_1.list(local1416.id);
                                 if (Static156.aBoolean223 && Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 == local543.aClass8_Sub2_18.aByte144) {
                                     @Pc(1451) ParamType local1451 = Static610.anInt9329 == -1 ? null : ParamTypeList.instance.list(Static610.anInt9329);
-                                    if ((Static717.anInt10822 & 0x1) != 0 && (local1451 == null || local1424.method8794(Static610.anInt9329, local1451.defaultint) != local1451.defaultint)) {
+                                    if ((Static717.anInt10822 & 0x1) != 0 && (local1451 == null || local1424.param(Static610.anInt9329, local1451.defaultint) != local1451.defaultint)) {
                                         Static416.method5707(false, -1, (long) local1416.id, local186, local584, Static153.aString27, 17, true, Static369.anInt4263, Static128.aString108 + " -> <col=ff9040>" + local1424.name, (long) local295, false);
                                     }
                                 }

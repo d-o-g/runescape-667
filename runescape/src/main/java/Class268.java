@@ -495,7 +495,7 @@ public final class Class268 {
             return arg0;
         } else {
             @Pc(23) StringNode local23 = (StringNode) this.aHashTable_32.get((long) arg1);
-            return local23 == null ? arg0 : local23.aString46;
+            return local23 == null ? arg0 : local23.value;
         }
     }
 
@@ -539,7 +539,7 @@ public final class Class268 {
                 @Pc(169) js5 local169 = this.aNPCTypeList_1.aJs5_102;
                 synchronized (this.aNPCTypeList_1.aJs5_102) {
                     for (@Pc(173) int local173 = 0; local173 < local163.length; local173++) {
-                        if (!this.aNPCTypeList_1.aJs5_102.method7586(0, local163[local173])) {
+                        if (!this.aNPCTypeList_1.aJs5_102.requestdownload(0, local163[local173])) {
                             local165 = true;
                         }
                     }
@@ -679,7 +679,7 @@ public final class Class268 {
             @Pc(222) js5 local222 = this.aNPCTypeList_1.aJs5_102;
             synchronized (this.aNPCTypeList_1.aJs5_102) {
                 for (local226 = 0; local226 < local216.length; local226++) {
-                    if (local216[local226] != -1 && !this.aNPCTypeList_1.aJs5_102.method7586(0, local216[local226])) {
+                    if (local216[local226] != -1 && !this.aNPCTypeList_1.aJs5_102.requestdownload(0, local216[local226])) {
                         local218 = true;
                     }
                 }

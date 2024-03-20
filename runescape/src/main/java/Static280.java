@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static280 {
 
     @OriginalMember(owner = "client!ip", name = "D", descriptor = "[[[B")
-    public static byte[][][] aByteArrayArrayArray3;
+    public static byte[][][] tileFlags;
 
     @OriginalMember(owner = "client!ip", name = "z", descriptor = "Lclient!tka;")
     public static final Class355 aClass355_3 = new Class355("WTI", "office", "_wti", 5);

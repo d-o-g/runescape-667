@@ -62,7 +62,7 @@ public final class Static77 {
         } else if (local8 == 1) {
             Static170.method2652((byte) 0);
             Static556.method7300(512);
-            if (Static280.aByteArrayArrayArray3 != null) {
+            if (Static280.tileFlags != null) {
                 Static361.method5240();
             }
         } else {

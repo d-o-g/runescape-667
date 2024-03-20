@@ -1,4 +1,4 @@
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -19,13 +19,13 @@ public final class Static501 {
     public static boolean aBoolean576;
 
     @OriginalMember(owner = "client!pq", name = "z", descriptor = "I")
-    public static int anInt7568 = 104;
+    public static int mapHeight = 104;
 
     @OriginalMember(owner = "client!pq", name = "t", descriptor = "Z")
     public static boolean aBoolean575 = false;
 
     @OriginalMember(owner = "client!pq", name = "u", descriptor = "[Lclient!lca;")
-    public static final Node_Sub7[] aClass2_Sub7Array4 = new Node_Sub7[8];
+    public static final PointLight[] aClass2_Sub7Array4 = new PointLight[8];
 
     @OriginalMember(owner = "client!pq", name = "d", descriptor = "(I)Z")
     public static boolean method6714() {

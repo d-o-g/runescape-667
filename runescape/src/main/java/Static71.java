@@ -1,3 +1,4 @@
+import com.jagex.IndexedImage;
 import com.jagex.game.Animator;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
@@ -606,23 +607,23 @@ public final class Static71 {
     @OriginalMember(owner = "client!cea", name = "b", descriptor = "(I)Z")
     public static boolean method1525() {
         @Pc(5) boolean local5 = true;
-        if (Static414.aClass407_2 == null) {
+        if (Static414.aIndexedImage_2 == null) {
             if (Static721.aJs5_128.method7581(Static456.anInt6929)) {
-                Static414.aClass407_2 = Static735.method9379(Static721.aJs5_128, Static456.anInt6929);
+                Static414.aIndexedImage_2 = IndexedImage.loadFirst(Static721.aJs5_128, Static456.anInt6929);
             } else {
                 local5 = false;
             }
         }
-        if (Static535.aClass407_3 == null) {
+        if (Static535.aIndexedImage_3 == null) {
             if (Static721.aJs5_128.method7581(Static362.anInt5828)) {
-                Static535.aClass407_3 = Static735.method9379(Static721.aJs5_128, Static362.anInt5828);
+                Static535.aIndexedImage_3 = IndexedImage.loadFirst(Static721.aJs5_128, Static362.anInt5828);
             } else {
                 local5 = false;
             }
         }
-        if (Static74.aClass407_1 == null) {
+        if (Static74.aIndexedImage_1 == null) {
             if (Static721.aJs5_128.method7581(Static11.anInt136)) {
-                Static74.aClass407_1 = Static735.method9379(Static721.aJs5_128, Static11.anInt136);
+                Static74.aIndexedImage_1 = IndexedImage.loadFirst(Static721.aJs5_128, Static11.anInt136);
             } else {
                 local5 = false;
             }
@@ -634,9 +635,9 @@ public final class Static71 {
                 local5 = false;
             }
         }
-        if (Static627.aClass407Array1 == null) {
+        if (Static627.aIndexedImageArray1 == null) {
             if (Static721.aJs5_128.method7581(Static723.anInt10929)) {
-                Static627.aClass407Array1 = Static735.method9387(Static721.aJs5_128, Static723.anInt10929);
+                Static627.aIndexedImageArray1 = IndexedImage.load(Static721.aJs5_128, Static723.anInt10929);
             } else {
                 local5 = false;
             }

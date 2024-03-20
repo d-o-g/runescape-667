@@ -9,8 +9,8 @@ public final class Static361 {
     @OriginalMember(owner = "client!lga", name = "a", descriptor = "(B)V")
     public static void method5240() {
         @Pc(5) int local5 = 0;
-        for (@Pc(15) int local15 = 0; local15 < Static720.anInt10859; local15++) {
-            for (@Pc(18) int local18 = 0; local18 < Static501.anInt7568; local18++) {
+        for (@Pc(15) int local15 = 0; local15 < Static720.mapWidth; local15++) {
+            for (@Pc(18) int local18 = 0; local18 < Static501.mapHeight; local18++) {
                 if (Static409.method5656(local18, Static334.aClass291ArrayArrayArray1, local5, local15, true)) {
                     local5++;
                 }

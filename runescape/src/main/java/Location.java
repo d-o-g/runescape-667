@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!uv")
-public interface Interface25 {
+public interface Location {
 
     @OriginalMember(owner = "client!uv", name = "c", descriptor = "(I)I")
     int method6855(@OriginalArg(0) int arg0);

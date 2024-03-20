@@ -47,7 +47,7 @@ public final class Static65 {
         Static74.aClass67_3 = null;
         Static425.aToolkit_13 = null;
         Static226.aClass67_9 = null;
-        Static665.aClass367ArrayArray1 = null;
+        Static665.aEnvironmentArrayArray1 = null;
     }
 
     @OriginalMember(owner = "client!cba", name = "a", descriptor = "(IZILclient!hda;)V")

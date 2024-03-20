@@ -544,8 +544,8 @@ public final class js5 {
     }
 
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(ZII)[B")
-    public byte[] getfile(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        return this.getfile(null, arg0, arg1);
+    public byte[] getfile(@OriginalArg(1) int file, @OriginalArg(2) int group) {
+        return this.getfile(null, file, group);
     }
 
     @OriginalMember(owner = "client!sb", name = "d", descriptor = "(BI)Z")

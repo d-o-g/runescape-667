@@ -34,10 +34,10 @@ public final class Static276 {
             return;
         }
         @Pc(21) byte local21 = (byte) (Static198.anInt3276 - 4 & 0xFF);
-        @Pc(25) int local25 = Static198.anInt3276 % Static720.anInt10859;
+        @Pc(25) int local25 = Static198.anInt3276 % Static720.mapWidth;
         @Pc(30) int local30;
         for (@Pc(27) int local27 = 0; local27 < 4; local27++) {
-            for (local30 = 0; local30 < Static501.anInt7568; local30++) {
+            for (local30 = 0; local30 < Static501.mapHeight; local30++) {
                 Static328.aByteArrayArrayArray4[local27][local25][local30] = local21;
             }
         }
@@ -56,7 +56,7 @@ public final class Static276 {
         @Pc(149) int local149;
         if (Static511.anInt7645 != 1 && Static692.anInt10376 == -1) {
             local149 = Static102.method2025(Static394.anInt6176, -29754, Static110.anInt2186, Static170.anInt2864);
-            if (local149 - Static359.anInt5801 < 3200 && (Static280.aByteArrayArrayArray3[Static394.anInt6176][Static170.anInt2864 >> 9][Static110.anInt2186 >> 9] & 0x4) != 0) {
+            if (local149 - Static359.anInt5801 < 3200 && (Static280.tileFlags[Static394.anInt6176][Static170.anInt2864 >> 9][Static110.anInt2186 >> 9] & 0x4) != 0) {
                 Static409.method5656(Static110.anInt2186 >> 9, Static334.aClass291ArrayArrayArray1, 1, Static170.anInt2864 >> 9, false);
                 return;
             }
@@ -66,7 +66,7 @@ public final class Static276 {
             local92 = Static692.anInt10376;
             local95 = Static693.anInt10383;
         }
-        if ((Static280.aByteArrayArrayArray3[Static394.anInt6176][local92 >> 9][local95 >> 9] & 0x4) != 0) {
+        if ((Static280.tileFlags[Static394.anInt6176][local92 >> 9][local95 >> 9] & 0x4) != 0) {
             Static409.method5656(local95 >> 9, Static334.aClass291ArrayArrayArray1, 0, local92 >> 9, false);
         }
         if (Static598.anInt8832 >= 2560) {
@@ -88,7 +88,7 @@ public final class Static276 {
         } else {
             local186 = local153 - local161;
         }
-        if ((local169 != 0 || local186 != 0) && local169 > (-Static720.anInt10859) && local169 < Static720.anInt10859 && -Static501.anInt7568 < local186 && Static501.anInt7568 > local186) {
+        if ((local169 != 0 || local186 != 0) && local169 > (-Static720.mapWidth) && local169 < Static720.mapWidth && -Static501.mapHeight < local186 && Static501.mapHeight > local186) {
             @Pc(278) int local278;
             @Pc(280) int local280;
             if (local169 <= local186) {
@@ -100,7 +100,7 @@ public final class Static276 {
                     } else if (local161 < local153) {
                         local153--;
                     }
-                    if ((Static280.aByteArrayArrayArray3[Static394.anInt6176][local149][local153] & 0x4) != 0) {
+                    if ((Static280.tileFlags[Static394.anInt6176][local149][local153] & 0x4) != 0) {
                         Static409.method5656(local153, Static334.aClass291ArrayArrayArray1, 1, local149, false);
                         return;
                     }
@@ -112,7 +112,7 @@ public final class Static276 {
                         } else if (local149 > local157) {
                             local149--;
                         }
-                        if ((Static280.aByteArrayArrayArray3[Static394.anInt6176][local149][local153] & 0x4) != 0) {
+                        if ((Static280.tileFlags[Static394.anInt6176][local149][local153] & 0x4) != 0) {
                             Static409.method5656(local153, Static334.aClass291ArrayArrayArray1, 1, local149, false);
                             return;
                         }
@@ -128,7 +128,7 @@ public final class Static276 {
                 } else if (local157 < local149) {
                     local149--;
                 }
-                if ((Static280.aByteArrayArrayArray3[Static394.anInt6176][local149][local153] & 0x4) != 0) {
+                if ((Static280.tileFlags[Static394.anInt6176][local149][local153] & 0x4) != 0) {
                     Static409.method5656(local153, Static334.aClass291ArrayArrayArray1, 1, local149, false);
                     return;
                 }
@@ -140,7 +140,7 @@ public final class Static276 {
                         local153--;
                     }
                     local280 -= 65536;
-                    if ((Static280.aByteArrayArrayArray3[Static394.anInt6176][local149][local153] & 0x4) != 0) {
+                    if ((Static280.tileFlags[Static394.anInt6176][local149][local153] & 0x4) != 0) {
                         Static409.method5656(local153, Static334.aClass291ArrayArrayArray1, 1, local149, false);
                         return;
                     }

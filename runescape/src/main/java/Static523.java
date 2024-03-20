@@ -152,7 +152,7 @@ public final class Static523 {
         }
         if (Static198.aClass140_7 == Static473.aClass140_22) {
             for (local12 = 0; local12 < 4; local12++) {
-                Static577.aClass110Array1[local12] = Static125.method2219(Static720.anInt10859, Static501.anInt7568);
+                Static577.A_COLLISION_MAP_ARRAY_1[local12] = Static125.method2219(Static720.mapWidth, Static501.mapHeight);
             }
         }
         if (Static473.aClass140_22 == Static198.aClass140_8) {
@@ -244,7 +244,7 @@ public final class Static523 {
             Static68.aIDKTypeList_3 = new IDKTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static190.aJs5_38);
             Static503.aClass335_1 = new Class335(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
             Static48.aClass384_1 = new Class384(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static354.aClass142_4 = new Class142(Static392.aModeGame_4, Static51.anInt1052, true, Static459.aJs5_91, Static190.aJs5_38);
+            Static354.aLocTypeList_4 = new LocTypeList(Static392.aModeGame_4, Static51.anInt1052, true, Static459.aJs5_91, Static190.aJs5_38);
             Static577.aClass246_4 = new Class246(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
             Static720.aClass363_4 = new Class363(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static721.aJs5_128);
             Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aModeGame_4, Static51.anInt1052, true, Static333.aJs5_66, Static190.aJs5_38);
@@ -266,7 +266,7 @@ public final class Static523 {
             Static68.aClass151_3 = new Class151(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55);
             Static288.aClass139_2 = new Class139(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55, new Class251());
             Static412.method5693();
-            Static354.aClass142_4.method3061(Static400.instance.aClass57_Sub19_2.method5960() == 0);
+            Static354.aLocTypeList_4.method3061(Static400.instance.aClass57_Sub19_2.method5960() == 0);
             Static34.aClass304_1 = new Class304();
             Static296.updateFeatureMask();
             Static44.method1074(Static25.aSeqTypeList_1);
@@ -289,7 +289,7 @@ public final class Static523 {
             }
         }
         if (Static198.aClass140_16 == Static473.aClass140_22) {
-            Static30.method5065(Static120.aJs5_19, Static467.aClass96_3, Static540.aClass79_6, Static354.aClass142_4, Static577.aClass246_4, Static720.aClass363_4, Static34.aClass304_1);
+            Static30.method5065(Static120.aJs5_19, Static467.aClass96_3, Static540.aClass79_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aClass363_4, Static34.aClass304_1);
         }
         if (Static198.aClass140_17 == Static473.aClass140_22) {
             Static37.aStringArray4 = new String[Static718.aClass176_1.anInt4266];

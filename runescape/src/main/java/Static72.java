@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -21,7 +21,7 @@ public final class Static72 {
             if (local19.anInt5704 != -1) {
                 @Pc(34) Sprite local34 = (Sprite) Static452.A_WEIGHTED_CACHE___149.get((long) local19.anInt5704);
                 if (local34 == null) {
-                    @Pc(42) Class407 local42 = Static735.method9382(Static721.aJs5_128, local19.anInt5704, 0);
+                    @Pc(42) IndexedImage local42 = IndexedImage.loadFirst(Static721.aJs5_128, local19.anInt5704, 0);
                     if (local42 != null) {
                         local34 = Static163.activeToolkit.method7948(local42, true);
                         Static452.A_WEIGHTED_CACHE___149.put(local34, (long) local19.anInt5704);

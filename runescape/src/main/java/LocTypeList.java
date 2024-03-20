@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gea")
-public final class Class142 {
+public final class LocTypeList {
 
     @OriginalMember(owner = "client!gea", name = "r", descriptor = "I")
     public int anInt3390;
@@ -48,7 +48,7 @@ public final class Class142 {
     public final String[] aStringArray15;
 
     @OriginalMember(owner = "client!gea", name = "<init>", descriptor = "(Lclient!ul;IZLclient!sb;Lclient!sb;)V")
-    public Class142(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
+    public LocTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
         this.aJs5_44 = arg4;
         this.aModeGame_2 = arg0;
         this.anInt3383 = arg1;
@@ -127,14 +127,14 @@ public final class Class142 {
     }
 
     @OriginalMember(owner = "client!gea", name = "d", descriptor = "(II)Lclient!c;")
-    public Class54 method3063(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public LocType list(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (arg1 <= 29) {
             return null;
         }
         @Pc(12) ReferenceCache local12 = this.aReferenceCache_73;
-        @Pc(22) Class54 local22;
+        @Pc(22) LocType local22;
         synchronized (this.aReferenceCache_73) {
-            local22 = (Class54) this.aReferenceCache_73.get((long) arg0);
+            local22 = (LocType) this.aReferenceCache_73.get((long) arg0);
         }
         if (local22 != null) {
             return local22;
@@ -144,9 +144,9 @@ public final class Class142 {
         synchronized (this.aJs5_43) {
             local49 = this.aJs5_43.getfile(Static570.method7551(arg0), Static705.method9197(arg0));
         }
-        local22 = new Class54();
+        local22 = new LocType();
         local22.anInt1256 = arg0;
-        local22.aClass142_2 = this;
+        local22.aLocTypeList_2 = this;
         local22.aStringArray6 = (String[]) this.aStringArray15.clone();
         if (local49 != null) {
             local22.method1305(new Packet(local49));

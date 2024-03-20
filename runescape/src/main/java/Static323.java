@@ -95,24 +95,24 @@ public final class Static323 {
         } else if (arg1 < 3) {
             @Pc(24) int local24 = arg4 >> 9;
             @Pc(28) int local28 = arg0 >> 9;
-            if (arg2 < 0 || arg3 < 0 || Static720.anInt10859 - 1 < arg2 || Static501.anInt7568 - 1 < arg3) {
+            if (arg2 < 0 || arg3 < 0 || Static720.mapWidth - 1 < arg2 || Static501.mapHeight - 1 < arg3) {
                 return 0;
-            } else if (local24 >= 1 && local28 >= 1 && local24 <= Static720.anInt10859 - 1 && local28 <= Static501.anInt7568 - 1) {
-                @Pc(108) boolean local108 = (Static280.aByteArrayArrayArray3[1][arg4 >> 9][arg0 >> 9] & 0x2) != 0;
+            } else if (local24 >= 1 && local28 >= 1 && local24 <= Static720.mapWidth - 1 && local28 <= Static501.mapHeight - 1) {
+                @Pc(108) boolean local108 = (Static280.tileFlags[1][arg4 >> 9][arg0 >> 9] & 0x2) != 0;
                 @Pc(136) boolean local136;
                 @Pc(153) boolean local153;
                 if ((arg4 & 0x1FF) == 0) {
-                    local136 = (Static280.aByteArrayArrayArray3[1][local24 - 1][arg0 >> 9] & 0x2) != 0;
-                    local153 = (Static280.aByteArrayArrayArray3[1][local24][arg0 >> 9] & 0x2) != 0;
+                    local136 = (Static280.tileFlags[1][local24 - 1][arg0 >> 9] & 0x2) != 0;
+                    local153 = (Static280.tileFlags[1][local24][arg0 >> 9] & 0x2) != 0;
                     if (local136 != local153) {
-                        local108 = (Static280.aByteArrayArrayArray3[1][arg2][arg3] & 0x2) != 0;
+                        local108 = (Static280.tileFlags[1][arg2][arg3] & 0x2) != 0;
                     }
                 }
                 if ((arg0 & 0x1FF) == 0) {
-                    local136 = (Static280.aByteArrayArrayArray3[1][arg4 >> 9][local28 - 1] & 0x2) != 0;
-                    local153 = (Static280.aByteArrayArrayArray3[1][arg4 >> 9][local28] & 0x2) != 0;
+                    local136 = (Static280.tileFlags[1][arg4 >> 9][local28 - 1] & 0x2) != 0;
+                    local153 = (Static280.tileFlags[1][arg4 >> 9][local28] & 0x2) != 0;
                     if (local153 != local136) {
-                        local108 = (Static280.aByteArrayArrayArray3[1][arg2][arg3] & 0x2) != 0;
+                        local108 = (Static280.tileFlags[1][arg2][arg3] & 0x2) != 0;
                     }
                 }
                 if (local108) {

@@ -76,7 +76,7 @@ public final class Static489 {
             Static354.method5181(arg1);
         }
         @Pc(107) int local107;
-        if (arg1.anInt10690 < 512 || arg1.anInt10694 < 512 || Static720.anInt10859 * 512 - 512 <= arg1.anInt10690 || arg1.anInt10694 >= Static501.anInt7568 * 512 - 512) {
+        if (arg1.anInt10690 < 512 || arg1.anInt10694 < 512 || Static720.mapWidth * 512 - 512 <= arg1.anInt10690 || arg1.anInt10694 >= Static501.mapHeight * 512 - 512) {
             arg1.aAnimator_11.update(true, -1);
             for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
                 arg1.aClass199Array3[local107].anInt4930 = -1;
@@ -91,7 +91,7 @@ public final class Static489 {
             arg1.anInt10694 = arg1.anIntArray878[0] * 512 + arg1.method9302((byte) 113) * 256;
             arg1.method9316();
         }
-        if (arg1 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 && (arg1.anInt10690 < 6144 || arg1.anInt10694 < 6144 || arg1.anInt10690 >= Static720.anInt10859 * 512 - 6144 || Static501.anInt7568 * 512 - 6144 <= arg1.anInt10694)) {
+        if (arg1 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 && (arg1.anInt10690 < 6144 || arg1.anInt10694 < 6144 || arg1.anInt10690 >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.anInt10694)) {
             arg1.aAnimator_11.update(true, -1);
             for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
                 arg1.aClass199Array3[local107].anInt4930 = -1;
@@ -182,7 +182,7 @@ public final class Static489 {
                     local299 = 10;
                     local310 = 10;
                 }
-                local10 &= Static213.method3141(local287, local299, Static720.anInt10859, local310, Static501.anInt7568);
+                local10 &= Static213.method3141(local287, local299, Static720.mapWidth, local310, Static501.mapHeight);
             }
             local287 = Static421.aByteArrayArray19[local282];
             if (local287 != null) {
@@ -192,7 +192,7 @@ public final class Static489 {
                     local310 = 10;
                     local299 = 10;
                 }
-                local10 &= Static213.method3141(local287, local299, Static720.anInt10859, local310, Static501.anInt7568);
+                local10 &= Static213.method3141(local287, local299, Static720.mapWidth, local310, Static501.mapHeight);
             }
         }
         if (!local10) {
@@ -222,7 +222,7 @@ public final class Static489 {
         if (Static163.activeToolkit.method7968()) {
             local310++;
         }
-        Static21.method8043(Static163.activeToolkit, Static455.anInt6915, Static720.anInt10859, Static501.anInt7568, local310, local430, Static163.activeToolkit.getMaxLights() > 0);
+        Static21.method8043(Static163.activeToolkit, Static455.anInt6915, Static720.mapWidth, Static501.mapHeight, local310, local430, Static163.activeToolkit.getMaxLights() > 0);
         Static483.method6490(Static699.anInt10539);
         if (Static699.anInt10539 == 0) {
             Static110.method2082((Class14) null);
@@ -230,7 +230,7 @@ public final class Static489 {
             Static110.method2082(Static665.aClass14_12);
         }
         for (@Pc(519) int local519 = 0; local519 < 4; local519++) {
-            Static577.aClass110Array1[local519].method2467();
+            Static577.A_COLLISION_MAP_ARRAY_1[local519].method2467();
         }
         Static305.method4441();
         Static609.method8213(false);
@@ -247,64 +247,64 @@ public final class Static489 {
         Static478.anInt7198 = Static400.instance.aClass57_Sub19_2.method5960() == 1 ? -1 : Static164.anInt2808;
         Static718.aBoolean822 = Static400.instance.aClass57_Sub23_1.method7054() == 1;
         Static196.aBoolean262 = Static400.instance.textures.getValue() == 1;
-        Static2.aClass306_Sub1_1 = new Class306_Sub1(4, Static720.anInt10859, Static501.anInt7568, false);
+        Static2.aMapRegion = new MapRegion(4, Static720.mapWidth, Static501.mapHeight, false);
         if (Static117.anInt2282 == 0) {
-            Static73.method9312(Static319.aByteArrayArray16, Static2.aClass306_Sub1_1);
+            Static73.method9312(Static319.aByteArrayArray16, Static2.aMapRegion);
         } else {
-            Static693.method9010(Static319.aByteArrayArray16, Static2.aClass306_Sub1_1);
+            Static693.method9010(Static319.aByteArrayArray16, Static2.aMapRegion);
         }
-        Static92.method1757(Static720.anInt10859 >> 4, Static501.anInt7568 >> 4);
+        Static92.method1757(Static720.mapWidth >> 4, Static501.mapHeight >> 4);
         Static159.method2575();
         if (local430) {
             Static379.method5355(true);
-            Static134.aClass306_Sub1_3 = new Class306_Sub1(1, Static720.anInt10859, Static501.anInt7568, true);
+            Static134.aMapRegion_3 = new MapRegion(1, Static720.mapWidth, Static501.mapHeight, true);
             if (Static117.anInt2282 == 0) {
-                Static73.method9312(Static177.aByteArrayArray5, Static134.aClass306_Sub1_3);
+                Static73.method9312(Static177.aByteArrayArray5, Static134.aMapRegion_3);
                 Static314.method4568(true);
             } else {
-                Static693.method9010(Static177.aByteArrayArray5, Static134.aClass306_Sub1_3);
+                Static693.method9010(Static177.aByteArrayArray5, Static134.aMapRegion_3);
                 Static314.method4568(true);
             }
-            Static134.aClass306_Sub1_3.method7885(Static2.aClass306_Sub1_1.anIntArrayArrayArray17[0]);
-            Static134.aClass306_Sub1_3.method7881((int[][][]) null, Static163.activeToolkit, (Class110[]) null);
+            Static134.aMapRegion_3.method7885(Static2.aMapRegion.tileHeights[0]);
+            Static134.aMapRegion_3.method7881((int[][][]) null, Static163.activeToolkit, (CollisionMap[]) null);
             Static379.method5355(false);
         }
-        Static2.aClass306_Sub1_1.method7881(local430 ? Static134.aClass306_Sub1_3.anIntArrayArrayArray17 : null, Static163.activeToolkit, Static577.aClass110Array1);
+        Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Static163.activeToolkit, Static577.A_COLLISION_MAP_ARRAY_1);
         if (Static117.anInt2282 == 0) {
             Static314.method4568(true);
-            Static338.method4994(Static118.aByteArrayArray3, Static2.aClass306_Sub1_1);
+            Static338.method4994(Static118.aByteArrayArray3, Static2.aMapRegion);
             if (Static363.aByteArrayArray22 != null) {
                 Static369.method3847();
             }
         } else {
             Static314.method4568(true);
-            Static101.method2001(Static118.aByteArrayArray3, Static2.aClass306_Sub1_1);
+            Static101.method2001(Static118.aByteArrayArray3, Static2.aMapRegion);
         }
         Static352.method5180();
         if (Static369.anInt4265 < 96) {
             Static358.method9191();
         }
         Static314.method4568(true);
-        Static2.aClass306_Sub1_1.method7888(Static163.activeToolkit, local430 ? Static693.aGroundArray2[0] : null, (Ground) null);
-        Static2.aClass306_Sub1_1.method7898(false, Static163.activeToolkit);
+        Static2.aMapRegion.method7888(Static163.activeToolkit, local430 ? Static693.aGroundArray2[0] : null, (Ground) null);
+        Static2.aMapRegion.method7898(false, Static163.activeToolkit);
         Static314.method4568(true);
         if (local430) {
             Static379.method5355(true);
             Static314.method4568(true);
             if (Static117.anInt2282 == 0) {
-                Static338.method4994(Static421.aByteArrayArray19, Static134.aClass306_Sub1_3);
+                Static338.method4994(Static421.aByteArrayArray19, Static134.aMapRegion_3);
             } else {
-                Static101.method2001(Static421.aByteArrayArray19, Static134.aClass306_Sub1_3);
+                Static101.method2001(Static421.aByteArrayArray19, Static134.aMapRegion_3);
             }
             Static352.method5180();
             Static314.method4568(true);
-            Static134.aClass306_Sub1_3.method7888(Static163.activeToolkit, (Ground) null, Static706.aGroundArray3[0]);
-            Static134.aClass306_Sub1_3.method7898(true, Static163.activeToolkit);
+            Static134.aMapRegion_3.method7888(Static163.activeToolkit, (Ground) null, Static706.aGroundArray3[0]);
+            Static134.aMapRegion_3.method7898(true, Static163.activeToolkit);
             Static314.method4568(true);
             Static379.method5355(false);
         }
         Static207.method4432();
-        @Pc(825) int local825 = Static2.aClass306_Sub1_1.anInt8919;
+        @Pc(825) int local825 = Static2.aMapRegion.maxLevel;
         if (local825 > Static394.anInt6176) {
             local825 = Static394.anInt6176;
         }
@@ -319,8 +319,8 @@ public final class Static489 {
         @Pc(855) int local855;
         @Pc(858) int local858;
         for (@Pc(852) int local852 = 0; local852 < 4; local852++) {
-            for (local855 = 0; local855 < Static720.anInt10859; local855++) {
-                for (local858 = 0; local858 < Static501.anInt7568; local858++) {
+            for (local855 = 0; local855 < Static720.mapWidth; local855++) {
+                for (local858 = 0; local858 < Static501.mapHeight; local858++) {
                     Static468.method7641(local852, local858, local855);
                 }
             }
@@ -337,10 +337,10 @@ public final class Static489 {
             Static405.aClass153_2.method3275(local920);
         }
         if (Static117.anInt2282 == 0) {
-            local855 = (Static62.anInt1465 - (Static720.anInt10859 >> 4)) / 8;
-            local858 = (Static62.anInt1465 + (Static720.anInt10859 >> 4)) / 8;
-            @Pc(961) int local961 = (Static525.anInt8907 - (Static501.anInt7568 >> 4)) / 8;
-            @Pc(969) int local969 = ((Static501.anInt7568 >> 4) + Static525.anInt8907) / 8;
+            local855 = (Static62.anInt1465 - (Static720.mapWidth >> 4)) / 8;
+            local858 = (Static62.anInt1465 + (Static720.mapWidth >> 4)) / 8;
+            @Pc(961) int local961 = (Static525.anInt8907 - (Static501.mapHeight >> 4)) / 8;
+            @Pc(969) int local969 = ((Static501.mapHeight >> 4) + Static525.anInt8907) / 8;
             for (@Pc(973) int local973 = local855 - 1; local973 <= local858 + 1; local973++) {
                 for (@Pc(978) int local978 = local961 - 1; local978 <= local969 + 1; local978++) {
                     if (local973 < local855 || local973 > local858 || local978 < local961 || local969 < local978) {

@@ -22,7 +22,7 @@ public final class Static553 {
             local7.anInt4010 = arg4;
             local7.anInt4006 = arg6;
             local7.anInt4016 = arg3;
-            if (arg3 >= 0 && arg6 >= 0 && Static720.anInt10859 > arg3 && arg6 < Static501.anInt7568) {
+            if (arg3 >= 0 && arg6 >= 0 && Static720.mapWidth > arg3 && arg6 < Static501.mapHeight) {
                 Static293.method4332(local7);
             }
             Static159.aDeque_15.addLast(local7);

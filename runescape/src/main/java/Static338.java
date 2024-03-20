@@ -14,7 +14,7 @@ public final class Static338 {
     public static int anInt5564 = 0;
 
     @OriginalMember(owner = "client!km", name = "a", descriptor = "(I[[BLclient!taa;)V")
-    public static void method4994(@OriginalArg(1) byte[][] arg0, @OriginalArg(2) Class306_Sub1 arg1) {
+    public static void method4994(@OriginalArg(1) byte[][] arg0, @OriginalArg(2) MapRegion arg1) {
         @Pc(6) int local6 = Static319.aByteArrayArray16.length;
         for (@Pc(8) int local8 = 0; local8 < local6; local8++) {
             @Pc(13) byte[] local13 = arg0[local8];
@@ -22,7 +22,7 @@ public final class Static338 {
                 @Pc(26) int local26 = (Static89.anIntArray169[local8] >> 8) * 64 - Static691.anInt10367;
                 @Pc(36) int local36 = (Static89.anIntArray169[local8] & 0xFF) * 64 - Static116.anInt2270;
                 Static557.method7331();
-                arg1.method7892(local26, local36, Static577.aClass110Array1, Static163.activeToolkit, local13);
+                arg1.loadLocations(local26, local36, Static577.A_COLLISION_MAP_ARRAY_1, Static163.activeToolkit, local13);
             }
         }
     }

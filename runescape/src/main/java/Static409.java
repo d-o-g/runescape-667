@@ -21,7 +21,7 @@ public final class Static409 {
         @Pc(21) byte local21 = arg4 ? 1 : (byte) (Static198.anInt3276 & 0xFF);
         if (Static328.aByteArrayArrayArray4[Static394.anInt6176][arg3][arg0] == local21) {
             return false;
-        } else if ((Static280.aByteArrayArrayArray3[Static394.anInt6176][arg3][arg0] & 0x4) == 0) {
+        } else if ((Static280.tileFlags[Static394.anInt6176][arg3][arg0] & 0x4) == 0) {
             return false;
         } else {
             @Pc(52) byte local52 = 0;
@@ -38,7 +38,7 @@ public final class Static409 {
                 @Pc(108) int local108 = Static98.anIntArray176[local58] >> 16 & 0xFF;
                 local58 = local58 + 1 & 0xFFF;
                 @Pc(116) boolean local116 = false;
-                if ((Static280.aByteArrayArrayArray3[Static394.anInt6176][local78][local100] & 0x4) == 0) {
+                if ((Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0) {
                     local116 = true;
                 }
                 @Pc(133) boolean local133 = false;
@@ -48,7 +48,7 @@ public final class Static409 {
                 if (arg1 != null) {
                     label237:
                     for (local139 = Static394.anInt6176 + 1; local139 <= 3; local139++) {
-                        if (arg1[local139] != null && (Static280.aByteArrayArrayArray3[local139][local78][local100] & 0x8) == 0) {
+                        if (arg1[local139] != null && (Static280.tileFlags[local139][local78][local100] & 0x8) == 0) {
                             @Pc(341) Class8_Sub2_Sub1 local341;
                             @Pc(351) int local351;
                             @Pc(331) Class291 local331;
@@ -76,8 +76,8 @@ public final class Static409 {
                                 if (local331.aClass286_2 != null) {
                                     for (local337 = local331.aClass286_2; local337 != null; local337 = local337.aClass286_1) {
                                         local341 = local337.aClass8_Sub2_Sub1_1;
-                                        if (local341 instanceof Interface25) {
-                                            @Pc(347) Interface25 local347 = (Interface25) local341;
+                                        if (local341 instanceof Location) {
+                                            @Pc(347) Location local347 = (Location) local341;
                                             local351 = local347.method6858();
                                             @Pc(355) int local355 = local347.method6855(23796);
                                             if (local351 == 21) {
@@ -135,8 +135,8 @@ public final class Static409 {
                         local61 = local61 + 1 & 0xFFF;
                     }
                     local100++;
-                    if (local100 < Static501.anInt7568) {
-                        if (local78 - 1 >= 0 && local21 != Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100] && (Static280.aByteArrayArrayArray3[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.aByteArrayArrayArray3[Static394.anInt6176][local78 - 1][local100 - 1] & 0x4) == 0) {
+                    if (local100 < Static501.mapHeight) {
+                        if (local78 - 1 >= 0 && local21 != Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100] && (Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Static394.anInt6176][local78 - 1][local100 - 1] & 0x4) == 0) {
                             Static278.anIntArray351[local61] = local78 - 1 | 0x120000 | 0x52000000;
                             Static98.anIntArray176[local61] = local100 | 0x130000;
                             local61 = local61 + 1 & 0xFFF;
@@ -148,7 +148,7 @@ public final class Static409 {
                             Static328.aByteArrayArrayArray4[Static394.anInt6176][local78][local100] = local21;
                             local61 = local61 + 1 & 0xFFF;
                         }
-                        if (Static720.anInt10859 > local78 + 1 && local21 != Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] && (Static280.aByteArrayArrayArray3[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.aByteArrayArrayArray3[Static394.anInt6176][local78 + 1][local100 - 1] & 0x4) == 0) {
+                        if (Static720.mapWidth > local78 + 1 && local21 != Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] && (Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Static394.anInt6176][local78 + 1][local100 - 1] & 0x4) == 0) {
                             Static278.anIntArray351[local61] = 0x92000000 | 0x520000 | local78 + 1;
                             Static98.anIntArray176[local61] = local100 | 0x530000;
                             Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] = local21;
@@ -156,7 +156,7 @@ public final class Static409 {
                         }
                     }
                     local100--;
-                    if (local78 + 1 < Static720.anInt10859 && Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] != local21) {
+                    if (local78 + 1 < Static720.mapWidth && Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] != local21) {
                         Static278.anIntArray351[local61] = local78 + 1 | 0x920000 | 0x53000000;
                         Static98.anIntArray176[local61] = local100 | 0x930000;
                         Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] = local21;
@@ -164,7 +164,7 @@ public final class Static409 {
                     }
                     local100--;
                     if (local100 >= 0) {
-                        if (local78 - 1 >= 0 && Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100] != local21 && (Static280.aByteArrayArrayArray3[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.aByteArrayArrayArray3[Static394.anInt6176][local78 - 1][local100 + 1] & 0x4) == 0) {
+                        if (local78 - 1 >= 0 && Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100] != local21 && (Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Static394.anInt6176][local78 - 1][local100 + 1] & 0x4) == 0) {
                             Static278.anIntArray351[local61] = local78 - 1 | 0xD20000 | 0x12000000;
                             Static98.anIntArray176[local61] = local100 | 0xD30000;
                             local61 = local61 + 1 & 0xFFF;
@@ -176,7 +176,7 @@ public final class Static409 {
                             Static328.aByteArrayArrayArray4[Static394.anInt6176][local78][local100] = local21;
                             local61 = local61 + 1 & 0xFFF;
                         }
-                        if (local78 + 1 < Static720.anInt10859 && Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] != local21 && (Static280.aByteArrayArrayArray3[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.aByteArrayArrayArray3[Static394.anInt6176][local78 + 1][local100 + 1] & 0x4) == 0) {
+                        if (local78 + 1 < Static720.mapWidth && Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] != local21 && (Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Static394.anInt6176][local78 + 1][local100 + 1] & 0x4) == 0) {
                             Static278.anIntArray351[local61] = local78 + 1 | 0x920000 | 0xD2000000;
                             Static98.anIntArray176[local61] = local100 | 0x930000;
                             Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] = local21;

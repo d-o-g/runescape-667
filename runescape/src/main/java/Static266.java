@@ -26,8 +26,8 @@ public final class Static266 {
         Static342.method4465(0);
         @Pc(22) int local22;
         for (@Pc(14) int local14 = 0; local14 < 4; local14++) {
-            for (@Pc(18) int local18 = 0; local18 < Static720.anInt10859 >> 3; local18++) {
-                for (local22 = 0; local22 < Static501.anInt7568 >> 3; local22++) {
+            for (@Pc(18) int local18 = 0; local18 < Static720.mapWidth >> 3; local18++) {
+                for (local22 = 0; local22 < Static501.mapHeight >> 3; local22++) {
                     Static623.anIntArrayArrayArray19[local14][local18][local22] = -1;
                 }
             }
@@ -129,7 +129,7 @@ public final class Static266 {
         }
         Static22.anIntArrayArray11 = Static322.anIntArrayArray265;
         Static322.anIntArrayArray265 = null;
-        Static684.method8931(false, Static720.anInt10859 >> 4, 12, Static501.anInt7568 >> 4);
+        Static684.method8931(false, Static720.mapWidth >> 4, 12, Static501.mapHeight >> 4);
     }
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "(B)V")

@@ -1,7 +1,7 @@
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -29,16 +29,16 @@ public final class Static358 {
     public static void method9182() {
         for (@Pc(1) int local1 = 0; local1 < Static319.anInt5080; local1++) {
             if (!Static279.aBooleanArray11[local1]) {
-                @Pc(10) Class353 local10 = Static265.aClass353Array1[local1];
-                @Pc(13) Node_Sub7 local13 = local10.aClass2_Sub7_3;
-                @Pc(16) int local16 = local10.anInt9369;
-                @Pc(22) int local22 = local13.method8432() - Static247.anInt3993;
+                @Pc(10) EnvironmentLight local10 = Static265.aEnvironmentLightArray1[local1];
+                @Pc(13) PointLight local13 = local10.light;
+                @Pc(16) int local16 = local10.level;
+                @Pc(22) int local22 = local13.getRange() - Static247.anInt3993;
                 @Pc(30) int local30 = (local22 * 2 >> Static52.anInt1066) + 1;
                 @Pc(32) int local32 = 0;
                 @Pc(37) int[] local37 = new int[local30 * local30];
-                @Pc(45) int local45 = local13.method8426() - local22 >> Static52.anInt1066;
-                @Pc(53) int local53 = local13.method8429() - local22 >> Static52.anInt1066;
-                @Pc(61) int local61 = local13.method8429() + local22 >> Static52.anInt1066;
+                @Pc(45) int local45 = local13.getX() - local22 >> Static52.anInt1066;
+                @Pc(53) int local53 = local13.getZ() - local22 >> Static52.anInt1066;
+                @Pc(61) int local61 = local13.getZ() + local22 >> Static52.anInt1066;
                 if (local53 < 0) {
                     local32 = -local53;
                     local53 = 0;
@@ -61,7 +61,7 @@ public final class Static358 {
                     }
                     for (@Pc(125) int local125 = local100; local125 <= local108; local125++) {
                         @Pc(128) byte local128 = 1;
-                        @Pc(144) Class8_Sub2_Sub1 local144 = Static578.method7623(local16, local125, local78, aClass28 == null ? (aClass28 = getClass("Class8_Sub2_Sub1")) : aClass28);
+                        @Pc(144) Class8_Sub2_Sub1 local144 = Static578.getEntity(local16, local125, local78, aClass28 == null ? (aClass28 = getClass("Class8_Sub2_Sub1")) : aClass28);
                         if (local144 != null && local144.aByte145 != 0) {
                             @Pc(169) boolean local169;
                             @Pc(179) boolean local179;

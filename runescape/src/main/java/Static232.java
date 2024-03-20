@@ -48,7 +48,7 @@ public final class Static232 {
                 }
             }
         } else if (Static523.method3444(arg6.anInt7314)) {
-            @Pc(87) Class54 local87 = Static354.aClass142_4.method3063((int) (arg6.aLong233 >>> 32 & 0x7FFFFFFFL), 99);
+            @Pc(87) LocType local87 = Static354.aLocTypeList_4.list((int) (arg6.aLong233 >>> 32 & 0x7FFFFFFFL), 99);
             if (local87.anIntArray113 != null) {
                 local87 = local87.method1301(13, Static34.aClass304_1);
             }

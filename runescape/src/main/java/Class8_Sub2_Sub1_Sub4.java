@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!oe")
-public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Interface25 {
+public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Location {
 
     @OriginalMember(owner = "client!oe", name = "P", descriptor = "Lclient!ke;")
     public Class205 aClass205_7;
@@ -23,7 +23,7 @@ public final class Class8_Sub2_Sub1_Sub4 extends Class8_Sub2_Sub1 implements Int
     public boolean aBoolean517;
 
     @OriginalMember(owner = "client!oe", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIIIIII)V")
-    public Class8_Sub2_Sub1_Sub4(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) int arg13, @OriginalArg(14) int arg14) {
+    public Class8_Sub2_Sub1_Sub4(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) int arg13, @OriginalArg(14) int arg14) {
         super(arg2, arg3, arg4, arg5, arg6, arg8, arg9, arg10, arg11, arg1.lb == 1, Static609.method8215(arg12, arg13));
         this.aClass337_3 = new Class337(arg0, arg1, arg12, arg13, super.aByte144, arg3, this, arg7, arg14);
         this.aBoolean517 = arg1.anInt1271 != 0 && !arg7;

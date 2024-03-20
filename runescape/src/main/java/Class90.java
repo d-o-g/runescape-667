@@ -1,3 +1,4 @@
+import com.jagex.IndexedImage;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
@@ -84,7 +85,7 @@ public abstract class Class90 implements Interface13 {
     @Override
     public void method7748() {
         @Pc(21) Class381 local21 = Static238.method3468(this.aClass138_5.anInt4415, this.aJs5_110);
-        this.aClass14_10 = Static163.activeToolkit.method8010(local21, Static735.method9387(this.aJs5_109, this.aClass138_5.anInt4415), true);
+        this.aClass14_10 = Static163.activeToolkit.method8010(local21, IndexedImage.load(this.aJs5_109, this.aClass138_5.anInt4415), true);
     }
 
     @OriginalMember(owner = "client!ea", name = "b", descriptor = "(I)Z")

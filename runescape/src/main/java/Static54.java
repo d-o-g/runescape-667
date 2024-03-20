@@ -31,8 +31,8 @@ public final class Static54 {
         Static118.aByteArrayArray3 = new byte[18][];
         @Pc(79) int local79 = 0;
         @Pc(99) int local99;
-        for (@Pc(88) int local88 = (local19 - (Static720.anInt10859 >> 4)) / 8; local88 <= (local19 + (Static720.anInt10859 >> 4)) / 8; local88++) {
-            for (local99 = (local28 - (Static501.anInt7568 >> 4)) / 8; local99 <= ((Static501.anInt7568 >> 4) + local28) / 8; local99++) {
+        for (@Pc(88) int local88 = (local19 - (Static720.mapWidth >> 4)) / 8; local88 <= (local19 + (Static720.mapWidth >> 4)) / 8; local88++) {
+            for (local99 = (local28 - (Static501.mapHeight >> 4)) / 8; local99 <= ((Static501.mapHeight >> 4) + local28) / 8; local99++) {
                 @Pc(107) int local107 = local99 + (local88 << 8);
                 Static89.anIntArray169[local79] = local107;
                 Static267.anIntArray329[local79] = Static93.aJs5_16.getgroupid("m" + local88 + "_" + local99);

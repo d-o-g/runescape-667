@@ -13,7 +13,7 @@ public final class Static561 {
 
     // $FF: synthetic field
     @OriginalMember(owner = "client!rla", name = "o", descriptor = "Ljava/lang/Class;")
-    public static Class aClass20;
+    public static Class locClass;
 
     @OriginalMember(owner = "client!rla", name = "c", descriptor = "Z")
     public static boolean aBoolean640 = false;
@@ -21,15 +21,15 @@ public final class Static561 {
     @OriginalMember(owner = "client!rla", name = "a", descriptor = "(IIII)Z")
     public static boolean method7434(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(5) boolean local5 = true;
-        @Pc(11) Interface25 local11 = (Interface25) Static302.method4414(arg2, arg0, arg1);
+        @Pc(11) Location local11 = (Location) Static302.getWall(arg2, arg0, arg1);
         if (local11 != null) {
             local5 = Static449.method6118(local11) & true;
         }
-        local11 = (Interface25) Static578.method7623(arg2, arg0, arg1, aClass20 == null ? (aClass20 = getClass("Interface25")) : aClass20);
+        local11 = (Location) Static578.getEntity(arg2, arg0, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
         if (local11 != null) {
             local5 &= Static449.method6118(local11);
         }
-        local11 = (Interface25) Static687.method8959(arg2, arg0, arg1);
+        local11 = (Location) Static687.method8959(arg2, arg0, arg1);
         if (local11 != null) {
             local5 &= Static449.method6118(local11);
         }

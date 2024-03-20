@@ -26,7 +26,7 @@ public final class Static30 {
     public static DoublyLinkedNode_Sub2_Sub13 aClass2_Sub2_Sub13_3;
 
     @OriginalMember(owner = "client!baa", name = "H", descriptor = "Lclient!gea;")
-    public static Class142 aClass142_3;
+    public static LocTypeList aLocTypeList_3;
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "Lclient!ef;")
     public static Class96 aClass96_2;
@@ -186,7 +186,7 @@ public final class Static30 {
         for (@Pc(100) int local100 = 0; local100 < arg8.length; local100++) {
             @Pc(107) int local107 = arg9[local100] & 0x3F;
             if (local107 == 0 || local107 == 2 || local107 == 3 || local107 == 9) {
-                @Pc(127) Class54 local127 = aClass142_3.method3063(arg8[local100] & 0xFFFF, 55);
+                @Pc(127) LocType local127 = aLocTypeList_3.list(arg8[local100] & 0xFFFF, 55);
                 if (local127.anInt1239 == -1) {
                     @Pc(133) int local133 = -3355444;
                     if (local127.anInt1271 == 1) {
@@ -262,7 +262,7 @@ public final class Static30 {
             return;
         }
         for (@Pc(4) int local4 = 0; local4 < arg5.length; local4++) {
-            @Pc(14) Class54 local14 = aClass142_3.method3063(arg5[local4] & 0xFFFF, 116);
+            @Pc(14) LocType local14 = aLocTypeList_3.list(arg5[local4] & 0xFFFF, 116);
             @Pc(17) int local17 = local14.anInt1239;
             if (local17 != -1) {
                 @Pc(25) Class173 local25 = aClass363_3.method8362(local17);
@@ -380,11 +380,11 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
-    public static void method5065(@OriginalArg(0) js5 arg0, @OriginalArg(1) Class96 arg1, @OriginalArg(2) Class79 arg2, @OriginalArg(3) Class142 arg3, @OriginalArg(4) Class246 arg4, @OriginalArg(5) Class363 arg5, @OriginalArg(6) VarDomain arg6) {
+    public static void method5065(@OriginalArg(0) js5 arg0, @OriginalArg(1) Class96 arg1, @OriginalArg(2) Class79 arg2, @OriginalArg(3) LocTypeList arg3, @OriginalArg(4) Class246 arg4, @OriginalArg(5) Class363 arg5, @OriginalArg(6) VarDomain arg6) {
         aJs5_74 = arg0;
         aClass96_2 = arg1;
         aClass79_5 = arg2;
-        aClass142_3 = arg3;
+        aLocTypeList_3 = arg3;
         aClass246_3 = arg4;
         aClass363_3 = arg5;
         anVarDomain_3 = arg6;
@@ -833,7 +833,7 @@ public final class Static30 {
                         @Pc(31) Node_Sub23 local31 = (Node_Sub23) aHashTable.get((long) (local1 << 16 | local4));
                         if (local31 != null) {
                             for (local35 = 0; local35 < local31.aShortArray59.length; local35++) {
-                                @Pc(46) Class54 local46 = aClass142_3.method3063(local31.aShortArray59[local35] & 0xFFFF, 115);
+                                @Pc(46) LocType local46 = aLocTypeList_3.list(local31.aShortArray59[local35] & 0xFFFF, 115);
                                 local49 = local46.anInt1233;
                                 if (local46.anIntArray113 != null) {
                                     local46 = local46.method1301(13, anVarDomain_3);
@@ -850,7 +850,7 @@ public final class Static30 {
                             }
                         }
                     } else {
-                        @Pc(94) Class54 local94 = aClass142_3.method3063(local15 - 1, 115);
+                        @Pc(94) LocType local94 = aLocTypeList_3.list(local15 - 1, 115);
                         local35 = local94.anInt1233;
                         if (local94.anIntArray113 != null) {
                             local94 = local94.method1301(13, anVarDomain_3);
@@ -876,7 +876,7 @@ public final class Static30 {
                         for (@Pc(160) Class8_Sub10 local160 = (Class8_Sub10) local153.method2790(); local160 != null; local160 = (Class8_Sub10) local153.method2785()) {
                             if (local160.aShortArray133 != null) {
                                 for (local49 = 0; local49 < local160.aShortArray133.length; local49++) {
-                                    @Pc(177) Class54 local177 = aClass142_3.method3063(local160.aShortArray133[local49] & 0xFFFF, 126);
+                                    @Pc(177) LocType local177 = aLocTypeList_3.list(local160.aShortArray133[local49] & 0xFFFF, 126);
                                     @Pc(180) int local180 = local177.anInt1233;
                                     if (local177.anIntArray113 != null) {
                                         local177 = local177.method1301(13, anVarDomain_3);

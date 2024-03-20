@@ -42,7 +42,7 @@ public final class Static114 {
     }
 
     @OriginalMember(owner = "client!dk", name = "a", descriptor = "(III)Lclient!tla;")
-    public static Class8_Sub2_Sub4 method2134(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static Class8_Sub2_Sub4 getWallDecor(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(7) Class291 local7 = Static334.aClass291ArrayArrayArray1[arg0][arg1][arg2];
         return local7 == null ? null : local7.aClass8_Sub2_Sub4_1;
     }

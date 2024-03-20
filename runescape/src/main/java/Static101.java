@@ -25,22 +25,22 @@ public final class Static101 {
     }
 
     @OriginalMember(owner = "client!dca", name = "a", descriptor = "([[BBLclient!taa;)V")
-    public static void method2001(@OriginalArg(0) byte[][] arg0, @OriginalArg(2) Class306_Sub1 arg1) {
-        for (@Pc(1) int local1 = 0; local1 < arg1.anInt8913; local1++) {
+    public static void method2001(@OriginalArg(0) byte[][] arg0, @OriginalArg(2) MapRegion region) {
+        for (@Pc(1) int level = 0; level < region.levels; level++) {
             Static557.method7331();
-            for (@Pc(6) int local6 = 0; local6 < Static720.anInt10859 >> 3; local6++) {
-                for (@Pc(9) int local9 = 0; local9 < Static501.anInt7568 >> 3; local9++) {
-                    @Pc(18) int local18 = Static623.anIntArrayArrayArray19[local1][local6][local9];
-                    if (local18 != -1) {
-                        @Pc(27) int local27 = local18 >> 24 & 0x3;
-                        if (!arg1.aBoolean673 || local27 == 0) {
-                            @Pc(43) int local43 = local18 >> 1 & 0x3;
-                            @Pc(49) int local49 = local18 >> 14 & 0x3FF;
-                            @Pc(55) int local55 = local18 >> 3 & 0x7FF;
-                            @Pc(65) int local65 = local55 / 8 + (local49 / 8 << 8);
+            for (@Pc(6) int chunkX = 0; chunkX < Static720.mapWidth >> 3; chunkX++) {
+                for (@Pc(9) int chunkY = 0; chunkY < Static501.mapHeight >> 3; chunkY++) {
+                    @Pc(18) int chunkData = Static623.anIntArrayArrayArray19[level][chunkX][chunkY];
+                    if (chunkData != -1) {
+                        @Pc(27) int chunkLevel = (chunkData >> 24) & 0x3;
+                        if (!region.underwater || chunkLevel == 0) {
+                            @Pc(43) int regionDirection = (chunkData >> 1) & 0x3;
+                            @Pc(49) int regionX = (chunkData >> 14) & 0x3FF;
+                            @Pc(55) int regionZ = (chunkData >> 3) & 0x7FF;
+                            @Pc(65) int regionId = (regionZ / 8) + ((regionX / 8) << 8);
                             for (@Pc(67) int local67 = 0; local67 < Static89.anIntArray169.length; local67++) {
-                                if (Static89.anIntArray169[local67] == local65 && arg0[local67] != null) {
-                                    arg1.method7897((local49 & 0x7) * 8, Static577.aClass110Array1, local1, Static163.activeToolkit, local6 * 8, local9 * 8, arg0[local67], local43, local27, (local55 & 0x7) * 8);
+                                if (Static89.anIntArray169[local67] == regionId && arg0[local67] != null) {
+                                    region.loadChunkLocations((regionX & 0x7) * 8, Static577.A_COLLISION_MAP_ARRAY_1, level, Static163.activeToolkit, chunkX * 8, chunkY * 8, arg0[local67], regionDirection, chunkLevel, (regionZ & 0x7) * 8);
                                     break;
                                 }
                             }

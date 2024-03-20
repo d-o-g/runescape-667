@@ -90,7 +90,7 @@ public final class Static73 {
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "([[BBLclient!taa;)V")
-    public static void method9312(@OriginalArg(0) byte[][] arg0, @OriginalArg(2) Class306_Sub1 arg1) {
+    public static void method9312(@OriginalArg(0) byte[][] arg0, @OriginalArg(2) MapRegion arg1) {
         @Pc(6) int local6 = arg0.length;
         @Pc(26) int local26;
         for (@Pc(8) int local8 = 0; local8 < local6; local8++) {
@@ -102,7 +102,7 @@ public final class Static73 {
                 @Pc(38) int local38 = local26 * 64 - Static691.anInt10367;
                 @Pc(45) int local45 = local32 * 64 - Static116.anInt2270;
                 Static557.method7331();
-                arg1.method7879(local20, local45, Static577.aClass110Array1, Static116.anInt2270, Static691.anInt10367, local38);
+                arg1.method7879(local20, local45, Static577.A_COLLISION_MAP_ARRAY_1, Static116.anInt2270, Static691.anInt10367, local38);
                 arg1.method7893(local45, local20, local38, Static163.activeToolkit);
             }
         }

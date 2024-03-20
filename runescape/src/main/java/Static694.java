@@ -59,10 +59,10 @@ public final class Static694 {
         @Pc(49) int local49;
         if (Static483.aBoolean546 && local15) {
             @Pc(27) Class381 local27 = Static16.aClass381_1;
-            @Pc(33) Class14 local33 = arg0.method8010(local27, Static627.aClass407Array1, true);
+            @Pc(33) Class14 local33 = arg0.method8010(local27, Static627.aIndexedImageArray1, true);
             local40 = local27.method8741((Sprite[]) null, arg1, 250);
             local49 = local27.method8745(250, local27.anInt10027, arg1, (Sprite[]) null);
-            @Pc(52) int local52 = Static535.aClass407_3.anInt10847;
+            @Pc(52) int local52 = Static535.aIndexedImage_3.width;
             @Pc(56) int local56 = local52 + 4;
             local40 += local56 * 2;
             local49 += local56 * 2;
@@ -78,23 +78,23 @@ public final class Static694 {
                 local92 += Static130.method2283();
                 local101 += Static422.method5771();
             }
-            arg0.method7948(Static74.aClass407_1, false).method8189(Static414.aClass407_2.anInt10847 + local92, Static414.aClass407_2.anInt10850 + local101, local40 - Static414.aClass407_2.anInt10847 * 2, local49 + -(Static414.aClass407_2.anInt10850 * 2), 1, 0, 0);
-            arg0.method7948(Static414.aClass407_2, true).render(local92, local101);
-            Static414.aClass407_2.method9388();
-            arg0.method7948(Static414.aClass407_2, true).render(local40 + local92 - local52, local101);
-            Static414.aClass407_2.method9377();
-            arg0.method7948(Static414.aClass407_2, true).render(local40 + local92 - local52, -local52 + local101 + local49);
-            Static414.aClass407_2.method9388();
-            arg0.method7948(Static414.aClass407_2, true).render(local92, local49 + local101 - local52);
-            Static414.aClass407_2.method9377();
-            arg0.method7948(Static535.aClass407_3, true).method8198(local92, Static414.aClass407_2.anInt10850 + local101, local52, local49 - Static414.aClass407_2.anInt10850 * 2);
-            Static535.aClass407_3.method9386();
-            arg0.method7948(Static535.aClass407_3, true).method8198(Static414.aClass407_2.anInt10847 + local92, local101, local40 - Static414.aClass407_2.anInt10847 * 2, local52);
-            Static535.aClass407_3.method9386();
-            arg0.method7948(Static535.aClass407_3, true).method8198(local40 + local92 - local52, Static414.aClass407_2.anInt10850 + local101, local52, local49 - Static414.aClass407_2.anInt10850 * 2);
-            Static535.aClass407_3.method9386();
-            arg0.method7948(Static535.aClass407_3, true).method8198(local92 + Static414.aClass407_2.anInt10847, local49 + (local101 - local52), local40 - Static414.aClass407_2.anInt10847 * 2, local52);
-            Static535.aClass407_3.method9386();
+            arg0.method7948(Static74.aIndexedImage_1, false).method8189(Static414.aIndexedImage_2.width + local92, Static414.aIndexedImage_2.height + local101, local40 - Static414.aIndexedImage_2.width * 2, local49 + -(Static414.aIndexedImage_2.height * 2), 1, 0, 0);
+            arg0.method7948(Static414.aIndexedImage_2, true).render(local92, local101);
+            Static414.aIndexedImage_2.method9388();
+            arg0.method7948(Static414.aIndexedImage_2, true).render(local40 + local92 - local52, local101);
+            Static414.aIndexedImage_2.flipHorizontal();
+            arg0.method7948(Static414.aIndexedImage_2, true).render(local40 + local92 - local52, -local52 + local101 + local49);
+            Static414.aIndexedImage_2.method9388();
+            arg0.method7948(Static414.aIndexedImage_2, true).render(local92, local49 + local101 - local52);
+            Static414.aIndexedImage_2.flipHorizontal();
+            arg0.method7948(Static535.aIndexedImage_3, true).method8198(local92, Static414.aIndexedImage_2.height + local101, local52, local49 - Static414.aIndexedImage_2.height * 2);
+            Static535.aIndexedImage_3.method9386();
+            arg0.method7948(Static535.aIndexedImage_3, true).method8198(Static414.aIndexedImage_2.width + local92, local101, local40 - Static414.aIndexedImage_2.width * 2, local52);
+            Static535.aIndexedImage_3.method9386();
+            arg0.method7948(Static535.aIndexedImage_3, true).method8198(local40 + local92 - local52, Static414.aIndexedImage_2.height + local101, local52, local49 - Static414.aIndexedImage_2.height * 2);
+            Static535.aIndexedImage_3.method9386();
+            arg0.method7948(Static535.aIndexedImage_3, true).method8198(local92 + Static414.aIndexedImage_2.width, local49 + (local101 - local52), local40 - Static414.aIndexedImage_2.width * 2, local52);
+            Static535.aIndexedImage_3.method9386();
             local33.method8826(0, (int[]) null, Static675.anInt10154 | 0xFF000000, arg1, (ClippingMask) null, (Sprite[]) null, local56 + local101, -1, 0, 1, local92 + local56, 1, 0, local40 - local56 * 2, -(local56 * 2) + local49);
             Static585.method7670(local40, local92, local49, local101);
         } else {

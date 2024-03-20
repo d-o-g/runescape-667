@@ -131,7 +131,7 @@ public final class Static538 {
                 local31.method9310(local31.aNPCType_1.anInt6713);
                 local31.anInt10757 = local31.aNPCType_1.lb << 3;
                 if (local31.aNPCType_1.method5984()) {
-                    Static89.method1714(local31.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local31.anIntArray879[0], local31.anIntArray878[0], local31, (Class54) null, 0);
+                    Static89.method1714(local31.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local31.anIntArray879[0], local31.anIntArray878[0], local31, (LocType) null, 0);
                 }
             }
             if ((local35 & 0x2) != 0) {

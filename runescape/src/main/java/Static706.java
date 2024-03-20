@@ -20,13 +20,13 @@ public final class Static706 {
 
     @OriginalMember(owner = "client!wfa", name = "a", descriptor = "(IILclient!gp;III)V")
     public static void method9220(@OriginalArg(0) int arg0, @OriginalArg(2) Class150 arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        if (arg4 < 1 || arg2 < 1 || arg4 > Static720.anInt10859 - 2 || Static501.anInt7568 - 2 < arg2) {
+        if (arg4 < 1 || arg2 < 1 || arg4 > Static720.mapWidth - 2 || Static501.mapHeight - 2 < arg2) {
             return;
         }
         if (Static334.aClass291ArrayArrayArray1 == null) {
             return;
         }
-        @Pc(52) Interface25 local52 = Static2.aClass306_Sub1_1.method7896(arg4, arg2, arg3, arg0);
+        @Pc(52) Location local52 = Static2.aMapRegion.getLoc(arg4, arg2, arg3, arg0);
         if (local52 == null) {
             return;
         }

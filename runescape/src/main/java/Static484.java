@@ -18,8 +18,8 @@ public final class Static484 {
 
     @OriginalMember(owner = "client!pea", name = "a", descriptor = "(Lclient!ha;II)Z")
     public static boolean method6494(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
-        @Pc(9) int local9 = (Static720.anInt10859 - 104) / 2;
-        @Pc(15) int local15 = (Static501.anInt7568 - 104) / 2;
+        @Pc(9) int local9 = (Static720.mapWidth - 104) / 2;
+        @Pc(15) int local15 = (Static501.mapHeight - 104) / 2;
         @Pc(17) boolean local17 = true;
         @Pc(25) int local25;
         @Pc(37) int local37;
@@ -115,7 +115,7 @@ public final class Static484 {
                     }
                 }
                 if (Static113.aBoolean198) {
-                    @Pc(435) Class110 local435 = Static577.aClass110Array1[arg1];
+                    @Pc(435) CollisionMap local435 = Static577.A_COLLISION_MAP_ARRAY_1[arg1];
                     for (local284 = 0; local284 < Static200.anInt3302; local284++) {
                         for (local331 = 0; local331 < Static200.anInt3302; local331++) {
                             local336 = local208 + local284;
@@ -149,24 +149,24 @@ public final class Static484 {
                 for (local214 = local15; local214 < local15 + 104; local214++) {
                     for (local216 = arg1; local216 <= arg1 + 1 && local216 <= 3; local216++) {
                         if (Static696.method9036(local214, arg1, local211, local216)) {
-                            @Pc(730) Interface25 local730 = (Interface25) Static687.method8959(local216, local211, local214);
+                            @Pc(730) Location local730 = (Location) Static687.method8959(local216, local211, local214);
                             if (local730 == null) {
-                                local730 = (Interface25) Static578.method7623(local216, local211, local214, aClass19 == null ? (aClass19 = getClass("Interface25")) : aClass19);
+                                local730 = (Location) Static578.getEntity(local216, local211, local214, aClass19 == null ? (aClass19 = getClass("Interface25")) : aClass19);
                             }
                             if (local730 == null) {
-                                local730 = (Interface25) Static302.method4414(local216, local211, local214);
+                                local730 = (Location) Static302.getWall(local216, local211, local214);
                             }
                             if (local730 == null) {
-                                local730 = (Interface25) Static114.method2134(local216, local211, local214);
+                                local730 = (Location) Static114.getWallDecor(local216, local211, local214);
                             }
                             if (local730 != null) {
-                                @Pc(776) Class54 local776 = Static354.aClass142_4.method3063(local730.method6859(-32136), 100);
+                                @Pc(776) LocType local776 = Static354.aLocTypeList_4.list(local730.method6859(-32136), 100);
                                 if (!local776.aBoolean95 || Static174.aBoolean249) {
                                     local238 = local776.anInt1233;
                                     if (local776.anIntArray113 != null) {
                                         for (local249 = 0; local249 < local776.anIntArray113.length; local249++) {
                                             if (local776.anIntArray113[local249] != -1) {
-                                                @Pc(808) Class54 local808 = Static354.aClass142_4.method3063(local776.anIntArray113[local249], 87);
+                                                @Pc(808) LocType local808 = Static354.aLocTypeList_4.list(local776.anIntArray113[local249], 87);
                                                 if (local808.anInt1233 >= 0) {
                                                     local238 = local808.anInt1233;
                                                 }
@@ -184,9 +184,9 @@ public final class Static484 {
                                         local278 = local211;
                                         local281 = local214;
                                         if (local832) {
-                                            @Pc(862) int[][] local862 = Static577.aClass110Array1[local216].anIntArrayArray65;
-                                            local331 = Static577.aClass110Array1[local216].anInt2647;
-                                            local336 = Static577.aClass110Array1[local216].anInt2645;
+                                            @Pc(862) int[][] local862 = Static577.A_COLLISION_MAP_ARRAY_1[local216].anIntArrayArray65;
+                                            local331 = Static577.A_COLLISION_MAP_ARRAY_1[local216].anInt2647;
+                                            local336 = Static577.A_COLLISION_MAP_ARRAY_1[local216].anInt2645;
                                             for (local340 = 0; local340 < 10; local340++) {
                                                 local365 = (int) (Math.random() * 4.0D);
                                                 if (local365 == 0 && local9 < local278 && local211 - 3 < local278 && (local862[local278 - local331 - 1][local281 - local336] & 0x2C0108) == 0) {
@@ -222,11 +222,11 @@ public final class Static484 {
                     if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 == local216 >> 28) {
                         local218 = (local216 >> 14 & 0x3FFF) - Static691.anInt10367;
                         local229 = (local216 & 0x3FFF) - Static116.anInt2270;
-                        if (local218 >= 0 && local218 < Static720.anInt10859 && local229 >= 0 && local229 < Static501.anInt7568) {
+                        if (local218 >= 0 && local218 < Static720.mapWidth && local229 >= 0 && local229 < Static501.mapHeight) {
                             Static612.A_DEQUE___67.addLast(new IntNode(local214));
                         } else {
                             @Pc(1199) Class105 local1199 = Static577.aClass246_4.method5584(Static42.aClass255_2.anIntArray496[local214]);
-                            if (local1199.anIntArray228 != null && local1199.anInt2614 + local218 >= 0 && local218 + local1199.anInt2598 < Static720.anInt10859 && local1199.anInt2594 + local229 >= 0 && local229 + local1199.anInt2588 < Static501.anInt7568) {
+                            if (local1199.anIntArray228 != null && local1199.anInt2614 + local218 >= 0 && local218 + local1199.anInt2598 < Static720.mapWidth && local1199.anInt2594 + local229 >= 0 && local229 + local1199.anInt2588 < Static501.mapHeight) {
                                 Static612.A_DEQUE___67.addLast(new IntNode(local214));
                             }
                         }

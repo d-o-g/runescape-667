@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.game.runetek6.config.npctype.NPCType;
@@ -97,7 +97,7 @@ public final class Static608 {
                 }
                 local233 = arg0 + Static215.anIntArray284[1];
                 @Pc(306) Sprite[] local306;
-                @Pc(313) Class407[] local313;
+                @Pc(313) IndexedImage[] local313;
                 @Pc(381) Sprite local381;
                 if (local51.aBoolean816 || Static333.anInt5455 >= local51.anInt10747) {
                     local233 -= Math.max(Static42.aClass381_4.anInt10030, Static119.aSpriteArray3[0].getHeight());
@@ -119,7 +119,7 @@ public final class Static608 {
                     if (local267 != -1) {
                         local306 = (Sprite[]) Static230.A_WEIGHTED_CACHE___81.get((long) local267);
                         if (local306 == null) {
-                            local313 = Static735.method9375(Static721.aJs5_128, local267);
+                            local313 = IndexedImage.load(Static721.aJs5_128, local267, 0);
                             if (local313 != null) {
                                 local306 = new Sprite[local313.length];
                                 for (local321 = 0; local321 < local313.length; local321++) {
@@ -168,7 +168,7 @@ public final class Static608 {
                         if (local504 != -1) {
                             local306 = (Sprite[]) Static669.A_WEIGHTED_CACHE___215.get((long) local504);
                             if (local306 == null) {
-                                local313 = Static735.method9375(Static721.aJs5_128, local504);
+                                local313 = IndexedImage.load(Static721.aJs5_128, local504, 0);
                                 if (local313 != null) {
                                     local306 = new Sprite[local313.length];
                                     for (local321 = 0; local321 < local313.length; local321++) {

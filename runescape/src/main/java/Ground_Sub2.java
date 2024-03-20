@@ -2,7 +2,7 @@ import com.jagex.collect.Deque;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.graphics.Ground;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.TextureSource;
 import jaclib.memory.Stream;
@@ -148,7 +148,7 @@ public final class Ground_Sub2 extends Ground {
 
     @OriginalMember(owner = "client!pn", name = "a", descriptor = "(Lclient!lca;[I)V")
     @Override
-    public void method7868(@OriginalArg(0) Node_Sub7 arg0, @OriginalArg(1) int[] arg1) {
+    public void method7868(@OriginalArg(0) PointLight arg0, @OriginalArg(1) int[] arg1) {
         this.aDeque_43.addLast(new Node_Sub33(this.aClass19_Sub3_33, this, arg0, arg1));
     }
 

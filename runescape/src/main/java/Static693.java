@@ -47,19 +47,19 @@ public final class Static693 {
     }
 
     @OriginalMember(owner = "client!vu", name = "a", descriptor = "([[BBLclient!taa;)V")
-    public static void method9010(@OriginalArg(0) byte[][] arg0, @OriginalArg(2) Class306_Sub1 arg1) {
+    public static void method9010(@OriginalArg(0) byte[][] arg0, @OriginalArg(2) MapRegion arg1) {
         @Pc(10) int local10;
         @Pc(13) int local13;
         @Pc(22) int local22;
         @Pc(32) int local32;
-        for (@Pc(5) int local5 = 0; local5 < arg1.anInt8913; local5++) {
+        for (@Pc(5) int local5 = 0; local5 < arg1.levels; local5++) {
             Static557.method7331();
-            for (local10 = 0; local10 < Static720.anInt10859 >> 3; local10++) {
-                for (local13 = 0; local13 < Static501.anInt7568 >> 3; local13++) {
+            for (local10 = 0; local10 < Static720.mapWidth >> 3; local10++) {
+                for (local13 = 0; local13 < Static501.mapHeight >> 3; local13++) {
                     local22 = Static623.anIntArrayArrayArray19[local5][local10][local13];
                     if (local22 != -1) {
                         local32 = local22 >> 24 & 0x3;
-                        if (!arg1.aBoolean673 || local32 == 0) {
+                        if (!arg1.underwater || local32 == 0) {
                             @Pc(48) int local48 = local22 >> 1 & 0x3;
                             @Pc(54) int local54 = local22 >> 14 & 0x3FF;
                             @Pc(60) int local60 = local22 >> 3 & 0x7FF;
@@ -67,8 +67,8 @@ public final class Static693 {
                             for (@Pc(72) int local72 = 0; local72 < Static89.anIntArray169.length; local72++) {
                                 if (local70 == Static89.anIntArray169[local72] && arg0[local72] != null) {
                                     @Pc(91) Packet local91 = new Packet(arg0[local72]);
-                                    arg1.method7891(local5, local32, local10 * 8, local60, local13 * 8, local91, local48, local54, Static577.aClass110Array1);
-                                    arg1.method7895(local10 * 8, Static163.activeToolkit, local60, local91, local5, local54, local48, local32, local13 * 8);
+                                    arg1.method7891(local5, local32, local10 * 8, local60, local13 * 8, local91, local48, local54, Static577.A_COLLISION_MAP_ARRAY_1);
+                                    arg1.decodeEnvironmentZone(local10 * 8, Static163.activeToolkit, local60, local91, local5, local54, local48, local32, local13 * 8);
                                     break;
                                 }
                             }
@@ -77,10 +77,10 @@ public final class Static693 {
                 }
             }
         }
-        for (local10 = 0; local10 < arg1.anInt8913; local10++) {
+        for (local10 = 0; local10 < arg1.levels; local10++) {
             Static557.method7331();
-            for (local13 = 0; local13 < Static720.anInt10859 >> 3; local13++) {
-                for (local22 = 0; local22 < Static501.anInt7568 >> 3; local22++) {
+            for (local13 = 0; local13 < Static720.mapWidth >> 3; local13++) {
+                for (local22 = 0; local22 < Static501.mapHeight >> 3; local22++) {
                     local32 = Static623.anIntArrayArrayArray19[local10][local13][local22];
                     if (local32 == -1) {
                         arg1.method7889(8, local22 * 8, local13 * 8, local10, 8);

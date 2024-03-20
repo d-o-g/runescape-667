@@ -21,25 +21,25 @@ public final class Static458 {
                 for (@Pc(22) int local22 = 0; local22 < local17[local19].length; local22++) {
                     @Pc(29) Class291 local29 = local17[local19][local22];
                     if (local29 != null) {
-                        if (local29.aClass8_Sub2_Sub2_1 instanceof Interface25) {
-                            ((Interface25) local29.aClass8_Sub2_Sub2_1).method6856();
+                        if (local29.aClass8_Sub2_Sub2_1 instanceof Location) {
+                            ((Location) local29.aClass8_Sub2_Sub2_1).method6856();
                         }
-                        if (local29.aClass8_Sub2_Sub4_1 instanceof Interface25) {
-                            ((Interface25) local29.aClass8_Sub2_Sub4_1).method6856();
+                        if (local29.aClass8_Sub2_Sub4_1 instanceof Location) {
+                            ((Location) local29.aClass8_Sub2_Sub4_1).method6856();
                         }
-                        if (local29.aClass8_Sub2_Sub4_2 instanceof Interface25) {
-                            ((Interface25) local29.aClass8_Sub2_Sub4_2).method6856();
+                        if (local29.aClass8_Sub2_Sub4_2 instanceof Location) {
+                            ((Location) local29.aClass8_Sub2_Sub4_2).method6856();
                         }
-                        if (local29.aClass8_Sub2_Sub3_2 instanceof Interface25) {
-                            ((Interface25) local29.aClass8_Sub2_Sub3_2).method6856();
+                        if (local29.aClass8_Sub2_Sub3_2 instanceof Location) {
+                            ((Location) local29.aClass8_Sub2_Sub3_2).method6856();
                         }
-                        if (local29.aClass8_Sub2_Sub3_1 instanceof Interface25) {
-                            ((Interface25) local29.aClass8_Sub2_Sub3_1).method6856();
+                        if (local29.aClass8_Sub2_Sub3_1 instanceof Location) {
+                            ((Location) local29.aClass8_Sub2_Sub3_1).method6856();
                         }
                         for (@Pc(91) Class286 local91 = local29.aClass286_2; local91 != null; local91 = local91.aClass286_1) {
                             @Pc(95) Class8_Sub2_Sub1 local95 = local91.aClass8_Sub2_Sub1_1;
-                            if (local95 instanceof Interface25) {
-                                ((Interface25) local95).method6856();
+                            if (local95 instanceof Location) {
+                                ((Location) local95).method6856();
                             }
                         }
                     }

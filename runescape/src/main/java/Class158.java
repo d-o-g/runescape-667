@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
@@ -513,21 +513,21 @@ public final class Class158 {
         if (local60 != null) {
             return local60;
         }
-        @Pc(71) Class407 local71 = Static735.method9382(Static262.aJs5_56, this.anInt3810, 0);
+        @Pc(71) IndexedImage local71 = IndexedImage.loadFirst(Static262.aJs5_56, this.anInt3810, 0);
         if (local71 == null) {
             Static544.aBoolean624 = true;
             return null;
         }
         if (this.aBoolean291) {
-            local71.method9377();
+            local71.flipHorizontal();
         }
         if (this.aBoolean293) {
             local71.method9388();
         }
         if (this.anInt3773 > 0) {
-            local71.method9380(this.anInt3773);
+            local71.scale(this.anInt3773);
         } else if (this.anInt3798 != 0) {
-            local71.method9380(1);
+            local71.scale(1);
         }
         if (this.anInt3773 >= 1) {
             local71.method9385(1);
@@ -887,31 +887,31 @@ public final class Class158 {
                 return local21;
             }
         }
-        @Pc(53) Class407 local53 = Static735.method9382(Static262.aJs5_56, this.anInt3810, 0);
+        @Pc(53) IndexedImage local53 = IndexedImage.loadFirst(Static262.aJs5_56, this.anInt3810, 0);
         if (local53 == null) {
             return null;
         }
-        @Pc(77) int local77 = local53.anInt10852 + local53.anInt10847 + local53.anInt10851;
-        @Pc(86) int local86 = local53.anInt10850 + local53.anInt10848 + local53.anInt10849;
+        @Pc(77) int local77 = local53.offX1 + local53.width + local53.offX2;
+        @Pc(86) int local86 = local53.height + local53.offY1 + local53.offY2;
         @Pc(89) int[] local89 = new int[local86];
         @Pc(92) int[] local92 = new int[local86];
-        for (@Pc(94) int local94 = 0; local94 < local53.anInt10850; local94++) {
+        for (@Pc(94) int local94 = 0; local94 < local53.height; local94++) {
             @Pc(97) int local97 = 0;
-            for (@Pc(99) int local99 = 0; local99 < local53.anInt10847; local99++) {
-                if (local53.aByteArray114[local99 + local53.anInt10847 * local94] != 0) {
+            for (@Pc(99) int local99 = 0; local99 < local53.width; local99++) {
+                if (local53.raster[local99 + local53.width * local94] != 0) {
                     local97 = local99;
                     break;
                 }
             }
-            @Pc(121) int local121 = local53.anInt10847;
-            for (@Pc(126) int local126 = local53.anInt10847 - 1; local126 >= local97; local126--) {
-                if (local53.aByteArray114[local126 + local53.anInt10847 * local94] != 0) {
+            @Pc(121) int local121 = local53.width;
+            for (@Pc(126) int local126 = local53.width - 1; local126 >= local97; local126--) {
+                if (local53.raster[local126 + local53.width * local94] != 0) {
                     local121 = local126 + 1;
                     break;
                 }
             }
-            local89[local53.anInt10848 + local94] = local53.anInt10852 + local97;
-            local92[local53.anInt10848 + local94] = local121 - local97;
+            local89[local53.offY1 + local94] = local53.offX1 + local97;
+            local92[local53.offY1 + local94] = local121 - local97;
         }
         @Pc(180) ClippingMask local180 = arg0.createMask(local77, local86, local89, local92);
         if (local180 == null) {

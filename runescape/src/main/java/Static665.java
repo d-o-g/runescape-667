@@ -17,7 +17,7 @@ public final class Static665 {
     public static Toolkit aToolkit_15;
 
     @OriginalMember(owner = "client!vb", name = "u", descriptor = "[[Lclient!uc;")
-    public static Class367[][] aClass367ArrayArray1;
+    public static Environment[][] aEnvironmentArrayArray1;
 
     @OriginalMember(owner = "client!vb", name = "y", descriptor = "Lclient!da;")
     public static Class14 aClass14_12;

@@ -48,7 +48,7 @@ public final class Static233 {
         Static352.method5180();
         Static563.method7461();
         for (@Pc(36) int local36 = 0; local36 < 4; local36++) {
-            Static577.aClass110Array1[local36].method2467();
+            Static577.A_COLLISION_MAP_ARRAY_1[local36].method2467();
         }
         Static668.method8700(false);
         System.gc();

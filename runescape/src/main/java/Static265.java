@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static265 {
 
     @OriginalMember(owner = "client!iea", name = "o", descriptor = "[Lclient!th;")
-    public static Class353[] aClass353Array1;
+    public static EnvironmentLight[] aEnvironmentLightArray1;
 
     @OriginalMember(owner = "client!iea", name = "a", descriptor = "[I")
     public static final int[] anIntArray328 = new int[32];

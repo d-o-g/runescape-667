@@ -82,10 +82,10 @@ public final class Static360 {
     public static void method5232(@OriginalArg(0) Class8_Sub2_Sub1_Sub2_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2) {
         @Pc(10) int local10 = arg0.anIntArray879[0];
         @Pc(15) int local15 = arg0.anIntArray878[0];
-        if (local10 < 0 || local10 >= Static720.anInt10859 || local15 < 0 || Static501.anInt7568 <= local15 || (arg1 < 0 || arg1 >= Static720.anInt10859 || arg2 < 0 || Static501.anInt7568 <= arg2)) {
+        if (local10 < 0 || local10 >= Static720.mapWidth || local15 < 0 || Static501.mapHeight <= local15 || (arg1 < 0 || arg1 >= Static720.mapWidth || arg2 < 0 || Static501.mapHeight <= arg2)) {
             return;
         }
-        @Pc(76) int local76 = Static521.method6870(arg2, arg0.method9302((byte) 65), true, 0, local10, 0, Static480.anIntArray583, 0, local15, -4, Static577.aClass110Array1[arg0.aByte144], Static70.anIntArray147, arg1, 0);
+        @Pc(76) int local76 = Static521.method6870(arg2, arg0.method9302((byte) 65), true, 0, local10, 0, Static480.anIntArray583, 0, local15, -4, Static577.A_COLLISION_MAP_ARRAY_1[arg0.aByte144], Static70.anIntArray147, arg1, 0);
         if (local76 >= 1 && local76 <= 3) {
             for (@Pc(92) int local92 = 0; local92 < local76 - 1; local92++) {
                 arg0.method1418(Static480.anIntArray583[local92], Static70.anIntArray147[local92], (byte) 2);

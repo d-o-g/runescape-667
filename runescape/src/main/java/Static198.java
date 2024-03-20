@@ -82,16 +82,16 @@ public final class Static198 {
 
     @OriginalMember(owner = "client!gca", name = "a", descriptor = "(IIIIIIII)V")
     public static void method2953(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) int arg6) {
-        if (arg4 < 0 || arg1 < 0 || Static720.anInt10859 - 1 <= arg4 || Static501.anInt7568 - 1 <= arg1) {
+        if (arg4 < 0 || arg1 < 0 || Static720.mapWidth - 1 <= arg4 || Static501.mapHeight - 1 <= arg1) {
             return;
         }
         if (Static334.aClass291ArrayArrayArray1 == null) {
             return;
         }
-        @Pc(52) Interface25 local52;
+        @Pc(52) Location local52;
         if (arg6 == 0) {
-            local52 = (Interface25) Static302.method4414(arg0, arg4, arg1);
-            @Pc(58) Interface25 local58 = (Interface25) Static619.method1510(arg0, arg4, arg1);
+            local52 = (Location) Static302.getWall(arg0, arg4, arg1);
+            @Pc(58) Location local58 = (Location) Static619.method1510(arg0, arg4, arg1);
             if (local52 != null && arg2 != 2) {
                 if (local52 instanceof Class8_Sub2_Sub3_Sub1) {
                     ((Class8_Sub2_Sub3_Sub1) local52).aClass337_1.method7672(arg3);
@@ -107,7 +107,7 @@ public final class Static198 {
                 }
             }
         } else if (arg6 == 1) {
-            local52 = (Interface25) Static114.method2134(arg0, arg4, arg1);
+            local52 = (Location) Static114.getWallDecor(arg0, arg4, arg1);
             if (local52 != null) {
                 if (local52 instanceof Class8_Sub2_Sub4_Sub2) {
                     ((Class8_Sub2_Sub4_Sub2) local52).aClass337_4.method7672(arg3);
@@ -126,7 +126,7 @@ public final class Static198 {
                 }
             }
         } else if (arg6 == 2) {
-            local52 = (Interface25) Static578.method7623(arg0, arg4, arg1, aClass9 == null ? (aClass9 = getClass("Interface25")) : aClass9);
+            local52 = (Location) Static578.getEntity(arg0, arg4, arg1, aClass9 == null ? (aClass9 = getClass("Interface25")) : aClass9);
             if (local52 != null) {
                 if (arg2 == 11) {
                     arg2 = 10;
@@ -138,7 +138,7 @@ public final class Static198 {
                 }
             }
         } else if (arg6 == 3) {
-            local52 = (Interface25) Static687.method8959(arg0, arg4, arg1);
+            local52 = (Location) Static687.method8959(arg0, arg4, arg1);
             if (local52 != null) {
                 if (local52 instanceof Class8_Sub2_Sub2_Sub2) {
                     ((Class8_Sub2_Sub2_Sub2) local52).aClass337_2.method7672(arg3);

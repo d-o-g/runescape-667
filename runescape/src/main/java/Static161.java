@@ -311,7 +311,7 @@ public final class Static161 {
             }
             local42.method9326(local170 == 1, local131 + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0], local159 + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0], local144, local42.method9302((byte) 91));
             if (local42.aNPCType_1.method5984()) {
-                Static89.method1714(local42.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local42.anIntArray879[0], local42.anIntArray878[0], local42, (Class54) null, 0);
+                Static89.method1714(local42.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local42.anIntArray879[0], local42.anIntArray878[0], local42, (LocType) null, 0);
             }
         }
         local8.method7411();

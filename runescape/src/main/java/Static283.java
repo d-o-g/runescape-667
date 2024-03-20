@@ -115,7 +115,7 @@ public final class Static283 {
         }
         if (Static442.aBoolean500) {
             for (local85 = 0; local85 < Static319.anInt5080; local85++) {
-                Static265.aClass353Array1[local85].method8241(arg14, arg0);
+                Static265.aEnvironmentLightArray1[local85].method8241(arg14, arg0);
             }
         }
         if (Static661.aBoolean457) {

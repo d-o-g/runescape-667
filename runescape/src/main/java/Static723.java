@@ -48,7 +48,7 @@ public final class Static723 {
         @Pc(77) int local77 = Static102.method2025(Static394.anInt6176, -29754, Static38.anInt920, Static494.anInt7409);
         @Pc(79) int local79 = 0;
         @Pc(109) int local109;
-        if (local59 > 3 && local63 > 3 && Static720.anInt10859 - 4 > local59 && local63 < Static501.anInt7568 - 4) {
+        if (local59 > 3 && local63 > 3 && Static720.mapWidth - 4 > local59 && local63 < Static501.mapHeight - 4) {
             for (local109 = local59 - 4; local109 <= local59 + 4; local109++) {
                 for (@Pc(114) int local114 = local63 - 4; local114 <= local63 + 4; local114++) {
                     @Pc(117) int local117 = Static394.anInt6176;
@@ -56,8 +56,8 @@ public final class Static723 {
                         local117++;
                     }
                     @Pc(132) int local132 = 0;
-                    if (Static2.aClass306_Sub1_1.aByteArrayArrayArray12 != null && Static2.aClass306_Sub1_1.aByteArrayArrayArray12[local117] != null) {
-                        local132 = (Static2.aClass306_Sub1_1.aByteArrayArrayArray12[local117][local109][local114] & 0xFF) * 8 << 2;
+                    if (Static2.aMapRegion.aByteArrayArrayArray12 != null && Static2.aMapRegion.aByteArrayArrayArray12[local117] != null) {
+                        local132 = (Static2.aMapRegion.aByteArrayArrayArray12[local117][local109][local114] & 0xFF) * 8 << 2;
                     }
                     if (Static246.aGroundArray1 != null && Static246.aGroundArray1[local117] != null) {
                         @Pc(177) int local177 = local132 + local77 - Static246.aGroundArray1[local117].method7869(local114, local109);

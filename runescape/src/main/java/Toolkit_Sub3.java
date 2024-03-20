@@ -1,5 +1,5 @@
 import com.jagex.Class230;
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
@@ -21,7 +21,7 @@ import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Node_Sub13;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureMetrics;
@@ -341,7 +341,7 @@ public final class Toolkit_Sub3 extends Toolkit {
     public final Matrix_Sub3 aClass73_Sub3_5;
 
     @OriginalMember(owner = "client!qha", name = "Mc", descriptor = "[Lclient!lca;")
-    public final Node_Sub7[] aClass2_Sub7Array5;
+    public final PointLight[] aClass2_Sub7Array5;
 
     @OriginalMember(owner = "client!qha", name = "E", descriptor = "F")
     public float aFloat129;
@@ -559,7 +559,7 @@ public final class Toolkit_Sub3 extends Toolkit {
         this.aClass73_Sub3_3 = new Matrix_Sub3();
         this.aClass73_Sub3_4 = new Matrix_Sub3();
         this.aClass73_Sub3_5 = new Matrix_Sub3();
-        this.aClass2_Sub7Array5 = new Node_Sub7[Static509.anInt7634];
+        this.aClass2_Sub7Array5 = new PointLight[Static509.anInt7634];
         this.aFloat129 = -1.0F;
         this.aFloatArray52 = new float[4];
         this.anInt8002 = -1;
@@ -1218,20 +1218,20 @@ public final class Toolkit_Sub3 extends Toolkit {
     public void method6980() {
         @Pc(7) int local7;
         for (local7 = 0; local7 < this.anInt8031; local7++) {
-            @Pc(14) Node_Sub7 local14 = this.aClass2_Sub7Array5[local7];
+            @Pc(14) PointLight local14 = this.aClass2_Sub7Array5[local7];
             @Pc(18) int local18 = local7 + 16386;
-            Static376.aFloatArray42[0] = (float) local14.method8426();
-            Static376.aFloatArray42[1] = (float) local14.method8425();
-            Static376.aFloatArray42[2] = (float) local14.method8429();
+            Static376.aFloatArray42[0] = (float) local14.getX();
+            Static376.aFloatArray42[1] = (float) local14.getY();
+            Static376.aFloatArray42[2] = (float) local14.getZ();
             Static376.aFloatArray42[3] = 1.0F;
             OpenGL.glLightfv(local18, OpenGL.GL_POSITION, Static376.aFloatArray42, 0);
             @Pc(52) int local52 = local14.method8431();
-            @Pc(60) float local60 = local14.method8428() / 255.0F;
+            @Pc(60) float local60 = local14.getIntensity() / 255.0F;
             Static376.aFloatArray42[0] = (float) (local52 >> 16 & 0xFF) * local60;
             Static376.aFloatArray42[2] = (float) (local52 & 0xFF) * local60;
             Static376.aFloatArray42[1] = local60 * (float) (local52 >> 8 & 0xFF);
             OpenGL.glLightfv(local18, OpenGL.GL_DIFFUSE, Static376.aFloatArray42, 0);
-            OpenGL.glLightf(local18, OpenGL.GL_QUADRATIC_ATTENUATION, 1.0F / (float) (local14.method8432() * local14.method8432()));
+            OpenGL.glLightf(local18, OpenGL.GL_QUADRATIC_ATTENUATION, 1.0F / (float) (local14.getRange() * local14.getRange()));
             OpenGL.glEnable(local18);
         }
         while (this.anInt8017 > local7) {
@@ -1271,29 +1271,29 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(12) int[] local12 = new int[arg0.anInt10850 * arg0.anInt10847];
+    public Sprite method7948(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
+        @Pc(12) int[] local12 = new int[arg0.height * arg0.width];
         @Pc(14) int local14 = 0;
         @Pc(16) int local16 = 0;
         @Pc(21) int local21;
         @Pc(25) int local25;
-        if (arg0.aByteArray115 == null) {
-            for (local21 = 0; local21 < arg0.anInt10850; local21++) {
-                for (local25 = 0; local25 < arg0.anInt10847; local25++) {
-                    @Pc(91) int local91 = arg0.anIntArray882[arg0.aByteArray114[local14++] & 0xFF];
+        if (arg0.alpha == null) {
+            for (local21 = 0; local21 < arg0.height; local21++) {
+                for (local25 = 0; local25 < arg0.width; local25++) {
+                    @Pc(91) int local91 = arg0.palette[arg0.raster[local14++] & 0xFF];
                     local12[local16++] = local91 == 0 ? 0 : local91 | 0xFF000000;
                 }
             }
         } else {
-            for (local21 = 0; local21 < arg0.anInt10850; local21++) {
-                for (local25 = 0; local25 < arg0.anInt10847; local25++) {
-                    local12[local16++] = arg0.anIntArray882[arg0.aByteArray114[local14] & 0xFF] | arg0.aByteArray115[local14] << 24;
+            for (local21 = 0; local21 < arg0.height; local21++) {
+                for (local25 = 0; local25 < arg0.width; local25++) {
+                    local12[local16++] = arg0.palette[arg0.raster[local14] & 0xFF] | arg0.alpha[local14] << 24;
                     local14++;
                 }
             }
         }
-        @Pc(127) Sprite local127 = this.createSprite(arg0.anInt10847, arg0.anInt10847, arg0.anInt10850, local12);
-        local127.method8184(arg0.anInt10852, arg0.anInt10848, arg0.anInt10851, arg0.anInt10849);
+        @Pc(127) Sprite local127 = this.createSprite(arg0.width, arg0.width, arg0.height, local12);
+        local127.method8184(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
         return local127;
     }
 
@@ -2582,7 +2582,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIF)Lclient!lca;")
     @Override
-    public Node_Sub7 method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
+    public PointLight method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
         return new Node_Sub7_Sub1(arg0, arg1, arg2, arg3, arg4, arg5);
     }
 
@@ -2643,7 +2643,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(I[Lclient!lca;)V")
     @Override
-    public void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub7[] arg1) {
+    public void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) PointLight[] arg1) {
         for (@Pc(7) int local7 = 0; local7 < arg0; local7++) {
             this.aClass2_Sub7Array5[local7] = arg1[local7];
         }
@@ -3213,7 +3213,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) Class407[] arg1, @OriginalArg(2) boolean arg2) {
+    public Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         return new Class14_Sub2(this, arg0, arg1, arg2);
     }
 

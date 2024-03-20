@@ -18,8 +18,8 @@ public final class Static125 {
     public static final Class225 aClass225_53 = new Class225(75, 3);
 
     @OriginalMember(owner = "client!dt", name = "a", descriptor = "(IIB)Lclient!eq;")
-    public static Class110 method2219(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(7) Class110 local7 = new Class110();
+    public static CollisionMap method2219(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+        @Pc(7) CollisionMap local7 = new CollisionMap();
         local7.anInt2647 = -1;
         local7.anInt2645 = -1;
         local7.anInt2643 = arg0 + 6;

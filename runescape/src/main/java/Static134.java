@@ -11,7 +11,7 @@ public final class Static134 {
     public static FileOutputStream aFileOutputStream2;
 
     @OriginalMember(owner = "client!eda", name = "f", descriptor = "Lclient!taa;")
-    public static Class306_Sub1 aClass306_Sub1_3;
+    public static MapRegion aMapRegion_3;
 
     @OriginalMember(owner = "client!eda", name = "e", descriptor = "I")
     public static int anInt10326;

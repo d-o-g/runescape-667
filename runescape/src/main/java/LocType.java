@@ -19,7 +19,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!c")
-public final class Class54 {
+public final class LocType {
 
     @OriginalMember(owner = "client!c", name = "sb", descriptor = "[B")
     public byte[] aByteArray13;
@@ -49,7 +49,7 @@ public final class Class54 {
     public short[] aShortArray13;
 
     @OriginalMember(owner = "client!c", name = "S", descriptor = "Lclient!gea;")
-    public Class142 aClass142_2;
+    public LocTypeList aLocTypeList_2;
 
     @OriginalMember(owner = "client!c", name = "j", descriptor = "I")
     public int anInt1256;
@@ -267,7 +267,7 @@ public final class Class54 {
         @Pc(59) int local59;
         @Pc(67) int local67;
         if (arg1 == 1 || arg1 == 5) {
-            if (arg1 == 5 && this.aClass142_2.aBoolean266) {
+            if (arg1 == 5 && this.aLocTypeList_2.aBoolean266) {
                 this.method1315(arg0);
             }
             local37 = arg0.g1();
@@ -281,7 +281,7 @@ public final class Class54 {
                     this.anIntArrayArray30[local47][local67] = arg0.g2();
                 }
             }
-            if (arg1 == 5 && !this.aClass142_2.aBoolean266) {
+            if (arg1 == 5 && !this.aLocTypeList_2.aBoolean266) {
                 this.method1315(arg0);
             }
         } else if (arg1 == 2) {
@@ -474,7 +474,7 @@ public final class Class54 {
                                                 this.anInt1233 = arg0.g2();
                                             } else if (arg1 >= 150 && arg1 < 155) {
                                                 this.aStringArray6[arg1 - 150] = arg0.gjstr();
-                                                if (!this.aClass142_2.aBoolean267) {
+                                                if (!this.aLocTypeList_2.aBoolean267) {
                                                     this.aStringArray6[arg1 - 150] = null;
                                                     return;
                                                 }
@@ -646,7 +646,7 @@ public final class Class54 {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(ILclient!uk;)Lclient!c;")
-    public Class54 method1301(@OriginalArg(0) int arg0, @OriginalArg(1) VarDomain arg1) {
+    public LocType method1301(@OriginalArg(0) int arg0, @OriginalArg(1) VarDomain arg1) {
         @Pc(5) int local5 = -1;
         if (arg0 != 13) {
             this.method1295();
@@ -658,9 +658,9 @@ public final class Class54 {
         }
         if (local5 < 0 || this.anIntArray113.length - 1 <= local5 || this.anIntArray113[local5] == -1) {
             @Pc(74) int local74 = this.anIntArray113[this.anIntArray113.length - 1];
-            return local74 == -1 ? null : this.aClass142_2.method3063(local74, arg0 + 99);
+            return local74 == -1 ? null : this.aLocTypeList_2.list(local74, arg0 + 99);
         } else {
-            return this.aClass142_2.method3063(this.anIntArray113[local5], 81);
+            return this.aLocTypeList_2.list(this.anIntArray113[local5], 81);
         }
     }
 
@@ -670,11 +670,11 @@ public final class Class54 {
             return true;
         }
         @Pc(11) boolean local11 = true;
-        @Pc(15) js5 local15 = this.aClass142_2.aJs5_44;
-        synchronized (this.aClass142_2.aJs5_44) {
+        @Pc(15) js5 local15 = this.aLocTypeList_2.aJs5_44;
+        synchronized (this.aLocTypeList_2.aJs5_44) {
             for (@Pc(19) int local19 = 0; local19 < this.anIntArrayArray30.length; local19++) {
                 for (@Pc(22) int local22 = 0; local22 < this.anIntArrayArray30[local19].length; local22++) {
-                    local11 &= this.aClass142_2.aJs5_44.requestdownload(0, this.anIntArrayArray30[local19][local22]);
+                    local11 &= this.aLocTypeList_2.aJs5_44.requestdownload(0, this.anIntArrayArray30[local19][local22]);
                 }
             }
             return local11;
@@ -688,7 +688,7 @@ public final class Class54 {
         }
         for (@Pc(35) int local35 = 0; local35 < this.anIntArray113.length; local35++) {
             if (this.anIntArray113[local35] != -1) {
-                @Pc(52) Class54 local52 = this.aClass142_2.method3063(this.anIntArray113[local35], 59);
+                @Pc(52) LocType local52 = this.aLocTypeList_2.list(this.anIntArray113[local35], 59);
                 if (local52.anInt1246 != -1 || local52.anIntArray116 != null) {
                     return true;
                 }
@@ -702,12 +702,12 @@ public final class Class54 {
         if (this.anIntArrayArray30 == null) {
             return true;
         }
-        @Pc(13) js5 local13 = this.aClass142_2.aJs5_44;
-        synchronized (this.aClass142_2.aJs5_44) {
+        @Pc(13) js5 local13 = this.aLocTypeList_2.aJs5_44;
+        synchronized (this.aLocTypeList_2.aJs5_44) {
             for (@Pc(26) int local26 = 0; local26 < this.aByteArray13.length; local26++) {
                 if (arg0 == this.aByteArray13[local26]) {
                     for (@Pc(35) int local35 = 0; local35 < this.anIntArrayArray30[local26].length; local35++) {
-                        if (!this.aClass142_2.aJs5_44.requestdownload(0, this.anIntArrayArray30[local26][local35])) {
+                        if (!this.aLocTypeList_2.aJs5_44.requestdownload(0, this.anIntArrayArray30[local26][local35])) {
                             return false;
                         }
                     }
@@ -795,10 +795,10 @@ public final class Class54 {
         if (arg4) {
             local40 |= 0x40000;
         }
-        @Pc(96) ReferenceCache local96 = this.aClass142_2.aReferenceCache_75;
+        @Pc(96) ReferenceCache local96 = this.aLocTypeList_2.aReferenceCache_75;
         @Pc(106) Class272 local106;
-        synchronized (this.aClass142_2.aReferenceCache_75) {
-            local106 = (Class272) this.aClass142_2.aReferenceCache_75.get(local21);
+        synchronized (this.aLocTypeList_2.aReferenceCache_75) {
+            local106 = (Class272) this.aLocTypeList_2.aReferenceCache_75.get(local21);
         }
         @Pc(120) Model local120 = local106 == null ? null : local106.aModel_7;
         @Pc(122) Shadow local122 = null;
@@ -830,9 +830,9 @@ public final class Class54 {
             local106 = new Class272();
             local106.aClass2_Sub2_Sub9_5 = local122;
             local106.aModel_7 = local120;
-            @Pc(210) ReferenceCache local210 = this.aClass142_2.aReferenceCache_75;
-            synchronized (this.aClass142_2.aReferenceCache_75) {
-                this.aClass142_2.aReferenceCache_75.put(local106, local21);
+            @Pc(210) ReferenceCache local210 = this.aLocTypeList_2.aReferenceCache_75;
+            synchronized (this.aLocTypeList_2.aReferenceCache_75) {
+                this.aLocTypeList_2.aReferenceCache_75.put(local106, local21);
             }
         }
         @Pc(271) boolean local271 = this.aByte12 != 0 && (arg3 != null || arg10 != null);
@@ -884,10 +884,10 @@ public final class Class54 {
         if (arg2 == 10 && arg0 > 3) {
             arg9 |= 0x5;
         }
-        @Pc(116) ReferenceCache local116 = this.aClass142_2.aReferenceCache_76;
+        @Pc(116) ReferenceCache local116 = this.aLocTypeList_2.aReferenceCache_76;
         @Pc(126) Model local126;
-        synchronized (this.aClass142_2.aReferenceCache_76) {
-            local126 = (Model) this.aClass142_2.aReferenceCache_76.get(local22);
+        synchronized (this.aLocTypeList_2.aReferenceCache_76) {
+            local126 = (Model) this.aLocTypeList_2.aReferenceCache_76.get(local22);
         }
         if (local126 == null || arg6.compareFunctionMasks(local126.ua(), arg9) != 0) {
             if (local126 != null) {
@@ -897,9 +897,9 @@ public final class Class54 {
             if (local126 == null) {
                 return null;
             }
-            local116 = this.aClass142_2.aReferenceCache_76;
-            synchronized (this.aClass142_2.aReferenceCache_76) {
-                this.aClass142_2.aReferenceCache_76.put(local126, local22);
+            local116 = this.aLocTypeList_2.aReferenceCache_76;
+            synchronized (this.aLocTypeList_2.aReferenceCache_76) {
+                this.aLocTypeList_2.aReferenceCache_76.put(local126, local22);
             }
         }
         @Pc(190) boolean local190 = false;
@@ -988,9 +988,9 @@ public final class Class54 {
             for (local193 = 0; local193 < local182; local193++) {
                 local191 = local191 * 67783L + (long) local179[local193];
             }
-            @Pc(211) ReferenceCache local211 = this.aClass142_2.aReferenceCache_74;
-            synchronized (this.aClass142_2.aReferenceCache_74) {
-                local123 = (Model) this.aClass142_2.aReferenceCache_74.get(local191);
+            @Pc(211) ReferenceCache local211 = this.aLocTypeList_2.aReferenceCache_74;
+            synchronized (this.aLocTypeList_2.aReferenceCache_74) {
+                local123 = (Model) this.aLocTypeList_2.aReferenceCache_74.get(local191);
             }
             if (local123 != null) {
                 if (local123.WA() != local8) {
@@ -1016,9 +1016,9 @@ public final class Class54 {
                             }
                             break;
                         }
-                        @Pc(286) js5 local286 = this.aClass142_2.aJs5_44;
-                        synchronized (this.aClass142_2.aJs5_44) {
-                            local275 = Mesh.load(local179[local281] & 0xFFFF, this.aClass142_2.aJs5_44);
+                        @Pc(286) js5 local286 = this.aLocTypeList_2.aJs5_44;
+                        synchronized (this.aLocTypeList_2.aJs5_44) {
+                            local275 = Mesh.load(local179[local281] & 0xFFFF, this.aLocTypeList_2.aJs5_44);
                         }
                         if (local275 == null) {
                             return null;
@@ -1032,10 +1032,10 @@ public final class Class54 {
                         local281++;
                     }
                 }
-                local123 = arg0.createModel(local275, local265, this.aClass142_2.anInt3390, local8, local13);
-                @Pc(372) ReferenceCache local372 = this.aClass142_2.aReferenceCache_74;
-                synchronized (this.aClass142_2.aReferenceCache_74) {
-                    this.aClass142_2.aReferenceCache_74.put(local123, local191);
+                local123 = arg0.createModel(local275, local265, this.aLocTypeList_2.anInt3390, local8, local13);
+                @Pc(372) ReferenceCache local372 = this.aLocTypeList_2.aReferenceCache_74;
+                synchronized (this.aLocTypeList_2.aReferenceCache_74) {
+                    this.aLocTypeList_2.aReferenceCache_74.put(local123, local191);
                 }
             }
         }

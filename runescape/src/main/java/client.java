@@ -350,16 +350,16 @@ public final class client extends GameShell {
                             @Pc(166) int local166 = local142 + local97.anIntArray879[0];
                             if (local166 < 0) {
                                 local166 = 0;
-                            } else if (local166 > Static720.anInt10859 - local114 - 1) {
-                                local166 = Static720.anInt10859 - local114 - 1;
+                            } else if (local166 > Static720.mapWidth - local114 - 1) {
+                                local166 = Static720.mapWidth - local114 - 1;
                             }
                             @Pc(203) int local203 = local150 + local97.anIntArray878[0];
                             if (local203 < 0) {
                                 local203 = 0;
-                            } else if (local203 > Static501.anInt7568 - local114 - 1) {
-                                local203 = Static501.anInt7568 - local114 - 1;
+                            } else if (local203 > Static501.mapHeight - local114 - 1) {
+                                local203 = Static501.mapHeight - local114 - 1;
                             }
-                            @Pc(258) int local258 = Static521.method6870(local203, local114, true, 0, local97.anIntArray879[0], local114, Static480.anIntArray583, local114, local97.anIntArray878[0], -1, Static577.aClass110Array1[local97.aByte144], Static70.anIntArray147, local166, 0);
+                            @Pc(258) int local258 = Static521.method6870(local203, local114, true, 0, local97.anIntArray879[0], local114, Static480.anIntArray583, local114, local97.anIntArray878[0], -1, Static577.A_COLLISION_MAP_ARRAY_1[local97.aByte144], Static70.anIntArray147, local166, 0);
                             if (local258 > 0) {
                                 if (local258 > 9) {
                                     local258 = 9;
@@ -388,7 +388,7 @@ public final class client extends GameShell {
             } else {
                 Static583.method7659();
             }
-            if (Static170.anInt2864 >> 9 < 14 || Static170.anInt2864 >> 9 >= Static720.anInt10859 - 14 || Static110.anInt2186 >> 9 < 14 || Static110.anInt2186 >> 9 >= Static501.anInt7568 - 14) {
+            if (Static170.anInt2864 >> 9 < 14 || Static170.anInt2864 >> 9 >= Static720.mapWidth - 14 || Static110.anInt2186 >> 9 < 14 || Static110.anInt2186 >> 9 >= Static501.mapHeight - 14) {
                 Static54.method1179();
             }
         }
@@ -860,7 +860,7 @@ public final class client extends GameShell {
     public String method1648() {
         @Pc(5) String local5 = null;
         try {
-            local5 = "[1)" + Static691.anInt10367 + "," + Static116.anInt2270 + "," + Static720.anInt10859 + "," + Static501.anInt7568 + "|";
+            local5 = "[1)" + Static691.anInt10367 + "," + Static116.anInt2270 + "," + Static720.mapWidth + "," + Static501.mapHeight + "|";
             if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 != null) {
                 local5 = local5 + "2)" + Static394.anInt6176 + "," + (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] + Static691.anInt10367) + "," + (Static116.anInt2270 + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0]) + "|";
             }

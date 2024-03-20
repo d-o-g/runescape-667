@@ -18,15 +18,15 @@ public final class Static124 {
         Static101.anInt2097 = arg8;
         Static320.anInt5083 = arg5;
         Static675.anInt10154 = arg2;
-        Static414.aClass407_2 = null;
+        Static414.aIndexedImage_2 = null;
         Static129.aClass103_1 = arg4;
         Static456.anInt6929 = arg7;
-        Static535.aClass407_3 = null;
+        Static535.aIndexedImage_3 = null;
         Static723.anInt10929 = arg10;
         Static180.aClass403_3 = arg9;
         Static665.anInt9944 = arg1;
         Static362.anInt5828 = arg0;
-        Static74.aClass407_1 = null;
+        Static74.aIndexedImage_1 = null;
         Static343.anInt5610 = arg3;
         Static71.method1525();
         Static483.aBoolean546 = true;

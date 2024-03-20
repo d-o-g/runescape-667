@@ -13,7 +13,7 @@ public final class Static354 {
     public static int anInt5759;
 
     @OriginalMember(owner = "client!ld", name = "b", descriptor = "Lclient!gea;")
-    public static Class142 aClass142_4;
+    public static LocTypeList aLocTypeList_4;
 
     @OriginalMember(owner = "client!ld", name = "a", descriptor = "I")
     public static int anInt5763;

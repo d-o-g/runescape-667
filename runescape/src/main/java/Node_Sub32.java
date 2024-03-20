@@ -1,6 +1,6 @@
 import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.math.IntMath;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
@@ -23,7 +23,7 @@ public final class Node_Sub32 extends Node {
     public final Ground_Sub1 aClass178_Sub1_1;
 
     @OriginalMember(owner = "client!jw", name = "K", descriptor = "Lclient!lca;")
-    public final Node_Sub7 aClass2_Sub7_1;
+    public final PointLight aClass2_Sub7_1;
 
     @OriginalMember(owner = "client!jw", name = "n", descriptor = "I")
     public final int anInt5022;
@@ -65,15 +65,15 @@ public final class Node_Sub32 extends Node {
     public Stream aStream2;
 
     @OriginalMember(owner = "client!jw", name = "<init>", descriptor = "(Lclient!am;Lclient!iga;Lclient!lca;[I)V")
-    public Node_Sub32(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Ground_Sub1 arg1, @OriginalArg(2) Node_Sub7 arg2, @OriginalArg(3) int[] arg3) {
+    public Node_Sub32(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Ground_Sub1 arg1, @OriginalArg(2) PointLight arg2, @OriginalArg(3) int[] arg3) {
         this.aClass19_Sub1_11 = arg0;
         this.aClass178_Sub1_1 = arg1;
         this.aClass2_Sub7_1 = arg2;
-        @Pc(23) int local23 = this.aClass2_Sub7_1.method8432() - (arg1.anInt8888 >> 1);
-        this.anInt5022 = this.aClass2_Sub7_1.method8426() - local23 >> arg1.anInt8895;
-        this.anInt5025 = local23 + this.aClass2_Sub7_1.method8426() >> arg1.anInt8895;
-        this.anInt5024 = this.aClass2_Sub7_1.method8429() - local23 >> arg1.anInt8895;
-        this.anInt5027 = local23 + this.aClass2_Sub7_1.method8429() >> arg1.anInt8895;
+        @Pc(23) int local23 = this.aClass2_Sub7_1.getRange() - (arg1.anInt8888 >> 1);
+        this.anInt5022 = this.aClass2_Sub7_1.getX() - local23 >> arg1.anInt8895;
+        this.anInt5025 = local23 + this.aClass2_Sub7_1.getX() >> arg1.anInt8895;
+        this.anInt5024 = this.aClass2_Sub7_1.getZ() - local23 >> arg1.anInt8895;
+        this.anInt5027 = local23 + this.aClass2_Sub7_1.getZ() >> arg1.anInt8895;
         @Pc(78) int local78 = this.anInt5025 + 1 - this.anInt5022;
         @Pc(87) int local87 = this.anInt5027 + 1 - this.anInt5024;
         this.aFloatArrayArray7 = new float[local78 + 1][local87 + 1];
@@ -291,15 +291,15 @@ public final class Node_Sub32 extends Node {
             local124 = (local297 - local337) * local222 + local337;
             local117 = (local370 - local313) * local222 + local313;
         }
-        local214 = (float) (this.aClass2_Sub7_1.method8426() - local15);
-        local222 = (float) (this.aClass2_Sub7_1.method8425() - local30);
-        local229 = (float) (this.aClass2_Sub7_1.method8429() - local23);
+        local214 = (float) (this.aClass2_Sub7_1.getX() - local15);
+        local222 = (float) (this.aClass2_Sub7_1.getY() - local30);
+        local229 = (float) (this.aClass2_Sub7_1.getZ() - local23);
         local236 = (float) Math.sqrt((double) (local222 * local222 + local214 * local214 + local229 * local229));
         local243 = 1.0F / local236;
         local214 *= local243;
         local222 *= local243;
         local229 *= local243;
-        local252 = local236 / (float) this.aClass2_Sub7_1.method8432();
+        local252 = local236 / (float) this.aClass2_Sub7_1.getRange();
         local261 = 1.0F - local252 * local252;
         if (local261 < 0.0F) {
             local261 = 0.0F;
@@ -357,7 +357,7 @@ public final class Node_Sub32 extends Node {
                 @Pc(70) int local70 = local63 - arg0;
                 @Pc(75) int local75 = local56 - arg1;
                 if (-arg3 < local70 && local70 < arg3 && -arg3 < local75 && local75 < arg3 && arg4[arg3 + local70][local75 + arg3]) {
-                    this.aClass19_Sub1_11.method8050((byte) (int) (this.aClass2_Sub7_1.method8428() * 255.0F));
+                    this.aClass19_Sub1_11.method8050((byte) (int) (this.aClass2_Sub7_1.getIntensity() * 255.0F));
                     this.aClass19_Sub1_11.method8130(0, this.anInterface16_7);
                     this.aClass19_Sub1_11.method8114(this.aClass19_Sub1_11.aClass244_21);
                     this.aClass19_Sub1_11.method8052(0, 0, this.anInterface20_2, this.anInt5028, Static104.aClass131_2, this.anInt5023 / 3);

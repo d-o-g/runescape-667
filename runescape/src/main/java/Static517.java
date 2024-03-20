@@ -1,5 +1,5 @@
 import com.jagex.core.io.Packet;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Sprite;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -104,7 +104,7 @@ public final class Static517 {
             }
         }
         if (Static442.aBoolean500) {
-            Static665.aToolkit_15.method8009(0, (Node_Sub7[]) null);
+            Static665.aToolkit_15.method8009(0, (PointLight[]) null);
         }
         if ((arg5 & 0x2) == 0) {
             for (local225 = Static296.anInt4792; local225 < Static299.anInt4824; local225++) {

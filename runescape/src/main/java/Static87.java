@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -42,8 +42,8 @@ public final class Static87 {
     public static void method1693(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2, @OriginalArg(3) Toolkit arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         if (Static459.aSprite_31 == null || Static1.aSprite_42 == null) {
             if (Static721.aJs5_128.method7581(Static63.anInt1474) && Static721.aJs5_128.method7581(Static282.anInt4417)) {
-                Static459.aSprite_31 = arg3.method7948(Static735.method9382(Static721.aJs5_128, Static63.anInt1474, 0), true);
-                @Pc(49) Class407 local49 = Static735.method9382(Static721.aJs5_128, Static282.anInt4417, 0);
+                Static459.aSprite_31 = arg3.method7948(IndexedImage.loadFirst(Static721.aJs5_128, Static63.anInt1474, 0), true);
+                @Pc(49) IndexedImage local49 = IndexedImage.loadFirst(Static721.aJs5_128, Static282.anInt4417, 0);
                 Static1.aSprite_42 = arg3.method7948(local49, true);
                 local49.method9388();
                 Static608.aSprite_41 = arg3.method7948(local49, true);

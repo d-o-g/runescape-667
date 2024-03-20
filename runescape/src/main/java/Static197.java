@@ -14,7 +14,7 @@ public final class Static197 {
                 local8.remove();
             } else {
                 local8.aBoolean310 = true;
-                if (local8.anInt4016 >= 0 && local8.anInt4006 >= 0 && Static720.anInt10859 > local8.anInt4016 && Static501.anInt7568 > local8.anInt4006) {
+                if (local8.anInt4016 >= 0 && local8.anInt4006 >= 0 && Static720.mapWidth > local8.anInt4016 && Static501.mapHeight > local8.anInt4006) {
                     Static293.method4332(local8);
                 }
             }

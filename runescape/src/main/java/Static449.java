@@ -80,8 +80,8 @@ public final class Static449 {
     }
 
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(ILclient!uv;)Z")
-    public static boolean method6118(@OriginalArg(1) Interface25 arg0) {
-        @Pc(17) Class54 local17 = Static354.aClass142_4.method3063(arg0.method6859(-32136), 49);
+    public static boolean method6118(@OriginalArg(1) Location arg0) {
+        @Pc(17) LocType local17 = Static354.aLocTypeList_4.list(arg0.method6859(-32136), 49);
         if (local17.anInt1239 == -1) {
             return true;
         } else {

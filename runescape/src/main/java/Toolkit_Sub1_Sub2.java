@@ -9,7 +9,7 @@ import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Class14;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Interface9;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureSource;
 import com.jagex.js5.js5;
@@ -1135,13 +1135,13 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
         this.method8096();
         @Pc(18) int local18;
         for (local18 = 0; super.anInt9177 > local18; local18++) {
-            @Pc(25) Node_Sub7 local25 = super.aClass2_Sub7Array6[local18];
+            @Pc(25) PointLight local25 = super.aClass2_Sub7Array6[local18];
             @Pc(29) int local29 = local25.method8431();
             @Pc(34) int local34 = local18 + 16386;
-            @Pc(40) float local40 = local25.method8428() / 255.0F;
-            Static337.aFloatArray38[0] = (float) local25.method8426();
-            Static337.aFloatArray38[1] = (float) local25.method8425();
-            Static337.aFloatArray38[2] = (float) local25.method8429();
+            @Pc(40) float local40 = local25.getIntensity() / 255.0F;
+            Static337.aFloatArray38[0] = (float) local25.getX();
+            Static337.aFloatArray38[1] = (float) local25.getY();
+            Static337.aFloatArray38[2] = (float) local25.getZ();
             Static337.aFloatArray38[3] = 1.0F;
             OpenGL.glLightfv(local34, OpenGL.GL_POSITION, Static337.aFloatArray38, 0);
             Static337.aFloatArray38[1] = (float) (local29 >> 8 & 0xFF) * local40;
@@ -1149,7 +1149,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
             Static337.aFloatArray38[2] = local40 * (float) (local29 & 0xFF);
             Static337.aFloatArray38[3] = 1.0F;
             OpenGL.glLightfv(local34, OpenGL.GL_DIFFUSE, Static337.aFloatArray38, 0);
-            OpenGL.glLightf(local34, OpenGL.GL_QUADRATIC_ATTENUATION, 1.0F / (float) (local25.method8432() * local25.method8432()));
+            OpenGL.glLightf(local34, OpenGL.GL_QUADRATIC_ATTENUATION, 1.0F / (float) (local25.getRange() * local25.getRange()));
             OpenGL.glEnable(local34);
         }
         while (super.anInt9176 > local18) {

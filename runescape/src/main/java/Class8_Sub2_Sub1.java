@@ -1,4 +1,4 @@
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -43,7 +43,7 @@ public abstract class Class8_Sub2_Sub1 extends Class8_Sub2 {
 
     @OriginalMember(owner = "client!qf", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
-    public final int method9288(@OriginalArg(0) Node_Sub7[] arg0) {
+    public final int method9288(@OriginalArg(0) PointLight[] arg0) {
         @Pc(7) int local7 = 0;
         @Pc(21) int local21;
         @Pc(44) int local44;
@@ -64,14 +64,14 @@ public abstract class Class8_Sub2_Sub1 extends Class8_Sub2 {
                         if (local44 <= 0) {
                             continue label110;
                         }
-                        @Pc(55) Class353 local55 = Static265.aClass353Array1[local44 - 1];
+                        @Pc(55) EnvironmentLight local55 = Static265.aEnvironmentLightArray1[local44 - 1];
                         for (local57 = 0; local57 < local7; local57++) {
-                            if (arg0[local57] == local55.aClass2_Sub7_3) {
+                            if (arg0[local57] == local55.light) {
                                 local34 += 16L;
                                 continue label105;
                             }
                         }
-                        arg0[local7++] = local55.aClass2_Sub7_3;
+                        arg0[local7++] = local55.light;
                         if (local7 == 4) {
                             break label112;
                         }
@@ -116,19 +116,19 @@ public abstract class Class8_Sub2_Sub1 extends Class8_Sub2 {
             label76:
             for (local57 = 0; local57 < local7; local57++) {
                 @Pc(267) long local267 = Static161.aLongArrayArrayArray1[super.aByte144][local183][local188];
-                @Pc(278) Class353 local278;
+                @Pc(278) EnvironmentLight local278;
                 while (local267 != 0L) {
-                    local278 = Static265.aClass353Array1[(int) ((local267 & 0xFFFFL) - 1L)];
+                    local278 = Static265.aEnvironmentLightArray1[(int) ((local267 & 0xFFFFL) - 1L)];
                     local267 >>>= 0x10;
-                    if (arg0[local57] == local278.aClass2_Sub7_3) {
+                    if (arg0[local57] == local278.light) {
                         continue label76;
                     }
                 }
                 local267 = Static161.aLongArrayArrayArray1[super.aByte144][local180][local191];
                 while (local267 != 0L) {
-                    local278 = Static265.aClass353Array1[(int) ((local267 & 0xFFFFL) - 1L)];
+                    local278 = Static265.aEnvironmentLightArray1[(int) ((local267 & 0xFFFFL) - 1L)];
                     local267 >>>= 0x10;
-                    if (local278.aClass2_Sub7_3 == arg0[local57]) {
+                    if (local278.light == arg0[local57]) {
                         continue label76;
                     }
                 }

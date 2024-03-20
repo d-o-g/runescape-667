@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.collect.HashTable;
 import com.jagex.collect.IntNode;
 import com.jagex.collect.Node;
@@ -200,7 +200,7 @@ public final class Class105 {
             return local28;
         }
         this.aClass246_2.aJs5_83.method7581(this.anInt2618);
-        @Pc(49) Class407 local49 = Static735.method9382(this.aClass246_2.aJs5_83, this.anInt2618, 0);
+        @Pc(49) IndexedImage local49 = IndexedImage.loadFirst(this.aClass246_2.aJs5_83, this.anInt2618, 0);
         if (local49 != null) {
             local28 = arg0.method7948(local49, true);
             this.aClass246_2.aReferenceCache_135.put(local28, (long) (this.anInt2618 | 0x20000 | arg0.index << 29));
@@ -235,7 +235,7 @@ public final class Class105 {
         if (local38 != null) {
             return local38;
         } else if (this.aClass246_2.aJs5_83.method7581(local22)) {
-            @Pc(60) Class407 local60 = Static735.method9382(this.aClass246_2.aJs5_83, local22, 0);
+            @Pc(60) IndexedImage local60 = IndexedImage.loadFirst(this.aClass246_2.aJs5_83, local22, 0);
             if (local60 != null) {
                 local38 = arg1.method7948(local60, true);
                 this.aClass246_2.aReferenceCache_135.put(local38, (long) local29);

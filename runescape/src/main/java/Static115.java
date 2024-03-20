@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.SignLink;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -30,11 +30,11 @@ public final class Static115 {
         }
         if (arg0 != -1) {
             @Pc(28) Class389 local28 = Static354.aClass267_1.method5973(arg0);
-            @Pc(32) Class407 local32 = local28.method8934();
+            @Pc(32) IndexedImage local32 = local28.method8934();
             if (local32 == null) {
                 arg0 = -1;
             } else {
-                SignLink.instance.method8995(Static434.aCanvas7, local32.method9383(), new Point(local28.anInt10303, local28.anInt10308), local32.method9378(), local32.method9384());
+                SignLink.instance.method8995(Static434.aCanvas7, local32.method9383(), new Point(local28.anInt10303, local28.anInt10308), local32.offsetX(), local32.offsetY());
                 Static470.anInt7112 = arg0;
             }
         }

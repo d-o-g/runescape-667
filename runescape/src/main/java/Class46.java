@@ -1,6 +1,6 @@
 import com.jagex.Class8;
 import com.jagex.graphics.Ground;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -26,7 +26,7 @@ public final class Class46 implements Runnable {
     public volatile boolean aBoolean75 = true;
 
     @OriginalMember(owner = "client!bl", name = "g", descriptor = "[Lclient!lca;")
-    public final Node_Sub7[] aClass2_Sub7Array2 = new Node_Sub7[8];
+    public final PointLight[] aClass2_Sub7Array2 = new PointLight[8];
 
     @OriginalMember(owner = "client!bl", name = "f", descriptor = "Z")
     public volatile boolean aBoolean77 = false;

@@ -6,10 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static603 {
 
-    // $FF: synthetic field
-    @OriginalMember(owner = "client!taa", name = "O", descriptor = "Ljava/lang/Class;")
-    public static Class aClass22;
-
     @OriginalMember(owner = "client!taa", name = "H", descriptor = "[[[I")
     public static final int[][][] anIntArrayArrayArray18 = new int[2][][];
 

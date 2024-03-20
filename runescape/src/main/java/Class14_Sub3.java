@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;
@@ -32,7 +32,7 @@ public final class Class14_Sub3 extends Class14 {
     public final int[] anIntArray321;
 
     @OriginalMember(owner = "client!ib", name = "<init>", descriptor = "(Lclient!iaa;Lclient!ve;[Lclient!wp;[I[I)V")
-    public Class14_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) Class407[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
+    public Class14_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
         super(arg0, arg1);
         this.aClass19_Sub2_4 = arg0;
         this.aClass19_Sub2_4 = arg0;
@@ -42,11 +42,11 @@ public final class Class14_Sub3 extends Class14 {
         this.anIntArray324 = new int[arg2.length];
         this.anIntArray322 = new int[arg2.length];
         for (@Pc(32) int local32 = 0; local32 < arg2.length; local32++) {
-            this.aByteArrayArray11[local32] = arg2[local32].aByteArray114;
-            this.anIntArray324[local32] = arg2[local32].anInt10848;
-            this.anIntArray322[local32] = arg2[local32].anInt10852;
+            this.aByteArrayArray11[local32] = arg2[local32].raster;
+            this.anIntArray324[local32] = arg2[local32].offY1;
+            this.anIntArray322[local32] = arg2[local32].offX1;
         }
-        this.anIntArray321 = arg2[0].anIntArray882;
+        this.anIntArray321 = arg2[0].palette;
     }
 
     @OriginalMember(owner = "client!ib", name = "a", descriptor = "(CIIIZLclient!aa;II)V")

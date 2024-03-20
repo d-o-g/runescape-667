@@ -36,11 +36,11 @@ public final class Static102 {
         }
         @Pc(21) int local21 = arg3 >> 9;
         @Pc(25) int local25 = arg2 >> 9;
-        if (local21 < 0 || local25 < 0 || Static720.anInt10859 - 1 < local21 || Static501.anInt7568 - 1 < local25) {
+        if (local21 < 0 || local25 < 0 || Static720.mapWidth - 1 < local21 || Static501.mapHeight - 1 < local25) {
             return 0;
         }
         @Pc(56) int local56 = arg0;
-        if (arg0 < 3 && (Static280.aByteArrayArrayArray3[1][local21][local25] & 0x2) != 0) {
+        if (arg0 < 3 && (Static280.tileFlags[1][local21][local25] & 0x2) != 0) {
             local56 = arg0 + 1;
         }
         return Static246.aGroundArray1[local56].method7878(arg2, arg3);

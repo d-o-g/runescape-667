@@ -36,7 +36,7 @@ public final class Static294 {
         }
         @Pc(19) boolean local19 = false;
         if (Static1.anInt10798 == 0) {
-            if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 < 0 || Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >= Static720.anInt10859 * 512 || Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 < 0 || Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >= Static501.anInt7568 * 512) {
+            if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 < 0 || Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >= Static720.mapWidth * 512 || Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 < 0 || Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >= Static501.mapHeight * 512) {
                 local19 = true;
             }
         } else if (!Static421.aBoolean480) {

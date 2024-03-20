@@ -2,19 +2,11 @@ package com.jagex.graphics;
 
 import com.jagex.Class230;
 import com.jagex.Class67;
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.Class84;
 import com.jagex.Interface26;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
-import com.jagex.graphics.ClippingMask;
-import com.jagex.graphics.Interface9;
-import com.jagex.graphics.Matrix;
-import com.jagex.graphics.Node_Sub13;
-import com.jagex.graphics.Node_Sub7;
-import com.jagex.graphics.Sprite;
-import com.jagex.graphics.Surface;
-import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -38,8 +30,8 @@ public abstract class Toolkit {
     public final int index;
 
     @OriginalMember(owner = "client!ha", name = "<init>", descriptor = "(Lclient!d;)V")
-    public Toolkit(@OriginalArg(0) TextureSource arg0) {
-        this.textureSource = arg0;
+    public Toolkit(@OriginalArg(0) TextureSource source) {
+        this.textureSource = source;
 
         @Pc(6) int freeIndex = -1;
         for (@Pc(8) int i = 0; i < COUNT; i++) {
@@ -115,7 +107,7 @@ public abstract class Toolkit {
      * createPointLight
      */
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIF)Lclient!lca;")
-    public abstract Node_Sub7 method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5);
+    public abstract PointLight method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     public abstract void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10);
@@ -155,7 +147,7 @@ public abstract class Toolkit {
     public abstract void method7947(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
-    public abstract Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1);
+    public abstract Sprite method7948(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1);
 
     @OriginalMember(owner = "client!ha", name = "k", descriptor = "()Z")
     public abstract boolean method7949();
@@ -441,10 +433,10 @@ public abstract class Toolkit {
     public abstract int r(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(I[Lclient!lca;)V")
-    public abstract void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub7[] arg1);
+    public abstract void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) PointLight[] arg1);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
-    public abstract Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) Class407[] arg1, @OriginalArg(2) boolean arg2);
+    public abstract Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     public abstract void method8011(@OriginalArg(0) Rectangle[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) throws Exception_Sub1;

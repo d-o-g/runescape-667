@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Shadow;
@@ -19,12 +19,12 @@ public final class Static292 {
     @OriginalMember(owner = "client!jea", name = "a", descriptor = "(ILclient!ha;IIIBI)V")
     public static void method4604(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(6) int arg4) {
         if ((Static26.aSprite_5 == null || Static63.aSprite_8 == null || Static261.aSprite_18 == null) && Static721.aJs5_128.method7581(Static337.anInt5561) && Static721.aJs5_128.method7581(Static176.anInt7532) && Static721.aJs5_128.method7581(Static282.anInt4419)) {
-            @Pc(46) Class407 local46 = Static735.method9382(Static721.aJs5_128, Static176.anInt7532, 0);
+            @Pc(46) IndexedImage local46 = IndexedImage.loadFirst(Static721.aJs5_128, Static176.anInt7532, 0);
             Static63.aSprite_8 = arg1.method7948(local46, true);
             local46.method9388();
             Static542.aSprite_33 = arg1.method7948(local46, true);
-            Static26.aSprite_5 = arg1.method7948(Static735.method9382(Static721.aJs5_128, Static337.anInt5561, 0), true);
-            @Pc(71) Class407 local71 = Static735.method9382(Static721.aJs5_128, Static282.anInt4419, 0);
+            Static26.aSprite_5 = arg1.method7948(IndexedImage.loadFirst(Static721.aJs5_128, Static337.anInt5561, 0), true);
+            @Pc(71) IndexedImage local71 = IndexedImage.loadFirst(Static721.aJs5_128, Static282.anInt4419, 0);
             Static261.aSprite_18 = arg1.method7948(local71, true);
             local71.method9388();
             Static561.aSprite_34 = arg1.method7948(local71, true);

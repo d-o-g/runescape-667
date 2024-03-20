@@ -25,18 +25,18 @@ public final class Static293 {
         if (Static334.aClass291ArrayArrayArray1 == null) {
             return;
         }
-        @Pc(9) Interface25 local9 = null;
+        @Pc(9) Location local9 = null;
         if (arg0.anInt4011 == 0) {
-            local9 = (Interface25) Static302.method4414(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006);
+            local9 = (Location) Static302.getWall(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006);
         }
         if (arg0.anInt4011 == 1) {
-            local9 = (Interface25) Static114.method2134(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006);
+            local9 = (Location) Static114.getWallDecor(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006);
         }
         if (arg0.anInt4011 == 2) {
-            local9 = (Interface25) Static578.method7623(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006, aClass10 == null ? (aClass10 = getClass("Interface25")) : aClass10);
+            local9 = (Location) Static578.getEntity(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006, aClass10 == null ? (aClass10 = getClass("Interface25")) : aClass10);
         }
         if (arg0.anInt4011 == 3) {
-            local9 = (Interface25) Static687.method8959(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006);
+            local9 = (Location) Static687.method8959(arg0.anInt4010, arg0.anInt4016, arg0.anInt4006);
         }
         if (local9 == null) {
             arg0.anInt4009 = 0;
@@ -763,15 +763,15 @@ public final class Static293 {
                                                 local100 -= Static691.anInt10367;
                                                 if (local100 < 0) {
                                                     local100 = 0;
-                                                } else if (Static720.anInt10859 <= local100) {
-                                                    local100 = Static720.anInt10859;
+                                                } else if (Static720.mapWidth <= local100) {
+                                                    local100 = Static720.mapWidth;
                                                 }
                                                 local526 -= Static116.anInt2270;
                                                 Static692.anInt10376 = (local100 << 9) + 256;
                                                 if (local526 < 0) {
                                                     local526 = 0;
-                                                } else if (local526 >= Static501.anInt7568) {
-                                                    local526 = Static501.anInt7568;
+                                                } else if (local526 >= Static501.mapHeight) {
+                                                    local526 = Static501.mapHeight;
                                                 }
                                                 Static693.anInt10383 = (local526 << 9) + 256;
                                             }
@@ -1348,7 +1348,7 @@ public final class Static293 {
                                                                     local653 = local100 >> 28 & 0x3;
                                                                     local657 = (local100 >> 14 & 0x3FFF) - Static691.anInt10367;
                                                                     local3502 = (local100 & 0x3FFF) - Static116.anInt2270;
-                                                                    if (local657 >= 0 && local3502 >= 0 && local657 < Static720.anInt10859 && local3502 < Static501.anInt7568) {
+                                                                    if (local657 >= 0 && local3502 >= 0 && local657 < Static720.mapWidth && local3502 < Static501.mapHeight) {
                                                                         if (local2098 == -1) {
                                                                             @Pc(5270) DoublyLinkedNode_Sub2_Sub20 local5270 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get((long) (local657 << 16 | local3502));
                                                                             if (local5270 != null) {
@@ -1601,7 +1601,7 @@ public final class Static293 {
                                                                         local2098 = local1413 - Static116.anInt2270;
                                                                         if (Static87.anInt1810 == local100 && local1409 >= Static626.anInt9476 && Static626.anInt9476 + 8 > local1409 && local2098 >= Static270.anInt4354 && Static270.anInt4354 + 8 > local2098) {
                                                                             local6277.remove();
-                                                                            if (local1409 >= 0 && local2098 >= 0 && Static720.anInt10859 > local1409 && local2098 < Static501.anInt7568) {
+                                                                            if (local1409 >= 0 && local2098 >= 0 && Static720.mapWidth > local1409 && local2098 < Static501.mapHeight) {
                                                                                 Static468.method7641(Static87.anInt1810, local2098, local1409);
                                                                             }
                                                                         }

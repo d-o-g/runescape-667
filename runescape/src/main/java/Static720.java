@@ -18,7 +18,7 @@ public final class Static720 {
     public static Class363 aClass363_4;
 
     @OriginalMember(owner = "client!wr", name = "n", descriptor = "I")
-    public static int anInt10859 = 104;
+    public static int mapWidth = 104;
 
     @OriginalMember(owner = "client!wr", name = "G", descriptor = "I")
     public static int anInt10865 = 0;

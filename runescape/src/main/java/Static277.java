@@ -12,10 +12,10 @@ public final class Static277 {
     }
 
     @OriginalMember(owner = "client!im", name = "a", descriptor = "(Lclient!uv;IIZ)J")
-    public static long method4042(@OriginalArg(0) Interface25 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static long method4042(@OriginalArg(0) Location arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(5) long local5 = 4194304L;
         @Pc(18) long local18 = Long.MIN_VALUE;
-        @Pc(25) Class54 local25 = Static354.aClass142_4.method3063(arg0.method6859(-32136), 44);
+        @Pc(25) LocType local25 = Static354.aLocTypeList_4.list(arg0.method6859(-32136), 44);
         @Pc(46) long local46 = (long) (arg2 | arg1 << 7 | arg0.method6858() << 14 | arg0.method6855(23796) << 20 | 0x40000000);
         if (local25.anInt1271 == 0) {
             local46 |= local18;

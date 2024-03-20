@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
@@ -29,11 +29,11 @@ public final class Class173 {
         if (local31 != null) {
             return local31;
         } else if (this.aClass363_2.aJs5_116.method7581(this.anInt4167)) {
-            @Pc(55) Class407 local55 = Static735.method9382(this.aClass363_2.aJs5_116, this.anInt4167, 0);
+            @Pc(55) IndexedImage local55 = IndexedImage.loadFirst(this.aClass363_2.aJs5_116, this.anInt4167, 0);
             if (local55 != null) {
-                local55.anInt10849 = local55.anInt10852 = local55.anInt10851 = local55.anInt10848 = 0;
+                local55.offY2 = local55.offX1 = local55.offX2 = local55.offY1 = 0;
                 if (arg2) {
-                    local55.method9377();
+                    local55.flipHorizontal();
                 }
                 for (@Pc(79) int local79 = 0; local79 < arg0; local79++) {
                     local55.method9386();

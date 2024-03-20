@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -31,12 +31,12 @@ public final class Class389 {
     }
 
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "(B)Lclient!wp;")
-    public synchronized Class407 method8934() {
-        @Pc(13) Class407 local13 = (Class407) this.aClass267_2.aReferenceCache_143.get((long) this.anInt10305);
+    public synchronized IndexedImage method8934() {
+        @Pc(13) IndexedImage local13 = (IndexedImage) this.aClass267_2.aReferenceCache_143.get((long) this.anInt10305);
         if (local13 != null) {
             return local13;
         }
-        local13 = Static735.method9382(this.aClass267_2.aJs5_88, this.anInt10305, 0);
+        local13 = IndexedImage.loadFirst(this.aClass267_2.aJs5_88, this.anInt10305, 0);
         if (local13 != null) {
             this.aClass267_2.aReferenceCache_143.put(local13, (long) this.anInt10305);
         }

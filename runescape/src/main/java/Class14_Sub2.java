@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;
@@ -24,22 +24,22 @@ public final class Class14_Sub2 extends Class14 {
     public final Class36 aClass36_4;
 
     @OriginalMember(owner = "client!gs", name = "<init>", descriptor = "(Lclient!qha;Lclient!ve;[Lclient!wp;Z)V")
-    public Class14_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) Class407[] arg2, @OriginalArg(3) boolean arg3) {
+    public Class14_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
         super(arg0, arg1);
         this.aClass19_Sub3_16 = arg0;
         @Pc(8) int local8 = 0;
         for (@Pc(10) int local10 = 0; local10 < 256; local10++) {
-            @Pc(15) Class407 local15 = arg2[local10];
-            if (local15.anInt10850 > local8) {
-                local8 = local15.anInt10850;
+            @Pc(15) IndexedImage local15 = arg2[local10];
+            if (local15.height > local8) {
+                local8 = local15.height;
             }
-            if (local15.anInt10847 > local8) {
-                local8 = local15.anInt10847;
+            if (local15.width > local8) {
+                local8 = local15.width;
             }
         }
         @Pc(37) int local37 = local8 * 16;
         @Pc(46) int local46;
-        @Pc(51) Class407 local51;
+        @Pc(51) IndexedImage local51;
         @Pc(57) int local57;
         @Pc(63) int local63;
         @Pc(69) int local69;
@@ -51,15 +51,15 @@ public final class Class14_Sub2 extends Class14 {
             @Pc(44) byte[] local44 = new byte[local37 * local37];
             for (local46 = 0; local46 < 256; local46++) {
                 local51 = arg2[local46];
-                @Pc(54) int local54 = local51.anInt10850;
-                local57 = local51.anInt10847;
+                @Pc(54) int local54 = local51.height;
+                local57 = local51.width;
                 local63 = local46 % 16 * local8;
                 local69 = local46 / 16 * local8;
                 local75 = local69 * local37 + local63;
                 local77 = 0;
                 @Pc(83) byte[] local83;
-                if (local51.aByteArray115 == null) {
-                    local83 = local51.aByteArray114;
+                if (local51.alpha == null) {
+                    local83 = local51.raster;
                     for (local85 = 0; local85 < local54; local85++) {
                         for (local88 = 0; local88 < local57; local88++) {
                             local44[local75++] = (byte) (local83[local77++] == 0 ? 0 : -1);
@@ -67,7 +67,7 @@ public final class Class14_Sub2 extends Class14 {
                         local75 += local37 - local57;
                     }
                 } else {
-                    local83 = local51.aByteArray115;
+                    local83 = local51.alpha;
                     for (local85 = 0; local85 < local54; local85++) {
                         for (local88 = 0; local88 < local57; local88++) {
                             local44[local75++] = local83[local77++];
@@ -82,11 +82,11 @@ public final class Class14_Sub2 extends Class14 {
             @Pc(172) int[] local172 = new int[local37 * local37];
             for (local46 = 0; local46 < 256; local46++) {
                 local51 = arg2[local46];
-                @Pc(182) int[] local182 = local51.anIntArray882;
-                @Pc(185) byte[] local185 = local51.aByteArray115;
-                @Pc(188) byte[] local188 = local51.aByteArray114;
-                local69 = local51.anInt10850;
-                local75 = local51.anInt10847;
+                @Pc(182) int[] local182 = local51.palette;
+                @Pc(185) byte[] local185 = local51.alpha;
+                @Pc(188) byte[] local188 = local51.raster;
+                local69 = local51.height;
+                local75 = local51.width;
                 local77 = local46 % 16 * local8;
                 @Pc(206) int local206 = local46 / 16 * local8;
                 local85 = local206 * local37 + local77;
@@ -123,11 +123,11 @@ public final class Class14_Sub2 extends Class14 {
         @Pc(334) float local334 = this.aClass93_Sub2_Sub1_1.aFloat67 / (float) this.aClass93_Sub2_Sub1_1.anInt3259;
         @Pc(343) float local343 = this.aClass93_Sub2_Sub1_1.aFloat68 / (float) this.aClass93_Sub2_Sub1_1.anInt3257;
         for (@Pc(345) int local345 = 0; local345 < 256; local345++) {
-            @Pc(350) Class407 local350 = arg2[local345];
-            local57 = local350.anInt10850;
-            local63 = local350.anInt10847;
-            local69 = local350.anInt10848;
-            local75 = local350.anInt10852;
+            @Pc(350) IndexedImage local350 = arg2[local345];
+            local57 = local350.height;
+            local63 = local350.width;
+            local69 = local350.offY1;
+            local75 = local350.offX1;
             @Pc(369) float local369 = (float) (local345 % 16 * local8);
             @Pc(376) float local376 = (float) (local345 / 16 * local8);
             @Pc(380) float local380 = local369 * local334;

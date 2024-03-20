@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -61,11 +61,11 @@ public class Node_Sub1_Sub8 extends Node_Sub1 {
         if (this.anIntArray641 != null) {
             return true;
         } else if (this.anInt8232 >= 0) {
-            @Pc(37) Class407 local37 = Static426.anInt940 >= 0 ? Static735.method9382(Static582.aJs5_108, Static426.anInt940, this.anInt8232) : Static735.method9379(Static582.aJs5_108, this.anInt8232);
+            @Pc(37) IndexedImage local37 = Static426.anInt940 >= 0 ? IndexedImage.loadFirst(Static582.aJs5_108, Static426.anInt940, this.anInt8232) : IndexedImage.loadFirst(Static582.aJs5_108, this.anInt8232);
             local37.method9389();
             this.anIntArray641 = local37.method9383();
-            this.anInt8231 = local37.anInt10850;
-            this.anInt8228 = local37.anInt10847;
+            this.anInt8231 = local37.height;
+            this.anInt8228 = local37.width;
             return true;
         } else {
             return false;

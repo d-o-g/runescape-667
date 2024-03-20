@@ -1,5 +1,5 @@
 import com.jagex.Class230;
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
@@ -15,7 +15,7 @@ import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Node_Sub13;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureMetrics;
@@ -220,14 +220,14 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) Class407[] arg1, @OriginalArg(2) boolean arg2) {
+    public Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         @Pc(3) int[] local3 = new int[arg1.length];
         @Pc(7) int[] local7 = new int[arg1.length];
         @Pc(9) boolean local9 = false;
         for (@Pc(11) int local11 = 0; local11 < arg1.length; local11++) {
-            local3[local11] = arg1[local11].anInt10847;
-            local7[local11] = arg1[local11].anInt10850;
-            if (arg1[local11].aByteArray115 != null) {
+            local3[local11] = arg1[local11].width;
+            local7[local11] = arg1[local11].height;
+            if (arg1[local11].alpha != null) {
                 local9 = true;
             }
         }
@@ -324,7 +324,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIF)Lclient!lca;")
     @Override
-    public Node_Sub7 method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
+    public PointLight method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
         return new Node_Sub7_Sub3(arg0, arg1, arg2, arg3, arg4, arg5);
     }
 
@@ -651,14 +651,14 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(I[Lclient!lca;)V")
     @Override
-    public void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub7[] arg1) {
+    public void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) PointLight[] arg1) {
         @Pc(1) int local1 = 0;
         for (@Pc(3) int local3 = 0; local3 < arg0; local3++) {
-            Static445.anIntArray540[local1++] = arg1[local3].method8426();
-            Static445.anIntArray540[local1++] = arg1[local3].method8425();
-            Static445.anIntArray540[local1++] = arg1[local3].method8429();
-            Static445.anIntArray540[local1++] = arg1[local3].method8432();
-            Static445.aFloatArray44[local3] = arg1[local3].method8428();
+            Static445.anIntArray540[local1++] = arg1[local3].getX();
+            Static445.anIntArray540[local1++] = arg1[local3].getY();
+            Static445.anIntArray540[local1++] = arg1[local3].getZ();
+            Static445.anIntArray540[local1++] = arg1[local3].getRange();
+            Static445.aFloatArray44[local3] = arg1[local3].getIntensity();
             Static445.anIntArray540[local1++] = arg1[local3].method8431();
         }
         this.N(arg0, Static445.anIntArray540, Static445.aFloatArray44);
@@ -747,9 +747,9 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(17) j local17 = new j(this, arg0.anIntArray882, arg0.aByteArray114, arg0.aByteArray115, 0, arg0.anInt10847, arg0.anInt10847, arg0.anInt10850);
-        local17.method8184(arg0.anInt10852, arg0.anInt10848, arg0.anInt10851, arg0.anInt10849);
+    public Sprite method7948(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
+        @Pc(17) j local17 = new j(this, arg0.palette, arg0.raster, arg0.alpha, 0, arg0.width, arg0.width, arg0.height);
+        local17.method8184(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
         return local17;
     }
 

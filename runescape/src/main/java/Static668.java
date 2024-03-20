@@ -55,8 +55,8 @@ public final class Static668 {
         if (Static30.aClass363_3 != null) {
             Static30.aClass363_3.method8365(64, 64);
         }
-        if (Static30.aClass142_3 != null) {
-            Static30.aClass142_3.method3062(64);
+        if (Static30.aLocTypeList_3 != null) {
+            Static30.aLocTypeList_3.method3062(64);
         }
         Static529.aClass161_1.method3420(64);
     }

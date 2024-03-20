@@ -417,7 +417,7 @@ public final class Static364 {
                         Static106.anInt2153 = local1435.g3s();
                         Static174.aBoolean249 = local1435.g1() == 1;
                         Static416.aString71 = local1435.gjstr();
-                        Static354.aClass142_4.method3059(Static174.aBoolean249);
+                        Static354.aLocTypeList_4.method3059(Static174.aBoolean249);
                         Static419.aObjTypeList_1.setAllowMembers(Static174.aBoolean249);
                         Static690.aNPCTypeList_2.method7090(Static174.aBoolean249);
                     } else if (Static524.aClass153_3.aClass348_1.method7932(Static94.anInt1961)) {

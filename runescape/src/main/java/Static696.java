@@ -28,9 +28,9 @@ public final class Static696 {
 
     @OriginalMember(owner = "client!w", name = "a", descriptor = "(IIIII)Z")
     public static boolean method9036(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        if ((Static280.aByteArrayArrayArray3[0][arg2][arg0] & 0x2) != 0) {
+        if ((Static280.tileFlags[0][arg2][arg0] & 0x2) != 0) {
             return true;
-        } else if ((Static280.aByteArrayArrayArray3[arg3][arg2][arg0] & 0x10) == 0) {
+        } else if ((Static280.tileFlags[arg3][arg2][arg0] & 0x10) == 0) {
             return Static705.method9198(arg0, arg2, arg3) == arg1;
         } else {
             return false;

@@ -8,7 +8,7 @@ public final class Static577 {
     public static Class246 aClass246_4;
 
     @OriginalMember(owner = "client!sca", name = "d", descriptor = "[Lclient!eq;")
-    public static final Class110[] aClass110Array1 = new Class110[4];
+    public static final CollisionMap[] A_COLLISION_MAP_ARRAY_1 = new CollisionMap[4];
 
     @OriginalMember(owner = "client!sca", name = "e", descriptor = "I")
     public static int anInt8587 = 0;

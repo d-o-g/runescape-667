@@ -73,8 +73,8 @@ public final class Static441 {
 
     @OriginalMember(owner = "client!nu", name = "a", descriptor = "(III)Z")
     public static boolean method5968(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (arg1 >= 0 && arg0 >= 0 && arg1 < Static280.aByteArrayArrayArray3[1].length && arg0 < Static280.aByteArrayArrayArray3[1][arg1].length) {
-            return (Static280.aByteArrayArrayArray3[1][arg1][arg0] & 0x2) != 0;
+        if (arg1 >= 0 && arg0 >= 0 && arg1 < Static280.tileFlags[1].length && arg0 < Static280.tileFlags[1][arg1].length) {
+            return (Static280.tileFlags[1][arg1][arg0] & 0x2) != 0;
         } else {
             return false;
         }

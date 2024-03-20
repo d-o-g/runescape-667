@@ -46,12 +46,12 @@ public final class Static21 {
         }
         if (arg6) {
             Static161.aLongArrayArrayArray1 = new long[4][arg2][arg3];
-            Static265.aClass353Array1 = new Class353[65535];
+            Static265.aEnvironmentLightArray1 = new EnvironmentLight[65535];
             Static279.aBooleanArray11 = new boolean[65535];
             Static319.anInt5080 = 0;
         } else {
             Static161.aLongArrayArrayArray1 = null;
-            Static265.aClass353Array1 = null;
+            Static265.aEnvironmentLightArray1 = null;
             Static279.aBooleanArray11 = null;
             Static319.anInt5080 = 0;
         }

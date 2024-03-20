@@ -22,9 +22,9 @@ public final class Static394 {
             @Pc(65) float local65 = arg3 + local7 * local37;
             @Pc(70) int local70 = (int) local53 >> 9;
             @Pc(75) int local75 = (int) local65 >> 9;
-            if (local70 > 0 && local75 > 0 && Static720.anInt10859 > local70 && local75 < Static501.anInt7568) {
+            if (local70 > 0 && local75 > 0 && Static720.mapWidth > local70 && local75 < Static501.mapHeight) {
                 @Pc(104) int local104 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144;
-                if (local104 < 3 && (Static280.aByteArrayArrayArray3[1][local70][local75] & 0x2) != 0) {
+                if (local104 < 3 && (Static280.tileFlags[1][local70][local75] & 0x2) != 0) {
                     local104++;
                 }
                 @Pc(135) int local135 = Static706.aGroundArray3[local104].method7878((int) local65, (int) local53);

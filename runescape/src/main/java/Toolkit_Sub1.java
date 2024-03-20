@@ -1,5 +1,5 @@
 import com.jagex.Class230;
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.collect.Deque;
 import com.jagex.collect.Node;
@@ -11,7 +11,7 @@ import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Node_Sub13;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
@@ -130,7 +130,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
     protected Class370[] aClass370Array3;
 
     @OriginalMember(owner = "client!am", name = "Hf", descriptor = "[Lclient!lca;")
-    protected Node_Sub7[] aClass2_Sub7Array6;
+    protected PointLight[] aClass2_Sub7Array6;
 
     @OriginalMember(owner = "client!am", name = "df", descriptor = "Lclient!eda;")
     public Class67_Sub2 aClass67_Sub2_3;
@@ -579,7 +579,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIIF)Lclient!lca;")
     @Override
-    public final Node_Sub7 method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
+    public final PointLight method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
         return new Node_Sub7_Sub2(arg0, arg1, arg2, arg3, arg4, arg5);
     }
 
@@ -1454,34 +1454,34 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public final Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
+    public final Sprite method7948(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
         @Pc(141) Sprite local141;
-        if (arg0.anInt10847 == 0 || arg0.anInt10850 == 0) {
+        if (arg0.width == 0 || arg0.height == 0) {
             local141 = this.createSprite(1, 1, 1, new int[1]);
         } else {
-            @Pc(23) int[] local23 = new int[arg0.anInt10847 * arg0.anInt10850];
+            @Pc(23) int[] local23 = new int[arg0.width * arg0.height];
             @Pc(25) int local25 = 0;
             @Pc(27) int local27 = 0;
             @Pc(32) int local32;
             @Pc(36) int local36;
-            if (arg0.aByteArray115 == null) {
-                for (local32 = 0; local32 < arg0.anInt10850; local32++) {
-                    for (local36 = 0; local36 < arg0.anInt10847; local36++) {
-                        @Pc(98) int local98 = arg0.anIntArray882[arg0.aByteArray114[local25++] & 0xFF];
+            if (arg0.alpha == null) {
+                for (local32 = 0; local32 < arg0.height; local32++) {
+                    for (local36 = 0; local36 < arg0.width; local36++) {
+                        @Pc(98) int local98 = arg0.palette[arg0.raster[local25++] & 0xFF];
                         local23[local27++] = local98 == 0 ? 0 : local98 | 0xFF000000;
                     }
                 }
             } else {
-                for (local32 = 0; local32 < arg0.anInt10850; local32++) {
-                    for (local36 = 0; local36 < arg0.anInt10847; local36++) {
-                        local23[local27++] = arg0.anIntArray882[arg0.aByteArray114[local25] & 0xFF] | arg0.aByteArray115[local25] << 24;
+                for (local32 = 0; local32 < arg0.height; local32++) {
+                    for (local36 = 0; local36 < arg0.width; local36++) {
+                        local23[local27++] = arg0.palette[arg0.raster[local25] & 0xFF] | arg0.alpha[local25] << 24;
                         local25++;
                     }
                 }
             }
-            local141 = this.createSprite(arg0.anInt10847, arg0.anInt10847, arg0.anInt10850, local23);
+            local141 = this.createSprite(arg0.width, arg0.width, arg0.height, local23);
         }
-        local141.method8184(arg0.anInt10852, arg0.anInt10848, arg0.anInt10851, arg0.anInt10849);
+        local141.method8184(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
         return local141;
     }
 
@@ -1929,7 +1929,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(I[Lclient!lca;)V")
     @Override
-    public final void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub7[] arg1) {
+    public final void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) PointLight[] arg1) {
         for (@Pc(7) int local7 = 0; local7 < arg0; local7++) {
             this.aClass2_Sub7Array6[local7] = arg1[local7];
         }
@@ -2405,7 +2405,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public final Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) Class407[] arg1, @OriginalArg(2) boolean arg2) {
+    public final Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         return new Class14_Sub1(this, arg0, arg1, arg2);
     }
 
@@ -2475,7 +2475,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
             this.aClass370Array3[local38] = Static215.aClass370_2;
             this.aClass73_Sub1Array3[local38] = new Matrix_Sub1();
         }
-        this.aClass2_Sub7Array6 = new Node_Sub7[this.anInt9182 - 2];
+        this.aClass2_Sub7Array6 = new PointLight[this.anInt9182 - 2];
         this.anInterface17_3 = this.method8067(Static172.aClass92_8, Static702.aClass397_16, 1, 1);
         this.method7938(new Node_Sub13_Sub2(262144));
         this.aClass244_17 = this.method8148(new Class237[]{new Class237(new Class157[]{Static231.aClass157_1, Static231.aClass157_5})});

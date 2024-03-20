@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;
@@ -15,7 +15,7 @@ public final class h extends Class14 implements Interface5 {
     public long nativeid;
 
     @OriginalMember(owner = "client!h", name = "<init>", descriptor = "(Lclient!oa;Lclient!ya;Lclient!ve;[Lclient!wp;[Lclient!st;)V")
-    public h(@OriginalArg(0) oa arg0, @OriginalArg(1) ya arg1, @OriginalArg(2) Class381 arg2, @OriginalArg(3) Class407[] arg3, @OriginalArg(4) Sprite[] arg4) {
+    public h(@OriginalArg(0) oa arg0, @OriginalArg(1) ya arg1, @OriginalArg(2) Class381 arg2, @OriginalArg(3) IndexedImage[] arg3, @OriginalArg(4) Sprite[] arg4) {
         super(arg0, arg2);
         @Pc(7) byte[][] local7 = new byte[arg3.length][];
         @Pc(11) int[] local11 = new int[arg3.length];
@@ -23,11 +23,11 @@ public final class h extends Class14 implements Interface5 {
         @Pc(19) int[] local19 = new int[arg3.length];
         @Pc(23) int[] local23 = new int[arg3.length];
         for (@Pc(25) int local25 = 0; local25 < arg3.length; local25++) {
-            local7[local25] = arg3[local25].aByteArray114;
-            local11[local25] = arg3[local25].anInt10847;
-            local15[local25] = arg3[local25].anInt10850;
-            local19[local25] = arg3[local25].anInt10852;
-            local23[local25] = arg3[local25].anInt10848;
+            local7[local25] = arg3[local25].raster;
+            local11[local25] = arg3[local25].width;
+            local15[local25] = arg3[local25].height;
+            local19[local25] = arg3[local25].offX1;
+            local23[local25] = arg3[local25].offY1;
         }
         this.JA(arg0, arg1, local7, local11, local15, local19, local23);
     }

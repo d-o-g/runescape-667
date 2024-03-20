@@ -18,15 +18,15 @@ public final class Static153 {
     public static String aString27 = null;
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(ILclient!uc;I)V")
-    public static void method2461(@OriginalArg(0) int arg0, @OriginalArg(1) Class367 arg1) {
+    public static void method2461(@OriginalArg(0) int arg0, @OriginalArg(1) Environment arg1) {
         if (Static584.aBoolean658) {
             arg0 = 0;
             Static584.aBoolean658 = false;
         }
-        if (Static346.aClass367_1 != null && Static346.aClass367_1.method8388(arg1)) {
+        if (Static346.aEnvironment_1 != null && Static346.aEnvironment_1.method8388(arg1)) {
             return;
         }
-        Static346.aClass367_1 = arg1;
+        Static346.aEnvironment_1 = arg1;
         Static344.aLong169 = SystemTimer.safetime();
         Static173.anInt2913 = arg0;
         Static587.anInt8673 = arg0;
@@ -52,8 +52,8 @@ public final class Static153 {
             Static74.aClass148_1 = Static456.aClass148_3.method3167();
             Static456.aClass148_3 = Static74.aClass148_1;
         }
-        if (Static456.aClass148_3 != null && Static346.aClass367_1.aClass148_5 != Static456.aClass148_3) {
-            Static456.aClass148_3.method3163(Static346.aClass367_1.aClass148_5);
+        if (Static456.aClass148_3 != null && Static346.aEnvironment_1.aClass148_5 != Static456.aClass148_3) {
+            Static456.aClass148_3.method3163(Static346.aEnvironment_1.aClass148_5);
         }
     }
 }

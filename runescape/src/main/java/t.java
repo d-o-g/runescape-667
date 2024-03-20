@@ -1,6 +1,6 @@
 import com.jagex.collect.Deque;
 import com.jagex.graphics.Ground;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -46,8 +46,8 @@ public final class t extends Ground implements Interface5 {
         this.anInt8897 = -1;
         @Pc(4) int local4 = 0;
         @Pc(10) float[] local10 = new float[this.aDeque_57.size()];
-        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aDeque_57.first(); local16 != null; local16 = (Node_Sub7) this.aDeque_57.next()) {
-            local10[local4++] = local16.method8428();
+        for (@Pc(16) PointLight local16 = (PointLight) this.aDeque_57.first(); local16 != null; local16 = (PointLight) this.aDeque_57.next()) {
+            local10[local4++] = local16.getIntensity();
         }
         this.q(local10);
         for (@Pc(37) int local37 = 0; local37 < arg2 + arg2; local37++) {
@@ -65,9 +65,9 @@ public final class t extends Ground implements Interface5 {
 
     @OriginalMember(owner = "client!t", name = "a", descriptor = "(Lclient!lca;[I)V")
     @Override
-    public void method7868(@OriginalArg(0) Node_Sub7 arg0, @OriginalArg(1) int[] arg1) {
+    public void method7868(@OriginalArg(0) PointLight arg0, @OriginalArg(1) int[] arg1) {
         this.aDeque_57.addLast(arg0);
-        this.V(arg0.hashCode(), arg0.method8426(), arg0.method8425(), arg0.method8429(), arg0.method8432(), arg0.method8431(), arg1);
+        this.V(arg0.hashCode(), arg0.getX(), arg0.getY(), arg0.getZ(), arg0.getRange(), arg0.method8431(), arg1);
     }
 
     @OriginalMember(owner = "client!t", name = "q", descriptor = "([F)V")
@@ -89,8 +89,8 @@ public final class t extends Ground implements Interface5 {
         this.anInt8897 = arg5;
         @Pc(4) int local4 = 0;
         @Pc(10) float[] local10 = new float[this.aDeque_57.size()];
-        for (@Pc(16) Node_Sub7 local16 = (Node_Sub7) this.aDeque_57.first(); local16 != null; local16 = (Node_Sub7) this.aDeque_57.next()) {
-            local10[local4++] = local16.method8428();
+        for (@Pc(16) PointLight local16 = (PointLight) this.aDeque_57.first(); local16 != null; local16 = (PointLight) this.aDeque_57.next()) {
+            local10[local4++] = local16.getIntensity();
         }
         this.q(local10);
         for (@Pc(37) int local37 = 0; local37 < arg2 + arg2; local37++) {

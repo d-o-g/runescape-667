@@ -51,7 +51,7 @@ public final class Static296 {
             featureMask |= 0x40;
         }
         Static335.setFeatureMask(featureMask);
-        Static354.aClass142_4.setFeatureMask(featureMask);
+        Static354.aLocTypeList_4.setFeatureMask(featureMask);
         Static419.aObjTypeList_1.setFeatureMask(featureMask);
         Static690.aNPCTypeList_2.setFeatureMask(featureMask);
         Static23.aClass128_1.setFeatureMask(featureMask);

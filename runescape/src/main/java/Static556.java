@@ -13,7 +13,7 @@ public final class Static556 {
     public static Class8_Sub2_Sub1_Sub2_Sub1 aClass8_Sub2_Sub1_Sub2_Sub1_2;
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "Lclient!uc;")
-    public static Class367 aClass367_2;
+    public static Environment aEnvironment_2;
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(BLclient!hda;)Lclient!hda;")
     public static Class158 method7299(@OriginalArg(1) Class158 arg0) {
@@ -73,7 +73,7 @@ public final class Static556 {
                     }
                 }
             } else if (Static523.method3444(local55.anInt7314)) {
-                @Pc(131) Class54 local131 = Static354.aClass142_4.method3063((int) (local55.aLong233 >>> 32 & 0x7FFFFFFFL), 68);
+                @Pc(131) LocType local131 = Static354.aLocTypeList_4.list((int) (local55.aLong233 >>> 32 & 0x7FFFFFFFL), 68);
                 if (local131.anIntArray113 != null) {
                     local131 = local131.method1301(13, Static34.aClass304_1);
                 }

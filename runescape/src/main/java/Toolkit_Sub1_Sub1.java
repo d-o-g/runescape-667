@@ -3,7 +3,7 @@ import com.jagex.Class84;
 import com.jagex.Interface26;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Interface9;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
@@ -767,14 +767,14 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
     protected void method8049() {
         @Pc(1) int local1;
         for (local1 = 0; local1 < this.anInt9177; local1++) {
-            @Pc(10) Node_Sub7 local10 = this.aClass2_Sub7Array6[local1];
+            @Pc(10) PointLight local10 = this.aClass2_Sub7Array6[local1];
             @Pc(14) int local14 = local1 + 2;
             @Pc(18) int local18 = local10.method8431();
-            @Pc(24) float local24 = local10.method8428() / 255.0F;
-            this.aD3DLIGHT2.SetPosition((float) local10.method8426(), (float) local10.method8425(), (float) local10.method8429());
+            @Pc(24) float local24 = local10.getIntensity() / 255.0F;
+            this.aD3DLIGHT2.SetPosition((float) local10.getX(), (float) local10.getY(), (float) local10.getZ());
             this.aD3DLIGHT2.SetDiffuse((float) (local18 >> 16 & 0xFF) * local24, local24 * (float) (local18 >> 8 & 0xFF), local24 * (float) (local18 & 0xFF), 0.0F);
-            this.aD3DLIGHT2.SetAttenuation(0.0F, 0.0F, 1.0F / (float) (local10.method8432() * local10.method8432()));
-            this.aD3DLIGHT2.SetRange((float) local10.method8432());
+            this.aD3DLIGHT2.SetAttenuation(0.0F, 0.0F, 1.0F / (float) (local10.getRange() * local10.getRange()));
+            this.aD3DLIGHT2.SetRange((float) local10.getRange());
             this.anIDirect3DDevice1.SetLight(local14, this.aD3DLIGHT2);
             this.anIDirect3DDevice1.LightEnable(local14, true);
         }

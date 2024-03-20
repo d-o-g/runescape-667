@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;
@@ -29,7 +29,7 @@ public final class Class14_Sub4 extends Class14 {
     public final int[] anIntArray485;
 
     @OriginalMember(owner = "client!mq", name = "<init>", descriptor = "(Lclient!iaa;Lclient!ve;[Lclient!wp;[I[I)V")
-    public Class14_Sub4(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) Class407[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
+    public Class14_Sub4(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
         super(arg0, arg1);
         this.aClass19_Sub2_6 = arg0;
         this.aClass19_Sub2_6 = arg0;
@@ -39,18 +39,18 @@ public final class Class14_Sub4 extends Class14 {
         this.anIntArray488 = new int[arg2.length];
         this.anIntArray485 = new int[arg2.length];
         for (@Pc(32) int local32 = 0; local32 < arg2.length; local32++) {
-            @Pc(37) Class407 local37 = arg2[local32];
-            if (local37.aByteArray115 == null) {
-                @Pc(50) byte[] local50 = local37.aByteArray114;
+            @Pc(37) IndexedImage local37 = arg2[local32];
+            if (local37.alpha == null) {
+                @Pc(50) byte[] local50 = local37.raster;
                 @Pc(59) byte[] local59 = this.aByteArrayArray18[local32] = new byte[local50.length];
                 for (@Pc(61) int local61 = 0; local61 < local50.length; local61++) {
                     local59[local61] = (byte) (local50[local61] == 0 ? 0 : -1);
                 }
             } else {
-                this.aByteArrayArray18[local32] = local37.aByteArray115;
+                this.aByteArrayArray18[local32] = local37.alpha;
             }
-            this.anIntArray488[local32] = local37.anInt10848;
-            this.anIntArray485[local32] = local37.anInt10852;
+            this.anIntArray488[local32] = local37.offY1;
+            this.anIntArray485[local32] = local37.offX1;
         }
     }
 

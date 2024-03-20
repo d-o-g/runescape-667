@@ -77,9 +77,9 @@ public final class Static563 {
             }
             Static645.anInt9611 = 0;
         }
-        if (Static265.aClass353Array1 != null) {
+        if (Static265.aEnvironmentLightArray1 != null) {
             for (local3 = 0; local3 < Static319.anInt5080; local3++) {
-                Static265.aClass353Array1[local3] = null;
+                Static265.aEnvironmentLightArray1[local3] = null;
             }
             for (local6 = 0; local6 < Static299.anInt4824; local6++) {
                 for (local9 = 0; local9 < Static619.anInt1566; local9++) {

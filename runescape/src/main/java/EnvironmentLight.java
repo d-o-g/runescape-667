@@ -1,5 +1,5 @@
 import com.jagex.core.io.Packet;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -8,13 +8,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!th")
-public final class Class353 {
+public final class EnvironmentLight {
 
     @OriginalMember(owner = "client!th", name = "a", descriptor = "Z")
     public boolean aBoolean716;
 
     @OriginalMember(owner = "client!th", name = "t", descriptor = "I")
-    public int anInt9369;
+    public int level;
 
     @OriginalMember(owner = "client!th", name = "j", descriptor = "I")
     public int anInt9370;
@@ -23,7 +23,7 @@ public final class Class353 {
     public int anInt9371;
 
     @OriginalMember(owner = "client!th", name = "r", descriptor = "Lclient!lca;")
-    public Node_Sub7 aClass2_Sub7_3;
+    public PointLight light;
 
     @OriginalMember(owner = "client!th", name = "v", descriptor = "Z")
     public boolean aBoolean717;
@@ -41,10 +41,10 @@ public final class Class353 {
     public int anInt9379;
 
     @OriginalMember(owner = "client!th", name = "g", descriptor = "I")
-    public int anInt9380;
+    public int preset;
 
     @OriginalMember(owner = "client!th", name = "<init>", descriptor = "()V")
-    public Class353() {
+    public EnvironmentLight() {
         if (Static695.anIntArray868 == null) {
             Static344.method5043();
         }
@@ -52,14 +52,14 @@ public final class Class353 {
     }
 
     @OriginalMember(owner = "client!th", name = "<init>", descriptor = "(Lclient!ha;Lclient!ge;I)V")
-    public Class353(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
+    public EnvironmentLight(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (Static695.anIntArray868 == null) {
             Static344.method5043();
         }
-        this.anInt9369 = arg1.g1();
-        this.aBoolean716 = (this.anInt9369 & 0x10) != 0;
-        this.aBoolean717 = (this.anInt9369 & 0x8) != 0;
-        this.anInt9369 &= 0x7;
+        this.level = arg1.g1();
+        this.aBoolean716 = (this.level & 0x10) != 0;
+        this.aBoolean717 = (this.level & 0x8) != 0;
+        this.level &= 0x7;
         @Pc(47) int local47 = arg1.g2() << arg2;
         @Pc(53) int local53 = arg1.g2() << arg2;
         @Pc(59) int local59 = arg1.g2() << arg2;
@@ -83,8 +83,8 @@ public final class Class353 {
         @Pc(160) int local160 = Static154.anIntArray237 == null ? Static323.anIntArray389[Static105.method2043(arg1.g2()) & 0xFFFF] : Static154.anIntArray237[arg1.g2()];
         local85 = arg1.g1();
         this.anInt9371 = (local85 & 0xE0) << 3;
-        this.anInt9380 = local85 & 0x1F;
-        if (this.anInt9380 != 31) {
+        this.preset = local85 & 0x1F;
+        if (this.preset != 31) {
             this.method8247();
         }
         this.method8246(arg0, local53, local59, local47, local160, local63);
@@ -112,11 +112,11 @@ public final class Class353 {
                 local71 = 2048;
             }
         }
-        this.aClass2_Sub7_3.method8433((float) ((this.anInt9370 * local71 >> 11) + this.anInt9378) / 2048.0F);
+        this.light.method8433((float) ((this.anInt9370 * local71 >> 11) + this.anInt9378) / 2048.0F);
     }
 
     @OriginalMember(owner = "client!th", name = "a", descriptor = "(IBIII)V")
-    public void method8244(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
+    public void updateParameters(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         this.anInt9377 = arg3;
         this.anInt9378 = arg0;
         this.anInt9379 = arg1;
@@ -125,12 +125,12 @@ public final class Class353 {
 
     @OriginalMember(owner = "client!th", name = "a", descriptor = "(Lclient!ha;IIIIII)V")
     public void method8246(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.aClass2_Sub7_3 = arg0.method7941(arg3, arg2, arg1, arg5, arg4, (float) 1);
+        this.light = arg0.method7941(arg3, arg2, arg1, arg5, arg4, (float) 1);
     }
 
     @OriginalMember(owner = "client!th", name = "c", descriptor = "(I)V")
     public void method8247() {
-        @Pc(9) int local9 = this.anInt9380;
+        @Pc(9) int local9 = this.preset;
         if (local9 == 2) {
             this.anInt9377 = 2048;
             this.anInt9370 = 2048;

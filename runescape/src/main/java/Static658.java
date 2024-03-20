@@ -1,5 +1,5 @@
 import com.jagex.collect.HashTable;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -14,7 +14,7 @@ public final class Static658 {
     public static final HashTable A_HASH_TABLE___43 = new HashTable(16);
 
     @OriginalMember(owner = "client!us", name = "a", descriptor = "(Lclient!eo;[Lclient!lca;)V")
-    public static void method8591(@OriginalArg(0) Class8_Sub2 arg0, @OriginalArg(1) Node_Sub7[] arg1) {
+    public static void method8591(@OriginalArg(0) Class8_Sub2 arg0, @OriginalArg(1) PointLight[] arg1) {
         @Pc(6) int local6;
         if (Static442.aBoolean500) {
             local6 = arg0.method9288(arg1);

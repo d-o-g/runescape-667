@@ -39,11 +39,11 @@ public final class Class384 {
     }
 
     @OriginalMember(owner = "client!vga", name = "a", descriptor = "(IB)Lclient!vt;")
-    public Class392 method8814(@OriginalArg(0) int arg0) {
+    public LightType list(@OriginalArg(0) int arg0) {
         @Pc(13) ReferenceCache local13 = this.aReferenceCache_219;
-        @Pc(23) Class392 local23;
+        @Pc(23) LightType local23;
         synchronized (this.aReferenceCache_219) {
-            local23 = (Class392) this.aReferenceCache_219.get((long) arg0);
+            local23 = (LightType) this.aReferenceCache_219.get((long) arg0);
         }
         if (local23 != null) {
             return local23;
@@ -53,7 +53,7 @@ public final class Class384 {
         synchronized (this.aJs5_120) {
             local46 = this.aJs5_120.getfile(arg0, 31);
         }
-        local23 = new Class392();
+        local23 = new LightType();
         if (local46 != null) {
             local23.method9006(new Packet(local46));
         }

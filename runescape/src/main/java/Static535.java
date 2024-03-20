@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static535 {
 
     @OriginalMember(owner = "client!qr", name = "f", descriptor = "Lclient!wp;")
-    public static Class407 aClass407_3;
+    public static IndexedImage aIndexedImage_3;
 
     @OriginalMember(owner = "client!qr", name = "k", descriptor = "Lclient!kda;")
     public static final Class204 aClass204_11 = new Class204(3, 2);

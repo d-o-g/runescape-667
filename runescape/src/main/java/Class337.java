@@ -75,7 +75,7 @@ public final class Class337 {
     public final Animator aAnimator_9;
 
     @OriginalMember(owner = "client!sh", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIILclient!eo;ZI)V")
-    public Class337(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8) {
+    public Class337(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Class8_Sub2 arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8) {
         this.aByte133 = (byte) arg5;
         this.anInt8663 = arg3;
         this.aByte132 = (byte) arg4;
@@ -135,8 +135,8 @@ public final class Class337 {
         @Pc(10) int local10 = arg1;
         @Pc(12) boolean local12 = false;
         if (arg1 == -1) {
-            @Pc(21) Class54 local21 = Static354.aClass142_4.method3063(this.anInt8649, 74);
-            @Pc(23) Class54 local23 = local21;
+            @Pc(21) LocType local21 = Static354.aLocTypeList_4.list(this.anInt8649, 74);
+            @Pc(23) LocType local23 = local21;
             if (local21.anIntArray113 != null) {
                 local21 = local21.method1301(13, Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
             }
@@ -186,7 +186,7 @@ public final class Class337 {
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!ha;ZZZI)Lclient!ka;")
     public Model method7678(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
-        @Pc(11) Class54 local11 = Static354.aClass142_4.method3063(this.anInt8649, 119);
+        @Pc(11) LocType local11 = Static354.aLocTypeList_4.list(this.anInt8649, 119);
         if (local11.anIntArray113 != null) {
             local11 = local11.method1301(13, Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
         }
@@ -314,7 +314,7 @@ public final class Class337 {
         @Pc(11) MeshEmitter[] local11 = arg1.meshEmitters();
         @Pc(14) MeshMagnet[] local14 = arg1.meshMagnets();
         if ((this.aClass8_Sub5_7 == null || this.aClass8_Sub5_7.aBoolean324) && (local11 != null || local14 != null)) {
-            @Pc(37) Class54 local37 = Static354.aClass142_4.method3063(this.anInt8649, 115);
+            @Pc(37) LocType local37 = Static354.aLocTypeList_4.list(this.anInt8649, 115);
             if (local37.anIntArray113 != null) {
                 local37 = local37.method1301(arg3 + 9840, Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
             }

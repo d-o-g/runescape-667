@@ -34,17 +34,17 @@ public final class Static342 {
         if (arg0 == Static537.anInt8170) {
             return;
         }
-        Static720.anInt10859 = Static501.anInt7568 = Static238.anIntArray306[arg0];
+        Static720.mapWidth = Static501.mapHeight = Static238.anIntArray306[arg0];
         Static209.method3110();
-        Static623.anIntArrayArrayArray19 = new int[4][Static720.anInt10859 >> 3][Static501.anInt7568 >> 3];
-        Static148.anIntArrayArray64 = new int[Static720.anInt10859][Static501.anInt7568];
-        Static341.anIntArrayArray133 = new int[Static720.anInt10859][Static501.anInt7568];
+        Static623.anIntArrayArrayArray19 = new int[4][Static720.mapWidth >> 3][Static501.mapHeight >> 3];
+        Static148.anIntArrayArray64 = new int[Static720.mapWidth][Static501.mapHeight];
+        Static341.anIntArrayArray133 = new int[Static720.mapWidth][Static501.mapHeight];
         for (@Pc(35) int local35 = 0; local35 < 4; local35++) {
-            Static577.aClass110Array1[local35] = Static125.method2219(Static720.anInt10859, Static501.anInt7568);
+            Static577.A_COLLISION_MAP_ARRAY_1[local35] = Static125.method2219(Static720.mapWidth, Static501.mapHeight);
         }
-        Static328.aByteArrayArrayArray4 = new byte[4][Static720.anInt10859][Static501.anInt7568];
-        Static708.method9231(Static720.anInt10859, Static501.anInt7568);
-        Static613.method8239(Static163.activeToolkit, Static501.anInt7568 >> 3, Static720.anInt10859 >> 3);
+        Static328.aByteArrayArrayArray4 = new byte[4][Static720.mapWidth][Static501.mapHeight];
+        Static708.method9231(Static720.mapWidth, Static501.mapHeight);
+        Static613.method8239(Static163.activeToolkit, Static501.mapHeight >> 3, Static720.mapWidth >> 3);
         Static537.anInt8170 = arg0;
     }
 }

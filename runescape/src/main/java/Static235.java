@@ -16,7 +16,7 @@ public final class Static235 {
 
     @OriginalMember(owner = "client!hf", name = "a", descriptor = "(IIIIIIIII)V")
     public static void method3421(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7) {
-        if (arg3 < 1 || arg0 < 1 || Static720.anInt10859 - 2 < arg3 || Static501.anInt7568 - 2 < arg0) {
+        if (arg3 < 1 || arg0 < 1 || Static720.mapWidth - 2 < arg3 || Static501.mapHeight - 2 < arg0) {
             return;
         }
         @Pc(39) int local39 = arg6;
@@ -29,11 +29,11 @@ public final class Static235 {
         if (Static334.aClass291ArrayArrayArray1 == null) {
             return;
         }
-        Static2.aClass306_Sub1_1.method7901(arg5, arg0, Static577.aClass110Array1[arg6], arg6, arg3, Static163.activeToolkit);
+        Static2.aMapRegion.method7901(arg5, arg0, Static577.A_COLLISION_MAP_ARRAY_1[arg6], arg6, arg3, Static163.activeToolkit);
         if (arg7 >= 0) {
             @Pc(93) int local93 = Static400.instance.aClass57_Sub6_1.method2714();
             Static400.instance.method5104(1, Static400.instance.aClass57_Sub6_1);
-            Static2.aClass306_Sub1_1.method7894(arg1, arg7, Static577.aClass110Array1[arg6], arg0, Static163.activeToolkit, arg3, arg2, local39, arg6, arg4);
+            Static2.aMapRegion.loadLocation(arg1, arg7, Static577.A_COLLISION_MAP_ARRAY_1[arg6], arg0, Static163.activeToolkit, arg3, arg2, local39, arg6, arg4);
             Static400.instance.method5104(local93, Static400.instance.aClass57_Sub6_1);
         }
     }
@@ -43,7 +43,7 @@ public final class Static235 {
         if (arg1 == 11) {
             arg1 = 10;
         }
-        @Pc(19) Class54 local19 = Static354.aClass142_4.method3063(arg0, 61);
+        @Pc(19) LocType local19 = Static354.aLocTypeList_4.list(arg0, 61);
         if (arg1 >= 5 && arg1 <= 8) {
             arg1 = 4;
         }

@@ -713,9 +713,9 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             this.method9302((byte) -74);
         }
         this.anInt1467 = -1;
-        if (arg1 < 0 || Static720.anInt10859 <= arg1 || arg0 < 0 || Static501.anInt7568 <= arg0) {
+        if (arg1 < 0 || Static720.mapWidth <= arg1 || arg0 < 0 || Static501.mapHeight <= arg0) {
             this.method1419(arg1, arg0);
-        } else if (super.anIntArray879[0] >= 0 && super.anIntArray879[0] < Static720.anInt10859 && super.anIntArray878[0] >= 0 && Static501.anInt7568 > super.anIntArray878[0]) {
+        } else if (super.anIntArray879[0] >= 0 && super.anIntArray879[0] < Static720.mapWidth && super.anIntArray878[0] >= 0 && Static501.mapHeight > super.anIntArray878[0]) {
             if (arg2 == 2) {
                 Static360.method5232(this, arg1, arg0);
             }

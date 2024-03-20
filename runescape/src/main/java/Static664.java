@@ -94,7 +94,7 @@ public final class Static664 {
         Static467.aClass96_3.method2351();
         Static540.aClass79_6.method2072();
         Static68.aIDKTypeList_3.method5041();
-        Static354.aClass142_4.method3058();
+        Static354.aLocTypeList_4.method3058();
         Static690.aNPCTypeList_2.method7089();
         Static419.aObjTypeList_1.method2480();
         Static25.aSeqTypeList_1.method1164();

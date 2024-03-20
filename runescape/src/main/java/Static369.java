@@ -1,3 +1,4 @@
+import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Toolkit;
@@ -46,7 +47,7 @@ public final class Static369 {
                     @Pc(135) int local135 = (Static89.anIntArray169[local13] & 0xFF) * 64 + local108 - Static116.anInt2270;
                     @Pc(142) NPCType local142 = Static690.aNPCTypeList_2.list(local66.g2());
                     @Pc(149) Node_Sub45 local149 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local88);
-                    if (local149 == null && (local142.aByte103 & 0x1) > 0 && local98 == Static164.anInt2808 && local121 >= 0 && local142.anInt6713 + local121 < Static720.anInt10859 && local135 >= 0 && local135 + local142.anInt6713 < Static501.anInt7568) {
+                    if (local149 == null && (local142.aByte103 & 0x1) > 0 && local98 == Static164.anInt2808 && local121 >= 0 && local142.anInt6713 + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.anInt6713 < Static501.mapHeight) {
                         @Pc(197) Class8_Sub2_Sub1_Sub2_Sub2 local197 = new Class8_Sub2_Sub1_Sub2_Sub2();
                         local197.anInt10740 = local88;
                         @Pc(205) Node_Sub45 local205 = new Node_Sub45(local197);
@@ -83,7 +84,7 @@ public final class Static369 {
             @Pc(85) Canvas local85 = new Canvas();
             local85.setSize(36, 32);
             Static158.aToolkit_5 = Static255.method3612(Static124.aJs5_20, Static56.anTextureSource_3, 0, local85, 0);
-            Static629.aClass14_11 = Static158.aToolkit_5.method8010(Static74.method1535(Static662.anInt9845, Static697.aJs5_123), Static735.method9375(Static721.aJs5_128, Static662.anInt9845), true);
+            Static629.aClass14_11 = Static158.aToolkit_5.method8010(Static74.method1535(Static662.anInt9845, Static697.aJs5_123), IndexedImage.load(Static721.aJs5_128, Static662.anInt9845, 0), true);
         }
         for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
             Static419.aObjTypeList_1.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Static629.aClass14_11, local31.anInt5895);

@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!jn")
-public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Interface25 {
+public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Location {
 
     @OriginalMember(owner = "client!jn", name = "T", descriptor = "Lclient!ke;")
     public Class205 aClass205_6;
@@ -42,7 +42,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
     public Shadow aClass2_Sub2_Sub9_4;
 
     @OriginalMember(owner = "client!jn", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIZ)V")
-    public Class8_Sub2_Sub3_Sub2(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class54 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) boolean arg10) {
+    public Class8_Sub2_Sub3_Sub2(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) boolean arg10) {
         super(arg4, arg5, arg6, arg2, arg3, Static490.method6553(arg9, arg8));
         super.anInt10690 = arg4;
         super.anInt10694 = arg6;
@@ -223,7 +223,7 @@ public final class Class8_Sub2_Sub3_Sub2 extends Class8_Sub2_Sub3 implements Int
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(Lclient!ha;ZIZ)Lclient!od;")
     public Class272 method4475(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2) {
-        @Pc(11) Class54 local11 = Static354.aClass142_4.method3063(this.aShort60 & 0xFFFF, 56);
+        @Pc(11) LocType local11 = Static354.aLocTypeList_4.list(this.aShort60 & 0xFFFF, 56);
         @Pc(27) Ground local27;
         @Pc(38) Ground local38;
         if (this.aBoolean376) {

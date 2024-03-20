@@ -17,7 +17,7 @@ public final class Static544 {
                 }
                 arg0.remove();
             }
-        } else if (arg0.aBoolean310 && arg0.anInt4016 >= 1 && arg0.anInt4006 >= 1 && Static720.anInt10859 - 2 >= arg0.anInt4016 && Static501.anInt7568 - 2 >= arg0.anInt4006 && (arg0.anInt4014 < 0 || Static235.method3424(arg0.anInt4014, arg0.anInt4013))) {
+        } else if (arg0.aBoolean310 && arg0.anInt4016 >= 1 && arg0.anInt4006 >= 1 && Static720.mapWidth - 2 >= arg0.anInt4016 && Static501.mapHeight - 2 >= arg0.anInt4006 && (arg0.anInt4014 < 0 || Static235.method3424(arg0.anInt4014, arg0.anInt4013))) {
             if (arg1) {
                 Static706.method9220(arg0.anInt4011, arg0.aClass150_1, arg0.anInt4006, arg0.anInt4010, arg0.anInt4016);
             } else {

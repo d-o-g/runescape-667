@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Class381;
 import com.jagex.graphics.Toolkit;
@@ -34,7 +34,7 @@ public final class Static502 {
             }
             return local54;
         }
-        @Pc(84) Class407[] local84 = Static735.method9387(Static555.aJs5_106, arg3);
+        @Pc(84) IndexedImage[] local84 = IndexedImage.load(Static555.aJs5_106, arg3);
         if (local84 == null) {
             return null;
         }

@@ -1,5 +1,5 @@
 import com.jagex.Class230;
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Class8_Sub4;
@@ -18,7 +18,7 @@ import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Node_Sub13;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureMetrics;
@@ -1781,7 +1781,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIIF)Lclient!lca;")
     @Override
-    public Node_Sub7 method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
+    public PointLight method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
         return null;
     }
 
@@ -1984,18 +1984,18 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public Sprite method7948(@OriginalArg(0) Class407 arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(2) int[] local2 = arg0.anIntArray882;
-        @Pc(5) byte[] local5 = arg0.aByteArray114;
-        @Pc(8) int local8 = arg0.anInt10847;
-        @Pc(11) int local11 = arg0.anInt10850;
+    public Sprite method7948(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
+        @Pc(2) int[] local2 = arg0.palette;
+        @Pc(5) byte[] local5 = arg0.raster;
+        @Pc(8) int local8 = arg0.width;
+        @Pc(11) int local11 = arg0.height;
         @Pc(80) Sprite_Sub1 local80;
         @Pc(22) int[] local22;
         @Pc(27) byte[] local27;
         @Pc(29) int local29;
         @Pc(34) int local34;
         @Pc(36) int local36;
-        if (arg1 && arg0.aByteArray115 == null) {
+        if (arg1 && arg0.alpha == null) {
             local22 = new int[local2.length];
             local27 = new byte[local8 * local11];
             for (local29 = 0; local29 < local11; local29++) {
@@ -2010,7 +2010,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             local80 = new Sprite_Sub1_Sub3(this, local27, local22, local8, local11);
         } else {
             local22 = new int[local8 * local11];
-            local27 = arg0.aByteArray115;
+            local27 = arg0.alpha;
             if (local27 == null) {
                 for (local29 = 0; local29 < local11; local29++) {
                     local34 = local29 * local8;
@@ -2030,7 +2030,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 local80 = new Sprite_Sub1_Sub2(this, local22, local8, local11);
             }
         }
-        local80.method8184(arg0.anInt10852, arg0.anInt10848, arg0.anInt10851, arg0.anInt10849);
+        local80.method8184(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
         return local80;
     }
 
@@ -2369,14 +2369,14 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) Class407[] arg1, @OriginalArg(2) boolean arg2) {
+    public Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         @Pc(3) int[] local3 = new int[arg1.length];
         @Pc(7) int[] local7 = new int[arg1.length];
         @Pc(9) boolean local9 = false;
         for (@Pc(11) int local11 = 0; local11 < arg1.length; local11++) {
-            local3[local11] = arg1[local11].anInt10847;
-            local7[local11] = arg1[local11].anInt10850;
-            if (arg1[local11].aByteArray115 != null) {
+            local3[local11] = arg1[local11].width;
+            local7[local11] = arg1[local11].height;
+            if (arg1[local11].alpha != null) {
                 local9 = true;
             }
         }
@@ -2730,7 +2730,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(I[Lclient!lca;)V")
     @Override
-    public void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub7[] arg1) {
+    public void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) PointLight[] arg1) {
     }
 
     @OriginalMember(owner = "client!iaa", name = "d", descriptor = "(I)Z")

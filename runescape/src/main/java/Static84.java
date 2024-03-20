@@ -160,7 +160,7 @@ public final class Static84 {
                 local39.anInt10739 = -1;
             } else {
                 local39.method9294();
-                if (local39.aShort131 >= 0 && local39.aShort132 >= 0 && local39.aShort134 < Static720.anInt10859 && local39.aShort133 < Static501.anInt7568) {
+                if (local39.aShort131 >= 0 && local39.aShort132 >= 0 && local39.aShort134 < Static720.mapWidth && local39.aShort133 < Static501.mapHeight) {
                     local39.aBoolean129 = local39.aBoolean817 ? local30 : false;
                     if (local39 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2) {
                         local39.anInt10739 = Integer.MAX_VALUE;
@@ -194,7 +194,7 @@ public final class Static84 {
             @Pc(166) Class8_Sub2_Sub1_Sub2_Sub2 local166 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local155])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local166.method9322() && local166.aNPCType_1.method5996(Static34.aClass304_1)) {
                 local166.method9294();
-                if (local166.aShort131 >= 0 && local166.aShort132 >= 0 && local166.aShort134 < Static720.anInt10859 && local166.aShort133 < Static501.anInt7568) {
+                if (local166.aShort131 >= 0 && local166.aShort132 >= 0 && local166.aShort134 < Static720.mapWidth && local166.aShort133 < Static501.mapHeight) {
                     @Pc(213) int local213 = 0;
                     if (!local166.aBoolean816) {
                         local213++;
@@ -386,9 +386,9 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "d", descriptor = "()V")
     public static void method1665() {
-        for (@Pc(1) int local1 = 0; local1 < Static720.anInt10859; local1++) {
+        for (@Pc(1) int local1 = 0; local1 < Static720.mapWidth; local1++) {
             @Pc(6) int[] local6 = Static341.anIntArrayArray133[local1];
-            for (@Pc(8) int local8 = 0; local8 < Static501.anInt7568; local8++) {
+            for (@Pc(8) int local8 = 0; local8 < Static501.mapHeight; local8++) {
                 local6[local8] = 0;
             }
         }

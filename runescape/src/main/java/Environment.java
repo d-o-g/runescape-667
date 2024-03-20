@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!uc")
-public final class Class367 {
+public final class Environment {
 
     @OriginalMember(owner = "client!uc", name = "k", descriptor = "F")
     public float aFloat201 = 1.0F;
@@ -51,7 +51,7 @@ public final class Class367 {
     public int anInt9539;
 
     @OriginalMember(owner = "client!uc", name = "<init>", descriptor = "()V")
-    public Class367() {
+    public Environment() {
         this.anInt9533 = -60;
         this.aClass67_10 = Static226.aClass67_9;
         this.anInt9535 = -50;
@@ -66,7 +66,7 @@ public final class Class367 {
     }
 
     @OriginalMember(owner = "client!uc", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class367(@OriginalArg(0) Packet arg0) {
+    public Environment(@OriginalArg(0) Packet arg0) {
         this.method8386(arg0);
     }
 
@@ -82,7 +82,7 @@ public final class Class367 {
     }
 
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(Lclient!ge;Z)V")
-    public void method8385(@OriginalArg(0) Packet arg0) {
+    public void decodeBloomParams(@OriginalArg(0) Packet arg0) {
         this.aFloat201 = (float) (arg0.g1() * 8) / 255.0F;
         this.aFloat200 = (float) (arg0.g1() * 8) / 255.0F;
         this.aFloat203 = (float) (arg0.g1() * 8) / 255.0F;
@@ -163,7 +163,7 @@ public final class Class367 {
     }
 
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(BLclient!uc;)Z")
-    public boolean method8388(@OriginalArg(1) Class367 arg0) {
+    public boolean method8388(@OriginalArg(1) Environment arg0) {
         return this.anInt9537 == arg0.anInt9537 && arg0.aFloat204 == this.aFloat204 && this.aFloat205 == arg0.aFloat205 && this.aFloat202 == arg0.aFloat202 && arg0.aFloat200 == this.aFloat200 && this.aFloat201 == arg0.aFloat201 && this.aFloat203 == arg0.aFloat203 && this.anInt9538 == arg0.anInt9538 && arg0.anInt9539 == this.anInt9539 && arg0.aClass67_10 == this.aClass67_10 && arg0.aClass148_5 == this.aClass148_5;
     }
 }

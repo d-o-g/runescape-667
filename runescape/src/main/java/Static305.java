@@ -109,10 +109,10 @@ public final class Static305 {
 
     @OriginalMember(owner = "client!jm", name = "a", descriptor = "(I)V")
     public static void method4441() {
-        for (@Pc(12) int local12 = 0; local12 < Static280.aByteArrayArrayArray3.length; local12++) {
-            for (@Pc(15) int local15 = 0; local15 < Static280.aByteArrayArrayArray3[0].length; local15++) {
-                for (@Pc(18) int local18 = 0; local18 < Static280.aByteArrayArrayArray3[0][0].length; local18++) {
-                    Static280.aByteArrayArrayArray3[local12][local15][local18] = 0;
+        for (@Pc(12) int local12 = 0; local12 < Static280.tileFlags.length; local12++) {
+            for (@Pc(15) int local15 = 0; local15 < Static280.tileFlags[0].length; local15++) {
+                for (@Pc(18) int local18 = 0; local18 < Static280.tileFlags[0][0].length; local18++) {
+                    Static280.tileFlags[local12][local15][local18] = 0;
                 }
             }
         }

@@ -1,5 +1,5 @@
 import com.jagex.graphics.Ground;
-import com.jagex.graphics.Node_Sub7;
+import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.TextureMetrics;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -136,7 +136,7 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(Lclient!lca;[I)V")
     @Override
-    public void method7868(@OriginalArg(0) Node_Sub7 arg0, @OriginalArg(1) int[] arg1) {
+    public void method7868(@OriginalArg(0) PointLight arg0, @OriginalArg(1) int[] arg1) {
     }
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(Lclient!r;IIIIZ)Z")

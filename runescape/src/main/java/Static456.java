@@ -43,12 +43,12 @@ public final class Static456 {
         Static442.anInt6699 = -1;
         Static115.method2136(Class8_Sub2_Sub4_Sub1.lb);
         Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 = new Class8_Sub2_Sub1_Sub2_Sub1();
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 = Static501.anInt7568 * 512 / 2;
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 = Static720.anInt10859 * 512 / 2;
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] = Static720.anInt10859 / 2;
+        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 = Static501.mapHeight * 512 / 2;
+        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 = Static720.mapWidth * 512 / 2;
+        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] = Static720.mapWidth / 2;
         Static110.anInt2186 = 0;
         Static170.anInt2864 = 0;
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0] = Static501.anInt7568 / 2;
+        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0] = Static501.mapHeight / 2;
         if (Static511.anInt7645 == 2) {
             Static110.anInt2186 = Static709.anInt10667 << 9;
             Static170.anInt2864 = Static121.anInt2333 << 9;

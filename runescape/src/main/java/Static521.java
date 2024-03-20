@@ -12,7 +12,7 @@ public final class Static521 {
     public static final Deque A_DEQUE___44 = new Deque();
 
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(IIZIII[IBIIILclient!eq;[III)I")
-    public static int method6870(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int[] arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) Class110 arg10, @OriginalArg(12) int[] arg11, @OriginalArg(13) int arg12, @OriginalArg(14) int arg13) {
+    public static int method6870(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int[] arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) CollisionMap arg10, @OriginalArg(12) int[] arg11, @OriginalArg(13) int arg12, @OriginalArg(14) int arg13) {
         for (@Pc(5) int local5 = 0; local5 < 128; local5++) {
             for (@Pc(8) int local8 = 0; local8 < 128; local8++) {
                 Static352.anIntArrayArray141[local5][local8] = 0;
@@ -109,22 +109,4 @@ public final class Static521 {
         return local114;
     }
 
-    @OriginalMember(owner = "client!qga", name = "a", descriptor = "(IIIIIII)I")
-    public static int method6874(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        if ((arg3 & 0x1) == 1) {
-            @Pc(12) int local12 = arg4;
-            arg4 = arg2;
-            arg2 = local12;
-        }
-        @Pc(20) int local20 = arg0 & 0x3;
-        if (local20 == 0) {
-            return arg1;
-        } else if (local20 == 1) {
-            return 1 + 7 - arg4 - arg5;
-        } else if (local20 == 2) {
-            return 1 + 7 - arg2 - arg1;
-        } else {
-            return arg5;
-        }
-    }
 }

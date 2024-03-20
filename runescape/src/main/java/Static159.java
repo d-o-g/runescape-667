@@ -81,10 +81,10 @@ public final class Static159 {
         } else {
             @Pc(20) int local20 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] >> 3;
             @Pc(27) int local27 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0] >> 3;
-            if (local20 >= 0 && Static720.anInt10859 >> 3 > local20 && local27 >= 0 && Static501.anInt7568 >> 3 > local27) {
+            if (local20 >= 0 && Static720.mapWidth >> 3 > local20 && local27 >= 0 && Static501.mapHeight >> 3 > local27) {
                 Static127.method2243(Static412.anInt6358, local20, local27);
             } else {
-                Static127.method2243(0, Static720.anInt10859 >> 4, Static501.anInt7568 >> 4);
+                Static127.method2243(0, Static720.mapWidth >> 4, Static501.mapHeight >> 4);
             }
         }
         Static506.method8313();

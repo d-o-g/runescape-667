@@ -20,7 +20,7 @@ public final class Node_Sub51 extends Node {
     public int anInt9351;
 
     @OriginalMember(owner = "client!tg", name = "G", descriptor = "Lclient!c;")
-    public Class54 aClass54_1;
+    public LocType aLocType_1;
 
     @OriginalMember(owner = "client!tg", name = "C", descriptor = "I")
     public int anInt9352;
@@ -95,8 +95,8 @@ public final class Node_Sub51 extends Node {
     public void method8236() {
         @Pc(11) int local11 = this.anInt9353;
         @Pc(14) boolean local14 = this.aBoolean714;
-        if (this.aClass54_1 != null) {
-            @Pc(148) Class54 local148 = this.aClass54_1.method1301(13, Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
+        if (this.aLocType_1 != null) {
+            @Pc(148) LocType local148 = this.aLocType_1.method1301(13, Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
             if (local148 == null) {
                 this.anIntArray718 = null;
                 this.anInt9353 = -1;

@@ -42,7 +42,7 @@ public final class Static434 {
     }
 
     @OriginalMember(owner = "client!nla", name = "a", descriptor = "(ILclient!eq;IIIIIIIIII)Z")
-    public static boolean method5854(@OriginalArg(0) int arg0, @OriginalArg(1) Class110 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(11) int arg10) {
+    public static boolean method5854(@OriginalArg(0) int arg0, @OriginalArg(1) CollisionMap arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(11) int arg10) {
         @Pc(5) int local5 = arg2;
         @Pc(7) int local7 = arg5;
         @Pc(16) int local16 = arg2 - 64;
@@ -279,8 +279,8 @@ public final class Static434 {
         Static89.anIntArray169 = new int[local46];
         Static421.aByteArrayArray19 = new byte[local46][];
         local46 = 0;
-        for (local55 = (local28 - (Static720.anInt10859 >> 4)) / 8; local55 <= ((Static720.anInt10859 >> 4) + local28) / 8; local55++) {
-            for (@Pc(137) int local137 = (local32 - (Static501.anInt7568 >> 4)) / 8; local137 <= (local32 + (Static501.anInt7568 >> 4)) / 8; local137++) {
+        for (local55 = (local28 - (Static720.mapWidth >> 4)) / 8; local55 <= ((Static720.mapWidth >> 4) + local28) / 8; local55++) {
+            for (@Pc(137) int local137 = (local32 - (Static501.mapHeight >> 4)) / 8; local137 <= (local32 + (Static501.mapHeight >> 4)) / 8; local137++) {
                 Static89.anIntArray169[local46] = (local55 << 8) + local137;
                 Static267.anIntArray329[local46] = Static93.aJs5_16.getgroupid("m" + local55 + "_" + local137);
                 Static266.anIntArray615[local46] = Static93.aJs5_16.getgroupid("l" + local55 + "_" + local137);

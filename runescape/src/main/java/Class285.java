@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.graphics.Sprite;
@@ -109,21 +109,21 @@ public final class Class285 {
     @OriginalMember(owner = "client!pb", name = "b", descriptor = "(ILclient!ha;)V")
     public void method6455(@OriginalArg(1) Toolkit arg0) {
         @Pc(7) js5 local7 = this.aClass220_1.aJs5_76;
-        @Pc(34) Class407 local34;
+        @Pc(34) IndexedImage local34;
         if (this.anInt7183 >= 0 && this.aClass220_1.aReferenceCache_121.get((long) this.anInt7183) == null && local7.method7581(this.anInt7183)) {
-            local34 = Static735.method9379(local7, this.anInt7183);
+            local34 = IndexedImage.loadFirst(local7, this.anInt7183);
             this.aClass220_1.aReferenceCache_121.put(arg0.method7948(local34, true), (long) this.anInt7183);
         }
         if (this.anInt7181 >= 0 && this.aClass220_1.aReferenceCache_121.get((long) this.anInt7181) == null && local7.method7581(this.anInt7181)) {
-            local34 = Static735.method9379(local7, this.anInt7181);
+            local34 = IndexedImage.loadFirst(local7, this.anInt7181);
             this.aClass220_1.aReferenceCache_121.put(arg0.method7948(local34, true), (long) this.anInt7181);
         }
         if (this.anInt7180 >= 0 && this.aClass220_1.aReferenceCache_121.get((long) this.anInt7180) == null && local7.method7581(this.anInt7180)) {
-            local34 = Static735.method9379(local7, this.anInt7180);
+            local34 = IndexedImage.loadFirst(local7, this.anInt7180);
             this.aClass220_1.aReferenceCache_121.put(arg0.method7948(local34, true), (long) this.anInt7180);
         }
         if (this.anInt7187 >= 0 && this.aClass220_1.aReferenceCache_121.get((long) this.anInt7187) == null && local7.method7581(this.anInt7187)) {
-            local34 = Static735.method9379(local7, this.anInt7187);
+            local34 = IndexedImage.loadFirst(local7, this.anInt7187);
             this.aClass220_1.aReferenceCache_121.put(arg0.method7948(local34, true), (long) this.anInt7187);
         }
     }

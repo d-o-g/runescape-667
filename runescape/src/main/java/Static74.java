@@ -1,4 +1,4 @@
-import com.jagex.Class407;
+import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.game.Class381;
 import com.jagex.graphics.Toolkit;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static74 {
 
     @OriginalMember(owner = "client!cga", name = "d", descriptor = "Lclient!wp;")
-    public static Class407 aClass407_1;
+    public static IndexedImage aIndexedImage_1;
 
     @OriginalMember(owner = "client!cga", name = "b", descriptor = "Lclient!ha;")
     public static Toolkit aToolkit_4;

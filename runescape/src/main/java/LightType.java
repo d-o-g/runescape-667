@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vt")
-public final class Class392 {
+public final class LightType {
 
     @OriginalMember(owner = "client!vt", name = "i", descriptor = "I")
     public int anInt10372 = 0;

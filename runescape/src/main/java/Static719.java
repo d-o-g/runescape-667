@@ -22,7 +22,7 @@ public final class Static719 {
             return;
         }
         if (Static273.anInt4403 < 10) {
-            if (!Static30.aJs5_74.method7598(Static30.aClass2_Sub2_Sub13_3.aString48)) {
+            if (!Static30.aJs5_74.requestgroupdownload(Static30.aClass2_Sub2_Sub13_3.aString48)) {
                 Static273.anInt4403 = Static120.aJs5_19.completePercentage(Static30.aClass2_Sub2_Sub13_3.aString48) / 10;
                 return;
             }
@@ -112,7 +112,7 @@ public final class Static719 {
             Static199.method2977();
         } else if (Static273.anInt4403 == 60) {
             if (Static30.aJs5_74.groupExists(Static30.aClass2_Sub2_Sub13_3.aString48 + "_staticelements")) {
-                if (!Static30.aJs5_74.method7598(Static30.aClass2_Sub2_Sub13_3.aString48 + "_staticelements")) {
+                if (!Static30.aJs5_74.requestgroupdownload(Static30.aClass2_Sub2_Sub13_3.aString48 + "_staticelements")) {
                     return;
                 }
                 Static30.aClass255_3 = Static284.method4103(Static174.aBoolean249, Static30.aJs5_74, Static30.aClass2_Sub2_Sub13_3.aString48 + "_staticelements");

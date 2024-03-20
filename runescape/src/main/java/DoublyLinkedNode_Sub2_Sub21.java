@@ -157,7 +157,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends DoublyLinkedNode {
         @Pc(12) int local12;
         if (Static426.anInt940 < 0) {
             for (local12 = 0; local12 < this.anIntArray824.length; local12++) {
-                if (!arg0.method7581(this.anIntArray824[local12])) {
+                if (!arg0.fileready(this.anIntArray824[local12])) {
                     return false;
                 }
             }

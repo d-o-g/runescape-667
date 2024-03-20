@@ -21,7 +21,7 @@ public final class Class288 implements Interface15 {
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "(I)I")
     @Override
     public int method6465() {
-        return this.aJs5_94.method7578(this.aString83) ? 100 : 0;
+        return this.aJs5_94.fileready(this.aString83) ? 100 : 0;
     }
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "(B)Lclient!kf;")

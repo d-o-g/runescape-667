@@ -25,10 +25,10 @@ public final class Static53 {
                 return -1;
             }
             @Pc(36) String local36 = Static185.aString34 + local22;
-            if (!Static442.aJs5_90.method7577(local36, "")) {
+            if (!Static442.aJs5_90.fileExists(local36, "")) {
                 return -1;
-            } else if (Static442.aJs5_90.method7598(local36)) {
-                @Pc(62) byte[] local62 = Static442.aJs5_90.method7600(local36, "");
+            } else if (Static442.aJs5_90.requestgroupdownload(local36)) {
+                @Pc(62) byte[] local62 = Static442.aJs5_90.getfile(local36, "");
                 @Pc(68) File local68;
                 try {
                     local68 = FileCache.get(local22);

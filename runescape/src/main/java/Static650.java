@@ -74,7 +74,7 @@ public final class Static650 {
             @Pc(14) byte[] local14 = arg0.getfile(arg1);
             return local14 == null ? null : new Node_Sub53(local14);
         } else {
-            arg0.method7581(arg1);
+            arg0.fileready(arg1);
             return null;
         }
     }

@@ -242,7 +242,7 @@ public final class Class148 {
     public void method3166(@OriginalArg(1) Toolkit arg0) {
         try {
             @Pc(9) js5 local9 = Static386.aJs5_80;
-            @Pc(17) boolean local17 = local9.method7607(this.anInt3514);
+            @Pc(17) boolean local17 = local9.requestgroupdownload(this.anInt3514);
             if (local17) {
                 arg0.ZA(16777215, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F);
                 @Pc(36) Mesh local36 = Mesh.load(this.anInt3514, Static386.aJs5_80);

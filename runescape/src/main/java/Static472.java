@@ -4531,11 +4531,11 @@ public final class Static472 {
                         Static282.anInt4419 = anIntArray578[anInt7142 + 8];
                         Static563.anInt8455 = anIntArray578[anInt7142 + 9];
                         Static634.anInt9510 = anIntArray578[anInt7142 + 10];
-                        Static721.aJs5_128.method7581(Static63.anInt1474);
-                        Static721.aJs5_128.method7581(Static282.anInt4417);
-                        Static721.aJs5_128.method7581(Static337.anInt5561);
-                        Static721.aJs5_128.method7581(Static176.anInt7532);
-                        Static721.aJs5_128.method7581(Static282.anInt4419);
+                        Static721.aJs5_128.fileready(Static63.anInt1474);
+                        Static721.aJs5_128.fileready(Static282.anInt4417);
+                        Static721.aJs5_128.fileready(Static337.anInt5561);
+                        Static721.aJs5_128.fileready(Static176.anInt7532);
+                        Static721.aJs5_128.fileready(Static282.anInt4419);
                         Static26.aSprite_5 = null;
                         Static561.aSprite_34 = null;
                         Static261.aSprite_18 = null;

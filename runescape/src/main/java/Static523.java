@@ -106,7 +106,7 @@ public final class Static523 {
             local74 = client.js5ResourceProviders[33].indexPercentage();
             local74 += client.js5ResourceProviders[Static297.aBoolean368 ? 34 : 32].indexPercentage();
             local74 += client.js5ResourceProviders[13].indexPercentage();
-            local74 += local184 ? 100 : Static516.aJs5_97.method7582();
+            local74 += local184 ? 100 : Static516.aJs5_97.completePercentage();
             if (local74 != 400) {
                 return local74 / 4;
             }
@@ -272,7 +272,7 @@ public final class Static523 {
             Static44.method1074(Static25.aSeqTypeList_1);
             Static187.method2844(Static88.aJs5_14);
             Static405.method5592(Static56.anTextureSource_3, Static190.aJs5_38);
-            @Pc(1119) Class197 local1119 = new Class197(Static463.aJs5_93.method7600("huffman", ""));
+            @Pc(1119) Class197 local1119 = new Class197(Static463.aJs5_93.getfile("huffman", ""));
             Static342.method4462(local1119);
             try {
                 jagmisc.init();

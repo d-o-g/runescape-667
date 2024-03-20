@@ -28,7 +28,7 @@ public final class Class173 {
         @Pc(31) Sprite local31 = (Sprite) this.aClass363_2.aReferenceCache_202.get(local23);
         if (local31 != null) {
             return local31;
-        } else if (this.aClass363_2.aJs5_116.method7581(this.anInt4167)) {
+        } else if (this.aClass363_2.aJs5_116.fileready(this.anInt4167)) {
             @Pc(55) IndexedImage local55 = IndexedImage.loadFirst(this.aClass363_2.aJs5_116, this.anInt4167, 0);
             if (local55 != null) {
                 local55.offY2 = local55.offX1 = local55.offX2 = local55.offY1 = 0;
@@ -51,7 +51,7 @@ public final class Class173 {
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(B)Z")
     public boolean method3690() {
-        return this.aClass363_2.aJs5_116.method7581(this.anInt4167);
+        return this.aClass363_2.aJs5_116.fileready(this.anInt4167);
     }
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(IILclient!ge;)V")

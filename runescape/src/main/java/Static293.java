@@ -796,7 +796,7 @@ public final class Static293 {
                                             Static607.anInt9251 = -1;
                                             Static717.anInt10817 = local277;
                                             Static1.anInt10798 = 1;
-                                            Static504.aJs5_95.method7581(Static717.anInt10817);
+                                            Static504.aJs5_95.fileready(Static717.anInt10817);
                                             local100 = local11.g2();
                                             Static322.anIntArrayArray265 = new int[local100][4];
                                             for (local526 = 0; local526 < local100; local526++) {

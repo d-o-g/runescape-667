@@ -390,7 +390,7 @@ public final class Static30 {
         anVarDomain_3 = arg6;
         A_HASH_TABLE___27.clear();
         @Pc(23) int local23 = aJs5_74.getgroupid("details");
-        @Pc(28) int[] local28 = aJs5_74.method7603(local23);
+        @Pc(28) int[] local28 = aJs5_74.fileIds(local23);
         if (local28 != null) {
             for (@Pc(32) int local32 = 0; local32 < local28.length; local32++) {
                 @Pc(41) DoublyLinkedNode_Sub2_Sub13 local41 = Static517.method6820(aJs5_74, local23, local28[local32]);
@@ -936,7 +936,7 @@ public final class Static30 {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;II)V")
     public static void method5080(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(11) Packet local11 = new Packet(aJs5_74.method7600(aClass2_Sub2_Sub13_3.aString48, "area"));
+        @Pc(11) Packet local11 = new Packet(aJs5_74.getfile(aClass2_Sub2_Sub13_3.aString48, "area"));
         @Pc(15) int local15 = local11.g1();
         @Pc(18) int[] local18 = new int[local15];
         for (@Pc(20) int local20 = 0; local20 < local15; local20++) {

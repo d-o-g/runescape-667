@@ -12,6 +12,18 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!rw")
 public final class AnimFrameset extends DoublyLinkedNode {
 
+    @OriginalMember(owner = "client!qa", name = "q", descriptor = "Lclient!sb;")
+    public static js5 anims;
+
+    @OriginalMember(owner = "client!iha", name = "c", descriptor = "Lclient!sb;")
+    public static js5 bases;
+
+    @OriginalMember(owner = "client!uea", name = "a", descriptor = "(Lclient!sb;IZLclient!sb;)V")
+    public static void initJs5(@OriginalArg(0) js5 anims, @OriginalArg(3) js5 bases) {
+        AnimFrameset.anims = bases;
+        AnimFrameset.bases = anims;
+    }
+
     @OriginalMember(owner = "client!rw", name = "t", descriptor = "[Lclient!nb;")
     public AnimFrame[] frames;
 
@@ -34,15 +46,15 @@ public final class AnimFrameset extends DoublyLinkedNode {
         @Pc(36) int[] local36;
         @Pc(43) int local43;
         if (this.aByteArrayArray32 == null) {
-            @Pc(14) js5 local14 = js5.aJs5_96;
-            synchronized (js5.aJs5_96) {
-                if (!js5.aJs5_96.method7607(this.anInt8535)) {
+            @Pc(14) js5 local14 = anims;
+            synchronized (anims) {
+                if (!anims.requestgroupdownload(this.anInt8535)) {
                     return false;
                 }
-                local36 = js5.aJs5_96.method7603(this.anInt8535);
+                local36 = anims.fileIds(this.anInt8535);
                 this.aByteArrayArray32 = new byte[local36.length][];
                 for (local43 = 0; local43 < local36.length; local43++) {
-                    this.aByteArrayArray32[local43] = js5.aJs5_96.getfile(local36[local43], this.anInt8535);
+                    this.aByteArrayArray32[local43] = anims.getfile(local36[local43], this.anInt8535);
                 }
             }
         }
@@ -52,20 +64,20 @@ public final class AnimFrameset extends DoublyLinkedNode {
             @Pc(82) Packet local82 = new Packet(local77);
             local82.pos = 1;
             local43 = local82.g2();
-            @Pc(91) js5 local91 = js5.aJs5_58;
-            synchronized (js5.aJs5_58) {
-                local69 &= js5.aJs5_58.method7581(local43);
+            @Pc(91) js5 local91 = bases;
+            synchronized (bases) {
+                local69 &= bases.fileready(local43);
             }
         }
         if (!local69) {
             return false;
         }
         @Pc(123) Deque local123 = new Deque();
-        @Pc(125) js5 local125 = js5.aJs5_96;
-        synchronized (js5.aJs5_96) {
-            @Pc(133) int local133 = js5.aJs5_96.fileLimit(this.anInt8535);
+        @Pc(125) js5 local125 = anims;
+        synchronized (anims) {
+            @Pc(133) int local133 = anims.fileLimit(this.anInt8535);
             this.frames = new AnimFrame[local133];
-            local36 = js5.aJs5_96.method7603(this.anInt8535);
+            local36 = anims.fileIds(this.anInt8535);
         }
         for (local43 = 0; local43 < local36.length; local43++) {
             @Pc(167) byte[] local167 = this.aByteArrayArray32[local43];
@@ -80,9 +92,9 @@ public final class AnimFrameset extends DoublyLinkedNode {
                 }
             }
             if (local181 == null) {
-                @Pc(209) js5 local209 = js5.aJs5_58;
-                synchronized (js5.aJs5_58) {
-                    local181 = new AnimBase(local179, js5.aJs5_58.getfile(local179));
+                @Pc(209) js5 local209 = bases;
+                synchronized (bases) {
+                    local181 = new AnimBase(local179, bases.getfile(local179));
                 }
                 local123.addLast(local181);
             }

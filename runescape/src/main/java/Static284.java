@@ -21,7 +21,7 @@ public final class Static284 {
         if (local8 == -1) {
             return new Class255(0);
         }
-        @Pc(24) int[] local24 = arg1.method7603(local8);
+        @Pc(24) int[] local24 = arg1.fileIds(local8);
         @Pc(30) Class255 local30 = new Class255(local24.length);
         @Pc(32) int local32 = 0;
         @Pc(34) int local34 = 0;

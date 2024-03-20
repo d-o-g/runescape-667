@@ -4,7 +4,6 @@ import com.jagex.AnimFrameset;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
-import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -24,19 +23,13 @@ public final class SeqTypeList {
     public final js5 aJs5_11;
 
     @OriginalMember(owner = "client!bp", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;Lclient!sb;)V")
-    public SeqTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) js5 arg4) {
+    public SeqTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 bases, @OriginalArg(4) js5 anims) {
         this.aJs5_11 = arg2;
         if (this.aJs5_11 != null) {
             @Pc(26) int local26 = this.aJs5_11.groupSize() - 1;
             this.aJs5_11.fileLimit(local26);
         }
-        method8440(arg4, arg3);
-    }
-
-    @OriginalMember(owner = "client!uea", name = "a", descriptor = "(Lclient!sb;IZLclient!sb;)V")
-    public static void method8440(@OriginalArg(0) js5 arg0, @OriginalArg(3) js5 arg1) {
-        js5.aJs5_96 = arg1;
-        js5.aJs5_58 = arg0;
+        AnimFrameset.initJs5(anims, bases);
     }
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(II)I")

@@ -22,7 +22,7 @@ public final class Static281 {
         @Pc(25) LinkedList[] local25 = Class43.A_ENTITY_LIST_ARRAY_1;
         synchronized (Class43.A_ENTITY_LIST_ARRAY_1) {
             if (local10 < Class43.A_ENTITY_LIST_ARRAY_1.length && Static159.anIntArray245[local10] < 200) {
-                Class43.A_ENTITY_LIST_ARRAY_1[local10].remove(arg0);
+                Class43.A_ENTITY_LIST_ARRAY_1[local10].add(arg0);
                 @Pc(48) int local48 = Static159.anIntArray245[local10]++;
             }
         }

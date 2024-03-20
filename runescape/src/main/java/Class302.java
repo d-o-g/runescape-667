@@ -28,7 +28,7 @@ public final class Class302 {
     public void method6805(@OriginalArg(0) Class8_Sub9 arg0) {
         @Pc(2) LinkedList local2 = this.aLinkedList_10;
         synchronized (this.aLinkedList_10) {
-            this.aLinkedList_10.remove(arg0);
+            this.aLinkedList_10.add(arg0);
             this.anInt7701++;
         }
         if (this.aClass46_1 != null) {
@@ -55,7 +55,7 @@ public final class Class302 {
         arg0.aBoolean812 = true;
         @Pc(18) LinkedList local18 = this.aLinkedList_10;
         synchronized (this.aLinkedList_10) {
-            this.aLinkedList_10.remove(arg0);
+            this.aLinkedList_10.add(arg0);
             this.anInt7701++;
         }
         if (this.aClass46_1 != null) {
@@ -81,7 +81,7 @@ public final class Class302 {
         arg0.aBoolean812 = false;
         @Pc(9) LinkedList local9 = this.aLinkedList_10;
         synchronized (this.aLinkedList_10) {
-            this.aLinkedList_10.remove(arg0);
+            this.aLinkedList_10.add(arg0);
             this.anInt7701++;
         }
         if (this.aClass46_1 != null) {

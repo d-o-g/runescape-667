@@ -179,7 +179,7 @@ public final class ParticleSystem extends LinkedList.Node {
         for (local21 = 0; local21 < arg1.length && local21 != 32 && this.anInt4148 != 32; local21++) {
             if (!Static257.aBooleanArray7[local21]) {
                 @Pc(104) ParticleEmitter local104 = new ParticleEmitter(arg0, arg1[local21], this, this.aLong133);
-                this.aLinkedList_6.remove(local104);
+                this.aLinkedList_6.add(local104);
                 this.anInt4148++;
                 Static257.aBooleanArray7[local21] = true;
             }
@@ -250,7 +250,7 @@ public final class ParticleSystem extends LinkedList.Node {
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(IZ)V")
     public void method3657(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        ParticleManager.systems.remove(this);
+        ParticleManager.systems.add(this);
         this.aLong133 = (long) arg0;
         this.aLong132 = (long) arg0;
         this.aBoolean326 = true;

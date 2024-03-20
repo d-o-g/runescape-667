@@ -818,7 +818,7 @@ public final class Static30 {
                     aLinkedListArrayArrayArray2[local118 - 1][arg2 - (anInt5655 >> 6)][arg3 - (anInt5648 >> 6)] = new LinkedList();
                 }
                 @Pc(338) Class8_Sub10 local338 = new Class8_Sub10(arg4 & 0x3F, arg5 & 0x3F, local123, local125, local127, local215, local218);
-                aLinkedListArrayArrayArray2[local118 - 1][arg2 - (anInt5655 >> 6)][arg3 - (anInt5648 >> 6)].remove(local338);
+                aLinkedListArrayArrayArray2[local118 - 1][arg2 - (anInt5655 >> 6)][arg3 - (anInt5648 >> 6)].add(local338);
             }
         }
     }

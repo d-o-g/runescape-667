@@ -124,6 +124,6 @@ public final class Static397 {
         local140.anInt112 = local102;
         local140.anInt109 = local83 + 16;
         local140.anInt111 = local102 + 16;
-        Static149.A_ENTITY_LIST___4.remove(local140);
+        Static149.A_ENTITY_LIST___4.add(local140);
     }
 }

@@ -48,7 +48,7 @@ public final class Class213 {
                 return;
             }
         }
-        this.aLinkedList_8.remove(arg0);
+        this.aLinkedList_8.add(arg0);
     }
 
     @OriginalMember(owner = "client!kn", name = "a", descriptor = "(B)V")

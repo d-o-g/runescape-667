@@ -456,7 +456,7 @@ public final class Static293 {
                                                         }
                                                     }
                                                     if (local1491) {
-                                                        Static168.A_ENTITY_LIST___5.remove(new Class8_Sub4_Sub1(local627, local1409));
+                                                        Static168.A_ENTITY_LIST___5.add(new Class8_Sub4_Sub1(local627, local1409));
                                                     }
                                                     Static371.anIntArray455[local1449] = local1409;
                                                 }

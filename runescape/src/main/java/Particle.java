@@ -68,7 +68,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
         this.aParticleEmitter_1.aParticleSystem_6.aParticle[local4] = this;
         this.aShort91 = (short) this.aParticleEmitter_1.aParticleSystem_6.anInt4147;
         this.aParticleEmitter_1.aParticleSystem_6.anInt4147 = local4 + 1 & 0x1FFF;
-        this.aParticleEmitter_1.aLinkedList_11.remove(this);
+        this.aParticleEmitter_1.aLinkedList_11.add(this);
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(JI)V")

@@ -58,7 +58,7 @@ public final class LinkedList {
     }
 
     @OriginalMember(owner = "client!fla", name = "a", descriptor = "(ZLclient!ep;)V")
-    public void remove(@OriginalArg(1) Node node) {
+    public void add(@OriginalArg(1) Node node) {
         if (node.prev != null) {
             node.unlink();
         }

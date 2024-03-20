@@ -696,14 +696,14 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!ca", name = "b", descriptor = "(IIIB)V")
     public void method1425(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) byte arg2) {
-        if (super.aAnimator_11.isAnimating() && super.aAnimator_11.getAnimation().anInt1654 == 1) {
+        if (super.aAnimator_11.isAnimating() && super.aAnimator_11.getAnimation().walkingPrecedence == 1) {
             super.anIntArray869 = null;
             super.aAnimator_11.update(true, -1);
         }
         for (@Pc(33) int local33 = 0; local33 < super.aClass199Array3.length; local33++) {
             if (super.aClass199Array3[local33].anInt4930 != -1) {
                 @Pc(56) Class227 local56 = Static23.aClass128_1.method2694(super.aClass199Array3[local33].anInt4930);
-                if (local56.aBoolean448 && local56.anInt5842 != -1 && Static25.aSeqTypeList_1.list(local56.anInt5842).anInt1654 == 1) {
+                if (local56.aBoolean448 && local56.anInt5842 != -1 && Static25.aSeqTypeList_1.list(local56.anInt5842).walkingPrecedence == 1) {
                     super.aClass199Array3[local33].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local33].anInt4930 = -1;
                 }

@@ -5,6 +5,7 @@ import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
+import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.Sprite;
@@ -142,11 +143,11 @@ public final class Static651 {
             @Pc(31) Animator local31 = arg3.aAnimator_11;
             if (local8 && local31.isAnimating()) {
                 @Pc(44) SeqType local44 = arg3.aAnimator_11.getAnimation();
-                @Pc(47) int local47 = local44.replayMode;
-                if (local47 == 1) {
+                @Pc(47) int replayMode = local44.replayMode;
+                if (replayMode == SeqReplayMode.RESET) {
                     local31.reset(arg1);
                 }
-                if (local47 == 2) {
+                if (replayMode == SeqReplayMode.RESTART_LOOP) {
                     local31.restartLoop();
                 }
             }
@@ -156,7 +157,7 @@ public final class Static651 {
             if (arg0[local10] != -1) {
                 local8 = false;
             }
-            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.aSeqTypeList_1.list(arg0[local10]).anInt1649 >= Static25.aSeqTypeList_1.list(arg3.anIntArray869[local10]).anInt1649) {
+            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.aSeqTypeList_1.list(arg0[local10]).priority >= Static25.aSeqTypeList_1.list(arg3.anIntArray869[local10]).priority) {
                 arg3.anIntArray869 = arg0;
                 arg3.aAnimator_11.method9091(arg1);
                 if (arg2) {

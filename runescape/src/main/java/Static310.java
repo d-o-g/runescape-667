@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -21,19 +22,19 @@ public final class Static310 {
                         arg3.aClass152_Sub2_Sub1Array3[local30] = null;
                     } else {
                         @Pc(60) SeqType local60 = Static25.aSeqTypeList_1.list(local20);
-                        @Pc(63) int local63 = local60.replayMode;
+                        @Pc(63) int replayMode = local60.replayMode;
                         @Pc(68) Animator_Sub2_Sub1 local68 = arg3.aClass152_Sub2_Sub1Array3[local30];
                         if (local68 != null && local68.isAnimating()) {
                             if (local20 == local68.getAnimationId()) {
-                                if (local63 == 0) {
+                                if (replayMode == SeqReplayMode.STOP) {
                                     local68 = arg3.aClass152_Sub2_Sub1Array3[local30] = null;
-                                } else if (local63 == 1) {
+                                } else if (replayMode == SeqReplayMode.RESET) {
                                     local68.method9099();
                                     local68.anInt10508 = local28;
-                                } else if (local63 == 2) {
+                                } else if (replayMode == SeqReplayMode.RESTART_LOOP) {
                                     local68.restartLoop();
                                 }
-                            } else if (local60.anInt1649 >= local68.getAnimation().anInt1649) {
+                            } else if (local60.priority >= local68.getAnimation().priority) {
                                 local68 = arg3.aClass152_Sub2_Sub1Array3[local30] = null;
                             }
                         }

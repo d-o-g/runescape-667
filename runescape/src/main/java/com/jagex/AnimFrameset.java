@@ -13,10 +13,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class AnimFrameset extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!qa", name = "q", descriptor = "Lclient!sb;")
-    public static js5 anims;
+    private static js5 anims;
 
     @OriginalMember(owner = "client!iha", name = "c", descriptor = "Lclient!sb;")
-    public static js5 bases;
+    private static js5 bases;
 
     @OriginalMember(owner = "client!uea", name = "a", descriptor = "(Lclient!sb;IZLclient!sb;)V")
     public static void initJs5(@OriginalArg(0) js5 anims, @OriginalArg(3) js5 bases) {
@@ -28,79 +28,88 @@ public final class AnimFrameset extends DoublyLinkedNode {
     public AnimFrame[] frames;
 
     @OriginalMember(owner = "client!rw", name = "E", descriptor = "[[B")
-    public byte[][] aByteArrayArray32;
+    public byte[][] frameData;
 
     @OriginalMember(owner = "client!rw", name = "x", descriptor = "I")
-    public final int anInt8535;
+    public final int id;
 
     @OriginalMember(owner = "client!rw", name = "<init>", descriptor = "(I)V")
-    public AnimFrameset(@OriginalArg(0) int arg0) {
-        this.anInt8535 = arg0;
+    public AnimFrameset(@OriginalArg(0) int id) {
+        this.id = id;
     }
 
     @OriginalMember(owner = "client!rw", name = "a", descriptor = "(I)Z")
-    public boolean method7565() {
+    public boolean isReady() {
         if (this.frames != null) {
             return true;
         }
-        @Pc(36) int[] local36;
-        @Pc(43) int local43;
-        if (this.aByteArrayArray32 == null) {
+
+        if (this.frameData == null) {
             @Pc(14) js5 local14 = anims;
             synchronized (anims) {
-                if (!anims.requestgroupdownload(this.anInt8535)) {
+                if (!anims.requestgroupdownload(this.id)) {
                     return false;
                 }
-                local36 = anims.fileIds(this.anInt8535);
-                this.aByteArrayArray32 = new byte[local36.length][];
-                for (local43 = 0; local43 < local36.length; local43++) {
-                    this.aByteArrayArray32[local43] = anims.getfile(local36[local43], this.anInt8535);
+
+                @Pc(36) int[] fileIds = anims.fileIds(this.id);
+                this.frameData = new byte[fileIds.length][];
+                for (@Pc(43) int i = 0; i < fileIds.length; i++) {
+                    this.frameData[i] = anims.getfile(fileIds[i], this.id);
                 }
             }
         }
-        @Pc(69) boolean local69 = true;
-        for (@Pc(71) int local71 = 0; local71 < this.aByteArrayArray32.length; local71++) {
-            @Pc(77) byte[] local77 = this.aByteArrayArray32[local71];
-            @Pc(82) Packet local82 = new Packet(local77);
-            local82.pos = 1;
-            local43 = local82.g2();
+
+        @Pc(69) boolean loaded = true;
+        for (@Pc(71) int i = 0; i < this.frameData.length; i++) {
+            @Pc(77) byte[] data = this.frameData[i];
+            @Pc(82) Packet packet = new Packet(data);
+            packet.pos = 1;
+            @Pc(43) int id = packet.g2();
             @Pc(91) js5 local91 = bases;
             synchronized (bases) {
-                local69 &= bases.fileready(local43);
+                loaded &= bases.fileready(id);
             }
         }
-        if (!local69) {
+
+        if (!loaded) {
             return false;
         }
-        @Pc(123) Deque local123 = new Deque();
+
+        @Pc(123) Deque bases = new Deque();
         @Pc(125) js5 local125 = anims;
+        @Pc(36) int[] fileIds;
         synchronized (anims) {
-            @Pc(133) int local133 = anims.fileLimit(this.anInt8535);
-            this.frames = new AnimFrame[local133];
-            local36 = anims.fileIds(this.anInt8535);
+            @Pc(133) int count = anims.fileLimit(this.id);
+            this.frames = new AnimFrame[count];
+            fileIds = anims.fileIds(this.id);
         }
-        for (local43 = 0; local43 < local36.length; local43++) {
-            @Pc(167) byte[] local167 = this.aByteArrayArray32[local43];
-            @Pc(172) Packet local172 = new Packet(local167);
-            local172.pos = 1;
-            @Pc(179) int local179 = local172.g2();
-            @Pc(181) AnimBase local181 = null;
-            for (@Pc(188) AnimBase local188 = (AnimBase) local123.first(); local188 != null; local188 = (AnimBase) local123.next()) {
-                if (local188.anInt7692 == local179) {
-                    local181 = local188;
+
+        for (@Pc(43) int i = 0; i < fileIds.length; i++) {
+            @Pc(167) byte[] data = this.frameData[i];
+            @Pc(172) Packet packet = new Packet(data);
+            packet.pos = 1;
+
+            @Pc(179) int baseId = packet.g2();
+            @Pc(181) AnimBase base = null;
+            for (@Pc(188) AnimBase existing = (AnimBase) bases.first(); existing != null; existing = (AnimBase) bases.next()) {
+                if (existing.id == baseId) {
+                    base = existing;
                     break;
                 }
             }
-            if (local181 == null) {
-                @Pc(209) js5 local209 = bases;
-                synchronized (bases) {
-                    local181 = new AnimBase(local179, bases.getfile(local179));
+
+            if (base == null) {
+                @Pc(209) js5 local209 = AnimFrameset.bases;
+                synchronized (AnimFrameset.bases) {
+                    base = new AnimBase(baseId, AnimFrameset.bases.getfile(baseId));
                 }
-                local123.addLast(local181);
+                bases.addLast(base);
             }
-            this.frames[local36[local43]] = new AnimFrame(local167, local181);
+
+            this.frames[fileIds[i]] = new AnimFrame(data, base);
         }
-        this.aByteArrayArray32 = null;
+
+        this.frameData = null;
         return true;
     }
 

@@ -36,17 +36,17 @@ public final class FrameSequenceManager {
             return false;
         } else {
             this.anInt6448 = arg4[arg3];
-            this.aClass2_Sub2_Sub18_1 = arg0.method1166(this.anInt6448 >> 16);
+            this.aClass2_Sub2_Sub18_1 = arg0.getFrameset(this.anInt6448 >> 16);
             this.anInt6448 &= 0xFFFF;
             if (this.aClass2_Sub2_Sub18_1 == null) {
                 return false;
             }
             if (arg1.tweened && arg2 != -1 && arg4.length > arg2) {
                 this.anInt6450 = arg4[arg2];
-                this.aClass2_Sub2_Sub18_2 = arg0.method1166(this.anInt6450 >> 16);
+                this.aClass2_Sub2_Sub18_2 = arg0.getFrameset(this.anInt6450 >> 16);
                 this.anInt6450 &= 0xFFFF;
             }
-            if (arg1.aBoolean140) {
+            if (arg1.rotateNormals) {
                 this.anInt6452 |= 0x200;
             }
             if (this.aClass2_Sub2_Sub18_1.method7570(this.anInt6448)) {

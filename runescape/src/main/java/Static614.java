@@ -45,7 +45,7 @@ public final class Static614 {
         Static354.aLocTypeList_4.method3064();
         Static690.aNPCTypeList_2.method7085();
         Static419.aObjTypeList_1.cacheClean(5);
-        Static25.aSeqTypeList_1.method1163();
+        Static25.aSeqTypeList_1.cacheClean();
         Static23.aClass128_1.method2698();
         Static529.aClass161_1.method3428();
         Static36.aClass260_1.method5785();

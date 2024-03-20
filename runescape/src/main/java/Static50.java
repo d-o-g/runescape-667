@@ -137,13 +137,13 @@ public final class Static50 {
                     @Pc(88) Class227 local88 = Static23.aClass128_1.method2694(arg0.aClass199Array3[local50].anInt4930);
                     @Pc(92) SeqType local92 = local75.getAnimation();
                     if (local88.aBoolean448) {
-                        if (local92.anInt1642 == 3) {
+                        if (local92.animatingPrecedence == 3) {
                             if (arg0.anInt10762 > 0 && Static333.anInt5455 >= arg0.anInt10759 && arg0.anInt10755 < Static333.anInt5455) {
                                 local75.update(true, -1);
                                 arg0.aClass199Array3[local50].anInt4930 = -1;
                                 continue;
                             }
-                        } else if (local92.anInt1642 == 1 && arg0.anInt10762 > 0 && arg0.anInt10759 <= Static333.anInt5455 && Static333.anInt5455 > arg0.anInt10755) {
+                        } else if (local92.animatingPrecedence == 1 && arg0.anInt10762 > 0 && arg0.anInt10759 <= Static333.anInt5455 && Static333.anInt5455 > arg0.anInt10755) {
                             continue;
                         }
                     }
@@ -159,13 +159,13 @@ public final class Static50 {
             label83:
             {
                 @Pc(214) SeqType local214 = local75.getAnimation();
-                if (local214.anInt1642 == 3) {
+                if (local214.animatingPrecedence == 3) {
                     if (arg0.anInt10762 > 0 && arg0.anInt10759 <= Static333.anInt5455 && Static333.anInt5455 > arg0.anInt10755) {
                         arg0.anIntArray869 = null;
                         local75.update(true, -1);
                         break label83;
                     }
-                } else if (local214.anInt1642 == 1) {
+                } else if (local214.animatingPrecedence == 1) {
                     if (arg0.anInt10762 > 0 && Static333.anInt5455 >= arg0.anInt10759 && arg0.anInt10755 < Static333.anInt5455) {
                         local75.method9091(1);
                         break label83;

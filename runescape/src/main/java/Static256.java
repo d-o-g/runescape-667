@@ -52,13 +52,13 @@ public final class Static256 {
         }
         if (arg0.aAnimator_11.isAnimating() && !arg0.aAnimator_11.isDelayed()) {
             @Pc(41) SeqType local41 = arg0.aAnimator_11.getAnimation();
-            if (arg0.anInt10762 > 0 && local41.anInt1642 == 0) {
+            if (arg0.anInt10762 > 0 && local41.animatingPrecedence == 0) {
                 Static524.anInt8042 = 0;
                 Static521.anInt7756 = -1;
                 arg0.anInt10763++;
                 return;
             }
-            if (arg0.anInt10762 <= 0 && local41.anInt1654 == 0) {
+            if (arg0.anInt10762 <= 0 && local41.walkingPrecedence == 0) {
                 Static521.anInt7756 = -1;
                 arg0.anInt10763++;
                 Static524.anInt8042 = 0;
@@ -70,13 +70,13 @@ public final class Static256 {
                 @Pc(117) Class227 local117 = Static23.aClass128_1.method2694(arg0.aClass199Array3[local86].anInt4930);
                 if (local117.aBoolean448 && local117.anInt5842 != -1) {
                     @Pc(133) SeqType local133 = Static25.aSeqTypeList_1.list(local117.anInt5842);
-                    if (arg0.anInt10762 > 0 && local133.anInt1642 == 0) {
+                    if (arg0.anInt10762 > 0 && local133.animatingPrecedence == 0) {
                         Static521.anInt7756 = -1;
                         arg0.anInt10763++;
                         Static524.anInt8042 = 0;
                         return;
                     }
-                    if (arg0.anInt10762 <= 0 && local133.anInt1654 == 0) {
+                    if (arg0.anInt10762 <= 0 && local133.walkingPrecedence == 0) {
                         Static521.anInt7756 = -1;
                         arg0.anInt10763++;
                         Static524.anInt8042 = 0;

@@ -176,15 +176,15 @@ public final class js5 {
     }
 
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(IB)Z")
-    public boolean fileready(@OriginalArg(0) int file) {
+    public boolean fileready(@OriginalArg(0) int id) {
         if (!this.indexReady()) {
             return false;
         } else if (this.index.fileLimits.length == 1) {
-            return this.requestdownload(file, 0);
-        } else if (!this.isValidGroup(file)) {
+            return this.requestdownload(id, 0);
+        } else if (!this.isValidGroup(id)) {
             return false;
-        } else if (this.index.fileLimits[file] == 1) {
-            return this.requestdownload(0, file);
+        } else if (this.index.fileLimits[id] == 1) {
+            return this.requestdownload(0, id);
         } else {
             throw new RuntimeException("Unable to determine if id is groupid or fileid");
         }

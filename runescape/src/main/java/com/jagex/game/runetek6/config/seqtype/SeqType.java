@@ -9,10 +9,6 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!cka")
 public final class SeqType {
 
-    public static final int REPLAY_MODE_STOP = 0;
-    public static final int REPLAY_MODE_RESET = 1;
-    public static final int REPLAY_MODE_RESTART_LOOP = 2;
-
     @OriginalMember(owner = "client!cka", name = "v", descriptor = "[I")
     public int[] anIntArray154;
 
@@ -20,13 +16,13 @@ public final class SeqType {
     public int[] anIntArray155;
 
     @OriginalMember(owner = "client!cka", name = "y", descriptor = "[[I")
-    public int[][] anIntArrayArray38;
+    public int[][] soundInfo;
 
     @OriginalMember(owner = "client!cka", name = "z", descriptor = "[I")
     public int[] anIntArray156;
 
     @OriginalMember(owner = "client!cka", name = "e", descriptor = "[Z")
-    public boolean[] aBooleanArray3;
+    public boolean[] blendFlags;
 
     @OriginalMember(owner = "client!cka", name = "k", descriptor = "[I")
     public int[] frameDurations;
@@ -44,22 +40,22 @@ public final class SeqType {
     public int loopOffset = -1;
 
     @OriginalMember(owner = "client!cka", name = "b", descriptor = "Z")
-    public boolean aBoolean140 = false;
+    public boolean rotateNormals = false;
 
     @OriginalMember(owner = "client!cka", name = "d", descriptor = "I")
-    public int replayMode = 2;
+    public int replayMode = SeqReplayMode.RESTART_LOOP;
 
     @OriginalMember(owner = "client!cka", name = "w", descriptor = "I")
-    public int anInt1642 = -1;
+    public int animatingPrecedence = -1;
 
     @OriginalMember(owner = "client!cka", name = "u", descriptor = "I")
-    public int anInt1647 = 99;
+    public int maxLoops = 99;
 
     @OriginalMember(owner = "client!cka", name = "f", descriptor = "I")
-    public int anInt1649 = 5;
+    public int priority = 5;
 
     @OriginalMember(owner = "client!cka", name = "j", descriptor = "Z")
-    public boolean aBoolean141 = false;
+    public boolean vorbisSound = false;
 
     @OriginalMember(owner = "client!cka", name = "g", descriptor = "Z")
     public boolean tweened = false;
@@ -71,132 +67,135 @@ public final class SeqType {
     public int playerLeftHand = -1;
 
     @OriginalMember(owner = "client!cka", name = "C", descriptor = "I")
-    public int anInt1654 = -1;
+    public int walkingPrecedence = -1;
 
     @OriginalMember(owner = "client!cka", name = "b", descriptor = "(I)V")
-    public void method1584() {
-        if (this.anInt1654 == -1) {
-            if (this.aBooleanArray3 == null) {
-                this.anInt1654 = 0;
+    public void postDecode() {
+        if (this.walkingPrecedence == -1) {
+            if (this.blendFlags == null) {
+                this.walkingPrecedence = 0;
             } else {
-                this.anInt1654 = 2;
+                this.walkingPrecedence = 2;
             }
         }
-        if (this.anInt1642 != -1) {
-            return;
-        }
-        if (this.aBooleanArray3 == null) {
-            this.anInt1642 = 0;
-        } else {
-            this.anInt1642 = 2;
+
+        if (this.animatingPrecedence == -1) {
+            if (this.blendFlags == null) {
+                this.animatingPrecedence = 0;
+            } else {
+                this.animatingPrecedence = 2;
+            }
         }
     }
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method1585(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(3) int local3 = arg0.g1();
-            if (local3 == 0) {
+            @Pc(3) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method1588(local3, arg0);
+            this.decode(code, packet);
         }
     }
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(IBLclient!ge;)V")
-    public void method1588(@OriginalArg(0) int arg0, @OriginalArg(2) Packet arg1) {
-        @Pc(20) int local20;
-        @Pc(26) int local26;
-        @Pc(44) int local44;
-        @Pc(58) int local58;
-        if (arg0 == 1) {
-            local20 = arg1.g2();
-            this.frameDurations = new int[local20];
-            for (local26 = 0; local26 < local20; local26++) {
-                this.frameDurations[local26] = arg1.g2();
+    public void decode(@OriginalArg(0) int code, @OriginalArg(2) Packet packet) {
+        if (code == 1) {
+            @Pc(20) int count = packet.g2();
+
+            this.frameDurations = new int[count];
+            for (@Pc(26) int i = 0; i < count; i++) {
+                this.frameDurations[i] = packet.g2();
             }
-            this.frames = new int[local20];
-            for (local44 = 0; local44 < local20; local44++) {
-                this.frames[local44] = arg1.g2();
+
+            this.frames = new int[count];
+            for (@Pc(44) int i = 0; i < count; i++) {
+                this.frames[i] = packet.g2();
             }
-            for (local58 = 0; local58 < local20; local58++) {
-                this.frames[local58] = (arg1.g2() << 16) + this.frames[local58];
+            for (@Pc(58) int i = 0; i < count; i++) {
+                this.frames[i] = (packet.g2() << 16) + this.frames[i];
             }
-        } else if (arg0 == 2) {
-            this.loopOffset = arg1.g2();
-        } else if (arg0 == 3) {
-            this.aBooleanArray3 = new boolean[256];
-            local20 = arg1.g1();
-            for (local26 = 0; local26 < local20; local26++) {
-                this.aBooleanArray3[arg1.g1()] = true;
+        } else if (code == 2) {
+            this.loopOffset = packet.g2();
+        } else if (code == 3) {
+            this.blendFlags = new boolean[256];
+
+            @Pc(20) int local20 = packet.g1();
+            for (@Pc(26) int local26 = 0; local26 < local20; local26++) {
+                this.blendFlags[packet.g1()] = true;
             }
-        } else if (arg0 == 5) {
-            this.anInt1649 = arg1.g1();
-        } else if (arg0 == 6) {
-            this.playerLeftHand = arg1.g2();
-        } else if (arg0 == 7) {
-            this.playerRightHand = arg1.g2();
-        } else if (arg0 == 8) {
-            this.anInt1647 = arg1.g1();
-        } else if (arg0 == 9) {
-            this.anInt1642 = arg1.g1();
-        } else if (arg0 == 10) {
-            this.anInt1654 = arg1.g1();
-        } else if (arg0 == 11) {
-            this.replayMode = arg1.g1();
-        } else if (arg0 == 12) {
-            local20 = arg1.g1();
-            this.secondaryFrames = new int[local20];
-            for (local26 = 0; local26 < local20; local26++) {
-                this.secondaryFrames[local26] = arg1.g2();
+        } else if (code == 5) {
+            this.priority = packet.g1();
+        } else if (code == 6) {
+            this.playerLeftHand = packet.g2();
+        } else if (code == 7) {
+            this.playerRightHand = packet.g2();
+        } else if (code == 8) {
+            this.maxLoops = packet.g1();
+        } else if (code == 9) {
+            this.animatingPrecedence = packet.g1();
+        } else if (code == 10) {
+            this.walkingPrecedence = packet.g1();
+        } else if (code == 11) {
+            this.replayMode = packet.g1();
+        } else if (code == 12) {
+            @Pc(20) int count = packet.g1();
+            this.secondaryFrames = new int[count];
+
+            for (@Pc(26) int i = 0; i < count; i++) {
+                this.secondaryFrames[i] = packet.g2();
             }
-            for (local44 = 0; local44 < local20; local44++) {
-                this.secondaryFrames[local44] += arg1.g2() << 16;
+
+            for (@Pc(44) int i = 0; i < count; i++) {
+                this.secondaryFrames[i] += packet.g2() << 16;
             }
-        } else if (arg0 == 13) {
-            local20 = arg1.g2();
-            this.anIntArrayArray38 = new int[local20][];
-            for (local26 = 0; local26 < local20; local26++) {
-                local44 = arg1.g1();
-                if (local44 > 0) {
-                    this.anIntArrayArray38[local26] = new int[local44];
-                    this.anIntArrayArray38[local26][0] = arg1.g3();
-                    for (local58 = 1; local58 < local44; local58++) {
-                        this.anIntArrayArray38[local26][local58] = arg1.g2();
+        } else if (code == 13) {
+            @Pc(20) int count = packet.g2();
+            this.soundInfo = new int[count][];
+            for (@Pc(26) int i = 0; i < count; i++) {
+                @Pc(44) int options = packet.g1();
+
+                if (options > 0) {
+                    this.soundInfo[i] = new int[options];
+                    this.soundInfo[i][0] = packet.g3();
+
+                    for (@Pc(58) int j = 1; j < options; j++) {
+                        this.soundInfo[i][j] = packet.g2();
                     }
                 }
             }
-        } else if (arg0 == 14) {
-            this.aBoolean140 = true;
-        } else if (arg0 == 15) {
+        } else if (code == 14) {
+            this.rotateNormals = true;
+        } else if (code == 15) {
             this.tweened = true;
-        } else if (arg0 != 16) {
-            if (arg0 == 18) {
-                this.aBoolean141 = true;
-            } else if (arg0 == 19) {
-                if (this.anIntArray156 == null) {
-                    this.anIntArray156 = new int[this.anIntArrayArray38.length];
-                    for (local20 = 0; local20 < this.anIntArrayArray38.length; local20++) {
-                        this.anIntArray156[local20] = 255;
-                    }
+        } else if (code == 16) {
+            /* empty */
+        } else if (code == 18) {
+            this.vorbisSound = true;
+        } else if (code == 19) {
+            if (this.anIntArray156 == null) {
+                this.anIntArray156 = new int[this.soundInfo.length];
+
+                for (@Pc(20) int i = 0; i < this.soundInfo.length; i++) {
+                    this.anIntArray156[i] = 255;
                 }
-                this.anIntArray156[arg1.g1()] = arg1.g1();
-                return;
-            } else if (arg0 == 20) {
-                if (this.anIntArray154 == null || this.anIntArray155 == null) {
-                    this.anIntArray154 = new int[this.anIntArrayArray38.length];
-                    this.anIntArray155 = new int[this.anIntArrayArray38.length];
-                    for (local20 = 0; local20 < this.anIntArrayArray38.length; local20++) {
-                        this.anIntArray154[local20] = 256;
-                        this.anIntArray155[local20] = 256;
-                    }
-                }
-                local20 = arg1.g1();
-                this.anIntArray154[local20] = arg1.g2();
-                this.anIntArray155[local20] = arg1.g2();
-                return;
             }
-            return;
+            this.anIntArray156[packet.g1()] = packet.g1();
+        } else if (code == 20) {
+            if (this.anIntArray154 == null || this.anIntArray155 == null) {
+                this.anIntArray154 = new int[this.soundInfo.length];
+                this.anIntArray155 = new int[this.soundInfo.length];
+
+                for (@Pc(20) int i = 0; i < this.soundInfo.length; i++) {
+                    this.anIntArray154[i] = 256;
+                    this.anIntArray155[i] = 256;
+                }
+            }
+
+            @Pc(20) int index = packet.g1();
+            this.anIntArray154[index] = packet.g2();
+            this.anIntArray155[index] = packet.g2();
         }
     }
 }

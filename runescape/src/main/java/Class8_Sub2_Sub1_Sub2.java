@@ -1,6 +1,7 @@
 import com.jagex.core.util.Arrays;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.MeshEmitter;
@@ -654,11 +655,11 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                 local38 = Static23.aClass128_1.method2694(arg5);
                 if (local38.aBoolean448 && local38.anInt5842 != -1) {
                     @Pc(54) SeqType local54 = Static25.aSeqTypeList_1.list(local38.anInt5842);
-                    @Pc(57) int local57 = local54.replayMode;
-                    if (local57 == 0) {
+                    @Pc(57) int replayMode = local54.replayMode;
+                    if (replayMode == SeqReplayMode.STOP) {
                         return;
                     }
-                    if (local57 == 2) {
+                    if (replayMode == SeqReplayMode.RESTART_LOOP) {
                         local16.aAnimator_7.restartLoop();
                         return;
                     }
@@ -669,7 +670,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends Class8_Sub2_Sub1 {
                 if (local38.anInt5842 != -1 && local86.anInt5842 != -1) {
                     @Pc(103) SeqType local103 = Static25.aSeqTypeList_1.list(local38.anInt5842);
                     @Pc(109) SeqType local109 = Static25.aSeqTypeList_1.list(local86.anInt5842);
-                    if (local103.anInt1649 < local109.anInt1649) {
+                    if (local103.priority < local109.priority) {
                         return;
                     }
                 }

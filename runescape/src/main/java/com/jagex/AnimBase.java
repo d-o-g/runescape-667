@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class AnimBase extends Node {
 
     @OriginalMember(owner = "client!qda", name = "w", descriptor = "I")
-    public final int anInt7692;
+    public final int id;
 
     @OriginalMember(owner = "client!qda", name = "r", descriptor = "I")
     public final int anInt7690;
@@ -30,7 +30,7 @@ public final class AnimBase extends Node {
 
     @OriginalMember(owner = "client!qda", name = "<init>", descriptor = "(I[B)V")
     public AnimBase(@OriginalArg(0) int arg0, @OriginalArg(1) byte[] arg1) {
-        this.anInt7692 = arg0;
+        this.id = arg0;
         @Pc(9) Packet local9 = new Packet(arg1);
         this.anInt7690 = local9.g1();
         this.anIntArray618 = new int[this.anInt7690];

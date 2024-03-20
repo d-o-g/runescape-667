@@ -4,6 +4,7 @@ import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.util.JagException;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -1231,7 +1232,7 @@ public final class Static293 {
                                                                 }
                                                                 @Pc(4806) boolean local4806 = (local1409 >> 7 & 0x1) == 1;
                                                                 if (local100 >> 30 == 0) {
-                                                                    @Pc(4943) int local4943;
+                                                                    @Pc(4943) int replayMode;
                                                                     @Pc(4911) SeqType local4911;
                                                                     @Pc(4888) Class227 local4888;
                                                                     @Pc(4905) SeqType local4905;
@@ -1252,9 +1253,9 @@ public final class Static293 {
                                                                                     if (local4888.aBoolean448 && local4888.anInt5842 != -1) {
                                                                                         local4905 = Static25.aSeqTypeList_1.list(local4888.anInt5842);
                                                                                         @Pc(5134) int local5134 = local4905.replayMode;
-                                                                                        if (local5134 == 0 || local5134 == 2) {
+                                                                                        if (local5134 == SeqReplayMode.STOP || local5134 == SeqReplayMode.RESTART_LOOP) {
                                                                                             local665 = false;
-                                                                                        } else if (local5134 == 1) {
+                                                                                        } else if (local5134 == SeqReplayMode.RESET) {
                                                                                             local665 = true;
                                                                                         }
                                                                                     }
@@ -1264,7 +1265,7 @@ public final class Static293 {
                                                                                     if (local4888.anInt5842 != -1 && local5078.anInt5842 != -1) {
                                                                                         local4911 = Static25.aSeqTypeList_1.list(local4888.anInt5842);
                                                                                         @Pc(5102) SeqType local5102 = Static25.aSeqTypeList_1.list(local5078.anInt5842);
-                                                                                        if (local4911.anInt1649 < local5102.anInt1649) {
+                                                                                        if (local4911.priority < local5102.priority) {
                                                                                             local665 = false;
                                                                                         }
                                                                                     }
@@ -1278,11 +1279,11 @@ public final class Static293 {
                                                                                     local5042.aAnimator_7.update(true, -1);
                                                                                 } else {
                                                                                     local4888 = Static23.aClass128_1.method2694(local2098);
-                                                                                    local4943 = local4888.aBoolean448 ? 0 : 2;
+                                                                                    replayMode = local4888.aBoolean448 ? 0 : 2;
                                                                                     if (local4806) {
-                                                                                        local4943 = 1;
+                                                                                        replayMode = 1;
                                                                                     }
-                                                                                    local5042.aAnimator_7.update(local4888.anInt5842, local277, local4943, false);
+                                                                                    local5042.aAnimator_7.update(local4888.anInt5842, local277, replayMode, false);
                                                                                 }
                                                                             }
                                                                         }
@@ -1307,10 +1308,10 @@ public final class Static293 {
                                                                                     local4883 = Static23.aClass128_1.method2694(local2098);
                                                                                     if (local4883.aBoolean448 && local4883.anInt5842 != -1) {
                                                                                         @Pc(4940) SeqType local4940 = Static25.aSeqTypeList_1.list(local4883.anInt5842);
-                                                                                        local4943 = local4940.replayMode;
-                                                                                        if (local4943 == 0 || local4943 == 2) {
+                                                                                        replayMode = local4940.replayMode;
+                                                                                        if (replayMode == SeqReplayMode.STOP || replayMode == SeqReplayMode.RESTART_LOOP) {
                                                                                             local4857 = false;
-                                                                                        } else if (local4943 == 1) {
+                                                                                        } else if (replayMode == SeqReplayMode.RESET) {
                                                                                             local4857 = true;
                                                                                         }
                                                                                     }
@@ -1320,7 +1321,7 @@ public final class Static293 {
                                                                                     if (local4883.anInt5842 != -1 && local4888.anInt5842 != -1) {
                                                                                         local4905 = Static25.aSeqTypeList_1.list(local4883.anInt5842);
                                                                                         local4911 = Static25.aSeqTypeList_1.list(local4888.anInt5842);
-                                                                                        if (local4911.anInt1649 > local4905.anInt1649) {
+                                                                                        if (local4911.priority > local4905.priority) {
                                                                                             local4857 = false;
                                                                                         }
                                                                                     }

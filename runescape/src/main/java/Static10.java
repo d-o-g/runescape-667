@@ -2,15 +2,10 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.util.zip.CRC32;
-
 public final class Static10 {
 
     @OriginalMember(owner = "client!afa", name = "p", descriptor = "Lclient!kn;")
     public static final Class213 aClass213_1 = new Class213(true);
-
-    @OriginalMember(owner = "client!afa", name = "h", descriptor = "Ljava/util/zip/CRC32;")
-    public static final CRC32 aCRC32_1 = new CRC32();
 
     @OriginalMember(owner = "client!afa", name = "a", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray1 = new String[100];

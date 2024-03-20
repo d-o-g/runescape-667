@@ -1,3 +1,5 @@
+package com.jagex.js5;
+
 import com.jagex.collect.Queue;
 import com.jagex.core.io.BufferedSocket;
 import com.jagex.core.io.Packet;

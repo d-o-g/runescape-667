@@ -141,7 +141,7 @@ public final class client extends GameShell {
             fileSystem = new FileSystem_Client(archiveId, cacheDat, cacheIndexFiles[archiveId], 1000000);
         }
         js5ResourceProviders[archiveId] = Static228.js5MasterIndex.getProvider(fileSystem, archiveId, metaCache);
-        js5ResourceProviders[archiveId].method6654();
+        js5ResourceProviders[archiveId].requestMissing();
         return new js5(js5ResourceProviders[archiveId], arg0, arg2);
     }
 

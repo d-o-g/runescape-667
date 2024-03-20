@@ -3,6 +3,7 @@ import com.jagex.core.io.Packet;
 import com.jagex.js5.CachedResourceWorker;
 import com.jagex.js5.FileSystem_Client;
 import com.jagex.js5.Js5WorkerRequestMessage;
+import com.jagex.js5.Js5WorkerThread;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -119,7 +120,7 @@ public final class Js5MasterIndex {
         }
         for (@Pc(12) int local12 = 0; local12 < this.aClass47_Sub1Array5.length; local12++) {
             if (this.aClass47_Sub1Array5[local12] != null) {
-                this.aClass47_Sub1Array5[local12].method6653();
+                this.aClass47_Sub1Array5[local12].processRequests();
             }
         }
         for (@Pc(41) int local41 = 0; local41 < this.aClass47_Sub1Array5.length; local41++) {

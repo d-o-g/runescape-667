@@ -3,11 +3,22 @@ import com.jagex.collect.HashTable;
 import com.jagex.collect.Node;
 import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.js5.*;
+import com.jagex.js5.CachedResourceWorker;
+import com.jagex.js5.FileSystem_Client;
+import com.jagex.js5.Js5Archive;
+import com.jagex.js5.Js5Index;
+import com.jagex.js5.Js5ResourceRequest;
+import com.jagex.js5.Js5ResponseCode;
+import com.jagex.js5.Js5WorkerRequestMessage;
+import com.jagex.js5.Js5WorkerThread;
+import com.jagex.js5.ResourceProvider;
+import com.jagex.js5.ResourceRequest;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+
+import java.util.zip.CRC32;
 
 @OriginalClass("client!pm")
 public final class Js5ResourceProvider extends ResourceProvider {
@@ -15,6 +26,9 @@ public final class Js5ResourceProvider extends ResourceProvider {
     private static final int FETCHGROUP_MODE_URGENT = 0;
     private static final int FETCHGROUP_MODE_VERIFY = 1;
     private static final int FETCHGROUP_MODE_PREFETCH = 2;
+
+    @OriginalMember(owner = "client!afa", name = "h", descriptor = "Ljava/util/zip/CRC32;")
+    private static final CRC32 CRC32 = new CRC32();
 
     @OriginalMember(owner = "client!pm", name = "t", descriptor = "[B")
     public byte[] groupStates;
@@ -26,7 +40,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public boolean requestMissing;
 
     @OriginalMember(owner = "client!pm", name = "g", descriptor = "I")
-    public int anInt7473 = 0;
+    public int loaded = 0;
 
     @OriginalMember(owner = "client!pm", name = "A", descriptor = "Lclient!av;")
     public final HashTable waiting = new HashTable(16);
@@ -38,7 +52,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public final Deque groupRequests = new Deque();
 
     @OriginalMember(owner = "client!pm", name = "m", descriptor = "J")
-    public long aLong239 = 0L;
+    public long nextOphanCheck = 0L;
 
     @OriginalMember(owner = "client!pm", name = "j", descriptor = "I")
     public final int archiveId;
@@ -53,22 +67,22 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public Deque passives;
 
     @OriginalMember(owner = "client!pm", name = "x", descriptor = "Z")
-    public final boolean aBoolean569;
+    public final boolean clearIdle;
 
     @OriginalMember(owner = "client!pm", name = "K", descriptor = "Lclient!pla;")
     public final Js5WorkerThread netWorker;
 
     @OriginalMember(owner = "client!pm", name = "s", descriptor = "I")
-    public final int anInt7463;
+    public final int crc;
 
     @OriginalMember(owner = "client!pm", name = "D", descriptor = "I")
-    public final int anInt7472;
+    public final int version;
 
     @OriginalMember(owner = "client!pm", name = "H", descriptor = "Lclient!iba;")
     public final CachedResourceWorker cacheWorker;
 
     @OriginalMember(owner = "client!pm", name = "O", descriptor = "[B")
-    public final byte[] aByteArray89;
+    public final byte[] whirlpool;
 
     @OriginalMember(owner = "client!pm", name = "B", descriptor = "Lclient!af;")
     public final FileSystem_Client indexStore;
@@ -77,7 +91,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public ResourceRequest indexRequest;
 
     @OriginalMember(owner = "client!pm", name = "<init>", descriptor = "(ILclient!af;Lclient!af;Lclient!pla;Lclient!iba;I[BIZ)V")
-    public Js5ResourceProvider(@OriginalArg(0) int archiveId, @OriginalArg(1) FileSystem_Client datafs, @OriginalArg(2) FileSystem_Client indexStore, @OriginalArg(3) Js5WorkerThread arg3, @OriginalArg(4) CachedResourceWorker cacheWorker, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) boolean arg8) {
+    public Js5ResourceProvider(@OriginalArg(0) int archiveId, @OriginalArg(1) FileSystem_Client datafs, @OriginalArg(2) FileSystem_Client indexStore, @OriginalArg(3) Js5WorkerThread netWorker, @OriginalArg(4) CachedResourceWorker cacheWorker, @OriginalArg(5) int crc, @OriginalArg(6) byte[] whirlpool, @OriginalArg(7) int version, @OriginalArg(8) boolean arg8) {
         this.archiveId = archiveId;
         this.datafs = datafs;
         if (this.datafs == null) {
@@ -86,12 +100,12 @@ public final class Js5ResourceProvider extends ResourceProvider {
             this.verifyLocal = true;
             this.passives = new Deque();
         }
-        this.aBoolean569 = arg8;
-        this.netWorker = arg3;
-        this.anInt7463 = arg5;
-        this.anInt7472 = arg7;
+        this.clearIdle = arg8;
+        this.netWorker = netWorker;
+        this.crc = crc;
+        this.version = version;
         this.cacheWorker = cacheWorker;
-        this.aByteArray89 = arg6;
+        this.whirlpool = whirlpool;
         this.indexStore = indexStore;
         if (this.indexStore != null) {
             this.indexRequest = this.cacheWorker.readUrgent(this.indexStore, this.archiveId);
@@ -126,7 +140,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
         }
 
         @Pc(50) Node request = new Node();
-        request.key = (long) groupId;
+        request.key = groupId;
         this.groupRequests.addLast(request);
     }
 
@@ -181,7 +195,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
 
                         if (this.groupStates[this.currentGroup] == 0) {
                             @Pc(147) Node passive = new Node();
-                            passive.key = (long) this.currentGroup;
+                            passive.key = this.currentGroup;
                             done = false;
                             this.passives.addLast(passive);
                         }
@@ -221,15 +235,16 @@ public final class Js5ResourceProvider extends ResourceProvider {
                         }
 
                         if (this.groupStates[this.currentGroup] != 1) {
-                            this.fetchgroup_inner(this.currentGroup, 2);
+                            this.fetchgroup_inner(this.currentGroup, FETCHGROUP_MODE_PREFETCH);
                         }
 
                         if (this.groupStates[this.currentGroup] != 1) {
-                            @Pc(147) Node local147 = new Node();
-                            local147.key = (long) this.currentGroup;
-                            this.passives.addLast(local147);
+                            @Pc(147) Node node = new Node();
+                            node.key = this.currentGroup;
+                            this.passives.addLast(node);
                             done = false;
                         }
+
                         this.currentGroup++;
                     }
                 }
@@ -241,210 +256,228 @@ public final class Js5ResourceProvider extends ResourceProvider {
                 this.passives = null;
             }
         }
-        if (!this.aBoolean569 || SystemTimer.safetime() < this.aLong239) {
-            return;
-        }
-        for (@Pc(366) ResourceRequest local366 = (ResourceRequest) this.waiting.first(); local366 != null; local366 = (ResourceRequest) this.waiting.next()) {
-            if (!local366.incomplete) {
-                if (local366.orphan) {
-                    if (!local366.urgent) {
-                        throw new RuntimeException();
+
+        if (this.clearIdle && SystemTimer.safetime() >= this.nextOphanCheck) {
+            for (@Pc(366) ResourceRequest request = (ResourceRequest) this.waiting.first(); request != null; request = (ResourceRequest) this.waiting.next()) {
+                if (!request.incomplete) {
+                    if (request.orphan) {
+                        if (!request.urgent) {
+                            throw new RuntimeException("Unexpected non-urgent orphan! archiveid:" + archiveId);
+                        }
+                        request.remove();
+                    } else {
+                        request.orphan = true;
                     }
-                    local366.remove();
-                } else {
-                    local366.orphan = true;
                 }
             }
+
+            this.nextOphanCheck = SystemTimer.safetime() + 1000L;
         }
-        this.aLong239 = SystemTimer.safetime() + 1000L;
     }
 
     @OriginalMember(owner = "client!pm", name = "d", descriptor = "(B)I")
     public int method6649() {
-        return this.anInt7473;
+        return this.loaded;
     }
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(IB)[B")
     @Override
     public byte[] fetchgroup(@OriginalArg(0) int groupId) {
-        @Pc(9) ResourceRequest local9 = this.fetchgroup_inner(groupId, 0);
-        if (local9 == null) {
+        @Pc(9) ResourceRequest request = this.fetchgroup_inner(groupId, FETCHGROUP_MODE_URGENT);
+
+        if (request == null) {
             return null;
         } else {
-            @Pc(26) byte[] local26 = local9.getData();
-            local9.remove();
-            return local26;
+            @Pc(26) byte[] data = request.getData();
+            request.remove();
+            return data;
         }
     }
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(III)Lclient!tw;")
-    public ResourceRequest fetchgroup_inner(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(19) ResourceRequest local19 = (ResourceRequest) this.waiting.get((long) arg0);
-        if (local19 != null && arg1 == 0 && !local19.urgent && local19.incomplete) {
-            local19.remove();
-            local19 = null;
+    public ResourceRequest fetchgroup_inner(@OriginalArg(0) int groupId, @OriginalArg(1) int mode) {
+        @Pc(19) ResourceRequest request = (ResourceRequest) this.waiting.get((long) groupId);
+        if (request != null && mode == 0 && !request.urgent && request.incomplete) {
+            request.remove();
+            request = null;
         }
-        if (local19 == null) {
-            if (arg1 == 0) {
-                if (this.datafs == null || this.groupStates[arg0] == -1) {
-                    if (this.netWorker.isUrgentFull()) {
-                        return null;
-                    }
-                    local19 = this.netWorker.requestIndex(this.archiveId, arg0, true, (byte) 2);
+
+        if (request == null) {
+            if (mode == FETCHGROUP_MODE_URGENT) {
+                if (this.datafs != null && this.groupStates[groupId] != -1) {
+                    request = this.cacheWorker.readUrgent(this.datafs, groupId);
+                } else if (!this.netWorker.isUrgentFull()) {
+                    request = this.netWorker.requestIndex(this.archiveId, groupId, true, (byte) 2);
                 } else {
-                    local19 = this.cacheWorker.readUrgent(this.datafs, arg0);
-                }
-            } else if (arg1 == 1) {
-                if (this.datafs == null) {
-                    throw new RuntimeException();
-                }
-                local19 = this.cacheWorker.verify(this.datafs, arg0);
-            } else if (arg1 == 2) {
-                if (this.datafs == null) {
-                    throw new RuntimeException();
-                }
-                if (this.groupStates[arg0] != -1) {
-                    throw new RuntimeException();
-                }
-                if (this.netWorker.isPrefetchFull()) {
                     return null;
                 }
-                local19 = this.netWorker.requestIndex(this.archiveId, arg0, false, (byte) 2);
+            } else if (mode == FETCHGROUP_MODE_VERIFY) {
+                if (this.datafs != null) {
+                    request = this.cacheWorker.verify(this.datafs, groupId);
+                } else {
+                    throw new RuntimeException("fetchgroup_inner - VERIFY requested but no datafs available!");
+                }
+            } else if (mode == FETCHGROUP_MODE_PREFETCH) {
+                if (this.datafs == null) {
+                    throw new RuntimeException("fetchgroup_inner - PREFETCH requested but no datafs available!");
+                } else if (this.groupStates[groupId] != -1) {
+                    throw new RuntimeException("fetchgroup_inner - PREFETCH requested, but cache isn\'t known invalid!");
+                } else if (this.netWorker.isPrefetchFull()) {
+                    return null;
+                } else {
+                    request = this.netWorker.requestIndex(this.archiveId, groupId, false, (byte) 2);
+                }
             } else {
-                throw new RuntimeException();
+                throw new RuntimeException("Invalid fetchgroup mode!");
             }
-            this.waiting.put((long) arg0, local19);
+
+            this.waiting.put((long) groupId, request);
         }
-        if (local19.incomplete) {
+
+        if (request.incomplete) {
             return null;
         }
-        @Pc(194) byte[] local194 = local19.getData();
-        @Pc(224) int local224;
-        @Pc(254) byte[] local254;
-        @Pc(263) byte[] local263;
-        @Pc(265) int local265;
-        @Pc(383) Js5WorkerRequestMessage local383;
-        if (!(local19 instanceof Js5ResourceRequest)) {
+
+        @Pc(194) byte[] data = request.getData();
+        if (request instanceof Js5ResourceRequest) {
             try {
-                label157:
-                {
-                    if (local194 != null && local194.length > 2) {
-                        Static10.aCRC32_1.reset();
-                        Static10.aCRC32_1.update(local194, 0, local194.length - 2);
-                        local224 = (int) Static10.aCRC32_1.getValue();
-                        if (this.index.groupCrcs[arg0] != local224) {
-                            throw new RuntimeException();
-                        }
-                        if (this.index.groupHashes == null || this.index.groupHashes[arg0] == null) {
-                            break label157;
-                        }
-                        local254 = this.index.groupHashes[arg0];
-                        local263 = Whirlpool.digest(local194, local194.length - 2, 0);
-                        local265 = 0;
-                        while (true) {
-                            if (local265 >= 64) {
-                                break label157;
-                            }
-                            if (local254[local265] != local263[local265]) {
-                                throw new RuntimeException();
-                            }
-                            local265++;
+                if (data == null || data.length <= 2) {
+                    throw new RuntimeException("Data not in cache - data:" + data);
+                }
+
+                CRC32.reset();
+                CRC32.update(data, 0, data.length - 2);
+
+                @Pc(224) int crc = (int) CRC32.getValue();
+                if (crc != this.index.groupCrcs[groupId]) {
+                    throw new RuntimeException("Disk fetch CRC incorrect");
+                }
+
+                if (this.index.groupHashes != null && this.index.groupHashes[groupId] != null) {
+                    @Pc(254) byte[] expected = this.index.groupHashes[groupId];
+                    @Pc(263) byte[] actual = Whirlpool.digest(data, data.length - 2, 0);
+
+                    for (@Pc(265) int i = 0; i < 64; i++) {
+                        if (actual[i] != expected[i]) {
+                            throw new RuntimeException("Disk fetch Whirlpool incorrect");
                         }
                     }
-                    throw new RuntimeException();
                 }
-                this.netWorker.errors = 0;
-                this.netWorker.response = 0;
-            } catch (@Pc(498) RuntimeException local498) {
-                this.netWorker.reset();
-                local19.remove();
-                if (local19.urgent && !this.netWorker.isUrgentFull()) {
-                    local383 = this.netWorker.requestIndex(this.archiveId, arg0, true, (byte) 2);
-                    this.waiting.put((long) arg0, local383);
+
+                @Pc(307) int version = (data[data.length - 1] & 0xFF) + ((data[data.length - 2] & 0xFF) << 8);
+                if (version != (this.index.groupVersions[groupId] & 0xFFFF)) {
+                    throw new RuntimeException("Version incorrect - wanted:" + index.groupVersions[groupId] + " got:" + version);
                 }
+
+                if (this.groupStates[groupId] != 1) {
+                    this.loaded++;
+                    this.groupStates[groupId] = 1;
+                }
+
+                if (!request.urgent) {
+                    request.remove();
+                }
+
+                return request;
+            } catch (@Pc(355) Exception ignored) {
+                this.groupStates[groupId] = -1;
+                request.remove();
+
+                if (request.urgent && !this.netWorker.isUrgentFull()) {
+                    @Pc(383) Js5WorkerRequestMessage message = this.netWorker.requestIndex(this.archiveId, groupId, true, (byte) 2);
+                    this.waiting.put(groupId, message);
+                }
+
                 return null;
             }
-            local194[local194.length - 2] = (byte) (this.index.groupVersions[arg0] >>> 8);
-            local194[local194.length - 1] = (byte) this.index.groupVersions[arg0];
-            if (this.datafs != null) {
-                this.cacheWorker.write(local194, arg0, this.datafs);
-                if (this.groupStates[arg0] != 1) {
-                    this.anInt7473++;
-                    this.groupStates[arg0] = 1;
+        } else {
+            try {
+                if (data == null || data.length <= 2) {
+                    throw new RuntimeException("Data from server too small - data:" + data);
                 }
-            }
-            if (!local19.urgent) {
-                local19.remove();
-            }
-            return local19;
-        }
-        try {
-            if (local194 == null || local194.length <= 2) {
-                throw new RuntimeException();
-            }
-            Static10.aCRC32_1.reset();
-            Static10.aCRC32_1.update(local194, 0, local194.length - 2);
-            local224 = (int) Static10.aCRC32_1.getValue();
-            if (local224 != this.index.groupCrcs[arg0]) {
-                throw new RuntimeException();
-            }
-            if (this.index.groupHashes != null && this.index.groupHashes[arg0] != null) {
-                local254 = this.index.groupHashes[arg0];
-                local263 = Whirlpool.digest(local194, local194.length - 2, 0);
-                for (local265 = 0; local265 < 64; local265++) {
-                    if (local263[local265] != local254[local265]) {
-                        throw new RuntimeException();
+
+                CRC32.reset();
+                CRC32.update(data, 0, data.length - 2);
+
+                @Pc(224) int crc = (int) CRC32.getValue();
+                if (this.index.groupCrcs[groupId] != crc) {
+                    throw new RuntimeException("Net fetch CRC incorrect");
+                }
+
+                if (this.index.groupHashes != null && this.index.groupHashes[groupId] != null) {
+                    @Pc(254) byte[] expected = this.index.groupHashes[groupId];
+                    @Pc(263) byte[] actual = Whirlpool.digest(data, data.length - 2, 0);
+
+                    for (@Pc(265) int i = 0; i < 64; i++) {
+                        if (expected[i] != actual[i]) {
+                            throw new RuntimeException("Whirlpool for group " + groupId + " incorrect - got:" + actual + " expected:" + expected);
+                        }
                     }
                 }
+
+                this.netWorker.errors = 0;
+                this.netWorker.response = Js5ResponseCode.OK;
+            } catch (@Pc(498) RuntimeException ignored) {
+                this.netWorker.reset();
+                request.remove();
+
+                if (request.urgent && !this.netWorker.isUrgentFull()) {
+                    @Pc(383) Js5WorkerRequestMessage message = this.netWorker.requestIndex(this.archiveId, groupId, true, (byte) 2);
+                    this.waiting.put(groupId, message);
+                }
+
+                return null;
             }
-            @Pc(307) int local307 = (local194[local194.length - 1] & 0xFF) + ((local194[local194.length - 2] & 0xFF) << 8);
-            if (local307 != (this.index.groupVersions[arg0] & 0xFFFF)) {
-                throw new RuntimeException();
+
+            data[data.length - 2] = (byte) (this.index.groupVersions[groupId] >>> 8);
+            data[data.length - 1] = (byte) (this.index.groupVersions[groupId]);
+
+            if (this.datafs != null) {
+                this.cacheWorker.write(data, groupId, this.datafs);
+
+                if (this.groupStates[groupId] != 1) {
+                    this.loaded++;
+                    this.groupStates[groupId] = 1;
+                }
             }
-            if (this.groupStates[arg0] != 1) {
-                this.anInt7473++;
-                this.groupStates[arg0] = 1;
+
+            if (!request.urgent) {
+                request.remove();
             }
-            if (!local19.urgent) {
-                local19.remove();
-            }
-            return local19;
-        } catch (@Pc(355) Exception local355) {
-            this.groupStates[arg0] = -1;
-            local19.remove();
-            if (local19.urgent && !this.netWorker.isUrgentFull()) {
-                local383 = this.netWorker.requestIndex(this.archiveId, arg0, true, (byte) 2);
-                this.waiting.put((long) arg0, local383);
-            }
-            return null;
+
+            return request;
         }
     }
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(BI)I")
     @Override
     public int completePercentage(@OriginalArg(1) int groupId) {
-        @Pc(19) ResourceRequest local19 = (ResourceRequest) this.waiting.get((long) groupId);
-        return local19 == null ? 0 : local19.completePercentage();
+        @Pc(19) ResourceRequest request = (ResourceRequest) this.waiting.get(groupId);
+        return request == null ? 0 : request.completePercentage();
     }
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(Z)V")
-    public void method6653() {
+    public void processRequests() {
         if (this.passives == null || this.index() == null) {
             return;
         }
-        for (@Pc(21) Node local21 = this.groupRequests.first(); local21 != null; local21 = this.groupRequests.next()) {
-            @Pc(29) int local29 = (int) local21.key;
-            if (local29 < 0 || local29 >= this.index.groupLimit || this.index.fileCounts[local29] == 0) {
-                local21.remove();
+
+        for (@Pc(21) Node request = this.groupRequests.first(); request != null; request = this.groupRequests.next()) {
+            @Pc(29) int group = (int) request.key;
+
+            if (group < 0 || group >= this.index.groupLimit || this.index.fileCounts[group] == 0) {
+                request.remove();
             } else {
-                if (this.groupStates[local29] == 0) {
-                    this.fetchgroup_inner(local29, 1);
+                if (this.groupStates[group] == 0) {
+                    this.fetchgroup_inner(group, FETCHGROUP_MODE_VERIFY);
                 }
-                if (this.groupStates[local29] == -1) {
-                    this.fetchgroup_inner(local29, 2);
+
+                if (this.groupStates[group] == -1) {
+                    this.fetchgroup_inner(group, FETCHGROUP_MODE_PREFETCH);
                 }
-                if (this.groupStates[local29] == 1) {
-                    local21.remove();
+
+                if (this.groupStates[group] == 1) {
+                    request.remove();
                 }
             }
         }
@@ -456,66 +489,80 @@ public final class Js5ResourceProvider extends ResourceProvider {
         if (this.index != null) {
             return this.index;
         }
+
         if (this.indexRequest == null) {
             if (this.netWorker.isUrgentFull()) {
                 return null;
             }
-            this.indexRequest = this.netWorker.requestIndex(255, this.archiveId, true, (byte) 0);
+
+            this.indexRequest = this.netWorker.requestIndex(Js5Archive.ARCHIVESET, this.archiveId, true, (byte) 0);
         }
+
         if (this.indexRequest.incomplete) {
             return null;
         }
-        @Pc(53) byte[] local53 = this.indexRequest.getData();
+
+        @Pc(53) byte[] data = this.indexRequest.getData();
         if (this.indexRequest instanceof Js5ResourceRequest) {
             try {
-                if (local53 == null) {
-                    throw new RuntimeException();
+                if (data == null) {
+                    throw new RuntimeException("Index not found in disk cache");
                 }
-                this.index = new Js5Index(local53, this.anInt7463, this.aByteArray89);
-                if (this.anInt7472 != this.index.version) {
-                    throw new RuntimeException();
+                this.index = new Js5Index(data, this.crc, this.whirlpool);
+
+                if (this.version != this.index.version) {
+                    throw new RuntimeException("Index version wrong - index.indexversion:" + index.version + " expected:" + version);
                 }
-            } catch (@Pc(162) RuntimeException local162) {
+            } catch (@Pc(162) RuntimeException ignored) {
                 this.index = null;
+
                 if (this.netWorker.isUrgentFull()) {
                     this.indexRequest = null;
                 } else {
-                    this.indexRequest = this.netWorker.requestIndex(255, this.archiveId, true, (byte) 0);
+                    this.indexRequest = this.netWorker.requestIndex(Js5Archive.ARCHIVESET, this.archiveId, true, (byte) 0);
                 }
+
                 return null;
             }
         } else {
             try {
-                if (local53 == null) {
-                    throw new RuntimeException();
+                if (data == null) {
+                    throw new RuntimeException("Failed to download index from server!");
                 }
-                this.index = new Js5Index(local53, this.anInt7463, this.aByteArray89);
+
+                this.index = new Js5Index(data, this.crc, this.whirlpool);
             } catch (@Pc(76) RuntimeException local76) {
                 this.netWorker.reset();
                 this.index = null;
+
                 if (this.netWorker.isUrgentFull()) {
                     this.indexRequest = null;
                 } else {
-                    this.indexRequest = this.netWorker.requestIndex(255, this.archiveId, true, (byte) 0);
+                    this.indexRequest = this.netWorker.requestIndex(Js5Archive.ARCHIVESET, this.archiveId, true, (byte) 0);
                 }
+
                 return null;
             }
+
             if (this.indexStore != null) {
-                this.cacheWorker.write(local53, this.archiveId, this.indexStore);
+                this.cacheWorker.write(data, this.archiveId, this.indexStore);
             }
         }
+
         if (this.datafs != null) {
             this.groupStates = new byte[this.index.groupLimit];
-            this.anInt7473 = 0;
+            this.loaded = 0;
         }
+
         this.indexRequest = null;
         return this.index;
     }
 
     @OriginalMember(owner = "client!pm", name = "c", descriptor = "(B)V")
-    public void method6654() {
+    public void requestMissing() {
         if (this.datafs != null) {
             this.requestMissing = true;
+
             if (this.passives == null) {
                 this.passives = new Deque();
             }

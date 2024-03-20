@@ -24,8 +24,8 @@ public final class ReferenceCache {
     public final int capacity;
 
     @OriginalMember(owner = "client!dla", name = "<init>", descriptor = "(I)V")
-    public ReferenceCache(@OriginalArg(0) int size) {
-        this(size, size);
+    public ReferenceCache(@OriginalArg(0) int capacity) {
+        this(capacity, capacity);
     }
 
     @OriginalMember(owner = "client!dla", name = "<init>", descriptor = "(II)V")

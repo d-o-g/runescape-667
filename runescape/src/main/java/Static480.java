@@ -1,6 +1,6 @@
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
-import com.jagex.collect.LinkedHashTable;
+import com.jagex.collect.LruCache;
 import com.jagex.core.io.Packet;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -16,7 +16,7 @@ public final class Static480 {
     public static int anInt7206 = 0;
 
     @OriginalMember(owner = "client!pca", name = "i", descriptor = "Lclient!ts;")
-    public static final LinkedHashTable A_DOUBLY_LINKED_LIST___2 = new LinkedHashTable(128);
+    public static final LruCache A_DOUBLY_LINKED_LIST___2 = new LruCache(128);
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "(II[IIIIII)V")
     public static void method6466(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(7) int arg5) {

@@ -1,12 +1,12 @@
 import com.jagex.collect.Deque;
-import com.jagex.collect.LinkedHashTable;
+import com.jagex.collect.LruCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ip")
-public final class DoublyLinkedNode_Sub2_Sub13 extends LinkedHashTable.Node {
+public final class DoublyLinkedNode_Sub2_Sub13 extends LruCache.Node {
 
     @OriginalMember(owner = "client!ip", name = "J", descriptor = "I")
     public int anInt4552 = 0;

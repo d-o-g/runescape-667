@@ -81,7 +81,7 @@ public final class ParticleSystem extends LinkedList.Node {
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;)V")
     public void method3646(@OriginalArg(0) Toolkit arg0) {
-        this.aClass230_1.aClass113_1.method2487();
+        this.aClass230_1.aClass113_1.clear();
         for (@Pc(10) ParticleEmitter local10 = (ParticleEmitter) this.aLinkedList_6.first(); local10 != null; local10 = (ParticleEmitter) this.aLinkedList_6.next()) {
             local10.method7263(this.aLong132, arg0);
         }
@@ -139,10 +139,10 @@ public final class ParticleSystem extends LinkedList.Node {
 
     @OriginalMember(owner = "client!hv", name = "b", descriptor = "()Lclient!lk;")
     public Class230 method3650() {
-        this.aClass230_1.aClass113_1.method2487();
+        this.aClass230_1.aClass113_1.clear();
         for (@Pc(6) int local6 = 0; local6 < this.aParticle.length; local6++) {
             if (this.aParticle[local6] != null && this.aParticle[local6].aParticleEmitter_1 != null) {
-                this.aClass230_1.aClass113_1.method2488(this.aParticle[local6]);
+                this.aClass230_1.aClass113_1.add(this.aParticle[local6]);
             }
         }
         return this.aClass230_1;

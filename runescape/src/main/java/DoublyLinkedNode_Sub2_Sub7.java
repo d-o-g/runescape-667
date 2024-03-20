@@ -1,10 +1,10 @@
-import com.jagex.collect.LinkedHashTable;
+import com.jagex.collect.LruCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!dca")
-public final class DoublyLinkedNode_Sub2_Sub7 extends LinkedHashTable.Node {
+public final class DoublyLinkedNode_Sub2_Sub7 extends LruCache.Node {
 
     @OriginalMember(owner = "client!dca", name = "u", descriptor = "[B")
     public final byte[] aByteArray21;

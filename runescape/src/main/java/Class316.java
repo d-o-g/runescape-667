@@ -1,5 +1,5 @@
+import com.jagex.collect.Class113;
 import com.jagex.Class230;
-import com.jagex.Class8_Sub4;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -139,10 +139,10 @@ public final class Class316 {
             @Pc(39) int local39 = 0;
             @Pc(41) int local41 = Integer.MAX_VALUE;
             @Pc(43) int local43 = 0;
-            @Pc(47) Class8_Sub4 local47 = arg0.aClass113_1.aClass8_Sub4_1;
-            @Pc(50) Class8_Sub4 local50;
+            @Pc(47) Class113.Node local47 = arg0.aClass113_1.sentinel;
+            @Pc(50) Class113.Node local50;
             @Pc(81) int local81;
-            for (local50 = local47.aClass8_Sub4_10; local50 != local47; local50 = local50.aClass8_Sub4_10) {
+            for (local50 = local47.next2; local50 != local47; local50 = local50.next2) {
                 @Pc(54) Class8_Sub4_Sub2 local54 = (Class8_Sub4_Sub2) local50;
                 local81 = (int) (local29 * (float) (local54.anInt7534 >> 12) + local25 * (float) (local54.anInt7537 >> 12) + local33 * (float) (local54.anInt7536 >> 12) + local37);
                 if (local81 < local41) {
@@ -162,7 +162,7 @@ public final class Class316 {
                 local116 += 2;
             }
             local39 = 0;
-            local50 = local47.aClass8_Sub4_10;
+            local50 = local47.next2;
             @Pc(147) int local147 = -2;
             @Pc(149) boolean local149 = true;
             @Pc(151) boolean local151 = true;
@@ -202,7 +202,7 @@ public final class Class316 {
                             this.aClass8_Sub4_Sub2ArrayArray3[local227][this.anIntArray635[local227]++] = local184;
                         }
                     }
-                    local50 = local50.aClass8_Sub4_10;
+                    local50 = local50.next2;
                 }
                 arg2.method8108(false, local147 < 0 ? -1 : local147, false);
                 if (local149 && Static260.aFloat75 != arg2.aFloat186) {

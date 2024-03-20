@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ts")
-public final class LinkedHashTable {
+public final class LruCache {
 
     @OriginalMember(owner = "client!ts", name = "j", descriptor = "Lclient!cm;")
     public Node pointer = new Node();
@@ -15,7 +15,7 @@ public final class LinkedHashTable {
     public final Queue history = new Queue();
 
     @OriginalMember(owner = "client!ts", name = "h", descriptor = "I")
-    public int size;
+    public int remaining;
 
     @OriginalMember(owner = "client!ts", name = "g", descriptor = "I")
     public final int capacity;
@@ -24,18 +24,18 @@ public final class LinkedHashTable {
     public final HashTable table;
 
     @OriginalMember(owner = "client!ts", name = "<init>", descriptor = "(I)V")
-    public LinkedHashTable(@OriginalArg(0) int size) {
-        this.size = size;
-        this.capacity = size;
+    public LruCache(@OriginalArg(0) int capacity) {
+        this.remaining = capacity;
+        this.capacity = capacity;
         @Pc(19) int bucketCount;
-        for (bucketCount = 1; bucketCount + bucketCount < size; bucketCount += bucketCount) {
+        for (bucketCount = 1; bucketCount + bucketCount < capacity; bucketCount += bucketCount) {
         }
         this.table = new HashTable(bucketCount);
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(BLclient!cm;J)V")
     public void put(@OriginalArg(1) Node node, @OriginalArg(2) long key) {
-        if (this.size == 0) {
+        if (this.remaining == 0) {
             @Pc(19) Node first = this.history.removeFirst();
             first.unlink();
             first.unlink2();
@@ -46,7 +46,7 @@ public final class LinkedHashTable {
                 first.unlink2();
             }
         } else {
-            this.size--;
+            this.remaining--;
         }
 
         this.table.put(key, node);
@@ -68,7 +68,7 @@ public final class LinkedHashTable {
         if (node != null) {
             node.unlink();
             node.unlink2();
-            this.size++;
+            this.remaining++;
         }
     }
 
@@ -77,7 +77,7 @@ public final class LinkedHashTable {
         this.history.clear();
         this.table.clear();
         this.pointer = new Node();
-        this.size = this.capacity;
+        this.remaining = this.capacity;
     }
 
     @OriginalClass("client!cm")

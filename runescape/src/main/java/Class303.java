@@ -1,4 +1,4 @@
-import com.jagex.collect.LinkedHashTable;
+import com.jagex.collect.LruCache;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class303 implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "k", descriptor = "Lclient!ts;")
-    public final LinkedHashTable aLinkedHashTable_3 = new LinkedHashTable(256);
+    public final LruCache aLinkedHashTable_3 = new LruCache(256);
 
     @OriginalMember(owner = "client!qea", name = "b", descriptor = "Lclient!sb;")
     public final js5 aJs5_99;
@@ -137,7 +137,7 @@ public final class Class303 implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IB)Lclient!vm;")
     public DoublyLinkedNode_Sub2_Sub21 method6819(@OriginalArg(0) int arg0) {
-        @Pc(10) LinkedHashTable.Node local10 = this.aLinkedHashTable_3.get((long) arg0);
+        @Pc(10) LruCache.Node local10 = this.aLinkedHashTable_3.get((long) arg0);
         if (local10 != null) {
             return (DoublyLinkedNode_Sub2_Sub21) local10;
         }

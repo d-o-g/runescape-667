@@ -1,4 +1,4 @@
-import com.jagex.collect.LinkedHashTable;
+import com.jagex.collect.LruCache;
 import com.jagex.collect.Queue;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class299 {
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "Lclient!cm;")
-    public LinkedHashTable.Node aClass2_Sub2_48;
+    public LruCache.Node aClass2_Sub2_48;
 
     @OriginalMember(owner = "client!ps", name = "e", descriptor = "Lclient!jga;")
     public Queue aQueue_14;
@@ -24,8 +24,8 @@ public final class Class299 {
     }
 
     @OriginalMember(owner = "client!ps", name = "b", descriptor = "(I)Lclient!cm;")
-    public LinkedHashTable.Node method6723() {
-        @Pc(6) LinkedHashTable.Node local6 = this.aClass2_Sub2_48;
+    public LruCache.Node method6723() {
+        @Pc(6) LruCache.Node local6 = this.aClass2_Sub2_48;
         if (local6 == this.aQueue_14.last) {
             this.aClass2_Sub2_48 = null;
             return null;
@@ -36,8 +36,8 @@ public final class Class299 {
     }
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "(I)Lclient!cm;")
-    public LinkedHashTable.Node method6724() {
-        @Pc(14) LinkedHashTable.Node local14 = this.aQueue_14.last.next2;
+    public LruCache.Node method6724() {
+        @Pc(14) LruCache.Node local14 = this.aQueue_14.last.next2;
         if (this.aQueue_14.last == local14) {
             this.aClass2_Sub2_48 = null;
             return null;

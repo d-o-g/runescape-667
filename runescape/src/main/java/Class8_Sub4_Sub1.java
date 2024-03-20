@@ -1,11 +1,11 @@
-import com.jagex.Class8_Sub4;
+import com.jagex.collect.Class113;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ne")
-public final class Class8_Sub4_Sub1 extends Class8_Sub4 {
+public final class Class8_Sub4_Sub1 extends Class113.Node {
 
     @OriginalMember(owner = "client!ne", name = "q", descriptor = "I")
     public final int anInt6433 = (int) (SystemTimer.safetime() / 1000L);

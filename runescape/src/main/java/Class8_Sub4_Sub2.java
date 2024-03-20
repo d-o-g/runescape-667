@@ -1,9 +1,9 @@
-import com.jagex.Class8_Sub4;
+import com.jagex.collect.Class113;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!up")
-public class Class8_Sub4_Sub2 extends Class8_Sub4 {
+public class Class8_Sub4_Sub2 extends Class113.Node {
 
     @OriginalMember(owner = "client!up", name = "w", descriptor = "Z")
     public boolean aBoolean574;

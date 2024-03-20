@@ -1,10 +1,10 @@
-import com.jagex.collect.LinkedHashTable;
+import com.jagex.collect.LruCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!pg")
-public final class DoublyLinkedNode_Sub2_Sub16 extends LinkedHashTable.Node {
+public final class DoublyLinkedNode_Sub2_Sub16 extends LruCache.Node {
 
     @OriginalMember(owner = "client!pg", name = "C", descriptor = "Ljava/lang/String;")
     public String aString88;

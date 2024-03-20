@@ -1,12 +1,12 @@
 package com.jagex.collect.ref.key;
 
-import com.jagex.collect.LinkedHashTable;
+import com.jagex.collect.LruCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!pv")
-public abstract class KeyedReferenceNode extends LinkedHashTable.Node {
+public abstract class KeyedReferenceNode extends LruCache.Node {
 
     @OriginalMember(owner = "client!pv", name = "u", descriptor = "I")
     public final int size;

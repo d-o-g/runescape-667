@@ -1,4 +1,4 @@
-import com.jagex.collect.LinkedHashTable;
+import com.jagex.collect.LruCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -9,7 +9,7 @@ public final class Static341 {
     public static int[][] anIntArrayArray133;
 
     @OriginalMember(owner = "client!ko", name = "H", descriptor = "Lclient!ts;")
-    public static final LinkedHashTable A_DOUBLY_LINKED_LIST___1 = new LinkedHashTable(64);
+    public static final LruCache A_DOUBLY_LINKED_LIST___1 = new LruCache(64);
 
     @OriginalMember(owner = "client!ko", name = "g", descriptor = "(I)V")
     public static void method5033(@OriginalArg(0) int arg0) {

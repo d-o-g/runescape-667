@@ -413,7 +413,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
                     }
                 }
             }
-            local40.aClass230_1.aClass113_1.method2488(this);
+            local40.aClass230_1.aClass113_1.add(this);
         }
     }
 
@@ -442,6 +442,6 @@ public final class Particle extends Class8_Sub4_Sub2 {
         ParticleManager.cache[ParticleManager.freePtr] = this;
         ParticleManager.freePtr = ParticleManager.freePtr + 1 & 0x3FF;
         this.unlink();
-        this.method6686();
+        this.unlink2();
     }
 }

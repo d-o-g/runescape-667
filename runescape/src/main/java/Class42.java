@@ -1,5 +1,5 @@
+import com.jagex.collect.Class113;
 import com.jagex.Class230;
-import com.jagex.Class8_Sub4;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -355,10 +355,10 @@ public final class Class42 {
             @Pc(48) int local48 = 0;
             @Pc(50) int local50 = Integer.MAX_VALUE;
             @Pc(52) int local52 = 0;
-            @Pc(56) Class8_Sub4 local56 = arg1.aClass113_1.aClass8_Sub4_1;
-            @Pc(59) Class8_Sub4 local59;
+            @Pc(56) Class113.Node local56 = arg1.aClass113_1.sentinel;
+            @Pc(59) Class113.Node local59;
             @Pc(91) int local91;
-            for (local59 = local56.aClass8_Sub4_10; local59 != local56; local59 = local59.aClass8_Sub4_10) {
+            for (local59 = local56.next2; local59 != local56; local59 = local59.next2) {
                 @Pc(64) Class8_Sub4_Sub2 local64 = (Class8_Sub4_Sub2) local59;
                 local91 = (int) (local46 + local42 * (float) (local64.anInt7536 >> 12) + (float) (local64.anInt7537 >> 12) * local34 + (float) (local64.anInt7534 >> 12) * local38);
                 if (local91 > local52) {
@@ -378,7 +378,7 @@ public final class Class42 {
                 local118 = (local118 >> local91) + 2;
             }
             local48 = 0;
-            local59 = local56.aClass8_Sub4_10;
+            local59 = local56.next2;
             @Pc(152) int local152 = -2;
             @Pc(154) boolean local154 = true;
             @Pc(156) boolean local156 = true;
@@ -418,7 +418,7 @@ public final class Class42 {
                             this.aClass8_Sub4_Sub2ArrayArray1[local257][this.anIntArray74[local257]++] = local210;
                         }
                     }
-                    local59 = local59.aClass8_Sub4_10;
+                    local59 = local59.next2;
                 }
                 if (local152 >= 0) {
                     arg0.method7046(local152);

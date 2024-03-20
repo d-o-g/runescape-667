@@ -16,7 +16,7 @@ public final class Static79 {
         for (@Pc(10) DoublyLinkedNode_Sub2_Sub4 local10 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local10 != null; local10 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
             if (local10.anInt1534 > 1) {
                 local10.anInt1534 = 0;
-                Static717.A_WEIGHTED_CACHE___232.put(local10, ((DoublyLinkedNode_Sub2_Sub16) local10.aQueue_3.last.next2).aLong234);
+                Static717.A_WEIGHTED_CACHE___232.put(local10, ((DoublyLinkedNode_Sub2_Sub16) local10.aQueue_3.sentinel.next2).aLong234);
                 local10.aQueue_3.clear();
             }
         }

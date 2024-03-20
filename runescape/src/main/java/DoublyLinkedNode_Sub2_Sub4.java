@@ -25,7 +25,7 @@ public final class DoublyLinkedNode_Sub2_Sub4 extends LruCache.Node {
 
     @OriginalMember(owner = "client!cba", name = "d", descriptor = "(B)I")
     public int method1468() {
-        return this.aQueue_3.last.next2 == this.aQueue_3.last ? -1 : ((DoublyLinkedNode_Sub2_Sub16) this.aQueue_3.last.next2).anInt7314;
+        return this.aQueue_3.sentinel.next2 == this.aQueue_3.sentinel ? -1 : ((DoublyLinkedNode_Sub2_Sub16) this.aQueue_3.sentinel.next2).anInt7314;
     }
 
     @OriginalMember(owner = "client!cba", name = "b", descriptor = "(ILclient!pg;)Z")

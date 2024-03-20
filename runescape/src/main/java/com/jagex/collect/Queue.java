@@ -12,18 +12,18 @@ public final class Queue {
     public LruCache.Node pointer;
 
     @OriginalMember(owner = "client!jga", name = "h", descriptor = "Lclient!cm;")
-    public final LruCache.Node last = new LruCache.Node();
+    public final LruCache.Node sentinel = new LruCache.Node();
 
     @OriginalMember(owner = "client!jga", name = "<init>", descriptor = "()V")
     public Queue() {
-        this.last.next2 = this.last;
-        this.last.prev2 = this.last;
+        this.sentinel.next2 = this.sentinel;
+        this.sentinel.prev2 = this.sentinel;
     }
 
     @OriginalMember(owner = "client!jga", name = "c", descriptor = "(I)Lclient!cm;")
     public LruCache.Node removeFirst() {
-        @Pc(7) LruCache.Node node = this.last.next2;
-        if (this.last == node) {
+        @Pc(7) LruCache.Node node = this.sentinel.next2;
+        if (this.sentinel == node) {
             return null;
         } else {
             node.unlink2();
@@ -36,8 +36,8 @@ public final class Queue {
         if (node.prev2 != null) {
             node.unlink2();
         }
-        node.next2 = this.last;
-        node.prev2 = this.last.prev2;
+        node.next2 = this.sentinel;
+        node.prev2 = this.sentinel.prev2;
         node.prev2.next2 = node;
         node.next2.prev2 = node;
     }
@@ -45,8 +45,8 @@ public final class Queue {
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(B)I")
     public int size() {
         @Pc(5) int size = 0;
-        @Pc(17) LruCache.Node current = this.last.next2;
-        while (this.last != current) {
+        @Pc(17) LruCache.Node current = this.sentinel.next2;
+        while (this.sentinel != current) {
             current = current.next2;
             size++;
         }
@@ -56,7 +56,7 @@ public final class Queue {
     @OriginalMember(owner = "client!jga", name = "b", descriptor = "(I)Lclient!cm;")
     public LruCache.Node next() {
         @Pc(11) LruCache.Node next = this.pointer;
-        if (next == this.last) {
+        if (next == this.sentinel) {
             this.pointer = null;
             return null;
         } else {
@@ -68,8 +68,8 @@ public final class Queue {
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(Z)V")
     public void clear() {
         while (true) {
-            @Pc(3) LruCache.Node current = this.last.next2;
-            if (current == this.last) {
+            @Pc(3) LruCache.Node current = this.sentinel.next2;
+            if (current == this.sentinel) {
                 this.pointer = null;
                 return;
             }
@@ -79,8 +79,8 @@ public final class Queue {
 
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(I)Lclient!cm;")
     public LruCache.Node first() {
-        @Pc(18) LruCache.Node first = this.last.next2;
-        if (first == this.last) {
+        @Pc(18) LruCache.Node first = this.sentinel.next2;
+        if (first == this.sentinel) {
             this.pointer = null;
             return null;
         } else {

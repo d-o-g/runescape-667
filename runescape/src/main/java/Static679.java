@@ -61,7 +61,7 @@ public final class Static679 {
                         local262 = new Class299(Static350.A_QUEUE___8);
                         for (@Pc(368) DoublyLinkedNode_Sub2_Sub4 local368 = (DoublyLinkedNode_Sub2_Sub4) local262.method6724(); local368 != null; local368 = (DoublyLinkedNode_Sub2_Sub4) local262.method6723()) {
                             if (local71++ == local53) {
-                                return ((DoublyLinkedNode_Sub2_Sub16) local368.aQueue_3.last.next2).anInt7318;
+                                return ((DoublyLinkedNode_Sub2_Sub16) local368.aQueue_3.sentinel.next2).anInt7318;
                             }
                         }
                     }

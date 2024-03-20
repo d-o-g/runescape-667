@@ -50,7 +50,7 @@ public final class Static149 {
             local70 = 0;
             for (local77 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local77 != null; local77 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
                 local89 = local23 + local70 * 16 + 13 + 20;
-                if (local55 > local5 + Static71.anInt1576 && local55 < local5 + Static71.anInt1576 + Static682.anInt10295 && local66 > local89 - 13 && local66 < local89 + 4 && (local77.anInt1534 > 1 || ((DoublyLinkedNode_Sub2_Sub16) local77.aQueue_3.last.next2).aBoolean552)) {
+                if (local55 > local5 + Static71.anInt1576 && local55 < local5 + Static71.anInt1576 + Static682.anInt10295 && local66 > local89 - 13 && local66 < local89 + 4 && (local77.anInt1534 > 1 || ((DoublyLinkedNode_Sub2_Sub16) local77.aQueue_3.sentinel.next2).aBoolean552)) {
                     arg0.aa(local5 + Static71.anInt1576, local89 + -12, Static682.anInt10295, 16, 255 - Static405.anInt6255 << 24 | Static183.anInt3022, 1);
                 }
                 local70++;
@@ -83,7 +83,7 @@ public final class Static149 {
             for (local77 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local77 != null; local77 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
                 local89 = local70 * 16 + local7 + Static84.anInt1775 + 33;
                 if (local77.anInt1534 == 1) {
-                    Static232.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local7, local89, Static634.anInt9510 | 0xFF000000, (DoublyLinkedNode_Sub2_Sub16) local77.aQueue_3.last.next2, Static563.anInt8455 | 0xFF000000, local66, Static71.anInt1576 + local5, local55);
+                    Static232.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local7, local89, Static634.anInt9510 | 0xFF000000, (DoublyLinkedNode_Sub2_Sub16) local77.aQueue_3.sentinel.next2, Static563.anInt8455 | 0xFF000000, local66, Static71.anInt1576 + local5, local55);
                 } else {
                     Static515.method6799(local66, Static682.anInt10295, local89, Static634.anInt9510 | 0xFF000000, arg0, local55, Static563.anInt8455 | 0xFF000000, local7 + Static84.anInt1775, local5 + Static71.anInt1576, Static407.anInt6288, local77);
                 }

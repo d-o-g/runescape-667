@@ -46,7 +46,7 @@ public final class Static159 {
             for (@Pc(137) DoublyLinkedNode_Sub2_Sub4 local137 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local137 != null; local137 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
                 local101 = local9 + Static84.anInt1775 + local80 * 16 + 31;
                 if (local137.anInt1534 == 1) {
-                    Static232.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, (DoublyLinkedNode_Sub2_Sub16) local137.aQueue_3.last.next2, -1, local76, local7 + Static71.anInt1576, local69);
+                    Static232.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, (DoublyLinkedNode_Sub2_Sub16) local137.aQueue_3.sentinel.next2, -1, local76, local7 + Static71.anInt1576, local69);
                 } else {
                     Static515.method6799(local76, Static682.anInt10295, local101, -256, arg0, local69, -1, Static84.anInt1775 + local9, local7 + Static71.anInt1576, Static407.anInt6288, local137);
                 }

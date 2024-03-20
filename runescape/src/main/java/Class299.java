@@ -26,7 +26,7 @@ public final class Class299 {
     @OriginalMember(owner = "client!ps", name = "b", descriptor = "(I)Lclient!cm;")
     public LruCache.Node method6723() {
         @Pc(6) LruCache.Node local6 = this.aClass2_Sub2_48;
-        if (local6 == this.aQueue_14.last) {
+        if (local6 == this.aQueue_14.sentinel) {
             this.aClass2_Sub2_48 = null;
             return null;
         } else {
@@ -37,8 +37,8 @@ public final class Class299 {
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "(I)Lclient!cm;")
     public LruCache.Node method6724() {
-        @Pc(14) LruCache.Node local14 = this.aQueue_14.last.next2;
-        if (this.aQueue_14.last == local14) {
+        @Pc(14) LruCache.Node local14 = this.aQueue_14.sentinel.next2;
+        if (this.aQueue_14.sentinel == local14) {
             this.aClass2_Sub2_48 = null;
             return null;
         } else {

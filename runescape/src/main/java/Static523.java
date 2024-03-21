@@ -1,5 +1,5 @@
 import com.jagex.SignLink;
-import com.jagex.core.constants.ClientComponent;
+import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
@@ -277,7 +277,7 @@ public final class Static523 {
             Static36.aClass260_1 = new Class260(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
             Static628.aClass342_5 = new Class342(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
             Static648.aClass17_1 = new Class17(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
-            Static444.method5987(js5.INTERFACES, js5.FONTMETRICS, js5.SPRITES, js5.MODELS);
+            Component.init(js5.INTERFACES, js5.FONTMETRICS, js5.SPRITES, js5.MODELS);
             Static110.method2081(js5.CONFIG_BILLBOARD);
             Static68.aClass151_3 = new Class151(Static51.anInt1052, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
             Static288.aClass139_2 = new Class139(Static51.anInt1052, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new Class251());
@@ -338,8 +338,8 @@ public final class Static523 {
                 return 0;
             }
             local184 = true;
-            for (local74 = 0; local74 < Static453.aComponentArrayArray2[graphicsDefaults.login_interface].length; local74++) {
-                @Pc(1315) Component local1315 = Static453.aComponentArrayArray2[graphicsDefaults.login_interface][local74];
+            for (local74 = 0; local74 < Component.aComponentArrayArray2[graphicsDefaults.login_interface].length; local74++) {
+                @Pc(1315) Component local1315 = Component.aComponentArrayArray2[graphicsDefaults.login_interface][local74];
                 if (local1315.type == 5 && local1315.graphic != -1 && !js5.SPRITES.requestdownload(0, local1315.graphic)) {
                     local184 = false;
                 }
@@ -389,7 +389,7 @@ public final class Static523 {
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ZLclient!hda;)V")
     public static void method3449(@OriginalArg(1) Component arg0) {
-        if (ClientComponent.SPINNING_PLAYER != arg0.clientComponent) {
+        if (ComponentClientCode.SPINNING_PLAYER != arg0.clientcode) {
             return;
         }
         if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9 == null) {

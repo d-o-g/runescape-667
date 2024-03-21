@@ -20,11 +20,4 @@ public final class Static675 {
     @OriginalMember(owner = "client!vga", name = "j", descriptor = "I")
     public static int anInt10156 = -1;
 
-    @OriginalMember(owner = "client!vga", name = "c", descriptor = "(I)V")
-    public static void method8811() {
-        Component.sprites.reset();
-        Component.models.reset();
-        Component.A_WEIGHTED_CACHE___146.reset();
-        Component.skyBoxes.reset();
-    }
 }

@@ -9,11 +9,11 @@ public final class Static347 {
 
     @OriginalMember(owner = "client!ku", name = "a", descriptor = "(IZ)V")
     public static void method5094(@OriginalArg(0) int arg0) {
-        if (arg0 != -1 && Static132.aBooleanArray5[arg0]) {
-            Static666.aJs5_118.discardUnpacked(arg0);
-            Static453.aComponentArrayArray2[arg0] = null;
+        if (arg0 != -1 && Component.aBooleanArray5[arg0]) {
+            Component.interfacesJs5.discardUnpacked(arg0);
+            Component.aComponentArrayArray2[arg0] = null;
             Static148.aComponentArrayArray1[arg0] = null;
-            Static132.aBooleanArray5[arg0] = false;
+            Component.aBooleanArray5[arg0] = false;
         }
     }
 

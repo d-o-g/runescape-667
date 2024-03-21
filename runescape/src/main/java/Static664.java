@@ -115,7 +115,7 @@ public final class Static664 {
         Static652.aClass214_1.method5040();
         Static561.aClass220_2.method5183();
         PlayerModel.cacheRemoveSoftReferences();
-        Static570.method7553();
+        Component.cacheRemoveSoftReferences();
         FontTypeList.cacheRemoveSoftReferences();
         Static149.method2450();
         Static126.method2229();

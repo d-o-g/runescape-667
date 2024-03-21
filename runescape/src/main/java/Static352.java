@@ -55,7 +55,7 @@ public final class Static352 {
         Static652.aClass214_1.method5035();
         Static561.aClass220_2.method5182();
         PlayerModel.cacheReset();
-        Static675.method8811();
+        Component.cacheReset();
         FontTypeList.cacheReset();
         Static327.method4895();
         if (Static2.aClass355_1 != Static446.aClass355_5) {

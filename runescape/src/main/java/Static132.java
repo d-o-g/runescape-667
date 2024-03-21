@@ -8,9 +8,6 @@ public final class Static132 {
     @OriginalMember(owner = "client!ec", name = "F", descriptor = "I")
     public static int anInt2451;
 
-    @OriginalMember(owner = "client!ec", name = "G", descriptor = "[Z")
-    public static boolean[] aBooleanArray5;
-
     @OriginalMember(owner = "client!ec", name = "A", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_54 = new Class225(91, -1);
 

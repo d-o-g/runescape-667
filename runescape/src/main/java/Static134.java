@@ -40,7 +40,7 @@ public final class Static134 {
     public static void method8956(@OriginalArg(0) Component arg0, @OriginalArg(2) boolean arg1) {
         @Pc(16) int local16 = arg0.scrollWidth == 0 ? arg0.anInt3802 : arg0.scrollWidth;
         @Pc(37) int local37 = arg0.scrollHeight == 0 ? arg0.anInt3746 : arg0.scrollHeight;
-        Static220.method3200(local16, arg1, local37, Static453.aComponentArrayArray2[arg0.slot >> 16], arg0.slot);
+        Static220.method3200(local16, arg1, local37, Component.aComponentArrayArray2[arg0.slot >> 16], arg0.slot);
         if (arg0.aComponentArray1 != null) {
             Static220.method3200(local16, arg1, local37, arg0.aComponentArray1, arg0.slot);
         }

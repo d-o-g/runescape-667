@@ -2,7 +2,7 @@ package com.jagex.core.constants;
 
 import org.openrs2.deob.annotation.OriginalMember;
 
-public final class ClientComponent {
+public final class ComponentClientCode {
 
     @OriginalMember(owner = "client!lr", name = "i", descriptor = "I")
     public static final int SPINNING_PLAYER = 328;
@@ -40,7 +40,7 @@ public final class ClientComponent {
     @OriginalMember(owner = "client!kq", name = "g", descriptor = "I")
     public static final int COLOUR_CHOOSER_SATURATION_VALUE = 1409;
 
-    private ClientComponent() {
+    private ComponentClientCode() {
         /* empty */
     }
 }

@@ -1,4 +1,3 @@
-import com.jagex.core.constants.ClientComponent;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

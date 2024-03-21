@@ -1550,11 +1550,11 @@ public final class Static293 {
                                                                     local100 = local11.g2();
                                                                     local526 = local11.g2();
                                                                     Static574.method7573();
-                                                                    if (Static453.aComponentArrayArray2[local277] != null) {
+                                                                    if (Component.aComponentArrayArray2[local277] != null) {
                                                                         for (local1409 = local100; local1409 < local526; local1409++) {
                                                                             local1413 = local11.g3();
-                                                                            if (Static453.aComponentArrayArray2[local277].length > local1409 && Static453.aComponentArrayArray2[local277][local1409] != null) {
-                                                                                Static453.aComponentArrayArray2[local277][local1409].anInt3774 = local1413;
+                                                                            if (Component.aComponentArrayArray2[local277].length > local1409 && Component.aComponentArrayArray2[local277][local1409] != null) {
+                                                                                Component.aComponentArrayArray2[local277][local1409].anInt3774 = local1413;
                                                                             }
                                                                         }
                                                                     }

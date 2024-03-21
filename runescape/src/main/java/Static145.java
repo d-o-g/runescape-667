@@ -97,7 +97,7 @@ public final class Static145 {
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(III)V")
     public static void method2411(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         if (Static571.method7566(arg1)) {
-            Static84.method1663(Static453.aComponentArrayArray2[arg1], arg0);
+            Static84.method1663(Component.aComponentArrayArray2[arg1], arg0);
         }
     }
 
@@ -105,12 +105,12 @@ public final class Static145 {
     public static Component method2412(@OriginalArg(1) int arg0) {
         @Pc(16) int local16 = arg0 >> 16;
         @Pc(20) int local20 = arg0 & 0xFFFF;
-        if (Static453.aComponentArrayArray2[local16] == null || Static453.aComponentArrayArray2[local16][local20] == null) {
+        if (Component.aComponentArrayArray2[local16] == null || Component.aComponentArrayArray2[local16][local20] == null) {
             @Pc(38) boolean local38 = Static571.method7566(local16);
             if (!local38) {
                 return null;
             }
         }
-        return Static453.aComponentArrayArray2[local16][local20];
+        return Component.aComponentArrayArray2[local16][local20];
     }
 }

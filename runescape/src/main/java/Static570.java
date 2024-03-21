@@ -36,11 +36,4 @@ public final class Static570 {
         return local8;
     }
 
-    @OriginalMember(owner = "client!rv", name = "a", descriptor = "(I)V")
-    public static void method7553() {
-        Component.sprites.removeSoftReferences();
-        Component.models.removeSoftReferences();
-        Component.A_WEIGHTED_CACHE___146.removeSoftReferences();
-        Component.skyBoxes.removeSoftReferences();
-    }
 }

@@ -55,26 +55,68 @@ public final class Component {
     static final int TYPE_MODEL = 6;
     static final int TYPE_LINE = 9;
 
+    @OriginalMember(owner = "client!rc", name = "o", descriptor = "Z")
+    public static boolean redrawAll = false;
+
     @OriginalMember(owner = "client!ov", name = "c", descriptor = "Lclient!dla;")
     public static final ReferenceCache sprites = new ReferenceCache(3000000, 200);
-
-    @OriginalMember(owner = "client!ica", name = "m", descriptor = "Lclient!sb;")
-    public static js5 spritesJs5;
 
     @OriginalMember(owner = "client!jt", name = "a", descriptor = "Lclient!dla;")
     public static final ReferenceCache models = new ReferenceCache(50);
 
     @OriginalMember(owner = "client!od", name = "l", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___146 = new ReferenceCache(8);
-
-    @OriginalMember(owner = "client!tca", name = "Fi", descriptor = "Lclient!sb;")
-    public static js5 modelsJs5;
+    public static final ReferenceCache graphics = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!o", name = "x", descriptor = "Lclient!dla;")
     public static final ReferenceCache skyBoxes = new ReferenceCache(4);
 
-    @OriginalMember(owner = "client!rc", name = "o", descriptor = "Z")
-    public static boolean redrawAll = false;
+    @OriginalMember(owner = "client!ica", name = "m", descriptor = "Lclient!sb;")
+    public static js5 spritesJs5;
+
+    @OriginalMember(owner = "client!tca", name = "Fi", descriptor = "Lclient!sb;")
+    public static js5 modelsJs5;
+
+    @OriginalMember(owner = "client!vba", name = "M", descriptor = "Lclient!sb;")
+    public static js5 interfacesJs5;
+
+    @OriginalMember(owner = "client!of", name = "z", descriptor = "[[Lclient!hda;")
+    public static Component[][] aComponentArrayArray2;
+
+    @OriginalMember(owner = "client!ec", name = "G", descriptor = "[Z")
+    public static boolean[] aBooleanArray5;
+
+    @OriginalMember(owner = "client!o", name = "a", descriptor = "(Lclient!sb;Lclient!sb;Lclient!sb;BLclient!sb;)V")
+    public static void init(@OriginalArg(0) js5 interfacesJs5, @OriginalArg(1) js5 fontMetricsJs5, @OriginalArg(2) js5 spritesJs5, @OriginalArg(4) js5 modelsJs5) {
+        Component.spritesJs5 = spritesJs5;
+        Component.interfacesJs5 = interfacesJs5;
+        Component.modelsJs5 = modelsJs5;
+        aComponentArrayArray2 = new Component[Component.interfacesJs5.groupSize()][];
+        aBooleanArray5 = new boolean[Component.interfacesJs5.groupSize()];
+    }
+
+    @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IB)V")
+    public static void cacheClean(@OriginalArg(0) int maxAge) {
+        sprites.clean(maxAge);
+        models.clean(maxAge);
+        graphics.clean(maxAge);
+        skyBoxes.clean(maxAge);
+    }
+
+    @OriginalMember(owner = "client!vga", name = "c", descriptor = "(I)V")
+    public static void cacheReset() {
+        sprites.reset();
+        models.reset();
+        graphics.reset();
+        skyBoxes.reset();
+    }
+
+    @OriginalMember(owner = "client!rv", name = "a", descriptor = "(I)V")
+    public static void cacheRemoveSoftReferences() {
+        sprites.removeSoftReferences();
+        models.removeSoftReferences();
+        graphics.removeSoftReferences();
+        skyBoxes.removeSoftReferences();
+    }
 
     @OriginalMember(owner = "client!hda", name = "M", descriptor = "[Ljava/lang/Object;")
     public Object[] onRelease;
@@ -485,7 +527,7 @@ public final class Component {
     public ServerActiveProperties serverActiveProperties = ServerActiveProperties.DEFAULT;
 
     @OriginalMember(owner = "client!hda", name = "Ec", descriptor = "I")
-    public int clientComponent = 0;
+    public int clientcode = 0;
 
     @OriginalMember(owner = "client!hda", name = "Rc", descriptor = "I")
     public int anInt3804 = 0;
@@ -692,7 +734,7 @@ public final class Component {
             this.name = packet.gjstr();
         }
 
-        this.clientComponent = packet.g2();
+        this.clientcode = packet.g2();
         this.basePosX = packet.g2s();
         this.basePosY = packet.g2s();
         this.baseWidth = packet.g2();
@@ -982,17 +1024,17 @@ public final class Component {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;I)Lclient!he;")
-    public Class159 method3393(@OriginalArg(0) Toolkit toolkit) {
+    public Graphic graphic(@OriginalArg(0) Toolkit toolkit) {
         @Pc(15) long key = ((long) this.id & 0xFFFFFFFFL) | ((long) this.slot << 32);
 
-        @Pc(21) Class159 local21 = (Class159) A_WEIGHTED_CACHE___146.get(key);
-        if (local21 != null) {
-            if (local21.graphic != this.graphic) {
-                local21 = null;
-                A_WEIGHTED_CACHE___146.remove(key);
+        @Pc(21) Graphic graphic = (Graphic) graphics.get(key);
+        if (graphic != null) {
+            if (graphic.id != this.graphic) {
+                graphic = null;
+                graphics.remove(key);
             }
-            if (local21 != null) {
-                return local21;
+            if (graphic != null) {
+                return graphic;
             }
         }
 
@@ -1032,9 +1074,9 @@ public final class Component {
             return null;
         }
 
-        local21 = new Class159(newWidth, newHeight, widths, offsets, mask, this.graphic);
-        A_WEIGHTED_CACHE___146.put(local21, key);
-        return local21;
+        graphic = new Graphic(newWidth, newHeight, widths, offsets, mask, this.graphic);
+        graphics.put(graphic, key);
+        return graphic;
     }
 
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(Ljava/lang/String;II)V")

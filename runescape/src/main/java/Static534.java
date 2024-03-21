@@ -28,7 +28,7 @@ public final class Static534 {
                 Static691.anInt10368 = 1;
             }
             if (Static148.aComponentArrayArray1[arg0] == null) {
-                Static71.method1522(-1, arg6, Static453.aComponentArrayArray2[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+                Static71.method1522(-1, arg6, Component.aComponentArrayArray2[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
             } else {
                 Static71.method1522(-1, arg6, Static148.aComponentArrayArray1[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
             }
@@ -49,14 +49,6 @@ public final class Static534 {
         } else {
             InterfaceManager.dirtyRectangles[arg5] = true;
         }
-    }
-
-    @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IB)V")
-    public static void method7121() {
-        Component.sprites.clean(50);
-        Component.models.clean(50);
-        Component.A_WEIGHTED_CACHE___146.clean(50);
-        Component.skyBoxes.clean(50);
     }
 
 }

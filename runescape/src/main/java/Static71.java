@@ -1,5 +1,5 @@
 import com.jagex.IndexedImage;
-import com.jagex.core.constants.ClientComponent;
+import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.iftype.DragRender;
@@ -53,7 +53,7 @@ public final class Static71 {
                 local19.rectangle = local74;
                 local19.lastUpdate = TimeUtils.clock;
                 if (!Static84.method1660(local19)) {
-                    if (local19.clientComponent != 0) {
+                    if (local19.clientcode != 0) {
                         Static523.method3449(local19);
                     }
                     @Pc(125) int local125 = arg1 + local19.anInt3735;
@@ -129,18 +129,18 @@ public final class Static71 {
                         @Pc(936) int local936;
                         @Pc(938) int local938;
                         @Pc(779) int local779;
-                        if (local19.clientComponent != 0) {
-                            if (local19.clientComponent == ClientComponent.SCENE || local19.clientComponent == ClientComponent.LOGIN_SCENE) {
+                        if (local19.clientcode != 0) {
+                            if (local19.clientcode == ComponentClientCode.SCENE || local19.clientcode == ComponentClientCode.LOGIN_SCENE) {
                                 Static449.method6114(local130, local125, local19);
                                 if (!Static137.aBoolean210) {
-                                    Static294.method4339(local130, local19.clientComponent == ClientComponent.LOGIN_SCENE, local19.anInt3802, local19.anInt3746, local125);
+                                    Static294.method4339(local130, local19.clientcode == ComponentClientCode.LOGIN_SCENE, local19.anInt3802, local19.anInt3746, local125);
                                     Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                                 }
                                 InterfaceManager.dirtyRectangles[local74] = true;
                                 continue;
                             }
-                            if (local19.clientComponent == ClientComponent.MINIMAP && Static1.anInt10798 == 0) {
-                                if (local19.method3393(Static163.activeToolkit) != null) {
+                            if (local19.clientcode == ComponentClientCode.MINIMAP && Static1.anInt10798 == 0) {
+                                if (local19.graphic(Static163.activeToolkit) != null) {
                                     Static557.method7331();
                                     Static28.method746(local130, Static163.activeToolkit, local19, local125);
                                     Static469.aBooleanArray23[local74] = true;
@@ -155,16 +155,16 @@ public final class Static71 {
                                 }
                                 continue;
                             }
-                            if (local19.clientComponent == ClientComponent.COLOUR_CHOOSER_HUE) {
+                            if (local19.clientcode == ComponentClientCode.COLOUR_CHOOSER_HUE) {
                                 Static212.method3136(local19, local125, local130, Static163.activeToolkit);
                                 continue;
                             }
-                            if (local19.clientComponent == ClientComponent.COLOUR_CHOOSER_SATURATION_VALUE) {
+                            if (local19.clientcode == ComponentClientCode.COLOUR_CHOOSER_SATURATION_VALUE) {
                                 Static393.method5509(Static163.activeToolkit, local19.colour % 64, local19, local125, local130);
                                 continue;
                             }
-                            if (local19.clientComponent == ClientComponent.COMPASS) {
-                                if (local19.method3393(Static163.activeToolkit) != null) {
+                            if (local19.clientcode == ComponentClientCode.COMPASS) {
+                                if (local19.graphic(Static163.activeToolkit) != null) {
                                     Static646.method8454(local19, local125, local130);
                                     Static469.aBooleanArray23[local74] = true;
                                     Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
@@ -178,19 +178,19 @@ public final class Static71 {
                                 }
                                 continue;
                             }
-                            if (local19.clientComponent == ClientComponent.WORLD_MAP) {
+                            if (local19.clientcode == ComponentClientCode.WORLD_MAP) {
                                 Static93.method1832(local19.anInt3746, local125, local130, Static56.anTextureSource_3, Static163.activeToolkit, local19.anInt3802);
                                 InterfaceManager.dirtyRectangles[local74] = true;
                                 Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                                 continue;
                             }
-                            if (local19.clientComponent == ClientComponent.WORLD_MAP_OVERVIEW) {
+                            if (local19.clientcode == ComponentClientCode.WORLD_MAP_OVERVIEW) {
                                 Static515.method6801(local19.anInt3802, Static163.activeToolkit, local19.anInt3746, local125, local130);
                                 InterfaceManager.dirtyRectangles[local74] = true;
                                 Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                                 continue;
                             }
-                            if (local19.clientComponent == ClientComponent.DEBUG_OVERLAY) {
+                            if (local19.clientcode == ComponentClientCode.DEBUG_OVERLAY) {
                                 if (!Static105.aBoolean196 && !Static354.aBoolean440) {
                                     continue;
                                 }
@@ -269,7 +269,7 @@ public final class Static71 {
                         @Pc(1255) int local1255;
                         @Pc(1214) Node_Sub4 local1214;
                         if (local19.type == 0) {
-                            if (local19.clientComponent == ClientComponent.DEBUG_OVERLAY_LAYER && Static163.activeToolkit.method8014()) {
+                            if (local19.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER && Static163.activeToolkit.method8014()) {
                                 Static163.activeToolkit.method7959(local125, local130, local19.anInt3802, local19.anInt3746);
                             }
                             method1522(local19.slot, local125 - local19.anInt3809, arg2, local216, local222, local371, local74, arg7, local359, local130 - local19.anInt3768);
@@ -280,7 +280,7 @@ public final class Static71 {
                             if (local1214 != null) {
                                 Static534.method7120(local1214.anInt147, local216, local359, local222, local130, local74, local125, local371);
                             }
-                            if (local19.clientComponent == ClientComponent.DEBUG_OVERLAY_LAYER) {
+                            if (local19.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER) {
                                 if (Static163.activeToolkit.method8014()) {
                                     Static163.activeToolkit.method7974();
                                 }

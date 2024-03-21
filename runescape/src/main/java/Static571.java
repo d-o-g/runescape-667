@@ -19,22 +19,22 @@ public final class Static571 {
 
     @OriginalMember(owner = "client!rw", name = "d", descriptor = "(II)Z")
     public static boolean method7566(@OriginalArg(1) int arg0) {
-        if (Static132.aBooleanArray5[arg0]) {
+        if (Component.aBooleanArray5[arg0]) {
             return true;
-        } else if (Static666.aJs5_118.requestgroupdownload(arg0)) {
-            @Pc(25) int local25 = Static666.aJs5_118.fileLimit(arg0);
+        } else if (Component.interfacesJs5.requestgroupdownload(arg0)) {
+            @Pc(25) int local25 = Component.interfacesJs5.fileLimit(arg0);
             if (local25 == 0) {
-                Static132.aBooleanArray5[arg0] = true;
+                Component.aBooleanArray5[arg0] = true;
                 return true;
             }
-            if (Static453.aComponentArrayArray2[arg0] == null) {
-                Static453.aComponentArrayArray2[arg0] = new Component[local25];
+            if (Component.aComponentArrayArray2[arg0] == null) {
+                Component.aComponentArrayArray2[arg0] = new Component[local25];
             }
             for (@Pc(53) int local53 = 0; local53 < local25; local53++) {
-                if (Static453.aComponentArrayArray2[arg0][local53] == null) {
-                    @Pc(66) byte[] local66 = Static666.aJs5_118.getfile(local53, arg0);
+                if (Component.aComponentArrayArray2[arg0][local53] == null) {
+                    @Pc(66) byte[] local66 = Component.interfacesJs5.getfile(local53, arg0);
                     if (local66 != null) {
-                        @Pc(78) Component local78 = Static453.aComponentArrayArray2[arg0][local53] = new Component();
+                        @Pc(78) Component local78 = Component.aComponentArrayArray2[arg0][local53] = new Component();
                         local78.slot = local53 + (arg0 << 16);
                         if (local66[0] != -1) {
                             throw new IllegalStateException("if1");
@@ -43,7 +43,7 @@ public final class Static571 {
                     }
                 }
             }
-            Static132.aBooleanArray5[arg0] = true;
+            Component.aBooleanArray5[arg0] = true;
             return true;
         } else {
             return false;

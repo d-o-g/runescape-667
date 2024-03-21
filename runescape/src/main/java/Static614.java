@@ -56,7 +56,7 @@ public final class Static614 {
         Static652.aClass214_1.method5037();
         Static561.aClass220_2.method5184();
         PlayerModel.cacheClean();
-        Static534.method7121();
+        Component.cacheClean(50);
         FontTypeList.cacheClean(50);
         Static198.method2951();
         Static194.method2907();

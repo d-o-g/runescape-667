@@ -17,10 +17,10 @@ public final class Static251 {
         }
         @Pc(12) int local12 = arg0 >> 16;
         @Pc(23) int local23 = arg0 & 0xFFFF;
-        if (Static453.aComponentArrayArray2[local12] == null || Static453.aComponentArrayArray2[local12][local23] == null) {
+        if (Component.aComponentArrayArray2[local12] == null || Component.aComponentArrayArray2[local12][local23] == null) {
             return false;
         }
-        @Pc(44) Component local44 = Static453.aComponentArrayArray2[local12][local23];
+        @Pc(44) Component local44 = Component.aComponentArrayArray2[local12][local23];
         @Pc(57) DoublyLinkedNode_Sub2_Sub16 local57;
         if (arg1 == -1 && local44.type == 0) {
             for (local57 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local57 != null; local57 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {

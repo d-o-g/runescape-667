@@ -132,7 +132,7 @@ public final class Static472 {
         if (arg0 == -1 || !Static571.method7566(arg0)) {
             return;
         }
-        @Pc(14) Component[] local14 = Static453.aComponentArrayArray2[arg0];
+        @Pc(14) Component[] local14 = Component.aComponentArrayArray2[arg0];
         for (@Pc(16) int local16 = 0; local16 < local14.length; local16++) {
             @Pc(21) Component local21 = local14[local16];
             if (local21.onLoad != null) {
@@ -154,7 +154,7 @@ public final class Static472 {
             @Pc(119) int local119 = arg0.slot >>> 16;
             @Pc(123) Component[] local123 = Static148.aComponentArrayArray1[local119];
             if (local123 == null) {
-                local71 = Static453.aComponentArrayArray2[local119];
+                local71 = Component.aComponentArrayArray2[local119];
                 @Pc(132) int local132 = local71.length;
                 local123 = Static148.aComponentArrayArray1[local119] = new Component[local132];
                 Arrays.copy(local71, 0, local123, 0, local71.length);
@@ -3180,7 +3180,7 @@ public final class Static472 {
             @Pc(106) int local106 = arg0.slot >>> 16;
             @Pc(110) Component[] local110 = Static148.aComponentArrayArray1[local106];
             if (local110 == null) {
-                local69 = Static453.aComponentArrayArray2[local106];
+                local69 = Component.aComponentArrayArray2[local106];
                 @Pc(119) int local119 = local69.length;
                 local110 = Static148.aComponentArrayArray1[local106] = new Component[local119];
                 Arrays.copy(local69, 0, local110, 0, local69.length);
@@ -5663,11 +5663,11 @@ public final class Static472 {
                         }
                         if (arg0 == 6702) {
                             local192 = anIntArray578[--anInt7142];
-                            if (Static453.aComponentArrayArray2[local192] == null) {
+                            if (Component.aComponentArrayArray2[local192] == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
                             }
-                            local101 = Static453.aComponentArrayArray2[local192][0].name;
+                            local101 = Component.aComponentArrayArray2[local192][0].name;
                             if (local101 == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
@@ -5677,22 +5677,22 @@ public final class Static472 {
                         }
                         if (arg0 == 6703) {
                             local192 = anIntArray578[--anInt7142];
-                            if (Static453.aComponentArrayArray2[local192] == null) {
+                            if (Component.aComponentArrayArray2[local192] == null) {
                                 anIntArray578[anInt7142++] = 0;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = Static453.aComponentArrayArray2[local192].length;
+                            anIntArray578[anInt7142++] = Component.aComponentArrayArray2[local192].length;
                             return;
                         }
                         if (arg0 == 6704) {
                             anInt7142 -= 2;
                             local192 = anIntArray578[anInt7142];
                             local834 = anIntArray578[anInt7142 + 1];
-                            if (Static453.aComponentArrayArray2[local192] == null) {
+                            if (Component.aComponentArrayArray2[local192] == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
                             }
-                            local198 = Static453.aComponentArrayArray2[local192][local834].name;
+                            local198 = Component.aComponentArrayArray2[local192][local834].name;
                             if (local198 == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
@@ -5704,11 +5704,11 @@ public final class Static472 {
                             anInt7142 -= 2;
                             local192 = anIntArray578[anInt7142];
                             local834 = anIntArray578[anInt7142 + 1];
-                            if (Static453.aComponentArrayArray2[local192] == null) {
+                            if (Component.aComponentArrayArray2[local192] == null) {
                                 anIntArray578[anInt7142++] = 0;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = Static453.aComponentArrayArray2[local192][local834].anInt3774;
+                            anIntArray578[anInt7142++] = Component.aComponentArrayArray2[local192][local834].anInt3774;
                             return;
                         }
                         if (arg0 == 6706) {

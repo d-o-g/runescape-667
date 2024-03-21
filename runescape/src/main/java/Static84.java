@@ -1,4 +1,4 @@
-import com.jagex.core.constants.ClientComponent;
+import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
@@ -428,7 +428,7 @@ public final class Static84 {
                     local34 = local42 < arg4 ? local42 : arg4;
                     local36 = local47 < arg5 ? local47 : arg5;
                 }
-                if (local6.type == 0 || local6.hasHook || method1661(local6).events != 0 || local6 == Static354.aComponent_8 || local6.clientComponent == ClientComponent.MINIMAP || local6.clientComponent == ClientComponent.WORLD_MAP_OPTIONS || local6.clientComponent == ClientComponent.SCENE || local6.clientComponent == ClientComponent.LOGIN_SCENE) {
+                if (local6.type == 0 || local6.hasHook || method1661(local6).events != 0 || local6 == Static354.aComponent_8 || local6.clientcode == ComponentClientCode.MINIMAP || local6.clientcode == ComponentClientCode.WORLD_MAP_OPTIONS || local6.clientcode == ComponentClientCode.SCENE || local6.clientcode == ComponentClientCode.LOGIN_SCENE) {
                     if (!method1660(local6)) {
                         local42 = 0;
                         local47 = 0;
@@ -465,7 +465,7 @@ public final class Static84 {
                             @Pc(402) int local402;
                             if (Static189.aClass120_1.method8853() + local42 >= local30 && Static189.aClass120_1.method8854() + local47 >= local32 && Static189.aClass120_1.method8853() + local42 < local34 && Static189.aClass120_1.method8854() + local47 < local36) {
                                 if (local308) {
-                                    @Pc(353) Class159 local353 = local6.method3393(Static163.activeToolkit);
+                                    @Pc(353) Graphic local353 = local6.graphic(Static163.activeToolkit);
                                     if (local353 != null && local353.anInt3832 == local6.anInt3802 && local353.anInt3833 == local6.anInt3746) {
                                         @Pc(380) int local380 = Static189.aClass120_1.method8853() + local42 - local19;
                                         @Pc(388) int local388 = Static189.aClass120_1.method8854() + local47 - local24;
@@ -501,10 +501,10 @@ public final class Static84 {
                             @Pc(549) int local549;
                             @Pc(555) int local555;
                             @Pc(569) int local569;
-                            @Pc(524) Class159 local524;
+                            @Pc(524) Graphic local524;
                             if (local479 != null && local479.method5328() == 0 && local479.method5331() >= local30 && local479.method5333() >= local32 && local479.method5331() < local34 && local479.method5333() < local36) {
                                 if (local308) {
-                                    local524 = local6.method3393(Static163.activeToolkit);
+                                    local524 = local6.graphic(Static163.activeToolkit);
                                     if (local524 != null && local524.anInt3832 == local6.anInt3802 && local524.anInt3833 == local6.anInt3746) {
                                         local549 = local479.method5331() - local19;
                                         local555 = local479.method5333() - local24;
@@ -566,7 +566,7 @@ public final class Static84 {
                                 Static123.anInt2341 = local19;
                                 Static169.anInt2853 = local24;
                             }
-                            if (local6.hasHook || local6.clientComponent != 0) {
+                            if (local6.hasHook || local6.clientcode != 0) {
                                 @Pc(877) Node_Sub42 local877;
                                 if (local310 && Static611.anInt9341 != 0 && local6.onScrollWheel != null) {
                                     local877 = new Node_Sub42();
@@ -579,18 +579,18 @@ public final class Static84 {
                                 if (Static109.aComponent_3 != null) {
                                     local474 = false;
                                     local462 = false;
-                                } else if (Static400.aBoolean622 || local6.clientComponent != ClientComponent.WORLD_MAP && Static460.anInt6964 > 0) {
+                                } else if (Static400.aBoolean622 || local6.clientcode != ComponentClientCode.WORLD_MAP && Static460.anInt6964 > 0) {
                                     local474 = false;
                                     local462 = false;
                                     local310 = false;
                                 }
-                                if (local6.clientComponent != 0) {
-                                    if (local6.clientComponent == ClientComponent.SCENE || local6.clientComponent == ClientComponent.LOGIN_SCENE) {
+                                if (local6.clientcode != 0) {
+                                    if (local6.clientcode == ComponentClientCode.SCENE || local6.clientcode == ComponentClientCode.LOGIN_SCENE) {
                                         Static610.aComponent_16 = local6;
                                         if (Static456.aSkyBox_3 != null) {
                                             Static456.aSkyBox_3.method3168(Static400.instance.aClass57_Sub2_1.method1989(), local6.anInt3746, Static163.activeToolkit);
                                         }
-                                        if (local6.clientComponent == ClientComponent.SCENE) {
+                                        if (local6.clientcode == ComponentClientCode.SCENE) {
                                             if (Static400.aBoolean622 || arg10 < local30 || arg11 < local32 || arg10 >= local34 || arg11 >= local36) {
                                                 continue;
                                             }
@@ -608,8 +608,8 @@ public final class Static84 {
                                             }
                                         }
                                     }
-                                    if (local6.clientComponent == ClientComponent.MINIMAP) {
-                                        local524 = local6.method3393(Static163.activeToolkit);
+                                    if (local6.clientcode == ComponentClientCode.MINIMAP) {
+                                        local524 = local6.graphic(Static163.activeToolkit);
                                         if (local524 == null || Static578.anInt8595 != 0 && Static578.anInt8595 != 3 || Static400.aBoolean622 || arg10 < local30 || arg11 < local32 || arg10 >= local34 || arg11 >= local36) {
                                             continue;
                                         }
@@ -660,7 +660,7 @@ public final class Static84 {
                                         Static416.method5707(false, -1, 1L, local1191, local1199, Static331.aString52, 58, true, Static331.anInt5439, "", 0L, true);
                                         continue;
                                     }
-                                    if (local6.clientComponent == ClientComponent.WORLD_MAP) {
+                                    if (local6.clientcode == ComponentClientCode.WORLD_MAP) {
                                         Static210.aComponent_4 = local6;
                                         if (local310) {
                                             Static95.aBoolean184 = true;
@@ -715,13 +715,13 @@ public final class Static84 {
                                         Static460.anInt6964 = 0;
                                         continue;
                                     }
-                                    if (local6.clientComponent == ClientComponent.WORLD_MAP_OVERVIEW) {
+                                    if (local6.clientcode == ComponentClientCode.WORLD_MAP_OVERVIEW) {
                                         if (local462) {
                                             Static203.method3069(local6.anInt3802, local42 + Static189.aClass120_1.method8853() - local19, local47 + Static189.aClass120_1.method8854() - local24, local6.anInt3746);
                                         }
                                         continue;
                                     }
-                                    if (local6.clientComponent == ClientComponent.WORLD_MAP_OPTIONS) {
+                                    if (local6.clientcode == ComponentClientCode.WORLD_MAP_OPTIONS) {
                                         Static65.method1473(local19, local24, local6);
                                         continue;
                                     }

@@ -1,4 +1,4 @@
-import com.jagex.core.constants.ClientComponent;
+import com.jagex.core.constants.ComponentClientCode;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -54,7 +54,7 @@ public final class Static507 {
                 }
             }
         }
-        if (ClientComponent.SCENE == arg3.clientComponent) {
+        if (ComponentClientCode.SCENE == arg3.clientcode) {
             Static610.aComponent_16 = arg3;
         }
         if (arg0 && arg3.anObjectArray19 != null && (local6 != arg3.anInt3802 || local16 != arg3.anInt3746)) {

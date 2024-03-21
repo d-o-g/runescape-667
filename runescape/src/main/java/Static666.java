@@ -3,7 +3,6 @@ import com.jagex.SignedResource;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -12,9 +11,6 @@ public final class Static666 {
 
     @OriginalMember(owner = "client!vba", name = "K", descriptor = "J")
     public static long aLong301;
-
-    @OriginalMember(owner = "client!vba", name = "M", descriptor = "Lclient!sb;")
-    public static js5 aJs5_118;
 
     @OriginalMember(owner = "client!vba", name = "H", descriptor = "Z")
     public static boolean aBoolean766 = false;

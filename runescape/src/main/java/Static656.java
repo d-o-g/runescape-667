@@ -13,8 +13,8 @@ public final class Static656 {
 
     @OriginalMember(owner = "client!up", name = "c", descriptor = "(Z)V")
     public static void method6692() {
-        Static453.aComponentArrayArray2 = new Component[Static666.aJs5_118.groupSize()][];
-        Static148.aComponentArrayArray1 = new Component[Static666.aJs5_118.groupSize()][];
-        Static132.aBooleanArray5 = new boolean[Static666.aJs5_118.groupSize()];
+        Component.aComponentArrayArray2 = new Component[Component.interfacesJs5.groupSize()][];
+        Static148.aComponentArrayArray1 = new Component[Component.interfacesJs5.groupSize()][];
+        Component.aBooleanArray5 = new boolean[Component.interfacesJs5.groupSize()];
     }
 }

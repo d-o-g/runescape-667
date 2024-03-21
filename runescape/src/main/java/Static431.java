@@ -14,7 +14,7 @@ public final class Static431 {
             return;
         }
         if (Static148.aComponentArrayArray1[arg7] == null) {
-            Static84.method1669(Static453.aComponentArrayArray2[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
+            Static84.method1669(Component.aComponentArrayArray2[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
         } else {
             Static84.method1669(Static148.aComponentArrayArray1[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
         }

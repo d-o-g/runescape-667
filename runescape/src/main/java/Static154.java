@@ -12,7 +12,7 @@ public final class Static154 {
     public static final int[] anIntArray236 = new int[1000];
 
     @OriginalMember(owner = "client!er", name = "c", descriptor = "Ljava/util/Hashtable;")
-    public static final Hashtable aHashtable3 = new Hashtable();
+    public static final Hashtable loadedLibraries = new Hashtable();
 
     @OriginalMember(owner = "client!er", name = "a", descriptor = "(IIB)Z")
     public static boolean method2475(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {

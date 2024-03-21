@@ -8,7 +8,7 @@ import java.io.File;
 public final class Static93 {
 
     @OriginalMember(owner = "client!cu", name = "Y", descriptor = "Lclient!vq;")
-    public static SignLink aSignLink_1;
+    public static SignLink nativeLink;
 
     // $FF: synthetic field
     @OriginalMember(owner = "client!cu", name = "Q", descriptor = "Ljava/lang/Class;")
@@ -22,7 +22,7 @@ public final class Static93 {
         }
         @Pc(31) File local31 = null;
         if (local31 == null) {
-            local31 = (File) Static154.aHashtable3.get(arg1);
+            local31 = (File) Static154.loadedLibraries.get(arg1);
         }
         if (local31 != null) {
             try {
@@ -38,7 +38,7 @@ public final class Static93 {
 				return true;
 			} catch (@Pc(133) NoSuchMethodException local133) {*/
                 System.load(local31.getPath());
-                Static137.aHashtable2.put(arg1, aClass6 == null ? (aClass6 = getClass("Class332")) : aClass6);
+                Static137.aHashtable2.put(arg1, aClass6 == null ? (aClass6 = getClass("rs2.client.loading.Class332")) : aClass6);
                 return true;
             } catch (@Pc(154) Throwable local154) {
             }

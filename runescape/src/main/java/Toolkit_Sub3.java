@@ -36,6 +36,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.ClientInfo;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
@@ -1704,7 +1705,7 @@ public final class Toolkit_Sub3 extends Toolkit {
         this.aBoolean602 = this.anOpenGL1.a("GL_EXT_framebuffer_blit");
         this.aBoolean617 = this.anOpenGL1.a("GL_EXT_framebuffer_multisample");
         this.aBoolean614 = this.aBoolean617 & this.aBoolean602;
-        this.aBoolean604 = Class254.aString70.startsWith("mac");
+        this.aBoolean604 = ClientInfo.osName.startsWith("mac");
         OpenGL.glGetFloatv(OpenGL.GL_POINT_SIZE_RANGE, Static476.aFloatArray46, 0);
         this.aFloat136 = Static476.aFloatArray46[0];
         this.aFloat135 = Static476.aFloatArray46[1];

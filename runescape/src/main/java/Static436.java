@@ -22,6 +22,6 @@ public final class Static436 {
 
     @OriginalMember(owner = "client!no", name = "a", descriptor = "(Ljava/lang/String;I)Z")
     public static boolean method3417(@OriginalArg(0) String arg0) {
-        return Static154.aHashtable3.containsKey(arg0);
+        return Static154.loadedLibraries.containsKey(arg0);
     }
 }

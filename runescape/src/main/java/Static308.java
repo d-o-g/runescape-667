@@ -1,5 +1,6 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.ClientInfo;
 
 public final class Static308 {
 
@@ -21,12 +22,12 @@ public final class Static308 {
     }
 
     @OriginalMember(owner = "client!jp", name = "a", descriptor = "(ILjava/lang/String;)Ljava/lang/String;")
-    public static String method4484(@OriginalArg(1) String arg0) {
-        if (Class254.aString70.startsWith("win")) {
+    public static String addNativeFileExtension(@OriginalArg(1) String arg0) {
+        if (ClientInfo.osName.startsWith("win")) {
             return arg0 + ".dll";
-        } else if (Class254.aString70.startsWith("linux")) {
+        } else if (ClientInfo.osName.startsWith("linux")) {
             return "lib" + arg0 + ".so";
-        } else if (Class254.aString70.startsWith("mac")) {
+        } else if (ClientInfo.osName.startsWith("mac")) {
             return "lib" + arg0 + ".dylib";
         } else {
             return null;

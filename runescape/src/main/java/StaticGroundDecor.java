@@ -125,7 +125,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     @Override
     public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
         if (arg2) {
-            Static93.aSignLink_1 = null;
+            Static93.nativeLink = null;
         }
         @Pc(16) Model local16 = this.method1834(arg3, 131072);
         if (local16 == null) {
@@ -257,7 +257,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
-            Static93.aSignLink_1 = null;
+            Static93.nativeLink = null;
         }
     }
 

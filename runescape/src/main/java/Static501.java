@@ -46,7 +46,7 @@ public final class Static501 {
                 while (local10.hasMoreElements()) {
                     @Pc(76) String local76 = (String) local10.nextElement();
                     try {
-                        @Pc(81) File local81 = (File) Static154.aHashtable3.get(local76);
+                        @Pc(81) File local81 = (File) Static154.loadedLibraries.get(local76);
                         @Pc(86) Class local86 = (Class) Static137.aHashtable2.get(local76);
                         @Pc(92) Vector local92 = (Vector) local46.get(local86.getClassLoader());
                         for (@Pc(94) int local94 = 0; local92.size() > local94; local94++) {

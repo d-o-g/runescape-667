@@ -1,6 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.game.Class14;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
@@ -25,7 +25,7 @@ public final class Class14_Sub1 extends Class14 {
     public final Interface16 anInterface16_1;
 
     @OriginalMember(owner = "client!aja", name = "<init>", descriptor = "(Lclient!am;Lclient!ve;[Lclient!wp;Z)V")
-    public Class14_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
+    public Class14_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
         super(arg0, arg1);
         this.aClass19_Sub1_2 = arg0;
         @Pc(8) int local8 = 0;

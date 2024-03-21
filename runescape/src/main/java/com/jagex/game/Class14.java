@@ -3,6 +3,7 @@ package com.jagex.game;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -37,12 +38,12 @@ public abstract class Class14 {
     public final Toolkit aToolkit_16;
 
     @OriginalMember(owner = "client!da", name = "m", descriptor = "Lclient!ve;")
-    public final Class381 aClass381_12;
+    public final FontMetrics aFontMetrics_12;
 
     @OriginalMember(owner = "client!da", name = "<init>", descriptor = "(Lclient!ha;Lclient!ve;)V")
-    protected Class14(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class381 arg1) {
+    protected Class14(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) FontMetrics arg1) {
         this.aToolkit_16 = arg0;
-        this.aClass381_12 = arg1;
+        this.aFontMetrics_12 = arg1;
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "([Lclient!st;IIIILjava/lang/String;[IILjava/util/Random;I)I")
@@ -84,12 +85,12 @@ public abstract class Class14 {
         for (@Pc(46) int local46 = 0; local46 < local41; local46++) {
             local44[local46] = (int) (Math.sin((double) arg2 + (double) local46 / 1.5D) * local32);
         }
-        this.method8820((int[]) null, arg5, arg3, (Sprite[]) null, arg1 - this.aClass381_12.method8744(arg5) / 2, local44, (int[]) null);
+        this.method8820((int[]) null, arg5, arg3, (Sprite[]) null, arg1 - this.aFontMetrics_12.stringWidth(arg5) / 2, local44, (int[]) null);
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "([ILjava/lang/String;I[Lclient!st;I[IZ[I)V")
     public void method8820(@OriginalArg(0) int[] arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Sprite[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[] arg5, @OriginalArg(7) int[] arg6) {
-        @Pc(7) int local7 = arg2 - this.aClass381_12.anInt10027;
+        @Pc(7) int local7 = arg2 - this.aFontMetrics_12.verticalSpacing;
         @Pc(13) int local13 = -1;
         @Pc(15) int local15 = -1;
         @Pc(17) int local17 = 0;
@@ -136,7 +137,7 @@ public abstract class Class14 {
                                     @Pc(187) int local187 = StringTools.parseDecimal(local64.substring(4));
                                     @Pc(191) Sprite local191 = arg3[local187];
                                     @Pc(201) int local201 = arg6 == null ? local191.scaleHeight() : arg6[local187];
-                                    local191.render(local164 + arg4, local174 + -local201 + local7 + this.aClass381_12.anInt10027, 1, 0, 1);
+                                    local191.render(local164 + arg4, local174 + -local201 + local7 + this.aFontMetrics_12.verticalSpacing, 1, 0, 1);
                                     local15 = -1;
                                     arg4 += arg3[local187].scaleWidth();
                                 } catch (@Pc(230) Exception local230) {
@@ -151,7 +152,7 @@ public abstract class Class14 {
                 }
                 if (local13 == -1) {
                     if (local15 != -1) {
-                        arg4 += this.aClass381_12.method8737(local40, local15);
+                        arg4 += this.aFontMetrics_12.glyphSpacing(local40, local15);
                     }
                     @Pc(268) int local268;
                     if (arg0 == null) {
@@ -175,12 +176,12 @@ public abstract class Class14 {
                         anInt3187 &= 0xFF;
                     }
                     local17++;
-                    local174 = this.aClass381_12.method8738(local40);
+                    local174 = this.aFontMetrics_12.glyphWidth(local40);
                     if (anInt10897 != -1) {
-                        this.aToolkit_16.method7991((int) ((double) this.aClass381_12.anInt10027 * 0.7D) + local7, anInt10897, arg4, local174);
+                        this.aToolkit_16.method7991((int) ((double) this.aFontMetrics_12.verticalSpacing * 0.7D) + local7, anInt10897, arg4, local174);
                     }
                     if (anInt10510 != -1) {
-                        this.aToolkit_16.method7991(this.aClass381_12.anInt10027 + local7, anInt10510, arg4, local174);
+                        this.aToolkit_16.method7991(this.aFontMetrics_12.verticalSpacing + local7, anInt10510, arg4, local174);
                     }
                     arg4 += local174;
                     local15 = local40;
@@ -204,13 +205,13 @@ public abstract class Class14 {
             }
         }
         if (local5 > 0) {
-            anInt922 = (arg0 - this.aClass381_12.method8744(arg1) << 8) / local5;
+            anInt922 = (arg0 - this.aFontMetrics_12.stringWidth(arg1) << 8) / local5;
         }
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "([Lclient!st;IILjava/lang/String;IZLclient!aa;I[I)V")
     public void method8824(@OriginalArg(0) Sprite[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) String arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int[] arg7) {
-        @Pc(5) int local5 = arg6 - this.aClass381_12.anInt10027;
+        @Pc(5) int local5 = arg6 - this.aFontMetrics_12.verticalSpacing;
         @Pc(11) int local11 = -1;
         @Pc(18) int local18 = -1;
         @Pc(21) int local21 = arg3.length();
@@ -244,9 +245,9 @@ public abstract class Class14 {
                                     @Pc(140) Sprite local140 = arg0[local136];
                                     @Pc(150) int local150 = arg7 == null ? local140.scaleHeight() : arg7[local136];
                                     if ((anInt9801 & 0xFF000000) == -16777216) {
-                                        local140.render(arg4, this.aClass381_12.anInt10027 + local5 - local150, 1, 0, 1);
+                                        local140.render(arg4, this.aFontMetrics_12.verticalSpacing + local5 - local150, 1, 0, 1);
                                     } else {
-                                        local140.render(arg4, local5 + this.aClass381_12.anInt10027 - local150, 0, anInt9801 & 0xFF000000 | 0xFFFFFF, 1);
+                                        local140.render(arg4, local5 + this.aFontMetrics_12.verticalSpacing - local150, 0, anInt9801 & 0xFF000000 | 0xFFFFFF, 1);
                                     }
                                     local18 = -1;
                                     arg4 += arg0[local136].scaleWidth();
@@ -262,7 +263,7 @@ public abstract class Class14 {
                 }
                 if (local11 == -1) {
                     if (local18 != -1) {
-                        arg4 += this.aClass381_12.method8737(local33, local18);
+                        arg4 += this.aFontMetrics_12.glyphSpacing(local33, local18);
                     }
                     if (local33 == ' ') {
                         if (anInt922 > 0) {
@@ -281,12 +282,12 @@ public abstract class Class14 {
                         }
                         this.method8817(local33, arg4, local5, anInt9801, false, arg5, arg2, arg1);
                     }
-                    @Pc(328) int local328 = this.aClass381_12.method8738(local33);
+                    @Pc(328) int local328 = this.aFontMetrics_12.glyphWidth(local33);
                     if (anInt10897 != -1) {
-                        this.aToolkit_16.method7991(local5 + (int) ((double) this.aClass381_12.anInt10027 * 0.7D), anInt10897, arg4, local328);
+                        this.aToolkit_16.method7991(local5 + (int) ((double) this.aFontMetrics_12.verticalSpacing * 0.7D), anInt10897, arg4, local328);
                     }
                     if (anInt10510 != -1) {
-                        this.aToolkit_16.method7991(this.aClass381_12.anInt10027 + local5 + 1, anInt10510, arg4, local328);
+                        this.aToolkit_16.method7991(this.aFontMetrics_12.verticalSpacing + local5 + 1, anInt10510, arg4, local328);
                     }
                     local18 = local33;
                     arg4 += local328;
@@ -330,7 +331,7 @@ public abstract class Class14 {
     public final void method8828(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) String arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         if (arg2 != null) {
             this.method8825(arg4, arg0);
-            this.method8824((Sprite[]) null, 0, 0, arg2, arg1 - this.aClass381_12.method8744(arg2) / 2, (ClippingMask) null, arg3, (int[]) null);
+            this.method8824((Sprite[]) null, 0, 0, arg2, arg1 - this.aFontMetrics_12.stringWidth(arg2) / 2, (ClippingMask) null, arg3, (int[]) null);
         }
     }
 
@@ -349,15 +350,15 @@ public abstract class Class14 {
         }
         this.method8825(arg1, arg2);
         if (arg10 == 0) {
-            arg10 = this.aClass381_12.anInt10027;
+            arg10 = this.aFontMetrics_12.verticalSpacing;
         }
         @Pc(81) int[] local81;
-        if (arg10 + this.aClass381_12.anInt10036 + this.aClass381_12.anInt10030 > arg7 && arg7 < arg10 + arg10) {
+        if (arg10 + this.aFontMetrics_12.paddingBottom + this.aFontMetrics_12.paddingTop > arg7 && arg7 < arg10 + arg10) {
             local81 = null;
         } else {
             local81 = new int[]{arg11};
         }
-        @Pc(93) int local93 = this.aClass381_12.method8740(aStringArray2, local81, arg3, arg15);
+        @Pc(93) int local93 = this.aFontMetrics_12.splitLines(aStringArray2, local81, arg3, arg15);
         if (arg4 == -1) {
             arg4 = arg7 / arg10;
             if (arg4 <= 0) {
@@ -366,7 +367,7 @@ public abstract class Class14 {
         }
         if (arg4 > 0 && arg4 <= local93) {
             local93 = arg4;
-            aStringArray2[arg4 - 1] = this.aClass381_12.method8743(aStringArray2[arg4 - 1], arg3, arg11);
+            aStringArray2[arg4 - 1] = this.aFontMetrics_12.fitText(aStringArray2[arg4 - 1], arg3, arg11);
         }
         if (arg0 == 3 && local93 == 1) {
             arg0 = 1;
@@ -374,26 +375,26 @@ public abstract class Class14 {
         @Pc(190) int local190;
         @Pc(233) int local233;
         if (arg0 == 0) {
-            local190 = this.aClass381_12.anInt10030 + arg6;
+            local190 = this.aFontMetrics_12.paddingTop + arg6;
         } else if (arg0 == 1) {
-            local190 = (arg7 - this.aClass381_12.anInt10036 - this.aClass381_12.anInt10030 - arg10 * (local93 + -1)) / 2 + this.aClass381_12.anInt10030 + arg6;
+            local190 = (arg7 - this.aFontMetrics_12.paddingBottom - this.aFontMetrics_12.paddingTop - arg10 * (local93 + -1)) / 2 + this.aFontMetrics_12.paddingTop + arg6;
         } else if (arg0 == 2) {
-            local190 = arg7 + arg6 - arg10 * (local93 - 1) - this.aClass381_12.anInt10036;
+            local190 = arg7 + arg6 - arg10 * (local93 - 1) - this.aFontMetrics_12.paddingBottom;
         } else {
-            local233 = (arg7 - this.aClass381_12.anInt10030 - this.aClass381_12.anInt10036 - arg10 * (local93 - 1)) / (local93 + 1);
+            local233 = (arg7 - this.aFontMetrics_12.paddingTop - this.aFontMetrics_12.paddingBottom - arg10 * (local93 - 1)) / (local93 + 1);
             if (local233 < 0) {
                 local233 = 0;
             }
             arg10 += local233;
-            local190 = arg6 + this.aClass381_12.anInt10030 + local233;
+            local190 = arg6 + this.aFontMetrics_12.paddingTop + local233;
         }
         for (local233 = 0; local233 < local93; local233++) {
             if (arg13 == 0) {
                 this.method8824(arg3, arg5, arg8, aStringArray2[local233], arg12, arg9, local190, arg14);
             } else if (arg13 == 1) {
-                this.method8824(arg3, arg5, arg8, aStringArray2[local233], arg12 + (arg11 - this.aClass381_12.method8744(aStringArray2[local233])) / 2, arg9, local190, arg14);
+                this.method8824(arg3, arg5, arg8, aStringArray2[local233], arg12 + (arg11 - this.aFontMetrics_12.stringWidth(aStringArray2[local233])) / 2, arg9, local190, arg14);
             } else if (arg13 == 2) {
-                this.method8824(arg3, arg5, arg8, aStringArray2[local233], arg12 + arg11 - this.aClass381_12.method8744(aStringArray2[local233]), arg9, local190, arg14);
+                this.method8824(arg3, arg5, arg8, aStringArray2[local233], arg12 + arg11 - this.aFontMetrics_12.stringWidth(aStringArray2[local233]), arg9, local190, arg14);
             } else if (local93 - 1 == local233) {
                 this.method8824(arg3, arg5, arg8, aStringArray2[local233], arg12, arg9, local190, arg14);
             } else {
@@ -458,7 +459,7 @@ public abstract class Class14 {
             local20[local30] = (int) (Math.sin((double) local30 / 5.0D + (double) arg0 / 5.0D) * 5.0D);
             local23[local30] = (int) (Math.sin((double) local30 / 3.0D + (double) arg0 / 5.0D) * 5.0D);
         }
-        this.method8820(local20, arg1, arg4, (Sprite[]) null, arg2 - this.aClass381_12.method8744(arg1) / 2, local23, (int[]) null);
+        this.method8820(local20, arg1, arg4, (Sprite[]) null, arg2 - this.aFontMetrics_12.stringWidth(arg1) / 2, local23, (int[]) null);
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(IIILjava/lang/String;III)V")
@@ -472,14 +473,14 @@ public abstract class Class14 {
         for (@Pc(27) int local27 = 0; local27 < local17; local27++) {
             local25[local27] = (int) (Math.sin((double) local27 / 2.0D + (double) arg1 / 5.0D) * 5.0D);
         }
-        this.method8820((int[]) null, arg2, arg4, (Sprite[]) null, arg3 - this.aClass381_12.method8744(arg2) / 2, local25, (int[]) null);
+        this.method8820((int[]) null, arg2, arg4, (Sprite[]) null, arg3 - this.aFontMetrics_12.stringWidth(arg2) / 2, local25, (int[]) null);
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(BILjava/lang/String;III)V")
     public final void method8834(@OriginalArg(1) int arg0, @OriginalArg(2) String arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         if (arg1 != null) {
             this.method8825(arg2, arg3);
-            this.method8824((Sprite[]) null, 0, 0, arg1, arg0 - this.aClass381_12.method8744(arg1), (ClippingMask) null, arg4, (int[]) null);
+            this.method8824((Sprite[]) null, 0, 0, arg1, arg0 - this.aFontMetrics_12.stringWidth(arg1), (ClippingMask) null, arg4, (int[]) null);
         }
     }
 
@@ -501,29 +502,29 @@ public abstract class Class14 {
             }
         }
         @Pc(74) int local74 = arg8;
-        @Pc(80) int local80 = this.aClass381_12.anInt10030 + arg12;
+        @Pc(80) int local80 = this.aFontMetrics_12.paddingTop + arg12;
         if (arg13 == 1) {
-            local80 += (arg5 - this.aClass381_12.anInt10030 - this.aClass381_12.anInt10036) / 2;
+            local80 += (arg5 - this.aFontMetrics_12.paddingTop - this.aFontMetrics_12.paddingBottom) / 2;
         } else if (arg13 == 2) {
-            local80 = arg12 + arg5 - this.aClass381_12.anInt10036;
+            local80 = arg12 + arg5 - this.aFontMetrics_12.paddingBottom;
         }
         @Pc(119) int local119 = -1;
         if (arg1 == 1) {
-            local119 = local46 + this.aClass381_12.method8744(arg7);
+            local119 = local46 + this.aFontMetrics_12.stringWidth(arg7);
             local74 = arg8 + (arg2 - local119) / 2;
         } else if (arg1 == 2) {
-            local119 = local46 + this.aClass381_12.method8744(arg7);
+            local119 = local46 + this.aFontMetrics_12.stringWidth(arg7);
             local74 = arg8 + arg2 - local119;
         }
         this.method8820(local44, arg7, local80, arg10, local74, (int[]) null, arg3);
         if (arg0 != null) {
             if (local119 == -1) {
-                local119 = local46 + this.aClass381_12.method8744(arg7);
+                local119 = local46 + this.aFontMetrics_12.stringWidth(arg7);
             }
-            arg0[3] = this.aClass381_12.anInt10036 + this.aClass381_12.anInt10030;
+            arg0[3] = this.aFontMetrics_12.paddingBottom + this.aFontMetrics_12.paddingTop;
             arg0[0] = local74;
             arg0[2] = local119;
-            arg0[1] = local80 - this.aClass381_12.anInt10030;
+            arg0[1] = local80 - this.aFontMetrics_12.paddingTop;
         }
         return local46;
     }

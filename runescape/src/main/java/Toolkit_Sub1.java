@@ -4,7 +4,7 @@ import com.jagex.Class67;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.game.Class14;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
@@ -2405,7 +2405,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public final Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
+    public final Class14 method8010(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         return new Class14_Sub1(this, arg0, arg1, arg2);
     }
 

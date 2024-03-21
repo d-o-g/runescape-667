@@ -6,7 +6,7 @@ import com.jagex.Interface26;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.game.Class14;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Ground;
@@ -220,7 +220,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public Class14 method8010(@OriginalArg(0) Class381 arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
+    public Class14 method8010(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         @Pc(3) int[] local3 = new int[arg1.length];
         @Pc(7) int[] local7 = new int[arg1.length];
         @Pc(9) boolean local9 = false;

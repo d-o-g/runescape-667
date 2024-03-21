@@ -1,6 +1,6 @@
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.game.Class14;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
@@ -117,13 +117,13 @@ public final class Static620 {
             local36 = local517.getHeight();
         }
         @Pc(553) Class14 local553 = Static665.aClass14_12;
-        @Pc(555) Class381 local555 = Static154.aClass381_6;
+        @Pc(555) FontMetrics local555 = Static154.aFontMetrics_6;
         if (local10.anInt2615 == 1) {
             local553 = Static437.aClass14_9;
-            local555 = Static694.aClass381_13;
+            local555 = Static694.aFontMetrics_13;
         }
         if (local10.anInt2615 == 2) {
-            local555 = Static42.aClass381_4;
+            local555 = Static42.aFontMetrics_4;
             local553 = Static180.aClass14_3;
         }
         Static256.method3639(local553, local10.aString25, local555, arg1, local10.anInt2592, local36, arg7, arg2, arg0, arg5, arg6);

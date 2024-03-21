@@ -1,4 +1,4 @@
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -25,8 +25,8 @@ public final class Static275 {
     }
 
     @OriginalMember(owner = "client!il", name = "a", descriptor = "(BILclient!ha;)Lclient!ve;")
-    public static Class381 method3980(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1) {
+    public static FontMetrics method3980(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(18) Class70 local18 = Static502.method6719(true, arg1, true, arg0);
-        return local18 == null ? null : local18.aClass381_5;
+        return local18 == null ? null : local18.aFontMetrics_5;
     }
 }

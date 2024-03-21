@@ -68,7 +68,7 @@ public final class Static363 {
         }
         try {
             @Pc(43) Dimension local43 = Static434.aCanvas7.getSize();
-            Static694.method9028(Static163.activeToolkit, LocalisedText.PROFILING.localise(Static51.anInt1052), true, Static694.aClass381_13, Static437.aClass14_9);
+            Static694.method9028(Static163.activeToolkit, LocalisedText.PROFILING.localise(Static51.anInt1052), true, Static694.aFontMetrics_13, Static437.aClass14_9);
             @Pc(67) Mesh local67 = Mesh.load(Static523.graphicsDefaults.profilingModel, js5.MODELS);
             @Pc(70) long local70 = SystemTimer.safetime();
             Static163.activeToolkit.la();

@@ -1,6 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.skybox.SkyBox;
 import com.jagex.js5.js5;
@@ -23,8 +23,8 @@ public final class Static74 {
     public static SkyBox aSkyBox_1;
 
     @OriginalMember(owner = "client!cga", name = "a", descriptor = "(IIILclient!sb;)Lclient!ve;")
-    public static Class381 method1535(@OriginalArg(2) int arg0, @OriginalArg(3) js5 arg1) {
+    public static FontMetrics method1535(@OriginalArg(2) int arg0, @OriginalArg(3) js5 arg1) {
         @Pc(17) byte[] local17 = arg1.getfile(0, arg0);
-        return local17 == null ? null : new Class381(local17);
+        return local17 == null ? null : new FontMetrics(local17);
     }
 }

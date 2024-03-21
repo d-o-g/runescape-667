@@ -11,7 +11,7 @@ import com.jagex.core.util.JagException;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
@@ -2696,14 +2696,14 @@ public final class Static472 {
                                                 anIntArray578[anInt7142++] = Static540.method6538(aStringArray37[anInt7139 + 1], Static51.anInt1052, aStringArray37[anInt7139]);
                                                 return;
                                             }
-                                            @Pc(10482) Class381 local10482;
+                                            @Pc(10482) FontMetrics local10482;
                                             if (arg0 == 4108) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 anInt7142 -= 2;
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
                                                 local10482 = Static74.method1535(local27, js5.FONTMETRICS);
-                                                anIntArray578[anInt7142++] = local10482.method8739(local4911, Static679.aSpriteArray14, local21);
+                                                anIntArray578[anInt7142++] = local10482.paraHeight(local4911, Static679.aSpriteArray14, local21);
                                                 return;
                                             }
                                             if (arg0 == 4109) {
@@ -2712,7 +2712,7 @@ public final class Static472 {
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
                                                 local10482 = Static74.method1535(local27, js5.FONTMETRICS);
-                                                anIntArray578[anInt7142++] = local10482.method8741(Static679.aSpriteArray14, local4911, local21);
+                                                anIntArray578[anInt7142++] = local10482.paraWidth(Static679.aSpriteArray14, local4911, local21);
                                                 return;
                                             }
                                             if (arg0 == 4110) {
@@ -2829,8 +2829,8 @@ public final class Static472 {
                                             if (arg0 == 4125) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 local21 = anIntArray578[--anInt7142];
-                                                @Pc(11077) Class381 local11077 = Static74.method1535(local21, js5.FONTMETRICS);
-                                                anIntArray578[anInt7142++] = local11077.method8742(Static679.aSpriteArray14, local4911);
+                                                @Pc(11077) FontMetrics local11077 = Static74.method1535(local21, js5.FONTMETRICS);
+                                                anIntArray578[anInt7142++] = local11077.stringWidth(Static679.aSpriteArray14, local4911);
                                                 return;
                                             }
                                             if (arg0 == 4126) {

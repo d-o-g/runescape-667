@@ -1,4 +1,4 @@
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -10,7 +10,7 @@ public final class Static154 {
     public static int[] anIntArray237;
 
     @OriginalMember(owner = "client!er", name = "a", descriptor = "Lclient!ve;")
-    public static Class381 aClass381_6;
+    public static FontMetrics aFontMetrics_6;
 
     @OriginalMember(owner = "client!er", name = "f", descriptor = "[I")
     public static final int[] anIntArray236 = new int[1000];

@@ -1,5 +1,5 @@
 import com.jagex.game.Class14;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Sprite;
@@ -16,7 +16,7 @@ public final class Static694 {
     public static int anInt10405;
 
     @OriginalMember(owner = "client!vv", name = "y", descriptor = "Lclient!ve;")
-    public static Class381 aClass381_13;
+    public static FontMetrics aFontMetrics_13;
 
     @OriginalMember(owner = "client!vv", name = "w", descriptor = "I")
     public static int anInt10411;
@@ -50,7 +50,7 @@ public final class Static694 {
     }
 
     @OriginalMember(owner = "client!vv", name = "a", descriptor = "(Lclient!ha;Ljava/lang/String;ZLclient!ve;Lclient!da;I)V")
-    public static void method9028(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) String arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class381 arg3, @OriginalArg(4) Class14 arg4) {
+    public static void method9028(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) String arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) FontMetrics arg3, @OriginalArg(4) Class14 arg4) {
         @Pc(15) boolean local15 = !Static483.aBoolean546 || Static71.method1525();
         if (!local15) {
             return;
@@ -58,10 +58,10 @@ public final class Static694 {
         @Pc(40) int local40;
         @Pc(49) int local49;
         if (Static483.aBoolean546 && local15) {
-            @Pc(27) Class381 local27 = Static16.aClass381_1;
+            @Pc(27) FontMetrics local27 = Static16.aFontMetrics_1;
             @Pc(33) Class14 local33 = arg0.method8010(local27, Static627.aIndexedImageArray1, true);
-            local40 = local27.method8741((Sprite[]) null, arg1, 250);
-            local49 = local27.method8745(250, local27.anInt10027, arg1, (Sprite[]) null);
+            local40 = local27.paraWidth((Sprite[]) null, arg1, 250);
+            local49 = local27.stringHeight(250, local27.verticalSpacing, arg1, (Sprite[]) null);
             @Pc(52) int local52 = Static535.aIndexedImage_3.width;
             @Pc(56) int local56 = local52 + 4;
             local40 += local56 * 2;
@@ -98,8 +98,8 @@ public final class Static694 {
             local33.method8826(0, (int[]) null, Static675.anInt10154 | 0xFF000000, arg1, (ClippingMask) null, (Sprite[]) null, local56 + local101, -1, 0, 1, local92 + local56, 1, 0, local40 - local56 * 2, -(local56 * 2) + local49);
             Static585.method7670(local40, local92, local49, local101);
         } else {
-            local40 = arg3.method8741((Sprite[]) null, arg1, 250);
-            local49 = arg3.method8739(arg1, (Sprite[]) null, 250) * 13;
+            local40 = arg3.paraWidth((Sprite[]) null, arg1, 250);
+            local49 = arg3.paraHeight(arg1, (Sprite[]) null, 250) * 13;
             arg0.aa(6, 6, local40 + 4 + 4, local49 + 4 + 4, -16777216, 0);
             arg0.method7976(6, 6, local40 + 8, 4 + 4 + local49, -1, 0);
             arg4.method8826(0, (int[]) null, -1, arg1, (ClippingMask) null, (Sprite[]) null, 10, -1, 0, 1, 10, 1, 0, local40, local49);

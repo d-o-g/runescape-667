@@ -2,7 +2,7 @@ import com.jagex.IndexedImage;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.Class14;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
@@ -357,9 +357,9 @@ public final class Static71 {
                                         }
                                         if (local1533.trim().length() > 0) {
                                             if (!Static376.aBoolean452) {
-                                                @Pc(1730) Class381 local1730 = Static275.method3980(local19.anInt3781, Static163.activeToolkit);
-                                                local777 = local1730.method8741(Static679.aSpriteArray14, local1533, local19.anInt3802);
-                                                local779 = local1730.method8745(local19.anInt3802, local19.anInt3748, local1533, Static679.aSpriteArray14);
+                                                @Pc(1730) FontMetrics local1730 = Static275.method3980(local19.anInt3781, Static163.activeToolkit);
+                                                local777 = local1730.paraWidth(Static679.aSpriteArray14, local1533, local19.anInt3802);
+                                                local779 = local1730.stringHeight(local19.anInt3802, local19.anInt3748, local1533, Static679.aSpriteArray14);
                                                 if (Static137.aBoolean210) {
                                                     if (arg7) {
                                                         Static682.method8927(local130, local130 + local779, local125, local125 + local777);
@@ -630,9 +630,9 @@ public final class Static71 {
                 local5 = false;
             }
         }
-        if (Static16.aClass381_1 == null) {
+        if (Static16.aFontMetrics_1 == null) {
             if (js5.FONTMETRICS.fileready(Static723.anInt10929)) {
-                Static16.aClass381_1 = Static238.method3468(Static723.anInt10929, js5.FONTMETRICS);
+                Static16.aFontMetrics_1 = Static238.method3468(Static723.anInt10929, js5.FONTMETRICS);
             } else {
                 local5 = false;
             }

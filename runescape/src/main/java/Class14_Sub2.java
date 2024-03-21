@@ -1,6 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.game.Class14;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -24,7 +24,7 @@ public final class Class14_Sub2 extends Class14 {
     public final Class36 aClass36_4;
 
     @OriginalMember(owner = "client!gs", name = "<init>", descriptor = "(Lclient!qha;Lclient!ve;[Lclient!wp;Z)V")
-    public Class14_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
+    public Class14_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
         super(arg0, arg1);
         this.aClass19_Sub3_16 = arg0;
         @Pc(8) int local8 = 0;

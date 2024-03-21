@@ -1,6 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.game.Class14;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -29,7 +29,7 @@ public final class Class14_Sub4 extends Class14 {
     public final int[] anIntArray485;
 
     @OriginalMember(owner = "client!mq", name = "<init>", descriptor = "(Lclient!iaa;Lclient!ve;[Lclient!wp;[I[I)V")
-    public Class14_Sub4(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Class381 arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
+    public Class14_Sub4(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
         super(arg0, arg1);
         this.aClass19_Sub2_6 = arg0;
         this.aClass19_Sub2_6 = arg0;

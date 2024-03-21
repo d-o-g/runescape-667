@@ -1,6 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -25,12 +25,12 @@ public final class Static502 {
         }
         @Pc(54) Class70 local54 = (Class70) Static627.A_WEIGHTED_CACHE___200.get((long) ((arg0 ? 1 : 0) | arg3 << 1));
         if (local54 != null) {
-            if (arg2 && local54.aClass381_5 == null) {
-                @Pc(70) Class381 local70 = Static238.method3468(arg3, Static237.aJs5_87);
+            if (arg2 && local54.aFontMetrics_5 == null) {
+                @Pc(70) FontMetrics local70 = Static238.method3468(arg3, Static237.aJs5_87);
                 if (local70 == null) {
                     return null;
                 }
-                local54.aClass381_5 = local70;
+                local54.aFontMetrics_5 = local70;
             }
             return local54;
         }
@@ -38,7 +38,7 @@ public final class Static502 {
         if (local84 == null) {
             return null;
         }
-        @Pc(94) Class381 local94 = Static238.method3468(arg3, Static237.aJs5_87);
+        @Pc(94) FontMetrics local94 = Static238.method3468(arg3, Static237.aJs5_87);
         if (local94 == null) {
             return null;
         }

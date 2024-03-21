@@ -1,7 +1,7 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Class14;
-import com.jagex.game.Class381;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Sprite;
 import com.jagex.js5.js5;
@@ -90,7 +90,7 @@ public final class Static608 {
                 if (local51.method9311()) {
                     @Pc(182) Class80 local182 = local51.method9318(-3109);
                     if (local182 != null && Static481.anInt7222 < Static352.anInt5752) {
-                        Static352.anIntArray446[Static481.anInt7222] = Static42.aClass381_4.method8744(local182.method2105()) / 2;
+                        Static352.anIntArray446[Static481.anInt7222] = Static42.aFontMetrics_4.stringWidth(local182.method2105()) / 2;
                         Static352.anIntArray445[Static481.anInt7222] = Static215.anIntArray284[0];
                         Static352.anIntArray444[Static481.anInt7222] = Static215.anIntArray284[1];
                         Static352.aClass80Array1[Static481.anInt7222] = local182;
@@ -102,7 +102,7 @@ public final class Static608 {
                 @Pc(313) IndexedImage[] local313;
                 @Pc(381) Sprite local381;
                 if (local51.aBoolean816 || TimeUtils.clock >= local51.anInt10747) {
-                    local233 -= Math.max(Static42.aClass381_4.anInt10030, Static119.aSpriteArray3[0].getHeight());
+                    local233 -= Math.max(Static42.aFontMetrics_4.paddingTop, Static119.aSpriteArray3[0].getHeight());
                 } else {
                     @Pc(262) byte local262 = 1;
                     if (local31 == null) {
@@ -139,7 +139,7 @@ public final class Static608 {
                     }
                     @Pc(377) Sprite local377 = local295[0];
                     local381 = local295[local262];
-                    local233 -= Math.max(Static42.aClass381_4.anInt10030, local377.getHeight());
+                    local233 -= Math.max(Static42.aFontMetrics_4.paddingTop, local377.getHeight());
                     local321 = Static215.anIntArray284[0] + arg2 - (local377.getWidth() >> 1);
                     local409 = local377.getWidth() * local51.anInt10726 / 255;
                     local412 = local377.getHeight();
@@ -410,11 +410,11 @@ public final class Static608 {
                                 }
                                 @Pc(1589) Class14 local1589 = Static665.aClass14_12;
                                 @Pc(1591) Class14 local1591 = Static665.aClass14_12;
-                                @Pc(1593) Class381 local1593 = Static154.aClass381_6;
-                                @Pc(1595) Class381 local1595 = Static154.aClass381_6;
+                                @Pc(1593) FontMetrics local1593 = Static154.aFontMetrics_6;
+                                @Pc(1595) FontMetrics local1595 = Static154.aFontMetrics_6;
                                 local1374 = local1186.anInt7196;
                                 @Pc(1607) Class14 local1607;
-                                @Pc(1612) Class381 local1612;
+                                @Pc(1612) FontMetrics local1612;
                                 if (local1374 >= 0) {
                                     local1607 = Static324.method4628(true, true, local1374, Static163.activeToolkit);
                                     local1612 = Static275.method3980(local1374, Static163.activeToolkit);
@@ -437,10 +437,10 @@ public final class Static608 {
                                 @Pc(1658) String local1658 = null;
                                 @Pc(1662) int local1662 = 0;
                                 @Pc(1670) String local1670 = local1186.method6457(local51.anIntArray870[local267]);
-                                @Pc(1675) int local1675 = local1593.method8744(local1670);
+                                @Pc(1675) int local1675 = local1593.stringWidth(local1670);
                                 if (local1218 != null) {
                                     local1658 = local1218.method6457(local51.anIntArray874[local267]);
-                                    local1662 = local1595.method8744(local1658);
+                                    local1662 = local1595.stringWidth(local1658);
                                 }
                                 @Pc(1692) int local1692 = 0;
                                 if (local1323 > 0) {
@@ -512,11 +512,11 @@ public final class Static608 {
                                 @Pc(1910) int local1910 = local1908;
                                 @Pc(1915) int local1915 = local1908 + local1366;
                                 @Pc(1922) int local1922 = local1186.anInt7178 + local1908 + 15;
-                                @Pc(1928) int local1928 = local1922 - local1593.anInt10030;
+                                @Pc(1928) int local1928 = local1922 - local1593.paddingTop;
                                 if (local1928 < local1908) {
                                     local1910 = local1928;
                                 }
-                                @Pc(1942) int local1942 = local1593.anInt10036 + local1922;
+                                @Pc(1942) int local1942 = local1593.paddingBottom + local1922;
                                 if (local1915 < local1942) {
                                     local1915 = local1942;
                                 }
@@ -525,8 +525,8 @@ public final class Static608 {
                                 @Pc(1969) int local1969;
                                 if (local1218 != null) {
                                     local1949 = local1218.anInt7178 + local1908 + 15;
-                                    local1963 = local1949 - local1595.anInt10030;
-                                    local1969 = local1949 + local1595.anInt10036;
+                                    local1963 = local1949 - local1595.paddingTop;
+                                    local1969 = local1949 + local1595.paddingBottom;
                                     if (local1910 > local1963) {
                                         local1910 = local1963;
                                     }
@@ -633,7 +633,7 @@ public final class Static608 {
             }
             Static397.method5557(arg2, local2429, local2452, arg3, arg1, arg0, --local2429.anInt10735);
         }
-        local2422 = Static42.aClass381_4.anInt10030 + Static42.aClass381_4.anInt10036 + 2;
+        local2422 = Static42.aFontMetrics_4.paddingTop + Static42.aFontMetrics_4.paddingBottom + 2;
         for (local233 = 0; local233 < Static481.anInt7222; local233++) {
             local267 = Static352.anIntArray445[local233];
             local1179 = Static352.anIntArray444[local233];
@@ -650,11 +650,11 @@ public final class Static608 {
             }
             Static352.anIntArray444[local233] = local1179;
             @Pc(2627) String local2627 = Static352.aClass80Array1[local233].method2105();
-            local321 = Static42.aClass381_4.method8744(local2627);
+            local321 = Static42.aFontMetrics_4.stringWidth(local2627);
             local409 = local267 + arg2;
-            local412 = local1179 + arg0 - Static42.aClass381_4.anInt10030;
+            local412 = local1179 + arg0 - Static42.aFontMetrics_4.paddingTop;
             local1274 = local321 + local409;
-            @Pc(2654) int local2654 = Static42.aClass381_4.anInt10036 + arg0 + local1179;
+            @Pc(2654) int local2654 = Static42.aFontMetrics_4.paddingBottom + arg0 + local1179;
             if (Static55.anInt1124 == 0) {
                 @Pc(2663) int local2663 = 16776960;
                 @Pc(2669) int local2669 = Static352.aClass80Array1[local233].method2107();
@@ -732,7 +732,7 @@ public final class Static608 {
                 }
                 if (local1321 == 4) {
                     local1323 = 150 - Static352.aClass80Array1[local233].method2110() * 150 / Static352.aClass80Array1[local233].method2103();
-                    local1325 = (Static42.aClass381_4.method8744(local2627) + 100) * local1323 / 150;
+                    local1325 = (Static42.aFontMetrics_4.stringWidth(local2627) + 100) * local1323 / 150;
                     Static163.activeToolkit.T(arg2 + local267 - 50, arg0, local267 + arg2 + 50, arg0 - -arg3);
                     local409 += 50 - local1325;
                     local1274 += 50 - local1325;
@@ -747,7 +747,7 @@ public final class Static608 {
                     } else if (local1323 > 125) {
                         local1325 = local1323 - 125;
                     }
-                    local1327 = Static42.aClass381_4.anInt10036 + Static42.aClass381_4.anInt10030;
+                    local1327 = Static42.aFontMetrics_4.paddingBottom + Static42.aFontMetrics_4.paddingTop;
                     Static163.activeToolkit.T(arg2, arg0 + local1179 - local1327 - 1, arg1 + arg2, local1179 + arg0 + 5);
                     local2654 += local1325;
                     local409 -= local321 >> 1;

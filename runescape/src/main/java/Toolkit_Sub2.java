@@ -598,7 +598,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
         @Pc(7) Node2 local7 = arg0.particles.sentinel;
         for (@Pc(10) Node2 local10 = local7.next2; local10 != local7; local10 = local10.next2) {
-            @Pc(14) Class8_Sub4_Sub2 local14 = (Class8_Sub4_Sub2) local10;
+            @Pc(14) Particle local14 = (Particle) local10;
             @Pc(19) int local19 = local14.anInt7537 >> 12;
             @Pc(24) int local24 = local14.anInt7534 >> 12;
             @Pc(29) int local29 = local14.anInt7536 >> 12;
@@ -617,7 +617,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!up;IIII)V")
-    public void method3784(@OriginalArg(0) Class8_Sub4_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void method3784(@OriginalArg(0) Particle arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         @Pc(2) int local2 = arg0.anInt7540;
         @Pc(8) int local8 = arg4 << 1;
         if (local2 == -1) {
@@ -2853,7 +2853,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
         @Pc(7) Node2 local7 = arg0.particles.sentinel;
         for (@Pc(10) Node2 local10 = local7.next2; local10 != local7; local10 = local10.next2) {
-            @Pc(14) Class8_Sub4_Sub2 local14 = (Class8_Sub4_Sub2) local10;
+            @Pc(14) Particle local14 = (Particle) local10;
             @Pc(19) int local19 = local14.anInt7537 >> 12;
             @Pc(24) int local24 = local14.anInt7534 >> 12;
             @Pc(29) int local29 = local14.anInt7536 >> 12;

@@ -11,13 +11,13 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class316 {
 
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "[[Lclient!up;")
-    public final Class8_Sub4_Sub2[][] aClass8_Sub4_Sub2ArrayArray3 = new Class8_Sub4_Sub2[1600][64];
+    public final Particle[][] aParticleArrayArray3 = new Particle[1600][64];
 
     @OriginalMember(owner = "client!rc", name = "s", descriptor = "[I")
     public final int[] anIntArray634 = new int[64];
 
     @OriginalMember(owner = "client!rc", name = "n", descriptor = "[[Lclient!up;")
-    public final Class8_Sub4_Sub2[][] aClass8_Sub4_Sub2ArrayArray4 = new Class8_Sub4_Sub2[64][768];
+    public final Particle[][] aClass8_Sub4_Sub2ArrayArray4 = new Particle[64][768];
 
     @OriginalMember(owner = "client!rc", name = "g", descriptor = "I")
     public int anInt8200 = 0;
@@ -143,7 +143,7 @@ public final class Class316 {
             @Pc(50) Node2 local50;
             @Pc(81) int local81;
             for (local50 = local47.next2; local50 != local47; local50 = local50.next2) {
-                @Pc(54) Class8_Sub4_Sub2 local54 = (Class8_Sub4_Sub2) local50;
+                @Pc(54) Particle local54 = (Particle) local50;
                 local81 = (int) (local29 * (float) (local54.anInt7534 >> 12) + local25 * (float) (local54.anInt7537 >> 12) + local33 * (float) (local54.anInt7536 >> 12) + local37);
                 if (local81 < local41) {
                     local41 = local81;
@@ -175,7 +175,7 @@ public final class Class316 {
                     this.anIntArray634[local169] = 0;
                 }
                 while (local47 != local50) {
-                    @Pc(184) Class8_Sub4_Sub2 local184 = (Class8_Sub4_Sub2) local50;
+                    @Pc(184) Particle local184 = (Particle) local50;
                     if (local151) {
                         local149 = local184.aBoolean574;
                         local151 = false;
@@ -199,7 +199,7 @@ public final class Class316 {
                                 this.aClass8_Sub4_Sub2ArrayArray4[this.anIntArray635[local227] - 1 - 64][this.anIntArray634[this.anIntArray635[local227] - 64 - 1]++] = local184;
                             }
                         } else {
-                            this.aClass8_Sub4_Sub2ArrayArray3[local227][this.anIntArray635[local227]++] = local184;
+                            this.aParticleArrayArray3[local227][this.anIntArray635[local227]++] = local184;
                         }
                     }
                     local50 = local50.next2;
@@ -277,7 +277,7 @@ public final class Class316 {
         @Pc(97) int local97;
         @Pc(114) int local114;
         @Pc(123) int local123;
-        @Pc(131) Class8_Sub4_Sub2 local131;
+        @Pc(131) Particle local131;
         @Pc(134) int local134;
         @Pc(139) byte local139;
         @Pc(144) byte local144;
@@ -290,7 +290,7 @@ public final class Class316 {
         @Pc(449) float local449;
         @Pc(454) int local454;
         @Pc(395) int local395;
-        @Pc(410) Class8_Sub4_Sub2 local410;
+        @Pc(410) Particle local410;
         @Pc(413) int local413;
         @Pc(426) byte local426;
         @Pc(431) byte local431;
@@ -300,7 +300,7 @@ public final class Class316 {
                 local114 = this.anIntArray635[local97] > 64 ? 64 : this.anIntArray635[local97];
                 if (local114 > 0) {
                     for (local123 = local114 - 1; local123 >= 0; local123--) {
-                        local131 = this.aClass8_Sub4_Sub2ArrayArray3[local97][local123];
+                        local131 = this.aParticleArrayArray3[local97][local123];
                         local134 = local131.anInt7539;
                         local139 = (byte) (local134 >> 16);
                         local144 = (byte) (local134 >> 8);
@@ -415,7 +415,7 @@ public final class Class316 {
                 local114 = this.anIntArray635[local97] > 64 ? 64 : this.anIntArray635[local97];
                 if (local114 > 0) {
                     for (local123 = local114 - 1; local123 >= 0; local123--) {
-                        local131 = this.aClass8_Sub4_Sub2ArrayArray3[local97][local123];
+                        local131 = this.aParticleArrayArray3[local97][local123];
                         local134 = local131.anInt7539;
                         local139 = (byte) (local134 >> 16);
                         local144 = (byte) (local134 >> 8);

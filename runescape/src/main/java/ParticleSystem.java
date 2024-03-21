@@ -54,7 +54,7 @@ public final class ParticleSystem extends Node {
     public final ParticleList aParticleList_1 = new ParticleList();
 
     @OriginalMember(owner = "client!hv", name = "n", descriptor = "[Lclient!pp;")
-    public final Particle[] aParticle = new Particle[8192];
+    public final MovingParticle[] aMovingParticle = new MovingParticle[8192];
 
     @OriginalMember(owner = "client!hv", name = "<init>", descriptor = "(IZ)V")
     public ParticleSystem(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
@@ -141,9 +141,9 @@ public final class ParticleSystem extends Node {
     @OriginalMember(owner = "client!hv", name = "b", descriptor = "()Lclient!lk;")
     public ParticleList method3650() {
         this.aParticleList_1.particles.clear();
-        for (@Pc(6) int local6 = 0; local6 < this.aParticle.length; local6++) {
-            if (this.aParticle[local6] != null && this.aParticle[local6].aParticleEmitter_1 != null) {
-                this.aParticleList_1.particles.add(this.aParticle[local6]);
+        for (@Pc(6) int local6 = 0; local6 < this.aMovingParticle.length; local6++) {
+            if (this.aMovingParticle[local6] != null && this.aMovingParticle[local6].aParticleEmitter_1 != null) {
+                this.aParticleList_1.particles.add(this.aMovingParticle[local6]);
             }
         }
         return this.aParticleList_1;
@@ -195,10 +195,10 @@ public final class ParticleSystem extends Node {
                 local8.unlink2();
             }
         }
-        for (@Pc(27) int local27 = 0; local27 < this.aParticle.length; local27++) {
-            if (this.aParticle[local27] != null) {
-                this.aParticle[local27].method6697();
-                this.aParticle[local27] = null;
+        for (@Pc(27) int local27 = 0; local27 < this.aMovingParticle.length; local27++) {
+            if (this.aMovingParticle[local27] != null) {
+                this.aMovingParticle[local27].method6697();
+                this.aMovingParticle[local27] = null;
             }
         }
         this.anInt4147 = 0;

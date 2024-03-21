@@ -225,9 +225,9 @@ public final class ParticleEmitter extends Node {
                         local990 = -1;
                     }
                     if (ParticleManager.nextPtr == ParticleManager.freePtr) {
-                        new Particle(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.aParticleEmitterType_1.disableHdLighting, this.aParticleEmitterType_1.preserveAmbient);
+                        new MovingParticle(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.aParticleEmitterType_1.disableHdLighting, this.aParticleEmitterType_1.preserveAmbient);
                     } else {
-                        @Pc(1032) Particle local1032 = ParticleManager.cache[ParticleManager.nextPtr];
+                        @Pc(1032) MovingParticle local1032 = ParticleManager.cache[ParticleManager.nextPtr];
                         ParticleManager.nextPtr = ParticleManager.nextPtr + 1 & 0x3FF;
                         local1032.method6696(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.aParticleEmitterType_1.disableHdLighting, this.aParticleEmitterType_1.preserveAmbient);
                     }
@@ -252,7 +252,7 @@ public final class ParticleEmitter extends Node {
             this.aParticleEmitterRelated_1.anInt4269 = this.aModelParticleEmitter_1.anInt8503;
         }
         this.anInt8268 = 0;
-        for (@Pc(1171) Particle local1171 = (Particle) this.aLinkedList_11.first(); local1171 != null; local1171 = (Particle) this.aLinkedList_11.next()) {
+        for (@Pc(1171) MovingParticle local1171 = (MovingParticle) this.aLinkedList_11.first(); local1171 != null; local1171 = (MovingParticle) this.aLinkedList_11.next()) {
             local1171.method6694(arg2, arg0);
             this.anInt8268++;
         }
@@ -261,7 +261,7 @@ public final class ParticleEmitter extends Node {
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(JLclient!ha;I)V")
     public void method7263(@OriginalArg(0) long arg0, @OriginalArg(1) Toolkit arg1) {
-        for (@Pc(11) Particle local11 = (Particle) this.aLinkedList_11.first(); local11 != null; local11 = (Particle) this.aLinkedList_11.next()) {
+        for (@Pc(11) MovingParticle local11 = (MovingParticle) this.aLinkedList_11.first(); local11 != null; local11 = (MovingParticle) this.aLinkedList_11.next()) {
             local11.method6695(arg1, arg0);
         }
     }

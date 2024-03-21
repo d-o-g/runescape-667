@@ -18,7 +18,7 @@ public final class ParticleManager {
     public static LinkedList systems;
 
     @OriginalMember(owner = "client!qv", name = "e", descriptor = "[Lclient!pp;")
-    public static Particle[] cache;
+    public static MovingParticle[] cache;
 
     @OriginalMember(owner = "client!cka", name = "x", descriptor = "[Lclient!hv;")
     public static ParticleSystem[] systemCache;
@@ -37,7 +37,7 @@ public final class ParticleManager {
         freePtr = 0;
         nextPtr = 0;
         systems = new LinkedList();
-        cache = new Particle[1024];
+        cache = new MovingParticle[1024];
         systemCache = new ParticleSystem[ParticleLimits.anIntArray265[setting] + 1];
         systemFreePtr = 0;
         systemNextPtr = 0;

@@ -162,7 +162,7 @@ public final class oa extends Toolkit implements Interface5 {
         @Pc(3) int local3 = 0;
         @Pc(5) int local5 = 0;
         @Pc(7) int local7 = 0;
-        for (@Pc(15) Class8_Sub4_Sub2 local15 = (Class8_Sub4_Sub2) arg0.particles.first(); local15 != null; local15 = (Class8_Sub4_Sub2) arg0.particles.next()) {
+        for (@Pc(15) Particle local15 = (Particle) arg0.particles.first(); local15 != null; local15 = (Particle) arg0.particles.next()) {
             Static445.anIntArray539[local1++] = local15.anInt7537;
             Static445.anIntArray539[local1++] = local15.anInt7534;
             Static445.anIntArray539[local1++] = local15.anInt7536;

@@ -31,13 +31,13 @@ public final class Class42 {
     public final int anInt998 = Static434.method5853(1600);
 
     @OriginalMember(owner = "client!bj", name = "s", descriptor = "[[Lclient!up;")
-    public final Class8_Sub4_Sub2[][] aClass8_Sub4_Sub2ArrayArray2 = new Class8_Sub4_Sub2[64][768];
+    public final Particle[][] aParticle = new Particle[64][768];
 
     @OriginalMember(owner = "client!bj", name = "n", descriptor = "[I")
     public final int[] anIntArray74 = new int[1600];
 
     @OriginalMember(owner = "client!bj", name = "j", descriptor = "[[Lclient!up;")
-    public final Class8_Sub4_Sub2[][] aClass8_Sub4_Sub2ArrayArray1 = new Class8_Sub4_Sub2[1600][64];
+    public final Particle[][] aParticleArrayArray1 = new Particle[1600][64];
 
     @OriginalMember(owner = "client!bj", name = "a", descriptor = "I")
     public int anInt1000 = 0;
@@ -80,7 +80,7 @@ public final class Class42 {
         @Pc(99) int local99;
         @Pc(117) int local117;
         @Pc(123) int local123;
-        @Pc(134) Class8_Sub4_Sub2 local134;
+        @Pc(134) Particle local134;
         @Pc(137) int local137;
         @Pc(142) byte local142;
         @Pc(147) byte local147;
@@ -93,7 +93,7 @@ public final class Class42 {
         @Pc(503) float local503;
         @Pc(508) int local508;
         @Pc(448) int local448;
-        @Pc(464) Class8_Sub4_Sub2 local464;
+        @Pc(464) Particle local464;
         @Pc(467) int local467;
         @Pc(480) byte local480;
         @Pc(485) byte local485;
@@ -103,7 +103,7 @@ public final class Class42 {
                 local117 = this.anIntArray74[local99] > 64 ? 64 : this.anIntArray74[local99];
                 if (local117 > 0) {
                     for (local123 = local117 - 1; local123 >= 0; local123--) {
-                        local134 = this.aClass8_Sub4_Sub2ArrayArray1[local99][local123];
+                        local134 = this.aParticleArrayArray1[local99][local123];
                         local137 = local134.anInt7539;
                         local142 = (byte) (local137 >> 16);
                         local147 = (byte) (local137 >> 8);
@@ -153,7 +153,7 @@ public final class Class42 {
                     if (this.anIntArray74[local99] > 64) {
                         local448 = this.anIntArray74[local99] - 64 - 1;
                         for (local137 = this.anIntArray76[local448] - 1; local137 >= 0; local137--) {
-                            local464 = this.aClass8_Sub4_Sub2ArrayArray2[local448][local137];
+                            local464 = this.aParticle[local448][local137];
                             local467 = local464.anInt7539;
                             local150 = (byte) (local467 >> 16);
                             local155 = (byte) (local467 >> 8);
@@ -208,7 +208,7 @@ public final class Class42 {
                 local117 = this.anIntArray74[local99] <= 64 ? this.anIntArray74[local99] : 64;
                 if (local117 > 0) {
                     for (local123 = local117 - 1; local123 >= 0; local123--) {
-                        local134 = this.aClass8_Sub4_Sub2ArrayArray1[local99][local123];
+                        local134 = this.aParticleArrayArray1[local99][local123];
                         local137 = local134.anInt7539;
                         local142 = (byte) (local137 >> 16);
                         local147 = (byte) (local137 >> 8);
@@ -258,7 +258,7 @@ public final class Class42 {
                     if (this.anIntArray74[local99] > 64) {
                         local448 = this.anIntArray74[local99] - 64 - 1;
                         for (local137 = this.anIntArray76[local448] - 1; local137 >= 0; local137--) {
-                            local464 = this.aClass8_Sub4_Sub2ArrayArray2[local448][local137];
+                            local464 = this.aParticle[local448][local137];
                             local467 = local464.anInt7539;
                             local150 = (byte) (local467 >> 16);
                             local155 = (byte) (local467 >> 8);
@@ -359,7 +359,7 @@ public final class Class42 {
             @Pc(59) Node2 local59;
             @Pc(91) int local91;
             for (local59 = local56.next2; local59 != local56; local59 = local59.next2) {
-                @Pc(64) Class8_Sub4_Sub2 local64 = (Class8_Sub4_Sub2) local59;
+                @Pc(64) Particle local64 = (Particle) local59;
                 local91 = (int) (local46 + local42 * (float) (local64.anInt7536 >> 12) + (float) (local64.anInt7537 >> 12) * local34 + (float) (local64.anInt7534 >> 12) * local38);
                 if (local91 > local52) {
                     local52 = local91;
@@ -391,7 +391,7 @@ public final class Class42 {
                     this.anIntArray76[local184] = 0;
                 }
                 while (local59 != local56) {
-                    @Pc(210) Class8_Sub4_Sub2 local210 = (Class8_Sub4_Sub2) local59;
+                    @Pc(210) Particle local210 = (Particle) local59;
                     if (local156) {
                         local154 = local210.aBoolean574;
                         local152 = local210.anInt7540;
@@ -412,10 +412,10 @@ public final class Class42 {
                                     }
                                     this.anIntArray74[local257] += this.anInt1000++ + 1;
                                 }
-                                this.aClass8_Sub4_Sub2ArrayArray2[this.anIntArray74[local257] - 65][this.anIntArray76[this.anIntArray74[local257] - 64 - 1]++] = local210;
+                                this.aParticle[this.anIntArray74[local257] - 65][this.anIntArray76[this.anIntArray74[local257] - 64 - 1]++] = local210;
                             }
                         } else {
-                            this.aClass8_Sub4_Sub2ArrayArray1[local257][this.anIntArray74[local257]++] = local210;
+                            this.aParticleArrayArray1[local257][this.anIntArray74[local257]++] = local210;
                         }
                     }
                     local59 = local59.next2;

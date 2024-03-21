@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -121,7 +122,7 @@ public final class Class56_Sub1 extends Class56 {
                 }
             }
         }
-        this.anAudioFormat1 = new AudioFormat((float) Static686.anInt8944, 16, Static316.aBoolean644 ? 2 : 1, true, false);
+        this.anAudioFormat1 = new AudioFormat((float) Audio.sampleRate, 16, Static316.aBoolean644 ? 2 : 1, true, false);
         this.aByteArray17 = new byte[0x100 << (Static316.aBoolean644 ? 2 : 1)];
     }
 }

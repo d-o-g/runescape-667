@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
+import com.jagex.game.runetek6.sound.OggKateStream;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

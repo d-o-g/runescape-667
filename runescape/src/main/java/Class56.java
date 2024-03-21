@@ -1,6 +1,7 @@
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.sound.Audio;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -160,7 +161,7 @@ public class Class56 {
             }
             while (local11 > this.aLong128 + 5000L) {
                 this.method3584();
-                this.aLong128 += (long) (256000 / Static686.anInt8944);
+                this.aLong128 += (long) (256000 / Audio.sampleRate);
                 local11 = SystemTimer.safetime();
             }
         } catch (@Pc(54) Exception local54) {
@@ -235,7 +236,7 @@ public class Class56 {
         Arrays.clear(arg0, 0, local1);
         this.anInt4099 -= 256;
         if (this.aClass2_Sub6_6 != null && this.anInt4099 <= 0) {
-            this.anInt4099 += Static686.anInt8944 >> 4;
+            this.anInt4099 += Audio.sampleRate >> 4;
             Static440.method5964(this.aClass2_Sub6_6);
             this.method3591(this.aClass2_Sub6_6.method9136(), this.aClass2_Sub6_6);
             @Pc(47) int local47 = 0;

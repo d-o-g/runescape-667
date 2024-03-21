@@ -1,5 +1,6 @@
 import com.jagex.SignLink;
 import com.jagex.core.datastruct.LinkedList;
+import com.jagex.game.runetek6.sound.Audio;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -21,7 +22,7 @@ public final class Static638 {
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(Lclient!vq;BIILjava/awt/Component;)Lclient!cd;")
     public static Class56 method8394(@OriginalArg(0) SignLink arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Component arg3) {
-        if (Static686.anInt8944 == 0) {
+        if (Audio.sampleRate == 0) {
             throw new IllegalStateException();
         } else if (arg1 >= 2) {
             throw new IllegalArgumentException();

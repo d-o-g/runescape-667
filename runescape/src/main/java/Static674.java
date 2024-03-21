@@ -1,4 +1,5 @@
 import com.jagex.SignLink;
+import com.jagex.game.runetek6.sound.Audio;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -26,7 +27,7 @@ public final class Static674 {
         Static559.aClass56_3 = Static638.method8394(SignLink.instance, 1, 2048, Static434.aCanvas7);
         Static336.aClass2_Sub6_Sub3_1 = new Node_Sub6_Sub3();
         Static559.aClass56_3.method3582(Static336.aClass2_Sub6_Sub3_1);
-        Static681.aClass224_2 = new Class224(22050, Static686.anInt8944);
+        Static681.aClass224_2 = new Class224(22050, Audio.sampleRate);
         Static550.method7266();
     }
 }

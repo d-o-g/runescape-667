@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Sprite;
 import com.jagex.js5.js5;
@@ -35,7 +36,7 @@ public final class Static517 {
             throw new IllegalArgumentException();
         }
         Static156.anInt2679 = 2;
-        Static686.anInt8944 = 22050;
+        Audio.sampleRate = 22050;
         Static316.aBoolean644 = arg0;
     }
 

@@ -1,4 +1,5 @@
 import com.jagex.SignLink;
+import com.jagex.game.runetek6.sound.Audio;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -41,7 +42,7 @@ public final class Class56_Sub2 extends Class56 {
     @OriginalMember(owner = "client!hq", name = "a", descriptor = "(Ljava/awt/Component;)V")
     @Override
     public void method3593(@OriginalArg(0) Component arg0) throws Exception {
-        Static253.anInterface7_1.method4096(Static686.anInt8944, Static316.aBoolean644, arg0);
+        Static253.anInterface7_1.method4096(Audio.sampleRate, Static316.aBoolean644, arg0);
     }
 
     @OriginalMember(owner = "client!hq", name = "b", descriptor = "()V")

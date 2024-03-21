@@ -1,4 +1,6 @@
 import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.key.LruCache;
+import com.jagex.game.runetek6.sound.Audio;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -6,6 +8,9 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!wc")
 public final class Node_Sub6_Sub5 extends Node_Sub6 {
+
+    @OriginalMember(owner = "client!ko", name = "H", descriptor = "Lclient!ts;")
+    public static final LruCache recentUse = new LruCache(64);
 
     @OriginalMember(owner = "client!wc", name = "o", descriptor = "Z")
     public boolean aBoolean794;
@@ -48,7 +53,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             if (arg0) {
                 this.method9130(87);
             }
-            return local16.aDouble10 - (double) ((float) local16.aShortArrayArray3[0].length / (float) Static686.anInt8944);
+            return local16.aDouble10 - (double) ((float) local16.aShortArrayArray3[0].length / (float) Audio.sampleRate);
         }
     }
 
@@ -79,7 +84,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             if (local14 == null) {
                 if (this.aBoolean795) {
                     this.unlink();
-                    Static341.A_DOUBLY_LINKED_LIST___1.clear();
+                    recentUse.clear();
                 }
                 return;
             }
@@ -95,12 +100,12 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(IDI)Lclient!dk;")
     public DoublyLinkedNode_Sub2_Sub8 method9142(@OriginalArg(0) int arg0, @OriginalArg(1) double arg1) {
         @Pc(11) long local11 = (long) (arg0 | this.anInt10521 << 0);
-        @Pc(17) DoublyLinkedNode_Sub2_Sub8 local17 = (DoublyLinkedNode_Sub2_Sub8) Static341.A_DOUBLY_LINKED_LIST___1.get(local11);
+        @Pc(17) DoublyLinkedNode_Sub2_Sub8 local17 = (DoublyLinkedNode_Sub2_Sub8) recentUse.get(local11);
         if (local17 == null) {
             local17 = new DoublyLinkedNode_Sub2_Sub8(new short[this.anInt10521][arg0], arg1);
         } else {
             local17.aDouble10 = arg1;
-            Static341.A_DOUBLY_LINKED_LIST___1.remove(local11);
+            recentUse.remove(local11);
         }
         return local17;
     }
@@ -125,7 +130,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             local7.unlink();
             this.anInt10535--;
             this.anInt10536 = 0;
-            Static341.A_DOUBLY_LINKED_LIST___1.put(local7, local7.method2133());
+            recentUse.put(local7, local7.method2133());
         }
     }
 
@@ -194,7 +199,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
             }
         } else if (this.aBoolean795) {
             this.unlink();
-            Static341.A_DOUBLY_LINKED_LIST___1.clear();
+            recentUse.clear();
         }
     }
 }

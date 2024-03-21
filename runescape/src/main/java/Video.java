@@ -1,5 +1,6 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.runetek6.sound.OggKateStream;
 import com.jagex.game.runetek6.sound.OggStream;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggPage;

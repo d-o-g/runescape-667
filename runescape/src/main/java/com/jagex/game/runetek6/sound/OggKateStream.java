@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.sound;
+
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.Utf8;
 import com.jagex.game.runetek6.sound.OggStream;

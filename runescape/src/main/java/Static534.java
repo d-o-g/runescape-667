@@ -1,6 +1,4 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static534 {
 
@@ -9,46 +7,5 @@ public final class Static534 {
 
     @OriginalMember(owner = "client!qq", name = "d", descriptor = "D")
     public static double aDouble21;
-
-    @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IIIIIIIZI)V")
-    public static void method7120(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7) {
-        @Pc(17) int local17;
-        if (InterfaceList.load(arg0)) {
-            local17 = 0;
-            @Pc(58) int local58 = 0;
-            @Pc(60) int local60 = 0;
-            @Pc(62) int local62 = 0;
-            @Pc(64) int local64 = 0;
-            if (InterfaceManager.aBoolean210) {
-                local62 = Static582.anInt8629;
-                local64 = Static691.anInt10368;
-                local17 = Static435.anInt6597;
-                local58 = Static320.anInt5085;
-                local60 = Static599.anInt8837;
-                Static691.anInt10368 = 1;
-            }
-            if (Static148.aComponentArrayArray1[arg0] == null) {
-                InterfaceManager.draw(-1, arg6, InterfaceList.interfaces[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
-            } else {
-                InterfaceManager.draw(-1, arg6, Static148.aComponentArrayArray1[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
-            }
-            if (InterfaceManager.aBoolean210) {
-                if (arg5 >= 0 && Static691.anInt10368 == 2) {
-                    Static682.method8927(Static320.anInt5085, Static582.anInt8629, Static435.anInt6597, Static599.anInt8837);
-                }
-                Static320.anInt5085 = local58;
-                Static582.anInt8629 = local62;
-                Static435.anInt6597 = local17;
-                Static691.anInt10368 = local64;
-                Static599.anInt8837 = local60;
-            }
-        } else if (arg5 == -1) {
-            for (local17 = 0; local17 < 100; local17++) {
-                InterfaceManager.dirtyRectangles[local17] = true;
-            }
-        } else {
-            InterfaceManager.dirtyRectangles[arg5] = true;
-        }
-    }
 
 }

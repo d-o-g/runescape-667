@@ -201,7 +201,7 @@ public final class Static489 {
             return;
         }
         if (Static213.anInt3472 != 0) {
-            Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
+            Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
         Static557.method7331();
         Static352.method5180();

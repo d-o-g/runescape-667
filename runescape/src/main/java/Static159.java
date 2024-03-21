@@ -37,7 +37,7 @@ public final class Static159 {
             local9 = Static422.method5771();
         }
         Static97.method1905(Static84.anInt1775 + local9, Static71.anInt1576 - -local7, Static407.anInt6288, arg0, Static682.anInt10295);
-        Fonts.b12.render(Static71.anInt1576 + local7 + 3, Static84.anInt1775 - (-local9 + -14), LocalisedText.CHOOSEOPTION.localise(Static51.anInt1052), -1, -10660793);
+        Fonts.b12.render(Static71.anInt1576 + local7 + 3, Static84.anInt1775 - (-local9 + -14), LocalisedText.CHOOSEOPTION.localise(Static51.language), -1, -10660793);
         @Pc(69) int local69 = MouseMonitor.instance.getRecordedX() + local7;
         @Pc(76) int local76 = MouseMonitor.instance.getRecordedY() + local9;
         @Pc(80) int local80;

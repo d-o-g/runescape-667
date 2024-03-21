@@ -1,6 +1,7 @@
 import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
@@ -9,6 +10,7 @@ import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.iftype.DragRender;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
+import com.jagex.game.runetek6.config.objtype.ObjStackability;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Font;
@@ -34,6 +36,9 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!oq", name = "i", descriptor = "[Z")
     public static final boolean[] flipDirtyRect = new boolean[100];
+
+    @OriginalMember(owner = "client!lfa", name = "a", descriptor = "[Z")
+    public static final boolean[] currentlyDirtyRect = new boolean[100];
 
     @OriginalMember(owner = "client!ff", name = "k", descriptor = "I")
     public static int lastDrawCycle = -2;
@@ -94,6 +99,12 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!mfa", name = "c", descriptor = "I")
     public static int anInt6147;
+
+    @OriginalMember(owner = "client!re", name = "n", descriptor = "Lclient!av;")
+    public static IterableHashTable subInterfaces = new IterableHashTable(8);
+
+    @OriginalMember(owner = "client!aka", name = "l", descriptor = "I")
+    public static int rectDebug = 0;
 
     static {
         for (@Pc(87) int i = 0; i < 100; i++) {
@@ -422,45 +433,178 @@ public final class InterfaceManager {
                         draw(child.slot, posX - child.scrollX, child.dynamicComponents, x1, y1, y2, rectangle, arg7, x2, posY - child.scrollY);
                     }
 
-                    @Pc(1214) Node_Sub4 local1214 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) child.slot);
-                    if (local1214 != null) {
-                        Static534.method7120(local1214.anInt147, x1, x2, y1, posY, rectangle, posX, y2);
+                    @Pc(1214) SubInterface sub = (SubInterface) subInterfaces.get(child.slot);
+                    if (sub != null) {
+                        drawSubInterface(sub.anInt147, x1, x2, y1, posY, rectangle, posX, y2);
                     }
+
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER) {
                         if (Static163.activeToolkit.method8014()) {
                             Static163.activeToolkit.method7974();
                         }
+
                         if (CutsceneManager.state == 3) {
-                            @Pc(323) int local323 = Static399.anInt6215;
-                            @Pc(744) int local744 = Static337.anInt5556;
-                            @Pc(1255) int local1255 = Static186.anInt3059;
-                            @Pc(777) int local777 = Static622.anInt7737;
-                            if (TimeUtils.clock < Static4.anInt84) {
-                                @Pc(1276) float local1276 = (float) (TimeUtils.clock - Static115.anInt2259) / (float) (Static4.anInt84 - Static115.anInt2259);
-                                local744 = (int) ((float) Static582.anInt8628 * (1.0F - local1276) + local1276 * (float) Static337.anInt5556);
-                                local1255 = (int) (local1276 * (float) Static186.anInt3059 + (float) Static493.anInt7370 * (1.0F - local1276));
-                                local323 = (int) (local1276 * (float) Static399.anInt6215 + (1.0F - local1276) * (float) Static323.anInt5120);
-                                local777 = (int) (local1276 * (float) Static622.anInt7737 + (1.0F - local1276) * (float) Static201.anInt8407);
+                            @Pc(323) int alpha = CutsceneManager.cutsceneFadeAlpha;
+                            @Pc(744) int blue = CutsceneManager.cutsceneFadeBlue;
+                            @Pc(1255) int red = CutsceneManager.cutsceneFadeRed;
+                            @Pc(777) int green = CutsceneManager.cutsceneFadeGreen;
+
+                            if (TimeUtils.clock < CutsceneManager.cutsceneFadeEnd) {
+                                @Pc(1276) float f = (float) (TimeUtils.clock - CutsceneManager.cutsceneFadeStart) / (float) (CutsceneManager.cutsceneFadeEnd - CutsceneManager.cutsceneFadeStart);
+                                blue = (int) ((f * (float) CutsceneManager.cutsceneFadeBlue) + ((float) Static582.anInt8628 * (1.0F - f)));
+                                red = (int) ((f * (float) CutsceneManager.cutsceneFadeRed) + ((float) Static493.anInt7370 * (1.0F - f)));
+                                alpha = (int) ((f * (float) CutsceneManager.cutsceneFadeAlpha) + ((float) Static323.anInt5120 * (1.0F - f)));
+                                green = (int) ((f * (float) CutsceneManager.cutsceneFadeGreen) + ((float) Static201.anInt8407 * (1.0F - f)));
                             }
-                            if (local323 > 0) {
-                                Static163.activeToolkit.method7971(x2 - x1, -y1 + y2, y1, x1, local744 << 16 | local323 << 24 | local1255 << 8 | local777);
+
+                            if (alpha > 0) {
+                                Static163.activeToolkit.method7971(x2 - x1, -y1 + y2, y1, x1, blue << 16 | alpha << 24 | red << 8 | green);
                             }
                         }
                     }
+
                     Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                 }
-                if (Static359.aBooleanArray17[rectangle] || Static18.anInt251 > 1) {
-                    if (child.type == 3) {
+
+                if (currentlyDirtyRect[rectangle] || rectDebug > 1) {
+                    if (child.type == Component.TYPE_RECTANGLE) {
                         if (transparency == 0) {
                             if (child.filled) {
                                 Static163.activeToolkit.aa(posX, posY, child.width, child.height, child.colour, 0);
                             } else {
                                 Static163.activeToolkit.method7976(posX, posY, child.width, child.height, child.colour, 0);
                             }
-                        } else if (child.filled) {
-                            Static163.activeToolkit.aa(posX, posY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
                         } else {
-                            Static163.activeToolkit.method7976(posX, posY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                            if (child.filled) {
+                                Static163.activeToolkit.aa(posX, posY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                            } else {
+                                Static163.activeToolkit.method7976(posX, posY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                            }
+                        }
+
+                        if (aBoolean210) {
+                            if (arg7) {
+                                Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                            } else {
+                                Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
+                            }
+                        }
+                    } else if (child.type == Component.TYPE_TEXT) {
+                        @Pc(1514) Font font = child.font(Static163.activeToolkit);
+
+                        if (font != null) {
+                            @Pc(323) int colour = child.colour;
+                            @Pc(1533) String text = child.text;
+
+                            if (child.invObject != -1) {
+                                @Pc(1543) ObjType objType = Static419.aObjTypeList_1.list(child.invObject);
+                                text = objType.name;
+
+                                if (text == null) {
+                                    text = "null";
+                                }
+
+                                if ((objType.stackable == ObjStackability.ALWAYS || child.invCount != 1) && child.invCount != -1) {
+                                    text = "<col=ff9040>" + text + "</col> x" + invText(child.invCount);
+                                }
+                            }
+
+                            if (child.video != -1) {
+                                text = VideoManager.subtitles(child.video);
+
+                                if (text == null) {
+                                    text = "";
+                                }
+                            }
+                            if (child == Static390.aComponent_9) {
+                                text = LocalisedText.PLEASEWAIT.localise(Static51.language);
+                                colour = child.colour;
+                            }
+                            if (Static376.aBoolean452) {
+                                Static163.activeToolkit.T(posX, posY, posX + child.width, child.height + posY);
+                            }
+                            font.renderLines(child.verticalAlignment, colour | 255 - (transparency & 0xFF) << 24, child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Static679.aSpriteArray14, child.maxLines, 0, posY, child.height, 0, (ClippingMask) null, child.lineHeight, child.width, posX, child.horizontalAlignment, (int[]) null, text);
+                            if (Static376.aBoolean452) {
+                                Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
+                            }
+                            if (text.trim().length() > 0) {
+                                if (!Static376.aBoolean452) {
+                                    @Pc(1730) FontMetrics local1730 = Fonts.metrics(child.fontGraphic, Static163.activeToolkit);
+                                    @Pc(777) int local777 = local1730.paraWidth(Static679.aSpriteArray14, text, child.width);
+                                    @Pc(779) int local779 = local1730.stringHeight(child.width, child.lineHeight, text, Static679.aSpriteArray14);
+                                    if (aBoolean210) {
+                                        if (arg7) {
+                                            Static682.method8927(posY, posY + local779, posX, posX + local777);
+                                        } else {
+                                            Static595.method7810(posY, posX + local777, local779 + posY, posX);
+                                        }
+                                    }
+                                } else if (aBoolean210) {
+                                    if (arg7) {
+                                        Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                                    } else {
+                                        Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
+                                    }
+                                }
+                            }
+                        } else if (Component.redrawAll) {
+                            redraw(child);
+                        }
+                    } else if (child.type == 5) {
+                        if (child.skyBox < 0) {
+                            @Pc(1816) Sprite local1816;
+                            if (child.invObject != -1) {
+                                @Pc(1836) PlayerModel local1836 = child.objWearCol ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null;
+                                local1816 = Static419.aObjTypeList_1.getCachedSprite(local1836, Static163.activeToolkit, child.anInt3757, child.invObject, child.outline, child.invCount, child.shadow | 0xFF000000);
+                            } else if (child.video == -1) {
+                                local1816 = child.sprite(Static163.activeToolkit);
+                            } else {
+                                local1816 = Static651.method8512(child.video, Static163.activeToolkit);
+                            }
+                            if (local1816 != null) {
+                                @Pc(323) int local323 = local1816.scaleWidth();
+                                @Pc(744) int local744 = local1816.scaleHeight();
+                                @Pc(1255) int local1255 = 255 - (transparency & 0xFF) << 24 | (child.colour == 0 ? 16777215 : child.colour & 0xFFFFFF);
+                                if (child.tiled) {
+                                    Static163.activeToolkit.T(posX, posY, posX + child.width, posY - -child.height);
+                                    if (child.angle2d != 0) {
+                                        @Pc(777) int local777 = (child.width + local323 - 1) / local323;
+                                        @Pc(779) int local779 = (local744 + child.height - 1) / local744;
+                                        for (@Pc(792) int local792 = 0; local792 < local777; local792++) {
+                                            for (@Pc(936) int local936 = 0; local936 < local779; local936++) {
+                                                if (child.colour == 0) {
+                                                    local1816.method8186((float) (local792 * local323 + posX) + (float) local323 / 2.0F, (float) (posY + local744 * local936) + (float) local744 / 2.0F, 4096, child.angle2d);
+                                                } else {
+                                                    local1816.method8187((float) (local792 * local323 + posX) + (float) local323 / 2.0F, (float) local744 / 2.0F + (float) (local936 * local744 + posY), 4096, child.angle2d, local1255);
+                                                }
+                                            }
+                                        }
+                                    } else if (child.colour == 0 && transparency == 0) {
+                                        local1816.method8198(posX, posY, child.width, child.height);
+                                    } else {
+                                        local1816.method8189(posX, posY, child.width, child.height, 0, local1255, 1);
+                                    }
+                                    Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
+                                } else if (child.colour == 0 && transparency == 0) {
+                                    if (child.angle2d != 0) {
+                                        local1816.method8186((float) child.width / 2.0F + (float) posX, (float) posY + (float) child.height / 2.0F, child.width * 4096 / local323, child.angle2d);
+                                    } else if (local323 == child.width && child.height == local744) {
+                                        local1816.render(posX, posY);
+                                    } else {
+                                        local1816.render(posX, posY, child.width, child.height);
+                                    }
+                                } else if (child.angle2d != 0) {
+                                    local1816.method8187((float) child.width / 2.0F + (float) posX, (float) child.height / 2.0F + (float) posY, child.width * 4096 / local323, child.angle2d, local1255);
+                                } else if (local323 == child.width && child.height == local744) {
+                                    local1816.render(posX, posY, 0, local1255, 1);
+                                } else {
+                                    local1816.render(posX, posY, child.width, child.height, 0, local1255, 1);
+                                }
+                            } else if (Component.redrawAll) {
+                                redraw(child);
+                            }
+                        } else {
+                            child.skyBox(Static99.aSkyBoxSphereTypeList_1, Static324.aSkyBoxTypeList_1).method3162(Static163.activeToolkit, posY, posX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
                         }
                         if (aBoolean210) {
                             if (arg7) {
@@ -469,265 +613,144 @@ public final class InterfaceManager {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
                         }
-                    } else {
-                        @Pc(1543) ObjType local1543;
-                        if (child.type == 4) {
-                            @Pc(1514) Font local1514 = child.font(Static163.activeToolkit);
-                            if (local1514 != null) {
-                                @Pc(323) int local323 = child.colour;
-                                @Pc(1533) String local1533 = child.text;
-                                if (child.anInt3760 != -1) {
-                                    local1543 = Static419.aObjTypeList_1.list(child.anInt3760);
-                                    local1533 = local1543.name;
-                                    if (local1533 == null) {
-                                        local1533 = "null";
-                                    }
-                                    if ((local1543.stackable == 1 || child.anInt3817 != 1) && child.anInt3817 != -1) {
-                                        local1533 = "<col=ff9040>" + local1533 + "</col> x" + Static360.method5233(child.anInt3817);
-                                    }
+                    } else if (child.type == 6) {
+                        Static104.method2033();
+                        NPCTypeCustomisation local1215 = null;
+                        @Pc(2313) Model local2313 = null;
+                        @Pc(744) int local744 = 0;
+                        if (child.invObject != -1) {
+                            @Pc(1543) ObjType local1543 = Static419.aObjTypeList_1.list(child.invObject);
+                            if (local1543 != null) {
+                                local1543 = local1543.getStacked(child.invCount);
+                                local2313 = local1543.model(child.aAnimator_6, 2048, child.objWearCol ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null, 1, Static163.activeToolkit);
+                                if (local2313 == null) {
+                                    redraw(child);
+                                } else {
+                                    local744 = -local2313.fa() >> 1;
                                 }
-                                if (child.anInt3745 != -1) {
-                                    local1533 = Static146.method2414(child.anInt3745);
-                                    if (local1533 == null) {
-                                        local1533 = "";
-                                    }
+                            }
+                        } else if (child.objType == 5) {
+                            @Pc(1255) int local1255 = child.obj;
+                            if (local1255 >= 0 && local1255 < 2048) {
+                                @Pc(2341) Class8_Sub2_Sub1_Sub2_Sub1 local2341 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local1255];
+                                if (local2341 != null && (local1255 == Static312.anInt5000 || Static214.method3157(local2341.aString9) == child.objData)) {
+                                    local2313 = local2341.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, child.aAnimator_6, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, 2048, (int[]) null, Static523.wearposDefaults, Static68.aIDKTypeList_3, Static163.activeToolkit, Static690.aNPCTypeList_2, (Animator[]) null, 0, (Animator) null, Static34.aClass304_1);
                                 }
-                                if (child == Static390.aComponent_9) {
-                                    local1533 = LocalisedText.PLEASEWAIT.localise(Static51.anInt1052);
-                                    local323 = child.colour;
-                                }
-                                if (Static376.aBoolean452) {
-                                    Static163.activeToolkit.T(posX, posY, posX + child.width, child.height + posY);
-                                }
-                                local1514.renderLines(child.verticalAlignment, local323 | 255 - (transparency & 0xFF) << 24, child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Static679.aSpriteArray14, child.maxLines, 0, posY, child.height, 0, (ClippingMask) null, child.lineHeight, child.width, posX, child.horizontalAlignment, (int[]) null, local1533);
-                                if (Static376.aBoolean452) {
-                                    Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
-                                }
-                                if (local1533.trim().length() > 0) {
-                                    if (!Static376.aBoolean452) {
-                                        @Pc(1730) FontMetrics local1730 = Fonts.metrics(child.fontGraphic, Static163.activeToolkit);
-                                        @Pc(777) int local777 = local1730.paraWidth(Static679.aSpriteArray14, local1533, child.width);
-                                        @Pc(779) int local779 = local1730.stringHeight(child.width, child.lineHeight, local1533, Static679.aSpriteArray14);
-                                        if (aBoolean210) {
-                                            if (arg7) {
-                                                Static682.method8927(posY, posY + local779, posX, posX + local777);
-                                            } else {
-                                                Static595.method7810(posY, posX + local777, local779 + posY, posX);
-                                            }
-                                        }
-                                    } else if (aBoolean210) {
-                                        if (arg7) {
-                                            Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
-                                        } else {
-                                            Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
-                                        }
-                                    }
-                                }
-                            } else if (Component.redrawAll) {
+                            }
+                        } else if (child.objType == 8 || child.objType == 9) {
+                            @Pc(2468) Node_Sub22 local2468 = Static556.method7303(child.obj, false);
+                            if (local2468 != null) {
+                                local2313 = local2468.method3078(child.objData, Static163.activeToolkit, child.objType == 9, child.aAnimator_6, child.objWearCol ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null);
+                            }
+                        } else if (child.aAnimator_6 != null && child.aAnimator_6.isAnimating()) {
+                            local2313 = child.model(Static163.activeToolkit, child.aAnimator_6, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
+                            if (local2313 == null && Component.redrawAll) {
                                 redraw(child);
                             }
-                        } else if (child.type == 5) {
-                            if (child.skyBox < 0) {
-                                @Pc(1816) Sprite local1816;
-                                if (child.anInt3760 != -1) {
-                                    @Pc(1836) PlayerModel local1836 = child.objWearCol ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null;
-                                    local1816 = Static419.aObjTypeList_1.getCachedSprite(local1836, Static163.activeToolkit, child.anInt3757, child.anInt3760, child.outline, child.anInt3817, child.shadow | 0xFF000000);
-                                } else if (child.anInt3745 == -1) {
-                                    local1816 = child.sprite(Static163.activeToolkit);
-                                } else {
-                                    local1816 = Static651.method8512(child.anInt3745, Static163.activeToolkit);
-                                }
-                                if (local1816 != null) {
-                                    @Pc(323) int local323 = local1816.scaleWidth();
-                                    @Pc(744) int local744 = local1816.scaleHeight();
-                                    @Pc(1255) int local1255 = 255 - (transparency & 0xFF) << 24 | (child.colour == 0 ? 16777215 : child.colour & 0xFFFFFF);
-                                    if (child.tiled) {
-                                        Static163.activeToolkit.T(posX, posY, posX + child.width, posY - -child.height);
-                                        if (child.angle2d != 0) {
-                                            @Pc(777) int local777 = (child.width + local323 - 1) / local323;
-                                            @Pc(779) int local779 = (local744 + child.height - 1) / local744;
-                                            for (@Pc(792) int local792 = 0; local792 < local777; local792++) {
-                                                for (@Pc(936) int local936 = 0; local936 < local779; local936++) {
-                                                    if (child.colour == 0) {
-                                                        local1816.method8186((float) (local792 * local323 + posX) + (float) local323 / 2.0F, (float) (posY + local744 * local936) + (float) local744 / 2.0F, 4096, child.angle2d);
-                                                    } else {
-                                                        local1816.method8187((float) (local792 * local323 + posX) + (float) local323 / 2.0F, (float) local744 / 2.0F + (float) (local936 * local744 + posY), 4096, child.angle2d, local1255);
-                                                    }
-                                                }
-                                            }
-                                        } else if (child.colour == 0 && transparency == 0) {
-                                            local1816.method8198(posX, posY, child.width, child.height);
-                                        } else {
-                                            local1816.method8189(posX, posY, child.width, child.height, 0, local1255, 1);
-                                        }
-                                        Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
-                                    } else if (child.colour == 0 && transparency == 0) {
-                                        if (child.angle2d != 0) {
-                                            local1816.method8186((float) child.width / 2.0F + (float) posX, (float) posY + (float) child.height / 2.0F, child.width * 4096 / local323, child.angle2d);
-                                        } else if (local323 == child.width && child.height == local744) {
-                                            local1816.render(posX, posY);
-                                        } else {
-                                            local1816.render(posX, posY, child.width, child.height);
-                                        }
-                                    } else if (child.angle2d != 0) {
-                                        local1816.method8187((float) child.width / 2.0F + (float) posX, (float) child.height / 2.0F + (float) posY, child.width * 4096 / local323, child.angle2d, local1255);
-                                    } else if (local323 == child.width && child.height == local744) {
-                                        local1816.render(posX, posY, 0, local1255, 1);
-                                    } else {
-                                        local1816.render(posX, posY, child.width, child.height, 0, local1255, 1);
-                                    }
-                                } else if (Component.redrawAll) {
-                                    redraw(child);
-                                }
+                        } else {
+                            local2313 = child.model(Static163.activeToolkit, (Animator) null, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
+                            if (local2313 == null && Component.redrawAll) {
+                                redraw(child);
+                            }
+                        }
+                        if (local2313 != null) {
+                            @Pc(1255) int local1255;
+                            if (child.anInt3800 <= 0) {
+                                local1255 = 512;
                             } else {
-                                child.skyBox(Static99.aSkyBoxSphereTypeList_1, Static324.aSkyBoxTypeList_1).method3162(Static163.activeToolkit, posY, posX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
+                                local1255 = (child.width << 9) / child.anInt3800;
                             }
-                            if (aBoolean210) {
-                                if (arg7) {
-                                    Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
-                                } else {
-                                    Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
-                                }
-                            }
-                        } else if (child.type == 6) {
-                            Static104.method2033();
-                            NPCTypeCustomisation local1215 = null;
-                            @Pc(2313) Model local2313 = null;
-                            @Pc(744) int local744 = 0;
-                            if (child.anInt3760 != -1) {
-                                local1543 = Static419.aObjTypeList_1.list(child.anInt3760);
-                                if (local1543 != null) {
-                                    local1543 = local1543.getStacked(child.anInt3817);
-                                    local2313 = local1543.model(child.aAnimator_6, 2048, child.objWearCol ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null, 1, Static163.activeToolkit);
-                                    if (local2313 == null) {
-                                        redraw(child);
-                                    } else {
-                                        local744 = -local2313.fa() >> 1;
-                                    }
-                                }
-                            } else if (child.objType == 5) {
-                                @Pc(1255) int local1255 = child.obj;
-                                if (local1255 >= 0 && local1255 < 2048) {
-                                    @Pc(2341) Class8_Sub2_Sub1_Sub2_Sub1 local2341 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local1255];
-                                    if (local2341 != null && (local1255 == Static312.anInt5000 || Static214.method3157(local2341.aString9) == child.objData)) {
-                                        local2313 = local2341.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, child.aAnimator_6, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, 2048, (int[]) null, Static523.wearposDefaults, Static68.aIDKTypeList_3, Static163.activeToolkit, Static690.aNPCTypeList_2, (Animator[]) null, 0, (Animator) null, Static34.aClass304_1);
-                                    }
-                                }
-                            } else if (child.objType == 8 || child.objType == 9) {
-                                @Pc(2468) Node_Sub22 local2468 = Static556.method7303(child.obj, false);
-                                if (local2468 != null) {
-                                    local2313 = local2468.method3078(child.objData, Static163.activeToolkit, child.objType == 9, child.aAnimator_6, child.objWearCol ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null);
-                                }
-                            } else if (child.aAnimator_6 != null && child.aAnimator_6.isAnimating()) {
-                                local2313 = child.model(Static163.activeToolkit, child.aAnimator_6, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
-                                if (local2313 == null && Component.redrawAll) {
-                                    redraw(child);
-                                }
+                            @Pc(777) int local777;
+                            if (child.anInt3825 <= 0) {
+                                local777 = 512;
                             } else {
-                                local2313 = child.model(Static163.activeToolkit, (Animator) null, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
-                                if (local2313 == null && Component.redrawAll) {
-                                    redraw(child);
-                                }
+                                local777 = (child.height << 9) / child.anInt3825;
                             }
-                            if (local2313 != null) {
-                                @Pc(1255) int local1255;
-                                if (child.anInt3800 <= 0) {
-                                    local1255 = 512;
-                                } else {
-                                    local1255 = (child.width << 9) / child.anInt3800;
-                                }
-                                @Pc(777) int local777;
-                                if (child.anInt3825 <= 0) {
-                                    local777 = 512;
-                                } else {
-                                    local777 = (child.height << 9) / child.anInt3825;
-                                }
-                                @Pc(779) int local779 = child.width / 2 + posX;
-                                @Pc(792) int local792 = child.height / 2 + posY;
-                                if (!child.orthoView) {
-                                    local779 += child.modelOriginX * local1255 >> 9;
-                                    local792 += child.modelOriginY * local777 >> 9;
-                                }
-                                Static460.aMatrix_10.makeIdentity();
-                                Static163.activeToolkit.setCamera(Static460.aMatrix_10);
-                                Static163.activeToolkit.DA(local779, local792, local1255, local777);
-                                Static163.activeToolkit.ya();
-                                if (child.disableZBuffer) {
-                                    Static163.activeToolkit.C(false);
-                                }
-                                if (child.orthoView) {
-                                    Static59.aMatrix_5.method7136(child.modelAngleX);
-                                    Static59.aMatrix_5.rotateAxisY(child.modelAngleY);
-                                    Static59.aMatrix_5.rotateAxisZ(child.modelAngleZ);
-                                    Static59.aMatrix_5.translate(child.modelOriginX, child.modelOriginY, child.modelOriginZ);
-                                } else {
-                                    @Pc(936) int local936 = Trig1.SIN[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
-                                    @Pc(938) int local938 = Trig1.COS[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
-                                    Static59.aMatrix_5.makeRotationZ(-child.modelAngleZ << 3);
-                                    Static59.aMatrix_5.rotateAxisY(child.modelAngleY << 3);
-                                    Static59.aMatrix_5.translate(child.anInt3736 << 2, local744 + (child.anInt3804 << 2) + local936, (child.anInt3804 << 2) + local938);
-                                    Static59.aMatrix_5.rotateAxisX(child.modelAngleX << 3);
-                                }
-                                child.method3384(Static163.activeToolkit, local2313, Static59.aMatrix_5, TimeUtils.clock);
-                                if (Static376.aBoolean452) {
-                                    Static163.activeToolkit.T(posX, posY, posX + child.width, child.height + posY);
-                                }
-                                if (child.orthoView) {
-                                    if (child.modelOrtho) {
-                                        local2313.renderOrtho(Static59.aMatrix_5, (PickingCylinder) null, child.modelZoom, 1);
-                                    } else {
-                                        local2313.render(Static59.aMatrix_5, (PickingCylinder) null, 1);
-                                        if (child.particleSystem != null) {
-                                            Static163.activeToolkit.method8021(child.particleSystem.method3650());
-                                        }
-                                    }
-                                } else if (child.modelOrtho) {
-                                    local2313.renderOrtho(Static59.aMatrix_5, (PickingCylinder) null, child.modelZoom << 2, 1);
+                            @Pc(779) int local779 = child.width / 2 + posX;
+                            @Pc(792) int local792 = child.height / 2 + posY;
+                            if (!child.orthoView) {
+                                local779 += child.modelOriginX * local1255 >> 9;
+                                local792 += child.modelOriginY * local777 >> 9;
+                            }
+                            Static460.aMatrix_10.makeIdentity();
+                            Static163.activeToolkit.setCamera(Static460.aMatrix_10);
+                            Static163.activeToolkit.DA(local779, local792, local1255, local777);
+                            Static163.activeToolkit.ya();
+                            if (child.disableZBuffer) {
+                                Static163.activeToolkit.C(false);
+                            }
+                            if (child.orthoView) {
+                                Static59.aMatrix_5.method7136(child.modelAngleX);
+                                Static59.aMatrix_5.rotateAxisY(child.modelAngleY);
+                                Static59.aMatrix_5.rotateAxisZ(child.modelAngleZ);
+                                Static59.aMatrix_5.translate(child.modelOriginX, child.modelOriginY, child.modelOriginZ);
+                            } else {
+                                @Pc(936) int local936 = Trig1.SIN[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
+                                @Pc(938) int local938 = Trig1.COS[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
+                                Static59.aMatrix_5.makeRotationZ(-child.modelAngleZ << 3);
+                                Static59.aMatrix_5.rotateAxisY(child.modelAngleY << 3);
+                                Static59.aMatrix_5.translate(child.anInt3736 << 2, local744 + (child.anInt3804 << 2) + local936, (child.anInt3804 << 2) + local938);
+                                Static59.aMatrix_5.rotateAxisX(child.modelAngleX << 3);
+                            }
+                            child.method3384(Static163.activeToolkit, local2313, Static59.aMatrix_5, TimeUtils.clock);
+                            if (Static376.aBoolean452) {
+                                Static163.activeToolkit.T(posX, posY, posX + child.width, child.height + posY);
+                            }
+                            if (child.orthoView) {
+                                if (child.modelOrtho) {
+                                    local2313.renderOrtho(Static59.aMatrix_5, (PickingCylinder) null, child.modelZoom, 1);
                                 } else {
                                     local2313.render(Static59.aMatrix_5, (PickingCylinder) null, 1);
                                     if (child.particleSystem != null) {
                                         Static163.activeToolkit.method8021(child.particleSystem.method3650());
                                     }
                                 }
-                                if (Static376.aBoolean452) {
-                                    Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
-                                }
-                                if (child.disableZBuffer) {
-                                    Static163.activeToolkit.C(true);
-                                }
-                            }
-                            if (aBoolean210) {
-                                if (arg7) {
-                                    Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
-                                } else {
-                                    Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
+                            } else if (child.modelOrtho) {
+                                local2313.renderOrtho(Static59.aMatrix_5, (PickingCylinder) null, child.modelZoom << 2, 1);
+                            } else {
+                                local2313.render(Static59.aMatrix_5, (PickingCylinder) null, 1);
+                                if (child.particleSystem != null) {
+                                    Static163.activeToolkit.method8021(child.particleSystem.method3650());
                                 }
                             }
-                        } else if (child.type == 9) {
-                            @Pc(323) int local323;
-                            @Pc(744) int local744;
-                            @Pc(1255) int local1255;
+                            if (Static376.aBoolean452) {
+                                Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
+                            }
+                            if (child.disableZBuffer) {
+                                Static163.activeToolkit.C(true);
+                            }
+                        }
+                        if (aBoolean210) {
+                            if (arg7) {
+                                Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                            } else {
+                                Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
+                            }
+                        }
+                    } else if (child.type == 9) {
+                        @Pc(323) int local323;
+                        @Pc(744) int local744;
+                        @Pc(1255) int local1255;
 
-                            if (child.lineDirection) {
-                                local323 = child.height + posY;
-                                local1255 = posY;
-                                local744 = posX + child.width;
+                        if (child.lineDirection) {
+                            local323 = child.height + posY;
+                            local1255 = posY;
+                            local744 = posX + child.width;
+                        } else {
+                            local1255 = child.height + posY;
+                            local323 = posY;
+                            local744 = posX + child.width;
+                        }
+                        if (child.lineWidth == 1) {
+                            Static163.activeToolkit.method7951(posX, local323, local744, local1255, child.colour, 0);
+                        } else {
+                            Static163.activeToolkit.method7947(posX, local323, local744, local1255, child.colour, child.lineWidth);
+                        }
+                        if (aBoolean210) {
+                            if (arg7) {
+                                Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
                             } else {
-                                local1255 = child.height + posY;
-                                local323 = posY;
-                                local744 = posX + child.width;
-                            }
-                            if (child.lineWidth == 1) {
-                                Static163.activeToolkit.method7951(posX, local323, local744, local1255, child.colour, 0);
-                            } else {
-                                Static163.activeToolkit.method7947(posX, local323, local744, local1255, child.colour, child.lineWidth);
-                            }
-                            if (aBoolean210) {
-                                if (arg7) {
-                                    Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
-                                } else {
-                                    Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
-                                }
+                                Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
                         }
                     }
@@ -839,7 +862,7 @@ public final class InterfaceManager {
             local57 = arg2 + arg0 / 2 - 20 - 18;
             arg4.method7976(local38 - 152, local57, 304, 34, Static337.aColorArray1[Static338.anInt5562].getRGB(), 0);
             arg4.aa(local38 - 150, local57 + 2, Static273.anInt4403 * 3, 30, Static718.aColorArray3[Static338.anInt5562].getRGB(), 0);
-            Fonts.b12.renderCentre(-1, local38, LocalisedText.LOADINGDOTDOTDOT.localise(Static51.anInt1052), local57 + 20, Static399.aColorArray2[Static338.anInt5562].getRGB());
+            Fonts.b12.renderCentre(-1, local38, LocalisedText.LOADINGDOTDOTDOT.localise(Static51.language), local57 + 20, Static399.aColorArray2[Static338.anInt5562].getRGB());
             return;
         }
         @Pc(114) int local114 = Static164.anInt2809 - (int) ((float) arg5 / Static30.aFloat105);
@@ -935,6 +958,63 @@ public final class InterfaceManager {
                     arg1.method7971(4, 4, local269 - 2, local256 + -2, local202 << 24 | 0xFFFF00);
                 }
             }
+        }
+    }
+
+    @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IIIIIIIZI)V")
+    public static void drawSubInterface(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7) {
+        @Pc(17) int local17;
+        if (InterfaceList.load(arg0)) {
+            local17 = 0;
+            @Pc(58) int local58 = 0;
+            @Pc(60) int local60 = 0;
+            @Pc(62) int local62 = 0;
+            @Pc(64) int local64 = 0;
+            if (aBoolean210) {
+                local62 = Static582.anInt8629;
+                local64 = Static691.anInt10368;
+                local17 = Static435.anInt6597;
+                local58 = Static320.anInt5085;
+                local60 = Static599.anInt8837;
+                Static691.anInt10368 = 1;
+            }
+            if (Static148.aComponentArrayArray1[arg0] == null) {
+                draw(-1, arg6, InterfaceList.interfaces[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+            } else {
+                draw(-1, arg6, Static148.aComponentArrayArray1[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+            }
+            if (aBoolean210) {
+                if (arg5 >= 0 && Static691.anInt10368 == 2) {
+                    Static682.method8927(Static320.anInt5085, Static582.anInt8629, Static435.anInt6597, Static599.anInt8837);
+                }
+                Static320.anInt5085 = local58;
+                Static582.anInt8629 = local62;
+                Static435.anInt6597 = local17;
+                Static691.anInt10368 = local64;
+                Static599.anInt8837 = local60;
+            }
+        } else if (arg5 == -1) {
+            for (local17 = 0; local17 < 100; local17++) {
+                dirtyRectangles[local17] = true;
+            }
+        } else {
+            dirtyRectangles[arg5] = true;
+        }
+    }
+
+    @OriginalMember(owner = "client!lg", name = "b", descriptor = "(II)Ljava/lang/String;")
+    public static String invText(@OriginalArg(1) int count) {
+        @Pc(8) String text = Integer.toString(count);
+        for (@Pc(13) int i = text.length() - 3; i > 0; i -= 3) {
+            text = text.substring(0, i) + "," + text.substring(i);
+        }
+
+        if (text.length() > 9) {
+            return " <col=00ff80>" + text.substring(0, text.length() - 8) + LocalisedText.MILLION.localise(Static51.language) + " (" + text + ")</col>";
+        } else if (text.length() > 6) {
+            return " <col=ffffff>" + text.substring(0, text.length() - 4) + LocalisedText.THOUSAND.localise(Static51.language) + " (" + text + ")</col>";
+        } else {
+            return " <col=ffff00>" + text + "</col>";
         }
     }
 }

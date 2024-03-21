@@ -143,7 +143,7 @@ public final class Static293 {
         if (Static586.aClass225_215 == arg0.aClass225_93) {
             local277 = local11.g4_alt1();
             Static574.method7573();
-            @Pc(287) Node_Sub4 local287 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local277);
+            @Pc(287) SubInterface local287 = (SubInterface) InterfaceManager.subInterfaces.get((long) local277);
             if (local287 != null) {
                 Static449.method6115(false, true, local287);
             }
@@ -173,7 +173,7 @@ public final class Static293 {
             arg0.aClass225_93 = null;
             return true;
         } else if (Static632.aClass225_229 == arg0.aClass225_93) {
-            Static331.aString52 = arg0.anInt3648 <= 2 ? LocalisedText.WALKHERE.localise(Static51.anInt1052) : local11.gjstr();
+            Static331.aString52 = arg0.anInt3648 <= 2 ? LocalisedText.WALKHERE.localise(Static51.language) : local11.gjstr();
             Static331.anInt5439 = arg0.anInt3648 <= 0 ? -1 : local11.g2();
             if (Static331.anInt5439 == 65535) {
                 Static331.anInt5439 = -1;
@@ -1397,19 +1397,19 @@ public final class Static293 {
                                                                 arg0.aClass225_93 = null;
                                                                 return true;
                                                             } else {
-                                                                @Pc(5445) Node_Sub4 local5445;
+                                                                @Pc(5445) SubInterface local5445;
                                                                 if (Static119.aClass225_47 == arg0.aClass225_93) {
                                                                     local277 = local11.g4_alt2();
                                                                     local100 = local11.g4_alt3();
                                                                     Static574.method7573();
-                                                                    @Pc(5438) Node_Sub4 local5438 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local100);
-                                                                    local5445 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local277);
+                                                                    @Pc(5438) SubInterface local5438 = (SubInterface) InterfaceManager.subInterfaces.get((long) local100);
+                                                                    local5445 = (SubInterface) InterfaceManager.subInterfaces.get((long) local277);
                                                                     if (local5445 != null) {
                                                                         Static449.method6115(false, local5438 == null || local5438.anInt147 != local5445.anInt147, local5445);
                                                                     }
                                                                     if (local5438 != null) {
                                                                         local5438.unlink();
-                                                                        Static548.aIterableHashTable_40.put((long) local277, local5438);
+                                                                        InterfaceManager.subInterfaces.put((long) local277, local5438);
                                                                     }
                                                                     @Pc(5487) Component local5487 = InterfaceList.list(local100);
                                                                     if (local5487 != null) {
@@ -1430,7 +1430,7 @@ public final class Static293 {
                                                                     local100 = local11.g4_alt1();
                                                                     local526 = local11.g1();
                                                                     Static574.method7573();
-                                                                    local5445 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local100);
+                                                                    local5445 = (SubInterface) InterfaceManager.subInterfaces.get((long) local100);
                                                                     if (local5445 != null) {
                                                                         Static449.method6115(false, local5445.anInt147 != local277, local5445);
                                                                     }

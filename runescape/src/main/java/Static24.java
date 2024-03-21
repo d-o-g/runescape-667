@@ -23,7 +23,7 @@ public final class Static24 {
             if (InterfaceManager.dirtyRectangles[local23]) {
                 InterfaceManager.flipDirtyRect[local23] = true;
             }
-            Static359.aBooleanArray17[local23] = InterfaceManager.dirtyRectangles[local23];
+            InterfaceManager.currentlyDirtyRect[local23] = InterfaceManager.dirtyRectangles[local23];
             InterfaceManager.dirtyRectangles[local23] = false;
         }
         InterfaceManager.lastDrawCycle = TimeUtils.clock;

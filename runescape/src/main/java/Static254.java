@@ -78,9 +78,9 @@ public final class Static254 {
         if (Static377.anInt5930 != -1) {
             Static347.method5094(Static377.anInt5930);
         }
-        for (@Pc(8803) Node_Sub4 local8803 = (Node_Sub4) Static548.aIterableHashTable_40.first(); local8803 != null; local8803 = (Node_Sub4) Static548.aIterableHashTable_40.next()) {
+        for (@Pc(8803) SubInterface local8803 = (SubInterface) InterfaceManager.subInterfaces.first(); local8803 != null; local8803 = (SubInterface) InterfaceManager.subInterfaces.next()) {
             if (!local8803.isLinked()) {
-                local8803 = (Node_Sub4) Static548.aIterableHashTable_40.first();
+                local8803 = (SubInterface) InterfaceManager.subInterfaces.first();
                 if (local8803 == null) {
                     break;
                 }
@@ -88,7 +88,7 @@ public final class Static254 {
             Static449.method6115(false, true, local8803);
         }
         Static377.anInt5930 = -1;
-        Static548.aIterableHashTable_40 = new IterableHashTable(8);
+        InterfaceManager.subInterfaces = new IterableHashTable(8);
         Static656.method6692();
         Static390.aComponent_9 = null;
         for (@Pc(8849) int local8849 = 0; local8849 < 8; local8849++) {
@@ -112,7 +112,7 @@ public final class Static254 {
         Static218.method3187();
         Static273.aBoolean339 = true;
         client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
-        Static331.aString52 = LocalisedText.WALKHERE.localise(Static51.anInt1052);
+        Static331.aString52 = LocalisedText.WALKHERE.localise(Static51.language);
         Static400.instance.method5104(Static400.instance.aClass57_Sub4_1.method2143(), Static400.instance.aClass57_Sub4_2);
         Static400.instance.method5104(Static400.instance.aClass57_Sub19_1.value(), Static400.instance.animatingBackground);
         Static334.anInt5456 = 0;

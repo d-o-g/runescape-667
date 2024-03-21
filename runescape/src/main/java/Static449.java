@@ -19,7 +19,7 @@ public final class Static449 {
     public static String aString75 = "";
 
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(BZZLclient!aha;)V")
-    public static void method6115(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Node_Sub4 arg2) {
+    public static void method6115(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) SubInterface arg2) {
         @Pc(6) int local6 = arg2.anInt147;
         @Pc(10) int local10 = (int) arg2.key;
         arg2.unlink();
@@ -35,10 +35,10 @@ public final class Static449 {
         if (!arg0 && Static377.anInt5930 != -1) {
             Static145.method2411(1, Static377.anInt5930);
         }
-        @Pc(55) Class331 local55 = new Class331(Static548.aIterableHashTable_40);
-        for (@Pc(60) Node_Sub4 local60 = (Node_Sub4) local55.first(); local60 != null; local60 = (Node_Sub4) local55.next()) {
+        @Pc(55) Class331 local55 = new Class331(InterfaceManager.subInterfaces);
+        for (@Pc(60) SubInterface local60 = (SubInterface) local55.first(); local60 != null; local60 = (SubInterface) local55.next()) {
             if (!local60.isLinked()) {
-                local60 = (Node_Sub4) local55.first();
+                local60 = (SubInterface) local55.first();
                 if (local60 == null) {
                     break;
                 }

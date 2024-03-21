@@ -20,9 +20,9 @@ public final class Static77 {
     public static void method1557() {
         @Pc(13) ClientMessage local13 = Static293.method4335(Static317.aClass345_62, ConnectionManager.GAME.aClass186_1);
         ConnectionManager.GAME.send(local13);
-        for (@Pc(22) Node_Sub4 local22 = (Node_Sub4) Static548.aIterableHashTable_40.first(); local22 != null; local22 = (Node_Sub4) Static548.aIterableHashTable_40.next()) {
+        for (@Pc(22) SubInterface local22 = (SubInterface) InterfaceManager.subInterfaces.first(); local22 != null; local22 = (SubInterface) InterfaceManager.subInterfaces.next()) {
             if (!local22.isLinked()) {
-                local22 = (Node_Sub4) Static548.aIterableHashTable_40.first();
+                local22 = (SubInterface) InterfaceManager.subInterfaces.first();
                 if (local22 == null) {
                     break;
                 }

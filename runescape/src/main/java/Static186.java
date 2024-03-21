@@ -14,9 +14,6 @@ public final class Static186 {
     @OriginalMember(owner = "client!fo", name = "k", descriptor = "Lclient!dla;")
     public static final ReferenceCache A_WEIGHTED_CACHE___67 = new ReferenceCache(4);
 
-    @OriginalMember(owner = "client!fo", name = "d", descriptor = "I")
-    public static int anInt3059 = 0;
-
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(IIIBIIZ)V")
     public static void method2818(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) boolean arg5) {
         if ((arg5 ? Static400.instance.lb.method7208() : Static400.instance.aClass57_Sub25_3.method7208()) != 0 && arg1 != 0 && Static33.anInt779 < 50 && arg0 != -1) {

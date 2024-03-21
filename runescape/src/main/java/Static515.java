@@ -32,7 +32,7 @@ public final class Static515 {
         }
         if (Static234.aBoolean303) {
             @Pc(34) Node_Sub5 local34 = new Node_Sub5(arg1, new Class222_Sub1(4096, js5.js5_36, arg1), arg2, arg0);
-            local34.aClass222_Sub1_1.method9183(Static384.aStringArray31[Static51.anInt1052]);
+            local34.aClass222_Sub1_1.method9183(Static384.aStringArray31[Static51.language]);
             Static106.A_HASH_TABLE___11.put((long) arg1, local34);
         } else {
             Static635.method8380(arg1, arg0);

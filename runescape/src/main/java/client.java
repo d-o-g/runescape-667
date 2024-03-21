@@ -106,12 +106,12 @@ public final class client extends GameShell {
             } else {
                 Static426.method1016("modewhat");
             }
-            Static51.anInt1052 = Static541.method7198(arg0[4]);
-            if (Static51.anInt1052 == -1) {
+            Static51.language = Static541.method7198(arg0[4]);
+            if (Static51.language == -1) {
                 if (arg0[4].equals("english")) {
-                    Static51.anInt1052 = 0;
+                    Static51.language = 0;
                 } else if (arg0[4].equals("german")) {
-                    Static51.anInt1052 = 1;
+                    Static51.language = 1;
                 } else {
                     Static426.method1016("language");
                 }
@@ -428,10 +428,10 @@ public final class client extends GameShell {
                                             for (@Pc(672) Class8_Sub4_Sub1 local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.first(); local672 != null; local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.next()) {
                                                 if ((long) local672.anInt6433 < SystemTimer.safetime() / 1000L - 5L) {
                                                     if (local672.aShort74 > 0) {
-                                                        Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGIN.localise(Static51.anInt1052), "", 0, "", "", 5);
+                                                        Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGIN.localise(Static51.language), "", 0, "", "", 5);
                                                     }
                                                     if (local672.aShort74 == 0) {
-                                                        Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGOUT.localise(Static51.anInt1052), "", 0, "", "", 5);
+                                                        Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGOUT.localise(Static51.language), "", 0, "", "", 5);
                                                     }
                                                     local672.unlink();
                                                 }
@@ -577,27 +577,27 @@ public final class client extends GameShell {
                     Static357.anInt6508 = Static593.anInt8763;
                 }
                 local110 = (Static357.anInt6508 - Static593.anInt8763) * 50 / Static357.anInt6508;
-                Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Fonts.p12Metrics, Fonts.p12);
+                Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.language) + "<br>(" + local110 + "%)", true, Fonts.p12Metrics, Fonts.p12);
             } else if (Static213.anInt3472 == 2) {
                 if (Static13.anInt150 > Static440.anInt6683) {
                     Static440.anInt6683 = Static13.anInt150;
                 }
                 local110 = (Static440.anInt6683 - Static13.anInt150) * 50 / Static440.anInt6683 + 50;
-                Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052) + "<br>(" + local110 + "%)", true, Fonts.p12Metrics, Fonts.p12);
+                Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.language) + "<br>(" + local110 + "%)", true, Fonts.p12Metrics, Fonts.p12);
             } else {
-                Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052), true, Fonts.p12Metrics, Fonts.p12);
+                Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.language), true, Fonts.p12Metrics, Fonts.p12);
             }
         } else if (Static283.step == 11) {
             Static686.method7930(local20);
         } else if (Static283.step == 14) {
-            Static694.method9028(Static163.activeToolkit, LocalisedText.CONLOST.localise(Static51.anInt1052) + "<br>" + LocalisedText.ATTEMPTING_TO_REESTABLISH.localise(Static51.anInt1052), false, Fonts.p12Metrics, Fonts.p12);
+            Static694.method9028(Static163.activeToolkit, LocalisedText.CONLOST.localise(Static51.language) + "<br>" + LocalisedText.ATTEMPTING_TO_REESTABLISH.localise(Static51.language), false, Fonts.p12Metrics, Fonts.p12);
         } else if (Static283.step == 15) {
-            Static694.method9028(Static163.activeToolkit, LocalisedText.PLEASEWAIT.localise(Static51.anInt1052), false, Fonts.p12Metrics, Fonts.p12);
+            Static694.method9028(Static163.activeToolkit, LocalisedText.PLEASEWAIT.localise(Static51.language), false, Fonts.p12Metrics, Fonts.p12);
         }
-        if (Static18.anInt251 == 3) {
+        if (InterfaceManager.rectDebug == 3) {
             for (local110 = 0; local110 < InterfaceManager.boundaryCount; local110++) {
                 @Pc(478) Rectangle local478 = InterfaceManager.boundaries[local110];
-                if (Static359.aBooleanArray17[local110]) {
+                if (InterfaceManager.currentlyDirtyRect[local110]) {
                     Static163.activeToolkit.method7945(local478.y, -65281, local478.width, local478.height, local478.x);
                 } else if (InterfaceManager.flipDirtyRect[local110]) {
                     Static163.activeToolkit.method7945(local478.y, -65536, local478.width, local478.height, local478.x);
@@ -609,7 +609,7 @@ public final class client extends GameShell {
         if (Static607.method8163()) {
             Static546.method7251(Static163.activeToolkit);
         }
-        if (SignLink.instance.microsoftjava && Static475.method6445(Static283.step) && Static18.anInt251 == 0 && Static36.method978(3) == 1 && !local209) {
+        if (SignLink.instance.microsoftjava && Static475.method6445(Static283.step) && InterfaceManager.rectDebug == 0 && Static36.method978(3) == 1 && !local209) {
             local110 = 0;
             for (local114 = 0; local114 < InterfaceManager.boundaryCount; local114++) {
                 if (InterfaceManager.flipDirtyRect[local114]) {
@@ -857,7 +857,7 @@ public final class client extends GameShell {
         if (Static446.aClass355_5 != Static2.aClass355_1) {
             Static105.displayFps = true;
         }
-        Static484.aString85 = LocalisedText.LOADING.localise(Static51.anInt1052);
+        Static484.aString85 = LocalisedText.LOADING.localise(Static51.language);
     }
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "(I)Ljava/lang/String;")
@@ -939,9 +939,9 @@ public final class client extends GameShell {
             Static598.aClass162_5 = Static523.aClass162_3;
         }
         try {
-            Static51.anInt1052 = Integer.parseInt(this.getParameter("lang"));
+            Static51.language = Integer.parseInt(this.getParameter("lang"));
         } catch (@Pc(110) Exception local110) {
-            Static51.anInt1052 = 0;
+            Static51.language = 0;
         }
         @Pc(118) String local118 = this.getParameter("objecttag");
         if (local118 != null && local118.equals("1")) {

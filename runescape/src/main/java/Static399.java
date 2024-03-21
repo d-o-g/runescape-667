@@ -6,9 +6,6 @@ import java.awt.Color;
 
 public final class Static399 {
 
-    @OriginalMember(owner = "client!mja", name = "g", descriptor = "I")
-    public static int anInt6215 = 255;
-
     @OriginalMember(owner = "client!mja", name = "b", descriptor = "[I")
     public static final int[] anIntArray483 = new int[8];
 

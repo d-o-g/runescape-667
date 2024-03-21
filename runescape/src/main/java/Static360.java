@@ -1,5 +1,4 @@
 import com.jagex.core.io.Packet;
-import com.jagex.game.LocalisedText;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -94,18 +93,4 @@ public final class Static360 {
         }
     }
 
-    @OriginalMember(owner = "client!lg", name = "b", descriptor = "(II)Ljava/lang/String;")
-    public static String method5233(@OriginalArg(1) int arg0) {
-        @Pc(8) String local8 = Integer.toString(arg0);
-        for (@Pc(13) int local13 = local8.length() - 3; local13 > 0; local13 -= 3) {
-            local8 = local8.substring(0, local13) + "," + local8.substring(local13);
-        }
-        if (local8.length() > 9) {
-            return " <col=00ff80>" + local8.substring(0, local8.length() - 8) + LocalisedText.MILLION.localise(Static51.anInt1052) + " (" + local8 + ")</col>";
-        } else if (local8.length() > 6) {
-            return " <col=ffffff>" + local8.substring(0, local8.length() - 4) + LocalisedText.THOUSAND.localise(Static51.anInt1052) + " (" + local8 + ")</col>";
-        } else {
-            return " <col=ffff00>" + local8 + "</col>";
-        }
-    }
 }

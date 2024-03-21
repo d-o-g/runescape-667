@@ -45,7 +45,7 @@ public final class Static312 {
         local45.buffer.p2_alt2(Static162.anInt2799);
         local45.buffer.p2_alt3(Static77.anInt1614);
         local45.buffer.p4_alt3(Static450.anInt6819);
-        local45.buffer.p2_alt2(arg0.anInt3760);
+        local45.buffer.p2_alt2(arg0.invObject);
         local45.buffer.p2_alt1(arg0.id);
         ConnectionManager.GAME.send(local45);
     }

@@ -311,7 +311,7 @@ public final class Static84 {
                     if (local11.dynamicComponents != null) {
                         method1663(local11.dynamicComponents, arg1);
                     }
-                    @Pc(38) Node_Sub4 local38 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local11.slot);
+                    @Pc(38) SubInterface local38 = (SubInterface) InterfaceManager.subInterfaces.get((long) local11.slot);
                     if (local38 != null) {
                         Static145.method2411(arg1, local38.anInt147);
                     }
@@ -443,7 +443,7 @@ public final class Static84 {
                                     Static79.method1578();
                                 }
                             }
-                            @Pc(308) boolean local308 = local6.clickMask && local6.type == 5 && local6.transparency == 0 && local6.skyBox < 0 && local6.anInt3760 == -1 && local6.anInt3745 == -1 && !local6.tiled && local6.angle2d == 0;
+                            @Pc(308) boolean local308 = local6.clickMask && local6.type == 5 && local6.transparency == 0 && local6.skyBox < 0 && local6.invObject == -1 && local6.video == -1 && !local6.tiled && local6.angle2d == 0;
                             @Pc(310) boolean local310 = false;
                             @Pc(402) int local402;
                             if (MouseMonitor.instance.getRecordedX() + local42 >= local30 && MouseMonitor.instance.getRecordedY() + local47 >= local32 && MouseMonitor.instance.getRecordedX() + local42 < local34 && MouseMonitor.instance.getRecordedY() + local47 < local36) {
@@ -633,12 +633,12 @@ public final class Static84 {
                                             if (local1243 == null) {
                                                 Static470.method6384();
                                             } else {
-                                                Static416.method5707(false, local6.anInt3760, 1L, local1191, local1199, Static153.aString27, 21, true, Static369.anInt4263, " ->", (long) (local6.id << 0 | local6.slot), true);
+                                                Static416.method5707(false, local6.invObject, 1L, local1191, local1199, Static153.aString27, 21, true, Static369.anInt4263, " ->", (long) (local6.id << 0 | local6.slot), true);
                                             }
                                             continue;
                                         }
                                         if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
-                                            Static416.method5707(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(Static51.anInt1052), 11, true, -1, "", 0L, true);
+                                            Static416.method5707(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(Static51.language), 11, true, -1, "", 0L, true);
                                         }
                                         Static416.method5707(false, -1, 1L, local1191, local1199, Static331.aString52, 58, true, Static331.anInt5439, "", 0L, true);
                                         continue;
@@ -998,7 +998,7 @@ public final class Static84 {
                                 if (local6.dynamicComponents != null) {
                                     method1669(local6.dynamicComponents, local6.slot, local30, local32, local34, local36, local19 - local6.scrollX, local24 - local6.scrollY, arg8, arg9, arg10, arg11);
                                 }
-                                @Pc(2824) Node_Sub4 local2824 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local6.slot);
+                                @Pc(2824) SubInterface local2824 = (SubInterface) InterfaceManager.subInterfaces.get((long) local6.slot);
                                 if (local2824 != null) {
                                     if (Static392.aModeGame_4 == ModeGame.RUNESCAPE && local2824.anInt146 == 0 && !Static400.aBoolean622 && local310 && !InterfaceManager.testOpacity) {
                                         Static79.method1578();

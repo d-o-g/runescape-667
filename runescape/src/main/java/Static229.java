@@ -9,7 +9,7 @@ public final class Static229 {
     public static void method3368() {
         if (Static473.aLoadState_22 != null) {
             Static449.aClass364_1 = new Class364();
-            Static449.aClass364_1.method8374(Static473.aLoadState_22.startPercentage, Static473.aLoadState_22.stalledText.localise(Static51.anInt1052), Static473.aLoadState_22, Static72.aLong52);
+            Static449.aClass364_1.method8374(Static473.aLoadState_22.startPercentage, Static473.aLoadState_22.stalledText.localise(Static51.language), Static473.aLoadState_22, Static72.aLong52);
             Static242.aThread1 = new Thread(Static449.aClass364_1, "");
             Static242.aThread1.start();
         }

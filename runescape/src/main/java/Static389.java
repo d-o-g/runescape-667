@@ -24,7 +24,7 @@ public final class Static389 {
             local14.anObjectArray36 = arg1.onTargetEnter;
             Static472.method6420(local14);
         }
-        Static162.anInt2799 = arg1.anInt3760;
+        Static162.anInt2799 = arg1.invObject;
         Static450.anInt6819 = arg1.slot;
         Static156.aBoolean223 = true;
         Static610.anInt9329 = arg2;

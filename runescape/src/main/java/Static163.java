@@ -27,11 +27,11 @@ public final class Static163 {
     }
 
     @OriginalMember(owner = "client!fb", name = "a", descriptor = "(IIIIZ)Lclient!aha;")
-    public static Node_Sub4 method8850(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) boolean arg3) {
-        @Pc(7) Node_Sub4 local7 = new Node_Sub4();
+    public static SubInterface method8850(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) boolean arg3) {
+        @Pc(7) SubInterface local7 = new SubInterface();
         local7.anInt147 = arg1;
         local7.anInt146 = arg0;
-        Static548.aIterableHashTable_40.put((long) arg2, local7);
+        InterfaceManager.subInterfaces.put((long) arg2, local7);
         Static122.method2208(arg1);
         @Pc(26) Component local26 = InterfaceList.list(arg2);
         if (local26 != null) {

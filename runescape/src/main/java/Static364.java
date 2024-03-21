@@ -124,7 +124,7 @@ public final class Static364 {
                     @Pc(229) Packet local229 = Static570.method7552();
                     local229.p1(Static129.anInt2409);
                     local229.p2((int) (Math.random() * 9.9999999E7D));
-                    local229.p1(Static51.anInt1052);
+                    local229.p1(Static51.language);
                     local229.p4(Static323.anInt5121);
                     for (local250 = 0; local250 < 6; local250++) {
                         local229.p4((int) (Math.random() * 9.9999999E7D));
@@ -280,7 +280,7 @@ public final class Static364 {
                         local618.pjstr(Static449.aString75);
                     }
                     local618.p1(Static392.aModeGame_4.id);
-                    local618.p1(Static51.anInt1052);
+                    local618.p1(Static51.language);
                     Static176.method6690(local618);
                     local618.pjstr(Static150.aString26);
                     local618.p4(Static323.anInt5121);

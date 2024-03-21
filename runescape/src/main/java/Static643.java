@@ -34,7 +34,7 @@ public final class Static643 {
                     if (local9.dynamicComponents != null) {
                         method8444(local9.slot, local9.dynamicComponents);
                     }
-                    @Pc(56) Node_Sub4 local56 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local9.slot);
+                    @Pc(56) SubInterface local56 = (SubInterface) InterfaceManager.subInterfaces.get((long) local9.slot);
                     if (local56 != null) {
                         Static26.method716(local56.anInt147);
                     }

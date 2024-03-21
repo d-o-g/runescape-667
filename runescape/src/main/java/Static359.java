@@ -11,7 +11,4 @@ public final class Static359 {
     @OriginalMember(owner = "client!lfa", name = "g", descriptor = "I")
     public static int anInt5801;
 
-    @OriginalMember(owner = "client!lfa", name = "a", descriptor = "[Z")
-    public static final boolean[] aBooleanArray17 = new boolean[100];
-
 }

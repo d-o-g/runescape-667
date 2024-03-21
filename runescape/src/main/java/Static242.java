@@ -35,7 +35,7 @@ public final class Static242 {
 
     @OriginalMember(owner = "client!hj", name = "c", descriptor = "(I)V")
     public static void method3502() {
-        Static525.aClass2_Sub2_Sub16_12 = new DoublyLinkedNode_Sub2_Sub16(LocalisedText.CANCEL.localise(Static51.anInt1052), "", Static442.anInt6699, 1012, -1, 0L, 0, 0, true, false, 0L, true);
+        Static525.aClass2_Sub2_Sub16_12 = new DoublyLinkedNode_Sub2_Sub16(LocalisedText.CANCEL.localise(Static51.language), "", Static442.anInt6699, 1012, -1, 0L, 0, 0, true, false, 0L, true);
     }
 
     @OriginalMember(owner = "client!hj", name = "a", descriptor = "(IZ)I")
@@ -85,7 +85,7 @@ public final class Static242 {
             }
         }
         if (!local9) {
-            Static67.method6098(LocalisedText.UNABLETOFIND.localise(Static51.anInt1052) + arg0);
+            Static67.method6098(LocalisedText.UNABLETOFIND.localise(Static51.language) + arg0);
         }
     }
 }

@@ -13,9 +13,6 @@ public final class Static337 {
     @OriginalMember(owner = "client!kla", name = "Tb", descriptor = "[F")
     public static final float[] aFloatArray38 = new float[4];
 
-    @OriginalMember(owner = "client!kla", name = "Gc", descriptor = "I")
-    public static int anInt5556 = 0;
-
     @OriginalMember(owner = "client!kla", name = "Xb", descriptor = "Lclient!mia;")
     public static final Class242 aClass242_9 = new Class242("", 12);
 }

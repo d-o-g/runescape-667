@@ -317,7 +317,7 @@ public final class Component {
     public boolean orthoView;
 
     @OriginalMember(owner = "client!hda", name = "nc", descriptor = "I")
-    public int anInt3745 = -1;
+    public int video = -1;
 
     @OriginalMember(owner = "client!hda", name = "U", descriptor = "I")
     public int modelOriginX = 0;
@@ -437,7 +437,7 @@ public final class Component {
     public int modelAngleX = 0;
 
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "I")
-    public int anInt3760 = -1;
+    public int invObject = -1;
 
     @OriginalMember(owner = "client!hda", name = "oc", descriptor = "I")
     public int graphic = -1;
@@ -494,7 +494,7 @@ public final class Component {
     public int scrollWidth = 0;
 
     @OriginalMember(owner = "client!hda", name = "ub", descriptor = "I")
-    public int anInt3817 = 0;
+    public int invCount = 0;
 
     @OriginalMember(owner = "client!hda", name = "jc", descriptor = "I")
     public int anInt3800 = 0;

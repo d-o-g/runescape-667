@@ -23,8 +23,8 @@ public final class Static556 {
             return InterfaceList.list(arg0.layer);
         }
         @Pc(25) int local25 = arg0.slot >>> 16;
-        @Pc(30) Class331 local30 = new Class331(Static548.aIterableHashTable_40);
-        for (@Pc(35) Node_Sub4 local35 = (Node_Sub4) local30.first(); local35 != null; local35 = (Node_Sub4) local30.next()) {
+        @Pc(30) Class331 local30 = new Class331(InterfaceManager.subInterfaces);
+        for (@Pc(35) SubInterface local35 = (SubInterface) local30.first(); local35 != null; local35 = (SubInterface) local30.next()) {
             if (local35.anInt147 == local25) {
                 return InterfaceList.list((int) local35.key);
             }
@@ -48,7 +48,7 @@ public final class Static556 {
         }
         @Pc(63) String local63;
         if (Static156.aBoolean223 && Static594.anInt8777 < 2) {
-            local63 = Static153.aString27 + LocalisedText.MINISEPARATOR.localise(Static51.anInt1052) + Static128.aString108 + " ->";
+            local63 = Static153.aString27 + LocalisedText.MINISEPARATOR.localise(Static51.language) + Static128.aString108 + " ->";
         } else if (Static209.aBoolean269 && Static334.aClass319_1.method8479(81) && Static594.anInt8777 > 2) {
             local63 = Static518.method9293(Static470.aClass2_Sub2_Sub16_10);
         } else {
@@ -88,7 +88,7 @@ public final class Static556 {
             }
         }
         if (Static594.anInt8777 > 2) {
-            local63 = local63 + "<col=ffffff> / " + (Static594.anInt8777 - 2) + LocalisedText.MOREOPTIONS.localise(Static51.anInt1052);
+            local63 = local63 + "<col=ffffff> / " + (Static594.anInt8777 - 2) + LocalisedText.MOREOPTIONS.localise(Static51.language);
         }
         if (Static605.aComponent_15 != null) {
             @Pc(232) Font local232 = Static605.aComponent_15.font(arg0);

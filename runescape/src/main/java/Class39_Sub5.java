@@ -23,15 +23,15 @@ public final class Class39_Sub5 extends Class39 {
     @OriginalMember(owner = "client!fka", name = "b", descriptor = "(I)V")
     @Override
     public void method9161() {
-        Static323.anInt5120 = Static399.anInt6215;
-        Static493.anInt7370 = Static186.anInt3059;
-        Static582.anInt8628 = Static337.anInt5556;
-        Static4.anInt84 = this.anInt3000 + TimeUtils.clock;
-        Static201.anInt8407 = Static622.anInt7737;
-        Static115.anInt2259 = TimeUtils.clock;
-        Static622.anInt7737 = this.anInt2996 & 0xFF;
-        Static337.anInt5556 = this.anInt2996 >>> 16 & 0xFF;
-        Static399.anInt6215 = this.anInt2996 >>> 24;
-        Static186.anInt3059 = this.anInt2996 >>> 8 & 0xFF;
+        Static323.anInt5120 = CutsceneManager.cutsceneFadeAlpha;
+        Static493.anInt7370 = CutsceneManager.cutsceneFadeRed;
+        Static582.anInt8628 = CutsceneManager.cutsceneFadeBlue;
+        CutsceneManager.cutsceneFadeEnd = this.anInt3000 + TimeUtils.clock;
+        Static201.anInt8407 = CutsceneManager.cutsceneFadeGreen;
+        CutsceneManager.cutsceneFadeStart = TimeUtils.clock;
+        CutsceneManager.cutsceneFadeGreen = this.anInt2996 & 0xFF;
+        CutsceneManager.cutsceneFadeBlue = this.anInt2996 >>> 16 & 0xFF;
+        CutsceneManager.cutsceneFadeAlpha = this.anInt2996 >>> 24;
+        CutsceneManager.cutsceneFadeRed = this.anInt2996 >>> 8 & 0xFF;
     }
 }

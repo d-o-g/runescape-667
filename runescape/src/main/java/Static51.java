@@ -11,7 +11,7 @@ public final class Static51 {
     public static final Class225 aClass225_30 = new Class225(54, -1);
 
     @OriginalMember(owner = "client!bma", name = "c", descriptor = "I")
-    public static int anInt1052 = 0;
+    public static int language = 0;
 
     @OriginalMember(owner = "client!bma", name = "b", descriptor = "I")
     public static int anInt1053 = 0;

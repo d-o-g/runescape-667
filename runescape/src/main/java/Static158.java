@@ -16,7 +16,7 @@ public final class Static158 {
 
     @OriginalMember(owner = "client!ev", name = "b", descriptor = "(I)V")
     public static void method2569() {
-        Static378.aClass70Array1 = null;
+        Static378.aFontTypeArray1 = null;
     }
 
     @OriginalMember(owner = "client!ev", name = "a", descriptor = "(IIIII)V")

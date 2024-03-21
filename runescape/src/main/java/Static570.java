@@ -1,5 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.fonttype.FontType;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Toolkit;
@@ -14,12 +15,12 @@ public final class Static570 {
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(BLclient!ha;)V")
     public static void method7549(@OriginalArg(1) Toolkit arg0) {
-        Static378.aClass70Array1 = new Class70[Static552.anIntArray753.length];
+        Static378.aFontTypeArray1 = new FontType[Static552.anIntArray753.length];
         for (@Pc(14) int local14 = 0; local14 < Static552.anIntArray753.length; local14++) {
             @Pc(19) int local19 = Static552.anIntArray753[local14];
             @Pc(24) FontMetrics local24 = Static238.method3468(local19, Static237.aJs5_87);
             @Pc(32) Font local32 = arg0.method8010(local24, IndexedImage.load(Static555.aJs5_106, local19), true);
-            Static378.aClass70Array1[local14] = new Class70(local32, local24);
+            Static378.aFontTypeArray1[local14] = new FontType(local32, local24);
         }
     }
 

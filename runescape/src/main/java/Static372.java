@@ -19,7 +19,7 @@ public final class Static372 {
     public static int method5291(@OriginalArg(0) boolean arg0) {
         if (Static552.anIntArray753 == null) {
             return 0;
-        } else if (arg0 || Static378.aClass70Array1 == null) {
+        } else if (arg0 || Static378.aFontTypeArray1 == null) {
             @Pc(29) int local29 = 0;
             for (@Pc(31) int local31 = 0; local31 < Static552.anIntArray753.length; local31++) {
                 @Pc(36) int local36 = Static552.anIntArray753[local31];

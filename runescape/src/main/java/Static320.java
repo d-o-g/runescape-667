@@ -2,6 +2,7 @@ import com.jagex.core.datastruct.key.Class191;
 import com.jagex.core.datastruct.key.Class299;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.mouse.MouseLog;
 
 public final class Static320 {
 

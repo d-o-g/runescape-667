@@ -1,5 +1,8 @@
+package rs2.client.event.mouse;
+
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.event.mouse.MouseLog;
 
 @OriginalClass("client!ct")
 public final class CompleteMouseLog extends MouseLog {

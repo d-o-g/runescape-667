@@ -24,6 +24,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.mouse.MouseLog;
 
 import java.awt.Canvas;
 import java.awt.Container;
@@ -705,7 +706,7 @@ public final class client extends GameShell {
         Static601.method7865();
         Static236.method3453();
         Static334.aClass319_1.method8481();
-        Static189.aMouseMonitor_1.method8841();
+        Static189.aMouseMonitor_1.record();
         if (Static163.activeToolkit != null) {
             Static163.activeToolkit.method7977((int) SystemTimer.safetime());
         }

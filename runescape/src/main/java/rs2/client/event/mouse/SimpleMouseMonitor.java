@@ -1,3 +1,5 @@
+package rs2.client.event.mouse;
+
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -45,17 +47,17 @@ public final class SimpleMouseMonitor extends MouseMonitor implements MouseListe
 
     @OriginalMember(owner = "client!vha", name = "<init>", descriptor = "(Ljava/awt/Component;Z)V")
     public SimpleMouseMonitor(@OriginalArg(0) Component component, @OriginalArg(1) boolean logging) {
-        this.method8857(component);
+        this.listen(component);
         this.logging = logging;
     }
 
     @OriginalMember(owner = "client!vha", name = "a", descriptor = "(IIBII)V")
-    public void logEvent(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
+    public void logEvent(@OriginalArg(0) int x, @OriginalArg(1) int extra, @OriginalArg(3) int type, @OriginalArg(4) int y) {
         @Pc(15) SimpleMouseLog log = new SimpleMouseLog();
-        log.type = arg2;
-        log.y = arg3;
-        log.extra = arg1;
-        log.x = arg0;
+        log.type = type;
+        log.y = y;
+        log.extra = extra;
+        log.x = x;
         log.time = SystemTimer.safetime();
         this.logged.addLast(log);
     }
@@ -92,32 +94,32 @@ public final class SimpleMouseMonitor extends MouseMonitor implements MouseListe
         } else if (right) {
             return CLICK_TYPE_RIGHT;
         } else {
-            return CLICK_TYPE_UNKNOWN;
+            return CLICK_TYPE_NONE;
         }
     }
 
     @OriginalMember(owner = "client!vha", name = "mouseEntered", descriptor = "(Ljava/awt/event/MouseEvent;)V")
     @Override
-    public synchronized void mouseEntered(@OriginalArg(0) MouseEvent arg0) {
-        this.setPosition(arg0.getX(), arg0.getY());
+    public synchronized void mouseEntered(@OriginalArg(0) MouseEvent event) {
+        this.setPosition(event.getX(), event.getY());
     }
 
     @OriginalMember(owner = "client!vha", name = "mouseExited", descriptor = "(Ljava/awt/event/MouseEvent;)V")
     @Override
-    public synchronized void mouseExited(@OriginalArg(0) MouseEvent arg0) {
-        this.setPosition(arg0.getX(), arg0.getY());
+    public synchronized void mouseExited(@OriginalArg(0) MouseEvent event) {
+        this.setPosition(event.getX(), event.getY());
     }
 
     @OriginalMember(owner = "client!vha", name = "a", descriptor = "(Ljava/awt/Component;I)V")
-    public void method8857(@OriginalArg(0) Component arg0) {
-        this.method8858();
-        this.component = arg0;
+    public void listen(@OriginalArg(0) Component component) {
+        this.reset();
+        this.component = component;
         this.component.addMouseListener(this);
         this.component.addMouseMotionListener(this);
     }
 
     @OriginalMember(owner = "client!vha", name = "f", descriptor = "(B)V")
-    public void method8858() {
+    public void reset() {
         if (this.component == null) {
             return;
         }
@@ -132,14 +134,14 @@ public final class SimpleMouseMonitor extends MouseMonitor implements MouseListe
 
     @OriginalMember(owner = "client!vha", name = "mouseMoved", descriptor = "(Ljava/awt/event/MouseEvent;)V")
     @Override
-    public synchronized void mouseMoved(@OriginalArg(0) MouseEvent arg0) {
-        this.setPosition(arg0.getX(), arg0.getY());
+    public synchronized void mouseMoved(@OriginalArg(0) MouseEvent event) {
+        this.setPosition(event.getX(), event.getY());
     }
 
     @OriginalMember(owner = "client!vha", name = "a", descriptor = "(I)V")
     @Override
     public void remove() {
-        this.method8858();
+        this.reset();
     }
 
     @OriginalMember(owner = "client!vha", name = "mousePressed", descriptor = "(Ljava/awt/event/MouseEvent;)V")
@@ -237,7 +239,7 @@ public final class SimpleMouseMonitor extends MouseMonitor implements MouseListe
 
     @OriginalMember(owner = "client!vha", name = "e", descriptor = "(B)V")
     @Override
-    public synchronized void method8841() {
+    public synchronized void record() {
         this.recordedState = this.clickState;
         this.recordedY = this.mouseY;
         this.recordedX = this.mouseX;

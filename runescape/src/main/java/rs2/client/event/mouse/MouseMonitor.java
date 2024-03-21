@@ -1,10 +1,12 @@
+package rs2.client.event.mouse;
+
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!fb")
 public abstract class MouseMonitor {
 
-    public static final int CLICK_TYPE_UNKNOWN = 0x0;
+    public static final int CLICK_TYPE_NONE = 0x0;
     public static final int CLICK_TYPE_LEFT = 0x1;
     public static final int CLICK_TYPE_MIDDLE = 0x2;
     public static final int CLICK_TYPE_RIGHT = 0x4;
@@ -14,7 +16,7 @@ public abstract class MouseMonitor {
     }
 
     @OriginalMember(owner = "client!fb", name = "e", descriptor = "(B)V")
-    public abstract void method8841();
+    public abstract void record();
 
     @OriginalMember(owner = "client!fb", name = "c", descriptor = "(I)Z")
     public abstract boolean isLeftDown();

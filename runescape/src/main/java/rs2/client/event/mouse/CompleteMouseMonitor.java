@@ -1,9 +1,12 @@
+package rs2.client.event.mouse;
+
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.mouse.MouseMonitor;
 
 import java.awt.Component;
 import java.awt.event.MouseEvent;
@@ -127,7 +130,7 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
         } else if (event.getButton() == MouseEvent.BUTTON3) {
             return CLICK_TYPE_RIGHT;
         } else {
-            return CLICK_TYPE_UNKNOWN;
+            return CLICK_TYPE_NONE;
         }
     }
 
@@ -202,7 +205,7 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
 
     @OriginalMember(owner = "client!ht", name = "e", descriptor = "(B)V")
     @Override
-    public synchronized void method8841() {
+    public synchronized void record() {
         this.recordedState = this.clickState;
         this.recordedX = this.mouseX;
         this.recordedY = this.mouseY;

@@ -1,6 +1,7 @@
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import rs2.client.event.mouse.MouseLog;
 import rs2.client.loading.LoadState;
 import com.jagex.game.LocalisedText;
 import com.jagex.math.IntMath;

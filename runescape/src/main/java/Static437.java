@@ -25,7 +25,7 @@ public final class Static437 {
     public static final Class131 aClass131_4 = new Class131();
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(ILclient!rka;)V")
-    public static void method5915(@OriginalArg(1) Node_Sub21_Sub2 arg0) {
+    public static void method5915(@OriginalArg(1) PacketBuffer arg0) {
         @Pc(10) Node_Sub57 local10 = (Node_Sub57) Static631.aDeque_78.first();
         if (local10 == null) {
             return;

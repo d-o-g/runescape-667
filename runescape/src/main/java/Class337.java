@@ -1,3 +1,4 @@
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
@@ -180,7 +181,7 @@ public final class Class337 {
             this.aAnimator_9.update(local10, 0, arg0, local12);
             this.aModel_8 = null;
             this.aBoolean662 = false;
-            this.anInt8643 = Static333.anInt5455;
+            this.anInt8643 = TimeUtils.clock;
         }
     }
 
@@ -291,7 +292,7 @@ public final class Class337 {
     public void method7680(@OriginalArg(0) Renderable arg0, @OriginalArg(1) boolean arg1) {
         if (!this.aAnimator_9.isAnimating()) {
             this.method7676(0, -1, false);
-        } else if (this.aAnimator_9.tick(Static333.anInt5455 - this.anInt8643)) {
+        } else if (this.aAnimator_9.tick(TimeUtils.clock - this.anInt8643)) {
             if (Static400.instance.aClass57_Sub12_1.method4364() == 2) {
                 this.aBoolean662 = false;
             }
@@ -302,7 +303,7 @@ public final class Class337 {
             }
         }
         if (arg1) {
-            this.anInt8643 = Static333.anInt5455;
+            this.anInt8643 = TimeUtils.clock;
         }
     }
 
@@ -319,7 +320,7 @@ public final class Class337 {
                 local37 = local37.getMultiLoc(Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
             }
             if (local37 != null) {
-                this.aParticleSystem_7 = Static257.method3654(Static333.anInt5455, true);
+                this.aParticleSystem_7 = ParticleSystem.create(TimeUtils.clock, true);
             }
         }
         if (this.aParticleSystem_7 == null) {
@@ -327,9 +328,9 @@ public final class Class337 {
         }
         arg1.method7476(arg8);
         if (arg2) {
-            this.aParticleSystem_7.method3643(arg4, (long) Static333.anInt5455, local11, local14);
+            this.aParticleSystem_7.method3643(arg4, (long) TimeUtils.clock, local11, local14);
         } else {
-            this.aParticleSystem_7.method3649((long) Static333.anInt5455);
+            this.aParticleSystem_7.method3649((long) TimeUtils.clock);
         }
         this.aParticleSystem_7.method3658(this.aByte132, arg6, arg5, arg7, arg0);
     }

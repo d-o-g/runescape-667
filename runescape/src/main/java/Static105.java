@@ -64,7 +64,7 @@ public final class Static105 {
     public static void method2044() {
         Static519.aClass144_1 = new Class144(8);
         Static654.anInt9740 = 0;
-        for (@Pc(20) ParticleSystem local20 = (ParticleSystem) ParticleManager.systems.first(); local20 != null; local20 = (ParticleSystem) ParticleManager.systems.next()) {
+        for (@Pc(20) ParticleSystem local20 = (ParticleSystem) ParticleSystem.systems.first(); local20 != null; local20 = (ParticleSystem) ParticleSystem.systems.next()) {
             local20.method3652();
         }
     }

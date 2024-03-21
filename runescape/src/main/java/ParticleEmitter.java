@@ -96,9 +96,9 @@ public final class ParticleEmitter extends Node {
         @Pc(46) int local46;
         if (this.aBoolean630) {
             arg1 = false;
-        } else if (this.aParticleEmitterType_1.minSetting > ParticleManager.setting) {
+        } else if (this.aParticleEmitterType_1.minSetting > ParticleSystem.setting) {
             arg1 = false;
-        } else if (ParticleLimits.anIntArray246[ParticleManager.setting] < Static452.anInt6869) {
+        } else if (ParticleLimits.anIntArray246[ParticleSystem.setting] < Static452.anInt6869) {
             arg1 = false;
         } else if (this.aBoolean631) {
             arg1 = false;
@@ -224,11 +224,11 @@ public final class ParticleEmitter extends Node {
                     if (!arg3.method7937() && !this.aParticleEmitterType_1.aBoolean755) {
                         local990 = -1;
                     }
-                    if (ParticleManager.nextPtr == ParticleManager.freePtr) {
+                    if (ParticleSystem.particleNextPtr == ParticleSystem.particleFreePtr) {
                         new MovingParticle(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.aParticleEmitterType_1.disableHdLighting, this.aParticleEmitterType_1.preserveAmbient);
                     } else {
-                        @Pc(1032) MovingParticle local1032 = ParticleManager.cache[ParticleManager.nextPtr];
-                        ParticleManager.nextPtr = ParticleManager.nextPtr + 1 & 0x3FF;
+                        @Pc(1032) MovingParticle local1032 = ParticleSystem.particleCache[ParticleSystem.particleNextPtr];
+                        ParticleSystem.particleNextPtr = ParticleSystem.particleNextPtr + 1 & 0x3FF;
                         local1032.method6696(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.aParticleEmitterType_1.disableHdLighting, this.aParticleEmitterType_1.preserveAmbient);
                     }
                 }

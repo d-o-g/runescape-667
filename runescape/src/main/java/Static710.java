@@ -15,14 +15,14 @@ public final class Static710 {
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
     public static void method6710(@OriginalArg(1) Class158 arg0, @OriginalArg(2) Class158 arg1) {
-        @Pc(15) Node_Sub19 local15 = Static293.method4335(Static671.aClass345_117, Static405.aClass153_2.aClass186_1);
-        local15.aClass2_Sub21_Sub2_1.p2(arg1.anInt3760);
-        local15.aClass2_Sub21_Sub2_1.p2_alt1(arg0.anInt3741);
-        local15.aClass2_Sub21_Sub2_1.p2_alt2(arg0.anInt3760);
-        local15.aClass2_Sub21_Sub2_1.p4_alt2(arg0.anInt3812);
-        local15.aClass2_Sub21_Sub2_1.p2_alt1(arg1.anInt3741);
-        local15.aClass2_Sub21_Sub2_1.p4_alt3(arg1.anInt3812);
-        Static405.aClass153_2.method3275(local15);
+        @Pc(15) ClientMessage local15 = Static293.method4335(Static671.aClass345_117, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+        local15.buffer.p2(arg1.anInt3760);
+        local15.buffer.p2_alt1(arg0.anInt3741);
+        local15.buffer.p2_alt2(arg0.anInt3760);
+        local15.buffer.p4_alt2(arg0.anInt3812);
+        local15.buffer.p2_alt1(arg1.anInt3741);
+        local15.buffer.p4_alt3(arg1.anInt3812);
+        Static405.A_SERVER_CONNECTION___2.send(local15);
     }
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(I)V")

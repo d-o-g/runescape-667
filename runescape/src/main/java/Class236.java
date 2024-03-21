@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -64,7 +65,7 @@ public final class Class236 {
             this.aBoolean455 = true;
             if (this.anInt5980 >= 0) {
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1 = new Class8_Sub2_Sub1_Sub2_Sub2(25);
-                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10751 = Static333.anInt5455;
+                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10751 = TimeUtils.clock;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10740 = this.anInt5985;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9328(Static690.aNPCTypeList_2.list(this.anInt5980));
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9310(this.aClass8_Sub2_Sub1_Sub2_Sub2_1.aNPCType_1.size);
@@ -73,7 +74,7 @@ public final class Class236 {
             } else {
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1 = new Class8_Sub2_Sub1_Sub2_Sub1(25);
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method1420(Static518.aClass2_Sub21_18);
-                this.aClass8_Sub2_Sub1_Sub2_Sub1_1.anInt10751 = Static333.anInt5455;
+                this.aClass8_Sub2_Sub1_Sub2_Sub1_1.anInt10751 = TimeUtils.clock;
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1.drawPriority = Static457.anInt6933++;
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1.anInt10740 = this.anInt5985;
             }

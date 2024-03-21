@@ -549,7 +549,7 @@ public final class Class158 {
         @Pc(9) ModelParticleEmitter[] local9 = arg1.particleEmitters();
         @Pc(22) ModelParticleEffector[] local22 = arg1.particleEffectors();
         if ((this.aParticleSystem_4 == null || this.aParticleSystem_4.aBoolean324) && (local9 != null || local22 != null)) {
-            this.aParticleSystem_4 = Static257.method3654(arg3, false);
+            this.aParticleSystem_4 = ParticleSystem.create(arg3, false);
         }
         if (this.aParticleSystem_4 != null) {
             this.aParticleSystem_4.method3643(arg0, (long) arg3, local9, local22);

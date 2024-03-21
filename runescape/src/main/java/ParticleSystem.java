@@ -2,10 +2,13 @@ import com.jagex.ParticleList;
 import com.jagex.collect.Node;
 import com.jagex.collect.key.Deque;
 import com.jagex.collect.LinkedList;
+import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
+import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.particles.ParticleLimits;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -13,6 +16,61 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!hv")
 public final class ParticleSystem extends Node {
+
+    @OriginalMember(owner = "client!hv", name = "t", descriptor = "[Z")
+    public static final boolean[] aBooleanArray7 = new boolean[32];
+
+    @OriginalMember(owner = "client!hv", name = "f", descriptor = "[Z")
+    public static final boolean[] aBooleanArray6 = new boolean[8];
+
+    @OriginalMember(owner = "client!kw", name = "y", descriptor = "I")
+    public static int systemFreePtr = 0;
+
+    @OriginalMember(owner = "client!jga", name = "l", descriptor = "I")
+    public static int systemNextPtr = 0;
+
+    @OriginalMember(owner = "client!rka", name = "Ob", descriptor = "I")
+    public static int particleFreePtr = 0;
+
+    @OriginalMember(owner = "client!sv", name = "L", descriptor = "I")
+    public static int particleNextPtr = 0;
+
+    @OriginalMember(owner = "client!kp", name = "w", descriptor = "Lclient!fla;")
+    public static LinkedList systems;
+
+    @OriginalMember(owner = "client!qv", name = "e", descriptor = "[Lclient!pp;")
+    public static MovingParticle[] particleCache;
+
+    @OriginalMember(owner = "client!pw", name = "G", descriptor = "I")
+    public static int setting = 2;
+
+    @OriginalMember(owner = "client!cka", name = "x", descriptor = "[Lclient!hv;")
+    public static ParticleSystem[] systemCache;
+
+    @OriginalMember(owner = "client!fp", name = "a", descriptor = "(Lclient!sb;I)V")
+    public static void init(@OriginalArg(0) js5 configClient) {
+        particleFreePtr = 0;
+        particleNextPtr = 0;
+        systems = new LinkedList();
+        particleCache = new MovingParticle[1024];
+        systemCache = new ParticleSystem[ParticleLimits.anIntArray265[setting] + 1];
+        systemFreePtr = 0;
+        systemNextPtr = 0;
+        ParticleEmitterTypeList.setConfigClient(configClient);
+        ParticleEffectorTypeList.setConfigClient(configClient);
+    }
+
+    @OriginalMember(owner = "client!hv", name = "b", descriptor = "(IZ)Lclient!hv;")
+    public static ParticleSystem create(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
+        if (systemFreePtr == systemNextPtr) {
+            return new ParticleSystem(arg0, arg1);
+        } else {
+            @Pc(6) ParticleSystem system = systemCache[systemNextPtr];
+            systemNextPtr = systemNextPtr + 1 & ParticleLimits.anIntArray265[setting];
+            system.init(arg0, arg1);
+            return system;
+        }
+    }
 
     @OriginalMember(owner = "client!hv", name = "u", descriptor = "J")
     public long aLong132;
@@ -58,7 +116,7 @@ public final class ParticleSystem extends Node {
 
     @OriginalMember(owner = "client!hv", name = "<init>", descriptor = "(IZ)V")
     public ParticleSystem(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        this.method3657(arg0, arg1);
+        this.init(arg0, arg1);
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J[Lclient!rv;[Lclient!mn;Z)V")
@@ -91,7 +149,7 @@ public final class ParticleSystem extends Node {
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "([Lclient!mn;Z)V")
     public void method3648(@OriginalArg(0) ModelParticleEffector[] arg0) {
         for (@Pc(1) int local1 = 0; local1 < 8; local1++) {
-            Static257.aBooleanArray6[local1] = false;
+            aBooleanArray6[local1] = false;
         }
         @Pc(21) int local21;
         label71:
@@ -99,7 +157,7 @@ public final class ParticleSystem extends Node {
             if (arg0 != null) {
                 for (local21 = 0; local21 < arg0.length; local21++) {
                     if (local16.aModelParticleEffector_1 == arg0[local21] || local16.aModelParticleEffector_1 == arg0[local21].aModelParticleEffector_2) {
-                        Static257.aBooleanArray6[local21] = true;
+                        aBooleanArray6[local21] = true;
                         local16.method1707();
                         continue label71;
                     }
@@ -116,7 +174,7 @@ public final class ParticleSystem extends Node {
             return;
         }
         for (local21 = 0; local21 < arg0.length && local21 != 8 && this.anInt4150 != 8; local21++) {
-            if (!Static257.aBooleanArray6[local21]) {
+            if (!aBooleanArray6[local21]) {
                 @Pc(96) ParticleEffector local96 = null;
                 if (arg0[local21].type().visibility == 1 && Static654.anInt9740 < 32) {
                     local96 = new ParticleEffector(arg0[local21], this);
@@ -128,7 +186,7 @@ public final class ParticleSystem extends Node {
                 }
                 this.aDeque_22.addLast(local96);
                 this.anInt4150++;
-                Static257.aBooleanArray6[local21] = true;
+                aBooleanArray6[local21] = true;
             }
         }
     }
@@ -152,7 +210,7 @@ public final class ParticleSystem extends Node {
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;[Lclient!rv;Z)V")
     public void method3651(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) ModelParticleEmitter[] arg1) {
         for (@Pc(1) int local1 = 0; local1 < 32; local1++) {
-            Static257.aBooleanArray7[local1] = false;
+            aBooleanArray7[local1] = false;
         }
         @Pc(21) int local21;
         label62:
@@ -160,7 +218,7 @@ public final class ParticleSystem extends Node {
             if (arg1 != null) {
                 for (local21 = 0; local21 < arg1.length; local21++) {
                     if (local16.aModelParticleEmitter_1 == arg1[local21] || local16.aModelParticleEmitter_1 == arg1[local21].aModelParticleEmitter_2) {
-                        Static257.aBooleanArray7[local21] = true;
+                        aBooleanArray7[local21] = true;
                         local16.method7264();
                         local16.aBoolean630 = false;
                         continue label62;
@@ -178,11 +236,11 @@ public final class ParticleSystem extends Node {
             return;
         }
         for (local21 = 0; local21 < arg1.length && local21 != 32 && this.anInt4148 != 32; local21++) {
-            if (!Static257.aBooleanArray7[local21]) {
+            if (!aBooleanArray7[local21]) {
                 @Pc(104) ParticleEmitter local104 = new ParticleEmitter(arg0, arg1[local21], this, this.aLong133);
                 this.aLinkedList_6.add(local104);
                 this.anInt4148++;
-                Static257.aBooleanArray7[local21] = true;
+                aBooleanArray7[local21] = true;
             }
         }
     }
@@ -207,8 +265,8 @@ public final class ParticleSystem extends Node {
         this.aDeque_22 = new Deque();
         this.anInt4150 = 0;
         this.unlink();
-        ParticleManager.systemCache[ParticleManager.systemFreePtr] = this;
-        ParticleManager.systemFreePtr = ParticleManager.systemFreePtr + 1 & ParticleLimits.anIntArray265[ParticleManager.setting];
+        systemCache[systemFreePtr] = this;
+        systemFreePtr = systemFreePtr + 1 & ParticleLimits.anIntArray265[setting];
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J)Z")
@@ -250,8 +308,8 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(IZ)V")
-    public void method3657(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        ParticleManager.systems.add(this);
+    public void init(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
+        systems.add(this);
         this.aLong133 = (long) arg0;
         this.aLong132 = (long) arg0;
         this.aBoolean326 = true;

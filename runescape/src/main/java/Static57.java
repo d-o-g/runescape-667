@@ -93,13 +93,13 @@ public final class Static57 {
         for (@Pc(28) int local28 = 0; local28 < local24; local28++) {
             @Pc(35) Class8_Sub2_Sub1_Sub2_Sub1 local35 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local26[local28]];
             if (local35.aString9 != null && local35.aString9.equalsIgnoreCase(arg0) && (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == local35 && (Static717.anInt10822 & 0x10) != 0 || (Static717.anInt10822 & 0x8) != 0)) {
-                @Pc(75) Node_Sub19 local75 = Static293.method4335(Static664.aClass345_115, Static405.aClass153_2.aClass186_1);
-                local75.aClass2_Sub21_Sub2_1.p2_alt1(local26[local28]);
-                local75.aClass2_Sub21_Sub2_1.p4_alt1(Static450.anInt6819);
-                local75.aClass2_Sub21_Sub2_1.p2(Static162.anInt2799);
-                local75.aClass2_Sub21_Sub2_1.p1_alt3(0);
-                local75.aClass2_Sub21_Sub2_1.p2_alt3(Static77.anInt1614);
-                Static405.aClass153_2.method3275(local75);
+                @Pc(75) ClientMessage local75 = Static293.method4335(Static664.aClass345_115, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+                local75.buffer.p2_alt1(local26[local28]);
+                local75.buffer.p4_alt1(Static450.anInt6819);
+                local75.buffer.p2(Static162.anInt2799);
+                local75.buffer.p1_alt3(0);
+                local75.buffer.p2_alt3(Static77.anInt1614);
+                Static405.A_SERVER_CONNECTION___2.send(local75);
                 Static147.method2419(0, local35.anIntArray878[0], local35.method9302((byte) 65), true, local35.anIntArray879[0], 0, -2, local35.method9302((byte) 81));
                 local22 = true;
                 break;

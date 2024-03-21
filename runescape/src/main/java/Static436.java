@@ -17,7 +17,7 @@ public final class Static436 {
 
     @OriginalMember(owner = "client!no", name = "c", descriptor = "(I)I")
     public static int method3416() {
-        return ParticleManager.setting;
+        return ParticleSystem.setting;
     }
 
     @OriginalMember(owner = "client!no", name = "a", descriptor = "(Ljava/lang/String;I)Z")

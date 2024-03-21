@@ -2,6 +2,7 @@ import com.jagex.ParticleList;
 import com.jagex.Constants;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.JagException;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASType;
@@ -583,7 +584,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             arg0 |= 0x7;
         }
         @Pc(95) int local95 = super.aClass126_7.method2673(16383);
-        @Pc(119) boolean local119 = super.aByte149 != 0 && Static333.anInt5455 >= super.anInt10760 && Static333.anInt5455 < super.anInt10752;
+        @Pc(119) boolean local119 = super.aByte149 != 0 && TimeUtils.clock >= super.anInt10760 && TimeUtils.clock < super.anInt10752;
         if (local119) {
             arg0 |= 0x80000;
         }

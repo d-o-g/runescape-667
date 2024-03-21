@@ -1,3 +1,5 @@
+package com.jagex.core.io.connection;
+
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -5,24 +7,24 @@ import org.openrs2.deob.annotation.OriginalMember;
 import java.io.IOException;
 
 @OriginalClass("client!vn")
-public abstract class Class348 {
+public abstract class Connection {
 
     @OriginalMember(owner = "client!vn", name = "<init>", descriptor = "()V")
-    protected Class348() {
+    protected Connection() {
     }
 
     @OriginalMember(owner = "client!vn", name = "a", descriptor = "(I)V")
-    public abstract void method7926();
+    public abstract void close();
 
     @OriginalMember(owner = "client!vn", name = "b", descriptor = "(I)V")
-    public abstract void method7927();
+    public abstract void breakConnection();
 
     @OriginalMember(owner = "client!vn", name = "a", descriptor = "(B[BII)I")
-    public abstract int method7929(@OriginalArg(1) byte[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) throws IOException;
+    public abstract int read(@OriginalArg(1) byte[] buf, @OriginalArg(2) int len, @OriginalArg(3) int off) throws IOException;
 
     @OriginalMember(owner = "client!vn", name = "a", descriptor = "([BIBI)V")
-    public abstract void method7931(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int arg1) throws IOException;
+    public abstract void write(@OriginalArg(0) byte[] buf, @OriginalArg(1) int len, @OriginalArg(3) int off) throws IOException;
 
     @OriginalMember(owner = "client!vn", name = "a", descriptor = "(II)Z")
-    public abstract boolean method7932(@OriginalArg(0) int arg0) throws IOException;
+    public abstract boolean hasAvailable(@OriginalArg(0) int arg0) throws IOException;
 }

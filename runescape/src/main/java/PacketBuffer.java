@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rka")
-public final class Node_Sub21_Sub2 extends Packet {
+public final class PacketBuffer extends Packet {
 
     @OriginalMember(owner = "client!rka", name = "Sb", descriptor = "Lclient!iv;")
     public Class186 aClass186_2;
@@ -14,7 +14,7 @@ public final class Node_Sub21_Sub2 extends Packet {
     public int anInt8422;
 
     @OriginalMember(owner = "client!rka", name = "<init>", descriptor = "(I)V")
-    public Node_Sub21_Sub2(@OriginalArg(0) int arg0) {
+    public PacketBuffer(@OriginalArg(0) int arg0) {
         super(arg0);
     }
 

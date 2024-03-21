@@ -1,5 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -55,7 +56,7 @@ public final class Static369 {
                         Static18.A_HASH_TABLE___2.put((long) local88, local205);
                         Static592.aClass2_Sub45Array1[Static416.anInt6378++] = local205;
                         Static103.anIntArray187[Static390.anInt6126++] = local88;
-                        local197.anInt10751 = Static333.anInt5455;
+                        local197.anInt10751 = TimeUtils.clock;
                         local197.method9328(local142);
                         local197.method9310(local197.aNPCType_1.size);
                         local197.anInt10757 = local197.aNPCType_1.rotationSpeed << 3;

@@ -81,7 +81,7 @@ public final class Static292 {
     @OriginalMember(owner = "client!jea", name = "b", descriptor = "(I)V")
     public static void method4615() {
         Static470.anInt7113 = -1;
-        Static524.aClass153_3 = Static405.aClass153_1;
+        Static524.aServerConnection_3 = Static405.A_SERVER_CONNECTION___1;
         Static299.anInt4825 = 1;
         @Pc(16) String local16 = null;
         if (Static265.aByteArray44 != null) {

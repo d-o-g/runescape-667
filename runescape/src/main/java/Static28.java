@@ -1,4 +1,5 @@
 import com.jagex.collect.key.IntNode;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.ClippingMask;
@@ -151,7 +152,7 @@ public final class Static28 {
         @Pc(878) int local878;
         for (local490 = 0; local490 < local788.length; local490++) {
             @Pc(796) Class254 local796 = local788[local490];
-            if (local796 != null && local796.anInt6363 != 0 && Static333.anInt5455 % 20 < 10) {
+            if (local796 != null && local796.anInt6363 != 0 && TimeUtils.clock % 20 < 10) {
                 @Pc(843) int local843;
                 if (local796.anInt6363 == 1) {
                     @Pc(828) Node_Sub45 local828 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local796.anInt6366);

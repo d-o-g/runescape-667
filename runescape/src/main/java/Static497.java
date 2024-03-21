@@ -16,7 +16,7 @@ public final class Static497 {
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ILclient!ha;)V")
     public static void method6623(@OriginalArg(1) Toolkit arg0) {
-        for (@Pc(6) ParticleSystem local6 = (ParticleSystem) ParticleManager.systems.first(); local6 != null; local6 = (ParticleSystem) ParticleManager.systems.next()) {
+        for (@Pc(6) ParticleSystem local6 = (ParticleSystem) ParticleSystem.systems.first(); local6 != null; local6 = (ParticleSystem) ParticleSystem.systems.next()) {
             if (local6.aBoolean325) {
                 local6.method3646(arg0);
             }

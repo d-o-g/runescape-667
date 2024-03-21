@@ -66,9 +66,9 @@ public final class Static489 {
     public static void method6547(@OriginalArg(0) boolean arg0, @OriginalArg(2) Class8_Sub2_Sub1_Sub2 arg1) {
         @Pc(7) int local7 = -1;
         @Pc(16) int local16 = 0;
-        if (arg1.anInt10759 > Static333.anInt5455) {
+        if (arg1.anInt10759 > TimeUtils.clock) {
             Static441.method5967(arg1);
-        } else if (Static333.anInt5455 > arg1.anInt10755) {
+        } else if (TimeUtils.clock > arg1.anInt10755) {
             Static256.method3638(arg1, arg0);
             local7 = Static521.anInt7756;
             local16 = Static524.anInt8042;
@@ -330,11 +330,11 @@ public final class Static489 {
         Static197.method2949();
         Static352.method5180();
         Static442.method5969();
-        @Pc(920) Node_Sub19 local920;
-        if (Static353.aFrame10 != null && Static405.aClass153_2.aClass348_1 != null && Static283.step == 12) {
-            local920 = Static293.method4335(Static694.aClass345_122, Static405.aClass153_2.aClass186_1);
-            local920.aClass2_Sub21_Sub2_1.p4(1057001181);
-            Static405.aClass153_2.method3275(local920);
+        @Pc(920) ClientMessage local920;
+        if (Static353.aFrame10 != null && Static405.A_SERVER_CONNECTION___2.connection != null && Static283.step == 12) {
+            local920 = Static293.method4335(Static694.aClass345_122, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local920.buffer.p4(1057001181);
+            Static405.A_SERVER_CONNECTION___2.send(local920);
         }
         if (Static117.anInt2282 == 0) {
             local855 = (Static62.anInt1465 - (Static720.mapWidth >> 4)) / 8;
@@ -358,9 +358,9 @@ public final class Static489 {
             Static81.method1586(9);
         } else {
             Static81.method1586(11);
-            if (Static405.aClass153_2.aClass348_1 != null) {
-                local920 = Static293.method4335(Static161.aClass345_29, Static405.aClass153_2.aClass186_1);
-                Static405.aClass153_2.method3275(local920);
+            if (Static405.A_SERVER_CONNECTION___2.connection != null) {
+                local920 = Static293.method4335(Static161.aClass345_29, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+                Static405.A_SERVER_CONNECTION___2.send(local920);
             }
         }
         Static606.method7934();

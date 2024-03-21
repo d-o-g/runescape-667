@@ -261,7 +261,7 @@ public final class Static231 {
                     if (Static283.step == 11) {
                         Static370.method5279();
                     } else if (Static283.step == 12) {
-                        Static405.aClass153_2.aBoolean278 = true;
+                        Static405.A_SERVER_CONNECTION___2.errored = true;
                         return;
                     }
                     return;
@@ -284,11 +284,11 @@ public final class Static231 {
                 @Pc(725) int local725;
                 if (arg2.equalsIgnoreCase("breakcon")) {
                     SignLink.instance.timeout();
-                    @Pc(723) Class153[] local723 = Static405.aClass153Array1;
+                    @Pc(723) ServerConnection[] local723 = Static405.A_SERVER_CONNECTION_ARRAY_1;
                     for (local725 = 0; local725 < local723.length; local725++) {
-                        @Pc(730) Class153 local730 = local723[local725];
-                        if (local730.aClass348_1 != null) {
-                            local730.aClass348_1.method7927();
+                        @Pc(730) ServerConnection connection = local723[local725];
+                        if (connection.connection != null) {
+                            connection.connection.breakConnection();
                         }
                     }
                     client.js5WorkerThread.stop();
@@ -561,15 +561,15 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("pc")) {
-                    @Pc(1833) Class153 local1833 = Static668.method8701();
-                    @Pc(1839) Node_Sub19 local1839 = Static293.method4335(Static243.aClass345_52, local1833.aClass186_1);
-                    local1839.aClass2_Sub21_Sub2_1.p1(0);
-                    local521 = local1839.aClass2_Sub21_Sub2_1.pos;
+                    @Pc(1833) ServerConnection local1833 = Static668.method8701();
+                    @Pc(1839) ClientMessage local1839 = Static293.method4335(Static243.aClass345_52, local1833.aClass186_1);
+                    local1839.buffer.p1(0);
+                    local521 = local1839.buffer.pos;
                     local582 = arg2.indexOf(" ", 4);
-                    local1839.aClass2_Sub21_Sub2_1.pjstr(arg2.substring(3, local582));
-                    Static523.method3446(local1839.aClass2_Sub21_Sub2_1, arg2.substring(local582));
-                    local1839.aClass2_Sub21_Sub2_1.psize1(local1839.aClass2_Sub21_Sub2_1.pos - local521);
-                    local1833.method3275(local1839);
+                    local1839.buffer.pjstr(arg2.substring(3, local582));
+                    Static523.method3446(local1839.buffer, arg2.substring(local582));
+                    local1839.buffer.psize1(local1839.buffer.pos - local521);
+                    local1833.send(local1839);
                     return;
                 }
                 if (arg2.equals("savevarcs")) {
@@ -802,12 +802,12 @@ public final class Static231 {
                     return;
                 }
                 if (Static283.step == 11) {
-                    @Pc(2836) Node_Sub19 local2836 = Static293.method4335(Static459.aClass345_87, Static405.aClass153_2.aClass186_1);
-                    local2836.aClass2_Sub21_Sub2_1.p1(arg2.length() + 3);
-                    local2836.aClass2_Sub21_Sub2_1.p1(arg0 ? 1 : 0);
-                    local2836.aClass2_Sub21_Sub2_1.p1(arg1 ? 1 : 0);
-                    local2836.aClass2_Sub21_Sub2_1.pjstr(arg2);
-                    Static405.aClass153_2.method3275(local2836);
+                    @Pc(2836) ClientMessage local2836 = Static293.method4335(Static459.aClass345_87, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+                    local2836.buffer.p1(arg2.length() + 3);
+                    local2836.buffer.p1(arg0 ? 1 : 0);
+                    local2836.buffer.p1(arg1 ? 1 : 0);
+                    local2836.buffer.pjstr(arg2);
+                    Static405.A_SERVER_CONNECTION___2.send(local2836);
                 }
                 if (arg2.startsWith("fps ") && Static2.aClass355_1 != Static446.aClass355_5) {
                     Static724.method9453(Class14.method8473(arg2.substring(4)));
@@ -869,11 +869,11 @@ public final class Static231 {
             Static67.method6098(LocalisedText.IGNORECANTADDSELF.localise(Static51.anInt1052));
             return;
         }
-        @Pc(216) Class153 local216 = Static668.method8701();
-        @Pc(222) Node_Sub19 local222 = Static293.method4335(Static113.aClass345_22, local216.aClass186_1);
-        local222.aClass2_Sub21_Sub2_1.p1(method3379(arg1) + 1);
-        local222.aClass2_Sub21_Sub2_1.pjstr(arg1);
-        local222.aClass2_Sub21_Sub2_1.p1(arg0 ? 1 : 0);
-        local216.method3275(local222);
+        @Pc(216) ServerConnection local216 = Static668.method8701();
+        @Pc(222) ClientMessage local222 = Static293.method4335(Static113.aClass345_22, local216.aClass186_1);
+        local222.buffer.p1(method3379(arg1) + 1);
+        local222.buffer.pjstr(arg1);
+        local222.buffer.p1(arg0 ? 1 : 0);
+        local216.send(local222);
     }
 }

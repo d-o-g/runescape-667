@@ -1,3 +1,4 @@
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -42,7 +43,7 @@ public final class Class283 {
         this.aString79 = arg5;
         this.aString80 = arg3;
         this.aString81 = arg2;
-        this.anInt7164 = Static333.anInt5455;
+        this.anInt7164 = TimeUtils.clock;
         this.anInt7166 = arg0;
         this.aString77 = arg4;
         this.aString78 = arg7;
@@ -53,7 +54,7 @@ public final class Class283 {
         this.anInt7163 = Static429.method5803();
         this.aString81 = arg2;
         this.aString79 = arg6;
-        this.anInt7164 = Static333.anInt5455;
+        this.anInt7164 = TimeUtils.clock;
         this.aString78 = arg3;
         this.aString80 = arg5;
         this.aString77 = arg7;

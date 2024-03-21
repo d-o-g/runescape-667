@@ -8,11 +8,11 @@ public final class Static371 {
 
     @OriginalMember(owner = "client!lma", name = "b", descriptor = "(I)V")
     public static void method5284() {
-        @Pc(22) Node_Sub19 local22 = Static293.method4335(Static587.aClass345_105, Static405.aClass153_2.aClass186_1);
-        local22.aClass2_Sub21_Sub2_1.p1(Static36.method978(3));
-        local22.aClass2_Sub21_Sub2_1.p2(Static680.anInt10289);
-        local22.aClass2_Sub21_Sub2_1.p2(Static380.anInt5979);
-        local22.aClass2_Sub21_Sub2_1.p1(Static400.instance.aClass57_Sub13_1.method4373());
-        Static405.aClass153_2.method3275(local22);
+        @Pc(22) ClientMessage local22 = Static293.method4335(Static587.aClass345_105, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+        local22.buffer.p1(Static36.method978(3));
+        local22.buffer.p2(Static680.anInt10289);
+        local22.buffer.p2(Static380.anInt5979);
+        local22.buffer.p1(Static400.instance.aClass57_Sub13_1.method4373());
+        Static405.A_SERVER_CONNECTION___2.send(local22);
     }
 }

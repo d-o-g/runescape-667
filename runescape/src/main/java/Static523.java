@@ -1,6 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
@@ -280,7 +281,7 @@ public final class Static523 {
             Static34.aClass304_1 = new Class304();
             Static296.updateFeatureMask();
             Static44.method1074(Static25.aSeqTypeList_1);
-            ParticleManager.init(js5.CONFIG_PARTICLE);
+            ParticleSystem.init(js5.CONFIG_PARTICLE);
             Static405.method5592(Static56.anTextureSource_3, Static190.aJs5_38);
             @Pc(1119) Class197 local1119 = new Class197(Static463.aJs5_93.getfile("huffman", ""));
             Static342.method4462(local1119);
@@ -392,7 +393,7 @@ public final class Static523 {
             return;
         }
         arg0.anInt3807 = 150;
-        arg0.anInt3811 = (int) (Math.sin((double) Static333.anInt5455 / 40.0D) * 256.0D) & 0x7FF;
+        arg0.anInt3811 = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
         arg0.objType = 5;
         arg0.obj = Static312.anInt5000;
         arg0.objData = Static214.method3157(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9);

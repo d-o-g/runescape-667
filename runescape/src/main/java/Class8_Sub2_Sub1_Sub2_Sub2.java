@@ -1,4 +1,5 @@
 import com.jagex.ParticleList;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.bastype.BASType;
@@ -210,7 +211,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (local50 != 0 || local53 != 0 || local9.rollTargetAngle != 0 || local9.pitchTargetAngle != 0) {
             arg0 |= 0x7;
         }
-        @Pc(100) boolean local100 = super.aByte149 != 0 && super.anInt10760 <= Static333.anInt5455 && Static333.anInt5455 < super.anInt10752;
+        @Pc(100) boolean local100 = super.aByte149 != 0 && super.anInt10760 <= TimeUtils.clock && TimeUtils.clock < super.anInt10752;
         if (local100) {
             arg0 |= 0x80000;
         }

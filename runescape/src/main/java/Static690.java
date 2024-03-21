@@ -19,10 +19,10 @@ public final class Static690 {
         if (arg0 < 0 || arg0 > 2) {
             arg0 = 0;
         }
-        ParticleManager.setting = arg0;
-        ParticleManager.systemCache = new ParticleSystem[ParticleLimits.anIntArray265[ParticleManager.setting] + 1];
-        ParticleManager.systemNextPtr = 0;
-        ParticleManager.systemFreePtr = 0;
+        ParticleSystem.setting = arg0;
+        ParticleSystem.systemCache = new ParticleSystem[ParticleLimits.anIntArray265[ParticleSystem.setting] + 1];
+        ParticleSystem.systemNextPtr = 0;
+        ParticleSystem.systemFreePtr = 0;
     }
 
     @OriginalMember(owner = "client!vr", name = "a", descriptor = "(Z)Ljava/lang/String;")

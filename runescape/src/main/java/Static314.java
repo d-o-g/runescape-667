@@ -48,21 +48,21 @@ public final class Static314 {
         if (!Static109.method2070(Static283.step)) {
             return;
         }
-        @Pc(13) Class153[] local13 = Static405.aClass153Array1;
+        @Pc(13) ServerConnection[] local13 = Static405.A_SERVER_CONNECTION_ARRAY_1;
         for (@Pc(15) int local15 = 0; local15 < local13.length; local15++) {
-            @Pc(20) Class153 local20 = local13[local15];
-            local20.anInt3647++;
-            if (local20.anInt3647 < 50 && !arg0) {
+            @Pc(20) ServerConnection local20 = local13[local15];
+            local20.idleWriteTicks++;
+            if (local20.idleWriteTicks < 50 && !arg0) {
                 return;
             }
-            local20.anInt3647 = 0;
-            if (!local20.aBoolean278 && local20.aClass348_1 != null) {
-                @Pc(59) Node_Sub19 local59 = Static293.method4335(Static415.aClass345_75, local20.aClass186_1);
-                local20.method3275(local59);
+            local20.idleWriteTicks = 0;
+            if (!local20.errored && local20.connection != null) {
+                @Pc(59) ClientMessage local59 = Static293.method4335(Static415.aClass345_75, local20.aClass186_1);
+                local20.send(local59);
                 try {
-                    local20.method3273();
+                    local20.flush();
                 } catch (@Pc(68) IOException local68) {
-                    local20.aBoolean278 = true;
+                    local20.errored = true;
                 }
             }
         }

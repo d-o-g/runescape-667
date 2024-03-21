@@ -45,11 +45,11 @@ public final class Static545 {
                     Static429.aBooleanArray21[local44] = Static429.aBooleanArray21[local44 + 1];
                 }
                 Static344.anInt5621 = Static642.anInt9599;
-                @Pc(118) Class153 local118 = Static668.method8701();
-                @Pc(124) Node_Sub19 local124 = Static293.method4335(Static86.aClass345_16, local118.aClass186_1);
-                local124.aClass2_Sub21_Sub2_1.p1(Static231.method3379(arg0));
-                local124.aClass2_Sub21_Sub2_1.pjstr(arg0);
-                local118.method3275(local124);
+                @Pc(118) ServerConnection local118 = Static668.method8701();
+                @Pc(124) ClientMessage local124 = Static293.method4335(Static86.aClass345_16, local118.aClass186_1);
+                local124.buffer.p1(Static231.method3379(arg0));
+                local124.buffer.pjstr(arg0);
+                local118.send(local124);
                 return;
             }
         }

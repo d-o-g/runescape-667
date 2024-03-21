@@ -21,7 +21,7 @@ public final class Static113 {
 
     @OriginalMember(owner = "client!dja", name = "b", descriptor = "(II)V")
     public static void method2119(@OriginalArg(1) int arg0) {
-        Static524.aClass153_3 = Static405.aClass153_2;
+        Static524.aServerConnection_3 = Static405.A_SERVER_CONNECTION___2;
         Static299.anInt4825 = 2;
         Static470.anInt7113 = arg0;
         Static238.method3471(Static319.aString51.equals(""), Static319.aString51, true, "");

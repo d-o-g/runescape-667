@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -19,7 +20,7 @@ public final class Static161 {
     public static final Class345 aClass345_29 = new Class345(33, 0);
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(ILclient!ca;ILclient!rka;I)V")
-    public static void method2585(@OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub1 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Node_Sub21_Sub2 arg2, @OriginalArg(4) int arg3) {
+    public static void method2585(@OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub1 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) PacketBuffer arg2, @OriginalArg(4) int arg3) {
         @Pc(7) byte local7 = -1;
         @Pc(15) int local15;
         @Pc(18) int[] local18;
@@ -77,8 +78,8 @@ public final class Static161 {
             arg0.aByte147 = arg2.g1b_alt3();
             arg0.aByte148 = arg2.g1b_alt2();
             arg0.aByte149 = (byte) arg2.g1();
-            arg0.anInt10760 = Static333.anInt5455 + arg2.g2_alt3();
-            arg0.anInt10752 = Static333.anInt5455 + arg2.g2();
+            arg0.anInt10760 = TimeUtils.clock + arg2.g2_alt3();
+            arg0.anInt10752 = TimeUtils.clock + arg2.g2();
         }
         if ((arg3 & 0x200) != 0) {
             local7 = arg2.g1b_alt2();
@@ -89,7 +90,7 @@ public final class Static161 {
             arg0.anInt10731 = arg2.g1_alt2();
             arg0.aBoolean818 = (local15 & 0x8000) != 0;
             arg0.anInt10737 = local15 & 0x7FFF;
-            arg0.anInt10719 = arg0.anInt10738 + arg0.anInt10737 + Static333.anInt5455;
+            arg0.anInt10719 = arg0.anInt10738 + arg0.anInt10737 + TimeUtils.clock;
         }
         if ((arg3 & 0x80000) != 0) {
             local15 = arg2.ig2();
@@ -129,7 +130,7 @@ public final class Static161 {
                     }
                     @Pc(436) int local436 = arg2.gsmart();
                     @Pc(440) int local440 = arg2.g1_alt2();
-                    arg0.method9301(local32, local436, local440, local26, Static333.anInt5455, local141, local108);
+                    arg0.method9301(local32, local436, local440, local26, TimeUtils.clock, local141, local108);
                 }
             }
         }
@@ -185,8 +186,8 @@ public final class Static161 {
             arg0.anInt10753 = arg2.g1b();
             arg0.anInt10761 = arg2.g1b_alt1();
             arg0.anInt10758 = arg2.g1b_alt1();
-            arg0.anInt10759 = arg2.ig2() + Static333.anInt5455;
-            arg0.anInt10755 = arg2.g2_alt3() + Static333.anInt5455;
+            arg0.anInt10759 = arg2.ig2() + TimeUtils.clock;
+            arg0.anInt10755 = arg2.g2_alt3() + TimeUtils.clock;
             arg0.anInt10754 = arg2.g1_alt1();
             if (arg0.aBoolean127) {
                 arg0.anInt10764 = 0;
@@ -266,8 +267,8 @@ public final class Static161 {
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(I)V")
     public static void method2588() {
-        @Pc(8) Node_Sub21_Sub2 local8 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
-        while (local8.method7420(Static405.aClass153_2.anInt3648) >= 15) {
+        @Pc(8) PacketBuffer local8 = Static405.A_SERVER_CONNECTION___2.buffer;
+        while (local8.method7420(Static405.A_SERVER_CONNECTION___2.anInt3648) >= 15) {
             @Pc(22) int local22 = local8.method7412(15);
             if (local22 == 32767) {
                 break;

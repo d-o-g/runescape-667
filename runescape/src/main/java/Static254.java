@@ -29,7 +29,7 @@ public final class Static254 {
         Static618.anInt9449 = 0;
         ObjType.anInt10128 = 0;
         Static373.anInt5903 = 0;
-        Static405.aClass153_1.method3274();
+        Static405.A_SERVER_CONNECTION___1.close();
         Static50.aBoolean565 = true;
         Static91.aBoolean750 = true;
         Static230.method3374();

@@ -1,4 +1,5 @@
 import com.jagex.core.util.Arrays;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
@@ -852,7 +853,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                 }
             }
             if ((this.aClass8_Sub5_8 == null || this.aClass8_Sub5_8.aBoolean324) && (local17 > 0 || local21 > 0)) {
-                this.aClass8_Sub5_8 = Static257.method3654(Static333.anInt5455, true);
+                this.aClass8_Sub5_8 = ParticleSystem.create(TimeUtils.clock, true);
             }
             if (this.aClass8_Sub5_8 != null) {
                 @Pc(138) ModelParticleEmitter[] local138;
@@ -882,11 +883,11 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                         }
                     }
                 }
-                this.aClass8_Sub5_8.method3643(arg0, (long) Static333.anInt5455, local138, local191);
+                this.aClass8_Sub5_8.method3643(arg0, (long) TimeUtils.clock, local138, local191);
                 this.aBoolean820 = true;
             }
         } else if (this.aClass8_Sub5_8 != null) {
-            this.aClass8_Sub5_8.method3649((long) Static333.anInt5455);
+            this.aClass8_Sub5_8.method3649((long) TimeUtils.clock);
         }
         if (this.aClass8_Sub5_8 != null) {
             this.aClass8_Sub5_8.method3658(super.aByte144, super.aShort131, super.aShort134, super.aShort132, super.aShort133);

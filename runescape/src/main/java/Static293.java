@@ -1,6 +1,7 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.SignLink;
 import com.jagex.core.constants.LocLayer;
+import com.jagex.core.io.connection.Connection;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.util.JagException;
@@ -70,33 +71,33 @@ public final class Static293 {
     }
 
     @OriginalMember(owner = "client!jfa", name = "a", descriptor = "(Lclient!gw;I)Z")
-    public static boolean method4334(@OriginalArg(0) Class153 arg0) throws IOException {
-        @Pc(8) Class348 local8 = arg0.aClass348_1;
-        @Pc(11) Node_Sub21_Sub2 local11 = arg0.aClass2_Sub21_Sub2_2;
+    public static boolean method4334(@OriginalArg(0) ServerConnection arg0) throws IOException {
+        @Pc(8) Connection local8 = arg0.connection;
+        @Pc(11) PacketBuffer local11 = arg0.buffer;
         if (local8 == null) {
             return false;
         }
         @Pc(100) int local100;
         if (arg0.aClass225_93 == null) {
-            if (arg0.aBoolean279) {
-                if (!local8.method7932(1)) {
+            if (arg0.needsOpcode) {
+                if (!local8.hasAvailable(1)) {
                     return false;
                 }
-                local8.method7929(arg0.aClass2_Sub21_Sub2_2.data, 1, 0);
+                local8.read(arg0.buffer.data, 1, 0);
                 arg0.anInt3646 = 0;
-                arg0.anInt3644++;
-                arg0.aBoolean279 = false;
+                arg0.read++;
+                arg0.needsOpcode = false;
             }
             local11.pos = 0;
             if (local11.method7413()) {
-                if (!local8.method7932(1)) {
+                if (!local8.hasAvailable(1)) {
                     return false;
                 }
-                local8.method7929(arg0.aClass2_Sub21_Sub2_2.data, 1, 1);
-                arg0.anInt3644++;
+                local8.read(arg0.buffer.data, 1, 1);
+                arg0.read++;
                 arg0.anInt3646 = 0;
             }
-            arg0.aBoolean279 = true;
+            arg0.needsOpcode = true;
             @Pc(96) Class225[] local96 = Static585.method7677();
             local100 = local11.method7421();
             if (local100 < 0 || local96.length <= local100) {
@@ -106,31 +107,31 @@ public final class Static293 {
             arg0.anInt3648 = arg0.aClass225_93.anInt5822;
         }
         if (arg0.anInt3648 == -1) {
-            if (!local8.method7932(1)) {
+            if (!local8.hasAvailable(1)) {
                 return false;
             }
-            local8.method7929(local11.data, 1, 0);
+            local8.read(local11.data, 1, 0);
             arg0.anInt3648 = local11.data[0] & 0xFF;
-            arg0.anInt3644++;
+            arg0.read++;
             arg0.anInt3646 = 0;
         }
         if (arg0.anInt3648 == -2) {
-            if (!local8.method7932(2)) {
+            if (!local8.hasAvailable(2)) {
                 return false;
             }
-            local8.method7929(local11.data, 2, 0);
+            local8.read(local11.data, 2, 0);
             local11.pos = 0;
             arg0.anInt3648 = local11.g2();
-            arg0.anInt3644 += 2;
+            arg0.read += 2;
             arg0.anInt3646 = 0;
         }
         if (arg0.anInt3648 > 0) {
-            if (!local8.method7932(arg0.anInt3648)) {
+            if (!local8.hasAvailable(arg0.anInt3648)) {
                 return false;
             }
             local11.pos = 0;
-            local8.method7929(local11.data, arg0.anInt3648, 0);
-            arg0.anInt3644 += arg0.anInt3648;
+            local8.read(local11.data, arg0.anInt3648, 0);
+            arg0.read += arg0.anInt3648;
             arg0.anInt3646 = 0;
         }
         arg0.aClass225_91 = arg0.aClass225_94;
@@ -1802,10 +1803,10 @@ public final class Static293 {
                                                                     } else if (arg0.aClass225_93 == Static287.aClass225_119) {
                                                                         local277 = local11.g4();
                                                                         local100 = local11.g4();
-                                                                        @Pc(7309) Node_Sub19 local7309 = method4335(Static128.aClass345_106, arg0.aClass186_1);
-                                                                        local7309.aClass2_Sub21_Sub2_1.p4(local277);
-                                                                        local7309.aClass2_Sub21_Sub2_1.p4(local100);
-                                                                        arg0.method3275(local7309);
+                                                                        @Pc(7309) ClientMessage local7309 = method4335(Static128.aClass345_106, arg0.aClass186_1);
+                                                                        local7309.buffer.p4(local277);
+                                                                        local7309.buffer.p4(local100);
+                                                                        arg0.send(local7309);
                                                                         arg0.aClass225_93 = null;
                                                                         return true;
                                                                     } else if (arg0.aClass225_93 == Static84.aClass225_36) {
@@ -2246,24 +2247,24 @@ public final class Static293 {
     }
 
     @OriginalMember(owner = "client!jfa", name = "a", descriptor = "(ILclient!ss;Lclient!iv;)Lclient!fk;")
-    public static Node_Sub19 method4335(@OriginalArg(1) Class345 arg0, @OriginalArg(2) Class186 arg1) {
-        @Pc(6) Node_Sub19 local6 = Static119.method2174();
+    public static ClientMessage method4335(@OriginalArg(1) Class345 arg0, @OriginalArg(2) Class186 arg1) {
+        @Pc(6) ClientMessage local6 = Static119.method2174();
         local6.anInt2986 = arg0.anInt8827;
         local6.aClass345_32 = arg0;
         if (local6.anInt2986 == -1) {
-            local6.aClass2_Sub21_Sub2_1 = new Node_Sub21_Sub2(260);
+            local6.buffer = new PacketBuffer(260);
         } else if (local6.anInt2986 == -2) {
-            local6.aClass2_Sub21_Sub2_1 = new Node_Sub21_Sub2(10000);
+            local6.buffer = new PacketBuffer(10000);
         } else if (local6.anInt2986 <= 18) {
-            local6.aClass2_Sub21_Sub2_1 = new Node_Sub21_Sub2(20);
+            local6.buffer = new PacketBuffer(20);
         } else if (local6.anInt2986 <= 98) {
-            local6.aClass2_Sub21_Sub2_1 = new Node_Sub21_Sub2(100);
+            local6.buffer = new PacketBuffer(100);
         } else {
-            local6.aClass2_Sub21_Sub2_1 = new Node_Sub21_Sub2(260);
+            local6.buffer = new PacketBuffer(260);
         }
-        local6.aClass2_Sub21_Sub2_1.method7422(arg1);
-        local6.aClass2_Sub21_Sub2_1.method7418(local6.aClass345_32.method7826());
-        local6.anInt2989 = 0;
+        local6.buffer.method7422(arg1);
+        local6.buffer.method7418(local6.aClass345_32.method7826());
+        local6.totalSize = 0;
         return local6;
     }
 

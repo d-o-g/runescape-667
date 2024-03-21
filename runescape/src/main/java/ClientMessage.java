@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!fk")
-public final class Node_Sub19 extends Node {
+public final class ClientMessage extends Node {
 
     @OriginalMember(owner = "client!fk", name = "m", descriptor = "Lclient!ss;")
     public Class345 aClass345_32;
@@ -12,10 +12,10 @@ public final class Node_Sub19 extends Node {
     public int anInt2986;
 
     @OriginalMember(owner = "client!fk", name = "s", descriptor = "Lclient!rka;")
-    public Node_Sub21_Sub2 aClass2_Sub21_Sub2_1;
+    public PacketBuffer buffer;
 
     @OriginalMember(owner = "client!fk", name = "r", descriptor = "I")
-    public int anInt2989;
+    public int totalSize;
 
     @OriginalMember(owner = "client!fk", name = "a", descriptor = "(Z)V")
     public void method2768() {

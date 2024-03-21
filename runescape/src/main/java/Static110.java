@@ -1,3 +1,4 @@
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Class14;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -17,7 +18,7 @@ public final class Static110 {
 
     @OriginalMember(owner = "client!dha", name = "a", descriptor = "(IZ)V")
     public static void method2079(@OriginalArg(0) int arg0) {
-        @Pc(7) int local7 = Static333.anInt5455 - Static212.anInt3468;
+        @Pc(7) int local7 = TimeUtils.clock - Static212.anInt3468;
         if (local7 >= 100) {
             Static693.anInt10383 = -1;
             Static692.anInt10376 = -1;

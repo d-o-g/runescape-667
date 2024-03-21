@@ -1,3 +1,4 @@
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -27,7 +28,7 @@ public final class Static538 {
 
     @OriginalMember(owner = "client!qv", name = "a", descriptor = "(Z)V")
     public static void method7193() {
-        @Pc(15) Node_Sub21_Sub2 local15 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
+        @Pc(15) PacketBuffer local15 = Static405.A_SERVER_CONNECTION___2.buffer;
         for (@Pc(17) int local17 = 0; local17 < Static86.anInt1798; local17++) {
             @Pc(23) int local23 = Static458.anIntArray553[local17];
             @Pc(31) Class8_Sub2_Sub1_Sub2_Sub2 local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local23)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
@@ -103,7 +104,7 @@ public final class Static538 {
                         }
                         local280 = local15.gsmart();
                         local284 = local15.g1();
-                        local31.method9301(local240, local280, local284, local96, Static333.anInt5455, local90, local86);
+                        local31.method9301(local240, local280, local284, local96, TimeUtils.clock, local90, local86);
                     }
                 }
             }
@@ -113,7 +114,7 @@ public final class Static538 {
                 local31.anInt10731 = local15.g1_alt2();
                 local31.anInt10737 = local73 & 0x7FFF;
                 local31.aBoolean818 = (local73 & 0x8000) != 0;
-                local31.anInt10719 = local31.anInt10737 + Static333.anInt5455 + local31.anInt10738;
+                local31.anInt10719 = local31.anInt10737 + TimeUtils.clock + local31.anInt10738;
             }
             if ((local35 & 0x40000) != 0) {
                 local31.aString128 = local15.gjstr();
@@ -208,8 +209,8 @@ public final class Static538 {
                 local31.anInt10753 = local15.g1b_alt3();
                 local31.anInt10761 = local15.g1b_alt2();
                 local31.anInt10758 = local15.g1b_alt2();
-                local31.anInt10759 = local15.g2() + Static333.anInt5455;
-                local31.anInt10755 = local15.g2_alt3() + Static333.anInt5455;
+                local31.anInt10759 = local15.g2() + TimeUtils.clock;
+                local31.anInt10755 = local15.g2_alt3() + TimeUtils.clock;
                 local31.anInt10754 = local15.g1_alt3();
                 local31.anInt10758 += local31.anIntArray878[0];
                 local31.anInt10764 = 1;
@@ -319,8 +320,8 @@ public final class Static538 {
                 local31.aByte147 = local15.g1b_alt3();
                 local31.aByte148 = local15.g1b();
                 local31.aByte149 = (byte) local15.g1_alt3();
-                local31.anInt10760 = Static333.anInt5455 + local15.ig2();
-                local31.anInt10752 = Static333.anInt5455 + local15.g2();
+                local31.anInt10760 = TimeUtils.clock + local15.ig2();
+                local31.anInt10752 = TimeUtils.clock + local15.g2();
             }
         }
     }

@@ -34,7 +34,7 @@ public final class Static238 {
             Static342.method4464(3);
             return;
         }
-        Static524.aClass153_3.aBoolean278 = false;
+        Static524.aServerConnection_3.errored = false;
         if (Static299.anInt4825 != 1) {
             Static118.anInt2292 = 0;
             Static329.anInt1749 = -1;

@@ -11,7 +11,7 @@ public final class Static564 {
     @OriginalMember(owner = "client!rp", name = "b", descriptor = "(B)V")
     public static void method7465() {
         if (Static656.method6691(Static283.step)) {
-            if (Static405.aClass153_1.aClass348_1 == null) {
+            if (Static405.A_SERVER_CONNECTION___1.connection == null) {
                 Static81.method1586(5);
             } else {
                 Static81.method1586(7);

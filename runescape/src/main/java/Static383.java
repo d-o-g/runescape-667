@@ -11,7 +11,7 @@ public final class Static383 {
     public static final Class225 aClass225_155 = new Class225(50, -2);
 
     @OriginalMember(owner = "client!ma", name = "a", descriptor = "(ILclient!rka;I)Z")
-    public static boolean method5379(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub21_Sub2 arg1) {
+    public static boolean method5379(@OriginalArg(0) int arg0, @OriginalArg(1) PacketBuffer arg1) {
         @Pc(18) int local18 = arg1.method7412(2);
         @Pc(45) int local45;
         @Pc(50) int local50;

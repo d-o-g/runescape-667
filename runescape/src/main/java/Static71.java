@@ -1,4 +1,5 @@
 import com.jagex.IndexedImage;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
@@ -48,7 +49,7 @@ public final class Static71 {
                     local74 = arg6;
                 }
                 local19.anInt3752 = local74;
-                local19.anInt3813 = Static333.anInt5455;
+                local19.anInt3813 = TimeUtils.clock;
                 if (!Static84.method1660(local19)) {
                     if (local19.anInt3806 != 0) {
                         Static523.method3449(local19);
@@ -225,9 +226,9 @@ public final class Static71 {
                                     }
                                     Static437.aClass14_9.method8834(local317, "Mem:" + local777 + "k", local779, -1, local323);
                                     local323 += 15;
-                                    Static437.aClass14_9.method8834(local317, "Game: In:" + Static405.aClass153_2.anInt3645 + "B/s Out:" + Static405.aClass153_2.anInt3643 + "B/s", -256, -1, local323);
+                                    Static437.aClass14_9.method8834(local317, "Game: In:" + Static405.A_SERVER_CONNECTION___2.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___2.writeRate + "B/s", -256, -1, local323);
                                     local323 += 15;
-                                    Static437.aClass14_9.method8834(local317, "Lobby: In:" + Static405.aClass153_1.anInt3645 + "B/s Out:" + Static405.aClass153_1.anInt3643 + "B/s", -256, -1, local323);
+                                    Static437.aClass14_9.method8834(local317, "Lobby: In:" + Static405.A_SERVER_CONNECTION___1.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___1.writeRate + "B/s", -256, -1, local323);
                                     local323 += 15;
                                     local792 = Static163.activeToolkit.E() / 1024;
                                     Static437.aClass14_9.method8834(local317, "Offheap:" + local792 + "k", local792 > 65536 ? -65536 : -256, -1, local323);
@@ -286,8 +287,8 @@ public final class Static71 {
                                     local744 = Static337.anInt5556;
                                     local1255 = Static186.anInt3059;
                                     local777 = Static622.anInt7737;
-                                    if (Static333.anInt5455 < Static4.anInt84) {
-                                        @Pc(1276) float local1276 = (float) (Static333.anInt5455 - Static115.anInt2259) / (float) (Static4.anInt84 - Static115.anInt2259);
+                                    if (TimeUtils.clock < Static4.anInt84) {
+                                        @Pc(1276) float local1276 = (float) (TimeUtils.clock - Static115.anInt2259) / (float) (Static4.anInt84 - Static115.anInt2259);
                                         local744 = (int) ((float) Static582.anInt8628 * (1.0F - local1276) + local1276 * (float) Static337.anInt5556);
                                         local1255 = (int) (local1276 * (float) Static186.anInt3059 + (float) Static493.anInt7370 * (1.0F - local1276));
                                         local323 = (int) (local1276 * (float) Static399.anInt6215 + (1.0F - local1276) * (float) Static323.anInt5120);
@@ -517,7 +518,7 @@ public final class Static71 {
                                             Static59.aMatrix_5.translate(local19.anInt3736 << 2, local744 + (local19.anInt3804 << 2) + local936, (local19.anInt3804 << 2) + local938);
                                             Static59.aMatrix_5.rotateAxisX(local19.anInt3807 << 3);
                                         }
-                                        local19.method3384(Static163.activeToolkit, local2313, Static59.aMatrix_5, Static333.anInt5455);
+                                        local19.method3384(Static163.activeToolkit, local2313, Static59.aMatrix_5, TimeUtils.clock);
                                         if (Static376.aBoolean452) {
                                             Static163.activeToolkit.T(local125, local130, local125 + local19.anInt3802, local19.anInt3746 + local130);
                                         }

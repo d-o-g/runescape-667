@@ -15,10 +15,10 @@ public final class Static479 {
 
     @OriginalMember(owner = "client!pc", name = "a", descriptor = "(IZI)V")
     public static void method6461(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(13) Node_Sub19 local13 = Static293.method4335(Static288.aClass345_58, Static405.aClass153_2.aClass186_1);
-        local13.aClass2_Sub21_Sub2_1.p4_alt3(arg1);
-        local13.aClass2_Sub21_Sub2_1.p2_alt3(arg0);
-        Static405.aClass153_2.method3275(local13);
+        @Pc(13) ClientMessage local13 = Static293.method4335(Static288.aClass345_58, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+        local13.buffer.p4_alt3(arg1);
+        local13.buffer.p2_alt3(arg0);
+        Static405.A_SERVER_CONNECTION___2.send(local13);
     }
 
     @OriginalMember(owner = "client!pc", name = "a", descriptor = "(IIIII)V")

@@ -1,4 +1,5 @@
 import com.jagex.collect.key.Node2;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -32,7 +33,7 @@ public final class Static145 {
         Static693.anInt10383 = -1;
         Static692.anInt10376 = -1;
         Static374.anInt5907 = -1;
-        Static212.anInt3468 = Static333.anInt5455;
+        Static212.anInt3468 = TimeUtils.clock;
         Static179.anInt2991 = 0;
         Static314.anInt5035 = 0;
         Static511.anInt7645 = 5;

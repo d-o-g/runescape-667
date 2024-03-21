@@ -12,13 +12,13 @@ public final class Static405 {
     public static int anInt6255;
 
     @OriginalMember(owner = "client!mn", name = "k", descriptor = "Lclient!gw;")
-    public static final Class153 aClass153_1 = new Class153();
+    public static final ServerConnection A_SERVER_CONNECTION___1 = new ServerConnection();
 
     @OriginalMember(owner = "client!mn", name = "q", descriptor = "Lclient!gw;")
-    public static final Class153 aClass153_2 = new Class153();
+    public static final ServerConnection A_SERVER_CONNECTION___2 = new ServerConnection();
 
     @OriginalMember(owner = "client!mn", name = "f", descriptor = "[Lclient!gw;")
-    public static final Class153[] aClass153Array1 = new Class153[]{aClass153_2, aClass153_1};
+    public static final ServerConnection[] A_SERVER_CONNECTION_ARRAY_1 = new ServerConnection[]{A_SERVER_CONNECTION___2, A_SERVER_CONNECTION___1};
 
     @OriginalMember(owner = "client!mn", name = "p", descriptor = "Lclient!v;")
     public static final Node_Sub54 aClass2_Sub54_1 = new Node_Sub54(0, 0);

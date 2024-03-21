@@ -191,8 +191,8 @@ public final class client extends GameShell {
             Static655.method8562(SignLink.instance, Static316.fsframe);
             Static316.fsframe = null;
         }
-        Static405.aClass153_2.method3274();
-        Static405.aClass153_1.method3274();
+        Static405.A_SERVER_CONNECTION___2.close();
+        Static405.A_SERVER_CONNECTION___1.close();
         Static173.method2690();
         js5WorkerThread.close();
         Static66.aCachedResourceWorker_1.close();
@@ -331,7 +331,7 @@ public final class client extends GameShell {
             if (!Static400.aBoolean622) {
                 Static79.method1578();
             }
-            for (local46 = 0; local46 < 100 && Static236.method3451(Static405.aClass153_1); local46++) {
+            for (local46 = 0; local46 < 100 && Static236.method3451(Static405.A_SERVER_CONNECTION___1); local46++) {
             }
         }
         Static35.anInt800++;
@@ -413,7 +413,7 @@ public final class client extends GameShell {
                                             if (Static109.aClass158_3 != null) {
                                                 Static603.method7899();
                                             }
-                                            if (Static333.anInt5455 % 1500 == 0) {
+                                            if (TimeUtils.clock % 1500 == 0) {
                                                 Static314.method4562();
                                             }
                                             if (Static283.step == 7 && !Static242.method3500() || Static283.step == 9 && Static169.anInt2855 == 42) {
@@ -435,25 +435,25 @@ public final class client extends GameShell {
                                                 }
                                             }
                                             if (Static283.step == 7 && !Static242.method3500() || Static283.step == 9 && Static169.anInt2855 == 42) {
-                                                if (Static283.step != 9 && Static405.aClass153_1.aClass348_1 == null) {
+                                                if (Static283.step != 9 && Static405.A_SERVER_CONNECTION___1.connection == null) {
                                                     Static233.method3409(false);
                                                     return;
                                                 }
-                                                if (Static405.aClass153_1 != null) {
-                                                    Static405.aClass153_1.anInt3647++;
-                                                    if (Static405.aClass153_1.anInt3647 > 50) {
-                                                        @Pc(823) Node_Sub19 local823 = Static293.method4335(Static415.aClass345_75, Static405.aClass153_1.aClass186_1);
-                                                        Static405.aClass153_1.method3275(local823);
+                                                if (Static405.A_SERVER_CONNECTION___1 != null) {
+                                                    Static405.A_SERVER_CONNECTION___1.idleWriteTicks++;
+                                                    if (Static405.A_SERVER_CONNECTION___1.idleWriteTicks > 50) {
+                                                        @Pc(823) ClientMessage local823 = Static293.method4335(Static415.aClass345_75, Static405.A_SERVER_CONNECTION___1.aClass186_1);
+                                                        Static405.A_SERVER_CONNECTION___1.send(local823);
                                                     }
                                                     try {
-                                                        Static405.aClass153_1.method3273();
+                                                        Static405.A_SERVER_CONNECTION___1.flush();
                                                         return;
                                                     } catch (@Pc(832) IOException local832) {
                                                         if (Static283.step != 9) {
                                                             Static233.method3409(false);
                                                             return;
                                                         }
-                                                        Static405.aClass153_1.method3274();
+                                                        Static405.A_SERVER_CONNECTION___1.close();
                                                         return;
                                                     }
                                                 }
@@ -690,14 +690,14 @@ public final class client extends GameShell {
         if (Static283.step == 16) {
             return;
         }
-        Static333.anInt5455++;
-        if (Static333.anInt5455 % 1000 == 1) {
+        TimeUtils.clock++;
+        if (TimeUtils.clock % 1000 == 1) {
             @Pc(27) GregorianCalendar local27 = new GregorianCalendar();
             Static178.anInt2947 = local27.get(11) * 600 + local27.get(12) * 10 + local27.get(13) / 6;
             Static493.aRandom1.setSeed((long) Static178.anInt2947);
         }
-        Static405.aClass153_2.method3271();
-        Static405.aClass153_1.method3271();
+        Static405.A_SERVER_CONNECTION___2.recordStats();
+        Static405.A_SERVER_CONNECTION___1.recordStats();
         this.tickJs5();
         if (Static228.js5MasterIndex != null) {
             Static228.js5MasterIndex.process();
@@ -774,7 +774,7 @@ public final class client extends GameShell {
                     Static383.anInt6001 = Static329.anInt1749;
                     if (Static718.aBoolean823) {
                         Static430.method5817(Static459.aConnectionInfo_2.id, Static459.aConnectionInfo_2.address);
-                        Static405.aClass153_2.aClass348_1 = null;
+                        Static405.A_SERVER_CONNECTION___2.connection = null;
                         Static81.method1586(14);
                     } else {
                         Static233.method3409(Static461.aBoolean529);

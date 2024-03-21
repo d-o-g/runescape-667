@@ -17,7 +17,7 @@ public final class Static169 {
     public static int anInt2855 = -2;
 
     @OriginalMember(owner = "client!fe", name = "a", descriptor = "(ILclient!rka;)V")
-    public static void method2647(@OriginalArg(1) Node_Sub21_Sub2 arg0) {
+    public static void method2647(@OriginalArg(1) PacketBuffer arg0) {
         arg0.p4(Static344.aJs5_73.indexCrc());
         arg0.p4(Static142.aJs5_25.indexCrc());
         arg0.p4(Static6.aJs5_1.indexCrc());

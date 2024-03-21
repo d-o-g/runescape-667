@@ -1,3 +1,5 @@
+package com.jagex.core.io.connection;
+
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

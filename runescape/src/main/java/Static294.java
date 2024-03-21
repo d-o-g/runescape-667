@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -160,9 +161,9 @@ public final class Static294 {
         @Pc(688) byte local688 = Static400.instance.aClass57_Sub4_2.method2143() == 2 ? (byte) Static198.anInt3276 : 1;
         if (Static137.aBoolean210) {
             Static648.method8483(-Static323.anInt5119 & 0x3FFF, -Static81.anInt1644 & 0x3FFF, -Static598.anInt8832 & 0x3FFF);
-            Static466.method6324(local688, Static170.anInt2864, Static110.anInt2186, Static359.anInt5801, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9, Static457.anIntArray552, Static682.anIntArray817, Static333.anInt5455, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 + 1, Static482.anIntArray588, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static582.anInt8627, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9);
+            Static466.method6324(local688, Static170.anInt2864, Static110.anInt2186, Static359.anInt5801, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 + 1, Static482.anIntArray588, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static582.anInt8627, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9);
         } else {
-            Static283.method4100(Static333.anInt5455, Static170.anInt2864, Static359.anInt5801, Static110.anInt2186, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 + 1, local688, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static504.aBoolean579 ? Static582.anInt8627 : -1, 0, false);
+            Static283.method4100(TimeUtils.clock, Static170.anInt2864, Static359.anInt5801, Static110.anInt2186, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 + 1, local688, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static504.aBoolean579 ? Static582.anInt8627 : -1, 0, false);
         }
         Static557.method7331();
         if (Static283.step == 11) {

@@ -39,11 +39,11 @@ public final class Static273 {
     }
 
     @OriginalMember(owner = "client!ik", name = "g", descriptor = "(I)Lclient!fk;")
-    public static Node_Sub19 method3962() {
-        @Pc(6) Node_Sub19 local6 = Static119.method2174();
+    public static ClientMessage method3962() {
+        @Pc(6) ClientMessage local6 = Static119.method2174();
         local6.aClass345_32 = null;
         local6.anInt2986 = 0;
-        local6.aClass2_Sub21_Sub2_1 = new Node_Sub21_Sub2(5000);
+        local6.buffer = new PacketBuffer(5000);
         return local6;
     }
 

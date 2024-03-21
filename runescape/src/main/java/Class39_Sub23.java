@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -114,8 +115,8 @@ public final class Class39_Sub23 extends Class39 {
             }
         }
         @Pc(91) int local91 = this.anInt9979 << 2;
-        @Pc(128) Class8_Sub2_Sub1_Sub1 local128 = new Class8_Sub2_Sub1_Sub1(this.anInt9976, local18, local18, local24, local21, this.anInt9974 << 2, Static333.anInt5455, Static333.anInt5455 + this.anInt9978, this.anInt9977, local91, this.anInt9982 + 1, this.anInt9989 + 1, this.anInt9988 << 2, false, 0);
-        local128.method813(this.anInt9988 << 2, this.anInt9978 + Static333.anInt5455, local56, local63);
+        @Pc(128) Class8_Sub2_Sub1_Sub1 local128 = new Class8_Sub2_Sub1_Sub1(this.anInt9976, local18, local18, local24, local21, this.anInt9974 << 2, TimeUtils.clock, TimeUtils.clock + this.anInt9978, this.anInt9977, local91, this.anInt9982 + 1, this.anInt9989 + 1, this.anInt9988 << 2, false, 0);
+        local128.method813(this.anInt9988 << 2, this.anInt9978 + TimeUtils.clock, local56, local63);
         Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local128));
     }
 }

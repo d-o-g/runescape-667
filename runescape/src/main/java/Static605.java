@@ -1,4 +1,5 @@
 import com.jagex.core.util.JagException;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
@@ -16,7 +17,7 @@ public final class Static605 {
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(ILclient!pc;)V")
     public static void method7912(@OriginalArg(1) Class287 arg0) {
-        @Pc(8) Node_Sub21_Sub2 local8 = Static405.aClass153_2.aClass2_Sub21_Sub2_2;
+        @Pc(8) PacketBuffer local8 = Static405.A_SERVER_CONNECTION___2.buffer;
         @Pc(15) int local15;
         @Pc(21) int local21;
         @Pc(25) int local25;
@@ -231,8 +232,8 @@ public final class Static605 {
                                 }
                             }
                         }
-                        @Pc(1053) Class8_Sub2_Sub1_Sub1 local1053 = new Class8_Sub2_Sub1_Sub1(local219, Static87.anInt1810, Static87.anInt1810, local21, local25, local812, local322 + Static333.anInt5455, Static333.anInt5455 + local353, local843, local847, local212, local217, local290, local764, local46);
-                        local1053.method813(Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local290, local322 + Static333.anInt5455, local537, local52);
+                        @Pc(1053) Class8_Sub2_Sub1_Sub1 local1053 = new Class8_Sub2_Sub1_Sub1(local219, Static87.anInt1810, Static87.anInt1810, local21, local25, local812, local322 + TimeUtils.clock, TimeUtils.clock + local353, local843, local847, local212, local217, local290, local764, local46);
+                        local1053.method813(Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
                         Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local1053));
                     }
                 } else if (Static77.aClass287_5 == arg0) {
@@ -331,8 +332,8 @@ public final class Static605 {
                         local212 <<= 0x2;
                         local38 = local38 * 512 + 256;
                         local34 = local34 * 512 + 256;
-                        @Pc(1728) Class8_Sub2_Sub1_Sub1 local1728 = new Class8_Sub2_Sub1_Sub1(local52, Static87.anInt1810, Static87.anInt1810, local25, local34, local537, local217 + Static333.anInt5455, local219 + Static333.anInt5455, local812, local290, 0, local46, local212, local1540, -1);
-                        local1728.method813(Static102.method2025(Static87.anInt1810, -29754, local42, local38) - local212, Static333.anInt5455 + local217, local42, local38);
+                        @Pc(1728) Class8_Sub2_Sub1_Sub1 local1728 = new Class8_Sub2_Sub1_Sub1(local52, Static87.anInt1810, Static87.anInt1810, local25, local34, local537, local217 + TimeUtils.clock, local219 + TimeUtils.clock, local812, local290, 0, local46, local212, local1540, -1);
+                        local1728.method813(Static102.method2025(Static87.anInt1810, -29754, local42, local38) - local212, TimeUtils.clock + local217, local42, local38);
                         Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local1728));
                     }
                 } else if (Static210.aClass287_9 == arg0) {

@@ -1,3 +1,4 @@
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -19,7 +20,7 @@ public final class Static686 {
                 Static349.method5121(arg0);
             }
         }
-        Static147.method2421((long) Static333.anInt5455, Static163.activeToolkit);
+        Static147.method2421((long) TimeUtils.clock, Static163.activeToolkit);
         if (Static377.anInt5930 != -1) {
             Static26.method716(Static377.anInt5930);
         }
@@ -30,7 +31,7 @@ public final class Static686 {
             Static359.aBooleanArray17[local54] = Static364.aBooleanArray18[local54];
             Static364.aBooleanArray18[local54] = false;
         }
-        Static171.anInt2880 = Static333.anInt5455;
+        Static171.anInt2880 = TimeUtils.clock;
         Static449.method6114(-1, -1, (Class158) null);
         if (105 <= 103) {
             return;

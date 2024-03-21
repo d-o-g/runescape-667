@@ -118,10 +118,10 @@ public final class Static706 {
             Static67.method6098(LocalisedText.FRIENDCANTADDSELF.localise(Static51.anInt1052));
             return;
         }
-        @Pc(230) Class153 local230 = Static668.method8701();
-        @Pc(236) Node_Sub19 local236 = Static293.method4335(Static669.aClass345_116, local230.aClass186_1);
-        local236.aClass2_Sub21_Sub2_1.p1(Static231.method3379(arg0));
-        local236.aClass2_Sub21_Sub2_1.pjstr(arg0);
-        local230.method3275(local236);
+        @Pc(230) ServerConnection local230 = Static668.method8701();
+        @Pc(236) ClientMessage local236 = Static293.method4335(Static669.aClass345_116, local230.aClass186_1);
+        local236.buffer.p1(Static231.method3379(arg0));
+        local236.buffer.pjstr(arg0);
+        local230.send(local236);
     }
 }

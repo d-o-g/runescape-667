@@ -1,3 +1,4 @@
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -122,7 +123,7 @@ public final class Static540 {
         local7.anInt957 = arg3;
         local7.aString3 = arg2;
         local7.anInt959 = arg5;
-        local7.anInt953 = Static333.anInt5455 + arg1;
+        local7.anInt953 = TimeUtils.clock + arg1;
         local7.anInt956 = arg4;
         Static422.A_ENTITY_LIST___9.add(local7);
     }

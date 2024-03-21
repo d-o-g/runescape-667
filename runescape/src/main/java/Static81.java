@@ -16,9 +16,9 @@ public final class Static81 {
         if (arg0 == 14 || arg0 == 15) {
             Static670.method8735();
         }
-        if (arg0 != 14 && Static467.aClass348_2 != null) {
-            Static467.aClass348_2.method7926();
-            Static467.aClass348_2 = null;
+        if (arg0 != 14 && Static467.aConnection_2 != null) {
+            Static467.aConnection_2.close();
+            Static467.aConnection_2 = null;
         }
         if (arg0 == 3) {
             Static456.method6228(Static523.graphicsDefaults.login_interface != Static377.anInt5930);
@@ -110,31 +110,31 @@ public final class Static81 {
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(Ljava/lang/String;ILjava/lang/String;ZI)V")
     public static void method1591(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2, @OriginalArg(3) boolean arg3) {
-        @Pc(8) Node_Sub19 local8 = Static273.method3962();
-        local8.aClass2_Sub21_Sub2_1.p1(LoginProt.A_LOGIN_PROT___58.opcode);
-        local8.aClass2_Sub21_Sub2_1.p2(0);
-        @Pc(25) int local25 = local8.aClass2_Sub21_Sub2_1.pos;
-        local8.aClass2_Sub21_Sub2_1.p2(667);
+        @Pc(8) ClientMessage local8 = Static273.method3962();
+        local8.buffer.p1(LoginProt.A_LOGIN_PROT___58.opcode);
+        local8.buffer.p2(0);
+        @Pc(25) int local25 = local8.buffer.pos;
+        local8.buffer.p2(667);
         @Pc(38) int[] local38 = Static664.method8652(local8);
-        @Pc(42) int local42 = local8.aClass2_Sub21_Sub2_1.pos;
-        local8.aClass2_Sub21_Sub2_1.pjstr(arg0);
-        local8.aClass2_Sub21_Sub2_1.p2(Static323.anInt5121);
-        local8.aClass2_Sub21_Sub2_1.pjstr(arg2);
-        local8.aClass2_Sub21_Sub2_1.p8(Static416.aLong208);
-        local8.aClass2_Sub21_Sub2_1.p1(Static51.anInt1052);
-        local8.aClass2_Sub21_Sub2_1.p1(Static392.aModeGame_4.id);
-        Static176.method6690(local8.aClass2_Sub21_Sub2_1);
+        @Pc(42) int local42 = local8.buffer.pos;
+        local8.buffer.pjstr(arg0);
+        local8.buffer.p2(Static323.anInt5121);
+        local8.buffer.pjstr(arg2);
+        local8.buffer.p8(Static416.aLong208);
+        local8.buffer.p1(Static51.anInt1052);
+        local8.buffer.p1(Static392.aModeGame_4.id);
+        Static176.method6690(local8.buffer);
         @Pc(81) String local81 = Static389.aString64;
-        local8.aClass2_Sub21_Sub2_1.p1(local81 == null ? 0 : 1);
+        local8.buffer.p1(local81 == null ? 0 : 1);
         if (local81 != null) {
-            local8.aClass2_Sub21_Sub2_1.pjstr(local81);
+            local8.buffer.pjstr(local81);
         }
-        local8.aClass2_Sub21_Sub2_1.p1(arg1);
-        local8.aClass2_Sub21_Sub2_1.p1(arg3 ? 1 : 0);
-        local8.aClass2_Sub21_Sub2_1.pos += 7;
-        local8.aClass2_Sub21_Sub2_1.tinyenc(local38, local42, local8.aClass2_Sub21_Sub2_1.pos);
-        local8.aClass2_Sub21_Sub2_1.psize2(local8.aClass2_Sub21_Sub2_1.pos - local25);
-        Static405.aClass153_1.method3275(local8);
+        local8.buffer.p1(arg1);
+        local8.buffer.p1(arg3 ? 1 : 0);
+        local8.buffer.pos += 7;
+        local8.buffer.tinyenc(local38, local42, local8.buffer.pos);
+        local8.buffer.psize2(local8.buffer.pos - local25);
+        Static405.A_SERVER_CONNECTION___1.send(local8);
         Static720.anInt10865 = 0;
         Static580.anInt8621 = -3;
         Static654.anInt9739 = 0;

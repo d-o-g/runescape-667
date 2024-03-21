@@ -1,4 +1,5 @@
 import com.jagex.ParticleList;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
@@ -58,10 +59,10 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
         @Pc(9) ModelParticleEmitter[] local9 = arg1.particleEmitters();
         @Pc(19) ModelParticleEffector[] local19 = arg1.particleEffectors();
         if ((this.aParticleSystem == null || this.aParticleSystem.aBoolean324) && (local9 != null || local19 != null)) {
-            this.aParticleSystem = Static257.method3654(Static333.anInt5455, true);
+            this.aParticleSystem = ParticleSystem.create(TimeUtils.clock, true);
         }
         if (this.aParticleSystem != null) {
-            this.aParticleSystem.method3643(arg2, (long) Static333.anInt5455, local9, local19);
+            this.aParticleSystem.method3643(arg2, (long) TimeUtils.clock, local9, local19);
             this.aParticleSystem.method3658(super.aByte144, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
         }
     }

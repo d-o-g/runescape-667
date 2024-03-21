@@ -1,4 +1,5 @@
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -169,7 +170,7 @@ public final class Static84 {
                         if (!local39.aBoolean816) {
                             local103++;
                         }
-                        if (local39.anInt10747 > Static333.anInt5455) {
+                        if (local39.anInt10747 > TimeUtils.clock) {
                             local103 += 2;
                         }
                         local103 += 5 - local39.method9302((byte) 67) << 2;
@@ -199,7 +200,7 @@ public final class Static84 {
                     if (!local166.aBoolean816) {
                         local213++;
                     }
-                    if (local166.anInt10747 > Static333.anInt5455) {
+                    if (local166.anInt10747 > TimeUtils.clock) {
                         local213 += 2;
                     }
                     local213 += 5 - local166.method9302((byte) 88) << 2;
@@ -521,7 +522,7 @@ public final class Static84 {
                             if (local6.aByteArray37 != null && !Static607.method8163()) {
                                 for (local402 = 0; local402 < local6.aByteArray37.length; local402++) {
                                     if (Static334.aClass319_1.method8479(local6.aByteArray37[local402])) {
-                                        if (local6.anIntArray294 == null || Static333.anInt5455 >= local6.anIntArray294[local402]) {
+                                        if (local6.anIntArray294 == null || TimeUtils.clock >= local6.anIntArray294[local402]) {
                                             @Pc(634) byte local634 = local6.aByteArray36[local402];
                                             if (local634 == 0 || ((local634 & 0x8) == 0 || !Static334.aClass319_1.method8479(86) && !Static334.aClass319_1.method8479(82) && !Static334.aClass319_1.method8479(81)) && ((local634 & 0x2) == 0 || Static334.aClass319_1.method8479(86)) && ((local634 & 0x1) == 0 || Static334.aClass319_1.method8479(82)) && ((local634 & 0x4) == 0 || Static334.aClass319_1.method8479(81))) {
                                                 if (local402 < 10) {
@@ -543,7 +544,7 @@ public final class Static84 {
                                                 if (local555 == 0) {
                                                     local6.anIntArray294[local402] = Integer.MAX_VALUE;
                                                 } else {
-                                                    local6.anIntArray294[local402] = Static333.anInt5455 + local555;
+                                                    local6.anIntArray294[local402] = TimeUtils.clock + local555;
                                                 }
                                             }
                                         }

@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -60,6 +61,6 @@ public final class Class39_Sub10 extends Class39 {
     @OriginalMember(owner = "client!hs", name = "b", descriptor = "(I)V")
     @Override
     public void method9161() {
-        Static219.aClass236Array1[this.anInt4120].method5363().method9301(this.anInt4126, 0, this.anInt4122, this.anInt4125, Static333.anInt5455, this.anInt4123, this.anInt4119);
+        Static219.aClass236Array1[this.anInt4120].method5363().method9301(this.anInt4126, 0, this.anInt4122, this.anInt4125, TimeUtils.clock, this.anInt4123, this.anInt4119);
     }
 }

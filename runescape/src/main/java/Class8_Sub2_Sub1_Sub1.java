@@ -1,4 +1,5 @@
 import com.jagex.ParticleList;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.graphics.Matrix;
@@ -286,10 +287,10 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         @Pc(9) ModelParticleEmitter[] local9 = arg2.particleEmitters();
         @Pc(12) ModelParticleEffector[] local12 = arg2.particleEffectors();
         if ((this.aParticleSystem_1 == null || this.aParticleSystem_1.aBoolean324) && (local9 != null || local12 != null)) {
-            this.aParticleSystem_1 = Static257.method3654(Static333.anInt5455, true);
+            this.aParticleSystem_1 = ParticleSystem.create(TimeUtils.clock, true);
         }
         if (this.aParticleSystem_1 != null) {
-            this.aParticleSystem_1.method3643(arg0, (long) Static333.anInt5455, local9, local12);
+            this.aParticleSystem_1.method3643(arg0, (long) TimeUtils.clock, local9, local12);
             this.aParticleSystem_1.method3658(super.aByte144, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
         }
     }

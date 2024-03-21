@@ -9,13 +9,13 @@ public final class Static408 {
     @OriginalMember(owner = "client!ms", name = "a", descriptor = "(I)V")
     public static void method5632() {
         client.aClient1.method1634();
-        Static524.aClass153_3.method3272();
-        Static524.aClass153_3.anInt3646 = 0;
+        Static524.aServerConnection_3.clear();
+        Static524.aServerConnection_3.anInt3646 = 0;
         Static249.anInt4008 = 0;
-        Static524.aClass153_3.aClass225_91 = null;
-        Static524.aClass153_3.aClass225_94 = null;
-        Static524.aClass153_3.aClass225_92 = null;
-        Static524.aClass153_3.aClass2_Sub21_Sub2_2.pos = 0;
+        Static524.aServerConnection_3.aClass225_91 = null;
+        Static524.aServerConnection_3.aClass225_94 = null;
+        Static524.aServerConnection_3.aClass225_92 = null;
+        Static524.aServerConnection_3.buffer.pos = 0;
         Static102.method2022();
         Static251.anInt4036 = 0;
         Static723.aString129 = null;

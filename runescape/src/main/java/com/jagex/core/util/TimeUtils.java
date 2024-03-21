@@ -6,6 +6,9 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class TimeUtils {
 
+    @OriginalMember(owner = "client!kj", name = "d", descriptor = "I")
+    public static int clock = 0;
+
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(JZ)V")
     public static void sleep(@OriginalArg(0) long milliseconds) {
         if (milliseconds <= 0L) {

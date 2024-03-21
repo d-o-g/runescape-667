@@ -1,3 +1,4 @@
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -14,7 +15,7 @@ public final class Static24 {
 
     @OriginalMember(owner = "client!aq", name = "a", descriptor = "(I)V")
     public static void method680() {
-        Static147.method2421((long) Static333.anInt5455, Static163.activeToolkit);
+        Static147.method2421((long) TimeUtils.clock, Static163.activeToolkit);
         if (Static377.anInt5930 != -1) {
             Static26.method716(Static377.anInt5930);
         }
@@ -25,7 +26,7 @@ public final class Static24 {
             Static359.aBooleanArray17[local23] = Static364.aBooleanArray18[local23];
             Static364.aBooleanArray18[local23] = false;
         }
-        Static171.anInt2880 = Static333.anInt5455;
+        Static171.anInt2880 = TimeUtils.clock;
         if (Static377.anInt5930 != -1) {
             Static122.anInt2339 = 0;
             Static261.method3833();

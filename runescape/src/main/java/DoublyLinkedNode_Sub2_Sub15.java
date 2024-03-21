@@ -1,10 +1,10 @@
-import com.jagex.collect.LruCache;
+import com.jagex.collect.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!oea")
-public final class DoublyLinkedNode_Sub2_Sub15 extends LruCache.Node {
+public final class DoublyLinkedNode_Sub2_Sub15 extends Node2 {
 
     @OriginalMember(owner = "client!oea", name = "t", descriptor = "Lclient!b;")
     public final Class8_Sub2_Sub1_Sub1 aClass8_Sub2_Sub1_Sub1_1;

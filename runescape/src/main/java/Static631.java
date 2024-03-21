@@ -1,4 +1,4 @@
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Deque;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static631 {

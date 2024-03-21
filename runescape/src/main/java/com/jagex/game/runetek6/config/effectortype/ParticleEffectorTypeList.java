@@ -1,7 +1,7 @@
 package com.jagex.game.runetek6.config.effectortype;
 
-import com.jagex.collect.HashTable;
-import com.jagex.collect.IntNode;
+import com.jagex.collect.key.HashTable;
+import com.jagex.collect.key.IntNode;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;

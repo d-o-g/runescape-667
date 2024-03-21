@@ -1,4 +1,4 @@
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Node;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggStreamState;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!kb")
-public abstract class Node_Sub28 extends Deque.Node {
+public abstract class Node_Sub28 extends Node {
 
     @OriginalMember(owner = "client!kb", name = "n", descriptor = "[B")
     public static final byte[] aByteArray103;

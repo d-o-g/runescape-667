@@ -1,4 +1,4 @@
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Deque;
 import com.jagex.collect.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalMember;
 

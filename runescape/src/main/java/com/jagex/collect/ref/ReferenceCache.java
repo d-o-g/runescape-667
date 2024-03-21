@@ -1,8 +1,8 @@
 package com.jagex.collect.ref;
 
-import com.jagex.collect.LruCache;
-import com.jagex.collect.HashTable;
-import com.jagex.collect.Queue;
+import com.jagex.collect.key.HashTable;
+import com.jagex.collect.key.Queue;
+import com.jagex.collect.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -83,7 +83,7 @@ public final class ReferenceCache {
             } else if (++node.key2 > (long) maxAge) {
                 @Pc(42) ReferenceNode newReference = ReferenceNodeFactory.INSTANCE.create(node);
                 this.table.put(node.key, newReference);
-                LruCache.Node.attachAfter(node, newReference);
+                Node2.attachAfter(node, newReference);
                 node.unlink();
                 node.unlink2();
             }

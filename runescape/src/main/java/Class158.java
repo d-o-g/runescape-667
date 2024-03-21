@@ -1,8 +1,8 @@
 import com.jagex.IndexedImage;
-import com.jagex.collect.Deque;
-import com.jagex.collect.HashTable;
-import com.jagex.collect.IntNode;
-import com.jagex.collect.StringNode;
+import com.jagex.collect.key.Node;
+import com.jagex.collect.key.HashTable;
+import com.jagex.collect.key.IntNode;
+import com.jagex.collect.key.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.game.Class14;
@@ -1138,7 +1138,7 @@ public final class Class158 {
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(II)V")
     public void method3402(@OriginalArg(0) int arg0) {
         if (this.aHashTable_17 != null) {
-            @Pc(14) Deque.Node local14 = this.aHashTable_17.get((long) arg0);
+            @Pc(14) Node local14 = this.aHashTable_17.get((long) arg0);
             if (local14 != null) {
                 local14.unlink();
             }

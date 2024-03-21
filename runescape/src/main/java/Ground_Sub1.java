@@ -1,5 +1,6 @@
-import com.jagex.collect.Deque;
-import com.jagex.collect.HashTable;
+import com.jagex.collect.key.Deque;
+import com.jagex.collect.key.Node;
+import com.jagex.collect.key.HashTable;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
@@ -186,7 +187,7 @@ public final class Ground_Sub1 extends Ground {
                 local114 = -1;
             }
             @Pc(167) long local167 = (long) local114 | (long) arg10 << 28 | (long) arg12 << 48 | (long) arg11 << 42 | (long) (local118 << 14);
-            @Pc(173) Deque.Node local173;
+            @Pc(173) Node local173;
             for (local173 = this.aHashTable_21.get(local167); local173 != null; local173 = this.aHashTable_21.nextWithSameKey()) {
                 @Pc(180) Node_Sub58 local180 = (Node_Sub58) local173;
                 if (local180.anInt10870 == local114 && (float) local118 == local180.aFloat219 && local180.anInt10863 == arg10 && arg11 == local180.anInt10860 && arg12 == local180.anInt10868) {
@@ -288,7 +289,7 @@ public final class Ground_Sub1 extends Ground {
             this.aClass19_Sub1_9.method8094(Static185.aClass121_3, Static209.aClass121_4);
             this.aClass19_Sub1_9.method8080(0, Static454.aClass168_5);
             this.aClass19_Sub1_9.method8142(Static207.aClass168_4, 0);
-            for (@Pc(342) Deque.Node local342 = this.aDeque_24.first(); local342 != null; local342 = this.aDeque_24.next()) {
+            for (@Pc(342) Node local342 = this.aDeque_24.first(); local342 != null; local342 = this.aDeque_24.next()) {
                 @Pc(347) Node_Sub32 local347 = (Node_Sub32) local342;
                 local347.method4564(arg6, arg2, (byte) 51, arg4, arg0);
             }
@@ -453,7 +454,7 @@ public final class Ground_Sub1 extends Ground {
                                     local604 = local604 * (local604 > 0.0F ? this.aClass19_Sub1_9.aFloat181 : this.aClass19_Sub1_9.aFloat180) + this.aClass19_Sub1_9.aFloat186;
                                 }
                             }
-                            @Pc(923) Deque.Node local923 = null;
+                            @Pc(923) Node local923 = null;
                             if ((this.anInt4303 - 1 & local535) == 0 && (this.anInt4303 - 1 & local545) == 0) {
                                 local923 = local224.get(local590);
                             }

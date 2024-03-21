@@ -1,5 +1,5 @@
 import com.jagex.SignLink;
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Node;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 import java.lang.reflect.Field;
 
 @OriginalClass("client!kv")
-public final class Node_Sub34 extends Deque.Node {
+public final class Node_Sub34 extends Node {
 
     @OriginalMember(owner = "client!kv", name = "S", descriptor = "Lclient!hr;")
     public Class57_Sub11 aClass57_Sub11_1;

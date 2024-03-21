@@ -1,4 +1,4 @@
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Node;
 import com.jagex.graphics.TextureMetrics;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!wr")
-public final class Node_Sub58 extends Deque.Node {
+public final class Node_Sub58 extends Node {
 
     @OriginalMember(owner = "client!wr", name = "o", descriptor = "Lclient!jaclib/memory/heap/NativeHeapBuffer;")
     public NativeHeapBuffer aNativeHeapBuffer8;

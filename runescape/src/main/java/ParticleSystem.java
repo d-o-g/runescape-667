@@ -1,5 +1,6 @@
 import com.jagex.Class230;
-import com.jagex.collect.Deque;
+import com.jagex.collect.Node;
+import com.jagex.collect.key.Deque;
 import com.jagex.collect.LinkedList;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.graphics.particles.ModelParticleEffector;
@@ -11,7 +12,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!hv")
-public final class ParticleSystem extends LinkedList.Node {
+public final class ParticleSystem extends Node {
 
     @OriginalMember(owner = "client!hv", name = "u", descriptor = "J")
     public long aLong132;

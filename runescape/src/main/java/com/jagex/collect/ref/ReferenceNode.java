@@ -1,12 +1,12 @@
 package com.jagex.collect.ref;
 
-import com.jagex.collect.LruCache;
+import com.jagex.collect.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!vw")
-public abstract class ReferenceNode extends LruCache.Node {
+public abstract class ReferenceNode extends Node2 {
 
     @OriginalMember(owner = "client!vw", name = "w", descriptor = "I")
     public final int size;

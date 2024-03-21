@@ -1,8 +1,9 @@
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
-import com.jagex.collect.Deque;
-import com.jagex.collect.IntNode;
+import com.jagex.collect.key.Deque;
+import com.jagex.collect.key.Node;
+import com.jagex.collect.key.IntNode;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Class14;
@@ -522,7 +523,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
             local19 = (IntNode) this.aDeque_60.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.value);
         }
-        @Pc(227) Deque.Node local227;
+        @Pc(227) Node local227;
         while (!this.aDeque_65.isEmpty()) {
             local227 = this.aDeque_65.removeFirst();
             OpenGL.glDeleteProgramARB((int) local227.key);
@@ -550,7 +551,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
 
     @OriginalMember(owner = "client!tca", name = "k", descriptor = "(II)V")
     public synchronized void method8162(@OriginalArg(0) int arg0) {
-        @Pc(7) Deque.Node local7 = new Deque.Node();
+        @Pc(7) Node local7 = new Node();
         local7.key = (long) arg0;
         this.aDeque_65.addLast(local7);
     }
@@ -699,7 +700,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
 
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(IJ)V")
     public synchronized void method8165(@OriginalArg(1) long arg0) {
-        @Pc(7) Deque.Node local7 = new Deque.Node();
+        @Pc(7) Node local7 = new Node();
         local7.key = arg0;
         this.aDeque_66.addLast(local7);
     }

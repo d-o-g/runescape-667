@@ -1,8 +1,8 @@
 import com.jagex.IndexedImage;
-import com.jagex.collect.Deque;
-import com.jagex.collect.HashTable;
-import com.jagex.collect.IntNode;
-import com.jagex.collect.StringNode;
+import com.jagex.collect.key.Node;
+import com.jagex.collect.key.HashTable;
+import com.jagex.collect.key.IntNode;
+import com.jagex.collect.key.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.game.VarDomain;
 import com.jagex.graphics.Sprite;
@@ -337,7 +337,7 @@ public final class Class105 {
                         for (local291 = 0; local291 < local74; local291++) {
                             @Pc(310) boolean local310 = arg0.g1() == 1;
                             local314 = arg0.g3();
-                            @Pc(323) Deque.Node local323;
+                            @Pc(323) Node local323;
                             if (local310) {
                                 local323 = new StringNode(arg0.gjstr());
                             } else {

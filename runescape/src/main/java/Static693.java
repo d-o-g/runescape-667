@@ -1,4 +1,4 @@
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Deque;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.Ground;
 import org.openrs2.deob.annotation.OriginalArg;

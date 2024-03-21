@@ -1,12 +1,12 @@
-import com.jagex.collect.LruCache;
-import com.jagex.collect.Queue;
+import com.jagex.collect.key.Queue;
+import com.jagex.collect.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!cba")
-public final class DoublyLinkedNode_Sub2_Sub4 extends LruCache.Node {
+public final class DoublyLinkedNode_Sub2_Sub4 extends Node2 {
 
     @OriginalMember(owner = "client!cba", name = "C", descriptor = "I")
     public int anInt1534;

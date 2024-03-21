@@ -1,10 +1,10 @@
-import com.jagex.collect.Class113;
 import com.jagex.Class230;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
-import com.jagex.collect.HashTable;
+import com.jagex.collect.Node2;
+import com.jagex.collect.key.HashTable;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.SystemTimer;
@@ -596,8 +596,8 @@ public final class Toolkit_Sub2 extends Toolkit {
     @Override
     public void method7967(@OriginalArg(0) Class230 arg0, @OriginalArg(1) int arg1) {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
-        @Pc(7) Class113.Node local7 = arg0.aClass113_1.sentinel;
-        for (@Pc(10) Class113.Node local10 = local7.next2; local10 != local7; local10 = local10.next2) {
+        @Pc(7) Node2 local7 = arg0.aClass113_1.sentinel;
+        for (@Pc(10) Node2 local10 = local7.next2; local10 != local7; local10 = local10.next2) {
             @Pc(14) Class8_Sub4_Sub2 local14 = (Class8_Sub4_Sub2) local10;
             @Pc(19) int local19 = local14.anInt7537 >> 12;
             @Pc(24) int local24 = local14.anInt7534 >> 12;
@@ -2851,8 +2851,8 @@ public final class Toolkit_Sub2 extends Toolkit {
     @Override
     public void method8021(@OriginalArg(0) Class230 arg0) {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
-        @Pc(7) Class113.Node local7 = arg0.aClass113_1.sentinel;
-        for (@Pc(10) Class113.Node local10 = local7.next2; local10 != local7; local10 = local10.next2) {
+        @Pc(7) Node2 local7 = arg0.aClass113_1.sentinel;
+        for (@Pc(10) Node2 local10 = local7.next2; local10 != local7; local10 = local10.next2) {
             @Pc(14) Class8_Sub4_Sub2 local14 = (Class8_Sub4_Sub2) local10;
             @Pc(19) int local19 = local14.anInt7537 >> 12;
             @Pc(24) int local24 = local14.anInt7534 >> 12;

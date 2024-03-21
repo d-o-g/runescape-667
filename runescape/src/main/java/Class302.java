@@ -1,4 +1,5 @@
 import com.jagex.collect.LinkedList;
+import com.jagex.collect.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -40,10 +41,10 @@ public final class Class302 {
     }
 
     @OriginalMember(owner = "client!qe", name = "a", descriptor = "(Z)Lclient!ep;")
-    public LinkedList.Node method6807() {
+    public Node method6807() {
         @Pc(14) LinkedList local14 = this.aLinkedList_10;
         synchronized (this.aLinkedList_10) {
-            @Pc(21) LinkedList.Node local21 = this.aLinkedList_10.first();
+            @Pc(21) Node local21 = this.aLinkedList_10.first();
             local21.unlink();
             this.anInt7701--;
             return local21;

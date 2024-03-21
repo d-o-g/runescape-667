@@ -1,4 +1,5 @@
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Deque;
+import com.jagex.collect.key.Node;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -316,7 +317,7 @@ public final class Class276 {
         this.aClass93_Sub2Array2 = null;
         this.aClass93_Sub2_4 = null;
         if (!this.aDeque_39.isEmpty()) {
-            for (@Pc(41) Deque.Node local41 = this.aDeque_39.first(); local41 != this.aDeque_39.sentinel; local41 = local41.next) {
+            for (@Pc(41) Node local41 = this.aDeque_39.first(); local41 != this.aDeque_39.sentinel; local41 = local41.next) {
                 ((Node_Sub31) local41).method4608();
             }
         }
@@ -331,7 +332,7 @@ public final class Class276 {
         if (arg0 != this.anInt6944 || arg2 != this.anInt6943) {
             this.anInt6944 = arg0;
             this.anInt6943 = arg2;
-            for (@Pc(43) Deque.Node local43 = this.aDeque_39.first(); local43 != this.aDeque_39.sentinel; local43 = local43.next) {
+            for (@Pc(43) Node local43 = this.aDeque_39.first(); local43 != this.aDeque_39.sentinel; local43 = local43.next) {
                 ((Node_Sub31) local43).method4614(this.anInt6944, this.anInt6943);
             }
             this.aBoolean526 = true;

@@ -1,4 +1,5 @@
 import com.jagex.collect.LinkedList;
+import com.jagex.collect.Node;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterType;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
@@ -11,7 +12,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rf")
-public final class ParticleEmitter extends LinkedList.Node {
+public final class ParticleEmitter extends Node {
 
     @OriginalMember(owner = "client!rf", name = "u", descriptor = "I")
     public int anInt8268;

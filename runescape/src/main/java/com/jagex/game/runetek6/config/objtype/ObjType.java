@@ -1,9 +1,9 @@
 package com.jagex.game.runetek6.config.objtype;
 
-import com.jagex.collect.Deque;
-import com.jagex.collect.HashTable;
-import com.jagex.collect.IntNode;
-import com.jagex.collect.StringNode;
+import com.jagex.collect.key.Node;
+import com.jagex.collect.key.HashTable;
+import com.jagex.collect.key.IntNode;
+import com.jagex.collect.key.StringNode;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Class14;
@@ -511,7 +511,7 @@ public final class ObjType {
                 @Pc(554) boolean string = packet.g1() == 1;
                 @Pc(558) int id = packet.g3();
 
-                @Pc(567) Deque.Node param;
+                @Pc(567) Node param;
                 if (string) {
                     param = new StringNode(packet.gjstr());
                 } else {

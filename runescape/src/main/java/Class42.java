@@ -1,5 +1,5 @@
-import com.jagex.collect.Class113;
 import com.jagex.Class230;
+import com.jagex.collect.Node2;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -355,8 +355,8 @@ public final class Class42 {
             @Pc(48) int local48 = 0;
             @Pc(50) int local50 = Integer.MAX_VALUE;
             @Pc(52) int local52 = 0;
-            @Pc(56) Class113.Node local56 = arg1.aClass113_1.sentinel;
-            @Pc(59) Class113.Node local59;
+            @Pc(56) Node2 local56 = arg1.aClass113_1.sentinel;
+            @Pc(59) Node2 local59;
             @Pc(91) int local91;
             for (local59 = local56.next2; local59 != local56; local59 = local59.next2) {
                 @Pc(64) Class8_Sub4_Sub2 local64 = (Class8_Sub4_Sub2) local59;

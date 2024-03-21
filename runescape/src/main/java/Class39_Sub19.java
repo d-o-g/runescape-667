@@ -1,4 +1,4 @@
-import com.jagex.collect.IntNode;
+import com.jagex.collect.key.IntNode;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

@@ -1,11 +1,11 @@
-package com.jagex.collect;
+package com.jagex.collect.key;
 
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!hk")
-public final class StringNode extends Deque.Node {
+public final class StringNode extends Node {
 
     @OriginalMember(owner = "client!hk", name = "k", descriptor = "Ljava/lang/String;")
     public String value;

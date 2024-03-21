@@ -1,7 +1,7 @@
 package com.jagex.game.runetek6.config.objtype;
 
 import com.jagex.SpriteCacheKey;
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Node;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.collect.ref.key.KeyedReferenceCache;
 import com.jagex.core.constants.ModeGame;
@@ -319,7 +319,7 @@ public final class ObjTypeList {
             if (type.params != null) {
                 @Pc(195) boolean disable = false;
 
-                for (@Pc(200) Deque.Node node = type.params.first(); node != null; node = type.params.next()) {
+                for (@Pc(200) Node node = type.params.first(); node != null; node = type.params.next()) {
                     @Pc(209) ParamType param = this.paramsTL.list((int) node.key);
 
                     if (param.autodisable) {

@@ -1,5 +1,5 @@
 import com.jagex.SignedResource;
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Deque;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

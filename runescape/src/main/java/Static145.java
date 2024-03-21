@@ -1,4 +1,4 @@
-import com.jagex.collect.LruCache;
+import com.jagex.collect.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -9,7 +9,7 @@ public final class Static145 {
     public static int anInt2561 = 0;
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(ZLclient!cm;Lclient!cm;)V")
-    public static void method2408(@OriginalArg(1) LruCache.Node arg0, @OriginalArg(2) LruCache.Node arg1) {
+    public static void method2408(@OriginalArg(1) Node2 arg0, @OriginalArg(2) Node2 arg1) {
         if (arg0.prev2 != null) {
             arg0.unlink2();
         }

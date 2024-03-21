@@ -1,4 +1,4 @@
-import com.jagex.collect.HashTable;
+import com.jagex.collect.key.HashTable;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.VarDomain;
 import org.openrs2.deob.annotation.OriginalArg;

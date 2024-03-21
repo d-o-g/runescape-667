@@ -1,4 +1,5 @@
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Deque;
+import com.jagex.collect.key.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -11,7 +12,7 @@ public final class Class191 {
     public Deque aDeque_27;
 
     @OriginalMember(owner = "client!jg", name = "j", descriptor = "Lclient!ie;")
-    public Deque.Node aNode_149;
+    public Node aNode_149;
 
     @OriginalMember(owner = "client!jg", name = "<init>", descriptor = "()V")
     public Class191() {
@@ -23,8 +24,8 @@ public final class Class191 {
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(B)Lclient!ie;")
-    public Deque.Node method4342() {
-        @Pc(12) Deque.Node local12 = this.aNode_149;
+    public Node method4342() {
+        @Pc(12) Node local12 = this.aNode_149;
         if (this.aDeque_27.sentinel == local12) {
             this.aNode_149 = null;
             return null;
@@ -35,8 +36,8 @@ public final class Class191 {
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(I)Lclient!ie;")
-    public Deque.Node method4343() {
-        @Pc(8) Deque.Node local8 = this.aDeque_27.sentinel.next;
+    public Node method4343() {
+        @Pc(8) Node local8 = this.aDeque_27.sentinel.next;
         if (this.aDeque_27.sentinel == local8) {
             this.aNode_149 = null;
             return null;

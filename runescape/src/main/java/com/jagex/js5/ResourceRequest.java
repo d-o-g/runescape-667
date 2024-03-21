@@ -1,11 +1,11 @@
 package com.jagex.js5;
 
-import com.jagex.collect.LruCache;
+import com.jagex.collect.key.Node2;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!tw")
-public abstract class ResourceRequest extends LruCache.Node {
+public abstract class ResourceRequest extends Node2 {
 
     @OriginalMember(owner = "client!tw", name = "y", descriptor = "Z")
     public boolean orphan;

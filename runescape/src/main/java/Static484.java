@@ -1,4 +1,4 @@
-import com.jagex.collect.IntNode;
+import com.jagex.collect.key.IntNode;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;

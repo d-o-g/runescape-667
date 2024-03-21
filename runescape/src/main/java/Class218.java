@@ -1,7 +1,7 @@
-import com.jagex.collect.Deque;
-import com.jagex.collect.HashTable;
-import com.jagex.collect.IntNode;
-import com.jagex.collect.StringNode;
+import com.jagex.collect.key.Node;
+import com.jagex.collect.key.HashTable;
+import com.jagex.collect.key.IntNode;
+import com.jagex.collect.key.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -162,7 +162,7 @@ public final class Class218 {
                     for (local36 = 0; local36 < local29; local36++) {
                         @Pc(224) boolean local224 = arg1.g1() == 1;
                         @Pc(228) int local228 = arg1.g3();
-                        @Pc(237) Deque.Node local237;
+                        @Pc(237) Node local237;
                         if (local224) {
                             local237 = new StringNode(arg1.gjstr());
                         } else {

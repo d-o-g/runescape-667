@@ -1,4 +1,4 @@
-import com.jagex.collect.LinkedList;
+import com.jagex.collect.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -56,7 +56,7 @@ public final class Static370 {
     }
 
     @OriginalMember(owner = "client!lm", name = "a", descriptor = "(BLclient!ep;Lclient!ep;)V")
-    public static void method5282(@OriginalArg(1) LinkedList.Node arg0, @OriginalArg(2) LinkedList.Node arg1) {
+    public static void method5282(@OriginalArg(1) Node arg0, @OriginalArg(2) Node arg1) {
         if (arg0.prev != null) {
             arg0.unlink();
         }

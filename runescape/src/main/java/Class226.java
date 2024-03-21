@@ -1,4 +1,5 @@
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Deque;
+import com.jagex.collect.key.Node;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -29,7 +30,7 @@ public final class Class226 implements Runnable {
             @Pc(8) Deque local8 = this.aDeque_32;
             @Pc(43) Node_Sub12 local43;
             synchronized (this.aDeque_32) {
-                @Pc(15) Deque.Node local15;
+                @Pc(15) Node local15;
                 for (local15 = this.aDeque_32.removeFirst(); local15 == null; local15 = this.aDeque_32.removeFirst()) {
                     try {
                         this.aDeque_32.wait();
@@ -57,7 +58,7 @@ public final class Class226 implements Runnable {
         if (this.aThread4 == null) {
             return;
         }
-        this.method5244(new Deque.Node());
+        this.method5244(new Node());
         try {
             this.aThread4.join();
         } catch (@Pc(23) InterruptedException local23) {
@@ -66,7 +67,7 @@ public final class Class226 implements Runnable {
     }
 
     @OriginalMember(owner = "client!lha", name = "a", descriptor = "(ILclient!ie;)V")
-    public void method5244(@OriginalArg(1) Deque.Node arg0) {
+    public void method5244(@OriginalArg(1) Node arg0) {
         @Pc(2) Deque local2 = this.aDeque_32;
         synchronized (this.aDeque_32) {
             this.aDeque_32.addLast(arg0);

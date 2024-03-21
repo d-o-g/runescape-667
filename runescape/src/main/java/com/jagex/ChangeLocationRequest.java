@@ -1,12 +1,12 @@
 package com.jagex;
 
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Node;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!hma")
-public final class ChangeLocationRequest extends Deque.Node {
+public final class ChangeLocationRequest extends Node {
 
     @OriginalMember(owner = "client!hma", name = "u", descriptor = "I")
     public int originalId;

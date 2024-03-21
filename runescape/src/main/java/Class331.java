@@ -1,5 +1,5 @@
-import com.jagex.collect.Deque;
-import com.jagex.collect.HashTable;
+import com.jagex.collect.key.Node;
+import com.jagex.collect.key.HashTable;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -12,7 +12,7 @@ public final class Class331 {
     public HashTable aHashTable_41;
 
     @OriginalMember(owner = "client!sba", name = "j", descriptor = "Lclient!ie;")
-    public Deque.Node aNode_266;
+    public Node aNode_266;
 
     @OriginalMember(owner = "client!sba", name = "k", descriptor = "I")
     public int anInt8579 = 0;
@@ -27,8 +27,8 @@ public final class Class331 {
     }
 
     @OriginalMember(owner = "client!sba", name = "a", descriptor = "(I)Lclient!ie;")
-    public Deque.Node method7610() {
-        @Pc(23) Deque.Node local23;
+    public Node method7610() {
+        @Pc(23) Node local23;
         if (this.anInt8579 > 0 && this.aHashTable_41.buckets[this.anInt8579 - 1] != this.aNode_266) {
             local23 = this.aNode_266;
             this.aNode_266 = local23.next;
@@ -45,7 +45,7 @@ public final class Class331 {
     }
 
     @OriginalMember(owner = "client!sba", name = "a", descriptor = "(Z)Lclient!ie;")
-    public Deque.Node method7613() {
+    public Node method7613() {
         this.anInt8579 = 0;
         return this.method7610();
     }

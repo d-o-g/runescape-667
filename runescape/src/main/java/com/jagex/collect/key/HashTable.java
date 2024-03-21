@@ -1,4 +1,4 @@
-package com.jagex.collect;
+package com.jagex.collect.key;
 
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -9,13 +9,13 @@ import org.openrs2.deob.annotation.Pc;
 public final class HashTable {
 
     @OriginalMember(owner = "client!av", name = "c", descriptor = "Lclient!ie;")
-    public Deque.Node searchPointer;
+    public Node searchPointer;
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "J")
     public long searchKey;
 
     @OriginalMember(owner = "client!av", name = "d", descriptor = "Lclient!ie;")
-    public Deque.Node iteratorPointer;
+    public Node iteratorPointer;
 
     @OriginalMember(owner = "client!av", name = "h", descriptor = "I")
     public int iteratorPosition = 0;
@@ -24,25 +24,25 @@ public final class HashTable {
     public final int bucketCount;
 
     @OriginalMember(owner = "client!av", name = "e", descriptor = "[Lclient!ie;")
-    public final Deque.Node[] buckets;
+    public final Node[] buckets;
 
     @OriginalMember(owner = "client!av", name = "<init>", descriptor = "(I)V")
     public HashTable(@OriginalArg(0) int bucketCount) {
         this.bucketCount = bucketCount;
-        this.buckets = new Deque.Node[bucketCount];
+        this.buckets = new Node[bucketCount];
         for (@Pc(13) int i = 0; i < bucketCount; i++) {
-            @Pc(23) Deque.Node node = this.buckets[i] = new Deque.Node();
+            @Pc(23) Node node = this.buckets[i] = new Node();
             node.next = node;
             node.prev = node;
         }
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(JLclient!ie;I)V")
-    public void put(@OriginalArg(0) long key, @OriginalArg(1) Deque.Node node) {
+    public void put(@OriginalArg(0) long key, @OriginalArg(1) Node node) {
         if (node.prev != null) {
             node.unlink();
         }
-        @Pc(28) Deque.Node tail = this.buckets[(int) (key & (long) (this.bucketCount - 1))];
+        @Pc(28) Node tail = this.buckets[(int) (key & (long) (this.bucketCount - 1))];
         node.next = tail;
         node.prev = tail.prev;
         node.prev.next = node;
@@ -51,7 +51,7 @@ public final class HashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "b", descriptor = "(Z)Lclient!ie;")
-    public Deque.Node first() {
+    public Node first() {
         this.iteratorPosition = 0;
         return this.next();
     }
@@ -59,9 +59,9 @@ public final class HashTable {
     @OriginalMember(owner = "client!av", name = "c", descriptor = "(Z)V")
     public void clear() {
         for (@Pc(6) int i = 0; i < this.bucketCount; i++) {
-            @Pc(12) Deque.Node tail = this.buckets[i];
+            @Pc(12) Node tail = this.buckets[i];
             while (true) {
-                @Pc(15) Deque.Node current = tail.next;
+                @Pc(15) Node current = tail.next;
                 if (current == tail) {
                     break;
                 }
@@ -73,12 +73,12 @@ public final class HashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(IJ)Lclient!ie;")
-    public Deque.Node get(@OriginalArg(1) long key) {
+    public Node get(@OriginalArg(1) long key) {
         this.searchKey = key;
-        @Pc(25) Deque.Node tail = this.buckets[(int) (key & (long) (this.bucketCount - 1))];
+        @Pc(25) Node tail = this.buckets[(int) (key & (long) (this.bucketCount - 1))];
         for (this.searchPointer = tail.next; this.searchPointer != tail; this.searchPointer = this.searchPointer.next) {
             if (key == this.searchPointer.key) {
-                @Pc(43) Deque.Node result = this.searchPointer;
+                @Pc(43) Node result = this.searchPointer;
                 this.searchPointer = this.searchPointer.next;
                 return result;
             }
@@ -91,8 +91,8 @@ public final class HashTable {
     public int size() {
         @Pc(5) int n = 0;
         for (@Pc(13) int i = 0; i < this.bucketCount; i++) {
-            @Pc(19) Deque.Node tail = this.buckets[i];
-            @Pc(22) Deque.Node current = tail.next;
+            @Pc(19) Node tail = this.buckets[i];
+            @Pc(22) Node current = tail.next;
             while (current != tail) {
                 current = current.next;
                 n++;
@@ -102,8 +102,8 @@ public final class HashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(I)Lclient!ie;")
-    public Deque.Node next() {
-        @Pc(32) Deque.Node node;
+    public Node next() {
+        @Pc(32) Node node;
         if (this.iteratorPosition > 0 && this.iteratorPointer != this.buckets[this.iteratorPosition - 1]) {
             node = this.iteratorPointer;
             this.iteratorPointer = node.next;
@@ -125,11 +125,11 @@ public final class HashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(B[Lclient!ie;)I")
-    public int flatten(@OriginalArg(1) Deque.Node[] nodes) {
+    public int flatten(@OriginalArg(1) Node[] nodes) {
         @Pc(5) int n = 0;
         for (@Pc(16) int i = 0; i < this.bucketCount; i++) {
-            @Pc(22) Deque.Node tail = this.buckets[i];
-            for (@Pc(25) Deque.Node current = tail.next; current != tail; current = current.next) {
+            @Pc(22) Node tail = this.buckets[i];
+            for (@Pc(25) Node current = tail.next; current != tail; current = current.next) {
                 nodes[n++] = current;
             }
         }
@@ -137,14 +137,14 @@ public final class HashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(B)Lclient!ie;")
-    public Deque.Node nextWithSameKey() {
+    public Node nextWithSameKey() {
         if (this.searchPointer == null) {
             return null;
         }
-        @Pc(28) Deque.Node node = this.buckets[(int) (this.searchKey & (long) (this.bucketCount - 1))];
+        @Pc(28) Node node = this.buckets[(int) (this.searchKey & (long) (this.bucketCount - 1))];
         while (this.searchPointer != node) {
             if (this.searchPointer.key == this.searchKey) {
-                @Pc(43) Deque.Node current = this.searchPointer;
+                @Pc(43) Node current = this.searchPointer;
                 this.searchPointer = this.searchPointer.next;
                 return current;
             }

@@ -1,4 +1,4 @@
-import com.jagex.collect.HashTable;
+import com.jagex.collect.key.HashTable;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static268 {

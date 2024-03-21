@@ -1,4 +1,4 @@
-import com.jagex.collect.HashTable;
+import com.jagex.collect.key.HashTable;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;

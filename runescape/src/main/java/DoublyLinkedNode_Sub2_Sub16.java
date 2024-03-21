@@ -1,10 +1,10 @@
-import com.jagex.collect.LruCache;
+import com.jagex.collect.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!pg")
-public final class DoublyLinkedNode_Sub2_Sub16 extends LruCache.Node {
+public final class DoublyLinkedNode_Sub2_Sub16 extends Node2 {
 
     @OriginalMember(owner = "client!pg", name = "C", descriptor = "Ljava/lang/String;")
     public String aString88;

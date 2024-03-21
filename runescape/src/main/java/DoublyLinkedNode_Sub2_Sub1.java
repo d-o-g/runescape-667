@@ -1,8 +1,8 @@
-import com.jagex.collect.Deque;
-import com.jagex.collect.LruCache;
-import com.jagex.collect.HashTable;
-import com.jagex.collect.IntNode;
-import com.jagex.collect.StringNode;
+import com.jagex.collect.key.Node2;
+import com.jagex.collect.key.Node;
+import com.jagex.collect.key.HashTable;
+import com.jagex.collect.key.IntNode;
+import com.jagex.collect.key.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ab")
-public final class DoublyLinkedNode_Sub2_Sub1 extends LruCache.Node {
+public final class DoublyLinkedNode_Sub2_Sub1 extends Node2 {
 
     @OriginalMember(owner = "client!ab", name = "A", descriptor = "Lclient!av;")
     public HashTable aHashTable_1;
@@ -30,7 +30,7 @@ public final class DoublyLinkedNode_Sub2_Sub1 extends LruCache.Node {
         for (local13 = 0; local13 < local6; local13++) {
             @Pc(32) boolean local32 = arg1.g1() == 1;
             @Pc(36) int local36 = arg1.g3();
-            @Pc(45) Deque.Node local45;
+            @Pc(45) Node local45;
             if (local32) {
                 local45 = new StringNode(arg1.gjstr());
             } else {

@@ -9,10 +9,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class113 {
 
     @OriginalMember(owner = "client!et", name = "a", descriptor = "Lclient!fi;")
-    public Node pointer;
+    public Node2 pointer;
 
     @OriginalMember(owner = "client!et", name = "e", descriptor = "Lclient!fi;")
-    public final Node sentinel = new Node();
+    public final Node2 sentinel = new Node2();
 
     @OriginalMember(owner = "client!et", name = "<init>", descriptor = "()V")
     public Class113() {
@@ -23,7 +23,7 @@ public final class Class113 {
     @OriginalMember(owner = "client!et", name = "b", descriptor = "(I)V")
     public void clear() {
         while (true) {
-            @Pc(16) Node node = this.sentinel.next2;
+            @Pc(16) Node2 node = this.sentinel.next2;
             if (node == this.sentinel) {
                 this.pointer = null;
                 return;
@@ -33,7 +33,7 @@ public final class Class113 {
     }
 
     @OriginalMember(owner = "client!et", name = "a", descriptor = "(ILclient!fi;)V")
-    public void add(@OriginalArg(1) Node node) {
+    public void add(@OriginalArg(1) Node2 node) {
         if (node.prev2 != null) {
             node.unlink2();
         }
@@ -46,15 +46,15 @@ public final class Class113 {
     @OriginalMember(owner = "client!et", name = "c", descriptor = "(I)I")
     public int size() {
         @Pc(7) int size = 0;
-        for (@Pc(19) Node node = this.sentinel.next2; node != this.sentinel; node = node.next2) {
+        for (@Pc(19) Node2 node = this.sentinel.next2; node != this.sentinel; node = node.next2) {
             size++;
         }
         return size;
     }
 
     @OriginalMember(owner = "client!et", name = "a", descriptor = "(Z)Lclient!fi;")
-    public Node next() {
-        @Pc(6) Node node = this.pointer;
+    public Node2 next() {
+        @Pc(6) Node2 node = this.pointer;
         if (node == this.sentinel) {
             this.pointer = null;
             return null;
@@ -65,8 +65,8 @@ public final class Class113 {
     }
 
     @OriginalMember(owner = "client!et", name = "a", descriptor = "(I)Lclient!fi;")
-    public Node first() {
-        @Pc(15) Node node = this.sentinel.next2;
+    public Node2 first() {
+        @Pc(15) Node2 node = this.sentinel.next2;
         if (node == this.sentinel) {
             this.pointer = null;
             return null;
@@ -76,23 +76,4 @@ public final class Class113 {
         }
     }
 
-    @OriginalClass("client!fi")
-    public static class Node extends LinkedList.Node {
-
-        @OriginalMember(owner = "client!fi", name = "l", descriptor = "Lclient!fi;")
-        public Node prev2;
-
-        @OriginalMember(owner = "client!fi", name = "i", descriptor = "Lclient!fi;")
-        public Node next2;
-
-        @OriginalMember(owner = "client!fi", name = "b", descriptor = "(Z)V")
-        public final void unlink2() {
-            if (this.prev2 != null) {
-                this.prev2.next2 = this.next2;
-                this.next2.prev2 = this.prev2;
-                this.prev2 = null;
-                this.next2 = null;
-            }
-        }
-    }
 }

@@ -1,5 +1,5 @@
-import com.jagex.collect.Class113;
 import com.jagex.Class230;
+import com.jagex.collect.Node2;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -139,8 +139,8 @@ public final class Class316 {
             @Pc(39) int local39 = 0;
             @Pc(41) int local41 = Integer.MAX_VALUE;
             @Pc(43) int local43 = 0;
-            @Pc(47) Class113.Node local47 = arg0.aClass113_1.sentinel;
-            @Pc(50) Class113.Node local50;
+            @Pc(47) Node2 local47 = arg0.aClass113_1.sentinel;
+            @Pc(50) Node2 local50;
             @Pc(81) int local81;
             for (local50 = local47.next2; local50 != local47; local50 = local50.next2) {
                 @Pc(54) Class8_Sub4_Sub2 local54 = (Class8_Sub4_Sub2) local50;

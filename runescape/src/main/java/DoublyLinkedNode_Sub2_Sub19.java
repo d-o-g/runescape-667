@@ -1,4 +1,4 @@
-import com.jagex.collect.LruCache;
+import com.jagex.collect.key.Node2;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ut")
-public final class DoublyLinkedNode_Sub2_Sub19 extends LruCache.Node implements Interface3 {
+public final class DoublyLinkedNode_Sub2_Sub19 extends Node2 implements Interface3 {
 
     @OriginalMember(owner = "client!ut", name = "A", descriptor = "[I")
     public static final int[] anIntArray768 = new int[4096];

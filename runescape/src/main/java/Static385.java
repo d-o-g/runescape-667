@@ -1,4 +1,4 @@
-import com.jagex.collect.LruCache;
+import com.jagex.collect.key.Node2;
 import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -82,7 +82,7 @@ public final class Static385 {
         for (@Pc(21) DoublyLinkedNode_Sub2_Sub4 local21 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local21 != null; local21 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
             if (Static546.method7250(arg0.method1468(), local21.method1468())) {
                 local5 = true;
-                LruCache.Node.attachAfter(local21, arg0);
+                Node2.attachAfter(local21, arg0);
                 break;
             }
         }

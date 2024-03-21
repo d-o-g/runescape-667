@@ -1,4 +1,4 @@
-import com.jagex.collect.LinkedList;
+import com.jagex.collect.Node;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
@@ -80,7 +80,7 @@ public final class Class46 implements Runnable {
                 }
             } else {
                 this.aBoolean77 = true;
-                @Pc(23) LinkedList.Node local23 = this.aClass302_1.method6807();
+                @Pc(23) Node local23 = this.aClass302_1.method6807();
                 if (local23 instanceof Renderable) {
                     @Pc(29) Renderable local29 = (Renderable) local23;
                     if (local29.aBoolean812) {

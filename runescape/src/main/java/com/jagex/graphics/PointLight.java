@@ -1,12 +1,12 @@
 package com.jagex.graphics;
 
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!lca")
-public abstract class PointLight extends Deque.Node {
+public abstract class PointLight extends Node {
 
     @OriginalMember(owner = "client!lca", name = "y", descriptor = "I")
     public final int range;

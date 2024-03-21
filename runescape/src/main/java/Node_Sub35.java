@@ -1,4 +1,4 @@
-import com.jagex.collect.Deque;
+import com.jagex.collect.key.Node;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!kw")
-public final class Node_Sub35 extends Deque.Node {
+public final class Node_Sub35 extends Node {
 
     @OriginalMember(owner = "client!kw", name = "l", descriptor = "I")
     public final int anInt5692;

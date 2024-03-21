@@ -27,13 +27,13 @@ public final class Static515 {
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(ZIII)V")
     public static void method6802(@OriginalArg(0) boolean arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        if (Static106.A_HASH_TABLE___11.get((long) arg1) != null) {
+        if (VideoTypeList.recentUse.get((long) arg1) != null) {
             return;
         }
         if (Static234.aBoolean303) {
-            @Pc(34) Node_Sub5 local34 = new Node_Sub5(arg1, new Class222_Sub1(4096, js5.js5_36, arg1), arg2, arg0);
-            local34.aClass222_Sub1_1.method9183(Static384.aStringArray31[Static51.language]);
-            Static106.A_HASH_TABLE___11.put((long) arg1, local34);
+            @Pc(34) VideoType local34 = new VideoType(arg1, new Video_Sub1(4096, js5.js5_36, arg1), arg2, arg0);
+            local34.js5.setLanguage(Static384.aStringArray31[Static51.language]);
+            VideoTypeList.recentUse.put((long) arg1, local34);
         } else {
             Static635.method8380(arg1, arg0);
         }

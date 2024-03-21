@@ -610,9 +610,9 @@ public final class Toolkit_Sub3 extends Toolkit {
         this.anIntArray623 = new int[1];
         this.anInt7986 = arg2;
         this.aCanvas11 = this.aCanvas10 = arg0;
-        if (!Static14.method179("jaclib")) {
+        if (!Static14.loadNativeLibrary("jaclib")) {
             throw new RuntimeException("");
-        } else if (Static14.method179("jaggl")) {
+        } else if (Static14.loadNativeLibrary("jaggl")) {
             try {
                 this.anOpenGL1 = new OpenGL();
                 this.aLong246 = this.aLong247 = this.anOpenGL1.init(arg0, 8, 8, 8, 24, 0, this.anInt7986);

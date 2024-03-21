@@ -27,7 +27,7 @@ public abstract class SimplePeer {
     }
 
     @OriginalMember(owner = "client!jagtheora/misc/SimplePeer", name = "a", descriptor = "()V")
-    public final void a() {
+    public final void cleanUp() {
         if (!this.b()) {
             this.clear();
         }
@@ -37,7 +37,7 @@ public abstract class SimplePeer {
     @Override
     public final void finalize() throws Throwable {
         if (!this.b()) {
-            this.a();
+            this.cleanUp();
         }
         super.finalize();
     }

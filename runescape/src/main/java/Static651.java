@@ -26,9 +26,9 @@ public final class Static651 {
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(BILclient!ha;)Lclient!st;")
     public static Sprite method8512(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1) {
-        @Pc(18) Node_Sub5 local18 = (Node_Sub5) Static106.A_HASH_TABLE___11.get((long) arg0);
+        @Pc(18) VideoType local18 = (VideoType) VideoTypeList.recentUse.get((long) arg0);
         if (local18 != null) {
-            @Pc(25) Node_Sub28_Sub3 local25 = local18.aClass222_Sub1_1.method9187();
+            @Pc(25) OggTheoraStream local25 = local18.js5.getVideoStream();
             local18.aBoolean18 = true;
             if (local25 != null) {
                 return local25.method5491(arg1);
@@ -177,7 +177,7 @@ public final class Static651 {
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(I)Z")
     public static boolean method8516() {
-        return Static14.method179("jaclib") ? Static14.method179("hw3d") : false;
+        return Static14.loadNativeLibrary("jaclib") ? Static14.loadNativeLibrary("hw3d") : false;
     }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IZLclient!wj;)V")

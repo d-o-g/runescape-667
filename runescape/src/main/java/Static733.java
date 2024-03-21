@@ -15,7 +15,7 @@ public final class Static733 {
         try {
             if (!Static651.method8516()) {
                 throw new RuntimeException("");
-            } else if (Static14.method179("jagdx")) {
+            } else if (Static14.loadNativeLibrary("jagdx")) {
                 @Pc(26) Class local26 = Class.forName("Toolkit_Sub1_Sub1");
                 @Pc(68) Method local68 = local26.getDeclaredMethod("createToolkit", Class.forName("java.awt.Canvas"), Class.forName("com.jagex.graphics.TextureSource"), Class.forName("com.jagex.js5.js5"), Class.forName("java.lang.Integer"));
                 return (Toolkit) local68.invoke((Object) null, arg3, arg2, arg0, Integer.valueOf(arg1));

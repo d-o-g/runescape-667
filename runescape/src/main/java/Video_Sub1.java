@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 import java.io.IOException;
 
 @OriginalClass("client!wea")
-public final class Class222_Sub1 extends Class222 {
+public final class Video_Sub1 extends Video {
 
     @OriginalMember(owner = "client!wea", name = "I", descriptor = "[I")
     public int[] anIntArray834;
@@ -32,7 +32,7 @@ public final class Class222_Sub1 extends Class222 {
     public final int anInt10594;
 
     @OriginalMember(owner = "client!wea", name = "<init>", descriptor = "(ILclient!sb;I)V")
-    public Class222_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) int arg2) {
+    public Video_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) int arg2) {
         super(arg0);
         this.aJs5_126 = arg1;
         this.anInt10594 = arg2;
@@ -55,7 +55,7 @@ public final class Class222_Sub1 extends Class222 {
 
     @OriginalMember(owner = "client!wea", name = "a", descriptor = "([BI)I")
     @Override
-    protected int method9186(@OriginalArg(0) byte[] arg0) throws IOException {
+    protected int readPage(@OriginalArg(0) byte[] data) throws IOException {
         @Pc(50) int local50;
         @Pc(56) int local56;
         if (this.anIntArray834 == null) {
@@ -78,12 +78,12 @@ public final class Class222_Sub1 extends Class222 {
             return -1;
         }
         this.method9193(103);
-        this.aClass2_Sub21_17.data = arg0;
+        this.aClass2_Sub21_17.data = data;
         this.aClass2_Sub21_17.pos = 0;
         do {
             if (this.aClass2_Sub21_17.pos >= this.aClass2_Sub21_17.data.length) {
                 this.aClass2_Sub21_17.data = null;
-                return arg0.length;
+                return data.length;
             }
             if (this.aClass2_Sub21_16.data == null) {
                 if (this.aByteArrayArray37[0] == null) {
@@ -97,7 +97,7 @@ public final class Class222_Sub1 extends Class222 {
             if (local50 > local143) {
                 this.aClass2_Sub21_16.gdata(this.aClass2_Sub21_17.pos, local143, this.aClass2_Sub21_17.data);
                 this.aClass2_Sub21_17.data = null;
-                return arg0.length;
+                return data.length;
             }
             this.aClass2_Sub21_17.pdata(local50, this.aClass2_Sub21_16.data, this.aClass2_Sub21_16.pos);
             this.aClass2_Sub21_16.pos = 0;

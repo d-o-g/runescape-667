@@ -109,7 +109,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
     @OriginalMember(owner = "client!kh", name = "b", descriptor = "(I)Z")
     public final boolean method1634() {
-        return Static14.method179("jagmisc");
+        return Static14.loadNativeLibrary("jagmisc");
     }
 
     @OriginalMember(owner = "client!kh", name = "windowIconified", descriptor = "(Ljava/awt/event/WindowEvent;)V")
@@ -440,7 +440,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(B)Z")
     public final boolean method1644() {
-        return Static14.method179("jaclib");
+        return Static14.loadNativeLibrary("jaclib");
     }
 
     @OriginalMember(owner = "client!kh", name = "k", descriptor = "(I)V")
@@ -525,7 +525,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
     @OriginalMember(owner = "client!kh", name = "d", descriptor = "(I)Z")
     public final boolean method1651() {
-        return Static14.method179("jagtheora");
+        return Static14.loadNativeLibrary("jagtheora");
     }
 
     @OriginalMember(owner = "client!kh", name = "windowOpened", descriptor = "(Ljava/awt/event/WindowEvent;)V")

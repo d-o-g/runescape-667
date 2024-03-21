@@ -14,7 +14,7 @@ public final class Static14 {
     public static int[] anIntArray25 = new int[]{36064, 36065, 36066, 36067, 36068, 36069, 36070, 36071, 36096};
 
     @OriginalMember(owner = "client!ai", name = "a", descriptor = "(ILjava/lang/String;)Z")
-    public static boolean method179(@OriginalArg(1) String arg0) {
+    public static boolean loadNativeLibrary(@OriginalArg(1) String arg0) {
         return Static93.method1833(aClass1 == null ? (aClass1 = getClass("Class332")) : aClass1, arg0);
     }
 

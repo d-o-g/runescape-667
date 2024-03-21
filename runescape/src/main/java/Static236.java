@@ -54,19 +54,19 @@ public final class Static236 {
 
     @OriginalMember(owner = "client!hfa", name = "c", descriptor = "(I)V")
     public static void method3453() {
-        for (@Pc(16) Node_Sub5 local16 = (Node_Sub5) Static106.A_HASH_TABLE___11.first(); local16 != null; local16 = (Node_Sub5) Static106.A_HASH_TABLE___11.next()) {
-            if (local16.aClass222_Sub1_1.method9177()) {
+        for (@Pc(16) VideoType local16 = (VideoType) VideoTypeList.recentUse.first(); local16 != null; local16 = (VideoType) VideoTypeList.recentUse.next()) {
+            if (local16.js5.method9177()) {
                 Static121.method2199(local16.anInt182);
             } else {
-                local16.aClass222_Sub1_1.method9193(109);
+                local16.js5.method9193(109);
                 try {
-                    local16.aClass222_Sub1_1.method9179();
+                    local16.js5.tick();
                 } catch (@Pc(43) Exception local43) {
                     JagException.sendTrace(local43, "TV: " + local16.anInt182);
                     Static121.method2199(local16.anInt182);
                 }
                 if (!local16.aBoolean14 && !local16.aBoolean16) {
-                    @Pc(73) Node_Sub28_Sub1 local73 = local16.aClass222_Sub1_1.method9189();
+                    @Pc(73) OggVorbisStream local73 = local16.js5.getAudioStream();
                     if (local73 != null) {
                         @Pc(79) Node_Sub6_Sub5 local79 = local73.method3960();
                         if (local79 != null) {

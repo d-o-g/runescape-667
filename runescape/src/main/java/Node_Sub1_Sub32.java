@@ -65,7 +65,7 @@ public final class Node_Sub1_Sub32 extends Node_Sub1 {
                 if (local99 > 255) {
                     local99 = 255;
                 }
-                @Pc(133) int local133 = Node_Sub28.aByteArray103[local90 + ((local99 + 1) * local99 >> 1)] & 0xFF;
+                @Pc(133) int local133 = Static204.aByteArray103[local90 + ((local99 + 1) * local99 >> 1)] & 0xFF;
                 @Pc(139) int local139 = local86 * local133 >> 8;
                 @Pc(145) int local145 = local65 * local133 >> 8;
                 @Pc(151) int local151 = local133 * 4096 >> 8;

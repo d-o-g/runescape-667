@@ -77,7 +77,7 @@ public final class oa extends Toolkit implements Interface5 {
     public oa(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         super(arg1);
         try {
-            if (!Static14.method179("sw3d")) {
+            if (!Static14.loadNativeLibrary("sw3d")) {
                 throw new RuntimeException("");
             }
             Static307.method4479();

@@ -22,10 +22,10 @@ public final class Static695 {
 
     @OriginalMember(owner = "client!vw", name = "a", descriptor = "(IZ)V")
     public static void method9267(@OriginalArg(0) int arg0) {
-        @Pc(10) Node_Sub5 local10 = (Node_Sub5) Static106.A_HASH_TABLE___11.get((long) arg0);
+        @Pc(10) VideoType local10 = (VideoType) VideoTypeList.recentUse.get((long) arg0);
         if (local10 != null) {
             local10.aBoolean16 = !local10.aBoolean16;
-            local10.aClass222_Sub1_1.method9174(local10.aBoolean16);
+            local10.js5.method9174(local10.aBoolean16);
         }
     }
 }

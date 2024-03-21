@@ -27,7 +27,7 @@ public final class Static256 {
     public static Toolkit method3637(@OriginalArg(0) int arg0, @OriginalArg(2) js5 arg1, @OriginalArg(3) TextureSource arg2, @OriginalArg(4) Canvas arg3) {
         if (!Static651.method8516()) {
             throw new RuntimeException("");
-        } else if (Static14.method179("jaggl")) {
+        } else if (Static14.loadNativeLibrary("jaggl")) {
             @Pc(28) OpenGL local28 = new OpenGL();
             @Pc(38) long local38 = local28.init(arg3, 8, 8, 8, 24, 0, arg0);
             if (local38 == 0L) {

@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.sound.OggStream;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggStreamState;
 import jagtheora.vorbis.DSPState;
@@ -10,7 +11,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ik")
-public final class Node_Sub28_Sub1 extends Node_Sub28 {
+public final class OggVorbisStream extends OggStream {
 
     @OriginalMember(owner = "client!ik", name = "C", descriptor = "Lclient!wc;")
     public Node_Sub6_Sub5 aClass2_Sub6_Sub5_1;
@@ -37,21 +38,21 @@ public final class Node_Sub28_Sub1 extends Node_Sub28 {
     public final VorbisComment aVorbisComment1 = new VorbisComment();
 
     @OriginalMember(owner = "client!ik", name = "<init>", descriptor = "(Lclient!jagtheora/ogg/OggStreamState;)V")
-    public Node_Sub28_Sub1(@OriginalArg(0) OggStreamState arg0) {
+    public OggVorbisStream(@OriginalArg(0) OggStreamState arg0) {
         super(arg0);
     }
 
     @OriginalMember(owner = "client!ik", name = "b", descriptor = "(I)V")
     @Override
-    public void method8560() {
+    public void stop() {
         if (this.aVorbisBlock1 != null) {
-            this.aVorbisBlock1.a();
+            this.aVorbisBlock1.cleanUp();
         }
         if (this.aDSPState1 != null) {
-            this.aDSPState1.a();
+            this.aDSPState1.cleanUp();
         }
-        this.aVorbisComment1.a();
-        this.aVorbisInfo1.a();
+        this.aVorbisComment1.cleanUp();
+        this.aVorbisInfo1.cleanUp();
         if (this.aClass2_Sub6_Sub5_1 != null) {
             this.aClass2_Sub6_Sub5_1.method9141();
         }
@@ -64,13 +65,13 @@ public final class Node_Sub28_Sub1 extends Node_Sub28 {
 
     @OriginalMember(owner = "client!ik", name = "b", descriptor = "(ILclient!jagtheora/ogg/OggPacket;)V")
     @Override
-    protected void method8558(@OriginalArg(1) OggPacket arg0) {
-        if (super.anInt9753 < 3) {
-            @Pc(137) int local137 = this.aVorbisInfo1.headerIn(this.aVorbisComment1, arg0);
+    protected void decode(@OriginalArg(1) OggPacket packet) {
+        if (super.packetNumber < 3) {
+            @Pc(137) int local137 = this.aVorbisInfo1.headerIn(this.aVorbisComment1, packet);
             if (local137 < 0) {
                 throw new IllegalStateException(String.valueOf(local137));
             }
-            if (super.anInt9753 == 2) {
+            if (super.packetNumber == 2) {
                 if (this.aVorbisInfo1.channels > 2 || this.aVorbisInfo1.channels < 1) {
                     throw new RuntimeException(String.valueOf(this.aVorbisInfo1.channels));
                 }
@@ -81,7 +82,7 @@ public final class Node_Sub28_Sub1 extends Node_Sub28 {
             }
             return;
         }
-        if (this.aVorbisBlock1.synthesis(arg0) == 0) {
+        if (this.aVorbisBlock1.synthesis(packet) == 0) {
             this.aDSPState1.blockIn(this.aVorbisBlock1);
         }
         @Pc(35) float[][] local35 = this.aDSPState1.pcmOut(this.aVorbisInfo1.channels);
@@ -100,7 +101,7 @@ public final class Node_Sub28_Sub1 extends Node_Sub28 {
     }
 
     @OriginalMember(owner = "client!ik", name = "b", descriptor = "(B)D")
-    public double method3963() {
+    public double getTime() {
         @Pc(13) double local13 = this.aDouble14;
         if (this.aClass2_Sub6_Sub5_1 != null) {
             local13 = this.aClass2_Sub6_Sub5_1.method9137(false);

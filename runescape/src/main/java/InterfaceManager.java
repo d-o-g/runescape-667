@@ -510,7 +510,7 @@ public final class InterfaceManager {
                             }
 
                             if (child.video != -1) {
-                                text = VideoManager.subtitles(child.video);
+                                text = VideoTypeList.subtitles(child.video);
 
                                 if (text == null) {
                                     text = "";

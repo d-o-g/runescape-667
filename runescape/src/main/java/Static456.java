@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.graphics.skybox.SkyBox;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -21,9 +21,9 @@ public final class Static456 {
             if (Static377.anInt5930 != -1) {
                 Static347.method5094(Static377.anInt5930);
             }
-            for (@Pc(21) Node_Sub4 local21 = (Node_Sub4) Static548.aHashTable_40.first(); local21 != null; local21 = (Node_Sub4) Static548.aHashTable_40.next()) {
+            for (@Pc(21) Node_Sub4 local21 = (Node_Sub4) Static548.aIterableHashTable_40.first(); local21 != null; local21 = (Node_Sub4) Static548.aIterableHashTable_40.next()) {
                 if (!local21.isLinked()) {
-                    local21 = (Node_Sub4) Static548.aHashTable_40.first();
+                    local21 = (Node_Sub4) Static548.aIterableHashTable_40.first();
                     if (local21 == null) {
                         break;
                     }
@@ -31,7 +31,7 @@ public final class Static456 {
                 Static449.method6115(false, true, local21);
             }
             Static377.anInt5930 = -1;
-            Static548.aHashTable_40 = new HashTable(8);
+            Static548.aIterableHashTable_40 = new IterableHashTable(8);
             Static656.method6692();
             Static377.anInt5930 = Static523.graphicsDefaults.login_interface;
             Static640.method8435(false);

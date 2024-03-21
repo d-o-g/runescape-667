@@ -23,7 +23,7 @@ public final class Static556 {
             return InterfaceList.list(arg0.layer);
         }
         @Pc(25) int local25 = arg0.slot >>> 16;
-        @Pc(30) Class331 local30 = new Class331(Static548.aHashTable_40);
+        @Pc(30) Class331 local30 = new Class331(Static548.aIterableHashTable_40);
         for (@Pc(35) Node_Sub4 local35 = (Node_Sub4) local30.first(); local35 != null; local35 = (Node_Sub4) local30.next()) {
             if (local35.anInt147 == local25) {
                 return InterfaceList.list((int) local35.key);

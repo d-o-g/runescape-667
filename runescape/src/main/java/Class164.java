@@ -1,5 +1,5 @@
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.io.Packet;
@@ -20,7 +20,7 @@ public final class Class164 {
     public int anInt3939;
 
     @OriginalMember(owner = "client!hi", name = "n", descriptor = "Lclient!av;")
-    public HashTable aHashTable_19;
+    public IterableHashTable aIterableHashTable_19;
 
     @OriginalMember(owner = "client!hi", name = "J", descriptor = "[I")
     public int[] anIntArray308;
@@ -178,10 +178,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(BI)Ljava/lang/Long;")
     public Long method3478(@OriginalArg(1) int arg0) {
-        if (this.aHashTable_19 == null) {
+        if (this.aIterableHashTable_19 == null) {
             return null;
         } else {
-            @Pc(16) Node local16 = this.aHashTable_19.get((long) arg0);
+            @Pc(16) Node local16 = this.aIterableHashTable_19.get((long) arg0);
             return local16 != null && local16 instanceof Node_Sub48 ? Long.valueOf(((Node_Sub48) local16).aLong264) : null;
         }
     }
@@ -206,10 +206,10 @@ public final class Class164 {
         } else if (arg0.length() > 80) {
             arg0 = arg0.substring(0, 80);
         }
-        if (this.aHashTable_19 == null) {
-            this.aHashTable_19 = new HashTable(4);
+        if (this.aIterableHashTable_19 == null) {
+            this.aIterableHashTable_19 = new IterableHashTable(4);
         } else {
-            @Pc(32) Node local32 = this.aHashTable_19.get((long) arg1);
+            @Pc(32) Node local32 = this.aIterableHashTable_19.get((long) arg1);
             if (local32 != null) {
                 if (local32 instanceof StringNode) {
                     @Pc(42) StringNode local42 = (StringNode) local32;
@@ -222,7 +222,7 @@ public final class Class164 {
                 local32.unlink();
             }
         }
-        this.aHashTable_19.put((long) arg1, new StringNode(arg0));
+        this.aIterableHashTable_19.put((long) arg1, new StringNode(arg0));
         return true;
     }
 
@@ -256,10 +256,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(II)Ljava/lang/String;")
     public String method3484(@OriginalArg(1) int arg0) {
-        if (this.aHashTable_19 == null) {
+        if (this.aIterableHashTable_19 == null) {
             return null;
         } else {
-            @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
+            @Pc(24) Node local24 = this.aIterableHashTable_19.get((long) arg0);
             return local24 != null && local24 instanceof StringNode ? ((StringNode) local24).value : null;
         }
     }
@@ -335,10 +335,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(BIJ)Z")
     public boolean method3488(@OriginalArg(1) int arg0, @OriginalArg(2) long arg1) {
-        if (this.aHashTable_19 == null) {
-            this.aHashTable_19 = new HashTable(4);
+        if (this.aIterableHashTable_19 == null) {
+            this.aIterableHashTable_19 = new IterableHashTable(4);
         } else {
-            @Pc(29) Node local29 = this.aHashTable_19.get((long) arg0);
+            @Pc(29) Node local29 = this.aIterableHashTable_19.get((long) arg0);
             if (local29 != null) {
                 if (local29 instanceof Node_Sub48) {
                     @Pc(39) Node_Sub48 local39 = (Node_Sub48) local29;
@@ -351,7 +351,7 @@ public final class Class164 {
                 local29.unlink();
             }
         }
-        this.aHashTable_19.put((long) arg0, new Node_Sub48(arg1));
+        this.aIterableHashTable_19.put((long) arg0, new Node_Sub48(arg1));
         return true;
     }
 
@@ -372,10 +372,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "c", descriptor = "(II)Ljava/lang/Integer;")
     public Integer method3490(@OriginalArg(0) int arg0) {
-        if (this.aHashTable_19 == null) {
+        if (this.aIterableHashTable_19 == null) {
             return null;
         } else {
-            @Pc(24) Node local24 = this.aHashTable_19.get((long) arg0);
+            @Pc(24) Node local24 = this.aIterableHashTable_19.get((long) arg0);
             return local24 != null && local24 instanceof IntNode ? Integer.valueOf(((IntNode) local24).value) : null;
         }
     }
@@ -422,10 +422,10 @@ public final class Class164 {
         @Pc(35) int local35 = local9 ^ local23;
         @Pc(39) int local39 = arg2 << arg1;
         @Pc(43) int local43 = local39 & local35;
-        if (this.aHashTable_19 == null) {
-            this.aHashTable_19 = new HashTable(4);
+        if (this.aIterableHashTable_19 == null) {
+            this.aIterableHashTable_19 = new IterableHashTable(4);
         } else {
-            @Pc(63) Node local63 = this.aHashTable_19.get((long) arg3);
+            @Pc(63) Node local63 = this.aIterableHashTable_19.get((long) arg3);
             if (local63 != null) {
                 if (local63 instanceof IntNode) {
                     @Pc(73) IntNode local73 = (IntNode) local63;
@@ -439,7 +439,7 @@ public final class Class164 {
                 local63.unlink();
             }
         }
-        this.aHashTable_19.put((long) arg3, new IntNode(local43));
+        this.aIterableHashTable_19.put((long) arg3, new IntNode(local43));
         return true;
     }
 
@@ -539,20 +539,20 @@ public final class Class164 {
         if (local282 <= 0) {
             return;
         }
-        this.aHashTable_19 = new HashTable(local282 >= 16 ? 16 : IntMath.nextPow2(local282));
+        this.aIterableHashTable_19 = new IterableHashTable(local282 >= 16 ? 16 : IntMath.nextPow2(local282));
         while (local282-- > 0) {
             @Pc(493) int local493 = arg0.g4();
             @Pc(497) int local497 = local493 & 0x3FFFFFFF;
             @Pc(501) int local501 = local493 >>> 30;
             if (local501 == 0) {
                 @Pc(510) int local510 = arg0.g4();
-                this.aHashTable_19.put((long) local497, new IntNode(local510));
+                this.aIterableHashTable_19.put((long) local497, new IntNode(local510));
             } else if (local501 == 1) {
                 @Pc(533) long local533 = arg0.g8();
-                this.aHashTable_19.put((long) local497, new Node_Sub48(local533));
+                this.aIterableHashTable_19.put((long) local497, new Node_Sub48(local533));
             } else if (local501 == 2) {
                 @Pc(556) String local556 = arg0.gjstr();
-                this.aHashTable_19.put((long) local497, new StringNode(local556));
+                this.aIterableHashTable_19.put((long) local497, new StringNode(local556));
             }
         }
         return;
@@ -560,10 +560,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(BIII)Ljava/lang/Integer;")
     public Integer method3495(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        if (this.aHashTable_19 == null) {
+        if (this.aIterableHashTable_19 == null) {
             return null;
         }
-        @Pc(16) Node local16 = this.aHashTable_19.get((long) arg0);
+        @Pc(16) Node local16 = this.aIterableHashTable_19.get((long) arg0);
         if (local16 != null && local16 instanceof IntNode) {
             @Pc(50) int local50 = arg1 == 31 ? -1 : (0x1 << arg1 + 1) - 1;
             return Integer.valueOf((((IntNode) local16).value & local50) >>> arg2);
@@ -580,10 +580,10 @@ public final class Class164 {
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(III)Z")
     public boolean method3498(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (this.aHashTable_19 == null) {
-            this.aHashTable_19 = new HashTable(4);
+        if (this.aIterableHashTable_19 == null) {
+            this.aIterableHashTable_19 = new IterableHashTable(4);
         } else {
-            @Pc(35) Node local35 = this.aHashTable_19.get((long) arg1);
+            @Pc(35) Node local35 = this.aIterableHashTable_19.get((long) arg1);
             if (local35 != null) {
                 if (local35 instanceof IntNode) {
                     @Pc(45) IntNode local45 = (IntNode) local35;
@@ -596,7 +596,7 @@ public final class Class164 {
                 local35.unlink();
             }
         }
-        this.aHashTable_19.put((long) arg1, new IntNode(arg0));
+        this.aIterableHashTable_19.put((long) arg1, new IntNode(arg0));
         return true;
     }
 }

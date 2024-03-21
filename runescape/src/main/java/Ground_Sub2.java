@@ -1,6 +1,6 @@
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
@@ -102,7 +102,7 @@ public final class Ground_Sub2 extends Ground {
     public final int anInt7499;
 
     @OriginalMember(owner = "client!pn", name = "M", descriptor = "Lclient!av;")
-    public HashTable aHashTable_37;
+    public IterableHashTable aIterableHashTable_37;
 
     @OriginalMember(owner = "client!pn", name = "xb", descriptor = "Lclient!hn;")
     public Class170 aClass170_1;
@@ -135,7 +135,7 @@ public final class Ground_Sub2 extends Ground {
                 this.aFloatArrayArray16[local121][local115] = local176 * (float) local157;
             }
         }
-        this.aHashTable_37 = new HashTable(128);
+        this.aIterableHashTable_37 = new IterableHashTable(128);
         if ((this.anInt7486 & 0x10) != 0) {
             this.aClass170_1 = new Class170(this.aClass19_Sub3_33, this);
         }
@@ -313,8 +313,8 @@ public final class Ground_Sub2 extends Ground {
                     local25[local27][local31] = (byte) ((this.aByteArrayArray26[local27][local31] >> 1) + (this.aByteArrayArray26[local27 + 1][local31] >> 3) + (this.aByteArrayArray26[local27 - 1][local31] >> 2) + (this.aByteArrayArray26[local27][local31 + -1] >> 2) + (this.aByteArrayArray26[local27][local31 + 1] >> 3));
                 }
             }
-            this.aClass2_Sub39Array1 = new Node_Sub39[this.aHashTable_37.size()];
-            this.aHashTable_37.flatten(this.aClass2_Sub39Array1);
+            this.aClass2_Sub39Array1 = new Node_Sub39[this.aIterableHashTable_37.size()];
+            this.aIterableHashTable_37.copyTo(this.aClass2_Sub39Array1);
             for (local31 = 0; local31 < this.aClass2_Sub39Array1.length; local31++) {
                 this.aClass2_Sub39Array1[local31].method5868(this.anInt7508);
             }
@@ -332,7 +332,7 @@ public final class Ground_Sub2 extends Ground {
             if (local194 < 1) {
                 local194 = 1;
             }
-            @Pc(206) HashTable local206 = new HashTable(local194);
+            @Pc(206) IterableHashTable local206 = new IterableHashTable(local194);
             @Pc(210) Node_Sub39[] local210 = new Node_Sub39[this.anInt7507];
             @Pc(216) int local216;
             for (@Pc(212) int local212 = 0; super.anInt8894 > local212; local212++) {
@@ -628,7 +628,7 @@ public final class Ground_Sub2 extends Ground {
             }
         }
         this.anIntArrayArrayArray14 = this.anIntArrayArrayArray11 = null;
-        this.aHashTable_37 = null;
+        this.aIterableHashTable_37 = null;
         this.anIntArrayArrayArray10 = null;
         this.anIntArrayArrayArray13 = null;
         this.anIntArrayArrayArray12 = null;
@@ -703,7 +703,7 @@ public final class Ground_Sub2 extends Ground {
             }
             @Pc(164) long local164 = (long) local114 | (long) arg12 << 48 | (long) arg11 << 42 | (long) arg10 << 28 | (long) (local118 << 14);
             @Pc(170) Node local170;
-            for (local170 = this.aHashTable_37.get(local164); local170 != null; local170 = this.aHashTable_37.nextWithSameKey()) {
+            for (local170 = this.aIterableHashTable_37.get(local164); local170 != null; local170 = this.aIterableHashTable_37.nextWithSameKey()) {
                 @Pc(177) Node_Sub39 local177 = (Node_Sub39) local170;
                 if (local177.anInt6592 == local114 && (float) local118 == local177.aFloat121 && arg10 == local177.anInt6593 && local177.anInt6595 == arg11 && local177.anInt6585 == arg12) {
                     break;
@@ -711,7 +711,7 @@ public final class Ground_Sub2 extends Ground {
             }
             if (local170 == null) {
                 local104[local106] = new Node_Sub39(this, local114, local118, arg10, arg11, arg12);
-                this.aHashTable_37.put(local164, local104[local106]);
+                this.aIterableHashTable_37.put(local164, local104[local106]);
             } else {
                 local104[local106] = (Node_Sub39) local170;
             }

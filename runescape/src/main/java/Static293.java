@@ -143,7 +143,7 @@ public final class Static293 {
         if (Static586.aClass225_215 == arg0.aClass225_93) {
             local277 = local11.g4_alt1();
             Static574.method7573();
-            @Pc(287) Node_Sub4 local287 = (Node_Sub4) Static548.aHashTable_40.get((long) local277);
+            @Pc(287) Node_Sub4 local287 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local277);
             if (local287 != null) {
                 Static449.method6115(false, true, local287);
             }
@@ -1402,14 +1402,14 @@ public final class Static293 {
                                                                     local277 = local11.g4_alt2();
                                                                     local100 = local11.g4_alt3();
                                                                     Static574.method7573();
-                                                                    @Pc(5438) Node_Sub4 local5438 = (Node_Sub4) Static548.aHashTable_40.get((long) local100);
-                                                                    local5445 = (Node_Sub4) Static548.aHashTable_40.get((long) local277);
+                                                                    @Pc(5438) Node_Sub4 local5438 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local100);
+                                                                    local5445 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local277);
                                                                     if (local5445 != null) {
                                                                         Static449.method6115(false, local5438 == null || local5438.anInt147 != local5445.anInt147, local5445);
                                                                     }
                                                                     if (local5438 != null) {
                                                                         local5438.unlink();
-                                                                        Static548.aHashTable_40.put((long) local277, local5438);
+                                                                        Static548.aIterableHashTable_40.put((long) local277, local5438);
                                                                     }
                                                                     @Pc(5487) Component local5487 = InterfaceList.list(local100);
                                                                     if (local5487 != null) {
@@ -1430,7 +1430,7 @@ public final class Static293 {
                                                                     local100 = local11.g4_alt1();
                                                                     local526 = local11.g1();
                                                                     Static574.method7573();
-                                                                    local5445 = (Node_Sub4) Static548.aHashTable_40.get((long) local100);
+                                                                    local5445 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local100);
                                                                     if (local5445 != null) {
                                                                         Static449.method6115(false, local5445.anInt147 != local277, local5445);
                                                                     }

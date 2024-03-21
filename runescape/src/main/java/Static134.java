@@ -44,7 +44,7 @@ public final class Static134 {
         if (arg0.aComponentArray1 != null) {
             Static220.method3200(local16, arg1, local37, arg0.aComponentArray1, arg0.slot);
         }
-        @Pc(72) Node_Sub4 local72 = (Node_Sub4) Static548.aHashTable_40.get((long) arg0.slot);
+        @Pc(72) Node_Sub4 local72 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) arg0.slot);
         if (local72 != null) {
             Static19.method265(arg1, local72.anInt147, local37, local16);
         }

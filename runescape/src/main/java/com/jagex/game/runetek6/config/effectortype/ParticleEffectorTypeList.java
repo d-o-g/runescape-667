@@ -1,6 +1,6 @@
 package com.jagex.game.runetek6.config.effectortype;
 
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
@@ -15,7 +15,7 @@ public final class ParticleEffectorTypeList {
     public static final ParticleEffectorType[] types = new ParticleEffectorType[16];
 
     @OriginalMember(owner = "client!ps", name = "i", descriptor = "Lclient!av;")
-    public static final HashTable table = new HashTable(16);
+    public static final IterableHashTable table = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!wk", name = "h", descriptor = "Lclient!dla;")
     private static final ReferenceCache recentUse = new ReferenceCache(64);

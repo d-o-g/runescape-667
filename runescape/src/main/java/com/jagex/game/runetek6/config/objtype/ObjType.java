@@ -1,7 +1,7 @@
 package com.jagex.game.runetek6.config.objtype;
 
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.datastruct.ref.ReferenceCache;
@@ -54,7 +54,7 @@ public final class ObjType {
     public int[] countco;
 
     @OriginalMember(owner = "client!vfa", name = "nb", descriptor = "Lclient!av;")
-    public HashTable params;
+    public IterableHashTable params;
 
     @OriginalMember(owner = "client!vfa", name = "n", descriptor = "[B")
     public byte[] recol_d_palette;
@@ -505,7 +505,7 @@ public final class ObjType {
 
             if (this.params == null) {
                 @Pc(212) int size = IntMath.nextPow2(count);
-                this.params = new HashTable(size);
+                this.params = new IterableHashTable(size);
             }
 
             for (@Pc(212) int i = 0; i < count; i++) {

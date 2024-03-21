@@ -358,7 +358,7 @@ public final class InterfaceManager {
                     if (child.aComponentArray1 != null) {
                         draw(child.slot, local125 - child.anInt3809, child.aComponentArray1, local216, local222, local371, rectangle, arg7, local359, local130 - child.anInt3768);
                     }
-                    local1214 = (Node_Sub4) Static548.aHashTable_40.get((long) child.slot);
+                    local1214 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) child.slot);
                     if (local1214 != null) {
                         Static534.method7120(local1214.anInt147, local216, local359, local222, local130, rectangle, local125, local371);
                     }

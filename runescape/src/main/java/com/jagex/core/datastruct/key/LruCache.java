@@ -21,7 +21,7 @@ public final class LruCache {
     public final int capacity;
 
     @OriginalMember(owner = "client!ts", name = "c", descriptor = "Lclient!av;")
-    public final HashTable table;
+    public final IterableHashTable table;
 
     @OriginalMember(owner = "client!ts", name = "<init>", descriptor = "(I)V")
     public LruCache(@OriginalArg(0) int capacity) {
@@ -30,7 +30,7 @@ public final class LruCache {
         @Pc(19) int bucketCount;
         for (bucketCount = 1; bucketCount + bucketCount < capacity; bucketCount += bucketCount) {
         }
-        this.table = new HashTable(bucketCount);
+        this.table = new IterableHashTable(bucketCount);
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(BLclient!cm;J)V")

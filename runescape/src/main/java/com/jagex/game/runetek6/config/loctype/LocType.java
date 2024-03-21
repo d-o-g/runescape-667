@@ -1,7 +1,7 @@
 package com.jagex.game.runetek6.config.loctype;
 
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.datastruct.ref.ReferenceCache;
@@ -58,7 +58,7 @@ public final class LocType {
     public byte[] recol_d_palette;
 
     @OriginalMember(owner = "client!c", name = "kb", descriptor = "Lclient!av;")
-    public HashTable params;
+    public IterableHashTable params;
 
     @OriginalMember(owner = "client!c", name = "mb", descriptor = "[S")
     public short[] recol_d;
@@ -533,7 +533,7 @@ public final class LocType {
             @Pc(37) int count = packet.g1();
             if (this.params == null) {
                 @Pc(47) int size = IntMath.nextPow2(count);
-                this.params = new HashTable(size);
+                this.params = new IterableHashTable(size);
             }
 
             for (@Pc(47) int i = 0; i < count; i++) {

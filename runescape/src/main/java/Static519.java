@@ -1,6 +1,6 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
-import com.jagex.core.datastruct.key.Class144;
+import com.jagex.core.datastruct.key.HashTable;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -11,7 +11,7 @@ public final class Static519 {
     public static final Class162 aClass162_4 = new Class162("RC", 1);
 
     @OriginalMember(owner = "client!qfa", name = "n", descriptor = "Lclient!gga;")
-    public static Class144 aClass144_1 = new Class144(8);
+    public static HashTable aHashTable_1 = new HashTable(8);
 
     @OriginalMember(owner = "client!qfa", name = "b", descriptor = "(B)I")
     public static int method6831() {

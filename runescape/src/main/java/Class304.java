@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.VarDomain;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -21,7 +21,7 @@ public final class Class304 implements VarDomain {
     }
 
     @OriginalMember(owner = "client!qga", name = "b", descriptor = "Lclient!av;")
-    public HashTable aHashTable_39 = new HashTable(128);
+    public IterableHashTable aIterableHashTable_39 = new IterableHashTable(128);
 
     @OriginalMember(owner = "client!qga", name = "k", descriptor = "[I")
     public final int[] anIntArray622 = new int[Static36.aClass260_1.anInt6462];
@@ -32,10 +32,10 @@ public final class Class304 implements VarDomain {
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(III)V")
     public void method6866(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         this.anIntArray621[arg0] = arg1;
-        @Pc(24) Node_Sub48 local24 = (Node_Sub48) this.aHashTable_39.get((long) arg0);
+        @Pc(24) Node_Sub48 local24 = (Node_Sub48) this.aIterableHashTable_39.get((long) arg0);
         if (local24 == null) {
             local24 = new Node_Sub48(SystemTimer.safetime() + 500L);
-            this.aHashTable_39.put((long) arg0, local24);
+            this.aIterableHashTable_39.put((long) arg0, local24);
         } else {
             local24.aLong264 = SystemTimer.safetime() + 500L;
         }
@@ -61,7 +61,7 @@ public final class Class304 implements VarDomain {
                 this.anIntArray621[local5] = 0;
             }
         }
-        this.aHashTable_39 = new HashTable(128);
+        this.aIterableHashTable_39 = new IterableHashTable(128);
     }
 
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(BII)V")
@@ -101,7 +101,7 @@ public final class Class304 implements VarDomain {
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(IZ)I")
     public int method6872(@OriginalArg(1) boolean arg0) {
         @Pc(8) long local8 = SystemTimer.safetime();
-        for (@Pc(23) Node_Sub48 local23 = arg0 ? (Node_Sub48) this.aHashTable_39.first() : (Node_Sub48) this.aHashTable_39.next(); local23 != null; local23 = (Node_Sub48) this.aHashTable_39.next()) {
+        for (@Pc(23) Node_Sub48 local23 = arg0 ? (Node_Sub48) this.aIterableHashTable_39.first() : (Node_Sub48) this.aIterableHashTable_39.next(); local23 != null; local23 = (Node_Sub48) this.aIterableHashTable_39.next()) {
             if ((local23.aLong264 & 0x3FFFFFFFFFFFFFFFL) < local8) {
                 if ((local23.aLong264 & 0x4000000000000000L) != 0L) {
                     @Pc(55) int local55 = (int) local23.key;
@@ -118,10 +118,10 @@ public final class Class304 implements VarDomain {
     @OriginalMember(owner = "client!qga", name = "b", descriptor = "(BII)V")
     public void method6873(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         this.anIntArray622[arg0] = arg1;
-        @Pc(24) Node_Sub48 local24 = (Node_Sub48) this.aHashTable_39.get((long) arg0);
+        @Pc(24) Node_Sub48 local24 = (Node_Sub48) this.aIterableHashTable_39.get((long) arg0);
         if (local24 == null) {
             local24 = new Node_Sub48(4611686018427387905L);
-            this.aHashTable_39.put((long) arg0, local24);
+            this.aIterableHashTable_39.put((long) arg0, local24);
         } else if (local24.aLong264 != 4611686018427387905L) {
             local24.aLong264 = SystemTimer.safetime() + 500L | 0x4000000000000000L;
         }

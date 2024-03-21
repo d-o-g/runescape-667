@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -12,7 +12,7 @@ public final class Static106 {
     public static Class297_Sub1[] aClass297_Sub1Array1;
 
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "Lclient!av;")
-    public static final HashTable A_HASH_TABLE___11 = new HashTable(4);
+    public static final IterableHashTable A_HASH_TABLE___11 = new IterableHashTable(4);
 
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ILclient!ha;)V")
     public static void method2046(@OriginalArg(1) Toolkit arg0) {

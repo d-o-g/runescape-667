@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.Class144;
+import com.jagex.core.datastruct.key.HashTable;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -62,7 +62,7 @@ public final class Static105 {
 
     @OriginalMember(owner = "client!df", name = "b", descriptor = "(I)V")
     public static void method2044() {
-        Static519.aClass144_1 = new Class144(8);
+        Static519.aHashTable_1 = new HashTable(8);
         Static654.anInt9740 = 0;
         for (@Pc(20) ParticleSystem local20 = (ParticleSystem) ParticleSystem.systems.first(); local20 != null; local20 = (ParticleSystem) ParticleSystem.systems.next()) {
             local20.method3652();

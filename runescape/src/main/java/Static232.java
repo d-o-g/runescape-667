@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Toolkit;
@@ -21,7 +21,7 @@ public final class Static232 {
     public static int anInt3764 = 0;
 
     @OriginalMember(owner = "client!hda", name = "ob", descriptor = "Lclient!av;")
-    public static final HashTable A_HASH_TABLE___18 = new HashTable(8);
+    public static final IterableHashTable A_HASH_TABLE___18 = new IterableHashTable(8);
 
     @OriginalMember(owner = "client!hda", name = "u", descriptor = "Lclient!mia;")
     public static final Class242 aClass242_6 = new Class242("", 21);

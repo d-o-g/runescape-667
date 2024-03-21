@@ -4,7 +4,7 @@ import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
 import com.jagex.core.datastruct.Node2;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.SystemTimer;
@@ -122,7 +122,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     public boolean aBoolean330;
 
     @OriginalMember(owner = "client!iaa", name = "N", descriptor = "Lclient!av;")
-    public HashTable aHashTable_20;
+    public IterableHashTable aIterableHashTable_20;
 
     @OriginalMember(owner = "client!iaa", name = "L", descriptor = "I")
     public int anInt4186;
@@ -189,7 +189,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         super(arg0);
         this.aBoolean331 = false;
         this.aBoolean330 = false;
-        this.aHashTable_20 = new HashTable(4);
+        this.aIterableHashTable_20 = new IterableHashTable(4);
         this.anInt4186 = 0;
         this.anInt4188 = 512;
         this.anInt4202 = 75518;
@@ -246,7 +246,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         this.aCanvas3 = null;
         this.anInt4183 = 0;
         this.anInt4185 = 0;
-        this.aHashTable_20 = null;
+        this.aIterableHashTable_20 = null;
         this.aBoolean331 = true;
     }
 
@@ -442,7 +442,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             }
             return;
         }
-        @Pc(10) Node_Sub10 local10 = (Node_Sub10) this.aHashTable_20.get((long) arg0.hashCode());
+        @Pc(10) Node_Sub10 local10 = (Node_Sub10) this.aIterableHashTable_20.get((long) arg0.hashCode());
         if (local10 == null) {
             return;
         }
@@ -933,13 +933,13 @@ public final class Toolkit_Sub2 extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aHashTable_20.get((long) arg0.hashCode());
+        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aIterableHashTable_20.get((long) arg0.hashCode());
         if (local8 == null) {
             return;
         }
         local8.unlink();
         local8 = Static538.method7192(arg2, arg0, arg1);
-        this.aHashTable_20.put((long) arg0.hashCode(), local8);
+        this.aIterableHashTable_20.put((long) arg0.hashCode(), local8);
         if (this.aCanvas3 != arg0 || this.aClass87_1 != null) {
             return;
         }
@@ -2818,10 +2818,10 @@ public final class Toolkit_Sub2 extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aHashTable_20.get((long) arg0.hashCode());
+        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aIterableHashTable_20.get((long) arg0.hashCode());
         if (local8 == null) {
             local8 = Static538.method7192(arg2, arg0, arg1);
-            this.aHashTable_20.put((long) arg0.hashCode(), local8);
+            this.aIterableHashTable_20.put((long) arg0.hashCode(), local8);
         } else if (local8.anInt7053 != arg1 || local8.anInt7050 != arg2) {
             this.method7935(arg0, arg1, arg2);
         }
@@ -2883,7 +2883,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         if (this.aCanvas3 == arg0) {
             this.method8019((Canvas) null);
         }
-        @Pc(17) Node_Sub10 local17 = (Node_Sub10) this.aHashTable_20.get((long) arg0.hashCode());
+        @Pc(17) Node_Sub10 local17 = (Node_Sub10) this.aIterableHashTable_20.get((long) arg0.hashCode());
         if (local17 != null) {
             local17.unlink();
         }

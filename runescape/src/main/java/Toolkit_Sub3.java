@@ -5,7 +5,7 @@ import com.jagex.Class84;
 import com.jagex.Interface26;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.stringtools.general.StringTools;
@@ -549,7 +549,7 @@ public final class Toolkit_Sub3 extends Toolkit {
     public Toolkit_Sub3(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2) {
         super(arg1);
         new Queue();
-        new HashTable(16);
+        new IterableHashTable(16);
         this.aDeque_47 = new Deque();
         this.aDeque_48 = new Deque();
         this.aDeque_49 = new Deque();

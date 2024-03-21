@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Node2;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -22,7 +22,7 @@ public final class DoublyLinkedNode_Sub2_Sub10 extends Node2 {
     public int anInt2949;
 
     @OriginalMember(owner = "client!fj", name = "B", descriptor = "[Lclient!av;")
-    public HashTable[] aHashTableArray1;
+    public IterableHashTable[] aIterableHashTableArray1;
 
     @OriginalMember(owner = "client!fj", name = "E", descriptor = "[Ljava/lang/String;")
     public String[] aStringArray14;

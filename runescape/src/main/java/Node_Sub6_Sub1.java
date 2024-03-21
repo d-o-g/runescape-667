@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -99,18 +99,18 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     public final Node_Sub6_Sub4 aClass2_Sub6_Sub4_1 = new Node_Sub6_Sub4(this);
 
     @OriginalMember(owner = "client!bd", name = "q", descriptor = "Lclient!av;")
-    public final HashTable aHashTable_7;
+    public final IterableHashTable aIterableHashTable_7;
 
     @OriginalMember(owner = "client!bd", name = "<init>", descriptor = "()V")
     public Node_Sub6_Sub1() {
-        this.aHashTable_7 = new HashTable(128);
+        this.aIterableHashTable_7 = new IterableHashTable(128);
         this.method926(256, -1);
         this.method942(true);
     }
 
     @OriginalMember(owner = "client!bd", name = "<init>", descriptor = "(Lclient!bd;)V")
     public Node_Sub6_Sub1(@OriginalArg(0) Node_Sub6_Sub1 arg0) {
-        this.aHashTable_7 = arg0.aHashTable_7;
+        this.aIterableHashTable_7 = arg0.aIterableHashTable_7;
         this.method926(256, -1);
         this.method942(true);
     }
@@ -547,7 +547,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(B)V")
     public synchronized void method927() {
-        for (@Pc(5) Node_Sub11 local5 = (Node_Sub11) this.aHashTable_7.first(); local5 != null; local5 = (Node_Sub11) this.aHashTable_7.next()) {
+        for (@Pc(5) Node_Sub11 local5 = (Node_Sub11) this.aIterableHashTable_7.first(); local5 != null; local5 = (Node_Sub11) this.aIterableHashTable_7.next()) {
             local5.unlink();
         }
     }
@@ -639,7 +639,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(I)V")
     public synchronized void method933() {
-        for (@Pc(7) Node_Sub11 local7 = (Node_Sub11) this.aHashTable_7.first(); local7 != null; local7 = (Node_Sub11) this.aHashTable_7.next()) {
+        for (@Pc(7) Node_Sub11 local7 = (Node_Sub11) this.aIterableHashTable_7.first(); local7 != null; local7 = (Node_Sub11) this.aIterableHashTable_7.next()) {
             local7.method1521();
         }
     }
@@ -666,7 +666,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
                 }
             }
         }
-        @Pc(117) Node_Sub11 local117 = (Node_Sub11) this.aHashTable_7.get((long) this.anIntArray54[arg0]);
+        @Pc(117) Node_Sub11 local117 = (Node_Sub11) this.aIterableHashTable_7.get((long) this.anIntArray54[arg0]);
         if (local117 == null) {
             return;
         }
@@ -790,16 +790,16 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         arg2.method1154();
         @Pc(15) boolean local15 = true;
         @Pc(29) int[] local29 = new int[]{22050};
-        for (@Pc(35) Node_Sub55 local35 = (Node_Sub55) arg2.aHashTable_8.first(); local35 != null; local35 = (Node_Sub55) arg2.aHashTable_8.next()) {
+        for (@Pc(35) Node_Sub55 local35 = (Node_Sub55) arg2.aIterableHashTable_8.first(); local35 != null; local35 = (Node_Sub55) arg2.aIterableHashTable_8.next()) {
             @Pc(40) int local40 = (int) local35.key;
-            @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aHashTable_7.get((long) local40);
+            @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aIterableHashTable_7.get((long) local40);
             if (local48 == null) {
                 local48 = Static680.method8917(arg1, local40);
                 if (local48 == null) {
                     local15 = false;
                     continue;
                 }
-                this.aHashTable_7.put((long) local40, local48);
+                this.aIterableHashTable_7.put((long) local40, local48);
             }
             if (!local48.method1526(arg0, local29, local35.aByteArray105)) {
                 local15 = false;

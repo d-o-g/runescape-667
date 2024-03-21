@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -9,7 +9,7 @@ public final class Static548 {
     public static int anInt8259;
 
     @OriginalMember(owner = "client!re", name = "n", descriptor = "Lclient!av;")
-    public static HashTable aHashTable_40 = new HashTable(8);
+    public static IterableHashTable aIterableHashTable_40 = new IterableHashTable(8);
 
     @OriginalMember(owner = "client!re", name = "a", descriptor = "(IIIIIIB)V")
     public static void method7253(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {

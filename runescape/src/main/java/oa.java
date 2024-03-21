@@ -4,7 +4,7 @@ import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
 import com.jagex.core.datastruct.key.Deque;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
@@ -65,7 +65,7 @@ public final class oa extends Toolkit implements Interface5 {
     public int anInt6769 = 4096;
 
     @OriginalMember(owner = "client!oa", name = "x", descriptor = "Lclient!av;")
-    public final HashTable aHashTable_33 = new HashTable(4);
+    public final IterableHashTable aIterableHashTable_33 = new IterableHashTable(4);
 
     @OriginalMember(owner = "client!oa", name = "G", descriptor = "Z")
     public boolean aBoolean510 = false;
@@ -185,7 +185,7 @@ public final class oa extends Toolkit implements Interface5 {
             this.aP1 = null;
             this.t((p) null);
         } else {
-            @Pc(10) p local10 = (p) this.aHashTable_33.get((long) arg0.hashCode());
+            @Pc(10) p local10 = (p) this.aIterableHashTable_33.get((long) arg0.hashCode());
             this.aP1 = local10;
             this.t(local10);
         }
@@ -197,7 +197,7 @@ public final class oa extends Toolkit implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) p local8 = (p) this.aHashTable_33.get((long) arg0.hashCode());
+        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get((long) arg0.hashCode());
         local8.method6439(arg0, arg1, arg2);
         if (arg0 != null && arg0 == this.aP1.aCanvas9) {
             this.method8019(arg0);
@@ -353,7 +353,7 @@ public final class oa extends Toolkit implements Interface5 {
         if (this.aP1.aCanvas9 == arg0) {
             this.method8019((Canvas) null);
         }
-        @Pc(18) p local18 = (p) this.aHashTable_33.get((long) arg0.hashCode());
+        @Pc(18) p local18 = (p) this.aIterableHashTable_33.get((long) arg0.hashCode());
         if (local18 != null) {
             local18.unlink();
             local18.method6442();
@@ -498,7 +498,7 @@ public final class oa extends Toolkit implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) p local8 = (p) this.aHashTable_33.get((long) arg0.hashCode());
+        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get((long) arg0.hashCode());
         if (local8 == null) {
             try {
                 @Pc(15) Class local15 = Class.forName("java.awt.Canvas");
@@ -507,7 +507,7 @@ public final class oa extends Toolkit implements Interface5 {
             } catch (@Pc(39) Exception local39) {
             }
             local8 = new p(this, arg0, arg1, arg2);
-            this.aHashTable_33.put((long) arg0.hashCode(), local8);
+            this.aIterableHashTable_33.put((long) arg0.hashCode(), local8);
         } else if (local8.anInt7161 != arg1 || local8.anInt7162 != arg2) {
             local8.method6439(arg0, arg1, arg2);
         }
@@ -801,7 +801,7 @@ public final class oa extends Toolkit implements Interface5 {
         this.aP1 = null;
         this.aYa2 = null;
         this.aMatrix_8 = null;
-        this.aHashTable_33.clear();
+        this.aIterableHashTable_33.clear();
         for (@Pc(26) ya local26 = (ya) this.aDeque_38.first(); local26 != null; local26 = (ya) this.aDeque_38.next()) {
             local26.ga();
         }

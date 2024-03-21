@@ -1,5 +1,5 @@
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.io.Packet;
@@ -22,7 +22,7 @@ public final class Class218 {
     public int[][] anIntArrayArray137;
 
     @OriginalMember(owner = "client!la", name = "j", descriptor = "Lclient!av;")
-    public HashTable aHashTable_30;
+    public IterableHashTable aIterableHashTable_30;
 
     @OriginalMember(owner = "client!la", name = "m", descriptor = "[I")
     public int[] anIntArray430;
@@ -155,9 +155,9 @@ public final class Class218 {
                     }
                 } else if (arg0 == 249) {
                     local29 = arg1.g1();
-                    if (this.aHashTable_30 == null) {
+                    if (this.aIterableHashTable_30 == null) {
                         local36 = IntMath.nextPow2(local29);
-                        this.aHashTable_30 = new HashTable(local36);
+                        this.aIterableHashTable_30 = new IterableHashTable(local36);
                     }
                     for (local36 = 0; local36 < local29; local36++) {
                         @Pc(224) boolean local224 = arg1.g1() == 1;
@@ -168,7 +168,7 @@ public final class Class218 {
                         } else {
                             local237 = new IntNode(arg1.g4());
                         }
-                        this.aHashTable_30.put((long) local228, local237);
+                        this.aIterableHashTable_30.put((long) local228, local237);
                     }
                 }
             }

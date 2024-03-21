@@ -1,6 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.datastruct.ref.ReferenceCache;
@@ -263,7 +263,7 @@ public final class Component {
     public Object[] onMouseLeave;
 
     @OriginalMember(owner = "client!hda", name = "qd", descriptor = "Lclient!av;")
-    public HashTable params;
+    public IterableHashTable params;
 
     @OriginalMember(owner = "client!hda", name = "tc", descriptor = "I")
     public int anInt3815;
@@ -653,7 +653,7 @@ public final class Component {
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(III)V")
     public void setParam(@OriginalArg(0) int id, @OriginalArg(2) int value) {
         if (this.params == null) {
-            this.params = new HashTable(16);
+            this.params = new IterableHashTable(16);
             this.params.put(id, new IntNode(value));
             return;
         }
@@ -1076,7 +1076,7 @@ public final class Component {
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(Ljava/lang/String;II)V")
     public void setParam(@OriginalArg(0) String value, @OriginalArg(1) int id) {
         if (this.params == null) {
-            this.params = new HashTable(16);
+            this.params = new IterableHashTable(16);
             this.params.put((long) id, new StringNode(value));
             return;
         }

@@ -94,7 +94,7 @@ public final class Static684 {
             }
             if (local120) {
                 Static416.anInt6378 = Static18.A_HASH_TABLE___2.size();
-                Static18.A_HASH_TABLE___2.flatten(Static592.aClass2_Sub45Array1);
+                Static18.A_HASH_TABLE___2.copyTo(Static592.aClass2_Sub45Array1);
             }
         }
         for (local308 = 0; local308 < 2048; local308++) {

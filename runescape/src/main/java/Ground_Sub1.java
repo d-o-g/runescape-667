@@ -1,6 +1,6 @@
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
@@ -102,7 +102,7 @@ public final class Ground_Sub1 extends Ground {
     public float[][] aFloatArrayArray5;
 
     @OriginalMember(owner = "client!iga", name = "V", descriptor = "Lclient!av;")
-    public HashTable aHashTable_21;
+    public IterableHashTable aIterableHashTable_21;
 
     @OriginalMember(owner = "client!iga", name = "Y", descriptor = "Lclient!pk;")
     public Class293 aClass293_1;
@@ -147,7 +147,7 @@ public final class Ground_Sub1 extends Ground {
         }
         this.aFloat77--;
         this.aFloat76++;
-        this.aHashTable_21 = new HashTable(128);
+        this.aIterableHashTable_21 = new IterableHashTable(128);
         if ((this.anInt4302 & 0x10) != 0) {
             this.aClass293_1 = new Class293(this.aClass19_Sub1_9, this);
         }
@@ -189,7 +189,7 @@ public final class Ground_Sub1 extends Ground {
             }
             @Pc(167) long local167 = (long) local114 | (long) arg10 << 28 | (long) arg12 << 48 | (long) arg11 << 42 | (long) (local118 << 14);
             @Pc(173) Node local173;
-            for (local173 = this.aHashTable_21.get(local167); local173 != null; local173 = this.aHashTable_21.nextWithSameKey()) {
+            for (local173 = this.aIterableHashTable_21.get(local167); local173 != null; local173 = this.aIterableHashTable_21.nextWithSameKey()) {
                 @Pc(180) Node_Sub58 local180 = (Node_Sub58) local173;
                 if (local180.anInt10870 == local114 && (float) local118 == local180.aFloat219 && local180.anInt10863 == arg10 && arg11 == local180.anInt10860 && arg12 == local180.anInt10868) {
                     break;
@@ -197,7 +197,7 @@ public final class Ground_Sub1 extends Ground {
             }
             if (local173 == null) {
                 local104[local106] = new Node_Sub58(this, local114, local118, arg10, arg11, arg12);
-                this.aHashTable_21.put(local167, local104[local106]);
+                this.aIterableHashTable_21.put(local167, local104[local106]);
             } else {
                 local104[local106] = (Node_Sub58) local173;
             }
@@ -321,8 +321,8 @@ public final class Ground_Sub1 extends Ground {
                     local28[local30][local36] = (byte) ((this.aByteArrayArray13[local30][local36 + 1] >> 3) + (this.aByteArrayArray13[local30 - 1][local36] >> 2) + (this.aByteArrayArray13[local30 - -1][local36] >> 3) + (this.aByteArrayArray13[local30][local36 - 1] >> 2) + (this.aByteArrayArray13[local30][local36] >> 1));
                 }
             }
-            @Pc(122) Node_Sub58[] local122 = new Node_Sub58[this.aHashTable_21.size()];
-            this.aHashTable_21.flatten(local122);
+            @Pc(122) Node_Sub58[] local122 = new Node_Sub58[this.aIterableHashTable_21.size()];
+            this.aIterableHashTable_21.copyTo(local122);
             for (@Pc(132) int local132 = 0; local132 < local122.length; local132++) {
                 local122[local132].method9399(this.anInt4322);
             }
@@ -342,7 +342,7 @@ public final class Ground_Sub1 extends Ground {
             if (local214 < 1) {
                 local214 = 1;
             }
-            @Pc(224) HashTable local224 = new HashTable(local214);
+            @Pc(224) IterableHashTable local224 = new IterableHashTable(local214);
             @Pc(228) Node_Sub58[] local228 = new Node_Sub58[this.anInt4321];
             @Pc(234) int local234;
             for (@Pc(230) int local230 = 0; super.anInt8894 > local230; local230++) {
@@ -653,7 +653,7 @@ public final class Ground_Sub1 extends Ground {
         this.anIntArrayArrayArray6 = null;
         this.aFloatArrayArray3 = this.aFloatArrayArray4 = this.aFloatArrayArray5 = null;
         this.anIntArrayArrayArray2 = null;
-        this.aHashTable_21 = null;
+        this.aIterableHashTable_21 = null;
     }
 
     @OriginalMember(owner = "client!iga", name = "a", descriptor = "(II)V")

@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class331 {
 
     @OriginalMember(owner = "client!sba", name = "i", descriptor = "Lclient!av;")
-    public HashTable table;
+    public IterableHashTable table;
 
     @OriginalMember(owner = "client!sba", name = "j", descriptor = "Lclient!ie;")
     public Node aNode_266;
@@ -22,7 +22,7 @@ public final class Class331 {
     }
 
     @OriginalMember(owner = "client!sba", name = "<init>", descriptor = "(Lclient!av;)V")
-    public Class331(@OriginalArg(0) HashTable table) {
+    public Class331(@OriginalArg(0) IterableHashTable table) {
         this.table = table;
     }
 

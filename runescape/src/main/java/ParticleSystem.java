@@ -178,7 +178,7 @@ public final class ParticleSystem extends Node {
                 @Pc(96) ParticleEffector local96 = null;
                 if (arg0[local21].type().visibility == 1 && Static654.anInt9740 < 32) {
                     local96 = new ParticleEffector(arg0[local21], this);
-                    Static519.aClass144_1.put(local96, (long) arg0[local21].type);
+                    Static519.aHashTable_1.put(local96, (long) arg0[local21].type);
                     Static654.anInt9740++;
                 }
                 if (local96 == null) {

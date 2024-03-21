@@ -1,5 +1,5 @@
 import com.jagex.core.datastruct.key.Deque;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
@@ -78,9 +78,9 @@ public final class Static254 {
         if (Static377.anInt5930 != -1) {
             Static347.method5094(Static377.anInt5930);
         }
-        for (@Pc(8803) Node_Sub4 local8803 = (Node_Sub4) Static548.aHashTable_40.first(); local8803 != null; local8803 = (Node_Sub4) Static548.aHashTable_40.next()) {
+        for (@Pc(8803) Node_Sub4 local8803 = (Node_Sub4) Static548.aIterableHashTable_40.first(); local8803 != null; local8803 = (Node_Sub4) Static548.aIterableHashTable_40.next()) {
             if (!local8803.isLinked()) {
-                local8803 = (Node_Sub4) Static548.aHashTable_40.first();
+                local8803 = (Node_Sub4) Static548.aIterableHashTable_40.first();
                 if (local8803 == null) {
                     break;
                 }
@@ -88,7 +88,7 @@ public final class Static254 {
             Static449.method6115(false, true, local8803);
         }
         Static377.anInt5930 = -1;
-        Static548.aHashTable_40 = new HashTable(8);
+        Static548.aIterableHashTable_40 = new IterableHashTable(8);
         Static656.method6692();
         Static390.aComponent_9 = null;
         for (@Pc(8849) int local8849 = 0; local8849 < 8; local8849++) {

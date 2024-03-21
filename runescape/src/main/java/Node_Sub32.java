@@ -1,5 +1,5 @@
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.graphics.PointLight;
 import com.jagex.math.IntMath;
 import jaclib.memory.Buffer;
@@ -56,7 +56,7 @@ public final class Node_Sub32 extends Node {
     public final Interface20 anInterface20_2;
 
     @OriginalMember(owner = "client!jw", name = "z", descriptor = "Lclient!av;")
-    public HashTable aHashTable_25;
+    public IterableHashTable aIterableHashTable_25;
 
     @OriginalMember(owner = "client!jw", name = "x", descriptor = "Lclient!jaclib/memory/Stream;")
     public Stream aStream3;
@@ -131,7 +131,7 @@ public final class Node_Sub32 extends Node {
             this.anInterface16_7 = null;
             this.anInterface20_2 = null;
         } else {
-            this.aHashTable_25 = new HashTable(IntMath.nextPow2(this.anInt5023));
+            this.aIterableHashTable_25 = new IterableHashTable(IntMath.nextPow2(this.anInt5023));
             this.anInterface20_2 = this.aClass19_Sub1_11.method8122(false);
             this.anInterface20_2.method8543(this.anInt5023);
             @Pc(448) NativeHeapBuffer local448 = this.aClass19_Sub1_11.method8106(false, this.anInt5023 * 16);
@@ -209,10 +209,10 @@ public final class Node_Sub32 extends Node {
                     break;
                 }
                 this.aStream3.f(0);
-                this.aHashTable_25.clear();
+                this.aIterableHashTable_25.clear();
             }
         }
-        this.aHashTable_25 = null;
+        this.aIterableHashTable_25 = null;
         this.aFloatArrayArray8 = this.aFloatArrayArray7 = this.aFloatArrayArray6 = null;
         this.aStream2 = null;
         this.aStream3 = null;
@@ -235,7 +235,7 @@ public final class Node_Sub32 extends Node {
         @Pc(30) int local30 = this.aClass178_Sub1_1.method7878(local23, local15);
         if ((arg4 & 0x7F) == 0 || (arg2 & 0x7F) == 0) {
             local7 = (long) local15 & 0xFFFFL | 0xFFFFL << 16 & (long) local23 << 16;
-            @Pc(63) Node local63 = this.aHashTable_25.get(local7);
+            @Pc(63) Node local63 = this.aIterableHashTable_25.get(local7);
             if (local63 != null) {
                 this.method4561(((Node_Sub50) local63).aShort119);
                 return;
@@ -243,7 +243,7 @@ public final class Node_Sub32 extends Node {
         }
         @Pc(82) short local82 = (short) this.anInt5028++;
         if (local7 != -1L) {
-            this.aHashTable_25.put(local7, new Node_Sub50(local82));
+            this.aIterableHashTable_25.put(local7, new Node_Sub50(local82));
         }
         @Pc(124) float local124;
         @Pc(110) float local110;

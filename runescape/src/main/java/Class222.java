@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.util.SystemTimer;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggPage;
@@ -51,7 +51,7 @@ public abstract class Class222 {
     public final OggPacket anOggPacket2;
 
     @OriginalMember(owner = "client!lf", name = "A", descriptor = "Lclient!av;")
-    public final HashTable aHashTable_45;
+    public final IterableHashTable aIterableHashTable_45;
 
     @OriginalMember(owner = "client!lf", name = "<init>", descriptor = "(I)V")
     protected Class222(@OriginalArg(0) int arg0) {
@@ -62,7 +62,7 @@ public abstract class Class222 {
         this.anOggSyncState2 = new OggSyncState();
         this.anOggPage2 = new OggPage();
         this.anOggPacket2 = new OggPacket();
-        this.aHashTable_45 = new HashTable(8);
+        this.aIterableHashTable_45 = new IterableHashTable(8);
     }
 
     @OriginalMember(owner = "client!lf", name = "b", descriptor = "(B)Lclient!kb;")
@@ -88,7 +88,7 @@ public abstract class Class222 {
             }
             local25 = this.anOggPage2.getSerialNumber();
             if (!this.anOggPage2.isBOS()) {
-                @Pc(81) Node_Sub28 local81 = (Node_Sub28) this.aHashTable_45.get((long) local25);
+                @Pc(81) Node_Sub28 local81 = (Node_Sub28) this.aIterableHashTable_45.get((long) local25);
                 if (!local81.anOggStreamState5.pageIn(this.anOggPage2)) {
                     throw new IllegalStateException();
                 }
@@ -118,7 +118,7 @@ public abstract class Class222 {
                         local188 = new Node_Sub28_Sub2(local99);
                     }
                 }
-                this.aHashTable_45.put((long) local25, local188);
+                this.aIterableHashTable_45.put((long) local25, local188);
                 return local188;
             } else {
                 throw new IllegalStateException();
@@ -186,7 +186,7 @@ public abstract class Class222 {
         while (!this.aBoolean800) {
             @Pc(26) Node_Sub28 local26;
             if (this.aBoolean801) {
-                local26 = (Node_Sub28) this.aHashTable_45.get((long) this.anOggPage2.getSerialNumber());
+                local26 = (Node_Sub28) this.aIterableHashTable_45.get((long) this.anOggPage2.getSerialNumber());
             } else {
                 local26 = this.method9172();
                 if (local26 == null) {
@@ -247,7 +247,7 @@ public abstract class Class222 {
 
     @OriginalMember(owner = "client!lf", name = "c", descriptor = "(B)V")
     public void method9180(@OriginalArg(0) byte arg0) {
-        for (@Pc(11) Node_Sub28 local11 = (Node_Sub28) this.aHashTable_45.first(); local11 != null; local11 = (Node_Sub28) this.aHashTable_45.next()) {
+        for (@Pc(11) Node_Sub28 local11 = (Node_Sub28) this.aIterableHashTable_45.first(); local11 != null; local11 = (Node_Sub28) this.aIterableHashTable_45.next()) {
             if (local11 instanceof Node_Sub28_Sub4) {
                 @Pc(21) Node_Sub28_Sub4 local21 = (Node_Sub28_Sub4) local11;
                 while ((local21.anInt9753 <= 8 || this.method9185() > (double) local21.method8566()) && local21.anOggStreamState5.packetOut(this.anOggPacket2) == 1) {
@@ -266,7 +266,7 @@ public abstract class Class222 {
         if (this.aBoolean800) {
             return;
         }
-        for (@Pc(14) Node_Sub28 local14 = (Node_Sub28) this.aHashTable_45.first(); local14 != null; local14 = (Node_Sub28) this.aHashTable_45.next()) {
+        for (@Pc(14) Node_Sub28 local14 = (Node_Sub28) this.aIterableHashTable_45.first(); local14 != null; local14 = (Node_Sub28) this.aIterableHashTable_45.next()) {
             local14.method8560();
             local14.anOggStreamState5.a();
         }
@@ -289,7 +289,7 @@ public abstract class Class222 {
         if (this.aClass2_Sub28_Sub4_2 != null) {
             return;
         }
-        for (@Pc(50) Node_Sub28 local50 = (Node_Sub28) this.aHashTable_45.first(); local50 != null; local50 = (Node_Sub28) this.aHashTable_45.next()) {
+        for (@Pc(50) Node_Sub28 local50 = (Node_Sub28) this.aIterableHashTable_45.first(); local50 != null; local50 = (Node_Sub28) this.aIterableHashTable_45.next()) {
             if (local50 instanceof Node_Sub28_Sub4) {
                 @Pc(57) Node_Sub28_Sub4 local57 = (Node_Sub28_Sub4) local50;
                 if (this.aString127.equals(local57.method8563())) {
@@ -319,7 +319,7 @@ public abstract class Class222 {
 
     @OriginalMember(owner = "client!lf", name = "a", descriptor = "(B)V")
     public void method9188() {
-        for (@Pc(7) Node_Sub28 local7 = (Node_Sub28) this.aHashTable_45.first(); local7 != null; local7 = (Node_Sub28) this.aHashTable_45.next()) {
+        for (@Pc(7) Node_Sub28 local7 = (Node_Sub28) this.aIterableHashTable_45.first(); local7 != null; local7 = (Node_Sub28) this.aIterableHashTable_45.next()) {
             if (local7 != this.aClass2_Sub28_Sub3_2) {
                 while (local7.anOggStreamState5.packetOut() == 1) {
                     local7.method8556(this.anOggPacket2);

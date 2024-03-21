@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -12,7 +12,7 @@ public final class Static346 {
     public static final float[] aFloatArray40 = new float[2];
 
     @OriginalMember(owner = "client!kt", name = "P", descriptor = "Lclient!av;")
-    public static final HashTable A_HASH_TABLE___29 = new HashTable(16);
+    public static final IterableHashTable A_HASH_TABLE___29 = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!kt", name = "R", descriptor = "[I")
     public static int[] anIntArray420 = new int[4];
@@ -48,7 +48,7 @@ public final class Static346 {
         }
         if (local23) {
             Static416.anInt6378 = Static18.A_HASH_TABLE___2.size();
-            Static18.A_HASH_TABLE___2.flatten(Static592.aClass2_Sub45Array1);
+            Static18.A_HASH_TABLE___2.copyTo(Static592.aClass2_Sub45Array1);
         }
         if (Static405.A_SERVER_CONNECTION___2.buffer.pos != Static405.A_SERVER_CONNECTION___2.anInt3648) {
             throw new RuntimeException("gnp1 pos:" + Static405.A_SERVER_CONNECTION___2.buffer.pos + " psize:" + Static405.A_SERVER_CONNECTION___2.anInt3648);

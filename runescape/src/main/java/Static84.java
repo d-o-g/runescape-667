@@ -309,7 +309,7 @@ public final class Static84 {
                     if (local11.aComponentArray1 != null) {
                         method1663(local11.aComponentArray1, arg1);
                     }
-                    @Pc(38) Node_Sub4 local38 = (Node_Sub4) Static548.aHashTable_40.get((long) local11.slot);
+                    @Pc(38) Node_Sub4 local38 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local11.slot);
                     if (local38 != null) {
                         Static145.method2411(arg1, local38.anInt147);
                     }
@@ -996,7 +996,7 @@ public final class Static84 {
                                 if (local6.aComponentArray1 != null) {
                                     method1669(local6.aComponentArray1, local6.slot, local30, local32, local34, local36, local19 - local6.anInt3809, local24 - local6.anInt3768, arg8, arg9, arg10, arg11);
                                 }
-                                @Pc(2824) Node_Sub4 local2824 = (Node_Sub4) Static548.aHashTable_40.get((long) local6.slot);
+                                @Pc(2824) Node_Sub4 local2824 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local6.slot);
                                 if (local2824 != null) {
                                     if (Static392.aModeGame_4 == ModeGame.RUNESCAPE && local2824.anInt146 == 0 && !Static400.aBoolean622 && local310 && !InterfaceManager.testOpacity) {
                                         Static79.method1578();

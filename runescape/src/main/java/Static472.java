@@ -1,7 +1,7 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.datastruct.ref.ReferenceCache;
@@ -1354,7 +1354,7 @@ public final class Static472 {
                                 }
                                 if (arg0 == 2702) {
                                     local15 = anIntArray578[--anInt7142];
-                                    local4653 = (Node_Sub4) Static548.aHashTable_40.get((long) local15);
+                                    local4653 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local15);
                                     if (local4653 != null) {
                                         anIntArray578[anInt7142++] = 1;
                                         return;
@@ -1382,7 +1382,7 @@ public final class Static472 {
                                     anInt7142 -= 2;
                                     local15 = anIntArray578[anInt7142];
                                     local21 = anIntArray578[anInt7142 + 1];
-                                    local4760 = (Node_Sub4) Static548.aHashTable_40.get((long) local15);
+                                    local4760 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local15);
                                     if (local4760 != null && local4760.anInt147 == local21) {
                                         anIntArray578[anInt7142++] = 1;
                                         return;
@@ -1493,7 +1493,7 @@ public final class Static472 {
                                         anInt7142 -= 2;
                                         local15 = anIntArray578[anInt7142];
                                         local21 = anIntArray578[anInt7142 + 1];
-                                        local4760 = (Node_Sub4) Static548.aHashTable_40.get((long) local15);
+                                        local4760 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local15);
                                         if (local4760 != null) {
                                             Static449.method6115(true, local4760.anInt147 != local21, local4760);
                                         }
@@ -1503,7 +1503,7 @@ public final class Static472 {
                                     if (arg0 == 3112) {
                                         anInt7142--;
                                         local15 = anIntArray578[anInt7142];
-                                        local4653 = (Node_Sub4) Static548.aHashTable_40.get((long) local15);
+                                        local4653 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local15);
                                         if (local4653 != null && local4653.anInt146 == 3) {
                                             Static449.method6115(true, true, local4653);
                                         }
@@ -3432,7 +3432,7 @@ public final class Static472 {
                             Static37.aStringArray4[local96] = aStringArray37[--anInt7139];
                             Static85.method9262(local96);
                         } else if (local34 == 51) {
-                            @Pc(889) HashTable local889 = arg0.aHashTableArray1[local11[local5]];
+                            @Pc(889) IterableHashTable local889 = arg0.aIterableHashTableArray1[local11[local5]];
                             @Pc(902) IntNode local902 = (IntNode) local889.get((long) anIntArray578[--anInt7142]);
                             if (local902 != null) {
                                 local5 += local902.value;
@@ -5638,7 +5638,7 @@ public final class Static472 {
                 } else if (arg0 >= 6700) {
                     if (arg0 < 6800 && Static598.aClass162_5 == Static225.aClass162_1) {
                         if (arg0 == 6700) {
-                            local192 = Static548.aHashTable_40.size();
+                            local192 = Static548.aIterableHashTable_40.size();
                             if (Static377.anInt5930 != -1) {
                                 local192++;
                             }
@@ -5654,9 +5654,9 @@ public final class Static472 {
                                 }
                                 local192--;
                             }
-                            @Pc(8344) Node_Sub4 local8344 = (Node_Sub4) Static548.aHashTable_40.first();
+                            @Pc(8344) Node_Sub4 local8344 = (Node_Sub4) Static548.aIterableHashTable_40.first();
                             while (local192-- > 0) {
-                                local8344 = (Node_Sub4) Static548.aHashTable_40.next();
+                                local8344 = (Node_Sub4) Static548.aIterableHashTable_40.next();
                             }
                             anIntArray578[anInt7142++] = local8344.anInt147;
                             return;

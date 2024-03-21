@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -11,7 +11,7 @@ public final class Static658 {
     public static int anInt9800;
 
     @OriginalMember(owner = "client!us", name = "k", descriptor = "Lclient!av;")
-    public static final HashTable A_HASH_TABLE___43 = new HashTable(16);
+    public static final IterableHashTable A_HASH_TABLE___43 = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!us", name = "a", descriptor = "(Lclient!eo;[Lclient!lca;)V")
     public static void method8591(@OriginalArg(0) Renderable arg0, @OriginalArg(1) PointLight[] arg1) {

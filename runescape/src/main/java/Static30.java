@@ -1,5 +1,5 @@
 import com.jagex.core.datastruct.key.Deque;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.io.Packet;
@@ -99,7 +99,7 @@ public final class Static30 {
     public static byte[] aByteArray59;
 
     @OriginalMember(owner = "client!baa", name = "l", descriptor = "Lclient!av;")
-    public static HashTable aHashTable;
+    public static IterableHashTable aIterableHashTable;
 
     @OriginalMember(owner = "client!baa", name = "r", descriptor = "I")
     public static int anInt5651;
@@ -123,7 +123,7 @@ public final class Static30 {
     public static int anInt5655;
 
     @OriginalMember(owner = "client!baa", name = "e", descriptor = "Lclient!av;")
-    public static final HashTable A_HASH_TABLE___27 = new HashTable(16);
+    public static final IterableHashTable A_HASH_TABLE___27 = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!baa", name = "q", descriptor = "I")
     public static int anInt5641 = (int) (Math.random() * 11.0D) - 5;
@@ -467,7 +467,7 @@ public final class Static30 {
                             } else if (local179 <= 0) {
                                 method5061(arg0, local28, local70, local44, local84, local175, local177, aByteArray59[local173], (short[]) null, (byte[]) null, true);
                             } else if (local179 == 65535) {
-                                @Pc(282) Node_Sub23 local282 = (Node_Sub23) aHashTable.get((long) (local50 << 16 | local93));
+                                @Pc(282) Node_Sub23 local282 = (Node_Sub23) aIterableHashTable.get((long) (local50 << 16 | local93));
                                 if (local282 != null) {
                                     method5061(arg0, local28, local70, local44, local84, local175, local177, aByteArray59[local173], local282.aShortArray59, local282.aByteArray38, true);
                                 }
@@ -516,7 +516,7 @@ public final class Static30 {
                                 if (local175 <= 0) {
                                     method5063(arg0, local40, local80, local50, local93, (short[]) null, (byte[]) null);
                                 } else if (local175 == 65535) {
-                                    @Pc(459) Node_Sub23 local459 = (Node_Sub23) aHashTable.get((long) (local57 << 16 | local173));
+                                    @Pc(459) Node_Sub23 local459 = (Node_Sub23) aIterableHashTable.get((long) (local57 << 16 | local173));
                                     if (local459 != null) {
                                         method5063(arg0, local40, local80, local50, local93, local459.aShortArray59, local459.aByteArray38);
                                     }
@@ -648,7 +648,7 @@ public final class Static30 {
         aByteArray59 = new byte[anInt5650 * anInt5644];
         aShortArray78 = new short[anInt5650 * anInt5644];
         aByteArray58 = new byte[anInt5650 * anInt5644];
-        aHashTable = new HashTable(1024);
+        aIterableHashTable = new IterableHashTable(1024);
         aLinkedListArrayArrayArray2 = new LinkedList[3][anInt5650 >> 6][anInt5644 >> 6];
         anIntArray419 = new int[aClass96_2.anInt2506 + 1];
     }
@@ -662,7 +662,7 @@ public final class Static30 {
         aByteArray59 = null;
         aShortArray78 = null;
         aByteArray58 = null;
-        aHashTable = null;
+        aIterableHashTable = null;
         aLinkedListArrayArrayArray2 = null;
         anIntArray419 = null;
     }
@@ -801,7 +801,7 @@ public final class Static30 {
                         local215[local220] = (short) arg1.g2();
                         local218[local220] = arg1.g1b();
                     }
-                    aHashTable.put((long) (arg4 << 16 | arg5), new Node_Sub23(local215, local218));
+                    aIterableHashTable.put((long) (arg4 << 16 | arg5), new Node_Sub23(local215, local218));
                 }
             } else {
                 local215 = null;
@@ -834,7 +834,7 @@ public final class Static30 {
                 if (local15 != 0) {
                     @Pc(35) int local35;
                     if (local15 == 65535) {
-                        @Pc(31) Node_Sub23 local31 = (Node_Sub23) aHashTable.get((long) (local1 << 16 | local4));
+                        @Pc(31) Node_Sub23 local31 = (Node_Sub23) aIterableHashTable.get((long) (local1 << 16 | local4));
                         if (local31 != null) {
                             for (local35 = 0; local35 < local31.aShortArray59.length; local35++) {
                                 @Pc(46) LocType local46 = aLocTypeList_3.list(local31.aShortArray59[local35] & 0xFFFF);

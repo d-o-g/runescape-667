@@ -1,5 +1,5 @@
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Node_Sub8 extends Node {
 
     @OriginalMember(owner = "client!bn", name = "l", descriptor = "Lclient!av;")
-    public HashTable aHashTable_8;
+    public IterableHashTable aIterableHashTable_8;
 
     @OriginalMember(owner = "client!bn", name = "k", descriptor = "[B")
     public final byte[] aByteArray12;
@@ -301,10 +301,10 @@ public final class Node_Sub8 extends Node {
 
     @OriginalMember(owner = "client!bn", name = "b", descriptor = "()V")
     public void method1154() {
-        if (this.aHashTable_8 != null) {
+        if (this.aIterableHashTable_8 != null) {
             return;
         }
-        this.aHashTable_8 = new HashTable(16);
+        this.aIterableHashTable_8 = new IterableHashTable(16);
         @Pc(13) int[] local13 = new int[16];
         @Pc(16) int[] local16 = new int[16];
         local13[9] = local16[9] = 128;
@@ -354,10 +354,10 @@ public final class Node_Sub8 extends Node {
                         local103 = local65 >> 16 & 0x7F;
                         if (local103 > 0) {
                             @Pc(182) int local182 = local16[local91];
-                            @Pc(190) Node_Sub55 local190 = (Node_Sub55) this.aHashTable_8.get((long) local182);
+                            @Pc(190) Node_Sub55 local190 = (Node_Sub55) this.aIterableHashTable_8.get((long) local182);
                             if (local190 == null) {
                                 local190 = new Node_Sub55(new byte[128]);
-                                this.aHashTable_8.put((long) local182, local190);
+                                this.aIterableHashTable_8.put((long) local182, local190);
                             }
                             local190.aByteArray105[local97] = 1;
                         }
@@ -371,6 +371,6 @@ public final class Node_Sub8 extends Node {
 
     @OriginalMember(owner = "client!bn", name = "a", descriptor = "()V")
     public void method1155() {
-        this.aHashTable_8 = null;
+        this.aIterableHashTable_8 = null;
     }
 }

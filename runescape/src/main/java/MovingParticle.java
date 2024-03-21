@@ -215,7 +215,7 @@ public final class MovingParticle extends Particle {
         }
         if (local35.generalEffectors != null) {
             for (local317 = 0; local317 < local35.generalEffectors.length; local317++) {
-                @Pc(776) ParticleEffector local776 = (ParticleEffector) Static519.aClass144_1.get((long) local35.generalEffectors[local317]);
+                @Pc(776) ParticleEffector local776 = (ParticleEffector) Static519.aHashTable_1.get((long) local35.generalEffectors[local317]);
                 while (local776 != null) {
                     @Pc(780) ParticleEffectorType local780 = local776.aParticleEffectorType_1;
                     @Pc(786) double local786 = (double) (local17 - local776.anInt1827);
@@ -223,7 +223,7 @@ public final class MovingParticle extends Particle {
                     @Pc(798) double local798 = (double) (local27 - local776.anInt1821);
                     @Pc(810) double local810 = local786 * local786 + local792 * local792 + local798 * local798;
                     if (local810 > (double) local780.maxRange) {
-                        local776 = (ParticleEffector) Static519.aClass144_1.method3096();
+                        local776 = (ParticleEffector) Static519.aHashTable_1.method3096();
                     } else {
                         @Pc(825) double local825 = Math.sqrt(local810);
                         if (local825 == 0.0D) {
@@ -231,7 +231,7 @@ public final class MovingParticle extends Particle {
                         }
                         @Pc(857) double local857 = (local786 * (double) local776.anInt1825 + local792 * (double) local780.dirY + local798 * (double) local776.anInt1823) * 65535.0D / ((double) local780.dirLength * local825);
                         if (local857 < (double) local780.cosTheta) {
-                            local776 = (ParticleEffector) Static519.aClass144_1.method3096();
+                            local776 = (ParticleEffector) Static519.aHashTable_1.method3096();
                         } else {
                             @Pc(871) double local871 = 0.0D;
                             if (local780.effectType == 1) {
@@ -263,7 +263,7 @@ public final class MovingParticle extends Particle {
                                 super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local780.dirY - local871) * (double) arg1);
                                 super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local776.anInt1823 - local871) * (double) arg1);
                             }
-                            local776 = (ParticleEffector) Static519.aClass144_1.method3096();
+                            local776 = (ParticleEffector) Static519.aHashTable_1.method3096();
                         }
                     }
                 }

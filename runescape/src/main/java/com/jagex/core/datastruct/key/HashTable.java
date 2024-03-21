@@ -5,152 +5,78 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-@OriginalClass("client!av")
+@OriginalClass("client!gga")
 public final class HashTable {
 
-    @OriginalMember(owner = "client!av", name = "c", descriptor = "Lclient!ie;")
-    public Node searchPointer;
+    @OriginalMember(owner = "client!gga", name = "h", descriptor = "Lclient!cm;")
+    public Node2 node;
 
-    @OriginalMember(owner = "client!av", name = "a", descriptor = "J")
+    @OriginalMember(owner = "client!gga", name = "c", descriptor = "J")
     public long searchKey;
 
-    @OriginalMember(owner = "client!av", name = "d", descriptor = "Lclient!ie;")
-    public Node iteratorPointer;
+    @OriginalMember(owner = "client!gga", name = "d", descriptor = "[Lclient!cm;")
+    public final Node2[] nodes;
 
-    @OriginalMember(owner = "client!av", name = "h", descriptor = "I")
-    public int iteratorPosition = 0;
+    @OriginalMember(owner = "client!gga", name = "a", descriptor = "I")
+    public final int capacity;
 
-    @OriginalMember(owner = "client!av", name = "q", descriptor = "I")
-    public final int bucketCount;
+    @OriginalMember(owner = "client!gga", name = "<init>", descriptor = "(I)V")
+    public HashTable(@OriginalArg(0) int capacity) {
+        this.nodes = new Node2[capacity];
+        this.capacity = capacity;
 
-    @OriginalMember(owner = "client!av", name = "e", descriptor = "[Lclient!ie;")
-    public final Node[] buckets;
-
-    @OriginalMember(owner = "client!av", name = "<init>", descriptor = "(I)V")
-    public HashTable(@OriginalArg(0) int bucketCount) {
-        this.bucketCount = bucketCount;
-        this.buckets = new Node[bucketCount];
-        for (@Pc(13) int i = 0; i < bucketCount; i++) {
-            @Pc(23) Node node = this.buckets[i] = new Node();
-            node.next = node;
-            node.prev = node;
+        for (@Pc(10) int i = 0; i < capacity; i++) {
+            @Pc(20) Node2 node = this.nodes[i] = new Node2();
+            node.prev2 = node;
+            node.next2 = node;
         }
     }
 
-    @OriginalMember(owner = "client!av", name = "a", descriptor = "(JLclient!ie;I)V")
-    public void put(@OriginalArg(0) long key, @OriginalArg(1) Node node) {
-        if (node.prev != null) {
-            node.unlink();
+    @OriginalMember(owner = "client!gga", name = "a", descriptor = "(BLclient!cm;J)V")
+    public void put(@OriginalArg(1) Node2 node, @OriginalArg(2) long key) {
+        if (node.prev2 != null) {
+            node.unlink2();
         }
-        @Pc(28) Node tail = this.buckets[(int) (key & (long) (this.bucketCount - 1))];
-        node.next = tail;
-        node.prev = tail.prev;
-        node.prev.next = node;
-        node.next.prev = node;
-        node.key = key;
+        @Pc(28) Node2 local28 = this.nodes[(int) ((long) (this.capacity - 1) & key)];
+        node.next2 = local28;
+        node.prev2 = local28.prev2;
+        node.prev2.next2 = node;
+        node.next2.prev2 = node;
+        node.key2 = key;
     }
 
-    @OriginalMember(owner = "client!av", name = "b", descriptor = "(Z)Lclient!ie;")
-    public Node first() {
-        this.iteratorPosition = 0;
-        return this.next();
-    }
-
-    @OriginalMember(owner = "client!av", name = "c", descriptor = "(Z)V")
-    public void clear() {
-        for (@Pc(6) int i = 0; i < this.bucketCount; i++) {
-            @Pc(12) Node tail = this.buckets[i];
-            while (true) {
-                @Pc(15) Node current = tail.next;
-                if (current == tail) {
-                    break;
-                }
-                current.unlink();
-            }
-        }
-        this.searchPointer = null;
-        this.iteratorPointer = null;
-    }
-
-    @OriginalMember(owner = "client!av", name = "a", descriptor = "(IJ)Lclient!ie;")
-    public Node get(@OriginalArg(1) long key) {
+    @OriginalMember(owner = "client!gga", name = "a", descriptor = "(JI)Lclient!cm;")
+    public Node2 get(@OriginalArg(0) long key) {
         this.searchKey = key;
-        @Pc(25) Node tail = this.buckets[(int) (key & (long) (this.bucketCount - 1))];
-        for (this.searchPointer = tail.next; this.searchPointer != tail; this.searchPointer = this.searchPointer.next) {
-            if (key == this.searchPointer.key) {
-                @Pc(43) Node result = this.searchPointer;
-                this.searchPointer = this.searchPointer.next;
-                return result;
+        @Pc(20) Node2 local20 = this.nodes[(int) (key & (long) (this.capacity - 1))];
+        for (this.node = local20.next2; this.node != local20; this.node = this.node.next2) {
+            if (key == this.node.key2) {
+                @Pc(41) Node2 local41 = this.node;
+                this.node = this.node.next2;
+                return local41;
             }
         }
-        this.searchPointer = null;
+        this.node = null;
         return null;
     }
 
-    @OriginalMember(owner = "client!av", name = "c", descriptor = "(B)I")
-    public int size() {
-        @Pc(5) int n = 0;
-        for (@Pc(13) int i = 0; i < this.bucketCount; i++) {
-            @Pc(19) Node tail = this.buckets[i];
-            @Pc(22) Node current = tail.next;
-            while (current != tail) {
-                current = current.next;
-                n++;
-            }
-        }
-        return n;
-    }
-
-    @OriginalMember(owner = "client!av", name = "a", descriptor = "(I)Lclient!ie;")
-    public Node next() {
-        @Pc(32) Node node;
-        if (this.iteratorPosition > 0 && this.iteratorPointer != this.buckets[this.iteratorPosition - 1]) {
-            node = this.iteratorPointer;
-            this.iteratorPointer = node.next;
-            return node;
-        }
-        while (this.bucketCount > this.iteratorPosition) {
-            node = this.buckets[this.iteratorPosition++].next;
-            if (this.buckets[this.iteratorPosition - 1] != node) {
-                this.iteratorPointer = node.next;
-                return node;
-            }
-        }
-        return null;
-    }
-
-    @OriginalMember(owner = "client!av", name = "a", descriptor = "(Z)I")
-    public int getBucketCount() {
-        return this.bucketCount;
-    }
-
-    @OriginalMember(owner = "client!av", name = "a", descriptor = "(B[Lclient!ie;)I")
-    public int flatten(@OriginalArg(1) Node[] nodes) {
-        @Pc(5) int n = 0;
-        for (@Pc(16) int i = 0; i < this.bucketCount; i++) {
-            @Pc(22) Node tail = this.buckets[i];
-            for (@Pc(25) Node current = tail.next; current != tail; current = current.next) {
-                nodes[n++] = current;
-            }
-        }
-        return n;
-    }
-
-    @OriginalMember(owner = "client!av", name = "a", descriptor = "(B)Lclient!ie;")
-    public Node nextWithSameKey() {
-        if (this.searchPointer == null) {
+    @OriginalMember(owner = "client!gga", name = "a", descriptor = "(I)Lclient!cm;")
+    public Node2 method3096() {
+        if (this.node == null) {
             return null;
         }
-        @Pc(28) Node node = this.buckets[(int) (this.searchKey & (long) (this.bucketCount - 1))];
-        while (this.searchPointer != node) {
-            if (this.searchPointer.key == this.searchKey) {
-                @Pc(43) Node current = this.searchPointer;
-                this.searchPointer = this.searchPointer.next;
-                return current;
+
+        @Pc(24) Node2 node = this.nodes[(int) (this.searchKey & (long) (this.capacity - 1))];
+        while (this.node != node) {
+            if (this.searchKey == this.node.key2) {
+                @Pc(38) Node2 local38 = this.node;
+                this.node = this.node.next2;
+                return local38;
             }
-            this.searchPointer = this.searchPointer.next;
+            this.node = this.node.next2;
         }
-        this.searchPointer = null;
+
+        this.node = null;
         return null;
     }
 }

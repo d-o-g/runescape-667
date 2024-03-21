@@ -1,7 +1,7 @@
 package com.jagex.game.runetek6.config.npctype;
 
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.datastruct.ref.ReferenceCache;
@@ -31,7 +31,7 @@ public final class NPCType {
     public static short[] clientpalette = new short[256];
 
     @OriginalMember(owner = "client!o", name = "tb", descriptor = "Lclient!av;")
-    public HashTable params;
+    public IterableHashTable params;
 
     @OriginalMember(owner = "client!o", name = "gb", descriptor = "[B")
     public byte[] recol_d_palette;
@@ -507,7 +507,7 @@ public final class NPCType {
 
             if (this.params == null) {
                 @Pc(18) int size = IntMath.nextPow2(count);
-                this.params = new HashTable(size);
+                this.params = new IterableHashTable(size);
             }
 
             for (@Pc(18) int i = 0; i < count; i++) {

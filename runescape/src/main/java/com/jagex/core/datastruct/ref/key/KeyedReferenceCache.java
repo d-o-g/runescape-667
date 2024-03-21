@@ -1,6 +1,6 @@
 package com.jagex.core.datastruct.ref.key;
 
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.datastruct.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -21,7 +21,7 @@ public final class KeyedReferenceCache {
     public int remaining;
 
     @OriginalMember(owner = "client!aka", name = "b", descriptor = "Lclient!av;")
-    public final HashTable table;
+    public final IterableHashTable table;
 
     @OriginalMember(owner = "client!aka", name = "<init>", descriptor = "(I)V")
     public KeyedReferenceCache(@OriginalArg(0) int size) {
@@ -30,7 +30,7 @@ public final class KeyedReferenceCache {
         @Pc(16) int bucketCount;
         for (bucketCount = 1; size > (bucketCount + bucketCount); bucketCount += bucketCount) {
         }
-        this.table = new HashTable(bucketCount);
+        this.table = new IterableHashTable(bucketCount);
     }
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(ILclient!uq;)V")

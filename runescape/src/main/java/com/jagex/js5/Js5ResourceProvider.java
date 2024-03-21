@@ -2,7 +2,7 @@ package com.jagex.js5;
 
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -35,7 +35,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public int loaded = 0;
 
     @OriginalMember(owner = "client!pm", name = "A", descriptor = "Lclient!av;")
-    public final HashTable waiting = new HashTable(16);
+    public final IterableHashTable waiting = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!pm", name = "h", descriptor = "I")
     public int currentGroup = 0;

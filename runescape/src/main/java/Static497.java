@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Toolkit;
@@ -12,7 +12,7 @@ public final class Static497 {
     public static boolean aBoolean564;
 
     @OriginalMember(owner = "client!pla", name = "i", descriptor = "Lclient!av;")
-    public static HashTable stacks = new HashTable(64);
+    public static IterableHashTable stacks = new IterableHashTable(64);
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ILclient!ha;)V")
     public static void method6623(@OriginalArg(1) Toolkit arg0) {

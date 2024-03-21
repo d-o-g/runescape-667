@@ -1,6 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.io.Packet;
@@ -26,7 +26,7 @@ public final class Class105 {
     public int[] anIntArray228;
 
     @OriginalMember(owner = "client!el", name = "z", descriptor = "Lclient!av;")
-    public HashTable aHashTable_14;
+    public IterableHashTable aIterableHashTable_14;
 
     @OriginalMember(owner = "client!el", name = "ab", descriptor = "I")
     public int anInt2590;
@@ -175,20 +175,20 @@ public final class Class105 {
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(IILjava/lang/String;)Ljava/lang/String;")
     public String method2426(@OriginalArg(0) int arg0, @OriginalArg(2) String arg1) {
-        if (this.aHashTable_14 == null) {
+        if (this.aIterableHashTable_14 == null) {
             return arg1;
         } else {
-            @Pc(17) StringNode local17 = (StringNode) this.aHashTable_14.get((long) arg0);
+            @Pc(17) StringNode local17 = (StringNode) this.aIterableHashTable_14.get((long) arg0);
             return local17 == null ? arg1 : local17.value;
         }
     }
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(III)I")
     public int method2427(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        if (this.aHashTable_14 == null) {
+        if (this.aIterableHashTable_14 == null) {
             return arg0;
         } else {
-            @Pc(27) IntNode local27 = (IntNode) this.aHashTable_14.get((long) arg1);
+            @Pc(27) IntNode local27 = (IntNode) this.aIterableHashTable_14.get((long) arg1);
             return local27 == null ? arg0 : local27.value;
         }
     }
@@ -330,9 +330,9 @@ public final class Class105 {
                         return;
                     } else if (arg1 == 249) {
                         local74 = arg0.g1();
-                        if (this.aHashTable_14 == null) {
+                        if (this.aIterableHashTable_14 == null) {
                             local291 = IntMath.nextPow2(local74);
-                            this.aHashTable_14 = new HashTable(local291);
+                            this.aIterableHashTable_14 = new IterableHashTable(local291);
                         }
                         for (local291 = 0; local291 < local74; local291++) {
                             @Pc(310) boolean local310 = arg0.g1() == 1;
@@ -343,7 +343,7 @@ public final class Class105 {
                             } else {
                                 local323 = new IntNode(arg0.g4());
                             }
-                            this.aHashTable_14.put((long) local314, local323);
+                            this.aIterableHashTable_14.put((long) local314, local323);
                         }
                         return;
                     }

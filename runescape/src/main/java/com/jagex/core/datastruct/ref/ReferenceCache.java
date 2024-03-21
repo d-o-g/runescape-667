@@ -1,6 +1,6 @@
 package com.jagex.core.datastruct.ref;
 
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.datastruct.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -18,7 +18,7 @@ public final class ReferenceCache {
     public int remaining;
 
     @OriginalMember(owner = "client!dla", name = "r", descriptor = "Lclient!av;")
-    public final HashTable table;
+    public final IterableHashTable table;
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "I")
     public final int capacity;
@@ -35,7 +35,7 @@ public final class ReferenceCache {
         @Pc(14) int bucketCount;
         for (bucketCount = 1; (max > (bucketCount + bucketCount)) && (bucketCount < min); bucketCount += bucketCount) {
         }
-        this.table = new HashTable(bucketCount);
+        this.table = new IterableHashTable(bucketCount);
     }
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "(I)I")

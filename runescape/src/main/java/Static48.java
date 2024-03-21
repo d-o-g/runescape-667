@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.io.Packet;
 import com.jagex.math.IntMath;
@@ -33,11 +33,11 @@ public final class Static48 {
         @Pc(95) int local95;
         @Pc(100) int local100;
         if (local84 > 0) {
-            local7.aHashTableArray1 = new HashTable[local84];
+            local7.aIterableHashTableArray1 = new IterableHashTable[local84];
             for (local95 = 0; local95 < local84; local95++) {
                 local100 = local12.g2();
-                @Pc(107) HashTable local107 = new HashTable(IntMath.nextPow2(local100));
-                local7.aHashTableArray1[local95] = local107;
+                @Pc(107) IterableHashTable local107 = new IterableHashTable(IntMath.nextPow2(local100));
+                local7.aIterableHashTableArray1[local95] = local107;
                 while (local100-- > 0) {
                     @Pc(117) int local117 = local12.g4();
                     @Pc(121) int local121 = local12.g4();

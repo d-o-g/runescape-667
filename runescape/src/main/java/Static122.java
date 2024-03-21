@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static122 {
 
-    @OriginalMember(owner = "client!dq", name = "k", descriptor = "I")
-    public static int anInt2339 = 0;
-
     @OriginalMember(owner = "client!dq", name = "b", descriptor = "(B)Lclient!fu;")
     public static Node_Sub20 method2207() {
         if (Static30.A_DEQUE___31 == null || Static444.aClass191_1 == null) {
@@ -24,10 +21,10 @@ public final class Static122 {
 
     @OriginalMember(owner = "client!dq", name = "a", descriptor = "(II)V")
     public static void method2208(@OriginalArg(0) int arg0) {
-        if (!Static571.method7566(arg0)) {
+        if (!InterfaceList.load(arg0)) {
             return;
         }
-        @Pc(13) Component[] local13 = Component.aComponentArrayArray2[arg0];
+        @Pc(13) Component[] local13 = InterfaceList.interfaces[arg0];
         for (@Pc(15) int local15 = 0; local15 < local13.length; local15++) {
             @Pc(20) Component local20 = local13[local15];
             if (local20 != null && local20.aAnimator_6 != null) {

@@ -19,7 +19,7 @@ public final class Static24 {
         if (Static377.anInt5930 != -1) {
             Static26.method716(Static377.anInt5930);
         }
-        for (@Pc(23) int local23 = 0; local23 < Static122.anInt2339; local23++) {
+        for (@Pc(23) int local23 = 0; local23 < InterfaceManager.boundaryCount; local23++) {
             if (InterfaceManager.dirtyRectangles[local23]) {
                 Static469.aBooleanArray23[local23] = true;
             }
@@ -28,7 +28,7 @@ public final class Static24 {
         }
         InterfaceManager.lastDrawCycle = TimeUtils.clock;
         if (Static377.anInt5930 != -1) {
-            Static122.anInt2339 = 0;
+            InterfaceManager.boundaryCount = 0;
             Static261.method3833();
         }
         Static163.activeToolkit.la();

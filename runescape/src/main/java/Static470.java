@@ -25,48 +25,48 @@ public final class Static470 {
     @OriginalMember(owner = "client!or", name = "a", descriptor = "(Lclient!hda;III)V")
     public static void method6383(@OriginalArg(0) Component arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (arg0.postTypeVertical == 0) {
-            arg0.anInt3784 = arg0.basePosY;
+            arg0.positionY = arg0.basePosY;
         } else if (arg0.postTypeVertical == 1) {
-            arg0.anInt3784 = arg0.basePosY + (arg2 - arg0.anInt3746) / 2;
+            arg0.positionY = arg0.basePosY + (arg2 - arg0.height) / 2;
         } else if (arg0.postTypeVertical == 2) {
-            arg0.anInt3784 = arg2 - arg0.anInt3746 - arg0.basePosY;
+            arg0.positionY = arg2 - arg0.height - arg0.basePosY;
         } else if (arg0.postTypeVertical == 3) {
-            arg0.anInt3784 = arg0.basePosY * arg2 >> 14;
+            arg0.positionY = arg0.basePosY * arg2 >> 14;
         } else if (arg0.postTypeVertical == 4) {
-            arg0.anInt3784 = (arg2 - arg0.anInt3746) / 2 + (arg2 * arg0.basePosY >> 14);
+            arg0.positionY = (arg2 - arg0.height) / 2 + (arg2 * arg0.basePosY >> 14);
         } else {
-            arg0.anInt3784 = arg2 - (arg0.basePosY * arg2 >> 14) - arg0.anInt3746;
+            arg0.positionY = arg2 - (arg0.basePosY * arg2 >> 14) - arg0.height;
         }
         if (arg0.posTypeHorizontal == 0) {
-            arg0.anInt3735 = arg0.basePosX;
+            arg0.positionX = arg0.basePosX;
         } else if (arg0.posTypeHorizontal == 1) {
-            arg0.anInt3735 = arg0.basePosX + (arg1 - arg0.anInt3802) / 2;
+            arg0.positionX = arg0.basePosX + (arg1 - arg0.width) / 2;
         } else if (arg0.posTypeHorizontal == 2) {
-            arg0.anInt3735 = arg1 - arg0.anInt3802 - arg0.basePosX;
+            arg0.positionX = arg1 - arg0.width - arg0.basePosX;
         } else if (arg0.posTypeHorizontal == 3) {
-            arg0.anInt3735 = arg0.basePosX * arg1 >> 14;
+            arg0.positionX = arg0.basePosX * arg1 >> 14;
         } else if (arg0.posTypeHorizontal == 4) {
-            arg0.anInt3735 = (arg1 - arg0.anInt3802) / 2 + (arg1 * arg0.basePosX >> 14);
+            arg0.positionX = (arg1 - arg0.width) / 2 + (arg1 * arg0.basePosX >> 14);
         } else {
-            arg0.anInt3735 = arg1 - (arg1 * arg0.basePosX >> 14) - arg0.anInt3802;
+            arg0.positionX = arg1 - (arg1 * arg0.basePosX >> 14) - arg0.width;
         }
-        if (!Static103.aBoolean195) {
+        if (!InterfaceManager.testOpacity) {
             return;
         }
-        if (Static84.method1661(arg0).events == 0 && arg0.type != 0) {
+        if (InterfaceManager.serverActiveProperties(arg0).events == 0 && arg0.type != 0) {
             return;
         }
-        if (arg0.anInt3735 < 0) {
-            arg0.anInt3735 = 0;
-        } else if (arg1 < arg0.anInt3802 + arg0.anInt3735) {
-            arg0.anInt3735 = arg1 - arg0.anInt3802;
+        if (arg0.positionX < 0) {
+            arg0.positionX = 0;
+        } else if (arg1 < arg0.width + arg0.positionX) {
+            arg0.positionX = arg1 - arg0.width;
         }
-        if (arg0.anInt3784 < 0) {
-            arg0.anInt3784 = 0;
+        if (arg0.positionY < 0) {
+            arg0.positionY = 0;
             return;
         }
-        if (arg0.anInt3784 + arg0.anInt3746 > arg2) {
-            arg0.anInt3784 = arg2 - arg0.anInt3746;
+        if (arg0.positionY + arg0.height > arg2) {
+            arg0.positionY = arg2 - arg0.height;
             return;
         }
     }

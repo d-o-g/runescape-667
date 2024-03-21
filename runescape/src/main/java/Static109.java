@@ -10,9 +10,6 @@ public final class Static109 {
     @OriginalMember(owner = "client!dh", name = "j", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_45 = new Class225(33, -2);
 
-    @OriginalMember(owner = "client!dh", name = "f", descriptor = "Lclient!hda;")
-    public static Component aComponent_3 = null;
-
     @OriginalMember(owner = "client!dh", name = "a", descriptor = "(Lclient!eo;)V")
     public static void method2068(@OriginalArg(0) Renderable arg0) {
         if (arg0 == null) {

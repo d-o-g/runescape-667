@@ -422,8 +422,8 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("qa_op_test")) {
-                    Static103.aBoolean195 = true;
-                    Static79.method1579("qa_op_test=" + Static103.aBoolean195);
+                    InterfaceManager.testOpacity = true;
+                    Static79.method1579("qa_op_test=" + InterfaceManager.testOpacity);
                     return;
                 }
                 if (arg2.equalsIgnoreCase("clipcomponents")) {

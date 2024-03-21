@@ -143,7 +143,7 @@ public final class Static484 {
         }
         arg0.la();
         arg0.GA(-16777215);
-        Static469.method6362();
+        InterfaceManager.redrawAll();
         Static536.anInt8148 = 0;
         Static612.A_DEQUE___67.clear();
         if (!Static113.aBoolean198) {

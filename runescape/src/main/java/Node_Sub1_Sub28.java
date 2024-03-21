@@ -10,9 +10,6 @@ import java.awt.Rectangle;
 @OriginalClass("client!tia")
 public final class Node_Sub1_Sub28 extends Node_Sub1 {
 
-    @OriginalMember(owner = "client!tia", name = "S", descriptor = "[Ljava/awt/Rectangle;")
-    public static Rectangle[] aRectangleArray1 = new Rectangle[100];
-
     @OriginalMember(owner = "client!tia", name = "F", descriptor = "[I")
     public int[] anIntArray724;
 
@@ -30,7 +27,7 @@ public final class Node_Sub1_Sub28 extends Node_Sub1 {
 
     static {
         for (@Pc(87) int local87 = 0; local87 < 100; local87++) {
-            aRectangleArray1[local87] = new Rectangle();
+            InterfaceManager.boundaries[local87] = new Rectangle();
         }
     }
 
@@ -78,7 +75,7 @@ public final class Node_Sub1_Sub28 extends Node_Sub1 {
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (arg0 <= 107) {
-            aRectangleArray1 = null;
+            InterfaceManager.boundaries = null;
         }
         if (super.aClass180_41.aBoolean338) {
             @Pc(26) int local26 = Static273.anIntArray341[arg1];

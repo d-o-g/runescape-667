@@ -20,7 +20,7 @@ public final class Static667 {
         Static239.method3472(js5.SPRITES, Static163.activeToolkit);
         Static329.method1649();
         Static331.method4925(Static679.aSpriteArray14);
-        Static469.method6362();
+        InterfaceManager.redrawAll();
         Static296.updateFeatureMask();
         if (Static283.step == 3) {
             Static81.method1586(4);

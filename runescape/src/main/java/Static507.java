@@ -19,45 +19,45 @@ public final class Static507 {
 
     @OriginalMember(owner = "client!pw", name = "a", descriptor = "(ZIIILclient!hda;)V")
     public static void method6743(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Component arg3) {
-        @Pc(6) int local6 = arg3.anInt3802;
-        @Pc(16) int local16 = arg3.anInt3746;
+        @Pc(6) int local6 = arg3.width;
+        @Pc(16) int local16 = arg3.height;
         if (arg3.sizeTypeHorizontal == 0) {
-            arg3.anInt3802 = arg3.baseWidth;
+            arg3.width = arg3.baseWidth;
         } else if (arg3.sizeTypeHorizontal == 1) {
-            arg3.anInt3802 = arg2 - arg3.baseWidth;
+            arg3.width = arg2 - arg3.baseWidth;
         } else if (arg3.sizeTypeHorizontal == 2) {
-            arg3.anInt3802 = arg3.baseWidth * arg2 >> 14;
+            arg3.width = arg3.baseWidth * arg2 >> 14;
         }
         if (arg3.sizeTypeVertical == 0) {
-            arg3.anInt3746 = arg3.baseHeight;
+            arg3.height = arg3.baseHeight;
         } else if (arg3.sizeTypeVertical == 1) {
-            arg3.anInt3746 = arg1 - arg3.baseHeight;
+            arg3.height = arg1 - arg3.baseHeight;
         } else if (arg3.sizeTypeVertical == 2) {
-            arg3.anInt3746 = arg1 * arg3.baseHeight >> 14;
+            arg3.height = arg1 * arg3.baseHeight >> 14;
         }
         if (arg3.sizeTypeHorizontal == 4) {
-            arg3.anInt3802 = arg3.anInt3795 * arg3.anInt3746 / arg3.anInt3750;
+            arg3.width = arg3.anInt3795 * arg3.height / arg3.anInt3750;
         }
         if (arg3.sizeTypeVertical == 4) {
-            arg3.anInt3746 = arg3.anInt3802 * arg3.anInt3750 / arg3.anInt3795;
+            arg3.height = arg3.width * arg3.anInt3750 / arg3.anInt3795;
         }
-        if (Static103.aBoolean195 && (Static84.method1661(arg3).events != 0 || arg3.type == 0)) {
-            if (arg3.anInt3746 < 5 && arg3.anInt3802 < 5) {
-                arg3.anInt3746 = 5;
-                arg3.anInt3802 = 5;
+        if (InterfaceManager.testOpacity && (InterfaceManager.serverActiveProperties(arg3).events != 0 || arg3.type == 0)) {
+            if (arg3.height < 5 && arg3.width < 5) {
+                arg3.height = 5;
+                arg3.width = 5;
             } else {
-                if (arg3.anInt3802 <= 0) {
-                    arg3.anInt3802 = 5;
+                if (arg3.width <= 0) {
+                    arg3.width = 5;
                 }
-                if (arg3.anInt3746 <= 0) {
-                    arg3.anInt3746 = 5;
+                if (arg3.height <= 0) {
+                    arg3.height = 5;
                 }
             }
         }
         if (ComponentClientCode.SCENE == arg3.clientcode) {
             Static610.aComponent_16 = arg3;
         }
-        if (arg0 && arg3.anObjectArray19 != null && (local6 != arg3.anInt3802 || local16 != arg3.anInt3746)) {
+        if (arg0 && arg3.anObjectArray19 != null && (local6 != arg3.width || local16 != arg3.height)) {
             @Pc(225) Node_Sub42 local225 = new Node_Sub42();
             local225.anObjectArray36 = arg3.anObjectArray19;
             local225.aComponent_14 = arg3;

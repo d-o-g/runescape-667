@@ -53,17 +53,17 @@ public final class Static320 {
             Static96.aClass2_Sub2_Sub16_13 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.sentinel.prev;
         }
         local64 = -1;
-        @Pc(204) Node_Sub9 local204 = (Node_Sub9) Static226.A_DEQUE___58.first();
+        @Pc(204) MouseLog local204 = (MouseLog) Static226.A_DEQUE___58.first();
         if (local204 != null) {
-            local64 = local204.method5328();
+            local64 = local204.getType();
         }
         if (!Static400.aBoolean622) {
             if (local64 == 0 && (Static219.anInt3549 == 1 && Static594.anInt8777 > 2 || Static204.method3084())) {
                 local64 = 2;
             }
             if (local64 == 2 && Static594.anInt8777 > 0 && local204 != null) {
-                if (Static109.aComponent_3 == null && Static460.anInt6964 == 0) {
-                    Static572.method7876(local204.method5333(), local204.method5331());
+                if (InterfaceManager.dragSource == null && Static460.anInt6964 == 0) {
+                    Static572.method7876(local204.getY(), local204.getX());
                 } else {
                     Static536.anInt8149 = 2;
                 }
@@ -75,7 +75,7 @@ public final class Static320 {
                     Static470.method6384();
                 }
             }
-            if (Static109.aComponent_3 == null && Static460.anInt6964 == 0) {
+            if (InterfaceManager.dragSource == null && Static460.anInt6964 == 0) {
                 Static75.aClass2_Sub2_Sub16_9 = null;
                 Static536.anInt8149 = 0;
             }
@@ -86,8 +86,8 @@ public final class Static320 {
         @Pc(426) int local426;
         @Pc(428) int local428;
         if (local64 == -1) {
-            local317 = Static189.aClass120_1.method8853();
-            local321 = Static189.aClass120_1.method8854();
+            local317 = Static189.aMouseMonitor_1.getRecordedX();
+            local321 = Static189.aMouseMonitor_1.getRecordedY();
             @Pc(323) boolean local323 = false;
             if (Static139.aClass2_Sub2_Sub4_1 != null) {
                 if (local317 >= Static692.anInt10375 - 10 && local317 <= Static692.anInt10375 + Static85.anInt10675 + 10 && Static493.anInt7364 - 10 <= local321 && local321 <= Static493.anInt7364 + Static25.anInt598 + 10) {
@@ -139,8 +139,8 @@ public final class Static320 {
         if (local64 != 0) {
             return;
         }
-        local317 = local204.method5331();
-        local321 = local204.method5333();
+        local317 = local204.getX();
+        local321 = local204.getY();
         @Pc(661) int local661;
         @Pc(886) Class299 local886;
         @Pc(762) DoublyLinkedNode_Sub2_Sub16 local762;

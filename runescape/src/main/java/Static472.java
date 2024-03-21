@@ -129,10 +129,10 @@ public final class Static472 {
 
     @OriginalMember(owner = "client!ou", name = "d", descriptor = "(I)V")
     public static void method6414(@OriginalArg(0) int arg0) {
-        if (arg0 == -1 || !Static571.method7566(arg0)) {
+        if (arg0 == -1 || !InterfaceList.load(arg0)) {
             return;
         }
-        @Pc(14) Component[] local14 = Component.aComponentArrayArray2[arg0];
+        @Pc(14) Component[] local14 = InterfaceList.interfaces[arg0];
         for (@Pc(16) int local16 = 0; local16 < local14.length; local16++) {
             @Pc(21) Component local21 = local14[local16];
             if (local21.onLoad != null) {
@@ -154,7 +154,7 @@ public final class Static472 {
             @Pc(119) int local119 = arg0.slot >>> 16;
             @Pc(123) Component[] local123 = Static148.aComponentArrayArray1[local119];
             if (local123 == null) {
-                local71 = Component.aComponentArrayArray2[local119];
+                local71 = InterfaceList.interfaces[local119];
                 @Pc(132) int local132 = local71.length;
                 local123 = Static148.aComponentArrayArray1[local119] = new Component[local132];
                 Arrays.copy(local71, 0, local123, 0, local71.length);
@@ -169,7 +169,7 @@ public final class Static472 {
             local123[local123.length - 1] = arg0;
             return;
         }
-        @Pc(12) Component local12 = Static145.method2412(arg0.layer);
+        @Pc(12) Component local12 = InterfaceList.list(arg0.layer);
         if (local12 == null) {
             return;
         }
@@ -212,7 +212,7 @@ public final class Static472 {
                 if (local21 == 0) {
                     throw new RuntimeException();
                 }
-                local38 = Static145.method2412(local15);
+                local38 = InterfaceList.list(local15);
                 if (local38.aComponentArray2 == null) {
                     local38.aComponentArray2 = new Component[local27 + 1];
                     local38.aComponentArray1 = local38.aComponentArray2;
@@ -263,13 +263,13 @@ public final class Static472 {
                     }
                     throw new RuntimeException("Tried to cc_delete static active-component!");
                 }
-                local248 = Static145.method2412(component.slot);
+                local248 = InterfaceList.list(component.slot);
                 local248.aComponentArray2[component.id] = null;
                 InterfaceManager.redraw(local248);
                 return;
             }
             if (arg0 == 152) {
-                component = Static145.method2412(anIntArray578[--anInt7142]);
+                component = InterfaceList.list(anIntArray578[--anInt7142]);
                 component.aComponentArray2 = null;
                 component.aComponentArray1 = null;
                 InterfaceManager.redraw(component);
@@ -294,7 +294,7 @@ public final class Static472 {
             }
             if (arg0 == 201) {
                 local15 = anIntArray578[--anInt7142];
-                local248 = Static145.method2412(local15);
+                local248 = InterfaceList.list(local15);
                 if (local248 != null) {
                     anIntArray578[anInt7142++] = 1;
                     if (arg1) {
@@ -310,7 +310,7 @@ public final class Static472 {
             if (arg0 == 202 || arg0 == 204) {
                 if (arg0 == 202) {
                     local21 = anIntArray578[--anInt7142];
-                    component = Static145.method2412(local21);
+                    component = InterfaceList.list(local21);
                 } else {
                     component = arg1 ? aComponent_12 : aComponent_11;
                 }
@@ -320,7 +320,7 @@ public final class Static472 {
             if (arg0 == 203 || arg0 == 205) {
                 if (arg0 == 203) {
                     local21 = anIntArray578[--anInt7142];
-                    component = Static145.method2412(local21);
+                    component = InterfaceList.list(local21);
                 } else {
                     component = arg1 ? aComponent_12 : aComponent_11;
                 }
@@ -386,22 +386,22 @@ public final class Static472 {
                 if (arg0 >= 1100 && arg0 < 1200 || !(arg0 < 2100 || arg0 >= 2200)) {
                     if (arg0 >= 2000) {
                         arg0 -= 1000;
-                        component = Static145.method2412(anIntArray578[--anInt7142]);
+                        component = InterfaceList.list(anIntArray578[--anInt7142]);
                     } else {
                         component = arg1 ? aComponent_12 : aComponent_11;
                     }
                     if (arg0 == 1100) {
                         anInt7142 -= 2;
                         component.anInt3809 = anIntArray578[anInt7142];
-                        if (component.anInt3809 > component.scrollWidth - component.anInt3802) {
-                            component.anInt3809 = component.scrollWidth - component.anInt3802;
+                        if (component.anInt3809 > component.scrollWidth - component.width) {
+                            component.anInt3809 = component.scrollWidth - component.width;
                         }
                         if (component.anInt3809 < 0) {
                             component.anInt3809 = 0;
                         }
                         component.anInt3768 = anIntArray578[anInt7142 + 1];
-                        if (component.anInt3768 > component.scrollHeight - component.anInt3746) {
-                            component.anInt3768 = component.scrollHeight - component.anInt3746;
+                        if (component.anInt3768 > component.scrollHeight - component.height) {
+                            component.anInt3768 = component.scrollHeight - component.height;
                         }
                         if (component.anInt3768 < 0) {
                             component.anInt3768 = 0;
@@ -426,7 +426,7 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 1103) {
-                        component.alpha = anIntArray578[--anInt7142];
+                        component.transparency = anIntArray578[--anInt7142];
                         InterfaceManager.redraw(component);
                         return;
                     }
@@ -698,7 +698,7 @@ public final class Static472 {
                 } else if (arg0 >= 1200 && arg0 < 1300 || arg0 >= 2200 && arg0 < 2300) {
                     if (arg0 >= 2000) {
                         arg0 -= 1000;
-                        component = Static145.method2412(anIntArray578[--anInt7142]);
+                        component = InterfaceList.list(anIntArray578[--anInt7142]);
                     } else {
                         component = arg1 ? aComponent_12 : aComponent_11;
                     }
@@ -829,7 +829,7 @@ public final class Static472 {
                     if (arg0 >= 1300 && arg0 < 1400 || arg0 >= 2300 && arg0 < 2400) {
                         if (arg0 >= 2000) {
                             arg0 -= 1000;
-                            component = Static145.method2412(anIntArray578[--anInt7142]);
+                            component = InterfaceList.list(anIntArray578[--anInt7142]);
                         } else {
                             component = arg1 ? aComponent_12 : aComponent_11;
                         }
@@ -947,7 +947,7 @@ public final class Static472 {
                     } else if (arg0 >= 1400 && arg0 < 1500 || arg0 >= 2400 && arg0 < 2500) {
                         if (arg0 >= 2000) {
                             arg0 -= 1000;
-                            component = Static145.method2412(anIntArray578[--anInt7142]);
+                            component = InterfaceList.list(anIntArray578[--anInt7142]);
                         } else {
                             component = arg1 ? aComponent_12 : aComponent_11;
                         }
@@ -1060,19 +1060,19 @@ public final class Static472 {
                     } else if (arg0 < 1600) {
                         component = arg1 ? aComponent_12 : aComponent_11;
                         if (arg0 == 1500) {
-                            anIntArray578[anInt7142++] = component.anInt3735;
+                            anIntArray578[anInt7142++] = component.positionX;
                             return;
                         }
                         if (arg0 == 1501) {
-                            anIntArray578[anInt7142++] = component.anInt3784;
+                            anIntArray578[anInt7142++] = component.positionY;
                             return;
                         }
                         if (arg0 == 1502) {
-                            anIntArray578[anInt7142++] = component.anInt3802;
+                            anIntArray578[anInt7142++] = component.width;
                             return;
                         }
                         if (arg0 == 1503) {
-                            anIntArray578[anInt7142++] = component.anInt3746;
+                            anIntArray578[anInt7142++] = component.height;
                             return;
                         }
                         if (arg0 == 1504) {
@@ -1133,7 +1133,7 @@ public final class Static472 {
                                 return;
                             }
                             if (arg0 == 1609) {
-                                anIntArray578[anInt7142++] = component.alpha;
+                                anIntArray578[anInt7142++] = component.transparency;
                                 return;
                             }
                             if (arg0 == 1610) {
@@ -1191,7 +1191,7 @@ public final class Static472 {
                         } else if (arg0 < 1900) {
                             component = arg1 ? aComponent_12 : aComponent_11;
                             if (arg0 == 1800) {
-                                anIntArray578[anInt7142++] = Static84.method1661(component).getTargetMask();
+                                anIntArray578[anInt7142++] = InterfaceManager.serverActiveProperties(component).getTargetMask();
                                 return;
                             }
                             if (arg0 == 1801) {
@@ -1214,7 +1214,7 @@ public final class Static472 {
                             }
                         } else if (arg0 < 2000 || arg0 >= 2900 && arg0 < 3000) {
                             if (arg0 >= 2000) {
-                                component = Static145.method2412(anIntArray578[--anInt7142]);
+                                component = InterfaceList.list(anIntArray578[--anInt7142]);
                                 arg0 -= 1000;
                             } else {
                                 component = arg1 ? aComponent_12 : aComponent_11;
@@ -1234,21 +1234,21 @@ public final class Static472 {
                                 return;
                             }
                         } else if (arg0 < 2600) {
-                            component = Static145.method2412(anIntArray578[--anInt7142]);
+                            component = InterfaceList.list(anIntArray578[--anInt7142]);
                             if (arg0 == 2500) {
-                                anIntArray578[anInt7142++] = component.anInt3735;
+                                anIntArray578[anInt7142++] = component.positionX;
                                 return;
                             }
                             if (arg0 == 2501) {
-                                anIntArray578[anInt7142++] = component.anInt3784;
+                                anIntArray578[anInt7142++] = component.positionY;
                                 return;
                             }
                             if (arg0 == 2502) {
-                                anIntArray578[anInt7142++] = component.anInt3802;
+                                anIntArray578[anInt7142++] = component.width;
                                 return;
                             }
                             if (arg0 == 2503) {
-                                anIntArray578[anInt7142++] = component.anInt3746;
+                                anIntArray578[anInt7142++] = component.height;
                                 return;
                             }
                             if (arg0 == 2504) {
@@ -1269,7 +1269,7 @@ public final class Static472 {
                                 return;
                             }
                         } else if (arg0 < 2700) {
-                            component = Static145.method2412(anIntArray578[--anInt7142]);
+                            component = InterfaceList.list(anIntArray578[--anInt7142]);
                             if (arg0 == 2600) {
                                 anIntArray578[anInt7142++] = component.anInt3809;
                                 return;
@@ -1307,7 +1307,7 @@ public final class Static472 {
                                 return;
                             }
                             if (arg0 == 2609) {
-                                anIntArray578[anInt7142++] = component.alpha;
+                                anIntArray578[anInt7142++] = component.transparency;
                                 return;
                             }
                             if (arg0 == 2610) {
@@ -1339,12 +1339,12 @@ public final class Static472 {
                             @Pc(4653) Node_Sub4 local4653;
                             if (arg0 < 2800) {
                                 if (arg0 == 2700) {
-                                    component = Static145.method2412(anIntArray578[--anInt7142]);
+                                    component = InterfaceList.list(anIntArray578[--anInt7142]);
                                     anIntArray578[anInt7142++] = component.anInt3760;
                                     return;
                                 }
                                 if (arg0 == 2701) {
-                                    component = Static145.method2412(anIntArray578[--anInt7142]);
+                                    component = InterfaceList.list(anIntArray578[--anInt7142]);
                                     if (component.anInt3760 != -1) {
                                         anIntArray578[anInt7142++] = component.anInt3817;
                                         return;
@@ -1363,7 +1363,7 @@ public final class Static472 {
                                     return;
                                 }
                                 if (arg0 == 2703) {
-                                    component = Static145.method2412(anIntArray578[--anInt7142]);
+                                    component = InterfaceList.list(anIntArray578[--anInt7142]);
                                     if (component.aComponentArray2 == null) {
                                         anIntArray578[anInt7142++] = 0;
                                         return;
@@ -1391,9 +1391,9 @@ public final class Static472 {
                                     return;
                                 }
                             } else if (arg0 < 2900) {
-                                component = Static145.method2412(anIntArray578[--anInt7142]);
+                                component = InterfaceList.list(anIntArray578[--anInt7142]);
                                 if (arg0 == 2800) {
-                                    anIntArray578[anInt7142++] = Static84.method1661(component).getTargetMask();
+                                    anIntArray578[anInt7142++] = InterfaceManager.serverActiveProperties(component).getTargetMask();
                                     return;
                                 }
                                 if (arg0 == 2801) {
@@ -1470,7 +1470,7 @@ public final class Static472 {
                                         local15 = anIntArray578[anInt7142];
                                         local21 = anIntArray578[anInt7142 + 1];
                                         local27 = anIntArray578[anInt7142 + 2];
-                                        local38 = Static145.method2412(local27);
+                                        local38 = InterfaceList.list(local27);
                                         Static597.method7824(local21, local38, local15);
                                         return;
                                     }
@@ -1802,11 +1802,11 @@ public final class Static472 {
                                         return;
                                     }
                                     if (arg0 == 3342) {
-                                        anIntArray578[anInt7142++] = Static189.aClass120_1.method8853();
+                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.getRecordedX();
                                         return;
                                     }
                                     if (arg0 == 3343) {
-                                        anIntArray578[anInt7142++] = Static189.aClass120_1.method8854();
+                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.getRecordedY();
                                         return;
                                     }
                                     if (arg0 == 3344) {
@@ -1839,9 +1839,9 @@ public final class Static472 {
                                         return;
                                     }
                                     if (arg0 == 3351) {
-                                        anIntArray578[anInt7142++] = Static189.aClass120_1.method8842() ? 1 : 0;
-                                        anIntArray578[anInt7142++] = Static189.aClass120_1.method8847() ? 1 : 0;
-                                        anIntArray578[anInt7142++] = Static189.aClass120_1.method8843() ? 1 : 0;
+                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.isLeftDown() ? 1 : 0;
+                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.isMiddleDown() ? 1 : 0;
+                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.isRightDown() ? 1 : 0;
                                         return;
                                     }
                                 } else {
@@ -3083,7 +3083,7 @@ public final class Static472 {
             } else {
                 if (arg0 >= 2000) {
                     arg0 -= 1000;
-                    component = Static145.method2412(anIntArray578[--anInt7142]);
+                    component = InterfaceList.list(anIntArray578[--anInt7142]);
                 } else {
                     component = arg1 ? aComponent_12 : aComponent_11;
                 }
@@ -3180,7 +3180,7 @@ public final class Static472 {
             @Pc(106) int local106 = arg0.slot >>> 16;
             @Pc(110) Component[] local110 = Static148.aComponentArrayArray1[local106];
             if (local110 == null) {
-                local69 = Component.aComponentArrayArray2[local106];
+                local69 = InterfaceList.interfaces[local106];
                 @Pc(119) int local119 = local69.length;
                 local110 = Static148.aComponentArrayArray1[local106] = new Component[local119];
                 Arrays.copy(local69, 0, local110, 0, local69.length);
@@ -3195,7 +3195,7 @@ public final class Static472 {
             local110[0] = arg0;
             return;
         }
-        @Pc(12) Component local12 = Static145.method2412(arg0.layer);
+        @Pc(12) Component local12 = InterfaceList.list(arg0.layer);
         if (local12 == null) {
             return;
         }
@@ -4426,7 +4426,7 @@ public final class Static472 {
                         Static419.aObjTypeList_1.modelCacheReset();
                         Static419.aObjTypeList_1.spriteCacheReset();
                         Static690.aNPCTypeList_2.modelCacheReset();
-                        Static469.method6362();
+                        InterfaceManager.redrawAll();
                         return;
                     }
                     if (arg0 == 5405) {
@@ -5428,7 +5428,7 @@ public final class Static472 {
                         return;
                     }
                     if (arg0 == 6203) {
-                        Static498.method6643(0, false, 0, Static610.aComponent_16.anInt3746, Static610.aComponent_16.anInt3802);
+                        Static498.method6643(0, false, 0, Static610.aComponent_16.height, Static610.aComponent_16.width);
                         anIntArray578[anInt7142++] = Static242.anInt3971;
                         anIntArray578[anInt7142++] = Static200.anInt3305;
                         return;
@@ -5663,11 +5663,11 @@ public final class Static472 {
                         }
                         if (arg0 == 6702) {
                             local192 = anIntArray578[--anInt7142];
-                            if (Component.aComponentArrayArray2[local192] == null) {
+                            if (InterfaceList.interfaces[local192] == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
                             }
-                            local101 = Component.aComponentArrayArray2[local192][0].name;
+                            local101 = InterfaceList.interfaces[local192][0].name;
                             if (local101 == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
@@ -5677,22 +5677,22 @@ public final class Static472 {
                         }
                         if (arg0 == 6703) {
                             local192 = anIntArray578[--anInt7142];
-                            if (Component.aComponentArrayArray2[local192] == null) {
+                            if (InterfaceList.interfaces[local192] == null) {
                                 anIntArray578[anInt7142++] = 0;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = Component.aComponentArrayArray2[local192].length;
+                            anIntArray578[anInt7142++] = InterfaceList.interfaces[local192].length;
                             return;
                         }
                         if (arg0 == 6704) {
                             anInt7142 -= 2;
                             local192 = anIntArray578[anInt7142];
                             local834 = anIntArray578[anInt7142 + 1];
-                            if (Component.aComponentArrayArray2[local192] == null) {
+                            if (InterfaceList.interfaces[local192] == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
                             }
-                            local198 = Component.aComponentArrayArray2[local192][local834].name;
+                            local198 = InterfaceList.interfaces[local192][local834].name;
                             if (local198 == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
@@ -5704,11 +5704,11 @@ public final class Static472 {
                             anInt7142 -= 2;
                             local192 = anIntArray578[anInt7142];
                             local834 = anIntArray578[anInt7142 + 1];
-                            if (Component.aComponentArrayArray2[local192] == null) {
+                            if (InterfaceList.interfaces[local192] == null) {
                                 anIntArray578[anInt7142++] = 0;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = Component.aComponentArrayArray2[local192][local834].anInt3774;
+                            anIntArray578[anInt7142++] = InterfaceList.interfaces[local192][local834].anInt3774;
                             return;
                         }
                         if (arg0 == 6706) {
@@ -5801,7 +5801,7 @@ public final class Static472 {
                             local109 = anIntArray578[anInt7142 + 2];
                             @Pc(8940) Component local8940 = Static15.method186(local109, local192 << 16 | local834);
                             Static470.method6384();
-                            @Pc(8945) ServerActiveProperties local8945 = Static84.method1661(local8940);
+                            @Pc(8945) ServerActiveProperties local8945 = InterfaceManager.serverActiveProperties(local8940);
                             Static389.method5476(local8945.getTargetMask(), local8940, local8945.targetParam);
                             return;
                         }
@@ -6397,11 +6397,11 @@ public final class Static472 {
             @Pc(35) int local35 = 0;
             @Pc(37) int local37 = 0;
             if (Static210.aComponent_4 != null) {
-                local35 = Static210.aComponent_4.anInt3735;
-                local37 = Static210.aComponent_4.anInt3784;
+                local35 = Static210.aComponent_4.positionX;
+                local37 = Static210.aComponent_4.positionY;
             }
-            anIntArray580[0] = Static189.aClass120_1.method8853() - local35;
-            anIntArray580[1] = Static189.aClass120_1.method8854() - local37;
+            anIntArray580[0] = Static189.aMouseMonitor_1.getRecordedX() - local35;
+            anIntArray580[1] = Static189.aMouseMonitor_1.getRecordedY() - local37;
         }
         method6419(local5, 200000);
     }

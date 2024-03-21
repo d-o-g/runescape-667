@@ -52,7 +52,7 @@ public final class Static296 {
         if (Static400.instance.textures.value() == 0) {
             featureMask |= 0x40;
         }
-        Static335.setFeatureMask(featureMask);
+        Component.setFeatureMask(featureMask);
         Static354.aLocTypeList_4.setFeatureMask(featureMask);
         Static419.aObjTypeList_1.setFeatureMask(featureMask);
         Static690.aNPCTypeList_2.setFeatureMask(featureMask);

@@ -7,9 +7,6 @@ public final class Static101 {
     @OriginalMember(owner = "client!dca", name = "w", descriptor = "I")
     public static int anInt2097;
 
-    @OriginalMember(owner = "client!dca", name = "v", descriptor = "I")
-    public static int anInt2098;
-
     @OriginalMember(owner = "client!dca", name = "a", descriptor = "(I)V")
     public static void method2000() {
         for (@Pc(8) Node_Sub51 local8 = (Node_Sub51) Static460.A_DEQUE___40.first(); local8 != null; local8 = (Node_Sub51) Static460.A_DEQUE___40.next()) {

@@ -27,7 +27,7 @@ public final class Static574 {
         } else {
             Static32.method880(Static400.instance.aClass57_Sub29_1.method7915(), false);
         }
-        Static469.method6362();
+        InterfaceManager.redrawAll();
         Static75.aBoolean521 = true;
     }
 

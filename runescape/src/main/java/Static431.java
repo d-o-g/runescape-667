@@ -10,11 +10,11 @@ public final class Static431 {
 
     @OriginalMember(owner = "client!nk", name = "a", descriptor = "(IIIIIIIIIIII)V")
     public static void method5822(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
-        if (!Static571.method7566(arg7)) {
+        if (!InterfaceList.load(arg7)) {
             return;
         }
         if (Static148.aComponentArrayArray1[arg7] == null) {
-            Static84.method1669(Component.aComponentArrayArray2[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
+            Static84.method1669(InterfaceList.interfaces[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
         } else {
             Static84.method1669(Static148.aComponentArrayArray1[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
         }

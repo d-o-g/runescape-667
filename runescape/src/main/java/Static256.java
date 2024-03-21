@@ -248,7 +248,7 @@ public final class Static256 {
         } else {
             local11 = (int) Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
         }
-        @Pc(33) int local33 = Math.max(arg6.anInt3802 / 2, arg6.anInt3746 / 2) + 10;
+        @Pc(33) int local33 = Math.max(arg6.width / 2, arg6.height / 2) + 10;
         @Pc(59) int local59 = arg8 * arg8 + arg10 * arg10;
         if (local33 * local33 < local59) {
             return;
@@ -264,8 +264,8 @@ public final class Static256 {
         @Pc(125) int local125 = arg2.paraWidth((Sprite[]) null, arg1, 100);
         @Pc(131) int local131 = local107 - local125 / 2;
         @Pc(139) int local139 = arg2.stringHeight(100, 0, arg1, (Sprite[]) null);
-        if (local131 >= -arg6.anInt3802 && arg6.anInt3802 >= local131 && local118 >= -arg6.anInt3746 && arg6.anInt3746 >= local118) {
-            arg0.renderLines(arg9, (int[]) null, arg4, arg1, arg7, (Sprite[]) null, arg6.anInt3746 / 2 + arg9 - local118 - arg5 - local139, 0, arg3, 1, arg6.anInt3802 / 2 + local131 + arg3, 0, 0, local125, 50);
+        if (local131 >= -arg6.width && arg6.width >= local131 && local118 >= -arg6.height && arg6.height >= local118) {
+            arg0.renderLines(arg9, (int[]) null, arg4, arg1, arg7, (Sprite[]) null, arg6.height / 2 + arg9 - local118 - arg5 - local139, 0, arg3, 1, arg6.width / 2 + local131 + arg3, 0, 0, local125, 50);
         }
     }
 }

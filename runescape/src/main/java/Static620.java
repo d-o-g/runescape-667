@@ -46,8 +46,8 @@ public final class Static620 {
                     local62 = local62 * 256 / (Static660.anInt9835 + 256);
                     local66 = local66 * 256 / (Static660.anInt9835 + 256);
                 }
-                local34[local36 * 2] = arg7.anInt3802 / 2 + arg1 + (local66 * (local10.anIntArray228[local36 * 2] * 4 + arg6) + local62 * (arg0 + local10.anIntArray228[local36 * 2 + 1] * 4) >> 14);
-                local34[local36 * 2 + 1] = arg5 + arg7.anInt3746 / 2 - (local66 * (arg0 + local10.anIntArray228[local36 * 2 + 1] * 4) - local62 * (arg6 + local10.anIntArray228[local36 * 2] * 4) >> 14);
+                local34[local36 * 2] = arg7.width / 2 + arg1 + (local66 * (local10.anIntArray228[local36 * 2] * 4 + arg6) + local62 * (arg0 + local10.anIntArray228[local36 * 2 + 1] * 4) >> 14);
+                local34[local36 * 2 + 1] = arg5 + arg7.height / 2 - (local66 * (arg0 + local10.anIntArray228[local36 * 2 + 1] * 4) - local62 * (arg6 + local10.anIntArray228[local36 * 2] * 4) >> 14);
             }
             @Pc(187) Graphic local187 = arg7.graphic(arg3);
             if (local187 != null) {

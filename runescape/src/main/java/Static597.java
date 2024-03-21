@@ -29,14 +29,14 @@ public final class Static597 {
 
     @OriginalMember(owner = "client!sr", name = "a", descriptor = "(ILclient!hda;ZI)V")
     public static void method7824(@OriginalArg(0) int arg0, @OriginalArg(1) Component arg1, @OriginalArg(3) int arg2) {
-        if (Static109.aComponent_3 != null || Static400.aBoolean622 || (arg1 == null || Static582.method7658(arg1) == null)) {
+        if (InterfaceManager.dragSource != null || Static400.aBoolean622 || (arg1 == null || Static582.method7658(arg1) == null)) {
             return;
         }
-        Static109.aComponent_3 = arg1;
+        InterfaceManager.dragSource = arg1;
         Static354.aComponent_8 = Static582.method7658(arg1);
         Static150.anInt2631 = arg0;
         Static378.anInt5941 = arg2;
-        Static172.aBoolean246 = false;
+        InterfaceManager.dragging = false;
         Static181.anInt3003 = 0;
     }
 }

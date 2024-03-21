@@ -47,7 +47,7 @@ public final class Static147 {
             local53 = Static275.anInt4424;
             local45 = Static232.anInt3829;
             local57 = Static168.anInt2842;
-            arg2.KA(Static725.anInt10936, Static192.anInt3123, Static240.anInt3955, Static275.anInt4424);
+            arg2.KA(InterfaceManager.anInt10936, InterfaceManager.anInt3123, Static240.anInt3955, Static275.anInt4424);
             local38 = arg2.createMatrix();
             local38.method7135(Static428.anInt6487, Static427.anInt6480, Static523.anInt3888, Static524.anInt8044, Static271.anInt4363, Static707.anInt10641);
             local63 = arg1;

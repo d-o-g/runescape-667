@@ -24,7 +24,7 @@ public final class Static686 {
         if (Static377.anInt5930 != -1) {
             Static26.method716(Static377.anInt5930);
         }
-        for (@Pc(54) int local54 = 0; local54 < Static122.anInt2339; local54++) {
+        for (@Pc(54) int local54 = 0; local54 < InterfaceManager.boundaryCount; local54++) {
             if (InterfaceManager.dirtyRectangles[local54]) {
                 Static469.aBooleanArray23[local54] = true;
             }
@@ -32,12 +32,12 @@ public final class Static686 {
             InterfaceManager.dirtyRectangles[local54] = false;
         }
         InterfaceManager.lastDrawCycle = TimeUtils.clock;
-        Static449.method6114(-1, -1, (Component) null);
+        InterfaceManager.setOptions(-1, -1, (Component) null);
         if (105 <= 103) {
             return;
         }
         if (Static377.anInt5930 != -1) {
-            Static122.anInt2339 = 0;
+            InterfaceManager.boundaryCount = 0;
             Static261.method3833();
         }
         Static163.activeToolkit.la();

@@ -31,12 +31,12 @@ public final class Static679 {
 
     @OriginalMember(owner = "client!vj", name = "a", descriptor = "(Z)I")
     public static int method8909() {
-        if (Static109.aComponent_3 == null) {
+        if (InterfaceManager.dragSource == null) {
             if (!Static400.aBoolean622 && Static470.aClass2_Sub2_Sub16_10 != null) {
                 return Static470.aClass2_Sub2_Sub16_10.anInt7318;
             }
-            @Pc(28) int local28 = Static189.aClass120_1.method8853();
-            @Pc(37) int local37 = Static189.aClass120_1.method8854();
+            @Pc(28) int local28 = Static189.aMouseMonitor_1.getRecordedX();
+            @Pc(37) int local37 = Static189.aMouseMonitor_1.getRecordedY();
             @Pc(53) int local53;
             @Pc(55) int local55;
             @Pc(71) int local71;

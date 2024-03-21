@@ -61,7 +61,7 @@ public final class Static358 {
                     }
                     for (@Pc(125) int local125 = local100; local125 <= local108; local125++) {
                         @Pc(128) byte local128 = 1;
-                        @Pc(144) PositionEntity local144 = Static578.getEntity(local16, local125, local78, aClass28 == null ? (aClass28 = getClass("Class8_Sub2_Sub1")) : aClass28);
+                        @Pc(144) PositionEntity local144 = Static578.getEntity(local16, local125, local78, aClass28 == null ? (aClass28 = getClass("PositionEntity")) : aClass28);
                         if (local144 != null && local144.aByte145 != 0) {
                             @Pc(169) boolean local169;
                             @Pc(179) boolean local179;

@@ -23,10 +23,10 @@ public final class Static407 {
 
     @OriginalMember(owner = "client!mr", name = "a", descriptor = "(B)V")
     public static void method5628() {
-        @Pc(16) Node_Sub9 local16 = (Node_Sub9) Static226.A_DEQUE___58.first();
-        @Pc(30) boolean local30 = Static109.aComponent_3 != null || Static460.anInt6964 > 0;
-        @Pc(34) int local34 = local16.method5331();
-        @Pc(38) int local38 = local16.method5333();
+        @Pc(16) MouseLog local16 = (MouseLog) Static226.A_DEQUE___58.first();
+        @Pc(30) boolean local30 = InterfaceManager.dragSource != null || Static460.anInt6964 > 0;
+        @Pc(34) int local34 = local16.getX();
+        @Pc(38) int local38 = local16.getY();
         if (local30) {
             Static536.anInt8149 = 1;
         }

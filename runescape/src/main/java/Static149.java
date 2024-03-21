@@ -35,8 +35,8 @@ public final class Static149 {
         @Pc(25) int local25 = Static682.anInt10295;
         @Pc(29) int local29 = Static407.anInt6288 - 3;
         Static87.method1693(Static682.anInt10295, Static407.anInt6288, LocalisedText.CHOOSEOPTION.localise(Static51.anInt1052), arg0, local7 + Static84.anInt1775, Static71.anInt1576 - -local5);
-        @Pc(55) int local55 = Static189.aClass120_1.method8853() + local5;
-        @Pc(66) int local66 = local7 + Static189.aClass120_1.method8854();
+        @Pc(55) int local55 = Static189.aMouseMonitor_1.getRecordedX() + local5;
+        @Pc(66) int local66 = local7 + Static189.aMouseMonitor_1.getRecordedY();
         @Pc(70) int local70;
         @Pc(77) DoublyLinkedNode_Sub2_Sub4 local77;
         @Pc(89) int local89;

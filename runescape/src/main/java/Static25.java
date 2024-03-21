@@ -41,7 +41,7 @@ public final class Static25 {
             Static656.method6692();
             Static377.anInt5930 = Static523.graphicsDefaults.lobby_interface;
             Static640.method8435(false);
-            Static469.method6362();
+            InterfaceManager.redrawAll();
             Static472.method6414(Static377.anInt5930);
         }
         Static461.aBoolean529 = true;

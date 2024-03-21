@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static438 {
 
-    @OriginalMember(owner = "client!nq", name = "e", descriptor = "[Lclient!hda;")
-    public static Component[] aComponentArray3;
-
     @OriginalMember(owner = "client!nq", name = "f", descriptor = "I")
     public static int anInt6640;
 

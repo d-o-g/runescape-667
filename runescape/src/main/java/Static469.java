@@ -90,11 +90,4 @@ public final class Static469 {
         }
         return local9;
     }
-
-    @OriginalMember(owner = "client!oq", name = "b", descriptor = "(I)V")
-    public static void method6362() {
-        for (@Pc(1) int local1 = 0; local1 < 100; local1++) {
-            InterfaceManager.dirtyRectangles[local1] = true;
-        }
-    }
 }

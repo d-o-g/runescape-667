@@ -80,7 +80,7 @@ public final class Static369 {
                 Static419.aObjTypeList_1.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
                 local31.unlink();
             }
-            Static469.method6362();
+            InterfaceManager.redrawAll();
             return;
         }
         if (Static158.aToolkit_5 == null) {

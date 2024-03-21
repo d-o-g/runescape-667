@@ -24,7 +24,7 @@ public final class Static28 {
             return;
         }
         @Pc(30) ClippingMask local30 = local23.aClippingMask;
-        arg1.KA(arg3, arg0, arg3 + arg2.anInt3802, arg0 - -arg2.anInt3746);
+        arg1.KA(arg3, arg0, arg3 + arg2.width, arg0 - -arg2.height);
         if (Static578.anInt8595 == 2 || Static578.anInt8595 == 5 || Static12.aSprite_26 == null) {
             arg1.A(-16777216, local30, arg3, arg0);
             return;
@@ -46,7 +46,7 @@ public final class Static28 {
         }
         @Pc(120) int local120 = local90 / 128 + 208 + 48 - Static720.mapWidth * 2;
         @Pc(137) int local137 = Static501.mapHeight * 4 + 48 - local93 / 128 - (Static501.mapHeight - 104) * 2;
-        Static12.aSprite_26.renderRotated((float) arg3 + (float) arg2.anInt3802 / 2.0F, (float) arg2.anInt3746 / 2.0F + (float) arg0, (float) local120, (float) local137, local79, local87 << 2, local30, arg3, arg0);
+        Static12.aSprite_26.renderRotated((float) arg3 + (float) arg2.width / 2.0F, (float) arg2.height / 2.0F + (float) arg0, (float) local120, (float) local137, local79, local87 << 2, local30, arg3, arg0);
         @Pc(190) int local190;
         @Pc(200) int local200;
         @Pc(211) int local211;
@@ -189,7 +189,7 @@ public final class Static28 {
             Static6.method107(arg0, local30, Static691.aSpriteArray15[Static266.aBoolean583 ? 1 : 0], local878, local585, arg2, arg3);
         }
         if (!Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aBoolean124) {
-            arg1.method7971(3, 3, arg0 + arg2.anInt3746 / 2 - 1, arg2.anInt3802 / 2 + arg3 + -1, -1);
+            arg1.method7971(3, 3, arg0 + arg2.height / 2 - 1, arg2.width / 2 + arg3 + -1, -1);
             return;
         }
     }

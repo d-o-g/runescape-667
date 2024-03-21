@@ -1188,7 +1188,7 @@ public final class Static293 {
                                                                     local4611 = new ServerActiveProperties(local4597.events, local1409);
                                                                     local4597.unlink();
                                                                 } else if (local1413 == -1) {
-                                                                    local4611 = new ServerActiveProperties(Static145.method2412(local100).serverActiveProperties.events, local1409);
+                                                                    local4611 = new ServerActiveProperties(InterfaceList.list(local100).serverActiveProperties.events, local1409);
                                                                 } else {
                                                                     local4611 = new ServerActiveProperties(0, local1409);
                                                                 }
@@ -1411,11 +1411,11 @@ public final class Static293 {
                                                                         local5438.unlink();
                                                                         Static548.aHashTable_40.put((long) local277, local5438);
                                                                     }
-                                                                    @Pc(5487) Component local5487 = Static145.method2412(local100);
+                                                                    @Pc(5487) Component local5487 = InterfaceList.list(local100);
                                                                     if (local5487 != null) {
                                                                         InterfaceManager.redraw(local5487);
                                                                     }
-                                                                    local5487 = Static145.method2412(local277);
+                                                                    local5487 = InterfaceList.list(local277);
                                                                     if (local5487 != null) {
                                                                         InterfaceManager.redraw(local5487);
                                                                         Static134.method8956(local5487, true);
@@ -1550,11 +1550,11 @@ public final class Static293 {
                                                                     local100 = local11.g2();
                                                                     local526 = local11.g2();
                                                                     Static574.method7573();
-                                                                    if (Component.aComponentArrayArray2[local277] != null) {
+                                                                    if (InterfaceList.interfaces[local277] != null) {
                                                                         for (local1409 = local100; local1409 < local526; local1409++) {
                                                                             local1413 = local11.g3();
-                                                                            if (Component.aComponentArrayArray2[local277].length > local1409 && Component.aComponentArrayArray2[local277][local1409] != null) {
-                                                                                Component.aComponentArrayArray2[local277][local1409].anInt3774 = local1413;
+                                                                            if (InterfaceList.interfaces[local277].length > local1409 && InterfaceList.interfaces[local277][local1409] != null) {
+                                                                                InterfaceList.interfaces[local277][local1409].anInt3774 = local1413;
                                                                             }
                                                                         }
                                                                     }
@@ -1986,7 +1986,7 @@ public final class Static293 {
                                                                                     local4611 = new ServerActiveProperties(local1409, local4597.targetParam);
                                                                                     local4597.unlink();
                                                                                 } else if (local1413 == -1) {
-                                                                                    local4611 = new ServerActiveProperties(local1409, Static145.method2412(local100).serverActiveProperties.targetParam);
+                                                                                    local4611 = new ServerActiveProperties(local1409, InterfaceList.list(local100).serverActiveProperties.targetParam);
                                                                                 } else {
                                                                                     local4611 = new ServerActiveProperties(local1409, -1);
                                                                                 }

@@ -2,50 +2,50 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!lt")
-public final class Node_Sub9_Sub2 extends Node_Sub9 {
+public final class SimpleMouseLog extends MouseLog {
 
     @OriginalMember(owner = "client!lt", name = "t", descriptor = "I")
-    public int anInt5937;
+    public int y;
 
     @OriginalMember(owner = "client!lt", name = "v", descriptor = "I")
-    public int anInt5940;
+    public int x;
 
     @OriginalMember(owner = "client!lt", name = "r", descriptor = "I")
-    public int anInt5942;
+    public int extra;
 
     @OriginalMember(owner = "client!lt", name = "y", descriptor = "J")
-    public long aLong181;
+    public long time;
 
     @OriginalMember(owner = "client!lt", name = "w", descriptor = "I")
-    public int anInt5946;
+    public int type;
 
     @OriginalMember(owner = "client!lt", name = "a", descriptor = "(I)I")
     @Override
-    public int method5333() {
-        return this.anInt5937;
+    public int getY() {
+        return this.y;
     }
 
     @OriginalMember(owner = "client!lt", name = "c", descriptor = "(B)I")
     @Override
-    public int method5332() {
-        return this.anInt5942;
+    public int getExtra() {
+        return this.extra;
     }
 
     @OriginalMember(owner = "client!lt", name = "b", descriptor = "(I)I")
     @Override
-    public int method5331() {
-        return this.anInt5940;
+    public int getX() {
+        return this.x;
     }
 
     @OriginalMember(owner = "client!lt", name = "b", descriptor = "(B)J")
     @Override
-    public long method5334() {
-        return this.aLong181;
+    public long getTime() {
+        return this.time;
     }
 
     @OriginalMember(owner = "client!lt", name = "a", descriptor = "(Z)I")
     @Override
-    public int method5328() {
-        return this.anInt5946;
+    public int getType() {
+        return this.type;
     }
 }

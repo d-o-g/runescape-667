@@ -59,7 +59,7 @@ public final class Static55 {
             @Pc(197) Component local197 = Static15.method186(local16, local19);
             if (local197 != null) {
                 Static470.method6384();
-                @Pc(206) ServerActiveProperties local206 = Static84.method1661(local197);
+                @Pc(206) ServerActiveProperties local206 = InterfaceManager.serverActiveProperties(local197);
                 Static389.method5476(local206.getTargetMask(), local197, local206.targetParam);
                 Static153.aString27 = Static380.method5359(local197);
                 Static128.aString108 = local197.opBase + "<col=ffffff>";

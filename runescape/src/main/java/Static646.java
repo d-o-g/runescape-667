@@ -50,11 +50,11 @@ public final class Static646 {
         if (local8 == null) {
             return;
         }
-        Static163.activeToolkit.KA(arg1, arg2, arg1 + arg0.anInt3802, arg2 + arg0.anInt3746);
+        Static163.activeToolkit.KA(arg1, arg2, arg1 + arg0.width, arg2 + arg0.height);
         if (Static578.anInt8595 >= 3) {
             Static163.activeToolkit.A(-16777216, local8.aClippingMask, arg1, arg2);
         } else {
-            Static12.aSprite_27.method8183((float) arg0.anInt3802 / 2.0F + (float) arg1, (float) arg0.anInt3746 / 2.0F + (float) arg2, ((int) -Static171.aFloat64 & 0x3FFF) << 2, local8.aClippingMask, arg1, arg2);
+            Static12.aSprite_27.method8183((float) arg0.width / 2.0F + (float) arg1, (float) arg0.height / 2.0F + (float) arg2, ((int) -Static171.aFloat64 & 0x3FFF) << 2, local8.aClippingMask, arg1, arg2);
         }
     }
 

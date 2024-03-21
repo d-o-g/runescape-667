@@ -17,15 +17,15 @@ public final class Static251 {
         }
         @Pc(12) int local12 = arg0 >> 16;
         @Pc(23) int local23 = arg0 & 0xFFFF;
-        if (Component.aComponentArrayArray2[local12] == null || Component.aComponentArrayArray2[local12][local23] == null) {
+        if (InterfaceList.interfaces[local12] == null || InterfaceList.interfaces[local12][local23] == null) {
             return false;
         }
-        @Pc(44) Component local44 = Component.aComponentArrayArray2[local12][local23];
+        @Pc(44) Component local44 = InterfaceList.interfaces[local12][local23];
         @Pc(57) DoublyLinkedNode_Sub2_Sub16 local57;
         if (arg1 == -1 && local44.type == 0) {
             for (local57 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local57 != null; local57 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
                 if (local57.anInt7314 == 18 || local57.anInt7314 == 1002 || local57.anInt7314 == 12 || local57.anInt7314 == 20 || local57.anInt7314 == 10) {
-                    for (@Pc(160) Component local160 = Static145.method2412(local57.anInt7313); local160 != null; local160 = Static556.method7299(local160)) {
+                    for (@Pc(160) Component local160 = InterfaceList.list(local57.anInt7313); local160 != null; local160 = Static556.method7299(local160)) {
                         if (local160.slot == local44.slot) {
                             return true;
                         }

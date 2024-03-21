@@ -21,6 +21,6 @@ public final class Static129 {
     @OriginalMember(owner = "client!eaa", name = "a", descriptor = "(B)V")
     public static void method2279() {
         Static236.aBoolean305 = false;
-        Static469.method6362();
+        InterfaceManager.redrawAll();
     }
 }

@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static192 {
 
-    @OriginalMember(owner = "client!fu", name = "p", descriptor = "I")
-    public static int anInt3123 = -1;
-
     @OriginalMember(owner = "client!fu", name = "a", descriptor = "(Lclient!cba;B)Ljava/lang/String;")
     public static String method2874(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub4 arg0) {
         return arg0.aString10 + " <col=ffffff>>";

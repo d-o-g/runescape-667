@@ -28,7 +28,7 @@ public final class Static643 {
     public static void method8444(@OriginalArg(1) int arg0, @OriginalArg(2) Component[] arg1) {
         for (@Pc(3) int local3 = 0; local3 < arg1.length; local3++) {
             @Pc(9) Component local9 = arg1[local3];
-            if (local9 != null && local9.layer == arg0 && !Static84.method1660(local9)) {
+            if (local9 != null && local9.layer == arg0 && !InterfaceManager.isHidden(local9)) {
                 if (local9.type == 0) {
                     method8444(local9.slot, arg1);
                     if (local9.aComponentArray1 != null) {

@@ -1,9 +1,6 @@
 import com.jagex.SignLink;
-import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.core.util.TimeUtils;
-import com.jagex.game.Animator;
 import rs2.client.loading.LoadState;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
@@ -277,7 +274,7 @@ public final class Static523 {
             Static36.aClass260_1 = new Class260(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
             Static628.aClass342_5 = new Class342(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
             Static648.aClass17_1 = new Class17(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
-            Component.init(js5.INTERFACES, js5.FONTMETRICS, js5.SPRITES, js5.MODELS);
+            InterfaceManager.init(js5.INTERFACES, js5.FONTMETRICS, js5.SPRITES, js5.MODELS);
             Static110.method2081(js5.CONFIG_BILLBOARD);
             Static68.aClass151_3 = new Class151(Static51.anInt1052, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
             Static288.aClass139_2 = new Class139(Static51.anInt1052, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new Class251());
@@ -334,12 +331,12 @@ public final class Static523 {
             js5.CONFIG_SPOT.discardunpacked = 2;
         }
         if (Static473.aLoadState_22 == LoadState.LOAD_LOGIN_WINDOW) {
-            if (!Static571.method7566(graphicsDefaults.login_interface)) {
+            if (!InterfaceList.load(graphicsDefaults.login_interface)) {
                 return 0;
             }
             local184 = true;
-            for (local74 = 0; local74 < Component.aComponentArrayArray2[graphicsDefaults.login_interface].length; local74++) {
-                @Pc(1315) Component local1315 = Component.aComponentArrayArray2[graphicsDefaults.login_interface][local74];
+            for (local74 = 0; local74 < InterfaceList.interfaces[graphicsDefaults.login_interface].length; local74++) {
+                @Pc(1315) Component local1315 = InterfaceList.interfaces[graphicsDefaults.login_interface][local74];
                 if (local1315.type == 5 && local1315.graphic != -1 && !js5.SPRITES.requestdownload(0, local1315.graphic)) {
                     local184 = false;
                 }
@@ -387,30 +384,4 @@ public final class Static523 {
         return Static694.method9030();
     }
 
-    @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ZLclient!hda;)V")
-    public static void method3449(@OriginalArg(1) Component arg0) {
-        if (ComponentClientCode.SPINNING_PLAYER != arg0.clientcode) {
-            return;
-        }
-        if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9 == null) {
-            arg0.obj = 0;
-            arg0.objData = 0;
-            return;
-        }
-        arg0.modelAngleX = 150;
-        arg0.modelAngleY = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
-        arg0.objType = 5;
-        arg0.obj = Static312.anInt5000;
-        arg0.objData = Static214.method3157(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9);
-        @Pc(55) Animator local55 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aAnimator_10;
-        if (local55 == null) {
-            arg0.aAnimator_6 = null;
-            return;
-        }
-        if (arg0.aAnimator_6 == null) {
-            arg0.aAnimator_6 = new Animator_Sub1();
-        }
-        arg0.modelAnimation = local55.getAnimationId();
-        arg0.aAnimator_6.method9096(local55);
-    }
 }

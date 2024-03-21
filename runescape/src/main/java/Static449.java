@@ -18,13 +18,6 @@ public final class Static449 {
     @OriginalMember(owner = "client!od", name = "d", descriptor = "Ljava/lang/String;")
     public static String aString75 = "";
 
-    @OriginalMember(owner = "client!od", name = "a", descriptor = "(IBILclient!hda;)V")
-    public static void method6114(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Component arg2) {
-        Static192.anInt3123 = arg0;
-        Static71.aComponent_2 = arg2;
-        Static725.anInt10936 = arg1;
-    }
-
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(BZZLclient!aha;)V")
     public static void method6115(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Node_Sub4 arg2) {
         @Pc(6) int local6 = arg2.anInt147;
@@ -34,7 +27,7 @@ public final class Static449 {
             Static347.method5094(local6);
         }
         Static193.method2897(local6);
-        @Pc(27) Component local27 = Static145.method2412(local10);
+        @Pc(27) Component local27 = InterfaceList.list(local10);
         if (local27 != null) {
             InterfaceManager.redraw(local27);
         }

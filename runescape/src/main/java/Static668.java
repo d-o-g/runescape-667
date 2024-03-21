@@ -158,6 +158,6 @@ public final class Static668 {
         }
         Static216.anInt3530 = 0;
         Static671.anInt10026 = 0;
-        Static469.method6362();
+        InterfaceManager.redrawAll();
     }
 }

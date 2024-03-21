@@ -8,8 +8,8 @@ public final class Static585 {
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(IIBII)V")
     public static void method7670(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        for (@Pc(1) int local1 = 0; local1 < Static122.anInt2339; local1++) {
-            @Pc(6) Rectangle local6 = Node_Sub1_Sub28.aRectangleArray1[local1];
+        for (@Pc(1) int local1 = 0; local1 < InterfaceManager.boundaryCount; local1++) {
+            @Pc(6) Rectangle local6 = InterfaceManager.boundaries[local1];
             if (arg1 < local6.x + local6.width && arg1 + arg0 > local6.x && local6.height + local6.y > arg3 && local6.y < arg2 + arg3) {
                 InterfaceManager.dirtyRectangles[local1] = true;
             }

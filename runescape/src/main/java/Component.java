@@ -58,6 +58,9 @@ public final class Component {
     @OriginalMember(owner = "client!rc", name = "o", descriptor = "Z")
     public static boolean redrawAll = false;
 
+    @OriginalMember(owner = "client!dga", name = "n", descriptor = "I")
+    public static int featureMask;
+
     @OriginalMember(owner = "client!ov", name = "c", descriptor = "Lclient!dla;")
     public static final ReferenceCache sprites = new ReferenceCache(3000000, 200);
 
@@ -79,19 +82,10 @@ public final class Component {
     @OriginalMember(owner = "client!vba", name = "M", descriptor = "Lclient!sb;")
     public static js5 interfacesJs5;
 
-    @OriginalMember(owner = "client!of", name = "z", descriptor = "[[Lclient!hda;")
-    public static Component[][] aComponentArrayArray2;
-
-    @OriginalMember(owner = "client!ec", name = "G", descriptor = "[Z")
-    public static boolean[] aBooleanArray5;
-
-    @OriginalMember(owner = "client!o", name = "a", descriptor = "(Lclient!sb;Lclient!sb;Lclient!sb;BLclient!sb;)V")
-    public static void init(@OriginalArg(0) js5 interfacesJs5, @OriginalArg(1) js5 fontMetricsJs5, @OriginalArg(2) js5 spritesJs5, @OriginalArg(4) js5 modelsJs5) {
-        Component.spritesJs5 = spritesJs5;
-        Component.interfacesJs5 = interfacesJs5;
-        Component.modelsJs5 = modelsJs5;
-        aComponentArrayArray2 = new Component[Component.interfacesJs5.groupSize()][];
-        aBooleanArray5 = new boolean[Component.interfacesJs5.groupSize()];
+    @OriginalMember(owner = "client!kk", name = "a", descriptor = "(II)V")
+    public static void setFeatureMask(@OriginalArg(1) int featureMask) {
+        Component.featureMask = featureMask;
+        models.reset();
     }
 
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IB)V")
@@ -368,7 +362,7 @@ public final class Component {
     public byte sizeTypeHorizontal = 0;
 
     @OriginalMember(owner = "client!hda", name = "n", descriptor = "I")
-    public int anInt3735 = 0;
+    public int positionX = 0;
 
     @OriginalMember(owner = "client!hda", name = "t", descriptor = "I")
     public int mouseOverCursor = -1;
@@ -386,7 +380,7 @@ public final class Component {
     public boolean clickMask = true;
 
     @OriginalMember(owner = "client!hda", name = "nd", descriptor = "I")
-    public int alpha = 0;
+    public int transparency = 0;
 
     @OriginalMember(owner = "client!hda", name = "l", descriptor = "I")
     public int colour = 0;
@@ -491,7 +485,7 @@ public final class Component {
     public boolean fontMonospaced = true;
 
     @OriginalMember(owner = "client!hda", name = "ab", descriptor = "I")
-    public int anInt3784 = 0;
+    public int positionY = 0;
 
     @OriginalMember(owner = "client!hda", name = "g", descriptor = "I")
     public int anInt3795 = 1;
@@ -509,13 +503,13 @@ public final class Component {
     public int anInt3776 = -1;
 
     @OriginalMember(owner = "client!hda", name = "A", descriptor = "I")
-    public int anInt3802 = 0;
+    public int width = 0;
 
     @OriginalMember(owner = "client!hda", name = "Cc", descriptor = "I")
     public int horizontalAlignment = 0;
 
     @OriginalMember(owner = "client!hda", name = "Vc", descriptor = "I")
-    public int anInt3746 = 0;
+    public int height = 0;
 
     @OriginalMember(owner = "client!hda", name = "y", descriptor = "I")
     public int anInt3805 = 0;
@@ -720,7 +714,7 @@ public final class Component {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ge;B)V")
-    public void method3390(@OriginalArg(0) Packet packet) {
+    public void decode(@OriginalArg(0) Packet packet) {
         @Pc(7) int version = packet.g1();
         if (version == 255) {
             version = -1;
@@ -774,7 +768,7 @@ public final class Component {
             @Pc(191) int spriteFlags = packet.g1();
             this.tiled = (spriteFlags & 0x1) != 0;
             this.transparent = (spriteFlags & 0x2) != 0;
-            this.alpha = packet.g1();
+            this.transparency = packet.g1();
             this.outline = packet.g1();
             this.shadow = packet.g4();
             this.flipHorizontal = packet.g1() == 1;
@@ -846,7 +840,7 @@ public final class Component {
             this.verticalAlignment = packet.g1();
             this.textShadow = packet.g1() == 1;
             this.colour = packet.g4();
-            this.alpha = packet.g1();
+            this.transparency = packet.g1();
 
             if (version >= 0) {
                 this.maxLines = packet.g1();
@@ -856,7 +850,7 @@ public final class Component {
         if (this.type == TYPE_RECTANGLE) {
             this.colour = packet.g4();
             this.filled = packet.g1() == 1;
-            this.alpha = packet.g1();
+            this.transparency = packet.g1();
         }
 
         if (this.type == TYPE_LINE) {
@@ -1225,7 +1219,7 @@ public final class Component {
                     base.upscale();
                 }
 
-                model = toolkit.createModel(base, functionMask, Static108.anInt2168, 64, 768);
+                model = toolkit.createModel(base, functionMask, featureMask, 64, 768);
 
                 if (this.recol_s != null) {
                     for (@Pc(339) int i = 0; i < this.recol_s.length; i++) {

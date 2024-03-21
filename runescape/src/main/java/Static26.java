@@ -10,8 +10,8 @@ public final class Static26 {
 
     @OriginalMember(owner = "client!at", name = "a", descriptor = "(II)V")
     public static void method716(@OriginalArg(1) int arg0) {
-        if (Static571.method7566(arg0)) {
-            Static643.method8444(-1, Component.aComponentArrayArray2[arg0]);
+        if (InterfaceList.load(arg0)) {
+            Static643.method8444(-1, InterfaceList.interfaces[arg0]);
         }
     }
 

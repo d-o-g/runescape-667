@@ -35,10 +35,10 @@ public final class Static163 {
         Static122.method2208(arg1);
         @Pc(26) Component local26 = Static145.method2412(arg2);
         if (local26 != null) {
-            Static178.method2729(local26);
+            InterfaceManager.redraw(local26);
         }
         if (Static390.aComponent_9 != null) {
-            Static178.method2729(Static390.aComponent_9);
+            InterfaceManager.redraw(Static390.aComponent_9);
             Static390.aComponent_9 = null;
         }
         Static94.method1840();

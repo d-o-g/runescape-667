@@ -175,7 +175,7 @@ public final class IndexedImage {
     public byte[] alpha;
 
     @OriginalMember(owner = "client!wp", name = "a", descriptor = "()V")
-    public void flipHorizontal() {
+    public void flipHorizontally() {
         @Pc(2) byte[] local2 = this.raster;
 
         if (this.alpha != null) {
@@ -286,7 +286,7 @@ public final class IndexedImage {
     }
 
     @OriginalMember(owner = "client!wp", name = "c", descriptor = "(I)V")
-    public void method9381(@OriginalArg(0) int arg0) {
+    public void setShadowColour(@OriginalArg(0) int arg0) {
         @Pc(1) int local1 = -1;
         @Pc(8) int local8;
         @Pc(69) int local69;
@@ -384,7 +384,7 @@ public final class IndexedImage {
     }
 
     @OriginalMember(owner = "client!wp", name = "b", descriptor = "(I)V")
-    public void method9385(@OriginalArg(0) int arg0) {
+    public void setOutlineColour(@OriginalArg(0) int arg0) {
         @Pc(1) int local1 = -1;
         @Pc(8) int local8;
         @Pc(69) int local69;
@@ -492,7 +492,7 @@ public final class IndexedImage {
     }
 
     @OriginalMember(owner = "client!wp", name = "d", descriptor = "()V")
-    public void method9388() {
+    public void flipVertically() {
         @Pc(2) byte[] local2 = this.raster;
         @Pc(29) byte local29;
         @Pc(10) int local10;

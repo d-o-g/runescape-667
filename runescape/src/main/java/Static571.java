@@ -35,7 +35,7 @@ public final class Static571 {
                     @Pc(66) byte[] local66 = Static666.aJs5_118.getfile(local53, arg0);
                     if (local66 != null) {
                         @Pc(78) Component local78 = Static453.aComponentArrayArray2[arg0][local53] = new Component();
-                        local78.anInt3812 = local53 + (arg0 << 16);
+                        local78.slot = local53 + (arg0 << 16);
                         if (local66[0] != -1) {
                             throw new IllegalStateException("if1");
                         }

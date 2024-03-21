@@ -19,7 +19,7 @@ public final class Class159 {
     public final int anInt3833;
 
     @OriginalMember(owner = "client!he", name = "l", descriptor = "I")
-    public final int anInt3836;
+    public final int graphic;
 
     @OriginalMember(owner = "client!he", name = "b", descriptor = "I")
     public final int anInt3832;
@@ -30,7 +30,7 @@ public final class Class159 {
         this.anIntArray302 = arg2;
         this.anIntArray303 = arg3;
         this.anInt3833 = arg1;
-        this.anInt3836 = arg5;
+        this.graphic = arg5;
         this.anInt3832 = arg0;
     }
 }

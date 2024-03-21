@@ -11,7 +11,7 @@ public final class Static585 {
         for (@Pc(1) int local1 = 0; local1 < Static122.anInt2339; local1++) {
             @Pc(6) Rectangle local6 = Node_Sub1_Sub28.aRectangleArray1[local1];
             if (arg1 < local6.x + local6.width && arg1 + arg0 > local6.x && local6.height + local6.y > arg3 && local6.y < arg2 + arg3) {
-                Static364.aBooleanArray18[local1] = true;
+                InterfaceManager.dirtyRectangles[local1] = true;
             }
         }
         Static682.method8927(arg3, arg3 + arg2, arg1, arg1 + arg0);

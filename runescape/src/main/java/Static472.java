@@ -11,6 +11,7 @@ import com.jagex.core.util.JagException;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.config.iftype.DragRender;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.bastype.BASType;
@@ -133,10 +134,10 @@ public final class Static472 {
         @Pc(14) Component[] local14 = Static453.aComponentArrayArray2[arg0];
         for (@Pc(16) int local16 = 0; local16 < local14.length; local16++) {
             @Pc(21) Component local21 = local14[local16];
-            if (local21.anObjectArray13 != null) {
+            if (local21.onLoad != null) {
                 @Pc(28) Node_Sub42 local28 = new Node_Sub42();
                 local28.aComponent_14 = local21;
-                local28.anObjectArray36 = local21.anObjectArray13;
+                local28.anObjectArray36 = local21.onLoad;
                 method6422(local28, 2000000);
             }
         }
@@ -148,8 +149,8 @@ public final class Static472 {
             return;
         }
         @Pc(71) Component[] local71;
-        if (arg0.anInt3741 == -1) {
-            @Pc(119) int local119 = arg0.anInt3812 >>> 16;
+        if (arg0.id == -1) {
+            @Pc(119) int local119 = arg0.slot >>> 16;
             @Pc(123) Component[] local123 = Static148.aComponentArrayArray1[local119];
             if (local123 == null) {
                 local71 = Static453.aComponentArrayArray2[local119];
@@ -167,15 +168,15 @@ public final class Static472 {
             local123[local123.length - 1] = arg0;
             return;
         }
-        @Pc(12) Component local12 = Static145.method2412(arg0.anInt3743);
+        @Pc(12) Component local12 = Static145.method2412(arg0.layer);
         if (local12 == null) {
             return;
         }
         if (local12.aComponentArray1 == local12.aComponentArray2) {
             local12.aComponentArray1 = new Component[local12.aComponentArray2.length];
             local12.aComponentArray1[local12.aComponentArray1.length - 1] = arg0;
-            Arrays.copy(local12.aComponentArray2, 0, local12.aComponentArray1, 0, arg0.anInt3741);
-            Arrays.copy(local12.aComponentArray2, arg0.anInt3741 + 1, local12.aComponentArray1, arg0.anInt3741, local12.aComponentArray2.length - arg0.anInt3741 - 1);
+            Arrays.copy(local12.aComponentArray2, 0, local12.aComponentArray1, 0, arg0.id);
+            Arrays.copy(local12.aComponentArray2, arg0.id + 1, local12.aComponentArray1, arg0.id, local12.aComponentArray2.length - arg0.id - 1);
             return;
         }
         @Pc(68) int local68 = 0;
@@ -193,7 +194,7 @@ public final class Static472 {
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(IZ)V")
     public static void method6416(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(220) Component local220;
+        @Pc(220) Component component;
         @Pc(27) int local27;
         @Pc(21) int local21;
         @Pc(38) Component local38;
@@ -238,9 +239,9 @@ public final class Static472 {
                     throw new RuntimeException("Gap at:" + (local27 - 1));
                 }
                 @Pc(166) Component local166 = new Component();
-                local166.anInt3820 = local21;
-                local166.anInt3743 = local166.anInt3812 = local38.anInt3812;
-                local166.anInt3741 = local27;
+                local166.type = local21;
+                local166.layer = local166.slot = local38.slot;
+                local166.id = local27;
                 local38.aComponentArray2[local27] = local166;
                 if (local38.aComponentArray1 != local38.aComponentArray2) {
                     local38.aComponentArray1[local27] = local166;
@@ -250,27 +251,27 @@ public final class Static472 {
                 } else {
                     aComponent_11 = local166;
                 }
-                Static178.method2729(local38);
+                InterfaceManager.redraw(local38);
                 return;
             }
             if (arg0 == 151) {
-                local220 = arg1 ? aComponent_12 : aComponent_11;
-                if (local220.anInt3741 == -1) {
+                component = arg1 ? aComponent_12 : aComponent_11;
+                if (component.id == -1) {
                     if (arg1) {
                         throw new RuntimeException("Tried to .cc_delete static .active-component!");
                     }
                     throw new RuntimeException("Tried to cc_delete static active-component!");
                 }
-                local248 = Static145.method2412(local220.anInt3812);
-                local248.aComponentArray2[local220.anInt3741] = null;
-                Static178.method2729(local248);
+                local248 = Static145.method2412(component.slot);
+                local248.aComponentArray2[component.id] = null;
+                InterfaceManager.redraw(local248);
                 return;
             }
             if (arg0 == 152) {
-                local220 = Static145.method2412(anIntArray578[--anInt7142]);
-                local220.aComponentArray2 = null;
-                local220.aComponentArray1 = null;
-                Static178.method2729(local220);
+                component = Static145.method2412(anIntArray578[--anInt7142]);
+                component.aComponentArray2 = null;
+                component.aComponentArray1 = null;
+                InterfaceManager.redraw(component);
                 return;
             }
             if (arg0 == 200) {
@@ -308,21 +309,21 @@ public final class Static472 {
             if (arg0 == 202 || arg0 == 204) {
                 if (arg0 == 202) {
                     local21 = anIntArray578[--anInt7142];
-                    local220 = Static145.method2412(local21);
+                    component = Static145.method2412(local21);
                 } else {
-                    local220 = arg1 ? aComponent_12 : aComponent_11;
+                    component = arg1 ? aComponent_12 : aComponent_11;
                 }
-                method6415(local220);
+                method6415(component);
                 return;
             }
             if (arg0 == 203 || arg0 == 205) {
                 if (arg0 == 203) {
                     local21 = anIntArray578[--anInt7142];
-                    local220 = Static145.method2412(local21);
+                    component = Static145.method2412(local21);
                 } else {
-                    local220 = arg1 ? aComponent_12 : aComponent_11;
+                    component = arg1 ? aComponent_12 : aComponent_11;
                 }
-                method6417(local220);
+                method6417(component);
                 return;
             }
         } else {
@@ -384,215 +385,215 @@ public final class Static472 {
                 if (arg0 >= 1100 && arg0 < 1200 || !(arg0 < 2100 || arg0 >= 2200)) {
                     if (arg0 >= 2000) {
                         arg0 -= 1000;
-                        local220 = Static145.method2412(anIntArray578[--anInt7142]);
+                        component = Static145.method2412(anIntArray578[--anInt7142]);
                     } else {
-                        local220 = arg1 ? aComponent_12 : aComponent_11;
+                        component = arg1 ? aComponent_12 : aComponent_11;
                     }
                     if (arg0 == 1100) {
                         anInt7142 -= 2;
-                        local220.anInt3809 = anIntArray578[anInt7142];
-                        if (local220.anInt3809 > local220.anInt3769 - local220.anInt3802) {
-                            local220.anInt3809 = local220.anInt3769 - local220.anInt3802;
+                        component.anInt3809 = anIntArray578[anInt7142];
+                        if (component.anInt3809 > component.scrollWidth - component.anInt3802) {
+                            component.anInt3809 = component.scrollWidth - component.anInt3802;
                         }
-                        if (local220.anInt3809 < 0) {
-                            local220.anInt3809 = 0;
+                        if (component.anInt3809 < 0) {
+                            component.anInt3809 = 0;
                         }
-                        local220.anInt3768 = anIntArray578[anInt7142 + 1];
-                        if (local220.anInt3768 > local220.anInt3742 - local220.anInt3746) {
-                            local220.anInt3768 = local220.anInt3742 - local220.anInt3746;
+                        component.anInt3768 = anIntArray578[anInt7142 + 1];
+                        if (component.anInt3768 > component.scrollHeight - component.anInt3746) {
+                            component.anInt3768 = component.scrollHeight - component.anInt3746;
                         }
-                        if (local220.anInt3768 < 0) {
-                            local220.anInt3768 = 0;
+                        if (component.anInt3768 < 0) {
+                            component.anInt3768 = 0;
                         }
-                        Static178.method2729(local220);
-                        if (local220.anInt3741 == -1) {
-                            Static435.method5862(local220.anInt3812);
+                        InterfaceManager.redraw(component);
+                        if (component.id == -1) {
+                            Static435.method5862(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1101) {
-                        local220.anInt3779 = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
-                        if (local220.anInt3741 == -1) {
-                            Static633.method9425(local220.anInt3812);
+                        component.colour = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
+                        if (component.id == -1) {
+                            Static633.method9425(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1102) {
-                        local220.aBoolean294 = anIntArray578[--anInt7142] == 1;
-                        Static178.method2729(local220);
+                        component.filled = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1103) {
-                        local220.anInt3780 = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
+                        component.alpha = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1104) {
-                        local220.anInt3778 = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
+                        component.lineWidth = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1105) {
                         local21 = anIntArray578[--anInt7142];
-                        if (local220.anInt3810 != local21) {
-                            local220.anInt3810 = local21;
-                            Static178.method2729(local220);
+                        if (component.graphic != local21) {
+                            component.graphic = local21;
+                            InterfaceManager.redraw(component);
                         }
-                        if (local220.anInt3741 == -1) {
-                            Static236.method3450(local220.anInt3812);
+                        if (component.id == -1) {
+                            Static236.method3450(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1106) {
-                        local220.anInt3765 = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
+                        component.angle2d = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1107) {
-                        local220.aBoolean301 = anIntArray578[--anInt7142] == 1;
-                        Static178.method2729(local220);
+                        component.tiled = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1108) {
-                        local220.objType = 1;
-                        local220.obj = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
-                        if (local220.anInt3741 == -1) {
-                            Static96.method8819(local220.anInt3812);
+                        component.objType = 1;
+                        component.obj = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
+                        if (component.id == -1) {
+                            Static96.method8819(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1109) {
                         anInt7142 -= 6;
-                        local220.anInt3736 = anIntArray578[anInt7142];
-                        local220.anInt3804 = anIntArray578[anInt7142 + 1];
-                        local220.anInt3807 = anIntArray578[anInt7142 + 2];
-                        local220.anInt3811 = anIntArray578[anInt7142 + 3];
-                        local220.anInt3737 = anIntArray578[anInt7142 + 4];
-                        local220.anInt3793 = anIntArray578[anInt7142 + 5];
-                        Static178.method2729(local220);
-                        if (local220.anInt3741 == -1) {
-                            Static77.method1558(local220.anInt3812);
-                            Static580.method7651(local220.anInt3812);
+                        component.anInt3736 = anIntArray578[anInt7142];
+                        component.anInt3804 = anIntArray578[anInt7142 + 1];
+                        component.modelAngleX = anIntArray578[anInt7142 + 2];
+                        component.modelAngleY = anIntArray578[anInt7142 + 3];
+                        component.modelAngleZ = anIntArray578[anInt7142 + 4];
+                        component.modelZoom = anIntArray578[anInt7142 + 5];
+                        InterfaceManager.redraw(component);
+                        if (component.id == -1) {
+                            Static77.method1558(component.slot);
+                            Static580.method7651(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1110) {
                         local21 = anIntArray578[--anInt7142];
-                        if (local21 != local220.anInt3789) {
+                        if (local21 != component.modelAnimation) {
                             if (local21 == -1) {
-                                local220.aAnimator_6 = null;
+                                component.aAnimator_6 = null;
                             } else {
-                                if (local220.aAnimator_6 == null) {
-                                    local220.aAnimator_6 = new Animator_Sub1();
+                                if (component.aAnimator_6 == null) {
+                                    component.aAnimator_6 = new Animator_Sub1();
                                 }
-                                local220.aAnimator_6.update(true, local21);
+                                component.aAnimator_6.update(true, local21);
                             }
-                            local220.anInt3789 = local21;
-                            Static178.method2729(local220);
+                            component.modelAnimation = local21;
+                            InterfaceManager.redraw(component);
                         }
-                        if (local220.anInt3741 == -1) {
-                            Static62.method1423(local220.anInt3812);
+                        if (component.id == -1) {
+                            Static62.method1423(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1111) {
-                        local220.aBoolean285 = anIntArray578[--anInt7142] == 1;
-                        Static178.method2729(local220);
+                        component.modelOrtho = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1112) {
                         local1394 = aStringArray37[--anInt7139];
-                        if (!local1394.equals(local220.aString44)) {
-                            local220.aString44 = local1394;
-                            Static178.method2729(local220);
+                        if (!local1394.equals(component.text)) {
+                            component.text = local1394;
+                            InterfaceManager.redraw(component);
                         }
-                        if (local220.anInt3741 == -1) {
-                            Static611.method8227(local220.anInt3812);
+                        if (component.id == -1) {
+                            Static611.method8227(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1113) {
-                        local220.anInt3781 = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
-                        if (local220.anInt3741 == -1) {
-                            Static273.method3959(local220.anInt3812);
+                        component.fontGraphic = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
+                        if (component.id == -1) {
+                            Static273.method3959(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1114) {
                         anInt7142 -= 3;
-                        local220.anInt3818 = anIntArray578[anInt7142];
-                        local220.anInt3814 = anIntArray578[anInt7142 + 1];
-                        local220.anInt3748 = anIntArray578[anInt7142 + 2];
-                        Static178.method2729(local220);
+                        component.horizontalAlignment = anIntArray578[anInt7142];
+                        component.verticalAlignment = anIntArray578[anInt7142 + 1];
+                        component.lineHeight = anIntArray578[anInt7142 + 2];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1115) {
-                        local220.aBoolean286 = anIntArray578[--anInt7142] == 1;
-                        Static178.method2729(local220);
+                        component.textShadow = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1116) {
-                        local220.anInt3773 = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
+                        component.outline = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1117) {
-                        local220.anInt3798 = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
+                        component.shadow = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1118) {
-                        local220.aBoolean291 = anIntArray578[--anInt7142] == 1;
-                        Static178.method2729(local220);
+                        component.flipHorizontal = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1119) {
-                        local220.aBoolean293 = anIntArray578[--anInt7142] == 1;
-                        Static178.method2729(local220);
+                        component.flipVertical = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1120) {
                         anInt7142 -= 2;
-                        local220.anInt3769 = anIntArray578[anInt7142];
-                        local220.anInt3742 = anIntArray578[anInt7142 + 1];
-                        Static178.method2729(local220);
-                        if (local220.anInt3820 == 0) {
-                            Static134.method8956(local220, false);
+                        component.scrollWidth = anIntArray578[anInt7142];
+                        component.scrollHeight = anIntArray578[anInt7142 + 1];
+                        InterfaceManager.redraw(component);
+                        if (component.type == 0) {
+                            Static134.method8956(component, false);
                         }
                         return;
                     }
                     if (arg0 == 1122) {
-                        local220.aBoolean292 = anIntArray578[--anInt7142] == 1;
-                        Static178.method2729(local220);
+                        component.transparent = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1123) {
-                        local220.anInt3793 = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
-                        if (local220.anInt3741 == -1) {
-                            Static77.method1558(local220.anInt3812);
+                        component.modelZoom = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
+                        if (component.id == -1) {
+                            Static77.method1558(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1124) {
                         local21 = anIntArray578[--anInt7142];
-                        local220.aBoolean287 = local21 == 1;
-                        Static178.method2729(local220);
+                        component.lineDirection = local21 == 1;
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1125) {
                         anInt7142 -= 2;
-                        local220.anInt3755 = anIntArray578[anInt7142];
-                        local220.anInt3799 = anIntArray578[anInt7142 + 1];
-                        Static178.method2729(local220);
+                        component.modelOriginX = anIntArray578[anInt7142];
+                        component.modelOriginY = anIntArray578[anInt7142 + 1];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1126) {
-                        local220.anInt3788 = anIntArray578[--anInt7142];
-                        Static178.method2729(local220);
+                        component.maxLines = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     @Pc(1756) ParamType local1756;
@@ -602,10 +603,10 @@ public final class Static472 {
                         local27 = anIntArray578[anInt7142 + 1];
                         local1756 = Static523.instance.list(local21);
                         if (local27 != local1756.defaultint) {
-                            local220.method3385(local21, local27);
+                            component.setParam(local21, local27);
                             return;
                         }
-                        local220.method3402(local21);
+                        component.removeParam(local21);
                         return;
                     }
                     if (arg0 == 1128) {
@@ -613,21 +614,21 @@ public final class Static472 {
                         local1791 = aStringArray37[--anInt7139];
                         local1756 = Static523.instance.list(local21);
                         if (!local1756.defaultstr.equals(local1791)) {
-                            local220.method3396(local1791, local21);
+                            component.setParam(local1791, local21);
                             return;
                         }
-                        local220.method3402(local21);
+                        component.removeParam(local21);
                         return;
                     }
                     if (arg0 == 1129 || arg0 == 1130) {
                         local21 = anIntArray578[--anInt7142];
-                        if ((local220.anInt3820 == 5 || arg0 != 1129) && (local220.anInt3820 == 4 || arg0 != 1130)) {
-                            if (local220.anInt3745 != local21) {
-                                local220.anInt3745 = local21;
-                                Static178.method2729(local220);
+                        if ((component.type == 5 || arg0 != 1129) && (component.type == 4 || arg0 != 1130)) {
+                            if (component.anInt3745 != local21) {
+                                component.anInt3745 = local21;
+                                InterfaceManager.redraw(component);
                             }
-                            if (local220.anInt3741 == -1) {
-                                Static80.method1583(local220.anInt3812);
+                            if (component.id == -1) {
+                                Static80.method1583(component.slot);
                             }
                             return;
                         }
@@ -641,10 +642,10 @@ public final class Static472 {
                         local1892 = (short) anIntArray578[anInt7142 + 1];
                         local1899 = (short) anIntArray578[anInt7142 + 2];
                         if (local21 >= 0 && local21 < 5) {
-                            local220.method3406(local1899, local21, local1892);
-                            Static178.method2729(local220);
-                            if (local220.anInt3741 == -1) {
-                                Static321.method4619(local220.anInt3812, local21);
+                            component.setRecol(local1899, local21, local1892);
+                            InterfaceManager.redraw(component);
+                            if (component.id == -1) {
+                                Static321.method4619(component.slot, local21);
                             }
                             return;
                         }
@@ -656,20 +657,20 @@ public final class Static472 {
                         local1892 = (short) anIntArray578[anInt7142 + 1];
                         local1899 = (short) anIntArray578[anInt7142 + 2];
                         if (local21 >= 0 && local21 < 5) {
-                            local220.method3388(local1892, local21, local1899);
-                            Static178.method2729(local220);
-                            if (local220.anInt3741 == -1) {
-                                Static693.method9013(local220.anInt3812, local21);
+                            component.setRetex(local1892, local21, local1899);
+                            InterfaceManager.redraw(component);
+                            if (component.id == -1) {
+                                Static693.method9013(component.slot, local21);
                             }
                             return;
                         }
                         return;
                     }
                     if (arg0 == 1133) {
-                        local220.aBoolean299 = anIntArray578[--anInt7142] == 1;
-                        Static178.method2729(local220);
-                        if (local220.anInt3741 == -1) {
-                            Static682.method8926(local220.anInt3812);
+                        component.fontMonospaced = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(component);
+                        if (component.id == -1) {
+                            Static682.method8926(component.slot);
                         }
                         return;
                     }
@@ -679,146 +680,146 @@ public final class Static472 {
                         local27 = anIntArray578[anInt7142 + 1];
                         local1756 = Static523.instance.list(local21);
                         if (local27 != local1756.defaultint) {
-                            local220.method3385(local21, local27);
+                            component.setParam(local21, local27);
                             return;
                         }
-                        local220.method3402(local21);
+                        component.removeParam(local21);
                         return;
                     }
                     if (arg0 == 1135) {
-                        local220.aBoolean295 = anIntArray578[--anInt7142] == 1;
-                        Static178.method2729(local220);
-                        if (local220.anInt3741 == -1) {
-                            Static71.method1523(local220.anInt3812);
+                        component.clickMask = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(component);
+                        if (component.id == -1) {
+                            Static71.method1523(component.slot);
                         }
                         return;
                     }
                 } else if (arg0 >= 1200 && arg0 < 1300 || arg0 >= 2200 && arg0 < 2300) {
                     if (arg0 >= 2000) {
                         arg0 -= 1000;
-                        local220 = Static145.method2412(anIntArray578[--anInt7142]);
+                        component = Static145.method2412(anIntArray578[--anInt7142]);
                     } else {
-                        local220 = arg1 ? aComponent_12 : aComponent_11;
+                        component = arg1 ? aComponent_12 : aComponent_11;
                     }
-                    Static178.method2729(local220);
+                    InterfaceManager.redraw(component);
                     if (arg0 == 1200 || arg0 == 1205 || arg0 == 1208 || arg0 == 1209 || arg0 == 1212 || arg0 == 1213) {
                         anInt7142 -= 2;
                         local21 = anIntArray578[anInt7142];
                         local27 = anIntArray578[anInt7142 + 1];
-                        if (local220.anInt3741 == -1) {
-                            Static329.method1631(local220.anInt3812);
-                            Static77.method1558(local220.anInt3812);
-                            Static580.method7651(local220.anInt3812);
+                        if (component.id == -1) {
+                            Static329.method1631(component.slot);
+                            Static77.method1558(component.slot);
+                            Static580.method7651(component.slot);
                         }
                         if (local21 == -1) {
-                            local220.objType = 1;
-                            local220.obj = -1;
-                            local220.anInt3760 = -1;
+                            component.objType = 1;
+                            component.obj = -1;
+                            component.anInt3760 = -1;
                             return;
                         }
-                        local220.anInt3760 = local21;
-                        local220.anInt3817 = local27;
+                        component.anInt3760 = local21;
+                        component.anInt3817 = local27;
                         if (arg0 == 1208 || arg0 == 1209) {
-                            local220.aBoolean288 = true;
+                            component.objWearCol = true;
                         } else {
-                            local220.aBoolean288 = false;
+                            component.objWearCol = false;
                         }
                         @Pc(2236) ObjType local2236 = Static419.aObjTypeList_1.list(local21);
-                        local220.anInt3807 = local2236.xan2d;
-                        local220.anInt3811 = local2236.yan2d;
-                        local220.anInt3737 = local2236.zan2d;
-                        local220.anInt3736 = local2236.xof2d;
-                        local220.anInt3804 = local2236.yof2d;
-                        local220.anInt3793 = local2236.zoom2d;
+                        component.modelAngleX = local2236.xan2d;
+                        component.modelAngleY = local2236.yan2d;
+                        component.modelAngleZ = local2236.zan2d;
+                        component.anInt3736 = local2236.xof2d;
+                        component.anInt3804 = local2236.yof2d;
+                        component.modelZoom = local2236.zoom2d;
                         if (arg0 == 1205 || arg0 == 1209) {
-                            local220.anInt3757 = 0;
+                            component.anInt3757 = 0;
                         } else if (arg0 == 1212 || arg0 == 1213) {
-                            local220.anInt3757 = 1;
+                            component.anInt3757 = 1;
                         } else {
-                            local220.anInt3757 = 2;
+                            component.anInt3757 = 2;
                         }
-                        if (local220.anInt3800 > 0) {
-                            local220.anInt3793 = local220.anInt3793 * 32 / local220.anInt3800;
+                        if (component.anInt3800 > 0) {
+                            component.modelZoom = component.modelZoom * 32 / component.anInt3800;
                             return;
                         }
-                        if (local220.anInt3744 > 0) {
-                            local220.anInt3793 = local220.anInt3793 * 32 / local220.anInt3744;
+                        if (component.baseWidth > 0) {
+                            component.modelZoom = component.modelZoom * 32 / component.baseWidth;
                         }
                         return;
                     }
                     if (arg0 == 1201) {
-                        local220.objType = 2;
-                        local220.obj = anIntArray578[--anInt7142];
-                        if (local220.anInt3741 == -1) {
-                            Static96.method8819(local220.anInt3812);
+                        component.objType = 2;
+                        component.obj = anIntArray578[--anInt7142];
+                        if (component.id == -1) {
+                            Static96.method8819(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1202) {
-                        local220.objType = 3;
-                        local220.obj = -1;
-                        if (local220.anInt3741 == -1) {
-                            Static96.method8819(local220.anInt3812);
+                        component.objType = 3;
+                        component.obj = -1;
+                        if (component.id == -1) {
+                            Static96.method8819(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1203) {
-                        local220.objType = 6;
-                        local220.obj = anIntArray578[--anInt7142];
-                        if (local220.anInt3741 == -1) {
-                            Static96.method8819(local220.anInt3812);
+                        component.objType = 6;
+                        component.obj = anIntArray578[--anInt7142];
+                        if (component.id == -1) {
+                            Static96.method8819(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1204) {
-                        local220.objType = 5;
-                        local220.obj = anIntArray578[--anInt7142];
-                        if (local220.anInt3741 == -1) {
-                            Static96.method8819(local220.anInt3812);
+                        component.objType = 5;
+                        component.obj = anIntArray578[--anInt7142];
+                        if (component.id == -1) {
+                            Static96.method8819(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1206) {
                         anInt7142 -= 4;
-                        local220.skyBox = anIntArray578[anInt7142];
-                        local220.skyBoxSphereOffsetX = anIntArray578[anInt7142 + 1];
-                        local220.skyBoxSphereOffsetY = anIntArray578[anInt7142 + 2];
-                        local220.skyBoxSphereOffsetZ = anIntArray578[anInt7142 + 3];
-                        Static178.method2729(local220);
+                        component.skyBox = anIntArray578[anInt7142];
+                        component.skyBoxSphereOffsetX = anIntArray578[anInt7142 + 1];
+                        component.skyBoxSphereOffsetY = anIntArray578[anInt7142 + 2];
+                        component.skyBoxSphereOffsetZ = anIntArray578[anInt7142 + 3];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1207) {
                         anInt7142 -= 2;
-                        local220.anInt3815 = anIntArray578[anInt7142];
-                        local220.anInt3786 = anIntArray578[anInt7142 + 1];
-                        Static178.method2729(local220);
+                        component.anInt3815 = anIntArray578[anInt7142];
+                        component.anInt3786 = anIntArray578[anInt7142 + 1];
+                        InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1210) {
                         anInt7142 -= 4;
-                        local220.obj = anIntArray578[anInt7142];
-                        local220.objData = anIntArray578[anInt7142 + 1];
+                        component.obj = anIntArray578[anInt7142];
+                        component.objData = anIntArray578[anInt7142 + 1];
                         if (anIntArray578[anInt7142 + 2] == 1) {
-                            local220.objType = 9;
+                            component.objType = 9;
                         } else {
-                            local220.objType = 8;
+                            component.objType = 8;
                         }
                         if (anIntArray578[anInt7142 + 3] == 1) {
-                            local220.aBoolean288 = true;
+                            component.objWearCol = true;
                         } else {
-                            local220.aBoolean288 = false;
+                            component.objWearCol = false;
                         }
-                        if (local220.anInt3741 == -1) {
-                            Static96.method8819(local220.anInt3812);
+                        if (component.id == -1) {
+                            Static96.method8819(component.slot);
                         }
                         return;
                     }
                     if (arg0 == 1211) {
-                        local220.objType = 5;
-                        local220.obj = Static312.anInt5000;
-                        local220.objData = 0;
-                        if (local220.anInt3741 == -1) {
-                            Static96.method8819(local220.anInt3812);
+                        component.objType = 5;
+                        component.obj = Static312.anInt5000;
+                        component.objData = 0;
+                        if (component.id == -1) {
+                            Static96.method8819(component.slot);
                         }
                         return;
                     }
@@ -827,14 +828,14 @@ public final class Static472 {
                     if (arg0 >= 1300 && arg0 < 1400 || arg0 >= 2300 && arg0 < 2400) {
                         if (arg0 >= 2000) {
                             arg0 -= 1000;
-                            local220 = Static145.method2412(anIntArray578[--anInt7142]);
+                            component = Static145.method2412(anIntArray578[--anInt7142]);
                         } else {
-                            local220 = arg1 ? aComponent_12 : aComponent_11;
+                            component = arg1 ? aComponent_12 : aComponent_11;
                         }
                         if (arg0 == 1300) {
                             local21 = anIntArray578[--anInt7142] - 1;
                             if (local21 >= 0 && local21 <= 9) {
-                                local220.method3391(aStringArray37[--anInt7139], local21);
+                                component.setOpText(aStringArray37[--anInt7139], local21);
                                 return;
                             }
                             anInt7139--;
@@ -845,59 +846,59 @@ public final class Static472 {
                             local21 = anIntArray578[anInt7142];
                             local27 = anIntArray578[anInt7142 + 1];
                             if (local21 == -1 && local27 == -1) {
-                                local220.aComponent_6 = null;
+                                component.aComponent_6 = null;
                                 return;
                             }
-                            local220.aComponent_6 = Static15.method186(local27, local21);
+                            component.aComponent_6 = Static15.method186(local27, local21);
                             return;
                         }
                         if (arg0 == 1302) {
                             local21 = anIntArray578[--anInt7142];
-                            if (local21 != Static351.anInt5719 && local21 != Static137.anInt2510 && local21 != Static237.anInt6524) {
+                            if (local21 != DragRender.OFFSET_TRANSPARENT && local21 != DragRender.FIXED && local21 != DragRender.OFFSET) {
                                 return;
                             }
-                            local220.anInt3830 = local21;
+                            component.dragRenderBehaviour = local21;
                             return;
                         }
                         if (arg0 == 1303) {
-                            local220.anInt3754 = anIntArray578[--anInt7142];
+                            component.dragDeadZone = anIntArray578[--anInt7142];
                             return;
                         }
                         if (arg0 == 1304) {
-                            local220.anInt3797 = anIntArray578[--anInt7142];
+                            component.dragDeadTime = anIntArray578[--anInt7142];
                             return;
                         }
                         if (arg0 == 1305) {
-                            local220.aString41 = aStringArray37[--anInt7139];
+                            component.opBase = aStringArray37[--anInt7139];
                             return;
                         }
                         if (arg0 == 1306) {
-                            local220.aString43 = aStringArray37[--anInt7139];
+                            component.targetVerb = aStringArray37[--anInt7139];
                             return;
                         }
                         if (arg0 == 1307) {
-                            local220.aStringArray17 = null;
+                            component.ops = null;
                             return;
                         }
                         if (arg0 == 1308) {
-                            local220.anInt3819 = anIntArray578[--anInt7142];
-                            local220.anInt3749 = anIntArray578[--anInt7142];
+                            component.targetEndCursor = anIntArray578[--anInt7142];
+                            component.targetEnterCursor = anIntArray578[--anInt7142];
                             return;
                         }
                         if (arg0 == 1309) {
                             local21 = anIntArray578[--anInt7142];
                             local27 = anIntArray578[--anInt7142];
                             if (local27 >= 1 && local27 <= 10) {
-                                local220.method3397(local27 - 1, local21);
+                                component.setOpCursor(local27 - 1, local21);
                             }
                             return;
                         }
                         if (arg0 == 1310) {
-                            local220.aString42 = aStringArray37[--anInt7139];
+                            component.pauseText = aStringArray37[--anInt7139];
                             return;
                         }
                         if (arg0 == 1311) {
-                            local220.anInt3776 = anIntArray578[--anInt7142];
+                            component.anInt3776 = anIntArray578[--anInt7142];
                             return;
                         }
                         if (arg0 == 1312 || arg0 == 1313) {
@@ -915,42 +916,42 @@ public final class Static472 {
                                 local27 = anIntArray578[anInt7142];
                                 local506 = anIntArray578[anInt7142 + 1];
                             }
-                            if (local220.aByteArray37 == null) {
+                            if (component.opKeys == null) {
                                 if (local27 == 0) {
                                     return;
                                 }
-                                local220.aByteArray37 = new byte[11];
-                                local220.aByteArray36 = new byte[11];
-                                local220.anIntArray293 = new int[11];
+                                component.opKeys = new byte[11];
+                                component.opChars = new byte[11];
+                                component.opKeyRates = new int[11];
                             }
-                            local220.aByteArray37[local21] = (byte) local27;
+                            component.opKeys[local21] = (byte) local27;
                             if (local27 == 0) {
-                                local220.aBoolean296 = false;
-                                for (local2978 = 0; local2978 < local220.aByteArray37.length; local2978++) {
-                                    if (local220.aByteArray37[local2978] != 0) {
-                                        local220.aBoolean296 = true;
+                                component.aBoolean296 = false;
+                                for (local2978 = 0; local2978 < component.opKeys.length; local2978++) {
+                                    if (component.opKeys[local2978] != 0) {
+                                        component.aBoolean296 = true;
                                         break;
                                     }
                                 }
                             } else {
-                                local220.aBoolean296 = true;
+                                component.aBoolean296 = true;
                             }
-                            local220.aByteArray36[local21] = (byte) local506;
+                            component.opChars[local21] = (byte) local506;
                             return;
                         }
                         if (arg0 == 1314) {
-                            local220.anInt3783 = anIntArray578[--anInt7142];
+                            component.mouseOverCursor = anIntArray578[--anInt7142];
                             return;
                         }
                     } else if (arg0 >= 1400 && arg0 < 1500 || arg0 >= 2400 && arg0 < 2500) {
                         if (arg0 >= 2000) {
                             arg0 -= 1000;
-                            local220 = Static145.method2412(anIntArray578[--anInt7142]);
+                            component = Static145.method2412(anIntArray578[--anInt7142]);
                         } else {
-                            local220 = arg1 ? aComponent_12 : aComponent_11;
+                            component = arg1 ? aComponent_12 : aComponent_11;
                         }
                         if (arg0 == 1499) {
-                            local220.method3399();
+                            component.clearScriptHooks();
                             return;
                         }
                         local1394 = aStringArray37[--anInt7139];
@@ -982,354 +983,354 @@ public final class Static472 {
                             local3131[0] = Integer.valueOf(local72);
                         }
                         if (arg0 == 1400) {
-                            local220.anObjectArray17 = local3131;
+                            component.onClick = local3131;
                         } else if (arg0 == 1401) {
-                            local220.anObjectArray32 = local3131;
+                            component.onHold = local3131;
                         } else if (arg0 == 1402) {
-                            local220.anObjectArray1 = local3131;
+                            component.onRelease = local3131;
                         } else if (arg0 == 1403) {
-                            local220.anObjectArray4 = local3131;
+                            component.onMouseOver = local3131;
                         } else if (arg0 == 1404) {
-                            local220.anObjectArray26 = local3131;
+                            component.onMouseLeave = local3131;
                         } else if (arg0 == 1405) {
-                            local220.anObjectArray30 = local3131;
+                            component.onDrag = local3131;
                         } else if (arg0 == 1406) {
-                            local220.anObjectArray16 = local3131;
+                            component.onTargetLeave = local3131;
                         } else if (arg0 == 1407) {
-                            local220.anObjectArray25 = local3131;
-                            local220.anIntArray300 = local3077;
+                            component.onVarTransmit = local3131;
+                            component.varpTriggers = local3077;
                         } else if (arg0 == 1408) {
-                            local220.anObjectArray3 = local3131;
+                            component.onTimer = local3131;
                         } else if (arg0 == 1409) {
-                            local220.anObjectArray15 = local3131;
+                            component.onOp = local3131;
                         } else if (arg0 == 1410) {
-                            local220.anObjectArray5 = local3131;
+                            component.onDragComplete = local3131;
                         } else if (arg0 == 1411) {
-                            local220.anObjectArray24 = local3131;
+                            component.onClickRepeat = local3131;
                         } else if (arg0 == 1412) {
-                            local220.anObjectArray28 = local3131;
+                            component.onMouseRepeat = local3131;
                         } else if (arg0 == 1414) {
-                            local220.anObjectArray8 = local3131;
-                            local220.anIntArray299 = local3077;
+                            component.onInvTransmit = local3131;
+                            component.inventoryTriggers = local3077;
                         } else if (arg0 == 1415) {
-                            local220.anObjectArray21 = local3131;
-                            local220.anIntArray295 = local3077;
+                            component.onStatTransmit = local3131;
+                            component.statTriggers = local3077;
                         } else if (arg0 == 1416) {
-                            local220.anObjectArray14 = local3131;
+                            component.onTargetEnter = local3131;
                         } else if (arg0 == 1417) {
-                            local220.anObjectArray11 = local3131;
+                            component.onScrollWheel = local3131;
                         } else if (arg0 == 1418) {
-                            local220.anObjectArray7 = local3131;
+                            component.anObjectArray7 = local3131;
                         } else if (arg0 == 1419) {
-                            local220.anObjectArray22 = local3131;
+                            component.anObjectArray22 = local3131;
                         } else if (arg0 == 1420) {
-                            local220.anObjectArray29 = local3131;
+                            component.anObjectArray29 = local3131;
                         } else if (arg0 == 1421) {
-                            local220.anObjectArray27 = local3131;
+                            component.anObjectArray27 = local3131;
                         } else if (arg0 == 1422) {
-                            local220.anObjectArray34 = local3131;
+                            component.anObjectArray34 = local3131;
                         } else if (arg0 == 1423) {
-                            local220.anObjectArray20 = local3131;
+                            component.anObjectArray20 = local3131;
                         } else if (arg0 == 1424) {
-                            local220.anObjectArray6 = local3131;
+                            component.anObjectArray6 = local3131;
                         } else if (arg0 == 1425) {
-                            local220.anObjectArray9 = local3131;
+                            component.anObjectArray9 = local3131;
                         } else if (arg0 == 1426) {
-                            local220.anObjectArray31 = local3131;
+                            component.anObjectArray31 = local3131;
                         } else if (arg0 == 1427) {
-                            local220.anObjectArray19 = local3131;
+                            component.anObjectArray19 = local3131;
                         } else if (arg0 == 1428) {
-                            local220.anObjectArray2 = local3131;
-                            local220.anIntArray298 = local3077;
+                            component.onVarcTransmit = local3131;
+                            component.varcTriggers = local3077;
                         } else if (arg0 == 1429) {
-                            local220.anObjectArray18 = local3131;
-                            local220.anIntArray296 = local3077;
+                            component.onVarcstrTransmit = local3131;
+                            component.varcstrTriggers = local3077;
                         } else if (arg0 == 1430) {
-                            local220.anObjectArray10 = local3131;
+                            component.onOpT = local3131;
                         } else if (arg0 == 1431) {
-                            local220.anObjectArray23 = local3131;
+                            component.anObjectArray23 = local3131;
                         } else if (arg0 == 1432) {
-                            local220.anObjectArray12 = local3131;
+                            component.anObjectArray12 = local3131;
                         } else if (arg0 == 1433) {
-                            local220.anObjectArray33 = local3131;
+                            component.anObjectArray33 = local3131;
                         }
-                        local220.aBoolean297 = true;
+                        component.hasHook = true;
                         return;
                     } else if (arg0 < 1600) {
-                        local220 = arg1 ? aComponent_12 : aComponent_11;
+                        component = arg1 ? aComponent_12 : aComponent_11;
                         if (arg0 == 1500) {
-                            anIntArray578[anInt7142++] = local220.anInt3735;
+                            anIntArray578[anInt7142++] = component.anInt3735;
                             return;
                         }
                         if (arg0 == 1501) {
-                            anIntArray578[anInt7142++] = local220.anInt3784;
+                            anIntArray578[anInt7142++] = component.anInt3784;
                             return;
                         }
                         if (arg0 == 1502) {
-                            anIntArray578[anInt7142++] = local220.anInt3802;
+                            anIntArray578[anInt7142++] = component.anInt3802;
                             return;
                         }
                         if (arg0 == 1503) {
-                            anIntArray578[anInt7142++] = local220.anInt3746;
+                            anIntArray578[anInt7142++] = component.anInt3746;
                             return;
                         }
                         if (arg0 == 1504) {
-                            anIntArray578[anInt7142++] = local220.aBoolean284 ? 1 : 0;
+                            anIntArray578[anInt7142++] = component.hidden ? 1 : 0;
                             return;
                         }
                         if (arg0 == 1505) {
-                            anIntArray578[anInt7142++] = local220.anInt3743;
+                            anIntArray578[anInt7142++] = component.layer;
                             return;
                         }
                         if (arg0 == 1506) {
-                            local248 = Static556.method7299(local220);
-                            anIntArray578[anInt7142++] = local248 == null ? -1 : local248.anInt3812;
+                            local248 = Static556.method7299(component);
+                            anIntArray578[anInt7142++] = local248 == null ? -1 : local248.slot;
                             return;
                         }
                         if (arg0 == 1507) {
-                            anIntArray578[anInt7142++] = local220.anInt3779;
+                            anIntArray578[anInt7142++] = component.colour;
                             return;
                         }
                     } else {
                         @Pc(3848) ParamType local3848;
                         if (arg0 < 1700) {
-                            local220 = arg1 ? aComponent_12 : aComponent_11;
+                            component = arg1 ? aComponent_12 : aComponent_11;
                             if (arg0 == 1600) {
-                                anIntArray578[anInt7142++] = local220.anInt3809;
+                                anIntArray578[anInt7142++] = component.anInt3809;
                                 return;
                             }
                             if (arg0 == 1601) {
-                                anIntArray578[anInt7142++] = local220.anInt3768;
+                                anIntArray578[anInt7142++] = component.anInt3768;
                                 return;
                             }
                             if (arg0 == 1602) {
-                                aStringArray37[anInt7139++] = local220.aString44;
+                                aStringArray37[anInt7139++] = component.text;
                                 return;
                             }
                             if (arg0 == 1603) {
-                                anIntArray578[anInt7142++] = local220.anInt3769;
+                                anIntArray578[anInt7142++] = component.scrollWidth;
                                 return;
                             }
                             if (arg0 == 1604) {
-                                anIntArray578[anInt7142++] = local220.anInt3742;
+                                anIntArray578[anInt7142++] = component.scrollHeight;
                                 return;
                             }
                             if (arg0 == 1605) {
-                                anIntArray578[anInt7142++] = local220.anInt3793;
+                                anIntArray578[anInt7142++] = component.modelZoom;
                                 return;
                             }
                             if (arg0 == 1606) {
-                                anIntArray578[anInt7142++] = local220.anInt3807;
+                                anIntArray578[anInt7142++] = component.modelAngleX;
                                 return;
                             }
                             if (arg0 == 1607) {
-                                anIntArray578[anInt7142++] = local220.anInt3737;
+                                anIntArray578[anInt7142++] = component.modelAngleZ;
                                 return;
                             }
                             if (arg0 == 1608) {
-                                anIntArray578[anInt7142++] = local220.anInt3811;
+                                anIntArray578[anInt7142++] = component.modelAngleY;
                                 return;
                             }
                             if (arg0 == 1609) {
-                                anIntArray578[anInt7142++] = local220.anInt3780;
+                                anIntArray578[anInt7142++] = component.alpha;
                                 return;
                             }
                             if (arg0 == 1610) {
-                                anIntArray578[anInt7142++] = local220.anInt3736;
+                                anIntArray578[anInt7142++] = component.anInt3736;
                                 return;
                             }
                             if (arg0 == 1611) {
-                                anIntArray578[anInt7142++] = local220.anInt3804;
+                                anIntArray578[anInt7142++] = component.anInt3804;
                                 return;
                             }
                             if (arg0 == 1612) {
-                                anIntArray578[anInt7142++] = local220.anInt3810;
+                                anIntArray578[anInt7142++] = component.graphic;
                                 return;
                             }
                             if (arg0 == 1613) {
                                 local21 = anIntArray578[--anInt7142];
                                 local3848 = Static523.instance.list(local21);
                                 if (local3848.isString()) {
-                                    aStringArray37[anInt7139++] = local220.method3389(local3848.defaultstr, local21);
+                                    aStringArray37[anInt7139++] = component.param(local3848.defaultstr, local21);
                                     return;
                                 }
-                                anIntArray578[anInt7142++] = local220.method3404(local3848.defaultint, local21);
+                                anIntArray578[anInt7142++] = component.param(local3848.defaultint, local21);
                                 return;
                             }
                             if (arg0 == 1614) {
-                                anIntArray578[anInt7142++] = local220.anInt3765;
+                                anIntArray578[anInt7142++] = component.angle2d;
                                 return;
                             }
                             if (arg0 == 2614) {
-                                anIntArray578[anInt7142++] = local220.objType == 1 ? local220.obj : -1;
+                                anIntArray578[anInt7142++] = component.objType == 1 ? component.obj : -1;
                                 return;
                             }
                             if (arg0 == 1618) {
-                                anIntArray578[anInt7142++] = local220.anInt3781;
+                                anIntArray578[anInt7142++] = component.fontGraphic;
                                 return;
                             }
                         } else if (arg0 < 1800) {
-                            local220 = arg1 ? aComponent_12 : aComponent_11;
+                            component = arg1 ? aComponent_12 : aComponent_11;
                             if (arg0 == 1700) {
-                                anIntArray578[anInt7142++] = local220.anInt3760;
+                                anIntArray578[anInt7142++] = component.anInt3760;
                                 return;
                             }
                             if (arg0 == 1701) {
-                                if (local220.anInt3760 != -1) {
-                                    anIntArray578[anInt7142++] = local220.anInt3817;
+                                if (component.anInt3760 != -1) {
+                                    anIntArray578[anInt7142++] = component.anInt3817;
                                     return;
                                 }
                                 anIntArray578[anInt7142++] = 0;
                                 return;
                             }
                             if (arg0 == 1702) {
-                                anIntArray578[anInt7142++] = local220.anInt3741;
+                                anIntArray578[anInt7142++] = component.id;
                                 return;
                             }
                         } else if (arg0 < 1900) {
-                            local220 = arg1 ? aComponent_12 : aComponent_11;
+                            component = arg1 ? aComponent_12 : aComponent_11;
                             if (arg0 == 1800) {
-                                anIntArray578[anInt7142++] = Static84.method1661(local220).method6216();
+                                anIntArray578[anInt7142++] = Static84.method1661(component).method6216();
                                 return;
                             }
                             if (arg0 == 1801) {
                                 local21 = anIntArray578[--anInt7142];
                                 local21--;
-                                if (local220.aStringArray17 != null && local21 < local220.aStringArray17.length && local220.aStringArray17[local21] != null) {
-                                    aStringArray37[anInt7139++] = local220.aStringArray17[local21];
+                                if (component.ops != null && local21 < component.ops.length && component.ops[local21] != null) {
+                                    aStringArray37[anInt7139++] = component.ops[local21];
                                     return;
                                 }
                                 aStringArray37[anInt7139++] = "";
                                 return;
                             }
                             if (arg0 == 1802) {
-                                if (local220.aString41 == null) {
+                                if (component.opBase == null) {
                                     aStringArray37[anInt7139++] = "";
                                     return;
                                 }
-                                aStringArray37[anInt7139++] = local220.aString41;
+                                aStringArray37[anInt7139++] = component.opBase;
                                 return;
                             }
                         } else if (arg0 < 2000 || arg0 >= 2900 && arg0 < 3000) {
                             if (arg0 >= 2000) {
-                                local220 = Static145.method2412(anIntArray578[--anInt7142]);
+                                component = Static145.method2412(anIntArray578[--anInt7142]);
                                 arg0 -= 1000;
                             } else {
-                                local220 = arg1 ? aComponent_12 : aComponent_11;
+                                component = arg1 ? aComponent_12 : aComponent_11;
                             }
                             if (anInt7153 >= 10) {
                                 throw new RuntimeException("C29xx-1");
                             }
                             if (arg0 == 1927) {
-                                if (local220.anObjectArray19 == null) {
+                                if (component.anObjectArray19 == null) {
                                     return;
                                 }
                                 @Pc(4169) Node_Sub42 local4169 = new Node_Sub42();
-                                local4169.aComponent_14 = local220;
-                                local4169.anObjectArray36 = local220.anObjectArray19;
+                                local4169.aComponent_14 = component;
+                                local4169.anObjectArray36 = component.anObjectArray19;
                                 local4169.anInt7220 = anInt7153 + 1;
                                 Static521.A_DEQUE___44.addLast(local4169);
                                 return;
                             }
                         } else if (arg0 < 2600) {
-                            local220 = Static145.method2412(anIntArray578[--anInt7142]);
+                            component = Static145.method2412(anIntArray578[--anInt7142]);
                             if (arg0 == 2500) {
-                                anIntArray578[anInt7142++] = local220.anInt3735;
+                                anIntArray578[anInt7142++] = component.anInt3735;
                                 return;
                             }
                             if (arg0 == 2501) {
-                                anIntArray578[anInt7142++] = local220.anInt3784;
+                                anIntArray578[anInt7142++] = component.anInt3784;
                                 return;
                             }
                             if (arg0 == 2502) {
-                                anIntArray578[anInt7142++] = local220.anInt3802;
+                                anIntArray578[anInt7142++] = component.anInt3802;
                                 return;
                             }
                             if (arg0 == 2503) {
-                                anIntArray578[anInt7142++] = local220.anInt3746;
+                                anIntArray578[anInt7142++] = component.anInt3746;
                                 return;
                             }
                             if (arg0 == 2504) {
-                                anIntArray578[anInt7142++] = local220.aBoolean284 ? 1 : 0;
+                                anIntArray578[anInt7142++] = component.hidden ? 1 : 0;
                                 return;
                             }
                             if (arg0 == 2505) {
-                                anIntArray578[anInt7142++] = local220.anInt3743;
+                                anIntArray578[anInt7142++] = component.layer;
                                 return;
                             }
                             if (arg0 == 2506) {
-                                local248 = Static556.method7299(local220);
-                                anIntArray578[anInt7142++] = local248 == null ? -1 : local248.anInt3812;
+                                local248 = Static556.method7299(component);
+                                anIntArray578[anInt7142++] = local248 == null ? -1 : local248.slot;
                                 return;
                             }
                             if (arg0 == 2507) {
-                                anIntArray578[anInt7142++] = local220.anInt3779;
+                                anIntArray578[anInt7142++] = component.colour;
                                 return;
                             }
                         } else if (arg0 < 2700) {
-                            local220 = Static145.method2412(anIntArray578[--anInt7142]);
+                            component = Static145.method2412(anIntArray578[--anInt7142]);
                             if (arg0 == 2600) {
-                                anIntArray578[anInt7142++] = local220.anInt3809;
+                                anIntArray578[anInt7142++] = component.anInt3809;
                                 return;
                             }
                             if (arg0 == 2601) {
-                                anIntArray578[anInt7142++] = local220.anInt3768;
+                                anIntArray578[anInt7142++] = component.anInt3768;
                                 return;
                             }
                             if (arg0 == 2602) {
-                                aStringArray37[anInt7139++] = local220.aString44;
+                                aStringArray37[anInt7139++] = component.text;
                                 return;
                             }
                             if (arg0 == 2603) {
-                                anIntArray578[anInt7142++] = local220.anInt3769;
+                                anIntArray578[anInt7142++] = component.scrollWidth;
                                 return;
                             }
                             if (arg0 == 2604) {
-                                anIntArray578[anInt7142++] = local220.anInt3742;
+                                anIntArray578[anInt7142++] = component.scrollHeight;
                                 return;
                             }
                             if (arg0 == 2605) {
-                                anIntArray578[anInt7142++] = local220.anInt3793;
+                                anIntArray578[anInt7142++] = component.modelZoom;
                                 return;
                             }
                             if (arg0 == 2606) {
-                                anIntArray578[anInt7142++] = local220.anInt3807;
+                                anIntArray578[anInt7142++] = component.modelAngleX;
                                 return;
                             }
                             if (arg0 == 2607) {
-                                anIntArray578[anInt7142++] = local220.anInt3737;
+                                anIntArray578[anInt7142++] = component.modelAngleZ;
                                 return;
                             }
                             if (arg0 == 2608) {
-                                anIntArray578[anInt7142++] = local220.anInt3811;
+                                anIntArray578[anInt7142++] = component.modelAngleY;
                                 return;
                             }
                             if (arg0 == 2609) {
-                                anIntArray578[anInt7142++] = local220.anInt3780;
+                                anIntArray578[anInt7142++] = component.alpha;
                                 return;
                             }
                             if (arg0 == 2610) {
-                                anIntArray578[anInt7142++] = local220.anInt3736;
+                                anIntArray578[anInt7142++] = component.anInt3736;
                                 return;
                             }
                             if (arg0 == 2611) {
-                                anIntArray578[anInt7142++] = local220.anInt3804;
+                                anIntArray578[anInt7142++] = component.anInt3804;
                                 return;
                             }
                             if (arg0 == 2612) {
-                                anIntArray578[anInt7142++] = local220.anInt3810;
+                                anIntArray578[anInt7142++] = component.graphic;
                                 return;
                             }
                             if (arg0 == 2613) {
-                                anIntArray578[anInt7142++] = local220.anInt3765;
+                                anIntArray578[anInt7142++] = component.angle2d;
                                 return;
                             }
                             if (arg0 == 2614) {
-                                anIntArray578[anInt7142++] = local220.objType == 1 ? local220.obj : -1;
+                                anIntArray578[anInt7142++] = component.objType == 1 ? component.obj : -1;
                                 return;
                             }
                             if (arg0 == 2617) {
-                                anIntArray578[anInt7142++] = local220.anInt3781;
+                                anIntArray578[anInt7142++] = component.fontGraphic;
                                 return;
                             }
                         } else {
@@ -1337,14 +1338,14 @@ public final class Static472 {
                             @Pc(4653) Node_Sub4 local4653;
                             if (arg0 < 2800) {
                                 if (arg0 == 2700) {
-                                    local220 = Static145.method2412(anIntArray578[--anInt7142]);
-                                    anIntArray578[anInt7142++] = local220.anInt3760;
+                                    component = Static145.method2412(anIntArray578[--anInt7142]);
+                                    anIntArray578[anInt7142++] = component.anInt3760;
                                     return;
                                 }
                                 if (arg0 == 2701) {
-                                    local220 = Static145.method2412(anIntArray578[--anInt7142]);
-                                    if (local220.anInt3760 != -1) {
-                                        anIntArray578[anInt7142++] = local220.anInt3817;
+                                    component = Static145.method2412(anIntArray578[--anInt7142]);
+                                    if (component.anInt3760 != -1) {
+                                        anIntArray578[anInt7142++] = component.anInt3817;
                                         return;
                                     }
                                     anIntArray578[anInt7142++] = 0;
@@ -1361,14 +1362,14 @@ public final class Static472 {
                                     return;
                                 }
                                 if (arg0 == 2703) {
-                                    local220 = Static145.method2412(anIntArray578[--anInt7142]);
-                                    if (local220.aComponentArray2 == null) {
+                                    component = Static145.method2412(anIntArray578[--anInt7142]);
+                                    if (component.aComponentArray2 == null) {
                                         anIntArray578[anInt7142++] = 0;
                                         return;
                                     }
-                                    local21 = local220.aComponentArray2.length;
-                                    for (local27 = 0; local27 < local220.aComponentArray2.length; local27++) {
-                                        if (local220.aComponentArray2[local27] == null) {
+                                    local21 = component.aComponentArray2.length;
+                                    for (local27 = 0; local27 < component.aComponentArray2.length; local27++) {
+                                        if (component.aComponentArray2[local27] == null) {
                                             local21 = local27;
                                             break;
                                         }
@@ -1389,27 +1390,27 @@ public final class Static472 {
                                     return;
                                 }
                             } else if (arg0 < 2900) {
-                                local220 = Static145.method2412(anIntArray578[--anInt7142]);
+                                component = Static145.method2412(anIntArray578[--anInt7142]);
                                 if (arg0 == 2800) {
-                                    anIntArray578[anInt7142++] = Static84.method1661(local220).method6216();
+                                    anIntArray578[anInt7142++] = Static84.method1661(component).method6216();
                                     return;
                                 }
                                 if (arg0 == 2801) {
                                     local21 = anIntArray578[--anInt7142];
                                     local21--;
-                                    if (local220.aStringArray17 != null && local21 < local220.aStringArray17.length && local220.aStringArray17[local21] != null) {
-                                        aStringArray37[anInt7139++] = local220.aStringArray17[local21];
+                                    if (component.ops != null && local21 < component.ops.length && component.ops[local21] != null) {
+                                        aStringArray37[anInt7139++] = component.ops[local21];
                                         return;
                                     }
                                     aStringArray37[anInt7139++] = "";
                                     return;
                                 }
                                 if (arg0 == 2802) {
-                                    if (local220.aString41 == null) {
+                                    if (component.opBase == null) {
                                         aStringArray37[anInt7139++] = "";
                                         return;
                                     }
-                                    aStringArray37[anInt7139++] = local220.aString41;
+                                    aStringArray37[anInt7139++] = component.opBase;
                                     return;
                                 }
                             } else {
@@ -3081,14 +3082,14 @@ public final class Static472 {
             } else {
                 if (arg0 >= 2000) {
                     arg0 -= 1000;
-                    local220 = Static145.method2412(anIntArray578[--anInt7142]);
+                    component = Static145.method2412(anIntArray578[--anInt7142]);
                 } else {
-                    local220 = arg1 ? aComponent_12 : aComponent_11;
+                    component = arg1 ? aComponent_12 : aComponent_11;
                 }
                 if (arg0 == 1000) {
                     anInt7142 -= 4;
-                    local220.anInt3826 = anIntArray578[anInt7142];
-                    local220.anInt3808 = anIntArray578[anInt7142 + 1];
+                    component.basePosX = anIntArray578[anInt7142];
+                    component.basePosY = anIntArray578[anInt7142 + 1];
                     local21 = anIntArray578[anInt7142 + 2];
                     if (local21 < 0) {
                         local21 = 0;
@@ -3101,21 +3102,21 @@ public final class Static472 {
                     } else if (local27 > 5) {
                         local27 = 5;
                     }
-                    local220.aByte61 = (byte) local21;
-                    local220.aByte64 = (byte) local27;
-                    Static178.method2729(local220);
-                    Static44.method1073(local220);
-                    if (local220.anInt3741 == -1) {
-                        Static415.method5698(local220.anInt3812);
+                    component.posTypeHorizontal = (byte) local21;
+                    component.postTypeVertical = (byte) local27;
+                    InterfaceManager.redraw(component);
+                    Static44.method1073(component);
+                    if (component.id == -1) {
+                        Static415.method5698(component.slot);
                     }
                     return;
                 }
                 if (arg0 == 1001) {
                     anInt7142 -= 4;
-                    local220.anInt3744 = anIntArray578[anInt7142];
-                    local220.anInt3762 = anIntArray578[anInt7142 + 1];
-                    local220.anInt3800 = 0;
-                    local220.anInt3825 = 0;
+                    component.baseWidth = anIntArray578[anInt7142];
+                    component.baseHeight = anIntArray578[anInt7142 + 1];
+                    component.anInt3800 = 0;
+                    component.anInt3825 = 0;
                     local21 = anIntArray578[anInt7142 + 2];
                     if (local21 < 0) {
                         local21 = 0;
@@ -3128,39 +3129,39 @@ public final class Static472 {
                     } else if (local27 > 4) {
                         local27 = 4;
                     }
-                    local220.aByte63 = (byte) local21;
-                    local220.aByte62 = (byte) local27;
-                    Static178.method2729(local220);
-                    Static44.method1073(local220);
-                    if (local220.anInt3820 == 0) {
-                        Static134.method8956(local220, false);
+                    component.sizeTypeHorizontal = (byte) local21;
+                    component.sizeTypeVertical = (byte) local27;
+                    InterfaceManager.redraw(component);
+                    Static44.method1073(component);
+                    if (component.type == 0) {
+                        Static134.method8956(component, false);
                     }
                     return;
                 }
                 if (arg0 == 1003) {
                     @Pc(834) boolean local834 = anIntArray578[--anInt7142] == 1;
-                    if (local220.aBoolean284 != local834) {
-                        local220.aBoolean284 = local834;
-                        Static178.method2729(local220);
+                    if (component.hidden != local834) {
+                        component.hidden = local834;
+                        InterfaceManager.redraw(component);
                     }
-                    if (local220.anInt3741 == -1) {
-                        Static550.method7265(local220.anInt3812);
+                    if (component.id == -1) {
+                        Static550.method7265(component.slot);
                     }
                     return;
                 }
                 if (arg0 == 1004) {
                     anInt7142 -= 2;
-                    local220.anInt3795 = anIntArray578[anInt7142];
-                    local220.anInt3750 = anIntArray578[anInt7142 + 1];
-                    Static178.method2729(local220);
-                    Static44.method1073(local220);
-                    if (local220.anInt3820 == 0) {
-                        Static134.method8956(local220, false);
+                    component.anInt3795 = anIntArray578[anInt7142];
+                    component.anInt3750 = anIntArray578[anInt7142 + 1];
+                    InterfaceManager.redraw(component);
+                    Static44.method1073(component);
+                    if (component.type == 0) {
+                        Static134.method8956(component, false);
                     }
                     return;
                 }
                 if (arg0 == 1005) {
-                    local220.aBoolean300 = anIntArray578[--anInt7142] == 1;
+                    component.noClickThrough = anIntArray578[--anInt7142] == 1;
                     return;
                 }
             }
@@ -3174,8 +3175,8 @@ public final class Static472 {
             return;
         }
         @Pc(69) Component[] local69;
-        if (arg0.anInt3741 == -1) {
-            @Pc(106) int local106 = arg0.anInt3812 >>> 16;
+        if (arg0.id == -1) {
+            @Pc(106) int local106 = arg0.slot >>> 16;
             @Pc(110) Component[] local110 = Static148.aComponentArrayArray1[local106];
             if (local110 == null) {
                 local69 = Static453.aComponentArrayArray2[local106];
@@ -3193,15 +3194,15 @@ public final class Static472 {
             local110[0] = arg0;
             return;
         }
-        @Pc(12) Component local12 = Static145.method2412(arg0.anInt3743);
+        @Pc(12) Component local12 = Static145.method2412(arg0.layer);
         if (local12 == null) {
             return;
         }
         if (local12.aComponentArray1 == local12.aComponentArray2) {
             local12.aComponentArray1 = new Component[local12.aComponentArray2.length];
             local12.aComponentArray1[0] = arg0;
-            Arrays.copy(local12.aComponentArray2, 0, local12.aComponentArray1, 1, arg0.anInt3741);
-            Arrays.copy(local12.aComponentArray2, arg0.anInt3741 + 1, local12.aComponentArray1, arg0.anInt3741 + 1, local12.aComponentArray2.length - arg0.anInt3741 - 1);
+            Arrays.copy(local12.aComponentArray2, 0, local12.aComponentArray1, 1, arg0.id);
+            Arrays.copy(local12.aComponentArray2, arg0.id + 1, local12.aComponentArray1, arg0.id + 1, local12.aComponentArray2.length - arg0.id - 1);
             return;
         }
         @Pc(66) int local66 = 0;
@@ -5665,7 +5666,7 @@ public final class Static472 {
                                 aStringArray37[anInt7139++] = "";
                                 return;
                             }
-                            local101 = Static453.aComponentArrayArray2[local192][0].aString40;
+                            local101 = Static453.aComponentArrayArray2[local192][0].name;
                             if (local101 == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
@@ -5690,7 +5691,7 @@ public final class Static472 {
                                 aStringArray37[anInt7139++] = "";
                                 return;
                             }
-                            local198 = Static453.aComponentArrayArray2[local192][local834].aString40;
+                            local198 = Static453.aComponentArrayArray2[local192][local834].name;
                             if (local198 == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
@@ -5799,7 +5800,7 @@ public final class Static472 {
                             local109 = anIntArray578[anInt7142 + 2];
                             @Pc(8940) Component local8940 = Static15.method186(local109, local192 << 16 | local834);
                             Static470.method6384();
-                            @Pc(8945) Node_Sub41 local8945 = Static84.method1661(local8940);
+                            @Pc(8945) ServerActiveProperties local8945 = Static84.method1661(local8940);
                             Static389.method5476(local8945.method6216(), local8940, local8945.anInt6904);
                             return;
                         }
@@ -6191,19 +6192,19 @@ public final class Static472 {
                     local48 = arg0.anInt7214;
                 }
                 if (local48 == -2147483645) {
-                    local48 = arg0.aComponent_14 == null ? -1 : arg0.aComponent_14.anInt3812;
+                    local48 = arg0.aComponent_14 == null ? -1 : arg0.aComponent_14.slot;
                 }
                 if (local48 == -2147483644) {
                     local48 = arg0.anInt7219;
                 }
                 if (local48 == -2147483643) {
-                    local48 = arg0.aComponent_14 == null ? -1 : arg0.aComponent_14.anInt3741;
+                    local48 = arg0.aComponent_14 == null ? -1 : arg0.aComponent_14.id;
                 }
                 if (local48 == -2147483642) {
-                    local48 = arg0.aComponent_13 == null ? -1 : arg0.aComponent_13.anInt3812;
+                    local48 = arg0.aComponent_13 == null ? -1 : arg0.aComponent_13.slot;
                 }
                 if (local48 == -2147483641) {
-                    local48 = arg0.aComponent_13 == null ? -1 : arg0.aComponent_13.anInt3741;
+                    local48 = arg0.aComponent_13 == null ? -1 : arg0.aComponent_13.id;
                 }
                 if (local48 == -2147483640) {
                     local48 = arg0.anInt7216;

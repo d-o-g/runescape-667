@@ -527,7 +527,7 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!gu;IILclient!bp;Lclient!ha;BLclient!kr;II)Lclient!ka;")
-    public Model headModel(@OriginalArg(0) Animator animator, @OriginalArg(1) int ki1, @OriginalArg(2) int kit3, @OriginalArg(3) SeqTypeList arg3, @OriginalArg(4) Toolkit arg4, @OriginalArg(6) IDKTypeList idkTypeList, @OriginalArg(7) int kit2) {
+    public Model headModel(@OriginalArg(0) Animator animator, @OriginalArg(1) int ki1, @OriginalArg(2) int kit3, @OriginalArg(3) SeqTypeList seqTypeList, @OriginalArg(4) Toolkit toolkit, @OriginalArg(6) IDKTypeList idkTypeList, @OriginalArg(7) int kit2) {
         @Pc(16) int functionMask = animator == null ? 2048 : animator.functionMask() | 0x800;
         @Pc(29) long key = (long) ki1 | (long) kit3 << 32 | (long) (kit2 << 16);
         @Pc(31) ReferenceCache local31 = modelCache;
@@ -536,9 +536,9 @@ public final class PlayerModel {
             model = (Model) modelCache.get(key);
         }
 
-        if (model == null || arg4.compareFunctionMasks(model.ua(), functionMask) != 0) {
+        if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
             if (model != null) {
-                functionMask = arg4.combineFunctionMasks(functionMask, model.ua());
+                functionMask = toolkit.combineFunctionMasks(functionMask, model.ua());
             }
 
             @Pc(70) Mesh[] meshes = new Mesh[3];
@@ -565,7 +565,7 @@ public final class PlayerModel {
 
             @Pc(152) int local152 = functionMask | 0x4000;
             mesh = new Mesh(meshes, local72);
-            model = arg4.createModel(mesh, local152, featureMask, 64, 768);
+            model = toolkit.createModel(mesh, local152, featureMask, 64, 768);
             for (@Pc(168) int local168 = 0; local168 < 10; local168++) {
                 for (@Pc(172) int local172 = 0; local172 < recol_s[local168].length; local172++) {
                     if (this.clientpalette[local168] < recol_d[local168][local172].length) {

@@ -81,10 +81,7 @@ public abstract class Node_Sub1 extends Node {
     }
 
     @OriginalMember(owner = "client!pf", name = "c", descriptor = "(I)V")
-    public void method9421(@OriginalArg(0) int arg0) {
-        if (arg0 != 7) {
-            Static485.anIntArray886 = null;
-        }
+    public void method9421() {
     }
 
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(III)[I")

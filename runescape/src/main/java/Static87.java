@@ -43,11 +43,11 @@ public final class Static87 {
     public static void method1693(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2, @OriginalArg(3) Toolkit arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         if (Static459.aSprite_31 == null || Static1.aSprite_42 == null) {
             if (js5.SPRITES.fileready(Static63.anInt1474) && js5.SPRITES.fileready(Static282.anInt4417)) {
-                Static459.aSprite_31 = arg3.method7948(IndexedImage.loadFirst(js5.SPRITES, Static63.anInt1474, 0), true);
+                Static459.aSprite_31 = arg3.createSprite(IndexedImage.loadFirst(js5.SPRITES, Static63.anInt1474, 0), true);
                 @Pc(49) IndexedImage local49 = IndexedImage.loadFirst(js5.SPRITES, Static282.anInt4417, 0);
-                Static1.aSprite_42 = arg3.method7948(local49, true);
-                local49.method9388();
-                Static608.aSprite_41 = arg3.method7948(local49, true);
+                Static1.aSprite_42 = arg3.createSprite(local49, true);
+                local49.flipVertically();
+                Static608.aSprite_41 = arg3.createSprite(local49, true);
             } else {
                 arg3.aa(arg5, arg4, arg0, 20, Static719.anInt10504 | 255 - Static514.anInt7677 << 24, 1);
             }

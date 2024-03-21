@@ -16,12 +16,12 @@ public final class Static372 {
 
     @OriginalMember(owner = "client!ln", name = "a", descriptor = "(ILclient!hda;I)I")
     public static int method5292(@OriginalArg(0) int arg0, @OriginalArg(1) Component arg1) {
-        if (!Static84.method1661(arg1).method6221(arg0) && arg1.anObjectArray15 == null) {
+        if (!Static84.method1661(arg1).method6221(arg0) && arg1.onOp == null) {
             return -1;
-        } else if (arg1.anIntArray301 == null || arg0 >= arg1.anIntArray301.length) {
+        } else if (arg1.opCursors == null || arg0 >= arg1.opCursors.length) {
             return -1;
         } else {
-            return arg1.anIntArray301[arg0];
+            return arg1.opCursors[arg0];
         }
     }
 }

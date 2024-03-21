@@ -39,18 +39,15 @@ public final class Node_Sub1_Sub37 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!wfa", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
+    public void method9421() {
         if (this.anIntArrayArray259 == null) {
             this.anIntArrayArray259 = new int[][]{new int[2], {4096, 4096}};
-        }
-        if (arg0 != 7) {
-            return;
         }
         if (this.anIntArrayArray259.length < 2) {
             throw new RuntimeException("Curve operation requires at least two markers");
         }
         if (this.anInt10638 == 2) {
-            this.method9218(arg0 ^ 0xFFFFFFF9);
+            this.method9218(7 ^ 0xFFFFFFF9);
         }
         Static481.method6475();
         this.method9222();

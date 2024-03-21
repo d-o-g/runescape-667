@@ -33,7 +33,7 @@ public final class Static652 {
         @Pc(16) Sprite local16 = (Sprite) Static594.A_WEIGHTED_CACHE___193.get((long) arg0);
         if (local16 == null) {
             if (Static297.loadingSpritesRaw) {
-                local16 = Static163.activeToolkit.method7948(IndexedImage.loadFirst(arg1, arg0), true);
+                local16 = Static163.activeToolkit.createSprite(IndexedImage.loadFirst(arg1, arg0), true);
             } else {
                 local16 = Static168.method2634(arg1.getfile(arg0));
             }

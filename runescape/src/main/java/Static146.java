@@ -10,9 +10,6 @@ public final class Static146 {
     @OriginalMember(owner = "client!ek", name = "d", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray8 = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
-    @OriginalMember(owner = "client!ek", name = "a", descriptor = "I")
-    public static final int anInt2567 = 1401;
-
     @OriginalMember(owner = "client!ek", name = "a", descriptor = "(BC)C")
     public static char method2413(@OriginalArg(1) char arg0) {
         if (arg0 == ' ' || arg0 == ' ' || arg0 == '_' || arg0 == '-') {

@@ -99,7 +99,7 @@ public final class Static254 {
         Static576.method7614();
         Static426.aBoolean72 = true;
         for (@Pc(8877) int local8877 = 0; local8877 < 100; local8877++) {
-            Static364.aBooleanArray18[local8877] = true;
+            InterfaceManager.dirtyRectangles[local8877] = true;
         }
         for (@Pc(8893) int local8893 = 0; local8893 < 6; local8893++) {
             Static105.aClass171Array1[local8893] = new Class171();

@@ -9,7 +9,7 @@ public final class Static335 {
     @OriginalMember(owner = "client!kk", name = "a", descriptor = "(II)V")
     public static void setFeatureMask(@OriginalArg(1) int arg0) {
         Static108.anInt2168 = arg0;
-        Static312.A_WEIGHTED_CACHE___106.reset();
+        Component.models.reset();
     }
 
     @OriginalMember(owner = "client!kk", name = "a", descriptor = "(IIZ)Z")

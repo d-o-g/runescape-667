@@ -19,9 +19,6 @@ public final class Static364 {
     @OriginalMember(owner = "client!lia", name = "p", descriptor = "D")
     public static double aDouble17;
 
-    @OriginalMember(owner = "client!lia", name = "b", descriptor = "[Z")
-    public static final boolean[] aBooleanArray18 = new boolean[100];
-
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Z)Lclient!fu;")
     public static Node_Sub20 method5248() {
         if (Static30.A_DEQUE___31 == null || Static444.aClass191_1 == null) {

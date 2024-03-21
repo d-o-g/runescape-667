@@ -105,7 +105,7 @@ public final class Static397 {
             if (local34 == null) {
                 return;
             }
-            local27 = Static163.activeToolkit.method7948(local34[0], true);
+            local27 = Static163.activeToolkit.createSprite(local34[0], true);
             Static541.A_WEIGHTED_CACHE___174.put(local27, (long) local7);
         }
         Static418.method7860(arg1.aByte144, arg1.anInt10694, 0, arg1.anInt10690, arg1.method9302((byte) 55) * 256);

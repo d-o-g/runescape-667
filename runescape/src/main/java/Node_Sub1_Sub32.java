@@ -100,10 +100,7 @@ public final class Node_Sub1_Sub32 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!vda", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
-        if (arg0 != 7) {
-            this.anInt10017 = 8;
-        }
+    public void method9421() {
         this.method8734((byte) -119);
     }
 }

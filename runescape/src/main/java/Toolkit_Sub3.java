@@ -1272,7 +1272,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public Sprite method7948(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
+    public Sprite createSprite(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
         @Pc(12) int[] local12 = new int[arg0.height * arg0.width];
         @Pc(14) int local14 = 0;
         @Pc(16) int local16 = 0;

@@ -81,10 +81,7 @@ public final class Node_Sub1_Sub10 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!gd", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
+    public void method9421() {
         Static481.method6475();
-        if (arg0 == 7) {
-            ;
-        }
     }
 }

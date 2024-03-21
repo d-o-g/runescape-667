@@ -21,14 +21,14 @@ public final class Static292 {
     public static void method4604(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(6) int arg4) {
         if ((Static26.aSprite_5 == null || Static63.aSprite_8 == null || Static261.aSprite_18 == null) && js5.SPRITES.fileready(Static337.anInt5561) && js5.SPRITES.fileready(Static176.anInt7532) && js5.SPRITES.fileready(Static282.anInt4419)) {
             @Pc(46) IndexedImage local46 = IndexedImage.loadFirst(js5.SPRITES, Static176.anInt7532, 0);
-            Static63.aSprite_8 = arg1.method7948(local46, true);
-            local46.method9388();
-            Static542.aSprite_33 = arg1.method7948(local46, true);
-            Static26.aSprite_5 = arg1.method7948(IndexedImage.loadFirst(js5.SPRITES, Static337.anInt5561, 0), true);
+            Static63.aSprite_8 = arg1.createSprite(local46, true);
+            local46.flipVertically();
+            Static542.aSprite_33 = arg1.createSprite(local46, true);
+            Static26.aSprite_5 = arg1.createSprite(IndexedImage.loadFirst(js5.SPRITES, Static337.anInt5561, 0), true);
             @Pc(71) IndexedImage local71 = IndexedImage.loadFirst(js5.SPRITES, Static282.anInt4419, 0);
-            Static261.aSprite_18 = arg1.method7948(local71, true);
-            local71.method9388();
-            Static561.aSprite_34 = arg1.method7948(local71, true);
+            Static261.aSprite_18 = arg1.createSprite(local71, true);
+            local71.flipVertically();
+            Static561.aSprite_34 = arg1.createSprite(local71, true);
         }
         if (Static26.aSprite_5 == null || Static63.aSprite_8 == null || Static261.aSprite_18 == null) {
             return;

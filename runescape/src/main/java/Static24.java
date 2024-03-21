@@ -20,13 +20,13 @@ public final class Static24 {
             Static26.method716(Static377.anInt5930);
         }
         for (@Pc(23) int local23 = 0; local23 < Static122.anInt2339; local23++) {
-            if (Static364.aBooleanArray18[local23]) {
+            if (InterfaceManager.dirtyRectangles[local23]) {
                 Static469.aBooleanArray23[local23] = true;
             }
-            Static359.aBooleanArray17[local23] = Static364.aBooleanArray18[local23];
-            Static364.aBooleanArray18[local23] = false;
+            Static359.aBooleanArray17[local23] = InterfaceManager.dirtyRectangles[local23];
+            InterfaceManager.dirtyRectangles[local23] = false;
         }
-        Static171.anInt2880 = TimeUtils.clock;
+        InterfaceManager.lastDrawCycle = TimeUtils.clock;
         if (Static377.anInt5930 != -1) {
             Static122.anInt2339 = 0;
             Static261.method3833();

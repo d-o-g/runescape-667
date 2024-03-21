@@ -10,9 +10,6 @@ public final class Static171 {
     @OriginalMember(owner = "client!ff", name = "s", descriptor = "F")
     public static float aFloat64 = 0.0F;
 
-    @OriginalMember(owner = "client!ff", name = "k", descriptor = "I")
-    public static int anInt2880 = -2;
-
     @OriginalMember(owner = "client!ff", name = "u", descriptor = "Z")
     public static boolean aBoolean245 = false;
 

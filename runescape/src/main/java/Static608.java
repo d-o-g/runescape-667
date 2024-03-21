@@ -125,7 +125,7 @@ public final class Static608 {
                             if (local313 != null) {
                                 local306 = new Sprite[local313.length];
                                 for (local321 = 0; local321 < local313.length; local321++) {
-                                    local306[local321] = Static163.activeToolkit.method7948(local313[local321], true);
+                                    local306[local321] = Static163.activeToolkit.createSprite(local313[local321], true);
                                 }
                                 Static230.A_WEIGHTED_CACHE___81.put(local306, (long) local267);
                             }
@@ -174,7 +174,7 @@ public final class Static608 {
                                 if (local313 != null) {
                                     local306 = new Sprite[local313.length];
                                     for (local321 = 0; local321 < local313.length; local321++) {
-                                        local306[local321] = Static163.activeToolkit.method7948(local313[local321], true);
+                                        local306[local321] = Static163.activeToolkit.createSprite(local313[local321], true);
                                     }
                                     Static669.A_WEIGHTED_CACHE___215.put(local306, (long) local504);
                                 }

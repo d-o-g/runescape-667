@@ -188,7 +188,7 @@ public final class Static363 {
             Static371.method5284();
         }
         for (@Pc(258) int local258 = 0; local258 < 100; local258++) {
-            Static364.aBooleanArray18[local258] = true;
+            InterfaceManager.dirtyRectangles[local258] = true;
         }
         Static664.aBoolean759 = true;
     }

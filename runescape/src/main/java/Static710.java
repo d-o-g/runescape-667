@@ -17,11 +17,11 @@ public final class Static710 {
     public static void method6710(@OriginalArg(1) Component arg0, @OriginalArg(2) Component arg1) {
         @Pc(15) ClientMessage local15 = Static293.method4335(Static671.aClass345_117, Static405.A_SERVER_CONNECTION___2.aClass186_1);
         local15.buffer.p2(arg1.anInt3760);
-        local15.buffer.p2_alt1(arg0.anInt3741);
+        local15.buffer.p2_alt1(arg0.id);
         local15.buffer.p2_alt2(arg0.anInt3760);
-        local15.buffer.p4_alt2(arg0.anInt3812);
-        local15.buffer.p2_alt1(arg1.anInt3741);
-        local15.buffer.p4_alt3(arg1.anInt3812);
+        local15.buffer.p4_alt2(arg0.slot);
+        local15.buffer.p2_alt1(arg1.id);
+        local15.buffer.p4_alt3(arg1.slot);
         Static405.A_SERVER_CONNECTION___2.send(local15);
     }
 

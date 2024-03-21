@@ -112,19 +112,19 @@ public final class Class285 {
         @Pc(34) IndexedImage local34;
         if (this.anInt7183 >= 0 && this.aClass220_1.aReferenceCache_121.get((long) this.anInt7183) == null && local7.fileready(this.anInt7183)) {
             local34 = IndexedImage.loadFirst(local7, this.anInt7183);
-            this.aClass220_1.aReferenceCache_121.put(arg0.method7948(local34, true), (long) this.anInt7183);
+            this.aClass220_1.aReferenceCache_121.put(arg0.createSprite(local34, true), (long) this.anInt7183);
         }
         if (this.anInt7181 >= 0 && this.aClass220_1.aReferenceCache_121.get((long) this.anInt7181) == null && local7.fileready(this.anInt7181)) {
             local34 = IndexedImage.loadFirst(local7, this.anInt7181);
-            this.aClass220_1.aReferenceCache_121.put(arg0.method7948(local34, true), (long) this.anInt7181);
+            this.aClass220_1.aReferenceCache_121.put(arg0.createSprite(local34, true), (long) this.anInt7181);
         }
         if (this.anInt7180 >= 0 && this.aClass220_1.aReferenceCache_121.get((long) this.anInt7180) == null && local7.fileready(this.anInt7180)) {
             local34 = IndexedImage.loadFirst(local7, this.anInt7180);
-            this.aClass220_1.aReferenceCache_121.put(arg0.method7948(local34, true), (long) this.anInt7180);
+            this.aClass220_1.aReferenceCache_121.put(arg0.createSprite(local34, true), (long) this.anInt7180);
         }
         if (this.anInt7187 >= 0 && this.aClass220_1.aReferenceCache_121.get((long) this.anInt7187) == null && local7.fileready(this.anInt7187)) {
             local34 = IndexedImage.loadFirst(local7, this.anInt7187);
-            this.aClass220_1.aReferenceCache_121.put(arg0.method7948(local34, true), (long) this.anInt7187);
+            this.aClass220_1.aReferenceCache_121.put(arg0.createSprite(local34, true), (long) this.anInt7187);
         }
     }
 

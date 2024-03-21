@@ -38,13 +38,13 @@ public final class Static134 {
 
     @OriginalMember(owner = "client!eda", name = "a", descriptor = "(Lclient!hda;BZ)V")
     public static void method8956(@OriginalArg(0) Component arg0, @OriginalArg(2) boolean arg1) {
-        @Pc(16) int local16 = arg0.anInt3769 == 0 ? arg0.anInt3802 : arg0.anInt3769;
-        @Pc(37) int local37 = arg0.anInt3742 == 0 ? arg0.anInt3746 : arg0.anInt3742;
-        Static220.method3200(local16, arg1, local37, Static453.aComponentArrayArray2[arg0.anInt3812 >> 16], arg0.anInt3812);
+        @Pc(16) int local16 = arg0.scrollWidth == 0 ? arg0.anInt3802 : arg0.scrollWidth;
+        @Pc(37) int local37 = arg0.scrollHeight == 0 ? arg0.anInt3746 : arg0.scrollHeight;
+        Static220.method3200(local16, arg1, local37, Static453.aComponentArrayArray2[arg0.slot >> 16], arg0.slot);
         if (arg0.aComponentArray1 != null) {
-            Static220.method3200(local16, arg1, local37, arg0.aComponentArray1, arg0.anInt3812);
+            Static220.method3200(local16, arg1, local37, arg0.aComponentArray1, arg0.slot);
         }
-        @Pc(72) Node_Sub4 local72 = (Node_Sub4) Static548.aHashTable_40.get((long) arg0.anInt3812);
+        @Pc(72) Node_Sub4 local72 = (Node_Sub4) Static548.aHashTable_40.get((long) arg0.slot);
         if (local72 != null) {
             Static19.method265(arg1, local72.anInt147, local37, local16);
         }

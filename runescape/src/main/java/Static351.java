@@ -12,9 +12,6 @@ public final class Static351 {
     @OriginalMember(owner = "client!laa", name = "l", descriptor = "J")
     public static long aLong173 = -1L;
 
-    @OriginalMember(owner = "client!laa", name = "n", descriptor = "I")
-    public static final int anInt5719 = 0;
-
     @OriginalMember(owner = "client!laa", name = "a", descriptor = "(B[I[Ljava/lang/String;)V")
     public static void method5137(@OriginalArg(1) int[] arg0, @OriginalArg(2) String[] arg1) {
         Static316.method7500(arg1, arg0, arg1.length - 1, 0);

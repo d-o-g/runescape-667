@@ -124,10 +124,7 @@ public final class Node_Sub1_Sub28 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!tia", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
-        if (arg0 != 7) {
-            this.anInt9409 = -7;
-        }
+    public void method9421() {
         this.method8282();
     }
 }

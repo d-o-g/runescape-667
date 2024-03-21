@@ -1,5 +1,4 @@
 import com.jagex.core.datastruct.key.Class331;
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -12,9 +11,6 @@ public final class Static449 {
 
     @OriginalMember(owner = "client!od", name = "c", descriptor = "[I")
     public static int[] anIntArray546;
-
-    @OriginalMember(owner = "client!od", name = "l", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___146 = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!od", name = "e", descriptor = "Z")
     public static boolean aBoolean511 = false;
@@ -40,7 +36,7 @@ public final class Static449 {
         Static193.method2897(local6);
         @Pc(27) Component local27 = Static145.method2412(local10);
         if (local27 != null) {
-            Static178.method2729(local27);
+            InterfaceManager.redraw(local27);
         }
         Static94.method1840();
         if (!arg0 && Static377.anInt5930 != -1) {

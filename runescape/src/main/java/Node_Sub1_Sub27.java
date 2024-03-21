@@ -156,13 +156,10 @@ public final class Node_Sub1_Sub27 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!so", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
+    public void method9421() {
         this.aByteArray97 = Static694.method9027(this.anInt8809);
-        this.method7813(arg0 - 8);
+        this.method7813(-1);
         @Pc(19) int local19 = this.anInt8803 - 1;
-        if (arg0 != 7) {
-            return;
-        }
         while (local19 >= 1) {
             @Pc(29) short local29 = this.aShortArray127[local19];
             if (local29 > 8) {

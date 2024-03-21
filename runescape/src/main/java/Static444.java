@@ -17,9 +17,9 @@ public final class Static444 {
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(Lclient!sb;Lclient!sb;Lclient!sb;BLclient!sb;)V")
     public static void method5987(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2, @OriginalArg(4) js5 arg3) {
-        Static262.aJs5_56 = arg2;
+        Component.spritesJs5 = arg2;
         Static666.aJs5_118 = arg0;
-        Static607.aJs5_113 = arg3;
+        Component.modelsJs5 = arg3;
         Static453.aComponentArrayArray2 = new Component[Static666.aJs5_118.groupSize()][];
         Static132.aBooleanArray5 = new boolean[Static666.aJs5_118.groupSize()];
     }

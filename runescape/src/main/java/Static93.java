@@ -19,7 +19,7 @@ public final class Static93 {
     public static Class aClass6;
 
     @OriginalMember(owner = "client!cu", name = "T", descriptor = "Lclient!ofa;")
-    public static final Node_Sub41 aClass2_Sub41_1 = new Node_Sub41(0, -1);
+    public static final ServerActiveProperties aClass2_Sub41_1 = new ServerActiveProperties(0, -1);
 
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(IIIILclient!d;Lclient!ha;I)V")
     public static void method1832(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) TextureSource arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5) {

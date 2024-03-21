@@ -1984,7 +1984,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public Sprite method7948(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
+    public Sprite createSprite(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
         @Pc(2) int[] local2 = arg0.palette;
         @Pc(5) byte[] local5 = arg0.raster;
         @Pc(8) int local8 = arg0.width;

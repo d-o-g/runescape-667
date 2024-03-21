@@ -11,9 +11,6 @@ public final class Static190 {
     @OriginalMember(owner = "client!fs", name = "f", descriptor = "[I")
     public static int[] anIntArray266 = new int[1];
 
-    @OriginalMember(owner = "client!fs", name = "a", descriptor = "I")
-    public static final int anInt3113 = 1403;
-
     @OriginalMember(owner = "client!fs", name = "a", descriptor = "(I)I")
     public static int method2865() {
         return Static324.anInt5129;

@@ -10,9 +10,6 @@ public final class Static343 {
     @OriginalMember(owner = "client!kq", name = "k", descriptor = "Z")
     public static boolean aBoolean428 = false;
 
-    @OriginalMember(owner = "client!kq", name = "g", descriptor = "I")
-    public static final int anInt5612 = 1409;
-
     @OriginalMember(owner = "client!kq", name = "i", descriptor = "[Lclient!pq;")
     public static Class297_Sub1[] aClass297_Sub1Array2 = new Class297_Sub1[0];
 

@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ofa")
-public final class Node_Sub41 extends Node {
+public final class ServerActiveProperties extends Node {
 
     @OriginalMember(owner = "client!ofa", name = "r", descriptor = "I")
     public final int anInt6904;
@@ -13,14 +13,14 @@ public final class Node_Sub41 extends Node {
     public final int anInt6909;
 
     @OriginalMember(owner = "client!ofa", name = "<init>", descriptor = "(II)V")
-    public Node_Sub41(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public ServerActiveProperties(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         this.anInt6904 = arg1;
         this.anInt6909 = arg0;
     }
 
     @OriginalMember(owner = "client!ofa", name = "b", descriptor = "(I)I")
     public int method6216() {
-        return Static622.method6853(this.anInt6909);
+        return Component.hasTargetParam(this.anInt6909);
     }
 
     @OriginalMember(owner = "client!ofa", name = "b", descriptor = "(B)Z")

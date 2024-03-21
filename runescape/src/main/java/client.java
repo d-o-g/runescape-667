@@ -461,29 +461,29 @@ public final class client extends GameShell {
                                             return;
                                         }
                                         local458 = local453.aComponent_14;
-                                        if (local458.anInt3741 < 0) {
+                                        if (local458.id < 0) {
                                             break;
                                         }
-                                        local470 = Static145.method2412(local458.anInt3743);
-                                    } while (local470 == null || local470.aComponentArray2 == null || local470.aComponentArray2.length <= local458.anInt3741 || local470.aComponentArray2[local458.anInt3741] != local458);
+                                        local470 = Static145.method2412(local458.layer);
+                                    } while (local470 == null || local470.aComponentArray2 == null || local470.aComponentArray2.length <= local458.id || local470.aComponentArray2[local458.id] != local458);
                                     Static472.method6420(local453);
                                 }
                             }
                             local458 = local453.aComponent_14;
-                            if (local458.anInt3741 < 0) {
+                            if (local458.id < 0) {
                                 break;
                             }
-                            local470 = Static145.method2412(local458.anInt3743);
-                        } while (local470 == null || local470.aComponentArray2 == null || local470.aComponentArray2.length <= local458.anInt3741 || local458 != local470.aComponentArray2[local458.anInt3741]);
+                            local470 = Static145.method2412(local458.layer);
+                        } while (local470 == null || local470.aComponentArray2 == null || local470.aComponentArray2.length <= local458.id || local458 != local470.aComponentArray2[local458.id]);
                         Static472.method6420(local453);
                     }
                 }
                 local458 = local453.aComponent_14;
-                if (local458.anInt3741 < 0) {
+                if (local458.id < 0) {
                     break;
                 }
-                local470 = Static145.method2412(local458.anInt3743);
-            } while (local470 == null || local470.aComponentArray2 == null || local470.aComponentArray2.length <= local458.anInt3741 || local458 != local470.aComponentArray2[local458.anInt3741]);
+                local470 = Static145.method2412(local458.layer);
+            } while (local470 == null || local470.aComponentArray2 == null || local470.aComponentArray2.length <= local458.id || local458 != local470.aComponentArray2[local458.id]);
             Static472.method6420(local453);
         }
     }

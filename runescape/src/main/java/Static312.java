@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,9 +6,6 @@ public final class Static312 {
 
     @OriginalMember(owner = "client!jt", name = "f", descriptor = "I")
     public static int anInt5001;
-
-    @OriginalMember(owner = "client!jt", name = "a", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___106 = new ReferenceCache(50);
 
     @OriginalMember(owner = "client!jt", name = "h", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_131 = new Class225(112, 6);
@@ -34,23 +30,23 @@ public final class Static312 {
         if (!Static156.aBoolean223) {
             return;
         }
-        if (arg0.anObjectArray10 != null) {
+        if (arg0.onOpT != null) {
             @Pc(17) Component local17 = Static15.method186(Static77.anInt1614, Static450.anInt6819);
             if (local17 != null) {
                 @Pc(23) Node_Sub42 local23 = new Node_Sub42();
-                local23.anObjectArray36 = arg0.anObjectArray10;
+                local23.anObjectArray36 = arg0.onOpT;
                 local23.aComponent_14 = arg0;
                 local23.aComponent_13 = local17;
                 Static472.method6420(local23);
             }
         }
         @Pc(45) ClientMessage local45 = Static293.method4335(Static505.aClass345_119, Static405.A_SERVER_CONNECTION___2.aClass186_1);
-        local45.buffer.p4_alt2(arg0.anInt3812);
+        local45.buffer.p4_alt2(arg0.slot);
         local45.buffer.p2_alt2(Static162.anInt2799);
         local45.buffer.p2_alt3(Static77.anInt1614);
         local45.buffer.p4_alt3(Static450.anInt6819);
         local45.buffer.p2_alt2(arg0.anInt3760);
-        local45.buffer.p2_alt1(arg0.anInt3741);
+        local45.buffer.p2_alt1(arg0.id);
         Static405.A_SERVER_CONNECTION___2.send(local45);
     }
 }

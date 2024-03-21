@@ -50,7 +50,7 @@ public final class Static94 {
         Static692.anInt10376 = -1;
         Static81.method1586(11);
         for (@Pc(79) int local79 = 0; local79 < 100; local79++) {
-            Static364.aBooleanArray18[local79] = true;
+            InterfaceManager.dirtyRectangles[local79] = true;
         }
         Static371.method5284();
         Static675.aLong307 = 0L;

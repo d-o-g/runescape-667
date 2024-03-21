@@ -12,9 +12,9 @@ public final class Static120 {
         if (local8 == null) {
             return;
         }
-        if (local8.anObjectArray15 != null) {
+        if (local8.onOp != null) {
             @Pc(19) Node_Sub42 local19 = new Node_Sub42();
-            local19.anObjectArray36 = local8.anObjectArray15;
+            local19.anObjectArray36 = local8.onOp;
             local19.anInt7219 = arg3;
             local19.aString84 = arg2;
             local19.aComponent_14 = local8;

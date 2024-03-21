@@ -74,11 +74,8 @@ public final class Node_Sub1_Sub23 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!or", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
+    public void method9421() {
         this.aByteArray84 = Static694.method9027(this.anInt7106);
-        if (arg0 != 7) {
-            this.anInt7110 = 6;
-        }
         this.method6382();
     }
 

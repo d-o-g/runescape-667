@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ClientComponent;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -60,11 +61,8 @@ public final class Node_Sub1_Sub4 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!bu", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
+    public void method9421() {
         Static481.method6475();
-        if (arg0 != 7) {
-            Static58.anInt1177 = -19;
-        }
     }
 
     @OriginalMember(owner = "client!bu", name = "a", descriptor = "(ZLclient!ge;I)V")

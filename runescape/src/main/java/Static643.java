@@ -28,21 +28,21 @@ public final class Static643 {
     public static void method8444(@OriginalArg(1) int arg0, @OriginalArg(2) Component[] arg1) {
         for (@Pc(3) int local3 = 0; local3 < arg1.length; local3++) {
             @Pc(9) Component local9 = arg1[local3];
-            if (local9 != null && local9.anInt3743 == arg0 && !Static84.method1660(local9)) {
-                if (local9.anInt3820 == 0) {
-                    method8444(local9.anInt3812, arg1);
+            if (local9 != null && local9.layer == arg0 && !Static84.method1660(local9)) {
+                if (local9.type == 0) {
+                    method8444(local9.slot, arg1);
                     if (local9.aComponentArray1 != null) {
-                        method8444(local9.anInt3812, local9.aComponentArray1);
+                        method8444(local9.slot, local9.aComponentArray1);
                     }
-                    @Pc(56) Node_Sub4 local56 = (Node_Sub4) Static548.aHashTable_40.get((long) local9.anInt3812);
+                    @Pc(56) Node_Sub4 local56 = (Node_Sub4) Static548.aHashTable_40.get((long) local9.slot);
                     if (local56 != null) {
                         Static26.method716(local56.anInt147);
                     }
                 }
-                if (local9.anInt3820 == 6 && local9.anInt3789 != -1) {
+                if (local9.type == 6 && local9.modelAnimation != -1) {
                     if (local9.aAnimator_6 == null) {
                         local9.aAnimator_6 = new Animator_Sub1();
-                        local9.aAnimator_6.update(true, local9.anInt3789);
+                        local9.aAnimator_6.update(true, local9.modelAnimation);
                     }
                     if (local9.aAnimator_6.tick(Static35.anInt800) && local9.aAnimator_6.isFinished()) {
                         local9.aAnimator_6.method9099();

@@ -123,11 +123,8 @@ public final class Node_Sub1_Sub11 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!in", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
-        if (arg0 != 7) {
-            this.method9416(true, (Packet) null, 83);
-        }
-        this.method4069(arg0 + 25421);
+    public void method9421() {
+        this.method4069(25428);
     }
 
     @OriginalMember(owner = "client!in", name = "a", descriptor = "(II)[I")

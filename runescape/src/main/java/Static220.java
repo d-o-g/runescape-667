@@ -127,22 +127,22 @@ public final class Static220 {
     public static void method3200(@OriginalArg(1) int arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Component[] arg3, @OriginalArg(5) int arg4) {
         for (@Pc(5) int local5 = 0; local5 < arg3.length; local5++) {
             @Pc(14) Component local14 = arg3[local5];
-            if (local14 != null && local14.anInt3743 == arg4) {
+            if (local14 != null && local14.layer == arg4) {
                 Static507.method6743(arg1, arg2, arg0, local14);
                 Static470.method6383(local14, arg0, arg2, -8525);
-                if (local14.anInt3769 - local14.anInt3802 < local14.anInt3809) {
-                    local14.anInt3809 = local14.anInt3769 - local14.anInt3802;
+                if (local14.scrollWidth - local14.anInt3802 < local14.anInt3809) {
+                    local14.anInt3809 = local14.scrollWidth - local14.anInt3802;
                 }
                 if (local14.anInt3809 < 0) {
                     local14.anInt3809 = 0;
                 }
-                if (local14.anInt3742 - local14.anInt3746 < local14.anInt3768) {
-                    local14.anInt3768 = local14.anInt3742 - local14.anInt3746;
+                if (local14.scrollHeight - local14.anInt3746 < local14.anInt3768) {
+                    local14.anInt3768 = local14.scrollHeight - local14.anInt3746;
                 }
                 if (local14.anInt3768 < 0) {
                     local14.anInt3768 = 0;
                 }
-                if (local14.anInt3820 == 0) {
+                if (local14.type == 0) {
                     Static134.method8956(local14, arg1);
                 }
             }

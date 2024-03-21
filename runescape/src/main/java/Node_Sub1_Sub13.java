@@ -23,10 +23,7 @@ public final class Node_Sub1_Sub13 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!jr", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
-        if (arg0 != 7) {
-            this.monochromeOutput(69, 15);
-        }
+    public void method9421() {
         this.anInt4956 = this.anInt4954 - this.anInt4951;
     }
 
@@ -71,7 +68,7 @@ public final class Node_Sub1_Sub13 extends Node_Sub1 {
     @Override
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
-            this.method9421(-19);
+            this.method9421();
         }
         if (arg2 == 0) {
             this.anInt4951 = arg1.g2();

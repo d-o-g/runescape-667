@@ -32,7 +32,7 @@ public final class Static77 {
             }
         }
         if (Static390.aComponent_9 != null) {
-            Static178.method2729(Static390.aComponent_9);
+            InterfaceManager.redraw(Static390.aComponent_9);
             Static390.aComponent_9 = null;
         }
     }

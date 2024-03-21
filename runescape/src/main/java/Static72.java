@@ -24,7 +24,7 @@ public final class Static72 {
                 if (local34 == null) {
                     @Pc(42) IndexedImage local42 = IndexedImage.loadFirst(js5.SPRITES, local19.anInt5704, 0);
                     if (local42 != null) {
-                        local34 = Static163.activeToolkit.method7948(local42, true);
+                        local34 = Static163.activeToolkit.createSprite(local42, true);
                         Static452.A_WEIGHTED_CACHE___149.put(local34, (long) local19.anInt5704);
                     }
                 }

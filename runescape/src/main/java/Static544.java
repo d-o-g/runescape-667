@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static544 {
 
-    @OriginalMember(owner = "client!rc", name = "o", descriptor = "Z")
-    public static boolean aBoolean624 = false;
-
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(Lclient!hma;ZI)V")
     public static void method7214(@OriginalArg(0) ChangeLocationRequest arg0, @OriginalArg(1) boolean arg1) {
         if (arg0.aBoolean309) {

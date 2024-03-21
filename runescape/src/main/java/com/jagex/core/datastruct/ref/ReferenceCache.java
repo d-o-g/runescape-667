@@ -149,7 +149,7 @@ public final class ReferenceCache {
             throw new IllegalStateException("s>cs");
         }
 
-        this.removeByKey(key);
+        this.remove(key);
         this.remaining -= size;
 
         while (this.remaining < 0) {
@@ -164,7 +164,7 @@ public final class ReferenceCache {
     }
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(JI)V")
-    public void removeByKey(@OriginalArg(0) long key) {
+    public void remove(@OriginalArg(0) long key) {
         @Pc(15) ReferenceNode node = (ReferenceNode) this.table.get(key);
         this.remove(node);
     }

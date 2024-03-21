@@ -1,4 +1,5 @@
 import com.jagex.SignLink;
+import com.jagex.core.constants.ClientComponent;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
@@ -339,7 +340,7 @@ public final class Static523 {
             local184 = true;
             for (local74 = 0; local74 < Static453.aComponentArrayArray2[graphicsDefaults.login_interface].length; local74++) {
                 @Pc(1315) Component local1315 = Static453.aComponentArrayArray2[graphicsDefaults.login_interface][local74];
-                if (local1315.anInt3820 == 5 && local1315.anInt3810 != -1 && !js5.SPRITES.requestdownload(0, local1315.anInt3810)) {
+                if (local1315.type == 5 && local1315.graphic != -1 && !js5.SPRITES.requestdownload(0, local1315.graphic)) {
                     local184 = false;
                 }
             }
@@ -388,7 +389,7 @@ public final class Static523 {
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ZLclient!hda;)V")
     public static void method3449(@OriginalArg(1) Component arg0) {
-        if (Static376.anInt5921 != arg0.anInt3806) {
+        if (ClientComponent.SPINNING_PLAYER != arg0.clientComponent) {
             return;
         }
         if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9 == null) {
@@ -396,8 +397,8 @@ public final class Static523 {
             arg0.objData = 0;
             return;
         }
-        arg0.anInt3807 = 150;
-        arg0.anInt3811 = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
+        arg0.modelAngleX = 150;
+        arg0.modelAngleY = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
         arg0.objType = 5;
         arg0.obj = Static312.anInt5000;
         arg0.objData = Static214.method3157(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9);
@@ -409,7 +410,7 @@ public final class Static523 {
         if (arg0.aAnimator_6 == null) {
             arg0.aAnimator_6 = new Animator_Sub1();
         }
-        arg0.anInt3789 = local55.getAnimationId();
+        arg0.modelAnimation = local55.getAnimationId();
         arg0.aAnimator_6.method9096(local55);
     }
 }

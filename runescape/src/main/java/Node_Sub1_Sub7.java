@@ -209,10 +209,7 @@ public final class Node_Sub1_Sub7 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!dd", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
-        if (arg0 != 7) {
-            this.method2023((int[][]) null, 27, (Random) null, 76, -2, -58, (byte) 89);
-        }
+    public void method9421() {
     }
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "([[IILjava/util/Random;IIIB)V")

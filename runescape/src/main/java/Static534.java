@@ -44,18 +44,18 @@ public final class Static534 {
             }
         } else if (arg5 == -1) {
             for (local17 = 0; local17 < 100; local17++) {
-                Static364.aBooleanArray18[local17] = true;
+                InterfaceManager.dirtyRectangles[local17] = true;
             }
         } else {
-            Static364.aBooleanArray18[arg5] = true;
+            InterfaceManager.dirtyRectangles[arg5] = true;
         }
     }
 
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IB)V")
     public static void method7121() {
-        Static473.A_WEIGHTED_CACHE___157.clean(50);
-        Static312.A_WEIGHTED_CACHE___106.clean(50);
-        Static449.A_WEIGHTED_CACHE___146.clean(50);
+        Component.sprites.clean(50);
+        Component.models.clean(50);
+        Component.A_WEIGHTED_CACHE___146.clean(50);
         Component.skyBoxes.clean(50);
     }
 

@@ -10,10 +10,10 @@ public final class Static380 {
     public static String method5359(@OriginalArg(0) Component arg0) {
         if (Static84.method1661(arg0).method6216() == 0) {
             return null;
-        } else if (arg0.aString43 == null || arg0.aString43.trim().length() == 0) {
+        } else if (arg0.targetVerb == null || arg0.targetVerb.trim().length() == 0) {
             return Static103.aBoolean195 ? "Hidden-use" : null;
         } else {
-            return arg0.aString43;
+            return arg0.targetVerb;
         }
     }
 }

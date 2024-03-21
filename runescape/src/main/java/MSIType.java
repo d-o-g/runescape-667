@@ -38,14 +38,14 @@ public final class MSIType {
         if (image != null) {
             image.offY2 = image.offX1 = image.offX2 = image.offY1 = 0;
             if (flipHorizontal) {
-                image.flipHorizontal();
+                image.flipHorizontally();
             }
             for (@Pc(79) int i = 0; i < count; i++) {
                 image.method9386();
             }
         }
 
-        sprite = toolkit.method7948(image, true);
+        sprite = toolkit.createSprite(image, true);
         if (sprite != null) {
             this.typeList.spriteCache.put(sprite, key);
         }

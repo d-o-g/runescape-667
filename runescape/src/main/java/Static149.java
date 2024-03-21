@@ -16,9 +16,6 @@ public final class Static149 {
     @OriginalMember(owner = "client!ema", name = "c", descriptor = "Lclient!fla;")
     public static final LinkedList A_ENTITY_LIST___4 = new LinkedList();
 
-    @OriginalMember(owner = "client!ema", name = "i", descriptor = "I")
-    public static final int anInt2630 = 1408;
-
     @OriginalMember(owner = "client!ema", name = "o", descriptor = "Z")
     public static boolean aBoolean221 = false;
 

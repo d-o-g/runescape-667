@@ -1454,7 +1454,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
-    public final Sprite method7948(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
+    public final Sprite createSprite(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
         @Pc(141) Sprite local141;
         if (arg0.width == 0 || arg0.height == 0) {
             local141 = this.createSprite(1, 1, 1, new int[1]);

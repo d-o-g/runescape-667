@@ -30,12 +30,12 @@ public final class Static443 {
 
     @OriginalMember(owner = "client!nw", name = "a", descriptor = "(Lclient!hda;II)Ljava/lang/String;")
     public static String method5982(@OriginalArg(0) Component arg0, @OriginalArg(1) int arg1) {
-        if (!Static84.method1661(arg0).method6221(arg1) && arg0.anObjectArray15 == null) {
+        if (!Static84.method1661(arg0).method6221(arg1) && arg0.onOp == null) {
             return null;
-        } else if (arg0.aStringArray17 == null || arg1 >= arg0.aStringArray17.length || arg0.aStringArray17[arg1] == null || arg0.aStringArray17[arg1].trim().length() == 0) {
+        } else if (arg0.ops == null || arg1 >= arg0.ops.length || arg0.ops[arg1] == null || arg0.ops[arg1].trim().length() == 0) {
             return Static103.aBoolean195 ? "Hidden-" + arg1 : null;
         } else {
-            return arg0.aStringArray17[arg1];
+            return arg0.ops[arg1];
         }
     }
 }

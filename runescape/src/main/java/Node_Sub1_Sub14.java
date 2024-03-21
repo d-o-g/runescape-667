@@ -298,14 +298,11 @@ public final class Node_Sub1_Sub14 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!kg", name = "c", descriptor = "(I)V")
     @Override
-    public void method9421(@OriginalArg(0) int arg0) {
+    public void method9421() {
         if (this.anIntArrayArray125 == null) {
             this.method4893(1);
         }
         this.method4896();
-        if (arg0 != 7) {
-            Static327.aComponent_7 = null;
-        }
     }
 
     @OriginalMember(owner = "client!kg", name = "a", descriptor = "(ZLclient!ge;I)V")

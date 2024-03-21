@@ -498,8 +498,8 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("cachespace")) {
-                    Static79.method1579("I(s): " + Static473.A_WEIGHTED_CACHE___157.remaining() + "/" + Static473.A_WEIGHTED_CACHE___157.capacity());
-                    Static79.method1579("I(m): " + Static312.A_WEIGHTED_CACHE___106.remaining() + "/" + Static312.A_WEIGHTED_CACHE___106.capacity());
+                    Static79.method1579("I(s): " + Component.sprites.remaining() + "/" + Component.sprites.capacity());
+                    Static79.method1579("I(m): " + Component.models.remaining() + "/" + Component.models.capacity());
                     Static79.method1579("O(s): " + Static419.aObjTypeList_1.spriteCache.remaining() + "/" + Static419.aObjTypeList_1.spriteCache.capacity());
                     return;
                 }

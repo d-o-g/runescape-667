@@ -58,10 +58,10 @@ public final class Static55 {
             @Pc(197) Component local197 = Static15.method186(local16, local19);
             if (local197 != null) {
                 Static470.method6384();
-                @Pc(206) Node_Sub41 local206 = Static84.method1661(local197);
+                @Pc(206) ServerActiveProperties local206 = Static84.method1661(local197);
                 Static389.method5476(local206.method6216(), local197, local206.anInt6904);
                 Static153.aString27 = Static380.method5359(local197);
-                Static128.aString108 = local197.aString41 + "<col=ffffff>";
+                Static128.aString108 = local197.opBase + "<col=ffffff>";
                 if (Static153.aString27 == null) {
                     Static153.aString27 = "Null";
                 }
@@ -97,7 +97,7 @@ public final class Static55 {
         if (local22 == 10 && Static390.aComponent_9 == null) {
             Static479.method6461(local16, local19);
             Static390.aComponent_9 = Static15.method186(local16, local19);
-            Static178.method2729(Static390.aComponent_9);
+            InterfaceManager.redraw(Static390.aComponent_9);
         }
         @Pc(389) Class345 local389 = null;
         if (local22 == 2) {
@@ -314,7 +314,7 @@ public final class Static55 {
             Static470.method6384();
         }
         if (Static67.aComponent_10 != null && Static499.anInt7501 == 0) {
-            Static178.method2729(Static67.aComponent_10);
+            InterfaceManager.redraw(Static67.aComponent_10);
         }
     }
 

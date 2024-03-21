@@ -202,7 +202,7 @@ public final class Class105 {
         this.aClass246_2.aJs5_83.fileready(this.anInt2618);
         @Pc(49) IndexedImage local49 = IndexedImage.loadFirst(this.aClass246_2.aJs5_83, this.anInt2618, 0);
         if (local49 != null) {
-            local28 = arg0.method7948(local49, true);
+            local28 = arg0.createSprite(local49, true);
             this.aClass246_2.aReferenceCache_135.put(local28, (long) (this.anInt2618 | 0x20000 | arg0.index << 29));
         }
         return local28;
@@ -237,7 +237,7 @@ public final class Class105 {
         } else if (this.aClass246_2.aJs5_83.fileready(local22)) {
             @Pc(60) IndexedImage local60 = IndexedImage.loadFirst(this.aClass246_2.aJs5_83, local22, 0);
             if (local60 != null) {
-                local38 = arg1.method7948(local60, true);
+                local38 = arg1.createSprite(local60, true);
                 this.aClass246_2.aReferenceCache_135.put(local38, (long) local29);
             }
             return local38;

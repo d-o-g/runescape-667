@@ -20,9 +20,6 @@ public final class Static137 {
     @OriginalMember(owner = "client!ef", name = "f", descriptor = "Lclient!om;")
     public static final Class280 aClass280_4 = new Class280(1);
 
-    @OriginalMember(owner = "client!ef", name = "n", descriptor = "I")
-    public static final int anInt2510 = 1;
-
     @OriginalMember(owner = "client!ef", name = "d", descriptor = "Z")
     public static boolean aBoolean210 = false;
 

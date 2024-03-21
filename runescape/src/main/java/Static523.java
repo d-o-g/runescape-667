@@ -3,6 +3,7 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
+import rs2.client.loading.LoadState;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
 import com.jagex.game.runetek6.config.defaults.WearposDefaults;
@@ -86,7 +87,7 @@ public final class Static523 {
             }
         }
         @Pc(74) int local74;
-        if (Static198.aClass140_1 == Static473.aClass140_22) {
+        if (LoadState.WAIT_FOR_MEMORY == Static473.aLoadState_22) {
             @Pc(65) Runtime local65 = Runtime.getRuntime();
             local74 = (int) ((local65.totalMemory() - local65.freeMemory()) / 1024L);
             @Pc(77) long local77 = SystemTimer.safetime();
@@ -101,7 +102,7 @@ public final class Static523 {
                 return 0;
             }
         }
-        if (Static198.aClass140_2 == Static473.aClass140_22) {
+        if (LoadState.INIT_LOADING_SCREEN_ARCHIVES == Static473.aLoadState_22) {
             if (Static228.js5MasterIndex == null) {
                 Static228.js5MasterIndex = new Js5MasterIndex(client.js5WorkerThread, Static66.aCachedResourceWorker_1, Static442.JS5_RSA_EXPONENT, Static670.JS5_RSA_MODULUS);
             }
@@ -115,7 +116,7 @@ public final class Static523 {
             js5.FONTMETRICS = client.createJs5(false, Js5Archive.FONTMETRICS, 1);
         }
         @Pc(184) boolean local184;
-        if (Static198.aClass140_3 == Static473.aClass140_22) {
+        if (LoadState.FETCH_LOADING_SCREEN_RESOURCES == Static473.aLoadState_22) {
             local184 = js5.LOADING_SCREENS.isComplete();
             local74 = client.js5ResourceProviders[33].indexPercentage();
             local74 += client.js5ResourceProviders[Static297.loadingSpritesRaw ? 34 : 32].indexPercentage();
@@ -141,17 +142,17 @@ public final class Static523 {
                 }
             }
         }
-        if (Static198.aClass140_4 == Static473.aClass140_22) {
+        if (LoadState.INIT_FONT_INFO == Static473.aLoadState_22) {
             FontTypeList.init(js5.FONTMETRICS, js5.LOADING_SPRITES, Static52.method1159());
         }
-        if (Static198.aClass140_5 == Static473.aClass140_22) {
+        if (LoadState.LOAD_FONTS == Static473.aLoadState_22) {
             local12 = FontTypeList.readyCount();
             local74 = FontTypeList.totalCount();
             if (local74 > local12) {
                 return local12 * 100 / local74;
             }
         }
-        if (Static198.aClass140_6 == Static473.aClass140_22) {
+        if (LoadState.FETCH_FONTS == Static473.aLoadState_22) {
             if (Static234.anInterface22Array1 != null && Static234.anInterface22Array1.length > 0) {
                 if (Static234.anInterface22Array1[0].method8460() < 100) {
                     return 0;
@@ -164,12 +165,12 @@ public final class Static523 {
             Fonts.init(Static163.activeToolkit);
             Static81.method1586(1);
         }
-        if (Static198.aClass140_7 == Static473.aClass140_22) {
+        if (LoadState.CREATE_COLLISION_MAPS == Static473.aLoadState_22) {
             for (local12 = 0; local12 < 4; local12++) {
                 Static577.A_COLLISION_MAP_ARRAY_1[local12] = Static125.method2219(Static720.mapWidth, Static501.mapHeight);
             }
         }
-        if (Static473.aClass140_22 == Static198.aClass140_8) {
+        if (Static473.aLoadState_22 == LoadState.OPEN_JS5_ARCHIVES) {
             js5.SPRITES = client.createJs5(false, Js5Archive.SPRITES, 1);
             js5.ANIMS = client.createJs5(false, Js5Archive.ANIMS, 1);
             js5.BASES = client.createJs5(false, Js5Archive.BASES, 1);
@@ -204,7 +205,7 @@ public final class Static523 {
             js5.SHADERS = client.createJs5(true, Js5Archive.SHADERS, 1);
             js5.js5_36 = client.createJs5(true, 36, 2);
         }
-        if (Static473.aClass140_22 == Static198.aClass140_9) {
+        if (Static473.aLoadState_22 == LoadState.GET_JS5_INDEXES) {
             local12 = 0;
             for (local74 = 0; local74 < 37; local74++) {
                 if (client.js5ResourceProviders[local74] != null) {
@@ -220,7 +221,7 @@ public final class Static523 {
             Static204.method3079(js5.SPRITES);
             FontTypeList.init(js5.FONTMETRICS, js5.SPRITES, Static52.method1159());
         }
-        if (Static473.aClass140_22 == Static198.aClass140_10) {
+        if (Static473.aLoadState_22 == LoadState.PLAY_THEME_MUSIC) {
             @Pc(746) byte[] local746 = js5.DEFAULTS.getfile(4);
             if (local746 == null) {
                 return 0;
@@ -229,10 +230,10 @@ public final class Static523 {
             Static674.method8806();
             Static81.method1586(2);
         }
-        if (Static198.aClass140_11 == Static473.aClass140_22) {
+        if (LoadState.SETUP_LIB_PATH == Static473.aLoadState_22) {
             Static529.method7096(js5.DLLS, SignLink.instance);
         }
-        if (Static198.aClass140_12 == Static473.aClass140_22) {
+        if (LoadState.DOWNLOAD_STUFF == Static473.aLoadState_22) {
             local12 = Static460.method6266();
             if (local12 < 100) {
                 return local12;
@@ -243,7 +244,7 @@ public final class Static523 {
             PlayerModel.recol_d = graphicsDefaults.recol_d;
             wearposDefaults = new WearposDefaults(js5.DEFAULTS);
         }
-        if (Static198.aClass140_13 == Static473.aClass140_22) {
+        if (LoadState.SETUP_CONFIG_DECODERS == Static473.aLoadState_22) {
             if (graphicsDefaults.profilingModel != -1 && !js5.MODELS.requestdownload(0, graphicsDefaults.profilingModel)) {
                 return 99;
             }
@@ -295,17 +296,17 @@ public final class Static523 {
             Static600.aClass27_1 = Static570.method7550();
             Static292.aClass2_Sub43_2 = new Node_Sub43(true, SignLink.instance);
         }
-        if (Static198.aClass140_15 == Static473.aClass140_22) {
+        if (LoadState.SETUP_STATIC_SPRITES == Static473.aLoadState_22) {
             local12 = Static188.method2860(js5.SPRITES) + FontTypeList.readyCount(true);
             local74 = Static688.method8974() + FontTypeList.totalCount();
             if (local12 < local74) {
                 return local12 * 100 / local74;
             }
         }
-        if (Static198.aClass140_16 == Static473.aClass140_22) {
+        if (LoadState.SETUP_WORLD_MAP == Static473.aLoadState_22) {
             Static30.method5065(js5.WORLDMAPDATA, Static467.aClass96_3, Static540.aClass79_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aMSITypeList_4, Static34.aClass304_1);
         }
-        if (Static198.aClass140_17 == Static473.aClass140_22) {
+        if (LoadState.SETUP_VARC_SYSTEM == Static473.aLoadState_22) {
             Static37.aStringArray4 = new String[Static718.aClass176_1.anInt4266];
             Static511.anIntArray614 = new int[Static691.aClass210_1.anInt5473];
             Static118.aBooleanArray4 = new boolean[Static691.aClass210_1.anInt5473];
@@ -331,7 +332,7 @@ public final class Static523 {
             js5.CONFIG_SEQ.discardunpacked = 2;
             js5.CONFIG_SPOT.discardunpacked = 2;
         }
-        if (Static473.aClass140_22 == Static198.aClass140_18) {
+        if (Static473.aLoadState_22 == LoadState.LOAD_LOGIN_WINDOW) {
             if (!Static571.method7566(graphicsDefaults.login_interface)) {
                 return 0;
             }
@@ -346,10 +347,10 @@ public final class Static523 {
                 return 0;
             }
         }
-        if (Static198.aClass140_19 == Static473.aClass140_22) {
+        if (LoadState.SHOW_LOGIN_WINDOW == Static473.aLoadState_22) {
             Static456.method6228(true);
         }
-        if (Static198.aClass140_20 == Static473.aClass140_22) {
+        if (LoadState.CLEANUP == Static473.aLoadState_22) {
             Static449.aClass364_1.method8372();
             try {
                 Static242.aThread1.join();

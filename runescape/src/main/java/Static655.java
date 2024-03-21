@@ -1,6 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.util.TimeUtils;
+import rs2.client.loading.LoadState;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -10,7 +11,7 @@ import java.awt.Frame;
 public final class Static655 {
 
     @OriginalMember(owner = "client!un", name = "K", descriptor = "[Lclient!gca;")
-    public static Class140[] aClass140Array1;
+    public static LoadState[] aLoadStateArray1;
 
     @OriginalMember(owner = "client!un", name = "I", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_237 = new Class225(18, 4);

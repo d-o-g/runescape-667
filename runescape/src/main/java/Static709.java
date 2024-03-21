@@ -1,6 +1,7 @@
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import rs2.client.loading.LoadState;
 import com.jagex.game.LocalisedText;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -30,41 +31,41 @@ public final class Static709 {
 
     @OriginalMember(owner = "client!wh", name = "g", descriptor = "(I)V")
     public static void method9252() {
-        if (Static655.aClass140Array1 == null) {
-            Static655.aClass140Array1 = Static198.method2955();
-            Static473.aClass140_22 = Static655.aClass140Array1[0];
+        if (Static655.aLoadStateArray1 == null) {
+            Static655.aLoadStateArray1 = Static198.method2955();
+            Static473.aLoadState_22 = Static655.aLoadStateArray1[0];
             Static72.aLong52 = SystemTimer.safetime();
         }
         if (Static449.aClass364_1 == null) {
             Static229.method3368();
         }
-        @Pc(27) Class140 local27 = Static473.aClass140_22;
+        @Pc(27) LoadState local27 = Static473.aLoadState_22;
         @Pc(35) int local35 = Static523.method3448();
-        if (Static473.aClass140_22 == local27) {
-            Static579.aString106 = Static473.aClass140_22.aLocalisedText_63.localise(Static51.anInt1052);
-            if (Static473.aClass140_22.aBoolean264) {
-                Static376.anInt5919 = Static473.aClass140_22.anInt3271 + local35 * (Static473.aClass140_22.anInt3270 - Static473.aClass140_22.anInt3271) / 100;
+        if (Static473.aLoadState_22 == local27) {
+            Static579.aString106 = Static473.aLoadState_22.stalledText.localise(Static51.anInt1052);
+            if (Static473.aLoadState_22.updatePercentage) {
+                Static376.anInt5919 = Static473.aLoadState_22.startPercentage + local35 * (Static473.aLoadState_22.endPercentage - Static473.aLoadState_22.startPercentage) / 100;
             }
-            if (Static473.aClass140_22.aBoolean263) {
+            if (Static473.aLoadState_22.displayPercentage) {
                 Static579.aString106 = Static579.aString106 + Static376.anInt5919 + "%";
             }
-        } else if (Static198.aClass140_21 == Static473.aClass140_22) {
+        } else if (LoadState.COMPLETE == Static473.aLoadState_22) {
             Static449.aClass364_1 = null;
             Static81.method1586(3);
         } else {
-            Static579.aString106 = local27.aLocalisedText_64.localise(Static51.anInt1052);
-            if (Static473.aClass140_22.aBoolean263) {
-                Static579.aString106 = Static579.aString106 + local27.anInt3270 + "%";
+            Static579.aString106 = local27.changedText.localise(Static51.anInt1052);
+            if (Static473.aLoadState_22.displayPercentage) {
+                Static579.aString106 = Static579.aString106 + local27.endPercentage + "%";
             }
-            Static376.anInt5919 = local27.anInt3270;
-            if (Static473.aClass140_22.aBoolean264 || local27.aBoolean264) {
+            Static376.anInt5919 = local27.endPercentage;
+            if (Static473.aLoadState_22.updatePercentage || local27.updatePercentage) {
                 Static72.aLong52 = SystemTimer.safetime();
             }
         }
         if (Static449.aClass364_1 == null) {
             return;
         }
-        Static449.aClass364_1.method8374(Static376.anInt5919, Static579.aString106, Static473.aClass140_22, Static72.aLong52);
+        Static449.aClass364_1.method8374(Static376.anInt5919, Static579.aString106, Static473.aLoadState_22, Static72.aLong52);
         if (Static234.anInterface22Array1 == null) {
             return;
         }

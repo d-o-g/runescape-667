@@ -1,4 +1,4 @@
-import com.jagex.game.LocalisedText;
+import rs2.client.loading.LoadState;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -8,69 +8,6 @@ public final class Static198 {
     // $FF: synthetic field
     @OriginalMember(owner = "client!gca", name = "l", descriptor = "Ljava/lang/Class;")
     public static Class aClass9;
-
-    @OriginalMember(owner = "client!gca", name = "D", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_1 = new Class140(0, LocalisedText.CHECKING_FOR_UPDATES, LocalisedText.CHECKING_FOR_UPDATES, 0, 1);
-
-    @OriginalMember(owner = "client!gca", name = "q", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_2 = new Class140(1, LocalisedText.CHECKING_FOR_UPDATES, 2);
-
-    @OriginalMember(owner = "client!gca", name = "H", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_3 = new Class140(2, LocalisedText.CHECKING_FOR_UPDATES, LocalisedText.CHECKING_FOR_UPDATES, 2, 3);
-
-    @OriginalMember(owner = "client!gca", name = "B", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_4 = new Class140(3, LocalisedText.CHECKING_FOR_UPDATES, 3);
-
-    @OriginalMember(owner = "client!gca", name = "t", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_5 = new Class140(4, LocalisedText.CHECKING_FOR_UPDATES, LocalisedText.CHECKING_FOR_UPDATES, 3, 4);
-
-    @OriginalMember(owner = "client!gca", name = "f", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_6 = new Class140(5, LocalisedText.CHECKING_FOR_UPDATES, 4);
-
-    @OriginalMember(owner = "client!gca", name = "b", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_7 = new Class140(6, LocalisedText.CHECKING_FOR_UPDATES, 4);
-
-    @OriginalMember(owner = "client!gca", name = "F", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_8 = new Class140(7, LocalisedText.CHECKING_FOR_UPDATES, LocalisedText.CHECKING_FOR_UPDATES, 4, 5);
-
-    @OriginalMember(owner = "client!gca", name = "z", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_9 = new Class140(8, LocalisedText.CHECKING_FOR_UPDATES, LocalisedText.CHECKING_FOR_UPDATES, 5, 98, true, true);
-
-    @OriginalMember(owner = "client!gca", name = "a", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_10 = new Class140(9, LocalisedText.CHECKING_FOR_UPDATES, 99);
-
-    @OriginalMember(owner = "client!gca", name = "u", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_11 = new Class140(10, LocalisedText.CHECKING_FOR_UPDATES, 100);
-
-    @OriginalMember(owner = "client!gca", name = "K", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_12 = new Class140(11, LocalisedText.DOWNLOADING_UPDATES, LocalisedText.DOWNLOADING_UPDATES, 0, 92, true, true);
-
-    @OriginalMember(owner = "client!gca", name = "o", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_13 = new Class140(12, LocalisedText.DOWNLOADING_UPDATES, LocalisedText.DOWNLOADING_UPDATES, 92, 92);
-
-    @OriginalMember(owner = "client!gca", name = "c", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_14 = new Class140(13, LocalisedText.DOWNLOADING_UPDATES, LocalisedText.DOWNLOADING_UPDATES, 92, 93);
-
-    @OriginalMember(owner = "client!gca", name = "k", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_15 = new Class140(14, LocalisedText.DOWNLOADING_UPDATES, LocalisedText.DOWNLOADING_UPDATES, 94, 95);
-
-    @OriginalMember(owner = "client!gca", name = "x", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_16 = new Class140(15, LocalisedText.DOWNLOADING_UPDATES, LocalisedText.DOWNLOADING_UPDATES, 96, 97);
-
-    @OriginalMember(owner = "client!gca", name = "j", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_17 = new Class140(16, LocalisedText.DOWNLOADING_UPDATES, 97);
-
-    @OriginalMember(owner = "client!gca", name = "n", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_18 = new Class140(17, LocalisedText.DOWNLOADING_UPDATES, 97);
-
-    @OriginalMember(owner = "client!gca", name = "m", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_19 = new Class140(18, LocalisedText.DOWNLOADING_UPDATES, 100);
-
-    @OriginalMember(owner = "client!gca", name = "I", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_20 = new Class140(19, LocalisedText.DOWNLOADING_UPDATES, 100);
-
-    @OriginalMember(owner = "client!gca", name = "C", descriptor = "Lclient!gca;")
-    public static final Class140 aClass140_21 = new Class140(20, LocalisedText.DOWNLOADING_UPDATES, 100);
 
     @OriginalMember(owner = "client!gca", name = "e", descriptor = "I")
     public static int anInt3276 = 0;
@@ -172,8 +109,8 @@ public final class Static198 {
     }
 
     @OriginalMember(owner = "client!gca", name = "a", descriptor = "(B)[Lclient!gca;")
-    public static Class140[] method2955() {
-        return new Class140[]{aClass140_1, aClass140_2, aClass140_3, aClass140_4, aClass140_5, aClass140_6, aClass140_7, aClass140_8, aClass140_9, aClass140_10, aClass140_11, aClass140_12, aClass140_13, aClass140_14, aClass140_15, aClass140_16, aClass140_17, aClass140_18, aClass140_19, aClass140_20, aClass140_21};
+    public static LoadState[] method2955() {
+        return new LoadState[]{LoadState.WAIT_FOR_MEMORY, LoadState.INIT_LOADING_SCREEN_ARCHIVES, LoadState.FETCH_LOADING_SCREEN_RESOURCES, LoadState.INIT_FONT_INFO, LoadState.LOAD_FONTS, LoadState.FETCH_FONTS, LoadState.CREATE_COLLISION_MAPS, LoadState.OPEN_JS5_ARCHIVES, LoadState.GET_JS5_INDEXES, LoadState.PLAY_THEME_MUSIC, LoadState.SETUP_LIB_PATH, LoadState.DOWNLOAD_STUFF, LoadState.SETUP_CONFIG_DECODERS, LoadState.A_LOAD_STATE___14, LoadState.SETUP_STATIC_SPRITES, LoadState.SETUP_WORLD_MAP, LoadState.SETUP_VARC_SYSTEM, LoadState.LOAD_LOGIN_WINDOW, LoadState.SHOW_LOGIN_WINDOW, LoadState.CLEANUP, LoadState.COMPLETE};
     }
 
     @OriginalMember(owner = "client!gca", name = "a", descriptor = "(IIZ)Z")

@@ -1,6 +1,7 @@
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import rs2.client.loading.LoadState;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -23,7 +24,7 @@ public final class Class364 implements Runnable {
     public long aLong286;
 
     @OriginalMember(owner = "client!uaa", name = "e", descriptor = "Lclient!gca;")
-    public Class140 aClass140_23;
+    public LoadState aLoadState_23;
 
     @OriginalMember(owner = "client!uaa", name = "g", descriptor = "J")
     public long aLong287;
@@ -44,8 +45,8 @@ public final class Class364 implements Runnable {
     public Interface22 anInterface22_2 = null;
 
     @OriginalMember(owner = "client!uaa", name = "a", descriptor = "(Z)Lclient!gca;")
-    public Class140 method8369() {
-        return this.aClass140_23;
+    public LoadState method8369() {
+        return this.aLoadState_23;
     }
 
     @OriginalMember(owner = "client!uaa", name = "b", descriptor = "(B)J")
@@ -71,23 +72,23 @@ public final class Class364 implements Runnable {
     }
 
     @OriginalMember(owner = "client!uaa", name = "a", descriptor = "(ILjava/lang/String;Lclient!gca;IJ)V")
-    public synchronized void method8374(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) Class140 arg2, @OriginalArg(4) long arg3) {
+    public synchronized void method8374(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) LoadState arg2, @OriginalArg(4) long arg3) {
         this.anInt9524 = arg0;
-        this.aClass140_23 = arg2;
+        this.aLoadState_23 = arg2;
         this.aLong287 = arg3;
         this.aString111 = arg1;
     }
 
     @OriginalMember(owner = "client!uaa", name = "d", descriptor = "(I)I")
     public int method8375() {
-        if (this.aClass140_23 == null) {
+        if (this.aLoadState_23 == null) {
             return 0;
         }
-        @Pc(22) int local22 = this.aClass140_23.method2952();
-        if (this.aClass140_23.aBoolean264 && this.aClass140_23.anInt3270 > this.anInt9524) {
+        @Pc(22) int local22 = this.aLoadState_23.step();
+        if (this.aLoadState_23.updatePercentage && this.aLoadState_23.endPercentage > this.anInt9524) {
             return this.anInt9524 + 1;
-        } else if (local22 >= 0 && local22 < Static655.aClass140Array1.length - 1) {
-            return this.anInt9524 == this.aClass140_23.anInt3271 ? this.aClass140_23.anInt3270 : this.aClass140_23.anInt3271;
+        } else if (local22 >= 0 && local22 < Static655.aLoadStateArray1.length - 1) {
+            return this.anInt9524 == this.aLoadState_23.startPercentage ? this.aLoadState_23.endPercentage : this.aLoadState_23.startPercentage;
         } else {
             return 100;
         }
@@ -174,7 +175,7 @@ public final class Class364 implements Runnable {
                         Static353.aFrame10.getInsets();
                     }
                     this.aBoolean731 = false;
-                    if (Static163.activeToolkit != null && !(this.anInterface22_1 instanceof Class374) && this.aClass140_23.method2952() < Static198.aClass140_19.method2952()) {
+                    if (Static163.activeToolkit != null && !(this.anInterface22_1 instanceof Class374) && this.aLoadState_23.step() < LoadState.SHOW_LOGIN_WINDOW.step()) {
                         Static712.method9329((byte) 11);
                     }
                 } catch (@Pc(292) Exception local292) {

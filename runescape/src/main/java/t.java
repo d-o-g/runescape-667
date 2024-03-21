@@ -1,4 +1,4 @@
-import com.jagex.collect.key.Deque;
+import com.jagex.core.datastruct.key.Deque;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;

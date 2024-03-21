@@ -1,6 +1,6 @@
 package com.jagex.js5;
 
-import com.jagex.collect.key.Queue;
+import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.constants.CompressionType;
 import com.jagex.core.io.BufferedSocket;
 import com.jagex.core.io.Packet;

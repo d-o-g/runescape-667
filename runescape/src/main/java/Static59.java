@@ -1,5 +1,5 @@
-import com.jagex.collect.key.Deque;
-import com.jagex.collect.key.Queue;
+import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.key.Queue;
 import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

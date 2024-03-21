@@ -1,4 +1,4 @@
-import com.jagex.collect.LinkedList;
+import com.jagex.core.datastruct.LinkedList;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;

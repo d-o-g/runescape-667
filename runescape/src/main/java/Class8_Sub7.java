@@ -1,4 +1,4 @@
-import com.jagex.collect.Node;
+import com.jagex.core.datastruct.Node;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;

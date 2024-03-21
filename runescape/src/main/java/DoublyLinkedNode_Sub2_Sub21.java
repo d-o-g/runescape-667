@@ -1,4 +1,4 @@
-import com.jagex.collect.key.Node2;
+import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.TextureSource;
 import com.jagex.js5.js5;

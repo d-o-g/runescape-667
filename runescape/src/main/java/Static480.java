@@ -1,6 +1,6 @@
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
-import com.jagex.collect.key.LruCache;
+import com.jagex.core.datastruct.key.LruCache;
 import com.jagex.core.io.Packet;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;

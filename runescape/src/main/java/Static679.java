@@ -1,6 +1,6 @@
 import com.jagex.DisplayProperties;
-import com.jagex.collect.key.Class191;
-import com.jagex.collect.key.Class299;
+import com.jagex.core.datastruct.key.Class191;
+import com.jagex.core.datastruct.key.Class299;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

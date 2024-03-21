@@ -1,4 +1,4 @@
-import com.jagex.collect.key.HashTable;
+import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

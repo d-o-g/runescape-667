@@ -1,5 +1,5 @@
-import com.jagex.collect.key.Node;
-import com.jagex.collect.key.HashTable;
+import com.jagex.core.datastruct.key.Node;
+import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

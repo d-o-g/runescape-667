@@ -1,7 +1,7 @@
 import com.jagex.ParticleList;
-import com.jagex.collect.Node;
-import com.jagex.collect.key.Deque;
-import com.jagex.collect.LinkedList;
+import com.jagex.core.datastruct.Node;
+import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.LinkedList;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.graphics.particles.ModelParticleEmitter;

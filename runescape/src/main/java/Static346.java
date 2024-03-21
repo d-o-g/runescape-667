@@ -1,4 +1,4 @@
-import com.jagex.collect.key.HashTable;
+import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

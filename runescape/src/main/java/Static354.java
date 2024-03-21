@@ -1,4 +1,4 @@
-import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;

@@ -1,10 +1,10 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
-import com.jagex.collect.key.Node;
-import com.jagex.collect.key.HashTable;
-import com.jagex.collect.key.IntNode;
-import com.jagex.collect.key.Queue;
-import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.datastruct.key.Node;
+import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.key.IntNode;
+import com.jagex.core.datastruct.key.Queue;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.JagException;

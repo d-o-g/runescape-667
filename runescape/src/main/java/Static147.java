@@ -1,4 +1,4 @@
-import com.jagex.collect.LinkedList;
+import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;

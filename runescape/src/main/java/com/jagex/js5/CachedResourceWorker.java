@@ -2,7 +2,7 @@ package com.jagex.js5;
 
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
-import com.jagex.collect.key.Queue;
+import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;

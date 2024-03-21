@@ -1,5 +1,5 @@
 import com.jagex.ParticleList;
-import com.jagex.collect.Node2;
+import com.jagex.core.datastruct.Node2;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

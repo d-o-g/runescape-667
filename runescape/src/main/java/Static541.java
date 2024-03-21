@@ -1,5 +1,5 @@
-import com.jagex.collect.key.LruCache;
-import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.datastruct.key.LruCache;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

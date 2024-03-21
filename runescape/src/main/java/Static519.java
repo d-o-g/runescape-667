@@ -1,6 +1,6 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
-import com.jagex.collect.key.Class144;
+import com.jagex.core.datastruct.key.Class144;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

@@ -1,5 +1,5 @@
-import com.jagex.collect.key.Deque;
-import com.jagex.collect.key.HashTable;
+import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;

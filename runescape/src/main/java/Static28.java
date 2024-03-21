@@ -1,4 +1,4 @@
-import com.jagex.collect.key.IntNode;
+import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;

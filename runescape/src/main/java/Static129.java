@@ -1,4 +1,4 @@
-import com.jagex.collect.LinkedList;
+import com.jagex.core.datastruct.LinkedList;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static129 {

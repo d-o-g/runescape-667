@@ -1,5 +1,5 @@
-import com.jagex.collect.key.Node;
-import com.jagex.collect.key.IntNode;
+import com.jagex.core.datastruct.key.Node;
+import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterType;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorType;
 import com.jagex.graphics.Ground;

@@ -1,4 +1,4 @@
-import com.jagex.collect.key.Queue;
+import com.jagex.core.datastruct.key.Queue;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static138 {

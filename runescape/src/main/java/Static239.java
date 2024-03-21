@@ -1,5 +1,5 @@
 import com.jagex.IndexedImage;
-import com.jagex.collect.key.Deque;
+import com.jagex.core.datastruct.key.Deque;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;

@@ -1,5 +1,5 @@
-import com.jagex.collect.LinkedList;
-import com.jagex.collect.Node;
+import com.jagex.core.datastruct.LinkedList;
+import com.jagex.core.datastruct.Node;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterType;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;

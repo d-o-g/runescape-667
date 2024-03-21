@@ -1,4 +1,4 @@
-import com.jagex.collect.LinkedList;
+import com.jagex.core.datastruct.LinkedList;
 import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

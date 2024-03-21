@@ -1,4 +1,4 @@
-import com.jagex.collect.key.Node;
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import org.openrs2.deob.annotation.OriginalClass;

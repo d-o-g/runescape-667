@@ -1,9 +1,9 @@
 package com.jagex.game.runetek6.config.objtype;
 
 import com.jagex.SpriteCacheKey;
-import com.jagex.collect.key.Node;
-import com.jagex.collect.ref.ReferenceCache;
-import com.jagex.collect.ref.key.KeyedReferenceCache;
+import com.jagex.core.datastruct.key.Node;
+import com.jagex.core.datastruct.ref.ReferenceCache;
+import com.jagex.core.datastruct.ref.key.KeyedReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Class14;

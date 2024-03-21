@@ -1,5 +1,5 @@
-import com.jagex.collect.LinkedList;
-import com.jagex.collect.Node;
+import com.jagex.core.datastruct.LinkedList;
+import com.jagex.core.datastruct.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

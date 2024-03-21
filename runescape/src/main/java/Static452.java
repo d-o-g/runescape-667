@@ -1,4 +1,4 @@
-import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.graphics.Sprite;

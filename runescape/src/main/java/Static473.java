@@ -1,4 +1,4 @@
-import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static473 {

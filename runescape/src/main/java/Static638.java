@@ -1,5 +1,5 @@
 import com.jagex.SignLink;
-import com.jagex.collect.LinkedList;
+import com.jagex.core.datastruct.LinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

@@ -1,8 +1,8 @@
 import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
-import com.jagex.collect.key.Deque;
-import com.jagex.collect.key.Node;
+import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.graphics.ClippingMask;

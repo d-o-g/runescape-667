@@ -1,5 +1,5 @@
-import com.jagex.collect.key.LruCache;
-import com.jagex.collect.key.Node2;
+import com.jagex.core.datastruct.key.LruCache;
+import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;

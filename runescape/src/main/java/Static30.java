@@ -1,7 +1,7 @@
-import com.jagex.collect.key.Deque;
-import com.jagex.collect.key.HashTable;
-import com.jagex.collect.LinkedList;
-import com.jagex.collect.key.Queue;
+import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.core.datastruct.LinkedList;
+import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.io.Packet;
 import com.jagex.game.VarDomain;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;

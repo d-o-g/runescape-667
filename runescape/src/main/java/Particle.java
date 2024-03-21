@@ -1,4 +1,4 @@
-import com.jagex.collect.Node2;
+import com.jagex.core.datastruct.Node2;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 

@@ -1,8 +1,8 @@
 package com.jagex.js5;
 
-import com.jagex.collect.key.Deque;
-import com.jagex.collect.key.Node;
-import com.jagex.collect.key.HashTable;
+import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.key.Node;
+import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.core.crypto.Whirlpool;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;

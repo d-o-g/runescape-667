@@ -1,5 +1,5 @@
-import com.jagex.collect.key.Deque;
-import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.graphics.Mesh;

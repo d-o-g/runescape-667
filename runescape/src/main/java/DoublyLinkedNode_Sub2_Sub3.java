@@ -1,4 +1,4 @@
-import com.jagex.collect.key.Node2;
+import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;

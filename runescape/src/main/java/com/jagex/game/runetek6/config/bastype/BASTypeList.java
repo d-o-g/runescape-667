@@ -1,6 +1,6 @@
 package com.jagex.game.runetek6.config.bastype;
 
-import com.jagex.collect.ref.ReferenceCache;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.Js5ConfigGroup;

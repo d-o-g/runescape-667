@@ -1,4 +1,4 @@
-import com.jagex.collect.key.HashTable;
+import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.core.util.SystemTimer;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggPage;

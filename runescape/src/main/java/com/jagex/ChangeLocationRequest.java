@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.collect.key.Node;
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

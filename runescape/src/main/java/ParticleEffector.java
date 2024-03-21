@@ -1,4 +1,4 @@
-import com.jagex.collect.key.Node2;
+import com.jagex.core.datastruct.key.Node2;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorType;
 import com.jagex.graphics.particles.ModelParticleEffector;
 import org.openrs2.deob.annotation.OriginalArg;

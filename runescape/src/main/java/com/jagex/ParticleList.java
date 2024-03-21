@@ -1,6 +1,6 @@
 package com.jagex;
 
-import com.jagex.collect.Class113;
+import com.jagex.core.datastruct.Class113;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 

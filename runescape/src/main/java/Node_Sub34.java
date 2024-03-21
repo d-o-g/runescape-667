@@ -1,5 +1,5 @@
 import com.jagex.SignLink;
-import com.jagex.collect.key.Node;
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;

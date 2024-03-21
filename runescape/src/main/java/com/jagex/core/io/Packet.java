@@ -1,6 +1,6 @@
 package com.jagex.core.io;
 
-import com.jagex.collect.key.Node;
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

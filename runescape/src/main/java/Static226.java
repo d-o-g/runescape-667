@@ -1,5 +1,5 @@
 import com.jagex.Class67;
-import com.jagex.collect.key.Deque;
+import com.jagex.core.datastruct.key.Deque;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;

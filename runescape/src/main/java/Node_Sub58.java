@@ -1,4 +1,4 @@
-import com.jagex.collect.key.Node;
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.graphics.TextureMetrics;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;

@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.graphics.Toolkit;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -216,7 +217,7 @@ public final class Static484 {
                 }
             }
             if (Static42.aClass255_2 != null) {
-                Static6.aJs5_1.discardunpacked = 1;
+                js5.CONFIG.discardunpacked = 1;
                 Static577.aClass246_4.method5583(1024, 64);
                 for (local214 = 0; local214 < Static42.aClass255_2.anInt6373; local214++) {
                     local216 = Static42.aClass255_2.anIntArray495[local214];
@@ -234,8 +235,8 @@ public final class Static484 {
                     }
                 }
                 Static577.aClass246_4.method5583(128, 64);
-                Static6.aJs5_1.discardunpacked = 2;
-                Static6.aJs5_1.discardUnpacked();
+                js5.CONFIG.discardunpacked = 2;
+                js5.CONFIG.discardUnpacked();
             }
         }
         return true;

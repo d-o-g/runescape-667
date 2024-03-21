@@ -4,6 +4,7 @@ import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -19,7 +20,7 @@ public final class Static254 {
 
     @OriginalMember(owner = "client!hr", name = "c", descriptor = "(I)V")
     public static void method3605() {
-        Static6.aJs5_1.discardunpacked = 1;
+        js5.CONFIG.discardunpacked = 1;
         if (Static283.step == 15) {
             Static187.method2842();
         }
@@ -119,7 +120,7 @@ public final class Static254 {
         Static371.method5284();
         Static211.aClass2_Sub12_3 = null;
         Static675.aLong307 = 0L;
-        Static6.aJs5_1.discardunpacked = 2;
+        js5.CONFIG.discardunpacked = 2;
     }
 
     @OriginalMember(owner = "client!hr", name = "b", descriptor = "(I)V")

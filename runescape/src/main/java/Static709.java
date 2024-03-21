@@ -2,7 +2,6 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
-import com.jagex.js5.js5;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -11,9 +10,6 @@ import org.openrs2.deob.annotation.Pc;
 import java.io.IOException;
 
 public final class Static709 {
-
-    @OriginalMember(owner = "client!wh", name = "K", descriptor = "Lclient!sb;")
-    public static js5 aJs5_127;
 
     @OriginalMember(owner = "client!wh", name = "N", descriptor = "I")
     public static int anInt10667;

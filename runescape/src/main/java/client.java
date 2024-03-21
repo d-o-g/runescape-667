@@ -149,14 +149,14 @@ public final class client extends GameShell {
     }
 
     @OriginalMember(owner = "client!dh", name = "a", descriptor = "(ZIII)Lclient!sb;")
-    public static js5 load(@OriginalArg(0) boolean arg0, @OriginalArg(1) int archiveId, @OriginalArg(2) int arg2) {
+    public static js5 createJs5(@OriginalArg(0) boolean discardpacked, @OriginalArg(1) int archiveId, @OriginalArg(2) int discardunpacked) {
         @Pc(5) FileSystem_Client fileSystem = null;
         if (cacheDat != null) {
             fileSystem = new FileSystem_Client(archiveId, cacheDat, cacheIndexFiles[archiveId], 1000000);
         }
         js5ResourceProviders[archiveId] = Static228.js5MasterIndex.getProvider(fileSystem, archiveId, metaCache);
         js5ResourceProviders[archiveId].requestMissing();
-        return new js5(js5ResourceProviders[archiveId], arg0, arg2);
+        return new js5(js5ResourceProviders[archiveId], discardpacked, discardunpacked);
     }
 
     @OriginalMember(owner = "client!client", name = "i", descriptor = "(I)V")

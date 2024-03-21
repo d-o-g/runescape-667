@@ -9,6 +9,7 @@ import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -802,7 +803,7 @@ public final class Static293 {
                                             Static607.anInt9251 = -1;
                                             Static717.anInt10817 = local277;
                                             Static1.anInt10798 = 1;
-                                            Static504.aJs5_95.fileready(Static717.anInt10817);
+                                            js5.CUTSCENES.fileready(Static717.anInt10817);
                                             local100 = local11.g2();
                                             Static322.anIntArrayArray265 = new int[local100][4];
                                             for (local526 = 0; local526 < local100; local526++) {

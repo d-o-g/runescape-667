@@ -1,5 +1,4 @@
 import com.jagex.graphics.Sprite;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 
 import java.util.Calendar;
@@ -12,9 +11,6 @@ public final class Static459 {
 
     @OriginalMember(owner = "client!oia", name = "f", descriptor = "Lclient!st;")
     public static Sprite aSprite_31;
-
-    @OriginalMember(owner = "client!oia", name = "r", descriptor = "Lclient!sb;")
-    public static js5 aJs5_91;
 
     @OriginalMember(owner = "client!oia", name = "t", descriptor = "Z")
     public static final boolean aBoolean523 = false;

@@ -1,3 +1,4 @@
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -282,10 +283,10 @@ public final class Static434 {
         for (local55 = (local28 - (Static720.mapWidth >> 4)) / 8; local55 <= ((Static720.mapWidth >> 4) + local28) / 8; local55++) {
             for (@Pc(137) int local137 = (local32 - (Static501.mapHeight >> 4)) / 8; local137 <= (local32 + (Static501.mapHeight >> 4)) / 8; local137++) {
                 Static89.anIntArray169[local46] = (local55 << 8) + local137;
-                Static267.anIntArray329[local46] = Static93.aJs5_16.getgroupid("m" + local55 + "_" + local137);
-                Static266.anIntArray615[local46] = Static93.aJs5_16.getgroupid("l" + local55 + "_" + local137);
-                Static68.anIntArray316[local46] = Static93.aJs5_16.getgroupid("um" + local55 + "_" + local137);
-                Static298.anIntArray367[local46] = Static93.aJs5_16.getgroupid("ul" + local55 + "_" + local137);
+                Static267.anIntArray329[local46] = js5.MAPS.getgroupid("m" + local55 + "_" + local137);
+                Static266.anIntArray615[local46] = js5.MAPS.getgroupid("l" + local55 + "_" + local137);
+                Static68.anIntArray316[local46] = js5.MAPS.getgroupid("um" + local55 + "_" + local137);
+                Static298.anIntArray367[local46] = js5.MAPS.getgroupid("ul" + local55 + "_" + local137);
                 local46++;
             }
         }

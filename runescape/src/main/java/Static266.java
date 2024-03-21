@@ -2,6 +2,7 @@ import com.jagex.SignLink;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -119,10 +120,10 @@ public final class Static266 {
                         }
                     }
                     Static89.anIntArray169[local22] = local113;
-                    Static267.anIntArray329[local22] = Static93.aJs5_16.getgroupid("m" + local107 + "_" + local110);
-                    anIntArray615[local22] = Static93.aJs5_16.getgroupid("l" + local107 + "_" + local110);
-                    Static68.anIntArray316[local22] = Static93.aJs5_16.getgroupid("um" + local107 + "_" + local110);
-                    Static298.anIntArray367[local22] = Static93.aJs5_16.getgroupid("ul" + local107 + "_" + local110);
+                    Static267.anIntArray329[local22] = js5.MAPS.getgroupid("m" + local107 + "_" + local110);
+                    anIntArray615[local22] = js5.MAPS.getgroupid("l" + local107 + "_" + local110);
+                    Static68.anIntArray316[local22] = js5.MAPS.getgroupid("um" + local107 + "_" + local110);
+                    Static298.anIntArray367[local22] = js5.MAPS.getgroupid("ul" + local107 + "_" + local110);
                     local22++;
                 }
             }

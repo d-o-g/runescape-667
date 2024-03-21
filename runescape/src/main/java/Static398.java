@@ -1,13 +1,9 @@
-import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static398 {
-
-    @OriginalMember(owner = "client!mj", name = "u", descriptor = "Lclient!sb;")
-    public static js5 aJs5_81;
 
     @OriginalMember(owner = "client!mj", name = "n", descriptor = "D")
     public static double aDouble20;

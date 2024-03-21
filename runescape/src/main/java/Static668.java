@@ -1,5 +1,4 @@
 import com.jagex.core.util.SystemTimer;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -13,9 +12,6 @@ public final class Static668 {
 
     @OriginalMember(owner = "client!vca", name = "r", descriptor = "Lclient!lja;")
     public static ConnectionInfo aConnectionInfo_5;
-
-    @OriginalMember(owner = "client!vca", name = "o", descriptor = "Lclient!sb;")
-    public static js5 aJs5_119;
 
     @OriginalMember(owner = "client!vca", name = "i", descriptor = "Lclient!pc;")
     public static final Class287 aClass287_16 = new Class287(12, 7);

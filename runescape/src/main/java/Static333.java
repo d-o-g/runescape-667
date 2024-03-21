@@ -1,10 +1,6 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static333 {
-
-    @OriginalMember(owner = "client!kj", name = "a", descriptor = "Lclient!sb;")
-    public static js5 aJs5_66;
 
     @OriginalMember(owner = "client!kj", name = "b", descriptor = "Lclient!oka;")
     public static Class279 aClass279_1;

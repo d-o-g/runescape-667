@@ -1,15 +1,11 @@
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.graphics.Sprite;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static233 {
-
-    @OriginalMember(owner = "client!he", name = "k", descriptor = "Lclient!sb;")
-    public static js5 aJs5_52;
 
     @OriginalMember(owner = "client!he", name = "c", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_17 = new Class155(16);

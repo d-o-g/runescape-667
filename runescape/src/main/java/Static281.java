@@ -1,5 +1,4 @@
 import com.jagex.core.datastruct.LinkedList;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -8,9 +7,6 @@ public final class Static281 {
 
     @OriginalMember(owner = "client!iq", name = "c", descriptor = "I")
     public static int anInt4566;
-
-    @OriginalMember(owner = "client!iq", name = "a", descriptor = "Lclient!sb;")
-    public static js5 aJs5_60;
 
     @OriginalMember(owner = "client!iq", name = "a", descriptor = "(ILclient!pea;)V")
     public static void method4092(@OriginalArg(1) Class8_Sub7 arg0) {

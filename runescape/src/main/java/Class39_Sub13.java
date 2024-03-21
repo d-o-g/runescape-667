@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -26,7 +27,7 @@ public final class Class39_Sub13 extends Class39 {
     @Override
     public boolean method9158() {
         if (this.aClass2_Sub8_4 == null) {
-            this.aClass2_Sub8_4 = Static728.method1153(Static398.aJs5_81, this.anInt5431, 0);
+            this.aClass2_Sub8_4 = Static728.method1153(js5.MIDI_SONGS, this.anInt5431, 0);
         }
         if (this.aClass2_Sub8_4 == null) {
             return false;

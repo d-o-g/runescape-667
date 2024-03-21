@@ -1,4 +1,3 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,9 +6,6 @@ public final class Static142 {
 
     @OriginalMember(owner = "client!eha", name = "a", descriptor = "[[Z")
     public static boolean[][] aBooleanArrayArray1;
-
-    @OriginalMember(owner = "client!eha", name = "c", descriptor = "Lclient!sb;")
-    public static js5 aJs5_25;
 
     @OriginalMember(owner = "client!eha", name = "d", descriptor = "Lclient!rt;")
     public static Class327 aClass327_1;

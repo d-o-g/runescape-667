@@ -1,5 +1,6 @@
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -41,7 +42,7 @@ public final class Static311 {
 
     @OriginalMember(owner = "client!js", name = "a", descriptor = "(ZBZIILjava/lang/String;Ljava/lang/String;)V")
     public static void method4538(@OriginalArg(0) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) String arg4, @OriginalArg(6) String arg5) {
-        Static380.aJs5_79.discardunpacked = 1;
+        js5.CONFIG_OBJ.discardunpacked = 1;
         @Pc(9) String local9 = arg4.toLowerCase();
         @Pc(12) short[] local12 = new short[16];
         @Pc(14) int local14 = -1;
@@ -93,7 +94,7 @@ public final class Static311 {
             local203[local205] = Static419.aObjTypeList_1.list(local12[local205]).name;
         }
         Static554.method7292(local203, Static256.aShortArray63);
-        Static380.aJs5_79.discardUnpacked();
-        Static380.aJs5_79.discardunpacked = 2;
+        js5.CONFIG_OBJ.discardUnpacked();
+        js5.CONFIG_OBJ.discardunpacked = 2;
     }
 }

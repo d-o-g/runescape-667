@@ -1,4 +1,5 @@
 import com.jagex.graphics.Sprite;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -17,7 +18,7 @@ public final class Static63 {
         if (arg1 == -1 && !Static501.aBoolean575) {
             Static100.method1988();
         } else if (arg1 != -1 && (Static588.anInt8692 != arg1 || !Static52.method1157(-122)) && local12 != 0 && !Static501.aBoolean575) {
-            Static618.method8318(Static398.aJs5_81, local12, arg1, arg2);
+            Static618.method8318(js5.MIDI_SONGS, local12, arg1, arg2);
             Static550.method7266();
         }
         if (Static588.anInt8692 != arg1) {

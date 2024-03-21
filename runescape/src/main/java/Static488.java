@@ -1,3 +1,4 @@
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -63,7 +64,7 @@ public final class Static488 {
         if (local10 != null) {
             return local10;
         }
-        @Pc(21) byte[] local21 = Static31.aJs5_6.getfile(0, arg0);
+        @Pc(21) byte[] local21 = js5.CLIENTSCRIPTS.getfile(0, arg0);
         if (local21 == null || local21.length <= 1) {
             return null;
         }

@@ -1,12 +1,8 @@
 import com.jagex.ChangeLocationRequest;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static271 {
-
-    @OriginalMember(owner = "client!ij", name = "l", descriptor = "Lclient!sb;")
-    public static js5 aJs5_59;
 
     @OriginalMember(owner = "client!ij", name = "n", descriptor = "I")
     public static int anInt4363;

@@ -1,3 +1,4 @@
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -27,7 +28,7 @@ public final class Static482 {
             @Pc(52) Node_Sub6_Sub1 local52 = Static48.method1100(Static8.aClass2_Sub6_Sub1_1);
             Static697.method9120(local52);
         }
-        Static611.method8229(arg1, local12, Static340.aJs5_69);
+        Static611.method8229(arg1, local12, js5.MIDI_JINGLES);
         Static577.method7615(255, -1);
         Static501.aBoolean575 = true;
     }

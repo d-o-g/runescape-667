@@ -1,15 +1,11 @@
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
-import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static6 {
-
-    @OriginalMember(owner = "client!ad", name = "b", descriptor = "Lclient!sb;")
-    public static js5 aJs5_1;
 
     @OriginalMember(owner = "client!ad", name = "c", descriptor = "I")
     public static int anInt94 = 0;

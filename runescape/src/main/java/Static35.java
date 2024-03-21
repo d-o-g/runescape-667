@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -26,14 +27,14 @@ public final class Static35 {
                     local15 = true;
                 } else {
                     if (local13.aByte49 == 1 && local13.aClass89_1 == null) {
-                        local13.aClass89_1 = Static729.method2245(Static281.aJs5_60, local13.anInt2580, 0);
+                        local13.aClass89_1 = Static729.method2245(js5.SYNTH_SOUNDS, local13.anInt2580, 0);
                         if (local13.aClass89_1 == null) {
                             continue;
                         }
                         local13.anInt2571 += local13.aClass89_1.method2248();
                     } else if (local13.method2418() && (local13.aClass2_Sub53_1 == null || local13.aClass2_Sub49_Sub1_2 == null)) {
                         if (local13.aClass2_Sub53_1 == null) {
-                            local13.aClass2_Sub53_1 = Static650.method8498(Static147.aJs5_26, local13.anInt2580);
+                            local13.aClass2_Sub53_1 = Static650.method8498(js5.VORBIS, local13.anInt2580);
                         }
                         if (local13.aClass2_Sub53_1 == null) {
                             continue;
@@ -118,9 +119,9 @@ public final class Static35 {
         if (Static501.aBoolean575 && !Static52.method1157(126)) {
             if (Static400.instance.aClass57_Sub25_2.method7208() != 0 && Static588.anInt8692 != -1) {
                 if (Static8.aClass2_Sub6_Sub1_1 == null) {
-                    Static611.method8229(Static588.anInt8692, Static400.instance.aClass57_Sub25_2.method7208(), Static398.aJs5_81);
+                    Static611.method8229(Static588.anInt8692, Static400.instance.aClass57_Sub25_2.method7208(), js5.MIDI_SONGS);
                 } else {
-                    Static273.method3961(Static8.aClass2_Sub6_Sub1_1, Static588.anInt8692, Static398.aJs5_81, Static400.instance.aClass57_Sub25_2.method7208());
+                    Static273.method3961(Static8.aClass2_Sub6_Sub1_1, Static588.anInt8692, js5.MIDI_SONGS, Static400.instance.aClass57_Sub25_2.method7208());
                 }
             }
             Static8.aClass2_Sub6_Sub1_1 = null;

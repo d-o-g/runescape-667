@@ -631,8 +631,8 @@ public final class Static71 {
             }
         }
         if (Static16.aClass381_1 == null) {
-            if (Static697.aJs5_123.fileready(Static723.anInt10929)) {
-                Static16.aClass381_1 = Static238.method3468(Static723.anInt10929, Static697.aJs5_123);
+            if (js5.FONTMETRICS.fileready(Static723.anInt10929)) {
+                Static16.aClass381_1 = Static238.method3468(Static723.anInt10929, js5.FONTMETRICS);
             } else {
                 local5 = false;
             }

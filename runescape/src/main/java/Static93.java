@@ -3,7 +3,6 @@ import com.jagex.core.datastruct.key.Deque;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -14,9 +13,6 @@ public final class Static93 {
 
     @OriginalMember(owner = "client!cu", name = "Y", descriptor = "Lclient!vq;")
     public static SignLink aSignLink_1;
-
-    @OriginalMember(owner = "client!cu", name = "gb", descriptor = "Lclient!sb;")
-    public static js5 aJs5_16;
 
     // $FF: synthetic field
     @OriginalMember(owner = "client!cu", name = "Q", descriptor = "Ljava/lang/Class;")

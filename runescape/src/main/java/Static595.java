@@ -17,10 +17,10 @@ public final class Static595 {
     public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
         Static164.method2606();
         if (arg2 == 0) {
-            Static163.activeToolkit = Static255.method3612(Static124.aJs5_20, Static56.anTextureSource_3, 0, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
+            Static163.activeToolkit = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
             if (arg0 != null) {
                 Static163.activeToolkit.GA(0);
-                @Pc(36) Class381 local36 = Static74.method1535(Static539.anInt8173, Static697.aJs5_123);
+                @Pc(36) Class381 local36 = Static74.method1535(Static539.anInt8173, js5.FONTMETRICS);
                 @Pc(45) Class14 local45 = Static163.activeToolkit.method8010(local36, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
                 Static288.method4182();
                 Static694.method9028(Static163.activeToolkit, arg0, true, local36, local45);
@@ -29,9 +29,9 @@ public final class Static595 {
             @Pc(57) Toolkit local57 = null;
             @Pc(85) Class14 local85;
             if (arg0 != null) {
-                local57 = Static255.method3612(Static124.aJs5_20, Static56.anTextureSource_3, 0, Static434.aCanvas7, 0);
+                local57 = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.aCanvas7, 0);
                 local57.GA(0);
-                @Pc(76) Class381 local76 = Static74.method1535(Static539.anInt8173, Static697.aJs5_123);
+                @Pc(76) Class381 local76 = Static74.method1535(Static539.anInt8173, js5.FONTMETRICS);
                 local85 = local57.method8010(local76, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
                 Static288.method4182();
                 Static694.method9028(local57, arg0, true, local76, local85);
@@ -41,10 +41,10 @@ public final class Static595 {
             {
                 try {
                     var14 = true;
-                    Static163.activeToolkit = Static255.method3612(Static124.aJs5_20, Static56.anTextureSource_3, arg2, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
+                    Static163.activeToolkit = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, arg2, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
-                        @Pc(118) Class381 local118 = Static74.method1535(Static539.anInt8173, Static697.aJs5_123);
+                        @Pc(118) Class381 local118 = Static74.method1535(Static539.anInt8173, js5.FONTMETRICS);
                         @Pc(127) Class14 local127 = local57.method8010(local118, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
                         Static288.method4182();
                         Static694.method9028(local57, arg0, true, local118, local127);

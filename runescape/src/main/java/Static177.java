@@ -1,12 +1,8 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static177 {
-
-    @OriginalMember(owner = "client!fia", name = "m", descriptor = "Lclient!sb;")
-    public static js5 aJs5_35;
 
     @OriginalMember(owner = "client!fia", name = "n", descriptor = "D")
     public static double aDouble12;

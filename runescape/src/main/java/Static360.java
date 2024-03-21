@@ -1,5 +1,6 @@
 import com.jagex.core.io.Packet;
 import com.jagex.game.LocalisedText;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -24,7 +25,7 @@ public final class Static360 {
         }
         @Pc(53) int local53;
         if (Static403.aClass247_2 == Static178.aClass247_1) {
-            @Pc(36) byte[] local36 = Static504.aJs5_95.getfile(arg0);
+            @Pc(36) byte[] local36 = js5.CUTSCENES.getfile(arg0);
             if (local36 == null) {
                 return false;
             }

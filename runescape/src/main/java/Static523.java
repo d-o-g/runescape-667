@@ -106,31 +106,31 @@ public final class Static523 {
                 return 0;
             }
             Static595.method7807((String) null, true, 0);
-            Static297.aBoolean368 = !Static589.method7721();
-            Static177.aJs5_35 = client.load(false, Static297.aBoolean368 ? 34 : 32, 1);
-            Static516.aJs5_97 = client.load(false, 33, 1);
-            Static697.aJs5_123 = client.load(false, 13, 1);
+            Static297.loadingSpritesRaw = !Static589.method7721();
+            js5.LOADING_SPRITES = client.createJs5(false, Static297.loadingSpritesRaw ? Js5Archive.LOADING_SPRITES_RAW : Js5Archive.LOADING_SPRITES, 1);
+            js5.LOADING_SCREENS = client.createJs5(false, Js5Archive.LOADING_SCREENS, 1);
+            js5.FONTMETRICS = client.createJs5(false, Js5Archive.FONTMETRICS, 1);
         }
         @Pc(184) boolean local184;
         if (Static198.aClass140_3 == Static473.aClass140_22) {
-            local184 = Static516.aJs5_97.isComplete();
+            local184 = js5.LOADING_SCREENS.isComplete();
             local74 = client.js5ResourceProviders[33].indexPercentage();
-            local74 += client.js5ResourceProviders[Static297.aBoolean368 ? 34 : 32].indexPercentage();
+            local74 += client.js5ResourceProviders[Static297.loadingSpritesRaw ? 34 : 32].indexPercentage();
             local74 += client.js5ResourceProviders[13].indexPercentage();
-            local74 += local184 ? 100 : Static516.aJs5_97.completePercentage();
+            local74 += local184 ? 100 : js5.LOADING_SCREENS.completePercentage();
             if (local74 != 400) {
                 return local74 / 4;
             }
-            Static324.anInt5129 = Static177.aJs5_35.indexCrc();
-            Static466.anInt7042 = Static516.aJs5_97.indexCrc();
-            Static616.method8284(Static177.aJs5_35);
+            Static324.anInt5129 = js5.LOADING_SPRITES.indexCrc();
+            Static466.anInt7042 = js5.LOADING_SCREENS.indexCrc();
+            Static616.method8284(js5.LOADING_SPRITES);
             @Pc(250) int local250 = Static400.instance.aClass57_Sub11_1.method3603();
-            Static333.aClass279_1 = new Class279(Static392.aModeGame_4, Static51.anInt1052, Static516.aJs5_97);
+            Static333.aClass279_1 = new Class279(Static392.aModeGame_4, Static51.anInt1052, js5.LOADING_SCREENS);
             @Pc(262) int[] local262 = Static333.aClass279_1.method6275(local250);
             if (local262.length == 0) {
                 local262 = Static333.aClass279_1.method6275(0);
             }
-            @Pc(276) Class398 local276 = new Class398(Static177.aJs5_35, Static697.aJs5_123);
+            @Pc(276) Class398 local276 = new Class398(js5.LOADING_SPRITES, js5.FONTMETRICS);
             if (local262.length > 0) {
                 Static234.anInterface22Array1 = new Interface22[local262.length];
                 for (@Pc(285) int local285 = 0; local285 < Static234.anInterface22Array1.length; local285++) {
@@ -139,7 +139,7 @@ public final class Static523 {
             }
         }
         if (Static198.aClass140_4 == Static473.aClass140_22) {
-            Static82.method1592(Static697.aJs5_123, Static177.aJs5_35, Static52.method1159());
+            Static82.method1592(js5.FONTMETRICS, js5.LOADING_SPRITES, Static52.method1159());
         }
         if (Static198.aClass140_5 == Static473.aClass140_22) {
             local12 = Static359.method5226();
@@ -167,39 +167,39 @@ public final class Static523 {
             }
         }
         if (Static473.aClass140_22 == Static198.aClass140_8) {
-            js5.SPRITES = client.load(false, 8, 1);
-            Static344.aJs5_73 = client.load(false, 0, 1);
-            Static142.aJs5_25 = client.load(false, 1, 1);
-            Static6.aJs5_1 = client.load(false, 2, 1);
-            Static554.aJs5_105 = client.load(false, 3, 1);
-            Static281.aJs5_60 = client.load(false, 4, 1);
-            Static93.aJs5_16 = client.load(true, 5, 1);
-            Static398.aJs5_81 = client.load(true, 6, 1);
-            Static190.aJs5_38 = client.load(false, 7, 1);
-            Static534.aJs5_104 = client.load(false, 9, 1);
-            Static463.aJs5_93 = client.load(false, 10, 1);
-            Static340.aJs5_69 = client.load(false, 11, 1);
-            Static31.aJs5_6 = client.load(false, 12, 1);
-            Static147.aJs5_26 = client.load(false, 14, 1);
-            Static405.aJs5_84 = client.load(false, 15, 1);
-            Static459.aJs5_91 = client.load(false, 16, 1);
-            Static20.aJs5_3 = client.load(false, 17, 1);
-            Static333.aJs5_66 = client.load(false, 18, 1);
-            Static380.aJs5_79 = client.load(false, 19, 1);
-            Static668.aJs5_119 = client.load(false, 20, 1);
-            Static271.aJs5_59 = client.load(false, 21, 1);
-            Static233.aJs5_52 = client.load(false, 22, 1);
-            Static120.aJs5_19 = client.load(true, 23, 1);
-            Static58.aJs5_12 = client.load(false, 24, 1);
-            Static244.aJs5_55 = client.load(false, 25, 1);
-            Static199.aJs5_42 = client.load(true, 26, 1);
-            js5.CONFIG_PARTICLE = client.load(false, Js5Archive.CONFIG_PARTICLE, 1);
-            js5.DEFAULTS = client.load(true, Js5Archive.DEFAULTS, 1);
-            Static140.aJs5_24 = client.load(false, 29, 1);
-            Static504.aJs5_95 = client.load(true, 35, 1);
-            Static614.aJs5_114 = client.load(true, 30, 1);
-            Static124.aJs5_20 = client.load(true, 31, 1);
-            Static709.aJs5_127 = client.load(true, 36, 2);
+            js5.SPRITES = client.createJs5(false, Js5Archive.SPRITES, 1);
+            js5.ANIMS = client.createJs5(false, Js5Archive.ANIMS, 1);
+            js5.BASES = client.createJs5(false, Js5Archive.BASES, 1);
+            js5.CONFIG = client.createJs5(false, Js5Archive.CONFIG, 1);
+            js5.INTERFACES = client.createJs5(false, Js5Archive.INTERFACES, 1);
+            js5.SYNTH_SOUNDS = client.createJs5(false, Js5Archive.SYNTH_SOUNDS, 1);
+            js5.MAPS = client.createJs5(true, Js5Archive.MAPS, 1);
+            js5.MIDI_SONGS = client.createJs5(true, Js5Archive.MIDI_SONGS, 1);
+            js5.MODELS = client.createJs5(false, Js5Archive.MODELS, 1);
+            js5.TEXTURES = client.createJs5(false, Js5Archive.TEXTURES, 1);
+            js5.BINARY = client.createJs5(false, Js5Archive.BINARY, 1);
+            js5.MIDI_JINGLES = client.createJs5(false, Js5Archive.MIDI_JINGLES, 1);
+            js5.CLIENTSCRIPTS = client.createJs5(false, Js5Archive.CLIENTSCRIPTS, 1);
+            js5.VORBIS = client.createJs5(false, Js5Archive.VORBIS, 1);
+            js5.js5_15 = client.createJs5(false, 15, 1);
+            js5.CONFIG_LOC = client.createJs5(false, Js5Archive.CONFIG_LOC, 1);
+            js5.CONFIG_ENUM = client.createJs5(false, Js5Archive.CONFIG_ENUM, 1);
+            js5.CONFIG_NPC = client.createJs5(false, Js5Archive.CONFIG_NPC, 1);
+            js5.CONFIG_OBJ = client.createJs5(false, Js5Archive.CONFIG_OBJ, 1);
+            js5.CONFIG_SEQ = client.createJs5(false, Js5Archive.CONFIG_SEQ, 1);
+            js5.CONFIG_SPOT = client.createJs5(false, Js5Archive.CONFIG_SPOT, 1);
+            js5.CONFIG_STRUCT = client.createJs5(false, Js5Archive.CONFIG_STRUCT, 1);
+            js5.WORLDMAPDATA = client.createJs5(true, Js5Archive.WORLDMAPDATA, 1);
+            js5.QUICKCHAT = client.createJs5(false, Js5Archive.QUICKCHAT, 1);
+            js5.QUICKCHAT_GLOBAL = client.createJs5(false, Js5Archive.QUICKCHAT_GLOBAL, 1);
+            js5.MATERIALS = client.createJs5(true, Js5Archive.MATERIALS, 1);
+            js5.CONFIG_PARTICLE = client.createJs5(false, Js5Archive.CONFIG_PARTICLE, 1);
+            js5.DEFAULTS = client.createJs5(true, Js5Archive.DEFAULTS, 1);
+            js5.CONFIG_BILLBOARD = client.createJs5(false, Js5Archive.CONFIG_BILLBOARD, 1);
+            js5.CUTSCENES = client.createJs5(true, Js5Archive.CUTSCENES, 1);
+            js5.DLLS = client.createJs5(true, Js5Archive.DLLS, 1);
+            js5.SHADERS = client.createJs5(true, Js5Archive.SHADERS, 1);
+            js5.js5_36 = client.createJs5(true, 36, 2);
         }
         if (Static473.aClass140_22 == Static198.aClass140_9) {
             local12 = 0;
@@ -215,7 +215,7 @@ public final class Static523 {
                 return (local12 - Static669.anInt9996) * 100 / (100 - Static669.anInt9996);
             }
             Static204.method3079(js5.SPRITES);
-            Static82.method1592(Static697.aJs5_123, js5.SPRITES, Static52.method1159());
+            Static82.method1592(js5.FONTMETRICS, js5.SPRITES, Static52.method1159());
         }
         if (Static473.aClass140_22 == Static198.aClass140_10) {
             @Pc(746) byte[] local746 = js5.DEFAULTS.getfile(4);
@@ -227,7 +227,7 @@ public final class Static523 {
             Static81.method1586(2);
         }
         if (Static198.aClass140_11 == Static473.aClass140_22) {
-            Static529.method7096(Static614.aJs5_114, SignLink.instance);
+            Static529.method7096(js5.DLLS, SignLink.instance);
         }
         if (Static198.aClass140_12 == Static473.aClass140_22) {
             local12 = Static460.method6266();
@@ -241,49 +241,49 @@ public final class Static523 {
             wearposDefaults = new WearposDefaults(js5.DEFAULTS);
         }
         if (Static198.aClass140_13 == Static473.aClass140_22) {
-            if (graphicsDefaults.profilingModel != -1 && !Static190.aJs5_38.requestdownload(0, graphicsDefaults.profilingModel)) {
+            if (graphicsDefaults.profilingModel != -1 && !js5.MODELS.requestdownload(0, graphicsDefaults.profilingModel)) {
                 return 99;
             }
-            Static56.anTextureSource_3 = new Class303(Static199.aJs5_42, Static534.aJs5_104, js5.SPRITES);
-            instance = new ParamTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static574.aBASTypeList_2 = new BASTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, wearposDefaults);
-            Static354.aClass267_1 = new Class267(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, js5.SPRITES);
-            Static619.aClass387_2 = new Class387(Static392.aModeGame_4, Static51.anInt1052, Static20.aJs5_3);
-            Static467.aClass96_3 = new Class96(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static540.aClass79_6 = new Class79(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static561.aClass220_2 = new Class220(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, js5.SPRITES);
-            Static68.aIDKTypeList_3 = new IDKTypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, Static190.aJs5_38);
-            Static503.aClass335_1 = new Class335(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static48.aClass384_1 = new Class384(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static354.aLocTypeList_4 = new LocTypeList(Static392.aModeGame_4, Static51.anInt1052, true, Static459.aJs5_91, Static190.aJs5_38);
-            Static577.aClass246_4 = new Class246(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, js5.SPRITES);
-            Static720.aMSITypeList_4 = new MSITypeList(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1, js5.SPRITES);
-            Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aModeGame_4, Static51.anInt1052, true, Static333.aJs5_66, Static190.aJs5_38);
-            Static419.aObjTypeList_1 = new ObjTypeList(Static392.aModeGame_4, Static51.anInt1052, true, instance, Static380.aJs5_79, Static190.aJs5_38);
-            Static272.aClass45_1 = new Class45(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static25.aSeqTypeList_1 = new SeqTypeList(Static392.aModeGame_4, Static51.anInt1052, Static668.aJs5_119, Static344.aJs5_73, Static142.aJs5_25);
-            Static324.aClass307_1 = new Class307(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static99.aClass78_1 = new Class78(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static23.aClass128_1 = new Class128(Static392.aModeGame_4, Static51.anInt1052, Static271.aJs5_59, Static190.aJs5_38);
-            Static652.aClass214_1 = new Class214(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static718.aClass176_1 = new Class176(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static691.aClass210_1 = new Class210(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static529.aClass161_1 = new Class161(Static392.aModeGame_4, Static51.anInt1052, Static233.aJs5_52);
-            Static36.aClass260_1 = new Class260(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static628.aClass342_5 = new Class342(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static648.aClass17_1 = new Class17(Static392.aModeGame_4, Static51.anInt1052, Static6.aJs5_1);
-            Static444.method5987(Static554.aJs5_105, Static697.aJs5_123, js5.SPRITES, Static190.aJs5_38);
-            Static110.method2081(Static140.aJs5_24);
-            Static68.aClass151_3 = new Class151(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55);
-            Static288.aClass139_2 = new Class139(Static51.anInt1052, Static58.aJs5_12, Static244.aJs5_55, new Class251());
+            Static56.anTextureSource_3 = new Class303(js5.MATERIALS, js5.TEXTURES, js5.SPRITES);
+            instance = new ParamTypeList(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static574.aBASTypeList_2 = new BASTypeList(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG, wearposDefaults);
+            Static354.aClass267_1 = new Class267(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG, js5.SPRITES);
+            Static619.aClass387_2 = new Class387(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG_ENUM);
+            Static467.aClass96_3 = new Class96(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static540.aClass79_6 = new Class79(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static561.aClass220_2 = new Class220(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG, js5.SPRITES);
+            Static68.aIDKTypeList_3 = new IDKTypeList(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG, js5.MODELS);
+            Static503.aClass335_1 = new Class335(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static48.aClass384_1 = new Class384(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static354.aLocTypeList_4 = new LocTypeList(Static392.aModeGame_4, Static51.anInt1052, true, js5.CONFIG_LOC, js5.MODELS);
+            Static577.aClass246_4 = new Class246(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG, js5.SPRITES);
+            Static720.aMSITypeList_4 = new MSITypeList(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG, js5.SPRITES);
+            Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aModeGame_4, Static51.anInt1052, true, js5.CONFIG_NPC, js5.MODELS);
+            Static419.aObjTypeList_1 = new ObjTypeList(Static392.aModeGame_4, Static51.anInt1052, true, instance, js5.CONFIG_OBJ, js5.MODELS);
+            Static272.aClass45_1 = new Class45(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static25.aSeqTypeList_1 = new SeqTypeList(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG_SEQ, js5.ANIMS, js5.BASES);
+            Static324.aClass307_1 = new Class307(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static99.aClass78_1 = new Class78(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static23.aClass128_1 = new Class128(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG_SPOT, js5.MODELS);
+            Static652.aClass214_1 = new Class214(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static718.aClass176_1 = new Class176(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static691.aClass210_1 = new Class210(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static529.aClass161_1 = new Class161(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG_STRUCT);
+            Static36.aClass260_1 = new Class260(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static628.aClass342_5 = new Class342(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static648.aClass17_1 = new Class17(Static392.aModeGame_4, Static51.anInt1052, js5.CONFIG);
+            Static444.method5987(js5.INTERFACES, js5.FONTMETRICS, js5.SPRITES, js5.MODELS);
+            Static110.method2081(js5.CONFIG_BILLBOARD);
+            Static68.aClass151_3 = new Class151(Static51.anInt1052, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
+            Static288.aClass139_2 = new Class139(Static51.anInt1052, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new Class251());
             Static412.method5693();
             Static354.aLocTypeList_4.setAnimateBackground(Static400.instance.animatingBackground.value() == 0);
             Static34.aClass304_1 = new Class304();
             Static296.updateFeatureMask();
             Static44.method1074(Static25.aSeqTypeList_1);
             ParticleSystem.init(js5.CONFIG_PARTICLE);
-            Static405.method5592(Static56.anTextureSource_3, Static190.aJs5_38);
-            @Pc(1119) Class197 local1119 = new Class197(Static463.aJs5_93.getfile("huffman", ""));
+            Static405.method5592(Static56.anTextureSource_3, js5.MODELS);
+            @Pc(1119) Class197 local1119 = new Class197(js5.BINARY.getfile("huffman", ""));
             Static342.method4462(local1119);
             try {
                 jagmisc.init();
@@ -300,7 +300,7 @@ public final class Static523 {
             }
         }
         if (Static198.aClass140_16 == Static473.aClass140_22) {
-            Static30.method5065(Static120.aJs5_19, Static467.aClass96_3, Static540.aClass79_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aMSITypeList_4, Static34.aClass304_1);
+            Static30.method5065(js5.WORLDMAPDATA, Static467.aClass96_3, Static540.aClass79_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aMSITypeList_4, Static34.aClass304_1);
         }
         if (Static198.aClass140_17 == Static473.aClass140_22) {
             Static37.aStringArray4 = new String[Static718.aClass176_1.anInt4266];
@@ -314,19 +314,19 @@ public final class Static523 {
                 Static511.anIntArray614[local12] = -1;
             }
             Static218.method3189();
-            Static93.aJs5_16.clearNames(false, true);
-            Static398.aJs5_81.clearNames(true, true);
+            js5.MAPS.clearNames(false, true);
+            js5.MIDI_SONGS.clearNames(true, true);
             js5.SPRITES.clearNames(true, true);
-            Static697.aJs5_123.clearNames(true, true);
-            Static463.aJs5_93.clearNames(true, true);
-            Static6.aJs5_1.discardunpacked = 2;
+            js5.FONTMETRICS.clearNames(true, true);
+            js5.BINARY.clearNames(true, true);
+            js5.CONFIG.discardunpacked = 2;
             Static666.aBoolean766 = true;
-            Static20.aJs5_3.discardunpacked = 2;
-            Static459.aJs5_91.discardunpacked = 2;
-            Static333.aJs5_66.discardunpacked = 2;
-            Static380.aJs5_79.discardunpacked = 2;
-            Static668.aJs5_119.discardunpacked = 2;
-            Static271.aJs5_59.discardunpacked = 2;
+            js5.CONFIG_ENUM.discardunpacked = 2;
+            js5.CONFIG_LOC.discardunpacked = 2;
+            js5.CONFIG_NPC.discardunpacked = 2;
+            js5.CONFIG_OBJ.discardunpacked = 2;
+            js5.CONFIG_SEQ.discardunpacked = 2;
+            js5.CONFIG_SPOT.discardunpacked = 2;
         }
         if (Static473.aClass140_22 == Static198.aClass140_18) {
             if (!Static571.method7566(graphicsDefaults.login_interface)) {
@@ -355,8 +355,8 @@ public final class Static523 {
             }
             Static234.anInterface22Array1 = null;
             Static449.aClass364_1 = null;
-            Static177.aJs5_35 = null;
-            Static516.aJs5_97 = null;
+            js5.LOADING_SPRITES = null;
+            js5.LOADING_SCREENS = null;
             Static242.aThread1 = null;
             Static333.aClass279_1 = null;
             Static9.method123();

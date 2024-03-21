@@ -1,4 +1,5 @@
 import com.jagex.core.util.SystemTimer;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -32,13 +33,13 @@ public final class Static81 {
             Static670.method8735();
         }
         if (Static594.method7782(Static283.step)) {
-            Static6.aJs5_1.discardunpacked = 2;
-            Static20.aJs5_3.discardunpacked = 2;
-            Static459.aJs5_91.discardunpacked = 2;
-            Static333.aJs5_66.discardunpacked = 2;
-            Static380.aJs5_79.discardunpacked = 2;
-            Static668.aJs5_119.discardunpacked = 2;
-            Static271.aJs5_59.discardunpacked = 2;
+            js5.CONFIG.discardunpacked = 2;
+            js5.CONFIG_ENUM.discardunpacked = 2;
+            js5.CONFIG_LOC.discardunpacked = 2;
+            js5.CONFIG_NPC.discardunpacked = 2;
+            js5.CONFIG_OBJ.discardunpacked = 2;
+            js5.CONFIG_SEQ.discardunpacked = 2;
+            js5.CONFIG_SPOT.discardunpacked = 2;
         }
         if (Static594.method7782(arg0)) {
             Static593.anInt8763 = 0;
@@ -47,13 +48,13 @@ public final class Static81 {
             Static213.anInt3472 = 0;
             Static13.anInt150 = 0;
             Static668.method8700(true);
-            Static6.aJs5_1.discardunpacked = 1;
-            Static20.aJs5_3.discardunpacked = 1;
-            Static459.aJs5_91.discardunpacked = 1;
-            Static333.aJs5_66.discardunpacked = 1;
-            Static380.aJs5_79.discardunpacked = 1;
-            Static668.aJs5_119.discardunpacked = 1;
-            Static271.aJs5_59.discardunpacked = 1;
+            js5.CONFIG.discardunpacked = 1;
+            js5.CONFIG_ENUM.discardunpacked = 1;
+            js5.CONFIG_LOC.discardunpacked = 1;
+            js5.CONFIG_NPC.discardunpacked = 1;
+            js5.CONFIG_OBJ.discardunpacked = 1;
+            js5.CONFIG_SEQ.discardunpacked = 1;
+            js5.CONFIG_SPOT.discardunpacked = 1;
         }
         if (arg0 == 12 || arg0 == 3) {
             Static314.method4562();
@@ -66,7 +67,7 @@ public final class Static81 {
                 if (Static400.instance.aClass57_Sub25_4.method7208() == 0) {
                     Static312.method4541();
                 } else {
-                    Static57.method1225(Static597.anInt8821, Static400.instance.aClass57_Sub25_4.method7208(), Static398.aJs5_81);
+                    Static57.method1225(Static597.anInt8821, Static400.instance.aClass57_Sub25_4.method7208(), js5.MIDI_SONGS);
                     Static550.method7266();
                 }
                 client.js5WorkerThread.writeLoggedIn(false);

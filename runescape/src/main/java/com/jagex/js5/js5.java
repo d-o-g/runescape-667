@@ -18,14 +18,113 @@ public final class js5 {
     @OriginalMember(owner = "client!pfa", name = "v", descriptor = "Z")
     public static final boolean REPORT_INVALID_IDS = false;
 
+    @OriginalMember(owner = "client!kr", name = "g", descriptor = "Lclient!sb;")
+    public static js5 ANIMS; // 0
+
+    @OriginalMember(owner = "client!eha", name = "c", descriptor = "Lclient!sb;")
+    public static js5 BASES; // 1
+
+    @OriginalMember(owner = "client!ad", name = "b", descriptor = "Lclient!sb;")
+    public static js5 CONFIG; // 2
+
+    @OriginalMember(owner = "client!rha", name = "c", descriptor = "Lclient!sb;")
+    public static js5 INTERFACES; // 3
+
+    @OriginalMember(owner = "client!iq", name = "a", descriptor = "Lclient!sb;")
+    public static js5 SYNTH_SOUNDS; // 4
+
+    @OriginalMember(owner = "client!cu", name = "gb", descriptor = "Lclient!sb;")
+    public static js5 MAPS; // 5
+
+    @OriginalMember(owner = "client!mj", name = "u", descriptor = "Lclient!sb;")
+    public static js5 MIDI_SONGS; // 6
+
+    @OriginalMember(owner = "client!fs", name = "d", descriptor = "Lclient!sb;")
+    public static js5 MODELS; // 7
+
     @OriginalMember(owner = "client!ws", name = "I", descriptor = "Lclient!sb;")
     public static js5 SPRITES; // 8
 
+    @OriginalMember(owner = "client!qq", name = "g", descriptor = "Lclient!sb;")
+    public static js5 TEXTURES; // 9
+
+    @OriginalMember(owner = "client!oka", name = "l", descriptor = "Lclient!sb;")
+    public static js5 BINARY; // 10
+
+    @OriginalMember(owner = "client!kn", name = "g", descriptor = "Lclient!sb;")
+    public static js5 MIDI_JINGLES; // 11
+
+    @OriginalMember(owner = "client!bb", name = "d", descriptor = "Lclient!sb;")
+    public static js5 CLIENTSCRIPTS; // 12
+
+    @OriginalMember(owner = "client!wb", name = "Y", descriptor = "Lclient!sb;")
+    public static js5 FONTMETRICS; // 13
+
+    @OriginalMember(owner = "client!eka", name = "l", descriptor = "Lclient!sb;")
+    public static js5 VORBIS; // 14
+
+    @OriginalMember(owner = "client!mn", name = "b", descriptor = "Lclient!sb;")
+    public static js5 js5_15; // TODO
+
+    @OriginalMember(owner = "client!oia", name = "r", descriptor = "Lclient!sb;")
+    public static js5 CONFIG_LOC; // 16
+
+    @OriginalMember(owner = "client!ala", name = "b", descriptor = "Lclient!sb;")
+    public static js5 CONFIG_ENUM; // 17
+
+    @OriginalMember(owner = "client!kj", name = "a", descriptor = "Lclient!sb;")
+    public static js5 CONFIG_NPC; // 18
+
+    @OriginalMember(owner = "client!lv", name = "e", descriptor = "Lclient!sb;")
+    public static js5 CONFIG_OBJ; // 19
+
+    @OriginalMember(owner = "client!vca", name = "o", descriptor = "Lclient!sb;")
+    public static js5 CONFIG_SEQ; // 20
+
+    @OriginalMember(owner = "client!ij", name = "l", descriptor = "Lclient!sb;")
+    public static js5 CONFIG_SPOT; // 21
+
+    @OriginalMember(owner = "client!he", name = "k", descriptor = "Lclient!sb;")
+    public static js5 CONFIG_STRUCT; // 22
+
+    @OriginalMember(owner = "client!dn", name = "G", descriptor = "Lclient!sb;")
+    public static js5 WORLDMAPDATA; // 23
+
+    @OriginalMember(owner = "client!bu", name = "O", descriptor = "Lclient!sb;")
+    public static js5 QUICKCHAT; // 24
+
+    @OriginalMember(owner = "client!hk", name = "n", descriptor = "Lclient!sb;")
+    public static js5 QUICKCHAT_GLOBAL; // 25
+
+    @OriginalMember(owner = "client!gd", name = "H", descriptor = "Lclient!sb;")
+    public static js5 MATERIALS; // 26
+
     @OriginalMember(owner = "client!co", name = "t", descriptor = "Lclient!sb;")
-    public static js5 CONFIG_PARTICLE;
+    public static js5 CONFIG_PARTICLE; // 27
 
     @OriginalMember(owner = "client!kka", name = "c", descriptor = "Lclient!sb;")
     public static js5 DEFAULTS; // 28
+
+    @OriginalMember(owner = "client!ega", name = "p", descriptor = "Lclient!sb;")
+    public static js5 CONFIG_BILLBOARD; // 29
+
+    @OriginalMember(owner = "client!th", name = "n", descriptor = "Lclient!sb;")
+    public static js5 DLLS; // 30
+
+    @OriginalMember(owner = "client!ds", name = "k", descriptor = "Lclient!sb;")
+    public static js5 SHADERS; // 31
+
+    @OriginalMember(owner = "client!fia", name = "m", descriptor = "Lclient!sb;")
+    public static js5 LOADING_SPRITES; // 32, 34
+
+    @OriginalMember(owner = "client!qe", name = "b", descriptor = "Lclient!sb;")
+    public static js5 LOADING_SCREENS; // 33
+
+    @OriginalMember(owner = "client!pt", name = "s", descriptor = "Lclient!sb;")
+    public static js5 CUTSCENES; // 35
+
+    @OriginalMember(owner = "client!wh", name = "K", descriptor = "Lclient!sb;")
+    public static js5 js5_36; // TODO
 
     @OriginalMember(owner = "client!dj", name = "o", descriptor = "I")
     public static final int maxsize = 0;
@@ -68,10 +167,10 @@ public final class js5 {
 
         byte[] bytes = whirlpool;
         int len = whirlpool.length;
-        for(int i = 0; i < len; ++i) {
+        for (int i = 0; i < len; ++i) {
             byte b = bytes[i];
 
-            if(b >= 0 && b < 16) {
+            if (b >= 0 && b < 16) {
                 buffer.append("0" + StringTools.numberWithSign(b, 16, false));
             } else {
                 buffer.append(StringTools.numberWithSign(b & 255, 16, false));

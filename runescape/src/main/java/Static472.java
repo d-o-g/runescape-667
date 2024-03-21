@@ -2702,7 +2702,7 @@ public final class Static472 {
                                                 anInt7142 -= 2;
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
-                                                local10482 = Static74.method1535(local27, Static697.aJs5_123);
+                                                local10482 = Static74.method1535(local27, js5.FONTMETRICS);
                                                 anIntArray578[anInt7142++] = local10482.method8739(local4911, Static679.aSpriteArray14, local21);
                                                 return;
                                             }
@@ -2711,7 +2711,7 @@ public final class Static472 {
                                                 anInt7142 -= 2;
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
-                                                local10482 = Static74.method1535(local27, Static697.aJs5_123);
+                                                local10482 = Static74.method1535(local27, js5.FONTMETRICS);
                                                 anIntArray578[anInt7142++] = local10482.method8741(Static679.aSpriteArray14, local4911, local21);
                                                 return;
                                             }
@@ -2829,7 +2829,7 @@ public final class Static472 {
                                             if (arg0 == 4125) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 local21 = anIntArray578[--anInt7142];
-                                                @Pc(11077) Class381 local11077 = Static74.method1535(local21, Static697.aJs5_123);
+                                                @Pc(11077) Class381 local11077 = Static74.method1535(local21, js5.FONTMETRICS);
                                                 anIntArray578[anInt7142++] = local11077.method8742(Static679.aSpriteArray14, local4911);
                                                 return;
                                             }
@@ -5047,7 +5047,7 @@ public final class Static472 {
                         if (local192 != local834) {
                             if (Static109.method2070(Static283.step)) {
                                 if (local834 == 0 && Static588.anInt8692 != -1) {
-                                    Static611.method8229(Static588.anInt8692, local192, Static398.aJs5_81);
+                                    Static611.method8229(Static588.anInt8692, local192, js5.MIDI_SONGS);
                                     Static550.method7266();
                                     Static501.aBoolean575 = false;
                                 } else if (local192 == 0) {
@@ -5174,7 +5174,7 @@ public final class Static472 {
                         if (local192 != local834 && Static588.anInt8692 == Static597.anInt8821) {
                             if (!Static109.method2070(Static283.step)) {
                                 if (local834 == 0) {
-                                    Static611.method8229(Static588.anInt8692, local192, Static398.aJs5_81);
+                                    Static611.method8229(Static588.anInt8692, local192, js5.MIDI_SONGS);
                                     Static550.method7266();
                                     Static501.aBoolean575 = false;
                                 } else if (local192 == 0) {

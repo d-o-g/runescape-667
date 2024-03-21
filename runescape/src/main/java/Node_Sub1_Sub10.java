@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -50,7 +51,7 @@ public final class Node_Sub1_Sub10 extends Node_Sub1 {
             super.aBoolean824 = arg1.g1() == 1;
         }
         if (arg0) {
-            Static199.aJs5_42 = null;
+            js5.MATERIALS = null;
         }
     }
 

@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -23,7 +24,7 @@ public final class Static719 {
         }
         if (Static273.anInt4403 < 10) {
             if (!Static30.aJs5_74.requestgroupdownload(Static30.aClass2_Sub2_Sub13_3.aString48)) {
-                Static273.anInt4403 = Static120.aJs5_19.completePercentage(Static30.aClass2_Sub2_Sub13_3.aString48) / 10;
+                Static273.anInt4403 = js5.WORLDMAPDATA.completePercentage(Static30.aClass2_Sub2_Sub13_3.aString48) / 10;
                 return;
             }
             Static700.method9152();

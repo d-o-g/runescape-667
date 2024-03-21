@@ -1,4 +1,3 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -6,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 import java.util.Calendar;
 
 public final class Static120 {
-
-    @OriginalMember(owner = "client!dn", name = "G", descriptor = "Lclient!sb;")
-    public static js5 aJs5_19;
 
     @OriginalMember(owner = "client!dn", name = "a", descriptor = "(IIILjava/lang/String;I)V")
     public static void method2193(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) String arg2, @OriginalArg(4) int arg3) {

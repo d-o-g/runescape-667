@@ -72,9 +72,9 @@ public final class js5 {
             byte b = bytes[i];
 
             if(b >= 0 && b < 16) {
-                buffer.append("0" + StringTools.parseIntWithSign(b, 16, false));
+                buffer.append("0" + StringTools.numberWithSign(b, 16, false));
             } else {
-                buffer.append(StringTools.parseIntWithSign(b & 255, 16, false));
+                buffer.append(StringTools.numberWithSign(b & 255, 16, false));
             }
         }
 

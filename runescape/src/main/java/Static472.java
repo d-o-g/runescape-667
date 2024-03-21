@@ -11,7 +11,6 @@ import com.jagex.core.util.JagException;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.Class14;
 import com.jagex.game.Class381;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.bastype.BASType;
@@ -1434,8 +1433,8 @@ public final class Static472 {
                                     if (arg0 == 3104) {
                                         local4911 = aStringArray37[--anInt7139];
                                         local21 = 0;
-                                        if (StringTools.isNumeric(local4911)) {
-                                            local21 = Class14.method8473(local4911);
+                                        if (StringTools.isDecimal(local4911)) {
+                                            local21 = StringTools.parseDecimal(local4911);
                                         }
                                         @Pc(4974) ClientMessage local4974 = Static293.method4335(Static330.aClass345_66, Static405.A_SERVER_CONNECTION___2.aClass186_1);
                                         local4974.buffer.p4(local21);
@@ -2664,7 +2663,7 @@ public final class Static472 {
                                             if (arg0 == 4102) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 local21 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = local4911 + StringTools.parseIntWithSign(true, local21);
+                                                aStringArray37[anInt7139++] = local4911 + StringTools.decimalWithSign(true, local21);
                                                 return;
                                             }
                                             if (arg0 == 4103) {

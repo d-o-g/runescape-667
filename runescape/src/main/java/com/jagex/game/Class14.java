@@ -1,6 +1,7 @@
 package com.jagex.game;
 
 import com.jagex.core.stringtools.general.Cp1252;
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
@@ -42,65 +43,6 @@ public abstract class Class14 {
     protected Class14(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class381 arg1) {
         this.aToolkit_16 = arg0;
         this.aClass381_12 = arg1;
-    }
-
-    @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Ljava/lang/String;I)I")
-    public static int method8473(@OriginalArg(0) String arg0) {
-        return method3908(arg0, 10);
-    }
-
-    @OriginalMember(owner = "client!iha", name = "a", descriptor = "(ILjava/lang/String;IZ)I")
-    public static int method3908(@OriginalArg(1) String arg0, @OriginalArg(2) int arg1) {
-        if (arg1 > 36) {
-            throw new IllegalArgumentException("Invalid radix:" + arg1);
-        }
-        @Pc(29) boolean local29 = false;
-        @Pc(31) boolean local31 = false;
-        @Pc(39) int local39 = 0;
-        @Pc(42) int local42 = arg0.length();
-        for (@Pc(44) int local44 = 0; local44 < local42; local44++) {
-            @Pc(49) char local49 = arg0.charAt(local44);
-            if (local44 == 0) {
-                if (local49 == '-') {
-                    local29 = true;
-                    continue;
-                }
-                if (local49 == '+' && true) {
-                    continue;
-                }
-            }
-            @Pc(104) int local104;
-            if (local49 >= '0' && local49 <= '9') {
-                local104 = local49 - '0';
-            } else if (local49 >= 'A' && local49 <= 'Z') {
-                local104 = local49 - '7';
-            } else if (local49 >= 'a' && local49 <= 'z') {
-                local104 = local49 - 'W';
-            } else {
-                throw new NumberFormatException();
-            }
-            if (local104 >= arg1) {
-                throw new NumberFormatException();
-            }
-            if (local29) {
-                local104 = -local104;
-            }
-            @Pc(136) int local136 = local104 + arg1 * local39;
-            if (local39 != local136 / arg1) {
-                throw new NumberFormatException();
-            }
-            local31 = true;
-            local39 = local136;
-        }
-        if (!local31) {
-            throw new NumberFormatException();
-        }
-        return local39;
-    }
-
-    @OriginalMember(owner = "client!ah", name = "a", descriptor = "(Ljava/lang/String;IZ)I")
-    public static int method5162(@OriginalArg(0) String arg0) {
-        return method3908(arg0, 16);
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "([Lclient!st;IIIILjava/lang/String;[IILjava/util/Random;I)I")
@@ -191,7 +133,7 @@ public abstract class Class14 {
                                         local174 = arg5[local17];
                                     }
                                     local17++;
-                                    @Pc(187) int local187 = method8473(local64.substring(4));
+                                    @Pc(187) int local187 = StringTools.parseDecimal(local64.substring(4));
                                     @Pc(191) Sprite local191 = arg3[local187];
                                     @Pc(201) int local201 = arg6 == null ? local191.scaleHeight() : arg6[local187];
                                     local191.render(local164 + arg4, local174 + -local201 + local7 + this.aClass381_12.anInt10027, 1, 0, 1);
@@ -298,7 +240,7 @@ public abstract class Class14 {
                         if (!local54.equals("reg")) {
                             if (local54.startsWith("img=")) {
                                 try {
-                                    @Pc(136) int local136 = method8473(local54.substring(4));
+                                    @Pc(136) int local136 = StringTools.parseDecimal(local54.substring(4));
                                     @Pc(140) Sprite local140 = arg0[local136];
                                     @Pc(150) int local150 = arg7 == null ? local140.scaleHeight() : arg7[local136];
                                     if ((anInt9801 & 0xFF000000) == -16777216) {
@@ -468,22 +410,22 @@ public abstract class Class14 {
     public void method8831(@OriginalArg(1) String arg0) {
         try {
             if (arg0.startsWith("col=")) {
-                anInt9801 = anInt9801 & 0xFF000000 | method5162(arg0.substring(4)) & 0xFFFFFF;
+                anInt9801 = anInt9801 & 0xFF000000 | StringTools.parseHexadecimal(arg0.substring(4)) & 0xFFFFFF;
             } else if (arg0.equals("/col")) {
                 anInt9801 = anInt9801 & 0xFF000000 | anInt9767 & 0xFFFFFF;
             }
             if (arg0.startsWith("argb=")) {
-                anInt9801 = method5162(arg0.substring(5));
+                anInt9801 = StringTools.parseHexadecimal(arg0.substring(5));
             } else if (arg0.equals("/argb")) {
                 anInt9801 = anInt9767;
             } else if (arg0.startsWith("str=")) {
-                anInt10897 = anInt9801 & 0xFF000000 | method5162(arg0.substring(4));
+                anInt10897 = anInt9801 & 0xFF000000 | StringTools.parseHexadecimal(arg0.substring(4));
             } else if (arg0.equals("str")) {
                 anInt10897 = anInt9801 & 0xFF000000 | 0x800000;
             } else if (arg0.equals("/str")) {
                 anInt10897 = -1;
             } else if (arg0.startsWith("u=")) {
-                anInt10510 = anInt9801 & 0xFF000000 | method5162(arg0.substring(2));
+                anInt10510 = anInt9801 & 0xFF000000 | StringTools.parseHexadecimal(arg0.substring(2));
             } else if (arg0.equals("u")) {
                 anInt10510 = anInt9801 & 0xFF000000;
             } else if (arg0.equals("/u")) {
@@ -491,7 +433,7 @@ public abstract class Class14 {
             } else if (arg0.equalsIgnoreCase("shad=-1")) {
                 anInt1536 = 0;
             } else if (arg0.startsWith("shad=")) {
-                anInt1536 = anInt9801 & 0xFF000000 | method5162(arg0.substring(5));
+                anInt1536 = anInt9801 & 0xFF000000 | StringTools.parseHexadecimal(arg0.substring(5));
             } else if (arg0.equals("shad")) {
                 anInt1536 = anInt9801 & 0xFF000000;
             } else if (arg0.equals("/shad")) {

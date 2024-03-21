@@ -8,16 +8,12 @@ public final class StringTools {
 
 
     @OriginalMember(owner = "client!oo", name = "a", descriptor = "(ILjava/lang/String;)Z")
-    public static boolean isNumeric(@OriginalArg(1) String string) {
-        return isNumeric(string, 10);
+    public static boolean isDecimal(@OriginalArg(1) String string) {
+        return isNumeric(true, string, 10);
     }
 
     @OriginalMember(owner = "client!wda", name = "a", descriptor = "(ZILjava/lang/String;I)Z")
-    public static boolean isNumeric(@OriginalArg(2) String string, int radix) {
-        return isNumeric(string, radix, true);
-    }
-
-    private static boolean isNumeric(String string, int radix, boolean ignorePlus) {
+    public static boolean isNumeric(@OriginalArg(0) boolean ignorePlus, @OriginalArg(2) String string, @OriginalArg(3) int radix) {
         if (radix > 36) {
             throw new IllegalArgumentException("Invalid radix:" + radix);
         }
@@ -71,12 +67,12 @@ public final class StringTools {
     }
 
     @OriginalMember(owner = "client!sm", name = "a", descriptor = "(BZI)Ljava/lang/String;")
-    public static String parseIntWithSign(@OriginalArg(1) boolean makePositive, @OriginalArg(2) int number) {
-        return makePositive && number >= 0 ? parseIntWithSign(number, 10, makePositive) : Integer.toString(number);
+    public static String decimalWithSign(@OriginalArg(1) boolean makePositive, @OriginalArg(2) int number) {
+        return makePositive && number >= 0 ? numberWithSign(number, 10, makePositive) : Integer.toString(number);
     }
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "(ZIIZ)Ljava/lang/String;")
-    public static String parseIntWithSign(@OriginalArg(1) int number, @OriginalArg(2) int radix, @OriginalArg(3) boolean makePositive) {
+    public static String numberWithSign(@OriginalArg(1) int number, @OriginalArg(2) int radix, @OriginalArg(3) boolean makePositive) {
         if (radix > 36) {
             throw new IllegalArgumentException("Invalid radix:" + radix);
         }
@@ -103,6 +99,73 @@ public final class StringTools {
             return new String(chars);
         } else {
             return Integer.toString(number, radix);
+        }
+    }
+
+    @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Ljava/lang/String;I)I")
+    public static int parseDecimal(@OriginalArg(0) String string) {
+        return parseInt(string, 10, true);
+    }
+
+    @OriginalMember(owner = "client!ah", name = "a", descriptor = "(Ljava/lang/String;IZ)I")
+    public static int parseHexadecimal(@OriginalArg(0) String string) {
+        return parseInt(string, 16, true);
+    }
+
+    @OriginalMember(owner = "client!iha", name = "a", descriptor = "(ILjava/lang/String;IZ)I")
+    public static int parseInt(@OriginalArg(1) String string, @OriginalArg(2) int radix, boolean allowPlus) {
+        if (radix > 36) {
+            throw new IllegalArgumentException("Invalid radix:" + radix);
+        }
+
+        @Pc(29) boolean negative = false;
+        @Pc(31) boolean valid = false;
+        @Pc(39) int value = 0;
+        @Pc(42) int length = string.length();
+        for (@Pc(44) int index = 0; index < length; index++) {
+            @Pc(49) char c = string.charAt(index);
+
+            if (index == 0) {
+                if (c == '-') {
+                    negative = true;
+                    continue;
+                }
+                if (c == '+' && allowPlus) {
+                    continue;
+                }
+            }
+
+            @Pc(104) int i;
+            if (c >= '0' && c <= '9') {
+                i = c - '0';
+            } else if (c >= 'A' && c <= 'Z') {
+                i = c - '7';
+            } else if (c >= 'a' && c <= 'z') {
+                i = c - 'W';
+            } else {
+                throw new NumberFormatException();
+            }
+
+            if (i >= radix) {
+                throw new NumberFormatException();
+            }
+
+            if (negative) {
+                i = -i;
+            }
+
+            @Pc(136) int v = i + (radix * value);
+            if (value != v / radix) {
+                throw new NumberFormatException();
+            }
+            valid = true;
+            value = v;
+        }
+
+        if (valid) {
+            return value;
+        } else {
+            throw new NumberFormatException();
         }
     }
 

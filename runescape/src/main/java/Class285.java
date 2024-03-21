@@ -169,7 +169,7 @@ public final class Class285 {
             if (local14 < 0) {
                 return local8;
             }
-            local8 = local8.substring(0, local14) + StringTools.parseIntWithSign(false, arg0) + local8.substring(local14 + 2);
+            local8 = local8.substring(0, local14) + StringTools.decimalWithSign(false, arg0) + local8.substring(local14 + 2);
         }
     }
 

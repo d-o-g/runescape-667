@@ -633,7 +633,7 @@ public final class Toolkit_Sub3 extends Toolkit {
                         @Pc(395) String local395 = local388[local390];
                         try {
                             if (local395.length() > 0) {
-                                if (local395.charAt(0) == 'x' && local395.length() >= 3 && StringTools.isNumeric(local395.substring(1, 3))) {
+                                if (local395.charAt(0) == 'x' && local395.length() >= 3 && StringTools.isDecimal(local395.substring(1, 3))) {
                                     local395 = local395.substring(1);
                                     local379 = true;
                                 }
@@ -644,8 +644,8 @@ public final class Toolkit_Sub3 extends Toolkit {
                                         local395 = local395.substring(2);
                                         local377 = true;
                                     }
-                                    if (local395.length() >= 4 && StringTools.isNumeric(local395.substring(0, 4))) {
-                                        local375 = Class14.method8473(local395.substring(0, 4));
+                                    if (local395.length() >= 4 && StringTools.isDecimal(local395.substring(0, 4))) {
+                                        local375 = StringTools.parseDecimal(local395.substring(0, 4));
                                         break;
                                     }
                                 }
@@ -1658,8 +1658,8 @@ public final class Toolkit_Sub3 extends Toolkit {
         @Pc(63) String[] local63 = Static189.method2861(local55.replace('.', ' '), ' ');
         if (local63.length >= 2) {
             try {
-                @Pc(73) int local73 = Class14.method8473(local63[0]);
-                @Pc(79) int local79 = Class14.method8473(local63[1]);
+                @Pc(73) int local73 = StringTools.parseDecimal(local63[0]);
+                @Pc(79) int local79 = StringTools.parseDecimal(local63[1]);
                 this.anInt8020 = local73 * 10 + local79;
             } catch (@Pc(88) NumberFormatException local88) {
                 local10 |= 0x4;

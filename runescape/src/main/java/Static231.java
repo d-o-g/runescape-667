@@ -1,8 +1,8 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
-import com.jagex.game.Class14;
 import com.jagex.game.LocalisedText;
 import com.jagex.js5.js5;
 import jagex3.jagmisc.jagmisc;
@@ -401,7 +401,7 @@ public final class Static231 {
                         Static79.method1579("Invalid buildarea value");
                         return;
                     }
-                    local501 = Class14.method8473(arg2.substring(6));
+                    local501 = StringTools.parseDecimal(arg2.substring(6));
                     if (local501 >= 0 && local501 <= Static461.method6268(Static369.anInt4265)) {
                         Static400.instance.method5104(local501, Static400.instance.aClass57_Sub5_1);
                         Static666.method8693(1);
@@ -417,7 +417,7 @@ public final class Static231 {
                         Static79.method1579("Invalid rect_debug value");
                         return;
                     }
-                    Static18.anInt251 = Class14.method8473(arg2.substring(10).trim());
+                    Static18.anInt251 = StringTools.parseDecimal(arg2.substring(10).trim());
                     Static79.method1579("rect_debug=" + Static18.anInt251);
                     return;
                 }
@@ -695,7 +695,7 @@ public final class Static231 {
                         Static79.method1579("Syntax: ortho <n>");
                         return;
                     }
-                    local725 = Class14.method8473(arg2.substring(local501 + 1));
+                    local725 = StringTools.parseDecimal(arg2.substring(local501 + 1));
                     Static400.instance.method5104(local725, Static400.instance.aClass57_Sub3_1);
                     Static666.method8693(1);
                     Static503.aBoolean578 = false;
@@ -712,13 +712,13 @@ public final class Static231 {
                         Static79.method1579("enable ortho mode first (use 'ortho <n>')");
                         return;
                     }
-                    local501 = Class14.method8473(arg2.substring(arg2.indexOf(32) + 1));
+                    local501 = StringTools.parseDecimal(arg2.substring(arg2.indexOf(32) + 1));
                     Static582.anInt8630 = local501;
                     Static79.method1579("orthozoom=" + Static582.anInt8630);
                     return;
                 }
                 if (arg2.startsWith("orthotilesize ")) {
-                    local501 = Class14.method8473(arg2.substring(arg2.indexOf(32) + 1));
+                    local501 = StringTools.parseDecimal(arg2.substring(arg2.indexOf(32) + 1));
                     Static288.anInt4620 = local501;
                     Static32.anInt777 = local501;
                     Static79.method1579("ortho tile size=" + local501);
@@ -731,7 +731,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("skydetail ")) {
-                    local501 = Class14.method8473(arg2.substring(arg2.indexOf(32) + 1));
+                    local501 = StringTools.parseDecimal(arg2.substring(arg2.indexOf(32) + 1));
                     Static400.instance.method5104(local501, Static400.instance.aClass57_Sub2_1);
                     Static79.method1579("skydetail is " + (Static400.instance.aClass57_Sub2_1.method1989() == 0 ? "low" : "high"));
                     return;
@@ -783,7 +783,7 @@ public final class Static231 {
                     Static363.method6234(local1621);
                 }
                 if (arg2.startsWith("zoom ")) {
-                    @Pc(2748) short local2748 = (short) Class14.method8473(arg2.substring(5));
+                    @Pc(2748) short local2748 = (short) StringTools.parseDecimal(arg2.substring(5));
                     if (local2748 > 0) {
                         Static502.aShort97 = local2748;
                     }
@@ -810,7 +810,7 @@ public final class Static231 {
                     Static405.A_SERVER_CONNECTION___2.send(local2836);
                 }
                 if (arg2.startsWith("fps ") && Static2.aClass355_1 != Static446.aClass355_5) {
-                    Static724.method9453(Class14.method8473(arg2.substring(4)));
+                    Static724.method9453(StringTools.parseDecimal(arg2.substring(4)));
                     return;
                 }
             } catch (@Pc(2894) Exception local2894) {

@@ -2,6 +2,7 @@ package com.jagex.game;
 
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -230,7 +231,7 @@ public final class Class381 {
                         local22 = 174;
                     } else if (local76.startsWith("img=") && arg2 != null) {
                         try {
-                            @Pc(242) int local242 = Class14.method8473(local76.substring(4));
+                            @Pc(242) int local242 = StringTools.parseDecimal(local76.substring(4));
                             local48 = arg2[local242].scaleWidth();
                             local22 = -1;
                         } catch (@Pc(253) Exception local253) {
@@ -333,7 +334,7 @@ public final class Class381 {
                         if (!local53.equals("reg")) {
                             if (local53.startsWith("img=") && arg0 != null) {
                                 try {
-                                    @Pc(143) int local143 = Class14.method8473(local53.substring(4));
+                                    @Pc(143) int local143 = StringTools.parseDecimal(local53.substring(4));
                                     local19 = -1;
                                     local21 += arg0[local143].scaleWidth();
                                 } catch (@Pc(154) Exception local154) {
@@ -393,7 +394,7 @@ public final class Class381 {
                         if (!local69.equals("reg")) {
                             if (local69.startsWith("img=") && arg1 != null) {
                                 try {
-                                    @Pc(155) int local155 = Class14.method8473(local69.substring(4));
+                                    @Pc(155) int local155 = StringTools.parseDecimal(local69.substring(4));
                                     local33 += arg1[local155].scaleWidth();
                                     local31 = -1;
                                     if (local33 > local27) {

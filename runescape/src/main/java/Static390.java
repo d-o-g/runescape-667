@@ -18,7 +18,7 @@ public final class Static390 {
     public static int anInt6126 = 0;
 
     @OriginalMember(owner = "client!mda", name = "B", descriptor = "Lclient!hda;")
-    public static Class158 aClass158_9 = null;
+    public static Component aComponent_9 = null;
 
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(ILjava/lang/String;)Ljava/lang/String;")
     public static String method5492(@OriginalArg(1) String arg0) {

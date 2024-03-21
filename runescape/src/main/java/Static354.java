@@ -27,7 +27,7 @@ public final class Static354 {
     public static boolean aBoolean439 = false;
 
     @OriginalMember(owner = "client!ld", name = "e", descriptor = "Lclient!hda;")
-    public static Class158 aClass158_8 = null;
+    public static Component aComponent_8 = null;
 
     @OriginalMember(owner = "client!ld", name = "f", descriptor = "Z")
     public static boolean aBoolean440 = false;

@@ -41,6 +41,6 @@ public final class Static570 {
         Static473.A_WEIGHTED_CACHE___157.removeSoftReferences();
         Static312.A_WEIGHTED_CACHE___106.removeSoftReferences();
         Static449.A_WEIGHTED_CACHE___146.removeSoftReferences();
-        Static444.A_WEIGHTED_CACHE___145.removeSoftReferences();
+        Component.skyBoxes.removeSoftReferences();
     }
 }

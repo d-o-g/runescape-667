@@ -146,9 +146,9 @@ public final class Static293 {
             if (local287 != null) {
                 Static449.method6115(false, true, local287);
             }
-            if (Static390.aClass158_9 != null) {
-                Static178.method2729(Static390.aClass158_9);
-                Static390.aClass158_9 = null;
+            if (Static390.aComponent_9 != null) {
+                Static178.method2729(Static390.aComponent_9);
+                Static390.aComponent_9 = null;
             }
             arg0.aClass225_93 = null;
             return true;
@@ -1410,7 +1410,7 @@ public final class Static293 {
                                                                         local5438.unlink();
                                                                         Static548.aHashTable_40.put((long) local277, local5438);
                                                                     }
-                                                                    @Pc(5487) Class158 local5487 = Static145.method2412(local100);
+                                                                    @Pc(5487) Component local5487 = Static145.method2412(local100);
                                                                     if (local5487 != null) {
                                                                         Static178.method2729(local5487);
                                                                     }
@@ -1549,11 +1549,11 @@ public final class Static293 {
                                                                     local100 = local11.g2();
                                                                     local526 = local11.g2();
                                                                     Static574.method7573();
-                                                                    if (Static453.aClass158ArrayArray2[local277] != null) {
+                                                                    if (Static453.aComponentArrayArray2[local277] != null) {
                                                                         for (local1409 = local100; local1409 < local526; local1409++) {
                                                                             local1413 = local11.g3();
-                                                                            if (Static453.aClass158ArrayArray2[local277].length > local1409 && Static453.aClass158ArrayArray2[local277][local1409] != null) {
-                                                                                Static453.aClass158ArrayArray2[local277][local1409].anInt3774 = local1413;
+                                                                            if (Static453.aComponentArrayArray2[local277].length > local1409 && Static453.aComponentArrayArray2[local277][local1409] != null) {
+                                                                                Static453.aComponentArrayArray2[local277][local1409].anInt3774 = local1413;
                                                                             }
                                                                         }
                                                                     }

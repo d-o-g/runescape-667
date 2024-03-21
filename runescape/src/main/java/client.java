@@ -335,8 +335,8 @@ public final class client extends GameShell {
             }
         }
         Static35.anInt800++;
-        Static449.method6114(-1, -1, (Class158) null);
-        Static65.method1473(-1, -1, (Class158) null);
+        Static449.method6114(-1, -1, (Component) null);
+        Static65.method1473(-1, -1, (Component) null);
         Static443.method5981();
         Static642.anInt9599++;
         for (local46 = 0; local46 < Static416.anInt6378; local46++) {
@@ -397,8 +397,8 @@ public final class client extends GameShell {
         }
         while (true) {
             @Pc(453) Node_Sub42 local453;
-            @Pc(458) Class158 local458;
-            @Pc(470) Class158 local470;
+            @Pc(458) Component local458;
+            @Pc(470) Component local470;
             do {
                 local453 = (Node_Sub42) Static618.A_DEQUE___68.removeFirst();
                 if (local453 == null) {
@@ -410,7 +410,7 @@ public final class client extends GameShell {
                                     do {
                                         local453 = (Node_Sub42) Static521.A_DEQUE___44.removeFirst();
                                         if (local453 == null) {
-                                            if (Static109.aClass158_3 != null) {
+                                            if (Static109.aComponent_3 != null) {
                                                 Static603.method7899();
                                             }
                                             if (TimeUtils.clock % 1500 == 0) {
@@ -460,30 +460,30 @@ public final class client extends GameShell {
                                             }
                                             return;
                                         }
-                                        local458 = local453.aClass158_14;
+                                        local458 = local453.aComponent_14;
                                         if (local458.anInt3741 < 0) {
                                             break;
                                         }
                                         local470 = Static145.method2412(local458.anInt3743);
-                                    } while (local470 == null || local470.aClass158Array2 == null || local470.aClass158Array2.length <= local458.anInt3741 || local470.aClass158Array2[local458.anInt3741] != local458);
+                                    } while (local470 == null || local470.aComponentArray2 == null || local470.aComponentArray2.length <= local458.anInt3741 || local470.aComponentArray2[local458.anInt3741] != local458);
                                     Static472.method6420(local453);
                                 }
                             }
-                            local458 = local453.aClass158_14;
+                            local458 = local453.aComponent_14;
                             if (local458.anInt3741 < 0) {
                                 break;
                             }
                             local470 = Static145.method2412(local458.anInt3743);
-                        } while (local470 == null || local470.aClass158Array2 == null || local470.aClass158Array2.length <= local458.anInt3741 || local458 != local470.aClass158Array2[local458.anInt3741]);
+                        } while (local470 == null || local470.aComponentArray2 == null || local470.aComponentArray2.length <= local458.anInt3741 || local458 != local470.aComponentArray2[local458.anInt3741]);
                         Static472.method6420(local453);
                     }
                 }
-                local458 = local453.aClass158_14;
+                local458 = local453.aComponent_14;
                 if (local458.anInt3741 < 0) {
                     break;
                 }
                 local470 = Static145.method2412(local458.anInt3743);
-            } while (local470 == null || local470.aClass158Array2 == null || local470.aClass158Array2.length <= local458.anInt3741 || local458 != local470.aClass158Array2[local458.anInt3741]);
+            } while (local470 == null || local470.aComponentArray2 == null || local470.aComponentArray2.length <= local458.anInt3741 || local458 != local470.aComponentArray2[local458.anInt3741]);
             Static472.method6420(local453);
         }
     }

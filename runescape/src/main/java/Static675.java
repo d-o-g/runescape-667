@@ -25,6 +25,6 @@ public final class Static675 {
         Static473.A_WEIGHTED_CACHE___157.reset();
         Static312.A_WEIGHTED_CACHE___106.reset();
         Static449.A_WEIGHTED_CACHE___146.reset();
-        Static444.A_WEIGHTED_CACHE___145.reset();
+        Component.skyBoxes.reset();
     }
 }

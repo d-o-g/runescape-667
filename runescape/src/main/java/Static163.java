@@ -33,13 +33,13 @@ public final class Static163 {
         local7.anInt146 = arg0;
         Static548.aHashTable_40.put((long) arg2, local7);
         Static122.method2208(arg1);
-        @Pc(26) Class158 local26 = Static145.method2412(arg2);
+        @Pc(26) Component local26 = Static145.method2412(arg2);
         if (local26 != null) {
             Static178.method2729(local26);
         }
-        if (Static390.aClass158_9 != null) {
-            Static178.method2729(Static390.aClass158_9);
-            Static390.aClass158_9 = null;
+        if (Static390.aComponent_9 != null) {
+            Static178.method2729(Static390.aComponent_9);
+            Static390.aComponent_9 = null;
         }
         Static94.method1840();
         if (local26 != null) {

@@ -25,14 +25,14 @@ public final class Static643 {
     }
 
     @OriginalMember(owner = "client!uf", name = "a", descriptor = "(II[Lclient!hda;)V")
-    public static void method8444(@OriginalArg(1) int arg0, @OriginalArg(2) Class158[] arg1) {
+    public static void method8444(@OriginalArg(1) int arg0, @OriginalArg(2) Component[] arg1) {
         for (@Pc(3) int local3 = 0; local3 < arg1.length; local3++) {
-            @Pc(9) Class158 local9 = arg1[local3];
+            @Pc(9) Component local9 = arg1[local3];
             if (local9 != null && local9.anInt3743 == arg0 && !Static84.method1660(local9)) {
                 if (local9.anInt3820 == 0) {
                     method8444(local9.anInt3812, arg1);
-                    if (local9.aClass158Array1 != null) {
-                        method8444(local9.anInt3812, local9.aClass158Array1);
+                    if (local9.aComponentArray1 != null) {
+                        method8444(local9.anInt3812, local9.aComponentArray1);
                     }
                     @Pc(56) Node_Sub4 local56 = (Node_Sub4) Static548.aHashTable_40.get((long) local9.anInt3812);
                     if (local56 != null) {

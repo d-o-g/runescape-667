@@ -241,7 +241,7 @@ public final class Static256 {
     }
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(Lclient!da;Ljava/lang/String;Lclient!ve;IIIZLclient!hda;Lclient!aa;III)V")
-    public static void method3639(@OriginalArg(0) Font arg0, @OriginalArg(1) String arg1, @OriginalArg(2) FontMetrics arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Class158 arg6, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public static void method3639(@OriginalArg(0) Font arg0, @OriginalArg(1) String arg1, @OriginalArg(2) FontMetrics arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Component arg6, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         @Pc(11) int local11;
         if (Static511.anInt7645 == 4) {
             local11 = (int) Static171.aFloat64 & 0x3FFF;

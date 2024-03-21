@@ -27,10 +27,10 @@ public final class Static534 {
                 local60 = Static599.anInt8837;
                 Static691.anInt10368 = 1;
             }
-            if (Static148.aClass158ArrayArray1[arg0] == null) {
-                Static71.method1522(-1, arg6, Static453.aClass158ArrayArray2[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+            if (Static148.aComponentArrayArray1[arg0] == null) {
+                Static71.method1522(-1, arg6, Static453.aComponentArrayArray2[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
             } else {
-                Static71.method1522(-1, arg6, Static148.aClass158ArrayArray1[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+                Static71.method1522(-1, arg6, Static148.aComponentArrayArray1[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
             }
             if (Static137.aBoolean210) {
                 if (arg5 >= 0 && Static691.anInt10368 == 2) {
@@ -56,7 +56,7 @@ public final class Static534 {
         Static473.A_WEIGHTED_CACHE___157.clean(50);
         Static312.A_WEIGHTED_CACHE___106.clean(50);
         Static449.A_WEIGHTED_CACHE___146.clean(50);
-        Static444.A_WEIGHTED_CACHE___145.clean(50);
+        Component.skyBoxes.clean(50);
     }
 
 }

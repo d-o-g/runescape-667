@@ -31,9 +31,9 @@ public final class Static77 {
                 Static449.method6115(true, true, local22);
             }
         }
-        if (Static390.aClass158_9 != null) {
-            Static178.method2729(Static390.aClass158_9);
-            Static390.aClass158_9 = null;
+        if (Static390.aComponent_9 != null) {
+            Static178.method2729(Static390.aComponent_9);
+            Static390.aComponent_9 = null;
         }
     }
 

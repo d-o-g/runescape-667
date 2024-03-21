@@ -60,22 +60,22 @@ public final class SkyBox {
     public int anInt3510 = -1;
 
     @OriginalMember(owner = "client!gm", name = "J", descriptor = "I")
-    public final int anInt3509;
+    public final int sphereOffsetY;
 
     @OriginalMember(owner = "client!gm", name = "A", descriptor = "I")
     public final int anInt3515;
 
     @OriginalMember(owner = "client!gm", name = "F", descriptor = "[Lclient!ks;")
-    public final SkyBoxSphere[] aSkyBoxSphereArray1;
+    public final SkyBoxSphere[] spheres;
 
     @OriginalMember(owner = "client!gm", name = "v", descriptor = "I")
-    public final int anInt3505;
+    public final int sphereOffsetZ;
 
     @OriginalMember(owner = "client!gm", name = "m", descriptor = "I")
-    public final int anInt3523;
+    public final int sphereOffsetX;
 
     @OriginalMember(owner = "client!gm", name = "k", descriptor = "I")
-    public final int anInt3507;
+    public final int texture;
 
     @OriginalMember(owner = "client!gm", name = "c", descriptor = "[Lclient!ks;")
     public final SkyBoxSphere[] aSkyBoxSphereArray2;
@@ -87,19 +87,19 @@ public final class SkyBox {
     public final int anInt3514;
 
     @OriginalMember(owner = "client!gm", name = "<init>", descriptor = "(I[Lclient!ks;IIIIII)V")
-    public SkyBox(@OriginalArg(0) int arg0, @OriginalArg(1) SkyBoxSphere[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
-        this.anInt3509 = arg4;
+    public SkyBox(@OriginalArg(0) int texture, @OriginalArg(1) SkyBoxSphere[] spheres, @OriginalArg(2) int arg2, @OriginalArg(3) int sphereOffsetX, @OriginalArg(4) int sphereOffsetY, @OriginalArg(5) int sphereOffsetZ, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+        this.sphereOffsetY = sphereOffsetY;
         this.anInt3515 = arg6;
-        this.aSkyBoxSphereArray1 = arg1;
-        this.anInt3505 = arg5;
-        this.anInt3523 = arg3;
-        this.anInt3507 = arg0;
-        if (arg1 == null) {
+        this.spheres = spheres;
+        this.sphereOffsetZ = sphereOffsetZ;
+        this.sphereOffsetX = sphereOffsetX;
+        this.texture = texture;
+        if (spheres == null) {
             this.aSkyBoxSphereArray2 = null;
             this.aSkyBoxSphere_1 = null;
         } else {
-            this.aSkyBoxSphereArray2 = new SkyBoxSphere[arg1.length];
-            this.aSkyBoxSphere_1 = arg2 < 0 ? null : arg1[arg2];
+            this.aSkyBoxSphereArray2 = new SkyBoxSphere[spheres.length];
+            this.aSkyBoxSphere_1 = arg2 < 0 ? null : spheres[arg2];
         }
         this.anInt3514 = arg7;
     }
@@ -168,12 +168,12 @@ public final class SkyBox {
         if (this.aModel_2 == null) {
             arg8 = arg8 + arg1 & 0x3FFF;
             arg3.ya();
-            if (this.anInt3507 == -1 || this.anInt3518 == 0) {
+            if (this.texture == -1 || this.anInt3518 == 0) {
                 arg3.aa(arg7, arg11, arg6, arg2, local10 << 24 | arg5, 1);
             } else {
-                @Pc(74) TextureMetrics local74 = SkyBoxSphere.textureSource.getMetrics(this.anInt3507);
-                if (this.aSprite_10 == null && SkyBoxSphere.textureSource.textureAvailable(this.anInt3507)) {
-                    @Pc(120) int[] local120 = local74.alphaBlendMode == 2 ? SkyBoxSphere.textureSource.argbOutput(0.7F, this.anInt3507, this.anInt3518, this.anInt3518) : SkyBoxSphere.textureSource.rgbOutput(this.anInt3518, false, this.anInt3518, this.anInt3507, 0.7F);
+                @Pc(74) TextureMetrics local74 = SkyBoxSphere.textureSource.getMetrics(this.texture);
+                if (this.aSprite_10 == null && SkyBoxSphere.textureSource.textureAvailable(this.texture)) {
+                    @Pc(120) int[] local120 = local74.alphaBlendMode == 2 ? SkyBoxSphere.textureSource.argbOutput(0.7F, this.texture, this.anInt3518, this.anInt3518) : SkyBoxSphere.textureSource.rgbOutput(this.anInt3518, false, this.anInt3518, this.texture, 0.7F);
                     this.anInt3501 = local120[0];
                     this.anInt3511 = local120[local120.length - 1];
                     this.aSprite_10 = arg3.createSprite(this.anInt3518, this.anInt3518, this.anInt3518, local120);
@@ -224,7 +224,7 @@ public final class SkyBox {
             this.method3164(arg8, arg9, arg10, arg0, arg3);
         }
         for (@Pc(417) int local417 = this.anInt3508 - 1; local417 >= 0; local417--) {
-            this.aSkyBoxSphereArray2[local417].method5055(arg3, arg7, arg11, arg6, arg2, arg10, arg8, this.anInt3523, this.anInt3509, this.anInt3505, local10);
+            this.aSkyBoxSphereArray2[local417].method5055(arg3, arg7, arg11, arg6, arg2, arg10, arg8, this.sphereOffsetX, this.sphereOffsetY, this.sphereOffsetZ, local10);
         }
         arg3.ya();
     }
@@ -313,12 +313,12 @@ public final class SkyBox {
                 this.anInt3518 = local16;
                 this.aSprite_10 = null;
             }
-            if (this.aSkyBoxSphereArray1 != null) {
+            if (this.spheres != null) {
                 this.anInt3508 = 0;
-                @Pc(57) int[] local57 = new int[this.aSkyBoxSphereArray1.length];
-                for (@Pc(59) int local59 = 0; local59 < this.aSkyBoxSphereArray1.length; local59++) {
-                    @Pc(68) SkyBoxSphere local68 = this.aSkyBoxSphereArray1[local59];
-                    if (local68.method5056(this.anInt3523, this.anInt3509, this.anInt3505, this.anInt3510)) {
+                @Pc(57) int[] local57 = new int[this.spheres.length];
+                for (@Pc(59) int local59 = 0; local59 < this.spheres.length; local59++) {
+                    @Pc(68) SkyBoxSphere local68 = this.spheres[local59];
+                    if (local68.method5056(this.sphereOffsetX, this.sphereOffsetY, this.sphereOffsetZ, this.anInt3510)) {
                         local57[this.anInt3508] = local68.anInt5631;
                         this.aSkyBoxSphereArray2[this.anInt3508++] = local68;
                     }

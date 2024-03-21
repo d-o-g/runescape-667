@@ -27,7 +27,7 @@ public final class Static668 {
             Static357.anInt6504 = -1;
         }
         Static551.aDeque_54 = null;
-        Static210.aClass158_4 = null;
+        Static210.aComponent_4 = null;
         Static30.aClass2_Sub2_Sub13_3 = null;
         Static273.anInt4403 = 0;
         Static30.method5070();

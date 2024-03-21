@@ -31,7 +31,7 @@ public final class Static679 {
 
     @OriginalMember(owner = "client!vj", name = "a", descriptor = "(Z)I")
     public static int method8909() {
-        if (Static109.aClass158_3 == null) {
+        if (Static109.aComponent_3 == null) {
             if (!Static400.aBoolean622 && Static470.aClass2_Sub2_Sub16_10 != null) {
                 return Static470.aClass2_Sub2_Sub16_10.anInt7318;
             }

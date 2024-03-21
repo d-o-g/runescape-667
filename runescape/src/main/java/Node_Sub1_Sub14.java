@@ -304,7 +304,7 @@ public final class Node_Sub1_Sub14 extends Node_Sub1 {
         }
         this.method4896();
         if (arg0 != 7) {
-            Static327.aClass158_7 = null;
+            Static327.aComponent_7 = null;
         }
     }
 

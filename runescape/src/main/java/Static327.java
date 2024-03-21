@@ -6,7 +6,7 @@ public final class Static327 {
     public static int anInt5392 = 0;
 
     @OriginalMember(owner = "client!kg", name = "M", descriptor = "Lclient!hda;")
-    public static Class158 aClass158_7 = null;
+    public static Component aComponent_7 = null;
 
     @OriginalMember(owner = "client!kg", name = "c", descriptor = "(B)V")
     public static void method4895() {

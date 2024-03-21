@@ -14,7 +14,7 @@ public final class Static710 {
     public static final Class403 aClass403_13 = new Class403();
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
-    public static void method6710(@OriginalArg(1) Class158 arg0, @OriginalArg(2) Class158 arg1) {
+    public static void method6710(@OriginalArg(1) Component arg0, @OriginalArg(2) Component arg1) {
         @Pc(15) ClientMessage local15 = Static293.method4335(Static671.aClass345_117, Static405.A_SERVER_CONNECTION___2.aClass186_1);
         local15.buffer.p2(arg1.anInt3760);
         local15.buffer.p2_alt1(arg0.anInt3741);

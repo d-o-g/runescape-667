@@ -87,7 +87,7 @@ public final class Node_Sub1_Sub23 extends Node_Sub1 {
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (arg0 <= 107) {
-            Static470.method6383((Class158) null, -42, 121, -79);
+            Static470.method6383((Component) null, -42, 121, -79);
         }
         if (super.aClass180_41.aBoolean338) {
             @Pc(34) int local34 = Static273.anIntArray341[arg1] * this.anInt7110 + 2048;

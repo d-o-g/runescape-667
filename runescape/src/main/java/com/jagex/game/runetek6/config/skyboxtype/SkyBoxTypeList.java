@@ -89,7 +89,7 @@ public final class SkyBoxTypeList {
     }
 
     @OriginalMember(owner = "client!qk", name = "a", descriptor = "(Lclient!dg;IIIIZ)Lclient!gm;")
-    public SkyBox skyBox(@OriginalArg(0) SkyBoxSphereTypeList sphereTypeList, @OriginalArg(1) int arg1, @OriginalArg(2) int id, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public SkyBox skyBox(@OriginalArg(0) SkyBoxSphereTypeList typeList, @OriginalArg(1) int sphereOffsetZ, @OriginalArg(2) int id, @OriginalArg(3) int sphereOffsetY, @OriginalArg(4) int sphereOffsetX) {
         @Pc(13) SkyBoxSphere[] spheres = null;
         @Pc(18) SkyBoxType type = this.list(id);
 
@@ -97,11 +97,11 @@ public final class SkyBoxTypeList {
             spheres = new SkyBoxSphere[type.sphereIds.length];
 
             for (@Pc(28) int i = 0; i < spheres.length; i++) {
-                @Pc(37) SkyBoxSphereType sphereType = sphereTypeList.list(type.sphereIds[i]);
+                @Pc(37) SkyBoxSphereType sphereType = typeList.list(type.sphereIds[i]);
                 spheres[i] = new SkyBoxSphere(sphereType.anInt129, sphereType.anInt124, sphereType.anInt125, sphereType.anInt130, sphereType.anInt132, sphereType.anInt123, sphereType.anInt131, sphereType.aBoolean10, sphereType.anInt128, sphereType.anInt133, sphereType.anInt126);
             }
         }
 
-        return new SkyBox(type.texture, spheres, type.anInt2624, arg4, arg3, arg1, type.anInt2625, type.anInt2621);
+        return new SkyBox(type.texture, spheres, type.anInt2624, sphereOffsetX, sphereOffsetY, sphereOffsetZ, type.anInt2625, type.anInt2621);
     }
 }

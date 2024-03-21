@@ -8,7 +8,7 @@ public final class Static610 {
     public static int anInt9329;
 
     @OriginalMember(owner = "client!tf", name = "b", descriptor = "Lclient!hda;")
-    public static Class158 aClass158_16 = null;
+    public static Component aComponent_16 = null;
 
     @OriginalMember(owner = "client!tf", name = "a", descriptor = "(ILclient!rka;I)V")
     public static void method8217(@OriginalArg(0) int arg0, @OriginalArg(1) PacketBuffer arg1) {

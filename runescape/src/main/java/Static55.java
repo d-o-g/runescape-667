@@ -55,7 +55,7 @@ public final class Static55 {
             Static405.A_SERVER_CONNECTION___2.send(local147);
         }
         if (local22 == 12) {
-            @Pc(197) Class158 local197 = Static15.method186(local16, local19);
+            @Pc(197) Component local197 = Static15.method186(local16, local19);
             if (local197 != null) {
                 Static470.method6384();
                 @Pc(206) Node_Sub41 local206 = Static84.method1661(local197);
@@ -94,10 +94,10 @@ public final class Static55 {
                 Static147.method2419(0, local19, 1, true, local16, 0, -4, 1);
             }
         }
-        if (local22 == 10 && Static390.aClass158_9 == null) {
+        if (local22 == 10 && Static390.aComponent_9 == null) {
             Static479.method6461(local16, local19);
-            Static390.aClass158_9 = Static15.method186(local16, local19);
-            Static178.method2729(Static390.aClass158_9);
+            Static390.aComponent_9 = Static15.method186(local16, local19);
+            Static178.method2729(Static390.aComponent_9);
         }
         @Pc(389) Class345 local389 = null;
         if (local22 == 2) {
@@ -178,7 +178,7 @@ public final class Static55 {
             }
         }
         if (local22 == 18) {
-            @Pc(741) Class158 local741 = Static15.method186(local16, local19);
+            @Pc(741) Component local741 = Static15.method186(local16, local19);
             if (local741 != null) {
                 Static312.method4542(local741);
             }
@@ -313,8 +313,8 @@ public final class Static55 {
         if (Static156.aBoolean223) {
             Static470.method6384();
         }
-        if (Static67.aClass158_10 != null && Static499.anInt7501 == 0) {
-            Static178.method2729(Static67.aClass158_10);
+        if (Static67.aComponent_10 != null && Static499.anInt7501 == 0) {
+            Static178.method2729(Static67.aComponent_10);
         }
     }
 

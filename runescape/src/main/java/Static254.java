@@ -90,7 +90,7 @@ public final class Static254 {
         Static377.anInt5930 = -1;
         Static548.aHashTable_40 = new HashTable(8);
         Static656.method6692();
-        Static390.aClass158_9 = null;
+        Static390.aComponent_9 = null;
         for (@Pc(8849) int local8849 = 0; local8849 < 8; local8849++) {
             Static297.aStringArray24[local8849] = null;
             Static601.aBooleanArray28[local8849] = false;

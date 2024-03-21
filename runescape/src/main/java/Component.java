@@ -3,6 +3,7 @@ import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.graphics.Font;
@@ -32,7 +33,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!hda")
-public final class Class158 {
+public final class Component {
+
+    @OriginalMember(owner = "client!o", name = "x", descriptor = "Lclient!dla;")
+    public static final ReferenceCache skyBoxes = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!hda", name = "M", descriptor = "[Ljava/lang/Object;")
     public Object[] anObjectArray1;
@@ -65,7 +69,7 @@ public final class Class158 {
     public short[] aShortArray56;
 
     @OriginalMember(owner = "client!hda", name = "Qc", descriptor = "I")
-    public int anInt3763;
+    public int skyBoxSphereOffsetX;
 
     @OriginalMember(owner = "client!hda", name = "mc", descriptor = "Lclient!hv;")
     public ParticleSystem aParticleSystem_4;
@@ -107,7 +111,7 @@ public final class Class158 {
     public Object[] anObjectArray13;
 
     @OriginalMember(owner = "client!hda", name = "Gc", descriptor = "I")
-    public int anInt3782;
+    public int skyBoxSphereOffsetZ;
 
     @OriginalMember(owner = "client!hda", name = "hb", descriptor = "I")
     public int anInt3786;
@@ -152,10 +156,10 @@ public final class Class158 {
     public int[] anIntArray295;
 
     @OriginalMember(owner = "client!hda", name = "Oc", descriptor = "[Lclient!hda;")
-    public Class158[] aClass158Array1;
+    public Component[] aComponentArray1;
 
     @OriginalMember(owner = "client!hda", name = "xd", descriptor = "I")
-    public int anInt3796;
+    public int skyBoxSphereOffsetY;
 
     @OriginalMember(owner = "client!hda", name = "fd", descriptor = "[Ljava/lang/Object;")
     public Object[] anObjectArray22;
@@ -167,7 +171,7 @@ public final class Class158 {
     public Object[] anObjectArray24;
 
     @OriginalMember(owner = "client!hda", name = "Qb", descriptor = "[Lclient!hda;")
-    public Class158[] aClass158Array2;
+    public Component[] aComponentArray2;
 
     @OriginalMember(owner = "client!hda", name = "r", descriptor = "[I")
     public int[] anIntArray296;
@@ -467,7 +471,7 @@ public final class Class158 {
     public int anInt3813 = -1;
 
     @OriginalMember(owner = "client!hda", name = "Ad", descriptor = "Lclient!hda;")
-    public Class158 aClass158_6 = null;
+    public Component aComponent_6 = null;
 
     @OriginalMember(owner = "client!hda", name = "d", descriptor = "I")
     public int anInt3752 = -1;
@@ -485,7 +489,7 @@ public final class Class158 {
     public boolean aBoolean301 = false;
 
     @OriginalMember(owner = "client!hda", name = "Xb", descriptor = "I")
-    public int anInt3824 = -1;
+    public int skyBox = -1;
 
     @OriginalMember(owner = "client!hda", name = "G", descriptor = "I")
     public int anInt3799 = 0;
@@ -1166,17 +1170,17 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(ILclient!dg;Lclient!qk;)Lclient!gm;")
-    public SkyBox method3405(@OriginalArg(1) SkyBoxSphereTypeList arg0, @OriginalArg(2) SkyBoxTypeList arg1) {
-        if (this.anInt3824 == -1) {
+    public SkyBox skyBox(@OriginalArg(1) SkyBoxSphereTypeList sphereTypeList, @OriginalArg(2) SkyBoxTypeList typeList) {
+        if (this.skyBox == -1) {
             return null;
         }
-        @Pc(48) long local48 = (long) this.anInt3824 & 0xFFFFL | ((long) this.anInt3782 & 0xFFFFL) << 16 | ((long) this.anInt3763 & 0xFFFFL) << 48 | 0xFFFFL << 32 & (long) this.anInt3796 << 32;
-        @Pc(54) SkyBox local54 = (SkyBox) Static444.A_WEIGHTED_CACHE___145.get(local48);
-        if (local54 == null) {
-            local54 = arg1.skyBox(arg0, this.anInt3782, this.anInt3824, this.anInt3796, this.anInt3763);
-            Static444.A_WEIGHTED_CACHE___145.put(local54, local48);
+        @Pc(48) long key = (long) this.skyBox & 0xFFFFL | ((long) this.skyBoxSphereOffsetZ & 0xFFFFL) << 16 | ((long) this.skyBoxSphereOffsetX & 0xFFFFL) << 48 | 0xFFFFL << 32 & (long) this.skyBoxSphereOffsetY << 32;
+        @Pc(54) SkyBox skyBox = (SkyBox) skyBoxes.get(key);
+        if (skyBox == null) {
+            skyBox = typeList.skyBox(sphereTypeList, this.skyBoxSphereOffsetZ, this.skyBox, this.skyBoxSphereOffsetY, this.skyBoxSphereOffsetX);
+            skyBoxes.put(skyBox, key);
         }
-        return local54;
+        return skyBox;
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(ISIS)V")

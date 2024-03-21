@@ -105,7 +105,7 @@ public final class Static147 {
             }
             if (local140 != -1 && local142 != -1) {
                 if (Static156.aBoolean223 && (Static717.anInt10822 & 0x40) != 0) {
-                    @Pc(453) Class158 local453 = Static15.method186(Static77.anInt1614, Static450.anInt6819);
+                    @Pc(453) Component local453 = Static15.method186(Static77.anInt1614, Static450.anInt6819);
                     if (local453 == null) {
                         Static470.method6384();
                     } else {

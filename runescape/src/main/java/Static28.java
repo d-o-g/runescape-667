@@ -18,7 +18,7 @@ public final class Static28 {
     public static boolean aBoolean43 = false;
 
     @OriginalMember(owner = "client!aw", name = "a", descriptor = "(ILclient!ha;ILclient!hda;I)V")
-    public static void method746(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(3) Class158 arg2, @OriginalArg(4) int arg3) {
+    public static void method746(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(3) Component arg2, @OriginalArg(4) int arg3) {
         @Pc(23) Class159 local23 = arg2.method3393(arg1);
         if (local23 == null) {
             return;

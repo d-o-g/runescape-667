@@ -13,7 +13,7 @@ public final class Static605 {
     public static final Class225 aClass225_220 = new Class225(108, 12);
 
     @OriginalMember(owner = "client!tba", name = "g", descriptor = "Lclient!hda;")
-    public static Class158 aClass158_15 = null;
+    public static Component aComponent_15 = null;
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(ILclient!pc;)V")
     public static void method7912(@OriginalArg(1) Class287 arg0) {

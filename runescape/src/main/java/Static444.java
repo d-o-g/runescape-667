@@ -1,5 +1,4 @@
 import com.jagex.core.datastruct.key.Class191;
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -9,9 +8,6 @@ public final class Static444 {
 
     @OriginalMember(owner = "client!o", name = "rb", descriptor = "I")
     public static int anInt6751;
-
-    @OriginalMember(owner = "client!o", name = "x", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___145 = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!o", name = "jb", descriptor = "Lclient!jg;")
     public static final Class191 aClass191_1 = new Class191();
@@ -24,7 +20,7 @@ public final class Static444 {
         Static262.aJs5_56 = arg2;
         Static666.aJs5_118 = arg0;
         Static607.aJs5_113 = arg3;
-        Static453.aClass158ArrayArray2 = new Class158[Static666.aJs5_118.groupSize()][];
+        Static453.aComponentArrayArray2 = new Component[Static666.aJs5_118.groupSize()][];
         Static132.aBooleanArray5 = new boolean[Static666.aJs5_118.groupSize()];
     }
 

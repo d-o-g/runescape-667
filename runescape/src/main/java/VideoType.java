@@ -22,13 +22,13 @@ public final class VideoType extends Node {
     public final int anInt182;
 
     @OriginalMember(owner = "client!aia", name = "o", descriptor = "Lclient!wea;")
-    public final Video_Sub1 js5;
+    public final Js5Video js5;
 
     @OriginalMember(owner = "client!aia", name = "t", descriptor = "I")
     public final int anInt180;
 
     @OriginalMember(owner = "client!aia", name = "<init>", descriptor = "(ILclient!wea;IZ)V")
-    public VideoType(@OriginalArg(0) int arg0, @OriginalArg(1) Video_Sub1 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
+    public VideoType(@OriginalArg(0) int arg0, @OriginalArg(1) Js5Video arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
         this.aBoolean15 = arg3;
         this.anInt182 = arg0;
         this.js5 = arg1;

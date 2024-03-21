@@ -58,7 +58,7 @@ public final class Static236 {
             if (local16.js5.method9177()) {
                 Static121.method2199(local16.anInt182);
             } else {
-                local16.js5.method9193(109);
+                local16.js5.readNextPages();
                 try {
                     local16.js5.tick();
                 } catch (@Pc(43) Exception local43) {

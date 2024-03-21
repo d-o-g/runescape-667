@@ -31,7 +31,7 @@ public final class Static515 {
             return;
         }
         if (Static234.aBoolean303) {
-            @Pc(34) VideoType local34 = new VideoType(arg1, new Video_Sub1(4096, js5.js5_36, arg1), arg2, arg0);
+            @Pc(34) VideoType local34 = new VideoType(arg1, new Js5Video(4096, js5.js5_36, arg1), arg2, arg0);
             local34.js5.setLanguage(Static384.aStringArray31[Static51.language]);
             VideoTypeList.recentUse.put((long) arg1, local34);
         } else {

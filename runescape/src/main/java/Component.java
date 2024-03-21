@@ -7,6 +7,7 @@ import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.iftype.DragRender;
+import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.graphics.Font;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.PlayerModel;
@@ -65,11 +66,6 @@ public final class Component {
 
     @OriginalMember(owner = "client!od", name = "l", descriptor = "Lclient!dla;")
     public static final ReferenceCache A_WEIGHTED_CACHE___146 = new ReferenceCache(8);
-
-    @OriginalMember(owner = "client!tla", name = "a", descriptor = "(II)I")
-    public static int hasTargetParam(@OriginalArg(0) int events) {
-        return (events >> 11) & 0x7F;
-    }
 
     @OriginalMember(owner = "client!tca", name = "Fi", descriptor = "Lclient!sb;")
     public static js5 modelsJs5;
@@ -486,7 +482,7 @@ public final class Component {
     public int objType = OBJ_TYPE_MODEL;
 
     @OriginalMember(owner = "client!hda", name = "w", descriptor = "Lclient!ofa;")
-    public ServerActiveProperties serverActiveProperties = Static93.aClass2_Sub41_1;
+    public ServerActiveProperties serverActiveProperties = ServerActiveProperties.DEFAULT;
 
     @OriginalMember(owner = "client!hda", name = "Ec", descriptor = "I")
     public int clientComponent = 0;
@@ -896,7 +892,7 @@ public final class Component {
         this.targetVerb = packet.gjstr();
 
         @Pc(730) int targetParam = -1;
-        if (hasTargetParam(events) != 0) {
+        if (ServerActiveProperties.targetMaskFrom(events) != 0) {
             targetParam = packet.g2();
             if (targetParam == 65535) {
                 targetParam = -1;

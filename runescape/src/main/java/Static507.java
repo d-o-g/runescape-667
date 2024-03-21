@@ -41,7 +41,7 @@ public final class Static507 {
         if (arg3.sizeTypeVertical == 4) {
             arg3.anInt3746 = arg3.anInt3802 * arg3.anInt3750 / arg3.anInt3795;
         }
-        if (Static103.aBoolean195 && (Static84.method1661(arg3).anInt6909 != 0 || arg3.type == 0)) {
+        if (Static103.aBoolean195 && (Static84.method1661(arg3).events != 0 || arg3.type == 0)) {
             if (arg3.anInt3746 < 5 && arg3.anInt3802 < 5) {
                 arg3.anInt3746 = 5;
                 arg3.anInt3802 = 5;

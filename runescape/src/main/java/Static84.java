@@ -2,6 +2,7 @@ import com.jagex.core.constants.ClientComponent;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -254,7 +255,7 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "(Lclient!hda;)Lclient!hda;")
     public static Component method1657(@OriginalArg(0) Component arg0) {
-        @Pc(4) int local4 = method1661(arg0).method6218();
+        @Pc(4) int local4 = method1661(arg0).getDragDepth();
         if (local4 == 0) {
             return null;
         }
@@ -270,7 +271,7 @@ public final class Static84 {
     @OriginalMember(owner = "client!client", name = "b", descriptor = "(Lclient!hda;)Z")
     public static boolean method1660(@OriginalArg(0) Component arg0) {
         if (Static103.aBoolean195) {
-            if (method1661(arg0).anInt6909 != 0) {
+            if (method1661(arg0).events != 0) {
                 return false;
             }
             if (arg0.type == 0) {
@@ -427,7 +428,7 @@ public final class Static84 {
                     local34 = local42 < arg4 ? local42 : arg4;
                     local36 = local47 < arg5 ? local47 : arg5;
                 }
-                if (local6.type == 0 || local6.hasHook || method1661(local6).anInt6909 != 0 || local6 == Static354.aComponent_8 || local6.clientComponent == ClientComponent.MINIMAP || local6.clientComponent == ClientComponent.WORLD_MAP_OPTIONS || local6.clientComponent == ClientComponent.SCENE || local6.clientComponent == ClientComponent.LOGIN_SCENE) {
+                if (local6.type == 0 || local6.hasHook || method1661(local6).events != 0 || local6 == Static354.aComponent_8 || local6.clientComponent == ClientComponent.MINIMAP || local6.clientComponent == ClientComponent.WORLD_MAP_OPTIONS || local6.clientComponent == ClientComponent.SCENE || local6.clientComponent == ClientComponent.LOGIN_SCENE) {
                     if (!method1660(local6)) {
                         local42 = 0;
                         local47 = 0;
@@ -531,7 +532,7 @@ public final class Static84 {
                                                 } else if (local402 == 10) {
                                                     Static470.method6384();
                                                     @Pc(726) ServerActiveProperties local726 = method1661(local6);
-                                                    Static389.method5476(local726.method6216(), local6, local726.anInt6904);
+                                                    Static389.method5476(local726.getTargetMask(), local6, local726.targetParam);
                                                     Static153.aString27 = Static380.method5359(local6);
                                                     if (Static153.aString27 == null) {
                                                         Static153.aString27 = "Null";
@@ -557,7 +558,7 @@ public final class Static84 {
                             if (local474) {
                                 Static597.method7824(local47 + local479.method5333() - local24, local6, local42 + local479.method5331() - local19);
                             }
-                            if (Static109.aComponent_3 != null && Static109.aComponent_3 != local6 && local310 && method1661(local6).method6220()) {
+                            if (Static109.aComponent_3 != null && Static109.aComponent_3 != local6 && local310 && method1661(local6).isDragTarget()) {
                                 Static327.aComponent_7 = local6;
                             }
                             if (local6 == Static354.aComponent_8) {

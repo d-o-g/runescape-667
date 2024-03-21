@@ -53,7 +53,7 @@ public final class Static470 {
         if (!Static103.aBoolean195) {
             return;
         }
-        if (Static84.method1661(arg0).anInt6909 == 0 && arg0.type != 0) {
+        if (Static84.method1661(arg0).events == 0 && arg0.type != 0) {
             return;
         }
         if (arg0.anInt3735 < 0) {

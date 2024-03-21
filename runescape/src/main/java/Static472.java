@@ -12,6 +12,7 @@ import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.iftype.DragRender;
+import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.bastype.BASType;
@@ -1190,7 +1191,7 @@ public final class Static472 {
                         } else if (arg0 < 1900) {
                             component = arg1 ? aComponent_12 : aComponent_11;
                             if (arg0 == 1800) {
-                                anIntArray578[anInt7142++] = Static84.method1661(component).method6216();
+                                anIntArray578[anInt7142++] = Static84.method1661(component).getTargetMask();
                                 return;
                             }
                             if (arg0 == 1801) {
@@ -1392,7 +1393,7 @@ public final class Static472 {
                             } else if (arg0 < 2900) {
                                 component = Static145.method2412(anIntArray578[--anInt7142]);
                                 if (arg0 == 2800) {
-                                    anIntArray578[anInt7142++] = Static84.method1661(component).method6216();
+                                    anIntArray578[anInt7142++] = Static84.method1661(component).getTargetMask();
                                     return;
                                 }
                                 if (arg0 == 2801) {
@@ -5801,7 +5802,7 @@ public final class Static472 {
                             @Pc(8940) Component local8940 = Static15.method186(local109, local192 << 16 | local834);
                             Static470.method6384();
                             @Pc(8945) ServerActiveProperties local8945 = Static84.method1661(local8940);
-                            Static389.method5476(local8945.method6216(), local8940, local8945.anInt6904);
+                            Static389.method5476(local8945.getTargetMask(), local8940, local8945.targetParam);
                             return;
                         }
                     } else if (arg0 < 6900) {

@@ -29,7 +29,7 @@ public final class Static420 {
     public static void method5758(@OriginalArg(1) Component arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         if (Static156.aBoolean223) {
             @Pc(16) ParamType local16 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
-            if (Static84.method1661(arg0).method6217() && (Static717.anInt10822 & 0x20) != 0 && (local16 == null || arg0.param(local16.defaultint, Static610.anInt9329) != local16.defaultint)) {
+            if (Static84.method1661(arg0).isUseTarget() && (Static717.anInt10822 & 0x20) != 0 && (local16 == null || arg0.param(local16.defaultint, Static610.anInt9329) != local16.defaultint)) {
                 Static416.method5707(false, arg0.anInt3760, 0L, arg0.id, arg0.slot, Static153.aString27, 18, true, Static369.anInt4263, Static128.aString108 + " -> " + arg0.opBase, (long) (arg0.id << 0 | arg0.slot), false);
             }
         }
@@ -50,7 +50,7 @@ public final class Static420 {
                 Static416.method5707(false, arg0.anInt3760, (long) (local193 + 1), arg0.id, arg0.slot, local204, 20, true, Static372.method5292(local193, arg0), arg0.opBase, (long) (arg0.slot | arg0.id << 0), false);
             }
         }
-        if (!Static84.method1661(arg0).method6219()) {
+        if (!Static84.method1661(arg0).isPauseButton()) {
             return;
         }
         if (arg0.pauseText == null) {

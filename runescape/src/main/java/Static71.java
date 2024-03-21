@@ -65,7 +65,7 @@ public final class Static71 {
                         local134 = Static422.method5771();
                     }
                     @Pc(145) int local145 = local19.alpha;
-                    if (Static103.aBoolean195 && (Static84.method1661(local19).anInt6909 != 0 || local19.type == 0) && local145 > 127) {
+                    if (Static103.aBoolean195 && (Static84.method1661(local19).events != 0 || local19.type == 0) && local145 > 127) {
                         local145 = 127;
                     }
                     @Pc(216) int local216;

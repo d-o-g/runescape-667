@@ -20,7 +20,7 @@ public final class Static120 {
             local19.aComponent_14 = local8;
             Static472.method6420(local19);
         }
-        if (Static283.step != 11 || !Static84.method1661(local8).method6221(arg3 - 1)) {
+        if (Static283.step != 11 || !Static84.method1661(local8).isOpEnabled(arg3 - 1)) {
             return;
         }
         @Pc(64) ClientMessage local64;

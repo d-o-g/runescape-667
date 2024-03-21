@@ -30,7 +30,7 @@ public final class Static443 {
 
     @OriginalMember(owner = "client!nw", name = "a", descriptor = "(Lclient!hda;II)Ljava/lang/String;")
     public static String method5982(@OriginalArg(0) Component arg0, @OriginalArg(1) int arg1) {
-        if (!Static84.method1661(arg0).method6221(arg1) && arg0.onOp == null) {
+        if (!Static84.method1661(arg0).isOpEnabled(arg1) && arg0.onOp == null) {
             return null;
         } else if (arg0.ops == null || arg1 >= arg0.ops.length || arg0.ops[arg1] == null || arg0.ops[arg1].trim().length() == 0) {
             return Static103.aBoolean195 ? "Hidden-" + arg1 : null;

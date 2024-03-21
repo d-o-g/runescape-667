@@ -8,7 +8,7 @@ public final class Static380 {
 
     @OriginalMember(owner = "client!lv", name = "a", descriptor = "(Lclient!hda;B)Ljava/lang/String;")
     public static String method5359(@OriginalArg(0) Component arg0) {
-        if (Static84.method1661(arg0).method6216() == 0) {
+        if (Static84.method1661(arg0).getTargetMask() == 0) {
             return null;
         } else if (arg0.targetVerb == null || arg0.targetVerb.trim().length() == 0) {
             return Static103.aBoolean195 ? "Hidden-use" : null;

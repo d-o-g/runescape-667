@@ -6,6 +6,7 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.util.JagException;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
@@ -1184,10 +1185,10 @@ public final class Static293 {
                                                                 local644 = (long) local1413 + ((long) local100 << 32);
                                                                 local4597 = (ServerActiveProperties) Static291.A_HASH_TABLE___24.get(local644);
                                                                 if (local4597 != null) {
-                                                                    local4611 = new ServerActiveProperties(local4597.anInt6909, local1409);
+                                                                    local4611 = new ServerActiveProperties(local4597.events, local1409);
                                                                     local4597.unlink();
                                                                 } else if (local1413 == -1) {
-                                                                    local4611 = new ServerActiveProperties(Static145.method2412(local100).serverActiveProperties.anInt6909, local1409);
+                                                                    local4611 = new ServerActiveProperties(Static145.method2412(local100).serverActiveProperties.events, local1409);
                                                                 } else {
                                                                     local4611 = new ServerActiveProperties(0, local1409);
                                                                 }
@@ -1982,10 +1983,10 @@ public final class Static293 {
                                                                                 local644 = (long) local1413 + ((long) local100 << 32);
                                                                                 local4597 = (ServerActiveProperties) Static291.A_HASH_TABLE___24.get(local644);
                                                                                 if (local4597 != null) {
-                                                                                    local4611 = new ServerActiveProperties(local1409, local4597.anInt6904);
+                                                                                    local4611 = new ServerActiveProperties(local1409, local4597.targetParam);
                                                                                     local4597.unlink();
                                                                                 } else if (local1413 == -1) {
-                                                                                    local4611 = new ServerActiveProperties(local1409, Static145.method2412(local100).serverActiveProperties.anInt6904);
+                                                                                    local4611 = new ServerActiveProperties(local1409, Static145.method2412(local100).serverActiveProperties.targetParam);
                                                                                 } else {
                                                                                     local4611 = new ServerActiveProperties(local1409, -1);
                                                                                 }

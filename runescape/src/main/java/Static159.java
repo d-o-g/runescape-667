@@ -4,6 +4,7 @@ import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static159 {
 
@@ -37,8 +38,8 @@ public final class Static159 {
         }
         Static97.method1905(Static84.anInt1775 + local9, Static71.anInt1576 - -local7, Static407.anInt6288, arg0, Static682.anInt10295);
         Fonts.b12.render(Static71.anInt1576 + local7 + 3, Static84.anInt1775 - (-local9 + -14), LocalisedText.CHOOSEOPTION.localise(Static51.anInt1052), -1, -10660793);
-        @Pc(69) int local69 = Static189.aMouseMonitor_1.getRecordedX() + local7;
-        @Pc(76) int local76 = Static189.aMouseMonitor_1.getRecordedY() + local9;
+        @Pc(69) int local69 = MouseMonitor.instance.getRecordedX() + local7;
+        @Pc(76) int local76 = MouseMonitor.instance.getRecordedY() + local9;
         @Pc(80) int local80;
         @Pc(101) int local101;
         if (Static236.aBoolean304) {

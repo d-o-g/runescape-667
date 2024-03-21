@@ -1,12 +1,8 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static189 {
-
-    @OriginalMember(owner = "client!fr", name = "h", descriptor = "Lclient!fb;")
-    public static MouseMonitor aMouseMonitor_1;
 
     @OriginalMember(owner = "client!fr", name = "f", descriptor = "Lclient!hla;")
     public static final Class168 aClass168_2 = new Class168();

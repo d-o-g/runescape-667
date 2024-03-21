@@ -5,6 +5,7 @@ import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static679 {
 
@@ -35,8 +36,8 @@ public final class Static679 {
             if (!Static400.aBoolean622 && Static470.aClass2_Sub2_Sub16_10 != null) {
                 return Static470.aClass2_Sub2_Sub16_10.anInt7318;
             }
-            @Pc(28) int local28 = Static189.aMouseMonitor_1.getRecordedX();
-            @Pc(37) int local37 = Static189.aMouseMonitor_1.getRecordedY();
+            @Pc(28) int local28 = MouseMonitor.instance.getRecordedX();
+            @Pc(37) int local37 = MouseMonitor.instance.getRecordedY();
             @Pc(53) int local53;
             @Pc(55) int local55;
             @Pc(71) int local71;

@@ -8,6 +8,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.mouse.MouseLog;
+import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static84 {
 
@@ -445,12 +446,12 @@ public final class Static84 {
                             @Pc(308) boolean local308 = local6.clickMask && local6.type == 5 && local6.transparency == 0 && local6.skyBox < 0 && local6.anInt3760 == -1 && local6.anInt3745 == -1 && !local6.tiled && local6.angle2d == 0;
                             @Pc(310) boolean local310 = false;
                             @Pc(402) int local402;
-                            if (Static189.aMouseMonitor_1.getRecordedX() + local42 >= local30 && Static189.aMouseMonitor_1.getRecordedY() + local47 >= local32 && Static189.aMouseMonitor_1.getRecordedX() + local42 < local34 && Static189.aMouseMonitor_1.getRecordedY() + local47 < local36) {
+                            if (MouseMonitor.instance.getRecordedX() + local42 >= local30 && MouseMonitor.instance.getRecordedY() + local47 >= local32 && MouseMonitor.instance.getRecordedX() + local42 < local34 && MouseMonitor.instance.getRecordedY() + local47 < local36) {
                                 if (local308) {
                                     @Pc(353) Graphic local353 = local6.graphic(Static163.activeToolkit);
                                     if (local353 != null && local353.anInt3832 == local6.width && local353.anInt3833 == local6.height) {
-                                        @Pc(380) int local380 = Static189.aMouseMonitor_1.getRecordedX() + local42 - local19;
-                                        @Pc(388) int local388 = Static189.aMouseMonitor_1.getRecordedY() + local47 - local24;
+                                        @Pc(380) int local380 = MouseMonitor.instance.getRecordedX() + local42 - local19;
+                                        @Pc(388) int local388 = MouseMonitor.instance.getRecordedY() + local47 - local24;
                                         if (local388 >= 0 && local388 < local353.anIntArray303.length) {
                                             local402 = local353.anIntArray303[local388];
                                             if (local380 >= local402 && local380 <= local402 + local353.anIntArray302[local388]) {
@@ -475,7 +476,7 @@ public final class Static84 {
                                 Static420.method5758(local6, arg10 - local19, arg10 - local24);
                             }
                             @Pc(462) boolean local462 = false;
-                            if (Static189.aMouseMonitor_1.isLeftDown() && local310) {
+                            if (MouseMonitor.instance.isLeftDown() && local310) {
                                 local462 = true;
                             }
                             @Pc(474) boolean local474 = false;
@@ -670,20 +671,20 @@ public final class Static84 {
                                             }
                                             Static460.anInt6964 = 1;
                                             Static1.aBoolean821 = false;
-                                            Static378.anInt5941 = Static189.aMouseMonitor_1.getRecordedX();
-                                            Static150.anInt2631 = Static189.aMouseMonitor_1.getRecordedY();
+                                            Static378.anInt5941 = MouseMonitor.instance.getRecordedX();
+                                            Static150.anInt2631 = MouseMonitor.instance.getRecordedY();
                                             continue;
                                         }
                                         if (local462 && Static460.anInt6964 > 0) {
-                                            if (Static460.anInt6964 == 1 && (Static378.anInt5941 != Static189.aMouseMonitor_1.getRecordedX() || Static150.anInt2631 != Static189.aMouseMonitor_1.getRecordedY())) {
+                                            if (Static460.anInt6964 == 1 && (Static378.anInt5941 != MouseMonitor.instance.getRecordedX() || Static150.anInt2631 != MouseMonitor.instance.getRecordedY())) {
                                                 Static661.anInt6055 = Static164.anInt2809;
                                                 Static417.anInt6399 = Static615.anInt9389;
                                                 Static460.anInt6964 = 2;
                                             }
                                             if (Static460.anInt6964 == 2) {
                                                 Static1.aBoolean821 = true;
-                                                Static669.method8711(Static661.anInt6055 + (int) ((double) (Static378.anInt5941 - Static189.aMouseMonitor_1.getRecordedX()) * 2.0D / (double) Static30.aFloat106));
-                                                Static182.method2786(Static417.anInt6399 - (int) ((double) (Static150.anInt2631 - Static189.aMouseMonitor_1.getRecordedY()) * 2.0D / (double) Static30.aFloat106));
+                                                Static669.method8711(Static661.anInt6055 + (int) ((double) (Static378.anInt5941 - MouseMonitor.instance.getRecordedX()) * 2.0D / (double) Static30.aFloat106));
+                                                Static182.method2786(Static417.anInt6399 - (int) ((double) (Static150.anInt2631 - MouseMonitor.instance.getRecordedY()) * 2.0D / (double) Static30.aFloat106));
                                             }
                                             continue;
                                         }
@@ -699,7 +700,7 @@ public final class Static84 {
                                     }
                                     if (local6.clientcode == ComponentClientCode.WORLD_MAP_OVERVIEW) {
                                         if (local462) {
-                                            Static203.method3069(local6.width, local42 + Static189.aMouseMonitor_1.getRecordedX() - local19, local47 + Static189.aMouseMonitor_1.getRecordedY() - local24, local6.height);
+                                            Static203.method3069(local6.width, local42 + MouseMonitor.instance.getRecordedX() - local19, local47 + MouseMonitor.instance.getRecordedY() - local24, local6.height);
                                         }
                                         continue;
                                     }
@@ -724,8 +725,8 @@ public final class Static84 {
                                     local877 = new Node_Sub42();
                                     local877.aBoolean544 = true;
                                     local877.aComponent_14 = local6;
-                                    local877.anInt7218 = local42 + Static189.aMouseMonitor_1.getRecordedX() - local19;
-                                    local877.anInt7214 = local47 + Static189.aMouseMonitor_1.getRecordedY() - local24;
+                                    local877.anInt7218 = local42 + MouseMonitor.instance.getRecordedX() - local19;
+                                    local877.anInt7214 = local47 + MouseMonitor.instance.getRecordedY() - local24;
                                     local877.anObjectArray36 = local6.onClickRepeat;
                                     Static521.A_DEQUE___44.addLast(local877);
                                 }
@@ -735,8 +736,8 @@ public final class Static84 {
                                         local877 = new Node_Sub42();
                                         local877.aBoolean544 = true;
                                         local877.aComponent_14 = local6;
-                                        local877.anInt7218 = local42 + Static189.aMouseMonitor_1.getRecordedX() - local19;
-                                        local877.anInt7214 = local47 + Static189.aMouseMonitor_1.getRecordedY() - local24;
+                                        local877.anInt7218 = local42 + MouseMonitor.instance.getRecordedX() - local19;
+                                        local877.anInt7214 = local47 + MouseMonitor.instance.getRecordedY() - local24;
                                         local877.anObjectArray36 = local6.onRelease;
                                         Static59.A_DEQUE___33.addLast(local877);
                                     }
@@ -745,8 +746,8 @@ public final class Static84 {
                                     local877 = new Node_Sub42();
                                     local877.aBoolean544 = true;
                                     local877.aComponent_14 = local6;
-                                    local877.anInt7218 = local42 + Static189.aMouseMonitor_1.getRecordedX() - local19;
-                                    local877.anInt7214 = local47 + Static189.aMouseMonitor_1.getRecordedY() - local24;
+                                    local877.anInt7218 = local42 + MouseMonitor.instance.getRecordedX() - local19;
+                                    local877.anInt7214 = local47 + MouseMonitor.instance.getRecordedY() - local24;
                                     local877.anObjectArray36 = local6.onHold;
                                     Static521.A_DEQUE___44.addLast(local877);
                                 }
@@ -756,8 +757,8 @@ public final class Static84 {
                                         local877 = new Node_Sub42();
                                         local877.aBoolean544 = true;
                                         local877.aComponent_14 = local6;
-                                        local877.anInt7218 = local42 + Static189.aMouseMonitor_1.getRecordedX() - local19;
-                                        local877.anInt7214 = local47 + Static189.aMouseMonitor_1.getRecordedY() - local24;
+                                        local877.anInt7218 = local42 + MouseMonitor.instance.getRecordedX() - local19;
+                                        local877.anInt7214 = local47 + MouseMonitor.instance.getRecordedY() - local24;
                                         local877.anObjectArray36 = local6.onMouseOver;
                                         Static521.A_DEQUE___44.addLast(local877);
                                     }
@@ -766,8 +767,8 @@ public final class Static84 {
                                     local877 = new Node_Sub42();
                                     local877.aBoolean544 = true;
                                     local877.aComponent_14 = local6;
-                                    local877.anInt7218 = local42 + Static189.aMouseMonitor_1.getRecordedX() - local19;
-                                    local877.anInt7214 = local47 + Static189.aMouseMonitor_1.getRecordedY() - local24;
+                                    local877.anInt7218 = local42 + MouseMonitor.instance.getRecordedX() - local19;
+                                    local877.anInt7214 = local47 + MouseMonitor.instance.getRecordedY() - local24;
                                     local877.anObjectArray36 = local6.onMouseRepeat;
                                     Static521.A_DEQUE___44.addLast(local877);
                                 }
@@ -777,8 +778,8 @@ public final class Static84 {
                                         local877 = new Node_Sub42();
                                         local877.aBoolean544 = true;
                                         local877.aComponent_14 = local6;
-                                        local877.anInt7218 = local42 + Static189.aMouseMonitor_1.getRecordedX() - local19;
-                                        local877.anInt7214 = local47 + Static189.aMouseMonitor_1.getRecordedY() - local24;
+                                        local877.anInt7218 = local42 + MouseMonitor.instance.getRecordedX() - local19;
+                                        local877.anInt7214 = local47 + MouseMonitor.instance.getRecordedY() - local24;
                                         local877.anObjectArray36 = local6.onMouseLeave;
                                         Static59.A_DEQUE___33.addLast(local877);
                                     }

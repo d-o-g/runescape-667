@@ -22,6 +22,7 @@ import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.mouse.MouseMonitor;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -1802,11 +1803,11 @@ public final class Static472 {
                                         return;
                                     }
                                     if (arg0 == 3342) {
-                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.getRecordedX();
+                                        anIntArray578[anInt7142++] = MouseMonitor.instance.getRecordedX();
                                         return;
                                     }
                                     if (arg0 == 3343) {
-                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.getRecordedY();
+                                        anIntArray578[anInt7142++] = MouseMonitor.instance.getRecordedY();
                                         return;
                                     }
                                     if (arg0 == 3344) {
@@ -1839,9 +1840,9 @@ public final class Static472 {
                                         return;
                                     }
                                     if (arg0 == 3351) {
-                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.isLeftDown() ? 1 : 0;
-                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.isMiddleDown() ? 1 : 0;
-                                        anIntArray578[anInt7142++] = Static189.aMouseMonitor_1.isRightDown() ? 1 : 0;
+                                        anIntArray578[anInt7142++] = MouseMonitor.instance.isLeftDown() ? 1 : 0;
+                                        anIntArray578[anInt7142++] = MouseMonitor.instance.isMiddleDown() ? 1 : 0;
+                                        anIntArray578[anInt7142++] = MouseMonitor.instance.isRightDown() ? 1 : 0;
                                         return;
                                     }
                                 } else {
@@ -6400,8 +6401,8 @@ public final class Static472 {
                 local35 = Static210.aComponent_4.positionX;
                 local37 = Static210.aComponent_4.positionY;
             }
-            anIntArray580[0] = Static189.aMouseMonitor_1.getRecordedX() - local35;
-            anIntArray580[1] = Static189.aMouseMonitor_1.getRecordedY() - local37;
+            anIntArray580[0] = MouseMonitor.instance.getRecordedX() - local35;
+            anIntArray580[1] = MouseMonitor.instance.getRecordedY() - local37;
         }
         method6419(local5, 200000);
     }

@@ -2,6 +2,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.mouse.MouseLog;
+import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static443 {
 
@@ -10,8 +11,8 @@ public final class Static443 {
         if (Static377.anInt5930 == -1) {
             return;
         }
-        @Pc(13) int local13 = Static189.aMouseMonitor_1.getRecordedX();
-        @Pc(22) int local22 = Static189.aMouseMonitor_1.getRecordedY();
+        @Pc(13) int local13 = MouseMonitor.instance.getRecordedX();
+        @Pc(22) int local22 = MouseMonitor.instance.getRecordedY();
         @Pc(27) MouseLog local27 = (MouseLog) Static226.A_DEQUE___58.first();
         if (local27 != null) {
             local13 = local27.getX();

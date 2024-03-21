@@ -3,6 +3,7 @@ import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static603 {
 
@@ -23,8 +24,8 @@ public final class Static603 {
                 local30 = Static130.method2283();
                 local32 = Static422.method5771();
             }
-            @Pc(46) int local46 = local30 + Static189.aMouseMonitor_1.getRecordedX();
-            @Pc(52) int local52 = Static189.aMouseMonitor_1.getRecordedY() + local32;
+            @Pc(46) int local46 = local30 + MouseMonitor.instance.getRecordedX();
+            @Pc(52) int local52 = MouseMonitor.instance.getRecordedY() + local32;
             local46 -= Static378.anInt5941;
             local52 -= Static150.anInt2631;
             if (Static123.anInt2341 > local46) {
@@ -42,7 +43,7 @@ public final class Static603 {
             @Pc(119) int local119 = Static354.aComponent_8.anInt3809 + local46 - Static123.anInt2341;
             @Pc(127) int local127 = Static354.aComponent_8.anInt3768 + local52 - Static169.anInt2853;
             @Pc(197) Node_Sub42 local197;
-            if (Static189.aMouseMonitor_1.isDown()) {
+            if (MouseMonitor.instance.isDown()) {
                 if (InterfaceManager.dragSource.dragDeadTime < Static181.anInt3003) {
                     @Pc(141) int local141 = local46 - Static655.anInt9763;
                     @Pc(146) int local146 = local52 - Static115.anInt2258;

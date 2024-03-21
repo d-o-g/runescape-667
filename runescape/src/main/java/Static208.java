@@ -2,6 +2,7 @@ import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.mouse.MouseMonitor;
 
 import java.awt.Color;
 
@@ -38,12 +39,12 @@ public final class Static208 {
     @OriginalMember(owner = "client!gha", name = "a", descriptor = "(Z)V")
     public static void method3106() {
         Static334.aClass319_1.method8482();
-        Static189.aMouseMonitor_1.remove();
+        MouseMonitor.instance.remove();
         client.aClient1.method1641();
         Static434.aCanvas7.setBackground(Color.black);
         Static470.anInt7112 = -1;
         Static334.aClass319_1 = Static681.method8921(Static434.aCanvas7);
-        Static189.aMouseMonitor_1 = Static70.method1513(Static434.aCanvas7);
+        MouseMonitor.instance = MouseMonitor.create(Static434.aCanvas7);
     }
 
     @OriginalMember(owner = "client!gha", name = "a", descriptor = "(Lclient!eo;Z[[[BIB)Z")

@@ -18,6 +18,7 @@ import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.mouse.MouseMonitor;
 
 import java.awt.Rectangle;
 
@@ -160,8 +161,8 @@ public final class InterfaceManager {
                 }
 
                 if (dragging && aBoolean428) {
-                    local216 = local132 + Static189.aMouseMonitor_1.getRecordedX();
-                    local222 = local134 + Static189.aMouseMonitor_1.getRecordedY();
+                    local216 = local132 + MouseMonitor.instance.getRecordedX();
+                    local222 = local134 + MouseMonitor.instance.getRecordedY();
                     local222 -= Static150.anInt2631;
                     local216 -= Static378.anInt5941;
                     if (Static123.anInt2341 > local216) {

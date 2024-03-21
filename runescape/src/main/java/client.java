@@ -25,6 +25,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.mouse.MouseLog;
+import rs2.client.event.mouse.MouseMonitor;
 
 import java.awt.Canvas;
 import java.awt.Container;
@@ -706,7 +707,7 @@ public final class client extends GameShell {
         Static601.method7865();
         Static236.method3453();
         Static334.aClass319_1.method8481();
-        Static189.aMouseMonitor_1.record();
+        MouseMonitor.instance.record();
         if (Static163.activeToolkit != null) {
             Static163.activeToolkit.method7977((int) SystemTimer.safetime());
         }
@@ -733,7 +734,7 @@ public final class client extends GameShell {
             }
         }
         Static611.anInt9341 = 0;
-        for (@Pc(214) MouseLog local214 = Static189.aMouseMonitor_1.removeFirstLog(); local214 != null; local214 = Static189.aMouseMonitor_1.removeFirstLog()) {
+        for (@Pc(214) MouseLog local214 = MouseMonitor.instance.removeFirstLog(); local214 != null; local214 = MouseMonitor.instance.removeFirstLog()) {
             @Pc(222) int local222 = local214.getType();
             if (local222 == -1) {
                 Static677.A_DEQUE___76.addLast(local214);
@@ -832,7 +833,7 @@ public final class client extends GameShell {
         } catch (@Pc(183) Exception local183) {
         }
         Static334.aClass319_1 = Static681.method8921(Static434.aCanvas7);
-        Static189.aMouseMonitor_1 = Static70.method1513(Static434.aCanvas7);
+        MouseMonitor.instance = MouseMonitor.create(Static434.aCanvas7);
         try {
             if (SignLink.instance.cacheDat != null) {
                 cacheDat = new BufferedFile(SignLink.instance.cacheDat, 5200, 0);

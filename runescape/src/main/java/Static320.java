@@ -3,6 +3,7 @@ import com.jagex.core.datastruct.key.Class299;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.mouse.MouseLog;
+import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static320 {
 
@@ -87,8 +88,8 @@ public final class Static320 {
         @Pc(426) int local426;
         @Pc(428) int local428;
         if (local64 == -1) {
-            local317 = Static189.aMouseMonitor_1.getRecordedX();
-            local321 = Static189.aMouseMonitor_1.getRecordedY();
+            local317 = MouseMonitor.instance.getRecordedX();
+            local321 = MouseMonitor.instance.getRecordedY();
             @Pc(323) boolean local323 = false;
             if (Static139.aClass2_Sub2_Sub4_1 != null) {
                 if (local317 >= Static692.anInt10375 - 10 && local317 <= Static692.anInt10375 + Static85.anInt10675 + 10 && Static493.anInt7364 - 10 <= local321 && local321 <= Static493.anInt7364 + Static25.anInt598 + 10) {

@@ -1,5 +1,5 @@
 import com.jagex.IndexedImage;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ib")
-public final class Class14_Sub3 extends Class14 {
+public final class Font_Sub3 extends Font {
 
     @OriginalMember(owner = "client!ib", name = "x", descriptor = "Lclient!iaa;")
     public Toolkit_Sub2 aClass19_Sub2_4;
@@ -32,7 +32,7 @@ public final class Class14_Sub3 extends Class14 {
     public final int[] anIntArray321;
 
     @OriginalMember(owner = "client!ib", name = "<init>", descriptor = "(Lclient!iaa;Lclient!ve;[Lclient!wp;[I[I)V")
-    public Class14_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
+    public Font_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
         super(arg0, arg1);
         this.aClass19_Sub2_4 = arg0;
         this.aClass19_Sub2_4 = arg0;
@@ -51,42 +51,42 @@ public final class Class14_Sub3 extends Class14 {
 
     @OriginalMember(owner = "client!ib", name = "a", descriptor = "(CIIIZLclient!aa;II)V")
     @Override
-    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) ClippingMask arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
-        if (arg5 == null) {
-            this.fa(arg0, arg1, arg2, arg3, arg4);
+    protected void renderSymbol(@OriginalArg(0) char c, @OriginalArg(1) int x, @OriginalArg(2) int y, @OriginalArg(3) int colour, @OriginalArg(4) boolean shadow, @OriginalArg(5) ClippingMask mask, @OriginalArg(6) int offsetX, @OriginalArg(7) int offsetY) {
+        if (mask == null) {
+            this.fa(c, x, y, colour, shadow);
             return;
         }
-        arg1 += this.anIntArray322[arg0];
-        arg2 += this.anIntArray324[arg0];
-        @Pc(28) int local28 = this.anIntArray323[arg0];
-        @Pc(33) int local33 = this.anIntArray320[arg0];
+        x += this.anIntArray322[c];
+        y += this.anIntArray324[c];
+        @Pc(28) int local28 = this.anIntArray323[c];
+        @Pc(33) int local33 = this.anIntArray320[c];
         @Pc(37) int local37 = this.aClass19_Sub2_4.anInt4207;
-        @Pc(43) int local43 = arg1 + arg2 * local37;
+        @Pc(43) int local43 = x + y * local37;
         @Pc(47) int local47 = local37 - local28;
         @Pc(49) int local49 = 0;
         @Pc(51) int local51 = 0;
         @Pc(62) int local62;
-        if (arg2 < this.aClass19_Sub2_4.anInt4186) {
-            local62 = this.aClass19_Sub2_4.anInt4186 - arg2;
+        if (y < this.aClass19_Sub2_4.anInt4186) {
+            local62 = this.aClass19_Sub2_4.anInt4186 - y;
             local33 -= local62;
-            arg2 = this.aClass19_Sub2_4.anInt4186;
+            y = this.aClass19_Sub2_4.anInt4186;
             local51 = local62 * local28;
             local43 += local62 * local37;
         }
-        if (arg2 + local33 > this.aClass19_Sub2_4.anInt4196) {
-            local33 -= arg2 + local33 - this.aClass19_Sub2_4.anInt4196;
+        if (y + local33 > this.aClass19_Sub2_4.anInt4196) {
+            local33 -= y + local33 - this.aClass19_Sub2_4.anInt4196;
         }
-        if (arg1 < this.aClass19_Sub2_4.anInt4192) {
-            local62 = this.aClass19_Sub2_4.anInt4192 - arg1;
+        if (x < this.aClass19_Sub2_4.anInt4192) {
+            local62 = this.aClass19_Sub2_4.anInt4192 - x;
             local28 -= local62;
-            arg1 = this.aClass19_Sub2_4.anInt4192;
+            x = this.aClass19_Sub2_4.anInt4192;
             local51 += local62;
             local43 += local62;
             local49 = local62;
             local47 += local62;
         }
-        if (arg1 + local28 > this.aClass19_Sub2_4.anInt4200) {
-            local62 = arg1 + local28 - this.aClass19_Sub2_4.anInt4200;
+        if (x + local28 > this.aClass19_Sub2_4.anInt4200) {
+            local62 = x + local28 - this.aClass19_Sub2_4.anInt4200;
             local28 -= local62;
             local49 += local62;
             local47 += local62;
@@ -94,10 +94,10 @@ public final class Class14_Sub3 extends Class14 {
         if (local28 <= 0 || local33 <= 0) {
             return;
         }
-        if (arg4) {
-            this.method3824(this.aByteArrayArray11[arg0], this.aClass19_Sub2_4.anIntArray319, arg3, local51, local43, local28, local33, local47, local49, arg1, arg2, this.anIntArray323[arg0], arg5, arg6, arg7);
+        if (shadow) {
+            this.method3824(this.aByteArrayArray11[c], this.aClass19_Sub2_4.anIntArray319, colour, local51, local43, local28, local33, local47, local49, x, y, this.anIntArray323[c], mask, offsetX, offsetY);
         } else {
-            this.method3823(this.aByteArrayArray11[arg0], this.aClass19_Sub2_4.anIntArray319, this.anIntArray321, arg3, local51, local43, local28, local33, local47, local49, arg1, arg2, this.anIntArray323[arg0], arg5, arg6, arg7);
+            this.method3823(this.aByteArrayArray11[c], this.aClass19_Sub2_4.anIntArray319, this.anIntArray321, colour, local51, local43, local28, local33, local47, local49, x, y, this.anIntArray323[c], mask, offsetX, offsetY);
         }
     }
 
@@ -297,38 +297,38 @@ public final class Class14_Sub3 extends Class14 {
 
     @OriginalMember(owner = "client!ib", name = "fa", descriptor = "(CIIIZ)V")
     @Override
-    protected void fa(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
-        arg1 += this.anIntArray322[arg0];
-        arg2 += this.anIntArray324[arg0];
-        @Pc(18) int local18 = this.anIntArray323[arg0];
-        @Pc(23) int local23 = this.anIntArray320[arg0];
+    protected void fa(@OriginalArg(0) char c, @OriginalArg(1) int x, @OriginalArg(2) int y, @OriginalArg(3) int colour, @OriginalArg(4) boolean shadow) {
+        x += this.anIntArray322[c];
+        y += this.anIntArray324[c];
+        @Pc(18) int local18 = this.anIntArray323[c];
+        @Pc(23) int local23 = this.anIntArray320[c];
         @Pc(27) int local27 = this.aClass19_Sub2_4.anInt4207;
-        @Pc(33) int local33 = arg1 + arg2 * local27;
+        @Pc(33) int local33 = x + y * local27;
         @Pc(37) int local37 = local27 - local18;
         @Pc(39) int local39 = 0;
         @Pc(41) int local41 = 0;
         @Pc(52) int local52;
-        if (arg2 < this.aClass19_Sub2_4.anInt4186) {
-            local52 = this.aClass19_Sub2_4.anInt4186 - arg2;
+        if (y < this.aClass19_Sub2_4.anInt4186) {
+            local52 = this.aClass19_Sub2_4.anInt4186 - y;
             local23 -= local52;
-            arg2 = this.aClass19_Sub2_4.anInt4186;
+            y = this.aClass19_Sub2_4.anInt4186;
             local41 += local52 * local18;
             local33 += local52 * local27;
         }
-        if (arg2 + local23 > this.aClass19_Sub2_4.anInt4196) {
-            local23 -= arg2 + local23 - this.aClass19_Sub2_4.anInt4196;
+        if (y + local23 > this.aClass19_Sub2_4.anInt4196) {
+            local23 -= y + local23 - this.aClass19_Sub2_4.anInt4196;
         }
-        if (arg1 < this.aClass19_Sub2_4.anInt4192) {
-            local52 = this.aClass19_Sub2_4.anInt4192 - arg1;
+        if (x < this.aClass19_Sub2_4.anInt4192) {
+            local52 = this.aClass19_Sub2_4.anInt4192 - x;
             local18 -= local52;
-            arg1 = this.aClass19_Sub2_4.anInt4192;
+            x = this.aClass19_Sub2_4.anInt4192;
             local41 += local52;
             local33 += local52;
             local39 += local52;
             local37 += local52;
         }
-        if (arg1 + local18 > this.aClass19_Sub2_4.anInt4200) {
-            local52 = arg1 + local18 - this.aClass19_Sub2_4.anInt4200;
+        if (x + local18 > this.aClass19_Sub2_4.anInt4200) {
+            local52 = x + local18 - this.aClass19_Sub2_4.anInt4200;
             local18 -= local52;
             local39 += local52;
             local37 += local52;
@@ -336,10 +336,10 @@ public final class Class14_Sub3 extends Class14 {
         if (local18 <= 0 || local23 <= 0) {
             return;
         }
-        if (arg4) {
-            this.method3821(this.aByteArrayArray11[arg0], this.aClass19_Sub2_4.anIntArray319, arg3, local41, local33, local18, local23, local37, local39);
+        if (shadow) {
+            this.method3821(this.aByteArrayArray11[c], this.aClass19_Sub2_4.anIntArray319, colour, local41, local33, local18, local23, local37, local39);
         } else {
-            this.method3822(this.aByteArrayArray11[arg0], this.aClass19_Sub2_4.anIntArray319, this.anIntArray321, local41, local33, local18, local23, local37, local39);
+            this.method3822(this.aByteArrayArray11[c], this.aClass19_Sub2_4.anIntArray319, this.anIntArray321, local41, local33, local18, local23, local37, local39);
         }
     }
 }

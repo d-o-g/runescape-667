@@ -6,7 +6,7 @@ import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.datastruct.ref.key.KeyedReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
@@ -138,7 +138,7 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(ILclient!ha;Lclient!ha;Lclient!ju;ZIIZILclient!da;II)Lclient!st;")
-    public Sprite sprite(@OriginalArg(0) int outline, @OriginalArg(1) Toolkit scratchToolkit, @OriginalArg(2) Toolkit realToolkit, @OriginalArg(3) PlayerModel useAppearance, @OriginalArg(4) boolean temporary, @OriginalArg(5) int graphicShadow, @OriginalArg(6) int invCount, @OriginalArg(7) boolean arg7, @OriginalArg(8) int objNumMode, @OriginalArg(9) Class14 arg9, @OriginalArg(10) int objId) {
+    public Sprite sprite(@OriginalArg(0) int outline, @OriginalArg(1) Toolkit scratchToolkit, @OriginalArg(2) Toolkit realToolkit, @OriginalArg(3) PlayerModel useAppearance, @OriginalArg(4) boolean temporary, @OriginalArg(5) int graphicShadow, @OriginalArg(6) int invCount, @OriginalArg(7) boolean arg7, @OriginalArg(8) int objNumMode, @OriginalArg(9) Font arg9, @OriginalArg(10) int objId) {
         @Pc(24) Sprite cachedSprite = this.getCachedSprite(useAppearance, realToolkit, objNumMode, objId, outline, invCount, graphicShadow);
         if (cachedSprite != null) {
             return cachedSprite;

@@ -23,7 +23,7 @@ public final class Static515 {
             arg6 = arg3;
         }
         @Pc(41) String local41 = Static192.method2874(arg10);
-        Static180.aClass14_3.method8827(arg6, arg2, local41, arg8 + 3, Static186.aSpriteArray5, Static460.anIntArray554);
+        Static180.aFont_3.render(arg6, 0, arg2, local41, arg8 + 3, Static186.aSpriteArray5, Static460.anIntArray554);
     }
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(BILclient!ha;III)V")

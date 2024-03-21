@@ -1,5 +1,5 @@
 import com.jagex.IndexedImage;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!h")
-public final class h extends Class14 implements Interface5 {
+public final class h extends Font implements Interface5 {
 
     @OriginalMember(owner = "client!h", name = "nativeid", descriptor = "J")
     public long nativeid;
@@ -37,15 +37,15 @@ public final class h extends Class14 implements Interface5 {
 
     @OriginalMember(owner = "client!h", name = "a", descriptor = "(CIIIZLclient!aa;II)V")
     @Override
-    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) ClippingMask arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
-        this.NA(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+    protected void renderSymbol(@OriginalArg(0) char c, @OriginalArg(1) int x, @OriginalArg(2) int y, @OriginalArg(3) int colour, @OriginalArg(4) boolean shadow, @OriginalArg(5) ClippingMask mask, @OriginalArg(6) int offsetX, @OriginalArg(7) int offsetY) {
+        this.NA(c, x, y, colour, shadow, mask, offsetX, offsetY);
     }
 
     @OriginalMember(owner = "client!h", name = "JA", descriptor = "(Lclient!oa;Lclient!ya;[[B[I[I[I[I)V")
     public native void JA(@OriginalArg(0) oa arg0, @OriginalArg(1) ya arg1, @OriginalArg(2) byte[][] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6);
 
     @OriginalMember(owner = "client!h", name = "fa", descriptor = "(CIIIZ)V")
-    protected native void fa(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4);
+    protected native void fa(@OriginalArg(0) char c, @OriginalArg(1) int x, @OriginalArg(2) int y, @OriginalArg(3) int colour, @OriginalArg(4) boolean shadow);
 
     @OriginalMember(owner = "client!h", name = "NA", descriptor = "(CIIIZLclient!aa;II)V")
     public native void NA(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) ClippingMask arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7);

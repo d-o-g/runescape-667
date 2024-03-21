@@ -60,7 +60,7 @@ public final class Static87 {
             Static1.aSprite_42.render(arg5, arg4);
             Static608.aSprite_41.render(arg0 + arg5 - Static608.aSprite_41.getWidth(), arg4);
         }
-        Static180.aClass14_3.method8829(arg5 + 3, arg4 + 14, arg2, -1, -16777216 | Static563.anInt8455);
+        Static180.aFont_3.render(arg5 + 3, arg4 + 14, arg2, -1, -16777216 | Static563.anInt8455);
         arg3.aa(arg5, arg4 + 20, arg0, arg1 - 20, -Static514.anInt7677 + 255 << 24 | Static719.anInt10504, 1);
     }
 

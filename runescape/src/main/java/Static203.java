@@ -33,8 +33,8 @@ public final class Static203 {
         Static441.aSpriteArray10 = null;
         Static558.aSpriteArray7 = null;
         Static174.aSpriteArray4 = null;
-        Static665.aClass14_12 = null;
-        Static437.aClass14_9 = null;
+        Static665.aFont_12 = null;
+        Static437.aFont_9 = null;
         Static12.aSprite_27 = null;
         Static119.aSpriteArray3 = null;
         Static291.aSpriteArray8 = null;
@@ -42,7 +42,7 @@ public final class Static203 {
         Static34.aSpriteArray2 = null;
         Static517.aSprite_32 = null;
         Static355.aSpriteArray9 = null;
-        Static180.aClass14_3 = null;
+        Static180.aFont_3 = null;
         Static679.aSpriteArray14 = null;
         Static691.aSpriteArray15 = null;
         Static28.aSpriteArray1 = null;

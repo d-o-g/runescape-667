@@ -1,4 +1,4 @@
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static180 {
 
     @OriginalMember(owner = "client!fka", name = "l", descriptor = "Lclient!da;")
-    public static Class14 aClass14_3;
+    public static Font aFont_3;
 
     @OriginalMember(owner = "client!fka", name = "o", descriptor = "Lclient!wk;")
     public static Class403 aClass403_3;

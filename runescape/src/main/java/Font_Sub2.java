@@ -1,5 +1,5 @@
 import com.jagex.IndexedImage;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import jaggl.OpenGL;
@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gs")
-public final class Class14_Sub2 extends Class14 {
+public final class Font_Sub2 extends Font {
 
     @OriginalMember(owner = "client!gs", name = "z", descriptor = "Lclient!qha;")
     public final Toolkit_Sub3 aClass19_Sub3_16;
@@ -24,7 +24,7 @@ public final class Class14_Sub2 extends Class14 {
     public final Class36 aClass36_4;
 
     @OriginalMember(owner = "client!gs", name = "<init>", descriptor = "(Lclient!qha;Lclient!ve;[Lclient!wp;Z)V")
-    public Class14_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
+    public Font_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
         super(arg0, arg1);
         this.aClass19_Sub3_16 = arg0;
         @Pc(8) int local8 = 0;
@@ -151,32 +151,32 @@ public final class Class14_Sub2 extends Class14 {
 
     @OriginalMember(owner = "client!gs", name = "fa", descriptor = "(CIIIZ)V")
     @Override
-    protected void fa(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    protected void fa(@OriginalArg(0) char c, @OriginalArg(1) int x, @OriginalArg(2) int y, @OriginalArg(3) int colour, @OriginalArg(4) boolean shadow) {
         this.aClass19_Sub3_16.method6974();
         this.aClass19_Sub3_16.method7001(this.aClass93_Sub2_Sub1_1);
-        if (this.aBoolean275 || arg4) {
+        if (this.aBoolean275 || shadow) {
             this.aClass19_Sub3_16.method7031(8448, 7681);
             this.aClass19_Sub3_16.method7021(34168, 768, 0);
         } else {
             this.aClass19_Sub3_16.method7031(7681, 7681);
         }
-        OpenGL.glColor4ub((byte) (arg3 >> 16), (byte) (arg3 >> 8), (byte) arg3, (byte) (arg3 >> 24));
-        OpenGL.glTranslatef((float) arg1, (float) arg2, 0.0F);
-        this.aClass36_4.method1005(arg0);
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
+        OpenGL.glTranslatef((float) x, (float) y, 0.0F);
+        this.aClass36_4.method1005(c);
         OpenGL.glLoadIdentity();
-        if (this.aBoolean275 || arg4) {
+        if (this.aBoolean275 || shadow) {
             this.aClass19_Sub3_16.method7021(5890, 768, 0);
         }
     }
 
     @OriginalMember(owner = "client!gs", name = "a", descriptor = "(CIIIZLclient!aa;II)V")
     @Override
-    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) ClippingMask arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
-        @Pc(2) ClippingMask_Sub3 local2 = (ClippingMask_Sub3) arg5;
+    protected void renderSymbol(@OriginalArg(0) char c, @OriginalArg(1) int x, @OriginalArg(2) int y, @OriginalArg(3) int colour, @OriginalArg(4) boolean shadow, @OriginalArg(5) ClippingMask mask, @OriginalArg(6) int offsetX, @OriginalArg(7) int offsetY) {
+        @Pc(2) ClippingMask_Sub3 local2 = (ClippingMask_Sub3) mask;
         @Pc(5) Class93_Sub2_Sub1 local5 = local2.aClass93_Sub2_Sub1_5;
         this.aClass19_Sub3_16.method6974();
         this.aClass19_Sub3_16.method7001(this.aClass93_Sub2_Sub1_1);
-        if (this.aBoolean275 || arg4) {
+        if (this.aBoolean275 || shadow) {
             this.aClass19_Sub3_16.method7031(8448, 7681);
             this.aClass19_Sub3_16.method7021(34168, 768, 0);
         } else {
@@ -190,13 +190,13 @@ public final class Class14_Sub2 extends Class14 {
         OpenGL.glTexGeni(OpenGL.GL_T, OpenGL.GL_TEXTURE_GEN_MODE, OpenGL.GL_EYE_LINEAR);
         @Pc(78) float local78 = local5.aFloat67 / (float) local5.anInt3259;
         @Pc(85) float local85 = local5.aFloat68 / (float) local5.anInt3257;
-        OpenGL.glTexGenfv(OpenGL.GL_S, OpenGL.GL_EYE_PLANE, new float[]{local78, 0.0F, 0.0F, (float) -arg6 * local78}, 0);
-        OpenGL.glTexGenfv(OpenGL.GL_T, OpenGL.GL_EYE_PLANE, new float[]{0.0F, local85, 0.0F, (float) -arg7 * local85}, 0);
+        OpenGL.glTexGenfv(OpenGL.GL_S, OpenGL.GL_EYE_PLANE, new float[]{local78, 0.0F, 0.0F, (float) -offsetX * local78}, 0);
+        OpenGL.glTexGenfv(OpenGL.GL_T, OpenGL.GL_EYE_PLANE, new float[]{0.0F, local85, 0.0F, (float) -offsetY * local85}, 0);
         OpenGL.glEnable(OpenGL.GL_TEXTURE_GEN_S);
         OpenGL.glEnable(OpenGL.GL_TEXTURE_GEN_T);
-        OpenGL.glColor4ub((byte) (arg3 >> 16), (byte) (arg3 >> 8), (byte) arg3, (byte) (arg3 >> 24));
-        OpenGL.glTranslatef((float) arg1, (float) arg2, 0.0F);
-        this.aClass36_4.method1005(arg0);
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
+        OpenGL.glTranslatef((float) x, (float) y, 0.0F);
+        this.aClass36_4.method1005(c);
         OpenGL.glLoadIdentity();
         OpenGL.glDisable(OpenGL.GL_TEXTURE_GEN_S);
         OpenGL.glDisable(OpenGL.GL_TEXTURE_GEN_T);
@@ -204,7 +204,7 @@ public final class Class14_Sub2 extends Class14 {
         this.aClass19_Sub3_16.method7031(8448, 8448);
         this.aClass19_Sub3_16.method7001((Class93) null);
         this.aClass19_Sub3_16.method7014(0);
-        if (this.aBoolean275 || arg4) {
+        if (this.aBoolean275 || shadow) {
             this.aClass19_Sub3_16.method7021(5890, 768, 0);
         }
     }

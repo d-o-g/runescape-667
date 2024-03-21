@@ -1,6 +1,6 @@
 import com.jagex.core.datastruct.key.Class331;
 import com.jagex.core.constants.ModeGame;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
@@ -91,14 +91,14 @@ public final class Static556 {
             local63 = local63 + "<col=ffffff> / " + (Static594.anInt8777 - 2) + LocalisedText.MOREOPTIONS.localise(Static51.anInt1052);
         }
         if (Static605.aClass158_15 != null) {
-            @Pc(232) Class14 local232 = Static605.aClass158_15.method3403(arg0);
+            @Pc(232) Font local232 = Static605.aClass158_15.method3403(arg0);
             if (local232 == null) {
-                local232 = Static180.aClass14_3;
+                local232 = Static180.aFont_3;
             }
-            local232.method8836(Static329.anIntArray163, Static605.aClass158_15.anInt3818, Static605.aClass158_15.anInt3802, Static460.anIntArray554, Static605.aClass158_15.anInt3779, Static605.aClass158_15.anInt3746, Static493.aRandom1, local63, Static366.anInt5852, Static605.aClass158_15.anInt3798, Static186.aSpriteArray5, Static178.anInt2947, Static157.anInt2777, Static605.aClass158_15.anInt3814);
+            local232.renderRandom(Static329.anIntArray163, Static605.aClass158_15.anInt3818, Static605.aClass158_15.anInt3802, Static460.anIntArray554, Static605.aClass158_15.anInt3779, Static605.aClass158_15.anInt3746, Static493.aRandom1, local63, Static366.anInt5852, Static605.aClass158_15.anInt3798, Static186.aSpriteArray5, Static178.anInt2947, Static157.anInt2777, Static605.aClass158_15.anInt3814);
             Static585.method7670(Static329.anIntArray163[2], Static329.anIntArray163[0], Static329.anIntArray163[3], Static329.anIntArray163[1]);
         } else if (Static71.aClass158_2 != null && Static392.aModeGame_4 == ModeGame.RUNESCAPE) {
-            @Pc(299) int local299 = Static180.aClass14_3.method8816(Static186.aSpriteArray5, Static178.anInt2947, Static192.anInt3123 + 16, local63, Static460.anIntArray554, Static493.aRandom1, Static725.anInt10936 + 4);
+            @Pc(299) int local299 = Static180.aFont_3.renderRandom(Static186.aSpriteArray5, Static178.anInt2947, 0xFFFFFF, Static192.anInt3123 + 16, local63, Static460.anIntArray554, 0, Static493.aRandom1, Static725.anInt10936 + 4);
             Static585.method7670(local299 + Static42.aFontMetrics_4.stringWidth(local63), Static725.anInt10936 - -4, 16, Static192.anInt3123);
         }
     }

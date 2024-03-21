@@ -61,7 +61,7 @@ public final class Static232 {
         if (local49 != null) {
             local154 = local154 + Static72.method1527(local49);
         }
-        Static180.aClass14_3.method8827(arg7, arg4, local154, arg9 + 3, Static186.aSpriteArray5, Static460.anIntArray554);
+        Static180.aFont_3.render(arg7, 0, arg4, local154, arg9 + 3, Static186.aSpriteArray5, Static460.anIntArray554);
         if (arg6.aBoolean553) {
             Static517.aSprite_32.render(arg9 + Static42.aFontMetrics_4.stringWidth(local154) + 5, arg4 + -12);
         }

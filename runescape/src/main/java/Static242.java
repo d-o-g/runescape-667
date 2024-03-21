@@ -1,4 +1,4 @@
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static242 {
 
     @OriginalMember(owner = "client!hj", name = "k", descriptor = "Lclient!da;")
-    public static Class14 aClass14_7;
+    public static Font aFont_7;
 
     @OriginalMember(owner = "client!hj", name = "b", descriptor = "Ljava/lang/Thread;")
     public static Thread aThread1;

@@ -1,4 +1,4 @@
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -20,5 +20,5 @@ public final class Static665 {
     public static Environment[][] aEnvironmentArrayArray1;
 
     @OriginalMember(owner = "client!vb", name = "y", descriptor = "Lclient!da;")
-    public static Class14 aClass14_12;
+    public static Font aFont_12;
 }

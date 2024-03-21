@@ -6,7 +6,7 @@ import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.Animator;
 import com.jagex.graphics.Matrix;
@@ -525,7 +525,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
-    public int[] sprite(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) PlayerModel appearance, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Class14 font, @OriginalArg(9) int outline) {
+    public int[] sprite(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) PlayerModel appearance, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Font font, @OriginalArg(9) int outline) {
         @Pc(14) Mesh mesh = Mesh.load(this.mesh, this.myList.meshes);
         if (mesh == null) {
             return null;
@@ -651,7 +651,7 @@ public final class ObjType {
         }
 
         if (objNumMode == SHOWCOUNT_ALWAYS || objNumMode == SHOWCOUNT_IFNOT1 && (this.stackable == ObjStackability.ALWAYS || invCount != 1) && invCount != -1) {
-            font.method8829(0, 9, this.formatAmount(invCount), 0xFF000001, 0xFFFFFF00);
+            font.render(0, 9, this.formatAmount(invCount), 0xFF000001, 0xFFFFFF00);
         }
 
         image = scratchToolkit.na(0, 0, 36, 32);

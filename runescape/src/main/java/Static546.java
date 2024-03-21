@@ -60,14 +60,14 @@ public final class Static546 {
                 for (@Pc(139) int local139 = 0; local139 < local128.length; local139++) {
                     @Pc(147) int local147 = local139 * local137 + 8;
                     arg0.KA(local147 + local7, local9, local147 + local7 + local137 - 8, local9 + 350);
-                    Static437.aClass14_9.method8829(local7 + local147, -Static694.aFontMetrics_13.paddingBottom + -2 + local9 + 350 + -Static644.anInt9608 + -((local119 + -Static213.anInt3471) * Static161.anInt2797), Static386.method5439(local128[local139]), -16777216, -1);
+                    Static437.aFont_9.render(local7 + local147, -Static694.aFontMetrics_13.paddingBottom + -2 + local9 + 350 + -Static644.anInt9608 + -((local119 + -Static213.anInt3471) * Static161.anInt2797), Static386.method5439(local128[local139]), -16777216, -1);
                 }
             }
         }
-        Static665.aClass14_12.method8834(Static680.anInt10289 + local7 - 25, "Build: 667", -1, -16777216, local9 + 350 - 20);
+        Static665.aFont_12.render(Static680.anInt10289 + local7 - 25, "Build: 667", -1, -16777216, local9 + 350 - 20);
         arg0.KA(local7, local9, Static680.anInt10289 + local7, local9 + 350);
-        arg0.method7991(local9 + 350 - Static644.anInt9608, -1, local7, Static680.anInt10289);
-        Static180.aClass14_3.method8829(local7 + 10, local9 - (Static42.aFontMetrics_4.paddingBottom + -350 + 1), "--> " + Static386.method5439(Static110.aString19), -16777216, -1);
+        arg0.horizontalLine(local9 + 350 - Static644.anInt9608, -1, local7, Static680.anInt10289);
+        Static180.aFont_3.render(local7 + 10, local9 - (Static42.aFontMetrics_4.paddingBottom + -350 + 1), "--> " + Static386.method5439(Static110.aString19), -16777216, -1);
         if (-29 <= -49) {
             anInt8244 = -2;
         }

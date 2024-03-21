@@ -39,11 +39,11 @@ public final class Static185 {
                     if (local26 == 0) {
                         arg0.method7998(4, arg5, local45, arg4);
                     } else if (local26 == 1) {
-                        arg0.method7991(arg5, local45, arg4, 4);
+                        arg0.horizontalLine(arg5, local45, arg4, 4);
                     } else if (local26 == 2) {
                         arg0.method7998(4, arg5, local45, arg4 + 3);
                     } else if (local26 == 3) {
-                        arg0.method7991(arg5 + 3, local45, arg4, 4);
+                        arg0.horizontalLine(arg5 + 3, local45, arg4, 4);
                     }
                 }
                 if (local30 == 3) {
@@ -59,11 +59,11 @@ public final class Static185 {
                 }
                 if (local30 == 2) {
                     if (local26 == 0) {
-                        arg0.method7991(arg5, local45, arg4, 4);
+                        arg0.horizontalLine(arg5, local45, arg4, 4);
                     } else if (local26 == 1) {
                         arg0.method7998(4, arg5, local45, arg4 + 3);
                     } else if (local26 == 2) {
-                        arg0.method7991(arg5 + 3, local45, arg4, 4);
+                        arg0.horizontalLine(arg5 + 3, local45, arg4, 4);
                     } else if (local26 == 3) {
                         arg0.method7998(4, arg5, local45, arg4);
                     }

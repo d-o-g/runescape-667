@@ -1,5 +1,5 @@
 import com.jagex.IndexedImage;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import jaclib.memory.Buffer;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!aja")
-public final class Class14_Sub1 extends Class14 {
+public final class Font_Sub1 extends Font {
 
     @OriginalMember(owner = "client!aja", name = "y", descriptor = "Lclient!am;")
     public final Toolkit_Sub1 aClass19_Sub1_2;
@@ -25,7 +25,7 @@ public final class Class14_Sub1 extends Class14 {
     public final Interface16 anInterface16_1;
 
     @OriginalMember(owner = "client!aja", name = "<init>", descriptor = "(Lclient!am;Lclient!ve;[Lclient!wp;Z)V")
-    public Class14_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
+    public Font_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
         super(arg0, arg1);
         this.aClass19_Sub1_2 = arg0;
         @Pc(8) int local8 = 0;
@@ -203,28 +203,28 @@ public final class Class14_Sub1 extends Class14 {
 
     @OriginalMember(owner = "client!aja", name = "a", descriptor = "(CIIIZLclient!aa;II)V")
     @Override
-    protected void method8817(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) ClippingMask arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+    protected void renderSymbol(@OriginalArg(0) char c, @OriginalArg(1) int x, @OriginalArg(2) int y, @OriginalArg(3) int colour, @OriginalArg(4) boolean shadow, @OriginalArg(5) ClippingMask mask, @OriginalArg(6) int offsetX, @OriginalArg(7) int offsetY) {
     }
 
     @OriginalMember(owner = "client!aja", name = "fa", descriptor = "(CIIIZ)V")
     @Override
-    protected void fa(@OriginalArg(0) char arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    protected void fa(@OriginalArg(0) char c, @OriginalArg(1) int x, @OriginalArg(2) int y, @OriginalArg(3) int colour, @OriginalArg(4) boolean shadow) {
         this.aClass19_Sub1_2.method8064();
         this.aClass19_Sub1_2.method8088(this.anInterface18_1);
-        if (this.aBoolean19 || arg4) {
+        if (this.aBoolean19 || shadow) {
             this.aClass19_Sub1_2.method8094(Static209.aClass121_4, Static185.aClass121_3);
             this.aClass19_Sub1_2.method8080(0, Static454.aClass168_5);
-            this.aClass19_Sub1_2.method8112(arg3);
+            this.aClass19_Sub1_2.method8112(colour);
         } else {
             this.aClass19_Sub1_2.method8094(Static185.aClass121_3, Static185.aClass121_3);
         }
         @Pc(43) Matrix_Sub1 local43 = this.aClass19_Sub1_2.method8040();
-        local43.method7125(arg1, arg2, 0);
+        local43.method7125(x, y, 0);
         this.aClass19_Sub1_2.method8042();
         this.aClass19_Sub1_2.method8130(0, this.anInterface16_1);
         this.aClass19_Sub1_2.method8114(this.aClass19_Sub1_2.aClass244_17);
-        this.aClass19_Sub1_2.method8079(Static694.aClass131_6, arg0 * 4, 2);
-        if (this.aBoolean19 || arg4) {
+        this.aClass19_Sub1_2.method8079(Static694.aClass131_6, c * 4, 2);
+        if (this.aBoolean19 || shadow) {
             this.aClass19_Sub1_2.method8080(0, Static189.aClass168_2);
         }
     }

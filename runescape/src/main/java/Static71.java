@@ -1,7 +1,7 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.LocalisedText;
@@ -206,7 +206,7 @@ public final class Static71 {
                                     if (Static652.anInt9712 < 20) {
                                         local744 = -65536;
                                     }
-                                    Static437.aClass14_9.method8834(local317, "Fps:" + Static652.anInt9712, local744, -1, local323);
+                                    Static437.aFont_9.render(local317, "Fps:" + Static652.anInt9712, local744, -1, local323);
                                     local323 += 15;
                                     @Pc(768) Runtime local768 = Runtime.getRuntime();
                                     local777 = (int) ((local768.totalMemory() - local768.freeMemory()) / 1024L);
@@ -224,14 +224,14 @@ public final class Static71 {
                                         }
                                         local779 = -65536;
                                     }
-                                    Static437.aClass14_9.method8834(local317, "Mem:" + local777 + "k", local779, -1, local323);
+                                    Static437.aFont_9.render(local317, "Mem:" + local777 + "k", local779, -1, local323);
                                     local323 += 15;
-                                    Static437.aClass14_9.method8834(local317, "Game: In:" + Static405.A_SERVER_CONNECTION___2.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___2.writeRate + "B/s", -256, -1, local323);
+                                    Static437.aFont_9.render(local317, "Game: In:" + Static405.A_SERVER_CONNECTION___2.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___2.writeRate + "B/s", -256, -1, local323);
                                     local323 += 15;
-                                    Static437.aClass14_9.method8834(local317, "Lobby: In:" + Static405.A_SERVER_CONNECTION___1.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___1.writeRate + "B/s", -256, -1, local323);
+                                    Static437.aFont_9.render(local317, "Lobby: In:" + Static405.A_SERVER_CONNECTION___1.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___1.writeRate + "B/s", -256, -1, local323);
                                     local323 += 15;
                                     local792 = Static163.activeToolkit.E() / 1024;
-                                    Static437.aClass14_9.method8834(local317, "Offheap:" + local792 + "k", local792 > 65536 ? -65536 : -256, -1, local323);
+                                    Static437.aFont_9.render(local317, "Offheap:" + local792 + "k", local792 > 65536 ? -65536 : -256, -1, local323);
                                     local323 += 15;
                                     local936 = 0;
                                     local938 = 0;
@@ -246,17 +246,17 @@ public final class Static71 {
                                     @Pc(986) int local986 = local940 * 100 / local936;
                                     @Pc(992) int local992 = local938 * 10000 / local936;
                                     @Pc(1018) String local1018 = "Cache:" + Static573.method7571(0, true, (long) local992, 2) + "% (" + local986 + "%)";
-                                    Static665.aClass14_12.method8834(local317, local1018, -256, -1, local323);
+                                    Static665.aFont_12.render(local317, local1018, -256, -1, local323);
                                     local323 += 12;
                                 }
                                 if (Static530.anInt8093 > 0) {
-                                    Static665.aClass14_12.method8834(local317, "Particles: " + Static111.anInt2220 + " / " + Static530.anInt8093, -256, -1, local323);
+                                    Static665.aFont_12.render(local317, "Particles: " + Static111.anInt2220 + " / " + Static530.anInt8093, -256, -1, local323);
                                 }
                                 local323 += 12;
                                 if (Static354.aBoolean440) {
-                                    Static665.aClass14_12.method8834(local317, "Polys: " + Static163.activeToolkit.I() + " Models: " + Static163.activeToolkit.M(), -256, -1, local323);
+                                    Static665.aFont_12.render(local317, "Polys: " + Static163.activeToolkit.I() + " Models: " + Static163.activeToolkit.M(), -256, -1, local323);
                                     local323 += 12;
-                                    Static665.aClass14_12.method8834(local317, "Ls: " + Static606.anInt8954 + " La: " + Static577.anInt8587 + " NPC: " + Static480.anInt7206 + " Pl: " + Static179.anInt2984, -256, -1, local323);
+                                    Static665.aFont_12.render(local317, "Ls: " + Static606.anInt8954 + " La: " + Static577.anInt8587 + " NPC: " + Static480.anInt7206 + " Pl: " + Static179.anInt2984, -256, -1, local323);
                                     Static126.method2228();
                                     local323 += 12;
                                 }
@@ -324,7 +324,7 @@ public final class Static71 {
                             } else {
                                 @Pc(1543) ObjType local1543;
                                 if (local19.anInt3820 == 4) {
-                                    @Pc(1514) Class14 local1514 = local19.method3403(Static163.activeToolkit);
+                                    @Pc(1514) Font local1514 = local19.method3403(Static163.activeToolkit);
                                     if (local1514 != null) {
                                         local323 = local19.anInt3779;
                                         @Pc(1533) String local1533 = local19.aString44;
@@ -351,7 +351,7 @@ public final class Static71 {
                                         if (Static376.aBoolean452) {
                                             Static163.activeToolkit.T(local125, local130, local125 + local19.anInt3802, local19.anInt3746 + local130);
                                         }
-                                        local1514.method8830(local19.anInt3814, local323 | 255 - (local145 & 0xFF) << 24, local19.aBoolean286 ? 255 - (local145 & 0xFF) << 24 : -1, Static679.aSpriteArray14, local19.anInt3788, 0, local130, local19.anInt3746, 0, (ClippingMask) null, local19.anInt3748, local19.anInt3802, local125, local19.anInt3818, (int[]) null, local1533);
+                                        local1514.renderLines(local19.anInt3814, local323 | 255 - (local145 & 0xFF) << 24, local19.aBoolean286 ? 255 - (local145 & 0xFF) << 24 : -1, Static679.aSpriteArray14, local19.anInt3788, 0, local130, local19.anInt3746, 0, (ClippingMask) null, local19.anInt3748, local19.anInt3802, local125, local19.anInt3818, (int[]) null, local1533);
                                         if (Static376.aBoolean452) {
                                             Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                                         }

@@ -1,4 +1,4 @@
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -23,8 +23,8 @@ public final class Static324 {
     public static long aLong164 = 20000000L;
 
     @OriginalMember(owner = "client!ke", name = "a", descriptor = "(ZZIILclient!ha;)Lclient!da;")
-    public static Class14 method4628(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Toolkit arg3) {
+    public static Font method4628(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Toolkit arg3) {
         @Pc(17) Class70 local17 = Static502.method6719(arg0, arg3, arg1, arg2);
-        return local17 == null ? null : local17.aClass14_1;
+        return local17 == null ? null : local17.aFont_1;
     }
 }

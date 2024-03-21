@@ -1,5 +1,5 @@
 import com.jagex.IndexedImage;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Node_Sub13;
 import com.jagex.graphics.Toolkit;
@@ -21,13 +21,13 @@ public final class Static595 {
             if (arg0 != null) {
                 Static163.activeToolkit.GA(0);
                 @Pc(36) FontMetrics local36 = Static74.method1535(Static539.anInt8173, js5.FONTMETRICS);
-                @Pc(45) Class14 local45 = Static163.activeToolkit.method8010(local36, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
+                @Pc(45) Font local45 = Static163.activeToolkit.method8010(local36, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
                 Static288.method4182();
                 Static694.method9028(Static163.activeToolkit, arg0, true, local36, local45);
             }
         } else {
             @Pc(57) Toolkit local57 = null;
-            @Pc(85) Class14 local85;
+            @Pc(85) Font local85;
             if (arg0 != null) {
                 local57 = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.aCanvas7, 0);
                 local57.GA(0);
@@ -45,7 +45,7 @@ public final class Static595 {
                     if (arg0 != null) {
                         local57.GA(0);
                         @Pc(118) FontMetrics local118 = Static74.method1535(Static539.anInt8173, js5.FONTMETRICS);
-                        @Pc(127) Class14 local127 = local57.method8010(local118, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
+                        @Pc(127) Font local127 = local57.method8010(local118, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
                         Static288.method4182();
                         Static694.method9028(local57, arg0, true, local118, local127);
                     }

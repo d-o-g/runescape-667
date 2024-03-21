@@ -1,4 +1,4 @@
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -7,7 +7,7 @@ import java.io.File;
 public final class Static629 {
 
     @OriginalMember(owner = "client!tu", name = "i", descriptor = "Lclient!da;")
-    public static Class14 aClass14_11;
+    public static Font aFont_11;
 
     @OriginalMember(owner = "client!tu", name = "j", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_228 = new Class225(94, -1);

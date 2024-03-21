@@ -21,7 +21,7 @@ public final class Static334 {
 
     @OriginalMember(owner = "client!kja", name = "a", descriptor = "()V")
     public static void method4937() {
-        if (Static684.anInt10304 == 0 || Static242.aClass14_7 == null) {
+        if (Static684.anInt10304 == 0 || Static242.aFont_7 == null) {
             return;
         }
         Static665.aToolkit_15.K(Static238.anIntArray307);
@@ -46,12 +46,12 @@ public final class Static334 {
                 Static665.aToolkit_15.method7954(Static574.anIntArray683[1], Static625.anIntArray737[1], Static574.anIntArray683[0], local136, Static625.anIntArray737[0]);
             }
         }
-        Static242.aClass14_7.method8829(10, 75, "Dynamic: " + Static125.anInt2352 + "/" + 5000, -16777216, -256);
-        Static242.aClass14_7.method8829(10, 90, "Total Opaque Onscreen: " + Static546.anInt8244 + "/" + 10000, -16777216, -256);
-        Static242.aClass14_7.method8829(10, 105, "Total Trans Onscreen: " + Static645.anInt9611 + "/" + 5000, -16777216, -256);
-        Static242.aClass14_7.method8829(10, 120, "Occluders: " + (Static317.anInt5046 + Static444.anInt6751) + " Active: " + Static469.anInt7072, -16777216, -256);
-        Static242.aClass14_7.method8829(10, 135, "Occluded: com.jagex.graphics.Ground:" + Static298.anInt4811 + " Walls: " + Static679.anInt10278 + " CPs: " + Static356.anInt5773 + " Pixels: " + Static432.anInt525, -16777216, -256);
-        Static242.aClass14_7.method8829(10, 150, "Occlude Calc Took: " + Static666.aLong301 / 1000L + "us", -16777216, -256);
+        Static242.aFont_7.render(10, 75, "Dynamic: " + Static125.anInt2352 + "/" + 5000, -16777216, -256);
+        Static242.aFont_7.render(10, 90, "Total Opaque Onscreen: " + Static546.anInt8244 + "/" + 10000, -16777216, -256);
+        Static242.aFont_7.render(10, 105, "Total Trans Onscreen: " + Static645.anInt9611 + "/" + 5000, -16777216, -256);
+        Static242.aFont_7.render(10, 120, "Occluders: " + (Static317.anInt5046 + Static444.anInt6751) + " Active: " + Static469.anInt7072, -16777216, -256);
+        Static242.aFont_7.render(10, 135, "Occluded: com.jagex.graphics.Ground:" + Static298.anInt4811 + " Walls: " + Static679.anInt10278 + " CPs: " + Static356.anInt5773 + " Pixels: " + Static432.anInt525, -16777216, -256);
+        Static242.aFont_7.render(10, 150, "Occlude Calc Took: " + Static666.aLong301 / 1000L + "us", -16777216, -256);
         if (Static684.anInt10304 != 2 || Static485.anIntArray886 == null) {
             return;
         }

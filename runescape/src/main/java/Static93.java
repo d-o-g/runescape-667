@@ -35,7 +35,7 @@ public final class Static93 {
             local57 = arg2 + arg0 / 2 - 20 - 18;
             arg4.method7976(local38 - 152, local57, 304, 34, Static337.aColorArray1[Static338.anInt5562].getRGB(), 0);
             arg4.aa(local38 - 150, local57 + 2, Static273.anInt4403 * 3, 30, Static718.aColorArray3[Static338.anInt5562].getRGB(), 0);
-            Static180.aClass14_3.method8828(-1, local38, LocalisedText.LOADINGDOTDOTDOT.localise(Static51.anInt1052), local57 + 20, Static399.aColorArray2[Static338.anInt5562].getRGB());
+            Static180.aFont_3.renderCentre(-1, local38, LocalisedText.LOADINGDOTDOTDOT.localise(Static51.anInt1052), local57 + 20, Static399.aColorArray2[Static338.anInt5562].getRGB());
             return;
         }
         @Pc(114) int local114 = Static164.anInt2809 - (int) ((float) arg5 / Static30.aFloat105);
@@ -62,7 +62,7 @@ public final class Static93 {
         }
         @Pc(250) int local250 = arg5 + arg1 - 5;
         @Pc(256) int local256 = arg2 + arg0 - 8;
-        Static437.aClass14_9.method8834(local250, "Fps:" + Static652.anInt9712, 16776960, -1, local256);
+        Static437.aFont_9.render(local250, "Fps:" + Static652.anInt9712, 16776960, -1, local256);
         @Pc(273) int local273 = local256 - 15;
         @Pc(275) Runtime local275 = Runtime.getRuntime();
         @Pc(285) int local285 = (int) ((local275.totalMemory() - local275.freeMemory()) / 1024L);
@@ -70,7 +70,7 @@ public final class Static93 {
         if (local285 > 65536) {
             local287 = 16711680;
         }
-        Static437.aClass14_9.method8834(local250, "Mem:" + local285 + "k", local287, -1, local273);
+        Static437.aFont_9.render(local250, "Mem:" + local285 + "k", local287, -1, local273);
         local256 = local273 - 15;
     }
 

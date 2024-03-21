@@ -1,5 +1,5 @@
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -55,7 +55,7 @@ public final class Static110 {
     }
 
     @OriginalMember(owner = "client!dha", name = "a", descriptor = "(Lclient!da;)V")
-    public static void method2082(@OriginalArg(0) Class14 arg0) {
-        Static242.aClass14_7 = arg0;
+    public static void method2082(@OriginalArg(0) Font arg0) {
+        Static242.aFont_7 = arg0;
     }
 }

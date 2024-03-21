@@ -8,7 +8,7 @@ import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Exception_Sub1;
@@ -2369,7 +2369,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public Class14 method8010(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
+    public Font method8010(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         @Pc(3) int[] local3 = new int[arg1.length];
         @Pc(7) int[] local7 = new int[arg1.length];
         @Pc(9) boolean local9 = false;
@@ -2382,14 +2382,14 @@ public final class Toolkit_Sub2 extends Toolkit {
         }
         if (arg2) {
             if (local9) {
-                return new Class14_Sub4(this, arg0, arg1, local3, local7);
+                return new Font_Sub4(this, arg0, arg1, local3, local7);
             } else {
-                return new Class14_Sub5(this, arg0, arg1, local3, local7);
+                return new Font_Sub5(this, arg0, arg1, local3, local7);
             }
         } else if (local9) {
             throw new IllegalArgumentException("");
         } else {
-            return new Class14_Sub3(this, arg0, arg1, local3, local7);
+            return new Font_Sub3(this, arg0, arg1, local3, local7);
         }
     }
 

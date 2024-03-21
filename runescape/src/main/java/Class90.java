@@ -1,6 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -15,7 +15,7 @@ public abstract class Class90 implements Interface13 {
     public long aLong274;
 
     @OriginalMember(owner = "client!ea", name = "n", descriptor = "Lclient!da;")
-    public Class14 aClass14_10;
+    public Font aFont_10;
 
     @OriginalMember(owner = "client!ea", name = "l", descriptor = "I")
     public int anInt8730;
@@ -47,7 +47,7 @@ public abstract class Class90 implements Interface13 {
         if (SystemTimer.safetime() - this.aLong274 > 10000L) {
             local56 = local56 + " (" + Static449.aClass364_1.method8369().method2952() + ")";
         }
-        this.aClass14_10.method8828(-1, local18 + this.aClass138_5.anInt4418 / 2, local56, local32 + this.aClass138_5.anInt4413 / 2 + this.aClass138_5.anInt4416 + 4, this.aClass138_5.anInt4421);
+        this.aFont_10.renderCentre(-1, local18 + this.aClass138_5.anInt4418 / 2, local56, local32 + this.aClass138_5.anInt4413 / 2 + this.aClass138_5.anInt4416 + 4, this.aClass138_5.anInt4421);
     }
 
     @OriginalMember(owner = "client!ea", name = "a", descriptor = "(ZIBI)V")
@@ -85,7 +85,7 @@ public abstract class Class90 implements Interface13 {
     @Override
     public void method7748() {
         @Pc(21) FontMetrics local21 = Static238.method3468(this.aClass138_5.anInt4415, this.aJs5_110);
-        this.aClass14_10 = Static163.activeToolkit.method8010(local21, IndexedImage.load(this.aJs5_109, this.aClass138_5.anInt4415), true);
+        this.aFont_10 = Static163.activeToolkit.method8010(local21, IndexedImage.load(this.aJs5_109, this.aClass138_5.anInt4415), true);
     }
 
     @OriginalMember(owner = "client!ea", name = "b", descriptor = "(I)Z")

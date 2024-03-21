@@ -1,6 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Sprite;
@@ -408,12 +408,12 @@ public final class Static608 {
                                         local1359 = Static167.anIntArray248[0];
                                     }
                                 }
-                                @Pc(1589) Class14 local1589 = Static665.aClass14_12;
-                                @Pc(1591) Class14 local1591 = Static665.aClass14_12;
+                                @Pc(1589) Font local1589 = Static665.aFont_12;
+                                @Pc(1591) Font local1591 = Static665.aFont_12;
                                 @Pc(1593) FontMetrics local1593 = Static154.aFontMetrics_6;
                                 @Pc(1595) FontMetrics local1595 = Static154.aFontMetrics_6;
                                 local1374 = local1186.anInt7196;
-                                @Pc(1607) Class14 local1607;
+                                @Pc(1607) Font local1607;
                                 @Pc(1612) FontMetrics local1612;
                                 if (local1374 >= 0) {
                                     local1607 = Static324.method4628(true, true, local1374, Static163.activeToolkit);
@@ -556,7 +556,7 @@ public final class Static608 {
                                     if (local1449 != null) {
                                         local1449.render(local1898 + local1752 - local1335, local1908, 0, local2017, 1);
                                     }
-                                    local1589.method8829(local1898 + local1743, local1922, local1670, 0, local1969 | local1186.anInt7190);
+                                    local1589.render(local1898 + local1743, local1922, local1670, 0, local1969 | local1186.anInt7190);
                                     if (local1218 != null) {
                                         if (local1337 != null) {
                                             local1337.render(local1784 + local1898 - local1353, local1908, 0, local2017, 1);
@@ -572,7 +572,7 @@ public final class Static608 {
                                         if (local1343 != null) {
                                             local1343.render(local1898 + local1790 - local1359, local1908, 0, local2017, 1);
                                         }
-                                        local1591.method8829(local1792 + local1898, local1949, local1658, 0, local1218.anInt7190 | local1969);
+                                        local1591.render(local1792 + local1898, local1949, local1658, 0, local1218.anInt7190 | local1969);
                                     }
                                 } else {
                                     if (local1364 != null) {
@@ -589,7 +589,7 @@ public final class Static608 {
                                     if (local1449 != null) {
                                         local1449.render(local1752 + local1898 - local1335, local1908);
                                     }
-                                    local1589.method8829(local1898 + local1743, local1922, local1670, 0, local1186.anInt7190 | 0xFF000000);
+                                    local1589.render(local1898 + local1743, local1922, local1670, 0, local1186.anInt7190 | 0xFF000000);
                                     if (local1218 != null) {
                                         if (local1337 != null) {
                                             local1337.render(local1784 + local1898 - local1353, local1908);
@@ -605,7 +605,7 @@ public final class Static608 {
                                         if (local1343 != null) {
                                             local1343.render(local1790 + local1898 - local1359, local1908);
                                         }
-                                        local1591.method8829(local1792 + local1898, local1949, local1658, 0, local1218.anInt7190 | 0xFF000000);
+                                        local1591.render(local1792 + local1898, local1949, local1658, 0, local1218.anInt7190 | 0xFF000000);
                                     }
                                 }
                                 Static682.method8927(local1910, local1915 + 1, local1898, local1719 + local1898);
@@ -704,20 +704,20 @@ public final class Static608 {
                 local2749 = local2663 | 0xFF000000;
                 local1321 = Static352.aClass80Array1[local233].method2108();
                 if (local1321 == 0) {
-                    Static180.aClass14_3.method8828(-16777216, local267 + arg2, local2627, local1179 + arg0, local2749);
+                    Static180.aFont_3.renderCentre(-16777216, local267 + arg2, local2627, local1179 + arg0, local2749);
                     local1274 -= local321 >> 1;
                     local409 -= local321 >> 1;
                 }
                 if (local1321 == 1) {
                     local2654 += 5;
-                    Static180.aClass14_3.method8833(local2749, Static198.anInt3276, local2627, arg2 + local267, local1179 + arg0);
+                    Static180.aFont_3.renderWave(local2749, Static198.anInt3276, local2627, arg2 + local267, local1179 + arg0, -16777216);
                     local1274 -= local321 >> 1;
                     local409 -= local321 >> 1;
                     local412 -= 5;
                 }
                 if (local1321 == 2) {
                     local412 -= 5;
-                    Static180.aClass14_3.method8832(Static198.anInt3276, local2627, arg2 + local267, local2749, arg0 + local1179);
+                    Static180.aFont_3.renderWave2(-16777216, Static198.anInt3276, local2627, arg2 + local267, local2749, arg0 + local1179);
                     local2654 += 5;
                     local409 -= (local321 >> 1) + 5;
                     local1274 -= (local321 >> 1) - 5;
@@ -728,7 +728,7 @@ public final class Static608 {
                     local2654 += 7;
                     local412 -= 7;
                     local1274 -= local321 >> 1;
-                    Static180.aClass14_3.method8818(local1323, local267 + arg2, Static198.anInt3276, arg0 + local1179, local2749, local2627);
+                    Static180.aFont_3.renderShake(local1323, local267 + arg2, Static198.anInt3276, arg0 + local1179, local2749, local2627, -16777216);
                 }
                 if (local1321 == 4) {
                     local1323 = 150 - Static352.aClass80Array1[local233].method2110() * 150 / Static352.aClass80Array1[local233].method2103();
@@ -736,7 +736,7 @@ public final class Static608 {
                     Static163.activeToolkit.T(arg2 + local267 - 50, arg0, local267 + arg2 + 50, arg0 - -arg3);
                     local409 += 50 - local1325;
                     local1274 += 50 - local1325;
-                    Static180.aClass14_3.method8829(arg2 + local267 + 50 - local1325, local1179 + arg0, local2627, -16777216, local2749);
+                    Static180.aFont_3.render(arg2 + local267 + 50 - local1325, local1179 + arg0, local2627, -16777216, local2749);
                     Static163.activeToolkit.KA(arg2, arg0, arg2 + arg1, arg3 + arg0);
                 }
                 if (local1321 == 5) {
@@ -753,11 +753,11 @@ public final class Static608 {
                     local409 -= local321 >> 1;
                     local1274 -= local321 >> 1;
                     local412 += local1325;
-                    Static180.aClass14_3.method8828(-16777216, arg2 + local267, local2627, local1325 + local1179 + arg0, local2749);
+                    Static180.aFont_3.renderCentre(-16777216, arg2 + local267, local2627, local1325 + local1179 + arg0, local2749);
                     Static163.activeToolkit.KA(arg2, arg0, arg2 + arg1, arg0 + arg3);
                 }
             } else {
-                Static180.aClass14_3.method8828(-16777216, local267 + arg2, local2627, arg0 + local1179, -256);
+                Static180.aFont_3.renderCentre(-16777216, local267 + arg2, local2627, arg0 + local1179, -256);
                 local409 -= local321 >> 1;
                 local1274 -= local321 >> 1;
             }

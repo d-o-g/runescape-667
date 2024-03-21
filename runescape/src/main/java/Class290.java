@@ -1,4 +1,4 @@
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -22,8 +22,8 @@ public final class Class290 implements Interface13 {
     }
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(BLclient!da;Ljava/lang/String;III)I")
-    public int method6520(@OriginalArg(1) Class14 arg0, @OriginalArg(2) String arg1, @OriginalArg(3) int arg2, @OriginalArg(5) int arg3) {
-        return arg0.method8826(0, (int[]) null, this.aClass235_1.anInt5971, arg1, (ClippingMask) null, (Sprite[]) null, arg3 + 5, this.aClass235_1.anInt5975, 0, 0, arg2 + 5, 0, 0, this.aClass235_1.anInt5976 - 10, this.aClass235_1.anInt5970 + -10);
+    public int method6520(@OriginalArg(1) Font arg0, @OriginalArg(2) String arg1, @OriginalArg(3) int arg2, @OriginalArg(5) int arg3) {
+        return arg0.renderLines(0, (int[]) null, this.aClass235_1.anInt5971, arg1, (ClippingMask) null, (Sprite[]) null, arg3 + 5, this.aClass235_1.anInt5975, 0, 0, arg2 + 5, 0, 0, this.aClass235_1.anInt5976 - 10, this.aClass235_1.anInt5970 + -10);
     }
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(ZI)V")
@@ -38,15 +38,15 @@ public final class Class290 implements Interface13 {
         if (this.aClass235_1.aBoolean454) {
             Static163.activeToolkit.method7976(local35, local49, this.aClass235_1.anInt5976, this.aClass235_1.anInt5970, this.aClass235_1.anInt5972, 0);
         }
-        local49 += this.method6520(Static180.aClass14_3, local19.aString103, local35, local49) * 12;
+        local49 += this.method6520(Static180.aFont_3, local19.aString103, local35, local49) * 12;
         local49 += 8;
         if (this.aClass235_1.aBoolean454) {
             Static163.activeToolkit.method7951(local35, local49, this.aClass235_1.anInt5976 + local35 - 1, local49, this.aClass235_1.anInt5972, 0);
         }
         local49++;
-        local49 += this.method6520(Static180.aClass14_3, local19.aString104, local35, local49) * 12;
+        local49 += this.method6520(Static180.aFont_3, local19.aString104, local35, local49) * 12;
         local49 += 5;
-        @Pc(135) int local135 = local49 + this.method6520(Static180.aClass14_3, local19.aString102, local35, local49) * 12;
+        @Pc(135) int local135 = local49 + this.method6520(Static180.aFont_3, local19.aString102, local35, local49) * 12;
     }
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(I)V")

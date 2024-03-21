@@ -1,4 +1,4 @@
-import com.jagex.game.Class14;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
@@ -241,7 +241,7 @@ public final class Static256 {
     }
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(Lclient!da;Ljava/lang/String;Lclient!ve;IIIZLclient!hda;Lclient!aa;III)V")
-    public static void method3639(@OriginalArg(0) Class14 arg0, @OriginalArg(1) String arg1, @OriginalArg(2) FontMetrics arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Class158 arg6, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public static void method3639(@OriginalArg(0) Font arg0, @OriginalArg(1) String arg1, @OriginalArg(2) FontMetrics arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Class158 arg6, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         @Pc(11) int local11;
         if (Static511.anInt7645 == 4) {
             local11 = (int) Static171.aFloat64 & 0x3FFF;
@@ -265,7 +265,7 @@ public final class Static256 {
         @Pc(131) int local131 = local107 - local125 / 2;
         @Pc(139) int local139 = arg2.stringHeight(100, 0, arg1, (Sprite[]) null);
         if (local131 >= -arg6.anInt3802 && arg6.anInt3802 >= local131 && local118 >= -arg6.anInt3746 && arg6.anInt3746 >= local118) {
-            arg0.method8826(arg9, (int[]) null, arg4, arg1, arg7, (Sprite[]) null, arg6.anInt3746 / 2 + arg9 - local118 - arg5 - local139, 0, arg3, 1, arg6.anInt3802 / 2 + local131 + arg3, 0, 0, local125, 50);
+            arg0.renderLines(arg9, (int[]) null, arg4, arg1, arg7, (Sprite[]) null, arg6.anInt3746 / 2 + arg9 - local118 - arg5 - local139, 0, arg3, 1, arg6.anInt3802 / 2 + local131 + arg3, 0, 0, local125, 50);
         }
     }
 }

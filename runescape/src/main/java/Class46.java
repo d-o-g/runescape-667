@@ -87,8 +87,8 @@ public final class Class46 implements Runnable {
                         local29.method9289(Static665.aToolkit_15, -5);
                     } else {
                         Static658.method8591(local29, this.aClass2_Sub7Array2);
-                        if (Static242.aClass14_7 != null) {
-                            Static242.aClass14_7.method8829(local29.anInt10692, local29.anInt10698, this.aClass302_1.aString97, -16777216, -256);
+                        if (Static242.aFont_7 != null) {
+                            Static242.aFont_7.render(local29.anInt10692, local29.anInt10698, this.aClass302_1.aString97, -16777216, -256);
                         }
                     }
                 } else {

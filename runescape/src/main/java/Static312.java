@@ -40,13 +40,13 @@ public final class Static312 {
                 Static472.method6420(local23);
             }
         }
-        @Pc(45) ClientMessage local45 = Static293.method4335(Static505.aClass345_119, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+        @Pc(45) ClientMessage local45 = Static293.method4335(Static505.aClass345_119, ConnectionManager.GAME.aClass186_1);
         local45.buffer.p4_alt2(arg0.slot);
         local45.buffer.p2_alt2(Static162.anInt2799);
         local45.buffer.p2_alt3(Static77.anInt1614);
         local45.buffer.p4_alt3(Static450.anInt6819);
         local45.buffer.p2_alt2(arg0.anInt3760);
         local45.buffer.p2_alt1(arg0.id);
-        Static405.A_SERVER_CONNECTION___2.send(local45);
+        ConnectionManager.GAME.send(local45);
     }
 }

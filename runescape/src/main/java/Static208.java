@@ -18,7 +18,7 @@ public final class Static208 {
     public static void method3105(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         @Pc(5) int local5 = Static676.anInt10206;
         @Pc(7) int local7 = Static305.anInt4882;
-        if (Static137.aBoolean210) {
+        if (InterfaceManager.aBoolean210) {
             local5 += Static130.method2283();
             local7 += Static422.method5771();
         }

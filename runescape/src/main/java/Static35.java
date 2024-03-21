@@ -127,9 +127,9 @@ public final class Static35 {
             Static8.aClass2_Sub6_Sub1_1 = null;
             Static501.aBoolean575 = false;
         } else if (Static400.instance.aClass57_Sub25_2.method7208() != 0 && Static588.anInt8692 != -1 && !Static52.method1157(125)) {
-            @Pc(551) ClientMessage local551 = Static293.method4335(Static235.aClass345_49, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            @Pc(551) ClientMessage local551 = Static293.method4335(Static235.aClass345_49, ConnectionManager.GAME.aClass186_1);
             local551.buffer.p4(Static588.anInt8692);
-            Static405.A_SERVER_CONNECTION___2.send(local551);
+            ConnectionManager.GAME.send(local551);
             Static588.anInt8692 = -1;
         }
     }

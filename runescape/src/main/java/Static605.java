@@ -17,7 +17,7 @@ public final class Static605 {
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(ILclient!pc;)V")
     public static void method7912(@OriginalArg(1) Class287 arg0) {
-        @Pc(8) PacketBuffer local8 = Static405.A_SERVER_CONNECTION___2.buffer;
+        @Pc(8) PacketBuffer local8 = ConnectionManager.GAME.buffer;
         @Pc(15) int local15;
         @Pc(21) int local21;
         @Pc(25) int local25;

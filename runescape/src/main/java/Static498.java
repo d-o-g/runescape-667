@@ -85,7 +85,7 @@ public final class Static498 {
             Static209.method3110();
         }
         Static504.aBoolean579 = Static400.instance.aClass57_Sub3_1.method2120() != 0;
-        Static137.aBoolean210 = Static400.instance.aClass57_Sub3_1.method2118();
+        InterfaceManager.aBoolean210 = Static400.instance.aClass57_Sub3_1.method2118();
     }
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "([Lclient!eo;II)V")

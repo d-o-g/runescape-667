@@ -41,8 +41,8 @@ public final class Static134 {
         @Pc(16) int local16 = arg0.scrollWidth == 0 ? arg0.width : arg0.scrollWidth;
         @Pc(37) int local37 = arg0.scrollHeight == 0 ? arg0.height : arg0.scrollHeight;
         Static220.method3200(local16, arg1, local37, InterfaceList.interfaces[arg0.slot >> 16], arg0.slot);
-        if (arg0.aComponentArray1 != null) {
-            Static220.method3200(local16, arg1, local37, arg0.aComponentArray1, arg0.slot);
+        if (arg0.dynamicComponents != null) {
+            Static220.method3200(local16, arg1, local37, arg0.dynamicComponents, arg0.slot);
         }
         @Pc(72) Node_Sub4 local72 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) arg0.slot);
         if (local72 != null) {

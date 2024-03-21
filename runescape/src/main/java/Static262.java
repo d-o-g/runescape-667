@@ -13,7 +13,7 @@ public final class Static262 {
 
     @OriginalMember(owner = "client!ica", name = "c", descriptor = "(Z)V")
     public static void method3839() {
-        @Pc(8) PacketBuffer local8 = Static405.A_SERVER_CONNECTION___2.buffer;
+        @Pc(8) PacketBuffer local8 = ConnectionManager.GAME.buffer;
         local8.method7417();
         @Pc(16) int local16 = local8.method7412(8);
         @Pc(21) int local21;

@@ -24,7 +24,7 @@ public final class Static104 {
         local6.buffer.pos += 7;
         local6.buffer.tinyenc(local39, local43, local6.buffer.pos);
         local6.buffer.psize2(local6.buffer.pos - local28);
-        Static405.A_SERVER_CONNECTION___1.send(local6);
+        ConnectionManager.LOBBY.send(local6);
         Static580.anInt8621 = -3;
         Static654.anInt9739 = 0;
         Static6.anInt95 = 1;

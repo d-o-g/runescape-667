@@ -20,28 +20,28 @@ public final class Static603 {
         if (Static702.aBoolean797 && InterfaceManager.aBoolean428) {
             @Pc(30) int local30 = 0;
             @Pc(32) int local32 = 0;
-            if (Static137.aBoolean210) {
+            if (InterfaceManager.aBoolean210) {
                 local30 = Static130.method2283();
                 local32 = Static422.method5771();
             }
             @Pc(46) int local46 = local30 + MouseMonitor.instance.getRecordedX();
             @Pc(52) int local52 = MouseMonitor.instance.getRecordedY() + local32;
-            local46 -= Static378.anInt5941;
-            local52 -= Static150.anInt2631;
-            if (Static123.anInt2341 > local46) {
-                local46 = Static123.anInt2341;
+            local46 -= InterfaceManager.dragStartX;
+            local52 -= InterfaceManager.dragStartY;
+            if (InterfaceManager.dragParentX > local46) {
+                local46 = InterfaceManager.dragParentX;
             }
-            if (InterfaceManager.dragSource.width + local46 > Static123.anInt2341 - -Static354.aComponent_8.width) {
-                local46 = Static354.aComponent_8.width + Static123.anInt2341 - InterfaceManager.dragSource.width;
+            if (InterfaceManager.dragSource.width + local46 > InterfaceManager.dragParentX - -InterfaceManager.dragParent.width) {
+                local46 = InterfaceManager.dragParent.width + InterfaceManager.dragParentX - InterfaceManager.dragSource.width;
             }
-            if (local52 < Static169.anInt2853) {
-                local52 = Static169.anInt2853;
+            if (local52 < InterfaceManager.dragParentY) {
+                local52 = InterfaceManager.dragParentY;
             }
-            if (Static169.anInt2853 + Static354.aComponent_8.height < local52 - -InterfaceManager.dragSource.height) {
-                local52 = Static169.anInt2853 + Static354.aComponent_8.height - InterfaceManager.dragSource.height;
+            if (InterfaceManager.dragParentY + InterfaceManager.dragParent.height < local52 - -InterfaceManager.dragSource.height) {
+                local52 = InterfaceManager.dragParentY + InterfaceManager.dragParent.height - InterfaceManager.dragSource.height;
             }
-            @Pc(119) int local119 = Static354.aComponent_8.anInt3809 + local46 - Static123.anInt2341;
-            @Pc(127) int local127 = Static354.aComponent_8.anInt3768 + local52 - Static169.anInt2853;
+            @Pc(119) int local119 = InterfaceManager.dragParent.scrollX + local46 - InterfaceManager.dragParentX;
+            @Pc(127) int local127 = InterfaceManager.dragParent.scrollY + local52 - InterfaceManager.dragParentY;
             @Pc(197) Node_Sub42 local197;
             if (MouseMonitor.instance.isDown()) {
                 if (InterfaceManager.dragSource.dragDeadTime < Static181.anInt3003) {
@@ -76,9 +76,9 @@ public final class Static603 {
                         Static710.method6710(InterfaceManager.dragSource, Static327.aComponent_7);
                     }
                 } else if ((Static219.anInt3549 == 1 || Static204.method3084()) && Static594.anInt8777 > 2) {
-                    Static455.method6223(Static378.anInt5941 + Static655.anInt9763, Static115.anInt2258 + Static150.anInt2631);
+                    Static455.method6223(InterfaceManager.dragStartX + Static655.anInt9763, Static115.anInt2258 + InterfaceManager.dragStartY);
                 } else if (Static77.method1559()) {
-                    Static455.method6223(Static655.anInt9763 + Static378.anInt5941, Static115.anInt2258 + Static150.anInt2631);
+                    Static455.method6223(Static655.anInt9763 + InterfaceManager.dragStartX, Static115.anInt2258 + InterfaceManager.dragStartY);
                 }
                 InterfaceManager.dragSource = null;
             }

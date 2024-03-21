@@ -16,8 +16,8 @@ public final class Static370 {
         if (Static620.method8321(Static283.step)) {
             Static233.method3409(false);
         } else {
-            Static467.aConnection_2 = Static405.A_SERVER_CONNECTION___2.connection;
-            Static405.A_SERVER_CONNECTION___2.connection = null;
+            Static467.aConnection_2 = ConnectionManager.GAME.connection;
+            ConnectionManager.GAME.connection = null;
             Static81.method1586(14);
         }
     }

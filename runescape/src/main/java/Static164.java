@@ -11,6 +11,6 @@ public final class Static164 {
     @OriginalMember(owner = "client!fba", name = "a", descriptor = "(I)V")
     public static void method2606() {
         Static135.method7237();
-        Static137.aBoolean210 = false;
+        InterfaceManager.aBoolean210 = false;
     }
 }

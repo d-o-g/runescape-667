@@ -20,7 +20,7 @@ public final class Static443 {
         }
         @Pc(44) int local44 = 0;
         @Pc(46) int local46 = 0;
-        if (Static137.aBoolean210) {
+        if (InterfaceManager.aBoolean210) {
             local44 = Static130.method2283();
             local46 = Static422.method5771();
         }

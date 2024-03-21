@@ -17,7 +17,7 @@ public final class Static574 {
         if (Static163.activeToolkit.method7978()) {
             Static163.activeToolkit.method7972(Static434.aCanvas7);
             Static208.method3106();
-            if (Static137.aBoolean210) {
+            if (InterfaceManager.aBoolean210) {
                 Static720.method9397(Static434.aCanvas7);
             } else {
                 @Pc(26) Dimension local26 = Static434.aCanvas7.getSize();

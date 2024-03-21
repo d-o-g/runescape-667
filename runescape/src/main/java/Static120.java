@@ -25,55 +25,55 @@ public final class Static120 {
         }
         @Pc(64) ClientMessage local64;
         if (arg3 == 1) {
-            local64 = Static293.method4335(Static546.aClass345_98, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local64 = Static293.method4335(Static546.aClass345_98, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local64, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local64);
+            ConnectionManager.GAME.send(local64);
         }
         if (arg3 == 2) {
-            local64 = Static293.method4335(Static323.aClass345_65, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local64 = Static293.method4335(Static323.aClass345_65, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local64, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local64);
+            ConnectionManager.GAME.send(local64);
         }
         if (arg3 == 3) {
-            local64 = Static293.method4335(Static255.aClass345_54, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local64 = Static293.method4335(Static255.aClass345_54, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local64, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local64);
+            ConnectionManager.GAME.send(local64);
         }
         @Pc(148) ClientMessage local148;
         if (arg3 == 4) {
-            local148 = Static293.method4335(Static710.aClass345_93, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local148 = Static293.method4335(Static710.aClass345_93, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local148, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local148);
+            ConnectionManager.GAME.send(local148);
         }
         if (arg3 == 5) {
-            local148 = Static293.method4335(Static693.aClass345_121, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local148 = Static293.method4335(Static693.aClass345_121, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local148, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local148);
+            ConnectionManager.GAME.send(local148);
         }
         if (arg3 == 6) {
-            local148 = Static293.method4335(Static126.aClass345_23, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local148 = Static293.method4335(Static126.aClass345_23, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local148, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local148);
+            ConnectionManager.GAME.send(local148);
         }
         if (arg3 == 7) {
-            local148 = Static293.method4335(Static358.aClass345_124, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local148 = Static293.method4335(Static358.aClass345_124, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local148, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local148);
+            ConnectionManager.GAME.send(local148);
         }
         if (arg3 == 8) {
-            local148 = Static293.method4335(Static700.aClass345_123, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local148 = Static293.method4335(Static700.aClass345_123, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local148, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local148);
+            ConnectionManager.GAME.send(local148);
         }
         if (arg3 == 9) {
-            local148 = Static293.method4335(Static372.aClass345_69, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local148 = Static293.method4335(Static372.aClass345_69, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local148, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local148);
+            ConnectionManager.GAME.send(local148);
         }
         if (arg3 == 10) {
-            local148 = Static293.method4335(Static713.aClass345_125, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local148 = Static293.method4335(Static713.aClass345_125, ConnectionManager.GAME.aClass186_1);
             Static277.method4040(arg0, local8.anInt3760, local148, arg1);
-            Static405.A_SERVER_CONNECTION___2.send(local148);
+            ConnectionManager.GAME.send(local148);
         }
     }
 

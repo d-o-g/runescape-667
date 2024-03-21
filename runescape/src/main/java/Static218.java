@@ -21,7 +21,7 @@ public final class Static218 {
         if (arg1.length() > 320 || !Static470.method6387()) {
             return;
         }
-        Static405.A_SERVER_CONNECTION___1.close();
+        ConnectionManager.LOBBY.close();
         Static367.method5268();
         Static59.aString63 = arg0;
         Static449.aString75 = arg1;

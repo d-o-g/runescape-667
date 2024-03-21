@@ -26,11 +26,8 @@ public final class Static354 {
     @OriginalMember(owner = "client!ld", name = "k", descriptor = "Z")
     public static boolean aBoolean439 = false;
 
-    @OriginalMember(owner = "client!ld", name = "e", descriptor = "Lclient!hda;")
-    public static Component aComponent_8 = null;
-
     @OriginalMember(owner = "client!ld", name = "f", descriptor = "Z")
-    public static boolean aBoolean440 = false;
+    public static boolean showProfiling = false;
 
     @OriginalMember(owner = "client!ld", name = "a", descriptor = "(BLclient!cg;)V")
     public static void method5181(@OriginalArg(1) Class8_Sub2_Sub1_Sub2 arg0) {

@@ -19,7 +19,7 @@ public final class Static534 {
             @Pc(60) int local60 = 0;
             @Pc(62) int local62 = 0;
             @Pc(64) int local64 = 0;
-            if (Static137.aBoolean210) {
+            if (InterfaceManager.aBoolean210) {
                 local62 = Static582.anInt8629;
                 local64 = Static691.anInt10368;
                 local17 = Static435.anInt6597;
@@ -32,7 +32,7 @@ public final class Static534 {
             } else {
                 InterfaceManager.draw(-1, arg6, Static148.aComponentArrayArray1[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
             }
-            if (Static137.aBoolean210) {
+            if (InterfaceManager.aBoolean210) {
                 if (arg5 >= 0 && Static691.anInt10368 == 2) {
                     Static682.method8927(Static320.anInt5085, Static582.anInt8629, Static435.anInt6597, Static599.anInt8837);
                 }

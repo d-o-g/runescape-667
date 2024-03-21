@@ -43,8 +43,8 @@ public final class Static126 {
 
     @OriginalMember(owner = "client!du", name = "a", descriptor = "(I)V")
     public static void method2228() {
-        Static179.anInt2984 = 0;
-        Static480.anInt7206 = 0;
+        Static179.playerCount = 0;
+        Static480.npcCount = 0;
         Static577.anInt8587 = 0;
         Static606.anInt8954 = 0;
     }

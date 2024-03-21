@@ -332,10 +332,10 @@ public final class Static489 {
         Static352.method5180();
         Static442.method5969();
         @Pc(920) ClientMessage local920;
-        if (Static353.aFrame10 != null && Static405.A_SERVER_CONNECTION___2.connection != null && Static283.step == 12) {
-            local920 = Static293.method4335(Static694.aClass345_122, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+        if (Static353.aFrame10 != null && ConnectionManager.GAME.connection != null && Static283.step == 12) {
+            local920 = Static293.method4335(Static694.aClass345_122, ConnectionManager.GAME.aClass186_1);
             local920.buffer.p4(1057001181);
-            Static405.A_SERVER_CONNECTION___2.send(local920);
+            ConnectionManager.GAME.send(local920);
         }
         if (Static117.anInt2282 == 0) {
             local855 = (Static62.anInt1465 - (Static720.mapWidth >> 4)) / 8;
@@ -359,9 +359,9 @@ public final class Static489 {
             Static81.method1586(9);
         } else {
             Static81.method1586(11);
-            if (Static405.A_SERVER_CONNECTION___2.connection != null) {
-                local920 = Static293.method4335(Static161.aClass345_29, Static405.A_SERVER_CONNECTION___2.aClass186_1);
-                Static405.A_SERVER_CONNECTION___2.send(local920);
+            if (ConnectionManager.GAME.connection != null) {
+                local920 = Static293.method4335(Static161.aClass345_29, ConnectionManager.GAME.aClass186_1);
+                ConnectionManager.GAME.send(local920);
             }
         }
         Static606.method7934();

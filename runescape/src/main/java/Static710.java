@@ -15,14 +15,14 @@ public final class Static710 {
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
     public static void method6710(@OriginalArg(1) Component arg0, @OriginalArg(2) Component arg1) {
-        @Pc(15) ClientMessage local15 = Static293.method4335(Static671.aClass345_117, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+        @Pc(15) ClientMessage local15 = Static293.method4335(Static671.aClass345_117, ConnectionManager.GAME.aClass186_1);
         local15.buffer.p2(arg1.anInt3760);
         local15.buffer.p2_alt1(arg0.id);
         local15.buffer.p2_alt2(arg0.anInt3760);
         local15.buffer.p4_alt2(arg0.slot);
         local15.buffer.p2_alt1(arg1.id);
         local15.buffer.p4_alt3(arg1.slot);
-        Static405.A_SERVER_CONNECTION___2.send(local15);
+        ConnectionManager.GAME.send(local15);
     }
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(I)V")
@@ -40,7 +40,7 @@ public final class Static710 {
             local36 = Static164.areaLevel;
         }
         @Pc(56) int local56;
-        if (Static1.anInt10798 == 3) {
+        if (CutsceneManager.state == 3) {
             for (local56 = local36; local56 <= local38; local56++) {
                 Static84.method1654(local56);
             }

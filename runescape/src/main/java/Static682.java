@@ -35,14 +35,14 @@ public final class Static682 {
     }
 
     @OriginalMember(owner = "client!vka", name = "a", descriptor = "(IIIBI)V")
-    public static void method8927(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
+    public static void method8927(@OriginalArg(0) int bottom, @OriginalArg(1) int top, @OriginalArg(2) int left, @OriginalArg(4) int right) {
         if (Static448.anInt6796 != 1) {
             return;
         }
-        @Pc(14) int local14 = arg2 / Static437.anInt6628;
-        @Pc(18) int local18 = arg3 / Static437.anInt6628;
-        @Pc(22) int local22 = arg0 / Static714.anInt10802;
-        @Pc(26) int local26 = arg1 / Static714.anInt10802;
+        @Pc(14) int local14 = left / Static437.anInt6628;
+        @Pc(18) int local18 = right / Static437.anInt6628;
+        @Pc(22) int local22 = bottom / Static714.anInt10802;
+        @Pc(26) int local26 = top / Static714.anInt10802;
         if (local14 >= Static211.anInt5574 || local18 < 0 || local22 >= Static617.anInt9434 || local26 < 0) {
             return;
         }

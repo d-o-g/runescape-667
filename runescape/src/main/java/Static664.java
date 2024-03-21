@@ -90,7 +90,7 @@ public final class Static664 {
     }
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(I)V")
-    public static void method8659() {
+    public static void cacheRemoveSoftReferences() {
         Static467.aClass96_3.method2351();
         Static540.aClass79_6.method2072();
         Static68.aIDKTypeList_3.cacheRemoveSoftReferences();

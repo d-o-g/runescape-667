@@ -31,13 +31,13 @@ public final class Static55 {
                 Static676.anInt10206 = arg2;
                 Static616.anInt9417 = 2;
                 Static305.anInt4882 = arg0;
-                @Pc(64) ClientMessage local64 = Static293.method4335(Static664.aClass345_115, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+                @Pc(64) ClientMessage local64 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.aClass186_1);
                 local64.buffer.p2_alt1(local26);
                 local64.buffer.p4_alt1(Static450.anInt6819);
                 local64.buffer.p2(Static162.anInt2799);
                 local64.buffer.p1_alt3(Static334.aClass319_1.method8479(82) ? 1 : 0);
                 local64.buffer.p2_alt3(Static77.anInt1614);
-                Static405.A_SERVER_CONNECTION___2.send(local64);
+                ConnectionManager.GAME.send(local64);
                 Static147.method2419(0, local44.anIntArray878[0], local44.method9302((byte) 99), true, local44.anIntArray879[0], 0, -2, local44.method9302((byte) 110));
             }
         }
@@ -47,13 +47,13 @@ public final class Static55 {
             Static305.anInt4882 = arg0;
             Static481.anInt7215 = 0;
             Static676.anInt10206 = arg2;
-            local147 = Static293.method4335(Static664.aClass345_115, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local147 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.aClass186_1);
             local147.buffer.p2_alt1(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10740);
             local147.buffer.p4_alt1(Static450.anInt6819);
             local147.buffer.p2(Static162.anInt2799);
             local147.buffer.p1_alt3(Static334.aClass319_1.method8479(82) ? 1 : 0);
             local147.buffer.p2_alt3(Static77.anInt1614);
-            Static405.A_SERVER_CONNECTION___2.send(local147);
+            ConnectionManager.GAME.send(local147);
         }
         if (local22 == 12) {
             @Pc(197) Component local197 = Static15.method186(local16, local19);
@@ -91,7 +91,7 @@ public final class Static55 {
                     Static481.anInt7215 = 0;
                     Static676.anInt10206 = arg2;
                 }
-                Static405.A_SERVER_CONNECTION___2.send(local147);
+                ConnectionManager.GAME.send(local147);
                 Static147.method2419(0, local19, 1, true, local16, 0, -4, 1);
             }
         }
@@ -130,10 +130,10 @@ public final class Static55 {
                 Static305.anInt4882 = arg0;
                 Static616.anInt9417 = 2;
                 Static676.anInt10206 = arg2;
-                local494 = Static293.method4335(local389, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+                local494 = Static293.method4335(local389, ConnectionManager.GAME.aClass186_1);
                 local494.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
                 local494.buffer.p2(local26);
-                Static405.A_SERVER_CONNECTION___2.send(local494);
+                ConnectionManager.GAME.send(local494);
                 Static147.method2419(0, local474.anIntArray878[0], local474.method9302((byte) 125), true, local474.anIntArray879[0], 0, -2, local474.method9302((byte) 60));
             }
         }
@@ -156,12 +156,12 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static616.anInt9417 = 2;
             Static676.anInt10206 = arg2;
-            local494 = Static293.method4335(local548, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local494 = Static293.method4335(local548, ConnectionManager.GAME.aClass186_1);
             local494.buffer.p2_alt2(local26);
             local494.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
             local494.buffer.p2(local19 + Static116.anInt2270);
             local494.buffer.p2_alt1(Static691.anInt10367 + local16);
-            Static405.A_SERVER_CONNECTION___2.send(local494);
+            ConnectionManager.GAME.send(local494);
             Static414.method5697(local19, local16);
         }
         if (local22 == 11) {
@@ -172,10 +172,10 @@ public final class Static55 {
                 Static676.anInt10206 = arg2;
                 Static616.anInt9417 = 1;
                 Static305.anInt4882 = arg0;
-                local494 = Static293.method4335(Static512.aClass345_96, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+                local494 = Static293.method4335(Static512.aClass345_96, ConnectionManager.GAME.aClass186_1);
                 local494.buffer.p2_alt3(local19 + Static116.anInt2270);
                 local494.buffer.p2_alt1(Static691.anInt10367 + local16);
-                Static405.A_SERVER_CONNECTION___2.send(local494);
+                ConnectionManager.GAME.send(local494);
             }
         }
         if (local22 == 18) {
@@ -206,10 +206,10 @@ public final class Static55 {
                 Static616.anInt9417 = 2;
                 Static305.anInt4882 = arg0;
                 Static481.anInt7215 = 0;
-                @Pc(831) ClientMessage local831 = Static293.method4335(local750, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+                @Pc(831) ClientMessage local831 = Static293.method4335(local750, ConnectionManager.GAME.aClass186_1);
                 local831.buffer.p1_alt1(Static334.aClass319_1.method8479(82) ? 1 : 0);
                 local831.buffer.p2_alt2(local26);
-                Static405.A_SERVER_CONNECTION___2.send(local831);
+                ConnectionManager.GAME.send(local831);
                 Static147.method2419(0, local813.anIntArray878[0], local813.method9302((byte) 76), true, local813.anIntArray879[0], 0, -2, local813.method9302((byte) 103));
             }
         }
@@ -233,12 +233,12 @@ public final class Static55 {
             Static616.anInt9417 = 2;
             Static481.anInt7215 = 0;
             Static676.anInt10206 = arg2;
-            local949 = Static293.method4335(local878, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local949 = Static293.method4335(local878, ConnectionManager.GAME.aClass186_1);
             local949.buffer.p1_alt1(Static334.aClass319_1.method8479(82) ? 1 : 0);
             local949.buffer.p2_alt2(Static691.anInt10367 + local16);
             local949.buffer.p2_alt3((int) (local35 >>> 32) & Integer.MAX_VALUE);
             local949.buffer.p2_alt1(local19 + Static116.anInt2270);
-            Static405.A_SERVER_CONNECTION___2.send(local949);
+            ConnectionManager.GAME.send(local949);
             Static38.method1001(local16, local35, local19);
         }
         if (local22 == 1003 || local22 == 1001 || local22 == 1006 || local22 == 1009 || local22 == 1004) {
@@ -249,13 +249,13 @@ public final class Static55 {
             Static616.anInt9417 = 1;
             Static305.anInt4882 = arg0;
             Static481.anInt7215 = 0;
-            local949 = Static293.method4335(Static181.aClass345_34, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local949 = Static293.method4335(Static181.aClass345_34, ConnectionManager.GAME.aClass186_1);
             local949.buffer.p2_alt2(Static691.anInt10367 + local16);
             local949.buffer.p2_alt1(Static162.anInt2799);
             local949.buffer.p4_alt2(Static450.anInt6819);
             local949.buffer.p2_alt2(Static116.anInt2270 + local19);
             local949.buffer.p2(Static77.anInt1614);
-            Static405.A_SERVER_CONNECTION___2.send(local949);
+            ConnectionManager.GAME.send(local949);
             Static147.method2419(0, local19, 1, true, local16, 0, -4, 1);
         }
         if (local22 == 17) {
@@ -263,7 +263,7 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static305.anInt4882 = arg0;
             Static676.anInt10206 = arg2;
-            local949 = Static293.method4335(Static175.aClass345_31, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local949 = Static293.method4335(Static175.aClass345_31, ConnectionManager.GAME.aClass186_1);
             local949.buffer.p2(local16 + Static691.anInt10367);
             local949.buffer.p2(Static116.anInt2270 + local19);
             local949.buffer.p2_alt3(Static162.anInt2799);
@@ -271,7 +271,7 @@ public final class Static55 {
             local949.buffer.p2_alt1(Static77.anInt1614);
             local949.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
             local949.buffer.p2_alt1(local26);
-            Static405.A_SERVER_CONNECTION___2.send(local949);
+            ConnectionManager.GAME.send(local949);
             Static414.method5697(local19, local16);
         }
         if (local22 == 23) {
@@ -282,13 +282,13 @@ public final class Static55 {
                 Static616.anInt9417 = 2;
                 Static676.anInt10206 = arg2;
                 Static305.anInt4882 = arg0;
-                @Pc(1223) ClientMessage local1223 = Static293.method4335(Static503.aClass345_94, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+                @Pc(1223) ClientMessage local1223 = Static293.method4335(Static503.aClass345_94, ConnectionManager.GAME.aClass186_1);
                 local1223.buffer.p2_alt3(Static77.anInt1614);
                 local1223.buffer.p2_alt1(Static162.anInt2799);
                 local1223.buffer.p2_alt1(local26);
                 local1223.buffer.p4_alt3(Static450.anInt6819);
                 local1223.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
-                Static405.A_SERVER_CONNECTION___2.send(local1223);
+                ConnectionManager.GAME.send(local1223);
                 Static147.method2419(0, local1205.anIntArray878[0], local1205.method9302((byte) 44), true, local1205.anIntArray879[0], 0, -2, local1205.method9302((byte) 50));
             }
         }
@@ -300,7 +300,7 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static305.anInt4882 = arg0;
             Static616.anInt9417 = 2;
-            local949 = Static293.method4335(Static419.aClass345_77, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+            local949 = Static293.method4335(Static419.aClass345_77, ConnectionManager.GAME.aClass186_1);
             local949.buffer.p1_alt2(Static334.aClass319_1.method8479(82) ? 1 : 0);
             local949.buffer.p2_alt1(Static116.anInt2270 + local19);
             local949.buffer.p2_alt1(Static77.anInt1614);
@@ -308,7 +308,7 @@ public final class Static55 {
             local949.buffer.p2_alt3(Static162.anInt2799);
             local949.buffer.p2_alt1(local16 + Static691.anInt10367);
             local949.buffer.p2_alt2(Integer.MAX_VALUE & (int) (local35 >>> 32));
-            Static405.A_SERVER_CONNECTION___2.send(local949);
+            ConnectionManager.GAME.send(local949);
             Static38.method1001(local16, local35, local19);
         }
         if (Static156.aBoolean223) {

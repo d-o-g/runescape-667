@@ -21,7 +21,7 @@ public final class Static187 {
         Static717.anInt10817 = -1;
         Static117.anInt2282 = 0;
         Static102.anInt2129 = 0;
-        Static1.anInt10798 = 0;
+        CutsceneManager.state = 0;
         Static518.aClass2_Sub21_18 = null;
         Static298.method4385();
         Static525.anInt8907 = 0;

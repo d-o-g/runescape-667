@@ -7,6 +7,6 @@ public final class Static473 {
     public static LoadState aLoadState_22;
 
     @OriginalMember(owner = "client!ov", name = "b", descriptor = "Z")
-    public static boolean aBoolean539 = false;
+    public static boolean force64mb = false;
 
 }

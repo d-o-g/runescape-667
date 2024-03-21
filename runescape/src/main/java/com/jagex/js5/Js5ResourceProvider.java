@@ -268,7 +268,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     }
 
     @OriginalMember(owner = "client!pm", name = "d", descriptor = "(B)I")
-    public int method6649() {
+    public int loadedCount() {
         return this.loaded;
     }
 

@@ -8,7 +8,7 @@ public final class Static179 {
     public static int anInt2991;
 
     @OriginalMember(owner = "client!fk", name = "k", descriptor = "I")
-    public static int anInt2984 = 0;
+    public static int playerCount = 0;
 
     @OriginalMember(owner = "client!fk", name = "a", descriptor = "(III)I")
     public static int method2767(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {

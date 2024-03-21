@@ -1,4 +1,3 @@
-import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -24,66 +23,6 @@ public final class Static515 {
         }
         @Pc(41) String local41 = Static192.method2874(arg10);
         Fonts.b12.render(arg6, 0, arg2, local41, arg8 + 3, Static186.aSpriteArray5, Static460.anIntArray554);
-    }
-
-    @OriginalMember(owner = "client!qda", name = "a", descriptor = "(BILclient!ha;III)V")
-    public static void method6801(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        arg1.KA(arg3, arg4, arg3 + arg0, arg2 + arg4);
-        arg1.method7971(arg0, arg2, arg4, arg3, -16777216);
-        if (Static273.anInt4403 < 100) {
-            return;
-        }
-        @Pc(44) float local44 = (float) Static30.anInt5644 / (float) Static30.anInt5650;
-        @Pc(46) int local46 = arg0;
-        @Pc(48) int local48 = arg2;
-        if (local44 < 1.0F) {
-            local48 = (int) (local44 * (float) arg0);
-        } else {
-            local46 = (int) ((float) arg2 / local44);
-        }
-        @Pc(75) int local75 = arg3 + (arg0 - local46) / 2;
-        @Pc(84) int local84 = arg4 + (arg2 - local48) / 2;
-        if (Static13.aSprite_4 == null || Static13.aSprite_4.getWidth() != arg0 || Static13.aSprite_4.getHeight() != arg2) {
-            Static30.method5062(Static30.anInt5655, Static30.anInt5648 + Static30.anInt5644, Static30.anInt5650 + Static30.anInt5655, Static30.anInt5648, local75, local84, local75 + local46, local84 - -local48);
-            Static30.method5060(arg1);
-            Static13.aSprite_4 = arg1.method7964(local75, local84, local46, local48, false);
-        }
-        Static13.aSprite_4.render(local75, local84);
-        @Pc(138) int local138 = local46 * Static329.anInt1750 / Static30.anInt5650;
-        @Pc(144) int local144 = Static588.anInt8690 * local48 / Static30.anInt5644;
-        @Pc(152) int local152 = Static534.anInt8111 * local46 / Static30.anInt5650 + local75;
-        @Pc(166) int local166 = local48 + local84 - local144 - Static510.anInt7639 * local48 / Static30.anInt5644;
-        @Pc(168) int local168 = -1996554240;
-        if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
-            local168 = -1996488705;
-        }
-        arg1.aa(local152, local166, local138, local144, local168, 1);
-        arg1.method7976(local152, local166, local138, local144, local168, 0);
-        if (Static320.anInt5084 <= 0) {
-            return;
-        }
-        @Pc(202) int local202;
-        if (Static212.anInt3467 > 50) {
-            local202 = (100 - Static212.anInt3467) * 5;
-        } else {
-            local202 = Static212.anInt3467 * 5;
-        }
-        for (@Pc(213) Node_Sub20 local213 = (Node_Sub20) Static30.A_DEQUE___31.first(); local213 != null; local213 = (Node_Sub20) Static30.A_DEQUE___31.next()) {
-            @Pc(221) Class105 local221 = Static30.aClass246_3.method5584(local213.anInt3131);
-            if (Static408.method5634(local221)) {
-                @Pc(256) int local256;
-                @Pc(269) int local269;
-                if (Static475.anInt7168 == local213.anInt3131) {
-                    local256 = local75 + local213.anInt3129 * local46 / Static30.anInt5650;
-                    local269 = local84 + local48 * (Static30.anInt5644 - local213.anInt3124) / Static30.anInt5644;
-                    arg1.method7971(4, 4, local269 - 2, local256 - 2, local202 << 24 | 0xFFFF00);
-                } else if (Static409.anInt6318 != -1 && Static409.anInt6318 == local221.anInt2597) {
-                    local256 = local75 + local46 * local213.anInt3129 / Static30.anInt5650;
-                    local269 = local84 + (Static30.anInt5644 - local213.anInt3124) * local48 / Static30.anInt5644;
-                    arg1.method7971(4, 4, local269 - 2, local256 + -2, local202 << 24 | 0xFFFF00);
-                }
-            }
-        }
     }
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(ZIII)V")

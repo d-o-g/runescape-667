@@ -25,7 +25,7 @@ public final class Static90 {
                 local57.aClass8_Sub2_Sub1_Sub2_Sub2_2.method9296();
             }
         }
-        if (Static1.anInt10798 != 3) {
+        if (CutsceneManager.state != 3) {
             return;
         }
         for (@Pc(78) int local78 = 0; local78 < Static219.aClass236Array1.length; local78++) {

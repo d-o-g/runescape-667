@@ -21,7 +21,7 @@ public final class Static24 {
         }
         for (@Pc(23) int local23 = 0; local23 < InterfaceManager.boundaryCount; local23++) {
             if (InterfaceManager.dirtyRectangles[local23]) {
-                Static469.aBooleanArray23[local23] = true;
+                InterfaceManager.flipDirtyRect[local23] = true;
             }
             Static359.aBooleanArray17[local23] = InterfaceManager.dirtyRectangles[local23];
             InterfaceManager.dirtyRectangles[local23] = false;

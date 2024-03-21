@@ -20,7 +20,7 @@ public final class Static422 {
         for (@Pc(5) int local5 = 0; local5 < InterfaceManager.boundaryCount; local5++) {
             @Pc(10) Rectangle local10 = InterfaceManager.boundaries[local5];
             if (arg0 < local10.x + local10.width && local10.x < arg2 + arg0 && local10.height + local10.y > arg1 && local10.y < arg1 + arg3) {
-                Static469.aBooleanArray23[local5] = true;
+                InterfaceManager.flipDirtyRect[local5] = true;
             }
         }
         Static682.method8927(arg1, arg3 + arg1, arg0, arg0 + arg2);

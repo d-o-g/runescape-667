@@ -29,7 +29,7 @@ public final class Static527 {
             } else if (TimeUtils.clock >= local20.anInt722) {
                 local20.method816();
                 if (local20.anInt711 > 0) {
-                    if (Static1.anInt10798 == 3) {
+                    if (CutsceneManager.state == 3) {
                         @Pc(61) Class8_Sub2_Sub1_Sub2 local61 = Static219.aClass236Array1[local20.anInt711 - 1].method5363();
                         if (local61 != null && local61.anInt10690 >= 0 && local61.anInt10690 < Static720.mapWidth * 512 && local61.anInt10694 >= 0 && local61.anInt10694 < Static501.mapHeight * 512) {
                             local20.method813(Static102.method2025(local20.aByte144, -29754, local61.anInt10694, local61.anInt10690) - local20.lb, TimeUtils.clock, local61.anInt10694, local61.anInt10690);

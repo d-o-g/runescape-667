@@ -7,12 +7,12 @@ public final class Static33 {
 
     @OriginalMember(owner = "client!bc", name = "a", descriptor = "(B)V")
     public static void method881() {
-        Static1.anInt10798 = 4;
+        CutsceneManager.state = 4;
         Static322.anIntArrayArray265 = null;
         Static421.aBoolean480 = false;
         Static518.aClass2_Sub21_18 = null;
         Static298.method4385();
-        Static405.A_SERVER_CONNECTION___2.send(Static293.method4335(Static45.aClass345_5, Static405.A_SERVER_CONNECTION___2.aClass186_1));
+        ConnectionManager.GAME.send(Static293.method4335(Static45.aClass345_5, ConnectionManager.GAME.aClass186_1));
     }
 
     @OriginalMember(owner = "client!bc", name = "a", descriptor = "(I)[Lclient!wk;")

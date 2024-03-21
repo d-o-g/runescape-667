@@ -12,7 +12,7 @@ public final class Static652 {
     public static Class214 aClass214_1;
 
     @OriginalMember(owner = "client!uka", name = "o", descriptor = "I")
-    public static int anInt9712 = 0;
+    public static int currentFps = 0;
 
     @OriginalMember(owner = "client!uka", name = "y", descriptor = "I")
     public static int anInt9713 = 0;

@@ -256,7 +256,7 @@ public final class ParticleEmitter extends Node {
             local1171.method6694(arg2, arg0);
             this.anInt8268++;
         }
-        Static530.anInt8093 += this.anInt8268;
+        Static530.particleCount += this.anInt8268;
     }
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(JLclient!ha;I)V")

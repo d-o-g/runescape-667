@@ -29,7 +29,7 @@ public final class Static608 {
         Static481.anInt7222 = 0;
         @Pc(11) int[] local11 = Static210.anIntArray280;
         @Pc(20) int local20;
-        if (Static1.anInt10798 == 3) {
+        if (CutsceneManager.state == 3) {
             local20 = Static219.aClass236Array1.length;
         } else {
             local20 = Static390.anInt6126 + local7;
@@ -50,7 +50,7 @@ public final class Static608 {
         for (@Pc(27) int local27 = 0; local27 < local20; local27++) {
             @Pc(31) NPCType local31 = null;
             @Pc(51) Class8_Sub2_Sub1_Sub2 local51;
-            if (Static1.anInt10798 == 3) {
+            if (CutsceneManager.state == 3) {
                 @Pc(111) Class236 local111 = Static219.aClass236Array1[local27];
                 if (!local111.aBoolean455) {
                     continue;

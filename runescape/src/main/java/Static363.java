@@ -164,7 +164,7 @@ public final class Static363 {
             Static574.method7572();
         } else {
             Static434.aCanvas7.setSize(Static680.anInt10289, Static380.anInt5979);
-            if (Static137.aBoolean210) {
+            if (InterfaceManager.aBoolean210) {
                 Static575.method7606(Static434.aCanvas7);
             } else {
                 Static163.activeToolkit.method7935(Static434.aCanvas7, Static680.anInt10289, Static380.anInt5979);
@@ -184,7 +184,7 @@ public final class Static363 {
         if (Static377.anInt5930 != -1) {
             Static640.method8435(true);
         }
-        if (Static405.A_SERVER_CONNECTION___2.connection != null && Static109.method2070(Static283.step)) {
+        if (ConnectionManager.GAME.connection != null && Static109.method2070(Static283.step)) {
             Static371.method5284();
         }
         for (@Pc(258) int local258 = 0; local258 < 100; local258++) {

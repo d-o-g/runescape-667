@@ -33,9 +33,9 @@ public final class Static597 {
             return;
         }
         InterfaceManager.dragSource = arg1;
-        Static354.aComponent_8 = Static582.method7658(arg1);
-        Static150.anInt2631 = arg0;
-        Static378.anInt5941 = arg2;
+        InterfaceManager.dragParent = Static582.method7658(arg1);
+        InterfaceManager.dragStartY = arg0;
+        InterfaceManager.dragStartX = arg2;
         InterfaceManager.dragging = false;
         Static181.anInt3003 = 0;
     }

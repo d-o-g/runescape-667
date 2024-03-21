@@ -208,7 +208,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
         Static475.aLongArray16[Static708.anInt10644] = local6;
         if (local17 != 0L && local17 < local6) {
             @Pc(40) int local40 = (int) (local6 - local17);
-            Static652.anInt9712 = ((local40 >> 1) + 32000) / local40;
+            Static652.currentFps = ((local40 >> 1) + 32000) / local40;
         }
         Static708.anInt10644 = Static708.anInt10644 + 1 & 0x1F;
         if (Static169.anInt2850++ > 50) {

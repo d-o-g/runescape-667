@@ -31,7 +31,7 @@ public final class Static147 {
         @Pc(53) int local53;
         @Pc(63) int local63;
         @Pc(69) int local69;
-        if (Static137.aBoolean210) {
+        if (InterfaceManager.aBoolean210) {
             Static713.method9331(false);
             local38 = arg2.method8017();
             @Pc(41) int[] local41 = arg2.Y();
@@ -119,15 +119,15 @@ public final class Static147 {
                 }
             }
         }
-        if (Static137.aBoolean210) {
+        if (InterfaceManager.aBoolean210) {
             Static480.method6469();
         }
-        for (local140 = 0; local140 < (Static137.aBoolean210 ? 2 : 1); local140++) {
+        for (local140 = 0; local140 < (InterfaceManager.aBoolean210 ? 2 : 1); local140++) {
             @Pc(503) boolean local503 = local140 == 0;
             @Pc(510) Class213 local510 = local503 ? Static514.aClass213_2 : Static10.aClass213_1;
             local148 = arg1;
             local177 = arg0;
-            if (Static137.aBoolean210) {
+            if (InterfaceManager.aBoolean210) {
                 Static713.method9331(local503);
                 local148 = arg1 + Static242.method3503(local503);
                 local177 = arg0 + Static580.method7649(local503);
@@ -333,7 +333,7 @@ public final class Static147 {
                     }
                 }
             }
-            if (Static137.aBoolean210) {
+            if (InterfaceManager.aBoolean210) {
                 Static480.method6469();
             }
         }
@@ -370,19 +370,19 @@ public final class Static147 {
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(JILclient!ha;)V")
     public static void method2421(@OriginalArg(0) long arg0, @OriginalArg(2) Toolkit arg1) {
-        Static452.anInt6869 = Static530.anInt8093;
+        Static452.anInt6869 = Static530.particleCount;
         Static424.anInt6459 = 0;
-        Static111.anInt2220 = 0;
-        Static530.anInt8093 = 0;
+        Static111.activeParticleCount = 0;
+        Static530.particleCount = 0;
         @Pc(16) long local16 = SystemTimer.safetime();
         for (@Pc(21) ParticleSystem local21 = (ParticleSystem) ParticleSystem.systems.first(); local21 != null; local21 = (ParticleSystem) ParticleSystem.systems.next()) {
             if (local21.method3653(arg1, arg0)) {
-                Static111.anInt2220++;
+                Static111.activeParticleCount++;
             }
         }
         if (Static615.aBoolean719 && arg0 % 100L == 0L) {
-            System.out.println("Particle system count: " + ParticleSystem.systems.size() + ", running: " + Static111.anInt2220);
-            System.out.println("Emitters: " + Static424.anInt6459 + " Particles: " + Static530.anInt8093 + ". Time taken: " + (SystemTimer.safetime() - local16) + "ms");
+            System.out.println("Particle system count: " + ParticleSystem.systems.size() + ", running: " + Static111.activeParticleCount);
+            System.out.println("Emitters: " + Static424.anInt6459 + " Particles: " + Static530.particleCount + ". Time taken: " + (SystemTimer.safetime() - local16) + "ms");
         }
     }
 }

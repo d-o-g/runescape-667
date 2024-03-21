@@ -62,7 +62,7 @@ public final class Static712 {
             }
             Static434.aCanvas7.setSize(Static680.anInt10289, Static380.anInt5979);
             if (Static163.activeToolkit != null) {
-                if (Static137.aBoolean210) {
+                if (InterfaceManager.aBoolean210) {
                     Static575.method7606(Static434.aCanvas7);
                 } else {
                     Static163.activeToolkit.method7935(Static434.aCanvas7, Static680.anInt10289, Static380.anInt5979);

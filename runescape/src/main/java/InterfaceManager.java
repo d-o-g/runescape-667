@@ -1,4 +1,7 @@
 import com.jagex.core.constants.ComponentClientCode;
+import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.LocalisedText;
@@ -13,6 +16,8 @@ import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -26,6 +31,9 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!lia", name = "b", descriptor = "[Z")
     public static final boolean[] dirtyRectangles = new boolean[100];
+
+    @OriginalMember(owner = "client!oq", name = "i", descriptor = "[Z")
+    public static final boolean[] flipDirtyRect = new boolean[100];
 
     @OriginalMember(owner = "client!ff", name = "k", descriptor = "I")
     public static int lastDrawCycle = -2;
@@ -65,6 +73,27 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!kq", name = "k", descriptor = "Z")
     public static boolean aBoolean428 = false;
+
+    @OriginalMember(owner = "client!lt", name = "D", descriptor = "I")
+    public static int dragStartX = 0;
+
+    @OriginalMember(owner = "client!en", name = "m", descriptor = "I")
+    public static int dragStartY = 0;
+
+    @OriginalMember(owner = "client!ld", name = "e", descriptor = "Lclient!hda;")
+    public static Component dragParent = null;
+
+    @OriginalMember(owner = "client!fe", name = "e", descriptor = "I")
+    public static int dragParentY = -1;
+
+    @OriginalMember(owner = "client!dr", name = "b", descriptor = "I")
+    public static int dragParentX = -1;
+
+    @OriginalMember(owner = "client!ef", name = "d", descriptor = "Z")
+    public static boolean aBoolean210 = false;
+
+    @OriginalMember(owner = "client!mfa", name = "c", descriptor = "I")
+    public static int anInt6147;
 
     static {
         for (@Pc(87) int i = 0; i < 100; i++) {
@@ -136,11 +165,12 @@ public final class InterfaceManager {
                 drawSpinningPlayer(child);
             }
 
-            @Pc(125) int local125 = offsetX + child.positionX;
-            @Pc(130) int local130 = offsetY + child.positionY;
+            @Pc(125) int posX = offsetX + child.positionX;
+            @Pc(130) int posY = offsetY + child.positionY;
+
             @Pc(132) int local132 = 0;
             @Pc(134) int local134 = 0;
-            if (Static137.aBoolean210) {
+            if (aBoolean210) {
                 local132 = Static130.method2283();
                 local134 = Static422.method5771();
             }
@@ -150,8 +180,6 @@ public final class InterfaceManager {
                 transparency = 127;
             }
 
-            @Pc(216) int local216;
-            @Pc(222) int local222;
             if (dragSource == child) {
                 if (parent != 0xabcdabcd && (child.dragRenderBehaviour == DragRender.OFFSET || child.dragRenderBehaviour == DragRender.OFFSET_TRANSPARENT)) {
                     dragOffsetY = offsetY;
@@ -161,74 +189,80 @@ public final class InterfaceManager {
                 }
 
                 if (dragging && aBoolean428) {
-                    local216 = local132 + MouseMonitor.instance.getRecordedX();
-                    local222 = local134 + MouseMonitor.instance.getRecordedY();
-                    local222 -= Static150.anInt2631;
-                    local216 -= Static378.anInt5941;
-                    if (Static123.anInt2341 > local216) {
-                        local216 = Static123.anInt2341;
+                    @Pc(216) int mouseX;
+                    @Pc(222) int mouseY;
+                    mouseX = local132 + MouseMonitor.instance.getRecordedX();
+                    mouseY = local134 + MouseMonitor.instance.getRecordedY();
+                    mouseY -= dragStartY;
+                    mouseX -= dragStartX;
+
+                    if (mouseX < dragParentX) {
+                        mouseX = dragParentX;
                     }
-                    if (local222 < Static169.anInt2853) {
-                        local222 = Static169.anInt2853;
+                    if (mouseY < dragParentY) {
+                        mouseY = dragParentY;
                     }
-                    if (Static123.anInt2341 + Static354.aComponent_8.width < local216 - -child.width) {
-                        local216 = Static123.anInt2341 + Static354.aComponent_8.width - child.width;
+
+                    if (dragParentX + dragParent.width < mouseX - -child.width) {
+                        mouseX = dragParentX + dragParent.width - child.width;
                     }
-                    local125 = local216;
-                    if (Static169.anInt2853 + Static354.aComponent_8.height < local222 + child.height) {
-                        local222 = Static169.anInt2853 + Static354.aComponent_8.height - child.height;
+                    posX = mouseX;
+
+                    if (dragParentY + dragParent.height < mouseY + child.height) {
+                        mouseY = dragParentY + dragParent.height - child.height;
                     }
-                    local130 = local222;
+                    posY = mouseY;
                 }
+
                 if (child.dragRenderBehaviour == DragRender.OFFSET_TRANSPARENT) {
                     transparency = 128;
                 }
             }
-            @Pc(359) int local359;
-            @Pc(371) int local371;
-            @Pc(317) int local317;
-            @Pc(323) int local323;
-            if (child.type == 2) {
-                local216 = arg3;
-                local371 = arg5;
-                local222 = arg4;
-                local359 = arg8;
+
+            @Pc(216) int x1;
+            @Pc(222) int y1;
+            @Pc(359) int x2;
+            @Pc(371) int y2;
+            if (child.type == Component.TYPE_INVENTORY) {
+                x1 = arg3;
+                y2 = arg5;
+                y1 = arg4;
+                x2 = arg8;
             } else {
-                local317 = local125 + child.width;
-                local323 = local130 + child.height;
-                if (child.type == 9) {
+                @Pc(317) int local317 = posX + child.width;
+                @Pc(323) int local323 = posY + child.height;
+
+                if (child.type == Component.TYPE_LINE) {
                     local323++;
                     local317++;
                 }
-                local222 = arg4 >= local130 ? arg4 : local130;
-                local216 = local125 > arg3 ? local125 : arg3;
-                local359 = arg8 <= local317 ? arg8 : local317;
-                local371 = local323 < arg5 ? local323 : arg5;
+
+                y1 = arg4 >= posY ? arg4 : posY;
+                x1 = posX > arg3 ? posX : arg3;
+                x2 = arg8 <= local317 ? arg8 : local317;
+                y2 = local323 < arg5 ? local323 : arg5;
             }
-            if (local359 > local216 && local222 < local371) {
-                @Pc(744) int local744;
-                @Pc(777) int local777;
-                @Pc(792) int local792;
-                @Pc(936) int local936;
-                @Pc(938) int local938;
-                @Pc(779) int local779;
+
+            if (x2 > x1 && y2 > y1) {
                 if (child.clientcode != 0) {
                     if (child.clientcode == ComponentClientCode.SCENE || child.clientcode == ComponentClientCode.LOGIN_SCENE) {
-                        setOptions(local130, local125, child);
-                        if (!Static137.aBoolean210) {
-                            Static294.method4339(local130, child.clientcode == ComponentClientCode.LOGIN_SCENE, child.width, child.height, local125);
+                        setOptions(posY, posX, child);
+                        if (!aBoolean210) {
+                            Static294.method4339(posY, child.clientcode == ComponentClientCode.LOGIN_SCENE, child.width, child.height, posX);
                             Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                         }
                         dirtyRectangles[rectangle] = true;
                         continue;
                     }
-                    if (child.clientcode == ComponentClientCode.MINIMAP && Static1.anInt10798 == 0) {
+
+                    if (child.clientcode == ComponentClientCode.MINIMAP && CutsceneManager.state == 0) {
                         if (child.graphic(Static163.activeToolkit) != null) {
                             Static557.method7331();
-                            Static28.method746(local130, Static163.activeToolkit, child, local125);
-                            Static469.aBooleanArray23[rectangle] = true;
+                            Minimap.draw(posY, Static163.activeToolkit, child, posX);
+                            flipDirtyRect[rectangle] = true;
                             Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
-                            if (Static137.aBoolean210) {
+
+                            if (aBoolean210) {
                                 if (arg7) {
                                     Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
                                 } else {
@@ -238,20 +272,24 @@ public final class InterfaceManager {
                         }
                         continue;
                     }
+
                     if (child.clientcode == ComponentClientCode.COLOUR_CHOOSER_HUE) {
-                        Static212.method3136(child, local125, local130, Static163.activeToolkit);
+                        drawColourBar(child, posX, posY, Static163.activeToolkit);
                         continue;
                     }
+
                     if (child.clientcode == ComponentClientCode.COLOUR_CHOOSER_SATURATION_VALUE) {
-                        Static393.method5509(Static163.activeToolkit, child.colour % 64, child, local125, local130);
+                        drawColourChart(Static163.activeToolkit, child.colour % 64, child, posX, posY);
                         continue;
                     }
+
                     if (child.clientcode == ComponentClientCode.COMPASS) {
                         if (child.graphic(Static163.activeToolkit) != null) {
-                            Static646.method8454(child, local125, local130);
-                            Static469.aBooleanArray23[rectangle] = true;
+                            drawCompass(child, posX, posY);
+                            flipDirtyRect[rectangle] = true;
                             Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
-                            if (Static137.aBoolean210) {
+
+                            if (aBoolean210) {
                                 if (arg7) {
                                     Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
                                 } else {
@@ -261,117 +299,142 @@ public final class InterfaceManager {
                         }
                         continue;
                     }
+
                     if (child.clientcode == ComponentClientCode.WORLD_MAP) {
-                        Static93.method1832(child.height, local125, local130, Static56.anTextureSource_3, Static163.activeToolkit, child.width);
+                        drawWorldMap(child.height, posX, posY, Static56.anTextureSource_3, Static163.activeToolkit, child.width);
                         dirtyRectangles[rectangle] = true;
                         Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                         continue;
                     }
+
                     if (child.clientcode == ComponentClientCode.WORLD_MAP_OVERVIEW) {
-                        Static515.method6801(child.width, Static163.activeToolkit, child.height, local125, local130);
+                        drawWorldMapOverview(child.width, Static163.activeToolkit, child.height, posX, posY);
                         dirtyRectangles[rectangle] = true;
                         Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                         continue;
                     }
+
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY) {
-                        if (!Static105.aBoolean196 && !Static354.aBoolean440) {
+                        if (!Static105.displayFps && !Static354.showProfiling) {
                             continue;
                         }
-                        local317 = local125 + child.width;
-                        local323 = local130 + 15;
-                        if (Static137.aBoolean210) {
+
+                        @Pc(317) int drawX = posX + child.width;
+                        @Pc(323) int drawY = posY + 15;
+
+                        if (aBoolean210) {
                             if (arg7) {
                                 Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
                         }
-                        if (Static105.aBoolean196) {
-                            local744 = -256;
-                            if (Static652.anInt9712 < 20) {
-                                local744 = -65536;
+
+                        if (Static105.displayFps) {
+                            @Pc(744) int fpsColour = 0xFFFFFF00;
+                            if (Static652.currentFps < 20) {
+                                fpsColour = 0xFFFF0000;
                             }
-                            Fonts.p12.render(local317, "Fps:" + Static652.anInt9712, local744, -1, local323);
-                            local323 += 15;
-                            @Pc(768) Runtime local768 = Runtime.getRuntime();
-                            local777 = (int) ((local768.totalMemory() - local768.freeMemory()) / 1024L);
-                            local779 = -256;
-                            if (local777 > 98304) {
-                                if (Static473.aBoolean539) {
-                                    Static664.method8659();
-                                    for (local792 = 0; local792 < 10; local792++) {
+
+                            Fonts.p12.render(drawX, "Fps:" + Static652.currentFps, fpsColour, -1, drawY);
+                            drawY += 15;
+
+                            @Pc(768) Runtime runtime = Runtime.getRuntime();
+                            @Pc(777) int memoryUsage = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+                            @Pc(779) int memoryColour = 0xFFFFFF00;
+                            if (memoryUsage > 0x18000) {
+                                if (Static473.force64mb) {
+                                    Static664.cacheRemoveSoftReferences();
+
+                                    for (@Pc(792) int j = 0; j < 10; j++) {
                                         System.gc();
                                     }
-                                    local777 = (int) ((local768.totalMemory() - local768.freeMemory()) / 1024L);
-                                    if (local777 > 65536) {
+
+                                    memoryUsage = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+
+                                    if (memoryUsage > 65536) {
                                         Static67.method6098("WARNING: Memory usage over 64MB! Please inform whoever is responsible for the content/area you are using/in.");
                                     }
                                 }
-                                local779 = -65536;
+
+                                memoryColour = 0xFFFF0000;
                             }
-                            Fonts.p12.render(local317, "Mem:" + local777 + "k", local779, -1, local323);
-                            local323 += 15;
-                            Fonts.p12.render(local317, "Game: In:" + Static405.A_SERVER_CONNECTION___2.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___2.writeRate + "B/s", -256, -1, local323);
-                            local323 += 15;
-                            Fonts.p12.render(local317, "Lobby: In:" + Static405.A_SERVER_CONNECTION___1.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___1.writeRate + "B/s", -256, -1, local323);
-                            local323 += 15;
-                            local792 = Static163.activeToolkit.E() / 1024;
-                            Fonts.p12.render(local317, "Offheap:" + local792 + "k", local792 > 65536 ? -65536 : -256, -1, local323);
-                            local323 += 15;
-                            local936 = 0;
-                            local938 = 0;
-                            @Pc(940) int local940 = 0;
-                            for (@Pc(942) int local942 = 0; local942 < 37; local942++) {
-                                if (client.js5ResourceProviders[local942] != null) {
-                                    local936 += client.js5ResourceProviders[local942].entryCount();
-                                    local938 += client.js5ResourceProviders[local942].method6649();
-                                    local940 += client.js5ResourceProviders[local942].extrasCount();
+
+                            Fonts.p12.render(drawX, "Mem:" + memoryUsage + "k", memoryColour, 0xFFFFFFFF, drawY);
+                            drawY += 15;
+
+                            Fonts.p12.render(drawX, "Game: In:" + ConnectionManager.GAME.readRate + "B/s Out:" + ConnectionManager.GAME.writeRate + "B/s", 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            drawY += 15;
+
+                            Fonts.p12.render(drawX, "Lobby: In:" + ConnectionManager.LOBBY.readRate + "B/s Out:" + ConnectionManager.LOBBY.writeRate + "B/s", 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            drawY += 15;
+
+                            @Pc(792) int offheap = Static163.activeToolkit.E() / 1024;
+                            Fonts.p12.render(drawX, "Offheap:" + offheap + "k", offheap > 65536 ? 0xFFFF0000 : 0xFFFFFF00, -1, drawY);
+                            drawY += 15;
+
+                            @Pc(936) int entryTotal = 0;
+                            @Pc(938) int loadedTotal = 0;
+                            @Pc(940) int extrasTotal = 0;
+                            for (@Pc(942) int archive = 0; archive < 37; archive++) {
+                                if (client.js5ResourceProviders[archive] != null) {
+                                    entryTotal += client.js5ResourceProviders[archive].entryCount();
+                                    loadedTotal += client.js5ResourceProviders[archive].loadedCount();
+                                    extrasTotal += client.js5ResourceProviders[archive].extrasCount();
                                 }
                             }
-                            @Pc(986) int local986 = local940 * 100 / local936;
-                            @Pc(992) int local992 = local938 * 10000 / local936;
-                            @Pc(1018) String local1018 = "Cache:" + Static573.method7571(0, true, (long) local992, 2) + "% (" + local986 + "%)";
-                            Fonts.p11.render(local317, local1018, -256, -1, local323);
-                            local323 += 12;
+
+                            @Pc(986) int extrasPercentage = (extrasTotal * 100) / entryTotal;
+                            @Pc(992) int totalPercentage = (loadedTotal * 10000) / entryTotal;
+
+                            @Pc(1018) String cache = "Cache:" + StringTools.formatNumber(0, true, totalPercentage, 2) + "% (" + extrasPercentage + "%)";
+                            Fonts.p11.render(drawX, cache, 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            drawY += 12;
                         }
-                        if (Static530.anInt8093 > 0) {
-                            Fonts.p11.render(local317, "Particles: " + Static111.anInt2220 + " / " + Static530.anInt8093, -256, -1, local323);
+
+                        if (Static530.particleCount > 0) {
+                            Fonts.p11.render(drawX, "Particles: " + Static111.activeParticleCount + " / " + Static530.particleCount, 0xFFFFFF00, 0xFFFFFFFF, drawY);
                         }
-                        local323 += 12;
-                        if (Static354.aBoolean440) {
-                            Fonts.p11.render(local317, "Polys: " + Static163.activeToolkit.I() + " Models: " + Static163.activeToolkit.M(), -256, -1, local323);
-                            local323 += 12;
-                            Fonts.p11.render(local317, "Ls: " + Static606.anInt8954 + " La: " + Static577.anInt8587 + " NPC: " + Static480.anInt7206 + " Pl: " + Static179.anInt2984, -256, -1, local323);
+                        drawY += 12;
+
+                        if (Static354.showProfiling) {
+                            Fonts.p11.render(drawX, "Polys: " + Static163.activeToolkit.I() + " Models: " + Static163.activeToolkit.M(), 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            drawY += 12;
+
+                            Fonts.p11.render(drawX, "Ls: " + Static606.anInt8954 + " La: " + Static577.anInt8587 + " NPC: " + Static480.npcCount + " Pl: " + Static179.playerCount, 0xFFFFFF00, 0xFFFFFFFF, drawY);
                             Static126.method2228();
-                            local323 += 12;
+                            drawY += 12;
                         }
+
                         dirtyRectangles[rectangle] = true;
                         continue;
                     }
                 }
-                @Pc(1255) int local1255;
-                @Pc(1214) Node_Sub4 local1214;
-                if (child.type == 0) {
+
+                if (child.type == Component.TYPE_LAYER) {
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER && Static163.activeToolkit.method8014()) {
-                        Static163.activeToolkit.method7959(local125, local130, child.width, child.height);
+                        Static163.activeToolkit.method7959(posX, posY, child.width, child.height);
                     }
-                    draw(child.slot, local125 - child.anInt3809, children, local216, local222, local371, rectangle, arg7, local359, local130 - child.anInt3768);
-                    if (child.aComponentArray1 != null) {
-                        draw(child.slot, local125 - child.anInt3809, child.aComponentArray1, local216, local222, local371, rectangle, arg7, local359, local130 - child.anInt3768);
+
+                    draw(child.slot, posX - child.scrollX, children, x1, y1, y2, rectangle, arg7, x2, posY - child.scrollY);
+
+                    if (child.dynamicComponents != null) {
+                        draw(child.slot, posX - child.scrollX, child.dynamicComponents, x1, y1, y2, rectangle, arg7, x2, posY - child.scrollY);
                     }
-                    local1214 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) child.slot);
+
+                    @Pc(1214) Node_Sub4 local1214 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) child.slot);
                     if (local1214 != null) {
-                        Static534.method7120(local1214.anInt147, local216, local359, local222, local130, rectangle, local125, local371);
+                        Static534.method7120(local1214.anInt147, x1, x2, y1, posY, rectangle, posX, y2);
                     }
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER) {
                         if (Static163.activeToolkit.method8014()) {
                             Static163.activeToolkit.method7974();
                         }
-                        if (Static1.anInt10798 == 3) {
-                            local323 = Static399.anInt6215;
-                            local744 = Static337.anInt5556;
-                            local1255 = Static186.anInt3059;
-                            local777 = Static622.anInt7737;
+                        if (CutsceneManager.state == 3) {
+                            @Pc(323) int local323 = Static399.anInt6215;
+                            @Pc(744) int local744 = Static337.anInt5556;
+                            @Pc(1255) int local1255 = Static186.anInt3059;
+                            @Pc(777) int local777 = Static622.anInt7737;
                             if (TimeUtils.clock < Static4.anInt84) {
                                 @Pc(1276) float local1276 = (float) (TimeUtils.clock - Static115.anInt2259) / (float) (Static4.anInt84 - Static115.anInt2259);
                                 local744 = (int) ((float) Static582.anInt8628 * (1.0F - local1276) + local1276 * (float) Static337.anInt5556);
@@ -380,7 +443,7 @@ public final class InterfaceManager {
                                 local777 = (int) (local1276 * (float) Static622.anInt7737 + (1.0F - local1276) * (float) Static201.anInt8407);
                             }
                             if (local323 > 0) {
-                                Static163.activeToolkit.method7971(local359 - local216, -local222 + local371, local222, local216, local744 << 16 | local323 << 24 | local1255 << 8 | local777);
+                                Static163.activeToolkit.method7971(x2 - x1, -y1 + y2, y1, x1, local744 << 16 | local323 << 24 | local1255 << 8 | local777);
                             }
                         }
                     }
@@ -390,16 +453,16 @@ public final class InterfaceManager {
                     if (child.type == 3) {
                         if (transparency == 0) {
                             if (child.filled) {
-                                Static163.activeToolkit.aa(local125, local130, child.width, child.height, child.colour, 0);
+                                Static163.activeToolkit.aa(posX, posY, child.width, child.height, child.colour, 0);
                             } else {
-                                Static163.activeToolkit.method7976(local125, local130, child.width, child.height, child.colour, 0);
+                                Static163.activeToolkit.method7976(posX, posY, child.width, child.height, child.colour, 0);
                             }
                         } else if (child.filled) {
-                            Static163.activeToolkit.aa(local125, local130, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                            Static163.activeToolkit.aa(posX, posY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
                         } else {
-                            Static163.activeToolkit.method7976(local125, local130, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                            Static163.activeToolkit.method7976(posX, posY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
                         }
-                        if (Static137.aBoolean210) {
+                        if (aBoolean210) {
                             if (arg7) {
                                 Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
                             } else {
@@ -411,7 +474,7 @@ public final class InterfaceManager {
                         if (child.type == 4) {
                             @Pc(1514) Font local1514 = child.font(Static163.activeToolkit);
                             if (local1514 != null) {
-                                local323 = child.colour;
+                                @Pc(323) int local323 = child.colour;
                                 @Pc(1533) String local1533 = child.text;
                                 if (child.anInt3760 != -1) {
                                     local1543 = Static419.aObjTypeList_1.list(child.anInt3760);
@@ -434,25 +497,25 @@ public final class InterfaceManager {
                                     local323 = child.colour;
                                 }
                                 if (Static376.aBoolean452) {
-                                    Static163.activeToolkit.T(local125, local130, local125 + child.width, child.height + local130);
+                                    Static163.activeToolkit.T(posX, posY, posX + child.width, child.height + posY);
                                 }
-                                local1514.renderLines(child.verticalAlignment, local323 | 255 - (transparency & 0xFF) << 24, child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Static679.aSpriteArray14, child.maxLines, 0, local130, child.height, 0, (ClippingMask) null, child.lineHeight, child.width, local125, child.horizontalAlignment, (int[]) null, local1533);
+                                local1514.renderLines(child.verticalAlignment, local323 | 255 - (transparency & 0xFF) << 24, child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Static679.aSpriteArray14, child.maxLines, 0, posY, child.height, 0, (ClippingMask) null, child.lineHeight, child.width, posX, child.horizontalAlignment, (int[]) null, local1533);
                                 if (Static376.aBoolean452) {
                                     Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                                 }
                                 if (local1533.trim().length() > 0) {
                                     if (!Static376.aBoolean452) {
                                         @Pc(1730) FontMetrics local1730 = Fonts.metrics(child.fontGraphic, Static163.activeToolkit);
-                                        local777 = local1730.paraWidth(Static679.aSpriteArray14, local1533, child.width);
-                                        local779 = local1730.stringHeight(child.width, child.lineHeight, local1533, Static679.aSpriteArray14);
-                                        if (Static137.aBoolean210) {
+                                        @Pc(777) int local777 = local1730.paraWidth(Static679.aSpriteArray14, local1533, child.width);
+                                        @Pc(779) int local779 = local1730.stringHeight(child.width, child.lineHeight, local1533, Static679.aSpriteArray14);
+                                        if (aBoolean210) {
                                             if (arg7) {
-                                                Static682.method8927(local130, local130 + local779, local125, local125 + local777);
+                                                Static682.method8927(posY, posY + local779, posX, posX + local777);
                                             } else {
-                                                Static595.method7810(local130, local125 + local777, local779 + local130, local125);
+                                                Static595.method7810(posY, posX + local777, local779 + posY, posX);
                                             }
                                         }
-                                    } else if (Static137.aBoolean210) {
+                                    } else if (aBoolean210) {
                                         if (arg7) {
                                             Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
                                         } else {
@@ -475,51 +538,51 @@ public final class InterfaceManager {
                                     local1816 = Static651.method8512(child.anInt3745, Static163.activeToolkit);
                                 }
                                 if (local1816 != null) {
-                                    local323 = local1816.scaleWidth();
-                                    local744 = local1816.scaleHeight();
-                                    local1255 = 255 - (transparency & 0xFF) << 24 | (child.colour == 0 ? 16777215 : child.colour & 0xFFFFFF);
+                                    @Pc(323) int local323 = local1816.scaleWidth();
+                                    @Pc(744) int local744 = local1816.scaleHeight();
+                                    @Pc(1255) int local1255 = 255 - (transparency & 0xFF) << 24 | (child.colour == 0 ? 16777215 : child.colour & 0xFFFFFF);
                                     if (child.tiled) {
-                                        Static163.activeToolkit.T(local125, local130, local125 + child.width, local130 - -child.height);
+                                        Static163.activeToolkit.T(posX, posY, posX + child.width, posY - -child.height);
                                         if (child.angle2d != 0) {
-                                            local777 = (child.width + local323 - 1) / local323;
-                                            local779 = (local744 + child.height - 1) / local744;
-                                            for (local792 = 0; local792 < local777; local792++) {
-                                                for (local936 = 0; local936 < local779; local936++) {
+                                            @Pc(777) int local777 = (child.width + local323 - 1) / local323;
+                                            @Pc(779) int local779 = (local744 + child.height - 1) / local744;
+                                            for (@Pc(792) int local792 = 0; local792 < local777; local792++) {
+                                                for (@Pc(936) int local936 = 0; local936 < local779; local936++) {
                                                     if (child.colour == 0) {
-                                                        local1816.method8186((float) (local792 * local323 + local125) + (float) local323 / 2.0F, (float) (local130 + local744 * local936) + (float) local744 / 2.0F, 4096, child.angle2d);
+                                                        local1816.method8186((float) (local792 * local323 + posX) + (float) local323 / 2.0F, (float) (posY + local744 * local936) + (float) local744 / 2.0F, 4096, child.angle2d);
                                                     } else {
-                                                        local1816.method8187((float) (local792 * local323 + local125) + (float) local323 / 2.0F, (float) local744 / 2.0F + (float) (local936 * local744 + local130), 4096, child.angle2d, local1255);
+                                                        local1816.method8187((float) (local792 * local323 + posX) + (float) local323 / 2.0F, (float) local744 / 2.0F + (float) (local936 * local744 + posY), 4096, child.angle2d, local1255);
                                                     }
                                                 }
                                             }
                                         } else if (child.colour == 0 && transparency == 0) {
-                                            local1816.method8198(local125, local130, child.width, child.height);
+                                            local1816.method8198(posX, posY, child.width, child.height);
                                         } else {
-                                            local1816.method8189(local125, local130, child.width, child.height, 0, local1255, 1);
+                                            local1816.method8189(posX, posY, child.width, child.height, 0, local1255, 1);
                                         }
                                         Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                                     } else if (child.colour == 0 && transparency == 0) {
                                         if (child.angle2d != 0) {
-                                            local1816.method8186((float) child.width / 2.0F + (float) local125, (float) local130 + (float) child.height / 2.0F, child.width * 4096 / local323, child.angle2d);
+                                            local1816.method8186((float) child.width / 2.0F + (float) posX, (float) posY + (float) child.height / 2.0F, child.width * 4096 / local323, child.angle2d);
                                         } else if (local323 == child.width && child.height == local744) {
-                                            local1816.render(local125, local130);
+                                            local1816.render(posX, posY);
                                         } else {
-                                            local1816.render(local125, local130, child.width, child.height);
+                                            local1816.render(posX, posY, child.width, child.height);
                                         }
                                     } else if (child.angle2d != 0) {
-                                        local1816.method8187((float) child.width / 2.0F + (float) local125, (float) child.height / 2.0F + (float) local130, child.width * 4096 / local323, child.angle2d, local1255);
+                                        local1816.method8187((float) child.width / 2.0F + (float) posX, (float) child.height / 2.0F + (float) posY, child.width * 4096 / local323, child.angle2d, local1255);
                                     } else if (local323 == child.width && child.height == local744) {
-                                        local1816.render(local125, local130, 0, local1255, 1);
+                                        local1816.render(posX, posY, 0, local1255, 1);
                                     } else {
-                                        local1816.render(local125, local130, child.width, child.height, 0, local1255, 1);
+                                        local1816.render(posX, posY, child.width, child.height, 0, local1255, 1);
                                     }
                                 } else if (Component.redrawAll) {
                                     redraw(child);
                                 }
                             } else {
-                                child.skyBox(Static99.aSkyBoxSphereTypeList_1, Static324.aSkyBoxTypeList_1).method3162(Static163.activeToolkit, local130, local125, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
+                                child.skyBox(Static99.aSkyBoxSphereTypeList_1, Static324.aSkyBoxTypeList_1).method3162(Static163.activeToolkit, posY, posX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
                             }
-                            if (Static137.aBoolean210) {
+                            if (aBoolean210) {
                                 if (arg7) {
                                     Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
                                 } else {
@@ -530,7 +593,7 @@ public final class InterfaceManager {
                             Static104.method2033();
                             NPCTypeCustomisation local1215 = null;
                             @Pc(2313) Model local2313 = null;
-                            local744 = 0;
+                            @Pc(744) int local744 = 0;
                             if (child.anInt3760 != -1) {
                                 local1543 = Static419.aObjTypeList_1.list(child.anInt3760);
                                 if (local1543 != null) {
@@ -543,7 +606,7 @@ public final class InterfaceManager {
                                     }
                                 }
                             } else if (child.objType == 5) {
-                                local1255 = child.obj;
+                                @Pc(1255) int local1255 = child.obj;
                                 if (local1255 >= 0 && local1255 < 2048) {
                                     @Pc(2341) Class8_Sub2_Sub1_Sub2_Sub1 local2341 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local1255];
                                     if (local2341 != null && (local1255 == Static312.anInt5000 || Static214.method3157(local2341.aString9) == child.objData)) {
@@ -567,18 +630,20 @@ public final class InterfaceManager {
                                 }
                             }
                             if (local2313 != null) {
+                                @Pc(1255) int local1255;
                                 if (child.anInt3800 <= 0) {
                                     local1255 = 512;
                                 } else {
                                     local1255 = (child.width << 9) / child.anInt3800;
                                 }
+                                @Pc(777) int local777;
                                 if (child.anInt3825 <= 0) {
                                     local777 = 512;
                                 } else {
                                     local777 = (child.height << 9) / child.anInt3825;
                                 }
-                                local779 = child.width / 2 + local125;
-                                local792 = child.height / 2 + local130;
+                                @Pc(779) int local779 = child.width / 2 + posX;
+                                @Pc(792) int local792 = child.height / 2 + posY;
                                 if (!child.orthoView) {
                                     local779 += child.modelOriginX * local1255 >> 9;
                                     local792 += child.modelOriginY * local777 >> 9;
@@ -596,8 +661,8 @@ public final class InterfaceManager {
                                     Static59.aMatrix_5.rotateAxisZ(child.modelAngleZ);
                                     Static59.aMatrix_5.translate(child.modelOriginX, child.modelOriginY, child.modelOriginZ);
                                 } else {
-                                    local936 = Trig1.SIN[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
-                                    local938 = Trig1.COS[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
+                                    @Pc(936) int local936 = Trig1.SIN[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
+                                    @Pc(938) int local938 = Trig1.COS[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
                                     Static59.aMatrix_5.makeRotationZ(-child.modelAngleZ << 3);
                                     Static59.aMatrix_5.rotateAxisY(child.modelAngleY << 3);
                                     Static59.aMatrix_5.translate(child.anInt3736 << 2, local744 + (child.anInt3804 << 2) + local936, (child.anInt3804 << 2) + local938);
@@ -605,7 +670,7 @@ public final class InterfaceManager {
                                 }
                                 child.method3384(Static163.activeToolkit, local2313, Static59.aMatrix_5, TimeUtils.clock);
                                 if (Static376.aBoolean452) {
-                                    Static163.activeToolkit.T(local125, local130, local125 + child.width, child.height + local130);
+                                    Static163.activeToolkit.T(posX, posY, posX + child.width, child.height + posY);
                                 }
                                 if (child.orthoView) {
                                     if (child.modelOrtho) {
@@ -631,7 +696,7 @@ public final class InterfaceManager {
                                     Static163.activeToolkit.C(true);
                                 }
                             }
-                            if (Static137.aBoolean210) {
+                            if (aBoolean210) {
                                 if (arg7) {
                                     Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
                                 } else {
@@ -639,21 +704,25 @@ public final class InterfaceManager {
                                 }
                             }
                         } else if (child.type == 9) {
+                            @Pc(323) int local323;
+                            @Pc(744) int local744;
+                            @Pc(1255) int local1255;
+
                             if (child.lineDirection) {
-                                local323 = child.height + local130;
-                                local1255 = local130;
-                                local744 = local125 + child.width;
+                                local323 = child.height + posY;
+                                local1255 = posY;
+                                local744 = posX + child.width;
                             } else {
-                                local1255 = child.height + local130;
-                                local323 = local130;
-                                local744 = local125 + child.width;
+                                local1255 = child.height + posY;
+                                local323 = posY;
+                                local744 = posX + child.width;
                             }
                             if (child.lineWidth == 1) {
-                                Static163.activeToolkit.method7951(local125, local323, local744, local1255, child.colour, 0);
+                                Static163.activeToolkit.method7951(posX, local323, local744, local1255, child.colour, 0);
                             } else {
-                                Static163.activeToolkit.method7947(local125, local323, local744, local1255, child.colour, child.lineWidth);
+                                Static163.activeToolkit.method7947(posX, local323, local744, local1255, child.colour, child.lineWidth);
                             }
-                            if (Static137.aBoolean210) {
+                            if (aBoolean210) {
                                 if (arg7) {
                                     Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
                                 } else {
@@ -715,5 +784,157 @@ public final class InterfaceManager {
     public static ServerActiveProperties serverActiveProperties(@OriginalArg(0) Component arg0) {
         @Pc(13) ServerActiveProperties local13 = (ServerActiveProperties) Static291.A_HASH_TABLE___24.get(((long) arg0.slot << 32) + (long) arg0.id);
         return local13 == null ? arg0.serverActiveProperties : local13;
+    }
+
+    @OriginalMember(owner = "client!gka", name = "a", descriptor = "(Lclient!hda;IBILclient!ha;)V")
+    public static void drawColourBar(@OriginalArg(0) Component arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Toolkit arg3) {
+        for (@Pc(16) int local16 = 63; local16 >= 0; local16--) {
+            Static198.method2954(true, false);
+            @Pc(42) int local42 = (local16 & 0x3F) << 10 | 0x3F | 0x380;
+            @Pc(46) int local46 = Static154.anIntArray237[local42];
+            Static300.method4390(false, true);
+            arg3.aa(arg1, ((63 - local16) * arg0.height >> 6) + arg2, arg0.width, (arg0.height >> 6) + 1, local46, 0);
+        }
+    }
+
+    @OriginalMember(owner = "client!mfa", name = "a", descriptor = "(Lclient!ha;IBLclient!hda;II)V")
+    public static void drawColourChart(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Component arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+        for (@Pc(10) int local10 = 7; local10 >= 0; local10--) {
+            for (@Pc(16) int local16 = 127; local16 >= 0; local16--) {
+                Static198.method2954(true, false);
+                @Pc(40) int local40 = (arg1 & 0x3F) << 10 | (local10 & 0x7) << 7 | local16 & 0x7F;
+                @Pc(44) int local44 = Static154.anIntArray237[local40];
+                Static300.method4390(false, true);
+                arg0.aa(arg3 + (arg2.width * local16 >> 7), arg4 + ((-local10 + 7) * arg2.height >> 3), (arg2.width >> 7) + 1, (arg2.height >> 3) - -1, local44, 0);
+            }
+        }
+        anInt6147++;
+    }
+
+    @OriginalMember(owner = "client!uga", name = "a", descriptor = "(Lclient!hda;III)V")
+    public static void drawCompass(@OriginalArg(0) Component arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
+        @Pc(8) Graphic local8 = arg0.graphic(Static163.activeToolkit);
+        if (local8 == null) {
+            return;
+        }
+        Static163.activeToolkit.KA(arg1, arg2, arg1 + arg0.width, arg2 + arg0.height);
+        if (Static578.anInt8595 >= 3) {
+            Static163.activeToolkit.A(-16777216, local8.aClippingMask, arg1, arg2);
+        } else {
+            Static12.aSprite_27.method8183((float) arg0.width / 2.0F + (float) arg1, (float) arg0.height / 2.0F + (float) arg2, ((int) -Static171.aFloat64 & 0x3FFF) << 2, local8.aClippingMask, arg1, arg2);
+        }
+    }
+
+    @OriginalMember(owner = "client!cu", name = "a", descriptor = "(IIIILclient!d;Lclient!ha;I)V")
+    public static void drawWorldMap(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) TextureSource arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5) {
+        if (Static273.anInt4403 < 100) {
+            Static719.method9117(arg3, arg4);
+        }
+        arg4.KA(arg1, arg2, arg1 + arg5, arg2 + arg0);
+        @Pc(38) int local38;
+        @Pc(57) int local57;
+        if (Static273.anInt4403 < 100) {
+            local38 = arg5 / 2 + arg1;
+            arg4.aa(arg1, arg2, arg5, arg0, -16777216, 0);
+            local57 = arg2 + arg0 / 2 - 20 - 18;
+            arg4.method7976(local38 - 152, local57, 304, 34, Static337.aColorArray1[Static338.anInt5562].getRGB(), 0);
+            arg4.aa(local38 - 150, local57 + 2, Static273.anInt4403 * 3, 30, Static718.aColorArray3[Static338.anInt5562].getRGB(), 0);
+            Fonts.b12.renderCentre(-1, local38, LocalisedText.LOADINGDOTDOTDOT.localise(Static51.anInt1052), local57 + 20, Static399.aColorArray2[Static338.anInt5562].getRGB());
+            return;
+        }
+        @Pc(114) int local114 = Static164.anInt2809 - (int) ((float) arg5 / Static30.aFloat105);
+        local38 = Static615.anInt9389 + (int) ((float) arg0 / Static30.aFloat105);
+        local57 = Static164.anInt2809 + (int) ((float) arg5 / Static30.aFloat105);
+        Static329.anInt1750 = (int) ((float) (arg5 * 2) / Static30.aFloat105);
+        Static588.anInt8690 = (int) ((float) (arg0 * 2) / Static30.aFloat105);
+        @Pc(155) int local155 = Static615.anInt9389 - (int) ((float) arg0 / Static30.aFloat105);
+        Static510.anInt7639 = Static615.anInt9389 - (int) ((float) arg0 / Static30.aFloat105);
+        Static534.anInt8111 = Static164.anInt2809 - (int) ((float) arg5 / Static30.aFloat105);
+        Static30.method5062(Static30.anInt5655 + local114, local38 - -Static30.anInt5648, local57 + Static30.anInt5655, local155 - -Static30.anInt5648, arg1, arg2, arg5 + arg1, arg0 + arg2 + 1);
+        Static30.method5060(arg4);
+        @Pc(203) Deque local203 = Static30.method5081(arg4);
+        Static368.method5272(local203, arg4);
+        if (Static320.anInt5084 > 0) {
+            Static212.anInt3467--;
+            if (Static212.anInt3467 == 0) {
+                Static320.anInt5084--;
+                Static212.anInt3467 = 20;
+            }
+        }
+        if (!Static105.displayFps) {
+            return;
+        }
+        @Pc(250) int local250 = arg5 + arg1 - 5;
+        @Pc(256) int local256 = arg2 + arg0 - 8;
+        Fonts.p12.render(local250, "Fps:" + Static652.currentFps, 16776960, -1, local256);
+        @Pc(273) int local273 = local256 - 15;
+        @Pc(275) Runtime local275 = Runtime.getRuntime();
+        @Pc(285) int local285 = (int) ((local275.totalMemory() - local275.freeMemory()) / 1024L);
+        @Pc(287) int local287 = 16776960;
+        if (local285 > 65536) {
+            local287 = 16711680;
+        }
+        Fonts.p12.render(local250, "Mem:" + local285 + "k", local287, -1, local273);
+        local256 = local273 - 15;
+    }
+
+    @OriginalMember(owner = "client!qda", name = "a", descriptor = "(BILclient!ha;III)V")
+    public static void drawWorldMapOverview(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+        arg1.KA(arg3, arg4, arg3 + arg0, arg2 + arg4);
+        arg1.method7971(arg0, arg2, arg4, arg3, -16777216);
+        if (Static273.anInt4403 < 100) {
+            return;
+        }
+        @Pc(44) float local44 = (float) Static30.anInt5644 / (float) Static30.anInt5650;
+        @Pc(46) int local46 = arg0;
+        @Pc(48) int local48 = arg2;
+        if (local44 < 1.0F) {
+            local48 = (int) (local44 * (float) arg0);
+        } else {
+            local46 = (int) ((float) arg2 / local44);
+        }
+        @Pc(75) int local75 = arg3 + (arg0 - local46) / 2;
+        @Pc(84) int local84 = arg4 + (arg2 - local48) / 2;
+        if (Static13.aSprite_4 == null || Static13.aSprite_4.getWidth() != arg0 || Static13.aSprite_4.getHeight() != arg2) {
+            Static30.method5062(Static30.anInt5655, Static30.anInt5648 + Static30.anInt5644, Static30.anInt5650 + Static30.anInt5655, Static30.anInt5648, local75, local84, local75 + local46, local84 - -local48);
+            Static30.method5060(arg1);
+            Static13.aSprite_4 = arg1.method7964(local75, local84, local46, local48, false);
+        }
+        Static13.aSprite_4.render(local75, local84);
+        @Pc(138) int local138 = local46 * Static329.anInt1750 / Static30.anInt5650;
+        @Pc(144) int local144 = Static588.anInt8690 * local48 / Static30.anInt5644;
+        @Pc(152) int local152 = Static534.anInt8111 * local46 / Static30.anInt5650 + local75;
+        @Pc(166) int local166 = local48 + local84 - local144 - Static510.anInt7639 * local48 / Static30.anInt5644;
+        @Pc(168) int local168 = -1996554240;
+        if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
+            local168 = -1996488705;
+        }
+        arg1.aa(local152, local166, local138, local144, local168, 1);
+        arg1.method7976(local152, local166, local138, local144, local168, 0);
+        if (Static320.anInt5084 <= 0) {
+            return;
+        }
+        @Pc(202) int local202;
+        if (Static212.anInt3467 > 50) {
+            local202 = (100 - Static212.anInt3467) * 5;
+        } else {
+            local202 = Static212.anInt3467 * 5;
+        }
+        for (@Pc(213) Node_Sub20 local213 = (Node_Sub20) Static30.A_DEQUE___31.first(); local213 != null; local213 = (Node_Sub20) Static30.A_DEQUE___31.next()) {
+            @Pc(221) Class105 local221 = Static30.aClass246_3.method5584(local213.anInt3131);
+            if (Static408.method5634(local221)) {
+                @Pc(256) int local256;
+                @Pc(269) int local269;
+                if (Static475.anInt7168 == local213.anInt3131) {
+                    local256 = local75 + local213.anInt3129 * local46 / Static30.anInt5650;
+                    local269 = local84 + local48 * (Static30.anInt5644 - local213.anInt3124) / Static30.anInt5644;
+                    arg1.method7971(4, 4, local269 - 2, local256 - 2, local202 << 24 | 0xFFFF00);
+                } else if (Static409.anInt6318 != -1 && Static409.anInt6318 == local221.anInt2597) {
+                    local256 = local75 + local46 * local213.anInt3129 / Static30.anInt5650;
+                    local269 = local84 + (Static30.anInt5644 - local213.anInt3124) * local48 / Static30.anInt5644;
+                    arg1.method7971(4, 4, local269 - 2, local256 + -2, local202 << 24 | 0xFFFF00);
+                }
+            }
+        }
     }
 }

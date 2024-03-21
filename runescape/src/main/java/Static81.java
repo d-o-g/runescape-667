@@ -135,7 +135,7 @@ public final class Static81 {
         local8.buffer.pos += 7;
         local8.buffer.tinyenc(local38, local42, local8.buffer.pos);
         local8.buffer.psize2(local8.buffer.pos - local25);
-        Static405.A_SERVER_CONNECTION___1.send(local8);
+        ConnectionManager.LOBBY.send(local8);
         Static720.anInt10865 = 0;
         Static580.anInt8621 = -3;
         Static654.anInt9739 = 0;

@@ -213,7 +213,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             return;
         }
         @Pc(21) Class8_Sub2_Sub1_Sub2 local21 = null;
-        if (Static1.anInt10798 == 3) {
+        if (CutsceneManager.state == 3) {
             local21 = Static219.aClass236Array1[this.anInt706 - 1].method5363();
         } else {
             @Pc(35) int local35;

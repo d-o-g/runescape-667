@@ -20,9 +20,6 @@ public final class Static137 {
     @OriginalMember(owner = "client!ef", name = "f", descriptor = "Lclient!om;")
     public static final Class280 aClass280_4 = new Class280(1);
 
-    @OriginalMember(owner = "client!ef", name = "d", descriptor = "Z")
-    public static boolean aBoolean210 = false;
-
     @OriginalMember(owner = "client!ef", name = "a", descriptor = "(III)Z")
     public static boolean method2350(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
         return (arg1 & 0xC580) != 0;

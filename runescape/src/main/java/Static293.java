@@ -803,7 +803,7 @@ public final class Static293 {
                                             local277 = local11.g2();
                                             Static607.anInt9251 = -1;
                                             Static717.anInt10817 = local277;
-                                            Static1.anInt10798 = 1;
+                                            CutsceneManager.state = 1;
                                             js5.CUTSCENES.fileready(Static717.anInt10817);
                                             local100 = local11.g2();
                                             Static322.anIntArrayArray265 = new int[local100][4];

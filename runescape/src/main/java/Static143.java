@@ -18,9 +18,9 @@ public final class Static143 {
 
     @OriginalMember(owner = "client!eia", name = "f", descriptor = "(B)V")
     public static void method3571() {
-        @Pc(20) ClientMessage local20 = Static293.method4335(Static442.aClass345_83, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+        @Pc(20) ClientMessage local20 = Static293.method4335(Static442.aClass345_83, ConnectionManager.GAME.aClass186_1);
         local20.buffer.p4(Static334.anInt5456);
-        Static405.A_SERVER_CONNECTION___2.send(local20);
+        ConnectionManager.GAME.send(local20);
     }
 
     @OriginalMember(owner = "client!eia", name = "e", descriptor = "(B)V")

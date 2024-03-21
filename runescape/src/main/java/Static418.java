@@ -47,7 +47,7 @@ public final class Static418 {
             return;
         }
         @Pc(58) int local58 = Static102.method2025(arg0, -29754, arg1, arg3) - arg2;
-        if (Static137.aBoolean210) {
+        if (InterfaceManager.aBoolean210) {
             Static713.method9331(true);
         } else {
             Static460.aMatrix_10.translate(arg4, 0, 0);
@@ -58,7 +58,7 @@ public final class Static418 {
         } else {
             Static163.activeToolkit.da(arg3, local58, arg1, Static215.anIntArray284);
         }
-        if (Static137.aBoolean210) {
+        if (InterfaceManager.aBoolean210) {
             Static480.method6469();
         } else {
             Static460.aMatrix_10.translate(-arg4, 0, 0);

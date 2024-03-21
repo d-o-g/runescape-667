@@ -124,29 +124,29 @@ public final class Static595 {
     }
 
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(IBIII)V")
-    public static void method7810(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
+    public static void method7810(@OriginalArg(0) int bottom, @OriginalArg(2) int right, @OriginalArg(3) int top, @OriginalArg(4) int left) {
         @Pc(5) int local5 = Static691.anInt10368;
         if (local5 == 0) {
             return;
         }
         if (local5 == 1) {
-            Static599.anInt8837 = arg1;
+            Static599.anInt8837 = right;
             Static691.anInt10368 = 2;
-            Static435.anInt6597 = arg3;
-            Static320.anInt5085 = arg0;
-            Static582.anInt8629 = arg2;
+            Static435.anInt6597 = left;
+            Static320.anInt5085 = bottom;
+            Static582.anInt8629 = top;
         } else if (local5 == 2) {
-            if (Static320.anInt5085 > arg0) {
-                Static320.anInt5085 = arg0;
+            if (Static320.anInt5085 > bottom) {
+                Static320.anInt5085 = bottom;
             }
-            if (Static435.anInt6597 > arg3) {
-                Static435.anInt6597 = arg3;
+            if (Static435.anInt6597 > left) {
+                Static435.anInt6597 = left;
             }
-            if (Static599.anInt8837 < arg1) {
-                Static599.anInt8837 = arg1;
+            if (Static599.anInt8837 < right) {
+                Static599.anInt8837 = right;
             }
-            if (Static582.anInt8629 < arg2) {
-                Static582.anInt8629 = arg2;
+            if (Static582.anInt8629 < top) {
+                Static582.anInt8629 = top;
             }
         }
     }

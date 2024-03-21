@@ -27,7 +27,7 @@ public final class Static149 {
     public static void method2449(@OriginalArg(0) Toolkit arg0) {
         @Pc(5) int local5 = 0;
         @Pc(7) int local7 = 0;
-        if (Static137.aBoolean210) {
+        if (InterfaceManager.aBoolean210) {
             local5 = Static130.method2283();
             local7 = Static422.method5771();
         }

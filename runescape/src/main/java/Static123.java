@@ -8,9 +8,6 @@ public final class Static123 {
     @OriginalMember(owner = "client!dr", name = "c", descriptor = "Lclient!dla;")
     public static final ReferenceCache A_WEIGHTED_CACHE___53 = new ReferenceCache(8);
 
-    @OriginalMember(owner = "client!dr", name = "b", descriptor = "I")
-    public static int anInt2341 = -1;
-
     @OriginalMember(owner = "client!dr", name = "a", descriptor = "(IIIIBII)V")
     public static void method2210(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         Static315.method4574(arg3);

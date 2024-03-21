@@ -1,4 +1,3 @@
-import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -33,14 +32,4 @@ public final class Static212 {
         return local6;
     }
 
-    @OriginalMember(owner = "client!gka", name = "a", descriptor = "(Lclient!hda;IBILclient!ha;)V")
-    public static void method3136(@OriginalArg(0) Component arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Toolkit arg3) {
-        for (@Pc(16) int local16 = 63; local16 >= 0; local16--) {
-            Static198.method2954(true, false);
-            @Pc(42) int local42 = (local16 & 0x3F) << 10 | 0x3F | 0x380;
-            @Pc(46) int local46 = Static154.anIntArray237[local42];
-            Static300.method4390(false, true);
-            arg3.aa(arg1, ((63 - local16) * arg0.height >> 6) + arg2, arg0.width, (arg0.height >> 6) + 1, local46, 0);
-        }
-    }
 }

@@ -10,9 +10,6 @@ public final class Static1 {
     @OriginalMember(owner = "client!aa", name = "b", descriptor = "Lclient!st;")
     public static Sprite aSprite_42;
 
-    @OriginalMember(owner = "client!aa", name = "d", descriptor = "I")
-    public static int anInt10798 = 0;
-
     @OriginalMember(owner = "client!aa", name = "a", descriptor = "Z")
     public static boolean aBoolean821 = false;
 

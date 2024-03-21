@@ -187,6 +187,60 @@ public final class StringTools {
         return string;
     }
 
+    @OriginalMember(owner = "client!sa", name = "a", descriptor = "(IZJIZ)Ljava/lang/String;")
+    public static String formatNumber(@OriginalArg(0) int language, @OriginalArg(1) boolean delimit, @OriginalArg(2) long value, @OriginalArg(3) int decimals) {
+        @Pc(5) char decimalDelimiter = ',';
+        @Pc(19) char thousandDelimiter = '.';
+        if (language == 0) {
+            decimalDelimiter = '.';
+            thousandDelimiter = ',';
+        }
+        if (language == 2) {
+            thousandDelimiter = ' ';
+        }
+
+        @Pc(32) boolean negative = false;
+        if (value < 0L) {
+            value = -value;
+            negative = true;
+        }
+
+        @Pc(48) StringBuffer buffer = new StringBuffer(26);
+        if (decimals > 0) {
+            for (@Pc(55) int i = 0; i < decimals; i++) {
+                @Pc(59) int v = (int) value;
+                value /= 10L;
+
+                buffer.append((char) (v + 48 - (int) value * 10));
+            }
+
+            buffer.append(decimalDelimiter);
+        }
+
+        @Pc(55) int length = 0;
+        while (true) {
+            @Pc(59) int v = (int) value;
+            value /= 10L;
+
+            buffer.append((char) (v + '0' - (int) value * 10));
+
+            if (value == 0L) {
+                if (negative) {
+                    buffer.append('-');
+                }
+                return buffer.reverse().toString();
+            }
+
+            if (delimit) {
+                length++;
+
+                if (length % 3 == 0) {
+                    buffer.append(thousandDelimiter);
+                }
+            }
+        }
+    }
+
     private StringTools() {
         /* empty */
     }

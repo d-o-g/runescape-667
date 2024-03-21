@@ -28,7 +28,7 @@ public final class Static538 {
 
     @OriginalMember(owner = "client!qv", name = "a", descriptor = "(Z)V")
     public static void method7193() {
-        @Pc(15) PacketBuffer local15 = Static405.A_SERVER_CONNECTION___2.buffer;
+        @Pc(15) PacketBuffer local15 = ConnectionManager.GAME.buffer;
         for (@Pc(17) int local17 = 0; local17 < Static86.anInt1798; local17++) {
             @Pc(23) int local23 = Static458.anIntArray553[local17];
             @Pc(31) Class8_Sub2_Sub1_Sub2_Sub2 local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local23)).aClass8_Sub2_Sub1_Sub2_Sub2_2;

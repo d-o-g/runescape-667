@@ -37,7 +37,7 @@ public final class Static546 {
     public static void method7251(@OriginalArg(0) Toolkit arg0) {
         @Pc(7) int local7 = 0;
         @Pc(9) int local9 = 0;
-        if (Static137.aBoolean210) {
+        if (InterfaceManager.aBoolean210) {
             local7 = Static130.method2283();
             local9 = Static422.method5771();
         }

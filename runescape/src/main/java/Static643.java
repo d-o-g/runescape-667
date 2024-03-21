@@ -31,8 +31,8 @@ public final class Static643 {
             if (local9 != null && local9.layer == arg0 && !InterfaceManager.isHidden(local9)) {
                 if (local9.type == 0) {
                     method8444(local9.slot, arg1);
-                    if (local9.aComponentArray1 != null) {
-                        method8444(local9.slot, local9.aComponentArray1);
+                    if (local9.dynamicComponents != null) {
+                        method8444(local9.slot, local9.dynamicComponents);
                     }
                     @Pc(56) Node_Sub4 local56 = (Node_Sub4) Static548.aIterableHashTable_40.get((long) local9.slot);
                     if (local56 != null) {

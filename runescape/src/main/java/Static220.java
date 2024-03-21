@@ -130,17 +130,17 @@ public final class Static220 {
             if (local14 != null && local14.layer == arg4) {
                 Static507.method6743(arg1, arg2, arg0, local14);
                 Static470.method6383(local14, arg0, arg2, -8525);
-                if (local14.scrollWidth - local14.width < local14.anInt3809) {
-                    local14.anInt3809 = local14.scrollWidth - local14.width;
+                if (local14.scrollWidth - local14.width < local14.scrollX) {
+                    local14.scrollX = local14.scrollWidth - local14.width;
                 }
-                if (local14.anInt3809 < 0) {
-                    local14.anInt3809 = 0;
+                if (local14.scrollX < 0) {
+                    local14.scrollX = 0;
                 }
-                if (local14.scrollHeight - local14.height < local14.anInt3768) {
-                    local14.anInt3768 = local14.scrollHeight - local14.height;
+                if (local14.scrollHeight - local14.height < local14.scrollY) {
+                    local14.scrollY = local14.scrollHeight - local14.height;
                 }
-                if (local14.anInt3768 < 0) {
-                    local14.anInt3768 = 0;
+                if (local14.scrollY < 0) {
+                    local14.scrollY = 0;
                 }
                 if (local14.type == 0) {
                     Static134.method8956(local14, arg1);

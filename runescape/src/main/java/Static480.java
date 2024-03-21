@@ -13,7 +13,7 @@ public final class Static480 {
     public static final int[] anIntArray583 = new int[50];
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "I")
-    public static int anInt7206 = 0;
+    public static int npcCount = 0;
 
     @OriginalMember(owner = "client!pca", name = "i", descriptor = "Lclient!ts;")
     public static final LruCache A_DOUBLY_LINKED_LIST___2 = new LruCache(128);

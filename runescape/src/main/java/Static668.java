@@ -59,7 +59,7 @@ public final class Static668 {
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(B)Lclient!gw;")
     public static ServerConnection method8701() {
-        return Static620.method8321(Static283.step) ? Static405.A_SERVER_CONNECTION___1 : Static405.A_SERVER_CONNECTION___2;
+        return Static620.method8321(Static283.step) ? ConnectionManager.LOBBY : ConnectionManager.GAME;
     }
 
     @OriginalMember(owner = "client!vca", name = "c", descriptor = "(I)V")

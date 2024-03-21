@@ -97,7 +97,7 @@ public final class Node_Sub51 extends Node {
         @Pc(11) int local11 = this.anInt9353;
         @Pc(14) boolean local14 = this.aBoolean714;
         if (this.aLocType_1 != null) {
-            @Pc(148) LocType local148 = this.aLocType_1.getMultiLoc(Static1.anInt10798 == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
+            @Pc(148) LocType local148 = this.aLocType_1.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
             if (local148 == null) {
                 this.anIntArray718 = null;
                 this.anInt9353 = -1;

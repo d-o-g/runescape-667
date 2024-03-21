@@ -34,7 +34,7 @@ public final class Static76 {
         }
         try {
             if (++Static654.anInt9739 > 2000) {
-                Static405.A_SERVER_CONNECTION___1.close();
+                ConnectionManager.LOBBY.close();
                 if (Static720.anInt10865 >= 2) {
                     Static6.anInt95 = 0;
                     Static580.anInt8621 = -5;
@@ -46,30 +46,30 @@ public final class Static76 {
                 Static720.anInt10865++;
             }
             if (Static6.anInt95 == 1) {
-                Static405.A_SERVER_CONNECTION___1.gameSocketRequest = Static660.aConnectionInfo_4.openSocket(SignLink.instance);
+                ConnectionManager.LOBBY.gameSocketRequest = Static660.aConnectionInfo_4.openSocket(SignLink.instance);
                 Static6.anInt95 = 2;
             }
             if (Static6.anInt95 == 2) {
-                if (Static405.A_SERVER_CONNECTION___1.gameSocketRequest.status == 2) {
+                if (ConnectionManager.LOBBY.gameSocketRequest.status == 2) {
                     throw new IOException();
                 }
-                if (Static405.A_SERVER_CONNECTION___1.gameSocketRequest.status != 1) {
+                if (ConnectionManager.LOBBY.gameSocketRequest.status != 1) {
                     return;
                 }
-                Static405.A_SERVER_CONNECTION___1.connection = Static99.method1975((Socket) Static405.A_SERVER_CONNECTION___1.gameSocketRequest.result);
-                Static405.A_SERVER_CONNECTION___1.gameSocketRequest = null;
-                Static405.A_SERVER_CONNECTION___1.flush();
+                ConnectionManager.LOBBY.connection = Static99.method1975((Socket) ConnectionManager.LOBBY.gameSocketRequest.result);
+                ConnectionManager.LOBBY.gameSocketRequest = null;
+                ConnectionManager.LOBBY.flush();
                 Static6.anInt95 = 4;
             }
-            if (Static6.anInt95 == 4 && Static405.A_SERVER_CONNECTION___1.connection.hasAvailable(1)) {
-                Static405.A_SERVER_CONNECTION___1.connection.read(Static405.A_SERVER_CONNECTION___1.buffer.data, 1, 0);
-                @Pc(139) int local139 = Static405.A_SERVER_CONNECTION___1.buffer.data[0] & 0xFF;
+            if (Static6.anInt95 == 4 && ConnectionManager.LOBBY.connection.hasAvailable(1)) {
+                ConnectionManager.LOBBY.connection.read(ConnectionManager.LOBBY.buffer.data, 1, 0);
+                @Pc(139) int local139 = ConnectionManager.LOBBY.buffer.data[0] & 0xFF;
                 Static6.anInt95 = 0;
                 Static580.anInt8621 = local139;
-                Static405.A_SERVER_CONNECTION___1.close();
+                ConnectionManager.LOBBY.close();
             }
         } catch (@Pc(148) IOException local148) {
-            Static405.A_SERVER_CONNECTION___1.close();
+            ConnectionManager.LOBBY.close();
             if (Static720.anInt10865 < 2) {
                 Static660.aConnectionInfo_4.rotateMethods();
                 Static720.anInt10865++;

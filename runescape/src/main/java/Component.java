@@ -230,7 +230,7 @@ public final class Component {
     public int[] statTriggers;
 
     @OriginalMember(owner = "client!hda", name = "Oc", descriptor = "[Lclient!hda;")
-    public Component[] aComponentArray1;
+    public Component[] dynamicComponents;
 
     @OriginalMember(owner = "client!hda", name = "xd", descriptor = "I")
     public int skyBoxSphereOffsetY;
@@ -449,7 +449,7 @@ public final class Component {
     public byte posTypeHorizontal = 0;
 
     @OriginalMember(owner = "client!hda", name = "Uc", descriptor = "I")
-    public int anInt3809 = 0;
+    public int scrollX = 0;
 
     @OriginalMember(owner = "client!hda", name = "vc", descriptor = "I")
     public int dragDeadZone = 0;
@@ -476,7 +476,7 @@ public final class Component {
     public int anInt3761 = 0;
 
     @OriginalMember(owner = "client!hda", name = "h", descriptor = "I")
-    public int anInt3768 = 0;
+    public int scrollY = 0;
 
     @OriginalMember(owner = "client!hda", name = "f", descriptor = "Ljava/lang/String;")
     public String text = "";

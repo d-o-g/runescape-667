@@ -54,7 +54,7 @@ public final class Static231 {
         if (Static163.activeToolkit == null) {
             return;
         }
-        if (Static137.aBoolean210) {
+        if (InterfaceManager.aBoolean210) {
             Static164.method2606();
         }
         Static514.aClass213_2.method5010();
@@ -137,8 +137,8 @@ public final class Static231 {
                         return;
                     }
                     if (arg2.equalsIgnoreCase("displayfps")) {
-                        Static105.aBoolean196 = !Static105.aBoolean196;
-                        if (!Static105.aBoolean196) {
+                        Static105.displayFps = !Static105.displayFps;
+                        if (!Static105.displayFps) {
                             Static79.method1579("FPS off");
                             return;
                         }
@@ -186,7 +186,7 @@ public final class Static231 {
             }
             try {
                 if (arg2.equalsIgnoreCase("printfps")) {
-                    Static79.method1579("FPS: " + Static652.anInt9712);
+                    Static79.method1579("FPS: " + Static652.currentFps);
                     return;
                 }
                 if (arg2.equalsIgnoreCase("occlude")) {
@@ -199,12 +199,12 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("fpson")) {
-                    Static105.aBoolean196 = true;
+                    Static105.displayFps = true;
                     Static79.method1579("fps debug enabled");
                     return;
                 }
                 if (arg2.equalsIgnoreCase("fpsoff")) {
-                    Static105.aBoolean196 = false;
+                    Static105.displayFps = false;
                     Static79.method1579("fps debug disabled");
                     return;
                 }
@@ -225,7 +225,7 @@ public final class Static231 {
                 @Pc(501) int local501;
                 @Pc(511) Runtime local511;
                 if (arg2.equalsIgnoreCase("gc")) {
-                    Static664.method8659();
+                    Static664.cacheRemoveSoftReferences();
                     for (local501 = 0; local501 < 10; local501++) {
                         System.gc();
                     }
@@ -236,7 +236,7 @@ public final class Static231 {
                 }
                 @Pc(582) int local582;
                 if (arg2.equalsIgnoreCase("compact")) {
-                    Static664.method8659();
+                    Static664.cacheRemoveSoftReferences();
                     for (local501 = 0; local501 < 10; local501++) {
                         System.gc();
                     }
@@ -244,7 +244,7 @@ public final class Static231 {
                     local521 = (int) ((local511.totalMemory() - local511.freeMemory()) / 1024L);
                     Static79.method1579("Memory before cleanup=" + local521 + "k");
                     Static358.method9191();
-                    Static664.method8659();
+                    Static664.cacheRemoveSoftReferences();
                     for (local582 = 0; local582 < 10; local582++) {
                         System.gc();
                     }
@@ -261,7 +261,7 @@ public final class Static231 {
                     if (Static283.step == 11) {
                         Static370.method5279();
                     } else if (Static283.step == 12) {
-                        Static405.A_SERVER_CONNECTION___2.errored = true;
+                        ConnectionManager.GAME.errored = true;
                         return;
                     }
                     return;
@@ -504,10 +504,10 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equals("renderprofile") || arg2.equals("rp")) {
-                    Static354.aBoolean440 = !Static354.aBoolean440;
-                    Static163.activeToolkit.method8018(Static354.aBoolean440);
+                    Static354.showProfiling = !Static354.showProfiling;
+                    Static163.activeToolkit.method8018(Static354.showProfiling);
                     Static126.method2228();
-                    Static79.method1579("showprofiling=" + Static354.aBoolean440);
+                    Static79.method1579("showprofiling=" + Static354.showProfiling);
                     return;
                 }
                 @Pc(1621) String[] local1621;
@@ -802,12 +802,12 @@ public final class Static231 {
                     return;
                 }
                 if (Static283.step == 11) {
-                    @Pc(2836) ClientMessage local2836 = Static293.method4335(Static459.aClass345_87, Static405.A_SERVER_CONNECTION___2.aClass186_1);
+                    @Pc(2836) ClientMessage local2836 = Static293.method4335(Static459.aClass345_87, ConnectionManager.GAME.aClass186_1);
                     local2836.buffer.p1(arg2.length() + 3);
                     local2836.buffer.p1(arg0 ? 1 : 0);
                     local2836.buffer.p1(arg1 ? 1 : 0);
                     local2836.buffer.pjstr(arg2);
-                    Static405.A_SERVER_CONNECTION___2.send(local2836);
+                    ConnectionManager.GAME.send(local2836);
                 }
                 if (arg2.startsWith("fps ") && Static2.aClass355_1 != Static446.aClass355_5) {
                     Static724.method9453(StringTools.parseDecimal(arg2.substring(4)));

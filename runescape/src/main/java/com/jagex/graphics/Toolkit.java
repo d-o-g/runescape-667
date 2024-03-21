@@ -123,7 +123,7 @@ public abstract class Toolkit {
     public abstract void method7944(@OriginalArg(0) int[] arg0);
 
     /**
-     * allocationSize
+     * offheapSize
      */
     @OriginalMember(owner = "client!ha", name = "E", descriptor = "()I")
     public abstract int E();

@@ -41,14 +41,4 @@ public final class Static402 {
         return local10;
     }
 
-    @OriginalMember(owner = "client!ml", name = "a", descriptor = "(IZ)I")
-    public static int method5587(@OriginalArg(0) int arg0) {
-        @Pc(7) int local7 = arg0 >>> 1;
-        @Pc(13) int local13 = local7 | local7 >>> 1;
-        @Pc(19) int local19 = local13 | local13 >>> 2;
-        @Pc(25) int local25 = local19 | local19 >>> 4;
-        @Pc(40) int local40 = local25 | local25 >>> 8;
-        @Pc(46) int local46 = local40 | local40 >>> 16;
-        return ~local46 & arg0;
-    }
 }

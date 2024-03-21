@@ -48,8 +48,8 @@ public final class Static614 {
         Static720.aMSITypeList_4.cacheClean(5);
         Static523.instance.cacheClean(5);
         Static272.aClass45_1.method1096();
-        Static324.aClass307_1.method7068();
-        Static99.aClass78_1.method2055();
+        Static324.aSkyBoxTypeList_1.cacheClean(5);
+        Static99.aSkyBoxSphereTypeList_1.cacheClean(5);
         Static48.aClass384_1.method8813();
         Static354.aClass267_1.method5970();
         Static652.aClass214_1.method5037();

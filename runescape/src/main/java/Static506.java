@@ -51,16 +51,16 @@ public final class Static506 {
             if (Static74.aClass67_3 != Static346.aEnvironment_1.aClass67_10) {
                 Static425.aClass67_6 = Static425.aToolkit_13.method8007(Static74.aClass67_3, Static346.aEnvironment_1.aClass67_10, local50, Static425.aClass67_6);
             }
-            if (Static346.aEnvironment_1.aClass148_5 != Static74.aClass148_1) {
-                if (Static74.aClass148_1 == null) {
-                    Static456.aClass148_3 = Static346.aEnvironment_1.aClass148_5;
-                    if (Static456.aClass148_3 != null) {
-                        Static456.aClass148_3.method3160(0, local40);
+            if (Static346.aEnvironment_1.aSkyBox_5 != Static74.aSkyBox_1) {
+                if (Static74.aSkyBox_1 == null) {
+                    Static456.aSkyBox_3 = Static346.aEnvironment_1.aSkyBox_5;
+                    if (Static456.aSkyBox_3 != null) {
+                        Static456.aSkyBox_3.method3160(0, local40);
                     }
                 } else {
-                    Static456.aClass148_3 = Static74.aClass148_1;
-                    if (Static456.aClass148_3 != null) {
-                        Static456.aClass148_3.method3160(255, local40);
+                    Static456.aSkyBox_3 = Static74.aSkyBox_1;
+                    if (Static456.aSkyBox_3 != null) {
+                        Static456.aSkyBox_3.method3160(255, local40);
                     }
                 }
             }
@@ -75,11 +75,11 @@ public final class Static506 {
             Static251.anInt4037 = Static346.aEnvironment_1.anInt9538;
             Static688.aFloat216 = Static346.aEnvironment_1.aFloat205;
             Static57.aFloat29 = Static346.aEnvironment_1.aFloat200;
-            if (Static456.aClass148_3 != null) {
-                Static456.aClass148_3.method3169();
+            if (Static456.aSkyBox_3 != null) {
+                Static456.aSkyBox_3.method3169();
             }
             Static173.anInt2913 = -1;
-            Static456.aClass148_3 = Static346.aEnvironment_1.aClass148_5;
+            Static456.aSkyBox_3 = Static346.aEnvironment_1.aSkyBox_5;
         }
         Static344.aLong169 = local18;
     }

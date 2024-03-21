@@ -1,3 +1,4 @@
+import com.jagex.graphics.skybox.SkyBoxSphere;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -127,8 +128,8 @@ public final class Node_Sub31_Sub1 extends Node_Sub31 {
             OpenGL.glEnd();
         } else {
             super.aClass19_Sub3_22.method6967(this.aClass406_2);
-            @Pc(112) int local112 = Static402.method5587(this.anInt5104);
-            @Pc(117) int local117 = Static402.method5587(this.anInt5098);
+            @Pc(112) int local112 = SkyBoxSphere.method5587(this.anInt5104);
+            @Pc(117) int local117 = SkyBoxSphere.method5587(this.anInt5098);
             @Pc(119) int local119 = 0;
             while (local112 > 256 || local117 > 256) {
                 OpenGL.glViewport(0, 0, local112, local117);
@@ -256,8 +257,8 @@ public final class Node_Sub31_Sub1 extends Node_Sub31 {
     public void method4614(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
         this.anInt5104 = arg0;
         this.anInt5098 = arg1;
-        @Pc(23) int local23 = Static402.method5587(this.anInt5104);
-        @Pc(28) int local28 = Static402.method5587(this.anInt5098);
+        @Pc(23) int local23 = SkyBoxSphere.method5587(this.anInt5104);
+        @Pc(28) int local28 = SkyBoxSphere.method5587(this.anInt5098);
         if (this.anInt5100 == local23 && this.anInt5106 == local28) {
             return;
         }

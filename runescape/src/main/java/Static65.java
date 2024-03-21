@@ -42,8 +42,8 @@ public final class Static65 {
     public static void method1472() {
         Static157.method2560();
         Static425.aClass67_6 = null;
-        Static74.aClass148_1 = null;
-        Static456.aClass148_3 = null;
+        Static74.aSkyBox_1 = null;
+        Static456.aSkyBox_3 = null;
         Static74.aClass67_3 = null;
         Static425.aToolkit_13 = null;
         Static226.aClass67_9 = null;

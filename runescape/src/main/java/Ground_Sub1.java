@@ -4,6 +4,7 @@ import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
+import com.jagex.graphics.skybox.SkyBoxSphere;
 import com.jagex.graphics.TextureSource;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
@@ -337,7 +338,7 @@ public final class Ground_Sub1 extends Ground {
             @Pc(198) Stream local198 = new Stream(local193);
             @Pc(203) Stream local203 = new Stream(local183);
             @Pc(207) Node_Sub58[] local207 = new Node_Sub58[this.anInt4322];
-            @Pc(214) int local214 = Static402.method5587(this.anInt4322 / 4);
+            @Pc(214) int local214 = SkyBoxSphere.method5587(this.anInt4322 / 4);
             if (local214 < 1) {
                 local214 = 1;
             }

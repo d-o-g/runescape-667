@@ -1,4 +1,3 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,9 +6,6 @@ public final class Static386 {
 
     @OriginalMember(owner = "client!mba", name = "D", descriptor = "I")
     public static int anInt6062;
-
-    @OriginalMember(owner = "client!mba", name = "E", descriptor = "Lclient!sb;")
-    public static js5 aJs5_80;
 
     @OriginalMember(owner = "client!mba", name = "a", descriptor = "(II)Z")
     public static boolean method5436(@OriginalArg(0) int arg0) {

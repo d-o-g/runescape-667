@@ -22,6 +22,7 @@ import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Node_Sub13;
 import com.jagex.graphics.PointLight;
+import com.jagex.graphics.skybox.SkyBoxSphere;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureMetrics;
@@ -2978,7 +2979,7 @@ public final class Toolkit_Sub3 extends Toolkit {
             } else if (local148 > 512) {
                 local148 = 512;
             }
-            local148 = Static402.method5587(local148);
+            local148 = SkyBoxSphere.method5587(local148);
             OpenGL.glVertex2f((float) radius + local83, local88);
             for (@Pc(178) int local178 = 16384 - local148; local178 > 0; local178 -= local148) {
                 OpenGL.glVertex2f(GameShell.aFloatArray14[local178] * (float) radius + local83, GameShell.aFloatArray15[local178] * (float) radius + local88);

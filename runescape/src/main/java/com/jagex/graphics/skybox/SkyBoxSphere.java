@@ -1,9 +1,13 @@
+package com.jagex.graphics.skybox;
+
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
+import com.jagex.js5.js5;
 import com.jagex.math.IntMath;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -12,7 +16,25 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ks")
-public final class Class216 {
+public final class SkyBoxSphere {
+
+    @OriginalMember(owner = "client!ks", name = "h", descriptor = "[I")
+    public static final int[] anIntArray418 = new int[4];
+
+    @OriginalMember(owner = "client!wga", name = "e", descriptor = "Lclient!d;")
+    public static TextureSource textureSource;
+
+    @OriginalMember(owner = "client!ks", name = "l", descriptor = "Lclient!ka;")
+    public static Model model;
+
+    @OriginalMember(owner = "client!ks", name = "j", descriptor = "Lclient!st;")
+    public static Sprite aSprite;
+
+    @OriginalMember(owner = "client!ks", name = "o", descriptor = "Lclient!st;")
+    public static Sprite aSprite_25;
+
+    @OriginalMember(owner = "client!mba", name = "E", descriptor = "Lclient!sb;")
+    public static js5 aJs5_80;
 
     @OriginalMember(owner = "client!ks", name = "n", descriptor = "I")
     public int anInt5627;
@@ -66,7 +88,7 @@ public final class Class216 {
     public final int anInt5636;
 
     @OriginalMember(owner = "client!ks", name = "<init>", descriptor = "(IIIIIIIZIII)V")
-    public Class216(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10) {
+    public SkyBoxSphere(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10) {
         this.anInt5635 = arg2;
         this.anInt5626 = arg3;
         this.anInt5630 = arg4;
@@ -80,16 +102,106 @@ public final class Class216 {
         this.anInt5636 = arg10;
     }
 
+    @OriginalMember(owner = "client!ks", name = "a", descriptor = "(Lclient!ha;)V")
+    public static void method5051(@OriginalArg(0) Toolkit arg0) {
+        if (model != null) {
+            return;
+        }
+        @Pc(8) Mesh local8 = new Mesh(580, 1104, 1);
+        local8.addSphericalSpace();
+        local8.addVertex(0, 128, 0);
+        local8.addVertex(0, -128, 0);
+        for (@Pc(37) int local37 = 0; local37 <= 24; local37++) {
+            @Pc(44) int local44 = local37 * 8192 / 24;
+            @Pc(48) int local48 = Trig1.SIN[local44];
+            @Pc(52) int local52 = Trig1.COS[local44];
+            @Pc(61) int local61;
+            @Pc(67) int local67;
+            @Pc(75) int local75;
+            @Pc(83) int local83;
+            for (@Pc(54) int local54 = 1; local54 < 24; local54++) {
+                local61 = local54 * 8192 / 24;
+                local67 = Trig1.COS[local61] >> 7;
+                local75 = Trig1.SIN[local61] * local48 >> 21;
+                local83 = Trig1.SIN[local61] * local52 >> 21;
+                local8.addVertex(-local75, local67, local83);
+            }
+            if (local37 > 0) {
+                local61 = local37 * 23 + 2;
+                local67 = local61 - 23;
+                local8.addFace(0, local61, local67, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
+                for (local75 = 1; local75 < 23; local75++) {
+                    local83 = local67 + 1;
+                    @Pc(130) int local130 = local61 + 1;
+                    local8.addFace(local67, local61, local83, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
+                    local8.addFace(local83, local61, local130, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
+                    local67 = local83;
+                    local61 = local130;
+                }
+                local8.addFace(local61, 1, local67, (short) 127, (short) 0, (byte) 0, (byte) 0, (byte) 0);
+            }
+        }
+        local8.maxVertex = local8.vertexCount;
+        local8.faceGroup = null;
+        local8.vertexGroup = null;
+        local8.facePriorities = null;
+        model = arg0.createModel(local8, 51200, 33, 64, 768);
+    }
+
+    @OriginalMember(owner = "client!ks", name = "b", descriptor = "(Lclient!ha;)V")
+    public static void method5058(@OriginalArg(0) Toolkit arg0) {
+        if (aSprite_25 != null) {
+            return;
+        }
+        @Pc(4) int[] local4 = new int[16384];
+        @Pc(7) int[] local7 = new int[16384];
+        for (@Pc(9) int local9 = 0; local9 < 64; local9++) {
+            @Pc(14) int local14 = 64 - local9;
+            @Pc(18) int local18 = local14 * local14;
+            @Pc(24) int local24 = 128 - local9 - 1;
+            @Pc(28) int local28 = local9 * 128;
+            @Pc(32) int local32 = local24 * 128;
+            for (@Pc(34) int local34 = 0; local34 < 64; local34++) {
+                @Pc(39) int local39 = 64 - local34;
+                @Pc(43) int local43 = local39 * local39;
+                @Pc(49) int local49 = 128 - local34 - 1;
+                @Pc(59) int local59 = 256 - (local43 + local18 << 8) / 4096;
+                local59 = local59 * 16 * 192 / 1536;
+                if (local59 < 0) {
+                    local59 = 0;
+                } else if (local59 > 255) {
+                    local59 = 255;
+                }
+                @Pc(81) int local81 = local59 / 2;
+                local7[local28 + local34] = local7[local28 + local49] = local7[local32 + local34] = local7[local32 + local49] = (local59 | 0xFF00) << 16;
+                local4[local28 + local34] = local4[local28 + local49] = local4[local32 + local34] = local4[local32 + local49] = 127 - local81 << 24 | 0xFFFFFF;
+            }
+        }
+        aSprite_25 = arg0.createSprite(128, 128, 128, local7);
+        aSprite = arg0.createSprite(128, 128, 128, local4);
+    }
+
+    @OriginalMember(owner = "client!ml", name = "a", descriptor = "(IZ)I")
+    public static int method5587(@OriginalArg(0) int arg0) {
+        @Pc(7) int local7 = arg0 >>> 1;
+        @Pc(13) int local13 = local7 | local7 >>> 1;
+        @Pc(19) int local19 = local13 | local13 >>> 2;
+        @Pc(25) int local25 = local19 | local19 >>> 4;
+        @Pc(40) int local40 = local25 | local25 >>> 8;
+        @Pc(46) int local46 = local40 | local40 >>> 16;
+        return ~local46 & arg0;
+    }
+
     @OriginalMember(owner = "client!ks", name = "c", descriptor = "(Lclient!ha;Lclient!ks;)Z")
-    public boolean method5050(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
+    public boolean method5050(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) SkyBoxSphere arg1) {
         return this.aSprite_24 != null || this.method5057(arg0, arg1);
     }
 
     @OriginalMember(owner = "client!ks", name = "d", descriptor = "(Lclient!ha;Lclient!ks;)V")
-    public void method5052(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
-        Static345.method5051(arg0);
-        Static345.method5058(arg0);
-        arg0.K(Static345.anIntArray418);
+    public void method5052(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) SkyBoxSphere arg1) {
+        method5051(arg0);
+        method5058(arg0);
+        arg0.K(anIntArray418);
         arg0.KA(0, 0, this.anInt5638, this.anInt5638);
         arg0.ya();
         arg0.aa(0, 0, this.anInt5638, this.anInt5638, this.anInt5634 | 0xFF000000, 0);
@@ -124,7 +236,7 @@ public final class Class216 {
             local35 = local35 * local84 - local31 * local79 >> 14;
             local31 = local94;
         }
-        @Pc(147) Model local147 = Static345.aModel_6.copy((byte) 0, 51200, true);
+        @Pc(147) Model local147 = model.copy((byte) 0, 51200, true);
         local147.aa((short) 0, (short) this.anInt5633);
         arg0.xa(1.0F);
         arg0.ZA(16777215, 1.0F, 1.0F, (float) local31, (float) local33, (float) local35);
@@ -140,23 +252,23 @@ public final class Class216 {
         local147.renderOrtho(local209, (PickingCylinder) null, 1024, 1);
         @Pc(231) int local231 = this.anInt5638 * 13 / 16;
         @Pc(238) int local238 = (this.anInt5638 - local231) / 2;
-        Static345.aSprite.render(local238, local238, local231, local231, 0, this.anInt5634 | 0xFF000000, 1);
+        aSprite.render(local238, local238, local231, local231, 0, this.anInt5634 | 0xFF000000, 1);
         this.aSprite_24 = arg0.method7964(0, 0, this.anInt5638, this.anInt5638, true);
         arg0.ya();
         arg0.aa(0, 0, this.anInt5638, this.anInt5638, 0, 0);
-        Static345.aSprite_25.render(0, 0, this.anInt5638, this.anInt5638, 1, 0, 0);
+        aSprite_25.render(0, 0, this.anInt5638, this.anInt5638, 1, 0, 0);
         this.aSprite_24.method8196();
         arg0.DA(local190[0], local190[1], local190[2], local190[3]);
-        arg0.KA(Static345.anIntArray418[0], Static345.anIntArray418[1], Static345.anIntArray418[2], Static345.anIntArray418[3]);
+        arg0.KA(anIntArray418[0], anIntArray418[1], anIntArray418[2], anIntArray418[3]);
     }
 
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "(Lclient!ha;Lclient!ks;)V")
-    public void method5054(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
-        @Pc(6) Mesh local6 = Mesh.load(this.anInt5633, Static386.aJs5_80);
+    public void method5054(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) SkyBoxSphere arg1) {
+        @Pc(6) Mesh local6 = Mesh.load(this.anInt5633, aJs5_80);
         if (local6 == null) {
             return;
         }
-        arg0.K(Static345.anIntArray418);
+        arg0.K(anIntArray418);
         arg0.KA(0, 0, this.anInt5638, this.anInt5638);
         arg0.ya();
         arg0.aa(0, 0, this.anInt5638, this.anInt5638, 0, 0);
@@ -211,7 +323,7 @@ public final class Class216 {
         this.aSprite_24 = arg0.method7964(0, 0, this.anInt5638, this.anInt5638, true);
         this.aSprite_24.method8196();
         arg0.DA(local219[0], local219[1], local219[2], local219[3]);
-        arg0.KA(Static345.anIntArray418[0], Static345.anIntArray418[1], Static345.anIntArray418[2], Static345.anIntArray418[3]);
+        arg0.KA(anIntArray418[0], anIntArray418[1], anIntArray418[2], anIntArray418[3]);
     }
 
     @OriginalMember(owner = "client!ks", name = "a", descriptor = "(Lclient!ha;IIIIIIIIII)V")
@@ -276,7 +388,7 @@ public final class Class216 {
         }
         @Pc(143) int local143 = IntMath.nextPow2(this.anInt5627);
         if (local143 > arg3) {
-            local143 = Static402.method5587(arg3);
+            local143 = method5587(arg3);
         }
         if (local143 > 512) {
             local143 = 512;
@@ -291,11 +403,11 @@ public final class Class216 {
     }
 
     @OriginalMember(owner = "client!ks", name = "b", descriptor = "(Lclient!ha;Lclient!ks;)Z")
-    public boolean method5057(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Class216 arg1) {
+    public boolean method5057(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) SkyBoxSphere arg1) {
         if (this.aSprite_24 == null) {
             if (this.anInt5640 == 0) {
-                if (Static708.anTextureSource_12.textureAvailable(this.anInt5633)) {
-                    @Pc(23) int[] local23 = Static708.anTextureSource_12.argbOutput(0.7F, this.anInt5633, this.anInt5638, this.anInt5638);
+                if (textureSource.textureAvailable(this.anInt5633)) {
+                    @Pc(23) int[] local23 = textureSource.argbOutput(0.7F, this.anInt5633, this.anInt5638, this.anInt5638);
                     this.aSprite_24 = arg0.createSprite(this.anInt5638, this.anInt5638, this.anInt5638, local23);
                 }
             } else if (this.anInt5640 == 2) {

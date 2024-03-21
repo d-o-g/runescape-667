@@ -15,6 +15,8 @@ import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
+import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
+import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
@@ -23,6 +25,7 @@ import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.skybox.SkyBox;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -1163,14 +1166,14 @@ public final class Class158 {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(ILclient!dg;Lclient!qk;)Lclient!gm;")
-    public Class148 method3405(@OriginalArg(1) Class78 arg0, @OriginalArg(2) Class307 arg1) {
+    public SkyBox method3405(@OriginalArg(1) SkyBoxSphereTypeList arg0, @OriginalArg(2) SkyBoxTypeList arg1) {
         if (this.anInt3824 == -1) {
             return null;
         }
         @Pc(48) long local48 = (long) this.anInt3824 & 0xFFFFL | ((long) this.anInt3782 & 0xFFFFL) << 16 | ((long) this.anInt3763 & 0xFFFFL) << 48 | 0xFFFFL << 32 & (long) this.anInt3796 << 32;
-        @Pc(54) Class148 local54 = (Class148) Static444.A_WEIGHTED_CACHE___145.get(local48);
+        @Pc(54) SkyBox local54 = (SkyBox) Static444.A_WEIGHTED_CACHE___145.get(local48);
         if (local54 == null) {
-            local54 = arg1.method7072(arg0, this.anInt3782, this.anInt3824, this.anInt3796, this.anInt3763);
+            local54 = arg1.skyBox(arg0, this.anInt3782, this.anInt3824, this.anInt3796, this.anInt3763);
             Static444.A_WEIGHTED_CACHE___145.put(local54, local48);
         }
         return local54;

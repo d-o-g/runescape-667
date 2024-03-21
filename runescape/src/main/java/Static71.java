@@ -432,7 +432,7 @@ public final class Static71 {
                                             Static178.method2729(local19);
                                         }
                                     } else {
-                                        local19.method3405(Static99.aClass78_1, Static324.aClass307_1).method3162(Static163.activeToolkit, local130, local125, local19.anInt3802, local19.anInt3815 << 3, local19.anInt3786 << 3, local19.anInt3746);
+                                        local19.method3405(Static99.aSkyBoxSphereTypeList_1, Static324.aSkyBoxTypeList_1).method3162(Static163.activeToolkit, local130, local125, local19.anInt3802, local19.anInt3815 << 3, local19.anInt3786 << 3, local19.anInt3746);
                                     }
                                     if (Static137.aBoolean210) {
                                         if (arg7) {

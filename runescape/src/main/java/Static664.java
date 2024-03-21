@@ -107,8 +107,8 @@ public final class Static664 {
         Static577.aClass246_4.method5585();
         Static272.aClass45_1.method1093();
         Static523.instance.cacheRemoveSoftReferences();
-        Static324.aClass307_1.method7069();
-        Static99.aClass78_1.method2053();
+        Static324.aSkyBoxTypeList_1.cacheRemoveSoftReferences();
+        Static99.aSkyBoxSphereTypeList_1.cacheRemoveSoftReferences();
         Static48.aClass384_1.method8815();
         Static354.aClass267_1.method5972();
         Static652.aClass214_1.method5040();

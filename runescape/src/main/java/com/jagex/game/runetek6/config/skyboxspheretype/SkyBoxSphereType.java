@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.skyboxspheretype;
+
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -5,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!afa")
-public final class Class10 {
+public final class SkyBoxSphereType {
 
     @OriginalMember(owner = "client!afa", name = "n", descriptor = "I")
     public int anInt124;
@@ -38,39 +40,39 @@ public final class Class10 {
     public int anInt123 = 8;
 
     @OriginalMember(owner = "client!afa", name = "k", descriptor = "I")
-    public int anInt131 = 16777215;
+    public int anInt131 = 0xFFFFFF;
 
     @OriginalMember(owner = "client!afa", name = "a", descriptor = "(ILclient!ge;I)V")
-    public void method129(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
-        if (arg0 == 1) {
-            this.anInt123 = arg1.g2();
-        } else if (arg0 == 2) {
+    public void decode(@OriginalArg(0) int code, @OriginalArg(1) Packet packet) {
+        if (code == 1) {
+            this.anInt123 = packet.g2();
+        } else if (code == 2) {
             this.aBoolean10 = true;
-        } else if (arg0 == 3) {
-            this.anInt125 = arg1.g2s();
-            this.anInt130 = arg1.g2s();
-            this.anInt132 = arg1.g2s();
-        } else if (arg0 == 4) {
-            this.anInt129 = arg1.g1();
-        } else if (arg0 == 5) {
-            this.anInt124 = arg1.g2();
-        } else if (arg0 == 6) {
-            this.anInt131 = arg1.g3();
-        } else if (arg0 == 7) {
-            this.anInt128 = arg1.g2s();
-            this.anInt133 = arg1.g2s();
-            this.anInt126 = arg1.g2s();
+        } else if (code == 3) {
+            this.anInt125 = packet.g2s();
+            this.anInt130 = packet.g2s();
+            this.anInt132 = packet.g2s();
+        } else if (code == 4) {
+            this.anInt129 = packet.g1();
+        } else if (code == 5) {
+            this.anInt124 = packet.g2();
+        } else if (code == 6) {
+            this.anInt131 = packet.g3();
+        } else if (code == 7) {
+            this.anInt128 = packet.g2s();
+            this.anInt133 = packet.g2s();
+            this.anInt126 = packet.g2s();
         }
     }
 
     @OriginalMember(owner = "client!afa", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method131(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(11) int local11 = arg0.g1();
-            if (local11 == 0) {
+            @Pc(11) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method129(local11, arg0);
+            this.decode(code, packet);
         }
     }
 }

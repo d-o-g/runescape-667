@@ -47,8 +47,8 @@ public final class Static352 {
         Static577.aClass246_4.method5586();
         Static272.aClass45_1.method1098();
         Static523.instance.cacheReset();
-        Static324.aClass307_1.method7071();
-        Static99.aClass78_1.method2052();
+        Static324.aSkyBoxTypeList_1.cacheReset();
+        Static99.aSkyBoxSphereTypeList_1.cacheReset();
         Static48.aClass384_1.method8812();
         Static354.aClass267_1.method5974();
         Static652.aClass214_1.method5035();

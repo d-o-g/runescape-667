@@ -1,3 +1,4 @@
+import com.jagex.graphics.skybox.SkyBox;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -5,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static495 {
 
     @OriginalMember(owner = "client!pk", name = "f", descriptor = "Lclient!gm;")
-    public static Class148 aClass148_4;
+    public static SkyBox aSkyBox_4;
 
     @OriginalMember(owner = "client!pk", name = "m", descriptor = "I")
     public static int anInt7422 = 1;

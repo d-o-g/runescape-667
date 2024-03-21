@@ -1,5 +1,6 @@
 import com.jagex.Class67;
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.skybox.SkyBox;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -30,7 +31,7 @@ public final class Environment {
     public float aFloat202;
 
     @OriginalMember(owner = "client!uc", name = "s", descriptor = "Lclient!gm;")
-    public Class148 aClass148_5;
+    public SkyBox aSkyBox_5;
 
     @OriginalMember(owner = "client!uc", name = "p", descriptor = "I")
     public int anInt9537;
@@ -56,7 +57,7 @@ public final class Environment {
         this.aClass67_10 = Static226.aClass67_9;
         this.anInt9535 = -50;
         this.aFloat202 = 1.2F;
-        this.aClass148_5 = Static495.aClass148_4;
+        this.aSkyBox_5 = Static495.aSkyBox_4;
         this.anInt9537 = Static68.anInt4096;
         this.aFloat205 = 0.69921875F;
         this.aFloat204 = 1.1523438F;
@@ -78,7 +79,7 @@ public final class Environment {
         @Pc(29) int local29 = arg0.g2s();
         @Pc(33) int local33 = arg0.g2();
         Static436.anInt3852 = local33;
-        this.aClass148_5 = Static344.method5047(local25, local17, local21, local29);
+        this.aSkyBox_5 = Static344.method5047(local25, local17, local21, local29);
     }
 
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(Lclient!ge;Z)V")
@@ -164,6 +165,6 @@ public final class Environment {
 
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(BLclient!uc;)Z")
     public boolean method8388(@OriginalArg(1) Environment arg0) {
-        return this.anInt9537 == arg0.anInt9537 && arg0.aFloat204 == this.aFloat204 && this.aFloat205 == arg0.aFloat205 && this.aFloat202 == arg0.aFloat202 && arg0.aFloat200 == this.aFloat200 && this.aFloat201 == arg0.aFloat201 && this.aFloat203 == arg0.aFloat203 && this.anInt9538 == arg0.anInt9538 && arg0.anInt9539 == this.anInt9539 && arg0.aClass67_10 == this.aClass67_10 && arg0.aClass148_5 == this.aClass148_5;
+        return this.anInt9537 == arg0.anInt9537 && arg0.aFloat204 == this.aFloat204 && this.aFloat205 == arg0.aFloat205 && this.aFloat202 == arg0.aFloat202 && arg0.aFloat200 == this.aFloat200 && this.aFloat201 == arg0.aFloat201 && this.aFloat203 == arg0.aFloat203 && this.anInt9538 == arg0.anInt9538 && arg0.anInt9539 == this.anInt9539 && arg0.aClass67_10 == this.aClass67_10 && arg0.aSkyBox_5 == this.aSkyBox_5;
     }
 }

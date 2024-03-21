@@ -1,4 +1,5 @@
 import com.jagex.game.Class14;
+import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -7,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static324 {
 
     @OriginalMember(owner = "client!ke", name = "k", descriptor = "Lclient!qk;")
-    public static Class307 aClass307_1;
+    public static SkyBoxTypeList aSkyBoxTypeList_1;
 
     @OriginalMember(owner = "client!ke", name = "l", descriptor = "I")
     public static int anInt5129;

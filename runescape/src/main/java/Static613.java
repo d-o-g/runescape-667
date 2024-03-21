@@ -11,7 +11,7 @@ public final class Static613 {
         if (Static449.anIntArray546 != null) {
             Static226.aClass67_9 = Static373.method5301(Static449.anIntArray546[4], Static449.anIntArray546[1], Static449.anIntArray546[2], Static449.anIntArray546[3], Static449.anIntArray546[5], Static449.anIntArray546[0]);
         }
-        Static495.aClass148_4 = null;
+        Static495.aSkyBox_4 = null;
         Static556.aEnvironment_2 = new Environment();
         Static508.method6750();
     }

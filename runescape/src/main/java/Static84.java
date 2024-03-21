@@ -585,8 +585,8 @@ public final class Static84 {
                                 if (local6.anInt3806 != 0) {
                                     if (local6.anInt3806 == Static188.anInt3104 || local6.anInt3806 == Static190.anInt3113) {
                                         Static610.aClass158_16 = local6;
-                                        if (Static456.aClass148_3 != null) {
-                                            Static456.aClass148_3.method3168(Static400.instance.aClass57_Sub2_1.method1989(), local6.anInt3746, Static163.activeToolkit);
+                                        if (Static456.aSkyBox_3 != null) {
+                                            Static456.aSkyBox_3.method3168(Static400.instance.aClass57_Sub2_1.method1989(), local6.anInt3746, Static163.activeToolkit);
                                         }
                                         if (local6.anInt3806 == Static188.anInt3104) {
                                             if (Static400.aBoolean622 || arg10 < local30 || arg11 < local32 || arg10 >= local34 || arg11 >= local36) {
@@ -1005,7 +1005,7 @@ public final class Static84 {
                                 }
                             }
                             if (local6.anInt3820 == 5 && local6.anInt3824 != -1) {
-                                local6.method3405(Static99.aClass78_1, Static324.aClass307_1).method3168(Static400.instance.aClass57_Sub2_1.method1989(), local6.anInt3746, Static163.activeToolkit);
+                                local6.method3405(Static99.aSkyBoxSphereTypeList_1, Static324.aSkyBoxTypeList_1).method3168(Static400.instance.aClass57_Sub2_1.method1989(), local6.anInt3746, Static163.activeToolkit);
                             }
                             Static542.method7202(local6);
                             if (local6.anInt3820 == 0) {

@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.HashTable;
+import com.jagex.graphics.skybox.SkyBox;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -6,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static456 {
 
     @OriginalMember(owner = "client!oh", name = "h", descriptor = "Lclient!gm;")
-    public static Class148 aClass148_3;
+    public static SkyBox aSkyBox_3;
 
     @OriginalMember(owner = "client!oh", name = "p", descriptor = "I")
     public static int anInt6929;

@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.skyboxtype;
+
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -5,10 +7,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ema")
-public final class Class108 {
+public final class SkyBoxType {
 
     @OriginalMember(owner = "client!ema", name = "l", descriptor = "[I")
-    public int[] anIntArray232;
+    public int[] sphereIds;
 
     @OriginalMember(owner = "client!ema", name = "b", descriptor = "I")
     public int anInt2621 = -1;
@@ -17,38 +19,37 @@ public final class Class108 {
     public int anInt2624 = -1;
 
     @OriginalMember(owner = "client!ema", name = "g", descriptor = "I")
-    public int anInt2629 = -1;
+    public int texture = -1;
 
     @OriginalMember(owner = "client!ema", name = "h", descriptor = "I")
     public int anInt2625 = 0;
 
     @OriginalMember(owner = "client!ema", name = "a", descriptor = "(IILclient!ge;)V")
-    public void method2446(@OriginalArg(0) int arg0, @OriginalArg(2) Packet arg1) {
-        if (arg0 == 1) {
-            this.anInt2629 = arg1.g2();
-        } else if (arg0 == 2) {
-            this.anIntArray232 = new int[arg1.g1()];
-            for (@Pc(26) int local26 = 0; local26 < this.anIntArray232.length; local26++) {
-                this.anIntArray232[local26] = arg1.g2();
+    public void decode(@OriginalArg(0) int code, @OriginalArg(2) Packet packet) {
+        if (code == 1) {
+            this.texture = packet.g2();
+        } else if (code == 2) {
+            this.sphereIds = new int[packet.g1()];
+            for (@Pc(26) int local26 = 0; local26 < this.sphereIds.length; local26++) {
+                this.sphereIds[local26] = packet.g2();
             }
-        } else if (arg0 == 3) {
-            this.anInt2624 = arg1.g1();
-        } else if (arg0 == 4) {
-            this.anInt2625 = arg1.g1();
-        } else if (arg0 == 5) {
-            this.anInt2621 = arg1.g2();
-            return;
+        } else if (code == 3) {
+            this.anInt2624 = packet.g1();
+        } else if (code == 4) {
+            this.anInt2625 = packet.g1();
+        } else if (code == 5) {
+            this.anInt2621 = packet.g2();
         }
     }
 
     @OriginalMember(owner = "client!ema", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method2447(@OriginalArg(1) Packet arg0) {
+    public void decode(@OriginalArg(1) Packet packet) {
         while (true) {
-            @Pc(3) int local3 = arg0.g1();
-            if (local3 == 0) {
+            @Pc(3) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method2446(local3, arg0);
+            this.decode(code, packet);
         }
     }
 }

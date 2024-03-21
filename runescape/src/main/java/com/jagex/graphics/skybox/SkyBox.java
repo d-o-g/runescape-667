@@ -1,3 +1,5 @@
+package com.jagex.graphics.skybox;
+
 import com.jagex.core.util.Arrays;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
@@ -13,7 +15,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gm")
-public final class Class148 {
+public final class SkyBox {
 
     @OriginalMember(owner = "client!gm", name = "w", descriptor = "Z")
     public boolean aBoolean272;
@@ -40,7 +42,7 @@ public final class Class148 {
     public int anInt3511;
 
     @OriginalMember(owner = "client!gm", name = "D", descriptor = "Lclient!gm;")
-    public Class148 aClass148_2;
+    public SkyBox aSkyBox_2;
 
     @OriginalMember(owner = "client!gm", name = "C", descriptor = "Lclient!ka;")
     public Model aModel_2;
@@ -64,7 +66,7 @@ public final class Class148 {
     public final int anInt3515;
 
     @OriginalMember(owner = "client!gm", name = "F", descriptor = "[Lclient!ks;")
-    public final Class216[] aClass216Array1;
+    public final SkyBoxSphere[] aSkyBoxSphereArray1;
 
     @OriginalMember(owner = "client!gm", name = "v", descriptor = "I")
     public final int anInt3505;
@@ -76,30 +78,62 @@ public final class Class148 {
     public final int anInt3507;
 
     @OriginalMember(owner = "client!gm", name = "c", descriptor = "[Lclient!ks;")
-    public final Class216[] aClass216Array2;
+    public final SkyBoxSphere[] aSkyBoxSphereArray2;
 
     @OriginalMember(owner = "client!gm", name = "r", descriptor = "Lclient!ks;")
-    public final Class216 aClass216_1;
+    public final SkyBoxSphere aSkyBoxSphere_1;
 
     @OriginalMember(owner = "client!gm", name = "B", descriptor = "I")
     public final int anInt3514;
 
     @OriginalMember(owner = "client!gm", name = "<init>", descriptor = "(I[Lclient!ks;IIIIII)V")
-    public Class148(@OriginalArg(0) int arg0, @OriginalArg(1) Class216[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+    public SkyBox(@OriginalArg(0) int arg0, @OriginalArg(1) SkyBoxSphere[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
         this.anInt3509 = arg4;
         this.anInt3515 = arg6;
-        this.aClass216Array1 = arg1;
+        this.aSkyBoxSphereArray1 = arg1;
         this.anInt3505 = arg5;
         this.anInt3523 = arg3;
         this.anInt3507 = arg0;
         if (arg1 == null) {
-            this.aClass216Array2 = null;
-            this.aClass216_1 = null;
+            this.aSkyBoxSphereArray2 = null;
+            this.aSkyBoxSphere_1 = null;
         } else {
-            this.aClass216Array2 = new Class216[arg1.length];
-            this.aClass216_1 = arg2 < 0 ? null : arg1[arg2];
+            this.aSkyBoxSphereArray2 = new SkyBoxSphere[arg1.length];
+            this.aSkyBoxSphere_1 = arg2 < 0 ? null : arg1[arg2];
         }
         this.anInt3514 = arg7;
+    }
+
+    @OriginalMember(owner = "client!nu", name = "a", descriptor = "(II[I[Ljava/lang/Object;Z)V")
+    public static void method5966(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) Object[] arg3) {
+        if (arg1 >= arg0) {
+            return;
+        }
+        @Pc(16) int local16 = (arg1 + arg0) / 2;
+        @Pc(18) int local18 = arg1;
+        @Pc(22) int local22 = arg2[local16];
+        arg2[local16] = arg2[arg0];
+        arg2[arg0] = local22;
+        @Pc(36) Object local36 = arg3[local16];
+        arg3[local16] = arg3[arg0];
+        arg3[arg0] = local36;
+        @Pc(56) int local56 = ~local22 == Integer.MIN_VALUE ? 0 : 1;
+        for (@Pc(58) int local58 = arg1; local58 < arg0; local58++) {
+            if (local22 + (local58 & local56) > arg2[local58]) {
+                @Pc(72) int local72 = arg2[local58];
+                arg2[local58] = arg2[local18];
+                arg2[local18] = local72;
+                @Pc(86) Object local86 = arg3[local58];
+                arg3[local58] = arg3[local18];
+                arg3[local18++] = local86;
+            }
+        }
+        arg2[arg0] = arg2[local18];
+        arg2[local18] = local22;
+        arg3[arg0] = arg3[local18];
+        arg3[local18] = local36;
+        method5966(local18 - 1, arg1, arg2, arg3);
+        method5966(arg0, local18 + 1, arg2, arg3);
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(ZILclient!ha;IIIIIIIIZB)V")
@@ -108,16 +142,16 @@ public final class Class148 {
         if (this.aBoolean272) {
             local5 = this.anInt3517;
         }
-        if (this.aClass148_2 == null) {
+        if (this.aSkyBox_2 == null) {
             this.method3161(arg5, arg8, arg6, arg1, true, arg4, arg3, arg7, arg2, local5, arg9, arg0);
             return;
         }
-        @Pc(16) Class148 local16 = this;
-        @Pc(19) Class148 local19 = this.aClass148_2;
+        @Pc(16) SkyBox local16 = this;
+        @Pc(19) SkyBox local19 = this.aSkyBox_2;
         if (this.hashCode() > local19.hashCode()) {
             local5 = 255 - local5;
             local19 = this;
-            local16 = this.aClass148_2;
+            local16 = this.aSkyBox_2;
         }
         local16.method3161(arg5, arg8, arg6, arg1, true, arg4, arg3, arg7, arg2, local5, arg9, arg0);
         local19.method3161(arg5, arg8, arg6, arg1, false, arg4, arg3, arg7, arg2, 255 - local5, arg9, arg0);
@@ -137,9 +171,9 @@ public final class Class148 {
             if (this.anInt3507 == -1 || this.anInt3518 == 0) {
                 arg3.aa(arg7, arg11, arg6, arg2, local10 << 24 | arg5, 1);
             } else {
-                @Pc(74) TextureMetrics local74 = Static708.anTextureSource_12.getMetrics(this.anInt3507);
-                if (this.aSprite_10 == null && Static708.anTextureSource_12.textureAvailable(this.anInt3507)) {
-                    @Pc(120) int[] local120 = local74.alphaBlendMode == 2 ? Static708.anTextureSource_12.argbOutput(0.7F, this.anInt3507, this.anInt3518, this.anInt3518) : Static708.anTextureSource_12.rgbOutput(this.anInt3518, false, this.anInt3518, this.anInt3507, 0.7F);
+                @Pc(74) TextureMetrics local74 = SkyBoxSphere.textureSource.getMetrics(this.anInt3507);
+                if (this.aSprite_10 == null && SkyBoxSphere.textureSource.textureAvailable(this.anInt3507)) {
+                    @Pc(120) int[] local120 = local74.alphaBlendMode == 2 ? SkyBoxSphere.textureSource.argbOutput(0.7F, this.anInt3507, this.anInt3518, this.anInt3518) : SkyBoxSphere.textureSource.rgbOutput(this.anInt3518, false, this.anInt3518, this.anInt3507, 0.7F);
                     this.anInt3501 = local120[0];
                     this.anInt3511 = local120[local120.length - 1];
                     this.aSprite_10 = arg3.createSprite(this.anInt3518, this.anInt3518, this.anInt3518, local120);
@@ -190,7 +224,7 @@ public final class Class148 {
             this.method3164(arg8, arg9, arg10, arg0, arg3);
         }
         for (@Pc(417) int local417 = this.anInt3508 - 1; local417 >= 0; local417--) {
-            this.aClass216Array2[local417].method5055(arg3, arg7, arg11, arg6, arg2, arg10, arg8, this.anInt3523, this.anInt3509, this.anInt3505, local10);
+            this.aSkyBoxSphereArray2[local417].method5055(arg3, arg7, arg11, arg6, arg2, arg10, arg8, this.anInt3523, this.anInt3509, this.anInt3505, local10);
         }
         arg3.ya();
     }
@@ -201,7 +235,7 @@ public final class Class148 {
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(BLclient!gm;)V")
-    public void method3163(@OriginalArg(1) Class148 arg0) {
+    public void method3163(@OriginalArg(1) SkyBox arg0) {
         if (this.aBoolean272) {
             this.anInt3506 = this.anInt3517;
         } else if (arg0 != null && arg0.aBoolean272) {
@@ -211,7 +245,7 @@ public final class Class148 {
         }
         this.anInt3517 = 0;
         this.aBoolean272 = true;
-        this.aClass148_2 = arg0;
+        this.aSkyBox_2 = arg0;
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(IIIIILclient!ha;)V")
@@ -241,11 +275,11 @@ public final class Class148 {
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(ILclient!ha;)V")
     public void method3166(@OriginalArg(1) Toolkit arg0) {
         try {
-            @Pc(9) js5 local9 = Static386.aJs5_80;
+            @Pc(9) js5 local9 = SkyBoxSphere.aJs5_80;
             @Pc(17) boolean local17 = local9.requestgroupdownload(this.anInt3514);
             if (local17) {
                 arg0.ZA(16777215, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F);
-                @Pc(36) Mesh local36 = Mesh.load(this.anInt3514, Static386.aJs5_80);
+                @Pc(36) Mesh local36 = Mesh.load(this.anInt3514, SkyBoxSphere.aJs5_80);
                 this.aModel_2 = arg0.createModel(local36, 1099776, 0, 255, 1);
                 @Pc(49) byte[] local49 = this.aModel_2.getFaceAlphas();
                 if (local49 == null) {
@@ -260,15 +294,15 @@ public final class Class148 {
     }
 
     @OriginalMember(owner = "client!gm", name = "b", descriptor = "(B)Lclient!gm;")
-    public Class148 method3167() {
-        return this.aClass148_2;
+    public SkyBox method3167() {
+        return this.aSkyBox_2;
     }
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(IIILclient!ha;)Z")
     public boolean method3168(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Toolkit arg2) {
         if (this.anInt3510 != arg1) {
             this.anInt3510 = arg1;
-            @Pc(16) int local16 = Static402.method5587(arg1);
+            @Pc(16) int local16 = SkyBoxSphere.method5587(arg1);
             if (local16 > 512) {
                 local16 = 512;
             }
@@ -279,17 +313,17 @@ public final class Class148 {
                 this.anInt3518 = local16;
                 this.aSprite_10 = null;
             }
-            if (this.aClass216Array1 != null) {
+            if (this.aSkyBoxSphereArray1 != null) {
                 this.anInt3508 = 0;
-                @Pc(57) int[] local57 = new int[this.aClass216Array1.length];
-                for (@Pc(59) int local59 = 0; local59 < this.aClass216Array1.length; local59++) {
-                    @Pc(68) Class216 local68 = this.aClass216Array1[local59];
+                @Pc(57) int[] local57 = new int[this.aSkyBoxSphereArray1.length];
+                for (@Pc(59) int local59 = 0; local59 < this.aSkyBoxSphereArray1.length; local59++) {
+                    @Pc(68) SkyBoxSphere local68 = this.aSkyBoxSphereArray1[local59];
                     if (local68.method5056(this.anInt3523, this.anInt3509, this.anInt3505, this.anInt3510)) {
                         local57[this.anInt3508] = local68.anInt5631;
-                        this.aClass216Array2[this.anInt3508++] = local68;
+                        this.aSkyBoxSphereArray2[this.anInt3508++] = local68;
                     }
                 }
-                Static441.method5966(this.anInt3508 - 1, 0, local57, this.aClass216Array2);
+                method5966(this.anInt3508 - 1, 0, local57, this.aSkyBoxSphereArray2);
             }
             this.aBoolean273 = true;
         }
@@ -297,7 +331,7 @@ public final class Class148 {
         if (this.aBoolean273) {
             this.aBoolean273 = false;
             for (@Pc(142) int local142 = this.anInt3508 - 1; local142 >= 0; local142--) {
-                @Pc(155) boolean local155 = this.aClass216Array2[local142].method5050(arg2, this.aClass216_1);
+                @Pc(155) boolean local155 = this.aSkyBoxSphereArray2[local142].method5050(arg2, this.aSkyBoxSphere_1);
                 this.aBoolean273 |= !local155;
                 local131 |= local155;
             }
@@ -307,9 +341,9 @@ public final class Class148 {
         } else if (this.aModel_2 == null && this.anInt3514 >= 0) {
             this.method3166(arg2);
         }
-        if (this.aClass148_2 != null && this.aClass148_2 != this) {
-            this.aClass148_2.method3169();
-            local131 |= this.aClass148_2.method3168(arg0, arg1, arg2);
+        if (this.aSkyBox_2 != null && this.aSkyBox_2 != this) {
+            this.aSkyBox_2.method3169();
+            local131 |= this.aSkyBox_2.method3168(arg0, arg1, arg2);
         }
         return local131;
     }
@@ -318,6 +352,6 @@ public final class Class148 {
     public void method3169() {
         this.aBoolean272 = false;
         this.anInt3517 = 0;
-        this.aClass148_2 = null;
+        this.aSkyBox_2 = null;
     }
 }

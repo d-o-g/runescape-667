@@ -146,13 +146,13 @@ public final class Static294 {
             Static162.anInt2800 = Static582.anInt8627;
             Static163.activeToolkit.GA(local375);
             Static163.activeToolkit.ya();
-        } else if (Static456.aClass148_3 == null) {
+        } else if (Static456.aSkyBox_3 == null) {
             Static163.activeToolkit.GA(local375);
             Static163.activeToolkit.ya();
         } else {
             Static163.activeToolkit.xa(1.0F);
             Static163.activeToolkit.ZA(16777215, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F);
-            Static456.aClass148_3.method3159(local159, Static163.activeToolkit, Static323.anInt5119, local155, local375, Static81.anInt1644, local161, local153, Static436.anInt3852 << 3, Static598.anInt8832);
+            Static456.aSkyBox_3.method3159(local159, Static163.activeToolkit, Static323.anInt5119, local155, local375, Static81.anInt1644, local161, local153, Static436.anInt3852 << 3, Static598.anInt8832);
         }
         Static557.method7331();
         Static527.method7081(Static428.anInt6495 << 1, local161 / 2 + local159, Static428.anInt6495 << 1, local153 + local155 / 2);

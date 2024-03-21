@@ -1,14 +1,10 @@
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static708 {
-
-    @OriginalMember(owner = "client!wga", name = "e", descriptor = "Lclient!d;")
-    public static TextureSource anTextureSource_12;
 
     @OriginalMember(owner = "client!wga", name = "b", descriptor = "I")
     public static int anInt10644;

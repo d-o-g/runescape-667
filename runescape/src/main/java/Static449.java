@@ -1,3 +1,4 @@
+import com.jagex.collect.key.Class331;
 import com.jagex.collect.ref.ReferenceCache;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import org.openrs2.deob.annotation.OriginalArg;

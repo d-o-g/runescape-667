@@ -1,5 +1,5 @@
-import com.jagex.collect.key.Deque;
-import com.jagex.collect.key.Node;
+package com.jagex.collect.key;
+
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -9,46 +9,46 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class191 {
 
     @OriginalMember(owner = "client!jg", name = "g", descriptor = "Lclient!sia;")
-    public Deque aDeque_27;
+    public Deque deque;
 
     @OriginalMember(owner = "client!jg", name = "j", descriptor = "Lclient!ie;")
-    public Node aNode_149;
+    public Node node;
 
     @OriginalMember(owner = "client!jg", name = "<init>", descriptor = "()V")
     public Class191() {
     }
 
     @OriginalMember(owner = "client!jg", name = "<init>", descriptor = "(Lclient!sia;)V")
-    public Class191(@OriginalArg(0) Deque arg0) {
-        this.aDeque_27 = arg0;
+    public Class191(@OriginalArg(0) Deque deque) {
+        this.deque = deque;
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(B)Lclient!ie;")
     public Node method4342() {
-        @Pc(12) Node local12 = this.aNode_149;
-        if (this.aDeque_27.sentinel == local12) {
-            this.aNode_149 = null;
+        @Pc(12) Node node = this.node;
+        if (this.deque.sentinel == node) {
+            this.node = null;
             return null;
         } else {
-            this.aNode_149 = local12.next;
-            return local12;
+            this.node = node.next;
+            return node;
         }
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(I)Lclient!ie;")
     public Node method4343() {
-        @Pc(8) Node local8 = this.aDeque_27.sentinel.next;
-        if (this.aDeque_27.sentinel == local8) {
-            this.aNode_149 = null;
+        @Pc(8) Node node = this.deque.sentinel.next;
+        if (this.deque.sentinel == node) {
+            this.node = null;
             return null;
         } else {
-            this.aNode_149 = local8.next;
-            return local8;
+            this.node = node.next;
+            return node;
         }
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(Lclient!sia;I)V")
-    public void method4344(@OriginalArg(0) Deque arg0) {
-        this.aDeque_27 = arg0;
+    public void setDeque(@OriginalArg(0) Deque deque) {
+        this.deque = deque;
     }
 }

@@ -1,3 +1,4 @@
+import com.jagex.collect.key.Class331;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.game.Class14;
 import com.jagex.game.LocalisedText;

@@ -1,5 +1,5 @@
-import com.jagex.collect.key.Queue;
-import com.jagex.collect.key.Node2;
+package com.jagex.collect.key;
+
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

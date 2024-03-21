@@ -1,3 +1,5 @@
+import com.jagex.collect.key.Class191;
+import com.jagex.collect.key.Class299;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 

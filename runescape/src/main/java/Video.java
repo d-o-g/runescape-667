@@ -316,7 +316,7 @@ public abstract class Video {
         if (this.language == null) {
             this.subtitleStream = null;
         } else {
-            if (this.subtitleStream != null && !this.language.equals(this.subtitleStream.method8563())) {
+            if (this.subtitleStream != null && !this.language.equals(this.subtitleStream.getLanguage())) {
                 this.subtitleStream = null;
             }
 
@@ -324,7 +324,7 @@ public abstract class Video {
                 for (@Pc(50) OggStream stream = (OggStream) this.streams.first(); stream != null; stream = (OggStream) this.streams.next()) {
                     if (stream instanceof OggKateStream) {
                         @Pc(57) OggKateStream kateStream = (OggKateStream) stream;
-                        if (this.language.equals(kateStream.method8563())) {
+                        if (this.language.equals(kateStream.getLanguage())) {
                             this.subtitleStream = kateStream;
                             return;
                         }

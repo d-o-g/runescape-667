@@ -34,8 +34,9 @@ public final class ObjType {
 
     @OriginalMember(owner = "client!hh", name = "b", descriptor = "[S")
     public static short[] clientpalette = new short[256];
+
     @OriginalMember(owner = "client!vfa", name = "X", descriptor = "I")
-    public static int anInt10128;
+    public static int shadowCount;
 
     @OriginalMember(owner = "client!vfa", name = "Cb", descriptor = "[S")
     public short[] retex_s;
@@ -901,16 +902,16 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(I[II)V")
-    public void applyShadow(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1) {
+    public void applyShadow(@OriginalArg(0) int graphicShadow, @OriginalArg(1) int[] image) {
         for (@Pc(11) int y = 31; y > 0; y--) {
             @Pc(19) int pos = y * 36;
             for (@Pc(21) int x = 35; x > 0; x--) {
-                if (arg1[x + pos] == 0 && arg1[pos + x - 1 - 36] != 0) {
-                    arg1[x + pos] = arg0;
+                if (image[x + pos] == 0 && image[pos + x - 1 - 36] != 0) {
+                    image[x + pos] = graphicShadow;
                 }
             }
         }
-        anInt10128++;
+        shadowCount++;
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(Lclient!gu;ILclient!ju;ILclient!ha;I)Lclient!ka;")

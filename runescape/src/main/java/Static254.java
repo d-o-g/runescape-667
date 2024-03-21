@@ -28,7 +28,7 @@ public final class Static254 {
         Static694.anInt10405 = 0;
         Static393.anInt6147 = 0;
         Static618.anInt9449 = 0;
-        ObjType.anInt10128 = 0;
+        ObjType.shadowCount = 0;
         Static373.anInt5903 = 0;
         Static405.A_SERVER_CONNECTION___1.close();
         Static50.aBoolean565 = true;

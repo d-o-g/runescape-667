@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
@@ -71,7 +71,7 @@ public final class DynamicLocation extends PositionEntity implements Location {
             local14.render(local30, local44.aPickingCylinderArray1[0], 0);
         }
         if (this.aClass337_3.aParticleSystem_7 != null) {
-            @Pc(94) Class230 local94 = this.aClass337_3.aParticleSystem_7.method3645();
+            @Pc(94) ParticleList local94 = this.aClass337_3.aParticleSystem_7.method3645();
             if (Static504.aBoolean579) {
                 arg0.method7967(local94, Static582.anInt8627);
             } else {

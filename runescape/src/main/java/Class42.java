@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.collect.Node2;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -338,7 +338,7 @@ public final class Class42 {
     }
 
     @OriginalMember(owner = "client!bj", name = "a", descriptor = "(Lclient!qha;Lclient!lk;IZ)V")
-    public void method1080(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Class230 arg1, @OriginalArg(2) int arg2) {
+    public void method1080(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) ParticleList arg1, @OriginalArg(2) int arg2) {
         if (arg0.aClass73_Sub3_3 == null) {
             return;
         }
@@ -355,7 +355,7 @@ public final class Class42 {
             @Pc(48) int local48 = 0;
             @Pc(50) int local50 = Integer.MAX_VALUE;
             @Pc(52) int local52 = 0;
-            @Pc(56) Node2 local56 = arg1.aClass113_1.sentinel;
+            @Pc(56) Node2 local56 = arg1.particles.sentinel;
             @Pc(59) Node2 local59;
             @Pc(91) int local91;
             for (local59 = local56.next2; local59 != local56; local59 = local59.next2) {

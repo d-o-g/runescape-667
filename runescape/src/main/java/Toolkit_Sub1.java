@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.collect.key.Deque;
@@ -1062,7 +1062,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public final void method7967(@OriginalArg(0) Class230 arg0, @OriginalArg(1) int arg1) {
+    public final void method7967(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
         this.aClass316_3.method7210(arg0, arg1, this);
     }
 
@@ -2458,7 +2458,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public final void method8021(@OriginalArg(0) Class230 arg0) {
+    public final void method8021(@OriginalArg(0) ParticleList arg0) {
         this.aClass316_3.method7210(arg0, -1, this);
     }
 

@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
@@ -594,9 +594,9 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public void method7967(@OriginalArg(0) Class230 arg0, @OriginalArg(1) int arg1) {
+    public void method7967(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
-        @Pc(7) Node2 local7 = arg0.aClass113_1.sentinel;
+        @Pc(7) Node2 local7 = arg0.particles.sentinel;
         for (@Pc(10) Node2 local10 = local7.next2; local10 != local7; local10 = local10.next2) {
             @Pc(14) Class8_Sub4_Sub2 local14 = (Class8_Sub4_Sub2) local10;
             @Pc(19) int local19 = local14.anInt7537 >> 12;
@@ -2849,9 +2849,9 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public void method8021(@OriginalArg(0) Class230 arg0) {
+    public void method8021(@OriginalArg(0) ParticleList arg0) {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
-        @Pc(7) Node2 local7 = arg0.aClass113_1.sentinel;
+        @Pc(7) Node2 local7 = arg0.particles.sentinel;
         for (@Pc(10) Node2 local10 = local7.next2; local10 != local7; local10 = local10.next2) {
             @Pc(14) Class8_Sub4_Sub2 local14 = (Class8_Sub4_Sub2) local10;
             @Pc(19) int local19 = local14.anInt7537 >> 12;

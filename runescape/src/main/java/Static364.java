@@ -27,7 +27,7 @@ public final class Static364 {
         if (Static30.A_DEQUE___31 == null || Static444.aClass191_1 == null) {
             return null;
         }
-        for (@Pc(17) Node_Sub20 local17 = (Node_Sub20) Static444.aClass191_1.method4342(); local17 != null; local17 = (Node_Sub20) Static444.aClass191_1.method4342()) {
+        for (@Pc(17) Node_Sub20 local17 = (Node_Sub20) Static444.aClass191_1.next(); local17 != null; local17 = (Node_Sub20) Static444.aClass191_1.next()) {
             @Pc(30) Class105 local30 = Static30.aClass246_3.method5584(local17.anInt3131);
             if (local30 != null && local30.aBoolean217 && local30.method2425(Static30.anVarDomain_3)) {
                 return local17;

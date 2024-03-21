@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.collect.Node;
 import com.jagex.collect.key.Deque;
 import com.jagex.collect.LinkedList;
@@ -51,7 +51,7 @@ public final class ParticleSystem extends Node {
     public int anInt4150 = 0;
 
     @OriginalMember(owner = "client!hv", name = "p", descriptor = "Lclient!lk;")
-    public final Class230 aClass230_1 = new Class230();
+    public final ParticleList aParticleList_1 = new ParticleList();
 
     @OriginalMember(owner = "client!hv", name = "n", descriptor = "[Lclient!pp;")
     public final Particle[] aParticle = new Particle[8192];
@@ -76,13 +76,13 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "e", descriptor = "()Lclient!lk;")
-    public Class230 method3645() {
-        return this.aClass230_1;
+    public ParticleList method3645() {
+        return this.aParticleList_1;
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;)V")
     public void method3646(@OriginalArg(0) Toolkit arg0) {
-        this.aClass230_1.aClass113_1.clear();
+        this.aParticleList_1.particles.clear();
         for (@Pc(10) ParticleEmitter local10 = (ParticleEmitter) this.aLinkedList_6.first(); local10 != null; local10 = (ParticleEmitter) this.aLinkedList_6.next()) {
             local10.method7263(this.aLong132, arg0);
         }
@@ -120,7 +120,7 @@ public final class ParticleSystem extends Node {
                 @Pc(96) ParticleEffector local96 = null;
                 if (arg0[local21].type().visibility == 1 && Static654.anInt9740 < 32) {
                     local96 = new ParticleEffector(arg0[local21], this);
-                    Static519.aClass144_1.method3094(local96, (long) arg0[local21].type);
+                    Static519.aClass144_1.put(local96, (long) arg0[local21].type);
                     Static654.anInt9740++;
                 }
                 if (local96 == null) {
@@ -139,14 +139,14 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "b", descriptor = "()Lclient!lk;")
-    public Class230 method3650() {
-        this.aClass230_1.aClass113_1.clear();
+    public ParticleList method3650() {
+        this.aParticleList_1.particles.clear();
         for (@Pc(6) int local6 = 0; local6 < this.aParticle.length; local6++) {
             if (this.aParticle[local6] != null && this.aParticle[local6].aParticleEmitter_1 != null) {
-                this.aClass230_1.aClass113_1.add(this.aParticle[local6]);
+                this.aParticleList_1.particles.add(this.aParticle[local6]);
             }
         }
-        return this.aClass230_1;
+        return this.aParticleList_1;
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;[Lclient!rv;Z)V")

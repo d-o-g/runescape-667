@@ -47,9 +47,9 @@ public final class Static449 {
             Static145.method2411(1, Static377.anInt5930);
         }
         @Pc(55) Class331 local55 = new Class331(Static548.aHashTable_40);
-        for (@Pc(60) Node_Sub4 local60 = (Node_Sub4) local55.method7613(); local60 != null; local60 = (Node_Sub4) local55.method7610()) {
+        for (@Pc(60) Node_Sub4 local60 = (Node_Sub4) local55.first(); local60 != null; local60 = (Node_Sub4) local55.next()) {
             if (!local60.isLinked()) {
-                local60 = (Node_Sub4) local55.method7613();
+                local60 = (Node_Sub4) local55.first();
                 if (local60 == null) {
                     break;
                 }

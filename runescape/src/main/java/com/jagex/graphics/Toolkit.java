@@ -1,6 +1,6 @@
 package com.jagex.graphics;
 
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.Class67;
 import com.jagex.IndexedImage;
 import com.jagex.Class84;
@@ -229,7 +229,7 @@ public abstract class Toolkit {
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!lk;I)V")
-    public abstract void method7967(@OriginalArg(0) Class230 arg0, @OriginalArg(1) int arg1);
+    public abstract void method7967(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1);
 
     @OriginalMember(owner = "client!ha", name = "p", descriptor = "()Z")
     public abstract boolean method7968();
@@ -499,7 +499,7 @@ public abstract class Toolkit {
     public abstract void L(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!lk;)V")
-    public abstract void method8021(@OriginalArg(0) Class230 arg0);
+    public abstract void method8021(@OriginalArg(0) ParticleList arg0);
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     public abstract void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);

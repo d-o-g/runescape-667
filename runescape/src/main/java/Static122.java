@@ -13,7 +13,7 @@ public final class Static122 {
             return null;
         }
         Static444.aClass191_1.setDeque(Static30.A_DEQUE___31);
-        @Pc(23) Node_Sub20 local23 = (Node_Sub20) Static444.aClass191_1.method4343();
+        @Pc(23) Node_Sub20 local23 = (Node_Sub20) Static444.aClass191_1.first();
         if (local23 == null) {
             return null;
         } else {

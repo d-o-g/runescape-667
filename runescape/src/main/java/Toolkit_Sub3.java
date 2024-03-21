@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
@@ -1108,7 +1108,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public void method7967(@OriginalArg(0) Class230 arg0, @OriginalArg(1) int arg1) {
+    public void method7967(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
         this.aClass42_1.method1080(this, arg0, arg1);
     }
 
@@ -1621,7 +1621,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public void method8021(@OriginalArg(0) Class230 arg0) {
+    public void method8021(@OriginalArg(0) ParticleList arg0) {
         this.aClass42_1.method1080(this, arg0, -1);
     }
 

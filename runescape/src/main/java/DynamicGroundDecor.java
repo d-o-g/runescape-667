@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
@@ -164,7 +164,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
             local22.render(local30, local44.aPickingCylinderArray1[0], 0);
         }
         if (this.aClass337_2.aParticleSystem_7 != null) {
-            @Pc(100) Class230 local100 = this.aClass337_2.aParticleSystem_7.method3645();
+            @Pc(100) ParticleList local100 = this.aClass337_2.aParticleSystem_7.method3645();
             if (Static504.aBoolean579) {
                 arg0.method7967(local100, Static582.anInt8627);
             } else {

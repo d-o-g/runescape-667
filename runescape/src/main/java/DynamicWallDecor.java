@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
@@ -63,7 +63,7 @@ public final class DynamicWallDecor extends WallDecor implements Location {
             local14.render(local22, local42.aPickingCylinderArray1[0], 0);
         }
         if (this.aClass337_4.aParticleSystem_7 != null) {
-            @Pc(106) Class230 local106 = this.aClass337_4.aParticleSystem_7.method3645();
+            @Pc(106) ParticleList local106 = this.aClass337_4.aParticleSystem_7.method3645();
             if (Static504.aBoolean579) {
                 arg0.method7967(local106, Static582.anInt8627);
             } else {

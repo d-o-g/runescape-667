@@ -24,7 +24,7 @@ public final class Static556 {
         }
         @Pc(25) int local25 = arg0.anInt3812 >>> 16;
         @Pc(30) Class331 local30 = new Class331(Static548.aHashTable_40);
-        for (@Pc(35) Node_Sub4 local35 = (Node_Sub4) local30.method7613(); local35 != null; local35 = (Node_Sub4) local30.method7610()) {
+        for (@Pc(35) Node_Sub4 local35 = (Node_Sub4) local30.first(); local35 != null; local35 = (Node_Sub4) local30.next()) {
             if (local35.anInt147 == local25) {
                 return Static145.method2412((int) local35.key);
             }

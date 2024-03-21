@@ -24,7 +24,7 @@ public final class Class191 {
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(B)Lclient!ie;")
-    public Node method4342() {
+    public Node next() {
         @Pc(12) Node node = this.node;
         if (this.deque.sentinel == node) {
             this.node = null;
@@ -36,7 +36,7 @@ public final class Class191 {
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(I)Lclient!ie;")
-    public Node method4343() {
+    public Node first() {
         @Pc(8) Node node = this.deque.sentinel.next;
         if (this.deque.sentinel == node) {
             this.node = null;

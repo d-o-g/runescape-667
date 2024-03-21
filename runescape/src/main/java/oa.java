@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
@@ -157,12 +157,12 @@ public final class oa extends Toolkit implements Interface5 {
     public native void MA(@OriginalArg(0) TextureSource arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;Z)V")
-    public void method6085(@OriginalArg(0) Class230 arg0) {
+    public void method6085(@OriginalArg(0) ParticleList arg0) {
         @Pc(1) int local1 = 0;
         @Pc(3) int local3 = 0;
         @Pc(5) int local5 = 0;
         @Pc(7) int local7 = 0;
-        for (@Pc(15) Class8_Sub4_Sub2 local15 = (Class8_Sub4_Sub2) arg0.aClass113_1.first(); local15 != null; local15 = (Class8_Sub4_Sub2) arg0.aClass113_1.next()) {
+        for (@Pc(15) Class8_Sub4_Sub2 local15 = (Class8_Sub4_Sub2) arg0.particles.first(); local15 != null; local15 = (Class8_Sub4_Sub2) arg0.particles.next()) {
             Static445.anIntArray539[local1++] = local15.anInt7537;
             Static445.anIntArray539[local1++] = local15.anInt7534;
             Static445.anIntArray539[local1++] = local15.anInt7536;
@@ -718,9 +718,9 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public void method7967(@OriginalArg(0) Class230 arg0, @OriginalArg(1) int arg1) {
+    public void method7967(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
         this.method6085(arg0);
-        this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, arg0.aClass113_1.size());
+        this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, arg0.particles.size());
     }
 
     @OriginalMember(owner = "client!oa", name = "T", descriptor = "(IIII)V")
@@ -735,10 +735,10 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public void method8021(@OriginalArg(0) Class230 arg0) {
-        if (arg0.aClass113_1.size() != 0) {
+    public void method8021(@OriginalArg(0) ParticleList arg0) {
+        if (arg0.particles.size() != 0) {
             this.method6085(arg0);
-            this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, arg0.aClass113_1.size());
+            this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, arg0.particles.size());
         }
     }
 

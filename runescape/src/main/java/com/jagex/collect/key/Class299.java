@@ -9,41 +9,41 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class299 {
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "Lclient!cm;")
-    public Node2 aClass2_Sub2_48;
+    public Node2 node;
 
     @OriginalMember(owner = "client!ps", name = "e", descriptor = "Lclient!jga;")
-    public Queue aQueue_14;
+    public Queue queue;
 
     @OriginalMember(owner = "client!ps", name = "<init>", descriptor = "()V")
     public Class299() {
     }
 
     @OriginalMember(owner = "client!ps", name = "<init>", descriptor = "(Lclient!jga;)V")
-    public Class299(@OriginalArg(0) Queue arg0) {
-        this.aQueue_14 = arg0;
+    public Class299(@OriginalArg(0) Queue queue) {
+        this.queue = queue;
     }
 
     @OriginalMember(owner = "client!ps", name = "b", descriptor = "(I)Lclient!cm;")
-    public Node2 method6723() {
-        @Pc(6) Node2 local6 = this.aClass2_Sub2_48;
-        if (local6 == this.aQueue_14.sentinel) {
-            this.aClass2_Sub2_48 = null;
+    public Node2 next() {
+        @Pc(6) Node2 local6 = this.node;
+        if (local6 == this.queue.sentinel) {
+            this.node = null;
             return null;
         } else {
-            this.aClass2_Sub2_48 = local6.next2;
+            this.node = local6.next2;
             return local6;
         }
     }
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "(I)Lclient!cm;")
-    public Node2 method6724() {
-        @Pc(14) Node2 local14 = this.aQueue_14.sentinel.next2;
-        if (this.aQueue_14.sentinel == local14) {
-            this.aClass2_Sub2_48 = null;
+    public Node2 first() {
+        @Pc(14) Node2 node = this.queue.sentinel.next2;
+        if (this.queue.sentinel == node) {
+            this.node = null;
             return null;
         } else {
-            this.aClass2_Sub2_48 = local14.next2;
-            return local14;
+            this.node = node.next2;
+            return node;
         }
     }
 }

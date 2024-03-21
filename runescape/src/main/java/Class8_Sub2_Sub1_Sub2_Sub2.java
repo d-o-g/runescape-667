@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.bastype.BASType;
@@ -182,7 +182,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             }
         }
         if (super.aClass8_Sub5_8 != null) {
-            @Pc(394) Class230 local394 = super.aClass8_Sub5_8.method3645();
+            @Pc(394) ParticleList local394 = super.aClass8_Sub5_8.method3645();
             if (Static504.aBoolean579) {
                 arg0.method7967(local394, Static582.anInt8627);
             } else {

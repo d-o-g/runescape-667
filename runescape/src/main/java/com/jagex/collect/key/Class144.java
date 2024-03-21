@@ -12,7 +12,7 @@ public final class Class144 {
     public Node2 node;
 
     @OriginalMember(owner = "client!gga", name = "c", descriptor = "J")
-    public long aLong115;
+    public long searchKey;
 
     @OriginalMember(owner = "client!gga", name = "d", descriptor = "[Lclient!cm;")
     public final Node2[] nodes;
@@ -33,24 +33,24 @@ public final class Class144 {
     }
 
     @OriginalMember(owner = "client!gga", name = "a", descriptor = "(BLclient!cm;J)V")
-    public void method3094(@OriginalArg(1) Node2 arg0, @OriginalArg(2) long arg1) {
-        if (arg0.prev2 != null) {
-            arg0.unlink2();
+    public void put(@OriginalArg(1) Node2 node, @OriginalArg(2) long key) {
+        if (node.prev2 != null) {
+            node.unlink2();
         }
-        @Pc(28) Node2 local28 = this.nodes[(int) ((long) (this.capacity - 1) & arg1)];
-        arg0.next2 = local28;
-        arg0.prev2 = local28.prev2;
-        arg0.prev2.next2 = arg0;
-        arg0.next2.prev2 = arg0;
-        arg0.key2 = arg1;
+        @Pc(28) Node2 local28 = this.nodes[(int) ((long) (this.capacity - 1) & key)];
+        node.next2 = local28;
+        node.prev2 = local28.prev2;
+        node.prev2.next2 = node;
+        node.next2.prev2 = node;
+        node.key2 = key;
     }
 
     @OriginalMember(owner = "client!gga", name = "a", descriptor = "(JI)Lclient!cm;")
-    public Node2 method3095(@OriginalArg(0) long arg0) {
-        this.aLong115 = arg0;
-        @Pc(20) Node2 local20 = this.nodes[(int) (arg0 & (long) (this.capacity - 1))];
+    public Node2 get(@OriginalArg(0) long key) {
+        this.searchKey = key;
+        @Pc(20) Node2 local20 = this.nodes[(int) (key & (long) (this.capacity - 1))];
         for (this.node = local20.next2; this.node != local20; this.node = this.node.next2) {
-            if (arg0 == this.node.key2) {
+            if (key == this.node.key2) {
                 @Pc(41) Node2 local41 = this.node;
                 this.node = this.node.next2;
                 return local41;
@@ -65,15 +65,17 @@ public final class Class144 {
         if (this.node == null) {
             return null;
         }
-        @Pc(24) Node2 local24 = this.nodes[(int) (this.aLong115 & (long) (this.capacity - 1))];
-        while (this.node != local24) {
-            if (this.aLong115 == this.node.key2) {
+
+        @Pc(24) Node2 node = this.nodes[(int) (this.searchKey & (long) (this.capacity - 1))];
+        while (this.node != node) {
+            if (this.searchKey == this.node.key2) {
                 @Pc(38) Node2 local38 = this.node;
                 this.node = this.node.next2;
                 return local38;
             }
             this.node = this.node.next2;
         }
+
         this.node = null;
         return null;
     }

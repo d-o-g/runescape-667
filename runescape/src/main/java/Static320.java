@@ -123,7 +123,7 @@ public final class Static320 {
                     if (local426 != -1) {
                         local444 = 0;
                         @Pc(525) Class299 local525 = new Class299(Static350.A_QUEUE___8);
-                        for (@Pc(530) DoublyLinkedNode_Sub2_Sub4 local530 = (DoublyLinkedNode_Sub2_Sub4) local525.method6724(); local530 != null; local530 = (DoublyLinkedNode_Sub2_Sub4) local525.method6723()) {
+                        for (@Pc(530) DoublyLinkedNode_Sub2_Sub4 local530 = (DoublyLinkedNode_Sub2_Sub4) local525.first(); local530 != null; local530 = (DoublyLinkedNode_Sub2_Sub4) local525.next()) {
                             if (local444 == local426) {
                                 if (local530.anInt1534 > 1) {
                                     Static609.method8214(local428, local321, local530);
@@ -162,7 +162,7 @@ public final class Static320 {
             if (local661 != -1) {
                 local428 = 0;
                 local886 = new Class299(Static139.aClass2_Sub2_Sub4_1.aQueue_3);
-                for (local762 = (DoublyLinkedNode_Sub2_Sub16) local886.method6724(); local762 != null; local762 = (DoublyLinkedNode_Sub2_Sub16) local886.method6723()) {
+                for (local762 = (DoublyLinkedNode_Sub2_Sub16) local886.first(); local762 != null; local762 = (DoublyLinkedNode_Sub2_Sub16) local886.next()) {
                     if (local661 == local428) {
                         Static55.method1217(local321, local762, local317);
                         break;
@@ -194,7 +194,7 @@ public final class Static320 {
             if (local661 != -1) {
                 local428 = 0;
                 @Pc(757) Class191 local757 = new Class191(Static693.A_DEQUE___79);
-                for (local762 = (DoublyLinkedNode_Sub2_Sub16) local757.method4343(); local762 != null; local762 = (DoublyLinkedNode_Sub2_Sub16) local757.method4342()) {
+                for (local762 = (DoublyLinkedNode_Sub2_Sub16) local757.first(); local762 != null; local762 = (DoublyLinkedNode_Sub2_Sub16) local757.next()) {
                     if (local661 == local428) {
                         Static55.method1217(local321, local762, local317);
                         break;
@@ -226,7 +226,7 @@ public final class Static320 {
         }
         local428 = 0;
         local886 = new Class299(Static350.A_QUEUE___8);
-        for (@Pc(891) DoublyLinkedNode_Sub2_Sub4 local891 = (DoublyLinkedNode_Sub2_Sub4) local886.method6724(); local891 != null; local891 = (DoublyLinkedNode_Sub2_Sub4) local886.method6723()) {
+        for (@Pc(891) DoublyLinkedNode_Sub2_Sub4 local891 = (DoublyLinkedNode_Sub2_Sub4) local886.first(); local891 != null; local891 = (DoublyLinkedNode_Sub2_Sub4) local886.next()) {
             if (local428 == local661) {
                 Static55.method1217(local321, (DoublyLinkedNode_Sub2_Sub16) local891.aQueue_3.sentinel.next2, local317);
                 Static488.method6522();

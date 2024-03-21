@@ -61,7 +61,7 @@ public final class Static679 {
                     if (local53 != -1) {
                         local71 = 0;
                         local262 = new Class299(Static350.A_QUEUE___8);
-                        for (@Pc(368) DoublyLinkedNode_Sub2_Sub4 local368 = (DoublyLinkedNode_Sub2_Sub4) local262.method6724(); local368 != null; local368 = (DoublyLinkedNode_Sub2_Sub4) local262.method6723()) {
+                        for (@Pc(368) DoublyLinkedNode_Sub2_Sub4 local368 = (DoublyLinkedNode_Sub2_Sub4) local262.first(); local368 != null; local368 = (DoublyLinkedNode_Sub2_Sub4) local262.next()) {
                             if (local71++ == local53) {
                                 return ((DoublyLinkedNode_Sub2_Sub16) local368.aQueue_3.sentinel.next2).anInt7318;
                             }
@@ -85,7 +85,7 @@ public final class Static679 {
                     if (local53 != -1) {
                         local71 = 0;
                         local262 = new Class299(Static139.aClass2_Sub2_Sub4_1.aQueue_3);
-                        for (local134 = (DoublyLinkedNode_Sub2_Sub16) local262.method6724(); local134 != null; local134 = (DoublyLinkedNode_Sub2_Sub16) local262.method6723()) {
+                        for (local134 = (DoublyLinkedNode_Sub2_Sub16) local262.first(); local134 != null; local134 = (DoublyLinkedNode_Sub2_Sub16) local262.next()) {
                             if (local71++ == local53) {
                                 return local134.anInt7318;
                             }
@@ -110,7 +110,7 @@ public final class Static679 {
                 if (local53 != -1) {
                     local71 = 0;
                     @Pc(129) Class191 local129 = new Class191(Static693.A_DEQUE___79);
-                    for (local134 = (DoublyLinkedNode_Sub2_Sub16) local129.method4343(); local134 != null; local134 = (DoublyLinkedNode_Sub2_Sub16) local129.method4342()) {
+                    for (local134 = (DoublyLinkedNode_Sub2_Sub16) local129.first(); local134 != null; local134 = (DoublyLinkedNode_Sub2_Sub16) local129.next()) {
                         if (local53 == local71++) {
                             return local134.anInt7318;
                         }

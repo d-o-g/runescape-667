@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class331 {
 
     @OriginalMember(owner = "client!sba", name = "i", descriptor = "Lclient!av;")
-    public HashTable aHashTable_41;
+    public HashTable table;
 
     @OriginalMember(owner = "client!sba", name = "j", descriptor = "Lclient!ie;")
     public Node aNode_266;
@@ -22,31 +22,31 @@ public final class Class331 {
     }
 
     @OriginalMember(owner = "client!sba", name = "<init>", descriptor = "(Lclient!av;)V")
-    public Class331(@OriginalArg(0) HashTable arg0) {
-        this.aHashTable_41 = arg0;
+    public Class331(@OriginalArg(0) HashTable table) {
+        this.table = table;
     }
 
     @OriginalMember(owner = "client!sba", name = "a", descriptor = "(I)Lclient!ie;")
-    public Node method7610() {
-        @Pc(23) Node local23;
-        if (this.anInt8579 > 0 && this.aHashTable_41.buckets[this.anInt8579 - 1] != this.aNode_266) {
-            local23 = this.aNode_266;
-            this.aNode_266 = local23.next;
-            return local23;
+    public Node next() {
+        @Pc(23) Node node;
+        if (this.anInt8579 > 0 && this.table.buckets[this.anInt8579 - 1] != this.aNode_266) {
+            node = this.aNode_266;
+            this.aNode_266 = node.next;
+            return node;
         }
-        while (this.aHashTable_41.bucketCount > this.anInt8579) {
-            local23 = this.aHashTable_41.buckets[this.anInt8579++].next;
-            if (this.aHashTable_41.buckets[this.anInt8579 - 1] != local23) {
-                this.aNode_266 = local23.next;
-                return local23;
+        while (this.table.bucketCount > this.anInt8579) {
+            node = this.table.buckets[this.anInt8579++].next;
+            if (this.table.buckets[this.anInt8579 - 1] != node) {
+                this.aNode_266 = node.next;
+                return node;
             }
         }
         return null;
     }
 
     @OriginalMember(owner = "client!sba", name = "a", descriptor = "(Z)Lclient!ie;")
-    public Node method7613() {
+    public Node first() {
         this.anInt8579 = 0;
-        return this.method7610();
+        return this.next();
     }
 }

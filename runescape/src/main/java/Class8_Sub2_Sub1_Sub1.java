@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.graphics.Matrix;
@@ -338,7 +338,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             local19.render(local27, local57.aPickingCylinderArray1[0], 0);
         }
         if (this.aParticleSystem_1 != null) {
-            @Pc(89) Class230 local89 = this.aParticleSystem_1.method3645();
+            @Pc(89) ParticleList local89 = this.aParticleSystem_1.method3645();
             if (Static504.aBoolean579) {
                 arg0.method7967(local89, Static582.anInt8627);
             } else {

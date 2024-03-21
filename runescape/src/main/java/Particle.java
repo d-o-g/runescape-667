@@ -215,7 +215,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
         }
         if (local35.generalEffectors != null) {
             for (local317 = 0; local317 < local35.generalEffectors.length; local317++) {
-                @Pc(776) ParticleEffector local776 = (ParticleEffector) Static519.aClass144_1.method3095((long) local35.generalEffectors[local317]);
+                @Pc(776) ParticleEffector local776 = (ParticleEffector) Static519.aClass144_1.get((long) local35.generalEffectors[local317]);
                 while (local776 != null) {
                     @Pc(780) ParticleEffectorType local780 = local776.aParticleEffectorType_1;
                     @Pc(786) double local786 = (double) (local17 - local776.anInt1827);
@@ -413,7 +413,7 @@ public final class Particle extends Class8_Sub4_Sub2 {
                     }
                 }
             }
-            local40.aClass230_1.aClass113_1.add(this);
+            local40.aParticleList_1.particles.add(this);
         }
     }
 

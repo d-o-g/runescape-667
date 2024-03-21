@@ -1,4 +1,4 @@
-import com.jagex.Class230;
+import com.jagex.ParticleList;
 import com.jagex.collect.Node2;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
@@ -122,7 +122,7 @@ public final class Class316 {
     }
 
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(Lclient!lk;IILclient!am;)V")
-    public void method7210(@OriginalArg(0) Class230 arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Toolkit_Sub1 arg2) {
+    public void method7210(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Toolkit_Sub1 arg2) {
         if (arg2.aClass73_Sub1_16 == null) {
             return;
         }
@@ -139,7 +139,7 @@ public final class Class316 {
             @Pc(39) int local39 = 0;
             @Pc(41) int local41 = Integer.MAX_VALUE;
             @Pc(43) int local43 = 0;
-            @Pc(47) Node2 local47 = arg0.aClass113_1.sentinel;
+            @Pc(47) Node2 local47 = arg0.particles.sentinel;
             @Pc(50) Node2 local50;
             @Pc(81) int local81;
             for (local50 = local47.next2; local50 != local47; local50 = local50.next2) {

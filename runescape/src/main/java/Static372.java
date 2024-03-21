@@ -1,6 +1,5 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static372 {
 
@@ -13,27 +12,6 @@ public final class Static372 {
     @OriginalMember(owner = "client!ln", name = "a", descriptor = "(III)I")
     public static int method5290(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return arg1 == 1 || arg1 == 3 ? Static60.anIntArray111[arg0 & 0x3] : Static353.anIntArray748[arg0 & 0x3];
-    }
-
-    @OriginalMember(owner = "client!ln", name = "a", descriptor = "(ZZ)I")
-    public static int method5291(@OriginalArg(0) boolean arg0) {
-        if (Static552.anIntArray753 == null) {
-            return 0;
-        } else if (arg0 || Static378.aFontTypeArray1 == null) {
-            @Pc(29) int local29 = 0;
-            for (@Pc(31) int local31 = 0; local31 < Static552.anIntArray753.length; local31++) {
-                @Pc(36) int local36 = Static552.anIntArray753[local31];
-                if (Static555.aJs5_106.fileready(local36)) {
-                    local29++;
-                }
-                if (Static237.aJs5_87.fileready(local36)) {
-                    local29++;
-                }
-            }
-            return local29;
-        } else {
-            return Static552.anIntArray753.length * 2;
-        }
     }
 
     @OriginalMember(owner = "client!ln", name = "a", descriptor = "(ILclient!hda;I)I")

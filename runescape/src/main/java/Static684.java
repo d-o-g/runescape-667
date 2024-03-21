@@ -32,7 +32,7 @@ public final class Static684 {
             Static164.areaLevel = 0;
         }
         Static81.method1586(arg2);
-        Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052), true, Static694.aFontMetrics_13, Static437.aFont_9);
+        Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052), true, Fonts.p12Metrics, Fonts.p12);
         @Pc(74) int local74 = Static691.anInt10367;
         Static691.anInt10367 = (Static62.anInt1465 - (Static720.mapWidth >> 4)) * 8;
         @Pc(85) int local85 = Static116.anInt2270;

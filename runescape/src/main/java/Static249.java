@@ -67,7 +67,7 @@ public final class Static249 {
         if (local17 != null) {
             local15 = local15 + Static72.method1527(local17);
         }
-        @Pc(130) int local130 = Static42.aFontMetrics_4.stringWidth(Static186.aSpriteArray5, local15);
+        @Pc(130) int local130 = Fonts.b12Metrics.stringWidth(Static186.aSpriteArray5, local15);
         if (arg0.aBoolean553) {
             local130 += Static517.aSprite_32.getWidth() + 4;
         }

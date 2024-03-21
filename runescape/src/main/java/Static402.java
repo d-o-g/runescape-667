@@ -21,11 +21,6 @@ public final class Static402 {
         return Static129.anInt2406;
     }
 
-    @OriginalMember(owner = "client!ml", name = "a", descriptor = "(II)V")
-    public static void method5580() {
-        Static627.A_WEIGHTED_CACHE___200.clean(50);
-    }
-
     @OriginalMember(owner = "client!ml", name = "c", descriptor = "(II)Lclient!uja;")
     public static Class376 method5582(@OriginalArg(1) int arg0) {
         @Pc(10) Class376 local10 = (Class376) Static153.A_WEIGHTED_CACHE___56.get((long) arg0);

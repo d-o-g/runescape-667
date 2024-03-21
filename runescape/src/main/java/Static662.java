@@ -7,9 +7,6 @@ public final class Static662 {
     @OriginalMember(owner = "client!v", name = "n", descriptor = "I")
     public static int anInt9843;
 
-    @OriginalMember(owner = "client!v", name = "k", descriptor = "I")
-    public static int anInt9845;
-
     @OriginalMember(owner = "client!v", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ZILjava/lang/String;I)V")
     public static void method8625(@OriginalArg(0) String arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2, @OriginalArg(3) String arg3, @OriginalArg(4) String arg4, @OriginalArg(6) int arg5, @OriginalArg(7) String arg6, @OriginalArg(8) int arg7) {
         @Pc(7) Class283 local7 = Static489.aClass283Array1[99];

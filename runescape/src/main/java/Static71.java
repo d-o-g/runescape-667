@@ -206,7 +206,7 @@ public final class Static71 {
                                     if (Static652.anInt9712 < 20) {
                                         local744 = -65536;
                                     }
-                                    Static437.aFont_9.render(local317, "Fps:" + Static652.anInt9712, local744, -1, local323);
+                                    Fonts.p12.render(local317, "Fps:" + Static652.anInt9712, local744, -1, local323);
                                     local323 += 15;
                                     @Pc(768) Runtime local768 = Runtime.getRuntime();
                                     local777 = (int) ((local768.totalMemory() - local768.freeMemory()) / 1024L);
@@ -224,14 +224,14 @@ public final class Static71 {
                                         }
                                         local779 = -65536;
                                     }
-                                    Static437.aFont_9.render(local317, "Mem:" + local777 + "k", local779, -1, local323);
+                                    Fonts.p12.render(local317, "Mem:" + local777 + "k", local779, -1, local323);
                                     local323 += 15;
-                                    Static437.aFont_9.render(local317, "Game: In:" + Static405.A_SERVER_CONNECTION___2.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___2.writeRate + "B/s", -256, -1, local323);
+                                    Fonts.p12.render(local317, "Game: In:" + Static405.A_SERVER_CONNECTION___2.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___2.writeRate + "B/s", -256, -1, local323);
                                     local323 += 15;
-                                    Static437.aFont_9.render(local317, "Lobby: In:" + Static405.A_SERVER_CONNECTION___1.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___1.writeRate + "B/s", -256, -1, local323);
+                                    Fonts.p12.render(local317, "Lobby: In:" + Static405.A_SERVER_CONNECTION___1.readRate + "B/s Out:" + Static405.A_SERVER_CONNECTION___1.writeRate + "B/s", -256, -1, local323);
                                     local323 += 15;
                                     local792 = Static163.activeToolkit.E() / 1024;
-                                    Static437.aFont_9.render(local317, "Offheap:" + local792 + "k", local792 > 65536 ? -65536 : -256, -1, local323);
+                                    Fonts.p12.render(local317, "Offheap:" + local792 + "k", local792 > 65536 ? -65536 : -256, -1, local323);
                                     local323 += 15;
                                     local936 = 0;
                                     local938 = 0;
@@ -246,17 +246,17 @@ public final class Static71 {
                                     @Pc(986) int local986 = local940 * 100 / local936;
                                     @Pc(992) int local992 = local938 * 10000 / local936;
                                     @Pc(1018) String local1018 = "Cache:" + Static573.method7571(0, true, (long) local992, 2) + "% (" + local986 + "%)";
-                                    Static665.aFont_12.render(local317, local1018, -256, -1, local323);
+                                    Fonts.p11.render(local317, local1018, -256, -1, local323);
                                     local323 += 12;
                                 }
                                 if (Static530.anInt8093 > 0) {
-                                    Static665.aFont_12.render(local317, "Particles: " + Static111.anInt2220 + " / " + Static530.anInt8093, -256, -1, local323);
+                                    Fonts.p11.render(local317, "Particles: " + Static111.anInt2220 + " / " + Static530.anInt8093, -256, -1, local323);
                                 }
                                 local323 += 12;
                                 if (Static354.aBoolean440) {
-                                    Static665.aFont_12.render(local317, "Polys: " + Static163.activeToolkit.I() + " Models: " + Static163.activeToolkit.M(), -256, -1, local323);
+                                    Fonts.p11.render(local317, "Polys: " + Static163.activeToolkit.I() + " Models: " + Static163.activeToolkit.M(), -256, -1, local323);
                                     local323 += 12;
-                                    Static665.aFont_12.render(local317, "Ls: " + Static606.anInt8954 + " La: " + Static577.anInt8587 + " NPC: " + Static480.anInt7206 + " Pl: " + Static179.anInt2984, -256, -1, local323);
+                                    Fonts.p11.render(local317, "Ls: " + Static606.anInt8954 + " La: " + Static577.anInt8587 + " NPC: " + Static480.anInt7206 + " Pl: " + Static179.anInt2984, -256, -1, local323);
                                     Static126.method2228();
                                     local323 += 12;
                                 }
@@ -357,7 +357,7 @@ public final class Static71 {
                                         }
                                         if (local1533.trim().length() > 0) {
                                             if (!Static376.aBoolean452) {
-                                                @Pc(1730) FontMetrics local1730 = Static275.method3980(local19.anInt3781, Static163.activeToolkit);
+                                                @Pc(1730) FontMetrics local1730 = Fonts.metrics(local19.anInt3781, Static163.activeToolkit);
                                                 local777 = local1730.paraWidth(Static679.aSpriteArray14, local1533, local19.anInt3802);
                                                 local779 = local1730.stringHeight(local19.anInt3802, local19.anInt3748, local1533, Static679.aSpriteArray14);
                                                 if (Static137.aBoolean210) {
@@ -632,7 +632,7 @@ public final class Static71 {
         }
         if (Static16.aFontMetrics_1 == null) {
             if (js5.FONTMETRICS.fileready(Static723.anInt10929)) {
-                Static16.aFontMetrics_1 = Static238.method3468(Static723.anInt10929, js5.FONTMETRICS);
+                Static16.aFontMetrics_1 = FontMetrics.loadFile(Static723.anInt10929, js5.FONTMETRICS);
             } else {
                 local5 = false;
             }

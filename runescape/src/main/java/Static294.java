@@ -184,7 +184,7 @@ public final class Static294 {
         }
         if (Static426.aBoolean72) {
             Static163.activeToolkit.method7971(local155, local161, local159, local153, -16777216);
-            Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052), false, Static694.aFontMetrics_13, Static437.aFont_9);
+            Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052), false, Fonts.p12Metrics, Fonts.p12);
         }
         Static501.method6716(false);
     }

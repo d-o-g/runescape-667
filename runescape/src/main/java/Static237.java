@@ -1,10 +1,6 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static237 {
-
-    @OriginalMember(owner = "client!hga", name = "v", descriptor = "Lclient!sb;")
-    public static js5 aJs5_87;
 
     @OriginalMember(owner = "client!hga", name = "A", descriptor = "[I")
     public static final int[] anIntArray518 = new int[25];

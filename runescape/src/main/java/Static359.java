@@ -14,8 +14,4 @@ public final class Static359 {
     @OriginalMember(owner = "client!lfa", name = "a", descriptor = "[Z")
     public static final boolean[] aBooleanArray17 = new boolean[100];
 
-    @OriginalMember(owner = "client!lfa", name = "a", descriptor = "(I)I")
-    public static int method5226() {
-        return Static372.method5291(false);
-    }
 }

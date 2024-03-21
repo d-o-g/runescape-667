@@ -15,9 +15,6 @@ public final class Static694 {
     @OriginalMember(owner = "client!vv", name = "z", descriptor = "I")
     public static int anInt10405;
 
-    @OriginalMember(owner = "client!vv", name = "y", descriptor = "Lclient!ve;")
-    public static FontMetrics aFontMetrics_13;
-
     @OriginalMember(owner = "client!vv", name = "w", descriptor = "I")
     public static int anInt10411;
 
@@ -59,7 +56,7 @@ public final class Static694 {
         @Pc(49) int local49;
         if (Static483.aBoolean546 && local15) {
             @Pc(27) FontMetrics local27 = Static16.aFontMetrics_1;
-            @Pc(33) Font local33 = arg0.method8010(local27, Static627.aIndexedImageArray1, true);
+            @Pc(33) Font local33 = arg0.createFont(local27, Static627.aIndexedImageArray1, true);
             local40 = local27.paraWidth((Sprite[]) null, arg1, 250);
             local49 = local27.stringHeight(250, local27.verticalSpacing, arg1, (Sprite[]) null);
             @Pc(52) int local52 = Static535.aIndexedImage_3.width;

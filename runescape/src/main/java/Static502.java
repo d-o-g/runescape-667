@@ -1,8 +1,4 @@
-import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
-import com.jagex.game.runetek6.config.fonttype.FontType;
-import com.jagex.graphics.FontMetrics;
-import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -11,46 +7,6 @@ public final class Static502 {
 
     @OriginalMember(owner = "client!pr", name = "k", descriptor = "S")
     public static short aShort97 = 320;
-
-    @OriginalMember(owner = "client!pr", name = "a", descriptor = "(ZBLclient!ha;ZI)Lclient!cl;")
-    public static FontType method6719(@OriginalArg(0) boolean arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) int arg3) {
-        if (arg3 == -1) {
-            return null;
-        }
-        if (Static552.anIntArray753 != null) {
-            for (@Pc(14) int local14 = 0; local14 < Static552.anIntArray753.length; local14++) {
-                if (Static552.anIntArray753[local14] == arg3) {
-                    return Static378.aFontTypeArray1[local14];
-                }
-            }
-        }
-        @Pc(54) FontType local54 = (FontType) Static627.A_WEIGHTED_CACHE___200.get((long) ((arg0 ? 1 : 0) | arg3 << 1));
-        if (local54 != null) {
-            if (arg2 && local54.metrics == null) {
-                @Pc(70) FontMetrics local70 = Static238.method3468(arg3, Static237.aJs5_87);
-                if (local70 == null) {
-                    return null;
-                }
-                local54.metrics = local70;
-            }
-            return local54;
-        }
-        @Pc(84) IndexedImage[] local84 = IndexedImage.load(Static555.aJs5_106, arg3);
-        if (local84 == null) {
-            return null;
-        }
-        @Pc(94) FontMetrics local94 = Static238.method3468(arg3, Static237.aJs5_87);
-        if (local94 == null) {
-            return null;
-        }
-        if (arg2) {
-            local54 = new FontType(arg1.method8010(local94, local84, arg0), local94);
-        } else {
-            local54 = new FontType(arg1.method8010(local94, local84, arg0));
-        }
-        Static627.A_WEIGHTED_CACHE___200.put(local54, (long) (arg3 << 1 | (arg0 ? 1 : 0)));
-        return local54;
-    }
 
     @OriginalMember(owner = "client!pr", name = "a", descriptor = "(BLclient!ge;)Lclient!il;")
     public static Class138_Sub3 method6720(@OriginalArg(1) Packet arg0) {

@@ -220,7 +220,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public Font method8010(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
+    public Font createFont(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         @Pc(3) int[] local3 = new int[arg1.length];
         @Pc(7) int[] local7 = new int[arg1.length];
         @Pc(9) boolean local9 = false;

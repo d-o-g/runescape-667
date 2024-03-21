@@ -1,18 +1,7 @@
-import com.jagex.js5.js5;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static82 {
-
-    @OriginalMember(owner = "client!cl", name = "a", descriptor = "(BLclient!sb;Lclient!sb;[I)V")
-    public static void method1592(@OriginalArg(1) js5 arg0, @OriginalArg(2) js5 arg1, @OriginalArg(3) int[] arg2) {
-        Static555.aJs5_106 = arg1;
-        Static237.aJs5_87 = arg0;
-        if (arg2 != null) {
-            Static552.anIntArray753 = arg2;
-        }
-    }
 
     @OriginalMember(owner = "client!cl", name = "a", descriptor = "(B)V")
     public static void method1593() {

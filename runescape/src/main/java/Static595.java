@@ -20,8 +20,8 @@ public final class Static595 {
             Static163.activeToolkit = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
             if (arg0 != null) {
                 Static163.activeToolkit.GA(0);
-                @Pc(36) FontMetrics local36 = Static74.method1535(Static539.anInt8173, js5.FONTMETRICS);
-                @Pc(45) Font local45 = Static163.activeToolkit.method8010(local36, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
+                @Pc(36) FontMetrics local36 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
+                @Pc(45) Font local45 = Static163.activeToolkit.createFont(local36, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                 Static288.method4182();
                 Static694.method9028(Static163.activeToolkit, arg0, true, local36, local45);
             }
@@ -31,8 +31,8 @@ public final class Static595 {
             if (arg0 != null) {
                 local57 = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.aCanvas7, 0);
                 local57.GA(0);
-                @Pc(76) FontMetrics local76 = Static74.method1535(Static539.anInt8173, js5.FONTMETRICS);
-                local85 = local57.method8010(local76, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
+                @Pc(76) FontMetrics local76 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
+                local85 = local57.createFont(local76, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                 Static288.method4182();
                 Static694.method9028(local57, arg0, true, local76, local85);
             }
@@ -44,8 +44,8 @@ public final class Static595 {
                     Static163.activeToolkit = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, arg2, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
-                        @Pc(118) FontMetrics local118 = Static74.method1535(Static539.anInt8173, js5.FONTMETRICS);
-                        @Pc(127) Font local127 = local57.method8010(local118, IndexedImage.load(js5.SPRITES, Static539.anInt8173, 0), true);
+                        @Pc(118) FontMetrics local118 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
+                        @Pc(127) Font local127 = local57.createFont(local118, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                         Static288.method4182();
                         Static694.method9028(local57, arg0, true, local118, local127);
                     }

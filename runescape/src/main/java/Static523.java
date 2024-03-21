@@ -8,6 +8,7 @@ import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
 import com.jagex.game.runetek6.config.defaults.WearposDefaults;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
+import com.jagex.game.runetek6.config.fonttype.FontTypeList;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
@@ -125,7 +126,7 @@ public final class Static523 {
             }
             Static324.anInt5129 = js5.LOADING_SPRITES.indexCrc();
             Static466.anInt7042 = js5.LOADING_SCREENS.indexCrc();
-            Static616.method8284(js5.LOADING_SPRITES);
+            Fonts.load(js5.LOADING_SPRITES);
             @Pc(250) int local250 = Static400.instance.aClass57_Sub11_1.method3603();
             Static333.aClass279_1 = new Class279(Static392.aModeGame_4, Static51.anInt1052, js5.LOADING_SCREENS);
             @Pc(262) int[] local262 = Static333.aClass279_1.method6275(local250);
@@ -141,11 +142,11 @@ public final class Static523 {
             }
         }
         if (Static198.aClass140_4 == Static473.aClass140_22) {
-            Static82.method1592(js5.FONTMETRICS, js5.LOADING_SPRITES, Static52.method1159());
+            FontTypeList.init(js5.FONTMETRICS, js5.LOADING_SPRITES, Static52.method1159());
         }
         if (Static198.aClass140_5 == Static473.aClass140_22) {
-            local12 = Static359.method5226();
-            local74 = Static714.method9339();
+            local12 = FontTypeList.readyCount();
+            local74 = FontTypeList.totalCount();
             if (local74 > local12) {
                 return local12 * 100 / local74;
             }
@@ -159,8 +160,8 @@ public final class Static523 {
                     return 0;
                 }
             }
-            Static570.method7549(Static163.activeToolkit);
-            Static469.method6358(Static163.activeToolkit);
+            FontTypeList.method7549(Static163.activeToolkit);
+            Fonts.init(Static163.activeToolkit);
             Static81.method1586(1);
         }
         if (Static198.aClass140_7 == Static473.aClass140_22) {
@@ -217,7 +218,7 @@ public final class Static523 {
                 return (local12 - Static669.anInt9996) * 100 / (100 - Static669.anInt9996);
             }
             Static204.method3079(js5.SPRITES);
-            Static82.method1592(js5.FONTMETRICS, js5.SPRITES, Static52.method1159());
+            FontTypeList.init(js5.FONTMETRICS, js5.SPRITES, Static52.method1159());
         }
         if (Static473.aClass140_22 == Static198.aClass140_10) {
             @Pc(746) byte[] local746 = js5.DEFAULTS.getfile(4);
@@ -295,8 +296,8 @@ public final class Static523 {
             Static292.aClass2_Sub43_2 = new Node_Sub43(true, SignLink.instance);
         }
         if (Static198.aClass140_15 == Static473.aClass140_22) {
-            local12 = Static188.method2860(js5.SPRITES) + Static372.method5291(true);
-            local74 = Static688.method8974() + Static714.method9339();
+            local12 = Static188.method2860(js5.SPRITES) + FontTypeList.readyCount(true);
+            local74 = Static688.method8974() + FontTypeList.totalCount();
             if (local12 < local74) {
                 return local12 * 100 / local74;
             }
@@ -376,8 +377,8 @@ public final class Static523 {
                 Static32.method880(Static400.instance.aClass57_Sub29_2.method7915(), false);
             }
             Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
-            Static570.method7549(Static163.activeToolkit);
-            Static469.method6358(Static163.activeToolkit);
+            FontTypeList.method7549(Static163.activeToolkit);
+            Fonts.init(Static163.activeToolkit);
             Static239.method3472(js5.SPRITES, Static163.activeToolkit);
             Static331.method4925(Static679.aSpriteArray14);
         }

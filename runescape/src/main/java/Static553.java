@@ -35,8 +35,4 @@ public final class Static553 {
         local7.anInt4014 = arg1;
     }
 
-    @OriginalMember(owner = "client!rga", name = "c", descriptor = "(I)V")
-    public static void method7290() {
-        Static627.A_WEIGHTED_CACHE___200.removeSoftReferences();
-    }
 }

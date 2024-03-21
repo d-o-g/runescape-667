@@ -1150,7 +1150,7 @@ public final class Class158 {
 
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(ZLclient!ha;)Lclient!da;")
     public Font method3403(@OriginalArg(1) Toolkit arg0) {
-        @Pc(18) Font local18 = Static324.method4628(this.aBoolean299, false, this.anInt3781, arg0);
+        @Pc(18) Font local18 = Fonts.font(this.aBoolean299, false, this.anInt3781, arg0);
         Static544.aBoolean624 = local18 == null;
         return local18;
     }

@@ -104,7 +104,7 @@ public final class Static603 {
         @Pc(56) int local56;
         @Pc(78) int local78;
         if (arg2.aString25 != null) {
-            local36 = Static154.aFontMetrics_6.splitLines(Static37.aStringArray5, (int[]) null, (Sprite[]) null, arg2.aString25);
+            local36 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, (int[]) null, (Sprite[]) null, arg2.aString25);
             for (local56 = 0; local56 < local36; local56++) {
                 @Pc(61) String local61 = Static37.aStringArray5[local56];
                 if (local56 < local36 - 1) {

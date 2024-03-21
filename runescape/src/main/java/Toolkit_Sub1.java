@@ -2405,7 +2405,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public final Font method8010(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
+    public final Font createFont(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         return new Font_Sub1(this, arg0, arg1, arg2);
     }
 

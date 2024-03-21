@@ -3214,7 +3214,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public Font method8010(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
+    public Font createFont(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
         return new Font_Sub2(this, arg0, arg1, arg2);
     }
 

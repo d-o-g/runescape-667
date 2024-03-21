@@ -1,8 +1,5 @@
-import com.jagex.graphics.FontMetrics;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static238 {
 
@@ -14,12 +11,6 @@ public final class Static238 {
 
     @OriginalMember(owner = "client!hh", name = "a", descriptor = "[I")
     public static final int[] anIntArray307 = new int[4];
-
-    @OriginalMember(owner = "client!hh", name = "a", descriptor = "(IILclient!sb;)Lclient!ve;")
-    public static FontMetrics method3468(@OriginalArg(1) int arg0, @OriginalArg(2) js5 arg1) {
-        @Pc(8) byte[] local8 = arg1.getfile(arg0);
-        return local8 == null ? null : new FontMetrics(local8);
-    }
 
     @OriginalMember(owner = "client!hh", name = "a", descriptor = "(ZLjava/lang/String;ZZLjava/lang/String;)V")
     public static void method3471(@OriginalArg(0) boolean arg0, @OriginalArg(1) String arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) String arg3) {

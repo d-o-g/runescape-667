@@ -1,6 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.game.PlayerModel;
+import com.jagex.game.runetek6.config.fonttype.FontTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -115,7 +116,7 @@ public final class Static664 {
         Static561.aClass220_2.method5183();
         PlayerModel.cacheRemoveSoftReferences();
         Static570.method7553();
-        Static553.method7290();
+        FontTypeList.cacheRemoveSoftReferences();
         Static149.method2450();
         Static126.method2229();
         Static230.A_WEIGHTED_CACHE___81.removeSoftReferences();

@@ -90,7 +90,7 @@ public final class Static608 {
                 if (local51.method9311()) {
                     @Pc(182) Class80 local182 = local51.method9318(-3109);
                     if (local182 != null && Static481.anInt7222 < Static352.anInt5752) {
-                        Static352.anIntArray446[Static481.anInt7222] = Static42.aFontMetrics_4.stringWidth(local182.method2105()) / 2;
+                        Static352.anIntArray446[Static481.anInt7222] = Fonts.b12Metrics.stringWidth(local182.method2105()) / 2;
                         Static352.anIntArray445[Static481.anInt7222] = Static215.anIntArray284[0];
                         Static352.anIntArray444[Static481.anInt7222] = Static215.anIntArray284[1];
                         Static352.aClass80Array1[Static481.anInt7222] = local182;
@@ -102,7 +102,7 @@ public final class Static608 {
                 @Pc(313) IndexedImage[] local313;
                 @Pc(381) Sprite local381;
                 if (local51.aBoolean816 || TimeUtils.clock >= local51.anInt10747) {
-                    local233 -= Math.max(Static42.aFontMetrics_4.paddingTop, Static119.aSpriteArray3[0].getHeight());
+                    local233 -= Math.max(Fonts.b12Metrics.paddingTop, Static119.aSpriteArray3[0].getHeight());
                 } else {
                     @Pc(262) byte local262 = 1;
                     if (local31 == null) {
@@ -139,7 +139,7 @@ public final class Static608 {
                     }
                     @Pc(377) Sprite local377 = local295[0];
                     local381 = local295[local262];
-                    local233 -= Math.max(Static42.aFontMetrics_4.paddingTop, local377.getHeight());
+                    local233 -= Math.max(Fonts.b12Metrics.paddingTop, local377.getHeight());
                     local321 = Static215.anIntArray284[0] + arg2 - (local377.getWidth() >> 1);
                     local409 = local377.getWidth() * local51.anInt10726 / 255;
                     local412 = local377.getHeight();
@@ -408,16 +408,16 @@ public final class Static608 {
                                         local1359 = Static167.anIntArray248[0];
                                     }
                                 }
-                                @Pc(1589) Font local1589 = Static665.aFont_12;
-                                @Pc(1591) Font local1591 = Static665.aFont_12;
-                                @Pc(1593) FontMetrics local1593 = Static154.aFontMetrics_6;
-                                @Pc(1595) FontMetrics local1595 = Static154.aFontMetrics_6;
+                                @Pc(1589) Font local1589 = Fonts.p11;
+                                @Pc(1591) Font local1591 = Fonts.p11;
+                                @Pc(1593) FontMetrics local1593 = Fonts.p11Metrics;
+                                @Pc(1595) FontMetrics local1595 = Fonts.p11Metrics;
                                 local1374 = local1186.anInt7196;
                                 @Pc(1607) Font local1607;
                                 @Pc(1612) FontMetrics local1612;
                                 if (local1374 >= 0) {
-                                    local1607 = Static324.method4628(true, true, local1374, Static163.activeToolkit);
-                                    local1612 = Static275.method3980(local1374, Static163.activeToolkit);
+                                    local1607 = Fonts.font(true, true, local1374, Static163.activeToolkit);
+                                    local1612 = Fonts.metrics(local1374, Static163.activeToolkit);
                                     if (local1607 != null && local1612 != null) {
                                         local1593 = local1612;
                                         local1589 = local1607;
@@ -426,8 +426,8 @@ public final class Static608 {
                                 if (local1218 != null) {
                                     local1374 = local1218.anInt7196;
                                     if (local1374 >= 0) {
-                                        local1607 = Static324.method4628(true, true, local1374, Static163.activeToolkit);
-                                        local1612 = Static275.method3980(local1374, Static163.activeToolkit);
+                                        local1607 = Fonts.font(true, true, local1374, Static163.activeToolkit);
+                                        local1612 = Fonts.metrics(local1374, Static163.activeToolkit);
                                         if (local1607 != null && local1612 != null) {
                                             local1595 = local1612;
                                             local1591 = local1607;
@@ -633,7 +633,7 @@ public final class Static608 {
             }
             Static397.method5557(arg2, local2429, local2452, arg3, arg1, arg0, --local2429.anInt10735);
         }
-        local2422 = Static42.aFontMetrics_4.paddingTop + Static42.aFontMetrics_4.paddingBottom + 2;
+        local2422 = Fonts.b12Metrics.paddingTop + Fonts.b12Metrics.paddingBottom + 2;
         for (local233 = 0; local233 < Static481.anInt7222; local233++) {
             local267 = Static352.anIntArray445[local233];
             local1179 = Static352.anIntArray444[local233];
@@ -650,11 +650,11 @@ public final class Static608 {
             }
             Static352.anIntArray444[local233] = local1179;
             @Pc(2627) String local2627 = Static352.aClass80Array1[local233].method2105();
-            local321 = Static42.aFontMetrics_4.stringWidth(local2627);
+            local321 = Fonts.b12Metrics.stringWidth(local2627);
             local409 = local267 + arg2;
-            local412 = local1179 + arg0 - Static42.aFontMetrics_4.paddingTop;
+            local412 = local1179 + arg0 - Fonts.b12Metrics.paddingTop;
             local1274 = local321 + local409;
-            @Pc(2654) int local2654 = Static42.aFontMetrics_4.paddingBottom + arg0 + local1179;
+            @Pc(2654) int local2654 = Fonts.b12Metrics.paddingBottom + arg0 + local1179;
             if (Static55.anInt1124 == 0) {
                 @Pc(2663) int local2663 = 16776960;
                 @Pc(2669) int local2669 = Static352.aClass80Array1[local233].method2107();
@@ -704,20 +704,20 @@ public final class Static608 {
                 local2749 = local2663 | 0xFF000000;
                 local1321 = Static352.aClass80Array1[local233].method2108();
                 if (local1321 == 0) {
-                    Static180.aFont_3.renderCentre(-16777216, local267 + arg2, local2627, local1179 + arg0, local2749);
+                    Fonts.b12.renderCentre(-16777216, local267 + arg2, local2627, local1179 + arg0, local2749);
                     local1274 -= local321 >> 1;
                     local409 -= local321 >> 1;
                 }
                 if (local1321 == 1) {
                     local2654 += 5;
-                    Static180.aFont_3.renderWave(local2749, Static198.anInt3276, local2627, arg2 + local267, local1179 + arg0, -16777216);
+                    Fonts.b12.renderWave(local2749, Static198.anInt3276, local2627, arg2 + local267, local1179 + arg0, -16777216);
                     local1274 -= local321 >> 1;
                     local409 -= local321 >> 1;
                     local412 -= 5;
                 }
                 if (local1321 == 2) {
                     local412 -= 5;
-                    Static180.aFont_3.renderWave2(-16777216, Static198.anInt3276, local2627, arg2 + local267, local2749, arg0 + local1179);
+                    Fonts.b12.renderWave2(-16777216, Static198.anInt3276, local2627, arg2 + local267, local2749, arg0 + local1179);
                     local2654 += 5;
                     local409 -= (local321 >> 1) + 5;
                     local1274 -= (local321 >> 1) - 5;
@@ -728,15 +728,15 @@ public final class Static608 {
                     local2654 += 7;
                     local412 -= 7;
                     local1274 -= local321 >> 1;
-                    Static180.aFont_3.renderShake(local1323, local267 + arg2, Static198.anInt3276, arg0 + local1179, local2749, local2627, -16777216);
+                    Fonts.b12.renderShake(local1323, local267 + arg2, Static198.anInt3276, arg0 + local1179, local2749, local2627, -16777216);
                 }
                 if (local1321 == 4) {
                     local1323 = 150 - Static352.aClass80Array1[local233].method2110() * 150 / Static352.aClass80Array1[local233].method2103();
-                    local1325 = (Static42.aFontMetrics_4.stringWidth(local2627) + 100) * local1323 / 150;
+                    local1325 = (Fonts.b12Metrics.stringWidth(local2627) + 100) * local1323 / 150;
                     Static163.activeToolkit.T(arg2 + local267 - 50, arg0, local267 + arg2 + 50, arg0 - -arg3);
                     local409 += 50 - local1325;
                     local1274 += 50 - local1325;
-                    Static180.aFont_3.render(arg2 + local267 + 50 - local1325, local1179 + arg0, local2627, -16777216, local2749);
+                    Fonts.b12.render(arg2 + local267 + 50 - local1325, local1179 + arg0, local2627, -16777216, local2749);
                     Static163.activeToolkit.KA(arg2, arg0, arg2 + arg1, arg3 + arg0);
                 }
                 if (local1321 == 5) {
@@ -747,17 +747,17 @@ public final class Static608 {
                     } else if (local1323 > 125) {
                         local1325 = local1323 - 125;
                     }
-                    local1327 = Static42.aFontMetrics_4.paddingBottom + Static42.aFontMetrics_4.paddingTop;
+                    local1327 = Fonts.b12Metrics.paddingBottom + Fonts.b12Metrics.paddingTop;
                     Static163.activeToolkit.T(arg2, arg0 + local1179 - local1327 - 1, arg1 + arg2, local1179 + arg0 + 5);
                     local2654 += local1325;
                     local409 -= local321 >> 1;
                     local1274 -= local321 >> 1;
                     local412 += local1325;
-                    Static180.aFont_3.renderCentre(-16777216, arg2 + local267, local2627, local1325 + local1179 + arg0, local2749);
+                    Fonts.b12.renderCentre(-16777216, arg2 + local267, local2627, local1325 + local1179 + arg0, local2749);
                     Static163.activeToolkit.KA(arg2, arg0, arg2 + arg1, arg0 + arg3);
                 }
             } else {
-                Static180.aFont_3.renderCentre(-16777216, local267 + arg2, local2627, arg0 + local1179, -256);
+                Fonts.b12.renderCentre(-16777216, local267 + arg2, local2627, arg0 + local1179, -256);
                 local409 -= local321 >> 1;
                 local1274 -= local321 >> 1;
             }

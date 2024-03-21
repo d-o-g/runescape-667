@@ -36,7 +36,7 @@ public final class Static159 {
             local9 = Static422.method5771();
         }
         Static97.method1905(Static84.anInt1775 + local9, Static71.anInt1576 - -local7, Static407.anInt6288, arg0, Static682.anInt10295);
-        Static180.aFont_3.render(Static71.anInt1576 + local7 + 3, Static84.anInt1775 - (-local9 + -14), LocalisedText.CHOOSEOPTION.localise(Static51.anInt1052), -1, -10660793);
+        Fonts.b12.render(Static71.anInt1576 + local7 + 3, Static84.anInt1775 - (-local9 + -14), LocalisedText.CHOOSEOPTION.localise(Static51.anInt1052), -1, -10660793);
         @Pc(69) int local69 = Static189.aClass120_1.method8853() + local7;
         @Pc(76) int local76 = Static189.aClass120_1.method8854() + local9;
         @Pc(80) int local80;
@@ -55,7 +55,7 @@ public final class Static159 {
             if (Static139.aClass2_Sub2_Sub4_1 != null) {
                 Static97.method1905(Static493.anInt7364, Static692.anInt10375, Static25.anInt598, arg0, Static85.anInt10675);
                 local80 = 0;
-                Static180.aFont_3.render(Static692.anInt10375 + 3, Static493.anInt7364 + 14, Static139.aClass2_Sub2_Sub4_1.aString10, -1, -10660793);
+                Fonts.b12.render(Static692.anInt10375 + 3, Static493.anInt7364 + 14, Static139.aClass2_Sub2_Sub4_1.aString10, -1, -10660793);
                 for (@Pc(239) DoublyLinkedNode_Sub2_Sub16 local239 = (DoublyLinkedNode_Sub2_Sub16) Static139.aClass2_Sub2_Sub4_1.aQueue_3.first(); local239 != null; local239 = (DoublyLinkedNode_Sub2_Sub16) Static139.aClass2_Sub2_Sub4_1.aQueue_3.next()) {
                     @Pc(251) int local251 = local80 * 16 + Static493.anInt7364 + 31;
                     local80++;

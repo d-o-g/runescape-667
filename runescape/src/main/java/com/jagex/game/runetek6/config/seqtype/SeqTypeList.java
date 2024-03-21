@@ -41,7 +41,7 @@ public final class SeqTypeList {
             this.configClient.fileLimit(lastGroup);
         }
 
-        AnimFrameset.initJs5(anims, bases);
+        AnimFrameset.init(anims, bases);
     }
 
     @OriginalMember(owner = "client!bp", name = "a", descriptor = "(IB)Lclient!cka;")

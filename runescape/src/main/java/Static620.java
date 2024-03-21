@@ -116,15 +116,15 @@ public final class Static620 {
         if (local517 != null) {
             local36 = local517.getHeight();
         }
-        @Pc(553) Font local553 = Static665.aFont_12;
-        @Pc(555) FontMetrics local555 = Static154.aFontMetrics_6;
+        @Pc(553) Font local553 = Fonts.p11;
+        @Pc(555) FontMetrics local555 = Fonts.p11Metrics;
         if (local10.anInt2615 == 1) {
-            local553 = Static437.aFont_9;
-            local555 = Static694.aFontMetrics_13;
+            local553 = Fonts.p12;
+            local555 = Fonts.p12Metrics;
         }
         if (local10.anInt2615 == 2) {
-            local555 = Static42.aFontMetrics_4;
-            local553 = Static180.aFont_3;
+            local555 = Fonts.b12Metrics;
+            local553 = Fonts.b12;
         }
         Static256.method3639(local553, local10.aString25, local555, arg1, local10.anInt2592, local36, arg7, arg2, arg0, arg5, arg6);
     }

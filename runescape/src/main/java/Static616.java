@@ -1,4 +1,3 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -16,12 +15,5 @@ public final class Static616 {
         Static524.aServerConnection_3 = Static405.A_SERVER_CONNECTION___1;
         Static299.anInt4825 = 1;
         Static238.method3471(false, arg1, false, arg0);
-    }
-
-    @OriginalMember(owner = "client!tia", name = "a", descriptor = "(BLclient!sb;)V")
-    public static void method8284(@OriginalArg(1) js5 arg0) {
-        Static662.anInt9845 = arg0.getgroupid("p11_full");
-        Static539.anInt8173 = arg0.getgroupid("p12_full");
-        Static634.anInt9519 = arg0.getgroupid("b12_full");
     }
 }

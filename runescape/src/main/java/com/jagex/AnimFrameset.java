@@ -19,7 +19,7 @@ public final class AnimFrameset extends Node2 {
     private static js5 bases;
 
     @OriginalMember(owner = "client!uea", name = "a", descriptor = "(Lclient!sb;IZLclient!sb;)V")
-    public static void initJs5(@OriginalArg(0) js5 anims, @OriginalArg(3) js5 bases) {
+    public static void init(@OriginalArg(0) js5 anims, @OriginalArg(3) js5 bases) {
         AnimFrameset.anims = bases;
         AnimFrameset.bases = anims;
     }

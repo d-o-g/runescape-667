@@ -1,4 +1,3 @@
-import com.jagex.graphics.Font;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -14,9 +13,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public final class Static437 {
-
-    @OriginalMember(owner = "client!np", name = "D", descriptor = "Lclient!da;")
-    public static Font aFont_9;
 
     @OriginalMember(owner = "client!np", name = "v", descriptor = "I")
     public static int anInt6628;

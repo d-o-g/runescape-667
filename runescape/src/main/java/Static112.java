@@ -63,7 +63,7 @@ public final class Static112 {
     public static void method2109() {
         if (Static158.aToolkit_5 != null) {
             Static158.aToolkit_5.free();
-            Static629.aFont_11 = null;
+            Fonts.aFont_11 = null;
             Static158.aToolkit_5 = null;
         }
     }

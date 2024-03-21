@@ -2702,7 +2702,7 @@ public final class Static472 {
                                                 anInt7142 -= 2;
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
-                                                local10482 = Static74.method1535(local27, js5.FONTMETRICS);
+                                                local10482 = FontMetrics.loadGroup(local27, js5.FONTMETRICS);
                                                 anIntArray578[anInt7142++] = local10482.paraHeight(local4911, Static679.aSpriteArray14, local21);
                                                 return;
                                             }
@@ -2711,7 +2711,7 @@ public final class Static472 {
                                                 anInt7142 -= 2;
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
-                                                local10482 = Static74.method1535(local27, js5.FONTMETRICS);
+                                                local10482 = FontMetrics.loadGroup(local27, js5.FONTMETRICS);
                                                 anIntArray578[anInt7142++] = local10482.paraWidth(Static679.aSpriteArray14, local4911, local21);
                                                 return;
                                             }
@@ -2829,7 +2829,7 @@ public final class Static472 {
                                             if (arg0 == 4125) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 local21 = anIntArray578[--anInt7142];
-                                                @Pc(11077) FontMetrics local11077 = Static74.method1535(local21, js5.FONTMETRICS);
+                                                @Pc(11077) FontMetrics local11077 = FontMetrics.loadGroup(local21, js5.FONTMETRICS);
                                                 anIntArray578[anInt7142++] = local11077.stringWidth(Static679.aSpriteArray14, local4911);
                                                 return;
                                             }

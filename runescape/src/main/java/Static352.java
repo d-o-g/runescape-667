@@ -1,6 +1,7 @@
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
+import com.jagex.game.runetek6.config.fonttype.FontTypeList;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -55,7 +56,7 @@ public final class Static352 {
         Static561.aClass220_2.method5182();
         PlayerModel.cacheReset();
         Static675.method8811();
-        Static124.method2215();
+        FontTypeList.cacheReset();
         Static327.method4895();
         if (Static2.aClass355_1 != Static446.aClass355_5) {
             for (@Pc(92) int local92 = 0; local92 < Static163.aByteArrayArray36.length; local92++) {

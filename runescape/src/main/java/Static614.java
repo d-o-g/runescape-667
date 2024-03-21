@@ -1,4 +1,5 @@
 import com.jagex.game.PlayerModel;
+import com.jagex.game.runetek6.config.fonttype.FontTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -56,7 +57,7 @@ public final class Static614 {
         Static561.aClass220_2.method5184();
         PlayerModel.cacheClean();
         Static534.method7121();
-        Static402.method5580();
+        FontTypeList.cacheClean(50);
         Static198.method2951();
         Static194.method2907();
         Static230.A_WEIGHTED_CACHE___81.clean(5);

@@ -201,7 +201,7 @@ public final class Static489 {
             return;
         }
         if (Static213.anInt3472 != 0) {
-            Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052) + "<br>(100%)", true, Static694.aFontMetrics_13, Static437.aFont_9);
+            Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.anInt1052) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
         Static557.method7331();
         Static352.method5180();
@@ -228,7 +228,7 @@ public final class Static489 {
         if (Static699.anInt10539 == 0) {
             Static110.method2082((Font) null);
         } else {
-            Static110.method2082(Static665.aFont_12);
+            Static110.method2082(Fonts.p11);
         }
         for (@Pc(519) int local519 = 0; local519 < 4; local519++) {
             Static577.A_COLLISION_MAP_ARRAY_1[local519].method2467();

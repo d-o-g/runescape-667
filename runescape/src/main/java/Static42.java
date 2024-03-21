@@ -1,4 +1,3 @@
-import com.jagex.graphics.FontMetrics;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -9,9 +8,6 @@ public final class Static42 {
 
     @OriginalMember(owner = "client!bh", name = "v", descriptor = "[I")
     public static int[] anIntArray69;
-
-    @OriginalMember(owner = "client!bh", name = "q", descriptor = "Lclient!ve;")
-    public static FontMetrics aFontMetrics_4;
 
     @OriginalMember(owner = "client!bh", name = "w", descriptor = "Lclient!mia;")
     public static final Class242 aClass242_4 = new Class242("", 20);

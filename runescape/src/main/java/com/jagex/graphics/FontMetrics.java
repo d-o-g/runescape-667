@@ -3,7 +3,7 @@ package com.jagex.graphics;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.stringtools.general.StringTools;
-import com.jagex.graphics.Sprite;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -11,6 +11,18 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ve")
 public final class FontMetrics {
+
+    @OriginalMember(owner = "client!hh", name = "a", descriptor = "(IILclient!sb;)Lclient!ve;")
+    public static FontMetrics loadFile(@OriginalArg(1) int file, @OriginalArg(2) js5 js5) {
+        @Pc(8) byte[] data = js5.getfile(file);
+        return data == null ? null : new FontMetrics(data);
+    }
+
+    @OriginalMember(owner = "client!cga", name = "a", descriptor = "(IIILclient!sb;)Lclient!ve;")
+    public static FontMetrics loadGroup(@OriginalArg(2) int group, @OriginalArg(3) js5 js5) {
+        @Pc(17) byte[] data = js5.getfile(0, group);
+        return data == null ? null : new FontMetrics(data);
+    }
 
     @OriginalMember(owner = "client!tm", name = "c", descriptor = "[Ljava/lang/String;")
     public static final String[] fontLines = new String[100];

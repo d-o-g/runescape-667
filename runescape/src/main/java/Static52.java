@@ -19,6 +19,6 @@ public final class Static52 {
 
     @OriginalMember(owner = "client!bo", name = "a", descriptor = "(B)[I")
     public static int[] method1159() {
-        return new int[]{Static662.anInt9845, Static539.anInt8173, Static634.anInt9519};
+        return new int[]{Fonts.p11FullGroup, Fonts.p12FullGroup, Fonts.b12FullGroup};
     }
 }

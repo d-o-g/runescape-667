@@ -15,7 +15,7 @@ public final class Static192 {
     @OriginalMember(owner = "client!fu", name = "a", descriptor = "(Lclient!cba;I)I")
     public static int method2875(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub4 arg0) {
         @Pc(14) String local14 = method2874(arg0);
-        return Static42.aFontMetrics_4.stringWidth(Static186.aSpriteArray5, local14);
+        return Fonts.b12Metrics.stringWidth(Static186.aSpriteArray5, local14);
     }
 
     @OriginalMember(owner = "client!fu", name = "a", descriptor = "(I)Lclient!aea;")

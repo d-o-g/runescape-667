@@ -34,8 +34,8 @@ public final class Class133 implements Interface13 {
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(I)V")
     @Override
     public void method7748() {
-        @Pc(24) FontMetrics local24 = Static238.method3468(this.aClass125_1.anInt2858, this.aJs5_36);
-        this.aFont_4 = Static163.activeToolkit.method8010(local24, IndexedImage.load(this.aJs5_37, this.aClass125_1.anInt2858), true);
+        @Pc(24) FontMetrics local24 = FontMetrics.loadFile(this.aClass125_1.anInt2858, this.aJs5_36);
+        this.aFont_4 = Static163.activeToolkit.createFont(local24, IndexedImage.load(this.aJs5_37, this.aClass125_1.anInt2858), true);
     }
 
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(ZI)V")

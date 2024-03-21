@@ -84,8 +84,8 @@ public abstract class Class90 implements Interface13 {
     @OriginalMember(owner = "client!ea", name = "a", descriptor = "(I)V")
     @Override
     public void method7748() {
-        @Pc(21) FontMetrics local21 = Static238.method3468(this.aClass138_5.anInt4415, this.aJs5_110);
-        this.aFont_10 = Static163.activeToolkit.method8010(local21, IndexedImage.load(this.aJs5_109, this.aClass138_5.anInt4415), true);
+        @Pc(21) FontMetrics local21 = FontMetrics.loadFile(this.aClass138_5.anInt4415, this.aJs5_110);
+        this.aFont_10 = Static163.activeToolkit.createFont(local21, IndexedImage.load(this.aJs5_109, this.aClass138_5.anInt4415), true);
     }
 
     @OriginalMember(owner = "client!ea", name = "b", descriptor = "(I)Z")

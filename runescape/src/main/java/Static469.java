@@ -1,4 +1,3 @@
-import com.jagex.graphics.Toolkit;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -11,16 +10,6 @@ public final class Static469 {
 
     @OriginalMember(owner = "client!oq", name = "f", descriptor = "I")
     public static int anInt7072 = 0;
-
-    @OriginalMember(owner = "client!oq", name = "a", descriptor = "(ZLclient!ha;)V")
-    public static void method6358(@OriginalArg(1) Toolkit arg0) {
-        Static665.aFont_12 = Static324.method4628(true, true, Static662.anInt9845, arg0);
-        Static154.aFontMetrics_6 = Static275.method3980(Static662.anInt9845, arg0);
-        Static437.aFont_9 = Static324.method4628(true, true, Static539.anInt8173, arg0);
-        Static694.aFontMetrics_13 = Static275.method3980(Static539.anInt8173, arg0);
-        Static180.aFont_3 = Static324.method4628(true, true, Static634.anInt9519, arg0);
-        Static42.aFontMetrics_4 = Static275.method3980(Static634.anInt9519, arg0);
-    }
 
     @OriginalMember(owner = "client!oq", name = "a", descriptor = "(III[BILclient!qha;IZ)Lclient!gb;")
     public static Class93_Sub2_Sub1 method6359(@OriginalArg(0) int arg0, @OriginalArg(3) byte[] arg1, @OriginalArg(5) Toolkit_Sub3 arg2, @OriginalArg(6) int arg3) {

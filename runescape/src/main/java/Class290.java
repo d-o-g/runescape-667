@@ -38,15 +38,15 @@ public final class Class290 implements Interface13 {
         if (this.aClass235_1.aBoolean454) {
             Static163.activeToolkit.method7976(local35, local49, this.aClass235_1.anInt5976, this.aClass235_1.anInt5970, this.aClass235_1.anInt5972, 0);
         }
-        local49 += this.method6520(Static180.aFont_3, local19.aString103, local35, local49) * 12;
+        local49 += this.method6520(Fonts.b12, local19.aString103, local35, local49) * 12;
         local49 += 8;
         if (this.aClass235_1.aBoolean454) {
             Static163.activeToolkit.method7951(local35, local49, this.aClass235_1.anInt5976 + local35 - 1, local49, this.aClass235_1.anInt5972, 0);
         }
         local49++;
-        local49 += this.method6520(Static180.aFont_3, local19.aString104, local35, local49) * 12;
+        local49 += this.method6520(Fonts.b12, local19.aString104, local35, local49) * 12;
         local49 += 5;
-        @Pc(135) int local135 = local49 + this.method6520(Static180.aFont_3, local19.aString102, local35, local49) * 12;
+        @Pc(135) int local135 = local49 + this.method6520(Fonts.b12, local19.aString102, local35, local49) * 12;
     }
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(I)V")

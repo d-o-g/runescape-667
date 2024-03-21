@@ -16,9 +16,9 @@ public final class Static279 {
 
     @OriginalMember(owner = "client!io", name = "a", descriptor = "(I)V")
     public static void method4072() {
-        Static161.anInt2797 = Static694.aFontMetrics_13.paddingTop + Static694.aFontMetrics_13.paddingBottom + 2;
+        Static161.anInt2797 = Fonts.p12Metrics.paddingTop + Fonts.p12Metrics.paddingBottom + 2;
         Static393.aStringArray32 = new String[500];
-        Static644.anInt9608 = Static42.aFontMetrics_4.paddingBottom + Static42.aFontMetrics_4.paddingTop + 2;
+        Static644.anInt9608 = Fonts.b12Metrics.paddingBottom + Fonts.b12Metrics.paddingTop + 2;
         for (@Pc(35) int local35 = 0; local35 < Static393.aStringArray32.length; local35++) {
             Static393.aStringArray32[local35] = "";
         }

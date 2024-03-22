@@ -61,9 +61,9 @@ public final class Static363 {
         if (Static523.graphicsDefaults.profilingModel == -1) {
             return 1;
         }
-        if (arg1 != Static400.instance.aClass57_Sub29_1.method7915()) {
+        if (arg1 != ClientOptions.instance.aClass57_Sub29_1.method7915()) {
             Static667.method8695(true, LocalisedText.PROFILING.localise(Static51.language), arg1);
-            if (arg1 != Static400.instance.aClass57_Sub29_1.method7915()) {
+            if (arg1 != ClientOptions.instance.aClass57_Sub29_1.method7915()) {
                 return -1;
             }
         }
@@ -121,7 +121,7 @@ public final class Static363 {
             }
         }
         if (newMode == 3 && GameShell.fsframe == null) {
-            windowModeChanged(oldMode, -1, Static400.instance.screenSize.getValue(), -1, true);
+            windowModeChanged(oldMode, -1, ClientOptions.instance.screenSize.getValue(), -1, true);
             return;
         }
         @Pc(95) Container local95;

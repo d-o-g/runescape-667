@@ -73,20 +73,20 @@ public final class Static498 {
     @OriginalMember(owner = "client!pm", name = "b", descriptor = "(I)V")
     public static void method6646() {
         Static135.method7237();
-        @Pc(19) int local19 = Static400.instance.aClass57_Sub3_1.method2120();
+        @Pc(19) int local19 = ClientOptions.instance.aClass57_Sub3_1.method2120();
         if (local19 == 2) {
             Static85.method9264(GameShell.canvasHei, GameShell.canvasWid, Toolkit.active);
         } else if (local19 == 3) {
             Static126.method2227(Toolkit.active, GameShell.canvasWid, Static32.anInt777, Static288.anInt4620, GameShell.canvasHei);
         }
-        if (Static400.instance.aClass57_Sub3_1.method2118()) {
+        if (ClientOptions.instance.aClass57_Sub3_1.method2118()) {
             Static575.method7606(Static434.canvas);
         }
         if (Toolkit.active != null) {
             Static209.method3110();
         }
-        Static504.aBoolean579 = Static400.instance.aClass57_Sub3_1.method2120() != 0;
-        InterfaceManager.aBoolean210 = Static400.instance.aClass57_Sub3_1.method2118();
+        Static504.aBoolean579 = ClientOptions.instance.aClass57_Sub3_1.method2120() != 0;
+        InterfaceManager.aBoolean210 = ClientOptions.instance.aClass57_Sub3_1.method2118();
     }
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "([Lclient!eo;II)V")

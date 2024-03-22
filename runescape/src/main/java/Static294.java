@@ -160,12 +160,12 @@ public final class Static294 {
         Static527.method7081(Static428.anInt6495 << 1, local161 / 2 + local159, Static428.anInt6495 << 1, local153 + local155 / 2);
         Static620.method8324(-Static323.anInt5119 & 0x3FFF, Static110.anInt2186, -Static81.anInt1644 & 0x3FFF, Static359.anInt5801, -Static598.anInt8832 & 0x3FFF, Static170.anInt2864);
         Static159.method2575();
-        @Pc(688) byte local688 = Static400.instance.aClass57_Sub4_2.method2143() == 2 ? (byte) Static198.anInt3276 : 1;
+        @Pc(688) byte local688 = ClientOptions.instance.aClass57_Sub4_2.method2143() == 2 ? (byte) Static198.anInt3276 : 1;
         if (InterfaceManager.aBoolean210) {
             Static648.method8483(-Static323.anInt5119 & 0x3FFF, -Static81.anInt1644 & 0x3FFF, -Static598.anInt8832 & 0x3FFF);
-            Static466.method6324(local688, Static170.anInt2864, Static110.anInt2186, Static359.anInt5801, PlayerEntity.self.z >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static582.anInt8627, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.x >> 9);
+            Static466.method6324(local688, Static170.anInt2864, Static110.anInt2186, Static359.anInt5801, PlayerEntity.self.z >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, ClientOptions.instance.aClass57_Sub8_1.method3176() == 0, Static582.anInt8627, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.x >> 9);
         } else {
-            Static283.method4100(TimeUtils.clock, Static170.anInt2864, Static359.anInt5801, Static110.anInt2186, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static504.aBoolean579 ? Static582.anInt8627 : -1, 0, false);
+            Static283.method4100(TimeUtils.clock, Static170.anInt2864, Static359.anInt5801, Static110.anInt2186, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9, ClientOptions.instance.aClass57_Sub8_1.method3176() == 0, Static504.aBoolean579 ? Static582.anInt8627 : -1, 0, false);
         }
         Static557.method7331();
         if (MainLogicManager.step == 11) {

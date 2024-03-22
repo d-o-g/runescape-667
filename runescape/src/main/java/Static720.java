@@ -59,9 +59,9 @@ public final class Static720 {
     }
 
     @OriginalMember(owner = "client!wr", name = "a", descriptor = "(I)Lclient!kv;")
-    public static Node_Sub34 method9398() {
+    public static ClientOptions method9398() {
         @Pc(13) FileOnDisk local13 = null;
-        @Pc(19) Node_Sub34 local19 = new Node_Sub34(client.modeGame, 0);
+        @Pc(19) ClientOptions local19 = new ClientOptions(client.modeGame, 0);
         try {
             @Pc(25) SignedResource local25 = SignLink.instance.openPrefs("", true);
             while (local25.status == 0) {
@@ -77,7 +77,7 @@ public final class Static720 {
                         throw new IOException("EOF");
                     }
                 }
-                local19 = new Node_Sub34(new Packet(local51), client.modeGame, 0);
+                local19 = new ClientOptions(new Packet(local51), client.modeGame, 0);
             }
         } catch (@Pc(97) Exception local97) {
         }

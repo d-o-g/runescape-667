@@ -7,9 +7,6 @@ public final class Static558 {
     @OriginalMember(owner = "client!rk", name = "v", descriptor = "[Lclient!st;")
     public static Sprite[] aSpriteArray7;
 
-    @OriginalMember(owner = "client!rk", name = "w", descriptor = "I")
-    public static int anInt3181 = -1;
-
     @OriginalMember(owner = "client!rk", name = "A", descriptor = "[[F")
     public static final float[][] aFloatArrayArray2 = new float[][]{{-0.333333F, -0.333333F, -0.333333F}, {0.333333F, -0.333333F, -0.333333F}, {-0.333333F, 0.333333F, -0.333333F}, {0.333333F, 0.333333F, -0.333333F}, {-0.333333F, -0.333333F, 0.333333F}, {0.333333F, -0.333333F, 0.333333F}, {-0.333333F, 0.333333F, 0.333333F}, {0.333333F, 0.333333F, 0.333333F}};
 

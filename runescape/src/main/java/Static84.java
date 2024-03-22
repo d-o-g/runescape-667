@@ -147,7 +147,7 @@ public final class Static84 {
     public static void method1655() {
         @Pc(1) int local1 = Static338.anInt5564;
         @Pc(3) int[] local3 = Static210.anIntArray280;
-        @Pc(8) int local8 = Static400.instance.aClass57_Sub27_1.method7667();
+        @Pc(8) int local8 = ClientOptions.instance.aClass57_Sub27_1.method7667();
         @Pc(30) boolean local30 = local8 == 1 && local1 > 200 || local8 == 0 && local1 > 50;
         @Pc(103) int local103;
         for (@Pc(32) int local32 = 0; local32 < local1; local32++) {

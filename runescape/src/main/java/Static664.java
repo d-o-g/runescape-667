@@ -123,6 +123,6 @@ public final class Static664 {
         Static669.A_WEIGHTED_CACHE___215.removeSoftReferences();
         Static541.A_WEIGHTED_CACHE___174.removeSoftReferences();
         Static452.A_WEIGHTED_CACHE___149.removeSoftReferences();
-        Static472.A_WEIGHTED_CACHE___156.removeSoftReferences();
+        ScriptRunner.A_WEIGHTED_CACHE___156.removeSoftReferences();
     }
 }

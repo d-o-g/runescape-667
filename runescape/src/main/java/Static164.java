@@ -2,9 +2,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static164 {
 
-    @OriginalMember(owner = "client!fba", name = "c", descriptor = "I")
-    public static int anInt2809;
-
     @OriginalMember(owner = "client!fba", name = "b", descriptor = "I")
     public static int areaLevel = 0;
 

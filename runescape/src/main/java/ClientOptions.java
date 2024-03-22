@@ -10,7 +10,10 @@ import org.openrs2.deob.annotation.Pc;
 import java.lang.reflect.Field;
 
 @OriginalClass("client!kv")
-public final class Node_Sub34 extends Node {
+public final class ClientOptions extends Node {
+
+    @OriginalMember(owner = "client!mk", name = "d", descriptor = "Lclient!kv;")
+    public static ClientOptions instance;
 
     @OriginalMember(owner = "client!kv", name = "S", descriptor = "Lclient!hr;")
     public Class57_Sub11 aClass57_Sub11_1;
@@ -136,7 +139,7 @@ public final class Node_Sub34 extends Node {
     public Class57_Sub29 aClass57_Sub29_1;
 
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ul;I)V")
-    public Node_Sub34(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1) {
+    public ClientOptions(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1) {
         this.aModeGame_3 = arg0;
         this.aClass221_1 = new Class221(SignLink.instance.signed, Static369.anInt4265, Static495.anInt7422, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
         this.aClass57_Sub29_1 = new Class57_Sub29(arg1, this);
@@ -144,7 +147,7 @@ public final class Node_Sub34 extends Node {
     }
 
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ge;Lclient!ul;I)V")
-    public Node_Sub34(@OriginalArg(0) Packet arg0, @OriginalArg(1) ModeGame arg1, @OriginalArg(2) int arg2) {
+    public ClientOptions(@OriginalArg(0) Packet arg0, @OriginalArg(1) ModeGame arg1, @OriginalArg(2) int arg2) {
         this.aModeGame_3 = arg1;
         this.aClass221_1 = new Class221(SignLink.instance.signed, Static369.anInt4265, Static495.anInt7422, SignLink.osArchRaw.indexOf("arm") != -1);
         this.aClass57_Sub29_1 = new Class57_Sub29(arg2, this);

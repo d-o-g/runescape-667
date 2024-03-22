@@ -12,12 +12,12 @@ public final class Class57_Sub29 extends Class57 {
     public boolean aBoolean675 = true;
 
     @OriginalMember(owner = "client!tba", name = "<init>", descriptor = "(ILclient!kv;)V")
-    public Class57_Sub29(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub34 arg1) {
+    public Class57_Sub29(@OriginalArg(0) int arg0, @OriginalArg(1) ClientOptions arg1) {
         super(arg0, arg1);
     }
 
     @OriginalMember(owner = "client!tba", name = "<init>", descriptor = "(Lclient!kv;)V")
-    public Class57_Sub29(@OriginalArg(0) Node_Sub34 arg0) {
+    public Class57_Sub29(@OriginalArg(0) ClientOptions arg0) {
         super(arg0);
     }
 

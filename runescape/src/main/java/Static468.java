@@ -14,7 +14,7 @@ public final class Static468 {
     public static void method7641(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(8) int local8 = arg2 + WorldMap.areaBaseX;
         @Pc(12) int local12 = WorldMap.areaBaseY + arg1;
-        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.animatingBackground.value() == 0 && arg0 != PlayerEntity.self.level) {
+        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || ClientOptions.instance.animatingBackground.value() == 0 && arg0 != PlayerEntity.self.level) {
             return;
         }
         @Pc(67) long local67 = (long) (local12 << 14 | arg0 << 28 | local8);
@@ -72,29 +72,29 @@ public final class Static468 {
 
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZZ)V")
     public static void method7643() {
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub19_1);
-        Static400.instance.method5104(0, Static400.instance.animatingBackground);
-        Static400.instance.method5104(1, Static400.instance.aClass57_Sub4_1);
-        Static400.instance.method5104(1, Static400.instance.aClass57_Sub4_2);
-        Static400.instance.method5104(0, Static400.instance.groundDecor);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub16_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub23_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub27_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub8_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub7_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub12_1);
-        Static400.instance.method5104(0, Static400.instance.textures);
-        Static400.instance.method5104(0, Static400.instance.lightDetail);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub26_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub13_2);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub13_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub28_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub5_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub20_1);
-        Static400.instance.method5104(0, Static400.instance.skydetail);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub19_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.animatingBackground);
+        ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub4_1);
+        ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub4_2);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.groundDecor);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub16_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub23_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub27_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub8_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub7_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub12_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.textures);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.lightDetail);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub26_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub13_2);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub13_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub28_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub5_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub20_1);
+        ClientOptions.instance.method5104(0, ClientOptions.instance.skydetail);
         Static376.method5313();
-        Static400.instance.method5104(2, Static400.instance.aClass57_Sub18_1);
-        Static400.instance.method5104(1, Static400.instance.aClass57_Sub15_1);
+        ClientOptions.instance.method5104(2, ClientOptions.instance.aClass57_Sub18_1);
+        ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub15_1);
         Static296.updateFeatureMask();
         Static218.method3187();
         Static284.aBoolean355 = true;

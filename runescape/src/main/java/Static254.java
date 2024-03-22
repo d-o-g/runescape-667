@@ -114,8 +114,8 @@ public final class Static254 {
         Static273.aBoolean339 = true;
         client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
         Static331.walkText = LocalisedText.WALKHERE.localise(Static51.language);
-        Static400.instance.method5104(Static400.instance.aClass57_Sub4_1.method2143(), Static400.instance.aClass57_Sub4_2);
-        Static400.instance.method5104(Static400.instance.aClass57_Sub19_1.value(), Static400.instance.animatingBackground);
+        ClientOptions.instance.method5104(ClientOptions.instance.aClass57_Sub4_1.method2143(), ClientOptions.instance.aClass57_Sub4_2);
+        ClientOptions.instance.method5104(ClientOptions.instance.aClass57_Sub19_1.value(), ClientOptions.instance.animatingBackground);
         Static334.anInt5456 = 0;
         Static533.method7119();
         Static371.method5284();

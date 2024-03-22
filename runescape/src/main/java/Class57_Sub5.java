@@ -7,12 +7,12 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class57_Sub5 extends Class57 {
 
     @OriginalMember(owner = "client!dma", name = "<init>", descriptor = "(ILclient!kv;)V")
-    public Class57_Sub5(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub34 arg1) {
+    public Class57_Sub5(@OriginalArg(0) int arg0, @OriginalArg(1) ClientOptions arg1) {
         super(arg0, arg1);
     }
 
     @OriginalMember(owner = "client!dma", name = "<init>", descriptor = "(Lclient!kv;)V")
-    public Class57_Sub5(@OriginalArg(0) Node_Sub34 arg0) {
+    public Class57_Sub5(@OriginalArg(0) ClientOptions arg0) {
         super(arg0);
     }
 

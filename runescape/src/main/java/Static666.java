@@ -25,7 +25,7 @@ public final class Static666 {
             }
             if (local18.status == 1) {
                 local5 = (FileOnDisk) local18.result;
-                @Pc(41) Packet local41 = Static400.instance.method5110();
+                @Pc(41) Packet local41 = ClientOptions.instance.method5110();
                 local5.write(local41.data, 0, local41.pos);
             }
         } catch (@Pc(51) Exception local51) {

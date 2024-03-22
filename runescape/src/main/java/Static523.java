@@ -76,10 +76,10 @@ public final class Static523 {
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(I)I")
     public static int method3448() {
         @Pc(12) int local12;
-        if (Static400.instance.aClass57_Sub10_1.method3519() == 0) {
+        if (ClientOptions.instance.aClass57_Sub10_1.method3519() == 0) {
             for (local12 = 0; local12 < Static671.anInt10026; local12++) {
                 if (Static194.anInterface27Array1[local12].method2666() == 's' || Static194.anInterface27Array1[local12].method2666() == 'S') {
-                    Static400.instance.method5104(1, Static400.instance.aClass57_Sub10_1);
+                    ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub10_1);
                     Static416.aBoolean472 = true;
                     break;
                 }
@@ -127,7 +127,7 @@ public final class Static523 {
             Static324.anInt5129 = js5.LOADING_SPRITES.indexCrc();
             Static466.anInt7042 = js5.LOADING_SCREENS.indexCrc();
             Fonts.load(js5.LOADING_SPRITES);
-            @Pc(250) int local250 = Static400.instance.aClass57_Sub11_1.method3603();
+            @Pc(250) int local250 = ClientOptions.instance.aClass57_Sub11_1.method3603();
             Static333.aClass279_1 = new Class279(client.modeGame, Static51.language, js5.LOADING_SCREENS);
             @Pc(262) int[] local262 = Static333.aClass279_1.method6275(local250);
             if (local262.length == 0) {
@@ -280,7 +280,7 @@ public final class Static523 {
             Static68.aClass151_3 = new Class151(Static51.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
             Static288.aClass139_2 = new Class139(Static51.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new Class251());
             Static412.method5693();
-            Static354.aLocTypeList_4.setAnimateBackground(Static400.instance.animatingBackground.value() == 0);
+            Static354.aLocTypeList_4.setAnimateBackground(ClientOptions.instance.animatingBackground.value() == 0);
             TimedVarDomain.instance = new TimedVarDomain();
             Static296.updateFeatureMask();
             Static44.method1074(Static25.seqTypeList);
@@ -363,20 +363,20 @@ public final class Static523 {
             Static242.aThread1 = null;
             Static333.aClass279_1 = null;
             Static9.method123();
-            Static3.aBoolean4 = Static400.instance.aClass57_Sub10_1.method3519() == 1;
-            Static400.instance.method5104(1, Static400.instance.aClass57_Sub10_1);
+            Static3.aBoolean4 = ClientOptions.instance.aClass57_Sub10_1.method3519() == 1;
+            ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub10_1);
             if (Static3.aBoolean4) {
-                Static400.instance.method5104(0, Static400.instance.aClass57_Sub29_2);
-            } else if (Static400.instance.aClass57_Sub29_2.aBoolean674 && Static292.aClass2_Sub43_2.anInt7610 < 512 && Static292.aClass2_Sub43_2.anInt7610 != 0) {
-                Static400.instance.method5104(0, Static400.instance.aClass57_Sub29_2);
+                ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
+            } else if (ClientOptions.instance.aClass57_Sub29_2.aBoolean674 && Static292.aClass2_Sub43_2.anInt7610 < 512 && Static292.aClass2_Sub43_2.anInt7610 != 0) {
+                ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
             }
             Static666.method8693(1);
             if (Static3.aBoolean4) {
                 Static32.method880(0, false);
             } else {
-                Static32.method880(Static400.instance.aClass57_Sub29_2.method7915(), false);
+                Static32.method880(ClientOptions.instance.aClass57_Sub29_2.method7915(), false);
             }
-            Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
+            Static409.method5657(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
             FontTypeList.method7549(Toolkit.active);
             Fonts.init(Toolkit.active);
             Static239.method3472(js5.SPRITES, Toolkit.active);

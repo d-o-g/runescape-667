@@ -10,21 +10,6 @@ public final class Static466 {
     @OriginalMember(owner = "client!om", name = "b", descriptor = "I")
     public static int anInt7042;
 
-    @OriginalMember(owner = "client!om", name = "a", descriptor = "(Z)I")
-    public static int method6323() {
-        if ((double) WorldMap.targetZoom == 3.0D) {
-            return 37;
-        } else if ((double) WorldMap.targetZoom == 4.0D) {
-            return 50;
-        } else if ((double) WorldMap.targetZoom == 6.0D) {
-            return 75;
-        } else if ((double) WorldMap.targetZoom == 8.0D) {
-            return 100;
-        } else {
-            return 200;
-        }
-    }
-
     @OriginalMember(owner = "client!om", name = "a", descriptor = "(BIIII[I[III[IZZI[I[[[B[III)V")
     public static void method6324(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int[] arg9, @OriginalArg(10) boolean arg10, @OriginalArg(12) int arg11, @OriginalArg(13) int[] arg12, @OriginalArg(14) byte[][][] arg13, @OriginalArg(15) int[] arg14, @OriginalArg(16) int arg15) {
         if (Static448.anInt6796 == -1) {

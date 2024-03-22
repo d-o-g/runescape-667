@@ -263,7 +263,7 @@ public final class Static709 {
             local179 = ClientMessage.create(Static600.A_CLIENT_PROT___108, ConnectionManager.GAME.cipher);
             local179.buffer.p1(0);
             local181 = local179.buffer.pos;
-            @Pc(810) Packet local810 = Static400.instance.method5110();
+            @Pc(810) Packet local810 = ClientOptions.instance.method5110();
             local179.buffer.pdata(local810.pos, local810.data, 0);
             local179.buffer.psize1(local179.buffer.pos - local181);
             ConnectionManager.GAME.send(local179);

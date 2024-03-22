@@ -35,7 +35,7 @@ public final class Static630 {
 
     @OriginalMember(owner = "client!tv", name = "b", descriptor = "(I)V")
     public static void method8358() {
-        if (Static400.instance.animatingBackground.value() == 0 && Static164.areaLevel != Static394.anInt6176) {
+        if (ClientOptions.instance.animatingBackground.value() == 0 && Static164.areaLevel != Static394.anInt6176) {
             Static684.method8931(false, Static62.anInt1465, 12, Static525.anInt8907);
         } else {
             Static106.method2046(Toolkit.active);

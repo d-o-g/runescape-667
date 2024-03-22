@@ -17,9 +17,9 @@ public final class Static376 {
     @OriginalMember(owner = "client!lr", name = "a", descriptor = "(B)V")
     public static void method5313() {
         if (Static495.anInt7422 <= 1) {
-            Static400.instance.method5104(2, Static400.instance.aClass57_Sub21_1);
+            ClientOptions.instance.method5104(2, ClientOptions.instance.aClass57_Sub21_1);
         } else {
-            Static400.instance.method5104(4, Static400.instance.aClass57_Sub21_1);
+            ClientOptions.instance.method5104(4, ClientOptions.instance.aClass57_Sub21_1);
         }
     }
 }

@@ -55,7 +55,7 @@ public final class StaticLocation extends PositionEntity implements Location {
         this.aByte84 = (byte) arg12;
         super.aByte143 = (byte) arg3;
         this.aBoolean365 = arg14;
-        this.castsShadow = arg0.method8006() && arg1.hardShadow && !this.aBoolean363 && Static400.instance.aClass57_Sub12_1.method4364() != 0;
+        this.castsShadow = arg0.method8006() && arg1.hardShadow && !this.aBoolean363 && ClientOptions.instance.aClass57_Sub12_1.method4364() != 0;
         @Pc(83) int local83 = 2048;
         if (this.aBoolean365) {
             local83 |= 0x10000;

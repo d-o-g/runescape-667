@@ -70,7 +70,7 @@ public final class Static352 {
         Static367.method5267();
         ParticleEmitterTypeList.cacheReset();
         ParticleEffectorTypeList.cacheReset();
-        Static472.A_WEIGHTED_CACHE___156.reset();
+        ScriptRunner.A_WEIGHTED_CACHE___156.reset();
         Toolkit.active.method8012();
         Static269.method3909();
         Static112.method2109();

@@ -68,10 +68,10 @@ public final class MainLogicManager {
         if (local235 != local213) {
             if (local213) {
                 Static588.anInt8692 = Static597.anInt8821;
-                if (Static400.instance.aClass57_Sub25_4.method7208() == 0) {
+                if (ClientOptions.instance.aClass57_Sub25_4.method7208() == 0) {
                     Static312.method4541();
                 } else {
-                    Static57.method1225(Static597.anInt8821, Static400.instance.aClass57_Sub25_4.method7208(), js5.MIDI_SONGS);
+                    Static57.method1225(Static597.anInt8821, ClientOptions.instance.aClass57_Sub25_4.method7208(), js5.MIDI_SONGS);
                     Static550.method7266();
                 }
                 client.js5WorkerThread.writeLoggedIn(false);

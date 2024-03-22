@@ -25,7 +25,7 @@ public final class Static235 {
         if (arg6 < 3 && Static441.method5968(arg0, arg3)) {
             local39 = arg6 + 1;
         }
-        if (Static400.instance.animatingBackground.value() == 0 && !Static696.isTileVisibleFrom(arg0, Static164.areaLevel, arg3, local39)) {
+        if (ClientOptions.instance.animatingBackground.value() == 0 && !Static696.isTileVisibleFrom(arg0, Static164.areaLevel, arg3, local39)) {
             return;
         }
         if (Static334.activeTiles == null) {
@@ -33,10 +33,10 @@ public final class Static235 {
         }
         Static2.aMapRegion.method7901(arg5, arg0, Static577.A_COLLISION_MAP_ARRAY_1[arg6], arg6, arg3, Toolkit.active);
         if (arg7 >= 0) {
-            @Pc(93) int local93 = Static400.instance.groundDecor.value();
-            Static400.instance.method5104(1, Static400.instance.groundDecor);
+            @Pc(93) int local93 = ClientOptions.instance.groundDecor.value();
+            ClientOptions.instance.method5104(1, ClientOptions.instance.groundDecor);
             Static2.aMapRegion.loadLocation(arg1, arg7, Static577.A_COLLISION_MAP_ARRAY_1[arg6], arg0, Toolkit.active, arg3, arg2, local39, arg6, arg4);
-            Static400.instance.method5104(local93, Static400.instance.groundDecor);
+            ClientOptions.instance.method5104(local93, ClientOptions.instance.groundDecor);
         }
     }
 

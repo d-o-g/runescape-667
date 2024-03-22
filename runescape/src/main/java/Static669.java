@@ -17,8 +17,8 @@ public final class Static669 {
     @OriginalMember(owner = "client!vd", name = "a", descriptor = "(II)V")
     public static void method8711(@OriginalArg(0) int arg0) {
         Static180.anInt3001 = -1;
-        Static558.anInt3181 = -1;
-        Static164.anInt2809 = arg0;
+        WorldMap.anInt3181 = -1;
+        WorldMap.anInt2809 = arg0;
         WorldMap.method5440();
     }
 

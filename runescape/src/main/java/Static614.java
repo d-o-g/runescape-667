@@ -61,6 +61,6 @@ public final class Static614 {
         Static669.A_WEIGHTED_CACHE___215.clean(5);
         Static541.A_WEIGHTED_CACHE___174.clean(5);
         Static452.A_WEIGHTED_CACHE___149.clean(5);
-        Static472.A_WEIGHTED_CACHE___156.clean(5);
+        ScriptRunner.A_WEIGHTED_CACHE___156.clean(5);
     }
 }

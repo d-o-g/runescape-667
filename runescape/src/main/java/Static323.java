@@ -55,8 +55,8 @@ public final class Static323 {
     @OriginalMember(owner = "client!kda", name = "a", descriptor = "(I)V")
     public static void method4625() {
         @Pc(5) int local5 = 0;
-        if (Static400.instance != null) {
-            local5 = Static400.instance.aClass57_Sub18_1.method5767();
+        if (ClientOptions.instance != null) {
+            local5 = ClientOptions.instance.aClass57_Sub18_1.method5767();
         }
         @Pc(34) int local34;
         @Pc(51) int local51;

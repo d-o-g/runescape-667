@@ -18,6 +18,6 @@ public final class Static442 {
 
     @OriginalMember(owner = "client!nv", name = "a", descriptor = "(Z)V")
     public static void method5969() {
-        Static425.aToolkit_13.L(Static251.anInt4037, Static400.instance.aClass57_Sub16_1.method5507() == 1 ? Static171.anInt2882 + 256 << 2 : -1, 0);
+        Static425.aToolkit_13.L(Static251.anInt4037, ClientOptions.instance.aClass57_Sub16_1.method5507() == 1 ? Static171.anInt2882 + 256 << 2 : -1, 0);
     }
 }

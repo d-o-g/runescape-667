@@ -331,9 +331,9 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk0")) {
                     Static32.method880(0, false);
-                    if (Static400.instance.aClass57_Sub29_1.method7915() == 0) {
+                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 0) {
                         Static79.method1579("Entered tk0");
-                        Static400.instance.method5104(0, Static400.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -343,9 +343,9 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk1")) {
                     Static32.method880(1, false);
-                    if (Static400.instance.aClass57_Sub29_1.method7915() == 1) {
+                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 1) {
                         Static79.method1579("Entered tk1");
-                        Static400.instance.method5104(1, Static400.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -355,9 +355,9 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk2")) {
                     Static32.method880(2, false);
-                    if (Static400.instance.aClass57_Sub29_1.method7915() == 2) {
+                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 2) {
                         Static79.method1579("Entered tk2");
-                        Static400.instance.method5104(2, Static400.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.method5104(2, ClientOptions.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -367,21 +367,21 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk3")) {
                     Static32.method880(3, false);
-                    if (Static400.instance.aClass57_Sub29_1.method7915() != 3) {
+                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() != 3) {
                         Static79.method1579("Failed to enter tk3");
                         return;
                     }
                     Static79.method1579("Entered tk3");
-                    Static400.instance.method5104(3, Static400.instance.aClass57_Sub29_2);
+                    ClientOptions.instance.method5104(3, ClientOptions.instance.aClass57_Sub29_2);
                     Static666.method8693(1);
                     Static503.aBoolean578 = false;
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk5")) {
                     Static32.method880(5, false);
-                    if (Static400.instance.aClass57_Sub29_1.method7915() == 5) {
+                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 5) {
                         Static79.method1579("Entered tk5");
-                        Static400.instance.method5104(5, Static400.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.method5104(5, ClientOptions.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -396,10 +396,10 @@ public final class Static231 {
                     }
                     local501 = StringTools.parseDecimal(arg2.substring(6));
                     if (local501 >= 0 && local501 <= Static461.method6268(Static369.anInt4265)) {
-                        Static400.instance.method5104(local501, Static400.instance.aClass57_Sub5_1);
+                        ClientOptions.instance.method5104(local501, ClientOptions.instance.aClass57_Sub5_1);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
-                        Static79.method1579("maxbuildarea=" + Static400.instance.aClass57_Sub5_1.method2172());
+                        Static79.method1579("maxbuildarea=" + ClientOptions.instance.aClass57_Sub5_1.method2172());
                         return;
                     }
                     Static79.method1579("Invalid buildarea value");
@@ -631,15 +631,15 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("csprofileclear")) {
-                    Static472.method6428();
+                    ScriptRunner.method6428();
                     return;
                 }
                 if (arg2.startsWith("csprofileoutputc")) {
-                    Static472.method6418();
+                    ScriptRunner.method6418();
                     return;
                 }
                 if (arg2.startsWith("csprofileoutputt")) {
-                    Static472.method6418();
+                    ScriptRunner.method6418();
                     return;
                 }
                 if (arg2.startsWith("texsize")) {
@@ -653,7 +653,7 @@ public final class Static231 {
                 }
                 if (arg2.equals("autosetup")) {
                     Static519.method6831();
-                    Static79.method1579("Complete. com.jagex.graphics.Toolkit now: " + Static400.instance.aClass57_Sub29_1.method7915());
+                    Static79.method1579("Complete. com.jagex.graphics.Toolkit now: " + ClientOptions.instance.aClass57_Sub29_1.method7915());
                     return;
                 }
                 if (arg2.equals("errormessage")) {
@@ -689,11 +689,11 @@ public final class Static231 {
                         return;
                     }
                     local725 = StringTools.parseDecimal(arg2.substring(local501 + 1));
-                    Static400.instance.method5104(local725, Static400.instance.aClass57_Sub3_1);
+                    ClientOptions.instance.method5104(local725, ClientOptions.instance.aClass57_Sub3_1);
                     Static666.method8693(1);
                     Static503.aBoolean578 = false;
                     Static498.method6646();
-                    if (local725 != Static400.instance.aClass57_Sub3_1.method2120()) {
+                    if (local725 != ClientOptions.instance.aClass57_Sub3_1.method2120()) {
                         Static79.method1579("Failed to change ortho mode");
                         return;
                     }
@@ -701,7 +701,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("orthozoom ")) {
-                    if (Static400.instance.aClass57_Sub3_1.method2120() == 0) {
+                    if (ClientOptions.instance.aClass57_Sub3_1.method2120() == 0) {
                         Static79.method1579("enable ortho mode first (use 'ortho <n>')");
                         return;
                     }
@@ -725,8 +725,8 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("skydetail ")) {
                     local501 = StringTools.parseDecimal(arg2.substring(arg2.indexOf(32) + 1));
-                    Static400.instance.method5104(local501, Static400.instance.skydetail);
-                    Static79.method1579("skydetail is " + (Static400.instance.skydetail.value() == 0 ? "low" : "high"));
+                    ClientOptions.instance.method5104(local501, ClientOptions.instance.skydetail);
+                    Static79.method1579("skydetail is " + (ClientOptions.instance.skydetail.value() == 0 ? "low" : "high"));
                     return;
                 }
                 @Pc(2592) File local2592;
@@ -784,14 +784,14 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("cs2debug")) {
                     if (arg2.length() > 9 && arg2.charAt(8) == ' ') {
-                        Static472.aString76 = arg2.substring(9);
-                        Static472.aBoolean538 = true;
-                        Static79.method1579("cs2debug: (" + Static472.aString76 + ")");
+                        ScriptRunner.aString76 = arg2.substring(9);
+                        ScriptRunner.aBoolean538 = true;
+                        Static79.method1579("cs2debug: (" + ScriptRunner.aString76 + ")");
                         return;
                     }
-                    Static472.aString76 = null;
-                    Static472.aBoolean538 = !Static472.aBoolean538;
-                    Static79.method1579("cs2debug:" + Static472.aBoolean538);
+                    ScriptRunner.aString76 = null;
+                    ScriptRunner.aBoolean538 = !ScriptRunner.aBoolean538;
+                    Static79.method1579("cs2debug:" + ScriptRunner.aBoolean538);
                     return;
                 }
                 if (MainLogicManager.step == 11) {

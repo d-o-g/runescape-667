@@ -208,7 +208,7 @@ public final class Static489 {
         Static352.method5180();
         VideoTypeList.method1084();
         @Pc(430) boolean local430 = false;
-        if (Toolkit.active.method7990() && Static400.instance.aClass57_Sub26_1.method7463() == 2) {
+        if (Toolkit.active.method7990() && ClientOptions.instance.aClass57_Sub26_1.method7463() == 2) {
             for (local310 = 0; local310 < Static319.aByteArrayArray16.length; local310++) {
                 if (Static421.aByteArrayArray19[local310] != null || Static177.aByteArrayArray5[local310] != null) {
                     local430 = true;
@@ -216,7 +216,7 @@ public final class Static489 {
                 }
             }
         }
-        if (Static400.instance.aClass57_Sub16_1.method5507() == 1) {
+        if (ClientOptions.instance.aClass57_Sub16_1.method5507() == 1) {
             local310 = Static571.anIntArray682[Static537.anInt8170];
         } else {
             local310 = Static506.anIntArray728[Static537.anInt8170];
@@ -242,13 +242,13 @@ public final class Static489 {
         System.gc();
         Static314.noTimeout(true);
         Static699.method9139();
-        Static439.anInt6674 = Static400.instance.aClass57_Sub12_1.method4364();
+        Static439.anInt6674 = ClientOptions.instance.aClass57_Sub12_1.method4364();
         Static428.aBoolean487 = Static369.anInt4265 >= 96;
-        Static50.aBoolean566 = Static400.instance.aClass57_Sub26_1.method7463() == 2;
-        Static305.aBoolean371 = Static400.instance.lightDetail.getValue() == 1;
-        Static478.anInt7198 = Static400.instance.animatingBackground.value() == 1 ? -1 : Static164.areaLevel;
-        Static718.aBoolean822 = Static400.instance.aClass57_Sub23_1.method7054() == 1;
-        Static196.aBoolean262 = Static400.instance.textures.value() == 1;
+        Static50.aBoolean566 = ClientOptions.instance.aClass57_Sub26_1.method7463() == 2;
+        Static305.aBoolean371 = ClientOptions.instance.lightDetail.getValue() == 1;
+        Static478.anInt7198 = ClientOptions.instance.animatingBackground.value() == 1 ? -1 : Static164.areaLevel;
+        Static718.aBoolean822 = ClientOptions.instance.aClass57_Sub23_1.method7054() == 1;
+        Static196.aBoolean262 = ClientOptions.instance.textures.value() == 1;
         Static2.aMapRegion = new MapRegion(4, Static720.mapWidth, Static501.mapHeight, false);
         if (Static117.anInt2282 == 0) {
             Static73.method9312(Static319.aByteArrayArray16, Static2.aMapRegion);
@@ -313,7 +313,7 @@ public final class Static489 {
         if (Static394.anInt6176 - 1 > local825) {
             local825 = Static394.anInt6176 - 1;
         }
-        if (Static400.instance.animatingBackground.value() == 0) {
+        if (ClientOptions.instance.animatingBackground.value() == 0) {
             Static3.method87(local825);
         } else {
             Static3.method87(0);

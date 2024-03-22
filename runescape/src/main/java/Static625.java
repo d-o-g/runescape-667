@@ -31,8 +31,8 @@ public final class Static625 {
                 local10 = 2;
             }
         }
-        if (Static400.instance.aClass57_Sub29_1.method7915() != 0) {
-            Static400.instance.method5104(0, Static400.instance.aClass57_Sub29_2);
+        if (ClientOptions.instance.aClass57_Sub29_1.method7915() != 0) {
+            ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
             Static32.method880(0, false);
         }
         Static666.method8693(1);

@@ -1354,7 +1354,7 @@ public final class InterfaceManager {
                             if (component.clientcode == ComponentClientCode.SCENE || component.clientcode == ComponentClientCode.LOGIN_SCENE) {
                                 viewport = component;
                                 if (Static456.aSkyBox_3 != null) {
-                                    Static456.aSkyBox_3.method3168(Static400.instance.skydetail.value(), component.height, Toolkit.active);
+                                    Static456.aSkyBox_3.method3168(ClientOptions.instance.skydetail.value(), component.height, Toolkit.active);
                                 }
 
                                 if (component.clientcode == ComponentClientCode.SCENE) {
@@ -1446,8 +1446,8 @@ public final class InterfaceManager {
                                 if (clicked) {
                                     @Pc(402) int local402 = (int) ((double) (orthoDeltaX + log.getX() - startX - component.width / 2) * 2.0D / (double) WorldMap.currentZoom);
                                     @Pc(549) int local549 = (int) -((double) (orthoDeltaY + log.getY() - startY - component.height / 2) * 2.0D / (double) WorldMap.currentZoom);
-                                    @Pc(555) int local555 = Static164.anInt2809 + local402 + WorldMap.areaX;
-                                    @Pc(569) int local569 = Static615.anInt9389 + local549 + WorldMap.areaY;
+                                    @Pc(555) int local555 = WorldMap.anInt2809 + local402 + WorldMap.areaX;
+                                    @Pc(569) int local569 = WorldMap.anInt9389 + local549 + WorldMap.areaY;
 
                                     @Pc(1383) WorldMapArea area = WorldMap.getArea();
                                     if (area == null) {
@@ -1482,8 +1482,8 @@ public final class InterfaceManager {
 
                                 if (pressedOver && Static460.anInt6964 > 0) {
                                     if (Static460.anInt6964 == 1 && (dragStartX != MouseMonitor.instance.getRecordedX() || dragStartY != MouseMonitor.instance.getRecordedY())) {
-                                        Static661.anInt6055 = Static164.anInt2809;
-                                        Static417.anInt6399 = Static615.anInt9389;
+                                        Static661.anInt6055 = WorldMap.anInt2809;
+                                        Static417.anInt6399 = WorldMap.anInt9389;
                                         Static460.anInt6964 = 2;
                                     }
                                     if (Static460.anInt6964 == 2) {
@@ -1839,7 +1839,7 @@ public final class InterfaceManager {
                     }
 
                     if (component.type == Component.TYPE_GRAPHIC && component.skyBox != -1) {
-                        component.skyBox(Static99.skyBoxSphereTypeList, Static324.skyBoxTypeList).method3168(Static400.instance.skydetail.value(), component.height, Toolkit.active);
+                        component.skyBox(Static99.skyBoxSphereTypeList, Static324.skyBoxTypeList).method3168(ClientOptions.instance.skydetail.value(), component.height, Toolkit.active);
                     }
 
                     Static542.prefetchSprite(component);

@@ -10,7 +10,7 @@ public final class Static54 {
 
     @OriginalMember(owner = "client!bq", name = "a", descriptor = "(I)V")
     public static void method1179() {
-        Static342.method4465(Static400.instance.aClass57_Sub5_1.method2172());
+        Static342.method4465(ClientOptions.instance.aClass57_Sub5_1.method2172());
         @Pc(19) int local19 = (WorldMap.areaBaseX >> 3) + (Static170.anInt2864 >> 12);
         @Pc(28) int local28 = (Static110.anInt2186 >> 12) + (WorldMap.areaBaseY >> 3);
         Static394.anInt6176 = PlayerEntity.self.level = 0;

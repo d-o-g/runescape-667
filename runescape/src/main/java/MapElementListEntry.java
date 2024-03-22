@@ -13,7 +13,7 @@ public final class MapElementListEntry extends Node {
     public int y;
 
     @OriginalMember(owner = "client!fu", name = "l", descriptor = "I")
-    public int anInt3125;
+    public int level;
 
     @OriginalMember(owner = "client!fu", name = "o", descriptor = "I")
     public int x;

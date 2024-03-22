@@ -23,7 +23,7 @@ public final class Class39_Sub8 extends Class39 {
     @Override
     public void method9161() {
         if (Static717.anInt10817 != -1) {
-            Static472.method6427(Static717.anInt10817, this.aString39, this.anInt3635);
+            ScriptRunner.method6427(Static717.anInt10817, this.aString39, this.anInt3635);
         }
     }
 }

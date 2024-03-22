@@ -14,7 +14,7 @@ public final class Static635 {
             local26.buffer.p2(arg0);
             ConnectionManager.GAME.send(local26);
         } else {
-            Static472.method6429(Static458.aClass242_11, arg0, -1);
+            ScriptRunner.method6429(Static458.aClass242_11, arg0, -1);
         }
     }
 }

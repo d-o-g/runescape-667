@@ -99,7 +99,7 @@ public final class Node_Sub1_Sub5 extends Node_Sub1 {
             this.anIntArray110[0] = (local72 & 0xFF0000) << 4;
         }
         if (arg0) {
-            Static60.method1293(-43, false, 13, 77, 8);
+            WorldMap.method1293(-43, false, 13, 77, 8);
         }
     }
 }

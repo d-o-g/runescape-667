@@ -46,23 +46,6 @@ public final class Static2 {
         stack.objs.addLast(entry);
     }
 
-    @OriginalMember(owner = "client!aaa", name = "b", descriptor = "(II)V")
-    public static void method65(@OriginalArg(1) int arg0) {
-        if (arg0 == 37) {
-            WorldMap.targetZoom = 3.0F;
-        } else if (arg0 == 50) {
-            WorldMap.targetZoom = 4.0F;
-        } else if (arg0 == 75) {
-            WorldMap.targetZoom = 6.0F;
-        } else if (arg0 == 100) {
-            WorldMap.targetZoom = 8.0F;
-        } else if (arg0 == 200) {
-            WorldMap.targetZoom = 16.0F;
-        }
-        Static558.anInt3181 = -1;
-        Static558.anInt3181 = -1;
-    }
-
     @OriginalMember(owner = "client!aaa", name = "c", descriptor = "(III)Z")
     public static boolean method66(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return (arg1 & 0x37) != 0;

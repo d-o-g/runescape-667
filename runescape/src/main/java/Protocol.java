@@ -251,7 +251,7 @@ public final class Protocol {
                             if (Static684.aBoolean775 != local892 || Static134.anInt10326 != local277) {
                                 Static134.anInt10326 = local277;
                                 Static684.aBoolean775 = local892;
-                                Static472.method6429(Static232.aClass242_6, -1, -1);
+                                ScriptRunner.method6429(Static232.aClass242_6, -1, -1);
                             }
                             arg0.currentProt = null;
                             return true;
@@ -770,12 +770,12 @@ public final class Protocol {
                                             @Pc(3044) byte[] local3044;
                                             if (Static692.A_SERVER_PROT___251 == arg0.currentProt) {
                                                 if (GameShell.fsframe != null) {
-                                                    Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
+                                                    Static409.method5657(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
                                                 }
                                                 local3044 = new byte[arg0.currentPacketSize];
                                                 local11.method7416(local3044, arg0.currentPacketSize);
                                                 local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
-                                                Static664.method8655(Static400.instance.aClass57_Sub29_1.method7915() == 1, local627, true, SignLink.instance);
+                                                Static664.method8655(ClientOptions.instance.aClass57_Sub29_1.method7915() == 1, local627, true, SignLink.instance);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (arg0.currentProt == Static444.A_SERVER_PROT___169) {
@@ -1482,14 +1482,14 @@ public final class Protocol {
                                                                     return true;
                                                                 } else if (Static272.A_SERVER_PROT___112 == arg0.currentProt) {
                                                                     if (GameShell.fsframe != null) {
-                                                                        Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
+                                                                        Static409.method5657(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
                                                                     }
                                                                     local3044 = new byte[arg0.currentPacketSize];
                                                                     local11.method7416(local3044, arg0.currentPacketSize);
                                                                     local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
                                                                     local629 = "opensn";
                                                                     if (!Static98.aBoolean191 || Static36.method980(SignLink.instance, local627, local629, 1).status == 2) {
-                                                                        Static259.method3693(local627, local629, SignLink.instance, Static400.instance.aClass57_Sub29_1.method7915() == 1, true);
+                                                                        Static259.method3693(local627, local629, SignLink.instance, ClientOptions.instance.aClass57_Sub29_1.method7915() == 1, true);
                                                                     }
                                                                     arg0.currentProt = null;
                                                                     return true;
@@ -1721,7 +1721,7 @@ public final class Protocol {
                                                                         local277 = local11.g4_alt2();
                                                                         if (local277 != Static435.anInt6594) {
                                                                             Static435.anInt6594 = local277;
-                                                                            Static472.method6429(Static362.aClass242_10, -1, -1);
+                                                                            ScriptRunner.method6429(Static362.aClass242_10, -1, -1);
                                                                         }
                                                                         arg0.currentProt = null;
                                                                         return true;

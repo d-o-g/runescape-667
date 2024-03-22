@@ -29,7 +29,7 @@ public final class Static710 {
         }
         @Pc(36) int local36;
         @Pc(38) int local38;
-        if (Static400.instance.animatingBackground.value() == 1) {
+        if (ClientOptions.instance.animatingBackground.value() == 1) {
             local36 = 0;
             local38 = 3;
         } else {

@@ -193,6 +193,15 @@ public final class WorldMap {
     @OriginalMember(owner = "client!baa", name = "L", descriptor = "[[[Lclient!fla;")
     public static LinkedList[][][] tiles;
 
+    @OriginalMember(owner = "client!rk", name = "w", descriptor = "I")
+    public static int anInt3181 = -1;
+
+    @OriginalMember(owner = "client!fba", name = "c", descriptor = "I")
+    public static int anInt2809;
+
+    @OriginalMember(owner = "client!tha", name = "e", descriptor = "I")
+    public static int anInt9389;
+
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
     public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) Class246 mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
         WorldMap.data = data;
@@ -205,11 +214,11 @@ public final class WorldMap {
 
         areas.clear();
 
-        @Pc(23) int details = WorldMap.data.getgroupid("details");
-        @Pc(28) int[] files = WorldMap.data.fileIds(details);
+        @Pc(23) int detailsGroup = WorldMap.data.getgroupid("details");
+        @Pc(28) int[] files = WorldMap.data.fileIds(detailsGroup);
         if (files != null) {
             for (@Pc(32) int i = 0; i < files.length; i++) {
-                @Pc(41) WorldMapArea area = WorldMapArea.decode(WorldMap.data, details, files[i]);
+                @Pc(41) WorldMapArea area = WorldMapArea.decode(WorldMap.data, detailsGroup, files[i]);
                 areas.put(area.id, area);
             }
         }
@@ -233,16 +242,16 @@ public final class WorldMap {
             toolkit.aa(x - 150, y + 2, loadingPercent * 3, 30, client.FILL_COLOURS[client.colourId].getRGB(), 0);
             Fonts.b12.renderCentre(-1, x, LocalisedText.LOADINGDOTDOTDOT.localise(Static51.language), y + 20, Static399.aColorArray2[client.colourId].getRGB());
         } else {
-            @Pc(114) int local114 = Static164.anInt2809 - (int) ((float) childWidth / currentZoom);
-            @Pc(38) int z = Static615.anInt9389 + (int) ((float) childHeight / currentZoom);
-            @Pc(57) int x = Static164.anInt2809 + (int) ((float) childWidth / currentZoom);
+            @Pc(114) int local114 = anInt2809 - (int) ((float) childWidth / currentZoom);
+            @Pc(38) int z = anInt9389 + (int) ((float) childHeight / currentZoom);
+            @Pc(57) int x = anInt2809 + (int) ((float) childWidth / currentZoom);
 
             width = (int) ((float) (childWidth * 2) / currentZoom);
             height = (int) ((float) (childHeight * 2) / currentZoom);
 
-            @Pc(155) int local155 = Static615.anInt9389 - (int) ((float) childHeight / currentZoom);
-            Static510.anInt7639 = Static615.anInt9389 - (int) ((float) childHeight / currentZoom);
-            Static534.anInt8111 = Static164.anInt2809 - (int) ((float) childWidth / currentZoom);
+            @Pc(155) int local155 = anInt9389 - (int) ((float) childHeight / currentZoom);
+            Static510.anInt7639 = anInt9389 - (int) ((float) childHeight / currentZoom);
+            Static534.anInt8111 = anInt2809 - (int) ((float) childWidth / currentZoom);
             method5062(areaX + local114, z - -areaY, x + areaX, local155 + areaY, childX, childY, childWidth + childX, childHeight + childY + 1);
             method5060(toolkit);
 
@@ -370,9 +379,9 @@ public final class WorldMap {
 
         @Pc(47) int newX = y - (height - newHeight) / 2;
         @Pc(56) int newY = x - (width - newWidth) / 2;
-        Static164.anInt2809 = (newY * areaWidth) / newWidth;
-        Static615.anInt9389 = areaHeight - ((areaHeight * newX) / newHeight);
-        Static558.anInt3181 = -1;
+        anInt2809 = (newY * areaWidth) / newWidth;
+        anInt9389 = areaHeight - ((areaHeight * newX) / newHeight);
+        anInt3181 = -1;
         Static180.anInt3001 = -1;
         method5440();
     }
@@ -418,18 +427,18 @@ public final class WorldMap {
             if (!Static696.aBoolean784 && relativeX >= 0 && areaWidth > relativeX && relativeY >= 0 && relativeY < areaHeight) {
                 relativeY += (int) (Math.random() * 10.0D) - 5;
                 relativeX += (int) (Math.random() * 10.0D) - 5;
-                Static164.anInt2809 = relativeX;
-                Static615.anInt9389 = relativeY;
+                anInt2809 = relativeX;
+                anInt9389 = relativeY;
             } else if (Static227.anInt3694 == -1 || Static529.anInt8089 == -1) {
                 area.method4085((area.origin >> 14) & 0x3FFF, area.origin & 0x3FFF, coord);
-                Static615.anInt9389 = coord[2] - areaY;
-                Static164.anInt2809 = coord[1] - areaX;
+                anInt9389 = coord[2] - areaY;
+                anInt2809 = coord[1] - areaX;
             } else {
                 area.method4085(Static227.anInt3694, Static529.anInt8089, coord);
 
                 if (coord != null) {
-                    Static164.anInt2809 = coord[1] - areaX;
-                    Static615.anInt9389 = coord[2] - areaY;
+                    anInt2809 = coord[1] - areaX;
+                    anInt9389 = coord[2] - areaY;
                 }
 
                 Static696.aBoolean784 = false;
@@ -553,28 +562,28 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!mc", name = "b", descriptor = "(I)V")
     public static void method5440() {
-        if (Static164.anInt2809 < 0) {
+        if (anInt2809 < 0) {
             Static180.anInt3001 = -1;
-            Static558.anInt3181 = -1;
-            Static164.anInt2809 = 0;
+            anInt3181 = -1;
+            anInt2809 = 0;
         }
 
-        if (areaWidth < Static164.anInt2809) {
+        if (areaWidth < anInt2809) {
             Static180.anInt3001 = -1;
-            Static164.anInt2809 = areaWidth;
-            Static558.anInt3181 = -1;
+            anInt2809 = areaWidth;
+            anInt3181 = -1;
         }
 
-        if (Static615.anInt9389 < 0) {
-            Static558.anInt3181 = -1;
+        if (anInt9389 < 0) {
+            anInt3181 = -1;
             Static180.anInt3001 = -1;
-            Static615.anInt9389 = 0;
+            anInt9389 = 0;
         }
 
-        if (areaHeight < Static615.anInt9389) {
-            Static558.anInt3181 = -1;
+        if (areaHeight < anInt9389) {
+            anInt3181 = -1;
             Static180.anInt3001 = -1;
-            Static615.anInt9389 = areaHeight;
+            anInt9389 = areaHeight;
         }
     }
 
@@ -586,7 +595,7 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(I)Lclient!ip;")
-    public static WorldMapArea method5059(@OriginalArg(0) int arg0) {
+    public static WorldMapArea getArea(@OriginalArg(0) int arg0) {
         return (WorldMapArea) areas.get((long) arg0);
     }
 
@@ -1323,7 +1332,7 @@ public final class WorldMap {
     public static Queue method5076(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(3) Queue local3 = new Queue();
         for (@Pc(8) WorldMapArea local8 = (WorldMapArea) areas.first(); local8 != null; local8 = (WorldMapArea) areas.next()) {
-            if (local8.aBoolean354 && local8.method4086(arg0, arg1)) {
+            if (local8.aBoolean354 && local8.contains(arg0, arg1)) {
                 local3.add(local8);
             }
         }
@@ -1332,9 +1341,9 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(II)Lclient!ip;")
     public static WorldMapArea method5078(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        for (@Pc(4) WorldMapArea local4 = (WorldMapArea) areas.first(); local4 != null; local4 = (WorldMapArea) areas.next()) {
-            if (local4.aBoolean354 && local4.method4086(arg0, arg1)) {
-                return local4;
+        for (@Pc(4) WorldMapArea area = (WorldMapArea) areas.first(); area != null; area = (WorldMapArea) areas.next()) {
+            if (area.aBoolean354 && area.contains(arg0, arg1)) {
+                return area;
             }
         }
         return null;
@@ -1452,6 +1461,56 @@ public final class WorldMap {
             method5073(arg0, entry, arg1, arg2);
         }
         return elements;
+    }
+
+    @OriginalMember(owner = "client!aaa", name = "b", descriptor = "(II)V")
+    public static void setZoomPercentage(@OriginalArg(1) int percentage) {
+        if (percentage == 37) {
+            targetZoom = 3.0F;
+        } else if (percentage == 50) {
+            targetZoom = 4.0F;
+        } else if (percentage == 75) {
+            targetZoom = 6.0F;
+        } else if (percentage == 100) {
+            targetZoom = 8.0F;
+        } else if (percentage == 200) {
+            targetZoom = 16.0F;
+        }
+
+        anInt3181 = -1;
+        anInt3181 = -1;
+    }
+
+    @OriginalMember(owner = "client!om", name = "a", descriptor = "(Z)I")
+    public static int getZoom() {
+        if ((double) targetZoom == 3.0D) {
+            return 37;
+        } else if ((double) targetZoom == 4.0D) {
+            return 50;
+        } else if ((double) targetZoom == 6.0D) {
+            return 75;
+        } else if ((double) targetZoom == 8.0D) {
+            return 100;
+        } else {
+            return 200;
+        }
+    }
+
+    @OriginalMember(owner = "client!bw", name = "a", descriptor = "(IZIII)V")
+    public static void method1293(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+        if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 0) {
+            Static668.method8700(false);
+        } else {
+            Static114.anInt2256 = ClientOptions.instance.aClass57_Sub29_1.method7915();
+            Static32.method880(0, true);
+        }
+        Static696.aBoolean784 = arg1;
+        Static529.anInt8089 = arg2;
+        Static227.anInt3694 = arg3;
+        setArea(arg0);
+        if (arg4 != -11493) {
+            Static60.aBoolean86 = false;
+        }
     }
 
     private WorldMap() {

@@ -139,7 +139,7 @@ public final class Class337 {
             @Pc(21) LocType local21 = Static354.aLocTypeList_4.list(this.anInt8649);
             @Pc(23) LocType local23 = local21;
             if (local21.multiLocs != null) {
-                local21 = local21.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
+                local21 = local21.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : TimedVarDomain.instance);
             }
             if (local21 == null) {
                 return;
@@ -189,7 +189,7 @@ public final class Class337 {
     public Model method7678(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
         @Pc(11) LocType local11 = Static354.aLocTypeList_4.list(this.anInt8649);
         if (local11.multiLocs != null) {
-            local11 = local11.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
+            local11 = local11.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : TimedVarDomain.instance);
         }
         if (local11 == null) {
             this.method7669(arg0);
@@ -317,7 +317,7 @@ public final class Class337 {
         if ((this.aParticleSystem_7 == null || this.aParticleSystem_7.aBoolean324) && (local11 != null || local14 != null)) {
             @Pc(37) LocType local37 = Static354.aLocTypeList_4.list(this.anInt8649);
             if (local37.multiLocs != null) {
-                local37 = local37.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : Static34.aClass304_1);
+                local37 = local37.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : TimedVarDomain.instance);
             }
             if (local37 != null) {
                 this.aParticleSystem_7 = ParticleSystem.create(TimeUtils.clock, true);

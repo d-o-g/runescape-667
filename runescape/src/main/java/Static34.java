@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static34 {
 
-    @OriginalMember(owner = "client!bca", name = "e", descriptor = "Lclient!qga;")
-    public static Class304 aClass304_1;
-
     @OriginalMember(owner = "client!bca", name = "f", descriptor = "[Lclient!st;")
     public static Sprite[] aSpriteArray2;
 

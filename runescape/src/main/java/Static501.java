@@ -1,4 +1,5 @@
 import com.jagex.graphics.PointLight;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -101,6 +102,6 @@ public final class Static501 {
             local5 <<= 0x1;
             local7 = -local5;
         }
-        Static163.activeToolkit.f(local7, local5);
+        Toolkit.active.f(local7, local5);
     }
 }

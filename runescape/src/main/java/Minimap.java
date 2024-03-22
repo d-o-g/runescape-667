@@ -43,8 +43,8 @@ public final class Minimap {
         } else {
             local79 = 4096 - Static660.anInt9835 * 16;
             local87 = (int) -Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
-            local90 = Static556.self.anInt10690;
-            local93 = Static556.self.anInt10694;
+            local90 = PlayerEntity.self.anInt10690;
+            local93 = PlayerEntity.self.anInt10694;
         }
         @Pc(120) int local120 = local90 / 128 + 208 + 48 - Static720.mapWidth * 2;
         @Pc(137) int local137 = Static501.mapHeight * 4 + 48 - local93 / 128 - (Static501.mapHeight - 104) * 2;
@@ -66,7 +66,7 @@ public final class Minimap {
             local211 = Static350.anIntArray433[local190] * 4 + 2 - local93 / 128;
             @Pc(287) LocType local287 = Static354.aLocTypeList_4.list(Static533.anIntArray628[local190]);
             if (local287.multiLocs != null) {
-                local287 = local287.getMultiLoc(Static34.aClass304_1);
+                local287 = local287.getMultiLoc(TimedVarDomain.instance);
                 if (local287 == null || local287.mapElement == -1) {
                     continue;
                 }
@@ -89,11 +89,11 @@ public final class Minimap {
         for (local211 = 0; local211 < Static390.anInt6126; local211++) {
             @Pc(427) Node_Sub45 local427 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local211]);
             if (local427 != null) {
-                @Pc(432) Class8_Sub2_Sub1_Sub2_Sub2 local432 = local427.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                if (local432.method9322() && local432.aByte144 == Static556.self.aByte144) {
-                    @Pc(446) NPCType local446 = local432.aNPCType_1;
+                @Pc(432) NPCEntity local432 = local427.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                if (local432.method9322() && local432.level == PlayerEntity.self.level) {
+                    @Pc(446) NPCType local446 = local432.type;
                     if (local446 != null && local446.multinpcs != null) {
-                        local446 = local446.getMultiNPC(65535, Static34.aClass304_1);
+                        local446 = local446.getMultiNPC(TimedVarDomain.instance);
                     }
                     if (local446 != null && local446.displayOnMiniMap && local446.interactive) {
                         local392 = local432.anInt10690 / 128 - local90 / 128;
@@ -114,7 +114,7 @@ public final class Minimap {
         @Pc(622) int local622;
         for (local381 = 0; local381 < local222; local381++) {
             @Pc(541) PlayerEntity local541 = PlayerList.highResolutionPlayers[local531[local381]];
-            if (local541 != null && local541.method1417() && !local541.aBoolean124 && Static556.self != local541 && local541.aByte144 == Static556.self.aByte144) {
+            if (local541 != null && local541.method1417() && !local541.aBoolean124 && PlayerEntity.self != local541 && local541.level == PlayerEntity.self.level) {
                 local490 = local541.anInt10690 / 128 - local90 / 128;
                 local585 = local541.anInt10694 / 128 - local93 / 128;
                 @Pc(587) boolean local587 = false;
@@ -132,7 +132,7 @@ public final class Minimap {
                     }
                 }
                 @Pc(652) boolean local652 = false;
-                if (Static556.self.anInt1433 != 0 && local541.anInt1433 != 0 && Static556.self.anInt1433 == local541.anInt1433) {
+                if (PlayerEntity.self.anInt1433 != 0 && local541.anInt1433 != 0 && PlayerEntity.self.anInt1433 == local541.anInt1433) {
                     local652 = true;
                 }
                 if (local541.aBoolean128) {
@@ -159,7 +159,7 @@ public final class Minimap {
                 if (local796.anInt6363 == 1) {
                     @Pc(828) Node_Sub45 local828 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local796.anInt6366);
                     if (local828 != null) {
-                        @Pc(833) Class8_Sub2_Sub1_Sub2_Sub2 local833 = local828.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                        @Pc(833) NPCEntity local833 = local828.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                         local843 = local833.anInt10690 / 128 - local90 / 128;
                         local622 = local833.anInt10694 / 128 - local93 / 128;
                         Static114.method2132(local843, x, 360000L, local30, local796.anInt6367, y, local622, component);
@@ -186,11 +186,11 @@ public final class Minimap {
             return;
         }
         if (flagX != 0) {
-            local585 = flagX * 4 + (Static556.self.boundSize((byte) 50) + -1) * 2 + 2 - local90 / 128;
-            local878 = flagY * 4 + Static556.self.boundSize((byte) 127) * 2 + 2 - local93 / 128 - 2;
+            local585 = flagX * 4 + (PlayerEntity.self.boundSize((byte) 50) + -1) * 2 + 2 - local90 / 128;
+            local878 = flagY * 4 + PlayerEntity.self.boundSize((byte) 127) * 2 + 2 - local93 / 128 - 2;
             Static6.method107(y, local30, Static691.aSpriteArray15[Static266.aBoolean583 ? 1 : 0], local878, local585, component, x);
         }
-        if (!Static556.self.aBoolean124) {
+        if (!PlayerEntity.self.aBoolean124) {
             toolkit.method7971(3, 3, y + component.height / 2 - 1, component.width / 2 + x + -1, -1);
             return;
         }
@@ -198,14 +198,14 @@ public final class Minimap {
 
     @OriginalMember(owner = "client!uga", name = "a", descriptor = "(Lclient!hda;III)V")
     public static void drawCompass(@OriginalArg(0) Component component, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(8) Graphic graphic = component.graphic(Static163.activeToolkit);
+        @Pc(8) Graphic graphic = component.graphic(Toolkit.active);
         if (graphic == null) {
             return;
         }
 
-        Static163.activeToolkit.KA(arg1, arg2, arg1 + component.width, arg2 + component.height);
+        Toolkit.active.KA(arg1, arg2, arg1 + component.width, arg2 + component.height);
         if (toggle >= 3) {
-            Static163.activeToolkit.A(-16777216, graphic.aClippingMask, arg1, arg2);
+            Toolkit.active.A(-16777216, graphic.aClippingMask, arg1, arg2);
         } else {
             Static12.aSprite_27.method8183((float) component.width / 2.0F + (float) arg1, (float) component.height / 2.0F + (float) arg2, ((int) -Static171.aFloat64 & 0x3FFF) << 2, graphic.aClippingMask, arg1, arg2);
         }

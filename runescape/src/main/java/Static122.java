@@ -28,7 +28,7 @@ public final class Static122 {
         for (@Pc(15) int local15 = 0; local15 < local13.length; local15++) {
             @Pc(20) Component local20 = local13[local15];
             if (local20 != null && local20.animator != null) {
-                local20.animator.method9099();
+                local20.animator.resetImmediately();
             }
         }
     }

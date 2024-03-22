@@ -48,25 +48,25 @@ public final class Static572 {
                 }
             }
             local11 += 8;
-            Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + Static594.anInt8777 * 16;
-            local68 = Static594.anInt8777 * 16 + 21;
+            Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + MiniMenu.optionCount * 16;
+            local68 = MiniMenu.optionCount * 16 + 21;
         }
         @Pc(118) int local118 = arg1 - local11 / 2;
-        if (Static680.anInt10289 < local11 + local118) {
-            local118 = Static680.anInt10289 - local11;
+        if (GameShell.canvasWid < local11 + local118) {
+            local118 = GameShell.canvasWid - local11;
         }
         if (local118 < 0) {
             local118 = 0;
         }
         @Pc(146) int local146 = arg0;
-        if (arg0 + local68 > Static380.anInt5979) {
-            local146 = Static380.anInt5979 - local68;
+        if (arg0 + local68 > GameShell.canvasHei) {
+            local146 = GameShell.canvasHei - local68;
         }
         if (local146 < 0) {
             local146 = 0;
         }
         Static71.anInt1576 = local118;
-        Static400.aBoolean622 = true;
+        MiniMenu.open = true;
         Static84.anInt1775 = local146;
         Static682.anInt10295 = local11;
     }

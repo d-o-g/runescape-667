@@ -23,6 +23,6 @@ public final class Static362 {
                 return true;
             }
         }
-        return arg1.equalsIgnoreCase(Static556.self.accountName);
+        return arg1.equalsIgnoreCase(PlayerEntity.self.accountName);
     }
 }

@@ -3,14 +3,11 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static52 {
 
-    @OriginalMember(owner = "client!bo", name = "g", descriptor = "I")
-    public static int anInt1059;
-
     @OriginalMember(owner = "client!bo", name = "f", descriptor = "I")
     public static int anInt1066;
 
     @OriginalMember(owner = "client!bo", name = "i", descriptor = "I")
-    public static int anInt1065 = 0;
+    public static int varcUpdateCount = 0;
 
     @OriginalMember(owner = "client!bo", name = "b", descriptor = "(I)Z")
     public static boolean method1157(@OriginalArg(0) int arg0) {

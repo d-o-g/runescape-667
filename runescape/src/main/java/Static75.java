@@ -49,7 +49,7 @@ public final class Static75 {
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub28_1);
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub5_1);
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub20_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub2_1);
+        Static400.instance.method5104(0, Static400.instance.skydetail);
         Static376.method5313();
         Static400.instance.method5104(2, Static400.instance.aClass57_Sub18_1);
         Static400.instance.method5104(2, Static400.instance.aClass57_Sub15_1);

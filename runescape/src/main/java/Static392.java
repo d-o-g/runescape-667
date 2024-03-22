@@ -1,4 +1,3 @@
-import com.jagex.core.constants.ModeGame;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static392 {
@@ -8,9 +7,6 @@ public final class Static392 {
 
     @OriginalMember(owner = "client!mf", name = "d", descriptor = "I")
     public static int anInt6142;
-
-    @OriginalMember(owner = "client!mf", name = "c", descriptor = "Lclient!ul;")
-    public static ModeGame aModeGame_4 = null;
 
     @OriginalMember(owner = "client!mf", name = "k", descriptor = "I")
     public static int anInt6143 = 0;

@@ -21,11 +21,6 @@ public final class Static186 {
         }
     }
 
-    @OriginalMember(owner = "client!fo", name = "d", descriptor = "(I)Lclient!ip;")
-    public static DoublyLinkedNode_Sub2_Sub13 method2819() {
-        return Static30.aClass2_Sub2_Sub13_3;
-    }
-
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(III)V")
     public static void method2821(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         Static281.anInt4566 = arg0;

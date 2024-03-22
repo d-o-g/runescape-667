@@ -163,7 +163,7 @@ public final class Static161 {
             if (local574.charAt(0) == '~') {
                 local574 = local574.substring(1);
                 Static44.method1072(local574, arg0.method1424(false), 0, arg0.aString8, arg0.method1422(), 2);
-            } else if (arg0 == Static556.self) {
+            } else if (arg0 == PlayerEntity.self) {
                 Static44.method1072(local574, arg0.method1424(false), 0, arg0.aString8, arg0.method1422(), 2);
             }
             arg0.method1413(0, 0, local574);
@@ -275,9 +275,9 @@ public final class Static161 {
             }
             @Pc(29) boolean local29 = false;
             @Pc(36) Node_Sub45 local36 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local22);
-            @Pc(42) Class8_Sub2_Sub1_Sub2_Sub2 local42;
+            @Pc(42) NPCEntity local42;
             if (local36 == null) {
-                local42 = new Class8_Sub2_Sub1_Sub2_Sub2();
+                local42 = new NPCEntity();
                 local42.anInt10740 = local22;
                 local36 = new Node_Sub45(local42);
                 Static18.A_HASH_TABLE___2.put((long) local22, local36);
@@ -287,7 +287,7 @@ public final class Static161 {
             local42 = local36.aClass8_Sub2_Sub1_Sub2_Sub2_2;
             Static103.anIntArray187[Static390.anInt6126++] = local22;
             local42.anInt10751 = Static572.anInt8896;
-            if (local42.aNPCType_1 != null && local42.aNPCType_1.hasSounds()) {
+            if (local42.type != null && local42.type.hasSounds()) {
                 Static58.method1259(local42);
             }
             @Pc(108) int local108 = local8.method7412(3) + 4 << 11 & 0x3A6E;
@@ -306,14 +306,14 @@ public final class Static161 {
                 local159 -= 32;
             }
             @Pc(170) int local170 = local8.method7412(1);
-            local42.method9310(local42.aNPCType_1.size);
-            local42.anInt10757 = local42.aNPCType_1.rotationSpeed << 3;
+            local42.method9310(local42.type.size);
+            local42.anInt10757 = local42.type.rotationSpeed << 3;
             if (local29) {
                 local42.method9298(local108, true);
             }
-            local42.method9326(local170 == 1, local131 + Static556.self.pathY[0], local159 + Static556.self.pathX[0], local144, local42.boundSize((byte) 91));
-            if (local42.aNPCType_1.hasSounds()) {
-                Static89.method1714(local42.aByte144, (PlayerEntity) null, local42.pathX[0], local42.pathY[0], local42, (LocType) null, 0);
+            local42.method9326(local170 == 1, local131 + PlayerEntity.self.pathY[0], local159 + PlayerEntity.self.pathX[0], local144, local42.boundSize((byte) 91));
+            if (local42.type.hasSounds()) {
+                Static89.method1714(local42.level, (PlayerEntity) null, local42.pathX[0], local42.pathY[0], local42, (LocType) null, 0);
             }
         }
         local8.method7411();

@@ -39,8 +39,8 @@ public final class Static112 {
                 local104.method9305(local104.anInt1467);
                 local104.anInt1467 = -1;
             }
-        } else if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub2) {
-            @Pc(138) Class8_Sub2_Sub1_Sub2_Sub2 local138 = (Class8_Sub2_Sub1_Sub2_Sub2) arg0;
+        } else if (arg0 instanceof NPCEntity) {
+            @Pc(138) NPCEntity local138 = (NPCEntity) arg0;
             if (local138.anInt10774 != -1 && (local138.anInt10764 == 0 || local138.anInt10763 > 0)) {
                 local67 = local138.anInt10690 - (local138.anInt10774 - Static691.areaBaseX - Static691.areaBaseX) * 256;
                 local74 = local138.anInt10694 - (local138.anInt10767 - Static116.areaBaseY - Static116.areaBaseY) * 256;

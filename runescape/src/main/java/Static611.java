@@ -9,7 +9,7 @@ public final class Static611 {
     public static int anInt9335;
 
     @OriginalMember(owner = "client!tfa", name = "i", descriptor = "I")
-    public static int anInt9341 = 0;
+    public static int mouseWheelRotation = 0;
 
     @OriginalMember(owner = "client!tfa", name = "c", descriptor = "(ZI)I")
     public static int method8228(@OriginalArg(1) int arg0) {

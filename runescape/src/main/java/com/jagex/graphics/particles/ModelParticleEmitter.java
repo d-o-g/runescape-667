@@ -64,7 +64,7 @@ public final class ModelParticleEmitter {
     }
 
     @OriginalMember(owner = "client!rv", name = "d", descriptor = "(I)Lclient!vaa;")
-    public ParticleEmitterType method7547() {
+    public ParticleEmitterType getType() {
         return ParticleEmitterTypeList.get(this.id);
     }
 

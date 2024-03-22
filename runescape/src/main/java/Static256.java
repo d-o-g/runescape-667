@@ -125,8 +125,8 @@ public final class Static256 {
         }
         @Pc(422) int local422 = 16;
         @Pc(424) boolean local424 = true;
-        if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub2) {
-            local424 = ((Class8_Sub2_Sub1_Sub2_Sub2) arg0).aNPCType_1.crawl;
+        if (arg0 instanceof NPCEntity) {
+            local424 = ((NPCEntity) arg0).type.crawl;
         }
         @Pc(468) int local468;
         if (local424) {

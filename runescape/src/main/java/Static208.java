@@ -38,12 +38,12 @@ public final class Static208 {
 
     @OriginalMember(owner = "client!gha", name = "a", descriptor = "(Z)V")
     public static void method3106() {
-        Static334.aClass319_1.method8482();
+        KeyMonitor.instance.method8482();
         MouseMonitor.instance.remove();
         client.aClient1.method1641();
         Static434.aCanvas7.setBackground(Color.black);
         Static470.anInt7112 = -1;
-        Static334.aClass319_1 = Static681.method8921(Static434.aCanvas7);
+        KeyMonitor.instance = Static681.method8921(Static434.aCanvas7);
         MouseMonitor.instance = MouseMonitor.create(Static434.aCanvas7);
     }
 
@@ -65,7 +65,7 @@ public final class Static208 {
         for (@Pc(39) int local39 = local9; local39 <= local11; local39++) {
             for (@Pc(42) int local42 = local16; local42 <= local18; local42++) {
                 if (arg0.aByte143 < Static299.anInt4824 && local39 >= Static441.anInt6691 && local39 < Static77.anInt1613 && local42 >= Static220.anInt3562 && local42 < Static692.anInt10370) {
-                    if ((arg2 == null || arg0.aByte144 < arg3 || arg2[arg0.aByte144][local39][local42] != arg4) && arg0.method9275() && !arg0.method9284((byte) 59, Static665.aToolkit_15)) {
+                    if ((arg2 == null || arg0.level < arg3 || arg2[arg0.level][local39][local42] != arg4) && arg0.method9275() && !arg0.method9284((byte) 59, Static665.aToolkit_15)) {
                         return false;
                     }
                     if (!arg1 && local39 >= Static403.anInt6246 - 16 && local39 <= Static403.anInt6246 + 16 && local42 >= Static550.anInt8271 - 16 && local42 <= Static550.anInt8271 + 16) {

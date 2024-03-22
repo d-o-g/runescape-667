@@ -1,7 +1,5 @@
 import com.jagex.js5.js5;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static582 {
 
@@ -26,12 +24,4 @@ public final class Static582 {
     @OriginalMember(owner = "client!sfa", name = "a", descriptor = "Lclient!hw;")
     public static final Class172 aClass172_4 = new Class172();
 
-    @OriginalMember(owner = "client!sfa", name = "a", descriptor = "(Lclient!hda;Z)Lclient!hda;")
-    public static Component method7658(@OriginalArg(0) Component arg0) {
-        @Pc(15) Component local15 = Static84.method1657(arg0);
-        if (local15 == null) {
-            local15 = arg0.aComponent_6;
-        }
-        return local15;
-    }
 }

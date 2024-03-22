@@ -1,3 +1,4 @@
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -25,10 +26,10 @@ public final class MainLogicManager {
             ConnectionManager.reconnect = null;
         }
         if (arg0 == 3) {
-            Static456.method6228(Static523.graphicsDefaults.login_interface != Static377.anInt5930);
+            Static456.method6228(Static523.graphicsDefaults.login_interface != InterfaceManager.topLevelInterface);
         }
         if (arg0 == 7) {
-            Static25.method688(Static523.graphicsDefaults.lobby_interface != Static377.anInt5930);
+            Static25.method688(Static523.graphicsDefaults.lobby_interface != InterfaceManager.topLevelInterface);
         }
         if (arg0 == 5 || arg0 == 13) {
             Static369.method3852();
@@ -80,7 +81,7 @@ public final class MainLogicManager {
             }
         }
         if (Static594.method7782(arg0) || arg0 == 14 || arg0 == 15) {
-            Static163.activeToolkit.method7969();
+            Toolkit.active.method7969();
         }
         step = arg0;
     }

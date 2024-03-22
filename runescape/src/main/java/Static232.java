@@ -39,10 +39,10 @@ public final class Static232 {
         } else if (Static598.method7825(arg6.anInt7314)) {
             @Pc(110) Node_Sub45 local110 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) arg6.aLong233);
             if (local110 != null) {
-                @Pc(115) Class8_Sub2_Sub1_Sub2_Sub2 local115 = local110.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                @Pc(118) NPCType local118 = local115.aNPCType_1;
+                @Pc(115) NPCEntity local115 = local110.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                @Pc(118) NPCType local118 = local115.type;
                 if (local118.multinpcs != null) {
-                    local118 = local118.getMultiNPC(65535, Static34.aClass304_1);
+                    local118 = local118.getMultiNPC(TimedVarDomain.instance);
                 }
                 if (local118 != null) {
                     local49 = local118.quests;
@@ -51,7 +51,7 @@ public final class Static232 {
         } else if (Static523.method3444(arg6.anInt7314)) {
             @Pc(87) LocType local87 = Static354.aLocTypeList_4.list((int) (arg6.aLong233 >>> 32 & 0x7FFFFFFFL));
             if (local87.multiLocs != null) {
-                local87 = local87.getMultiLoc(Static34.aClass304_1);
+                local87 = local87.getMultiLoc(TimedVarDomain.instance);
             }
             if (local87 != null) {
                 local49 = local87.quests;

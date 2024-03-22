@@ -48,7 +48,7 @@ public final class Static383 {
             @Pc(161) int local161 = (local141 << 6) + local50 - Static116.areaBaseY;
             local99.aBoolean128 = local91.aBoolean711;
             local99.aByteArray111[0] = Static139.aByteArray30[arg0];
-            local99.aByte144 = local99.aByte143 = (byte) local131;
+            local99.level = local99.aByte143 = (byte) local131;
             if (Static441.method5968(local161, local149)) {
                 local99.aByte143++;
             }

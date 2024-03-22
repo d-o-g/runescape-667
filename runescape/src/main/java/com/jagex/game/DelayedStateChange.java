@@ -362,10 +362,10 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!pg", name = "a", descriptor = "(IIZ)V")
-    public static void interfaceSetClickmask(@OriginalArg(0) int idAndSlot, @OriginalArg(2) boolean clickmask) {
+    public static void interfaceSetClickMask(@OriginalArg(0) int idAndSlot, @OriginalArg(2) boolean clickMask) {
         @Pc(21) DelayedStateChange change = getOrAdd(TYPE_IF_SETCLICKMASK, idAndSlot);
         change.setClientServerUpdate();
-        change.primaryData = clickmask ? 1 : 0;
+        change.primaryData = clickMask ? 1 : 0;
     }
 
     @OriginalMember(owner = "client!oha", name = "a", descriptor = "(B)V")

@@ -2,12 +2,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.Frame;
-
 public final class Static316 {
-
-    @OriginalMember(owner = "client!ka", name = "i", descriptor = "Ljava/awt/Frame;")
-    public static Frame fsframe;
 
     @OriginalMember(owner = "client!ka", name = "f", descriptor = "Z")
     public static boolean aBoolean644;

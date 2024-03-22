@@ -181,7 +181,7 @@ public class Animator {
     }
 
     @OriginalMember(owner = "client!gu", name = "f", descriptor = "(I)V")
-    public final void method9099() {
+    public final void resetImmediately() {
         this.reset(0);
     }
 

@@ -1,3 +1,4 @@
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -41,7 +42,7 @@ public final class Static342 {
         }
         Static328.aByteArrayArrayArray4 = new byte[4][Static720.mapWidth][Static501.mapHeight];
         Static708.method9231(Static720.mapWidth, Static501.mapHeight);
-        Static613.method8239(Static163.activeToolkit, Static501.mapHeight >> 3, Static720.mapWidth >> 3);
+        Static613.method8239(Toolkit.active, Static501.mapHeight >> 3, Static720.mapWidth >> 3);
         Static537.anInt8170 = arg0;
     }
 }

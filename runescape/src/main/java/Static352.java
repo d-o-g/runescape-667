@@ -2,6 +2,7 @@ import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.game.runetek6.config.fonttype.FontTypeList;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -15,7 +16,7 @@ public final class Static352 {
     public static final Class80[] aClass80Array1 = new Class80[anInt5752];
 
     @OriginalMember(owner = "client!lc", name = "A", descriptor = "I")
-    public static int anInt5754 = 0;
+    public static int lastClanTransmit = 0;
 
     @OriginalMember(owner = "client!lc", name = "u", descriptor = "[[I")
     public static final int[][] anIntArrayArray141 = new int[128][128];
@@ -70,7 +71,7 @@ public final class Static352 {
         ParticleEmitterTypeList.cacheReset();
         ParticleEffectorTypeList.cacheReset();
         Static472.A_WEIGHTED_CACHE___156.reset();
-        Static163.activeToolkit.method8012();
+        Toolkit.active.method8012();
         Static269.method3909();
         Static112.method2109();
         js5.ANIMS.discardUnpacked();

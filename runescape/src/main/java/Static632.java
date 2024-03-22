@@ -45,11 +45,11 @@ public final class Static632 {
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(ILclient!tg;IIBI)V")
     public static void method8366(@OriginalArg(0) int arg0, @OriginalArg(1) Node_Sub51 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
-        if (arg1.anInt9353 == -1 && arg1.anIntArray718 == null) {
+        if (arg1.sound == -1 && arg1.anIntArray718 == null) {
             return;
         }
         @Pc(23) int local23 = 0;
-        @Pc(33) int local33 = arg1.anInt9358 * Static400.instance.aClass57_Sub25_1.method7208() >> 8;
+        @Pc(33) int local33 = arg1.soundVolume * Static400.instance.aClass57_Sub25_1.method7208() >> 8;
         if (arg1.anInt9362 < arg3) {
             local23 = arg3 - arg1.anInt9362;
         } else if (arg1.anInt9357 > arg3) {
@@ -88,7 +88,7 @@ public final class Static632 {
         if (local187 > 0 && local172 > 0) {
             local182 = (local172 - local187) * local33 / local172;
         }
-        Static556.self.boundSize((byte) 71);
+        PlayerEntity.self.boundSize((byte) 71);
         @Pc(214) int local214 = 8192;
         @Pc(225) int local225 = (arg1.anInt9362 + arg1.anInt9357) / 2 - arg3;
         @Pc(236) int local236 = (arg1.anInt9349 + arg1.anInt9352) / 2 - arg4;
@@ -112,11 +112,11 @@ public final class Static632 {
         if (arg1.aClass2_Sub6_Sub2_4 != null) {
             arg1.aClass2_Sub6_Sub2_4.method3327(local182);
             arg1.aClass2_Sub6_Sub2_4.method3333(local214);
-        } else if (arg1.anInt9353 >= 0) {
+        } else if (arg1.sound >= 0) {
             local264 = arg1.anInt9360 == 256 && arg1.anInt9359 == 256 ? 256 : Static159.method2572(arg1.anInt9359, arg1.anInt9360);
-            if (arg1.aBoolean714) {
+            if (arg1.vorbis) {
                 if (arg1.aClass2_Sub53_3 == null) {
-                    arg1.aClass2_Sub53_3 = Static650.method8498(js5.VORBIS, arg1.anInt9353);
+                    arg1.aClass2_Sub53_3 = Static650.method8498(js5.VORBIS, arg1.sound);
                 }
                 if (arg1.aClass2_Sub53_3 != null) {
                     if (arg1.aClass2_Sub49_Sub1_4 == null) {
@@ -130,7 +130,7 @@ public final class Static632 {
                     }
                 }
             } else {
-                @Pc(408) Class89 local408 = Static729.method2245(js5.SYNTH_SOUNDS, arg1.anInt9353, 0);
+                @Pc(408) Class89 local408 = Static729.method2245(js5.SYNTH_SOUNDS, arg1.sound, 0);
                 if (local408 != null) {
                     @Pc(415) Node_Sub49_Sub1 local415 = local408.method2247().method7821(Static681.aClass224_2);
                     @Pc(423) Node_Sub6_Sub2 local423 = Static730.method3346(local415, local264, local182 << 6, local214);

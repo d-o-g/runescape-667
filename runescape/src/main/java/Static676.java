@@ -13,7 +13,7 @@ public final class Static676 {
 
     @OriginalMember(owner = "client!vha", name = "a", descriptor = "(Lclient!ha;Z)V")
     public static void method8859(@OriginalArg(0) Toolkit arg0) {
-        if (Static400.aBoolean622) {
+        if (MiniMenu.open) {
             Static39.method1022(arg0);
         } else {
             Static556.method7301(arg0);

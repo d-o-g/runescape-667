@@ -24,15 +24,15 @@ public final class Static312 {
 
     @OriginalMember(owner = "client!jt", name = "a", descriptor = "(BLclient!hda;)V")
     public static void method4542(@OriginalArg(1) Component arg0) {
-        if (!Static156.aBoolean223) {
+        if (!InterfaceManager.isTargeting) {
             return;
         }
         if (arg0.onOpT != null) {
-            @Pc(17) Component local17 = Static15.method186(Static77.anInt1614, Static450.anInt6819);
+            @Pc(17) Component local17 = InterfaceList.getComponent(Static77.anInt1614, Static450.anInt6819);
             if (local17 != null) {
-                @Pc(23) Node_Sub42 local23 = new Node_Sub42();
-                local23.anObjectArray36 = arg0.onOpT;
-                local23.aComponent_14 = arg0;
+                @Pc(23) HookRequest local23 = new HookRequest();
+                local23.arguments = arg0.onOpT;
+                local23.source = arg0;
                 local23.aComponent_13 = local17;
                 Static472.method6420(local23);
             }

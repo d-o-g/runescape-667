@@ -37,9 +37,9 @@ public final class Static94 {
         for (@Pc(36) int local36 = 0; local36 < 2048; local36++) {
             PlayerList.highResolutionPlayers[local36] = null;
         }
-        Static556.self = null;
+        PlayerEntity.self = null;
         for (@Pc(49) int local49 = 0; local49 < Static416.anInt6378; local49++) {
-            @Pc(55) Class8_Sub2_Sub1_Sub2_Sub2 local55 = Static592.aClass2_Sub45Array1[local49].aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(55) NPCEntity local55 = Static592.aClass2_Sub45Array1[local49].aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local55 != null) {
                 local55.anInt10722 = -1;
             }

@@ -16,9 +16,6 @@ public final class Static655 {
     @OriginalMember(owner = "client!un", name = "I", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___237 = new ServerProt(18, 4);
 
-    @OriginalMember(owner = "client!un", name = "t", descriptor = "I")
-    public static int anInt9763 = -1;
-
     @OriginalMember(owner = "client!un", name = "a", descriptor = "(Lclient!vq;ILjava/awt/Frame;)V")
     public static void method8562(@OriginalArg(0) SignLink arg0, @OriginalArg(2) Frame arg1) {
         while (true) {

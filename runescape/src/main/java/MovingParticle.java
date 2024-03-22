@@ -55,19 +55,19 @@ public final class MovingParticle extends Particle {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aParticleEmitter_1.aModelParticleEmitter_1.aByte130;
+        super.aByte122 = this.aParticleEmitter_1.model.aByte130;
         this.method6693();
     }
 
     @OriginalMember(owner = "client!pp", name = "c", descriptor = "()V")
     public void method6693() {
-        @Pc(4) int local4 = this.aParticleEmitter_1.aParticleSystem_6.anInt4147;
-        if (this.aParticleEmitter_1.aParticleSystem_6.aMovingParticle[local4] != null) {
-            this.aParticleEmitter_1.aParticleSystem_6.aMovingParticle[local4].method6697();
+        @Pc(4) int local4 = this.aParticleEmitter_1.system.anInt4147;
+        if (this.aParticleEmitter_1.system.aMovingParticle[local4] != null) {
+            this.aParticleEmitter_1.system.aMovingParticle[local4].method6697();
         }
-        this.aParticleEmitter_1.aParticleSystem_6.aMovingParticle[local4] = this;
-        this.aShort91 = (short) this.aParticleEmitter_1.aParticleSystem_6.anInt4147;
-        this.aParticleEmitter_1.aParticleSystem_6.anInt4147 = local4 + 1 & 0x1FFF;
+        this.aParticleEmitter_1.system.aMovingParticle[local4] = this;
+        this.aShort91 = (short) this.aParticleEmitter_1.system.anInt4147;
+        this.aParticleEmitter_1.system.anInt4147 = local4 + 1 & 0x1FFF;
         this.aParticleEmitter_1.aLinkedList_11.add(this);
     }
 
@@ -81,8 +81,8 @@ public final class MovingParticle extends Particle {
         @Pc(17) int local17 = super.anInt7537 >> 12;
         @Pc(22) int local22 = super.anInt7534 >> 12;
         @Pc(27) int local27 = super.anInt7536 >> 12;
-        @Pc(31) ParticleSystem local31 = this.aParticleEmitter_1.aParticleSystem_6;
-        @Pc(35) ParticleEmitterType local35 = this.aParticleEmitter_1.aParticleEmitterType_1;
+        @Pc(31) ParticleSystem local31 = this.aParticleEmitter_1.system;
+        @Pc(35) ParticleEmitterType local35 = this.aParticleEmitter_1.type;
         if (local35.fadeColour != 0) {
             @Pc(65) int local65;
             if (this.aShort93 - this.aShort96 <= local35.anInt9901) {
@@ -319,8 +319,8 @@ public final class MovingParticle extends Particle {
             this.method6697();
             return;
         }
-        @Pc(40) ParticleSystem local40 = this.aParticleEmitter_1.aParticleSystem_6;
-        @Pc(44) ParticleEmitterType local44 = this.aParticleEmitter_1.aParticleEmitterType_1;
+        @Pc(40) ParticleSystem local40 = this.aParticleEmitter_1.system;
+        @Pc(44) ParticleEmitterType local44 = this.aParticleEmitter_1.type;
         @Pc(46) Ground[] local46 = Static246.activeGround;
         @Pc(49) int local49 = local40.anInt4149;
         @Pc(58) Class291 local58 = Static334.activeTiles[local40.anInt4149][local6][local13];
@@ -432,13 +432,13 @@ public final class MovingParticle extends Particle {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aParticleEmitter_1.aModelParticleEmitter_1.aByte130;
+        super.aByte122 = this.aParticleEmitter_1.model.aByte130;
         this.method6693();
     }
 
     @OriginalMember(owner = "client!pp", name = "b", descriptor = "()V")
     public void method6697() {
-        this.aParticleEmitter_1.aParticleSystem_6.aMovingParticle[this.aShort91] = null;
+        this.aParticleEmitter_1.system.aMovingParticle[this.aShort91] = null;
         ParticleSystem.particleCache[ParticleSystem.particleFreePtr] = this;
         ParticleSystem.particleFreePtr = ParticleSystem.particleFreePtr + 1 & 0x3FF;
         this.unlink();

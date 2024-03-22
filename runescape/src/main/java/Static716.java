@@ -14,9 +14,6 @@ public final class Static716 {
     @OriginalMember(owner = "client!wm", name = "c", descriptor = "Ljava/lang/Class;")
     public static Class aClass30;
 
-    @OriginalMember(owner = "client!wm", name = "e", descriptor = "I")
-    public static int anInt10815 = 0;
-
     @OriginalMember(owner = "client!wm", name = "a", descriptor = "(I)V")
     public static synchronized void method9349() {
         if (Static210.anObject8 != null) {
@@ -36,6 +33,6 @@ public final class Static716 {
 
     @OriginalMember(owner = "client!wm", name = "a", descriptor = "(IILclient!cg;BIII)V")
     public static void method9350(@OriginalArg(2) Class8_Sub2_Sub1_Sub2 arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3) {
-        Static418.method7860(arg0.aByte144, arg0.anInt10694, arg2, arg0.anInt10690, 0);
+        Static418.method7860(arg0.level, arg0.anInt10694, arg2, arg0.anInt10690, 0);
     }
 }

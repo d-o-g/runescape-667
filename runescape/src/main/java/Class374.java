@@ -102,12 +102,12 @@ public final class Class374 implements Interface22 {
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(BI)I")
     public int method8466(@OriginalArg(1) int arg0) {
-        return this.aBoolean740 ? (Static380.anInt5979 - arg0) / 2 : 0;
+        return this.aBoolean740 ? (GameShell.canvasHei - arg0) / 2 : 0;
     }
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(II)I")
     public int method8469(@OriginalArg(1) int arg0) {
-        return this.aBoolean739 ? (Static680.anInt10289 - arg0) / 2 : 0;
+        return this.aBoolean739 ? (GameShell.canvasWid - arg0) / 2 : 0;
     }
 
     @OriginalMember(owner = "client!uh", name = "f", descriptor = "(I)V")
@@ -204,10 +204,10 @@ public final class Class374 implements Interface22 {
             @Pc(63) int local63 = Static449.aClass364_1.method8378();
             @Pc(67) String local67 = Static449.aClass364_1.method8377();
             if (Static103.anImage1 == null) {
-                Static103.anImage1 = Static434.aCanvas7.createImage(Static680.anInt10289, Static380.anInt5979);
+                Static103.anImage1 = Static434.aCanvas7.createImage(GameShell.canvasWid, GameShell.canvasHei);
             }
             @Pc(79) Graphics local79 = Static103.anImage1.getGraphics();
-            local79.clearRect(0, 0, Static680.anInt10289, Static380.anInt5979);
+            local79.clearRect(0, 0, GameShell.canvasWid, GameShell.canvasHei);
             @Pc(90) int local90 = this.anImage9.getWidth((ImageObserver) null);
             @Pc(95) int local95 = this.anImage12.getWidth((ImageObserver) null);
             @Pc(100) int local100 = this.anImage10.getWidth((ImageObserver) null);

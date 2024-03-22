@@ -2,6 +2,7 @@ import com.jagex.IndexedImage;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -85,7 +86,7 @@ public abstract class Class90 implements Interface13 {
     @Override
     public void method7748() {
         @Pc(21) FontMetrics local21 = FontMetrics.loadFile(this.aClass138_5.anInt4415, this.aJs5_110);
-        this.aFont_10 = Static163.activeToolkit.createFont(local21, IndexedImage.load(this.aJs5_109, this.aClass138_5.anInt4415), true);
+        this.aFont_10 = Toolkit.active.createFont(local21, IndexedImage.load(this.aJs5_109, this.aClass138_5.anInt4415), true);
     }
 
     @OriginalMember(owner = "client!ea", name = "b", descriptor = "(I)Z")

@@ -63,25 +63,6 @@ public final class Static203 {
         Static493.aSpriteArray12 = null;
     }
 
-    @OriginalMember(owner = "client!gf", name = "a", descriptor = "(IIIBI)V")
-    public static void method3069(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
-        @Pc(16) float local16 = (float) Static30.anInt5644 / (float) Static30.anInt5650;
-        @Pc(18) int local18 = arg0;
-        @Pc(20) int local20 = arg3;
-        if (local16 < 1.0F) {
-            local20 = (int) ((float) arg0 * local16);
-        } else {
-            local18 = (int) ((float) arg3 / local16);
-        }
-        @Pc(47) int local47 = arg2 - (arg3 - local20) / 2;
-        @Pc(56) int local56 = arg1 - (arg0 - local18) / 2;
-        Static164.anInt2809 = local56 * Static30.anInt5650 / local18;
-        Static615.anInt9389 = Static30.anInt5644 - Static30.anInt5644 * local47 / local20;
-        Static558.anInt3181 = -1;
-        Static180.anInt3001 = -1;
-        Static387.method5440();
-    }
-
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(I)Z")
     public static boolean method3070() {
         return Static96.anInt10171 != 0;

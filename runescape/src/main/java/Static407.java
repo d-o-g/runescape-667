@@ -24,7 +24,7 @@ public final class Static407 {
 
     @OriginalMember(owner = "client!mr", name = "a", descriptor = "(B)V")
     public static void method5628() {
-        @Pc(16) MouseLog local16 = (MouseLog) Static226.A_DEQUE___58.first();
+        @Pc(16) MouseLog local16 = (MouseLog) Static226.mouseLogs.first();
         @Pc(30) boolean local30 = InterfaceManager.dragSource != null || Static460.anInt6964 > 0;
         @Pc(34) int local34 = local16.getX();
         @Pc(38) int local38 = local16.getY();

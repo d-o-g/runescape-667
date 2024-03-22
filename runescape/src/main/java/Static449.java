@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.Class331;
+import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -20,7 +21,7 @@ public final class Static449 {
 
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(BZZLclient!aha;)V")
     public static void method6115(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) SubInterface arg2) {
-        @Pc(6) int local6 = arg2.anInt147;
+        @Pc(6) int local6 = arg2.id;
         @Pc(10) int local10 = (int) arg2.key;
         arg2.unlink();
         if (arg1) {
@@ -32,8 +33,8 @@ public final class Static449 {
             InterfaceManager.redraw(local27);
         }
         Static94.method1840();
-        if (!arg0 && Static377.anInt5930 != -1) {
-            Static145.method2411(1, Static377.anInt5930);
+        if (!arg0 && InterfaceManager.topLevelInterface != -1) {
+            Static145.method2411(1, InterfaceManager.topLevelInterface);
         }
         @Pc(55) Class331 local55 = new Class331(InterfaceManager.subInterfaces);
         for (@Pc(60) SubInterface local60 = (SubInterface) local55.first(); local60 != null; local60 = (SubInterface) local55.next()) {
@@ -43,7 +44,7 @@ public final class Static449 {
                     break;
                 }
             }
-            if (local60.anInt146 == 3) {
+            if (local60.type == 3) {
                 @Pc(84) int local84 = (int) local60.key;
                 if (local6 == local84 >>> 16) {
                     method6115(arg0, true, local60);

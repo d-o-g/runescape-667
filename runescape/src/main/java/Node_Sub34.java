@@ -31,7 +31,7 @@ public final class Node_Sub34 extends Node {
     public Class57_Sub26 aClass57_Sub26_1;
 
     @OriginalMember(owner = "client!kv", name = "B", descriptor = "Lclient!dc;")
-    public Class57_Sub2 aClass57_Sub2_1;
+    public Class57_Sub2 skydetail;
 
     @OriginalMember(owner = "client!kv", name = "eb", descriptor = "Lclient!ls;")
     public Class57_Sub15 aClass57_Sub15_1;
@@ -185,7 +185,7 @@ public final class Node_Sub34 extends Node {
                 this.aClass57_Sub4_2 = new Class57_Sub4(this.aClass57_Sub4_1.method2143(), this);
                 this.aClass57_Sub18_1 = new Class57_Sub18(arg0.g1(), this);
                 if (local24 >= 25) {
-                    this.aClass57_Sub2_1 = new Class57_Sub2(arg0.g1(), this);
+                    this.skydetail = new Class57_Sub2(arg0.g1(), this);
                 }
                 this.aClass57_Sub7_1 = new Class57_Sub7(arg0.g1(), this);
                 this.aClass57_Sub9_1 = new Class57_Sub9(arg0.g1(), this);
@@ -269,8 +269,8 @@ public final class Node_Sub34 extends Node {
         if (arg0 || this.aClass57_Sub18_1 == null) {
             this.aClass57_Sub18_1 = new Class57_Sub18(this);
         }
-        if (arg0 || this.aClass57_Sub2_1 == null) {
-            this.aClass57_Sub2_1 = new Class57_Sub2(this);
+        if (arg0 || this.skydetail == null) {
+            this.skydetail = new Class57_Sub2(this);
         }
         if (arg0 || this.aClass57_Sub7_1 == null) {
             this.aClass57_Sub7_1 = new Class57_Sub7(this);
@@ -397,7 +397,7 @@ public final class Node_Sub34 extends Node {
         local9.p1(this.aClass57_Sub28_1.method7838());
         local9.p1(this.aClass57_Sub4_1.method2143());
         local9.p1(this.aClass57_Sub18_1.method5767());
-        local9.p1(this.aClass57_Sub2_1.method1989());
+        local9.p1(this.skydetail.value());
         local9.p1(this.aClass57_Sub7_1.method2905());
         local9.p1(this.aClass57_Sub9_1.method3199());
         local9.p1(this.textures.value());

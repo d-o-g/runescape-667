@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.iftype.SubInterface;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -27,7 +28,7 @@ public final class Static77 {
                     break;
                 }
             }
-            if (local22.anInt146 == 0) {
+            if (local22.type == 0) {
                 Static449.method6115(true, true, local22);
             }
         }
@@ -35,11 +36,6 @@ public final class Static77 {
             InterfaceManager.redraw(InterfaceManager.dialog);
             InterfaceManager.dialog = null;
         }
-    }
-
-    @OriginalMember(owner = "client!ci", name = "a", descriptor = "(I)Z")
-    public static boolean method1559() {
-        return Static594.anInt8777 > 0;
     }
 
     @OriginalMember(owner = "client!ci", name = "a", descriptor = "(III)Z")

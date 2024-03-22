@@ -7,7 +7,7 @@ public final class Static526 {
     public static final ServerProt A_SERVER_PROT___194 = new ServerProt(78, 8);
 
     @OriginalMember(owner = "client!qk", name = "e", descriptor = "I")
-    public static int anInt8067 = 0;
+    public static int lastStockTransmit = 0;
 
     @OriginalMember(owner = "client!qk", name = "h", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___195 = new ServerProt(80, -2);

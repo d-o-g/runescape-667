@@ -13,7 +13,7 @@ public abstract class Renderable extends Node {
     public byte aByte143;
 
     @OriginalMember(owner = "client!eo", name = "j", descriptor = "B")
-    public byte aByte144;
+    public byte level;
 
     @OriginalMember(owner = "client!eo", name = "f", descriptor = "I")
     public int anInt10690;
@@ -54,7 +54,7 @@ public abstract class Renderable extends Node {
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(I[Lclient!lca;II)I")
     protected final int method9277(@OriginalArg(1) PointLight[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(21) long local21 = Static161.aLongArrayArrayArray1[this.aByte144][arg2][arg1];
+        @Pc(21) long local21 = Static161.aLongArrayArrayArray1[this.level][arg2][arg1];
         @Pc(23) long local23 = 0L;
         @Pc(25) int local25 = 0;
         @Pc(35) int local35;

@@ -15,16 +15,16 @@ public final class Static414 {
 
     @OriginalMember(owner = "client!nba", name = "a", descriptor = "(ZLclient!ca;I)V")
     public static void method5696(@OriginalArg(0) boolean arg0, @OriginalArg(1) PlayerEntity arg1) {
-        if (Static594.anInt8777 >= 400) {
+        if (MiniMenu.optionCount >= 400) {
             return;
         }
-        if (arg1 != Static556.self) {
+        if (arg1 != PlayerEntity.self) {
             @Pc(177) String local177;
             if (arg1.anInt1436 == 0) {
                 @Pc(63) boolean local63 = true;
-                if (Static556.self.anInt1471 != -1 && arg1.anInt1471 != -1) {
-                    @Pc(91) int local91 = Static556.self.anInt1471 < arg1.anInt1471 ? Static556.self.anInt1471 : arg1.anInt1471;
-                    @Pc(98) int local98 = Static556.self.anInt1444 - arg1.anInt1444;
+                if (PlayerEntity.self.anInt1471 != -1 && arg1.anInt1471 != -1) {
+                    @Pc(91) int local91 = PlayerEntity.self.anInt1471 < arg1.anInt1471 ? PlayerEntity.self.anInt1471 : arg1.anInt1471;
+                    @Pc(98) int local98 = PlayerEntity.self.anInt1444 - arg1.anInt1444;
                     if (local98 < 0) {
                         local98 = -local98;
                     }
@@ -32,35 +32,35 @@ public final class Static414 {
                         local63 = false;
                     }
                 }
-                @Pc(129) String local129 = ModeGame.STELLAR_DAWN == Static392.aModeGame_4 ? LocalisedText.RATING.localise(Static51.language) : LocalisedText.LEVEL.localise(Static51.language);
+                @Pc(129) String local129 = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(Static51.language) : LocalisedText.LEVEL.localise(Static51.language);
                 if (arg1.anInt1444 >= arg1.anInt1437) {
-                    local177 = arg1.method1424(false) + (local63 ? Static693.method9009(Static556.self.anInt1444, arg1.anInt1444) : "<col=ffffff>") + " (" + local129 + arg1.anInt1444 + ")";
+                    local177 = arg1.method1424(false) + (local63 ? Static693.method9009(PlayerEntity.self.anInt1444, arg1.anInt1444) : "<col=ffffff>") + " (" + local129 + arg1.anInt1444 + ")";
                 } else {
-                    local177 = arg1.method1424(false) + (local63 ? Static693.method9009(Static556.self.anInt1444, arg1.anInt1444) : "<col=ffffff>") + " (" + local129 + arg1.anInt1444 + "+" + (arg1.anInt1437 - arg1.anInt1444) + ")";
+                    local177 = arg1.method1424(false) + (local63 ? Static693.method9009(PlayerEntity.self.anInt1444, arg1.anInt1444) : "<col=ffffff>") + " (" + local129 + arg1.anInt1444 + "+" + (arg1.anInt1437 - arg1.anInt1444) + ")";
                 }
             } else if (arg1.anInt1436 == -1) {
                 local177 = arg1.method1424(false);
             } else {
                 local177 = arg1.method1424(false) + " (" + LocalisedText.SKILL.localise(Static51.language) + arg1.anInt1436 + ")";
             }
-            if (Static156.aBoolean223 && !arg0 && (Static717.anInt10822 & 0x8) != 0) {
-                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, Static153.aString27, 44, true, Static369.anInt4263, Static128.aString108 + " -> <col=ffffff>" + local177, (long) arg1.anInt10740, false);
+            if (InterfaceManager.isTargeting && !arg0 && (InterfaceManager.targetMask & 0x8) != 0) {
+                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 44, true, Cursor.targetEnter, InterfaceManager.targetedVerb + " -> <col=ffffff>" + local177, (long) arg1.anInt10740, false);
             }
             if (arg0) {
-                Static416.method5707(true, 0, 0L, 0, 0, "<col=cccccc>" + local177, -1, false, -1, "", (long) arg1.anInt10740, false);
+                MiniMenu.addEntry(true, 0, 0L, 0, 0, "<col=cccccc>" + local177, -1, false, -1, "", (long) arg1.anInt10740, false);
             } else {
                 for (@Pc(318) int local318 = 7; local318 >= 0; local318--) {
                     if (Static297.aStringArray24[local318] != null) {
                         @Pc(325) short local325 = 0;
-                        if (Static392.aModeGame_4 == ModeGame.RUNESCAPE && Static297.aStringArray24[local318].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language))) {
-                            if (Static324.aBoolean388 && Static556.self.anInt1444 < arg1.anInt1444) {
+                        if (client.modeGame == ModeGame.RUNESCAPE && Static297.aStringArray24[local318].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language))) {
+                            if (Static324.aBoolean388 && PlayerEntity.self.anInt1444 < arg1.anInt1444) {
                                 local325 = 2000;
                             }
-                            if (Static556.self.anInt1433 == 0 || arg1.anInt1433 == 0) {
+                            if (PlayerEntity.self.anInt1433 == 0 || arg1.anInt1433 == 0) {
                                 if (arg1.aBoolean125) {
                                     local325 = 2000;
                                 }
-                            } else if (arg1.anInt1433 == Static556.self.anInt1433) {
+                            } else if (arg1.anInt1433 == PlayerEntity.self.anInt1433) {
                                 local325 = 2000;
                             } else {
                                 local325 = 0;
@@ -69,8 +69,8 @@ public final class Static414 {
                             local325 = 2000;
                         }
                         @Pc(403) short local403 = (short) (local325 + Static187.aShortArray52[local318]);
-                        @Pc(416) int local416 = Static147.anIntArray227[local318] == -1 ? Static39.anInt950 : Static147.anIntArray227[local318];
-                        Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, Static297.aStringArray24[local318], local403, true, local416, "<col=ffffff>" + local177, (long) arg1.anInt10740, false);
+                        @Pc(416) int local416 = Static147.anIntArray227[local318] == -1 ? Cursor.interaction : Static147.anIntArray227[local318];
+                        MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, Static297.aStringArray24[local318], local403, true, local416, "<col=ffffff>" + local177, (long) arg1.anInt10740, false);
                     }
                 }
             }
@@ -82,14 +82,14 @@ public final class Static414 {
                     }
                 }
             }
-        } else if (Static156.aBoolean223 && (Static717.anInt10822 & 0x10) != 0) {
-            Static416.method5707(false, -1, 0L, 0, 0, Static153.aString27, 4, true, Static369.anInt4263, Static128.aString108 + " -> <col=ffffff>" + LocalisedText.SELF.localise(Static51.language), (long) arg1.anInt10740, false);
+        } else if (InterfaceManager.isTargeting && (InterfaceManager.targetMask & 0x10) != 0) {
+            MiniMenu.addEntry(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, Cursor.targetEnter, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(Static51.language), (long) arg1.anInt10740, false);
         }
     }
 
     @OriginalMember(owner = "client!nba", name = "a", descriptor = "(III)V")
     public static void method5697(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
+        if (client.modeGame == ModeGame.STELLAR_DAWN) {
             if (!Static147.method2419(0, arg0, 1, false, arg1, 0, -2, 1)) {
                 Static147.method2419(0, arg0, 1, false, arg1, 0, -3, 1);
             }

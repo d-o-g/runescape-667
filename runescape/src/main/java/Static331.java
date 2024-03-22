@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static331 {
 
     @OriginalMember(owner = "client!ki", name = "k", descriptor = "Ljava/lang/String;")
-    public static String aString52;
+    public static String walkText;
 
     @OriginalMember(owner = "client!ki", name = "c", descriptor = "I")
     public static int anInt5440;
@@ -20,7 +20,7 @@ public final class Static331 {
     public static final ServerProt A_SERVER_PROT___138 = new ServerProt(36, 4);
 
     @OriginalMember(owner = "client!ki", name = "i", descriptor = "I")
-    public static int anInt5439 = -1;
+    public static int walkCursor = -1;
 
     @OriginalMember(owner = "client!ki", name = "g", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___139 = new ServerProt(118, -2);

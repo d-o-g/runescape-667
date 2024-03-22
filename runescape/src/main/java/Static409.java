@@ -1,3 +1,4 @@
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -200,11 +201,11 @@ public final class Static409 {
     public static void method5657(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) int arg3) {
         Static498.method6646();
         Static297.aLong153 = 0L;
-        @Pc(10) int local10 = Static36.method978(3);
+        @Pc(10) int local10 = InterfaceManager.getWindowMode();
         if (arg0 == 3 || local10 == 3) {
             arg2 = true;
         }
-        if (!Static163.activeToolkit.method7983()) {
+        if (!Toolkit.active.method7983()) {
             arg2 = true;
         }
         Static363.windowModeChanged(local10, arg3, arg0, arg1, arg2);

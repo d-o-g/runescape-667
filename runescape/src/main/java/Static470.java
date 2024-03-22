@@ -1,6 +1,5 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static470 {
 
@@ -68,26 +67,6 @@ public final class Static470 {
         if (arg0.positionY + arg0.height > arg2) {
             arg0.positionY = arg2 - arg0.height;
             return;
-        }
-    }
-
-    @OriginalMember(owner = "client!or", name = "h", descriptor = "(I)V")
-    public static void method6384() {
-        if (!Static156.aBoolean223) {
-            return;
-        }
-        @Pc(14) Component local14 = Static15.method186(Static77.anInt1614, Static450.anInt6819);
-        if (local14 != null && local14.onTargetLeave != null) {
-            @Pc(25) Node_Sub42 local25 = new Node_Sub42();
-            local25.anObjectArray36 = local14.onTargetLeave;
-            local25.aComponent_14 = local14;
-            Static472.method6420(local25);
-        }
-        Static442.anInt6699 = -1;
-        Static156.aBoolean223 = false;
-        Static162.anInt2799 = -1;
-        if (local14 != null) {
-            InterfaceManager.redraw(local14);
         }
     }
 

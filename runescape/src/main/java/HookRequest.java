@@ -3,28 +3,28 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!pd")
-public final class Node_Sub42 extends Node {
+public final class HookRequest extends Node {
 
     @OriginalMember(owner = "client!pd", name = "l", descriptor = "I")
-    public int anInt7214;
+    public int mouseY;
 
     @OriginalMember(owner = "client!pd", name = "s", descriptor = "Lclient!hda;")
     public Component aComponent_13;
 
     @OriginalMember(owner = "client!pd", name = "u", descriptor = "Z")
-    public boolean aBoolean544;
+    public boolean mouseEvent;
 
     @OriginalMember(owner = "client!pd", name = "x", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray36;
+    public Object[] arguments;
 
     @OriginalMember(owner = "client!pd", name = "t", descriptor = "I")
     public int anInt7216;
 
     @OriginalMember(owner = "client!pd", name = "y", descriptor = "Lclient!hda;")
-    public Component aComponent_14;
+    public Component source;
 
     @OriginalMember(owner = "client!pd", name = "w", descriptor = "I")
-    public int anInt7218;
+    public int mouseX;
 
     @OriginalMember(owner = "client!pd", name = "m", descriptor = "Ljava/lang/String;")
     public String aString84;

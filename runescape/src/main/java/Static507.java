@@ -55,12 +55,12 @@ public final class Static507 {
             }
         }
         if (ComponentClientCode.SCENE == arg3.clientcode) {
-            Static610.aComponent_16 = arg3;
+            InterfaceManager.viewport = arg3;
         }
         if (arg0 && arg3.anObjectArray19 != null && (local6 != arg3.width || local16 != arg3.height)) {
-            @Pc(225) Node_Sub42 local225 = new Node_Sub42();
-            local225.anObjectArray36 = arg3.anObjectArray19;
-            local225.aComponent_14 = arg3;
+            @Pc(225) HookRequest local225 = new HookRequest();
+            local225.arguments = arg3.anObjectArray19;
+            local225.source = arg3;
             Static521.A_DEQUE___44.addLast(local225);
         }
     }

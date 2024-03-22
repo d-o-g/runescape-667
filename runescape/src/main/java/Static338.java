@@ -1,3 +1,4 @@
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -22,14 +23,14 @@ public final class Static338 {
                 @Pc(26) int local26 = (Static89.anIntArray169[local8] >> 8) * 64 - Static691.areaBaseX;
                 @Pc(36) int local36 = (Static89.anIntArray169[local8] & 0xFF) * 64 - Static116.areaBaseY;
                 Static557.method7331();
-                arg1.loadLocations(local26, local36, Static577.A_COLLISION_MAP_ARRAY_1, Static163.activeToolkit, local13);
+                arg1.loadLocations(local26, local36, Static577.A_COLLISION_MAP_ARRAY_1, Toolkit.active, local13);
             }
         }
     }
 
     @OriginalMember(owner = "client!km", name = "a", descriptor = "(I)I")
     public static int method4995() {
-        if (Static400.aBoolean622) {
+        if (MiniMenu.open) {
             return 6;
         } else if (Static470.aClass2_Sub2_Sub16_10 == null) {
             return 0;

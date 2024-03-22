@@ -2,7 +2,6 @@ import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -18,7 +17,7 @@ public final class Static65 {
 
     @OriginalMember(owner = "client!cba", name = "c", descriptor = "(B)I")
     public static int method1470() {
-        @Pc(5) Toolkit local5 = Static163.activeToolkit;
+        @Pc(5) Toolkit local5 = Toolkit.active;
         @Pc(7) boolean local7 = false;
         if (Static400.instance.aClass57_Sub29_1.method7915() != 0) {
             @Pc(19) Canvas local19 = new Canvas();
@@ -50,10 +49,4 @@ public final class Static65 {
         Static665.aEnvironmentArrayArray1 = null;
     }
 
-    @OriginalMember(owner = "client!cba", name = "a", descriptor = "(IZILclient!hda;)V")
-    public static void method1473(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Component arg2) {
-        Static366.anInt5852 = arg0;
-        Static605.aComponent_15 = arg2;
-        Static157.anInt2777 = arg1;
-    }
 }

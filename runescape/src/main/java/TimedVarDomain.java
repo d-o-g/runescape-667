@@ -7,10 +7,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qga")
-public final class Class304 implements VarDomain {
+public final class TimedVarDomain implements VarDomain {
 
     @OriginalMember(owner = "client!iba", name = "j", descriptor = "[I")
     public static final int[] anIntArray325 = new int[32];
+
+    @OriginalMember(owner = "client!bca", name = "e", descriptor = "Lclient!qga;")
+    public static TimedVarDomain instance;
 
     static {
         @Pc(73) int local73 = 2;

@@ -33,7 +33,7 @@ public final class Static130 {
 
     @OriginalMember(owner = "client!eb", name = "a", descriptor = "(B)Ljava/lang/String;")
     public static String method2281() {
-        if (Static400.aBoolean622 || Static470.aClass2_Sub2_Sub16_10 == null) {
+        if (MiniMenu.open || Static470.aClass2_Sub2_Sub16_10 == null) {
             return "";
         } else if ((Static470.aClass2_Sub2_Sub16_10.aString86 == null || Static470.aClass2_Sub2_Sub16_10.aString86.length() == 0) && Static470.aClass2_Sub2_Sub16_10.aString88 != null && Static470.aClass2_Sub2_Sub16_10.aString88.length() > 0) {
             return Static470.aClass2_Sub2_Sub16_10.aString88;

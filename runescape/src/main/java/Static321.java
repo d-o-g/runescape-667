@@ -11,7 +11,7 @@ public final class Static321 {
     public static final Class345 VIDEO_STOP = new Class345(58, 2);
 
     @OriginalMember(owner = "client!kca", name = "y", descriptor = "I")
-    public static int anInt5111 = 0;
+    public static int lastMiscTransmit = 0;
 
     @OriginalMember(owner = "client!kca", name = "O", descriptor = "[I")
     public static final int[] anIntArray388 = new int[2048];

@@ -58,7 +58,7 @@ public final class Static609 {
 
     @OriginalMember(owner = "client!tea", name = "a", descriptor = "(IIILclient!cba;)V")
     public static void method8214(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) DoublyLinkedNode_Sub2_Sub4 arg2) {
-        if (!Static400.aBoolean622) {
+        if (!MiniMenu.open) {
             return;
         }
         @Pc(11) int local11 = 0;
@@ -73,7 +73,7 @@ public final class Static609 {
         local23 = arg2.anInt1534 * 16 + 21;
         Static25.anInt598 = (Static60.aBoolean87 ? 26 : 22) + arg2.anInt1534 * 16;
         @Pc(71) int local71 = Static682.anInt10295 + Static71.anInt1576;
-        if (local11 + local71 > Static680.anInt10289) {
+        if (local11 + local71 > GameShell.canvasWid) {
             local71 = Static71.anInt1576 - local11;
         }
         if (local71 < 0) {
@@ -81,8 +81,8 @@ public final class Static609 {
         }
         @Pc(91) int local91 = Static60.aBoolean87 ? 33 : 31;
         @Pc(98) int local98 = arg0 + 13 - local91;
-        if (Static380.anInt5979 < local23 + local98) {
-            local98 = Static380.anInt5979 - local23;
+        if (GameShell.canvasHei < local23 + local98) {
+            local98 = GameShell.canvasHei - local23;
         }
         Static692.anInt10375 = local71;
         if (local98 < 0) {

@@ -13,7 +13,7 @@ public final class Static89 {
     public static final Class155 aClass155_9 = new Class155(2);
 
     @OriginalMember(owner = "client!cp", name = "a", descriptor = "(ILclient!ca;IILclient!wj;Lclient!c;BI)V")
-    public static void method1714(@OriginalArg(0) int arg0, @OriginalArg(1) PlayerEntity arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class8_Sub2_Sub1_Sub2_Sub2 arg4, @OriginalArg(5) LocType arg5, @OriginalArg(7) int arg6) {
+    public static void method1714(@OriginalArg(0) int arg0, @OriginalArg(1) PlayerEntity arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) NPCEntity arg4, @OriginalArg(5) LocType arg5, @OriginalArg(7) int arg6) {
         @Pc(7) Node_Sub51 local7 = new Node_Sub51();
         local7.anInt9350 = arg0;
         local7.anInt9357 = arg2 << 9;
@@ -26,13 +26,13 @@ public final class Static89 {
                 local176 = arg5.width;
                 local173 = arg5.length;
             }
-            local7.anInt9358 = arg5.ambientSoundVolume;
+            local7.soundVolume = arg5.ambientSoundVolume;
             local7.anInt9356 = arg5.soundDistance << 9;
-            local7.anInt9353 = arg5.sound;
+            local7.sound = arg5.sound;
             local7.anInt9354 = arg5.anInt1219;
             local7.anInt9349 = arg3 + local176 << 9;
             local7.anInt9360 = arg5.anInt1249;
-            local7.aBoolean714 = arg5.aBoolean88;
+            local7.vorbis = arg5.aBoolean88;
             local7.aBoolean715 = arg5.aBoolean92;
             local7.anInt9355 = arg5.anInt1221 << 9;
             local7.anInt9365 = arg5.anInt1231;
@@ -50,20 +50,20 @@ public final class Static89 {
             return;
         }
         if (arg4 != null) {
-            local7.aClass8_Sub2_Sub1_Sub2_Sub2_3 = arg4;
-            @Pc(37) NPCType local37 = arg4.aNPCType_1;
+            local7.npc = arg4;
+            @Pc(37) NPCType local37 = arg4.type;
             if (local37.multinpcs != null) {
                 local7.aBoolean713 = true;
-                local37 = local37.getMultiNPC(65535, Static34.aClass304_1);
+                local37 = local37.getMultiNPC(TimedVarDomain.instance);
             }
             if (local37 != null) {
                 local7.anInt9362 = local37.size + arg2 << 9;
                 local7.anInt9349 = arg3 + local37.size << 9;
-                local7.anInt9353 = Static497.method6629(arg4);
+                local7.sound = NPCEntity.currentSound(arg4);
                 local7.anInt9355 = local37.soundStartDistance << 9;
-                local7.anInt9358 = local37.soundVolume;
+                local7.soundVolume = local37.soundVolume;
                 local7.anInt9359 = local37.anInt6729;
-                local7.aBoolean714 = local37.vorbisSound;
+                local7.vorbis = local37.vorbisSound;
                 local7.anInt9356 = local37.soundDistance << 9;
                 local7.anInt9360 = local37.anInt6736;
             }
@@ -73,16 +73,16 @@ public final class Static89 {
         if (arg1 == null) {
             return;
         }
-        local7.aPlayerEntity_3 = arg1;
+        local7.player = arg1;
         local7.anInt9362 = arg2 + arg1.boundSize((byte) 46) << 9;
         local7.anInt9349 = arg1.boundSize((byte) 77) + arg3 << 9;
-        local7.anInt9353 = Static326.method4870(arg1);
+        local7.sound = PlayerEntity.method4870(arg1);
         local7.anInt9356 = arg1.anInt1452 << 9;
         local7.anInt9360 = 256;
         local7.anInt9359 = 256;
-        local7.anInt9358 = arg1.anInt1460;
+        local7.soundVolume = arg1.soundVolume;
         local7.anInt9355 = 0;
-        local7.aBoolean714 = arg1.aBoolean126;
+        local7.vorbis = arg1.vorbis;
         Static113.A_HASH_TABLE___12.put((long) arg1.anInt10740, local7);
         return;
     }

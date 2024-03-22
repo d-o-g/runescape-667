@@ -15,9 +15,6 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!im")
 public final class StaticWallDecor extends WallDecor implements Location {
 
-    @OriginalMember(owner = "client!im", name = "lb", descriptor = "I")
-    public static int lb = -1;
-
     @OriginalMember(owner = "client!im", name = "T", descriptor = "Lclient!ke;")
     public Class205 aClass205_4;
 

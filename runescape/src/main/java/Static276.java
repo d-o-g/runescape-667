@@ -51,8 +51,8 @@ public final class Static276 {
             Static682.anIntArray817[local30] = 1000000;
             Static153.anIntArray235[local30] = 0;
         }
-        @Pc(92) int local92 = Static556.self.anInt10690;
-        @Pc(95) int local95 = Static556.self.anInt10694;
+        @Pc(92) int local92 = PlayerEntity.self.anInt10690;
+        @Pc(95) int local95 = PlayerEntity.self.anInt10694;
         @Pc(149) int local149;
         if (Static511.anInt7645 != 1 && Static692.anInt10376 == -1) {
             local149 = Static102.method2025(Static394.anInt6176, -29754, Static110.anInt2186, Static170.anInt2864);

@@ -7,9 +7,6 @@ public final class Static610 {
     @OriginalMember(owner = "client!tf", name = "c", descriptor = "I")
     public static int anInt9329;
 
-    @OriginalMember(owner = "client!tf", name = "b", descriptor = "Lclient!hda;")
-    public static Component aComponent_16 = null;
-
     @OriginalMember(owner = "client!tf", name = "a", descriptor = "(ILclient!rka;I)V")
     public static void method8217(@OriginalArg(0) int arg0, @OriginalArg(1) PacketBuffer arg1) {
         @Pc(16) boolean local16 = arg1.method7412(1) == 1;
@@ -136,15 +133,15 @@ public final class Static610 {
                     } else {
                         local37.method1425(local573, local566, Static139.aByteArray30[arg0]);
                     }
-                    local37.aByte144 = local37.aByte143 = (byte) (local37.aByte144 + local175 & 0x3);
+                    local37.level = local37.aByte143 = (byte) (local37.level + local175 & 0x3);
                     if (Static441.method5968(local573, local566)) {
                         local37.aByte143++;
                     }
                     if (PlayerList.activePlayerSlot == arg0) {
-                        if (local37.aByte144 != Static394.anInt6176) {
+                        if (local37.level != Static394.anInt6176) {
                             Static75.aBoolean521 = true;
                         }
-                        Static394.anInt6176 = local37.aByte144;
+                        Static394.anInt6176 = local37.level;
                     }
                 } else {
                     local170 = arg1.method7412(30);
@@ -160,12 +157,12 @@ public final class Static610 {
                     } else {
                         local37.method1425(local573, local566, Static139.aByteArray30[arg0]);
                     }
-                    local37.aByte144 = local37.aByte143 = (byte) (local175 + local37.aByte144 & 0x3);
+                    local37.level = local37.aByte143 = (byte) (local175 + local37.level & 0x3);
                     if (Static441.method5968(local573, local566)) {
                         local37.aByte143++;
                     }
                     if (PlayerList.activePlayerSlot == arg0) {
-                        Static394.anInt6176 = local37.aByte144;
+                        Static394.anInt6176 = local37.level;
                     }
                 }
             }
@@ -175,7 +172,7 @@ public final class Static610 {
             throw new RuntimeException("s:lr");
         } else {
             @Pc(70) Class350 local70 = Static246.aClass350Array1[arg0] = new Class350();
-            local70.anInt9324 = (local37.aByte144 << 28) + ((Static691.areaBaseX + local37.pathX[0] >> 6 << 14) + (Static116.areaBaseY + local37.pathY[0] >> 6));
+            local70.anInt9324 = (local37.level << 28) + ((Static691.areaBaseX + local37.pathX[0] >> 6 << 14) + (Static116.areaBaseY + local37.pathY[0] >> 6));
             if (local37.anInt1467 == -1) {
                 local70.anInt9326 = local37.aClass126_7.method2673(16383);
             } else {

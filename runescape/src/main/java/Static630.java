@@ -1,5 +1,6 @@
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Shadow;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -37,7 +38,7 @@ public final class Static630 {
         if (Static400.instance.animatingBackground.value() == 0 && Static164.areaLevel != Static394.anInt6176) {
             Static684.method8931(false, Static62.anInt1465, 12, Static525.anInt8907);
         } else {
-            Static106.method2046(Static163.activeToolkit);
+            Static106.method2046(Toolkit.active);
             if (Static514.anInt7680 != Static394.anInt6176) {
                 Static77.method1561();
             }

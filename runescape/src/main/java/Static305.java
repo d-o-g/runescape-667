@@ -58,13 +58,13 @@ public final class Static305 {
             @Pc(73) int local73;
             try {
                 if (Static103.anImage1 == null) {
-                    Static103.anImage1 = Static434.aCanvas7.createImage(Static680.anInt10289, Static380.anInt5979);
+                    Static103.anImage1 = Static434.aCanvas7.createImage(GameShell.canvasWid, GameShell.canvasHei);
                 }
                 @Pc(58) Graphics local58 = Static103.anImage1.getGraphics();
                 local58.setColor(Color.black);
-                local58.fillRect(0, 0, Static680.anInt10289, Static380.anInt5979);
-                local73 = Static680.anInt10289 / 2 - 152;
-                @Pc(79) int local79 = Static380.anInt5979 / 2 - 18;
+                local58.fillRect(0, 0, GameShell.canvasWid, GameShell.canvasHei);
+                local73 = GameShell.canvasWid / 2 - 152;
+                @Pc(79) int local79 = GameShell.canvasHei / 2 - 18;
                 local58.setColor(arg1);
                 local58.drawRect(local73, local79, 303, 33);
                 local58.setColor(arg3);
@@ -78,14 +78,14 @@ public final class Static305 {
                 if (Static484.aString85 != null) {
                     local58.setFont(Static589.aFont1);
                     local58.setColor(arg2);
-                    local58.drawString(Static484.aString85, Static680.anInt10289 / 2 - Static484.aString85.length() * 6 / 2, Static380.anInt5979 / 2 + -26);
+                    local58.drawString(Static484.aString85, GameShell.canvasWid / 2 - Static484.aString85.length() * 6 / 2, GameShell.canvasHei / 2 + -26);
                 }
                 local6.drawImage(Static103.anImage1, 0, 0, (ImageObserver) null);
             } catch (@Pc(205) Exception local205) {
                 local6.setColor(Color.black);
-                local6.fillRect(0, 0, Static680.anInt10289, Static380.anInt5979);
-                @Pc(220) int local220 = Static680.anInt10289 / 2 - 152;
-                local73 = Static380.anInt5979 / 2 - 18;
+                local6.fillRect(0, 0, GameShell.canvasWid, GameShell.canvasHei);
+                @Pc(220) int local220 = GameShell.canvasWid / 2 - 152;
+                local73 = GameShell.canvasHei / 2 - 18;
                 local6.setColor(arg1);
                 local6.drawRect(local220, local73, 303, 33);
                 local6.setColor(arg3);
@@ -98,7 +98,7 @@ public final class Static305 {
                 if (Static484.aString85 != null) {
                     local6.setFont(Static589.aFont1);
                     local6.setColor(arg2);
-                    local6.drawString(Static484.aString85, Static680.anInt10289 / 2 - Static484.aString85.length() * 6 / 2, Static380.anInt5979 / 2 + -26);
+                    local6.drawString(Static484.aString85, GameShell.canvasWid / 2 - Static484.aString85.length() * 6 / 2, GameShell.canvasHei / 2 + -26);
                 }
                 local6.drawString(arg4, local220 + (304 - arg4.length() * 6) / 2, local73 + 22);
             }

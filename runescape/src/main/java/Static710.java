@@ -8,7 +8,7 @@ public final class Static710 {
     public static final Class345 aClass345_93 = new Class345(52, 8);
 
     @OriginalMember(owner = "client!wha", name = "l", descriptor = "I")
-    public static int anInt7554 = 0;
+    public static int varclanUpdateCount = 0;
 
     @OriginalMember(owner = "client!wha", name = "h", descriptor = "Lclient!wk;")
     public static final Class403 aClass403_13 = new Class403();

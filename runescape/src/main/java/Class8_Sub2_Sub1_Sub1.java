@@ -136,7 +136,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             this.aDouble4 = (double) this.anInt709 * local16 / local25 + (double) super.anInt10694;
             this.aDouble8 = (double) super.anInt10690 + local9 * (double) this.anInt709 / local25;
             if (this.aBoolean57) {
-                this.aDouble5 = (double) (Static102.method2025(super.aByte144, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721);
+                this.aDouble5 = (double) (Static102.method2025(super.level, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721);
             } else {
                 this.aDouble5 = (double) super.anInt10691;
             }
@@ -220,7 +220,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             if (this.anInt706 < 0) {
                 local35 = -this.anInt706 - 1;
                 if (PlayerList.activePlayerSlot == local35) {
-                    local21 = Static556.self;
+                    local21 = PlayerEntity.self;
                 } else {
                     local21 = PlayerList.highResolutionPlayers[local35];
                 }
@@ -237,7 +237,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         }
         super.anInt10694 = local21.anInt10694;
         super.anInt10690 = local21.anInt10690;
-        super.anInt10691 = Static102.method2025(super.aByte144, -29754, local21.anInt10694, local21.anInt10690) - this.anInt721;
+        super.anInt10691 = Static102.method2025(super.level, -29754, local21.anInt10694, local21.anInt10690) - this.anInt721;
         if (this.anInt695 < 0) {
             return;
         }
@@ -291,7 +291,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         }
         if (this.aParticleSystem_1 != null) {
             this.aParticleSystem_1.method3643(arg0, (long) TimeUtils.clock, local9, local12);
-            this.aParticleSystem_1.method3658(super.aByte144, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
+            this.aParticleSystem_1.method3658(super.level, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
         }
     }
 
@@ -375,7 +375,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         this.aBoolean59 = true;
         this.aDouble4 += (double) arg0 * this.aDouble2;
         if (this.aBoolean57) {
-            this.aDouble5 = (double) (Static102.method2025(super.aByte144, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721);
+            this.aDouble5 = (double) (Static102.method2025(super.level, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721);
         } else if (this.anInt705 == -1) {
             this.aDouble5 += this.aDouble1 * (double) arg0;
         } else {
@@ -385,7 +385,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         this.anInt694 = (int) (Math.atan2(this.aDouble7, this.aDouble2) * 2607.5945876176133D) + 8192 & 0x3FFF;
         this.anInt703 = (int) (Math.atan2(this.aDouble1, this.aDouble6) * 2607.5945876176133D) & 0x3FFF;
         if (this.aAnimator_1.tick(1) && this.aAnimator_1.isFinished()) {
-            this.aAnimator_1.method9099();
+            this.aAnimator_1.resetImmediately();
         }
     }
 }

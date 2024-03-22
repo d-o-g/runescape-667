@@ -93,7 +93,7 @@ public final class Class39_Sub23 extends Class39 {
         @Pc(15) Class8_Sub2_Sub1_Sub2 local15;
         if (this.anInt9980 < 0) {
             local15 = Static219.aClass236Array1[this.anInt9982].method5363();
-            local18 = local15.aByte144;
+            local18 = local15.level;
             local21 = local15.anInt10694;
             local24 = local15.anInt10690;
         } else {
@@ -111,7 +111,7 @@ public final class Class39_Sub23 extends Class39 {
             local63 = local15.anInt10690;
             local56 = local15.anInt10694;
             if (local18 < 0) {
-                local18 = local15.aByte144;
+                local18 = local15.level;
             }
         }
         @Pc(91) int local91 = this.anInt9979 << 2;

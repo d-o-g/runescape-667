@@ -17,13 +17,13 @@ public final class Static595 {
     public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
         Static164.method2606();
         if (arg2 == 0) {
-            Static163.activeToolkit = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
+            Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
             if (arg0 != null) {
-                Static163.activeToolkit.GA(0);
+                Toolkit.active.GA(0);
                 @Pc(36) FontMetrics local36 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
-                @Pc(45) Font local45 = Static163.activeToolkit.createFont(local36, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
+                @Pc(45) Font local45 = Toolkit.active.createFont(local36, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                 Static288.method4182();
-                Static694.method9028(Static163.activeToolkit, arg0, true, local36, local45);
+                Static694.method9028(Toolkit.active, arg0, true, local36, local45);
             }
         } else {
             @Pc(57) Toolkit local57 = null;
@@ -41,7 +41,7 @@ public final class Static595 {
             {
                 try {
                     var14 = true;
-                    Static163.activeToolkit = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, arg2, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
+                    Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, arg2, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
                         @Pc(118) FontMetrics local118 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
@@ -49,7 +49,7 @@ public final class Static595 {
                         Static288.method4182();
                         Static694.method9028(local57, arg0, true, local118, local127);
                     }
-                    if (Static163.activeToolkit.method7949()) {
+                    if (Toolkit.active.method7949()) {
                         @Pc(141) boolean local141 = true;
                         try {
                             local141 = Static292.aClass2_Sub43_2.anInt7610 > 256;
@@ -57,11 +57,11 @@ public final class Static595 {
                         }
                         @Pc(158) Node_Sub13 local158;
                         if (local141) {
-                            local158 = Static163.activeToolkit.method7961(146800640);
+                            local158 = Toolkit.active.method7961(146800640);
                         } else {
-                            local158 = Static163.activeToolkit.method7961(104857600);
+                            local158 = Toolkit.active.method7961(104857600);
                         }
-                        Static163.activeToolkit.method7938(local158);
+                        Toolkit.active.method7938(local158);
                         var14 = false;
                     } else {
                         var14 = false;
@@ -106,16 +106,16 @@ public final class Static595 {
         Static400.instance.aClass57_Sub29_1.method7918(!arg1);
         Static400.instance.method5104(arg2, Static400.instance.aClass57_Sub29_1);
         Static112.method2109();
-        Static163.activeToolkit.method8003();
-        Static163.activeToolkit.X(32);
-        Static460.aMatrix_10 = Static163.activeToolkit.createMatrix();
-        Static59.aMatrix_5 = Static163.activeToolkit.createMatrix();
+        Toolkit.active.method8003();
+        Toolkit.active.X(32);
+        Static460.aMatrix_10 = Toolkit.active.createMatrix();
+        Static59.aMatrix_5 = Toolkit.active.createMatrix();
         Static209.method3110();
-        Static163.activeToolkit.method7997(Static400.instance.aClass57_Sub9_1.method3199() == 1);
-        if (Static163.activeToolkit.method7936()) {
+        Toolkit.active.method7997(Static400.instance.aClass57_Sub9_1.method3199() == 1);
+        if (Toolkit.active.method7936()) {
             Static249.method3537(Static400.instance.aClass57_Sub20_1.method6108() == 1);
         }
-        Static613.method8239(Static163.activeToolkit, Static501.mapHeight >> 3, Static720.mapWidth >> 3);
+        Static613.method8239(Toolkit.active, Static501.mapHeight >> 3, Static720.mapWidth >> 3);
         Static218.method3187();
         Static284.aBoolean355 = true;
         Static679.aDisplayPropertiesArray1 = null;

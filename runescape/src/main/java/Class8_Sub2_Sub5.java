@@ -14,15 +14,15 @@ public abstract class Class8_Sub2_Sub5 extends Renderable {
         super.aByte143 = (byte) arg4;
         super.anInt10691 = arg1;
         super.anInt10694 = arg2;
-        super.aByte144 = (byte) arg3;
+        super.level = (byte) arg3;
     }
 
     @OriginalMember(owner = "client!nda", name = "a", descriptor = "(BLclient!ha;)Z")
     @Override
     public final boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1) {
-        @Pc(15) Class286 local15 = Static467.method6351(super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
+        @Pc(15) Class286 local15 = Static467.method6351(super.level, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
         if (arg0 == 59) {
-            return local15 != null && local15.aPositionEntity.aBoolean815 ? Static282.method3976(local15.aPositionEntity.method9286(2) + this.method9286(2), super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066) : Static588.method7714(super.anInt10694 >> Static52.anInt1066, super.aByte144, super.anInt10690 >> Static52.anInt1066);
+            return local15 != null && local15.aPositionEntity.aBoolean815 ? Static282.method3976(local15.aPositionEntity.method9286(2) + this.method9286(2), super.level, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066) : Static588.method7714(super.anInt10694 >> Static52.anInt1066, super.level, super.anInt10690 >> Static52.anInt1066);
         } else {
             return true;
         }

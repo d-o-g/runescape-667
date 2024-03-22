@@ -25,24 +25,12 @@ public final class Static36 {
         if (local16 == 0) {
             return;
         }
-        @Pc(25) int local25 = Static34.aClass304_1.anIntArray621[arg0];
+        @Pc(25) int local25 = TimedVarDomain.instance.anIntArray621[arg0];
         if (local16 == 5) {
-            Static219.anInt3549 = local25;
+            Static219.mouseButtons = local25;
         }
         if (local16 == 6) {
             Static55.anInt1124 = local25;
-        }
-    }
-
-    @OriginalMember(owner = "client!bda", name = "c", descriptor = "(I)I")
-    public static int method978(@OriginalArg(0) int arg0) {
-        if (arg0 != 3) {
-            method977(127, (byte) 11);
-        }
-        if (Static316.fsframe == null) {
-            return Static152.aBoolean811 ? 2 : 1;
-        } else {
-            return 3;
         }
     }
 

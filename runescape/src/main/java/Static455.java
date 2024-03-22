@@ -7,7 +7,7 @@ public final class Static455 {
     public static int anInt6915 = 1;
 
     @OriginalMember(owner = "client!oga", name = "g", descriptor = "I")
-    public static int anInt6917 = 0;
+    public static int varcstrUpdateCount = 0;
 
     @OriginalMember(owner = "client!oga", name = "a", descriptor = "(BII)V")
     public static void method6223(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {

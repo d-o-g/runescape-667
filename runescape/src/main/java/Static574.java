@@ -1,4 +1,5 @@
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -14,16 +15,16 @@ public final class Static574 {
 
     @OriginalMember(owner = "client!saa", name = "b", descriptor = "(I)V")
     public static void method7572() {
-        if (Static163.activeToolkit.method7978()) {
-            Static163.activeToolkit.method7972(Static434.aCanvas7);
+        if (Toolkit.active.method7978()) {
+            Toolkit.active.method7972(Static434.aCanvas7);
             Static208.method3106();
             if (InterfaceManager.aBoolean210) {
                 Static720.method9397(Static434.aCanvas7);
             } else {
                 @Pc(26) Dimension local26 = Static434.aCanvas7.getSize();
-                Static163.activeToolkit.method8022(Static434.aCanvas7, local26.width, local26.height);
+                Toolkit.active.method8022(Static434.aCanvas7, local26.width, local26.height);
             }
-            Static163.activeToolkit.method8019(Static434.aCanvas7);
+            Toolkit.active.method8019(Static434.aCanvas7);
         } else {
             Static32.method880(Static400.instance.aClass57_Sub29_1.method7915(), false);
         }

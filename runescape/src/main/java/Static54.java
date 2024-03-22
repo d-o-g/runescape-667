@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static54 {
 
-    @OriginalMember(owner = "client!bq", name = "C", descriptor = "I")
-    public static int anInt1084;
-
     @OriginalMember(owner = "client!bq", name = "E", descriptor = "[I")
     public static int[] anIntArray92;
 
@@ -16,8 +13,8 @@ public final class Static54 {
         Static342.method4465(Static400.instance.aClass57_Sub5_1.method2172());
         @Pc(19) int local19 = (Static691.areaBaseX >> 3) + (Static170.anInt2864 >> 12);
         @Pc(28) int local28 = (Static110.anInt2186 >> 12) + (Static116.areaBaseY >> 3);
-        Static394.anInt6176 = Static556.self.aByte144 = 0;
-        Static556.self.method1419(8, 8);
+        Static394.anInt6176 = PlayerEntity.self.level = 0;
+        PlayerEntity.self.method1419(8, 8);
         Static22.anIntArrayArray11 = new int[18][4];
         Static363.aByteArrayArray22 = new byte[18][];
         Static177.aByteArrayArray5 = new byte[18][];

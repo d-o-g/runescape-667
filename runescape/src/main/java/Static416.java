@@ -1,4 +1,3 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -129,12 +128,4 @@ public final class Static416 {
         Static442.aBoolean499 = true;
     }
 
-    @OriginalMember(owner = "client!nca", name = "a", descriptor = "(ZIJIILjava/lang/String;IZILjava/lang/String;JBZ)V")
-    public static void method5707(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) long arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) String arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) String arg9, @OriginalArg(10) long arg10, @OriginalArg(12) boolean arg11) {
-        if (!Static400.aBoolean622 && Static594.anInt8777 < 500) {
-            @Pc(20) int local20 = arg8 == -1 ? Static442.anInt6699 : arg8;
-            @Pc(36) DoublyLinkedNode_Sub2_Sub16 local36 = new DoublyLinkedNode_Sub2_Sub16(arg5, arg9, local20, arg6, arg1, arg2, arg3, arg4, arg7, arg0, arg10, arg11);
-            Static84.method1662(local36);
-        }
-    }
 }

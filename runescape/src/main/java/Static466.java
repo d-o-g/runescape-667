@@ -10,19 +10,6 @@ public final class Static466 {
     @OriginalMember(owner = "client!om", name = "b", descriptor = "I")
     public static int anInt7042;
 
-    @OriginalMember(owner = "client!om", name = "a", descriptor = "(Lclient!cg;I)V")
-    public static void method6322(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
-        if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub2) {
-            @Pc(5) Class8_Sub2_Sub1_Sub2_Sub2 local5 = (Class8_Sub2_Sub1_Sub2_Sub2) arg0;
-            if (local5.aNPCType_1 != null) {
-                Static651.method8517(Static556.self.aByte144 != local5.aByte144, local5);
-            }
-        } else if (arg0 instanceof PlayerEntity) {
-            @Pc(33) PlayerEntity local33 = (PlayerEntity) arg0;
-            Static414.method5696(local33.aByte144 != Static556.self.aByte144, local33);
-        }
-    }
-
     @OriginalMember(owner = "client!om", name = "a", descriptor = "(Z)I")
     public static int method6323() {
         if ((double) Static30.aFloat106 == 3.0D) {

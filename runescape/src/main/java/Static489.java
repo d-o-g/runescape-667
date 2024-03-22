@@ -6,6 +6,7 @@ import com.jagex.core.util.TimeUtils;
 import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Ground;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -92,7 +93,7 @@ public final class Static489 {
             arg1.anInt10694 = arg1.pathY[0] * 512 + arg1.boundSize((byte) 113) * 256;
             arg1.method9316();
         }
-        if (arg1 == Static556.self && (arg1.anInt10690 < 6144 || arg1.anInt10694 < 6144 || arg1.anInt10690 >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.anInt10694)) {
+        if (arg1 == PlayerEntity.self && (arg1.anInt10690 < 6144 || arg1.anInt10694 < 6144 || arg1.anInt10690 >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.anInt10694)) {
             arg1.aAnimator_11.update(true, -1);
             for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
                 arg1.aClass199Array3[local107].anInt4930 = -1;
@@ -201,13 +202,13 @@ public final class Static489 {
             return;
         }
         if (Static213.anInt3472 != 0) {
-            Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
+            Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(Static51.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
         Static557.method7331();
         Static352.method5180();
         VideoTypeList.method1084();
         @Pc(430) boolean local430 = false;
-        if (Static163.activeToolkit.method7990() && Static400.instance.aClass57_Sub26_1.method7463() == 2) {
+        if (Toolkit.active.method7990() && Static400.instance.aClass57_Sub26_1.method7463() == 2) {
             for (local310 = 0; local310 < Static319.aByteArrayArray16.length; local310++) {
                 if (Static421.aByteArrayArray19[local310] != null || Static177.aByteArrayArray5[local310] != null) {
                     local430 = true;
@@ -220,10 +221,10 @@ public final class Static489 {
         } else {
             local310 = Static506.anIntArray728[Static537.anInt8170];
         }
-        if (Static163.activeToolkit.method7968()) {
+        if (Toolkit.active.method7968()) {
             local310++;
         }
-        Static21.method8043(Static163.activeToolkit, Static455.anInt6915, Static720.mapWidth, Static501.mapHeight, local310, local430, Static163.activeToolkit.getMaxLights() > 0);
+        Static21.method8043(Toolkit.active, Static455.anInt6915, Static720.mapWidth, Static501.mapHeight, local310, local430, Toolkit.active.getMaxLights() > 0);
         Static483.method6490(Static699.anInt10539);
         if (Static699.anInt10539 == 0) {
             Static110.method2082((Font) null);
@@ -267,10 +268,10 @@ public final class Static489 {
                 Static314.method4568(true);
             }
             Static134.aMapRegion_3.method7885(Static2.aMapRegion.tileHeights[0]);
-            Static134.aMapRegion_3.method7881((int[][][]) null, Static163.activeToolkit, (CollisionMap[]) null);
+            Static134.aMapRegion_3.method7881((int[][][]) null, Toolkit.active, (CollisionMap[]) null);
             Static379.method5355(false);
         }
-        Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Static163.activeToolkit, Static577.A_COLLISION_MAP_ARRAY_1);
+        Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Static577.A_COLLISION_MAP_ARRAY_1);
         if (Static117.anInt2282 == 0) {
             Static314.method4568(true);
             Static338.method4994(Static118.aByteArrayArray3, Static2.aMapRegion);
@@ -286,8 +287,8 @@ public final class Static489 {
             Static358.method9191();
         }
         Static314.method4568(true);
-        Static2.aMapRegion.method7888(Static163.activeToolkit, local430 ? Static693.aGroundArray2[0] : null, (Ground) null);
-        Static2.aMapRegion.method7898(false, Static163.activeToolkit);
+        Static2.aMapRegion.method7888(Toolkit.active, local430 ? Static693.aGroundArray2[0] : null, (Ground) null);
+        Static2.aMapRegion.method7898(false, Toolkit.active);
         Static314.method4568(true);
         if (local430) {
             Static379.method5355(true);
@@ -299,8 +300,8 @@ public final class Static489 {
             }
             Static352.method5180();
             Static314.method4568(true);
-            Static134.aMapRegion_3.method7888(Static163.activeToolkit, (Ground) null, Static706.aGroundArray3[0]);
-            Static134.aMapRegion_3.method7898(true, Static163.activeToolkit);
+            Static134.aMapRegion_3.method7888(Toolkit.active, (Ground) null, Static706.aGroundArray3[0]);
+            Static134.aMapRegion_3.method7898(true, Toolkit.active);
             Static314.method4568(true);
             Static379.method5355(false);
         }
@@ -332,7 +333,7 @@ public final class Static489 {
         Static352.method5180();
         Static442.method5969();
         @Pc(920) ClientMessage local920;
-        if (Static353.aFrame10 != null && ConnectionManager.GAME.connection != null && MainLogicManager.step == 12) {
+        if (GameShell.frame != null && ConnectionManager.GAME.connection != null && MainLogicManager.step == 12) {
             local920 = Static293.method4335(Static694.aClass345_122, ConnectionManager.GAME.cipher);
             local920.buffer.p4(1057001181);
             ConnectionManager.GAME.send(local920);

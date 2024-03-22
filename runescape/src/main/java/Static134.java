@@ -1,4 +1,5 @@
 import com.jagex.core.util.Arrays;
+import com.jagex.game.runetek6.config.iftype.SubInterface;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -18,9 +19,6 @@ public final class Static134 {
 
     @OriginalMember(owner = "client!eda", name = "h", descriptor = "[J")
     public static final long[] aLongArray20 = new long[10];
-
-    @OriginalMember(owner = "client!eda", name = "g", descriptor = "I")
-    public static int anInt10329 = 0;
 
     @OriginalMember(owner = "client!eda", name = "m", descriptor = "I")
     public static int anInt10330 = 0;
@@ -46,7 +44,7 @@ public final class Static134 {
         }
         @Pc(72) SubInterface local72 = (SubInterface) InterfaceManager.subInterfaces.get((long) arg0.slot);
         if (local72 != null) {
-            Static19.method265(arg1, local72.anInt147, local37, local16);
+            Static19.method265(arg1, local72.id, local37, local16);
         }
     }
 }

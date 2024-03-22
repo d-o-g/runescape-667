@@ -19,10 +19,10 @@ public final class Static533 {
             }
         }
         Static31.anInt767 = 0;
-        Static594.anInt8777 = 0;
+        MiniMenu.optionCount = 0;
         Static693.A_DEQUE___79.clear();
         Static490.A_HASH_TABLE___34.clear();
         Static350.A_QUEUE___8.clear();
-        Static400.aBoolean622 = false;
+        MiniMenu.open = false;
     }
 }

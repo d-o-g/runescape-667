@@ -1,4 +1,4 @@
-import com.jagex.graphics.Toolkit;
+import com.jagex.game.runetek6.config.iftype.SubInterface;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 import java.util.Date;
 
 public final class Static163 {
-
-    @OriginalMember(owner = "client!fb", name = "f", descriptor = "Lclient!ha;")
-    public static Toolkit activeToolkit;
 
     @OriginalMember(owner = "client!fb", name = "d", descriptor = "[[B")
     public static byte[][] aByteArrayArray36;
@@ -29,8 +26,8 @@ public final class Static163 {
     @OriginalMember(owner = "client!fb", name = "a", descriptor = "(IIIIZ)Lclient!aha;")
     public static SubInterface method8850(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) boolean arg3) {
         @Pc(7) SubInterface local7 = new SubInterface();
-        local7.anInt147 = arg1;
-        local7.anInt146 = arg0;
+        local7.id = arg1;
+        local7.type = arg0;
         InterfaceManager.subInterfaces.put((long) arg2, local7);
         Static122.method2208(arg1);
         @Pc(26) Component local26 = InterfaceList.list(arg2);
@@ -48,8 +45,8 @@ public final class Static163 {
         if (!arg3) {
             Static472.method6414(arg1);
         }
-        if (!arg3 && Static377.anInt5930 != -1) {
-            Static145.method2411(1, Static377.anInt5930);
+        if (!arg3 && InterfaceManager.topLevelInterface != -1) {
+            Static145.method2411(1, InterfaceManager.topLevelInterface);
         }
         return local7;
     }

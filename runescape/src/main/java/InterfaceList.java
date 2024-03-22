@@ -69,4 +69,17 @@ public final class InterfaceList {
     private InterfaceList() {
         /* empty */
     }
+
+    @OriginalMember(owner = "client!aia", name = "a", descriptor = "(III)Lclient!hda;")
+    public static Component getComponent(@OriginalArg(1) int component, @OriginalArg(2) int id) {
+        @Pc(21) Component inter = list(id);
+
+        if (component == -1) {
+            return inter;
+        } else if (inter != null && inter.staticComponents != null && component < inter.staticComponents.length) {
+            return inter.staticComponents[component];
+        } else {
+            return null;
+        }
+    }
 }

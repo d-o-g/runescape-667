@@ -12,13 +12,13 @@ public final class Static583 {
         Static260.anInt4244 += local24;
         if (Static260.anInt4244 < 65535) {
             Static426.aBoolean73 = false;
-            Static272.aBoolean337 = false;
+            Static272.camFinished = false;
         } else {
             Static260.anInt4244 = 65535;
             if (Static426.aBoolean73) {
-                Static272.aBoolean337 = false;
+                Static272.camFinished = false;
             } else {
-                Static272.aBoolean337 = true;
+                Static272.camFinished = true;
             }
             Static426.aBoolean73 = true;
         }

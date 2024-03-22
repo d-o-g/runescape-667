@@ -16,7 +16,7 @@ public final class Static603 {
     @OriginalMember(owner = "client!taa", name = "b", descriptor = "(Z)V")
     public static void method7899() {
         InterfaceManager.redraw(InterfaceManager.dragSource);
-        Static181.anInt3003++;
+        InterfaceManager.dragTicks++;
         if (Static702.aBoolean797 && InterfaceManager.aBoolean428) {
             @Pc(30) int local30 = 0;
             @Pc(32) int local32 = 0;
@@ -42,47 +42,47 @@ public final class Static603 {
             }
             @Pc(119) int local119 = InterfaceManager.dragParent.scrollX + local46 - InterfaceManager.dragParentX;
             @Pc(127) int local127 = InterfaceManager.dragParent.scrollY + local52 - InterfaceManager.dragParentY;
-            @Pc(197) Node_Sub42 local197;
+            @Pc(197) HookRequest local197;
             if (MouseMonitor.instance.isDown()) {
-                if (InterfaceManager.dragSource.dragDeadTime < Static181.anInt3003) {
-                    @Pc(141) int local141 = local46 - Static655.anInt9763;
-                    @Pc(146) int local146 = local52 - Static115.anInt2258;
+                if (InterfaceManager.dragSource.dragDeadTime < InterfaceManager.dragTicks) {
+                    @Pc(141) int local141 = local46 - InterfaceManager.dragLastX;
+                    @Pc(146) int local146 = local52 - InterfaceManager.dragLastY;
                     if (InterfaceManager.dragSource.dragDeadZone < local141 || -InterfaceManager.dragSource.dragDeadZone > local141 || InterfaceManager.dragSource.dragDeadZone < local146 || local146 < -InterfaceManager.dragSource.dragDeadZone) {
                         InterfaceManager.dragging = true;
                     }
                 }
                 if (InterfaceManager.dragSource.onDrag != null && InterfaceManager.dragging) {
-                    local197 = new Node_Sub42();
-                    local197.aComponent_14 = InterfaceManager.dragSource;
-                    local197.anInt7218 = local119;
-                    local197.anInt7214 = local127;
-                    local197.anObjectArray36 = InterfaceManager.dragSource.onDrag;
+                    local197 = new HookRequest();
+                    local197.source = InterfaceManager.dragSource;
+                    local197.mouseX = local119;
+                    local197.mouseY = local127;
+                    local197.arguments = InterfaceManager.dragSource.onDrag;
                     Static472.method6420(local197);
                     return;
                 }
             } else {
                 if (InterfaceManager.dragging) {
-                    Static470.method6384();
+                    InterfaceManager.endTargetMode();
                     if (InterfaceManager.dragSource.onDragComplete != null) {
-                        local197 = new Node_Sub42();
-                        local197.aComponent_13 = Static327.aComponent_7;
-                        local197.anInt7218 = local119;
-                        local197.aComponent_14 = InterfaceManager.dragSource;
-                        local197.anInt7214 = local127;
-                        local197.anObjectArray36 = InterfaceManager.dragSource.onDragComplete;
+                        local197 = new HookRequest();
+                        local197.aComponent_13 = InterfaceManager.dragTarget;
+                        local197.mouseX = local119;
+                        local197.source = InterfaceManager.dragSource;
+                        local197.mouseY = local127;
+                        local197.arguments = InterfaceManager.dragSource.onDragComplete;
                         Static472.method6420(local197);
                     }
-                    if (Static327.aComponent_7 != null && Static84.method1657(InterfaceManager.dragSource) != null) {
-                        Static710.method6710(InterfaceManager.dragSource, Static327.aComponent_7);
+                    if (InterfaceManager.dragTarget != null && Static84.method1657(InterfaceManager.dragSource) != null) {
+                        Static710.method6710(InterfaceManager.dragSource, InterfaceManager.dragTarget);
                     }
-                } else if ((Static219.anInt3549 == 1 || Static204.method3084()) && Static594.anInt8777 > 2) {
-                    Static455.method6223(InterfaceManager.dragStartX + Static655.anInt9763, Static115.anInt2258 + InterfaceManager.dragStartY);
-                } else if (Static77.method1559()) {
-                    Static455.method6223(Static655.anInt9763 + InterfaceManager.dragStartX, Static115.anInt2258 + InterfaceManager.dragStartY);
+                } else if ((Static219.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.optionCount > 2) {
+                    Static455.method6223(InterfaceManager.dragStartX + InterfaceManager.dragLastX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);
+                } else if (MiniMenu.isPopulated()) {
+                    Static455.method6223(InterfaceManager.dragLastX + InterfaceManager.dragStartX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);
                 }
                 InterfaceManager.dragSource = null;
             }
-        } else if (Static181.anInt3003 > 1) {
+        } else if (InterfaceManager.dragTicks > 1) {
             InterfaceManager.dragSource = null;
         }
     }

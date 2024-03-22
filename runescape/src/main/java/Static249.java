@@ -1,5 +1,6 @@
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -46,10 +47,10 @@ public final class Static249 {
         } else if (Static598.method7825(arg0.anInt7314)) {
             @Pc(51) Node_Sub45 local51 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) arg0.aLong233);
             if (local51 != null) {
-                @Pc(56) Class8_Sub2_Sub1_Sub2_Sub2 local56 = local51.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                @Pc(59) NPCType local59 = local56.aNPCType_1;
+                @Pc(56) NPCEntity local56 = local51.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                @Pc(59) NPCType local59 = local56.type;
                 if (local59.multinpcs != null) {
-                    local59 = local59.getMultiNPC(65535, Static34.aClass304_1);
+                    local59 = local59.getMultiNPC(TimedVarDomain.instance);
                 }
                 if (local59 != null) {
                     local17 = local59.quests;
@@ -58,7 +59,7 @@ public final class Static249 {
         } else if (Static523.method3444(arg0.anInt7314)) {
             @Pc(89) LocType local89 = Static354.aLocTypeList_4.list((int) (arg0.aLong233 >>> 32 & 0x7FFFFFFFL));
             if (local89.multiLocs != null) {
-                local89 = local89.getMultiLoc(Static34.aClass304_1);
+                local89 = local89.getMultiLoc(TimedVarDomain.instance);
             }
             if (local89 != null) {
                 local17 = local89.quests;
@@ -76,13 +77,13 @@ public final class Static249 {
 
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(BZ)Z")
     public static boolean method3537(@OriginalArg(1) boolean arg0) {
-        @Pc(13) boolean local13 = Static163.activeToolkit.method8014();
+        @Pc(13) boolean local13 = Toolkit.active.method8014();
         if (local13 == arg0) {
             return true;
         }
         if (!arg0) {
-            Static163.activeToolkit.method7980();
-        } else if (!Static163.activeToolkit.method7970()) {
+            Toolkit.active.method7980();
+        } else if (!Toolkit.active.method7970()) {
             arg0 = false;
         }
         if (arg0 == local13) {

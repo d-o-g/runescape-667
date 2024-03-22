@@ -5,6 +5,7 @@ import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
 import com.jagex.game.LocalisedText;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -52,7 +53,7 @@ public final class Static231 {
 
     @OriginalMember(owner = "client!hd", name = "b", descriptor = "(I)V")
     public static void method3375() {
-        if (Static163.activeToolkit == null) {
+        if (Toolkit.active == null) {
             return;
         }
         if (InterfaceManager.aBoolean210) {
@@ -78,7 +79,7 @@ public final class Static231 {
             }
         }
         for (@Pc(65) int local65 = 0; local65 < Static416.anInt6378; local65++) {
-            @Pc(71) Class8_Sub2_Sub1_Sub2_Sub2 local71 = Static592.aClass2_Sub45Array1[local65].aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(71) NPCEntity local71 = Static592.aClass2_Sub45Array1[local65].aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local71 != null) {
                 for (@Pc(75) int local75 = 0; local75 < local71.aModelArray3.length; local75++) {
                     local71.aModelArray3[local75] = null;
@@ -87,8 +88,8 @@ public final class Static231 {
         }
         Static59.aMatrix_5 = null;
         Static460.aMatrix_10 = null;
-        Static163.activeToolkit.free();
-        Static163.activeToolkit = null;
+        Toolkit.active.free();
+        Toolkit.active = null;
     }
 
     @OriginalMember(owner = "client!hd", name = "a", descriptor = "(II)Lclient!hd;")
@@ -118,7 +119,7 @@ public final class Static231 {
     }
 
     @OriginalMember(owner = "client!hd", name = "a", descriptor = "(IZZLjava/lang/String;)V")
-    public static void method3381(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) String arg2) {
+    public static void executeComand(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) String arg2) {
         try {
             label721:
             {
@@ -138,7 +139,7 @@ public final class Static231 {
                         return;
                     }
                     if (arg2.equals("renderer")) {
-                        @Pc(103) Class84 local103 = Static163.activeToolkit.method7981();
+                        @Pc(103) Class84 local103 = Toolkit.active.method7981();
                         Static79.method1579("Vendor: " + local103.anInt2329);
                         Static79.method1579("Name: " + local103.aString22);
                         Static79.method1579("Version: " + local103.anInt2331);
@@ -148,8 +149,8 @@ public final class Static231 {
                     }
                     if (!arg2.equals("heap")) {
                         if (arg2.equalsIgnoreCase("getcamerapos")) {
-                            Static79.method1579("Pos: " + Static556.self.aByte144 + "," + ((Static170.anInt2864 >> 9) + Static691.areaBaseX >> 6) + "," + ((Static110.anInt2186 >> 9) + Static116.areaBaseY >> 6) + "," + ((Static170.anInt2864 >> 9) + Static691.areaBaseX & 0x3F) + "," + ((Static110.anInt2186 >> 9) + Static116.areaBaseY & 0x3F) + " Height: " + (Static102.method2025(Static556.self.aByte144, -29754, Static110.anInt2186, Static170.anInt2864) - Static359.anInt5801));
-                            Static79.method1579("Look: " + Static556.self.aByte144 + "," + (Static441.anInt6689 + Static691.areaBaseX >> 6) + "," + (Static116.areaBaseY + Static12.anInt5741 >> 6) + "," + (Static691.areaBaseX + Static441.anInt6689 & 0x3F) + "," + (Static116.areaBaseY + Static12.anInt5741 & 0x3F) + " Height: " + (Static102.method2025(Static556.self.aByte144, -29754, Static12.anInt5741, Static441.anInt6689) - Static55.anInt1125));
+                            Static79.method1579("Pos: " + PlayerEntity.self.level + "," + ((Static170.anInt2864 >> 9) + Static691.areaBaseX >> 6) + "," + ((Static110.anInt2186 >> 9) + Static116.areaBaseY >> 6) + "," + ((Static170.anInt2864 >> 9) + Static691.areaBaseX & 0x3F) + "," + ((Static110.anInt2186 >> 9) + Static116.areaBaseY & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Static110.anInt2186, Static170.anInt2864) - Static359.anInt5801));
+                            Static79.method1579("Look: " + PlayerEntity.self.level + "," + (Static441.anInt6689 + Static691.areaBaseX >> 6) + "," + (Static116.areaBaseY + Static12.anInt5741 >> 6) + "," + (Static691.areaBaseX + Static441.anInt6689 & 0x3F) + "," + (Static116.areaBaseY + Static12.anInt5741 & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Static12.anInt5741, Static441.anInt6689) - Static55.anInt1125));
                             return;
                         }
                         break label721;
@@ -169,7 +170,7 @@ public final class Static231 {
             Static79.method1579(LocalisedText.DEBUG_CONSOLE_ERROR.localise(Static51.language));
             return;
         }
-        if (Static446.aClass355_5 != Static2.aClass355_1 || Static608.anInt9290 >= 2) {
+        if (Static446.aClass355_5 != Static2.aClass355_1 || Static608.staffModLevel >= 2) {
             if (arg2.equalsIgnoreCase("errortest")) {
                 throw new RuntimeException();
             }
@@ -303,7 +304,7 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("wm1")) {
                     Static409.method5657(1, -1, false, -1);
-                    if (Static36.method978(3) != 1) {
+                    if (InterfaceManager.getWindowMode() != 1) {
                         Static79.method1579("wm1 failed");
                         return;
                     }
@@ -312,7 +313,7 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("wm2")) {
                     Static409.method5657(2, -1, false, -1);
-                    if (Static36.method978(3) != 2) {
+                    if (InterfaceManager.getWindowMode() != 2) {
                         Static79.method1579("wm2 failed");
                         return;
                     }
@@ -321,7 +322,7 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("wm3")) {
                     Static409.method5657(3, 1024, false, 768);
-                    if (Static36.method978(3) != 3) {
+                    if (InterfaceManager.getWindowMode() != 3) {
                         Static79.method1579("wm3 failed");
                         return;
                     }
@@ -424,7 +425,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("bloom")) {
-                    @Pc(1264) boolean local1264 = Static163.activeToolkit.method8014();
+                    @Pc(1264) boolean local1264 = Toolkit.active.method8014();
                     if (Static249.method3537(!local1264)) {
                         if (local1264) {
                             Static79.method1579("Bloom disabled");
@@ -457,11 +458,11 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("getcgcoord")) {
-                    Static79.method1579("x:" + (Static556.self.anInt10690 >> 9) + " z:" + (Static556.self.anInt10694 >> 9));
+                    Static79.method1579("x:" + (PlayerEntity.self.anInt10690 >> 9) + " z:" + (PlayerEntity.self.anInt10694 >> 9));
                     return;
                 }
                 if (arg2.equalsIgnoreCase("getheight")) {
-                    Static79.method1579("Height: " + Static246.activeGround[Static556.self.aByte144].getHeight(Static556.self.anInt10694 >> 9, Static556.self.anInt10690 >> 9));
+                    Static79.method1579("Height: " + Static246.activeGround[PlayerEntity.self.level].getHeight(PlayerEntity.self.anInt10694 >> 9, PlayerEntity.self.anInt10690 >> 9));
                     return;
                 }
                 if (arg2.equalsIgnoreCase("resetminimap")) {
@@ -474,7 +475,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("mc")) {
-                    if (Static163.activeToolkit.method7979()) {
+                    if (Toolkit.active.method7979()) {
                         local501 = Integer.parseInt(arg2.substring(3));
                         if (local501 < 1) {
                             local501 = 1;
@@ -497,7 +498,7 @@ public final class Static231 {
                 }
                 if (arg2.equals("renderprofile") || arg2.equals("rp")) {
                     Static354.showProfiling = !Static354.showProfiling;
-                    Static163.activeToolkit.method8018(Static354.showProfiling);
+                    Toolkit.active.method8018(Static354.showProfiling);
                     Static126.method2228();
                     Static79.method1579("showprofiling=" + Static354.showProfiling);
                     return;
@@ -605,12 +606,12 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("getclientvarpbit")) {
                     local501 = Integer.parseInt(arg2.substring(17));
-                    Static79.method1579("varpbit=" + Static34.aClass304_1.getVarbitValue(local501));
+                    Static79.method1579("varpbit=" + TimedVarDomain.instance.getVarbitValue(local501));
                     return;
                 }
                 if (arg2.startsWith("getclientvarp")) {
                     local501 = Integer.parseInt(arg2.substring(14));
-                    Static79.method1579("varp=" + Static34.aClass304_1.getVarValueInt(local501));
+                    Static79.method1579("varp=" + TimedVarDomain.instance.getVarValueInt(local501));
                     return;
                 }
                 @Pc(2083) String[] local2083;
@@ -643,7 +644,7 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("texsize")) {
                     local501 = Integer.parseInt(arg2.substring(8));
-                    Static163.activeToolkit.method7989(local501);
+                    Toolkit.active.method7989(local501);
                     return;
                 }
                 if (arg2.equals("soundstreamcount")) {
@@ -724,8 +725,8 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("skydetail ")) {
                     local501 = StringTools.parseDecimal(arg2.substring(arg2.indexOf(32) + 1));
-                    Static400.instance.method5104(local501, Static400.instance.aClass57_Sub2_1);
-                    Static79.method1579("skydetail is " + (Static400.instance.aClass57_Sub2_1.method1989() == 0 ? "low" : "high"));
+                    Static400.instance.method5104(local501, Static400.instance.skydetail);
+                    Static79.method1579("skydetail is " + (Static400.instance.skydetail.value() == 0 ? "low" : "high"));
                     return;
                 }
                 @Pc(2592) File local2592;
@@ -857,7 +858,7 @@ public final class Static231 {
                 }
             }
         }
-        if (Static390.method5492(Static556.self.accountName).equals(local27)) {
+        if (Static390.method5492(PlayerEntity.self.accountName).equals(local27)) {
             Static67.method6098(LocalisedText.IGNORECANTADDSELF.localise(Static51.language));
             return;
         }

@@ -16,23 +16,23 @@ public final class Static646 {
                 for (@Pc(33) Class286 local33 = local28.aClass286_2; local33 != null; local33 = local33.aClass286_1) {
                     @Pc(37) PositionEntity local37 = local33.aPositionEntity;
                     if (local37.aShort131 == arg0 && local37.aShort132 == arg1) {
-                        local37.aByte144--;
+                        local37.level--;
                     }
                 }
                 if (local28.aGroundDecor_1 != null) {
-                    local28.aGroundDecor_1.aByte144--;
+                    local28.aGroundDecor_1.level--;
                 }
                 if (local28.aClass8_Sub2_Sub3_2 != null) {
-                    local28.aClass8_Sub2_Sub3_2.aByte144--;
+                    local28.aClass8_Sub2_Sub3_2.level--;
                 }
                 if (local28.aWall_1 != null) {
-                    local28.aWall_1.aByte144--;
+                    local28.aWall_1.level--;
                 }
                 if (local28.aWallDecor_1 != null) {
-                    local28.aWallDecor_1.aByte144--;
+                    local28.aWallDecor_1.level--;
                 }
                 if (local28.aClass8_Sub2_Sub4_2 != null) {
-                    local28.aClass8_Sub2_Sub4_2.aByte144--;
+                    local28.aClass8_Sub2_Sub4_2.level--;
                 }
             }
         }

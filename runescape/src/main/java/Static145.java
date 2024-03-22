@@ -68,7 +68,7 @@ public final class Static145 {
                         arg0.method9307(local19, -1);
                         continue;
                     }
-                    @Pc(116) Class8_Sub2_Sub1_Sub2_Sub2 local116 = local111.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    @Pc(116) NPCEntity local116 = local111.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                     local95 = arg0.anInt10694 - local116.anInt10694;
                     local102 = arg0.anInt10690 - local116.anInt10690;
                 } else {

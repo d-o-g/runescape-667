@@ -54,28 +54,28 @@ public final class ParticleEmitter extends Node {
     public boolean aBoolean631 = false;
 
     @OriginalMember(owner = "client!rf", name = "r", descriptor = "Lclient!rv;")
-    public final ModelParticleEmitter aModelParticleEmitter_1;
+    public final ModelParticleEmitter model;
 
     @OriginalMember(owner = "client!rf", name = "g", descriptor = "J")
     public final long aLong254;
 
     @OriginalMember(owner = "client!rf", name = "k", descriptor = "Lclient!hv;")
-    public final ParticleSystem aParticleSystem_6;
+    public final ParticleSystem system;
 
     @OriginalMember(owner = "client!rf", name = "q", descriptor = "Lclient!vaa;")
-    public ParticleEmitterType aParticleEmitterType_1;
+    public ParticleEmitterType type;
 
     @OriginalMember(owner = "client!rf", name = "j", descriptor = "Lclient!fla;")
     public final LinkedList aLinkedList_11;
 
     @OriginalMember(owner = "client!rf", name = "<init>", descriptor = "(Lclient!ha;Lclient!rv;Lclient!hv;J)V")
-    public ParticleEmitter(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) ModelParticleEmitter arg1, @OriginalArg(2) ParticleSystem arg2, @OriginalArg(3) long arg3) {
-        this.aModelParticleEmitter_1 = arg1;
+    public ParticleEmitter(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) ModelParticleEmitter model, @OriginalArg(2) ParticleSystem systsem, @OriginalArg(3) long arg3) {
+        this.model = model;
         this.aLong254 = arg3;
-        this.aParticleSystem_6 = arg2;
-        this.aParticleEmitterType_1 = this.aModelParticleEmitter_1.method7547();
-        if (!arg0.method7937() && this.aParticleEmitterType_1.untextured != -1) {
-            this.aParticleEmitterType_1 = ParticleEmitterTypeList.get(this.aParticleEmitterType_1.untextured);
+        this.system = systsem;
+        this.type = this.model.getType();
+        if (!toolkit.method7937() && this.type.untextured != -1) {
+            this.type = ParticleEmitterTypeList.get(this.type.untextured);
         }
         this.aLinkedList_11 = new LinkedList();
         this.anInt8264 = (int) ((double) this.anInt8264 + Math.random() * 64.0D);
@@ -96,28 +96,28 @@ public final class ParticleEmitter extends Node {
         @Pc(46) int local46;
         if (this.aBoolean630) {
             arg1 = false;
-        } else if (this.aParticleEmitterType_1.minSetting > ParticleSystem.setting) {
+        } else if (this.type.minSetting > ParticleSystem.setting) {
             arg1 = false;
-        } else if (ParticleLimits.anIntArray246[ParticleSystem.setting] < Static452.anInt6869) {
+        } else if (ParticleLimits.anIntArray246[ParticleSystem.setting] < ParticleManager.anInt6869) {
             arg1 = false;
         } else if (this.aBoolean631) {
             arg1 = false;
-        } else if (this.aParticleEmitterType_1.lifetime != -1) {
+        } else if (this.type.lifetime != -1) {
             local46 = (int) (arg2 - this.aLong254);
-            if (this.aParticleEmitterType_1.periodic || this.aParticleEmitterType_1.lifetime >= local46) {
-                local46 %= this.aParticleEmitterType_1.lifetime;
+            if (this.type.periodic || this.type.lifetime >= local46) {
+                local46 %= this.type.lifetime;
             } else {
                 arg1 = false;
             }
-            if (!this.aParticleEmitterType_1.activeFirst && local46 < this.aParticleEmitterType_1.activationAge) {
+            if (!this.type.activeFirst && local46 < this.type.activationAge) {
                 arg1 = false;
             }
-            if (this.aParticleEmitterType_1.activeFirst && this.aParticleEmitterType_1.activationAge <= local46) {
+            if (this.type.activeFirst && this.type.activationAge <= local46) {
                 arg1 = false;
             }
         }
         if (arg1) {
-            Static424.anInt6459++;
+            ParticleManager.emitterCount++;
             local46 = (this.aParticleEmitterRelated_1.anInt4276 + this.aParticleEmitterRelated_1.anInt4279 + this.aParticleEmitterRelated_1.anInt4281) / 3;
             @Pc(147) int local147 = (this.aParticleEmitterRelated_1.anInt4269 + this.aParticleEmitterRelated_1.anInt4280 + this.aParticleEmitterRelated_1.anInt4283) / 3;
             @Pc(162) int local162 = (this.aParticleEmitterRelated_1.anInt4277 + this.aParticleEmitterRelated_1.anInt4270 + this.aParticleEmitterRelated_1.anInt4275) / 3;
@@ -152,13 +152,13 @@ public final class ParticleEmitter extends Node {
                         this.anInt8277 = this.anInt8277 * 32767 / local362;
                         this.anInt8275 = this.anInt8275 * 32767 / local362;
                         this.anInt8278 = this.anInt8278 * 32767 / local362;
-                        if (this.aParticleEmitterType_1.maxAngleH > 0 || this.aParticleEmitterType_1.maxAngleV > 0) {
+                        if (this.type.maxAngleH > 0 || this.type.maxAngleV > 0) {
                             local414 = (int) (Math.atan2((double) this.anInt8278, (double) this.anInt8275) * 2607.5945876176133D);
                             local435 = (int) (Math.atan2((double) this.anInt8277, Math.sqrt((double) (this.anInt8275 * this.anInt8275 + this.anInt8278 * this.anInt8278))) * 2607.5945876176133D);
-                            this.anInt8273 = this.aParticleEmitterType_1.maxAngleH - this.aParticleEmitterType_1.minAngleH;
-                            this.anInt8272 = this.aParticleEmitterType_1.minAngleH + local414 - (this.anInt8273 >> 1);
-                            this.anInt8274 = this.aParticleEmitterType_1.maxAngleV - this.aParticleEmitterType_1.minAngleV;
-                            this.anInt8276 = this.aParticleEmitterType_1.minAngleV + local435 - (this.anInt8274 >> 1);
+                            this.anInt8273 = this.type.maxAngleH - this.type.minAngleH;
+                            this.anInt8272 = this.type.minAngleH + local414 - (this.anInt8273 >> 1);
+                            this.anInt8274 = this.type.maxAngleV - this.type.minAngleV;
+                            this.anInt8276 = this.type.minAngleV + local435 - (this.anInt8274 >> 1);
                         }
                         break;
                     }
@@ -167,14 +167,14 @@ public final class ParticleEmitter extends Node {
                     this.anInt8277 >>= 0x1;
                 }
             }
-            this.anInt8264 += (int) (((double) this.aParticleEmitterType_1.minParticleRate + Math.random() * (double) (this.aParticleEmitterType_1.maxParticleRate - this.aParticleEmitterType_1.minParticleRate)) * (double) arg0);
+            this.anInt8264 += (int) (((double) this.type.minParticleRate + Math.random() * (double) (this.type.maxParticleRate - this.type.minParticleRate)) * (double) arg0);
             if (this.anInt8264 > 63) {
                 local210 = this.anInt8264 >> 6;
                 this.anInt8264 &= 0x3F;
                 for (local244 = 0; local244 < local210; local244++) {
                     @Pc(577) int local577;
                     @Pc(581) int local581;
-                    if (this.aParticleEmitterType_1.maxAngleH <= 0 && this.aParticleEmitterType_1.maxAngleV <= 0) {
+                    if (this.type.maxAngleH <= 0 && this.type.maxAngleV <= 0) {
                         local218 = this.anInt8275;
                         local235 = this.anInt8278;
                         local226 = this.anInt8277;
@@ -210,26 +210,26 @@ public final class ParticleEmitter extends Node {
                     @Pc(794) int local794 = (int) ((double) local776 * Math.random() + (double) local727);
                     @Pc(803) int local803 = (int) ((double) local749 + (double) local780 * Math.random());
                     @Pc(812) int local812 = (int) ((double) local771 + Math.random() * (double) local785);
-                    @Pc(828) int local828 = (int) (Math.random() * (double) (this.aParticleEmitterType_1.maxSpeed - this.aParticleEmitterType_1.minSpeed)) + this.aParticleEmitterType_1.minSpeed;
-                    @Pc(845) int local845 = (int) (Math.random() * (double) (this.aParticleEmitterType_1.maxLifetime - this.aParticleEmitterType_1.minLifetime)) + this.aParticleEmitterType_1.minLifetime;
-                    @Pc(862) int local862 = (int) (Math.random() * (double) (this.aParticleEmitterType_1.maxSize - this.aParticleEmitterType_1.minSize)) + this.aParticleEmitterType_1.minSize;
+                    @Pc(828) int local828 = (int) (Math.random() * (double) (this.type.maxSpeed - this.type.minSpeed)) + this.type.minSpeed;
+                    @Pc(845) int local845 = (int) (Math.random() * (double) (this.type.maxLifetime - this.type.minLifetime)) + this.type.minLifetime;
+                    @Pc(862) int local862 = (int) (Math.random() * (double) (this.type.maxSize - this.type.minSize)) + this.type.minSize;
                     @Pc(926) int local926;
-                    if (this.aParticleEmitterType_1.uniformColourVariance) {
+                    if (this.type.uniformColourVariance) {
                         @Pc(868) double local868 = Math.random();
-                        local926 = (int) ((double) this.aParticleEmitterType_1.anInt9903 + (double) this.aParticleEmitterType_1.anInt9913 * local868) | (int) ((double) this.aParticleEmitterType_1.anInt9914 + local868 * (double) this.aParticleEmitterType_1.anInt9911) << 8 | (int) ((double) this.aParticleEmitterType_1.anInt9899 + (double) this.aParticleEmitterType_1.anInt9929 * local868) << 16 | (int) (Math.random() * (double) this.aParticleEmitterType_1.anInt9878 + (double) this.aParticleEmitterType_1.anInt9906) << 24;
+                        local926 = (int) ((double) this.type.anInt9903 + (double) this.type.anInt9913 * local868) | (int) ((double) this.type.anInt9914 + local868 * (double) this.type.anInt9911) << 8 | (int) ((double) this.type.anInt9899 + (double) this.type.anInt9929 * local868) << 16 | (int) (Math.random() * (double) this.type.anInt9878 + (double) this.type.anInt9906) << 24;
                     } else {
-                        local926 = (int) ((double) this.aParticleEmitterType_1.anInt9903 + Math.random() * (double) this.aParticleEmitterType_1.anInt9913) | (int) ((double) this.aParticleEmitterType_1.anInt9914 + Math.random() * (double) this.aParticleEmitterType_1.anInt9911) << 8 | (int) (Math.random() * (double) this.aParticleEmitterType_1.anInt9929 + (double) this.aParticleEmitterType_1.anInt9899) << 16 | (int) ((double) this.aParticleEmitterType_1.anInt9906 + (double) this.aParticleEmitterType_1.anInt9878 * Math.random()) << 24;
+                        local926 = (int) ((double) this.type.anInt9903 + Math.random() * (double) this.type.anInt9913) | (int) ((double) this.type.anInt9914 + Math.random() * (double) this.type.anInt9911) << 8 | (int) (Math.random() * (double) this.type.anInt9929 + (double) this.type.anInt9899) << 16 | (int) ((double) this.type.anInt9906 + (double) this.type.anInt9878 * Math.random()) << 24;
                     }
-                    @Pc(990) int local990 = this.aParticleEmitterType_1.texture;
-                    if (!arg3.method7937() && !this.aParticleEmitterType_1.aBoolean755) {
+                    @Pc(990) int local990 = this.type.texture;
+                    if (!arg3.method7937() && !this.type.aBoolean755) {
                         local990 = -1;
                     }
                     if (ParticleSystem.particleNextPtr == ParticleSystem.particleFreePtr) {
-                        new MovingParticle(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.aParticleEmitterType_1.disableHdLighting, this.aParticleEmitterType_1.preserveAmbient);
+                        new MovingParticle(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.type.disableHdLighting, this.type.preserveAmbient);
                     } else {
                         @Pc(1032) MovingParticle local1032 = ParticleSystem.particleCache[ParticleSystem.particleNextPtr];
                         ParticleSystem.particleNextPtr = ParticleSystem.particleNextPtr + 1 & 0x3FF;
-                        local1032.method6696(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.aParticleEmitterType_1.disableHdLighting, this.aParticleEmitterType_1.preserveAmbient);
+                        local1032.method6696(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.type.disableHdLighting, this.type.preserveAmbient);
                     }
                 }
             }
@@ -238,25 +238,25 @@ public final class ParticleEmitter extends Node {
             @Pc(1078) ParticleEmitterRelated local1078 = this.aParticleEmitterRelated_2;
             this.aParticleEmitterRelated_2 = this.aParticleEmitterRelated_1;
             this.aParticleEmitterRelated_1 = local1078;
-            this.aParticleEmitterRelated_1.anInt4275 = this.aModelParticleEmitter_1.anInt8520;
-            this.aParticleEmitterRelated_1.anInt4276 = this.aModelParticleEmitter_1.anInt8512;
-            this.aParticleEmitterRelated_1.anInt4283 = this.aModelParticleEmitter_1.anInt8507;
-            this.aParticleEmitterRelated_1.anInt4281 = this.aModelParticleEmitter_1.anInt8516;
-            this.aParticleEmitterRelated_1.anInt4270 = this.aModelParticleEmitter_1.anInt8504;
-            this.aParticleEmitterRelated_1.anInt4280 = this.aModelParticleEmitter_1.anInt8502;
-            this.aParticleEmitterRelated_1.anInt4277 = this.aModelParticleEmitter_1.anInt8509;
+            this.aParticleEmitterRelated_1.anInt4275 = this.model.anInt8520;
+            this.aParticleEmitterRelated_1.anInt4276 = this.model.anInt8512;
+            this.aParticleEmitterRelated_1.anInt4283 = this.model.anInt8507;
+            this.aParticleEmitterRelated_1.anInt4281 = this.model.anInt8516;
+            this.aParticleEmitterRelated_1.anInt4270 = this.model.anInt8504;
+            this.aParticleEmitterRelated_1.anInt4280 = this.model.anInt8502;
+            this.aParticleEmitterRelated_1.anInt4277 = this.model.anInt8509;
             this.aParticleEmitterRelated_1.anInt4278 = this.aParticleEmitterRelated_2.anInt4278;
             this.aParticleEmitterRelated_1.anInt4273 = this.aParticleEmitterRelated_2.anInt4273;
-            this.aParticleEmitterRelated_1.anInt4279 = this.aModelParticleEmitter_1.anInt8518;
+            this.aParticleEmitterRelated_1.anInt4279 = this.model.anInt8518;
             this.aParticleEmitterRelated_1.anInt4271 = this.aParticleEmitterRelated_2.anInt4271;
-            this.aParticleEmitterRelated_1.anInt4269 = this.aModelParticleEmitter_1.anInt8503;
+            this.aParticleEmitterRelated_1.anInt4269 = this.model.anInt8503;
         }
         this.anInt8268 = 0;
         for (@Pc(1171) MovingParticle local1171 = (MovingParticle) this.aLinkedList_11.first(); local1171 != null; local1171 = (MovingParticle) this.aLinkedList_11.next()) {
             local1171.method6694(arg2, arg0);
             this.anInt8268++;
         }
-        Static530.particleCount += this.anInt8268;
+        ParticleManager.particleCount += this.anInt8268;
     }
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(JLclient!ha;I)V")
@@ -268,15 +268,15 @@ public final class ParticleEmitter extends Node {
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(B)V")
     public void method7264() {
-        this.aParticleEmitterRelated_1.anInt4283 = this.aModelParticleEmitter_1.anInt8507;
-        this.aParticleEmitterRelated_1.anInt4275 = this.aModelParticleEmitter_1.anInt8520;
-        this.aParticleEmitterRelated_1.anInt4276 = this.aModelParticleEmitter_1.anInt8512;
-        this.aParticleEmitterRelated_1.anInt4280 = this.aModelParticleEmitter_1.anInt8502;
-        this.aParticleEmitterRelated_1.anInt4281 = this.aModelParticleEmitter_1.anInt8516;
-        this.aParticleEmitterRelated_1.anInt4270 = this.aModelParticleEmitter_1.anInt8504;
-        this.aParticleEmitterRelated_1.anInt4277 = this.aModelParticleEmitter_1.anInt8509;
-        this.aParticleEmitterRelated_1.anInt4279 = this.aModelParticleEmitter_1.anInt8518;
-        this.aParticleEmitterRelated_1.anInt4269 = this.aModelParticleEmitter_1.anInt8503;
+        this.aParticleEmitterRelated_1.anInt4283 = this.model.anInt8507;
+        this.aParticleEmitterRelated_1.anInt4275 = this.model.anInt8520;
+        this.aParticleEmitterRelated_1.anInt4276 = this.model.anInt8512;
+        this.aParticleEmitterRelated_1.anInt4280 = this.model.anInt8502;
+        this.aParticleEmitterRelated_1.anInt4281 = this.model.anInt8516;
+        this.aParticleEmitterRelated_1.anInt4270 = this.model.anInt8504;
+        this.aParticleEmitterRelated_1.anInt4277 = this.model.anInt8509;
+        this.aParticleEmitterRelated_1.anInt4279 = this.model.anInt8518;
+        this.aParticleEmitterRelated_1.anInt4269 = this.model.anInt8503;
         if (this.aParticleEmitterRelated_1.anInt4281 == this.aParticleEmitterRelated_1.anInt4279 && this.aParticleEmitterRelated_1.anInt4276 == this.aParticleEmitterRelated_1.anInt4281 && this.aParticleEmitterRelated_1.anInt4280 == this.aParticleEmitterRelated_1.anInt4283 && this.aParticleEmitterRelated_1.anInt4283 == this.aParticleEmitterRelated_1.anInt4269 && this.aParticleEmitterRelated_1.anInt4270 == this.aParticleEmitterRelated_1.anInt4277 && this.aParticleEmitterRelated_1.anInt4275 == this.aParticleEmitterRelated_1.anInt4277) {
             this.aBoolean631 = true;
         } else if (this.aBoolean631) {

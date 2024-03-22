@@ -15,7 +15,7 @@ import java.awt.event.KeyListener;
 import java.lang.reflect.Method;
 
 @OriginalClass("client!ui")
-public final class Class319_Sub1 extends Class319 implements KeyListener, FocusListener {
+public final class KeyMonitor_Sub1 extends KeyMonitor implements KeyListener, FocusListener {
 
     @OriginalMember(owner = "client!ui", name = "n", descriptor = "Ljava/awt/Component;")
     public Component aComponent4;
@@ -30,7 +30,7 @@ public final class Class319_Sub1 extends Class319 implements KeyListener, FocusL
     public final boolean[] aBooleanArray31 = new boolean[112];
 
     @OriginalMember(owner = "client!ui", name = "<init>", descriptor = "(Ljava/awt/Component;)V")
-    public Class319_Sub1(@OriginalArg(0) Component arg0) {
+    public KeyMonitor_Sub1(@OriginalArg(0) Component arg0) {
         Static664.method8657();
         this.method8488(arg0);
     }
@@ -201,7 +201,7 @@ public final class Class319_Sub1 extends Class319 implements KeyListener, FocusL
 
     @OriginalMember(owner = "client!ui", name = "a", descriptor = "(II)Z")
     @Override
-    public boolean method8479(@OriginalArg(1) int arg0) {
+    public boolean isPressed(@OriginalArg(1) int arg0) {
         return arg0 >= 0 && arg0 < 112 ? this.aBooleanArray31[arg0] : false;
     }
 }

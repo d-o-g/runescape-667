@@ -44,7 +44,7 @@ public final class Static545 {
                     Static623.aBooleanArray30[local44] = Static623.aBooleanArray30[local44 + 1];
                     Static429.aBooleanArray21[local44] = Static429.aBooleanArray21[local44 + 1];
                 }
-                Static344.anInt5621 = Static642.anInt9599;
+                Static344.lastFriendTransmit = World.tick;
                 @Pc(118) ServerConnection local118 = Static668.method8701();
                 @Pc(124) ClientMessage local124 = Static293.method4335(Static86.aClass345_16, local118.cipher);
                 local124.buffer.p1(Static231.method3379(arg0));

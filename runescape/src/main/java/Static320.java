@@ -24,8 +24,8 @@ public final class Static320 {
 
     @OriginalMember(owner = "client!kc", name = "a", descriptor = "(Z)V")
     public static void method4598() {
-        if (!Static400.aBoolean622) {
-            Static236.aBoolean304 = Static143.anInt4059 != -1 && Static143.anInt4059 <= Static594.anInt8777 || Static594.anInt8777 * 16 + (Static60.aBoolean87 ? 26 : 22) > Static380.anInt5979;
+        if (!MiniMenu.open) {
+            Static236.aBoolean304 = Static143.anInt4059 != -1 && Static143.anInt4059 <= MiniMenu.optionCount || MiniMenu.optionCount * 16 + (Static60.aBoolean87 ? 26 : 22) > GameShell.canvasHei;
         }
         Static204.A_DEQUE___16.clear();
         Static239.A_DEQUE___19.clear();
@@ -43,11 +43,11 @@ public final class Static320 {
         }
         Static204.A_DEQUE___16.appendTo(Static693.A_DEQUE___79);
         Static239.A_DEQUE___19.appendTo(Static693.A_DEQUE___79);
-        if (Static594.anInt8777 <= 1) {
+        if (MiniMenu.optionCount <= 1) {
             Static470.aClass2_Sub2_Sub16_10 = null;
             Static96.aClass2_Sub2_Sub16_13 = null;
         } else {
-            if (Static209.aBoolean269 && Static334.aClass319_1.method8479(81) && Static594.anInt8777 > 2) {
+            if (Static209.aBoolean269 && KeyMonitor.instance.isPressed(81) && MiniMenu.optionCount > 2) {
                 Static470.aClass2_Sub2_Sub16_10 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.sentinel.prev.prev;
             } else {
                 Static470.aClass2_Sub2_Sub16_10 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.sentinel.prev;
@@ -55,15 +55,15 @@ public final class Static320 {
             Static96.aClass2_Sub2_Sub16_13 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.sentinel.prev;
         }
         local64 = -1;
-        @Pc(204) MouseLog local204 = (MouseLog) Static226.A_DEQUE___58.first();
+        @Pc(204) MouseLog local204 = (MouseLog) Static226.mouseLogs.first();
         if (local204 != null) {
             local64 = local204.getType();
         }
-        if (!Static400.aBoolean622) {
-            if (local64 == 0 && (Static219.anInt3549 == 1 && Static594.anInt8777 > 2 || Static204.method3084())) {
+        if (!MiniMenu.open) {
+            if (local64 == 0 && (Static219.mouseButtons == 1 && MiniMenu.optionCount > 2 || MiniMenu.topEntryIsIfButtonX1())) {
                 local64 = 2;
             }
-            if (local64 == 2 && Static594.anInt8777 > 0 && local204 != null) {
+            if (local64 == 2 && MiniMenu.optionCount > 0 && local204 != null) {
                 if (InterfaceManager.dragSource == null && Static460.anInt6964 == 0) {
                     Static572.method7876(local204.getY(), local204.getX());
                 } else {
@@ -73,8 +73,8 @@ public final class Static320 {
             if (local64 == 0) {
                 if (Static470.aClass2_Sub2_Sub16_10 != null) {
                     Static407.method5628();
-                } else if (Static156.aBoolean223) {
-                    Static470.method6384();
+                } else if (InterfaceManager.isTargeting) {
+                    InterfaceManager.endTargetMode();
                 }
             }
             if (InterfaceManager.dragSource == null && Static460.anInt6964 == 0) {
@@ -180,14 +180,14 @@ public final class Static320 {
         }
         if (!Static236.aBoolean304) {
             local661 = -1;
-            for (local426 = 0; local426 < Static594.anInt8777; local426++) {
+            for (local426 = 0; local426 < MiniMenu.optionCount; local426++) {
                 if (Static60.aBoolean87) {
-                    local428 = (Static594.anInt8777 - local426 - 1) * 16 + Static84.anInt1775 + 33;
+                    local428 = (MiniMenu.optionCount - local426 - 1) * 16 + Static84.anInt1775 + 33;
                     if (local321 > local428 - 13 && local321 < local428 + 4) {
                         local661 = local426;
                     }
                 } else {
-                    local428 = Static84.anInt1775 + (-local426 + Static594.anInt8777 + -1) * 16 + 31;
+                    local428 = Static84.anInt1775 + (-local426 + MiniMenu.optionCount + -1) * 16 + 31;
                     if (local321 > local428 - 13 && local428 + 3 > local321) {
                         local661 = local426;
                     }

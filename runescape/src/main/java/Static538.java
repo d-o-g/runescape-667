@@ -31,7 +31,7 @@ public final class Static538 {
         @Pc(15) PacketBuffer local15 = ConnectionManager.GAME.buffer;
         for (@Pc(17) int local17 = 0; local17 < Static86.anInt1798; local17++) {
             @Pc(23) int local23 = Static458.anIntArray553[local17];
-            @Pc(31) Class8_Sub2_Sub1_Sub2_Sub2 local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local23)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(31) NPCEntity local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local23)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             @Pc(35) int local35 = local15.g1();
             if ((local35 & 0x80) != 0) {
                 local35 += local15.g1() << 8;
@@ -118,19 +118,19 @@ public final class Static538 {
             }
             if ((local35 & 0x40000) != 0) {
                 local31.aString128 = local15.gjstr();
-                if ("".equals(local31.aString128) || local31.aString128.equals(local31.aNPCType_1.name)) {
-                    local31.aString128 = local31.aNPCType_1.name;
+                if ("".equals(local31.aString128) || local31.aString128.equals(local31.type.name)) {
+                    local31.aString128 = local31.type.name;
                 }
             }
             if ((local35 & 0x20) != 0) {
-                if (local31.aNPCType_1.hasSounds()) {
+                if (local31.type.hasSounds()) {
                     Static58.method1259(local31);
                 }
                 local31.method9328(Static690.aNPCTypeList_2.list(local15.ig2()));
-                local31.method9310(local31.aNPCType_1.size);
-                local31.anInt10757 = local31.aNPCType_1.rotationSpeed << 3;
-                if (local31.aNPCType_1.hasSounds()) {
-                    Static89.method1714(local31.aByte144, (PlayerEntity) null, local31.pathX[0], local31.pathY[0], local31, (LocType) null, 0);
+                local31.method9310(local31.type.size);
+                local31.anInt10757 = local31.type.rotationSpeed << 3;
+                if (local31.type.hasSounds()) {
+                    Static89.method1714(local31.level, (PlayerEntity) null, local31.pathX[0], local31.pathY[0], local31, (LocType) null, 0);
                 }
             }
             if ((local35 & 0x2) != 0) {
@@ -143,7 +143,7 @@ public final class Static538 {
             if ((local35 & 0x80000) != 0) {
                 local31.anInt10791 = local15.ig2();
                 if (local31.anInt10791 == 65535) {
-                    local31.anInt10791 = local31.aNPCType_1.combatLevel;
+                    local31.anInt10791 = local31.type.combatLevel;
                 }
             }
             @Pc(511) int[] local511;
@@ -169,13 +169,13 @@ public final class Static538 {
             @Pc(636) short[] local636;
             @Pc(708) long local708;
             if ((local35 & 0x10000) != 0) {
-                local73 = local31.aNPCType_1.headModels.length;
+                local73 = local31.type.headModels.length;
                 local77 = 0;
-                if (local31.aNPCType_1.recol_d != null) {
-                    local77 = local31.aNPCType_1.recol_d.length;
+                if (local31.type.recol_d != null) {
+                    local77 = local31.type.recol_d.length;
                 }
-                if (local31.aNPCType_1.retex_d != null) {
-                    local77 = local31.aNPCType_1.retex_d.length;
+                if (local31.type.retex_d != null) {
+                    local77 = local31.type.retex_d.length;
                 }
                 local90 = local15.g1_alt3();
                 if ((local90 & 0x1) != 1) {
@@ -231,14 +231,14 @@ public final class Static538 {
                 Static651.method8515(local814, local86, true, local31);
             }
             if ((local35 & 0x800) != 0) {
-                local73 = local31.aNPCType_1.models.length;
+                local73 = local31.type.models.length;
                 local77 = 0;
-                if (local31.aNPCType_1.recol_d != null) {
-                    local77 = local31.aNPCType_1.recol_d.length;
+                if (local31.type.recol_d != null) {
+                    local77 = local31.type.recol_d.length;
                 }
                 local86 = 0;
-                if (local31.aNPCType_1.retex_d != null) {
-                    local86 = local31.aNPCType_1.retex_d.length;
+                if (local31.type.retex_d != null) {
+                    local86 = local31.type.retex_d.length;
                 }
                 local90 = local15.g1_alt3();
                 if ((local90 & 0x1) == 1) {

@@ -13,7 +13,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!wj")
-public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
+public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "Qc", descriptor = "Ljava/lang/String;")
     public String aString128;
@@ -22,7 +22,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     public NPCTypeCustomisation aNPCTypeCustomisation_1;
 
     @OriginalMember(owner = "client!wj", name = "Yc", descriptor = "Lclient!o;")
-    public NPCType aNPCType_1;
+    public NPCType type;
 
     @OriginalMember(owner = "client!wj", name = "Sc", descriptor = "I")
     public int anInt10791;
@@ -40,12 +40,34 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     public int anInt10790 = 1;
 
     @OriginalMember(owner = "client!wj", name = "<init>", descriptor = "()V")
-    public Class8_Sub2_Sub1_Sub2_Sub2() {
+    public NPCEntity() {
     }
 
     @OriginalMember(owner = "client!wj", name = "<init>", descriptor = "(I)V")
-    public Class8_Sub2_Sub1_Sub2_Sub2(@OriginalArg(0) int arg0) {
+    public NPCEntity(@OriginalArg(0) int arg0) {
         super(arg0);
+    }
+
+    @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ILclient!wj;)I")
+    public static int currentSound(@OriginalArg(1) NPCEntity arg0) {
+        @Pc(6) NPCType local6 = arg0.type;
+        if (local6.multinpcs != null) {
+            local6 = local6.getMultiNPC(TimedVarDomain.instance);
+            if (local6 == null) {
+                return -1;
+            }
+        }
+        @Pc(22) int local22 = local6.walkSound;
+        @Pc(32) BASType local32 = arg0.method9317();
+        @Pc(37) int local37 = arg0.animator.getAnimationId();
+        if (local37 == -1 || arg0.ready) {
+            local22 = local6.readySound;
+        } else if (local32.run == local37 || local32.runFollowTurn180 == local37 || local32.runFollowTurnCw == local37 || local37 == local32.runFollowTurnCcw) {
+            local22 = local6.runSound;
+        } else if (local32.crawl == local37 || local37 == local32.crawlFollowTurn180 || local32.crawlFollowTurnCw == local37 || local32.crawlFollowTurnCcw == local37) {
+            local22 = local6.crawlSound;
+        }
+        return local22;
     }
 
     @OriginalMember(owner = "client!wj", name = "j", descriptor = "(I)V")
@@ -56,7 +78,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "j", descriptor = "(B)Z")
     public boolean method9322() {
-        return this.aNPCType_1 != null;
+        return this.type != null;
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
@@ -71,7 +93,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
     public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
-        if (this.aNPCType_1 == null || !this.method9324(131072, arg3)) {
+        if (this.type == null || !this.method9324(131072, arg3)) {
             return false;
         }
         @Pc(20) Matrix local20 = arg3.scratchMatrix();
@@ -84,16 +106,16 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 @Pc(71) boolean var10000;
                 label50:
                 {
-                    if (this.aNPCType_1.pickSizeShift <= 0) {
+                    if (this.type.pickSizeShift <= 0) {
                         label48:
                         {
-                            if (this.aNPCType_1.anInt6706 == -1) {
-                                if (this.aNPCType_1.size == 1) {
+                            if (this.type.anInt6706 == -1) {
+                                if (this.type.size == 1) {
                                     break label48;
                                 }
                                 var10000 = false;
                             } else {
-                                if (this.aNPCType_1.anInt6706 == 1) {
+                                if (this.type.anInt6706 == 1) {
                                     break label48;
                                 }
                                 var10000 = false;
@@ -109,9 +131,9 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 @Pc(89) boolean local89 = var10000;
                 @Pc(105) boolean local105;
                 if (Static504.aBoolean579) {
-                    local105 = super.aModelArray3[local40].pickedOrtho(arg1, arg0, local20, local89, this.aNPCType_1.pickSizeShift, Static582.anInt8627);
+                    local105 = super.aModelArray3[local40].pickedOrtho(arg1, arg0, local20, local89, this.type.pickSizeShift, Static582.anInt8627);
                 } else {
-                    local105 = super.aModelArray3[local40].picked(arg1, arg0, local20, local89, this.aNPCType_1.pickSizeShift);
+                    local105 = super.aModelArray3[local40].picked(arg1, arg0, local20, local89, this.type.pickSizeShift);
                 }
                 if (local105) {
                     local38 = true;
@@ -128,13 +150,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
-        if (this.aNPCType_1 == null || !this.method9324(2048, arg0)) {
+        if (this.type == null || !this.method9324(2048, arg0)) {
             return null;
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
         local22.rotate(local27);
-        @Pc(45) Class291 local45 = Static334.activeTiles[super.aByte144][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
+        @Pc(45) Class291 local45 = Static334.activeTiles[super.level][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
         if (local45 == null || local45.aGroundDecor_1 == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
         } else {
@@ -143,13 +165,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         }
         local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 20, super.anInt10694);
         @Pc(104) BASType local104 = this.method9317();
-        @Pc(118) NPCType local118 = this.aNPCType_1.multinpcs == null ? this.aNPCType_1 : this.aNPCType_1.getMultiNPC(65535, Static34.aClass304_1);
+        @Pc(118) NPCType local118 = this.type.multinpcs == null ? this.type : this.type.getMultiNPC(TimedVarDomain.instance);
         super.aBoolean819 = false;
         @Pc(123) Class8_Sub7 local123 = null;
         if (Static400.instance.aClass57_Sub7_1.method2905() == 1 && local118.hasShadow && local104.animateShadow) {
             @Pc(159) Animator local159 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
-            @Pc(179) Animator local179 = super.animator.isAnimating() && (!super.aBoolean817 || local159 == null) ? super.animator : null;
-            @Pc(223) Model local223 = Static618.method8320(this.aNPCType_1.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.anInt10742, this.aNPCType_1.shadowInnerColour & 0xFFFF, super.anInt10716, this.aNPCType_1.size, arg0, this.aNPCType_1.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.aNPCType_1.shadowOuterColour & 0xFFFF);
+            @Pc(179) Animator local179 = super.animator.isAnimating() && (!super.ready || local159 == null) ? super.animator : null;
+            @Pc(223) Model local223 = Static618.method8320(this.type.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.anInt10742, this.type.shadowInnerColour & 0xFFFF, super.anInt10716, this.type.size, arg0, this.type.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.type.shadowOuterColour & 0xFFFF);
             if (local223 != null) {
                 local123 = Static642.method8441(this.method9330(), super.aModelArray3.length + 1);
                 super.aBoolean819 = true;
@@ -205,7 +227,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(5) int local5 = arg0;
         @Pc(9) BASType local9 = this.method9317();
         @Pc(27) Animator local27 = super.aAnimator_11.isAnimating() && !super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
-        @Pc(47) Animator local47 = super.animator.isAnimating() && (!super.aBoolean817 || local27 == null) ? super.animator : null;
+        @Pc(47) Animator local47 = super.animator.isAnimating() && (!super.ready || local27 == null) ? super.animator : null;
         @Pc(50) int local50 = local9.hillWidth;
         @Pc(53) int local53 = local9.hillHeight;
         if (local50 != 0 || local53 != 0 || local9.rollTargetAngle != 0 || local9.pitchTargetAngle != 0) {
@@ -216,7 +238,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             arg0 |= 0x80000;
         }
         @Pc(111) int local111 = super.aClass126_7.method2673(16383);
-        @Pc(134) Model local134 = super.aModelArray3[0] = this.aNPCType_1.getModel(Static34.aClass304_1, arg1, Static574.basTypeList, local27, local111, super.anIntArray877, this.aNPCTypeCustomisation_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
+        @Pc(134) Model local134 = super.aModelArray3[0] = this.type.getModel(TimedVarDomain.instance, arg1, Static574.basTypeList, local27, local111, super.anIntArray877, this.aNPCTypeCustomisation_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
         if (local134 == null) {
             return false;
         }
@@ -247,13 +269,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "f", descriptor = "(B)I")
     @Override
     public int method9299() {
-        if (this.aNPCType_1.multinpcs != null) {
-            @Pc(19) NPCType local19 = this.aNPCType_1.getMultiNPC(65535, Static34.aClass304_1);
+        if (this.type.multinpcs != null) {
+            @Pc(19) NPCType local19 = this.type.getMultiNPC(TimedVarDomain.instance);
             if (local19 != null && local19.height != -1) {
                 return local19.height;
             }
         }
-        return this.aNPCType_1.height == -1 ? super.method9299() : this.aNPCType_1.height;
+        return this.type.height == -1 ? super.method9299() : this.type.height;
     }
 
     @OriginalMember(owner = "client!wj", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
@@ -287,13 +309,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (arg0 >= -48) {
             this.method9290(117);
         }
-        if (this.aNPCType_1.multinpcs != null) {
-            @Pc(22) NPCType local22 = this.aNPCType_1.getMultiNPC(65535, Static34.aClass304_1);
+        if (this.type.multinpcs != null) {
+            @Pc(22) NPCType local22 = this.type.getMultiNPC(TimedVarDomain.instance);
             if (local22 != null && local22.mobilisingArmiesIcon != -1) {
                 return local22.mobilisingArmiesIcon;
             }
         }
-        return this.aNPCType_1.mobilisingArmiesIcon;
+        return this.type.mobilisingArmiesIcon;
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IIB)V")
@@ -356,7 +378,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZIIII)V")
     public void method9326(@OriginalArg(1) boolean arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        super.aByte144 = super.aByte143 = (byte) arg3;
+        super.level = super.aByte143 = (byte) arg3;
         if (Static441.method5968(arg1, arg2)) {
             super.aByte143++;
         }
@@ -412,7 +434,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
-        if (this.aNPCType_1 == null || !super.aBoolean820 && !this.method9324(0, arg0)) {
+        if (this.type == null || !super.aBoolean820 && !this.method9324(0, arg0)) {
             return;
         }
         @Pc(26) Matrix local26 = arg0.scratchMatrix();
@@ -438,13 +460,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(Lclient!o;Z)V")
     public void method9328(@OriginalArg(0) NPCType arg0) {
-        if (arg0 != this.aNPCType_1 && Static400.aBoolean622 && Static321.method4622(super.anInt10740)) {
+        if (arg0 != this.type && MiniMenu.open && Static321.method4622(super.anInt10740)) {
             Static488.method6522();
         }
-        this.aNPCType_1 = arg0;
-        if (this.aNPCType_1 != null) {
-            this.aString128 = this.aNPCType_1.name;
-            this.anInt10791 = this.aNPCType_1.combatLevel;
+        this.type = arg0;
+        if (this.type != null) {
+            this.aString128 = this.type.name;
+            this.anInt10791 = this.type.combatLevel;
         }
         if (super.aClass8_Sub5_8 != null) {
             super.aClass8_Sub5_8.method3656();
@@ -454,8 +476,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!wj", name = "m", descriptor = "(I)I")
     @Override
     protected int method9320(@OriginalArg(0) int arg0) {
-        if (this.aNPCType_1.multinpcs != null) {
-            @Pc(15) NPCType local15 = this.aNPCType_1.getMultiNPC(arg0 + 65535, Static34.aClass304_1);
+        if (this.type.multinpcs != null) {
+            @Pc(15) NPCType local15 = this.type.getMultiNPC(TimedVarDomain.instance);
             if (local15 != null && local15.basId != -1) {
                 return local15.basId;
             }
@@ -463,17 +485,17 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         if (arg0 != 0) {
             this.anInt10774 = -66;
         }
-        return this.aNPCType_1.basId;
+        return this.type.basId;
     }
 
     @OriginalMember(owner = "client!wj", name = "n", descriptor = "(I)Z")
     public boolean method9330() {
-        return this.aNPCType_1.interactive;
+        return this.type.interactive;
     }
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(B)I")
     @Override
     public int method9287() {
-        return this.aNPCType_1 == null ? 0 : this.aNPCType_1.pickSizeShift;
+        return this.type == null ? 0 : this.type.pickSizeShift;
     }
 }

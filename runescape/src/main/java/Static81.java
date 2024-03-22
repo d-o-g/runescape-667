@@ -26,7 +26,7 @@ public final class Static81 {
         local8.buffer.pjstr(arg2);
         local8.buffer.p8(Static416.aLong208);
         local8.buffer.p1(Static51.language);
-        local8.buffer.p1(Static392.aModeGame_4.id);
+        local8.buffer.p1(client.modeGame.id);
         Static176.method6690(local8.buffer);
         @Pc(81) String local81 = Static389.aString64;
         local8.buffer.p1(local81 == null ? 0 : 1);

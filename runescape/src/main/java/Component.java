@@ -157,7 +157,7 @@ public final class Component {
     public byte[] opChars;
 
     @OriginalMember(owner = "client!hda", name = "mb", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray7;
+    public Object[] onChatTransmit;
 
     @OriginalMember(owner = "client!hda", name = "gc", descriptor = "[Ljava/lang/Object;")
     public Object[] onInvTransmit;
@@ -166,7 +166,7 @@ public final class Component {
     public boolean flipVertical;
 
     @OriginalMember(owner = "client!hda", name = "wc", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray9;
+    public Object[] onStockTransmit;
 
     @OriginalMember(owner = "client!hda", name = "zc", descriptor = "I")
     public int anInt3774;
@@ -181,7 +181,7 @@ public final class Component {
     public Animator animator;
 
     @OriginalMember(owner = "client!hda", name = "hd", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray12;
+    public Object[] onClanChannelTransmit;
 
     @OriginalMember(owner = "client!hda", name = "ec", descriptor = "[Ljava/lang/Object;")
     public Object[] onLoad;
@@ -205,7 +205,7 @@ public final class Component {
     public Object[] onTargetLeave;
 
     @OriginalMember(owner = "client!hda", name = "Nb", descriptor = "[I")
-    public int[] anIntArray294;
+    public int[] opKeysIgnoreHeld;
 
     @OriginalMember(owner = "client!hda", name = "bd", descriptor = "[Ljava/lang/Object;")
     public Object[] onClick;
@@ -238,16 +238,16 @@ public final class Component {
     public int skyBoxSphereOffsetY;
 
     @OriginalMember(owner = "client!hda", name = "fd", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray22;
+    public Object[] onKey;
 
     @OriginalMember(owner = "client!hda", name = "sb", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray23;
+    public Object[] onClanSettingsTransmit;
 
     @OriginalMember(owner = "client!hda", name = "v", descriptor = "[Ljava/lang/Object;")
     public Object[] onClickRepeat;
 
     @OriginalMember(owner = "client!hda", name = "Qb", descriptor = "[Lclient!hda;")
-    public Component[] aComponentArray2;
+    public Component[] staticComponents;
 
     @OriginalMember(owner = "client!hda", name = "r", descriptor = "[I")
     public int[] varcstrTriggers;
@@ -259,7 +259,7 @@ public final class Component {
     public Object[] onVarTransmit;
 
     @OriginalMember(owner = "client!hda", name = "V", descriptor = "[I")
-    public int[] anIntArray297;
+    public int[] varclanTriggers;
 
     @OriginalMember(owner = "client!hda", name = "Bb", descriptor = "[Ljava/lang/Object;")
     public Object[] onMouseLeave;
@@ -271,7 +271,7 @@ public final class Component {
     public int anInt3815;
 
     @OriginalMember(owner = "client!hda", name = "ac", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray27;
+    public Object[] onClanTransmit;
 
     @OriginalMember(owner = "client!hda", name = "Pb", descriptor = "[I")
     public int[] varcTriggers;
@@ -292,22 +292,22 @@ public final class Component {
     public int type;
 
     @OriginalMember(owner = "client!hda", name = "Dc", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray29;
+    public Object[] onFriendTransmit;
 
     @OriginalMember(owner = "client!hda", name = "x", descriptor = "[Ljava/lang/Object;")
     public Object[] onDrag;
 
     @OriginalMember(owner = "client!hda", name = "Fb", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray31;
+    public Object[] onCamFinished;
 
     @OriginalMember(owner = "client!hda", name = "Q", descriptor = "[Ljava/lang/Object;")
     public Object[] onHold;
 
     @OriginalMember(owner = "client!hda", name = "cc", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray33;
+    public Object[] onVarclanTransmit;
 
     @OriginalMember(owner = "client!hda", name = "wd", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray34;
+    public Object[] onMiscTransmit;
 
     @OriginalMember(owner = "client!hda", name = "Z", descriptor = "[I")
     public int[] opCursors;
@@ -328,10 +328,10 @@ public final class Component {
     public int targetEnterCursor = -1;
 
     @OriginalMember(owner = "client!hda", name = "Nc", descriptor = "Z")
-    public boolean aBoolean290 = false;
+    public boolean clicked = false;
 
     @OriginalMember(owner = "client!hda", name = "xb", descriptor = "I")
-    public int anInt3775 = 0;
+    public int lastInvUpdate = 0;
 
     @OriginalMember(owner = "client!hda", name = "ad", descriptor = "Z")
     public boolean modelOrtho = false;
@@ -376,7 +376,7 @@ public final class Component {
     public byte sizeTypeVertical = 0;
 
     @OriginalMember(owner = "client!hda", name = "Mc", descriptor = "I")
-    public int anInt3791 = 0;
+    public int lastVarclanUpdate = 0;
 
     @OriginalMember(owner = "client!hda", name = "sc", descriptor = "Z")
     public boolean clickMask = true;
@@ -391,7 +391,7 @@ public final class Component {
     public int id = -1;
 
     @OriginalMember(owner = "client!hda", name = "lb", descriptor = "I")
-    public int lb = -1;
+    public int lastScriptTransmit = -1;
 
     @OriginalMember(owner = "client!hda", name = "yc", descriptor = "I")
     public int modelAnimation = -1;
@@ -409,7 +409,7 @@ public final class Component {
     public int objNumMode = 2;
 
     @OriginalMember(owner = "client!hda", name = "I", descriptor = "Z")
-    public boolean aBoolean296 = false;
+    public boolean hasOpKey = false;
 
     @OriginalMember(owner = "client!hda", name = "zd", descriptor = "Z")
     public boolean hasHook = false;
@@ -427,7 +427,7 @@ public final class Component {
     public int lineHeight = 0;
 
     @OriginalMember(owner = "client!hda", name = "pb", descriptor = "Z")
-    public boolean aBoolean298 = false;
+    public boolean hovered = false;
 
     @OriginalMember(owner = "client!hda", name = "vb", descriptor = "I")
     public int slot = -1;
@@ -457,7 +457,7 @@ public final class Component {
     public int dragDeadZone = 0;
 
     @OriginalMember(owner = "client!hda", name = "qb", descriptor = "I")
-    public int anInt3803 = 0;
+    public int lastStatUpdate = 0;
 
     @OriginalMember(owner = "client!hda", name = "wb", descriptor = "I")
     public int modelZoom = 100;
@@ -475,7 +475,7 @@ public final class Component {
     public int verticalAlignment = 0;
 
     @OriginalMember(owner = "client!hda", name = "Db", descriptor = "I")
-    public int anInt3761 = 0;
+    public int lastVarpUpdate = 0;
 
     @OriginalMember(owner = "client!hda", name = "h", descriptor = "I")
     public int scrollY = 0;
@@ -514,7 +514,7 @@ public final class Component {
     public int height = 0;
 
     @OriginalMember(owner = "client!hda", name = "y", descriptor = "I")
-    public int anInt3805 = 0;
+    public int lastVarcUpdate = 0;
 
     @OriginalMember(owner = "client!hda", name = "jb", descriptor = "I")
     public int objType = OBJ_TYPE_MODEL;
@@ -541,7 +541,7 @@ public final class Component {
     public int layer = -1;
 
     @OriginalMember(owner = "client!hda", name = "R", descriptor = "I")
-    public int anInt3801 = 0;
+    public int lastVarcstrUpdate = 0;
 
     @OriginalMember(owner = "client!hda", name = "Kb", descriptor = "I")
     public int lastUpdate = -1;
@@ -879,7 +879,7 @@ public final class Component {
                 }
                 @Pc(674) byte opKey = packet.g1b();
                 if (opKey != 0) {
-                    this.aBoolean296 = true;
+                    this.hasOpKey = true;
                 }
                 @Pc(688) byte opChar = packet.g1b();
                 this.opKeyRates[index] = opkeyRate;
@@ -1144,25 +1144,25 @@ public final class Component {
         this.varcstrTriggers = null;
         this.onOp = null;
         this.onTargetLeave = null;
-        this.anObjectArray23 = null;
-        this.anObjectArray27 = null;
+        this.onClanSettingsTransmit = null;
+        this.onClanTransmit = null;
         this.onInvTransmit = null;
-        this.anObjectArray31 = null;
+        this.onCamFinished = null;
         this.onHold = null;
         this.onMouseLeave = null;
         this.onMouseOver = null;
         this.onVarTransmit = null;
         this.statTriggers = null;
         this.onLoad = null;
-        this.anObjectArray9 = null;
-        this.anObjectArray22 = null;
+        this.onStockTransmit = null;
+        this.onKey = null;
         this.anObjectArray6 = null;
-        this.anObjectArray29 = null;
+        this.onFriendTransmit = null;
         this.onClickRepeat = null;
         this.onTimer = null;
-        this.anObjectArray7 = null;
+        this.onChatTransmit = null;
         this.onStatTransmit = null;
-        this.anObjectArray34 = null;
+        this.onMiscTransmit = null;
         this.onVarcstrTransmit = null;
         this.onMouseRepeat = null;
     }

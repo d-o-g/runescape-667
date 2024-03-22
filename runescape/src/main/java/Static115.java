@@ -11,9 +11,6 @@ public final class Static115 {
     @OriginalMember(owner = "client!dka", name = "d", descriptor = "F")
     public static float aFloat50;
 
-    @OriginalMember(owner = "client!dka", name = "b", descriptor = "I")
-    public static int anInt2258 = -1;
-
     @OriginalMember(owner = "client!dka", name = "a", descriptor = "[[I")
     public static final int[][] anIntArrayArray56 = new int[][]{{0, 2, 4, 6}, {6, 0, 2, 4}, {6, 0, 2}, {2, 6, 0}, {0, 2, 6}, {6, 0, 2}, {5, 6, 0, 1, 2, 4}, {7, 2, 4, 4}, {2, 4, 4, 7}, {6, 6, 4, 0, 2, 2}, {0, 2, 2, 6, 6, 4}, {0, 2, 2, 4, 6, 6}, {0, 2, 4, 6}};
 

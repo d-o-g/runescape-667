@@ -29,19 +29,19 @@ public final class Static651 {
         @Pc(29) int local29 = arg3.anInt10756 - arg3.aClass126_7.anInt2889 & 0x3FFF;
         if (arg0 == -1) {
             if (local29 == 0 && arg3.anInt10749 <= 25) {
-                if (!arg3.aBoolean817 || !local9.isReady(local19.getAnimationId())) {
+                if (!arg3.ready || !local9.isReady(local19.getAnimationId())) {
                     local19.update(true, local9.ready());
-                    arg3.aBoolean817 = local19.isAnimating();
+                    arg3.ready = local19.isAnimating();
                 }
             } else if (arg1 < 0 && local9.readyTurnCcw != -1) {
                 local19.update(true, local9.readyTurnCcw);
-                arg3.aBoolean817 = false;
+                arg3.ready = false;
             } else if (arg1 > 0 && local9.readyTurnCw != -1) {
                 local19.update(true, local9.readyTurnCw);
-                arg3.aBoolean817 = false;
-            } else if (!arg3.aBoolean817 || !local9.isReady(local19.getAnimationId())) {
+                arg3.ready = false;
+            } else if (!arg3.ready || !local9.isReady(local19.getAnimationId())) {
                 local19.update(true, local9.ready());
-                arg3.aBoolean817 = arg3.animator.isAnimating();
+                arg3.ready = arg3.animator.isAnimating();
             }
         } else if (arg3.anInt10722 != -1 && (local29 >= 10240 || local29 <= 2048)) {
             @Pc(172) int local172 = Static464.anIntArray561[arg2] - arg3.aClass126_7.anInt2889 & 0x3FFF;
@@ -74,7 +74,7 @@ public final class Static651 {
             } else {
                 local19.update(true, local9.walkFollowTurn180);
             }
-            arg3.aBoolean817 = false;
+            arg3.ready = false;
         } else if (local29 == 0 && arg3.anInt10749 <= 25) {
             if (arg0 == 2 && local9.run != -1) {
                 local19.update(true, local9.run);
@@ -83,7 +83,7 @@ public final class Static651 {
             } else {
                 local19.update(true, local9.walk);
             }
-            arg3.aBoolean817 = false;
+            arg3.ready = false;
         } else {
             if (arg0 == 2 && local9.run != -1) {
                 if (arg1 < 0 && local9.runTurnCcw != -1) {
@@ -108,7 +108,7 @@ public final class Static651 {
             } else {
                 local19.update(true, local9.walkTurnCw);
             }
-            arg3.aBoolean817 = false;
+            arg3.ready = false;
         }
     }
 
@@ -166,14 +166,14 @@ public final class Static651 {
     }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IZLclient!wj;)V")
-    public static void method8517(@OriginalArg(1) boolean arg0, @OriginalArg(2) Class8_Sub2_Sub1_Sub2_Sub2 arg1) {
-        if (Static594.anInt8777 >= 400) {
+    public static void method8517(@OriginalArg(1) boolean arg0, @OriginalArg(2) NPCEntity arg1) {
+        if (MiniMenu.optionCount >= 400) {
             return;
         }
-        @Pc(21) NPCType local21 = arg1.aNPCType_1;
+        @Pc(21) NPCType local21 = arg1.type;
         @Pc(24) String local24 = arg1.aString128;
         if (local21.multinpcs != null) {
-            local21 = local21.getMultiNPC(65535, Static34.aClass304_1);
+            local21 = local21.getMultiNPC(TimedVarDomain.instance);
             if (local21 == null) {
                 return;
             }
@@ -183,13 +183,13 @@ public final class Static651 {
             return;
         }
         if (arg1.anInt10791 != 0) {
-            @Pc(67) String local67 = ModeGame.STELLAR_DAWN == Static392.aModeGame_4 ? LocalisedText.RATING.localise(Static51.language) : LocalisedText.LEVEL.localise(Static51.language);
-            local24 = local24 + Static693.method9009(Static556.self.anInt1444, arg1.anInt10791) + " (" + local67 + arg1.anInt10791 + ")";
+            @Pc(67) String local67 = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(Static51.language) : LocalisedText.LEVEL.localise(Static51.language);
+            local24 = local24 + Static693.method9009(PlayerEntity.self.anInt1444, arg1.anInt10791) + " (" + local67 + arg1.anInt10791 + ")";
         }
-        if (Static156.aBoolean223 && !arg0) {
+        if (InterfaceManager.isTargeting && !arg0) {
             @Pc(113) ParamType local113 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
-            if ((Static717.anInt10822 & 0x2) != 0 && (local113 == null || local21.param(Static610.anInt9329, local113.defaultint) != local113.defaultint)) {
-                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, Static153.aString27, 23, true, Static369.anInt4263, Static128.aString108 + " -> <col=ffff00>" + local24, (long) arg1.anInt10740, false);
+            if ((InterfaceManager.targetMask & 0x2) != 0 && (local113 == null || local21.param(Static610.anInt9329, local113.defaultint) != local113.defaultint)) {
+                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 23, true, Cursor.targetEnter, InterfaceManager.targetedVerb + " -> <col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         if (arg0) {
@@ -205,7 +205,7 @@ public final class Static651 {
         for (@Pc(189) int local189 = local176.length - 1; local189 >= 0; local189--) {
             if (local176[local189] != null && (local21.aByte107 == 0 || !local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) && !local176[local189].equalsIgnoreCase(LocalisedText.EXAMINE.localise(Static51.language)))) {
                 @Pc(226) short local226 = 0;
-                @Pc(228) int local228 = Static39.anInt950;
+                @Pc(228) int local228 = Cursor.interaction;
                 if (local189 == 0) {
                     local226 = 49;
                 }
@@ -230,7 +230,7 @@ public final class Static651 {
                 if (local21.cursor2Op == local189) {
                     local228 = local21.cursor2;
                 }
-                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) ? local21.attackCursor : local228, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) ? local21.attackCursor : local228, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         if (local21.aByte107 != 1) {
@@ -239,11 +239,11 @@ public final class Static651 {
         for (@Pc(341) int local341 = 0; local341 < local176.length; local341++) {
             if (local176[local341] != null && (local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) || local176[local341].equalsIgnoreCase(LocalisedText.EXAMINE.localise(Static51.language)))) {
                 @Pc(372) short local372 = 0;
-                if (arg1.anInt10791 > Static556.self.anInt1444) {
+                if (arg1.anInt10791 > PlayerEntity.self.anInt1444) {
                     local372 = 2000;
                 }
                 @Pc(385) short local385 = 0;
-                @Pc(387) int local387 = Static39.anInt950;
+                @Pc(387) int local387 = Cursor.interaction;
                 if (local341 == 0) {
                     local385 = 49;
                 }
@@ -271,7 +271,7 @@ public final class Static651 {
                 if (local21.cursor2Op == local341) {
                     local387 = local21.cursor2;
                 }
-                Static416.method5707(false, -1, (long) arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) ? local21.attackCursor : local387, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) ? local21.attackCursor : local387, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         return;

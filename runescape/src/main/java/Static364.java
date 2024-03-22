@@ -131,7 +131,7 @@ public final class Static364 {
                         local229.p4((int) (Math.random() * 9.9999999E7D));
                     }
                     local229.p8(Static571.aLong269);
-                    local229.p1(Static392.aModeGame_4.id);
+                    local229.p1(client.modeGame.id);
                     local229.p1((int) (Math.random() * 9.9999999E7D));
                     local229.rsaenc(Static374.LOGIN_RSA_MODULUS, Static262.LOGIN_RSA_EXPONENT);
                     local186.buffer.pdata(local229.pos, local229.data, 0);
@@ -237,9 +237,9 @@ public final class Static364 {
                         local618.pjstr(Static449.aString75);
                     }
                     local618.p1(Static470.anInt7113);
-                    local618.p1(Static36.method978(3));
-                    local618.p2(Static680.anInt10289);
-                    local618.p2(Static380.anInt5979);
+                    local618.p1(InterfaceManager.getWindowMode());
+                    local618.p2(GameShell.canvasWid);
+                    local618.p2(GameShell.canvasHei);
                     local618.p1(Static400.instance.aClass57_Sub13_1.method4373());
                     Static176.method6690(local618);
                     local618.pjstr(Static150.aString26);
@@ -280,7 +280,7 @@ public final class Static364 {
                         local646 = local618.pos;
                         local618.pjstr(Static449.aString75);
                     }
-                    local618.p1(Static392.aModeGame_4.id);
+                    local618.p1(client.modeGame.id);
                     local618.p1(Static51.language);
                     Static176.method6690(local618);
                     local618.pjstr(Static150.aString26);
@@ -309,7 +309,7 @@ public final class Static364 {
                     Static135.anInt8223 = 12;
                 } else if (local360 == 29 || local360 == 45) {
                     Static135.anInt8223 = 18;
-                    Static79.anInt1634 = local360;
+                    MiniMenu.anInt1634 = local360;
                 } else if (local360 == 1) {
                     Static135.anInt8223 = 10;
                     Static342.method4464(local360);
@@ -373,13 +373,13 @@ public final class Static364 {
                     Static135.anInt8223 = 9;
                 }
             } else if (Static135.anInt8223 == 18) {
-                if (Static79.anInt1634 == 29) {
+                if (MiniMenu.anInt1634 == 29) {
                     if (!Static524.aServerConnection_3.connection.hasAvailable(1)) {
                         return;
                     }
                     Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 1, 0);
                     Static329.anInt1749 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
-                } else if (Static79.anInt1634 == 45) {
+                } else if (MiniMenu.anInt1634 == 45) {
                     if (!Static524.aServerConnection_3.connection.hasAvailable(3)) {
                         return;
                     }
@@ -387,10 +387,10 @@ public final class Static364 {
                     Static356.anInt5780 = (Static524.aServerConnection_3.buffer.data[2] & 0xFF) + ((Static524.aServerConnection_3.buffer.data[1] & 0xFF) << 8);
                     Static329.anInt1749 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
                 } else {
-                    throw new IllegalStateException("Login step 18 not valid for pendingResponse=" + Static79.anInt1634);
+                    throw new IllegalStateException("Login step 18 not valid for pendingResponse=" + MiniMenu.anInt1634);
                 }
                 Static135.anInt8223 = 0;
-                Static342.method4464(Static79.anInt1634);
+                Static342.method4464(MiniMenu.anInt1634);
                 Static524.aServerConnection_3.connection.close();
                 Static524.aServerConnection_3.connection = null;
                 Static564.method7465();
@@ -404,7 +404,7 @@ public final class Static364 {
                         }
                         Static524.aServerConnection_3.connection.read(local1435.data, Static94.anInt1961, 0);
                         local1435.pos = 0;
-                        Static608.anInt9290 = local1435.g1();
+                        Static608.staffModLevel = local1435.g1();
                         Static38.anInt928 = local1435.g1();
                         Static389.aBoolean459 = local1435.g1() == 1;
                         Static34.aBoolean62 = local1435.g1() == 1;
@@ -421,7 +421,7 @@ public final class Static364 {
                     } else if (Static524.aServerConnection_3.connection.hasAvailable(Static94.anInt1961)) {
                         Static524.aServerConnection_3.connection.read(local1435.data, Static94.anInt1961, 0);
                         local1435.pos = 0;
-                        Static608.anInt9290 = local1435.g1();
+                        Static608.staffModLevel = local1435.g1();
                         Static38.anInt928 = local1435.g1();
                         Static389.aBoolean459 = local1435.g1() == 1;
                         Static34.aBoolean62 = local1435.g1() == 1;
@@ -443,7 +443,7 @@ public final class Static364 {
                         Static626.anInt9473 = local1435.g2();
                         Static636.anInt9527 = local1435.g2();
                         Static420.aBoolean479 = local1435.g1() == 1;
-                        Static556.self.accountName = Static556.self.aString8 = Constants.playerDisplayName = local1435.gjstr2();
+                        PlayerEntity.self.accountName = PlayerEntity.self.aString8 = Constants.playerDisplayName = local1435.gjstr2();
                         Static639.anInt9571 = local1435.g1();
                         Static438.anInt6640 = local1435.g4();
                         Static587.aBoolean663 = local1435.g1() == 1;
@@ -457,7 +457,7 @@ public final class Static364 {
                             Static668.aConnectionInfo_5.defaultPort = Static668.aConnectionInfo_5.id + 40000;
                             Static668.aConnectionInfo_5.alternatePort = Static668.aConnectionInfo_5.id + 50000;
                         }
-                        if (Static16.aClass355_2 != Static2.aClass355_1 && (Static2.aClass355_1 != Static713.aClass355_8 || Static608.anInt9290 < 2) && client.gameConnection.equalTo(Static527.aConnectionInfo_3)) {
+                        if (Static16.aClass355_2 != Static2.aClass355_1 && (Static2.aClass355_1 != Static713.aClass355_8 || Static608.staffModLevel < 2) && client.gameConnection.equalTo(Static527.aConnectionInfo_3)) {
                             Static152.method9273();
                         }
                     } else {

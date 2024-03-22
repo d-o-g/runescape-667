@@ -1,6 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.graphics.Toolkit;
 import rs2.client.loading.LoadState;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
@@ -127,7 +128,7 @@ public final class Static523 {
             Static466.anInt7042 = js5.LOADING_SCREENS.indexCrc();
             Fonts.load(js5.LOADING_SPRITES);
             @Pc(250) int local250 = Static400.instance.aClass57_Sub11_1.method3603();
-            Static333.aClass279_1 = new Class279(Static392.aModeGame_4, Static51.language, js5.LOADING_SCREENS);
+            Static333.aClass279_1 = new Class279(client.modeGame, Static51.language, js5.LOADING_SCREENS);
             @Pc(262) int[] local262 = Static333.aClass279_1.method6275(local250);
             if (local262.length == 0) {
                 local262 = Static333.aClass279_1.method6275(0);
@@ -159,8 +160,8 @@ public final class Static523 {
                     return 0;
                 }
             }
-            FontTypeList.method7549(Static163.activeToolkit);
-            Fonts.init(Static163.activeToolkit);
+            FontTypeList.method7549(Toolkit.active);
+            Fonts.init(Toolkit.active);
             MainLogicManager.setStep(1);
         }
         if (LoadState.CREATE_COLLISION_MAPS == Static473.aLoadState_22) {
@@ -247,40 +248,40 @@ public final class Static523 {
                 return 99;
             }
             Static56.anTextureSource_3 = new Class303(js5.MATERIALS, js5.TEXTURES, js5.SPRITES);
-            instance = new ParamTypeList(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static574.basTypeList = new BASTypeList(Static392.aModeGame_4, Static51.language, js5.CONFIG, wearposDefaults);
-            Static354.aClass267_1 = new Class267(Static392.aModeGame_4, Static51.language, js5.CONFIG, js5.SPRITES);
-            Static619.aClass387_2 = new Class387(Static392.aModeGame_4, Static51.language, js5.CONFIG_ENUM);
-            Static467.aClass96_3 = new Class96(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static540.aClass79_6 = new Class79(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static561.aClass220_2 = new Class220(Static392.aModeGame_4, Static51.language, js5.CONFIG, js5.SPRITES);
-            Static68.idkTypeList = new IDKTypeList(Static392.aModeGame_4, Static51.language, js5.CONFIG, js5.MODELS);
-            Static503.aClass335_1 = new Class335(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static48.aClass384_1 = new Class384(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static354.aLocTypeList_4 = new LocTypeList(Static392.aModeGame_4, Static51.language, true, js5.CONFIG_LOC, js5.MODELS);
-            Static577.aClass246_4 = new Class246(Static392.aModeGame_4, Static51.language, js5.CONFIG, js5.SPRITES);
-            Static720.aMSITypeList_4 = new MSITypeList(Static392.aModeGame_4, Static51.language, js5.CONFIG, js5.SPRITES);
-            Static690.aNPCTypeList_2 = new NPCTypeList(Static392.aModeGame_4, Static51.language, true, js5.CONFIG_NPC, js5.MODELS);
-            Static419.objTypeList = new ObjTypeList(Static392.aModeGame_4, Static51.language, true, instance, js5.CONFIG_OBJ, js5.MODELS);
-            Static272.aClass45_1 = new Class45(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static25.seqTypeList = new SeqTypeList(Static392.aModeGame_4, Static51.language, js5.CONFIG_SEQ, js5.ANIMS, js5.BASES);
-            Static324.skyBoxTypeList = new SkyBoxTypeList(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static99.skyBoxSphereTypeList = new SkyBoxSphereTypeList(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static23.aClass128_1 = new Class128(Static392.aModeGame_4, Static51.language, js5.CONFIG_SPOT, js5.MODELS);
-            Static652.aClass214_1 = new Class214(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static718.aClass176_1 = new Class176(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static691.aClass210_1 = new Class210(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static529.aClass161_1 = new Class161(Static392.aModeGame_4, Static51.language, js5.CONFIG_STRUCT);
-            Static36.aClass260_1 = new Class260(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static628.aClass342_5 = new Class342(Static392.aModeGame_4, Static51.language, js5.CONFIG);
-            Static648.aClass17_1 = new Class17(Static392.aModeGame_4, Static51.language, js5.CONFIG);
+            instance = new ParamTypeList(client.modeGame, Static51.language, js5.CONFIG);
+            Static574.basTypeList = new BASTypeList(client.modeGame, Static51.language, js5.CONFIG, wearposDefaults);
+            Static354.aClass267_1 = new Class267(client.modeGame, Static51.language, js5.CONFIG, js5.SPRITES);
+            Static619.aClass387_2 = new Class387(client.modeGame, Static51.language, js5.CONFIG_ENUM);
+            Static467.aClass96_3 = new Class96(client.modeGame, Static51.language, js5.CONFIG);
+            Static540.aClass79_6 = new Class79(client.modeGame, Static51.language, js5.CONFIG);
+            Static561.aClass220_2 = new Class220(client.modeGame, Static51.language, js5.CONFIG, js5.SPRITES);
+            Static68.idkTypeList = new IDKTypeList(client.modeGame, Static51.language, js5.CONFIG, js5.MODELS);
+            Static503.aClass335_1 = new Class335(client.modeGame, Static51.language, js5.CONFIG);
+            Static48.aClass384_1 = new Class384(client.modeGame, Static51.language, js5.CONFIG);
+            Static354.aLocTypeList_4 = new LocTypeList(client.modeGame, Static51.language, true, js5.CONFIG_LOC, js5.MODELS);
+            Static577.aClass246_4 = new Class246(client.modeGame, Static51.language, js5.CONFIG, js5.SPRITES);
+            Static720.aMSITypeList_4 = new MSITypeList(client.modeGame, Static51.language, js5.CONFIG, js5.SPRITES);
+            Static690.aNPCTypeList_2 = new NPCTypeList(client.modeGame, Static51.language, true, js5.CONFIG_NPC, js5.MODELS);
+            Static419.objTypeList = new ObjTypeList(client.modeGame, Static51.language, true, instance, js5.CONFIG_OBJ, js5.MODELS);
+            Static272.aClass45_1 = new Class45(client.modeGame, Static51.language, js5.CONFIG);
+            Static25.seqTypeList = new SeqTypeList(client.modeGame, Static51.language, js5.CONFIG_SEQ, js5.ANIMS, js5.BASES);
+            Static324.skyBoxTypeList = new SkyBoxTypeList(client.modeGame, Static51.language, js5.CONFIG);
+            Static99.skyBoxSphereTypeList = new SkyBoxSphereTypeList(client.modeGame, Static51.language, js5.CONFIG);
+            Static23.aClass128_1 = new Class128(client.modeGame, Static51.language, js5.CONFIG_SPOT, js5.MODELS);
+            Static652.aClass214_1 = new Class214(client.modeGame, Static51.language, js5.CONFIG);
+            Static718.aClass176_1 = new Class176(client.modeGame, Static51.language, js5.CONFIG);
+            Static691.aClass210_1 = new Class210(client.modeGame, Static51.language, js5.CONFIG);
+            Static529.aClass161_1 = new Class161(client.modeGame, Static51.language, js5.CONFIG_STRUCT);
+            Static36.aClass260_1 = new Class260(client.modeGame, Static51.language, js5.CONFIG);
+            Static628.aClass342_5 = new Class342(client.modeGame, Static51.language, js5.CONFIG);
+            Static648.aClass17_1 = new Class17(client.modeGame, Static51.language, js5.CONFIG);
             InterfaceManager.init(js5.INTERFACES, js5.FONTMETRICS, js5.SPRITES, js5.MODELS);
             Static110.method2081(js5.CONFIG_BILLBOARD);
             Static68.aClass151_3 = new Class151(Static51.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
             Static288.aClass139_2 = new Class139(Static51.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new Class251());
             Static412.method5693();
             Static354.aLocTypeList_4.setAnimateBackground(Static400.instance.animatingBackground.value() == 0);
-            Static34.aClass304_1 = new Class304();
+            TimedVarDomain.instance = new TimedVarDomain();
             Static296.updateFeatureMask();
             Static44.method1074(Static25.seqTypeList);
             ParticleSystem.init(js5.CONFIG_PARTICLE);
@@ -302,7 +303,7 @@ public final class Static523 {
             }
         }
         if (LoadState.SETUP_WORLD_MAP == Static473.aLoadState_22) {
-            Static30.method5065(js5.WORLDMAPDATA, Static467.aClass96_3, Static540.aClass79_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aMSITypeList_4, Static34.aClass304_1);
+            Static30.method5065(js5.WORLDMAPDATA, Static467.aClass96_3, Static540.aClass79_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aMSITypeList_4, TimedVarDomain.instance);
         }
         if (LoadState.SETUP_VARC_SYSTEM == Static473.aLoadState_22) {
             Static37.aStringArray4 = new String[Static718.aClass176_1.anInt4266];
@@ -376,9 +377,9 @@ public final class Static523 {
                 Static32.method880(Static400.instance.aClass57_Sub29_2.method7915(), false);
             }
             Static409.method5657(Static400.instance.screenSize.getValue(), -1, false, -1);
-            FontTypeList.method7549(Static163.activeToolkit);
-            Fonts.init(Static163.activeToolkit);
-            Static239.method3472(js5.SPRITES, Static163.activeToolkit);
+            FontTypeList.method7549(Toolkit.active);
+            Fonts.init(Toolkit.active);
+            Static239.method3472(js5.SPRITES, Toolkit.active);
             Static331.method4925(Static679.aSpriteArray14);
         }
         return Static694.method9030();

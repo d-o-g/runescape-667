@@ -1,4 +1,5 @@
 import com.jagex.game.runetek6.config.fonttype.FontTypeList;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -15,9 +16,9 @@ public final class Static667 {
         Static208.method3106();
         Static595.method7807(arg1, arg0, arg2);
         FontTypeList.method2569();
-        FontTypeList.method7549(Static163.activeToolkit);
-        Fonts.init(Static163.activeToolkit);
-        Static239.method3472(js5.SPRITES, Static163.activeToolkit);
+        FontTypeList.method7549(Toolkit.active);
+        Fonts.init(Toolkit.active);
+        Static239.method3472(js5.SPRITES, Toolkit.active);
         Static329.method1649();
         Static331.method4925(Static679.aSpriteArray14);
         InterfaceManager.redrawAll();

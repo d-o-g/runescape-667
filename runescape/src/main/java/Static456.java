@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
+import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.graphics.skybox.SkyBox;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -18,8 +19,8 @@ public final class Static456 {
     @OriginalMember(owner = "client!oh", name = "a", descriptor = "(IZ)V")
     public static void method6228(@OriginalArg(1) boolean arg0) {
         if (arg0) {
-            if (Static377.anInt5930 != -1) {
-                Static347.method5094(Static377.anInt5930);
+            if (InterfaceManager.topLevelInterface != -1) {
+                Static347.method5094(InterfaceManager.topLevelInterface);
             }
             for (@Pc(21) SubInterface local21 = (SubInterface) InterfaceManager.subInterfaces.first(); local21 != null; local21 = (SubInterface) InterfaceManager.subInterfaces.next()) {
                 if (!local21.isLinked()) {
@@ -30,26 +31,26 @@ public final class Static456 {
                 }
                 Static449.method6115(false, true, local21);
             }
-            Static377.anInt5930 = -1;
+            InterfaceManager.topLevelInterface = -1;
             InterfaceManager.subInterfaces = new IterableHashTable(8);
             Static656.method6692();
-            Static377.anInt5930 = Static523.graphicsDefaults.login_interface;
+            InterfaceManager.topLevelInterface = Static523.graphicsDefaults.login_interface;
             Static640.method8435(false);
             InterfaceManager.redrawAll();
-            Static472.method6414(Static377.anInt5930);
+            Static472.method6414(InterfaceManager.topLevelInterface);
         }
         Static300.method4389();
         Static461.aBoolean529 = false;
         Static242.method3502();
-        Static442.anInt6699 = -1;
-        Static115.method2136(StaticWallDecor.lb);
-        Static556.self = new PlayerEntity();
-        Static556.self.anInt10694 = Static501.mapHeight * 512 / 2;
-        Static556.self.anInt10690 = Static720.mapWidth * 512 / 2;
-        Static556.self.pathX[0] = Static720.mapWidth / 2;
+        Cursor.targetEnd = -1;
+        Static115.method2136(Cursor.dflt);
+        PlayerEntity.self = new PlayerEntity();
+        PlayerEntity.self.anInt10694 = Static501.mapHeight * 512 / 2;
+        PlayerEntity.self.anInt10690 = Static720.mapWidth * 512 / 2;
+        PlayerEntity.self.pathX[0] = Static720.mapWidth / 2;
         Static110.anInt2186 = 0;
         Static170.anInt2864 = 0;
-        Static556.self.pathY[0] = Static501.mapHeight / 2;
+        PlayerEntity.self.pathY[0] = Static501.mapHeight / 2;
         if (Static511.anInt7645 == 2) {
             Static110.anInt2186 = Static709.anInt10667 << 9;
             Static170.anInt2864 = Static121.anInt2333 << 9;

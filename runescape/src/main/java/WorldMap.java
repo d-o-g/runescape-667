@@ -9,6 +9,21 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class WorldMap {
 
+    @OriginalMember(owner = "client!gia", name = "s", descriptor = "Lclient!hda;")
+    public static Component component;
+
+    @OriginalMember(owner = "client!cw", name = "C", descriptor = "Z")
+    public static boolean hovered = false;
+
+    @OriginalMember(owner = "client!lja", name = "l", descriptor = "I")
+    public static int optionsX = -1;
+
+    @OriginalMember(owner = "client!tba", name = "g", descriptor = "Lclient!hda;")
+    public static Component optionsComponent = null;
+
+    @OriginalMember(owner = "client!eu", name = "ic", descriptor = "I")
+    public static int optionsY = -1;
+
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(IIIILclient!d;Lclient!ha;I)V")
     public static void draw(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) TextureSource arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5) {
         if (Static273.anInt4403 < 100) {
@@ -90,7 +105,7 @@ public final class WorldMap {
         @Pc(152) int local152 = Static534.anInt8111 * local46 / Static30.anInt5650 + local75;
         @Pc(166) int local166 = local48 + local84 - local144 - Static510.anInt7639 * local48 / Static30.anInt5644;
         @Pc(168) int local168 = -1996554240;
-        if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
+        if (client.modeGame == ModeGame.STELLAR_DAWN) {
             local168 = -1996488705;
         }
         arg1.aa(local152, local166, local138, local144, local168, 1);
@@ -120,5 +135,36 @@ public final class WorldMap {
                 }
             }
         }
+    }
+
+    @OriginalMember(owner = "client!fo", name = "d", descriptor = "(I)Lclient!ip;")
+    public static WorldMapArea area() {
+        return Static30.aClass2_Sub2_Sub13_3;
+    }
+
+    @OriginalMember(owner = "client!gf", name = "a", descriptor = "(IIIBI)V")
+    public static void clickedOverview(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
+        @Pc(16) float local16 = (float) Static30.anInt5644 / (float) Static30.anInt5650;
+        @Pc(18) int local18 = arg0;
+        @Pc(20) int local20 = arg3;
+        if (local16 < 1.0F) {
+            local20 = (int) ((float) arg0 * local16);
+        } else {
+            local18 = (int) ((float) arg3 / local16);
+        }
+        @Pc(47) int local47 = arg2 - (arg3 - local20) / 2;
+        @Pc(56) int local56 = arg1 - (arg0 - local18) / 2;
+        Static164.anInt2809 = local56 * Static30.anInt5650 / local18;
+        Static615.anInt9389 = Static30.anInt5644 - Static30.anInt5644 * local47 / local20;
+        Static558.anInt3181 = -1;
+        Static180.anInt3001 = -1;
+        Static387.method5440();
+    }
+
+    @OriginalMember(owner = "client!cba", name = "a", descriptor = "(IZILclient!hda;)V")
+    public static void setOptions(@OriginalArg(0) int optionsX, @OriginalArg(2) int optionsY, @OriginalArg(3) Component optionsComponent) {
+        WorldMap.optionsX = optionsX;
+        WorldMap.optionsComponent = optionsComponent;
+        WorldMap.optionsY = optionsY;
     }
 }

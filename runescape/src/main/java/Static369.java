@@ -16,9 +16,6 @@ public final class Static369 {
     @OriginalMember(owner = "client!lla", name = "e", descriptor = "[B")
     public static byte[] aByteArray43;
 
-    @OriginalMember(owner = "client!lla", name = "f", descriptor = "I")
-    public static int anInt4263;
-
     @OriginalMember(owner = "client!lla", name = "a", descriptor = "I")
     public static int anInt4265 = 64;
 
@@ -51,7 +48,7 @@ public final class Static369 {
                     @Pc(142) NPCType local142 = Static690.aNPCTypeList_2.list(local66.g2());
                     @Pc(149) Node_Sub45 local149 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local88);
                     if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.areaLevel && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapHeight) {
-                        @Pc(197) Class8_Sub2_Sub1_Sub2_Sub2 local197 = new Class8_Sub2_Sub1_Sub2_Sub2();
+                        @Pc(197) NPCEntity local197 = new NPCEntity();
                         local197.anInt10740 = local88;
                         @Pc(205) Node_Sub45 local205 = new Node_Sub45(local197);
                         Static18.A_HASH_TABLE___2.put((long) local88, local205);
@@ -59,9 +56,9 @@ public final class Static369 {
                         Static103.anIntArray187[Static390.anInt6126++] = local88;
                         local197.anInt10751 = TimeUtils.clock;
                         local197.method9328(local142);
-                        local197.method9310(local197.aNPCType_1.size);
-                        local197.anInt10757 = local197.aNPCType_1.rotationSpeed << 3;
-                        local197.method9298((local197.aNPCType_1.spawnDirection + 4 & 0x80600007) << 11, true);
+                        local197.method9310(local197.type.size);
+                        local197.anInt10757 = local197.type.rotationSpeed << 3;
+                        local197.method9298((local197.type.spawnDirection + 4 & 0x80600007) << 11, true);
                         local197.method9326(true, local135, local121, local98, local197.boundSize((byte) 119));
                     }
                 }
@@ -77,7 +74,7 @@ public final class Static369 {
         @Pc(31) Node_Sub36 local31;
         if (Static400.instance.aClass57_Sub29_1.method7915() == 0) {
             for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-                Static419.objTypeList.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? Static556.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
+                Static419.objTypeList.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? PlayerEntity.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
                 local31.unlink();
             }
             InterfaceManager.redrawAll();
@@ -90,7 +87,7 @@ public final class Static369 {
             Fonts.aFont_11 = Static158.aToolkit_5.createFont(FontMetrics.loadGroup(Fonts.p11FullGroup, js5.FONTMETRICS), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
         }
         for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-            Static419.objTypeList.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? Static556.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.aFont_11, local31.anInt5895);
+            Static419.objTypeList.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? PlayerEntity.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.aFont_11, local31.anInt5895);
             local31.unlink();
         }
     }

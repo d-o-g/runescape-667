@@ -29,7 +29,7 @@ public final class Static310 {
                                 if (replayMode == SeqReplayMode.STOP) {
                                     local68 = arg3.aClass152_Sub2_Sub1Array3[local30] = null;
                                 } else if (replayMode == SeqReplayMode.RESET) {
-                                    local68.method9099();
+                                    local68.resetImmediately();
                                     local68.anInt10508 = local28;
                                 } else if (replayMode == SeqReplayMode.RESTART_LOOP) {
                                     local68.restartLoop();

@@ -26,7 +26,7 @@ public final class Static272 {
     public static final ServerProt A_SERVER_PROT___112 = new ServerProt(143, -2);
 
     @OriginalMember(owner = "client!ija", name = "d", descriptor = "Z")
-    public static boolean aBoolean337 = false;
+    public static boolean camFinished = false;
 
     @OriginalMember(owner = "client!ija", name = "a", descriptor = "(BF)F")
     public static float method3936(@OriginalArg(1) float arg0) {

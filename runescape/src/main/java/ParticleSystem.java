@@ -73,7 +73,7 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "u", descriptor = "J")
-    public long aLong132;
+    public long lastRunningCheck;
 
     @OriginalMember(owner = "client!hv", name = "m", descriptor = "J")
     public long aLong133;
@@ -91,7 +91,7 @@ public final class ParticleSystem extends Node {
     public int anInt4147 = 0;
 
     @OriginalMember(owner = "client!hv", name = "h", descriptor = "Lclient!fla;")
-    public LinkedList aLinkedList_6 = new LinkedList();
+    public LinkedList emitters = new LinkedList();
 
     @OriginalMember(owner = "client!hv", name = "o", descriptor = "I")
     public int anInt4148 = 0;
@@ -141,8 +141,8 @@ public final class ParticleSystem extends Node {
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;)V")
     public void method3646(@OriginalArg(0) Toolkit arg0) {
         this.aParticleList_1.particles.clear();
-        for (@Pc(10) ParticleEmitter local10 = (ParticleEmitter) this.aLinkedList_6.first(); local10 != null; local10 = (ParticleEmitter) this.aLinkedList_6.next()) {
-            local10.method7263(this.aLong132, arg0);
+        for (@Pc(10) ParticleEmitter local10 = (ParticleEmitter) this.emitters.first(); local10 != null; local10 = (ParticleEmitter) this.emitters.next()) {
+            local10.method7263(this.lastRunningCheck, arg0);
         }
     }
 
@@ -214,10 +214,10 @@ public final class ParticleSystem extends Node {
         }
         @Pc(21) int local21;
         label62:
-        for (@Pc(16) ParticleEmitter local16 = (ParticleEmitter) this.aLinkedList_6.first(); local16 != null; local16 = (ParticleEmitter) this.aLinkedList_6.next()) {
+        for (@Pc(16) ParticleEmitter local16 = (ParticleEmitter) this.emitters.first(); local16 != null; local16 = (ParticleEmitter) this.emitters.next()) {
             if (arg1 != null) {
                 for (local21 = 0; local21 < arg1.length; local21++) {
-                    if (local16.aModelParticleEmitter_1 == arg1[local21] || local16.aModelParticleEmitter_1 == arg1[local21].aModelParticleEmitter_2) {
+                    if (local16.model == arg1[local21] || local16.model == arg1[local21].aModelParticleEmitter_2) {
                         aBooleanArray7[local21] = true;
                         local16.method7264();
                         local16.aBoolean630 = false;
@@ -238,7 +238,7 @@ public final class ParticleSystem extends Node {
         for (local21 = 0; local21 < arg1.length && local21 != 32 && this.anInt4148 != 32; local21++) {
             if (!aBooleanArray7[local21]) {
                 @Pc(104) ParticleEmitter local104 = new ParticleEmitter(arg0, arg1[local21], this, this.aLong133);
-                this.aLinkedList_6.add(local104);
+                this.emitters.add(local104);
                 this.anInt4148++;
                 aBooleanArray7[local21] = true;
             }
@@ -253,14 +253,14 @@ public final class ParticleSystem extends Node {
                 local8.unlink2();
             }
         }
-        for (@Pc(27) int local27 = 0; local27 < this.aMovingParticle.length; local27++) {
-            if (this.aMovingParticle[local27] != null) {
-                this.aMovingParticle[local27].method6697();
-                this.aMovingParticle[local27] = null;
+        for (@Pc(27) int i = 0; i < this.aMovingParticle.length; i++) {
+            if (this.aMovingParticle[i] != null) {
+                this.aMovingParticle[i].method6697();
+                this.aMovingParticle[i] = null;
             }
         }
         this.anInt4147 = 0;
-        this.aLinkedList_6 = new LinkedList();
+        this.emitters = new LinkedList();
         this.anInt4148 = 0;
         this.aDeque_22 = new Deque();
         this.anInt4150 = 0;
@@ -270,30 +270,35 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J)Z")
-    public boolean method3653(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) long arg1) {
-        if (this.aLong133 == this.aLong132) {
+    public boolean isRunning(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) long time) {
+        if (this.aLong133 == this.lastRunningCheck) {
             this.method3655();
         } else {
             this.method3644();
         }
-        if (arg1 - this.aLong133 > 750L) {
+
+        if (time - this.aLong133 > 750L) {
             this.method3652();
             return false;
         }
-        @Pc(27) int local27 = (int) (arg1 - this.aLong132);
-        @Pc(36) ParticleEmitter local36;
+
+        @Pc(27) int local27 = (int) (time - this.lastRunningCheck);
+        @Pc(36) ParticleEmitter emitter;
+
         if (this.aBoolean326) {
-            for (local36 = (ParticleEmitter) this.aLinkedList_6.first(); local36 != null; local36 = (ParticleEmitter) this.aLinkedList_6.next()) {
-                for (@Pc(39) int local39 = 0; local39 < local36.aParticleEmitterType_1.startupTicks; local39++) {
-                    local36.method7261(1, !this.aBoolean323, arg1, arg0);
+            for (emitter = (ParticleEmitter) this.emitters.first(); emitter != null; emitter = (ParticleEmitter) this.emitters.next()) {
+                for (@Pc(39) int i = 0; i < emitter.type.startupTicks; i++) {
+                    emitter.method7261(1, !this.aBoolean323, time, toolkit);
                 }
             }
             this.aBoolean326 = false;
         }
-        for (local36 = (ParticleEmitter) this.aLinkedList_6.first(); local36 != null; local36 = (ParticleEmitter) this.aLinkedList_6.next()) {
-            local36.method7261(local27, !this.aBoolean323, arg1, arg0);
+
+        for (emitter = (ParticleEmitter) this.emitters.first(); emitter != null; emitter = (ParticleEmitter) this.emitters.next()) {
+            emitter.method7261(local27, !this.aBoolean323, time, toolkit);
         }
-        this.aLong132 = arg1;
+
+        this.lastRunningCheck = time;
         return true;
     }
 
@@ -311,7 +316,7 @@ public final class ParticleSystem extends Node {
     public void init(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
         systems.add(this);
         this.aLong133 = (long) arg0;
-        this.aLong132 = (long) arg0;
+        this.lastRunningCheck = (long) arg0;
         this.aBoolean326 = true;
         this.aBoolean325 = arg1;
     }

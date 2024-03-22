@@ -1,6 +1,7 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -32,7 +33,7 @@ public final class Static684 {
             Static164.areaLevel = 0;
         }
         MainLogicManager.setStep(mainLogicStep);
-        Static694.method9028(Static163.activeToolkit, LocalisedText.LOADING.localise(Static51.language), true, Fonts.p12Metrics, Fonts.p12);
+        Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(Static51.language), true, Fonts.p12Metrics, Fonts.p12);
         @Pc(74) int local74 = Static691.areaBaseX;
         Static691.areaBaseX = (Static62.anInt1465 - (Static720.mapWidth >> 4)) * 8;
         @Pc(85) int local85 = Static116.areaBaseY;
@@ -49,7 +50,7 @@ public final class Static684 {
             for (local308 = 0; local308 < Static416.anInt6378; local308++) {
                 @Pc(313) Node_Sub45 local313 = Static592.aClass2_Sub45Array1[local308];
                 if (local313 != null) {
-                    @Pc(318) Class8_Sub2_Sub1_Sub2_Sub2 local318 = local313.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    @Pc(318) NPCEntity local318 = local313.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                     for (local136 = 0; local136 < local318.pathX.length; local136++) {
                         local318.pathX[local136] -= deltaX;
                         local318.pathY[local136] -= deltaY;
@@ -66,7 +67,7 @@ public final class Static684 {
             for (local136 = 0; local136 < Static416.anInt6378; local136++) {
                 @Pc(141) Node_Sub45 local141 = Static592.aClass2_Sub45Array1[local136];
                 if (local141 != null) {
-                    @Pc(146) Class8_Sub2_Sub1_Sub2_Sub2 local146 = local141.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    @Pc(146) NPCEntity local146 = local141.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                     local146.anInt10694 -= deltaY * 512;
                     local146.anInt10690 -= deltaX * 512;
                     if (local146.anInt10690 >= 0 && local128 >= local146.anInt10690 && local146.anInt10694 >= 0 && local134 >= local146.anInt10694) {

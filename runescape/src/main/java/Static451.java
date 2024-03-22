@@ -6,5 +6,5 @@ public final class Static451 {
     public static ServerProt aServerProt_171 = new ServerProt(12, -2);
 
     @OriginalMember(owner = "client!oe", name = "N", descriptor = "I")
-    public static int anInt6851 = 0;
+    public static int invUpdateCount = 0;
 }

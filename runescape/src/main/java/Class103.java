@@ -8,7 +8,7 @@ public final class Class103 {
 
     @OriginalMember(owner = "client!ek", name = "a", descriptor = "(IZI)I")
     public int method2416(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(26) int local26 = Static380.anInt5979 > arg0 ? Static380.anInt5979 : arg0;
+        @Pc(26) int local26 = GameShell.canvasHei > arg0 ? GameShell.canvasHei : arg0;
         if (Static520.aClass103_13 == this) {
             return 0;
         } else if (Static488.aClass103_12 == this) {

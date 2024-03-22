@@ -143,8 +143,8 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
     @OriginalMember(owner = "client!sv", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
-        @Pc(17) Class286 local17 = Static467.method6351(super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
-        @Pc(29) GroundDecor local29 = Static687.method8959(super.aByte144, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
+        @Pc(17) Class286 local17 = Static467.method6351(super.level, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
+        @Pc(29) GroundDecor local29 = Static687.method8959(super.level, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
         @Pc(31) int local31 = 0;
         if (local17 != null && local17.aPositionEntity.aBoolean815) {
             local31 = local17.aPositionEntity.method9286(2);

@@ -18,7 +18,7 @@ public final class Static270 {
             return;
         }
         Static79.method1579("--> " + Static110.aString19);
-        Static231.method3381(false, arg0, Static110.aString19);
+        Static231.executeComand(false, arg0, Static110.aString19);
         Static625.anInt9472 = 0;
         if (!arg0) {
             Static594.anInt8776 = 0;

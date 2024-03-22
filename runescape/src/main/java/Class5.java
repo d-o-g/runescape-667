@@ -1,3 +1,4 @@
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -27,6 +28,6 @@ public final class Class5 implements Interface13 {
     @OriginalMember(owner = "client!aca", name = "a", descriptor = "(ZI)V")
     @Override
     public void method7749() {
-        Static163.activeToolkit.aa(0, 0, Static680.anInt10289, Static380.anInt5979, this.aClass146_1.anInt3441, 0);
+        Toolkit.active.aa(0, 0, GameShell.canvasWid, GameShell.canvasHei, this.aClass146_1.anInt3441, 0);
     }
 }

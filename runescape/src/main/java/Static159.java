@@ -67,7 +67,7 @@ public final class Static159 {
         } else {
             local80 = 0;
             for (@Pc(85) DoublyLinkedNode_Sub2_Sub16 local85 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local85 != null; local85 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
-                local101 = (Static594.anInt8777 - local80 - 1) * 16 + local9 + Static84.anInt1775 + 31;
+                local101 = (MiniMenu.optionCount - local80 - 1) * 16 + local9 + Static84.anInt1775 + 31;
                 local80++;
                 Static232.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, local85, -1, local76, local7 + Static71.anInt1576, local69);
             }
@@ -80,8 +80,8 @@ public final class Static159 {
         if (Static41.method1027(MainLogicManager.step) || MainLogicManager.isAtLobbyScreen(MainLogicManager.step)) {
             Static127.method2243(Static412.anInt6358, Static170.anInt2864 >> 12, Static110.anInt2186 >> 12);
         } else {
-            @Pc(20) int local20 = Static556.self.pathX[0] >> 3;
-            @Pc(27) int local27 = Static556.self.pathY[0] >> 3;
+            @Pc(20) int local20 = PlayerEntity.self.pathX[0] >> 3;
+            @Pc(27) int local27 = PlayerEntity.self.pathY[0] >> 3;
             if (local20 >= 0 && Static720.mapWidth >> 3 > local20 && local27 >= 0 && Static501.mapHeight >> 3 > local27) {
                 Static127.method2243(Static412.anInt6358, local20, local27);
             } else {

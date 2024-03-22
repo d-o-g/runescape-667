@@ -14,7 +14,7 @@ public final class Static468 {
     public static void method7641(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(8) int local8 = arg2 + Static691.areaBaseX;
         @Pc(12) int local12 = Static116.areaBaseY + arg1;
-        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.animatingBackground.value() == 0 && arg0 != Static556.self.aByte144) {
+        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.animatingBackground.value() == 0 && arg0 != PlayerEntity.self.level) {
             return;
         }
         @Pc(67) long local67 = (long) (local12 << 14 | arg0 << 28 | local8);
@@ -58,7 +58,7 @@ public final class Static468 {
             }
         }
         @Pc(209) int local209 = Static102.method2025(arg0, -29754, (arg1 << 9) + 256, (arg2 << 9) - -256);
-        local103.aByte144 = (byte) arg0;
+        local103.level = (byte) arg0;
         local103.anInt10691 = local209;
         local103.aByte143 = (byte) arg0;
         local103.anInt10694 = arg1 << 9;
@@ -91,7 +91,7 @@ public final class Static468 {
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub28_1);
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub5_1);
         Static400.instance.method5104(0, Static400.instance.aClass57_Sub20_1);
-        Static400.instance.method5104(0, Static400.instance.aClass57_Sub2_1);
+        Static400.instance.method5104(0, Static400.instance.skydetail);
         Static376.method5313();
         Static400.instance.method5104(2, Static400.instance.aClass57_Sub18_1);
         Static400.instance.method5104(1, Static400.instance.aClass57_Sub15_1);

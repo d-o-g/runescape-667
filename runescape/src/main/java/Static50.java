@@ -124,11 +124,11 @@ public final class Static50 {
     public static void method6638(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
         @Pc(8) Animator local8 = arg0.animator;
         if (local8.isAnimating() && local8.tick(1) && local8.isFinished()) {
-            if (arg0.aBoolean817) {
+            if (arg0.ready) {
                 local8.update(true, arg0.method9317().ready());
-                arg0.aBoolean817 = local8.isAnimating();
+                arg0.ready = local8.isAnimating();
             }
-            local8.method9099();
+            local8.resetImmediately();
         }
         @Pc(75) Animator local75;
         for (@Pc(50) int local50 = 0; local50 < arg0.aClass199Array3.length; local50++) {

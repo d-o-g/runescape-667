@@ -7,10 +7,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Node_Sub45 extends Node {
 
     @OriginalMember(owner = "client!qfa", name = "l", descriptor = "Lclient!wj;")
-    public final Class8_Sub2_Sub1_Sub2_Sub2 aClass8_Sub2_Sub1_Sub2_Sub2_2;
+    public final NPCEntity aClass8_Sub2_Sub1_Sub2_Sub2_2;
 
     @OriginalMember(owner = "client!qfa", name = "<init>", descriptor = "(Lclient!wj;)V")
-    public Node_Sub45(@OriginalArg(0) Class8_Sub2_Sub1_Sub2_Sub2 arg0) {
+    public Node_Sub45(@OriginalArg(0) NPCEntity arg0) {
         this.aClass8_Sub2_Sub1_Sub2_Sub2_2 = arg0;
     }
 }

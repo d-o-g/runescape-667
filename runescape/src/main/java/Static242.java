@@ -35,7 +35,7 @@ public final class Static242 {
 
     @OriginalMember(owner = "client!hj", name = "c", descriptor = "(I)V")
     public static void method3502() {
-        Static525.aClass2_Sub2_Sub16_12 = new DoublyLinkedNode_Sub2_Sub16(LocalisedText.CANCEL.localise(Static51.language), "", Static442.anInt6699, 1012, -1, 0L, 0, 0, true, false, 0L, true);
+        Static525.aClass2_Sub2_Sub16_12 = new DoublyLinkedNode_Sub2_Sub16(LocalisedText.CANCEL.localise(Static51.language), "", Cursor.targetEnd, 1012, -1, 0L, 0, 0, true, false, 0L, true);
     }
 
     @OriginalMember(owner = "client!hj", name = "a", descriptor = "(IZ)I")
@@ -59,7 +59,7 @@ public final class Static242 {
         @Pc(9) boolean local9 = false;
         for (@Pc(19) int local19 = 0; local19 < local5; local19++) {
             @Pc(26) PlayerEntity local26 = PlayerList.highResolutionPlayers[local7[local19]];
-            if (local26 != null && Static556.self != local26 && local26.accountName != null && local26.accountName.equalsIgnoreCase(arg0)) {
+            if (local26 != null && PlayerEntity.self != local26 && local26.accountName != null && local26.accountName.equalsIgnoreCase(arg0)) {
                 @Pc(47) Class345 local47 = null;
                 if (arg1 == 1) {
                     local47 = Static424.aClass345_79;

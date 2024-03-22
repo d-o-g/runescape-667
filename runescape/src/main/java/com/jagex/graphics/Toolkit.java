@@ -21,6 +21,9 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ia", name = "c", descriptor = "[Z")
     public static final boolean[] inuse = new boolean[COUNT];
 
+    @OriginalMember(owner = "client!fb", name = "f", descriptor = "Lclient!ha;")
+    public static Toolkit active;
+
     @OriginalMember(owner = "client!ha", name = "j", descriptor = "Lclient!d;")
     public final TextureSource textureSource;
 

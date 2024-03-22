@@ -1,3 +1,4 @@
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -15,15 +16,15 @@ public final class Class90_Sub1 extends Class90 {
     @OriginalMember(owner = "client!gia", name = "a", descriptor = "(ZIBI)V")
     @Override
     protected void method7751(@OriginalArg(1) int arg0, @OriginalArg(3) int arg1) {
-        Static163.activeToolkit.method7976(arg0 - 2, arg1, super.aClass138_5.anInt4418 + 4, super.aClass138_5.anInt4413 + 2, ((Class138_Sub3) super.aClass138_5).anInt4427, 0);
-        Static163.activeToolkit.method7976(arg0 - 1, arg1 - -1, super.aClass138_5.anInt4418 + 2, super.aClass138_5.anInt4413, 0, 0);
+        Toolkit.active.method7976(arg0 - 2, arg1, super.aClass138_5.anInt4418 + 4, super.aClass138_5.anInt4413 + 2, ((Class138_Sub3) super.aClass138_5).anInt4427, 0);
+        Toolkit.active.method7976(arg0 - 1, arg1 - -1, super.aClass138_5.anInt4418 + 2, super.aClass138_5.anInt4413, 0, 0);
     }
 
     @OriginalMember(owner = "client!gia", name = "a", descriptor = "(IIZI)V")
     @Override
     protected void method7753(@OriginalArg(0) int arg0, @OriginalArg(3) int arg1) {
         @Pc(21) int local21 = this.method7752() * super.aClass138_5.anInt4418 / 10000;
-        Static163.activeToolkit.aa(arg0, arg1 + 2, local21, super.aClass138_5.anInt4413 - 2, ((Class138_Sub3) super.aClass138_5).anInt4428, 0);
-        Static163.activeToolkit.aa(arg0 + local21, arg1 + 2, super.aClass138_5.anInt4418 - local21, super.aClass138_5.anInt4413 + -2, 0, 0);
+        Toolkit.active.aa(arg0, arg1 + 2, local21, super.aClass138_5.anInt4413 - 2, ((Class138_Sub3) super.aClass138_5).anInt4428, 0);
+        Toolkit.active.aa(arg0 + local21, arg1 + 2, super.aClass138_5.anInt4418 - local21, super.aClass138_5.anInt4413 + -2, 0, 0);
     }
 }

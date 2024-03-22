@@ -4,11 +4,8 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static366 {
 
-    @OriginalMember(owner = "client!lja", name = "l", descriptor = "I")
-    public static int anInt5852 = -1;
-
     @OriginalMember(owner = "client!lja", name = "b", descriptor = "I")
-    public static int anInt5858 = 0;
+    public static int statUpdateCount = 0;
 
     @OriginalMember(owner = "client!lja", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;BC)Ljava/lang/String;")
     public static String method5261(@OriginalArg(0) String arg0, @OriginalArg(1) String arg1) {

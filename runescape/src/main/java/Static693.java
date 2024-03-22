@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.Ground;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -68,7 +69,7 @@ public final class Static693 {
                                 if (local70 == Static89.anIntArray169[local72] && arg0[local72] != null) {
                                     @Pc(91) Packet local91 = new Packet(arg0[local72]);
                                     arg1.method7891(local5, local32, local10 * 8, local60, local13 * 8, local91, local48, local54, Static577.A_COLLISION_MAP_ARRAY_1);
-                                    arg1.decodeEnvironmentZone(local10 * 8, Static163.activeToolkit, local60, local91, local5, local54, local48, local32, local13 * 8);
+                                    arg1.decodeEnvironmentZone(local10 * 8, Toolkit.active, local60, local91, local5, local54, local48, local32, local13 * 8);
                                     break;
                                 }
                             }

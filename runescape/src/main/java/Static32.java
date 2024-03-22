@@ -32,7 +32,7 @@ public final class Static32 {
         }
         local11.buffer.p2_alt3(arg0 + Static691.areaBaseX);
         local11.buffer.p2_alt3(Static116.areaBaseY + arg1);
-        local11.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
+        local11.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
         Static266.aBoolean583 = false;
         Minimap.flagX = arg0;
         Minimap.flagY = arg1;

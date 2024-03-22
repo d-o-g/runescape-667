@@ -127,7 +127,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     public final int[] anIntArray871;
 
     @OriginalMember(owner = "client!cg", name = "tc", descriptor = "Z")
-    public boolean aBoolean817;
+    public boolean ready;
 
     @OriginalMember(owner = "client!cg", name = "Yb", descriptor = "[I")
     public final int[] anIntArray874;
@@ -237,7 +237,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         this.anInt10743 = -1;
         this.anInt10732 = 0;
         this.anIntArray871 = new int[Static523.graphicsDefaults.maxhitmarks];
-        this.aBoolean817 = false;
+        this.ready = false;
         this.anIntArray874 = new int[Static523.graphicsDefaults.maxhitmarks];
         this.anInt10722 = -1;
         this.anIntArray876 = new int[Static523.graphicsDefaults.maxhitmarks];
@@ -406,7 +406,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         } else {
             local31 = -this.anInt10748;
         }
-        @Pc(55) Class291 local55 = Static334.activeTiles[super.aByte144][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
+        @Pc(55) Class291 local55 = Static334.activeTiles[super.level][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
         return local55 == null || local55.aGroundDecor_1 == null ? local31 : local31 + local55.aGroundDecor_1.aShort46;
     }
 
@@ -720,22 +720,22 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         @Pc(38) int local38 = -arg4 / 2;
         @Pc(48) int local48 = local24 * local38 + local33 * local28 >> 14;
         @Pc(59) int local59 = local38 * local28 - local33 * local24 >> 14;
-        @Pc(74) int local74 = Static323.method4626(local59 + super.anInt10694, super.aByte144, local11, local20, local48 + super.anInt10690);
+        @Pc(74) int local74 = Static323.method4626(local59 + super.anInt10694, super.level, local11, local20, local48 + super.anInt10690);
         @Pc(78) int local78 = arg3 / 2;
         @Pc(83) int local83 = -arg4 / 2;
         @Pc(93) int local93 = local28 * local78 + local83 * local24 >> 14;
         @Pc(104) int local104 = local28 * local83 - local24 * local78 >> 14;
-        @Pc(119) int local119 = Static323.method4626(local104 + super.anInt10694, super.aByte144, local11, local20, local93 + super.anInt10690);
+        @Pc(119) int local119 = Static323.method4626(local104 + super.anInt10694, super.level, local11, local20, local93 + super.anInt10690);
         @Pc(124) int local124 = -arg3 / 2;
         @Pc(128) int local128 = arg4 / 2;
         @Pc(138) int local138 = local24 * local128 + local124 * local28 >> 14;
         @Pc(149) int local149 = local128 * local28 - local124 * local24 >> 14;
-        @Pc(165) int local165 = Static323.method4626(local149 + super.anInt10694, super.aByte144, local11, local20, super.anInt10690 + local138);
+        @Pc(165) int local165 = Static323.method4626(local149 + super.anInt10694, super.level, local11, local20, super.anInt10690 + local138);
         @Pc(169) int local169 = arg3 / 2;
         @Pc(173) int local173 = arg4 / 2;
         @Pc(183) int local183 = local24 * local173 + local28 * local169 >> 14;
         @Pc(194) int local194 = local173 * local28 - local169 * local24 >> 14;
-        @Pc(210) int local210 = Static323.method4626(local194 + super.anInt10694, super.aByte144, local11, local20, super.anInt10690 + local183);
+        @Pc(210) int local210 = Static323.method4626(local194 + super.anInt10694, super.level, local11, local20, super.anInt10690 + local183);
         @Pc(218) int local218 = local74 < local119 ? local74 : local119;
         @Pc(226) int local226 = local210 > local165 ? local165 : local210;
         @Pc(234) int local234 = local119 >= local210 ? local210 : local119;
@@ -890,7 +890,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
             this.aClass8_Sub5_8.method3649((long) TimeUtils.clock);
         }
         if (this.aClass8_Sub5_8 != null) {
-            this.aClass8_Sub5_8.method3658(super.aByte144, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
+            this.aClass8_Sub5_8.method3658(super.level, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
         }
     }
 

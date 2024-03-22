@@ -12,7 +12,7 @@ public abstract class GroundDecor extends Renderable {
 
     @OriginalMember(owner = "client!eia", name = "<init>", descriptor = "(IIIIII)V")
     protected GroundDecor(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        super.aByte144 = (byte) arg3;
+        super.level = (byte) arg3;
         super.anInt10691 = arg1;
         super.anInt10694 = arg2;
         this.aShort46 = (short) arg5;

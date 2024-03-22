@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -103,7 +104,7 @@ public final class Static73 {
                 @Pc(45) int local45 = local32 * 64 - Static116.areaBaseY;
                 Static557.method7331();
                 arg1.method7879(local20, local45, Static577.A_COLLISION_MAP_ARRAY_1, Static116.areaBaseY, Static691.areaBaseX, local38);
-                arg1.method7893(local45, local20, local38, Static163.activeToolkit);
+                arg1.method7893(local45, local20, local38, Toolkit.active);
             }
         }
         for (@Pc(78) int local78 = 0; local78 < local6; local78++) {

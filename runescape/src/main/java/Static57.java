@@ -84,7 +84,7 @@ public final class Static57 {
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(ILjava/lang/String;)V")
     public static void method1231(@OriginalArg(1) String arg0) {
-        if (!Static156.aBoolean223 || (Static717.anInt10822 & 0x18) == 0) {
+        if (!InterfaceManager.isTargeting || (InterfaceManager.targetMask & 0x18) == 0) {
             return;
         }
         @Pc(22) boolean local22 = false;
@@ -92,7 +92,7 @@ public final class Static57 {
         @Pc(26) int[] local26 = Static210.anIntArray280;
         for (@Pc(28) int local28 = 0; local28 < local24; local28++) {
             @Pc(35) PlayerEntity local35 = PlayerList.highResolutionPlayers[local26[local28]];
-            if (local35.accountName != null && local35.accountName.equalsIgnoreCase(arg0) && (Static556.self == local35 && (Static717.anInt10822 & 0x10) != 0 || (Static717.anInt10822 & 0x8) != 0)) {
+            if (local35.accountName != null && local35.accountName.equalsIgnoreCase(arg0) && (PlayerEntity.self == local35 && (InterfaceManager.targetMask & 0x10) != 0 || (InterfaceManager.targetMask & 0x8) != 0)) {
                 @Pc(75) ClientMessage local75 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.cipher);
                 local75.buffer.p2_alt1(local26[local28]);
                 local75.buffer.p4_alt1(Static450.anInt6819);
@@ -108,8 +108,8 @@ public final class Static57 {
         if (!local22) {
             Static67.method6098(LocalisedText.UNABLETOFIND.localise(Static51.language) + arg0);
         }
-        if (Static156.aBoolean223) {
-            Static470.method6384();
+        if (InterfaceManager.isTargeting) {
+            InterfaceManager.endTargetMode();
         }
     }
 

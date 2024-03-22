@@ -1,4 +1,5 @@
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -44,9 +45,9 @@ public final class Static542 {
     }
 
     @OriginalMember(owner = "client!rb", name = "a", descriptor = "(ILclient!hda;)V")
-    public static void method7202(@OriginalArg(1) Component arg0) {
+    public static void prefetchSprite(@OriginalArg(1) Component arg0) {
         if (arg0.type == 5 && arg0.invObject != -1) {
-            Static485.method9415(arg0, Static163.activeToolkit);
+            Static485.method9415(arg0, Toolkit.active);
         }
     }
 }

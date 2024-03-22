@@ -63,14 +63,14 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
         }
         if (this.aParticleSystem != null) {
             this.aParticleSystem.method3643(arg2, (long) TimeUtils.clock, local9, local19);
-            this.aParticleSystem.method3658(super.aByte144, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
+            this.aParticleSystem.method3658(super.level, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
         }
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IILclient!ha;I)Lclient!ka;")
     public Model method6594(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2) {
         @Pc(8) Class227 local8 = Static23.aClass128_1.method2694(arg0);
-        @Pc(22) Ground local22 = Static706.aGroundArray3[super.aByte144];
+        @Pc(22) Ground local22 = Static706.aGroundArray3[super.level];
         @Pc(36) Ground local36 = super.aByte143 < 3 ? Static706.aGroundArray3[super.aByte143 + 1] : null;
         return this.aAnimator_8 == null || this.aAnimator_8.isFinished() ? local8.method5249((byte) 2, true, super.anInt10694, (Animator) null, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.anInt10694, this.aAnimator_8, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1);
     }

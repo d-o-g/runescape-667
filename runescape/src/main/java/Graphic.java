@@ -10,27 +10,27 @@ public final class Graphic {
     public final ClippingMask aClippingMask;
 
     @OriginalMember(owner = "client!he", name = "i", descriptor = "[I")
-    public final int[] anIntArray302;
+    public final int[] lineWidths;
 
     @OriginalMember(owner = "client!he", name = "e", descriptor = "[I")
-    public final int[] anIntArray303;
+    public final int[] lineOffsets;
 
     @OriginalMember(owner = "client!he", name = "h", descriptor = "I")
-    public final int anInt3833;
+    public final int scaleHeight;
 
     @OriginalMember(owner = "client!he", name = "l", descriptor = "I")
     public final int id;
 
     @OriginalMember(owner = "client!he", name = "b", descriptor = "I")
-    public final int anInt3832;
+    public final int scaleWidth;
 
     @OriginalMember(owner = "client!he", name = "<init>", descriptor = "(II[I[ILclient!aa;I)V")
     public Graphic(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) ClippingMask arg4, @OriginalArg(5) int arg5) {
         this.aClippingMask = arg4;
-        this.anIntArray302 = arg2;
-        this.anIntArray303 = arg3;
-        this.anInt3833 = arg1;
+        this.lineWidths = arg2;
+        this.lineOffsets = arg3;
+        this.scaleHeight = arg1;
         this.id = arg5;
-        this.anInt3832 = arg0;
+        this.scaleWidth = arg0;
     }
 }

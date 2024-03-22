@@ -2,6 +2,7 @@ import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
@@ -37,7 +38,7 @@ public final class Static254 {
         for (@Pc(8628) int local8628 = 0; local8628 < Static527.aClass254Array1.length; local8628++) {
             Static527.aClass254Array1[local8628] = null;
         }
-        Static156.aBoolean223 = false;
+        InterfaceManager.isTargeting = false;
         Static368.method5273();
         Static29.anInt723 = (int) (Math.random() * 120.0D) - 60;
         Static288.anInt4621 = (int) (Math.random() * 80.0D) - 40;
@@ -58,7 +59,7 @@ public final class Static254 {
         Static497.stacks.clear();
         Static159.aDeque_15 = new Deque();
         Static227.aDeque_18 = new Deque();
-        Static34.aClass304_1.method6867();
+        TimedVarDomain.instance.method6867();
         DelayedStateChange.clear();
         Static121.anInt2333 = 0;
         Static55.anInt1125 = 0;
@@ -75,8 +76,8 @@ public final class Static254 {
                 Static511.anIntArray614[local8765] = -1;
             }
         }
-        if (Static377.anInt5930 != -1) {
-            Static347.method5094(Static377.anInt5930);
+        if (InterfaceManager.topLevelInterface != -1) {
+            Static347.method5094(InterfaceManager.topLevelInterface);
         }
         for (@Pc(8803) SubInterface local8803 = (SubInterface) InterfaceManager.subInterfaces.first(); local8803 != null; local8803 = (SubInterface) InterfaceManager.subInterfaces.next()) {
             if (!local8803.isLinked()) {
@@ -87,7 +88,7 @@ public final class Static254 {
             }
             Static449.method6115(false, true, local8803);
         }
-        Static377.anInt5930 = -1;
+        InterfaceManager.topLevelInterface = -1;
         InterfaceManager.subInterfaces = new IterableHashTable(8);
         Static656.method6692();
         InterfaceManager.dialog = null;
@@ -112,7 +113,7 @@ public final class Static254 {
         Static218.method3187();
         Static273.aBoolean339 = true;
         client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
-        Static331.aString52 = LocalisedText.WALKHERE.localise(Static51.language);
+        Static331.walkText = LocalisedText.WALKHERE.localise(Static51.language);
         Static400.instance.method5104(Static400.instance.aClass57_Sub4_1.method2143(), Static400.instance.aClass57_Sub4_2);
         Static400.instance.method5104(Static400.instance.aClass57_Sub19_1.value(), Static400.instance.animatingBackground);
         Static334.anInt5456 = 0;

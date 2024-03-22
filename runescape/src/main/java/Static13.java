@@ -19,7 +19,7 @@ public final class Static13 {
             @Pc(13) int local13 = Static103.anIntArray187[local7];
             @Pc(20) Node_Sub45 local20 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local13);
             if (local20 != null) {
-                @Pc(25) Class8_Sub2_Sub1_Sub2_Sub2 local25 = local20.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                @Pc(25) NPCEntity local25 = local20.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 Static489.method6547(false, local25);
             }
         }

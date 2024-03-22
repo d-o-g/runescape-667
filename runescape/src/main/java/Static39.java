@@ -9,10 +9,7 @@ public final class Static39 {
     public static final Class242 aClass242_3 = new Class242("", 11);
 
     @OriginalMember(owner = "client!bf", name = "o", descriptor = "I")
-    public static int anInt949 = 0;
-
-    @OriginalMember(owner = "client!bf", name = "u", descriptor = "I")
-    public static int anInt950 = -1;
+    public static int lastClanChannelTransmit = 0;
 
     @OriginalMember(owner = "client!bf", name = "a", descriptor = "(III)I")
     public static int method1020(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {

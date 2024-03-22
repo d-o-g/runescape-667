@@ -41,7 +41,7 @@ public final class Static187 {
         Static497.stacks.clear();
         Static693.method9012();
         Static334.anInt5456 = 0;
-        Static34.aClass304_1.method6867();
+        TimedVarDomain.instance.method6867();
         Static91.aClass164_9 = null;
         Static128.aClass164_8 = null;
         Static211.aClass2_Sub12_3 = null;

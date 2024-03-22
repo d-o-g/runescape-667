@@ -27,16 +27,4 @@ public final class Static597 {
         return local12;
     }
 
-    @OriginalMember(owner = "client!sr", name = "a", descriptor = "(ILclient!hda;ZI)V")
-    public static void method7824(@OriginalArg(0) int arg0, @OriginalArg(1) Component arg1, @OriginalArg(3) int arg2) {
-        if (InterfaceManager.dragSource != null || Static400.aBoolean622 || (arg1 == null || Static582.method7658(arg1) == null)) {
-            return;
-        }
-        InterfaceManager.dragSource = arg1;
-        InterfaceManager.dragParent = Static582.method7658(arg1);
-        InterfaceManager.dragStartY = arg0;
-        InterfaceManager.dragStartX = arg2;
-        InterfaceManager.dragging = false;
-        Static181.anInt3003 = 0;
-    }
 }

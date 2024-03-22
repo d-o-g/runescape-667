@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
+import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -24,8 +25,8 @@ public final class Static25 {
     @OriginalMember(owner = "client!as", name = "a", descriptor = "(ZZ)V")
     public static void method688(@OriginalArg(0) boolean arg0) {
         if (arg0) {
-            if (Static377.anInt5930 != -1) {
-                Static347.method5094(Static377.anInt5930);
+            if (InterfaceManager.topLevelInterface != -1) {
+                Static347.method5094(InterfaceManager.topLevelInterface);
             }
             for (@Pc(16) SubInterface local16 = (SubInterface) InterfaceManager.subInterfaces.first(); local16 != null; local16 = (SubInterface) InterfaceManager.subInterfaces.next()) {
                 if (!local16.isLinked()) {
@@ -36,13 +37,13 @@ public final class Static25 {
                 }
                 Static449.method6115(false, true, local16);
             }
-            Static377.anInt5930 = -1;
+            InterfaceManager.topLevelInterface = -1;
             InterfaceManager.subInterfaces = new IterableHashTable(8);
             Static656.method6692();
-            Static377.anInt5930 = Static523.graphicsDefaults.lobby_interface;
+            InterfaceManager.topLevelInterface = Static523.graphicsDefaults.lobby_interface;
             Static640.method8435(false);
             InterfaceManager.redrawAll();
-            Static472.method6414(Static377.anInt5930);
+            Static472.method6414(InterfaceManager.topLevelInterface);
         }
         Static461.aBoolean529 = true;
     }

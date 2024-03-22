@@ -5,11 +5,8 @@ public final class Static400 {
     @OriginalMember(owner = "client!mk", name = "d", descriptor = "Lclient!kv;")
     public static Node_Sub34 instance;
 
-    @OriginalMember(owner = "client!mk", name = "c", descriptor = "Z")
-    public static boolean aBoolean622 = false;
-
     @OriginalMember(owner = "client!mk", name = "a", descriptor = "I")
-    public static int anInt8102 = 0;
+    public static int lastClanSettingsTransmit = 0;
 
     @OriginalMember(owner = "client!mk", name = "a", descriptor = "(Z)[Lclient!om;")
     public static Class280[] method7112() {

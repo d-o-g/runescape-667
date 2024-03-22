@@ -32,14 +32,14 @@ public final class Static527 {
                     if (CutsceneManager.state == 3) {
                         @Pc(61) Class8_Sub2_Sub1_Sub2 local61 = Static219.aClass236Array1[local20.anInt711 - 1].method5363();
                         if (local61 != null && local61.anInt10690 >= 0 && local61.anInt10690 < Static720.mapWidth * 512 && local61.anInt10694 >= 0 && local61.anInt10694 < Static501.mapHeight * 512) {
-                            local20.method813(Static102.method2025(local20.aByte144, -29754, local61.anInt10694, local61.anInt10690) - local20.lb, TimeUtils.clock, local61.anInt10694, local61.anInt10690);
+                            local20.method813(Static102.method2025(local20.level, -29754, local61.anInt10694, local61.anInt10690) - local20.lb, TimeUtils.clock, local61.anInt10694, local61.anInt10690);
                         }
                     } else {
                         @Pc(130) Node_Sub45 local130 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (local20.anInt711 - 1));
                         if (local130 != null) {
-                            @Pc(135) Class8_Sub2_Sub1_Sub2_Sub2 local135 = local130.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                            @Pc(135) NPCEntity local135 = local130.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                             if (local135.anInt10690 >= 0 && local135.anInt10690 < Static720.mapWidth * 512 && local135.anInt10694 >= 0 && local135.anInt10694 < Static501.mapHeight * 512) {
-                                local20.method813(Static102.method2025(local20.aByte144, -29754, local135.anInt10694, local135.anInt10690) - local20.lb, TimeUtils.clock, local135.anInt10694, local135.anInt10690);
+                                local20.method813(Static102.method2025(local20.level, -29754, local135.anInt10694, local135.anInt10690) - local20.lb, TimeUtils.clock, local135.anInt10694, local135.anInt10690);
                             }
                         }
                     }
@@ -48,15 +48,15 @@ public final class Static527 {
                     @Pc(193) int local193 = -local20.anInt711 - 1;
                     @Pc(198) PlayerEntity local198;
                     if (local193 == PlayerList.activePlayerSlot) {
-                        local198 = Static556.self;
+                        local198 = PlayerEntity.self;
                     } else {
                         local198 = PlayerList.highResolutionPlayers[local193];
                     }
                     if (local198 != null && local198.anInt10690 >= 0 && Static720.mapWidth * 512 > local198.anInt10690 && local198.anInt10694 >= 0 && Static501.mapHeight * 512 > local198.anInt10694) {
-                        local20.method813(Static102.method2025(local20.aByte144, -29754, local198.anInt10694, local198.anInt10690) - local20.lb, TimeUtils.clock, local198.anInt10694, local198.anInt10690);
+                        local20.method813(Static102.method2025(local20.level, -29754, local198.anInt10694, local198.anInt10690) - local20.lb, TimeUtils.clock, local198.anInt10694, local198.anInt10690);
                     }
                 }
-                local20.method819(Static35.anInt800);
+                local20.method819(Static35.currentTick);
                 Static102.method2026(local20, true);
             }
         }

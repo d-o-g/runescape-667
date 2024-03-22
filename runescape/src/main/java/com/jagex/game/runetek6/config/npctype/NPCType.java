@@ -262,11 +262,7 @@ public final class NPCType {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(ILclient!uk;)Lclient!o;")
-    public NPCType getMultiNPC(@OriginalArg(0) int arg0, @OriginalArg(1) VarDomain domain) {
-        if (arg0 != 65535) {
-            return null;
-        }
-
+    public NPCType getMultiNPC(@OriginalArg(1) VarDomain domain) {
         @Pc(11) int index = -1;
         if (this.multinpcVarbit != -1) {
             index = domain.getVarbitValue(this.multinpcVarbit);
@@ -539,7 +535,7 @@ public final class NPCType {
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(ILclient!gu;Lclient!vk;ILclient!ha;Lclient!uk;)Lclient!ka;")
     public Model headModel(@OriginalArg(0) int functionMask, @OriginalArg(1) Animator animator, @OriginalArg(2) NPCTypeCustomisation customisation, @OriginalArg(4) Toolkit toolkit, @OriginalArg(5) VarDomain varDomain) {
         if (this.multinpcs != null) {
-            @Pc(15) NPCType multiNpc = this.getMultiNPC(65535, varDomain);
+            @Pc(15) NPCType multiNpc = this.getMultiNPC(varDomain);
             return multiNpc == null ? null : multiNpc.headModel(functionMask, animator, customisation, toolkit, varDomain);
         }
 
@@ -675,7 +671,7 @@ public final class NPCType {
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(Lclient!uk;Lclient!ha;Lclient!qp;BLclient!gu;I[ILclient!vk;Lclient!gu;I[Lclient!gu;)Lclient!ka;")
     public Model getModel(@OriginalArg(0) VarDomain arg0, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) BASTypeList basTypeList, @OriginalArg(4) Animator actionAnimator, @OriginalArg(5) int arg4, @OriginalArg(6) int[] wornRotation, @OriginalArg(7) NPCTypeCustomisation customisation, @OriginalArg(8) Animator movementAnimator, @OriginalArg(9) int functionMask, @OriginalArg(10) Animator[] animators) {
         if (this.multinpcs != null) {
-            @Pc(11) NPCType type = this.getMultiNPC(65535, arg0);
+            @Pc(11) NPCType type = this.getMultiNPC(arg0);
             return type == null ? null : type.getModel(arg0, toolkit, basTypeList, actionAnimator, arg4, wornRotation, customisation, movementAnimator, functionMask, animators);
         }
 

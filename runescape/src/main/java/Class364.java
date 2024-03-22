@@ -1,6 +1,7 @@
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.graphics.Toolkit;
 import rs2.client.loading.LoadState;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Sprite;
@@ -121,7 +122,7 @@ public final class Class364 implements Runnable {
                         this.anInterface22_1.method8465(this.aBoolean731);
                     } else {
                         @Pc(25) long local25 = SystemTimer.safetime();
-                        if (Static163.activeToolkit == null || this.anInterface22_2 == null || this.anInterface22_2.method8462() == 0 || this.aLong286 < local25 - (long) this.anInterface22_2.method8462()) {
+                        if (Toolkit.active == null || this.anInterface22_2 == null || this.anInterface22_2.method8462() == 0 || this.aLong286 < local25 - (long) this.anInterface22_2.method8462()) {
                             if (this.anInterface22_2 != null) {
                                 this.aBoolean731 = true;
                                 this.anInterface22_2.method8461();
@@ -129,32 +130,32 @@ public final class Class364 implements Runnable {
                             }
                             if (this.aBoolean731) {
                                 Static288.method4182();
-                                if (Static163.activeToolkit != null) {
-                                    Static163.activeToolkit.GA(0);
+                                if (Toolkit.active != null) {
+                                    Toolkit.active.GA(0);
                                 }
                             }
-                            this.anInterface22_1.method8465(this.aBoolean731 || Static163.activeToolkit != null && Static163.activeToolkit.method8001());
+                            this.anInterface22_1.method8465(this.aBoolean731 || Toolkit.active != null && Toolkit.active.method8001());
                         } else {
                             @Pc(72) int local72 = (int) ((local25 - this.aLong286) * 255L / (long) this.anInterface22_2.method8462());
                             @Pc(77) int local77 = 255 - local72;
                             Static288.method4182();
                             @Pc(85) int local85 = local77 << 24 | 0xFFFFFF;
                             @Pc(91) int local91 = local72 << 24 | 0xFFFFFF;
-                            Static163.activeToolkit.GA(0);
-                            @Pc(100) Sprite local100 = Static163.activeToolkit.method7963(Static680.anInt10289, Static380.anInt5979, true);
-                            Static163.activeToolkit.method8002(local100);
+                            Toolkit.active.GA(0);
+                            @Pc(100) Sprite local100 = Toolkit.active.method7963(GameShell.canvasWid, GameShell.canvasHei, true);
+                            Toolkit.active.method8002(local100);
                             this.anInterface22_2.method8465(true);
-                            Static163.activeToolkit.method7943();
+                            Toolkit.active.method7943();
                             local100.render(0, 0, 0, local85, 1);
-                            Static163.activeToolkit.method8002(local100);
-                            Static163.activeToolkit.GA(0);
+                            Toolkit.active.method8002(local100);
+                            Toolkit.active.GA(0);
                             this.anInterface22_1.method8465(true);
-                            Static163.activeToolkit.method7943();
+                            Toolkit.active.method7943();
                             local100.render(0, 0, 0, local91, 1);
                         }
                         try {
-                            if (Static163.activeToolkit != null && !(this.anInterface22_1 instanceof Class374)) {
-                                Static163.activeToolkit.method7984();
+                            if (Toolkit.active != null && !(this.anInterface22_1 instanceof Class374)) {
+                                Toolkit.active.method7984();
                             }
                         } catch (@Pc(205) Exception_Sub1 local205) {
                             JagException.sendTrace(local205, local205.getMessage() + " (Recovered) " + client.aClient1.method1648());
@@ -162,20 +163,20 @@ public final class Class364 implements Runnable {
                         }
                     }
                     @Pc(245) Container local245;
-                    if (Static353.aFrame10 != null) {
-                        local245 = Static353.aFrame10;
+                    if (GameShell.frame != null) {
+                        local245 = GameShell.frame;
                     } else if (GameShell.loaderApplet == null) {
-                        local245 = Static149.anGameShell;
+                        local245 = GameShell.instance;
                     } else {
                         local245 = GameShell.loaderApplet;
                     }
                     local245.getSize();
                     local245.getSize();
-                    if (local245 == Static353.aFrame10) {
-                        Static353.aFrame10.getInsets();
+                    if (local245 == GameShell.frame) {
+                        GameShell.frame.getInsets();
                     }
                     this.aBoolean731 = false;
-                    if (Static163.activeToolkit != null && !(this.anInterface22_1 instanceof Class374) && this.aLoadState_23.step() < LoadState.SHOW_LOGIN_WINDOW.step()) {
+                    if (Toolkit.active != null && !(this.anInterface22_1 instanceof Class374) && this.aLoadState_23.step() < LoadState.SHOW_LOGIN_WINDOW.step()) {
                         Static712.method9329((byte) 11);
                     }
                 } catch (@Pc(292) Exception local292) {

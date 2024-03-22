@@ -26,8 +26,8 @@ public final class Class109 implements Interface13 {
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(ZI)V")
     @Override
     public void method7749() {
-        @Pc(11) int local11 = Static302.anInt4851 >= Static680.anInt10289 ? Static302.anInt4851 : Static680.anInt10289;
-        @Pc(19) int local19 = Static380.anInt5979 <= Static479.anInt7201 ? Static479.anInt7201 : Static380.anInt5979;
+        @Pc(11) int local11 = Static302.anInt4851 >= GameShell.canvasWid ? Static302.anInt4851 : GameShell.canvasWid;
+        @Pc(19) int local19 = GameShell.canvasHei <= Static479.anInt7201 ? Static479.anInt7201 : GameShell.canvasHei;
         @Pc(23) int local23 = this.aSprite_9.scaleWidth();
         @Pc(27) int local27 = this.aSprite_9.scaleHeight();
         @Pc(29) int local29 = 0;

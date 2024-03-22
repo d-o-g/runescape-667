@@ -169,15 +169,4 @@ public final class Static204 {
         return false;
     }
 
-    @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(Z)Z")
-    public static boolean method3084() {
-        if (Static96.aClass2_Sub2_Sub16_13 == null) {
-            return false;
-        } else {
-            if (Static96.aClass2_Sub2_Sub16_13.anInt7314 >= 2000) {
-                Static96.aClass2_Sub2_Sub16_13.anInt7314 -= 2000;
-            }
-            return Static96.aClass2_Sub2_Sub16_13.anInt7314 == 1002;
-        }
-    }
 }

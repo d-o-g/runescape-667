@@ -64,24 +64,24 @@ public final class Static323 {
         @Pc(34) int local34;
         @Pc(51) int local51;
         if (local5 == 2) {
-            local34 = Static52.anInt1059 <= 800 ? Static52.anInt1059 : 800;
-            Static134.anInt10329 = (Static52.anInt1059 - local34) / 2;
-            Static680.anInt10289 = local34;
-            local51 = Static54.anInt1084 <= 600 ? Static54.anInt1084 : 600;
-            Static241.anInt3962 = 0;
-            Static380.anInt5979 = local51;
+            local34 = GameShell.frameWid <= 800 ? GameShell.frameWid : 800;
+            GameShell.leftMargin = (GameShell.frameWid - local34) / 2;
+            GameShell.canvasWid = local34;
+            local51 = GameShell.frameHei <= 600 ? GameShell.frameHei : 600;
+            GameShell.topMargin = 0;
+            GameShell.canvasHei = local51;
         } else if (local5 == 1) {
-            local34 = Static52.anInt1059 <= 1024 ? Static52.anInt1059 : 1024;
-            Static680.anInt10289 = local34;
-            local51 = Static54.anInt1084 <= 768 ? Static54.anInt1084 : 768;
-            Static134.anInt10329 = (Static52.anInt1059 - local34) / 2;
-            Static380.anInt5979 = local51;
-            Static241.anInt3962 = 0;
+            local34 = GameShell.frameWid <= 1024 ? GameShell.frameWid : 1024;
+            GameShell.canvasWid = local34;
+            local51 = GameShell.frameHei <= 768 ? GameShell.frameHei : 768;
+            GameShell.leftMargin = (GameShell.frameWid - local34) / 2;
+            GameShell.canvasHei = local51;
+            GameShell.topMargin = 0;
         } else {
-            Static241.anInt3962 = 0;
-            Static380.anInt5979 = Static54.anInt1084;
-            Static680.anInt10289 = Static52.anInt1059;
-            Static134.anInt10329 = 0;
+            GameShell.topMargin = 0;
+            GameShell.canvasHei = GameShell.frameHei;
+            GameShell.canvasWid = GameShell.frameWid;
+            GameShell.leftMargin = 0;
         }
     }
 

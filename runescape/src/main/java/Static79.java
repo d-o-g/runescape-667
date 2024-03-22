@@ -8,29 +8,6 @@ import java.util.Date;
 
 public final class Static79 {
 
-    @OriginalMember(owner = "client!cja", name = "l", descriptor = "I")
-    public static int anInt1634;
-
-    @OriginalMember(owner = "client!cja", name = "b", descriptor = "(B)V")
-    public static void method1578() {
-        for (@Pc(10) DoublyLinkedNode_Sub2_Sub4 local10 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local10 != null; local10 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
-            if (local10.anInt1534 > 1) {
-                local10.anInt1534 = 0;
-                Static717.A_WEIGHTED_CACHE___232.put(local10, ((DoublyLinkedNode_Sub2_Sub16) local10.aQueue_3.sentinel.next2).aLong234);
-                local10.aQueue_3.clear();
-            }
-        }
-        Static594.anInt8777 = 0;
-        Static31.anInt767 = 0;
-        if (98 != 98) {
-            anInt1634 = 47;
-        }
-        Static693.A_DEQUE___79.clear();
-        Static490.A_HASH_TABLE___34.clear();
-        Static350.A_QUEUE___8.clear();
-        Static84.method1662(Static525.aClass2_Sub2_Sub16_12);
-    }
-
     @OriginalMember(owner = "client!cja", name = "a", descriptor = "(BLjava/lang/String;)V")
     public static void method1579(@OriginalArg(1) String arg0) {
         if (Static393.aStringArray32 == null) {

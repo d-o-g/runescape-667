@@ -31,7 +31,7 @@ public final class Static488 {
     @OriginalMember(owner = "client!pga", name = "c", descriptor = "(I)V")
     public static void method6522() {
         Static329.method1636();
-        Static400.aBoolean622 = false;
+        MiniMenu.open = false;
         Static585.method7670(Static682.anInt10295, Static71.anInt1576, Static407.anInt6288, Static84.anInt1775);
     }
 

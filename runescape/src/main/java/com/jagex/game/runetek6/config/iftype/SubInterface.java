@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.iftype;
+
 import com.jagex.core.datastruct.key.Node;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -6,8 +8,8 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class SubInterface extends Node {
 
     @OriginalMember(owner = "client!aha", name = "o", descriptor = "I")
-    public int anInt146;
+    public int type;
 
     @OriginalMember(owner = "client!aha", name = "n", descriptor = "I")
-    public int anInt147;
+    public int id;
 }

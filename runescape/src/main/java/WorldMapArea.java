@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ip")
-public final class DoublyLinkedNode_Sub2_Sub13 extends Node2 {
+public final class WorldMapArea extends Node2 {
 
     @OriginalMember(owner = "client!ip", name = "J", descriptor = "I")
     public int anInt4552 = 0;
@@ -45,7 +45,7 @@ public final class DoublyLinkedNode_Sub2_Sub13 extends Node2 {
     public final Deque aDeque_26;
 
     @OriginalMember(owner = "client!ip", name = "<init>", descriptor = "(ILjava/lang/String;Ljava/lang/String;IIZII)V")
-    public DoublyLinkedNode_Sub2_Sub13(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) String arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+    public WorldMapArea(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) String arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
         this.aString48 = arg1;
         this.anInt4561 = arg4;
         this.anInt4556 = arg3;

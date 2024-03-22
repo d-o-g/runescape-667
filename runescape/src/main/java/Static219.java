@@ -14,7 +14,7 @@ public final class Static219 {
     public static Class236[] aClass236Array1;
 
     @OriginalMember(owner = "client!gp", name = "i", descriptor = "I")
-    public static int anInt3549 = 0;
+    public static int mouseButtons = 0;
 
     @OriginalMember(owner = "client!gp", name = "a", descriptor = "(IILclient!dda;)Z")
     public static boolean method3190(@OriginalArg(0) int arg0, @OriginalArg(2) Class75 arg1) {

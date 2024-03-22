@@ -15,7 +15,7 @@ public abstract class Wall extends Renderable {
     protected Wall(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aShort58 = (short) arg5;
         super.anInt10691 = arg1;
-        super.aByte144 = (byte) arg3;
+        super.level = (byte) arg3;
         super.anInt10694 = arg2;
         super.anInt10690 = arg0;
         super.aByte143 = (byte) arg4;

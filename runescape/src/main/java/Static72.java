@@ -1,5 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -24,7 +25,7 @@ public final class Static72 {
                 if (local34 == null) {
                     @Pc(42) IndexedImage local42 = IndexedImage.loadFirst(js5.SPRITES, local19.anInt5704, 0);
                     if (local42 != null) {
-                        local34 = Static163.activeToolkit.createSprite(local42, true);
+                        local34 = Toolkit.active.createSprite(local42, true);
                         Static452.A_WEIGHTED_CACHE___149.put(local34, (long) local19.anInt5704);
                     }
                 }

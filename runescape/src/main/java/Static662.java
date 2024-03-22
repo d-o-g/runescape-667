@@ -19,7 +19,7 @@ public final class Static662 {
             local7.method6444(arg2, arg5, arg1, arg3, arg7, arg0, arg4, arg6);
         }
         Static489.aClass283Array1[0] = local7;
-        Static716.anInt10815 = Static642.anInt9599;
+        ChatHistory.lastTransmit = World.tick;
         Static129.anInt2406++;
     }
 }

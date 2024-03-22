@@ -3,6 +3,7 @@ import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -35,7 +36,7 @@ public final class Class133 implements Interface13 {
     @Override
     public void method7748() {
         @Pc(24) FontMetrics local24 = FontMetrics.loadFile(this.aClass125_1.anInt2858, this.aJs5_36);
-        this.aFont_4 = Static163.activeToolkit.createFont(local24, IndexedImage.load(this.aJs5_37, this.aClass125_1.anInt2858), true);
+        this.aFont_4 = Toolkit.active.createFont(local24, IndexedImage.load(this.aJs5_37, this.aClass125_1.anInt2858), true);
     }
 
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(ZI)V")

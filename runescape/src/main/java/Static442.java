@@ -10,9 +10,6 @@ public final class Static442 {
     @OriginalMember(owner = "client!nv", name = "l", descriptor = "Z")
     public static boolean aBoolean500;
 
-    @OriginalMember(owner = "client!nv", name = "o", descriptor = "I")
-    public static int anInt6699 = -1;
-
     @OriginalMember(owner = "client!nv", name = "k", descriptor = "Lclient!ss;")
     public static final Class345 aClass345_83 = new Class345(15, 4);
 

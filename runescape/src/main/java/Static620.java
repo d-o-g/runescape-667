@@ -20,7 +20,7 @@ public final class Static620 {
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "(IIILclient!aa;Lclient!ha;IIILclient!hda;)V")
     public static void method8322(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) ClippingMask arg2, @OriginalArg(4) Toolkit arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Component arg7) {
         @Pc(10) Class105 local10 = Static577.aClass246_4.method5584(arg4);
-        if (local10 == null || !local10.aBoolean218 || !local10.method2425(Static34.aClass304_1)) {
+        if (local10 == null || !local10.aBoolean218 || !local10.method2425(TimedVarDomain.instance)) {
             return;
         }
         @Pc(36) int local36;
@@ -46,7 +46,7 @@ public final class Static620 {
             }
             @Pc(187) Graphic local187 = arg7.graphic(arg3);
             if (local187 != null) {
-                Static141.method2377(arg3, local34, local10.anInt2610, local187.anIntArray303, local187.anIntArray302);
+                Static141.method2377(arg3, local34, local10.anInt2610, local187.lineOffsets, local187.lineWidths);
             }
             if (local10.anInt2603 > 0) {
                 @Pc(223) int local223;

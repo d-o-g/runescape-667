@@ -28,7 +28,7 @@ public final class Static30 {
     public static VarDomain anVarDomain_3;
 
     @OriginalMember(owner = "client!baa", name = "m", descriptor = "Lclient!ip;")
-    public static DoublyLinkedNode_Sub2_Sub13 aClass2_Sub2_Sub13_3;
+    public static WorldMapArea aClass2_Sub2_Sub13_3;
 
     @OriginalMember(owner = "client!baa", name = "H", descriptor = "Lclient!gea;")
     public static LocTypeList aLocTypeList_3;
@@ -142,8 +142,8 @@ public final class Static30 {
     public static final Deque A_DEQUE___31 = new Deque();
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(I)Lclient!ip;")
-    public static DoublyLinkedNode_Sub2_Sub13 method5059(@OriginalArg(0) int arg0) {
-        return (DoublyLinkedNode_Sub2_Sub13) A_HASH_TABLE___27.get((long) arg0);
+    public static WorldMapArea method5059(@OriginalArg(0) int arg0) {
+        return (WorldMapArea) A_HASH_TABLE___27.get((long) arg0);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;)V")
@@ -398,7 +398,7 @@ public final class Static30 {
         @Pc(28) int[] local28 = aJs5_74.fileIds(local23);
         if (local28 != null) {
             for (@Pc(32) int local32 = 0; local32 < local28.length; local32++) {
-                @Pc(41) DoublyLinkedNode_Sub2_Sub13 local41 = Static517.method6820(aJs5_74, local23, local28[local32]);
+                @Pc(41) WorldMapArea local41 = Static517.method6820(aJs5_74, local23, local28[local32]);
                 A_HASH_TABLE___27.put((long) local41.anInt4563, local41);
             }
         }
@@ -735,7 +735,7 @@ public final class Static30 {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(I)V")
     public static void method5072(@OriginalArg(0) int arg0) {
-        aClass2_Sub2_Sub13_3 = (DoublyLinkedNode_Sub2_Sub13) A_HASH_TABLE___27.get((long) arg0);
+        aClass2_Sub2_Sub13_3 = (WorldMapArea) A_HASH_TABLE___27.get((long) arg0);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!fu;IIII)V")
@@ -907,7 +907,7 @@ public final class Static30 {
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(II)Lclient!jga;")
     public static Queue method5076(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(3) Queue local3 = new Queue();
-        for (@Pc(8) DoublyLinkedNode_Sub2_Sub13 local8 = (DoublyLinkedNode_Sub2_Sub13) A_HASH_TABLE___27.first(); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub13) A_HASH_TABLE___27.next()) {
+        for (@Pc(8) WorldMapArea local8 = (WorldMapArea) A_HASH_TABLE___27.first(); local8 != null; local8 = (WorldMapArea) A_HASH_TABLE___27.next()) {
             if (local8.aBoolean354 && local8.method4086(arg0, arg1)) {
                 local3.add(local8);
             }
@@ -916,8 +916,8 @@ public final class Static30 {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(II)Lclient!ip;")
-    public static DoublyLinkedNode_Sub2_Sub13 method5078(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        for (@Pc(4) DoublyLinkedNode_Sub2_Sub13 local4 = (DoublyLinkedNode_Sub2_Sub13) A_HASH_TABLE___27.first(); local4 != null; local4 = (DoublyLinkedNode_Sub2_Sub13) A_HASH_TABLE___27.next()) {
+    public static WorldMapArea method5078(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+        for (@Pc(4) WorldMapArea local4 = (WorldMapArea) A_HASH_TABLE___27.first(); local4 != null; local4 = (WorldMapArea) A_HASH_TABLE___27.next()) {
             if (local4.aBoolean354 && local4.method4086(arg0, arg1)) {
                 return local4;
             }

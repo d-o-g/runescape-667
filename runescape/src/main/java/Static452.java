@@ -12,9 +12,6 @@ public final class Static452 {
     @OriginalMember(owner = "client!oea", name = "y", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___173 = new ServerProt(44, 10);
 
-    @OriginalMember(owner = "client!oea", name = "v", descriptor = "I")
-    public static int anInt6869 = 0;
-
     @OriginalMember(owner = "client!oea", name = "w", descriptor = "Lclient!dla;")
     public static final ReferenceCache A_WEIGHTED_CACHE___149 = new ReferenceCache(8);
 

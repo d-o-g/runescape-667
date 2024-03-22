@@ -1,4 +1,5 @@
 import com.jagex.graphics.Exception_Sub1;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -34,7 +35,7 @@ public final class Static700 {
         Static352.method5180();
         VideoTypeList.method1084();
         System.gc();
-        Static163.activeToolkit.ya();
+        Toolkit.active.ya();
     }
 
 }

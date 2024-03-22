@@ -19,9 +19,9 @@ public final class Static517 {
     public static final Class155 aClass155_36 = new Class155(15);
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(Lclient!sb;III)Lclient!ip;")
-    public static DoublyLinkedNode_Sub2_Sub13 method6820(@OriginalArg(0) js5 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static WorldMapArea method6820(@OriginalArg(0) js5 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(14) Packet local14 = new Packet(arg0.getfile(arg2, arg1));
-        @Pc(50) DoublyLinkedNode_Sub2_Sub13 local50 = new DoublyLinkedNode_Sub2_Sub13(arg2, local14.gjstr(), local14.gjstr(), local14.g4(), local14.g4(), local14.g1() == 1, local14.g1(), local14.g1());
+        @Pc(50) WorldMapArea local50 = new WorldMapArea(arg2, local14.gjstr(), local14.gjstr(), local14.g4(), local14.g4(), local14.g1() == 1, local14.g1(), local14.g1());
         @Pc(54) int local54 = local14.g1();
         for (@Pc(56) int local56 = 0; local56 < local54; local56++) {
             local50.aDeque_26.addLast(new Node_Sub56(local14.g1(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2()));

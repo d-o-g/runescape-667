@@ -14,9 +14,6 @@ public final class Static153 {
     @OriginalMember(owner = "client!eq", name = "o", descriptor = "[I")
     public static int[] anIntArray235 = new int[2];
 
-    @OriginalMember(owner = "client!eq", name = "a", descriptor = "Ljava/lang/String;")
-    public static String aString27 = null;
-
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(ILclient!uc;I)V")
     public static void method2461(@OriginalArg(0) int arg0, @OriginalArg(1) Environment arg1) {
         if (Static584.aBoolean658) {

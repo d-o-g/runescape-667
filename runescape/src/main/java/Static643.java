@@ -2,7 +2,6 @@ import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 import java.awt.Canvas;
 
@@ -24,31 +23,4 @@ public final class Static643 {
         return new Toolkit_Sub2(arg3, arg1, arg0, arg2);
     }
 
-    @OriginalMember(owner = "client!uf", name = "a", descriptor = "(II[Lclient!hda;)V")
-    public static void method8444(@OriginalArg(1) int arg0, @OriginalArg(2) Component[] arg1) {
-        for (@Pc(3) int local3 = 0; local3 < arg1.length; local3++) {
-            @Pc(9) Component local9 = arg1[local3];
-            if (local9 != null && local9.layer == arg0 && !InterfaceManager.isHidden(local9)) {
-                if (local9.type == 0) {
-                    method8444(local9.slot, arg1);
-                    if (local9.dynamicComponents != null) {
-                        method8444(local9.slot, local9.dynamicComponents);
-                    }
-                    @Pc(56) SubInterface local56 = (SubInterface) InterfaceManager.subInterfaces.get((long) local9.slot);
-                    if (local56 != null) {
-                        Static26.method716(local56.anInt147);
-                    }
-                }
-                if (local9.type == 6 && local9.modelAnimation != -1) {
-                    if (local9.animator == null) {
-                        local9.animator = new ComponentAnimator();
-                        local9.animator.update(true, local9.modelAnimation);
-                    }
-                    if (local9.animator.tick(Static35.anInt800) && local9.animator.isFinished()) {
-                        local9.animator.method9099();
-                    }
-                }
-            }
-        }
-    }
 }

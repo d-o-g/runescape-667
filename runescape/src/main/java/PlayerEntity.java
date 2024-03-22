@@ -20,6 +20,9 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ca")
 public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
 
+    @OriginalMember(owner = "client!rj", name = "c", descriptor = "Lclient!ca;")
+    public static PlayerEntity self;
+
     @OriginalMember(owner = "client!ca", name = "Sc", descriptor = "Ljava/lang/String;")
     public String aString8;
 
@@ -60,7 +63,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public int anInt1431 = -1;
 
     @OriginalMember(owner = "client!ca", name = "Jc", descriptor = "Z")
-    public boolean aBoolean126 = false;
+    public boolean vorbis = false;
 
     @OriginalMember(owner = "client!ca", name = "cd", descriptor = "I")
     public int anInt1437 = 0;
@@ -93,7 +96,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public int anInt1459 = -1;
 
     @OriginalMember(owner = "client!ca", name = "Oc", descriptor = "I")
-    public int anInt1460 = 255;
+    public int soundVolume = 255;
 
     @OriginalMember(owner = "client!ca", name = "hd", descriptor = "I")
     public int anInt1445 = -1;
@@ -114,6 +117,21 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!ca", name = "<init>", descriptor = "()V")
     public PlayerEntity() {
+    }
+
+    @OriginalMember(owner = "client!kf", name = "a", descriptor = "(ILclient!ca;)I")
+    public static int method4870(@OriginalArg(1) PlayerEntity arg0) {
+        @Pc(6) int local6 = arg0.anInt1445;
+        @Pc(10) BASType local10 = arg0.method9317();
+        @Pc(15) int local15 = arg0.animator.getAnimationId();
+        if (local15 == -1 || arg0.ready) {
+            local6 = arg0.anInt1455;
+        } else if (local10.run == local15 || local15 == local10.runFollowTurn180 || local10.runFollowTurnCw == local15 || local10.runFollowTurnCcw == local15) {
+            local6 = arg0.anInt1469;
+        } else if (local10.crawl == local15 || local10.crawlFollowTurn180 == local15 || local10.crawlFollowTurnCw == local15 || local10.crawlFollowTurnCcw == local15) {
+            local6 = arg0.anInt1459;
+        }
+        return local6;
     }
 
     @OriginalMember(owner = "client!ca", name = "d", descriptor = "(Lclient!ha;I)V")
@@ -264,7 +282,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public int boundSize(@OriginalArg(0) byte arg0) {
         if (this.playerModel == null || this.playerModel.npcId == -1) {
             if (arg0 < 43) {
-                this.anInt1460 = 1;
+                this.soundVolume = 1;
             }
             return super.boundSize((byte) 76);
         } else {
@@ -282,7 +300,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(26) int local26 = this.boundSize((byte) 84);
         super.anInt10690 = local26 * 256 + super.pathX[0] * 512;
         super.anInt10694 = super.pathY[0] * 512 + local26 * 256;
-        if (Static556.self == this) {
+        if (self == this) {
             Static218.method3187();
         }
         if (super.aClass8_Sub5_8 != null) {
@@ -308,7 +326,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
         local22.rotate(local27);
-        @Pc(53) Class291 local53 = Static334.activeTiles[super.aByte144][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
+        @Pc(53) Class291 local53 = Static334.activeTiles[super.level][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
         if (local53 == null || local53.aGroundDecor_1 == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
         } else {
@@ -322,7 +340,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             @Pc(126) BASType local126 = this.method9317();
             if (local126.animateShadow && (this.playerModel.npcId == -1 || Static690.aNPCTypeList_2.list(this.playerModel.npcId).hasShadow)) {
                 @Pc(166) Animator local166 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
-                @Pc(186) Animator local186 = super.animator.isAnimating() && (!super.aBoolean817 || local166 == null) ? super.animator : null;
+                @Pc(186) Animator local186 = super.animator.isAnimating() && (!super.ready || local166 == null) ? super.animator : null;
                 @Pc(212) Model local212 = Static618.method8320(240, super.aModelArray3[0], super.anInt10742, 0, super.anInt10716, 1, arg0, 160, local186 == null ? local166 : local186, super.anInt10746, local27, 0);
                 if (local212 != null) {
                     local114 = Static642.method8441(true, super.aModelArray3.length + 1);
@@ -338,7 +356,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             }
         }
         @Pc(269) int local269;
-        if (Static556.self == this) {
+        if (self == this) {
             for (local269 = Static527.aClass254Array1.length - 1; local269 >= 0; local269--) {
                 @Pc(275) Class254 local275 = Static527.aClass254Array1[local269];
                 if (local275 != null && local275.anInt6371 != -1) {
@@ -346,9 +364,9 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                     if (local275.anInt6363 == 1) {
                         @Pc(298) Node_Sub45 local298 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local275.anInt6366);
                         if (local298 != null) {
-                            @Pc(303) Class8_Sub2_Sub1_Sub2_Sub2 local303 = local298.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                            local310 = local303.anInt10690 - Static556.self.anInt10690;
-                            @Pc(316) int local316 = local303.anInt10694 - Static556.self.anInt10694;
+                            @Pc(303) NPCEntity local303 = local298.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                            local310 = local303.anInt10690 - self.anInt10690;
+                            @Pc(316) int local316 = local303.anInt10694 - self.anInt10694;
                             if (Static504.aBoolean579) {
                                 this.method1416(super.aModelArray3[0], 92160000, arg0, local275.anInt6371, local310, local22, Static582.anInt8627, local316);
                             } else {
@@ -358,8 +376,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                     }
                     @Pc(371) int local371;
                     if (local275.anInt6363 == 2) {
-                        @Pc(364) int local364 = local275.anInt6369 - Static556.self.anInt10690;
-                        local371 = local275.anInt6362 - Static556.self.anInt10694;
+                        @Pc(364) int local364 = local275.anInt6369 - self.anInt10690;
+                        local371 = local275.anInt6362 - self.anInt10694;
                         local310 = local275.anInt6364 << 9;
                         local310 *= local310;
                         if (Static504.aBoolean579) {
@@ -371,8 +389,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                     if (local275.anInt6363 == 10 && local275.anInt6366 >= 0 && local275.anInt6366 < PlayerList.highResolutionPlayers.length) {
                         @Pc(438) PlayerEntity local438 = PlayerList.highResolutionPlayers[local275.anInt6366];
                         if (local438 != null) {
-                            local371 = local438.anInt10690 - Static556.self.anInt10690;
-                            local310 = local438.anInt10694 - Static556.self.anInt10694;
+                            local371 = local438.anInt10690 - self.anInt10690;
+                            local310 = local438.anInt10694 - self.anInt10694;
                             if (Static504.aBoolean579) {
                                 this.method1416(super.aModelArray3[0], 92160000, arg0, local275.anInt6371, local371, local22, Static582.anInt8627, local310);
                             } else {
@@ -394,13 +412,13 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         if (Static504.aBoolean579) {
             for (local269 = 0; local269 < super.aModelArray3.length; local269++) {
                 if (super.aModelArray3[local269] != null) {
-                    super.aModelArray3[local269].renderOrtho(local22, local114.aPickingCylinderArray1[local269], Static582.anInt8627, Static556.self == this ? 1 : 0);
+                    super.aModelArray3[local269].renderOrtho(local22, local114.aPickingCylinderArray1[local269], Static582.anInt8627, self == this ? 1 : 0);
                 }
             }
         } else {
             for (local269 = 0; local269 < super.aModelArray3.length; local269++) {
                 if (super.aModelArray3[local269] != null) {
-                    super.aModelArray3[local269].render(local22, local114.aPickingCylinderArray1[local269], Static556.self == this ? 1 : 0);
+                    super.aModelArray3[local269].render(local22, local114.aPickingCylinderArray1[local269], self == this ? 1 : 0);
                 }
             }
         }
@@ -427,8 +445,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         packet.pos = 0;
         @Pc(12) int local12 = packet.g1();
         this.aByte32 = (byte) (local12 & 0x1);
-        @Pc(21) boolean local21 = this.aBoolean126;
-        this.aBoolean126 = (local12 & 0x2) != 0;
+        @Pc(21) boolean local21 = this.vorbis;
+        this.vorbis = (local12 & 0x2) != 0;
         @Pc(40) boolean local40 = (local12 & 0x4) != 0;
         @Pc(44) int local44 = super.boundSize((byte) 85);
         this.method9310((local12 >> 3 & 0x7) + 1);
@@ -439,7 +457,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         this.anInt1430 = packet.g1b();
         this.anInt1431 = packet.g1b();
         this.aBoolean124 = packet.g1b() == 1;
-        if (Static446.aClass355_5 == Static2.aClass355_1 && Static608.anInt9290 >= 2) {
+        if (Static446.aClass355_5 == Static2.aClass355_1 && Static608.staffModLevel >= 2) {
             this.aBoolean124 = false;
         }
         this.anInt1433 = 0;
@@ -500,7 +518,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         this.anInt1443 = packet.g2();
         this.aString8 = packet.gjstr();
-        if (Static556.self == this) {
+        if (self == this) {
             Constants.playerDisplayName = this.aString8;
         }
         this.accountName = this.aString8;
@@ -530,13 +548,13 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             @Pc(487) int local487 = this.anInt1459;
             local490 = this.anInt1445;
             @Pc(493) int local493 = this.anInt1469;
-            @Pc(496) int local496 = this.anInt1460;
+            @Pc(496) int local496 = this.soundVolume;
             this.anInt1455 = packet.g2();
             this.anInt1459 = packet.g2();
             this.anInt1445 = packet.g2();
             this.anInt1469 = packet.g2();
-            this.anInt1460 = packet.g1();
-            if (this.aBoolean126 != local21 || this.anInt1452 != local191 || local240 != this.anInt1455 || local487 != this.anInt1459 || this.anInt1445 != local490 || this.anInt1469 != local493 || local496 != this.anInt1460) {
+            this.soundVolume = packet.g1();
+            if (this.vorbis != local21 || this.anInt1452 != local191 || local240 != this.anInt1455 || local487 != this.anInt1459 || this.anInt1445 != local490 || this.anInt1469 != local493 || local496 != this.soundVolume) {
                 Static247.method3523(this);
             }
         }
@@ -561,13 +579,13 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         if (super.aClass8_Sub5_8 != null) {
             super.aClass8_Sub5_8.method3656();
         }
-        if (!super.animator.isAnimating() || !super.aBoolean817) {
+        if (!super.animator.isAnimating() || !super.ready) {
             return;
         }
         @Pc(717) BASType local717 = this.method9317();
         if (!local717.isReady(super.animator.getAnimationId())) {
             super.animator.update(true, -1);
-            super.aBoolean817 = false;
+            super.ready = false;
             return;
         }
     }
@@ -577,7 +595,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(5) int local5 = arg0;
         @Pc(15) BASType local15 = this.method9317();
         @Pc(33) Animator local33 = super.aAnimator_11.isAnimating() && !super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
-        @Pc(58) Animator local58 = !super.animator.isAnimating() || this.aBoolean129 || super.aBoolean817 && local33 != null ? null : super.animator;
+        @Pc(58) Animator local58 = !super.animator.isAnimating() || this.aBoolean129 || super.ready && local33 != null ? null : super.animator;
         @Pc(61) int local61 = local15.hillWidth;
         @Pc(64) int local64 = local15.hillHeight;
         if (local61 != 0 || local64 != 0 || local15.rollTargetAngle != 0 || local15.pitchTargetAngle != 0) {
@@ -588,7 +606,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         if (local119) {
             arg0 |= 0x80000;
         }
-        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(Static419.objTypeList, local33, Static574.basTypeList, Static25.seqTypeList, arg0, super.anIntArray877, Static523.wearposDefaults, Static68.idkTypeList, arg1, Static690.aNPCTypeList_2, super.aClass152_Sub2_Sub1Array3, local95, local58, Static34.aClass304_1);
+        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(Static419.objTypeList, local33, Static574.basTypeList, Static25.seqTypeList, arg0, super.anIntArray877, Static523.wearposDefaults, Static68.idkTypeList, arg1, Static690.aNPCTypeList_2, super.aClass152_Sub2_Sub1Array3, local95, local58, TimedVarDomain.instance);
         @Pc(155) int local155 = PlayerModel.cacheHardReferenceCount();
         if (Static369.anInt4265 < 96 && local155 > 50) {
             Static358.method9191();

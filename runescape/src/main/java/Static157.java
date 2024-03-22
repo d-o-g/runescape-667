@@ -7,9 +7,6 @@ public final class Static157 {
     @OriginalMember(owner = "client!eu", name = "bb", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___61 = new ServerProt(46, 3);
 
-    @OriginalMember(owner = "client!eu", name = "ic", descriptor = "I")
-    public static int anInt2777 = -1;
-
     @OriginalMember(owner = "client!eu", name = "f", descriptor = "(I)V")
     public static void method2560() {
         Static264.A_WEIGHTED_CACHE___235.reset();

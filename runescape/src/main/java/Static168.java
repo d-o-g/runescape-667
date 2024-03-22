@@ -21,7 +21,7 @@ public final class Static168 {
     public static void method2633(@OriginalArg(0) PacketBuffer arg0) {
         arg0.method7417();
         @Pc(10) int local10 = PlayerList.activePlayerSlot;
-        @Pc(20) PlayerEntity local20 = Static556.self = PlayerList.highResolutionPlayers[local10] = new PlayerEntity();
+        @Pc(20) PlayerEntity local20 = PlayerEntity.self = PlayerList.highResolutionPlayers[local10] = new PlayerEntity();
         local20.anInt10740 = local10;
         @Pc(28) int local28 = arg0.method7412(30);
         @Pc(33) byte local33 = (byte) (local28 >> 28);
@@ -31,7 +31,7 @@ public final class Static168 {
         local20.anInt10690 = (local20.pathX[0] << 9) + (local20.boundSize((byte) 53) << 8);
         local20.pathY[0] = local51 - Static116.areaBaseY;
         local20.anInt10694 = (local20.pathY[0] << 9) + (local20.boundSize((byte) 65) << 8);
-        Static394.anInt6176 = local20.aByte144 = local20.aByte143 = local33;
+        Static394.anInt6176 = local20.level = local20.aByte143 = local33;
         if (Static441.method5968(local20.pathY[0], local20.pathX[0])) {
             local20.aByte143++;
         }
@@ -79,7 +79,7 @@ public final class Static168 {
                     @Pc(66) int[] pixels = new int[height * width];
                     @Pc(78) PixelGrabber grabber = new PixelGrabber(image, 0, 0, width, height, pixels, 0, width);
                     grabber.grabPixels();
-                    return Static163.activeToolkit.createSprite(width, width, height, pixels);
+                    return com.jagex.graphics.Toolkit.active.createSprite(width, width, height, pixels);
                 }
                 throw new RuntimeException("");
             } catch (@Pc(91) InterruptedException local91) {

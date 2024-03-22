@@ -12,9 +12,6 @@ public final class Static605 {
     @OriginalMember(owner = "client!tba", name = "h", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___220 = new ServerProt(108, 12);
 
-    @OriginalMember(owner = "client!tba", name = "g", descriptor = "Lclient!hda;")
-    public static Component aComponent_15 = null;
-
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(ILclient!pc;)V")
     public static void method7912(@OriginalArg(1) Class287 arg0) {
         @Pc(8) PacketBuffer local8 = ConnectionManager.GAME.buffer;
@@ -152,7 +149,7 @@ public final class Static605 {
                 local212 = local8.g2();
                 if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
                     local217 = local42 + 1;
-                    if (local21 - local217 <= Static556.self.pathX[0] && local217 + local21 >= Static556.self.pathX[0] && Static556.self.pathY[0] >= local25 - local217 && local217 + local25 >= Static556.self.pathY[0]) {
+                    if (local21 - local217 <= PlayerEntity.self.pathX[0] && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathY[0] >= local25 - local217 && local217 + local25 >= PlayerEntity.self.pathY[0]) {
                         Static165.method2608(local537, local52, local34, local46, local212, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16));
                     }
                 }
@@ -217,7 +214,7 @@ public final class Static605 {
                             } else {
                                 local957 = -local212 - 1;
                                 if (local957 == PlayerList.activePlayerSlot) {
-                                    local948 = Static556.self;
+                                    local948 = PlayerEntity.self;
                                 } else {
                                     local948 = PlayerList.highResolutionPlayers[local957];
                                 }
@@ -270,7 +267,7 @@ public final class Static605 {
                     local212 = local8.g2();
                     if (local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
                         local217 = local42 + 1;
-                        if (Static556.self.pathX[0] >= local21 - local217 && local217 + local21 >= Static556.self.pathX[0] && Static556.self.pathY[0] >= local25 - local217 && Static556.self.pathY[0] <= local25 + local217) {
+                        if (PlayerEntity.self.pathX[0] >= local21 - local217 && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathY[0] >= local25 - local217 && PlayerEntity.self.pathY[0] <= local25 + local217) {
                             Static179.method2770(local46, local52, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16), local212, local537, local34);
                         }
                     }

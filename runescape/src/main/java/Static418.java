@@ -1,4 +1,5 @@
 import com.jagex.SignLink;
+import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -51,18 +52,18 @@ public final class Static418 {
             Static713.method9331(true);
         } else {
             Static460.aMatrix_10.translate(arg4, 0, 0);
-            Static163.activeToolkit.setCamera(Static460.aMatrix_10);
+            Toolkit.active.setCamera(Static460.aMatrix_10);
         }
         if (Static504.aBoolean579) {
-            Static163.activeToolkit.HA(arg3, local58, arg1, Static582.anInt8627, Static215.anIntArray284);
+            Toolkit.active.HA(arg3, local58, arg1, Static582.anInt8627, Static215.anIntArray284);
         } else {
-            Static163.activeToolkit.da(arg3, local58, arg1, Static215.anIntArray284);
+            Toolkit.active.da(arg3, local58, arg1, Static215.anIntArray284);
         }
         if (InterfaceManager.aBoolean210) {
             Static480.method6469();
         } else {
             Static460.aMatrix_10.translate(-arg4, 0, 0);
-            Static163.activeToolkit.setCamera(Static460.aMatrix_10);
+            Toolkit.active.setCamera(Static460.aMatrix_10);
         }
     }
 

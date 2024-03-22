@@ -12,7 +12,7 @@ public final class Class236 {
     public boolean aBoolean455 = false;
 
     @OriginalMember(owner = "client!lw", name = "c", descriptor = "Lclient!wj;")
-    public Class8_Sub2_Sub1_Sub2_Sub2 aClass8_Sub2_Sub1_Sub2_Sub2_1 = null;
+    public NPCEntity aClass8_Sub2_Sub1_Sub2_Sub2_1 = null;
 
     @OriginalMember(owner = "client!lw", name = "e", descriptor = "Lclient!ca;")
     public PlayerEntity aClass8_Sub2_Sub1_Sub2_Sub1_1 = null;
@@ -40,7 +40,7 @@ public final class Class236 {
     @OriginalMember(owner = "client!lw", name = "a", descriptor = "(IBII)V")
     public void method5360(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         if (this.aClass8_Sub2_Sub1_Sub2_Sub2_1 == null) {
-            this.aClass8_Sub2_Sub1_Sub2_Sub1_1.aByte144 = this.aClass8_Sub2_Sub1_Sub2_Sub1_1.aByte143 = (byte) arg1;
+            this.aClass8_Sub2_Sub1_Sub2_Sub1_1.level = this.aClass8_Sub2_Sub1_Sub2_Sub1_1.aByte143 = (byte) arg1;
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method1419(arg0, arg2);
         } else {
             this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9326(true, arg2, arg0, arg1, this.aClass8_Sub2_Sub1_Sub2_Sub2_1.boundSize((byte) 44));
@@ -64,12 +64,12 @@ public final class Class236 {
         if (!this.aBoolean455) {
             this.aBoolean455 = true;
             if (this.anInt5980 >= 0) {
-                this.aClass8_Sub2_Sub1_Sub2_Sub2_1 = new Class8_Sub2_Sub1_Sub2_Sub2(25);
+                this.aClass8_Sub2_Sub1_Sub2_Sub2_1 = new NPCEntity(25);
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10751 = TimeUtils.clock;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10740 = this.anInt5985;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9328(Static690.aNPCTypeList_2.list(this.anInt5980));
-                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9310(this.aClass8_Sub2_Sub1_Sub2_Sub2_1.aNPCType_1.size);
-                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10757 = this.aClass8_Sub2_Sub1_Sub2_Sub2_1.aNPCType_1.rotationSpeed << 3;
+                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9310(this.aClass8_Sub2_Sub1_Sub2_Sub2_1.type.size);
+                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10757 = this.aClass8_Sub2_Sub1_Sub2_Sub2_1.type.rotationSpeed << 3;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.drawPriority = Static457.anInt6933++;
             } else {
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1 = new PlayerEntity(25);
@@ -80,7 +80,7 @@ public final class Class236 {
             }
         }
         if (this.anInt5980 < 0) {
-            this.aClass8_Sub2_Sub1_Sub2_Sub1_1.aByte144 = this.aClass8_Sub2_Sub1_Sub2_Sub1_1.aByte143 = (byte) arg1;
+            this.aClass8_Sub2_Sub1_Sub2_Sub1_1.level = this.aClass8_Sub2_Sub1_Sub2_Sub1_1.aByte143 = (byte) arg1;
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method1419(arg2, arg3);
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method9298(arg0, true);
         } else {

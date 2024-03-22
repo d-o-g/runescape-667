@@ -7,9 +7,6 @@ public final class Static334 {
     @OriginalMember(owner = "client!kja", name = "e", descriptor = "[[[Lclient!pha;")
     public static Class291[][][] activeTiles;
 
-    @OriginalMember(owner = "client!kja", name = "b", descriptor = "Lclient!rg;")
-    public static Class319 aClass319_1;
-
     @OriginalMember(owner = "client!kja", name = "c", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___140 = new ServerProt(71, 2);
 

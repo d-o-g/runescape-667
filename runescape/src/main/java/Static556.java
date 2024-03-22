@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.Class331;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;

@@ -8,7 +8,7 @@ public final class Static3 {
     public static final Class287 aClass287_1 = new Class287(10, 19);
 
     @OriginalMember(owner = "client!ab", name = "w", descriptor = "Z")
-    public static boolean aBoolean4 = false;
+    public static boolean chooseSafeMode = false;
 
     @OriginalMember(owner = "client!ab", name = "d", descriptor = "(I)V")
     public static void method87(@OriginalArg(0) int arg0) {

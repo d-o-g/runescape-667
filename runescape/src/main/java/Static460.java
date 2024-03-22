@@ -23,15 +23,18 @@ public final class Static460 {
     @OriginalMember(owner = "client!oj", name = "n", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___40 = new Deque();
 
+    @OriginalMember(owner = "client!rr", name = "j", descriptor = "I")
+    public static int anInt8472 = 0;
+
     @OriginalMember(owner = "client!oj", name = "f", descriptor = "(I)I")
     public static int method6266() {
         if (Static213.anInt3470 == 0) {
-            Static566.A_LOADING_REQUIREMENT___2.method7470(new LibraryLoader("jaclib"));
-            if (Static566.A_LOADING_REQUIREMENT___2.method7469().completePercentage() != 100) {
+            LoadingRequirement.NL_JACLIB.setLoader(new LibraryLoader("jaclib"));
+            if (LoadingRequirement.NL_JACLIB.getLoader().completePercentage() != 100) {
                 return 1;
             }
-            if (!((LibraryLoader) Static566.A_LOADING_REQUIREMENT___2.method7469()).isDone()) {
-                client.aClient1.method1644();
+            if (!((LibraryLoader) LoadingRequirement.NL_JACLIB.getLoader()).isDone()) {
+                client.aClient1.loadJaclib();
             }
             Static213.anInt3470 = 1;
         }
@@ -40,35 +43,35 @@ public final class Static460 {
         @Pc(308) int local308;
         @Pc(314) int local314;
         if (Static213.anInt3470 == 1) {
-            Static522.aLoadingRequirementArray1 = Static566.method7467();
-            Static566.A_LOADING_REQUIREMENT___1.method7470(new Js5Loader(js5.DEFAULTS));
-            Static566.A_LOADING_REQUIREMENT___3.method7470(new LibraryLoader("jaggl"));
-            Static566.A_LOADING_REQUIREMENT___4.method7470(new LibraryLoader("jagdx"));
-            Static566.A_LOADING_REQUIREMENT___5.method7470(new LibraryLoader("jagmisc"));
-            Static566.A_LOADING_REQUIREMENT___6.method7470(new LibraryLoader("sw3d"));
-            Static566.A_LOADING_REQUIREMENT___7.method7470(new LibraryLoader("hw3d"));
-            Static566.A_LOADING_REQUIREMENT___8.method7470(new LibraryLoader("jagtheora"));
-            Static566.A_LOADING_REQUIREMENT___9.method7470(new Js5Loader(js5.SHADERS));
-            Static566.A_LOADING_REQUIREMENT___10.method7470(new Js5Loader(js5.MATERIALS));
-            Static566.A_LOADING_REQUIREMENT___11.method7470(new Js5Loader(js5.CONFIG));
-            Static566.A_LOADING_REQUIREMENT___12.method7470(new Js5Loader(js5.CONFIG_LOC));
-            Static566.A_LOADING_REQUIREMENT___13.method7470(new Js5Loader(js5.CONFIG_ENUM));
-            Static566.A_LOADING_REQUIREMENT___14.method7470(new Js5Loader(js5.CONFIG_NPC));
-            Static566.A_LOADING_REQUIREMENT___15.method7470(new Js5Loader(js5.CONFIG_OBJ));
-            Static566.A_LOADING_REQUIREMENT___16.method7470(new Js5Loader(js5.CONFIG_SEQ));
-            Static566.A_LOADING_REQUIREMENT___17.method7470(new Js5Loader(js5.CONFIG_SPOT));
-            Static566.A_LOADING_REQUIREMENT___18.method7470(new Js5Loader(js5.CONFIG_STRUCT));
-            Static566.A_LOADING_REQUIREMENT___19.method7470(new Js5Loader(js5.QUICKCHAT));
-            Static566.A_LOADING_REQUIREMENT___20.method7470(new Js5Loader(js5.QUICKCHAT_GLOBAL));
-            Static566.A_LOADING_REQUIREMENT___21.method7470(new Js5Loader(js5.CONFIG_PARTICLE));
-            Static566.A_LOADING_REQUIREMENT___22.method7470(new Js5Loader(js5.CONFIG_BILLBOARD));
-            Static566.A_LOADING_REQUIREMENT___23.method7470(new Js5FileLoader(js5.BINARY, "huffman"));
-            Static566.A_LOADING_REQUIREMENT___24.method7470(new Js5Loader(js5.INTERFACES));
-            Static566.A_LOADING_REQUIREMENT___25.method7470(new Js5Loader(js5.CLIENTSCRIPTS));
-            Static566.A_LOADING_REQUIREMENT___26.method7470(new Js5Loader(js5.FONTMETRICS));
-            Static566.A_LOADING_REQUIREMENT___27.method7470(new Js5GroupLoader(js5.WORLDMAPDATA, "details"));
+            Static522.aLoadingRequirementArray1 = LoadingRequirement.values();
+            LoadingRequirement.JS5_DEFAULTS.setLoader(new Js5Loader(js5.DEFAULTS));
+            LoadingRequirement.NL_JAGGL.setLoader(new LibraryLoader("jaggl"));
+            LoadingRequirement.NL_JAGDX.setLoader(new LibraryLoader("jagdx"));
+            LoadingRequirement.NL_JAGMISC.setLoader(new LibraryLoader("jagmisc"));
+            LoadingRequirement.NL_SW3D.setLoader(new LibraryLoader("sw3d"));
+            LoadingRequirement.NL_HW3D.setLoader(new LibraryLoader("hw3d"));
+            LoadingRequirement.NL_JAGTHEORA.setLoader(new LibraryLoader("jagtheora"));
+            LoadingRequirement.JS5_SHADERS.setLoader(new Js5Loader(js5.SHADERS));
+            LoadingRequirement.JS5_MATERIALS.setLoader(new Js5Loader(js5.MATERIALS));
+            LoadingRequirement.JS5_CONFIG.setLoader(new Js5Loader(js5.CONFIG));
+            LoadingRequirement.JS5_CONFIG_LOC.setLoader(new Js5Loader(js5.CONFIG_LOC));
+            LoadingRequirement.JS5_CONFIG_ENUM.setLoader(new Js5Loader(js5.CONFIG_ENUM));
+            LoadingRequirement.JS5_CONFIG_NPC.setLoader(new Js5Loader(js5.CONFIG_NPC));
+            LoadingRequirement.JS5_CONFIG_OBJ.setLoader(new Js5Loader(js5.CONFIG_OBJ));
+            LoadingRequirement.JS5_CONFIG_SEQ.setLoader(new Js5Loader(js5.CONFIG_SEQ));
+            LoadingRequirement.JS5_CONFIG_SPOT.setLoader(new Js5Loader(js5.CONFIG_SPOT));
+            LoadingRequirement.JS5_CONFIG_STRUCT.setLoader(new Js5Loader(js5.CONFIG_STRUCT));
+            LoadingRequirement.JS5_QUICKCHAT.setLoader(new Js5Loader(js5.QUICKCHAT));
+            LoadingRequirement.JS5_QUICKCHAT_GLOBAL.setLoader(new Js5Loader(js5.QUICKCHAT_GLOBAL));
+            LoadingRequirement.JS5_CONFIG_PARTICLE.setLoader(new Js5Loader(js5.CONFIG_PARTICLE));
+            LoadingRequirement.JS5_CONFIG_BILLBOARD.setLoader(new Js5Loader(js5.CONFIG_BILLBOARD));
+            LoadingRequirement.JS5FILE_HUFFMAN.setLoader(new Js5FileLoader(js5.BINARY, "huffman"));
+            LoadingRequirement.JS5_INTERFACES.setLoader(new Js5Loader(js5.INTERFACES));
+            LoadingRequirement.JS5_CLIENTSCRIPTS.setLoader(new Js5Loader(js5.CLIENTSCRIPTS));
+            LoadingRequirement.JS5_FONTMETRICS.setLoader(new Js5Loader(js5.FONTMETRICS));
+            LoadingRequirement.JS5GROUP_WORLDMAPDATA.setLoader(new Js5GroupLoader(js5.WORLDMAPDATA, "details"));
             for (local270 = 0; local270 < Static522.aLoadingRequirementArray1.length; local270++) {
-                if (Static522.aLoadingRequirementArray1[local270].method7469() == null) {
+                if (Static522.aLoadingRequirementArray1[local270].getLoader() == null) {
                     throw new RuntimeException();
                 }
             }
@@ -76,8 +79,8 @@ public final class Static460 {
             @Pc(294) LoadingRequirement[] local294 = Static522.aLoadingRequirementArray1;
             for (@Pc(296) int local296 = 0; local296 < local294.length; local296++) {
                 @Pc(304) LoadingRequirement local304 = local294[local296];
-                local308 = local304.method7471();
-                local314 = local304.method7469().completePercentage();
+                local308 = local304.getSize();
+                local314 = local304.getLoader().completePercentage();
                 local292 += local314 * local308 / 100;
             }
             Static392.anInt6144 = local292;
@@ -92,8 +95,8 @@ public final class Static460 {
         @Pc(350) LoadingRequirement[] local350 = Static522.aLoadingRequirementArray1;
         for (@Pc(352) int local352 = 0; local352 < local350.length; local352++) {
             @Pc(358) LoadingRequirement local358 = local350[local352];
-            local314 = local358.method7471();
-            @Pc(370) int local370 = local358.method7469().completePercentage();
+            local314 = local358.getSize();
+            @Pc(370) int local370 = local358.getLoader().completePercentage();
             local292 += local314 * local370 / 100;
             if (local370 < 100) {
                 local348 = false;
@@ -101,11 +104,11 @@ public final class Static460 {
             local270 += local314;
         }
         if (local348) {
-            if (!((LibraryLoader) Static566.A_LOADING_REQUIREMENT___5.method7469()).isDone()) {
+            if (!((LibraryLoader) LoadingRequirement.NL_JAGMISC.getLoader()).isDone()) {
                 client.aClient1.method1634();
             }
-            if (!((LibraryLoader) Static566.A_LOADING_REQUIREMENT___8.method7469()).isDone()) {
-                Static234.aBoolean303 = client.aClient1.method1651();
+            if (!((LibraryLoader) LoadingRequirement.NL_JAGTHEORA.getLoader()).isDone()) {
+                Static234.loadedJagtheora = client.aClient1.method1651();
             }
             Static522.aLoadingRequirementArray1 = null;
         }

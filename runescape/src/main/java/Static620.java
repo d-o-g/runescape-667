@@ -1,4 +1,5 @@
 import com.jagex.core.stringtools.general.Cp1252;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;

@@ -1,8 +1,6 @@
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
-import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Exception_Sub1;
-import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -26,10 +24,10 @@ public final class Static694 {
 
     @OriginalMember(owner = "client!vv", name = "a", descriptor = "(IZ)[B")
     public static byte[] method9027(@OriginalArg(0) int arg0) {
-        @Pc(17) DoublyLinkedNode_Sub2_Sub7 local17 = (DoublyLinkedNode_Sub2_Sub7) Static541.A_DOUBLY_LINKED_LIST___4.get((long) arg0);
+        @Pc(17) DoublyLinkedNode_Sub2_Sub7 local17 = (DoublyLinkedNode_Sub2_Sub7) Static541.A_DOUBLY_LINKED_LIST___4.get(arg0);
         if (local17 == null) {
             @Pc(22) byte[] local22 = new byte[512];
-            @Pc(28) Random local28 = new Random((long) arg0);
+            @Pc(28) Random local28 = new Random(arg0);
             for (@Pc(30) int local30 = 0; local30 < 255; local30++) {
                 local22[local30] = (byte) local30;
             }
@@ -41,75 +39,82 @@ public final class Static694 {
                 local22[local48] = local22[511 - local42] = local57;
             }
             local17 = new DoublyLinkedNode_Sub2_Sub7(local22);
-            Static541.A_DOUBLY_LINKED_LIST___4.put(local17, (long) arg0);
+            Static541.A_DOUBLY_LINKED_LIST___4.put(local17, arg0);
         }
         return local17.aByteArray21;
     }
 
     @OriginalMember(owner = "client!vv", name = "a", descriptor = "(Lclient!ha;Ljava/lang/String;ZLclient!ve;Lclient!da;I)V")
-    public static void method9028(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) String arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) FontMetrics arg3, @OriginalArg(4) Font arg4) {
+    public static void drawLoadingText(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) String text, @OriginalArg(2) boolean arg2, @OriginalArg(3) FontMetrics p12Metrics, @OriginalArg(4) Font p12) {
         @Pc(15) boolean local15 = !Static483.aBoolean546 || Static71.method1525();
         if (!local15) {
             return;
         }
-        @Pc(40) int local40;
-        @Pc(49) int local49;
+
         if (Static483.aBoolean546 && local15) {
-            @Pc(27) FontMetrics local27 = Static16.aFontMetrics_1;
-            @Pc(33) Font local33 = arg0.createFont(local27, Static627.aIndexedImageArray1, true);
-            local40 = local27.paraWidth((Sprite[]) null, arg1, 250);
-            local49 = local27.stringHeight(250, local27.verticalSpacing, arg1, (Sprite[]) null);
-            @Pc(52) int local52 = Static535.aIndexedImage_3.width;
-            @Pc(56) int local56 = local52 + 4;
-            local40 += local56 * 2;
-            local49 += local56 * 2;
-            if (Static320.anInt5083 > local49) {
-                local49 = Static320.anInt5083;
+            @Pc(27) FontMetrics metrics = Static16.loadingTextMetrics;
+            @Pc(33) Font font = toolkit.createFont(metrics, Static627.loadingTextImages, true);
+
+            @Pc(40) int width = metrics.paraWidth(null, text, 250);
+            @Pc(49) int height = metrics.stringHeight(250, metrics.verticalSpacing, text, null);
+
+            @Pc(52) int imageWidth = Static535.aIndexedImage_3.width;
+            @Pc(56) int imageWidthPlusBorder = imageWidth + 4;
+
+            width += imageWidthPlusBorder * 2;
+            height += imageWidthPlusBorder * 2;
+
+            if (height < Static320.minHeight) {
+                height = Static320.minHeight;
             }
-            if (Static343.anInt5610 > local40) {
-                local40 = Static343.anInt5610;
+            if (width < Static343.minWidth) {
+                width = Static343.minWidth;
             }
-            @Pc(92) int local92 = Static180.aClass403_3.method9332(client.loadingScreenWidth, local40) + Static665.anInt9944;
-            @Pc(101) int local101 = Static129.aClass103_1.method2416(client.loadingScreenHeight, local49) + Static101.anInt2097;
+
+            @Pc(92) int local92 = Static180.aClass403_3.method9332(client.loadingScreenWidth, width) + Static665.anInt9944;
+            @Pc(101) int local101 = Static129.aClass103_1.method2416(client.loadingScreenHeight, height) + Static101.anInt2097;
             if (InterfaceManager.aBoolean210) {
                 local92 += Static130.method2283();
                 local101 += Static422.method5771();
             }
-            arg0.createSprite(Static74.aIndexedImage_1, false).method8189(Static414.aIndexedImage_2.width + local92, Static414.aIndexedImage_2.height + local101, local40 - Static414.aIndexedImage_2.width * 2, local49 + -(Static414.aIndexedImage_2.height * 2), 1, 0, 0);
-            arg0.createSprite(Static414.aIndexedImage_2, true).render(local92, local101);
+
+            toolkit.createSprite(Static74.aIndexedImage_1, false).method8189(Static414.aIndexedImage_2.width + local92, Static414.aIndexedImage_2.height + local101, width - Static414.aIndexedImage_2.width * 2, height + -(Static414.aIndexedImage_2.height * 2), 1, 0, 0);
+            toolkit.createSprite(Static414.aIndexedImage_2, true).render(local92, local101);
             Static414.aIndexedImage_2.flipVertically();
-            arg0.createSprite(Static414.aIndexedImage_2, true).render(local40 + local92 - local52, local101);
+            toolkit.createSprite(Static414.aIndexedImage_2, true).render(width + local92 - imageWidth, local101);
             Static414.aIndexedImage_2.flipHorizontally();
-            arg0.createSprite(Static414.aIndexedImage_2, true).render(local40 + local92 - local52, -local52 + local101 + local49);
+            toolkit.createSprite(Static414.aIndexedImage_2, true).render(width + local92 - imageWidth, -imageWidth + local101 + height);
             Static414.aIndexedImage_2.flipVertically();
-            arg0.createSprite(Static414.aIndexedImage_2, true).render(local92, local49 + local101 - local52);
+            toolkit.createSprite(Static414.aIndexedImage_2, true).render(local92, height + local101 - imageWidth);
             Static414.aIndexedImage_2.flipHorizontally();
-            arg0.createSprite(Static535.aIndexedImage_3, true).method8198(local92, Static414.aIndexedImage_2.height + local101, local52, local49 - Static414.aIndexedImage_2.height * 2);
+            toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(local92, Static414.aIndexedImage_2.height + local101, imageWidth, height - Static414.aIndexedImage_2.height * 2);
             Static535.aIndexedImage_3.method9386();
-            arg0.createSprite(Static535.aIndexedImage_3, true).method8198(Static414.aIndexedImage_2.width + local92, local101, local40 - Static414.aIndexedImage_2.width * 2, local52);
+            toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(Static414.aIndexedImage_2.width + local92, local101, width - Static414.aIndexedImage_2.width * 2, imageWidth);
             Static535.aIndexedImage_3.method9386();
-            arg0.createSprite(Static535.aIndexedImage_3, true).method8198(local40 + local92 - local52, Static414.aIndexedImage_2.height + local101, local52, local49 - Static414.aIndexedImage_2.height * 2);
+            toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(width + local92 - imageWidth, Static414.aIndexedImage_2.height + local101, imageWidth, height - Static414.aIndexedImage_2.height * 2);
             Static535.aIndexedImage_3.method9386();
-            arg0.createSprite(Static535.aIndexedImage_3, true).method8198(local92 + Static414.aIndexedImage_2.width, local49 + (local101 - local52), local40 - Static414.aIndexedImage_2.width * 2, local52);
+            toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(local92 + Static414.aIndexedImage_2.width, height + (local101 - imageWidth), width - Static414.aIndexedImage_2.width * 2, imageWidth);
             Static535.aIndexedImage_3.method9386();
-            local33.renderLines(0, (int[]) null, Static675.anInt10154 | 0xFF000000, arg1, (ClippingMask) null, (Sprite[]) null, local56 + local101, -1, 0, 1, local92 + local56, 1, 0, local40 - local56 * 2, -(local56 * 2) + local49);
-            Static585.method7670(local40, local92, local49, local101);
+            font.renderLines(0, null, Static675.anInt10154 | 0xFF000000, text, null, null, imageWidthPlusBorder + local101, -1, 0, 1, local92 + imageWidthPlusBorder, 1, 0, width - imageWidthPlusBorder * 2, -(imageWidthPlusBorder * 2) + height);
+            Static585.method7670(width, local92, height, local101);
         } else {
-            local40 = arg3.paraWidth((Sprite[]) null, arg1, 250);
-            local49 = arg3.paraHeight(arg1, (Sprite[]) null, 250) * 13;
-            arg0.aa(6, 6, local40 + 4 + 4, local49 + 4 + 4, -16777216, 0);
-            arg0.method7976(6, 6, local40 + 8, 4 + 4 + local49, -1, 0);
-            arg4.renderLines(0, (int[]) null, -1, arg1, (ClippingMask) null, (Sprite[]) null, 10, -1, 0, 1, 10, 1, 0, local40, local49);
-            Static585.method7670(local40 + 8, 6, local49 + 4 + 4, 6);
+            @Pc(40) int paraWidth = p12Metrics.paraWidth(null, text, 250);
+            @Pc(49) int paraHeight = p12Metrics.paraHeight(text, null, 250) * 13;
+            toolkit.aa(6, 6, paraWidth + 4 + 4, paraHeight + 4 + 4, 0xFF000000, 0);
+            toolkit.method7976(6, 6, paraWidth + 8, 4 + 4 + paraHeight, -1, 0);
+            p12.renderLines(0, null, 0xFFFFFFFF, text, null, null, 10, -1, 0, 1, 10, 1, 0, paraWidth, paraHeight);
+            Static585.method7670(paraWidth + 8, 6, paraHeight + 4 + 4, 6);
         }
+
         if (!arg2) {
             return;
         }
+
         try {
             if (InterfaceManager.aBoolean210) {
                 Static430.method5818();
             } else {
-                arg0.method7984();
+                toolkit.method7984();
             }
         } catch (@Pc(458) Exception_Sub1 local458) {
         }

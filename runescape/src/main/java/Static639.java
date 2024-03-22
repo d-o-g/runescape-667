@@ -8,7 +8,7 @@ public final class Static639 {
     public static int anInt9571;
 
     @OriginalMember(owner = "client!ud", name = "K", descriptor = "Lclient!mia;")
-    public static final Class242 aClass242_13 = new Class242("", 17);
+    public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___13 = new ClientTriggerType("", 17);
 
     @OriginalMember(owner = "client!ud", name = "a", descriptor = "(Lclient!pq;IIZILclient!pq;Z)I")
     public static int method8418(@OriginalArg(0) Class297_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) Class297_Sub1 arg5, @OriginalArg(6) boolean arg6) {

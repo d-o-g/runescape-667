@@ -28,7 +28,7 @@ public final class DoublyLinkedNode_Sub2_Sub10 extends Node2 {
     public String[] aStringArray14;
 
     @OriginalMember(owner = "client!fj", name = "x", descriptor = "Lclient!mia;")
-    public Class242 aClass242_5;
+    public ClientTriggerType aClientTriggerType_5;
 
     @OriginalMember(owner = "client!fj", name = "F", descriptor = "I")
     public int anInt2950;

@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static343 {
 
     @OriginalMember(owner = "client!kq", name = "d", descriptor = "I")
-    public static int anInt5610;
+    public static int minWidth;
 
     @OriginalMember(owner = "client!kq", name = "i", descriptor = "[Lclient!pq;")
     public static Class297_Sub1[] aClass297_Sub1Array2 = new Class297_Sub1[0];

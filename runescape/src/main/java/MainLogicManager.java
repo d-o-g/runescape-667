@@ -36,7 +36,7 @@ public final class MainLogicManager {
         } else if (arg0 == 6 || arg0 == 9 && step != 10) {
             Static670.method8735();
         }
-        if (Static594.method7782(step)) {
+        if (isBuildingMap(step)) {
             js5.CONFIG.discardunpacked = 2;
             js5.CONFIG_ENUM.discardunpacked = 2;
             js5.CONFIG_LOC.discardunpacked = 2;
@@ -45,7 +45,7 @@ public final class MainLogicManager {
             js5.CONFIG_SEQ.discardunpacked = 2;
             js5.CONFIG_SPOT.discardunpacked = 2;
         }
-        if (Static594.method7782(arg0)) {
+        if (isBuildingMap(arg0)) {
             Static593.anInt8763 = 0;
             Static357.anInt6508 = 1;
             Static440.anInt6683 = 1;
@@ -80,7 +80,7 @@ public final class MainLogicManager {
                 client.js5WorkerThread.writeLoggedIn(true);
             }
         }
-        if (Static594.method7782(arg0) || arg0 == 14 || arg0 == 15) {
+        if (isBuildingMap(arg0) || arg0 == 14 || arg0 == 15) {
             Toolkit.active.method7969();
         }
         step = arg0;
@@ -89,5 +89,25 @@ public final class MainLogicManager {
     @OriginalMember(owner = "client!dh", name = "b", descriptor = "(II)Z")
     public static boolean isAtGameScreen(@OriginalArg(0) int arg0) {
         return arg0 == 11 || arg0 == 12 || arg0 == 13;
+    }
+
+    @OriginalMember(owner = "client!fl", name = "a", descriptor = "(II)Z")
+    public static boolean isLoading(@OriginalArg(0) int arg0) {
+        return arg0 == 0 || arg0 == 1 || arg0 == 2;
+    }
+
+    @OriginalMember(owner = "client!lja", name = "a", descriptor = "(II)Z")
+    public static boolean isAtLoadingScreen(@OriginalArg(0) int arg0) {
+        return arg0 == 3 || arg0 == 5 || arg0 == 6;
+    }
+
+    @OriginalMember(owner = "client!maa", name = "a", descriptor = "(IB)Z")
+    public static boolean method5393(@OriginalArg(0) int arg0) {
+        return arg0 == 7 || arg0 == 9;
+    }
+
+    @OriginalMember(owner = "client!sn", name = "a", descriptor = "(II)Z")
+    public static boolean isBuildingMap(@OriginalArg(0) int arg0) {
+        return arg0 == 4 || arg0 == 8 || arg0 == 12 || arg0 == 10;
     }
 }

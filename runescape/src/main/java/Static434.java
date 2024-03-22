@@ -3,15 +3,10 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.Canvas;
-
 public final class Static434 {
 
     @OriginalMember(owner = "client!nla", name = "Q", descriptor = "I")
     public static int anInt6565;
-
-    @OriginalMember(owner = "client!nla", name = "T", descriptor = "Ljava/awt/Canvas;")
-    public static Canvas canvas;
 
     @OriginalMember(owner = "client!nla", name = "V", descriptor = "I")
     public static int anInt6579;

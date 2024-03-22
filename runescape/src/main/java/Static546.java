@@ -36,7 +36,7 @@ public final class Static546 {
             local9 = Static422.method5771();
         }
         arg0.KA(local7, local9, GameShell.canvasWid + local7, local9 + 350);
-        arg0.aa(local7, local9, GameShell.canvasWid, 350, Static566.anInt8472 << 24 | 0x332277, 1);
+        arg0.aa(local7, local9, GameShell.canvasWid, 350, Static460.anInt8472 << 24 | 0x332277, 1);
         Static682.method8927(local9, local9 + 350, local7, GameShell.canvasWid + local7);
         @Pc(54) int local54 = 350 / Static161.anInt2797;
         @Pc(65) int local65;
@@ -47,7 +47,7 @@ public final class Static546 {
             if (Static512.anInt7664 > 1) {
                 local77 = (Static512.anInt7664 - Static213.anInt3471 - 1) * (local65 + -local75) / (Static512.anInt7664 - 1) + 4;
             }
-            arg0.aa(local7 + GameShell.canvasWid - 16, local9 + local77, 12, local75, Static566.anInt8472 << 24 | 0x332277, 2);
+            arg0.aa(local7 + GameShell.canvasWid - 16, local9 + local77, 12, local75, Static460.anInt8472 << 24 | 0x332277, 2);
             for (@Pc(119) int local119 = Static213.anInt3471; Static213.anInt3471 + local54 > local119 && Static512.anInt7664 > local119; local119++) {
                 @Pc(128) String[] local128 = Static189.method2861(Static393.aStringArray32[local119], '\b');
                 @Pc(137) int local137 = (GameShell.canvasWid - 8 - 16) / local128.length;
@@ -65,7 +65,7 @@ public final class Static546 {
         if (-29 <= -49) {
             anInt8244 = -2;
         }
-        if (!Static91.aBoolean750) {
+        if (!GameShell.focus) {
             return;
         }
         local65 = -1;

@@ -1,7 +1,10 @@
 import com.jagex.SignLink;
+import com.jagex.SignedResource;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -79,7 +82,7 @@ public final class ClientOptions extends Node {
     public Class57_Sub29 aClass57_Sub29_2;
 
     @OriginalMember(owner = "client!kv", name = "u", descriptor = "Lclient!oq;")
-    public Class57_Sub21 aClass57_Sub21_1;
+    public Class57_Sub21 cpuUsage;
 
     @OriginalMember(owner = "client!kv", name = "D", descriptor = "Lclient!rba;")
     public Class57_Sub25 aClass57_Sub25_3;
@@ -94,7 +97,7 @@ public final class ClientOptions extends Node {
     public Class57_Sub22 aClass57_Sub22_1;
 
     @OriginalMember(owner = "client!kv", name = "W", descriptor = "Lclient!hl;")
-    public Class57_Sub10 aClass57_Sub10_1;
+    public Class57_Sub10 safeMode;
 
     @OriginalMember(owner = "client!kv", name = "A", descriptor = "Lclient!nt;")
     public Class57_Sub19 animatingBackground;
@@ -160,6 +163,29 @@ public final class ClientOptions extends Node {
         this.method5102(arg0);
     }
 
+    @OriginalMember(owner = "client!vba", name = "h", descriptor = "(I)V")
+    public static void save(@OriginalArg(0) int arg0) {
+        @Pc(5) FileOnDisk local5 = null;
+        try {
+            @Pc(18) SignedResource local18 = SignLink.instance.openPrefs("", true);
+            while (local18.status == 0) {
+                TimeUtils.sleep(1L);
+            }
+            if (local18.status == 1) {
+                local5 = (FileOnDisk) local18.result;
+                @Pc(41) Packet local41 = instance.method5110();
+                local5.write(local41.data, 0, local41.pos);
+            }
+        } catch (@Pc(51) Exception local51) {
+        }
+        try {
+            if (local5 != null) {
+                local5.close();
+            }
+        } catch (@Pc(58) Exception local58) {
+        }
+    }
+
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(Lclient!ge;Z)V")
     public void method5102(@OriginalArg(0) Packet arg0) {
         if (arg0 == null || arg0.data == null) {
@@ -208,9 +234,9 @@ public final class ClientOptions extends Node {
                 this.aClass57_Sub1_2 = new Class57_Sub1(this.screenSize.getValue(), this);
                 this.aClass57_Sub14_1 = new Class57_Sub14(arg0.g1(), this);
                 this.aClass57_Sub15_1 = new Class57_Sub15(arg0.g1(), this);
-                this.aClass57_Sub21_1 = new Class57_Sub21(arg0.g1(), this);
+                this.cpuUsage = new Class57_Sub21(arg0.g1(), this);
                 this.aClass57_Sub11_1 = new Class57_Sub11(arg0.g1(), this);
-                this.aClass57_Sub10_1 = new Class57_Sub10(arg0.g1(), this);
+                this.safeMode = new Class57_Sub10(arg0.g1(), this);
                 this.aClass57_Sub25_3 = new Class57_Sub25(arg0.g1(), this);
                 this.aClass57_Sub25_1 = new Class57_Sub25(arg0.g1(), this);
                 this.lb = new Class57_Sub25(arg0.g1(), this);
@@ -317,14 +343,14 @@ public final class ClientOptions extends Node {
         if (arg0 || this.aClass57_Sub15_1 == null) {
             this.aClass57_Sub15_1 = new Class57_Sub15(this);
         }
-        if (arg0 || this.aClass57_Sub21_1 == null) {
-            this.aClass57_Sub21_1 = new Class57_Sub21(this);
+        if (arg0 || this.cpuUsage == null) {
+            this.cpuUsage = new Class57_Sub21(this);
         }
         if (arg0 || this.aClass57_Sub11_1 == null) {
             this.aClass57_Sub11_1 = new Class57_Sub11(this);
         }
-        if (arg0 || this.aClass57_Sub10_1 == null) {
-            this.aClass57_Sub10_1 = new Class57_Sub10(this);
+        if (arg0 || this.safeMode == null) {
+            this.safeMode = new Class57_Sub10(this);
         }
         if (arg0 || this.aClass57_Sub25_3 == null) {
             this.aClass57_Sub25_3 = new Class57_Sub25(this);
@@ -347,7 +373,7 @@ public final class ClientOptions extends Node {
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(IILclient!ta;)V")
-    public void method5104(@OriginalArg(1) int arg0, @OriginalArg(2) Class57 arg1) {
+    public void update(@OriginalArg(1) int arg0, @OriginalArg(2) Class57 arg1) {
         arg1.method8351(arg0);
         this.method5109();
     }
@@ -416,9 +442,9 @@ public final class ClientOptions extends Node {
         local9.p1(this.screenSize.getValue());
         local9.p1(this.aClass57_Sub14_1.method5302());
         local9.p1(this.aClass57_Sub15_1.method5320());
-        local9.p1(this.aClass57_Sub21_1.method6360());
+        local9.p1(this.cpuUsage.value());
         local9.p1(this.aClass57_Sub11_1.method3603());
-        local9.p1(this.aClass57_Sub10_1.method3519());
+        local9.p1(this.safeMode.value());
         local9.p1(this.aClass57_Sub25_3.method7208());
         local9.p1(this.aClass57_Sub25_1.method7208());
         local9.p1(this.lb.method7208());
@@ -494,7 +520,7 @@ public final class ClientOptions extends Node {
             this.screenSize = new Class57_Sub1(arg1.g1(), this);
         }
         if (arg0 >= 7) {
-            this.aClass57_Sub10_1 = new Class57_Sub10(arg1.g1(), this);
+            this.safeMode = new Class57_Sub10(arg1.g1(), this);
         }
         if (arg0 >= 8) {
             arg1.g1();
@@ -518,7 +544,7 @@ public final class ClientOptions extends Node {
             this.aClass57_Sub29_2 = new Class57_Sub29(arg1.g1(), this);
         }
         if (arg0 >= 15) {
-            this.aClass57_Sub21_1 = new Class57_Sub21(arg1.g1(), this);
+            this.cpuUsage = new Class57_Sub21(arg1.g1(), this);
         }
         if (arg0 >= 16) {
             this.textures = new Class57_Sub30(arg1.g1(), this);

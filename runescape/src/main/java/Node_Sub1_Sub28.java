@@ -27,7 +27,7 @@ public final class Node_Sub1_Sub28 extends Node_Sub1 {
 
     static {
         for (@Pc(87) int local87 = 0; local87 < 100; local87++) {
-            InterfaceManager.boundaries[local87] = new Rectangle();
+            InterfaceManager.rectangles[local87] = new Rectangle();
         }
     }
 
@@ -75,7 +75,7 @@ public final class Node_Sub1_Sub28 extends Node_Sub1 {
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (arg0 <= 107) {
-            InterfaceManager.boundaries = null;
+            InterfaceManager.rectangles = null;
         }
         if (super.aClass180_41.aBoolean338) {
             @Pc(26) int local26 = Static273.anIntArray341[arg1];

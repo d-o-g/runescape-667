@@ -32,10 +32,10 @@ public final class Static625 {
             }
         }
         if (ClientOptions.instance.toolkit.value() != 0) {
-            ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
+            ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub29_2);
             Static32.method880(0, false);
         }
-        Static666.method8693(1);
+        ClientOptions.save(1);
         return local10;
     }
 }

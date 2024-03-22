@@ -10,11 +10,6 @@ public final class Static181 {
     @OriginalMember(owner = "client!fl", name = "c", descriptor = "I")
     public static int anInt3006 = 0;
 
-    @OriginalMember(owner = "client!fl", name = "a", descriptor = "(II)Z")
-    public static boolean method2778(@OriginalArg(0) int arg0) {
-        return arg0 == 0 || arg0 == 1 || arg0 == 2;
-    }
-
     @OriginalMember(owner = "client!fl", name = "a", descriptor = "(IIIIIIIIII)V")
     public static void method2780(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
         if (arg7 == arg4 && arg1 == arg0 && arg3 == arg8 && arg6 == arg5) {

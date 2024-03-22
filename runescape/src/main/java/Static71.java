@@ -56,16 +56,16 @@ public final class Static71 {
                 local5 = false;
             }
         }
-        if (Static16.aFontMetrics_1 == null) {
+        if (Static16.loadingTextMetrics == null) {
             if (js5.FONTMETRICS.fileready(Static723.anInt10929)) {
-                Static16.aFontMetrics_1 = FontMetrics.loadFile(Static723.anInt10929, js5.FONTMETRICS);
+                Static16.loadingTextMetrics = FontMetrics.loadFile(Static723.anInt10929, js5.FONTMETRICS);
             } else {
                 local5 = false;
             }
         }
-        if (Static627.aIndexedImageArray1 == null) {
+        if (Static627.loadingTextImages == null) {
             if (js5.SPRITES.fileready(Static723.anInt10929)) {
-                Static627.aIndexedImageArray1 = IndexedImage.load(js5.SPRITES, Static723.anInt10929);
+                Static627.loadingTextImages = IndexedImage.load(js5.SPRITES, Static723.anInt10929);
             } else {
                 local5 = false;
             }

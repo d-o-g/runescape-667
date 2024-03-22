@@ -17,9 +17,9 @@ public final class Static376 {
     @OriginalMember(owner = "client!lr", name = "a", descriptor = "(B)V")
     public static void method5313() {
         if (ClientOptions.cpucount <= 1) {
-            ClientOptions.instance.method5104(2, ClientOptions.instance.aClass57_Sub21_1);
+            ClientOptions.instance.update(2, ClientOptions.instance.cpuUsage);
         } else {
-            ClientOptions.instance.method5104(4, ClientOptions.instance.aClass57_Sub21_1);
+            ClientOptions.instance.update(4, ClientOptions.instance.cpuUsage);
         }
     }
 }

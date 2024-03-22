@@ -9,30 +9,8 @@ import java.net.URL;
 
 public final class Static36 {
 
-    @OriginalMember(owner = "client!bda", name = "E", descriptor = "Lclient!nh;")
-    public static Class260 aClass260_1;
-
     @OriginalMember(owner = "client!bda", name = "D", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___15 = new ServerProt(70, -2);
-
-    @OriginalMember(owner = "client!bda", name = "a", descriptor = "(IB)V")
-    public static void method977(@OriginalArg(0) int arg0, @OriginalArg(1) byte arg1) {
-        Static101.method2000();
-        if (arg1 < 92) {
-            return;
-        }
-        @Pc(16) int local16 = aClass260_1.method5782(arg0).anInt8301;
-        if (local16 == 0) {
-            return;
-        }
-        @Pc(25) int local25 = TimedVarDomain.instance.anIntArray621[arg0];
-        if (local16 == 5) {
-            Static219.mouseButtons = local25;
-        }
-        if (local16 == 6) {
-            Static55.anInt1124 = local25;
-        }
-    }
 
     @OriginalMember(owner = "client!bda", name = "a", descriptor = "(BLclient!vq;Ljava/lang/String;Ljava/lang/String;I)Lclient!oba;")
     public static SignedResource method980(@OriginalArg(1) SignLink arg0, @OriginalArg(2) String arg1, @OriginalArg(3) String arg2, @OriginalArg(4) int arg3) {

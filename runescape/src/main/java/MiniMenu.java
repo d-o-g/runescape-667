@@ -4,6 +4,7 @@ import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;

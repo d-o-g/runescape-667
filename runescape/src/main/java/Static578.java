@@ -22,18 +22,18 @@ public final class Static578 {
     @OriginalMember(owner = "client!sda", name = "a", descriptor = "(BIII)V")
     public static void method7624(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         if (arg2 == 1003) {
-            ScriptRunner.method6429(Static298.aClass242_8, arg1, arg0);
+            ScriptRunner.executeTrigger(Static298.A_CLIENT_TRIGGER_TYPE___8, arg1, arg0);
         } else if (arg2 == 1001) {
-            ScriptRunner.method6429(Static39.aClass242_3, arg1, arg0);
+            ScriptRunner.executeTrigger(Static39.A_CLIENT_TRIGGER_TYPE___3, arg1, arg0);
             return;
         } else if (arg2 == 1006) {
-            ScriptRunner.method6429(Static337.aClass242_9, arg1, arg0);
+            ScriptRunner.executeTrigger(Static337.A_CLIENT_TRIGGER_TYPE___9, arg1, arg0);
             return;
         } else if (arg2 == 1009) {
-            ScriptRunner.method6429(Static515.aClass242_12, arg1, arg0);
+            ScriptRunner.executeTrigger(Static515.A_CLIENT_TRIGGER_TYPE___12, arg1, arg0);
             return;
         } else if (arg2 == 1004) {
-            ScriptRunner.method6429(Static31.aClass242_2, arg1, arg0);
+            ScriptRunner.executeTrigger(Static31.A_CLIENT_TRIGGER_TYPE___2, arg1, arg0);
             return;
         }
     }

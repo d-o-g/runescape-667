@@ -202,11 +202,11 @@ public final class Static489 {
             return;
         }
         if (Static213.anInt3472 != 0) {
-            Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
+            Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
         Static557.method7331();
         Static352.method5180();
-        VideoTypeList.method1084();
+        VideoManager.stop();
         @Pc(430) boolean local430 = false;
         if (Toolkit.active.method7990() && ClientOptions.instance.waterDetail.value() == 2) {
             for (local310 = 0; local310 < Static319.aByteArrayArray16.length; local310++) {

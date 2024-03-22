@@ -125,7 +125,7 @@ public final class js5 {
     public static js5 CUTSCENES; // 35
 
     @OriginalMember(owner = "client!wh", name = "K", descriptor = "Lclient!sb;")
-    public static js5 js5_36; // TODO
+    public static js5 VIDEOS; // 36
 
     @OriginalMember(owner = "client!dj", name = "o", descriptor = "I")
     public static final int maxsize = 0;

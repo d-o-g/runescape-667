@@ -38,9 +38,4 @@ public final class Static366 {
         }
     }
 
-    @OriginalMember(owner = "client!lja", name = "a", descriptor = "(II)Z")
-    public static boolean method5262(@OriginalArg(0) int arg0) {
-        return arg0 == 3 || arg0 == 5 || arg0 == 6;
-    }
-
 }

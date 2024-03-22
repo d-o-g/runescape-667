@@ -134,29 +134,35 @@ public final class Static266 {
     }
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "(B)V")
-    public static void method6777() {
-        @Pc(5) FileOnDisk local5 = null;
+    public static void saveVarcs() {
+        @Pc(5) FileOnDisk file = null;
         try {
-            local5 = SignLink.openPrefs("2");
-            @Pc(25) Packet local25 = new Packet(Static319.anInt5078 * 6 + 3);
-            local25.p1(1);
-            local25.p2(Static319.anInt5078);
-            for (@Pc(35) int local35 = 0; local35 < Static511.anIntArray614.length; local35++) {
-                if (Static118.aBooleanArray4[local35]) {
-                    local25.p2(local35);
-                    local25.p4(Static511.anIntArray614[local35]);
+            file = SignLink.openPrefs("2");
+
+            @Pc(25) Packet packet = new Packet((Static319.permVarcCount * 6) + 3);
+            packet.p1(1);
+            packet.p2(Static319.permVarcCount);
+
+            for (@Pc(35) int i = 0; i < Static511.varcs.length; i++) {
+                if (Static118.permVarcs[i]) {
+                    packet.p2(i);
+                    packet.p4(Static511.varcs[i]);
                 }
             }
-            local5.write(local25.data, 0, local25.pos);
+
+            file.write(packet.data, 0, packet.pos);
         } catch (@Pc(67) Exception local67) {
+            // g.error("Unable to save varcs", (Throwable)var15);
         }
+
         try {
-            if (local5 != null) {
-                local5.close();
+            if (file != null) {
+                file.close();
             }
         } catch (@Pc(74) Exception local74) {
         }
-        Static98.aLong71 = SystemTimer.safetime();
-        Static624.aBoolean727 = false;
+
+        Static98.lastVarcSave = SystemTimer.safetime();
+        Static624.varcSaveRecommended = false;
     }
 }

@@ -1,4 +1,5 @@
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -54,7 +55,7 @@ public final class Static668 {
         if (WorldMap.locTypeList != null) {
             WorldMap.locTypeList.setRecentUse(64);
         }
-        WorldMap.varbitTypeList.cacheReset(64);
+        VarBitTypeListClient.instance.cacheReset(64);
     }
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(B)Lclient!gw;")
@@ -64,8 +65,8 @@ public final class Static668 {
 
     @OriginalMember(owner = "client!vca", name = "c", descriptor = "(I)V")
     public static void method8703() {
-        if (Static566.anInt8472 < 102) {
-            Static566.anInt8472 += 6;
+        if (Static460.anInt8472 < 102) {
+            Static460.anInt8472 += 6;
         }
         @Pc(26) int local26;
         if (Static523.anInt3885 != -1 && Static305.aLong157 < SystemTimer.safetime()) {

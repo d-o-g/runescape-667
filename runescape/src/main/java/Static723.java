@@ -9,9 +9,6 @@ public final class Static723 {
     @OriginalMember(owner = "client!wu", name = "C", descriptor = "I")
     public static int anInt10929;
 
-    @OriginalMember(owner = "client!wu", name = "B", descriptor = "Z")
-    public static volatile boolean aBoolean827 = false;
-
     @OriginalMember(owner = "client!wu", name = "z", descriptor = "Ljava/lang/String;")
     public static String aString129 = null;
 

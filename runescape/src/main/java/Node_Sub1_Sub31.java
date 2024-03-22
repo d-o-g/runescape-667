@@ -80,7 +80,7 @@ public final class Node_Sub1_Sub31 extends Node_Sub1 {
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (arg0 <= 107) {
-            Static666.method8693(90);
+            ClientOptions.save(90);
         }
         @Pc(18) int[] local18 = super.aClass180_41.method3935(arg1);
         if (super.aClass180_41.aBoolean338) {

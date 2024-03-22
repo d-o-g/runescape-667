@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -24,7 +25,7 @@ public final class Static232 {
     public static final IterableHashTable A_HASH_TABLE___18 = new IterableHashTable(8);
 
     @OriginalMember(owner = "client!hda", name = "u", descriptor = "Lclient!mia;")
-    public static final Class242 aClass242_6 = new Class242("", 21);
+    public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___6 = new ClientTriggerType("", 21);
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;IIIIILclient!pg;IIIII)V")
     public static void method3387(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) DoublyLinkedNode_Sub2_Sub16 arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10) {

@@ -5,10 +5,11 @@ import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.io.Packet;
 import com.jagex.game.LocalisedText;
-import com.jagex.game.VarDomain;
+import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
@@ -123,9 +124,6 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "H", descriptor = "Lclient!gea;")
     public static LocTypeList locTypeList;
-
-    @OriginalMember(owner = "client!qla", name = "a", descriptor = "Lclient!hf;")
-    public static Class161 varbitTypeList;
 
     @OriginalMember(owner = "client!baa", name = "M", descriptor = "Lclient!nc;")
     public static MapElementList staticElements;
@@ -493,7 +491,7 @@ public final class WorldMap {
             mapElementTypeList.setCaches(1024, 256);
             msiTypeList.setCache(256, 256);
             locTypeList.setRecentUse(4096);
-            varbitTypeList.cacheReset(256);
+            VarBitTypeListClient.instance.cacheReset(256);
             loadingPercent = 20;
         } else if (loadingPercent == 20) {
             Static314.noTimeout(true);
@@ -517,42 +515,42 @@ public final class WorldMap {
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 70) {
-            Static559.aClass327_7 = new Class327(toolkit, 11, true, Static434.canvas);
+            Static559.aClass327_7 = new Class327(toolkit, 11, true, GameShell.canvas);
             loadingPercent = 73;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 73) {
-            Static484.aClass327_6 = new Class327(toolkit, 12, true, Static434.canvas);
+            Static484.aClass327_6 = new Class327(toolkit, 12, true, GameShell.canvas);
             loadingPercent = 76;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 76) {
-            Static142.aClass327_1 = new Class327(toolkit, 14, true, Static434.canvas);
+            Static142.aClass327_1 = new Class327(toolkit, 14, true, GameShell.canvas);
             loadingPercent = 79;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 79) {
-            Static651.aClass327_8 = new Class327(toolkit, 17, true, Static434.canvas);
+            Static651.aClass327_8 = new Class327(toolkit, 17, true, GameShell.canvas);
             loadingPercent = 82;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 82) {
-            Static275.aClass327_2 = new Class327(toolkit, 19, true, Static434.canvas);
+            Static275.aClass327_2 = new Class327(toolkit, 19, true, GameShell.canvas);
             loadingPercent = 85;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 85) {
-            Static390.aClass327_5 = new Class327(toolkit, 22, true, Static434.canvas);
+            Static390.aClass327_5 = new Class327(toolkit, 22, true, GameShell.canvas);
             loadingPercent = 88;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 88) {
-            Static364.aClass327_4 = new Class327(toolkit, 26, true, Static434.canvas);
+            Static364.aClass327_4 = new Class327(toolkit, 26, true, GameShell.canvas);
             loadingPercent = 91;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else {
-            Static359.aClass327_3 = new Class327(toolkit, 30, true, Static434.canvas);
+            Static359.aClass327_3 = new Class327(toolkit, 30, true, GameShell.canvas);
             loadingPercent = 100;
             Static314.noTimeout(true);
             Static199.doneslowupdate();

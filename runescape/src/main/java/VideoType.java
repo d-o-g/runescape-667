@@ -13,13 +13,13 @@ public final class VideoType extends Node {
     public boolean aBoolean16;
 
     @OriginalMember(owner = "client!aia", name = "r", descriptor = "Z")
-    public boolean aBoolean18;
+    public boolean paused;
 
     @OriginalMember(owner = "client!aia", name = "v", descriptor = "Z")
-    public final boolean aBoolean15;
+    public final boolean transmitOnEnd;
 
     @OriginalMember(owner = "client!aia", name = "l", descriptor = "I")
-    public final int anInt182;
+    public final int id;
 
     @OriginalMember(owner = "client!aia", name = "o", descriptor = "Lclient!wea;")
     public final Js5Video js5;
@@ -28,10 +28,10 @@ public final class VideoType extends Node {
     public final int anInt180;
 
     @OriginalMember(owner = "client!aia", name = "<init>", descriptor = "(ILclient!wea;IZ)V")
-    public VideoType(@OriginalArg(0) int arg0, @OriginalArg(1) Js5Video arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
-        this.aBoolean15 = arg3;
-        this.anInt182 = arg0;
-        this.js5 = arg1;
+    public VideoType(@OriginalArg(0) int id, @OriginalArg(1) Js5Video js5, @OriginalArg(2) int arg2, @OriginalArg(3) boolean transmitOnEnd) {
+        this.transmitOnEnd = transmitOnEnd;
+        this.id = id;
+        this.js5 = js5;
         this.anInt180 = arg2;
     }
 }

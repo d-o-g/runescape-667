@@ -195,16 +195,16 @@ public final class Class374 implements Interface22 {
             this.method8471();
             return;
         }
-        @Pc(43) Graphics local43 = Static434.canvas.getGraphics();
+        @Pc(43) Graphics local43 = GameShell.canvas.getGraphics();
         if (local43 == null) {
-            Static434.canvas.repaint();
+            GameShell.canvas.repaint();
             return;
         }
         try {
             @Pc(63) int local63 = Static449.aClass364_1.method8378();
             @Pc(67) String local67 = Static449.aClass364_1.method8377();
             if (Static103.anImage1 == null) {
-                Static103.anImage1 = Static434.canvas.createImage(GameShell.canvasWid, GameShell.canvasHei);
+                Static103.anImage1 = GameShell.canvas.createImage(GameShell.canvasWid, GameShell.canvasHei);
             }
             @Pc(79) Graphics local79 = Static103.anImage1.getGraphics();
             local79.clearRect(0, 0, GameShell.canvasWid, GameShell.canvasHei);
@@ -236,7 +236,7 @@ public final class Class374 implements Interface22 {
             local79.drawImage(this.anImage11, local286, local296 + (this.anInt9648 - local236) / 2, (ImageObserver) null);
             local79.drawImage(this.anImage5, local286 + this.anInt9638 - local241, local296 + (this.anInt9648 + -local246) / 2, (ImageObserver) null);
             if (this.anImage13 == null) {
-                this.anImage13 = Static434.canvas.createImage(this.anInt9638 - local231 - local241, this.anInt9648);
+                this.anImage13 = GameShell.canvas.createImage(this.anInt9638 - local231 - local241, this.anInt9648);
             }
             @Pc(358) Graphics local358 = this.anImage13.getGraphics();
             for (@Pc(360) int local360 = 0; local360 < this.anInt9638 - local241 - local231; local360 += local256) {
@@ -248,7 +248,7 @@ public final class Class374 implements Interface22 {
             @Pc(439) int local439 = local63 * (this.anInt9638 - local241 - local231) / 100;
             @Pc(480) int local480;
             if (local439 > 0) {
-                @Pc(458) Image local458 = Static434.canvas.createImage(local439, this.anInt9648 - local251 - local261);
+                @Pc(458) Image local458 = GameShell.canvas.createImage(local439, this.anInt9648 - local251 - local261);
                 @Pc(462) int local462 = local458.getWidth((ImageObserver) null);
                 @Pc(465) Graphics local465 = local458.getGraphics();
                 @Pc(475) int local475 = this.anInt9644 * Static556.method7302() / 10 % local271;
@@ -260,7 +260,7 @@ public final class Class374 implements Interface22 {
             @Pc(516) int local516 = local439;
             local439 = this.anInt9638 - local241 - local231 - local439;
             if (local439 > 0) {
-                @Pc(542) Image local542 = Static434.canvas.createImage(local439, this.anInt9648 - local251 - local261);
+                @Pc(542) Image local542 = GameShell.canvas.createImage(local439, this.anInt9648 - local251 - local261);
                 @Pc(546) int local546 = local542.getWidth((ImageObserver) null);
                 @Pc(549) Graphics local549 = local542.getGraphics();
                 for (local480 = 0; local480 < local546; local480 += local276) {

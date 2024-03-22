@@ -17,8 +17,8 @@ public final class Static422 {
 
     @OriginalMember(owner = "client!nfa", name = "a", descriptor = "(IIIII)V")
     public static void method5773(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        for (@Pc(5) int local5 = 0; local5 < InterfaceManager.boundaryCount; local5++) {
-            @Pc(10) Rectangle local10 = InterfaceManager.boundaries[local5];
+        for (@Pc(5) int local5 = 0; local5 < InterfaceManager.rectangleCount; local5++) {
+            @Pc(10) Rectangle local10 = InterfaceManager.rectangles[local5];
             if (arg0 < local10.x + local10.width && local10.x < arg2 + arg0 && local10.height + local10.y > arg1 && local10.y < arg1 + arg3) {
                 InterfaceManager.flipDirtyRect[local5] = true;
             }

@@ -206,7 +206,7 @@ public final class Static484 {
                                             }
                                         }
                                         Static533.anIntArray628[Static536.anInt8148] = local776.id;
-                                        Static566.anIntArray654[Static536.anInt8148] = local278;
+                                        Minimap.anIntArray654[Static536.anInt8148] = local278;
                                         Static350.anIntArray433[Static536.anInt8148] = local281;
                                         Static536.anInt8148++;
                                     }

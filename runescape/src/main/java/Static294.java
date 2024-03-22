@@ -186,7 +186,7 @@ public final class Static294 {
         }
         if (Static426.aBoolean72) {
             Toolkit.active.fillRect(local155, local161, local159, local153, -16777216);
-            Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(client.language), false, Fonts.p12Metrics, Fonts.p12);
+            Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(client.language), false, Fonts.p12Metrics, Fonts.p12);
         }
         Static501.method6716(false);
     }

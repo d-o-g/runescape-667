@@ -3,14 +3,17 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!mia")
-public final class Class242 implements Interface11 {
+public final class ClientTriggerType implements TriggerType {
+
+    @OriginalMember(owner = "client!oi", name = "r", descriptor = "Lclient!mia;")
+    public static final ClientTriggerType VIDEO_END = new ClientTriggerType("", 18);
 
     @OriginalMember(owner = "client!mia", name = "a", descriptor = "I")
-    public final int anInt6197;
+    public final int id;
 
     @OriginalMember(owner = "client!mia", name = "<init>", descriptor = "(Ljava/lang/String;I)V")
-    public Class242(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        this.anInt6197 = arg1;
+    public ClientTriggerType(@OriginalArg(0) String arg0, @OriginalArg(1) int id) {
+        this.id = id;
     }
 
     @OriginalMember(owner = "client!mia", name = "toString", descriptor = "()Ljava/lang/String;")

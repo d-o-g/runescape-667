@@ -40,11 +40,11 @@ public final class Static208 {
     public static void method3106() {
         KeyMonitor.instance.method8482();
         MouseMonitor.instance.remove();
-        client.aClient1.method1641();
-        Static434.canvas.setBackground(Color.black);
+        client.aClient1.addcanvas();
+        GameShell.canvas.setBackground(Color.black);
         Static470.anInt7112 = -1;
-        KeyMonitor.instance = Static681.method8921(Static434.canvas);
-        MouseMonitor.instance = MouseMonitor.create(Static434.canvas);
+        KeyMonitor.instance = Static681.method8921(GameShell.canvas);
+        MouseMonitor.instance = MouseMonitor.create(GameShell.canvas);
     }
 
     @OriginalMember(owner = "client!gha", name = "a", descriptor = "(Lclient!eo;Z[[[BIB)Z")

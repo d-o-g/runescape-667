@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.vartype.player;
+
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -5,26 +7,27 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rha")
-public final class Class321 {
+public final class VarPlayerType {
 
     @OriginalMember(owner = "client!rha", name = "a", descriptor = "I")
-    public int anInt8301 = 0;
+    public int clientCode = 0;
 
     @OriginalMember(owner = "client!rha", name = "a", descriptor = "(BLclient!ge;I)V")
-    public void method7293(@OriginalArg(1) Packet arg0, @OriginalArg(2) int arg1) {
-        if (arg1 == 5) {
-            this.anInt8301 = arg0.g2();
+    public void decode(@OriginalArg(1) Packet packet, @OriginalArg(2) int code) {
+        if (code == 5) {
+            this.clientCode = packet.g2();
         }
     }
 
     @OriginalMember(owner = "client!rha", name = "a", descriptor = "(Lclient!ge;B)V")
-    public void method7294(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(7) int local7 = arg0.g1();
-            if (local7 == 0) {
+            @Pc(7) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method7293(arg0, local7);
+
+            this.decode(packet, code);
         }
     }
 }

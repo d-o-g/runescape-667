@@ -1,6 +1,9 @@
 import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
+import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
 import com.jagex.graphics.Toolkit;
 import rs2.client.loading.LoadState;
 import com.jagex.game.PlayerModel;
@@ -73,10 +76,10 @@ public final class Static523 {
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(I)I")
     public static int method3448() {
         @Pc(12) int local12;
-        if (ClientOptions.instance.aClass57_Sub10_1.method3519() == 0) {
+        if (ClientOptions.instance.safeMode.value() == 0) {
             for (local12 = 0; local12 < Static671.anInt10026; local12++) {
                 if (Static194.anInterface27Array1[local12].method2666() == 's' || Static194.anInterface27Array1[local12].method2666() == 'S') {
-                    ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub10_1);
+                    ClientOptions.instance.update(1, ClientOptions.instance.safeMode);
                     Static416.aBoolean472 = true;
                     break;
                 }
@@ -199,7 +202,7 @@ public final class Static523 {
             js5.CUTSCENES = client.createJs5(true, Js5Archive.CUTSCENES, 1);
             js5.DLLS = client.createJs5(true, Js5Archive.DLLS, 1);
             js5.SHADERS = client.createJs5(true, Js5Archive.SHADERS, 1);
-            js5.js5_36 = client.createJs5(true, 36, 2);
+            js5.VIDEOS = client.createJs5(true, 36, 2);
         }
         if (Static473.aLoadState_22 == LoadState.GET_JS5_INDEXES) {
             local12 = 0;
@@ -267,9 +270,9 @@ public final class Static523 {
             Static23.aClass128_1 = new Class128(client.modeGame, client.language, js5.CONFIG_SPOT, js5.MODELS);
             Static652.aClass214_1 = new Class214(client.modeGame, client.language, js5.CONFIG);
             Static718.aClass176_1 = new Class176(client.modeGame, client.language, js5.CONFIG);
-            Static691.aClass210_1 = new Class210(client.modeGame, client.language, js5.CONFIG);
-            WorldMap.varbitTypeList = new Class161(client.modeGame, client.language, js5.CONFIG_STRUCT);
-            Static36.aClass260_1 = new Class260(client.modeGame, client.language, js5.CONFIG);
+            VarcTypeList.instance = new VarcTypeList(client.modeGame, client.language, js5.CONFIG);
+            VarBitTypeListClient.instance = new VarBitTypeListClient(client.modeGame, client.language, js5.CONFIG_STRUCT);
+            VarPlayerTypeListClient.instance = new VarPlayerTypeListClient(client.modeGame, client.language, js5.CONFIG);
             Static628.aClass342_5 = new Class342(client.modeGame, client.language, js5.CONFIG);
             Static648.aClass17_1 = new Class17(client.modeGame, client.language, js5.CONFIG);
             InterfaceManager.init(js5.INTERFACES, js5.FONTMETRICS, js5.SPRITES, js5.MODELS);
@@ -304,14 +307,14 @@ public final class Static523 {
         }
         if (LoadState.SETUP_VARC_SYSTEM == Static473.aLoadState_22) {
             Static37.aStringArray4 = new String[Static718.aClass176_1.anInt4266];
-            Static511.anIntArray614 = new int[Static691.aClass210_1.anInt5473];
-            Static118.aBooleanArray4 = new boolean[Static691.aClass210_1.anInt5473];
-            for (local12 = 0; local12 < Static691.aClass210_1.anInt5473; local12++) {
-                if (Static691.aClass210_1.method4947(local12).anInt7174 == 0) {
-                    Static118.aBooleanArray4[local12] = true;
-                    Static319.anInt5078++;
+            Static511.varcs = new int[VarcTypeList.instance.anInt5473];
+            Static118.permVarcs = new boolean[VarcTypeList.instance.anInt5473];
+            for (local12 = 0; local12 < VarcTypeList.instance.anInt5473; local12++) {
+                if (VarcTypeList.instance.list(local12).temporary == 0) {
+                    Static118.permVarcs[local12] = true;
+                    Static319.permVarcCount++;
                 }
-                Static511.anIntArray614[local12] = -1;
+                Static511.varcs[local12] = -1;
             }
             Static218.method3189();
             js5.MAPS.clearNames(false, true);
@@ -320,7 +323,7 @@ public final class Static523 {
             js5.FONTMETRICS.clearNames(true, true);
             js5.BINARY.clearNames(true, true);
             js5.CONFIG.discardunpacked = 2;
-            Static666.aBoolean766 = true;
+            client.cleanCaches = true;
             js5.CONFIG_ENUM.discardunpacked = 2;
             js5.CONFIG_LOC.discardunpacked = 2;
             js5.CONFIG_NPC.discardunpacked = 2;
@@ -360,20 +363,20 @@ public final class Static523 {
             Static242.aThread1 = null;
             Static333.aClass279_1 = null;
             Static9.method123();
-            Static3.aBoolean4 = ClientOptions.instance.aClass57_Sub10_1.method3519() == 1;
-            ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub10_1);
-            if (Static3.aBoolean4) {
-                ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
+            Static3.chooseSafeMode = ClientOptions.instance.safeMode.value() == 1;
+            ClientOptions.instance.update(1, ClientOptions.instance.safeMode);
+            if (Static3.chooseSafeMode) {
+                ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub29_2);
             } else if (ClientOptions.instance.aClass57_Sub29_2.aBoolean674 && SystemInfo.instance.totalMemory < 512 && SystemInfo.instance.totalMemory != 0) {
-                ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
+                ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub29_2);
             }
-            Static666.method8693(1);
-            if (Static3.aBoolean4) {
+            ClientOptions.save(1);
+            if (Static3.chooseSafeMode) {
                 Static32.method880(0, false);
             } else {
                 Static32.method880(ClientOptions.instance.aClass57_Sub29_2.value(), false);
             }
-            Static409.method5657(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
             FontTypeList.method7549(Toolkit.active);
             Fonts.init(Toolkit.active);
             Static239.method3472(js5.SPRITES, Toolkit.active);

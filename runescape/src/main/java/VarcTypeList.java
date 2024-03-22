@@ -8,7 +8,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!kka")
-public final class Class210 {
+public final class VarcTypeList {
+
+    @OriginalMember(owner = "client!vs", name = "t", descriptor = "Lclient!kka;")
+    public static VarcTypeList instance;
 
     @OriginalMember(owner = "client!kka", name = "b", descriptor = "Lclient!dla;")
     public final ReferenceCache aReferenceCache_112 = new ReferenceCache(64);
@@ -20,13 +23,13 @@ public final class Class210 {
     public final int anInt5473;
 
     @OriginalMember(owner = "client!kka", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class210(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
+    public VarcTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_67 = arg2;
         this.anInt5473 = this.aJs5_67.fileLimit(19);
     }
 
     @OriginalMember(owner = "client!kka", name = "a", descriptor = "(II)Lclient!paa;")
-    public Class284 method4947(@OriginalArg(0) int id) {
+    public Class284 list(@OriginalArg(0) int id) {
         @Pc(12) ReferenceCache local12 = this.aReferenceCache_112;
         @Pc(22) Class284 local22;
         synchronized (this.aReferenceCache_112) {

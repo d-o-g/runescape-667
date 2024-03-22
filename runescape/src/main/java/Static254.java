@@ -6,6 +6,7 @@ import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -33,7 +34,7 @@ public final class Static254 {
         Static373.anInt5903 = 0;
         ConnectionManager.LOBBY.close();
         Static50.aBoolean565 = true;
-        Static91.aBoolean750 = true;
+        GameShell.focus = true;
         Static230.method3374();
         for (@Pc(8628) int local8628 = 0; local8628 < Static527.aClass254Array1.length; local8628++) {
             Static527.aClass254Array1[local8628] = null;
@@ -59,7 +60,7 @@ public final class Static254 {
         Static497.stacks.clear();
         Static159.aDeque_15 = new Deque();
         Static227.aDeque_18 = new Deque();
-        TimedVarDomain.instance.method6867();
+        TimedVarDomain.instance.reset();
         DelayedStateChange.clear();
         Static121.anInt2333 = 0;
         Static55.anInt1125 = 0;
@@ -71,9 +72,9 @@ public final class Static254 {
         Static179.anInt2991 = 0;
         Static709.anInt10667 = 0;
         Static694.anInt10411 = 0;
-        for (@Pc(8765) int local8765 = 0; local8765 < Static511.anIntArray614.length; local8765++) {
-            if (!Static118.aBooleanArray4[local8765]) {
-                Static511.anIntArray614[local8765] = -1;
+        for (@Pc(8765) int local8765 = 0; local8765 < Static511.varcs.length; local8765++) {
+            if (!Static118.permVarcs[local8765]) {
+                Static511.varcs[local8765] = -1;
             }
         }
         if (InterfaceManager.topLevelInterface != -1) {
@@ -114,8 +115,8 @@ public final class Static254 {
         Static273.aBoolean339 = true;
         client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
         Static331.walkText = LocalisedText.WALKHERE.localise(client.language);
-        ClientOptions.instance.method5104(ClientOptions.instance.aClass57_Sub4_1.method2143(), ClientOptions.instance.aClass57_Sub4_2);
-        ClientOptions.instance.method5104(ClientOptions.instance.aClass57_Sub19_1.value(), ClientOptions.instance.animatingBackground);
+        ClientOptions.instance.update(ClientOptions.instance.aClass57_Sub4_1.method2143(), ClientOptions.instance.aClass57_Sub4_2);
+        ClientOptions.instance.update(ClientOptions.instance.aClass57_Sub19_1.value(), ClientOptions.instance.animatingBackground);
         Static334.anInt5456 = 0;
         Static533.method7119();
         Static371.method5284();

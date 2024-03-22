@@ -58,23 +58,23 @@ public final class Static323 {
         @Pc(34) int local34;
         @Pc(51) int local51;
         if (local5 == 2) {
-            local34 = GameShell.frameWid <= 800 ? GameShell.frameWid : 800;
-            GameShell.leftMargin = (GameShell.frameWid - local34) / 2;
+            local34 = client.frameWid <= 800 ? client.frameWid : 800;
+            GameShell.leftMargin = (client.frameWid - local34) / 2;
             GameShell.canvasWid = local34;
-            local51 = GameShell.frameHei <= 600 ? GameShell.frameHei : 600;
+            local51 = client.frameHei <= 600 ? client.frameHei : 600;
             GameShell.topMargin = 0;
             GameShell.canvasHei = local51;
         } else if (local5 == 1) {
-            local34 = GameShell.frameWid <= 1024 ? GameShell.frameWid : 1024;
+            local34 = client.frameWid <= 1024 ? client.frameWid : 1024;
             GameShell.canvasWid = local34;
-            local51 = GameShell.frameHei <= 768 ? GameShell.frameHei : 768;
-            GameShell.leftMargin = (GameShell.frameWid - local34) / 2;
+            local51 = client.frameHei <= 768 ? client.frameHei : 768;
+            GameShell.leftMargin = (client.frameWid - local34) / 2;
             GameShell.canvasHei = local51;
             GameShell.topMargin = 0;
         } else {
             GameShell.topMargin = 0;
-            GameShell.canvasHei = GameShell.frameHei;
-            GameShell.canvasWid = GameShell.frameWid;
+            GameShell.canvasHei = client.frameHei;
+            GameShell.canvasWid = client.frameWid;
             GameShell.leftMargin = 0;
         }
     }

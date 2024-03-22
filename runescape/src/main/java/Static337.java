@@ -9,5 +9,5 @@ public final class Static337 {
     public static final float[] aFloatArray38 = new float[4];
 
     @OriginalMember(owner = "client!kla", name = "Xb", descriptor = "Lclient!mia;")
-    public static final Class242 aClass242_9 = new Class242("", 12);
+    public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___9 = new ClientTriggerType("", 12);
 }

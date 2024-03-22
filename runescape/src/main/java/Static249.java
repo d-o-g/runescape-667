@@ -1,5 +1,6 @@
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -89,8 +90,8 @@ public final class Static249 {
         if (arg0 == local13) {
             return false;
         } else {
-            ClientOptions.instance.method5104(arg0 ? 1 : 0, ClientOptions.instance.bloom);
-            Static666.method8693(1);
+            ClientOptions.instance.update(arg0 ? 1 : 0, ClientOptions.instance.bloom);
+            ClientOptions.save(1);
             return true;
         }
     }

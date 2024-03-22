@@ -3,6 +3,7 @@ import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhat;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Toolkit;
 import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Node;
@@ -1802,7 +1803,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3340) {
-                                        anIntArray578[anInt7142++] = Static91.aBoolean750 ? 1 : 0;
+                                        anIntArray578[anInt7142++] = GameShell.focus ? 1 : 0;
                                         return;
                                     }
                                     if (arg0 == 3341) {
@@ -3274,10 +3275,10 @@ public final class ScriptRunner {
                     @Pc(96) int local96;
                     if (local34 == 1) {
                         local96 = local11[local5];
-                        anIntArray578[anInt7142++] = TimedVarDomain.instance.anIntArray621[local96];
+                        anIntArray578[anInt7142++] = TimedVarDomain.instance.varValues[local96];
                     } else if (local34 == 2) {
                         local96 = local11[local5];
-                        TimedVarDomain.instance.method6866(local96, anIntArray578[--anInt7142]);
+                        TimedVarDomain.instance.setVarValueInt(local96, anIntArray578[--anInt7142]);
                     } else if (local34 == 3) {
                         aStringArray37[anInt7139++] = arg0.aStringArray14[local5];
                     } else if (local34 == 6) {
@@ -3316,10 +3317,10 @@ public final class ScriptRunner {
                         aLongArray15 = local270.aLongArray5;
                     } else if (local34 == 25) {
                         local96 = local11[local5];
-                        anIntArray578[anInt7142++] = TimedVarDomain.instance.getVarbitValue(local96);
+                        anIntArray578[anInt7142++] = TimedVarDomain.instance.getVarBitValue(local96);
                     } else if (local34 == 27) {
                         local96 = local11[local5];
-                        TimedVarDomain.instance.method6868(anIntArray578[--anInt7142], local96);
+                        TimedVarDomain.instance.setVarBitValue(anIntArray578[--anInt7142], local96);
                     } else if (local34 == 31) {
                         anInt7142 -= 2;
                         if (anIntArray578[anInt7142] <= anIntArray578[anInt7142 + 1]) {
@@ -3388,12 +3389,12 @@ public final class ScriptRunner {
                             aStringArray36 = local518;
                             aLongArray15 = local522;
                         } else if (local34 == 42) {
-                            anIntArray578[anInt7142++] = Static511.anIntArray614[local11[local5]];
+                            anIntArray578[anInt7142++] = Static511.varcs[local11[local5]];
                         } else if (local34 == 43) {
                             local96 = local11[local5];
-                            Static511.anIntArray614[local96] = anIntArray578[--anInt7142];
+                            Static511.varcs[local96] = anIntArray578[--anInt7142];
                             DelayedStateChange.resetVarc(local96);
-                            Static624.aBoolean727 |= Static118.aBooleanArray4[local96];
+                            Static624.varcSaveRecommended |= Static118.permVarcs[local96];
                         } else if (local34 == 44) {
                             local96 = local11[local5] >> 16;
                             local706 = local11[local5] & 0xFFFF;
@@ -4348,13 +4349,13 @@ public final class ScriptRunner {
                     anInt7142 -= 2;
                     local192 = anIntArray578[anInt7142];
                     local834 = anIntArray578[anInt7142 + 1];
-                    Static409.method5657(3, local192, false, local834);
+                    InterfaceManager.changeWindowMode(3, local192, false, local834);
                     anIntArray578[anInt7142++] = GameShell.fsframe == null ? 0 : 1;
                     return;
                 }
                 if (arg0 == 5301) {
                     if (GameShell.fsframe != null) {
-                        Static409.method5657(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                        InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
                     }
                     return;
                 }
@@ -4392,7 +4393,7 @@ public final class ScriptRunner {
                 if (arg0 == 5307) {
                     local192 = anIntArray578[--anInt7142];
                     if (local192 >= 1 && local192 <= 2) {
-                        Static409.method5657(local192, -1, false, -1);
+                        InterfaceManager.changeWindowMode(local192, -1, false, -1);
                         return;
                     }
                     return;
@@ -4404,9 +4405,9 @@ public final class ScriptRunner {
                 if (arg0 == 5309) {
                     local192 = anIntArray578[--anInt7142];
                     if (local192 >= 1 && local192 <= 2) {
-                        ClientOptions.instance.method5104(local192, ClientOptions.instance.screenSize);
-                        ClientOptions.instance.method5104(local192, ClientOptions.instance.aClass57_Sub1_2);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(local192, ClientOptions.instance.screenSize);
+                        ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub1_2);
+                        ClientOptions.save(1);
                         return;
                     }
                     return;
@@ -4468,10 +4469,10 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5411) {
                         if (GameShell.fsframe != null) {
-                            Static409.method5657(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
                         }
                         if (GameShell.frame != null) {
-                            Static266.method6777();
+                            Static266.saveVarcs();
                             System.exit(0);
                             return;
                         }
@@ -4497,7 +4498,7 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5421) {
                         if (GameShell.fsframe != null) {
-                            Static409.method5657(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
                         }
                         local95 = aStringArray37[--anInt7139];
                         local1578 = anIntArray578[--anInt7142] == 1;
@@ -4952,102 +4953,102 @@ public final class ScriptRunner {
                 } else if (arg0 < 6100) {
                     if (arg0 == 6001) {
                         local192 = anIntArray578[--anInt7142];
-                        ClientOptions.instance.method5104(local192, ClientOptions.instance.aClass57_Sub22_1);
+                        ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub22_1);
                         Static449.mapBuild();
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     @Pc(5337) boolean local5337;
                     if (arg0 == 6002) {
                         local5337 = anIntArray578[--anInt7142] == 1;
-                        ClientOptions.instance.method5104(local5337 ? 1 : 0, ClientOptions.instance.aClass57_Sub19_1);
-                        ClientOptions.instance.method5104(local5337 ? 1 : 0, ClientOptions.instance.animatingBackground);
+                        ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.aClass57_Sub19_1);
+                        ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animatingBackground);
                         Static449.mapBuild();
                         Static77.method1561();
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6003) {
                         local5337 = anIntArray578[--anInt7142] == 1;
-                        ClientOptions.instance.method5104(local5337 ? 2 : 1, ClientOptions.instance.aClass57_Sub4_1);
-                        ClientOptions.instance.method5104(local5337 ? 2 : 1, ClientOptions.instance.aClass57_Sub4_2);
+                        ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.aClass57_Sub4_1);
+                        ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.aClass57_Sub4_2);
                         Static77.method1561();
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6005) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.groundDecor);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.groundDecor);
                         Static449.mapBuild();
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6007) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub27_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub27_1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6008) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub8_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub8_1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6010) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub7_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub7_1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6011) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.hardShadows);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.hardShadows);
                         Static449.mapBuild();
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6012) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.lightDetail);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.lightDetail);
                         Static296.updateFeatureMask();
                         Static218.method3187();
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6014) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 2 : 0, ClientOptions.instance.waterDetail);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 2 : 0, ClientOptions.instance.waterDetail);
                         Static449.mapBuild();
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6015) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub16_1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub16_1);
                         Static449.mapBuild();
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6016) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub13_1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub13_1);
                         Static32.method880(ClientOptions.instance.toolkit.value(), false);
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         return;
                     }
                     if (arg0 == 6017) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub17_1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub17_1);
                         Static150.method2455();
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6018) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub25_3);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub25_3);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -5067,39 +5068,39 @@ public final class ScriptRunner {
                                     Static126.method2226(local192);
                                 }
                             }
-                            ClientOptions.instance.method5104(local192, ClientOptions.instance.aClass57_Sub25_2);
-                            Static666.method8693(1);
+                            ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub25_2);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                         }
                         return;
                     }
                     if (arg0 == 6020) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub25_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub25_1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6021) {
                         local192 = ClientOptions.instance.aClass57_Sub4_1.method2143();
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 0 : local192, ClientOptions.instance.aClass57_Sub4_2);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 0 : local192, ClientOptions.instance.aClass57_Sub4_2);
                         Static77.method1561();
                         return;
                     }
                     if (arg0 == 6023) {
                         local192 = anIntArray578[--anInt7142];
-                        ClientOptions.instance.method5104(local192, ClientOptions.instance.aClass57_Sub28_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub28_1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6024) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.antialiasingMode);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.antialiasingMode);
+                        ClientOptions.save(1);
                         return;
                     }
                     if (arg0 == 6025) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub5_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub5_1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -5112,18 +5113,18 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6028) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.aClass57_Sub14_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.aClass57_Sub14_1);
+                        ClientOptions.save(1);
                         return;
                     }
                     if (arg0 == 6029) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub27_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub27_1);
+                        ClientOptions.save(1);
                         return;
                     }
                     if (arg0 == 6030) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.aClass57_Sub23_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.aClass57_Sub23_1);
+                        ClientOptions.save(1);
                         Static449.mapBuild();
                         return;
                     }
@@ -5139,42 +5140,42 @@ public final class ScriptRunner {
                         anInt7142 -= 2;
                         local192 = anIntArray578[anInt7142];
                         local1578 = anIntArray578[anInt7142 + 1] == 1;
-                        ClientOptions.instance.method5104(local192, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub29_2);
                         if (!local1578) {
-                            ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub15_1);
+                            ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub15_1);
                         }
-                        Static666.method8693(1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6033) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub21_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.cpuUsage);
+                        ClientOptions.save(1);
                         return;
                     }
                     if (arg0 == 6034) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.textures);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.textures);
+                        ClientOptions.save(1);
                         Static296.updateFeatureMask();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6035) {
                         local192 = ClientOptions.instance.aClass57_Sub19_1.value();
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142] == 1 ? 1 : local192, ClientOptions.instance.animatingBackground);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : local192, ClientOptions.instance.animatingBackground);
                         Static449.mapBuild();
                         Static77.method1561();
                         return;
                     }
                     if (arg0 == 6036) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub18_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub18_1);
+                        ClientOptions.save(1);
                         Static284.aBoolean355 = true;
                         return;
                     }
                     if (arg0 == 6037) {
-                        ClientOptions.instance.method5104(anIntArray578[--anInt7142], ClientOptions.instance.lb);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.lb);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -5194,8 +5195,8 @@ public final class ScriptRunner {
                                     Static126.method2226(local192);
                                 }
                             }
-                            ClientOptions.instance.method5104(local192, ClientOptions.instance.aClass57_Sub25_4);
-                            Static666.method8693(1);
+                            ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub25_4);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                         }
                         return;
@@ -5206,8 +5207,8 @@ public final class ScriptRunner {
                             local192 = 0;
                         }
                         if (local192 != ClientOptions.instance.aClass57_Sub11_1.method3603()) {
-                            ClientOptions.instance.method5104(local192, ClientOptions.instance.aClass57_Sub11_1);
-                            Static666.method8693(1);
+                            ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub11_1);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                         }
                         return;
@@ -5215,8 +5216,8 @@ public final class ScriptRunner {
                     if (arg0 == 6040) {
                         local192 = anIntArray578[--anInt7142];
                         if (local192 != ClientOptions.instance.aClass57_Sub3_1.method2120()) {
-                            ClientOptions.instance.method5104(local192, ClientOptions.instance.aClass57_Sub3_1);
-                            Static666.method8693(1);
+                            ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub3_1);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                             Static498.method6646();
                         }
@@ -5225,8 +5226,8 @@ public final class ScriptRunner {
                     if (arg0 == 6041) {
                         local192 = anIntArray578[--anInt7142];
                         if (local192 != ClientOptions.instance.skydetail.value()) {
-                            ClientOptions.instance.method5104(local192, ClientOptions.instance.skydetail);
-                            Static666.method8693(1);
+                            ClientOptions.instance.update(local192, ClientOptions.instance.skydetail);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                         }
                         return;
@@ -5337,7 +5338,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6135) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub21_1.method6360();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.cpuUsage.value();
                         return;
                     }
                     if (arg0 == 6136) {
@@ -5361,7 +5362,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6144) {
-                        anIntArray578[anInt7142++] = Static3.aBoolean4 ? 1 : 0;
+                        anIntArray578[anInt7142++] = Static3.chooseSafeMode ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6145) {
@@ -5373,7 +5374,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6147) {
-                        anIntArray578[anInt7142++] = SystemInfo.instance.totalMemory < 512 || Static3.aBoolean4 || Static171.aBoolean245 ? 1 : 0;
+                        anIntArray578[anInt7142++] = SystemInfo.instance.totalMemory < 512 || Static3.chooseSafeMode || Static171.graphicsError ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6148) {
@@ -5936,41 +5937,41 @@ public final class ScriptRunner {
                             anIntArray578[anInt7142++] = Static165.anInt2810 = ClientOptions.instance.toolkit.value();
                             anIntArray578[anInt7142++] = local192;
                             Static449.mapBuild();
-                            Static666.method8693(1);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7001) {
                             Static395.method9162();
                             Static449.mapBuild();
-                            Static666.method8693(1);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7002) {
                             Static133.method2316();
                             Static449.mapBuild();
-                            Static666.method8693(1);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7003) {
                             Static75.method6239();
                             Static449.mapBuild();
-                            Static666.method8693(1);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7004) {
                             Static468.method7643();
                             Static449.mapBuild();
-                            Static666.method8693(1);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7005) {
-                            ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub15_1);
-                            Static666.method8693(1);
+                            ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub15_1);
+                            ClientOptions.save(1);
                             Static503.aBoolean578 = false;
                             return;
                         }
@@ -6010,7 +6011,7 @@ public final class ScriptRunner {
                         if (arg0 == 7101) {
                             local192 = anIntArray578[--anInt7142];
                             if (local192 != -1) {
-                                VideoTypeList.method2199(local192);
+                                VideoManager.stop(local192);
                             }
                             return;
                         }
@@ -6378,7 +6379,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(ILjava/lang/String;I)V")
     public static void method6427(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2) {
-        @Pc(5) DoublyLinkedNode_Sub2_Sub10 local5 = Static537.method7189(Static42.aClass242_4, arg0, -1);
+        @Pc(5) DoublyLinkedNode_Sub2_Sub10 local5 = Static537.method7189(Static42.A_CLIENT_TRIGGER_TYPE___4, arg0, -1);
         if (local5 == null) {
             return;
         }
@@ -6394,14 +6395,14 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!mia;II)V")
-    public static void method6429(@OriginalArg(0) Class242 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static void executeTrigger(@OriginalArg(0) ClientTriggerType arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(5) DoublyLinkedNode_Sub2_Sub10 local5 = Static537.method7189(arg0, arg1, arg2);
         if (local5 == null) {
             return;
         }
         anIntArray580 = new int[local5.anInt2948];
         aStringArray36 = new String[local5.anInt2950];
-        if (local5.aClass242_5 == Static5.aClass242_1 || local5.aClass242_5 == Static639.aClass242_13 || local5.aClass242_5 == Static280.aClass242_7) {
+        if (local5.aClientTriggerType_5 == Static5.A_CLIENT_TRIGGER_TYPE___1 || local5.aClientTriggerType_5 == Static639.A_CLIENT_TRIGGER_TYPE___13 || local5.aClientTriggerType_5 == Static280.A_CLIENT_TRIGGER_TYPE___7) {
             @Pc(35) int local35 = 0;
             @Pc(37) int local37 = 0;
             if (WorldMap.component != null) {

@@ -8,7 +8,7 @@ import rs2.client.event.mouse.MouseMonitor;
 public final class Static320 {
 
     @OriginalMember(owner = "client!kc", name = "e", descriptor = "I")
-    public static int anInt5083;
+    public static int minHeight;
 
     @OriginalMember(owner = "client!kc", name = "f", descriptor = "I")
     public static int anInt5084;

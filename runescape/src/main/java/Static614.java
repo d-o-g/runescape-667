@@ -1,5 +1,3 @@
-import com.jagex.game.PlayerModel;
-import com.jagex.game.runetek6.config.fonttype.FontTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -27,40 +25,4 @@ public final class Static614 {
         return Integer.toString(local17 / 10) + local17 % 10 + "/" + local23 / 10 + local23 % 10 + "/" + local27 % 100 / 10 + local27 % 10;
     }
 
-    @OriginalMember(owner = "client!th", name = "b", descriptor = "(I)V")
-    public static void method8245() {
-        Static467.aFloorOverlayTypeList_3.method2355();
-        Static540.aFloorUnderlayTypeList_6.method2073();
-        Static68.idkTypeList.cacheClean(5);
-        Static354.aLocTypeList_4.cacheClean(5);
-        Static690.aNPCTypeList_2.cacheClean(5);
-        Static419.objTypeList.cacheClean(5);
-        Static25.seqTypeList.cacheClean();
-        Static23.aClass128_1.method2698();
-        WorldMap.varbitTypeList.method3428();
-        Static36.aClass260_1.method5785();
-        Static628.aClass342_5.method7784();
-        Static648.aClass17_1.method267();
-        Static574.basTypeList.cacheClean(5);
-        Static577.aClass246_4.method5581();
-        Static720.aMSITypeList_4.cacheClean(5);
-        Static523.instance.cacheClean(5);
-        Static272.aClass45_1.method1096();
-        Static324.skyBoxTypeList.cacheClean(5);
-        Static99.skyBoxSphereTypeList.cacheClean(5);
-        Static48.aClass384_1.method8813();
-        Static354.aClass267_1.method5970();
-        Static652.aClass214_1.method5037();
-        Static561.aClass220_2.method5184();
-        PlayerModel.cacheClean();
-        Component.cacheClean(50);
-        FontTypeList.cacheClean(50);
-        Static198.method2951();
-        Static194.method2907();
-        Static230.A_WEIGHTED_CACHE___81.clean(5);
-        Static669.A_WEIGHTED_CACHE___215.clean(5);
-        Static541.A_WEIGHTED_CACHE___174.clean(5);
-        Static452.A_WEIGHTED_CACHE___149.clean(5);
-        ScriptRunner.A_WEIGHTED_CACHE___156.clean(5);
-    }
 }

@@ -8,7 +8,7 @@ public final class Static624 {
     public static float aFloat198;
 
     @OriginalMember(owner = "client!tn", name = "i", descriptor = "Z")
-    public static boolean aBoolean727 = false;
+    public static boolean varcSaveRecommended = false;
 
     @OriginalMember(owner = "client!tn", name = "k", descriptor = "I")
     public static int anInt9461 = -1;

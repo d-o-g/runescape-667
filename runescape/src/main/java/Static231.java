@@ -6,6 +6,7 @@ import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import jagex3.jagmisc.jagmisc;
@@ -304,7 +305,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("wm1")) {
-                    Static409.method5657(1, -1, false, -1);
+                    InterfaceManager.changeWindowMode(1, -1, false, -1);
                     if (InterfaceManager.getWindowMode() != 1) {
                         Static79.method1579("wm1 failed");
                         return;
@@ -313,7 +314,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("wm2")) {
-                    Static409.method5657(2, -1, false, -1);
+                    InterfaceManager.changeWindowMode(2, -1, false, -1);
                     if (InterfaceManager.getWindowMode() != 2) {
                         Static79.method1579("wm2 failed");
                         return;
@@ -322,7 +323,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("wm3")) {
-                    Static409.method5657(3, 1024, false, 768);
+                    InterfaceManager.changeWindowMode(3, 1024, false, 768);
                     if (InterfaceManager.getWindowMode() != 3) {
                         Static79.method1579("wm3 failed");
                         return;
@@ -334,8 +335,8 @@ public final class Static231 {
                     Static32.method880(0, false);
                     if (ClientOptions.instance.toolkit.value() == 0) {
                         Static79.method1579("Entered tk0");
-                        ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -346,8 +347,8 @@ public final class Static231 {
                     Static32.method880(1, false);
                     if (ClientOptions.instance.toolkit.value() == 1) {
                         Static79.method1579("Entered tk1");
-                        ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub29_2);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(1, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -358,8 +359,8 @@ public final class Static231 {
                     Static32.method880(2, false);
                     if (ClientOptions.instance.toolkit.value() == 2) {
                         Static79.method1579("Entered tk2");
-                        ClientOptions.instance.method5104(2, ClientOptions.instance.aClass57_Sub29_2);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(2, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -373,8 +374,8 @@ public final class Static231 {
                         return;
                     }
                     Static79.method1579("Entered tk3");
-                    ClientOptions.instance.method5104(3, ClientOptions.instance.aClass57_Sub29_2);
-                    Static666.method8693(1);
+                    ClientOptions.instance.update(3, ClientOptions.instance.aClass57_Sub29_2);
+                    ClientOptions.save(1);
                     Static503.aBoolean578 = false;
                     return;
                 }
@@ -382,8 +383,8 @@ public final class Static231 {
                     Static32.method880(5, false);
                     if (ClientOptions.instance.toolkit.value() == 5) {
                         Static79.method1579("Entered tk5");
-                        ClientOptions.instance.method5104(5, ClientOptions.instance.aClass57_Sub29_2);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(5, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -397,8 +398,8 @@ public final class Static231 {
                     }
                     local501 = StringTools.parseDecimal(arg2.substring(6));
                     if (local501 >= 0 && local501 <= Static461.method6268(ClientOptions.maxmemory)) {
-                        ClientOptions.instance.method5104(local501, ClientOptions.instance.aClass57_Sub5_1);
-                        Static666.method8693(1);
+                        ClientOptions.instance.update(local501, ClientOptions.instance.aClass57_Sub5_1);
+                        ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         Static79.method1579("maxbuildarea=" + ClientOptions.instance.aClass57_Sub5_1.method2172());
                         return;
@@ -567,20 +568,20 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equals("savevarcs")) {
-                    Static266.method6777();
+                    Static266.saveVarcs();
                     Static79.method1579("perm varcs saved");
                     return;
                 }
                 if (arg2.equals("scramblevarcs")) {
-                    for (local501 = 0; local501 < Static511.anIntArray614.length; local501++) {
-                        if (Static118.aBooleanArray4[local501]) {
-                            Static511.anIntArray614[local501] = (int) (Math.random() * 99999.0D);
+                    for (local501 = 0; local501 < Static511.varcs.length; local501++) {
+                        if (Static118.permVarcs[local501]) {
+                            Static511.varcs[local501] = (int) (Math.random() * 99999.0D);
                             if (Math.random() > 0.5D) {
-                                Static511.anIntArray614[local501] *= -1;
+                                Static511.varcs[local501] *= -1;
                             }
                         }
                     }
-                    Static266.method6777();
+                    Static266.saveVarcs();
                     Static79.method1579("perm varcs scrambled");
                     return;
                 }
@@ -607,7 +608,7 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("getclientvarpbit")) {
                     local501 = Integer.parseInt(arg2.substring(17));
-                    Static79.method1579("varpbit=" + TimedVarDomain.instance.getVarbitValue(local501));
+                    Static79.method1579("varpbit=" + TimedVarDomain.instance.getVarBitValue(local501));
                     return;
                 }
                 if (arg2.startsWith("getclientvarp")) {
@@ -690,8 +691,8 @@ public final class Static231 {
                         return;
                     }
                     local725 = StringTools.parseDecimal(arg2.substring(local501 + 1));
-                    ClientOptions.instance.method5104(local725, ClientOptions.instance.aClass57_Sub3_1);
-                    Static666.method8693(1);
+                    ClientOptions.instance.update(local725, ClientOptions.instance.aClass57_Sub3_1);
+                    ClientOptions.save(1);
                     Static503.aBoolean578 = false;
                     Static498.method6646();
                     if (local725 != ClientOptions.instance.aClass57_Sub3_1.method2120()) {
@@ -726,7 +727,7 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("skydetail ")) {
                     local501 = StringTools.parseDecimal(arg2.substring(arg2.indexOf(32) + 1));
-                    ClientOptions.instance.method5104(local501, ClientOptions.instance.skydetail);
+                    ClientOptions.instance.update(local501, ClientOptions.instance.skydetail);
                     Static79.method1579("skydetail is " + (ClientOptions.instance.skydetail.value() == 0 ? "low" : "high"));
                     return;
                 }

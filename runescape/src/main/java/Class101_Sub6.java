@@ -35,7 +35,7 @@ public final class Class101_Sub6 extends Class101 {
     public Class93_Sub2 aClass93_Sub2_3;
 
     static {
-        new Class242("", 73);
+        new ClientTriggerType("", 73);
     }
 
     @OriginalMember(owner = "client!nia", name = "<init>", descriptor = "(Lclient!qha;)V")

@@ -3,6 +3,8 @@ import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.game.runetek6.config.fonttype.FontTypeList;
+import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
+import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -41,8 +43,8 @@ public final class Static352 {
         Static419.objTypeList.cacheReset();
         Static25.seqTypeList.cacheReset();
         Static23.aClass128_1.method2699();
-        WorldMap.varbitTypeList.method3429();
-        Static36.aClass260_1.method5784();
+        VarBitTypeListClient.instance.cacheReset();
+        VarPlayerTypeListClient.instance.cacheReset();
         Static628.aClass342_5.method7783();
         Static648.aClass17_1.method269();
         Static574.basTypeList.cacheReset();
@@ -108,7 +110,7 @@ public final class Static352 {
         js5.CONFIG_BILLBOARD.discardUnpacked();
         js5.DLLS.discardUnpacked();
         js5.SHADERS.discardUnpacked();
-        js5.js5_36.discardUnpacked();
+        js5.VIDEOS.discardUnpacked();
         Static230.A_WEIGHTED_CACHE___81.reset();
         Static669.A_WEIGHTED_CACHE___215.reset();
         Static541.A_WEIGHTED_CACHE___174.reset();

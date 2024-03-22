@@ -11,7 +11,7 @@ public final class Static362 {
     public static final int[] anIntArray450 = new int[5];
 
     @OriginalMember(owner = "client!lha", name = "f", descriptor = "Lclient!mia;")
-    public static final Class242 aClass242_10 = new Class242("", 19);
+    public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___10 = new ClientTriggerType("", 19);
 
     @OriginalMember(owner = "client!lha", name = "a", descriptor = "(ILjava/lang/String;)Z")
     public static boolean method5241(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1) {

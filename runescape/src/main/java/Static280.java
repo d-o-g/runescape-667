@@ -7,7 +7,7 @@ public final class Static280 {
     public static byte[][][] tileFlags;
 
     @OriginalMember(owner = "client!ip", name = "v", descriptor = "Lclient!mia;")
-    public static final Class242 aClass242_7 = new Class242("", 16);
+    public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___7 = new ClientTriggerType("", 16);
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(III)Z")
     public static boolean method4087(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {

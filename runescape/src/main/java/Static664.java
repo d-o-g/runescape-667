@@ -2,14 +2,13 @@ import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.fonttype.FontTypeList;
+import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
+import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static664 {
-
-    @OriginalMember(owner = "client!vaa", name = "gb", descriptor = "Z")
-    public static volatile boolean aBoolean759 = true;
 
     @OriginalMember(owner = "client!vaa", name = "v", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___115 = new ClientProt(40, 11);
@@ -99,8 +98,8 @@ public final class Static664 {
         Static419.objTypeList.method2480();
         Static25.seqTypeList.cacheRemoveSoftReferences();
         Static23.aClass128_1.method2697();
-        WorldMap.varbitTypeList.method3423();
-        Static36.aClass260_1.method5781();
+        VarBitTypeListClient.instance.cacheRemoveSoftReferences();
+        VarPlayerTypeListClient.instance.cacheRemoveSoftReferences();
         Static628.aClass342_5.method7787();
         Static648.aClass17_1.method266();
         Static574.basTypeList.cacheRemoveSoftReferences();

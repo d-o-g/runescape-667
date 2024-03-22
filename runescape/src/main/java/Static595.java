@@ -17,37 +17,37 @@ public final class Static595 {
     public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
         Static164.method2606();
         if (arg2 == 0) {
-            Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.canvas, ClientOptions.instance.aClass57_Sub13_1.value() * 2);
+            Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, GameShell.canvas, ClientOptions.instance.aClass57_Sub13_1.value() * 2);
             if (arg0 != null) {
                 Toolkit.active.GA(0);
                 @Pc(36) FontMetrics local36 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
                 @Pc(45) Font local45 = Toolkit.active.createFont(local36, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                 Static288.method4182();
-                Static694.method9028(Toolkit.active, arg0, true, local36, local45);
+                Static694.drawLoadingText(Toolkit.active, arg0, true, local36, local45);
             }
         } else {
             @Pc(57) Toolkit local57 = null;
             @Pc(85) Font local85;
             if (arg0 != null) {
-                local57 = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.canvas, 0);
+                local57 = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, GameShell.canvas, 0);
                 local57.GA(0);
                 @Pc(76) FontMetrics local76 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
                 local85 = local57.createFont(local76, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                 Static288.method4182();
-                Static694.method9028(local57, arg0, true, local76, local85);
+                Static694.drawLoadingText(local57, arg0, true, local76, local85);
             }
             boolean var14 = false;
             label216:
             {
                 try {
                     var14 = true;
-                    Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, arg2, Static434.canvas, ClientOptions.instance.aClass57_Sub13_1.value() * 2);
+                    Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, arg2, GameShell.canvas, ClientOptions.instance.aClass57_Sub13_1.value() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
                         @Pc(118) FontMetrics local118 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
                         @Pc(127) Font local127 = local57.createFont(local118, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                         Static288.method4182();
-                        Static694.method9028(local57, arg0, true, local118, local127);
+                        Static694.drawLoadingText(local57, arg0, true, local118, local127);
                     }
                     if (Toolkit.active.method7949()) {
                         @Pc(141) boolean local141 = true;
@@ -70,9 +70,9 @@ public final class Static595 {
                 } catch (@Pc(168) Throwable local168) {
                     @Pc(173) int local173 = ClientOptions.instance.toolkit.value();
                     if (local173 == 2) {
-                        Static171.aBoolean245 = true;
+                        Static171.graphicsError = true;
                     }
-                    ClientOptions.instance.method5104(0, ClientOptions.instance.toolkit);
+                    ClientOptions.instance.update(0, ClientOptions.instance.toolkit);
                     method7807(arg0, arg1, local173);
                     @Pc(194) Object local194 = null;
                     var14 = false;
@@ -104,7 +104,7 @@ public final class Static595 {
             }
         }
         ClientOptions.instance.toolkit.method7918(!arg1);
-        ClientOptions.instance.method5104(arg2, ClientOptions.instance.toolkit);
+        ClientOptions.instance.update(arg2, ClientOptions.instance.toolkit);
         Static112.method2109();
         Toolkit.active.method8003();
         Toolkit.active.X(32);

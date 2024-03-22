@@ -13,6 +13,7 @@ import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.objtype.ObjStackability;
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Model;
@@ -62,10 +63,10 @@ public final class InterfaceManager {
     public static Component dragSource = null;
 
     @OriginalMember(owner = "client!dq", name = "k", descriptor = "I")
-    public static int boundaryCount = 0;
+    public static int rectangleCount = 0;
 
     @OriginalMember(owner = "client!tia", name = "S", descriptor = "[Ljava/awt/Rectangle;")
-    public static Rectangle[] boundaries = new Rectangle[100];
+    public static Rectangle[] rectangles = new Rectangle[100];
 
     @OriginalMember(owner = "client!dda", name = "o", descriptor = "Z")
     public static boolean testOpacity = false;
@@ -171,7 +172,7 @@ public final class InterfaceManager {
 
     static {
         for (@Pc(87) int i = 0; i < 100; i++) {
-            boundaries[i] = new Rectangle();
+            rectangles[i] = new Rectangle();
         }
     }
 
@@ -215,8 +216,8 @@ public final class InterfaceManager {
 
             @Pc(74) int rectangle;
             if (boundRectangle == -1) {
-                boundaries[boundaryCount].setBounds(child.positionX + offsetX, offsetY + child.positionY, child.width, child.height);
-                rectangle = boundaryCount++;
+                rectangles[rectangleCount].setBounds(child.positionX + offsetX, offsetY + child.positionY, child.width, child.height);
+                rectangle = rectangleCount++;
             } else {
                 rectangle = boundRectangle;
             }
@@ -624,7 +625,7 @@ public final class InterfaceManager {
                                 @Pc(1836) PlayerModel model = child.objWearCol ? PlayerEntity.self.playerModel : null;
                                 sprite = Static419.objTypeList.getCachedSprite(model, Toolkit.active, child.objNumMode, child.invObject, child.outline, child.invCount, child.shadow | 0xFF000000);
                             } else if (child.video != -1) {
-                                sprite = VideoTypeList.sprite(child.video, Toolkit.active);
+                                sprite = VideoTypeList.frame(child.video, Toolkit.active);
                             } else {
                                 sprite = child.sprite(Toolkit.active);
                             }
@@ -994,7 +995,7 @@ public final class InterfaceManager {
             animate(topLevelInterface);
         }
 
-        for (@Pc(54) int i = 0; i < boundaryCount; i++) {
+        for (@Pc(54) int i = 0; i < rectangleCount; i++) {
             if (dirtyRectangles[i]) {
                 flipDirtyRect[i] = true;
             }
@@ -1007,7 +1008,7 @@ public final class InterfaceManager {
         setOptions(-1, -1, null);
 
         if (topLevelInterface != -1) {
-            boundaryCount = 0;
+            rectangleCount = 0;
             method3833();
         }
 
@@ -1074,7 +1075,7 @@ public final class InterfaceManager {
         if (topLevelInterface != -1) {
             animate(topLevelInterface);
         }
-        for (@Pc(23) int local23 = 0; local23 < boundaryCount; local23++) {
+        for (@Pc(23) int local23 = 0; local23 < rectangleCount; local23++) {
             if (dirtyRectangles[local23]) {
                 flipDirtyRect[local23] = true;
             }
@@ -1083,7 +1084,7 @@ public final class InterfaceManager {
         }
         lastDrawCycle = TimeUtils.clock;
         if (topLevelInterface != -1) {
-            boundaryCount = 0;
+            rectangleCount = 0;
             method3833();
         }
         Toolkit.active.la();
@@ -2297,5 +2298,19 @@ public final class InterfaceManager {
 
     private InterfaceManager() {
         /* empty */
+    }
+
+    @OriginalMember(owner = "client!mt", name = "a", descriptor = "(IIIZI)V")
+    public static void changeWindowMode(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) int arg3) {
+        Static498.method6646();
+        Static297.aLong153 = 0L;
+        @Pc(10) int local10 = getWindowMode();
+        if (arg0 == 3 || local10 == 3) {
+            arg2 = true;
+        }
+        if (!Toolkit.active.method7983()) {
+            arg2 = true;
+        }
+        Static363.windowModeChanged(local10, arg3, arg0, arg1, arg2);
     }
 }

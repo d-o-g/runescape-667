@@ -4,7 +4,7 @@ import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.io.Packet;
-import com.jagex.game.VarDomain;
+import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.math.IntMath;
@@ -154,7 +154,7 @@ public final class MapElementType {
             if (this.anInt2599 == -1) {
                 return true;
             }
-            local31 = arg0.getVarbitValue(this.anInt2599);
+            local31 = arg0.getVarBitValue(this.anInt2599);
         } else {
             local31 = arg0.getVarValueInt(this.anInt2616);
         }
@@ -166,7 +166,7 @@ public final class MapElementType {
             if (this.anInt2586 == -1) {
                 return true;
             }
-            local78 = arg0.getVarbitValue(this.anInt2586);
+            local78 = arg0.getVarBitValue(this.anInt2586);
         } else {
             local78 = arg0.getVarValueInt(this.anInt2584);
         }

@@ -69,8 +69,8 @@ public final class Static363 {
             }
         }
         try {
-            @Pc(43) Dimension local43 = Static434.canvas.getSize();
-            Static694.method9028(Toolkit.active, LocalisedText.PROFILING.localise(client.language), true, Fonts.p12Metrics, Fonts.p12);
+            @Pc(43) Dimension local43 = GameShell.canvas.getSize();
+            Static694.drawLoadingText(Toolkit.active, LocalisedText.PROFILING.localise(client.language), true, Fonts.p12Metrics, Fonts.p12);
             @Pc(67) Mesh local67 = Mesh.load(Static523.graphicsDefaults.profilingModel, js5.MODELS);
             @Pc(70) long local70 = SystemTimer.safetime();
             Toolkit.active.la();
@@ -118,7 +118,7 @@ public final class Static363 {
             if (GameShell.fsframe != null) {
                 Static328.fullscreenWidth = width;
                 Static110.fullscreenHeight = height;
-                Static666.method8693(1);
+                ClientOptions.save(1);
             }
         }
         if (newMode == 3 && GameShell.fsframe == null) {
@@ -128,8 +128,8 @@ public final class Static363 {
         @Pc(95) Container local95;
         @Pc(110) Insets local110;
         if (GameShell.fsframe != null) {
-            GameShell.frameHei = height;
-            GameShell.frameWid = width;
+            client.frameHei = height;
+            client.frameWid = width;
             local95 = GameShell.fsframe;
         } else if (GameShell.frame == null) {
             if (GameShell.loaderApplet == null) {
@@ -137,18 +137,18 @@ public final class Static363 {
             } else {
                 local95 = GameShell.loaderApplet;
             }
-            GameShell.frameWid = local95.getSize().width;
-            GameShell.frameHei = local95.getSize().height;
+            client.frameWid = local95.getSize().width;
+            client.frameHei = local95.getSize().height;
         } else {
             local110 = GameShell.frame.getInsets();
-            GameShell.frameWid = GameShell.frame.getSize().width - local110.right - local110.left;
+            client.frameWid = GameShell.frame.getSize().width - local110.right - local110.left;
             @Pc(126) int local126 = -local110.top;
-            GameShell.frameHei = GameShell.frame.getSize().height + local126 - local110.bottom;
+            client.frameHei = GameShell.frame.getSize().height + local126 - local110.bottom;
             local95 = GameShell.frame;
         }
         if (newMode == 1) {
             GameShell.topMargin = 0;
-            GameShell.leftMargin = (GameShell.frameWid - client.loadingScreenWidth) / 2;
+            GameShell.leftMargin = (client.frameWid - client.loadingScreenWidth) / 2;
             GameShell.canvasHei = client.loadingScreenHeight;
             GameShell.canvasWid = client.loadingScreenWidth;
         } else {
@@ -165,17 +165,17 @@ public final class Static363 {
         if (modeChanged) {
             Static574.method7572();
         } else {
-            Static434.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);
+            GameShell.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);
             if (InterfaceManager.aBoolean210) {
-                Static575.method7606(Static434.canvas);
+                Static575.method7606(GameShell.canvas);
             } else {
-                Toolkit.active.method7935(Static434.canvas, GameShell.canvasWid, GameShell.canvasHei);
+                Toolkit.active.method7935(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
             }
             if (local95 == GameShell.frame) {
                 local110 = GameShell.frame.getInsets();
-                Static434.canvas.setLocation(GameShell.leftMargin + local110.left, GameShell.topMargin + local110.top);
+                GameShell.canvas.setLocation(GameShell.leftMargin + local110.left, GameShell.topMargin + local110.top);
             } else {
-                Static434.canvas.setLocation(GameShell.leftMargin, GameShell.topMargin);
+                GameShell.canvas.setLocation(GameShell.leftMargin, GameShell.topMargin);
             }
         }
         if (newMode >= 2) {
@@ -192,6 +192,6 @@ public final class Static363 {
         for (@Pc(258) int local258 = 0; local258 < 100; local258++) {
             InterfaceManager.dirtyRectangles[local258] = true;
         }
-        Static664.aBoolean759 = true;
+        GameShell.fullredraw = true;
     }
 }

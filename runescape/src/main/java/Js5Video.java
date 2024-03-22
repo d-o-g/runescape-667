@@ -26,16 +26,16 @@ public final class Js5Video extends Video {
     public final Packet filePacket = new Packet(null);
 
     @OriginalMember(owner = "client!wea", name = "L", descriptor = "Lclient!sb;")
-    public final js5 js5;
+    public final js5 videos;
 
     @OriginalMember(owner = "client!wea", name = "K", descriptor = "I")
-    public final int file;
+    public final int id;
 
     @OriginalMember(owner = "client!wea", name = "<init>", descriptor = "(ILclient!sb;I)V")
-    public Js5Video(@OriginalArg(0) int arg0, @OriginalArg(1) js5 js5, @OriginalArg(2) int arg2) {
-        super(arg0);
-        this.js5 = js5;
-        this.file = arg2;
+    public Js5Video(@OriginalArg(0) int pageBufferSize, @OriginalArg(1) js5 videos, @OriginalArg(2) int id) {
+        super(pageBufferSize);
+        this.videos = videos;
+        this.id = id;
     }
 
     @OriginalMember(owner = "client!wea", name = "i", descriptor = "(I)V")
@@ -45,8 +45,8 @@ public final class Js5Video extends Video {
         }
 
         for (@Pc(12) int i = 0; (i < 10) && ((i + this.pageIndex) < this.pages.length); i++) {
-            if (this.pageData[i] == null && this.js5.requestdownload(0, this.pages[this.pageIndex + i])) {
-                this.pageData[i] = this.js5.getfile(0, this.pages[this.pageIndex + i]);
+            if (this.pageData[i] == null && this.videos.requestdownload(0, this.pages[this.pageIndex + i])) {
+                this.pageData[i] = this.videos.getfile(0, this.pages[this.pageIndex + i]);
             }
         }
     }
@@ -55,11 +55,11 @@ public final class Js5Video extends Video {
     @Override
     protected int readPage(@OriginalArg(0) byte[] buffer) throws IOException {
         if (this.pages == null) {
-            if (!this.js5.requestdownload(0, this.file)) {
+            if (!this.videos.requestdownload(0, this.id)) {
                 return 0;
             }
 
-            @Pc(29) byte[] data = this.js5.getfile(0, this.file);
+            @Pc(29) byte[] data = this.videos.getfile(0, this.id);
             if (data == null) {
                 throw new IllegalStateException("");
             }

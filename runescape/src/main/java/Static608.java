@@ -1,5 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.game.runetek6.config.npctype.NPCType;
@@ -657,7 +658,7 @@ public final class Static608 {
             local1274 = local321 + local409;
             @Pc(2654) int local2654 = Fonts.b12Metrics.paddingBottom + arg0 + local1179;
             if (Static55.anInt1124 == 0) {
-                @Pc(2663) int local2663 = 16776960;
+                @Pc(2663) int local2663 = 0xFFFF00;
                 @Pc(2669) int local2669 = Static352.aClass80Array1[local233].method2107();
                 if (local2669 < 6) {
                     local2663 = Static587.anIntArray689[local2669];

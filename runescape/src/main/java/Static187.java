@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -41,7 +42,7 @@ public final class Static187 {
         Static497.stacks.clear();
         Static693.method9012();
         Static334.anInt5456 = 0;
-        TimedVarDomain.instance.method6867();
+        TimedVarDomain.instance.reset();
         Static91.aClass164_9 = null;
         Static128.aClass164_8 = null;
         Static211.aClass2_Sub12_3 = null;

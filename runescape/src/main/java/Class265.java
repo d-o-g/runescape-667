@@ -12,7 +12,7 @@ public final class Class265 {
     public final long aLong213;
 
     static {
-        new Class242("", 76);
+        new ClientTriggerType("", 76);
     }
 
     @OriginalMember(owner = "client!ns", name = "<init>", descriptor = "(Lclient!tca;JI)V")

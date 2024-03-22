@@ -28,10 +28,10 @@ public final class Static611 {
             Static468.method7643();
         }
         if (ClientOptions.instance.toolkit.value() != 2) {
-            ClientOptions.instance.method5104(2, ClientOptions.instance.aClass57_Sub29_2);
+            ClientOptions.instance.update(2, ClientOptions.instance.aClass57_Sub29_2);
             Static32.method880(2, false);
         }
-        Static666.method8693(1);
+        ClientOptions.save(1);
         return local8;
     }
 

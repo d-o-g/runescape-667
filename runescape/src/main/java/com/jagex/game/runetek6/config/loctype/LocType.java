@@ -8,7 +8,7 @@ import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.LocShapes;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
-import com.jagex.game.VarDomain;
+import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
@@ -583,7 +583,7 @@ public final class LocType {
     public LocType getMultiLoc(@OriginalArg(1) VarDomain varDomain) {
         @Pc(5) int index = -1;
         if (this.multiLocVarbit != -1) {
-            index = varDomain.getVarbitValue(this.multiLocVarbit);
+            index = varDomain.getVarBitValue(this.multiLocVarbit);
         } else if (this.multiLocVarp != -1) {
             index = varDomain.getVarValueInt(this.multiLocVarp);
         }

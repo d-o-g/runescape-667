@@ -11,7 +11,7 @@ import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.graphics.Font;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.PlayerModel;
-import com.jagex.game.VarDomain;
+import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;

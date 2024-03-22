@@ -4,6 +4,7 @@ import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
+import com.jagex.core.datastruct.key.LongNode;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -182,7 +183,7 @@ public final class Class164 {
             return null;
         } else {
             @Pc(16) Node local16 = this.aIterableHashTable_19.get((long) arg0);
-            return local16 != null && local16 instanceof Node_Sub48 ? Long.valueOf(((Node_Sub48) local16).aLong264) : null;
+            return local16 != null && local16 instanceof LongNode ? Long.valueOf(((LongNode) local16).value) : null;
         }
     }
 
@@ -340,18 +341,18 @@ public final class Class164 {
         } else {
             @Pc(29) Node local29 = this.aIterableHashTable_19.get((long) arg0);
             if (local29 != null) {
-                if (local29 instanceof Node_Sub48) {
-                    @Pc(39) Node_Sub48 local39 = (Node_Sub48) local29;
-                    if (local39.aLong264 == arg1) {
+                if (local29 instanceof LongNode) {
+                    @Pc(39) LongNode local39 = (LongNode) local29;
+                    if (local39.value == arg1) {
                         return false;
                     }
-                    local39.aLong264 = arg1;
+                    local39.value = arg1;
                     return true;
                 }
                 local29.unlink();
             }
         }
-        this.aIterableHashTable_19.put((long) arg0, new Node_Sub48(arg1));
+        this.aIterableHashTable_19.put((long) arg0, new LongNode(arg1));
         return true;
     }
 
@@ -549,7 +550,7 @@ public final class Class164 {
                 this.aIterableHashTable_19.put((long) local497, new IntNode(local510));
             } else if (local501 == 1) {
                 @Pc(533) long local533 = arg0.g8();
-                this.aIterableHashTable_19.put((long) local497, new Node_Sub48(local533));
+                this.aIterableHashTable_19.put((long) local497, new LongNode(local533));
             } else if (local501 == 2) {
                 @Pc(556) String local556 = arg0.gjstr();
                 this.aIterableHashTable_19.put((long) local497, new StringNode(local556));

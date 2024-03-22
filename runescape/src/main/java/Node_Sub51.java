@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -57,7 +58,7 @@ public final class Node_Sub51 extends Node {
     public PlayerEntity player;
 
     @OriginalMember(owner = "client!tg", name = "l", descriptor = "Z")
-    public boolean aBoolean713;
+    public boolean multi;
 
     @OriginalMember(owner = "client!tg", name = "K", descriptor = "Lclient!sq;")
     public Node_Sub49_Sub1 aClass2_Sub49_Sub1_3;

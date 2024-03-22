@@ -7,7 +7,7 @@ public final class Static124 {
     public static void method2216(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class103 arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(10) Class403 arg9, @OriginalArg(11) int arg10) {
         Static11.anInt136 = arg6;
         Static101.anInt2097 = arg8;
-        Static320.anInt5083 = arg5;
+        Static320.minHeight = arg5;
         Static675.anInt10154 = arg2;
         Static414.aIndexedImage_2 = null;
         Static129.aClass103_1 = arg4;
@@ -18,7 +18,7 @@ public final class Static124 {
         Static665.anInt9944 = arg1;
         Static362.anInt5828 = arg0;
         Static74.aIndexedImage_1 = null;
-        Static343.anInt5610 = arg3;
+        Static343.minWidth = arg3;
         Static71.method1525();
         Static483.aBoolean546 = true;
     }

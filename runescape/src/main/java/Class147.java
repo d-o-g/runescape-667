@@ -1,5 +1,6 @@
 import com.jagex.core.datastruct.key.IntNode;
-import com.jagex.game.VarDomain;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.game.runetek6.config.vartype.VarDomain;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -17,8 +18,8 @@ public final class Class147 implements VarDomain {
 
     @OriginalMember(owner = "client!gl", name = "a", descriptor = "(IB)I")
     @Override
-    public int getVarbitValue(@OriginalArg(0) int arg0) {
+    public int getVarBitValue(@OriginalArg(0) int arg0) {
         @Pc(14) IntNode local14 = (IntNode) Static25.A_HASH_TABLE___4.get((long) arg0 | 0x100000000L);
-        return local14 == null ? TimedVarDomain.instance.getVarbitValue(arg0) : local14.value;
+        return local14 == null ? TimedVarDomain.instance.getVarBitValue(arg0) : local14.value;
     }
 }

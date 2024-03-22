@@ -1,4 +1,3 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static384 {
@@ -15,8 +14,4 @@ public final class Static384 {
     @OriginalMember(owner = "client!maa", name = "r", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray31 = new String[]{"en", "de", "fr", "pt", "nl"};
 
-    @OriginalMember(owner = "client!maa", name = "a", descriptor = "(IB)Z")
-    public static boolean method5393(@OriginalArg(0) int arg0) {
-        return arg0 == 7 || arg0 == 9;
-    }
 }

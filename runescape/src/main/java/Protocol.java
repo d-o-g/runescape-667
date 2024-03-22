@@ -11,6 +11,7 @@ import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -251,20 +252,21 @@ public final class Protocol {
                             if (Static684.aBoolean775 != local892 || Static134.anInt10326 != local277) {
                                 Static134.anInt10326 = local277;
                                 Static684.aBoolean775 = local892;
-                                ScriptRunner.method6429(Static232.aClass242_6, -1, -1);
+                                ScriptRunner.executeTrigger(Static232.A_CLIENT_TRIGGER_TYPE___6, -1, -1);
                             }
                             arg0.currentProt = null;
                             return true;
                         }
                         @Pc(931) byte local931;
-                        if (Static46.A_SERVER_PROT___27 == arg0.currentProt) {
+                        if (ServerProt.VARP_SMALL == arg0.currentProt) {
                             local277 = local11.g2();
                             local931 = local11.g1b_alt1();
-                            TimedVarDomain.instance.method6873(local277, local931);
+                            // g.trace("Received small varp variable: " + var18 + " value:" + var78);
+                            TimedVarDomain.instance.updateVarp(local277, local931);
                             arg0.currentProt = null;
                             return true;
                         } else if (arg0.currentProt == Static283.A_SERVER_PROT___115) {
-                            TimedVarDomain.instance.method6867();
+                            TimedVarDomain.instance.reset();
                             Static635.varpUpdateCount += 32;
                             arg0.currentProt = null;
                             return true;
@@ -486,10 +488,11 @@ public final class Protocol {
                                     Static711.method9271(local931, local277);
                                     arg0.currentProt = null;
                                     return true;
-                                } else if (Static205.A_SERVER_PROT___80 == arg0.currentProt) {
+                                } else if (ServerProt.VARBIT_LARGE == arg0.currentProt) {
                                     local277 = local11.g4();
                                     local100 = local11.g2();
-                                    TimedVarDomain.instance.method6871(local277, local100);
+                                    // g.trace("Received big varbit variable: " + var18 + " value:" + var4);
+                                    TimedVarDomain.instance.updateVarBitValue(local277, local100);
                                     arg0.currentProt = null;
                                     return true;
                                 } else {
@@ -652,7 +655,7 @@ public final class Protocol {
                                             Static708.method9230(local11.gjstr());
                                             arg0.currentProt = null;
                                             return true;
-                                        } else if (arg0.currentProt == Static40.A_SERVER_PROT___16) {
+                                        } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___16) {
                                             local277 = local11.g1_alt2();
                                             @Pc(2579) int[] local2579 = new int[4];
                                             for (local526 = 0; local526 < 4; local526++) {
@@ -681,10 +684,11 @@ public final class Protocol {
                                                 Static587.aBoolean663 = true;
                                             }
                                             return true;
-                                        } else if (Static40.A_SERVER_PROT___17 == arg0.currentProt) {
+                                        } else if (ServerProt.VARP_LARGE == arg0.currentProt) {
                                             local277 = local11.g4_alt3();
                                             local100 = local11.g2_alt2();
-                                            TimedVarDomain.instance.method6873(local100, local277);
+                                            // g.trace("Received big varp variable: " + var18 + " value:" + var4);
+                                            TimedVarDomain.instance.updateVarp(local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static229.A_SERVER_PROT___101) {
@@ -747,7 +751,7 @@ public final class Protocol {
                                             Static265.anIntArray328[Static710.varclanUpdateCount++ & 0x1F] = local277;
                                             arg0.currentProt = null;
                                             return true;
-                                        } else if (Static40.A_SERVER_PROT___18 == arg0.currentProt) {
+                                        } else if (ServerProt.A_SERVER_PROT___18 == arg0.currentProt) {
                                             local277 = local11.g2();
                                             Static607.anInt9251 = -1;
                                             Static717.anInt10817 = local277;
@@ -770,7 +774,7 @@ public final class Protocol {
                                             @Pc(3044) byte[] local3044;
                                             if (Static692.A_SERVER_PROT___251 == arg0.currentProt) {
                                                 if (GameShell.fsframe != null) {
-                                                    Static409.method5657(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                                                    InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
                                                 }
                                                 local3044 = new byte[arg0.currentPacketSize];
                                                 local11.method7416(local3044, arg0.currentPacketSize);
@@ -819,10 +823,11 @@ public final class Protocol {
                                                 }
                                                 arg0.currentProt = null;
                                                 return true;
-                                            } else if (Static176.A_SERVER_PROT___187 == arg0.currentProt) {
+                                            } else if (ServerProt.VARBIT_SMALL == arg0.currentProt) {
                                                 local277 = local11.g1_alt3();
                                                 local100 = local11.g2_alt2();
-                                                TimedVarDomain.instance.method6871(local277, local100);
+                                                // g.trace("Received small varbit variable: " + var18 + " value:" + var4);
+                                                TimedVarDomain.instance.updateVarBitValue(local277, local100);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (Static636.A_SERVER_PROT___230 == arg0.currentProt) {
@@ -1008,7 +1013,7 @@ public final class Protocol {
                                                 } else if (Static334.A_SERVER_PROT___140 == arg0.currentProt) {
                                                     local277 = local11.g2_alt3();
                                                     Static574.method7573();
-                                                    VideoTypeList.method2199(local277);
+                                                    VideoManager.stop(local277);
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (Static166.A_SERVER_PROT___63 == arg0.currentProt) {
@@ -1482,7 +1487,7 @@ public final class Protocol {
                                                                     return true;
                                                                 } else if (Static272.A_SERVER_PROT___112 == arg0.currentProt) {
                                                                     if (GameShell.fsframe != null) {
-                                                                        Static409.method5657(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                                                                        InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
                                                                     }
                                                                     local3044 = new byte[arg0.currentPacketSize];
                                                                     local11.method7416(local3044, arg0.currentPacketSize);
@@ -1531,7 +1536,7 @@ public final class Protocol {
                                                                     Static186.method2818(local277, local100, 256, local526, local1409, true);
                                                                     arg0.currentProt = null;
                                                                     return true;
-                                                                } else if (arg0.currentProt == Static40.A_SERVER_PROT___19) {
+                                                                } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___19) {
                                                                     Static574.method7573();
                                                                     Static145.method2409();
                                                                     arg0.currentProt = null;
@@ -1721,7 +1726,7 @@ public final class Protocol {
                                                                         local277 = local11.g4_alt2();
                                                                         if (local277 != Static435.anInt6594) {
                                                                             Static435.anInt6594 = local277;
-                                                                            ScriptRunner.method6429(Static362.aClass242_10, -1, -1);
+                                                                            ScriptRunner.executeTrigger(Static362.A_CLIENT_TRIGGER_TYPE___10, -1, -1);
                                                                         }
                                                                         arg0.currentProt = null;
                                                                         return true;

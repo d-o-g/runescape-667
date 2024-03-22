@@ -6,7 +6,7 @@ public final class Static98 {
     public static double aDouble9;
 
     @OriginalMember(owner = "client!db", name = "O", descriptor = "J")
-    public static long aLong71 = -1L;
+    public static long lastVarcSave = -1L;
 
     @OriginalMember(owner = "client!db", name = "db", descriptor = "[I")
     public static int[] anIntArray176 = new int[4096];

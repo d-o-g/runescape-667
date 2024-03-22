@@ -8,7 +8,7 @@ import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
-import com.jagex.game.VarDomain;
+import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.graphics.Matrix;
@@ -265,7 +265,7 @@ public final class NPCType {
     public NPCType getMultiNPC(@OriginalArg(1) VarDomain domain) {
         @Pc(11) int index = -1;
         if (this.multinpcVarbit != -1) {
-            index = domain.getVarbitValue(this.multinpcVarbit);
+            index = domain.getVarBitValue(this.multinpcVarbit);
         } else if (this.multinpcVarp != -1) {
             index = domain.getVarValueInt(this.multinpcVarp);
         }
@@ -940,7 +940,7 @@ public final class NPCType {
 
         @Pc(19) int index = -1;
         if (this.multinpcVarbit != -1) {
-            index = varDomain.getVarbitValue(this.multinpcVarbit);
+            index = varDomain.getVarBitValue(this.multinpcVarbit);
         } else if (this.multinpcVarp != -1) {
             index = varDomain.getVarValueInt(this.multinpcVarp);
         }

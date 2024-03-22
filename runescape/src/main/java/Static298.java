@@ -1,5 +1,5 @@
 import com.jagex.core.datastruct.ref.ReferenceCache;
-import com.jagex.game.VarDomain;
+import com.jagex.game.runetek6.config.vartype.VarDomain;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -16,7 +16,7 @@ public final class Static298 {
     public static final int[] anIntArray366 = new int[]{2, 1, 1, 1, 2, 2, 2, 1, 3, 3, 3, 2, 0, 4, 0};
 
     @OriginalMember(owner = "client!ji", name = "x", descriptor = "Lclient!mia;")
-    public static final Class242 aClass242_8 = new Class242("", 10);
+    public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___8 = new ClientTriggerType("", 10);
 
     @OriginalMember(owner = "client!ji", name = "E", descriptor = "Z")
     public static boolean aBoolean369 = false;

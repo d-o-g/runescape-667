@@ -29,10 +29,10 @@ public final class Static399 {
             Static75.method6239();
         }
         if (arg0 != ClientOptions.instance.toolkit.value()) {
-            ClientOptions.instance.method5104(arg0, ClientOptions.instance.aClass57_Sub29_2);
+            ClientOptions.instance.update(arg0, ClientOptions.instance.aClass57_Sub29_2);
             Static32.method880(arg0, false);
         }
-        Static666.method8693(1);
+        ClientOptions.save(1);
         return local27;
     }
 

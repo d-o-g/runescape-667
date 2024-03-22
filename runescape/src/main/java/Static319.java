@@ -19,7 +19,7 @@ public final class Static319 {
     public static final float[] aFloatArray26 = new float[]{0.0F, -1.0F, 0.0F, 0.0F};
 
     @OriginalMember(owner = "client!kba", name = "K", descriptor = "I")
-    public static int anInt5078 = 0;
+    public static int permVarcCount = 0;
 
     @OriginalMember(owner = "client!kba", name = "H", descriptor = "[I")
     public static final int[] anIntArray385 = new int[13];

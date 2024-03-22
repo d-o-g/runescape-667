@@ -80,7 +80,7 @@ public final class Static498 {
             Static126.method2227(Toolkit.active, GameShell.canvasWid, Static32.anInt777, Static288.anInt4620, GameShell.canvasHei);
         }
         if (ClientOptions.instance.aClass57_Sub3_1.method2118()) {
-            Static575.method7606(Static434.canvas);
+            Static575.method7606(GameShell.canvas);
         }
         if (Toolkit.active != null) {
             Static209.method3110();

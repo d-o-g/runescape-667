@@ -13,7 +13,7 @@ public final class Static515 {
     public static final Class204 aClass204_10 = new Class204(0, 1);
 
     @OriginalMember(owner = "client!qda", name = "x", descriptor = "Lclient!mia;")
-    public static final Class242 aClass242_12 = new Class242("", 13);
+    public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___12 = new ClientTriggerType("", 13);
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(IIIIILclient!ha;IIIIILclient!cba;)V")
     public static void method6799(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) DoublyLinkedNode_Sub2_Sub4 arg10) {

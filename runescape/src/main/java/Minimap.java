@@ -2,6 +2,7 @@ import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -9,6 +10,9 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Minimap {
+
+    @OriginalMember(owner = "client!rr", name = "F", descriptor = "[I")
+    public static final int[] anIntArray654 = new int[1000];
 
     @OriginalMember(owner = "client!sda", name = "g", descriptor = "I")
     public static int toggle = 0;
@@ -62,7 +66,7 @@ public final class Minimap {
             Static620.method8322(local222, x, local30, toolkit, Static42.aMapElementList_2.anIntArray496[local178], y, local211, component);
         }
         for (local190 = 0; local190 < Static536.anInt8148; local190++) {
-            local200 = Static566.anIntArray654[local190] * 4 + 2 - local90 / 128;
+            local200 = anIntArray654[local190] * 4 + 2 - local90 / 128;
             local211 = Static350.anIntArray433[local190] * 4 + 2 - local93 / 128;
             @Pc(287) LocType local287 = Static354.aLocTypeList_4.list(Static533.anIntArray628[local190]);
             if (local287.multiLocs != null) {

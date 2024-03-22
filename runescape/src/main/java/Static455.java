@@ -32,7 +32,7 @@ public final class Static455 {
         if (Static393.aStringArray32 == null) {
             Static279.method4072();
         }
-        Static566.anInt8472 = 0;
+        Static460.anInt8472 = 0;
         Static236.aBoolean305 = true;
     }
 }

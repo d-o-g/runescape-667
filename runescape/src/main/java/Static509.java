@@ -78,14 +78,14 @@ public final class Static509 {
                 }
                 if (!local197.aClass2_Sub20_1.aBoolean256) {
                     local197.aClass2_Sub20_1.aBoolean256 = true;
-                    ScriptRunner.method6429(Static5.aClass242_1, local197.aClass2_Sub20_1.id, local206.anInt2597);
+                    ScriptRunner.executeTrigger(Static5.A_CLIENT_TRIGGER_TYPE___1, local197.aClass2_Sub20_1.id, local206.anInt2597);
                 }
                 if (local197.aClass2_Sub20_1.aBoolean256) {
-                    ScriptRunner.method6429(Static639.aClass242_13, local197.aClass2_Sub20_1.id, local206.anInt2597);
+                    ScriptRunner.executeTrigger(Static639.A_CLIENT_TRIGGER_TYPE___13, local197.aClass2_Sub20_1.id, local206.anInt2597);
                 }
             } else if (local197.aClass2_Sub20_1.aBoolean256) {
                 local197.aClass2_Sub20_1.aBoolean256 = false;
-                ScriptRunner.method6429(Static280.aClass242_7, local197.aClass2_Sub20_1.id, local206.anInt2597);
+                ScriptRunner.executeTrigger(Static280.A_CLIENT_TRIGGER_TYPE___7, local197.aClass2_Sub20_1.id, local206.anInt2597);
             }
         }
     }

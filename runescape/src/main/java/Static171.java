@@ -11,7 +11,7 @@ public final class Static171 {
     public static float aFloat64 = 0.0F;
 
     @OriginalMember(owner = "client!ff", name = "u", descriptor = "Z")
-    public static boolean aBoolean245 = false;
+    public static boolean graphicsError = false;
 
     @OriginalMember(owner = "client!ff", name = "r", descriptor = "[I")
     public static final int[] anIntArray250 = new int[1];

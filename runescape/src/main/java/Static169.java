@@ -50,6 +50,6 @@ public final class Static169 {
         arg0.p4(js5.CUTSCENES.indexCrc());
         arg0.p4(Static190.method2865());
         arg0.p4(Static140.method2366());
-        arg0.p4(js5.js5_36.indexCrc());
+        arg0.p4(js5.VIDEOS.indexCrc());
     }
 }

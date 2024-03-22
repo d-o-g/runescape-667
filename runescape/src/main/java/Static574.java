@@ -16,15 +16,15 @@ public final class Static574 {
     @OriginalMember(owner = "client!saa", name = "b", descriptor = "(I)V")
     public static void method7572() {
         if (Toolkit.active.method7978()) {
-            Toolkit.active.method7972(Static434.canvas);
+            Toolkit.active.method7972(GameShell.canvas);
             Static208.method3106();
             if (InterfaceManager.aBoolean210) {
-                Static720.method9397(Static434.canvas);
+                Static720.method9397(GameShell.canvas);
             } else {
-                @Pc(26) Dimension local26 = Static434.canvas.getSize();
-                Toolkit.active.method8022(Static434.canvas, local26.width, local26.height);
+                @Pc(26) Dimension local26 = GameShell.canvas.getSize();
+                Toolkit.active.method8022(GameShell.canvas, local26.width, local26.height);
             }
-            Toolkit.active.method8019(Static434.canvas);
+            Toolkit.active.method8019(GameShell.canvas);
         } else {
             Static32.method880(ClientOptions.instance.toolkit.value(), false);
         }

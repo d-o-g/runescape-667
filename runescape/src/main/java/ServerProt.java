@@ -29,6 +29,27 @@ public final class ServerProt {
     @OriginalMember(owner = "client!ec", name = "A", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___54 = new ServerProt(91, -1);
 
+    @OriginalMember(owner = "client!gg", name = "i", descriptor = "Lclient!lga;")
+    public static final ServerProt VARBIT_LARGE = new ServerProt(84, 6);
+
+    @OriginalMember(owner = "client!fi", name = "j", descriptor = "Lclient!lga;")
+    public static final ServerProt VARBIT_SMALL = new ServerProt(14, 3);
+
+    @OriginalMember(owner = "client!bfa", name = "l", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___16 = new ServerProt(74, 11);
+
+    @OriginalMember(owner = "client!bfa", name = "p", descriptor = "Lclient!lga;")
+    public static final ServerProt VARP_LARGE = new ServerProt(39, 6);
+
+    @OriginalMember(owner = "client!bfa", name = "n", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___18 = new ServerProt(132, -2);
+
+    @OriginalMember(owner = "client!bfa", name = "o", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___19 = new ServerProt(15, 0);
+
+    @OriginalMember(owner = "client!bja", name = "e", descriptor = "Lclient!lga;")
+    public static final ServerProt VARP_SMALL = new ServerProt(101, 3);
+
     @OriginalMember(owner = "client!lga", name = "e", descriptor = "I")
     public final int opcode;
 

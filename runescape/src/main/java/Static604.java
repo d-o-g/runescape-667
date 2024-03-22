@@ -62,14 +62,4 @@ public final class Static604 {
         return (arg0 & 0x34) != 0;
     }
 
-    @OriginalMember(owner = "client!tb", name = "a", descriptor = "(BC)Z")
-    public static boolean method7905(@OriginalArg(1) char arg0) {
-        if (arg0 >= ' ' && arg0 <= '~') {
-            return true;
-        } else if (arg0 >= ' ' && arg0 <= 'ÿ') {
-            return true;
-        } else {
-            return arg0 == '€' || arg0 == 'Œ' || arg0 == '—' || arg0 == 'œ' || arg0 == 'Ÿ';
-        }
-    }
 }

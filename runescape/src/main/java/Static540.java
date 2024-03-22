@@ -11,31 +11,6 @@ public final class Static540 {
     @OriginalMember(owner = "client!r", name = "t", descriptor = "[I")
     public static final int[] anIntArray594 = new int[]{7, 8, 9, 10, 11, 12, 13, 15};
 
-    @OriginalMember(owner = "client!r", name = "a", descriptor = "(BC)Z")
-    public static boolean method6536(@OriginalArg(1) char arg0) {
-        if (Character.isISOControl(arg0)) {
-            return false;
-        } else if (Static596.method7815(arg0)) {
-            return true;
-        } else {
-            @Pc(25) char[] local25 = Static334.aCharArray5;
-            for (@Pc(27) int local27 = 0; local27 < local25.length; local27++) {
-                @Pc(32) char local32 = local25[local27];
-                if (local32 == arg0) {
-                    return true;
-                }
-            }
-            @Pc(49) char[] local49 = Static349.aCharArray6;
-            for (@Pc(51) int local51 = 0; local51 < local49.length; local51++) {
-                @Pc(56) char local56 = local49[local51];
-                if (arg0 == local56) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    }
-
     @OriginalMember(owner = "client!r", name = "a", descriptor = "(Ljava/lang/String;BILjava/lang/String;)I")
     public static int method6538(@OriginalArg(0) String arg0, @OriginalArg(2) int arg1, @OriginalArg(3) String arg2) {
         @Pc(6) int local6 = arg2.length();

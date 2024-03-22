@@ -17,40 +17,6 @@ public final class Static390 {
     @OriginalMember(owner = "client!mda", name = "H", descriptor = "I")
     public static int anInt6126 = 0;
 
-    @OriginalMember(owner = "client!mda", name = "a", descriptor = "(ILjava/lang/String;)Ljava/lang/String;")
-    public static String method5492(@OriginalArg(1) String arg0) {
-        if (arg0 == null) {
-            return null;
-        }
-        @Pc(10) int local10 = 0;
-        @Pc(13) int local13 = arg0.length();
-        while (local10 < local13 && Static19.method262(arg0.charAt(local10))) {
-            local10++;
-        }
-        while (local10 < local13 && Static19.method262(arg0.charAt(local13 - 1))) {
-            local13--;
-        }
-        @Pc(55) int local55 = local13 - local10;
-        if (local55 < 1 || local55 > 12) {
-            return null;
-        }
-        @Pc(75) StringBuffer local75 = new StringBuffer(local55);
-        for (@Pc(77) int local77 = local10; local77 < local13; local77++) {
-            @Pc(82) char local82 = arg0.charAt(local77);
-            if (Static540.method6536(local82)) {
-                @Pc(90) char local90 = Static146.method2413(local82);
-                if (local90 != '\u0000') {
-                    local75.append(local90);
-                }
-            }
-        }
-        if (local75.length() == 0) {
-            return null;
-        } else {
-            return local75.toString();
-        }
-    }
-
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(ZI)Lclient!rt;")
     public static Class327 method5493(@OriginalArg(1) int arg0) {
         if (arg0 == 0) {

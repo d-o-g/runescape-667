@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -152,7 +153,7 @@ public final class Static668 {
                 Static625.anInt9472--;
                 Static344.method5046();
                 Static594.anInt8776 = Static110.aString19.length();
-            } else if (Static596.method7815(local155) || "\\/.:, _-+[]~@".indexOf(local155) != -1) {
+            } else if (StringTools.isAlphanumeric(local155) || "\\/.:, _-+[]~@".indexOf(local155) != -1) {
                 Static110.aString19 = Static110.aString19.substring(0, Static594.anInt8776) + Static194.anInterface27Array1[local26].method2666() + Static110.aString19.substring(Static594.anInt8776);
                 Static594.anInt8776++;
             }

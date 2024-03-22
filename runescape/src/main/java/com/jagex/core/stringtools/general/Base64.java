@@ -17,25 +17,25 @@ public final class Base64 {
 
     static {
         for (@Pc(117) int i = 0; i < 26; i++) {
-            aCharArray8[i] = (char) ('A' + i - 0);
+            aCharArray8[i] = (char) (i + 'A' - 0);
         }
         for (@Pc(131) int i = 26; i < 52; i++) {
-            aCharArray8[i] = (char) ('a' + i - 26);
+            aCharArray8[i] = (char) (i + 'a' - 26);
         }
         for (@Pc(147) int i = 52; i < 62; i++) {
-            aCharArray8[i] = (char) ('0' + i - 52);
+            aCharArray8[i] = (char) (i + '0' - 52);
         }
         aCharArray8['?'] = '-';
         aCharArray8['>'] = '*';
 
         for (@Pc(37) int i = 0; i < 26; i++) {
-            aCharArray1[i] = (char) ('A' + i - 0);
+            aCharArray1[i] = (char) (i + 'A' - 0);
         }
         for (@Pc(53) int i = 26; i < 52; i++) {
-            aCharArray1[i] = (char) ('a' + i - 26);
+            aCharArray1[i] = (char) (i + 'a' - 26);
         }
         for (@Pc(71) int i = 52; i < 62; i++) {
-            aCharArray1[i] = (char) ('0' + i - 52);
+            aCharArray1[i] = (char) (i + '0' - 52);
         }
         aCharArray1['>'] = '+';
         aCharArray1['?'] = '/';

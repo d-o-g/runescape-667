@@ -2753,22 +2753,22 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4113) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = method6423((char) local15);
+                                                anIntArray578[anInt7142++] = charIsPrintable((char) local15);
                                                 return;
                                             }
                                             if (arg0 == 4114) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Static596.method7815((char) local15) ? 1 : 0;
+                                                anIntArray578[anInt7142++] = StringTools.isAlphanumeric((char) local15) ? 1 : 0;
                                                 return;
                                             }
                                             if (arg0 == 4115) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Static245.method8628((char) local15) ? 1 : 0;
+                                                anIntArray578[anInt7142++] = StringTools.isAlphabetical((char) local15) ? 1 : 0;
                                                 return;
                                             }
                                             if (arg0 == 4116) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Static277.method4043((char) local15) ? 1 : 0;
+                                                anIntArray578[anInt7142++] = StringTools.isNumeric((char) local15) ? 1 : 0;
                                                 return;
                                             }
                                             if (arg0 == 4117) {
@@ -6239,8 +6239,8 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(C)I")
-    public static int method6423(@OriginalArg(0) char arg0) {
-        return Static604.method7905(arg0) ? 1 : 0;
+    public static int charIsPrintable(@OriginalArg(0) char c) {
+        return StringTools.isPrintable(c) ? 1 : 0;
     }
 
     @OriginalMember(owner = "client!ou", name = "e", descriptor = "(I)Ljava/lang/String;")

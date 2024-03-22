@@ -256,7 +256,33 @@ public final class StringTools {
         return hash;
     }
 
+    @OriginalMember(owner = "client!im", name = "a", descriptor = "(IC)Z")
+    public static boolean isNumeric(@OriginalArg(1) char c) {
+        return c >= '0' && c <= '9';
+    }
+
+    @OriginalMember(owner = "client!sp", name = "a", descriptor = "(ZC)Z")
+    public static boolean isAlphanumeric(@OriginalArg(1) char c) {
+        return c >= '0' && c <= '9' || c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
+    }
+
     private StringTools() {
         /* empty */
+    }
+
+    @OriginalMember(owner = "client!tb", name = "a", descriptor = "(BC)Z")
+    public static boolean isPrintable(@OriginalArg(1) char c) {
+        if (c >= ' ' && c <= '~') {
+            return true;
+        } else if (c >= ' ' && c <= 'ÿ') {
+            return true;
+        } else {
+            return c == '€' || c == 'Œ' || c == '—' || c == 'œ' || c == 'Ÿ';
+        }
+    }
+
+    @OriginalMember(owner = "client!hka", name = "a", descriptor = "(CI)Z")
+    public static boolean isAlphabetical(@OriginalArg(0) char c) {
+        return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
     }
 }

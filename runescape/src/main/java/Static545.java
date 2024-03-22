@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.stringtools.general.NameTools;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -26,13 +27,13 @@ public final class Static545 {
         if (arg0 == null) {
             return;
         }
-        @Pc(11) String local11 = Static390.method5492(arg0);
+        @Pc(11) String local11 = NameTools.format(arg0);
         if (local11 == null) {
             return;
         }
         for (@Pc(22) int local22 = 0; local22 < Static327.anInt5392; local22++) {
             @Pc(27) String local27 = Static330.aStringArray25[local22];
-            @Pc(31) String local31 = Static390.method5492(local27);
+            @Pc(31) String local31 = NameTools.format(local27);
             if (Static585.method7682(arg0, local31, local27, local11)) {
                 Static327.anInt5392--;
                 for (@Pc(44) int local44 = local22; local44 < Static327.anInt5392; local44++) {

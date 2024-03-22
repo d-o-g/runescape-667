@@ -4,6 +4,7 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.io.connection.Connection;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.stringtools.general.Cp1252;
+import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.core.util.JagException;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
@@ -1805,7 +1806,7 @@ public final class Protocol {
                                                                                 local7394 = new Class241();
                                                                                 local7394.aString67 = local1937;
                                                                                 local7394.aString66 = local627;
-                                                                                local7394.aString68 = Static390.method5492(local7394.aString66);
+                                                                                local7394.aString68 = NameTools.format(local7394.aString66);
                                                                                 local7394.anInt6148 = local1409;
                                                                                 local7394.aString65 = local1427;
                                                                                 local7394.aByte99 = local7377;
@@ -2079,7 +2080,7 @@ public final class Protocol {
                                                                                 } else {
                                                                                     local8611[local2098].aString66 = local8611[local2098].aString67;
                                                                                 }
-                                                                                local8611[local2098].aString68 = Static390.method5492(local8611[local2098].aString66);
+                                                                                local8611[local2098].aString68 = NameTools.format(local8611[local2098].aString66);
                                                                                 local8611[local2098].anInt6148 = local11.g2();
                                                                                 local8611[local2098].aByte99 = local11.g1b();
                                                                                 local8611[local2098].aString65 = local11.gjstr();

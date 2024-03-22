@@ -2,6 +2,7 @@ import com.jagex.Class84;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.io.Files;
+import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
@@ -827,19 +828,19 @@ public final class Static231 {
             Static67.method6098(LocalisedText.IGNORELISTFULL.localise(client.language));
             return;
         }
-        @Pc(27) String local27 = Static390.method5492(arg1);
+        @Pc(27) String local27 = NameTools.format(arg1);
         if (local27 == null) {
             return;
         }
         @Pc(76) String local76;
         for (@Pc(33) int local33 = 0; local33 < Static436.anInt3849; local33++) {
-            @Pc(40) String local40 = Static390.method5492(Static632.aStringArray44[local33]);
+            @Pc(40) String local40 = NameTools.format(Static632.aStringArray44[local33]);
             if (local40 != null && local40.equals(local27)) {
                 Static67.method6098(arg1 + LocalisedText.IGNORELISTDUPE.localise(client.language));
                 return;
             }
             if (Static10.aStringArray1[local33] != null) {
-                local76 = Static390.method5492(Static10.aStringArray1[local33]);
+                local76 = NameTools.format(Static10.aStringArray1[local33]);
                 if (local76 != null && local76.equals(local27)) {
                     Static67.method6098(arg1 + LocalisedText.IGNORELISTDUPE.localise(client.language));
                     return;
@@ -847,20 +848,20 @@ public final class Static231 {
             }
         }
         for (@Pc(106) int local106 = 0; local106 < Static327.anInt5392; local106++) {
-            local76 = Static390.method5492(Static330.aStringArray25[local106]);
+            local76 = NameTools.format(Static330.aStringArray25[local106]);
             if (local76 != null && local76.equals(local27)) {
                 Static67.method6098(LocalisedText.REMOVEFRIEND1.localise(client.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(client.language));
                 return;
             }
             if (Static572.aStringArray42[local106] != null) {
-                @Pc(154) String local154 = Static390.method5492(Static572.aStringArray42[local106]);
+                @Pc(154) String local154 = NameTools.format(Static572.aStringArray42[local106]);
                 if (local154 != null && local154.equals(local27)) {
                     Static67.method6098(LocalisedText.REMOVEFRIEND1.localise(client.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(client.language));
                     return;
                 }
             }
         }
-        if (Static390.method5492(PlayerEntity.self.accountName).equals(local27)) {
+        if (NameTools.format(PlayerEntity.self.accountName).equals(local27)) {
             Static67.method6098(LocalisedText.IGNORECANTADDSELF.localise(client.language));
             return;
         }

@@ -13,9 +13,6 @@ public final class Static334 {
     @OriginalMember(owner = "client!kja", name = "a", descriptor = "I")
     public static int anInt5456 = 0;
 
-    @OriginalMember(owner = "client!kja", name = "d", descriptor = "[C")
-    public static final char[] aCharArray5 = new char[]{' ', ' ', '_', '-', 'à', 'á', 'â', 'ä', 'ã', 'À', 'Á', 'Â', 'Ä', 'Ã', 'è', 'é', 'ê', 'ë', 'È', 'É', 'Ê', 'Ë', 'í', 'î', 'ï', 'Í', 'Î', 'Ï', 'ò', 'ó', 'ô', 'ö', 'õ', 'Ò', 'Ó', 'Ô', 'Ö', 'Õ', 'ù', 'ú', 'û', 'ü', 'Ù', 'Ú', 'Û', 'Ü', 'ç', 'Ç', 'ÿ', 'Ÿ', 'ñ', 'Ñ', 'ß'};
-
     @OriginalMember(owner = "client!kja", name = "a", descriptor = "()V")
     public static void method4937() {
         if (Static684.anInt10304 == 0 || Static242.aFont_7 == null) {

@@ -21,11 +21,6 @@ public final class Static277 {
         return flags | (long) loc.getId() << 32;
     }
 
-    @OriginalMember(owner = "client!im", name = "a", descriptor = "(IC)Z")
-    public static boolean method4043(@OriginalArg(1) char arg0) {
-        return arg0 >= '0' && arg0 <= '9';
-    }
-
     @OriginalMember(owner = "client!im", name = "a", descriptor = "(IZI)Z")
     public static boolean method4044(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
         return (arg0 & 0x800) != 0;

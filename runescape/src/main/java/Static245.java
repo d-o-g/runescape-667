@@ -12,11 +12,6 @@ public final class Static245 {
     @OriginalMember(owner = "client!hka", name = "h", descriptor = "[I")
     public static final int[] anIntArray773 = new int[]{99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 120};
 
-    @OriginalMember(owner = "client!hka", name = "a", descriptor = "(CI)Z")
-    public static boolean method8628(@OriginalArg(0) char arg0) {
-        return arg0 >= 'A' && arg0 <= 'Z' || arg0 >= 'a' && arg0 <= 'z';
-    }
-
     @OriginalMember(owner = "client!hka", name = "a", descriptor = "(Ljava/lang/String;Lclient!qha;II)Lclient!mfa;")
     public static Class240 method8629(@OriginalArg(0) String arg0, @OriginalArg(1) Toolkit_Sub3 arg1, @OriginalArg(3) int arg2) {
         @Pc(6) long local6 = OpenGL.glCreateShaderObjectARB(arg2);

@@ -34,7 +34,7 @@ public final class Static408 {
             return false;
         } else if (!arg0.method2425(WorldMap.varDomain)) {
             return false;
-        } else if (Static268.A_HASH_TABLE___22.get((long) arg0.anInt2590) == null) {
+        } else if (Static268.A_HASH_TABLE___22.get((long) arg0.id) == null) {
             return Static232.A_HASH_TABLE___18.get((long) arg0.anInt2597) == null;
         } else {
             return false;

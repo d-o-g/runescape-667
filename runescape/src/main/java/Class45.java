@@ -1,5 +1,5 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -11,67 +11,81 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class45 {
 
     @OriginalMember(owner = "client!bka", name = "d", descriptor = "Lclient!dla;")
-    public final ReferenceCache aReferenceCache_17 = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(64);
+
+    private final ModeGame game;
+
+    private final int languageId;
 
     @OriginalMember(owner = "client!bka", name = "h", descriptor = "Lclient!sb;")
-    public final js5 aJs5_9;
+    public final js5 configClient;
+
+    private final int num;
 
     @OriginalMember(owner = "client!bka", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class45(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
-        this.aJs5_9 = arg2;
-        if (this.aJs5_9 != null) {
-            this.aJs5_9.fileLimit(35);
+    public Class45(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+        this.game = game;
+        this.languageId = languageId;
+        this.configClient = configClient;
+
+        if (this.configClient != null) {
+            this.num = this.configClient.fileLimit(35);
+        } else {
+            this.num = 0;
         }
     }
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "(B)V")
-    public void method1093() {
-        @Pc(6) ReferenceCache local6 = this.aReferenceCache_17;
-        synchronized (this.aReferenceCache_17) {
-            this.aReferenceCache_17.removeSoftReferences();
+    public void cacheRemoveSoftReferences() {
+        @Pc(6) ReferenceCache local6 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.removeSoftReferences();
         }
     }
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "(IB)Lclient!la;")
-    public Class218 method1094(@OriginalArg(0) int arg0) {
-        @Pc(6) ReferenceCache local6 = this.aReferenceCache_17;
-        @Pc(16) Class218 local16;
-        synchronized (this.aReferenceCache_17) {
-            local16 = (Class218) this.aReferenceCache_17.get((long) arg0);
+    public Class218 list(@OriginalArg(0) int id) {
+        @Pc(6) ReferenceCache local6 = this.recentUse;
+        @Pc(16) Class218 type;
+        synchronized (this.recentUse) {
+            type = (Class218) this.recentUse.get(id);
         }
-        if (local16 != null) {
-            return local16;
+        if (type != null) {
+            return type;
         }
-        @Pc(30) js5 local30 = this.aJs5_9;
-        @Pc(39) byte[] local39;
-        synchronized (this.aJs5_9) {
-            local39 = this.aJs5_9.getfile(arg0, 35);
+
+        @Pc(30) js5 local30 = this.configClient;
+        @Pc(39) byte[] data;
+        synchronized (this.configClient) {
+            data = this.configClient.getfile(id, 35);
         }
-        local16 = new Class218();
-        if (local39 != null) {
-            local16.method5127(new Packet(local39));
+
+        type = new Class218();
+        if (data != null) {
+            type.decode(new Packet(data));
         }
-        local16.method5123();
-        @Pc(66) ReferenceCache local66 = this.aReferenceCache_17;
-        synchronized (this.aReferenceCache_17) {
-            this.aReferenceCache_17.put(local16, (long) arg0);
-            return local16;
+        type.postDecode();
+
+        @Pc(66) ReferenceCache local66 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.put(type, id);
+            return type;
         }
     }
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "(II)V")
-    public void method1096() {
-        @Pc(11) ReferenceCache local11 = this.aReferenceCache_17;
-        synchronized (this.aReferenceCache_17) {
-            this.aReferenceCache_17.clean(5);
+    public void cacheClean(@OriginalArg(1) int maxAge) {
+        @Pc(11) ReferenceCache local11 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.clean(maxAge);
         }
     }
 
     @OriginalMember(owner = "client!bka", name = "b", descriptor = "(I)V")
-    public void method1098() {
-        @Pc(2) ReferenceCache local2 = this.aReferenceCache_17;
-        synchronized (this.aReferenceCache_17) {
-            this.aReferenceCache_17.reset();
+    public void cacheReset() {
+        @Pc(2) ReferenceCache local2 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.reset();
         }
     }
 }

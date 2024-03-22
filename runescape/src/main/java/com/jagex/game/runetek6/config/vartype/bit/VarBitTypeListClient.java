@@ -34,10 +34,10 @@ public final class VarBitTypeListClient {
 
     public final int languageId;
 
-    public final int num;
-
     @OriginalMember(owner = "client!hf", name = "a", descriptor = "Lclient!sb;")
     public final js5 configClient;
+
+    public final int num;
 
     @OriginalMember(owner = "client!hf", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public VarBitTypeListClient(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
@@ -45,11 +45,11 @@ public final class VarBitTypeListClient {
         this.languageId = languageId;
         this.configClient = configClient;
 
-        if (this.configClient == null) {
-            this.num = 0;
-        } else {
+        if (this.configClient != null) {
             @Pc(20) int lastGroup = this.configClient.groupSize() - 1;
             this.num = this.configClient.fileLimit(lastGroup);
+        } else {
+            this.num = 0;
         }
     }
 
@@ -75,7 +75,7 @@ public final class VarBitTypeListClient {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         @Pc(16) VarBitType type;
         synchronized (this.recentUse) {
-            type = (VarBitType) this.recentUse.get((long) id);
+            type = (VarBitType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -86,6 +86,7 @@ public final class VarBitTypeListClient {
         synchronized (this.configClient) {
             data = this.configClient.getfile(fileId(id), groupId(id));
         }
+
         type = new VarBitType();
         if (data != null) {
             type.decode(new Packet(data));
@@ -93,7 +94,7 @@ public final class VarBitTypeListClient {
 
         @Pc(77) ReferenceCache local77 = this.recentUse;
         synchronized (this.recentUse) {
-            this.recentUse.put(type, (long) id);
+            this.recentUse.put(type, id);
             return type;
         }
     }

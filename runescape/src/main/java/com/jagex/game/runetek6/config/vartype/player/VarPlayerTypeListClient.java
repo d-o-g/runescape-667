@@ -36,10 +36,10 @@ public final class VarPlayerTypeListClient {
         this.languageId = languageId;
         this.configClient = configClient;
 
-        if (this.configClient == null) {
-            this.num = 0;
-        } else {
+        if (this.configClient != null) {
             this.num = this.configClient.fileLimit(16);
+        } else {
+            this.num = 0;
         }
     }
 
@@ -67,6 +67,7 @@ public final class VarPlayerTypeListClient {
         synchronized (this.configClient) {
             data = this.configClient.getfile(id, 16);
         }
+
         type = new VarPlayerType();
         if (data != null) {
             type.decode(new Packet(data));

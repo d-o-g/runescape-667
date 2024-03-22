@@ -257,9 +257,9 @@ public final class Static523 {
             Static561.aClass220_2 = new Class220(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
             Static68.idkTypeList = new IDKTypeList(client.modeGame, client.language, js5.CONFIG, js5.MODELS);
             Static503.aClass335_1 = new Class335(client.modeGame, client.language, js5.CONFIG);
-            Static48.aClass384_1 = new Class384(client.modeGame, client.language, js5.CONFIG);
+            Static48.aLightTypeList_1 = new LightTypeList(client.modeGame, client.language, js5.CONFIG);
             Static354.aLocTypeList_4 = new LocTypeList(client.modeGame, client.language, true, js5.CONFIG_LOC, js5.MODELS);
-            Static577.aClass246_4 = new Class246(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
+            Static577.aMapElementTypeList_4 = new MapElementTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
             Static720.aMSITypeList_4 = new MSITypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
             Static690.aNPCTypeList_2 = new NPCTypeList(client.modeGame, client.language, true, js5.CONFIG_NPC, js5.MODELS);
             Static419.objTypeList = new ObjTypeList(client.modeGame, client.language, true, instance, js5.CONFIG_OBJ, js5.MODELS);
@@ -303,13 +303,13 @@ public final class Static523 {
             }
         }
         if (LoadState.SETUP_WORLD_MAP == Static473.aLoadState_22) {
-            WorldMap.init(js5.WORLDMAPDATA, Static467.aFloorOverlayTypeList_3, Static540.aFloorUnderlayTypeList_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aMSITypeList_4, TimedVarDomain.instance);
+            WorldMap.init(js5.WORLDMAPDATA, Static467.aFloorOverlayTypeList_3, Static540.aFloorUnderlayTypeList_6, Static354.aLocTypeList_4, Static577.aMapElementTypeList_4, Static720.aMSITypeList_4, TimedVarDomain.instance);
         }
         if (LoadState.SETUP_VARC_SYSTEM == Static473.aLoadState_22) {
-            Static37.aStringArray4 = new String[Static718.aClass176_1.anInt4266];
-            Static511.varcs = new int[VarcTypeList.instance.anInt5473];
-            Static118.permVarcs = new boolean[VarcTypeList.instance.anInt5473];
-            for (local12 = 0; local12 < VarcTypeList.instance.anInt5473; local12++) {
+            Static37.aStringArray4 = new String[Static718.aClass176_1.num];
+            Static511.varcs = new int[VarcTypeList.instance.num];
+            Static118.permVarcs = new boolean[VarcTypeList.instance.num];
+            for (local12 = 0; local12 < VarcTypeList.instance.num; local12++) {
                 if (VarcTypeList.instance.list(local12).temporary == 0) {
                     Static118.permVarcs[local12] = true;
                     Static319.permVarcCount++;
@@ -366,15 +366,15 @@ public final class Static523 {
             Static3.chooseSafeMode = ClientOptions.instance.safeMode.value() == 1;
             ClientOptions.instance.update(1, ClientOptions.instance.safeMode);
             if (Static3.chooseSafeMode) {
-                ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub29_2);
-            } else if (ClientOptions.instance.aClass57_Sub29_2.aBoolean674 && SystemInfo.instance.totalMemory < 512 && SystemInfo.instance.totalMemory != 0) {
-                ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub29_2);
+                ClientOptions.instance.update(0, ClientOptions.instance.aToolkitOption_2);
+            } else if (ClientOptions.instance.aToolkitOption_2.aBoolean674 && SystemInfo.instance.totalMemory < 512 && SystemInfo.instance.totalMemory != 0) {
+                ClientOptions.instance.update(0, ClientOptions.instance.aToolkitOption_2);
             }
             ClientOptions.save(1);
             if (Static3.chooseSafeMode) {
                 Static32.method880(0, false);
             } else {
-                Static32.method880(ClientOptions.instance.aClass57_Sub29_2.value(), false);
+                Static32.method880(ClientOptions.instance.aToolkitOption_2.value(), false);
             }
             InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
             FontTypeList.method7549(Toolkit.active);

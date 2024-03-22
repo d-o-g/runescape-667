@@ -1,5 +1,5 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -11,73 +11,82 @@ import org.openrs2.deob.annotation.Pc;
 public final class FloorOverlayTypeList {
 
     @OriginalMember(owner = "client!ef", name = "b", descriptor = "Lclient!dla;")
-    public final ReferenceCache aReferenceCache_55 = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!ef", name = "i", descriptor = "I")
     public int anInt2509 = 0;
 
+    private final ModeGame game;
+
+    private final int languageId;
+
     @OriginalMember(owner = "client!ef", name = "j", descriptor = "Lclient!sb;")
-    public final js5 aJs5_23;
+    public final js5 configClient;
 
     @OriginalMember(owner = "client!ef", name = "q", descriptor = "I")
     public final int num;
 
     @OriginalMember(owner = "client!ef", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public FloorOverlayTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
-        this.aJs5_23 = arg2;
-        this.num = this.aJs5_23.fileLimit(4);
+    public FloorOverlayTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+        this.game = game;
+        this.languageId = languageId;
+        this.configClient = configClient;
+        this.num = this.configClient.fileLimit(4);
     }
 
     @OriginalMember(owner = "client!ef", name = "a", descriptor = "(B)V")
-    public void method2349() {
-        @Pc(2) ReferenceCache local2 = this.aReferenceCache_55;
-        synchronized (this.aReferenceCache_55) {
-            this.aReferenceCache_55.reset();
+    public void cacheReset() {
+        @Pc(2) ReferenceCache local2 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.reset();
         }
     }
 
     @OriginalMember(owner = "client!ef", name = "b", descriptor = "(I)V")
-    public void method2351() {
-        @Pc(9) ReferenceCache local9 = this.aReferenceCache_55;
-        synchronized (this.aReferenceCache_55) {
-            this.aReferenceCache_55.removeSoftReferences();
+    public void cacheRemoveSoftReferences() {
+        @Pc(9) ReferenceCache local9 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.removeSoftReferences();
         }
     }
 
     @OriginalMember(owner = "client!ef", name = "a", descriptor = "(IB)Lclient!re;")
-    public FloorOverlayType list(@OriginalArg(0) int arg0) {
-        @Pc(15) ReferenceCache local15 = this.aReferenceCache_55;
-        @Pc(25) FloorOverlayType local25;
-        synchronized (this.aReferenceCache_55) {
-            local25 = (FloorOverlayType) this.aReferenceCache_55.get((long) arg0);
+    public FloorOverlayType list(@OriginalArg(0) int id) {
+        @Pc(15) ReferenceCache local15 = this.recentUse;
+        @Pc(25) FloorOverlayType type;
+        synchronized (this.recentUse) {
+            type = (FloorOverlayType) this.recentUse.get(id);
         }
-        if (local25 != null) {
-            return local25;
+        if (type != null) {
+            return type;
         }
-        @Pc(39) js5 local39 = this.aJs5_23;
-        @Pc(48) byte[] local48;
-        synchronized (this.aJs5_23) {
-            local48 = this.aJs5_23.getfile(arg0, 4);
+
+        @Pc(39) js5 local39 = this.configClient;
+        @Pc(48) byte[] data;
+        synchronized (this.configClient) {
+            data = this.configClient.getfile(id, 4);
         }
-        local25 = new FloorOverlayType();
-        local25.aFloorOverlayTypeList_5 = this;
-        local25.anInt8253 = arg0;
-        if (local48 != null) {
-            local25.method7256(new Packet(local48));
+
+        type = new FloorOverlayType();
+        type.myList = this;
+        type.id = id;
+        if (data != null) {
+            type.decode(new Packet(data));
         }
-        local25.method7254();
-        @Pc(81) ReferenceCache local81 = this.aReferenceCache_55;
-        synchronized (this.aReferenceCache_55) {
-            this.aReferenceCache_55.put(local25, (long) arg0);
-            return local25;
+        type.postDecode();
+
+        @Pc(81) ReferenceCache local81 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.put(type, id);
+            return type;
         }
     }
 
     @OriginalMember(owner = "client!ef", name = "a", descriptor = "(II)V")
-    public void method2355() {
-        @Pc(2) ReferenceCache local2 = this.aReferenceCache_55;
-        synchronized (this.aReferenceCache_55) {
-            this.aReferenceCache_55.clean(5);
+    public void cacheClean(@OriginalArg(0) int maxAge) {
+        @Pc(2) ReferenceCache local2 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.clean(maxAge);
         }
     }
 }

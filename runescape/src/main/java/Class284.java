@@ -24,7 +24,7 @@ public final class Class284 {
     }
 
     @OriginalMember(owner = "client!paa", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method6449(@OriginalArg(1) Packet arg0) {
+    public void decode(@OriginalArg(1) Packet arg0) {
         while (true) {
             @Pc(13) int local13 = arg0.g1();
             if (local13 == 0) {

@@ -6,7 +6,6 @@ import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereType;
 import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
-import com.jagex.game.runetek6.config.skyboxtype.SkyBoxType;
 import com.jagex.graphics.skybox.SkyBox;
 import com.jagex.graphics.skybox.SkyBoxSphere;
 import com.jagex.js5.js5;
@@ -23,11 +22,13 @@ public final class SkyBoxTypeList {
     @OriginalMember(owner = "client!qk", name = "c", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
+    public final ModeGame game;
+
+    public final int languageId;
+
     @OriginalMember(owner = "client!qk", name = "j", descriptor = "Lclient!sb;")
     public final js5 configClient;
 
-    public final ModeGame game;
-    public final int languageId;
     public final int num;
 
     @OriginalMember(owner = "client!qk", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
@@ -70,6 +71,7 @@ public final class SkyBoxTypeList {
         synchronized (this.configClient) {
             data = this.configClient.getfile(id, 29);
         }
+
         type = new SkyBoxType();
         if (data != null) {
             type.decode(new Packet(data));

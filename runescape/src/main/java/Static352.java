@@ -35,29 +35,29 @@ public final class Static352 {
 
     @OriginalMember(owner = "client!lc", name = "c", descriptor = "(B)V")
     public static void method5180() {
-        Static467.aFloorOverlayTypeList_3.method2349();
-        Static540.aFloorUnderlayTypeList_6.method2067();
+        Static467.aFloorOverlayTypeList_3.cacheReset();
+        Static540.aFloorUnderlayTypeList_6.cacheReset();
         Static68.idkTypeList.cacheReset();
         Static354.aLocTypeList_4.cacheReset();
         Static690.aNPCTypeList_2.cacheReset();
         Static419.objTypeList.cacheReset();
         Static25.seqTypeList.cacheReset();
-        Static23.aClass128_1.method2699();
+        Static23.aClass128_1.cacheReset();
         VarBitTypeListClient.instance.cacheReset();
         VarPlayerTypeListClient.instance.cacheReset();
-        Static628.aClass342_5.method7783();
-        Static648.aClass17_1.method269();
+        Static628.aClass342_5.cacheReset();
+        Static648.aClass17_1.cacheReset();
         Static574.basTypeList.cacheReset();
         Static720.aMSITypeList_4.cacheReset();
-        Static577.aClass246_4.method5586();
-        Static272.aClass45_1.method1098();
+        Static577.aMapElementTypeList_4.cacheReset();
+        Static272.aClass45_1.cacheReset();
         Static523.instance.cacheReset();
         Static324.skyBoxTypeList.cacheReset();
         Static99.skyBoxSphereTypeList.cacheReset();
-        Static48.aClass384_1.method8812();
-        Static354.aClass267_1.method5974();
-        Static652.aClass214_1.method5035();
-        Static561.aClass220_2.method5182();
+        Static48.aLightTypeList_1.cacheReset();
+        Static354.aClass267_1.cacheReset();
+        Static652.aClass214_1.cacheReset();
+        Static561.aClass220_2.cacheReset();
         PlayerModel.cacheReset();
         Component.cacheReset();
         FontTypeList.cacheReset();

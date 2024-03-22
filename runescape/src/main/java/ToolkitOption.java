@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!tba")
-public final class Class57_Sub29 extends Class57 {
+public final class ToolkitOption extends Class57 {
 
     @OriginalMember(owner = "client!tba", name = "e", descriptor = "Z")
     public boolean aBoolean674 = false;
@@ -12,12 +12,12 @@ public final class Class57_Sub29 extends Class57 {
     public boolean aBoolean675 = true;
 
     @OriginalMember(owner = "client!tba", name = "<init>", descriptor = "(ILclient!kv;)V")
-    public Class57_Sub29(@OriginalArg(0) int arg0, @OriginalArg(1) ClientOptions arg1) {
-        super(arg0, arg1);
+    public ToolkitOption(@OriginalArg(0) int value, @OriginalArg(1) ClientOptions options) {
+        super(value, options);
     }
 
     @OriginalMember(owner = "client!tba", name = "<init>", descriptor = "(Lclient!kv;)V")
-    public Class57_Sub29(@OriginalArg(0) ClientOptions arg0) {
+    public ToolkitOption(@OriginalArg(0) ClientOptions arg0) {
         super(arg0);
     }
 

@@ -69,7 +69,7 @@ public final class BASTypeList {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         @Pc(16) BASType type;
         synchronized (this.recentUse) {
-            type = (BASType) this.recentUse.get((long) id);
+            type = (BASType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -89,7 +89,7 @@ public final class BASTypeList {
 
         @Pc(66) ReferenceCache local66 = this.recentUse;
         synchronized (this.recentUse) {
-            this.recentUse.put(type, (long) id);
+            this.recentUse.put(type, id);
             return type;
         }
     }

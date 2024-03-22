@@ -8,10 +8,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class FloorOverlayType {
 
     @OriginalMember(owner = "client!re", name = "e", descriptor = "Lclient!ef;")
-    public FloorOverlayTypeList aFloorOverlayTypeList_5;
+    public FloorOverlayTypeList myList;
 
     @OriginalMember(owner = "client!re", name = "h", descriptor = "I")
-    public int anInt8253;
+    public int id;
 
     @OriginalMember(owner = "client!re", name = "s", descriptor = "I")
     public int anInt8249 = 0;
@@ -47,12 +47,12 @@ public final class FloorOverlayType {
     public int anInt8260 = 1190717;
 
     @OriginalMember(owner = "client!re", name = "a", descriptor = "(I)V")
-    public void method7254() {
-        this.anInt8251 = this.anInt8253 | this.anInt8251 << 8;
+    public void postDecode() {
+        this.anInt8251 = this.id | this.anInt8251 << 8;
     }
 
     @OriginalMember(owner = "client!re", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method7256(@OriginalArg(1) Packet arg0) {
+    public void decode(@OriginalArg(1) Packet arg0) {
         while (true) {
             @Pc(7) int local7 = arg0.g1();
             if (local7 == 0) {
@@ -78,7 +78,7 @@ public final class FloorOverlayType {
         } else if (arg1 == 7) {
             this.anInt8248 = Static579.method7633(arg0.g3());
         } else if (arg1 == 8) {
-            this.aFloorOverlayTypeList_5.anInt2509 = this.anInt8253;
+            this.myList.anInt2509 = this.id;
         } else if (arg1 == 9) {
             this.anInt8250 = arg0.g2() << 2;
         } else if (arg1 == 10) {

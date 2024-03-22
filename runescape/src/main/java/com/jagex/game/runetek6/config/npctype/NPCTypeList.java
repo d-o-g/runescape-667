@@ -52,6 +52,8 @@ public final class NPCTypeList {
     @OriginalMember(owner = "client!ql", name = "o", descriptor = "Lclient!ul;")
     public final ModeGame game;
 
+    private final int num;
+
     @OriginalMember(owner = "client!ql", name = "s", descriptor = "[Ljava/lang/String;")
     public final String[] defaultOps;
 
@@ -65,7 +67,9 @@ public final class NPCTypeList {
 
         if (this.configClient != null) {
             @Pc(44) int lastGroup = this.configClient.groupSize() - 1;
-            this.configClient.fileLimit(lastGroup);
+            this.num = this.configClient.fileLimit(lastGroup);
+        } else {
+            this.num = 0;
         }
 
         if (ModeGame.RUNESCAPE == this.game) {

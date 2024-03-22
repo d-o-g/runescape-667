@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!le")
-public final class Class221 {
+public final class EnvironmentContext {
 
     @OriginalMember(owner = "client!le", name = "b", descriptor = "Z")
     public final boolean aBoolean442;
@@ -18,7 +18,7 @@ public final class Class221 {
     public final int anInt5772;
 
     @OriginalMember(owner = "client!le", name = "<init>", descriptor = "(ZIIZ)V")
-    public Class221(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
+    public EnvironmentContext(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
         this.aBoolean442 = arg0;
         this.anInt5771 = arg2;
         this.aBoolean441 = arg3;

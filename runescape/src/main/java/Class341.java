@@ -32,7 +32,7 @@ public final class Class341 {
     }
 
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method7763(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet arg0) {
         while (true) {
             @Pc(14) int local14 = arg0.g1();
             if (local14 == 0) {

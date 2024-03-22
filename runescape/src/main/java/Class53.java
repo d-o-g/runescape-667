@@ -52,7 +52,7 @@ public final class Class53 {
     }
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method1222(@OriginalArg(1) Packet arg0) {
+    public void decode(@OriginalArg(1) Packet arg0) {
         while (true) {
             @Pc(12) int local12 = arg0.g1();
             if (local12 == 0) {

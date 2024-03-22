@@ -1,5 +1,5 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
@@ -17,22 +17,24 @@ public final class MSITypeList {
     @OriginalMember(owner = "client!u", name = "n", descriptor = "Lclient!dla;")
     public ReferenceCache spriteCache = new ReferenceCache(64);
 
-    @OriginalMember(owner = "client!u", name = "q", descriptor = "Lclient!sb;")
-    public final js5 sprites;
+    public final ModeGame game;
+
+    public final int languageId;
 
     @OriginalMember(owner = "client!u", name = "c", descriptor = "Lclient!sb;")
     public final js5 configClient;
 
-    public final ModeGame game;
-    public final int languageId;
+    @OriginalMember(owner = "client!u", name = "q", descriptor = "Lclient!sb;")
+    public final js5 sprites;
+
     public final int num;
 
     @OriginalMember(owner = "client!u", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
     public MSITypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 sprites) {
         this.game = game;
         this.languageId = languageId;
-        this.sprites = sprites;
         this.configClient = configClient;
+        this.sprites = sprites;
         this.num = this.configClient.fileLimit(Js5ConfigGroup.MSITYPE);
     }
 

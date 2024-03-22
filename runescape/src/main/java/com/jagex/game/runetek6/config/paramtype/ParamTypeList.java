@@ -1,7 +1,7 @@
 package com.jagex.game.runetek6.config.paramtype;
 
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
@@ -18,14 +18,25 @@ public final class ParamTypeList {
     @OriginalMember(owner = "client!bo", name = "a", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
+    private final ModeGame game;
+
+    private final int languageId;
+
     @OriginalMember(owner = "client!bo", name = "d", descriptor = "Lclient!sb;")
     public final js5 configClient;
 
+    private final int num;
+
     @OriginalMember(owner = "client!bo", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public ParamTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+        this.game = game;
+        this.languageId = languageId;
         this.configClient = configClient;
+
         if (this.configClient != null) {
-            this.configClient.fileLimit(Js5ConfigGroup.PARAMTYPE);
+            this.num = this.configClient.fileLimit(Js5ConfigGroup.PARAMTYPE);
+        } else {
+            this.num = 0;
         }
     }
 

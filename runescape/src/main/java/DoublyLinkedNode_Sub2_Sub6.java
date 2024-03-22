@@ -19,7 +19,7 @@ public final class DoublyLinkedNode_Sub2_Sub6 extends Node2 {
     }
 
     @OriginalMember(owner = "client!dba", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method1979(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet arg0) {
         while (true) {
             @Pc(11) int local11 = arg0.g1();
             if (local11 == 0) {

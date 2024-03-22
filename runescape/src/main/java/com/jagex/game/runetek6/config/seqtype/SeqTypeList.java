@@ -1,8 +1,8 @@
 package com.jagex.game.runetek6.config.seqtype;
 
 import com.jagex.AnimFrameset;
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -31,16 +31,26 @@ public final class SeqTypeList {
     @OriginalMember(owner = "client!bp", name = "f", descriptor = "Lclient!dla;")
     public final ReferenceCache framesets = new ReferenceCache(100);
 
+    private final ModeGame game;
+
+    private final int languageId;
+
     @OriginalMember(owner = "client!bp", name = "j", descriptor = "Lclient!sb;")
     public final js5 configClient;
 
+    private final int num;
+
     @OriginalMember(owner = "client!bp", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;Lclient!sb;)V")
     public SeqTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 bases, @OriginalArg(4) js5 anims) {
+        this.game = game;
+        this.languageId = languageId;
         this.configClient = configClient;
 
         if (this.configClient != null) {
             @Pc(26) int lastGroup = this.configClient.groupSize() - 1;
-            this.configClient.fileLimit(lastGroup);
+            this.num = this.configClient.fileLimit(lastGroup);
+        } else {
+            this.num = 0;
         }
 
         AnimFrameset.init(anims, bases);

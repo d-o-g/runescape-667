@@ -281,7 +281,7 @@ public final class Static608 {
                         if (TimeUtils.clock >= local1179) {
                             continue;
                         }
-                        local1186 = Static561.aClass220_2.method5186(local51.anIntArray873[local267]);
+                        local1186 = Static561.aClass220_2.list(local51.anIntArray873[local267]);
                         local651 = local1186.anInt7192;
                     } else if (local1179 < 0) {
                         continue;
@@ -289,7 +289,7 @@ public final class Static608 {
                     local321 = local51.anIntArray876[local267];
                     @Pc(1218) Class285 local1218 = null;
                     if (local321 >= 0) {
-                        local1218 = Static561.aClass220_2.method5186(local321);
+                        local1218 = Static561.aClass220_2.list(local321);
                     }
                     if (local1179 - local651 <= TimeUtils.clock) {
                         local412 = local51.anIntArray875[local267];

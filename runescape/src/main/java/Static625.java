@@ -32,7 +32,7 @@ public final class Static625 {
             }
         }
         if (ClientOptions.instance.toolkit.value() != 0) {
-            ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub29_2);
+            ClientOptions.instance.update(0, ClientOptions.instance.aToolkitOption_2);
             Static32.method880(0, false);
         }
         ClientOptions.save(1);

@@ -14,7 +14,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class227 {
 
     @OriginalMember(owner = "client!lia", name = "m", descriptor = "I")
-    public int anInt5833;
+    public int id;
 
     @OriginalMember(owner = "client!lia", name = "s", descriptor = "I")
     public int anInt5834;
@@ -29,7 +29,7 @@ public final class Class227 {
     public short[] aShortArray82;
 
     @OriginalMember(owner = "client!lia", name = "e", descriptor = "Lclient!fh;")
-    public Class128 aClass128_2;
+    public Class128 myList;
 
     @OriginalMember(owner = "client!lia", name = "c", descriptor = "[S")
     public short[] aShortArray83;
@@ -62,7 +62,7 @@ public final class Class227 {
     public boolean aBoolean448 = false;
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Lclient!ge;Z)V")
-    public void method5246(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet arg0) {
         while (true) {
             @Pc(12) int local12 = arg0.g1();
             if (local12 == 0) {
@@ -88,10 +88,10 @@ public final class Class227 {
         if (this.anInt5847 != 128 || this.anInt5838 != 0) {
             local15 |= 0x5;
         }
-        @Pc(65) ReferenceCache local65 = this.aClass128_2.aReferenceCache_62;
+        @Pc(65) ReferenceCache local65 = this.myList.aReferenceCache_62;
         @Pc(85) Model local85;
-        synchronized (this.aClass128_2.aReferenceCache_62) {
-            local85 = (Model) this.aClass128_2.aReferenceCache_62.get((long) (this.anInt5833 |= arg9.index << 29));
+        synchronized (this.myList.aReferenceCache_62) {
+            local85 = (Model) this.myList.aReferenceCache_62.get((long) (this.id |= arg9.index << 29));
         }
         if (local85 == null || arg9.compareFunctionMasks(local85.ua(), local15) != 0) {
             if (local85 != null) {
@@ -104,14 +104,14 @@ public final class Class227 {
             if (this.aShortArray82 != null) {
                 local121 |= 0x8000;
             }
-            @Pc(144) Mesh local144 = Mesh.load(this.anInt5834, this.aClass128_2.aJs5_34);
+            @Pc(144) Mesh local144 = Mesh.load(this.anInt5834, this.myList.aJs5_34);
             if (local144 == null) {
                 return null;
             }
             if (local144.version < 13) {
                 local144.upscale();
             }
-            local85 = arg9.createModel(local144, local121, this.aClass128_2.anInt2921, this.anInt5835 + 64, this.anInt5839 + 850);
+            local85 = arg9.createModel(local144, local121, this.myList.anInt2921, this.anInt5835 + 64, this.anInt5839 + 850);
             @Pc(180) int local180;
             if (this.aShortArray81 != null) {
                 for (local180 = 0; local180 < this.aShortArray81.length; local180++) {
@@ -124,9 +124,9 @@ public final class Class227 {
                 }
             }
             local85.s(local15);
-            @Pc(232) ReferenceCache local232 = this.aClass128_2.aReferenceCache_62;
-            synchronized (this.aClass128_2.aReferenceCache_62) {
-                this.aClass128_2.aReferenceCache_62.put(local85, (long) (this.anInt5833 |= arg9.index << 29));
+            @Pc(232) ReferenceCache local232 = this.myList.aReferenceCache_62;
+            synchronized (this.myList.aReferenceCache_62) {
+                this.myList.aReferenceCache_62.put(local85, (long) (this.id |= arg9.index << 29));
             }
         }
         @Pc(263) Model local263 = local85.copy(arg0, local15, true);

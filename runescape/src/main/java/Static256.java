@@ -67,7 +67,7 @@ public final class Static256 {
         }
         for (@Pc(86) int local86 = 0; local86 < arg0.aClass199Array3.length; local86++) {
             if (arg0.aClass199Array3[local86].anInt4930 != -1 && arg0.aClass199Array3[local86].aAnimator_7.isDelayed()) {
-                @Pc(117) Class227 local117 = Static23.aClass128_1.method2694(arg0.aClass199Array3[local86].anInt4930);
+                @Pc(117) Class227 local117 = Static23.aClass128_1.list(arg0.aClass199Array3[local86].anInt4930);
                 if (local117.aBoolean448 && local117.anInt5842 != -1) {
                     @Pc(133) SeqType local133 = Static25.seqTypeList.list(local117.anInt5842);
                     if (arg0.anInt10762 > 0 && local133.animatingPrecedence == 0) {

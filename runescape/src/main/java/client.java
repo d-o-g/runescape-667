@@ -278,29 +278,29 @@ public final class client extends GameShell {
 
     @OriginalMember(owner = "client!th", name = "b", descriptor = "(I)V")
     public static void cacheClean() {
-        Static467.aFloorOverlayTypeList_3.method2355();
-        Static540.aFloorUnderlayTypeList_6.method2073();
+        Static467.aFloorOverlayTypeList_3.cacheClean(5);
+        Static540.aFloorUnderlayTypeList_6.cacheClean(5);
         Static68.idkTypeList.cacheClean(5);
         Static354.aLocTypeList_4.cacheClean(5);
         Static690.aNPCTypeList_2.cacheClean(5);
         Static419.objTypeList.cacheClean(5);
         Static25.seqTypeList.cacheClean();
-        Static23.aClass128_1.method2698();
+        Static23.aClass128_1.cacheClean(5);
         VarBitTypeListClient.instance.cacheClean(5);
         VarPlayerTypeListClient.instance.cacheClean(5);
-        Static628.aClass342_5.method7784();
-        Static648.aClass17_1.method267();
+        Static628.aClass342_5.cacheClean(5);
+        Static648.aClass17_1.cacheClean(5);
         Static574.basTypeList.cacheClean(5);
-        Static577.aClass246_4.method5581();
+        Static577.aMapElementTypeList_4.cacheClean(5);
         Static720.aMSITypeList_4.cacheClean(5);
         Static523.instance.cacheClean(5);
-        Static272.aClass45_1.method1096();
+        Static272.aClass45_1.cacheClean(5);
         Static324.skyBoxTypeList.cacheClean(5);
         Static99.skyBoxSphereTypeList.cacheClean(5);
-        Static48.aClass384_1.method8813();
-        Static354.aClass267_1.method5970();
-        Static652.aClass214_1.method5037();
-        Static561.aClass220_2.method5184();
+        Static48.aLightTypeList_1.cacheClean(5);
+        Static354.aClass267_1.cacheClean(5);
+        Static652.aClass214_1.cacheClean(5);
+        Static561.aClass220_2.cacheClean(5);
         PlayerModel.cacheClean();
         Component.cacheClean(50);
         FontTypeList.cacheClean(50);

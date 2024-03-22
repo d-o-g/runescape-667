@@ -29,7 +29,7 @@ public final class Static399 {
             Static75.method6239();
         }
         if (arg0 != ClientOptions.instance.toolkit.value()) {
-            ClientOptions.instance.update(arg0, ClientOptions.instance.aClass57_Sub29_2);
+            ClientOptions.instance.update(arg0, ClientOptions.instance.aToolkitOption_2);
             Static32.method880(arg0, false);
         }
         ClientOptions.save(1);

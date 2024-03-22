@@ -336,7 +336,7 @@ public final class Static231 {
                     Static32.method880(0, false);
                     if (ClientOptions.instance.toolkit.value() == 0) {
                         Static79.method1579("Entered tk0");
-                        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.update(0, ClientOptions.instance.aToolkitOption_2);
                         ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -348,7 +348,7 @@ public final class Static231 {
                     Static32.method880(1, false);
                     if (ClientOptions.instance.toolkit.value() == 1) {
                         Static79.method1579("Entered tk1");
-                        ClientOptions.instance.update(1, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.update(1, ClientOptions.instance.aToolkitOption_2);
                         ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -360,7 +360,7 @@ public final class Static231 {
                     Static32.method880(2, false);
                     if (ClientOptions.instance.toolkit.value() == 2) {
                         Static79.method1579("Entered tk2");
-                        ClientOptions.instance.update(2, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.update(2, ClientOptions.instance.aToolkitOption_2);
                         ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -375,7 +375,7 @@ public final class Static231 {
                         return;
                     }
                     Static79.method1579("Entered tk3");
-                    ClientOptions.instance.update(3, ClientOptions.instance.aClass57_Sub29_2);
+                    ClientOptions.instance.update(3, ClientOptions.instance.aToolkitOption_2);
                     ClientOptions.save(1);
                     Static503.aBoolean578 = false;
                     return;
@@ -384,7 +384,7 @@ public final class Static231 {
                     Static32.method880(5, false);
                     if (ClientOptions.instance.toolkit.value() == 5) {
                         Static79.method1579("Entered tk5");
-                        ClientOptions.instance.update(5, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.update(5, ClientOptions.instance.aToolkitOption_2);
                         ClientOptions.save(1);
                         Static503.aBoolean578 = false;
                         return;
@@ -472,7 +472,7 @@ public final class Static231 {
                     js5.SPRITES.discardPacked();
                     js5.SPRITES.discardUnpacked();
                     Static720.aMSITypeList_4.cacheReset();
-                    Static577.aClass246_4.method5586();
+                    Static577.aMapElementTypeList_4.cacheReset();
                     Static244.method3512();
                     Static79.method1579("Minimap reset");
                     return;

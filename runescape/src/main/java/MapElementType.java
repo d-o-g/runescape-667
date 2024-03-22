@@ -29,7 +29,7 @@ public final class MapElementType {
     public IterableHashTable aIterableHashTable_14;
 
     @OriginalMember(owner = "client!el", name = "ab", descriptor = "I")
-    public int anInt2590;
+    public int id;
 
     @OriginalMember(owner = "client!el", name = "o", descriptor = "[B")
     public byte[] aByteArray31;
@@ -47,7 +47,7 @@ public final class MapElementType {
     public int anInt2601;
 
     @OriginalMember(owner = "client!el", name = "M", descriptor = "Lclient!ml;")
-    public Class246 aClass246_2;
+    public MapElementTypeList myList;
 
     @OriginalMember(owner = "client!el", name = "g", descriptor = "I")
     public int anInt2605;
@@ -137,7 +137,7 @@ public final class MapElementType {
     public int anInt2615 = 0;
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method2423(@OriginalArg(1) Packet arg0) {
+    public void decode(@OriginalArg(1) Packet arg0) {
         while (true) {
             @Pc(12) int local12 = arg0.g1();
             if (local12 == 0) {
@@ -195,21 +195,21 @@ public final class MapElementType {
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(ILclient!ha;)Lclient!st;")
     public Sprite method2428(@OriginalArg(1) Toolkit arg0) {
-        @Pc(28) Sprite local28 = (Sprite) this.aClass246_2.aReferenceCache_135.get((long) (this.anInt2618 | 0x20000 | arg0.index << 29));
+        @Pc(28) Sprite local28 = (Sprite) this.myList.aReferenceCache_135.get((long) (this.anInt2618 | 0x20000 | arg0.index << 29));
         if (local28 != null) {
             return local28;
         }
-        this.aClass246_2.aJs5_83.fileready(this.anInt2618);
-        @Pc(49) IndexedImage local49 = IndexedImage.loadFirst(this.aClass246_2.aJs5_83, this.anInt2618, 0);
+        this.myList.aJs5_83.fileready(this.anInt2618);
+        @Pc(49) IndexedImage local49 = IndexedImage.loadFirst(this.myList.aJs5_83, this.anInt2618, 0);
         if (local49 != null) {
             local28 = arg0.createSprite(local49, true);
-            this.aClass246_2.aReferenceCache_135.put(local28, (long) (this.anInt2618 | 0x20000 | arg0.index << 29));
+            this.myList.aReferenceCache_135.put(local28, (long) (this.anInt2618 | 0x20000 | arg0.index << 29));
         }
         return local28;
     }
 
     @OriginalMember(owner = "client!el", name = "b", descriptor = "(Z)V")
-    public void method2430() {
+    public void postDecode() {
         if (this.anIntArray228 == null) {
             return;
         }
@@ -231,14 +231,14 @@ public final class MapElementType {
     public Sprite method2431(@OriginalArg(0) boolean arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(22) int local22 = arg0 ? this.anInt2591 : this.anInt2596;
         @Pc(29) int local29 = arg1.index << 29 | local22;
-        @Pc(38) Sprite local38 = (Sprite) this.aClass246_2.aReferenceCache_135.get((long) local29);
+        @Pc(38) Sprite local38 = (Sprite) this.myList.aReferenceCache_135.get((long) local29);
         if (local38 != null) {
             return local38;
-        } else if (this.aClass246_2.aJs5_83.fileready(local22)) {
-            @Pc(60) IndexedImage local60 = IndexedImage.loadFirst(this.aClass246_2.aJs5_83, local22, 0);
+        } else if (this.myList.aJs5_83.fileready(local22)) {
+            @Pc(60) IndexedImage local60 = IndexedImage.loadFirst(this.myList.aJs5_83, local22, 0);
             if (local60 != null) {
                 local38 = arg1.createSprite(local60, true);
-                this.aClass246_2.aReferenceCache_135.put(local38, (long) local29);
+                this.myList.aReferenceCache_135.put(local38, (long) local29);
             }
             return local38;
         } else {

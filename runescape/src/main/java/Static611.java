@@ -28,7 +28,7 @@ public final class Static611 {
             Static468.method7643();
         }
         if (ClientOptions.instance.toolkit.value() != 2) {
-            ClientOptions.instance.update(2, ClientOptions.instance.aClass57_Sub29_2);
+            ClientOptions.instance.update(2, ClientOptions.instance.aToolkitOption_2);
             Static32.method880(2, false);
         }
         ClientOptions.save(1);

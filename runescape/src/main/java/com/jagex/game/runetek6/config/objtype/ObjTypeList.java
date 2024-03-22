@@ -206,7 +206,7 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(B)V")
-    public void method2480() {
+    public void cacheRemoveSoftReferences() {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         synchronized (this.recentUse) {
             this.recentUse.removeSoftReferences();
@@ -295,7 +295,6 @@ public final class ObjTypeList {
         if (data != null) {
             type.decode(new Packet(data));
         }
-
         type.postDecode();
 
         if (type.certtemplate != -1) {

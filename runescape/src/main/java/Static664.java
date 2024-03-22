@@ -90,29 +90,29 @@ public final class Static664 {
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(I)V")
     public static void cacheRemoveSoftReferences() {
-        Static467.aFloorOverlayTypeList_3.method2351();
-        Static540.aFloorUnderlayTypeList_6.method2072();
+        Static467.aFloorOverlayTypeList_3.cacheRemoveSoftReferences();
+        Static540.aFloorUnderlayTypeList_6.cacheRemoveSoftReferences();
         Static68.idkTypeList.cacheRemoveSoftReferences();
         Static354.aLocTypeList_4.cacheRemoveSoftReferences();
         Static690.aNPCTypeList_2.cacheRemoveSoftReferences();
-        Static419.objTypeList.method2480();
+        Static419.objTypeList.cacheRemoveSoftReferences();
         Static25.seqTypeList.cacheRemoveSoftReferences();
-        Static23.aClass128_1.method2697();
+        Static23.aClass128_1.cacheRemoveSoftReferences();
         VarBitTypeListClient.instance.cacheRemoveSoftReferences();
         VarPlayerTypeListClient.instance.cacheRemoveSoftReferences();
-        Static628.aClass342_5.method7787();
-        Static648.aClass17_1.method266();
+        Static628.aClass342_5.cacheRemoveSoftReferences();
+        Static648.aClass17_1.cacheRemoveSoftReferences();
         Static574.basTypeList.cacheRemoveSoftReferences();
         Static720.aMSITypeList_4.cacheRemoveSoftReferences();
-        Static577.aClass246_4.method5585();
-        Static272.aClass45_1.method1093();
+        Static577.aMapElementTypeList_4.cacheRemoveSoftReferences();
+        Static272.aClass45_1.cacheRemoveSoftReferences();
         Static523.instance.cacheRemoveSoftReferences();
         Static324.skyBoxTypeList.cacheRemoveSoftReferences();
         Static99.skyBoxSphereTypeList.cacheRemoveSoftReferences();
-        Static48.aClass384_1.method8815();
-        Static354.aClass267_1.method5972();
-        Static652.aClass214_1.method5040();
-        Static561.aClass220_2.method5183();
+        Static48.aLightTypeList_1.cacheRemoveSoftReferences();
+        Static354.aClass267_1.cacheRemoveSoftReferences();
+        Static652.aClass214_1.cacheRemoveSoftReferences();
+        Static561.aClass220_2.cacheRemoveSoftReferences();
         PlayerModel.cacheRemoveSoftReferences();
         Component.cacheRemoveSoftReferences();
         FontTypeList.cacheRemoveSoftReferences();

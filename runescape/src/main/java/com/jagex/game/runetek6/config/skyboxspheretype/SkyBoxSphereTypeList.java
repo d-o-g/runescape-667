@@ -1,10 +1,9 @@
 package com.jagex.game.runetek6.config.skyboxspheretype;
 
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.Js5ConfigGroup;
-import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereType;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -19,18 +18,20 @@ public final class SkyBoxSphereTypeList {
     @OriginalMember(owner = "client!dg", name = "f", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
+    public final ModeGame game;
+
+    public final int languageId;
+
     @OriginalMember(owner = "client!dg", name = "h", descriptor = "Lclient!sb;")
     public final js5 configClient;
 
-    public final ModeGame game;
-    public final int languageId;
     public int num;
 
     @OriginalMember(owner = "client!dg", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public SkyBoxSphereTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 arg2) {
+    public SkyBoxSphereTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
         this.game = game;
         this.languageId = languageId;
-        this.configClient = arg2;
+        this.configClient = configClient;
         this.num = this.configClient.fileLimit(Js5ConfigGroup.SKYBOXSPHERETYPE);
     }
 
@@ -50,6 +51,7 @@ public final class SkyBoxSphereTypeList {
         synchronized (this.configClient) {
             data = this.configClient.getfile(id, 30);
         }
+
         type = new SkyBoxSphereType();
         if (data != null) {
             type.decode(new Packet(data));

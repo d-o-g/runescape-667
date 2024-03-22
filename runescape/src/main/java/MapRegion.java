@@ -251,7 +251,7 @@ public final class MapRegion extends Class306 {
                                         for (local504 = 0; local504 < local86; local504++) {
                                             @Pc(512) EnvironmentLight local512 = new EnvironmentLight(arg3, arg1, 2);
                                             if (local512.preset == 31) {
-                                                @Pc(523) LightType local523 = Static48.aClass384_1.list(arg1.g2());
+                                                @Pc(523) LightType local523 = Static48.aLightTypeList_1.list(arg1.g2());
                                                 local512.updateParameters(local523.anInt10374, local523.anInt10372, local523.anInt10373, local523.anInt10377);
                                             }
                                             if (arg3.getMaxLights() > 0) {
@@ -922,7 +922,7 @@ public final class MapRegion extends Class306 {
                     for (@Pc(70) int i = 0; i < count; i++) {
                         @Pc(78) EnvironmentLight envLight = new EnvironmentLight(toolkit, packet, 2);
                         if (envLight.preset == 31) {
-                            @Pc(91) LightType type = Static48.aClass384_1.list(packet.g2());
+                            @Pc(91) LightType type = Static48.aLightTypeList_1.list(packet.g2());
                             envLight.updateParameters(type.anInt10374, type.anInt10372, type.anInt10373, type.anInt10377);
                         }
 

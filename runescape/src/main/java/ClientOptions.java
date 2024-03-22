@@ -79,7 +79,7 @@ public final class ClientOptions extends Node {
     public Class57_Sub23 aClass57_Sub23_1;
 
     @OriginalMember(owner = "client!kv", name = "M", descriptor = "Lclient!tba;")
-    public Class57_Sub29 aClass57_Sub29_2;
+    public ToolkitOption aToolkitOption_2;
 
     @OriginalMember(owner = "client!kv", name = "u", descriptor = "Lclient!oq;")
     public Class57_Sub21 cpuUsage;
@@ -139,28 +139,28 @@ public final class ClientOptions extends Node {
     public Class57_Sub24 lightDetail;
 
     @OriginalMember(owner = "client!kv", name = "n", descriptor = "Lclient!ul;")
-    public final ModeGame aModeGame_3;
+    public final ModeGame game;
 
     @OriginalMember(owner = "client!kv", name = "F", descriptor = "Lclient!le;")
-    public final Class221 aClass221_1;
+    public final EnvironmentContext environment;
 
     @OriginalMember(owner = "client!kv", name = "Z", descriptor = "Lclient!tba;")
-    public Class57_Sub29 toolkit;
+    public ToolkitOption toolkit;
 
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ul;I)V")
-    public ClientOptions(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1) {
-        this.aModeGame_3 = arg0;
-        this.aClass221_1 = new Class221(SignLink.instance.signed, maxmemory, cpucount, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
-        this.toolkit = new Class57_Sub29(arg1, this);
-        this.method5103(true);
+    public ClientOptions(@OriginalArg(0) ModeGame game, @OriginalArg(1) int toolkit) {
+        this.game = game;
+        this.environment = new EnvironmentContext(SignLink.instance.signed, maxmemory, cpucount, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
+        this.toolkit = new ToolkitOption(toolkit, this);
+        this.loadDefaults(true);
     }
 
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ge;Lclient!ul;I)V")
-    public ClientOptions(@OriginalArg(0) Packet arg0, @OriginalArg(1) ModeGame arg1, @OriginalArg(2) int arg2) {
-        this.aModeGame_3 = arg1;
-        this.aClass221_1 = new Class221(SignLink.instance.signed, maxmemory, cpucount, SignLink.osArchRaw.indexOf("arm") != -1);
-        this.toolkit = new Class57_Sub29(arg2, this);
-        this.method5102(arg0);
+    public ClientOptions(@OriginalArg(0) Packet packet, @OriginalArg(1) ModeGame game, @OriginalArg(2) int toolkit) {
+        this.game = game;
+        this.environment = new EnvironmentContext(SignLink.instance.signed, maxmemory, cpucount, SignLink.osArchRaw.indexOf("arm") != -1);
+        this.toolkit = new ToolkitOption(toolkit, this);
+        this.decode(packet);
     }
 
     @OriginalMember(owner = "client!vba", name = "h", descriptor = "(I)V")
@@ -187,18 +187,18 @@ public final class ClientOptions extends Node {
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(Lclient!ge;Z)V")
-    public void method5102(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet arg0) {
         if (arg0 == null || arg0.data == null) {
-            this.method5103(true);
+            this.loadDefaults(true);
         } else {
             @Pc(24) int local24 = arg0.g1();
             if (local24 < 23) {
                 try {
                     this.method5112(local24, arg0);
                 } catch (@Pc(34) Exception local34) {
-                    this.method5103(true);
+                    this.loadDefaults(true);
                 }
-                this.method5103(false);
+                this.loadDefaults(false);
             } else if (local24 <= 25) {
                 this.antialiasingMode = new Class57_Sub13(arg0.g1(), this);
                 this.aClass57_Sub13_1 = new Class57_Sub13(this.antialiasingMode.value(), this);
@@ -225,8 +225,8 @@ public final class ClientOptions extends Node {
                 this.aClass57_Sub7_1 = new Class57_Sub7(arg0.g1(), this);
                 this.aClass57_Sub9_1 = new Class57_Sub9(arg0.g1(), this);
                 this.textures = new Class57_Sub30(arg0.g1(), this);
-                this.aClass57_Sub29_2 = new Class57_Sub29(arg0.g1(), this);
-                this.toolkit = new Class57_Sub29(this.aClass57_Sub29_2.value(), this);
+                this.aToolkitOption_2 = new ToolkitOption(arg0.g1(), this);
+                this.toolkit = new ToolkitOption(this.aToolkitOption_2.value(), this);
                 this.aClass57_Sub19_1 = new Class57_Sub19(arg0.g1(), this);
                 this.animatingBackground = new Class57_Sub19(this.aClass57_Sub19_1.value(), this);
                 this.waterDetail = new Class57_Sub26(arg0.g1(), this);
@@ -243,16 +243,16 @@ public final class ClientOptions extends Node {
                 this.aClass57_Sub25_2 = new Class57_Sub25(arg0.g1(), this);
                 this.aClass57_Sub25_4 = new Class57_Sub25(arg0.g1(), this);
                 this.aClass57_Sub17_1 = new Class57_Sub17(arg0.g1(), this);
-                this.method5103(false);
+                this.loadDefaults(false);
             } else {
-                this.method5103(true);
+                this.loadDefaults(true);
             }
         }
         this.method5109();
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(ZB)V")
-    public void method5103(@OriginalArg(0) boolean arg0) {
+    public void loadDefaults(@OriginalArg(0) boolean arg0) {
         if (arg0 || this.antialiasingMode == null) {
             this.antialiasingMode = new Class57_Sub13(this);
         }
@@ -316,11 +316,11 @@ public final class ClientOptions extends Node {
         if (arg0 || this.textures == null) {
             this.textures = new Class57_Sub30(this);
         }
-        if (arg0 || this.aClass57_Sub29_2 == null) {
-            this.aClass57_Sub29_2 = new Class57_Sub29(this);
+        if (arg0 || this.aToolkitOption_2 == null) {
+            this.aToolkitOption_2 = new ToolkitOption(this);
         }
         if (arg0 || this.toolkit == null) {
-            this.toolkit = new Class57_Sub29(this.aClass57_Sub29_2.value(), this);
+            this.toolkit = new ToolkitOption(this.aToolkitOption_2.value(), this);
         }
         if (arg0 || this.aClass57_Sub19_1 == null) {
             this.aClass57_Sub19_1 = new Class57_Sub19(this);
@@ -380,12 +380,12 @@ public final class ClientOptions extends Node {
 
     @OriginalMember(owner = "client!kv", name = "h", descriptor = "(I)Lclient!ul;")
     public ModeGame method5105() {
-        return this.aModeGame_3;
+        return this.game;
     }
 
     @OriginalMember(owner = "client!kv", name = "b", descriptor = "(I)Lclient!le;")
-    public Class221 method5108() {
-        return this.aClass221_1;
+    public EnvironmentContext method5108() {
+        return this.environment;
     }
 
     @OriginalMember(owner = "client!kv", name = "g", descriptor = "(I)V")
@@ -436,7 +436,7 @@ public final class ClientOptions extends Node {
         local9.p1(this.aClass57_Sub7_1.method2905());
         local9.p1(this.aClass57_Sub9_1.method3199());
         local9.p1(this.textures.value());
-        local9.p1(this.aClass57_Sub29_2.value());
+        local9.p1(this.aToolkitOption_2.value());
         local9.p1(this.aClass57_Sub19_1.value());
         local9.p1(this.waterDetail.value());
         local9.p1(this.screenSize.getValue());
@@ -456,7 +456,7 @@ public final class ClientOptions extends Node {
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(I)Z")
     public boolean method5111() {
-        return this.toolkit.method7913() && this.toolkit.value() == 0 && this.aClass221_1.method5197() < 96;
+        return this.toolkit.method7913() && this.toolkit.value() == 0 && this.environment.method5197() < 96;
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(ZILclient!ge;)V")
@@ -541,7 +541,7 @@ public final class ClientOptions extends Node {
             this.aClass57_Sub23_1 = new Class57_Sub23(arg1.g1(), this);
         }
         if (arg0 >= 14) {
-            this.aClass57_Sub29_2 = new Class57_Sub29(arg1.g1(), this);
+            this.aToolkitOption_2 = new ToolkitOption(arg1.g1(), this);
         }
         if (arg0 >= 15) {
             this.cpuUsage = new Class57_Sub21(arg1.g1(), this);

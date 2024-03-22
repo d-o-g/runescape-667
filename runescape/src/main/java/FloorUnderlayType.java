@@ -54,7 +54,7 @@ public final class FloorUnderlayType {
     }
 
     @OriginalMember(owner = "client!nq", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method5921(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet arg0) {
         while (true) {
             @Pc(3) int local3 = arg0.g1();
             if (local3 == 0) {

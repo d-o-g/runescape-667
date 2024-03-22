@@ -15,7 +15,7 @@ public final class Class389 {
     public int anInt10305;
 
     @OriginalMember(owner = "client!vla", name = "b", descriptor = "Lclient!nv;")
-    public Class267 aClass267_2;
+    public Class267 myList;
 
     @OriginalMember(owner = "client!vla", name = "d", descriptor = "I")
     public int anInt10308;
@@ -32,19 +32,19 @@ public final class Class389 {
 
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "(B)Lclient!wp;")
     public synchronized IndexedImage method8934() {
-        @Pc(13) IndexedImage local13 = (IndexedImage) this.aClass267_2.aReferenceCache_143.get((long) this.anInt10305);
+        @Pc(13) IndexedImage local13 = (IndexedImage) this.myList.aReferenceCache_143.get((long) this.anInt10305);
         if (local13 != null) {
             return local13;
         }
-        local13 = IndexedImage.loadFirst(this.aClass267_2.aJs5_88, this.anInt10305, 0);
+        local13 = IndexedImage.loadFirst(this.myList.aJs5_88, this.anInt10305, 0);
         if (local13 != null) {
-            this.aClass267_2.aReferenceCache_143.put(local13, (long) this.anInt10305);
+            this.myList.aReferenceCache_143.put(local13, (long) this.anInt10305);
         }
         return local13;
     }
 
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method8935(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet arg0) {
         while (true) {
             @Pc(16) int local16 = arg0.g1();
             if (local16 == 0) {

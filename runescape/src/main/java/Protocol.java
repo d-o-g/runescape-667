@@ -337,7 +337,7 @@ public final class Protocol {
                                 arg0.currentProt = null;
                                 return true;
                             } else if (Static232.A_SERVER_PROT___103 == arg0.currentProt) {
-                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.anInt8769];
+                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.num];
                                 arg0.currentProt = null;
                                 return true;
                             } else if (Static346.A_SERVER_PROT___145 == arg0.currentProt) {
@@ -747,7 +747,7 @@ public final class Protocol {
                                             local277 = local11.g2();
                                             local931 = local11.g1b();
                                             if (Static279.anObjectArray35 == null) {
-                                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.anInt8769];
+                                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.num];
                                             }
                                             Static279.anObjectArray35[local277] = Integer.valueOf(local931);
                                             Static265.anIntArray328[Static710.varclanUpdateCount++ & 0x1F] = local277;
@@ -1157,7 +1157,7 @@ public final class Protocol {
                                                             local277 = local11.g2();
                                                             local4669 = local11.g8();
                                                             if (Static279.anObjectArray35 == null) {
-                                                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.anInt8769];
+                                                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.num];
                                                             }
                                                             Static279.anObjectArray35[local277] = Long.valueOf(local4669);
                                                             Static265.anIntArray328[Static710.varclanUpdateCount++ & 0x1F] = local277;
@@ -1211,7 +1211,7 @@ public final class Protocol {
                                                                             local667 = local5042.anInt4930;
                                                                             if (local2098 != -1 && local667 != -1) {
                                                                                 if (local667 == local2098) {
-                                                                                    local4888 = Static23.aClass128_1.method2694(local2098);
+                                                                                    local4888 = Static23.aClass128_1.list(local2098);
                                                                                     if (local4888.aBoolean448 && local4888.anInt5842 != -1) {
                                                                                         local4905 = Static25.seqTypeList.list(local4888.anInt5842);
                                                                                         @Pc(5134) int local5134 = local4905.replayMode;
@@ -1222,8 +1222,8 @@ public final class Protocol {
                                                                                         }
                                                                                     }
                                                                                 } else {
-                                                                                    local4888 = Static23.aClass128_1.method2694(local2098);
-                                                                                    @Pc(5078) Class227 local5078 = Static23.aClass128_1.method2694(local667);
+                                                                                    local4888 = Static23.aClass128_1.list(local2098);
+                                                                                    @Pc(5078) Class227 local5078 = Static23.aClass128_1.list(local667);
                                                                                     if (local4888.anInt5842 != -1 && local5078.anInt5842 != -1) {
                                                                                         local4911 = Static25.seqTypeList.list(local4888.anInt5842);
                                                                                         @Pc(5102) SeqType local5102 = Static25.seqTypeList.list(local5078.anInt5842);
@@ -1240,7 +1240,7 @@ public final class Protocol {
                                                                                 if (local2098 == -1) {
                                                                                     local5042.aAnimator_7.update(true, -1);
                                                                                 } else {
-                                                                                    local4888 = Static23.aClass128_1.method2694(local2098);
+                                                                                    local4888 = Static23.aClass128_1.list(local2098);
                                                                                     replayMode = local4888.aBoolean448 ? 0 : 2;
                                                                                     if (local4806) {
                                                                                         replayMode = 1;
@@ -1267,7 +1267,7 @@ public final class Protocol {
                                                                             @Pc(4883) Class227 local4883;
                                                                             if (local2098 != -1 && local1097 != -1) {
                                                                                 if (local2098 == local1097) {
-                                                                                    local4883 = Static23.aClass128_1.method2694(local2098);
+                                                                                    local4883 = Static23.aClass128_1.list(local2098);
                                                                                     if (local4883.aBoolean448 && local4883.anInt5842 != -1) {
                                                                                         @Pc(4940) SeqType local4940 = Static25.seqTypeList.list(local4883.anInt5842);
                                                                                         replayMode = local4940.replayMode;
@@ -1278,8 +1278,8 @@ public final class Protocol {
                                                                                         }
                                                                                     }
                                                                                 } else {
-                                                                                    local4883 = Static23.aClass128_1.method2694(local2098);
-                                                                                    local4888 = Static23.aClass128_1.method2694(local1097);
+                                                                                    local4883 = Static23.aClass128_1.list(local2098);
+                                                                                    local4888 = Static23.aClass128_1.list(local1097);
                                                                                     if (local4883.anInt5842 != -1 && local4888.anInt5842 != -1) {
                                                                                         local4905 = Static25.seqTypeList.list(local4883.anInt5842);
                                                                                         local4911 = Static25.seqTypeList.list(local4888.anInt5842);
@@ -1297,7 +1297,7 @@ public final class Protocol {
                                                                                 if (local2098 == -1) {
                                                                                     local4850.aAnimator_7.update(true, -1);
                                                                                 } else {
-                                                                                    local4883 = Static23.aClass128_1.method2694(local2098);
+                                                                                    local4883 = Static23.aClass128_1.list(local2098);
                                                                                     @Pc(5006) int local5006 = local4883.aBoolean448 ? 0 : 2;
                                                                                     if (local4806) {
                                                                                         local5006 = 1;
@@ -1850,7 +1850,7 @@ public final class Protocol {
                                                                             local277 = local11.g2();
                                                                             local100 = local11.g4();
                                                                             if (Static279.anObjectArray35 == null) {
-                                                                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.anInt8769];
+                                                                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.num];
                                                                             }
                                                                             Static279.anObjectArray35[local277] = Integer.valueOf(local100);
                                                                             Static265.anIntArray328[Static710.varclanUpdateCount++ & 0x1F] = local277;
@@ -2129,7 +2129,7 @@ public final class Protocol {
                                                                             local277 = local11.g2();
                                                                             local627 = local11.gjstr();
                                                                             if (Static279.anObjectArray35 == null) {
-                                                                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.anInt8769];
+                                                                                Static279.anObjectArray35 = new Object[Static628.aClass342_5.num];
                                                                             }
                                                                             Static279.anObjectArray35[local277] = local627;
                                                                             Static265.anIntArray328[Static710.varclanUpdateCount++ & 0x1F] = local277;

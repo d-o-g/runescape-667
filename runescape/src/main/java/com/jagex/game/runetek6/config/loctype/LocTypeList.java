@@ -58,6 +58,8 @@ public final class LocTypeList {
     @OriginalMember(owner = "client!gea", name = "d", descriptor = "Z")
     public boolean allowMembers;
 
+    private final int num;
+
     @OriginalMember(owner = "client!gea", name = "i", descriptor = "[Ljava/lang/String;")
     public final String[] defaultOps;
 
@@ -70,8 +72,10 @@ public final class LocTypeList {
         this.allowMembers = allowMembers;
 
         if (this.configClient != null) {
-            @Pc(53) int local53 = this.configClient.groupSize() - 1;
-            this.configClient.fileLimit(local53);
+            @Pc(53) int lastGroup = this.configClient.groupSize() - 1;
+            this.num = this.configClient.fileLimit(lastGroup);
+        } else {
+            this.num = 0;
         }
 
         if (ModeGame.RUNESCAPE == this.game) {

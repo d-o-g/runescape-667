@@ -12,8 +12,14 @@ import java.util.Random;
 @OriginalClass("client!oka")
 public final class Class279 {
 
+    private final ModeGame game;
+
+    private final int languageId;
+
     @OriginalMember(owner = "client!oka", name = "i", descriptor = "Lclient!sb;")
-    public final js5 aJs5_92;
+    public final js5 configClient;
+
+    private final int num;
 
     @OriginalMember(owner = "client!oka", name = "d", descriptor = "I")
     public final int anInt6994;
@@ -25,10 +31,13 @@ public final class Class279 {
     public final boolean[] aBooleanArray22;
 
     @OriginalMember(owner = "client!oka", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class279(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
-        this.aJs5_92 = arg2;
-        this.aJs5_92.fileLimit(1);
-        @Pc(22) Packet local22 = new Packet(this.aJs5_92.getfile(0, 0));
+    public Class279(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+        this.game = game;
+        this.languageId = languageId;
+        this.configClient = configClient;
+        this.num = this.configClient.fileLimit(1);
+
+        @Pc(22) Packet local22 = new Packet(this.configClient.getfile(0, 0));
         @Pc(26) int local26 = local22.g1();
         if (local26 > 3) {
             this.aBooleanArray22 = new boolean[0];
@@ -125,9 +134,9 @@ public final class Class279 {
 
     @OriginalMember(owner = "client!oka", name = "a", descriptor = "(IZ)Lclient!de;")
     public Class76 method6277(@OriginalArg(0) int arg0) {
-        @Pc(10) byte[] local10 = this.aJs5_92.getfile(arg0, 1);
+        @Pc(10) byte[] data = this.configClient.getfile(arg0, 1);
         @Pc(14) Class76 local14 = new Class76();
-        local14.method2032(new Packet(local10));
+        local14.decode(new Packet(data));
         return local14;
     }
 }

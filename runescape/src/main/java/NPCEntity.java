@@ -357,7 +357,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         for (@Pc(110) int local110 = 0; local110 < super.aClass199Array3.length; local110++) {
             if (super.aClass199Array3[local110].anInt4930 != -1) {
-                @Pc(131) Class227 local131 = Static23.aClass128_1.method2694(super.aClass199Array3[local110].anInt4930);
+                @Pc(131) Class227 local131 = Static23.aClass128_1.list(super.aClass199Array3[local110].anInt4930);
                 if (local131.aBoolean448 && local131.anInt5842 != -1 && Static25.seqTypeList.list(local131.anInt5842).walkingPrecedence == 1) {
                     super.aClass199Array3[local110].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local110].anInt4930 = -1;
@@ -389,7 +389,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         for (@Pc(61) int local61 = 0; local61 < super.aClass199Array3.length; local61++) {
             if (super.aClass199Array3[local61].anInt4930 != -1) {
-                @Pc(81) Class227 local81 = Static23.aClass128_1.method2694(super.aClass199Array3[local61].anInt4930);
+                @Pc(81) Class227 local81 = Static23.aClass128_1.list(super.aClass199Array3[local61].anInt4930);
                 if (local81.aBoolean448 && local81.anInt5842 != -1 && Static25.seqTypeList.list(local81.anInt5842).walkingPrecedence == 1) {
                     super.aClass199Array3[local61].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local61].anInt4930 = -1;

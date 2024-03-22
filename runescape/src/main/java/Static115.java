@@ -23,7 +23,7 @@ public final class Static115 {
             return;
         }
         if (arg0 != -1) {
-            @Pc(28) Class389 local28 = Static354.aClass267_1.method5973(arg0);
+            @Pc(28) Class389 local28 = Static354.aClass267_1.list(arg0);
             @Pc(32) IndexedImage local32 = local28.method8934();
             if (local32 == null) {
                 arg0 = -1;

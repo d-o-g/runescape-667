@@ -64,7 +64,7 @@ public final class Class218 {
     public int anInt5704 = -1;
 
     @OriginalMember(owner = "client!la", name = "a", descriptor = "(I)V")
-    public void method5123() {
+    public void postDecode() {
         if (this.aString54 == null) {
             this.aString54 = this.aString55;
         }
@@ -176,7 +176,7 @@ public final class Class218 {
     }
 
     @OriginalMember(owner = "client!la", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method5127(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet arg0) {
         while (true) {
             @Pc(3) int local3 = arg0.g1();
             if (local3 == 0) {

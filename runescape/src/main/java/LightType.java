@@ -20,7 +20,7 @@ public final class LightType {
     public int anInt10377 = 2048;
 
     @OriginalMember(owner = "client!vt", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method9006(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet arg0) {
         while (true) {
             @Pc(15) int local15 = arg0.g1();
             if (local15 == 0) {

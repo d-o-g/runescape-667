@@ -51,7 +51,7 @@ public final class DoublyLinkedNode_Sub2_Sub1 extends Node2 {
     }
 
     @OriginalMember(owner = "client!ab", name = "a", descriptor = "(BLclient!ge;)V")
-    public void method90(@OriginalArg(1) Packet arg0) {
+    public void decode(@OriginalArg(1) Packet arg0) {
         while (true) {
             @Pc(7) int local7 = arg0.g1();
             if (local7 == 0) {

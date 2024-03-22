@@ -723,7 +723,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         for (@Pc(33) int local33 = 0; local33 < super.aClass199Array3.length; local33++) {
             if (super.aClass199Array3[local33].anInt4930 != -1) {
-                @Pc(56) Class227 local56 = Static23.aClass128_1.method2694(super.aClass199Array3[local33].anInt4930);
+                @Pc(56) Class227 local56 = Static23.aClass128_1.list(super.aClass199Array3[local33].anInt4930);
                 if (local56.aBoolean448 && local56.anInt5842 != -1 && Static25.seqTypeList.list(local56.anInt5842).walkingPrecedence == 1) {
                     super.aClass199Array3[local33].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local33].anInt4930 = -1;

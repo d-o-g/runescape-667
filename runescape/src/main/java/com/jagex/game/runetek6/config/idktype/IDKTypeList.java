@@ -1,7 +1,7 @@
 package com.jagex.game.runetek6.config.idktype;
 
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
@@ -18,14 +18,16 @@ public final class IDKTypeList {
     @OriginalMember(owner = "client!kr", name = "n", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
+    public final ModeGame game;
+
+    public final int languageId;
+
     @OriginalMember(owner = "client!kr", name = "b", descriptor = "Lclient!sb;")
     public final js5 meshes;
 
     @OriginalMember(owner = "client!kr", name = "k", descriptor = "Lclient!sb;")
     public final js5 configClient;
 
-    public final ModeGame game;
-    public final int languageId;
     public final int num;
 
     @OriginalMember(owner = "client!kr", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")

@@ -47,7 +47,7 @@ public final class Static668 {
         Static275.aClass327_2 = null;
         WorldMap.anInt3181 = -1;
         if (WorldMap.mapElementTypeList != null) {
-            WorldMap.mapElementTypeList.method5586();
+            WorldMap.mapElementTypeList.cacheReset();
             WorldMap.mapElementTypeList.setCaches(128, 64);
         }
         if (WorldMap.msiTypeList != null) {

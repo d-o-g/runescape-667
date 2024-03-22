@@ -108,7 +108,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "(I)I")
     public static int method6411(@OriginalArg(0) int arg0) {
-        @Pc(4) Class341 local4 = Static648.aClass17_1.method263(arg0);
+        @Pc(4) Class341 local4 = Static648.aClass17_1.list(arg0);
         if (local4 == null) {
             throw new RuntimeException("sr-c113");
         }
@@ -118,7 +118,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(I)I")
     public static int method6412(@OriginalArg(0) int arg0) {
-        @Pc(4) Class341 local4 = Static648.aClass17_1.method263(arg0);
+        @Pc(4) Class341 local4 = Static648.aClass17_1.list(arg0);
         if (local4 == null) {
             throw new RuntimeException("sr-c112");
         }
@@ -1630,7 +1630,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3304) {
                                         local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = Static503.aClass335_1.method7657(local15).anInt2072;
+                                        anIntArray578[anInt7142++] = Static503.aClass335_1.list(local15).anInt2072;
                                         return;
                                     }
                                     if (arg0 == 3305) {
@@ -3026,10 +3026,10 @@ public final class ScriptRunner {
                                                 local21 = anIntArray578[anInt7142 + 1];
                                                 local3848 = Static523.instance.list(local21);
                                                 if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = Static652.aClass214_1.method5038(local15).method91(local21, local3848.defaultstr);
+                                                    aStringArray37[anInt7139++] = Static652.aClass214_1.list(local15).method91(local21, local3848.defaultstr);
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = Static652.aClass214_1.method5038(local15).method89(local3848.defaultint, local21);
+                                                anIntArray578[anInt7142++] = Static652.aClass214_1.list(local15).method89(local3848.defaultint, local21);
                                                 return;
                                             }
                                         } else if (arg0 < 4700) {
@@ -3496,7 +3496,7 @@ public final class ScriptRunner {
                             local96 = local11[local5];
                             @Pc(1178) Integer local1178 = (Integer) Static279.anObjectArray35[local96];
                             if (local1178 == null) {
-                                @Pc(1185) Class122 local1185 = Static628.aClass342_5.method7785(local96);
+                                @Pc(1185) Class122 local1185 = Static628.aClass342_5.list(local96);
                                 if (local1185.aChar3 == 'i' || local1185.aChar3 == '1') {
                                     anIntArray578[anInt7142++] = 0;
                                 } else {
@@ -3507,7 +3507,7 @@ public final class ScriptRunner {
                             }
                         } else if (local34 == 107) {
                             local96 = local11[local5];
-                            @Pc(1236) Class122 local1236 = Static628.aClass342_5.method7785(local96);
+                            @Pc(1236) Class122 local1236 = Static628.aClass342_5.list(local96);
                             if (local1236.aChar3 != '\u0001') {
                                 anIntArray578[anInt7142++] = 0;
                             }
@@ -5140,7 +5140,7 @@ public final class ScriptRunner {
                         anInt7142 -= 2;
                         local192 = anIntArray578[anInt7142];
                         local1578 = anIntArray578[anInt7142 + 1] == 1;
-                        ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub29_2);
+                        ClientOptions.instance.update(local192, ClientOptions.instance.aToolkitOption_2);
                         if (!local1578) {
                             ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub15_1);
                         }
@@ -5330,7 +5330,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6132) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub29_2.value();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.aToolkitOption_2.value();
                         return;
                     }
                     if (arg0 == 6133) {
@@ -5818,7 +5818,7 @@ public final class ScriptRunner {
                         @Pc(8975) MapElementType local8975;
                         if (arg0 == 6800) {
                             local192 = anIntArray578[--anInt7142];
-                            local8975 = Static577.aClass246_4.list(local192);
+                            local8975 = Static577.aMapElementTypeList_4.list(local192);
                             if (local8975.aString25 == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
@@ -5828,19 +5828,19 @@ public final class ScriptRunner {
                         }
                         if (arg0 == 6801) {
                             local192 = anIntArray578[--anInt7142];
-                            local8975 = Static577.aClass246_4.list(local192);
+                            local8975 = Static577.aMapElementTypeList_4.list(local192);
                             anIntArray578[anInt7142++] = local8975.anInt2596;
                             return;
                         }
                         if (arg0 == 6802) {
                             local192 = anIntArray578[--anInt7142];
-                            local8975 = Static577.aClass246_4.list(local192);
+                            local8975 = Static577.aMapElementTypeList_4.list(local192);
                             anIntArray578[anInt7142++] = local8975.anInt2615;
                             return;
                         }
                         if (arg0 == 6803) {
                             local192 = anIntArray578[--anInt7142];
-                            local8975 = Static577.aClass246_4.list(local192);
+                            local8975 = Static577.aMapElementTypeList_4.list(local192);
                             anIntArray578[anInt7142++] = local8975.anInt2597;
                             return;
                         }
@@ -5850,10 +5850,10 @@ public final class ScriptRunner {
                             local834 = anIntArray578[anInt7142 + 1];
                             @Pc(9098) ParamType local9098 = Static523.instance.list(local834);
                             if (local9098.isString()) {
-                                aStringArray37[anInt7139++] = Static577.aClass246_4.list(local192).method2426(local834, local9098.defaultstr);
+                                aStringArray37[anInt7139++] = Static577.aMapElementTypeList_4.list(local192).method2426(local834, local9098.defaultstr);
                                 return;
                             }
-                            anIntArray578[anInt7142++] = Static577.aClass246_4.list(local192).method2427(local9098.defaultint, local834);
+                            anIntArray578[anInt7142++] = Static577.aMapElementTypeList_4.list(local192).method2427(local9098.defaultint, local834);
                             return;
                         }
                     } else if (arg0 < 7000) {
@@ -6080,7 +6080,7 @@ public final class ScriptRunner {
                             return;
                         }
                         if (arg0 == 7214) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub29_2.method7917() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.aToolkitOption_2.method7917() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7215) {
@@ -6163,7 +6163,7 @@ public final class ScriptRunner {
                         }
                         if (arg0 == 7314) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub29_2.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.aToolkitOption_2.method8352(local192);
                             return;
                         }
                         if (arg0 == 7315) {

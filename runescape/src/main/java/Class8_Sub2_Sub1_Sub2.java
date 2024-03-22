@@ -306,7 +306,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
             if (local50.anInt4930 == -1 || local50.aAnimator_7.isDelayed()) {
                 this.aModelArray3[local13 + 1] = null;
             } else {
-                @Pc(76) Class227 local76 = Static23.aClass128_1.method2694(local50.anInt4930);
+                @Pc(76) Class227 local76 = Static23.aClass128_1.list(local50.anInt4930);
                 @Pc(95) boolean local95 = local76.aByte96 == 3 && (arg5 != 0 || arg1 != 0);
                 @Pc(97) int local97 = arg0;
                 if (local95) {
@@ -441,7 +441,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         @Pc(50) int local50 = -1;
         @Pc(52) int local52 = 0;
         if (arg6 >= 0) {
-            @Pc(59) Class285 local59 = Static561.aClass220_2.method5186(arg6);
+            @Pc(59) Class285 local59 = Static561.aClass220_2.list(arg6);
             local50 = local59.anInt7195;
             local52 = local59.anInt7192;
         }
@@ -653,7 +653,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         if (arg5 != -1 && local19 != -1) {
             @Pc(38) Class227 local38;
             if (local19 == arg5) {
-                local38 = Static23.aClass128_1.method2694(arg5);
+                local38 = Static23.aClass128_1.list(arg5);
                 if (local38.aBoolean448 && local38.anInt5842 != -1) {
                     @Pc(54) SeqType local54 = Static25.seqTypeList.list(local38.anInt5842);
                     @Pc(57) int replayMode = local54.replayMode;
@@ -666,8 +666,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                     }
                 }
             } else {
-                local38 = Static23.aClass128_1.method2694(arg5);
-                @Pc(86) Class227 local86 = Static23.aClass128_1.method2694(local19);
+                local38 = Static23.aClass128_1.list(arg5);
+                @Pc(86) Class227 local86 = Static23.aClass128_1.list(local19);
                 if (local38.anInt5842 != -1 && local86.anInt5842 != -1) {
                     @Pc(103) SeqType local103 = Static25.seqTypeList.list(local38.anInt5842);
                     @Pc(109) SeqType local109 = Static25.seqTypeList.list(local86.anInt5842);
@@ -678,7 +678,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
             }
         }
         @Pc(118) byte local118 = 0;
-        if (arg5 != -1 && !Static23.aClass128_1.method2694(arg5).aBoolean448) {
+        if (arg5 != -1 && !Static23.aClass128_1.list(arg5).aBoolean448) {
             local118 = 2;
         }
         local16.anInt4929 = arg1;
@@ -688,7 +688,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         if (arg5 != -1 && arg2) {
             local118 = 1;
         }
-        local16.aAnimator_7.update(arg5 == -1 ? -1 : Static23.aClass128_1.method2694(arg5).anInt5842, arg3 & 0xFFFF, local118, false);
+        local16.aAnimator_7.update(arg5 == -1 ? -1 : Static23.aClass128_1.list(arg5).anInt5842, arg3 & 0xFFFF, local118, false);
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(II)V")

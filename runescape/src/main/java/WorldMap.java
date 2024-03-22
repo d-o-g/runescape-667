@@ -81,7 +81,7 @@ public final class WorldMap {
     public static int areaWidth;
 
     @OriginalMember(owner = "client!baa", name = "A", descriptor = "Lclient!ml;")
-    public static Class246 mapElementTypeList;
+    public static MapElementTypeList mapElementTypeList;
 
     @OriginalMember(owner = "client!baa", name = "m", descriptor = "Lclient!ip;")
     public static WorldMapArea area;
@@ -201,7 +201,7 @@ public final class WorldMap {
     public static int anInt9389;
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
-    public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) Class246 mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
+    public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) MapElementTypeList mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
         WorldMap.data = data;
         WorldMap.floorOverlayTypeList = floorOverlayTypeList;
         WorldMap.floorUnderlayTypeList = floorUnderlayTypeList;

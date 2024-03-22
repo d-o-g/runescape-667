@@ -112,7 +112,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         this.anInt706 = arg10;
         this.anInt705 = arg8;
         this.anInt709 = arg9;
-        @Pc(82) int local82 = Static23.aClass128_1.method2694(this.anInt715).anInt5842;
+        @Pc(82) int local82 = Static23.aClass128_1.list(this.anInt715).anInt5842;
         this.aAnimator_1 = new Animator_Sub2(this, false);
         this.aAnimator_1.update(true, local82);
     }
@@ -190,7 +190,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;I)Lclient!ka;")
     public Model method814(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2) {
-        @Pc(17) Class227 local17 = Static23.aClass128_1.method2694(this.anInt715);
+        @Pc(17) Class227 local17 = Static23.aClass128_1.list(this.anInt715);
         return local17.method5252(this.aAnimator_1, (byte) 2, arg0, arg1);
     }
 

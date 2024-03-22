@@ -16,9 +16,6 @@ public final class Static369 {
     @OriginalMember(owner = "client!lla", name = "e", descriptor = "[B")
     public static byte[] aByteArray43;
 
-    @OriginalMember(owner = "client!lla", name = "a", descriptor = "I")
-    public static int anInt4265 = 64;
-
     @OriginalMember(owner = "client!lla", name = "a", descriptor = "(I)V")
     public static void method3847() {
         @Pc(11) int local11 = Static363.aByteArrayArray22.length;
@@ -72,7 +69,7 @@ public final class Static369 {
             return;
         }
         @Pc(31) Node_Sub36 local31;
-        if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 0) {
+        if (ClientOptions.instance.toolkit.value() == 0) {
             for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
                 Static419.objTypeList.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? PlayerEntity.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
                 local31.unlink();
@@ -94,7 +91,7 @@ public final class Static369 {
 
     @OriginalMember(owner = "client!lla", name = "b", descriptor = "(B)V")
     public static void method3852() {
-        if (Static265.aByteArray44 != null) {
+        if (client.ssKey != null) {
             Static292.method4615();
         } else if (Static129.anInt2409 == -1) {
             Static616.method8283(Static59.aString63, Static449.aString75);

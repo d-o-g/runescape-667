@@ -6,7 +6,4 @@ public final class Static473 {
     @OriginalMember(owner = "client!ov", name = "a", descriptor = "Lclient!gca;")
     public static LoadState aLoadState_22;
 
-    @OriginalMember(owner = "client!ov", name = "b", descriptor = "Z")
-    public static boolean force64mb = false;
-
 }

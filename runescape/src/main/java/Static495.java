@@ -8,9 +8,6 @@ public final class Static495 {
     @OriginalMember(owner = "client!pk", name = "f", descriptor = "Lclient!gm;")
     public static SkyBox aSkyBox_4;
 
-    @OriginalMember(owner = "client!pk", name = "m", descriptor = "I")
-    public static int anInt7422 = 1;
-
     @OriginalMember(owner = "client!pk", name = "e", descriptor = "Lclient!fma;")
     public static final Class131 aClass131_5 = new Class131();
 

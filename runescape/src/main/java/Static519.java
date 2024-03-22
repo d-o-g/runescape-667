@@ -8,9 +8,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static519 {
 
-    @OriginalMember(owner = "client!qfa", name = "m", descriptor = "Lclient!hh;")
-    public static final Class162 aClass162_4 = new Class162("RC", 1);
-
     @OriginalMember(owner = "client!qfa", name = "n", descriptor = "Lclient!gga;")
     public static HashTable aHashTable_1 = new HashTable(8);
 
@@ -21,7 +18,7 @@ public final class Static519 {
         @Pc(9) boolean local9 = false;
         if (SignLink.instance.signed && !SignLink.instance.microsoftjava) {
             local5 = true;
-            if (Static292.aClass2_Sub43_2.anInt7610 < 512 && Static292.aClass2_Sub43_2.anInt7610 != 0) {
+            if (SystemInfo.instance.totalMemory < 512 && SystemInfo.instance.totalMemory != 0) {
                 local5 = false;
             }
             if (SignLink.osNameLower.startsWith("win")) {
@@ -55,7 +52,7 @@ public final class Static519 {
         if (local9) {
             try {
                 local86 = Static363.method6235(1000, 3);
-                if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 3) {
+                if (ClientOptions.instance.toolkit.value() == 3) {
                     @Pc(114) Class84 local114 = Toolkit.active.method7981();
                     @Pc(119) long local119 = local114.aLong91 & 0xFFFFFFFFFFFFL;
                     @Pc(122) int local122 = local114.anInt2329;

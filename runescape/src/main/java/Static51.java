@@ -10,9 +10,6 @@ public final class Static51 {
     @OriginalMember(owner = "client!bma", name = "e", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___30 = new ServerProt(54, -1);
 
-    @OriginalMember(owner = "client!bma", name = "c", descriptor = "I")
-    public static int language = 0;
-
     @OriginalMember(owner = "client!bma", name = "b", descriptor = "I")
     public static int anInt1053 = 0;
 

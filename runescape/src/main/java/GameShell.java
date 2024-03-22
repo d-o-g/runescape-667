@@ -264,19 +264,19 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     }
 
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(IIIILjava/lang/String;II)V")
-    protected final void method1640(@OriginalArg(2) int arg0, @OriginalArg(3) int arg1, @OriginalArg(4) String arg2, @OriginalArg(6) int arg3) {
+    protected final void startApplet(@OriginalArg(1) int build, @OriginalArg(2) int loadingScreenWidth, @OriginalArg(3) int cacheId, @OriginalArg(4) String game, @OriginalArg(5) int archiveCount, @OriginalArg(6) int loadingScreenHeight) {
         try {
             if (instance == null) {
                 Constants.sourceApplet = loaderApplet;
-                canvasWid = arg0;
-                frameWid = arg0;
-                Constants.clientBuild = 667;
+                canvasWid = loadingScreenWidth;
+                frameWid = loadingScreenWidth;
+                Constants.clientBuild = build;
                 leftMargin = 0;
-                canvasHei = arg3;
-                frameHei = arg3;
+                canvasHei = loadingScreenHeight;
+                frameHei = loadingScreenHeight;
                 topMargin = 0;
                 instance = this;
-                SignLink.aSignLink_4 = SignLink.instance = new SignLink(arg1, arg2, 37, loaderApplet != null);
+                SignLink.aSignLink_4 = SignLink.instance = new SignLink(cacheId, game, archiveCount, loaderApplet != null);
                 @Pc(80) SignedResource local80 = SignLink.instance.startThread(this, 1);
                 while (local80.status == 0) {
                     TimeUtils.sleep(10L);
@@ -354,7 +354,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
         } catch (@Pc(254) ThreadDeath local254) {
             throw local254;
         } catch (@Pc(257) Throwable local257) {
-            JagException.sendTrace(local257, this.method1648());
+            JagException.sendTrace(local257, this.getErrorTrace());
             this.error("crash");
         } finally {
             @Pc(275) Object local275 = null;
@@ -447,7 +447,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     }
 
     @OriginalMember(owner = "client!kh", name = "d", descriptor = "(B)Z")
-    protected final boolean method1643() {
+    protected final boolean checkhost() {
         @Pc(16) String local16 = this.getDocumentBase().getHost().toLowerCase();
         if (local16.equals("jagex.com") || local16.endsWith(".jagex.com")) {
             return true;
@@ -532,7 +532,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     }
 
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(I)Ljava/lang/String;")
-    public String method1648() {
+    public String getErrorTrace() {
         return null;
     }
 

@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.core.stringtools.general.StringTools;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -6,9 +7,6 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!be")
 public final class Node_Sub1_Sub3 extends Node_Sub1 {
-
-    @OriginalMember(owner = "client!be", name = "N", descriptor = "[C")
-    public static final char[] aCharArray1 = new char[64];
 
     @OriginalMember(owner = "client!be", name = "G", descriptor = "I")
     public int anInt914 = 4096;
@@ -18,20 +16,6 @@ public final class Node_Sub1_Sub3 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!be", name = "J", descriptor = "I")
     public int anInt919 = 4096;
-
-    static {
-        for (@Pc(37) int local37 = 0; local37 < 26; local37++) {
-            aCharArray1[local37] = (char) (local37 + 65);
-        }
-        for (@Pc(53) int local53 = 26; local53 < 52; local53++) {
-            aCharArray1[local53] = (char) (local53 + 97 - 26);
-        }
-        for (@Pc(71) int local71 = 52; local71 < 62; local71++) {
-            aCharArray1[local71] = (char) (local71 - 4);
-        }
-        aCharArray1[62] = '+';
-        aCharArray1[63] = '/';
-    }
 
     @OriginalMember(owner = "client!be", name = "<init>", descriptor = "()V")
     public Node_Sub1_Sub3() {

@@ -13,7 +13,7 @@ public final class Static54 {
         Static342.method4465(ClientOptions.instance.aClass57_Sub5_1.method2172());
         @Pc(19) int local19 = (WorldMap.areaBaseX >> 3) + (Static170.anInt2864 >> 12);
         @Pc(28) int local28 = (Static110.anInt2186 >> 12) + (WorldMap.areaBaseY >> 3);
-        Static394.anInt6176 = PlayerEntity.self.level = 0;
+        Camera.renderingLevel = PlayerEntity.self.level = 0;
         PlayerEntity.self.method1419(8, 8);
         Static22.anIntArrayArray11 = new int[18][4];
         Static363.aByteArrayArray22 = new byte[18][];

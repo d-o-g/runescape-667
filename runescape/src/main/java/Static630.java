@@ -35,11 +35,11 @@ public final class Static630 {
 
     @OriginalMember(owner = "client!tv", name = "b", descriptor = "(I)V")
     public static void method8358() {
-        if (ClientOptions.instance.animatingBackground.value() == 0 && Static164.areaLevel != Static394.anInt6176) {
+        if (ClientOptions.instance.animatingBackground.value() == 0 && Static164.areaLevel != Camera.renderingLevel) {
             Static684.method8931(false, Static62.anInt1465, 12, Static525.anInt8907);
         } else {
             Static106.method2046(Toolkit.active);
-            if (Static514.anInt7680 != Static394.anInt6176) {
+            if (Static514.anInt7680 != Camera.renderingLevel) {
                 Static77.method1561();
             }
         }

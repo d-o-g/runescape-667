@@ -31,7 +31,7 @@ public final class Static168 {
         local20.x = (local20.pathX[0] << 9) + (local20.boundSize((byte) 53) << 8);
         local20.pathY[0] = local51 - WorldMap.areaBaseY;
         local20.z = (local20.pathY[0] << 9) + (local20.boundSize((byte) 65) << 8);
-        Static394.anInt6176 = local20.level = local20.aByte143 = local33;
+        Camera.renderingLevel = local20.level = local20.aByte143 = local33;
         if (Static441.method5968(local20.pathY[0], local20.pathX[0])) {
             local20.aByte143++;
         }

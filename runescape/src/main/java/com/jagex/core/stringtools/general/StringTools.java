@@ -6,7 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class StringTools {
 
-
     @OriginalMember(owner = "client!oo", name = "a", descriptor = "(ILjava/lang/String;)Z")
     public static boolean isDecimal(@OriginalArg(1) String string) {
         return isNumeric(true, string, 10);
@@ -25,11 +24,13 @@ public final class StringTools {
 
         for (@Pc(36) int index = 0; index < length; index++) {
             @Pc(41) char c = string.charAt(index);
+
             if (index == 0) {
                 if (c == '-') {
                     negative = true;
                     continue;
                 }
+
                 if (c == '+' && ignorePlus) {
                     continue;
                 }
@@ -39,9 +40,9 @@ public final class StringTools {
             if (c >= '0' && c <= '9') {
                 i = c - '0';
             } else if (c >= 'A' && c <= 'Z') {
-                i = c - '7';
+                i = (c + 10) - 'A';
             } else if (c >= 'a' && c <= 'z') {
-                i = c - 'W';
+                i = (c + 10) - 'a';
             } else {
                 return false;
             }
@@ -89,13 +90,15 @@ public final class StringTools {
             for (@Pc(74) int i = digits - 1; i > 0; i--) {
                 @Pc(77) int n = number;
                 number /= radix;
+
                 @Pc(88) int delta = n - number * radix;
                 if (delta >= 10) {
-                    chars[i] = (char) (delta + 87);
+                    chars[i] = (char) ((delta - 10) + 'a');
                 } else {
-                    chars[i] = (char) (delta + 48);
+                    chars[i] = (char) (delta + '0');
                 }
             }
+
             return new String(chars);
         } else {
             return Integer.toString(number, radix);
@@ -122,6 +125,7 @@ public final class StringTools {
         @Pc(31) boolean valid = false;
         @Pc(39) int value = 0;
         @Pc(42) int length = string.length();
+
         for (@Pc(44) int index = 0; index < length; index++) {
             @Pc(49) char c = string.charAt(index);
 
@@ -139,9 +143,9 @@ public final class StringTools {
             if (c >= '0' && c <= '9') {
                 i = c - '0';
             } else if (c >= 'A' && c <= 'Z') {
-                i = c - '7';
+                i = (c + 10) - 'A';
             } else if (c >= 'a' && c <= 'z') {
-                i = c - 'W';
+                i = (c + 10) - 'a';
             } else {
                 throw new NumberFormatException();
             }
@@ -201,7 +205,7 @@ public final class StringTools {
                 @Pc(59) int v = (int) value;
                 value /= 10L;
 
-                buffer.append((char) (v + 48 - (int) value * 10));
+                buffer.append((char) ((v + '0') - ((int) value * 10)));
             }
 
             buffer.append(decimalDelimiter);
@@ -212,12 +216,13 @@ public final class StringTools {
             @Pc(59) int v = (int) value;
             value /= 10L;
 
-            buffer.append((char) (v + '0' - (int) value * 10));
+            buffer.append((char) ((v + '0') - ((int) value * 10)));
 
             if (value == 0L) {
                 if (negative) {
                     buffer.append('-');
                 }
+
                 return buffer.reverse().toString();
             }
 

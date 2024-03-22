@@ -385,7 +385,7 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY) {
-                        if (!Static105.displayFps && !Static354.showProfiling) {
+                        if (!client.displayFps && !Static354.showProfiling) {
                             continue;
                         }
 
@@ -400,7 +400,7 @@ public final class InterfaceManager {
                             }
                         }
 
-                        if (Static105.displayFps) {
+                        if (client.displayFps) {
                             @Pc(744) int fpsColour = 0xFFFFFF00;
                             if (Static652.currentFps < 20) {
                                 fpsColour = 0xFFFF0000;
@@ -413,7 +413,7 @@ public final class InterfaceManager {
                             @Pc(777) int memoryUsage = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
                             @Pc(779) int memoryColour = 0xFFFFFF00;
                             if (memoryUsage > 0x18000) {
-                                if (Static473.force64mb) {
+                                if (client.force64mb) {
                                     Static664.cacheRemoveSoftReferences();
 
                                     for (@Pc(792) int j = 0; j < 10; j++) {
@@ -577,7 +577,7 @@ public final class InterfaceManager {
                             }
 
                             if (child == dialog) {
-                                text = LocalisedText.PLEASEWAIT.localise(Static51.language);
+                                text = LocalisedText.PLEASEWAIT.localise(client.language);
                                 colour = child.colour;
                             }
 
@@ -970,9 +970,9 @@ public final class InterfaceManager {
         }
 
         if (text.length() > 9) {
-            return " <col=00ff80>" + text.substring(0, text.length() - 8) + LocalisedText.MILLION.localise(Static51.language) + " (" + text + ")</col>";
+            return " <col=00ff80>" + text.substring(0, text.length() - 8) + LocalisedText.MILLION.localise(client.language) + " (" + text + ")</col>";
         } else if (text.length() > 6) {
-            return " <col=ffffff>" + text.substring(0, text.length() - 4) + LocalisedText.THOUSAND.localise(Static51.language) + " (" + text + ")</col>";
+            return " <col=ffffff>" + text.substring(0, text.length() - 4) + LocalisedText.THOUSAND.localise(client.language) + " (" + text + ")</col>";
         } else {
             return " <col=ffff00>" + text + "</col>";
         }
@@ -1427,7 +1427,7 @@ public final class InterfaceManager {
                                     }
                                 } else {
                                     if (client.modeGame == ModeGame.STELLAR_DAWN) {
-                                        MiniMenu.addEntry(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(Static51.language), 11, true, -1, "", 0L, true);
+                                        MiniMenu.addEntry(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(client.language), 11, true, -1, "", 0L, true);
                                     }
 
                                     MiniMenu.addEntry(false, -1, 1L, local1191, local1199, Static331.walkText, 58, true, Static331.walkCursor, "", 0L, true);

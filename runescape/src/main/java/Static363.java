@@ -1,4 +1,5 @@
 import com.jagex.SignLink;
+import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Mesh;
@@ -61,15 +62,15 @@ public final class Static363 {
         if (Static523.graphicsDefaults.profilingModel == -1) {
             return 1;
         }
-        if (arg1 != ClientOptions.instance.aClass57_Sub29_1.method7915()) {
-            Static667.method8695(true, LocalisedText.PROFILING.localise(Static51.language), arg1);
-            if (arg1 != ClientOptions.instance.aClass57_Sub29_1.method7915()) {
+        if (arg1 != ClientOptions.instance.toolkit.value()) {
+            Static667.method8695(true, LocalisedText.PROFILING.localise(client.language), arg1);
+            if (arg1 != ClientOptions.instance.toolkit.value()) {
                 return -1;
             }
         }
         try {
             @Pc(43) Dimension local43 = Static434.canvas.getSize();
-            Static694.method9028(Toolkit.active, LocalisedText.PROFILING.localise(Static51.language), true, Fonts.p12Metrics, Fonts.p12);
+            Static694.method9028(Toolkit.active, LocalisedText.PROFILING.localise(client.language), true, Fonts.p12Metrics, Fonts.p12);
             @Pc(67) Mesh local67 = Mesh.load(Static523.graphicsDefaults.profilingModel, js5.MODELS);
             @Pc(70) long local70 = SystemTimer.safetime();
             Toolkit.active.la();
@@ -147,13 +148,13 @@ public final class Static363 {
         }
         if (newMode == 1) {
             GameShell.topMargin = 0;
-            GameShell.leftMargin = (GameShell.frameWid - Static302.anInt4851) / 2;
-            GameShell.canvasHei = Static479.anInt7201;
-            GameShell.canvasWid = Static302.anInt4851;
+            GameShell.leftMargin = (GameShell.frameWid - client.loadingScreenWidth) / 2;
+            GameShell.canvasHei = client.loadingScreenHeight;
+            GameShell.canvasWid = client.loadingScreenWidth;
         } else {
             Static323.method4625();
         }
-        if (Static2.aClass355_1 != Static446.aClass355_5) {
+        if (client.modeWhere != ModeWhere.LIVE) {
             @Pc(178) boolean local178;
             if (GameShell.canvasWid < 1024 && GameShell.canvasHei < 768) {
                 local178 = true;

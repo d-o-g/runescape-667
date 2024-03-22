@@ -56,6 +56,6 @@ public final class Static77 {
             Static170.method2652((byte) (Static198.anInt3276 - 4 & 0xFF));
             Static556.method7300(2);
         }
-        Static514.anInt7680 = Static394.anInt6176;
+        Static514.anInt7680 = Camera.renderingLevel;
     }
 }

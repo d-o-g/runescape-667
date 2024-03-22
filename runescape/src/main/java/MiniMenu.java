@@ -69,7 +69,7 @@ public final class MiniMenu {
             return;
         }
         if (arg0.pauseText == null) {
-            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, LocalisedText.CONTINUE.localise(Static51.language), 10, true, -1, "", (long) (arg0.slot | arg0.id << 0), false);
+            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, LocalisedText.CONTINUE.localise(client.language), 10, true, -1, "", (long) (arg0.slot | arg0.id << 0), false);
         } else {
             addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, arg0.pauseText, 10, true, -1, "", (long) (arg0.slot | arg0.id << 0), false);
         }
@@ -169,7 +169,7 @@ public final class MiniMenu {
                     }
                 } else {
                     if (Static501.aBoolean576) {
-                        addEntry(false, -1, 0L, local140, local142, LocalisedText.FACEHERE.localise(Static51.language), 11, true, -1, "", (long) (local142 | local140 << 0), true);
+                        addEntry(false, -1, 0L, local140, local142, LocalisedText.FACEHERE.localise(client.language), 11, true, -1, "", (long) (local142 | local140 << 0), true);
                     }
                     addEntry(false, -1, 0L, local140, local142, Static331.walkText, 58, true, Static331.walkCursor, "", (long) (local142 | local140 << 0), true);
                 }

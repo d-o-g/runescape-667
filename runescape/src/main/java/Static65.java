@@ -19,7 +19,7 @@ public final class Static65 {
     public static int method1470() {
         @Pc(5) Toolkit local5 = Toolkit.active;
         @Pc(7) boolean local7 = false;
-        if (ClientOptions.instance.aClass57_Sub29_1.method7915() != 0) {
+        if (ClientOptions.instance.toolkit.value() != 0) {
             @Pc(19) Canvas local19 = new Canvas();
             local19.setSize(100, 100);
             local7 = true;

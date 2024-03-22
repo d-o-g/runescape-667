@@ -24,7 +24,7 @@ public final class Class57_Sub3 extends Class57 {
     @Override
     public void method8350() {
         if (this.method2118()) {
-            if (super.aClass2_Sub34_34.aClass57_Sub29_1.method7913() && !Static386.method5436(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915())) {
+            if (super.aClass2_Sub34_34.toolkit.method7913() && !Static386.method5436(super.aClass2_Sub34_34.toolkit.value())) {
                 super.anInt9489 = 1;
             }
             if (super.aClass2_Sub34_34.aClass57_Sub1_2.getValue() == 1) {
@@ -48,7 +48,7 @@ public final class Class57_Sub3 extends Class57 {
     @Override
     public int method8352(@OriginalArg(0) int arg0) {
         if (Static356.method5202(arg0)) {
-            if (super.aClass2_Sub34_34.aClass57_Sub29_1.method7913() && !Static386.method5436(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915())) {
+            if (super.aClass2_Sub34_34.toolkit.method7913() && !Static386.method5436(super.aClass2_Sub34_34.toolkit.value())) {
                 return 3;
             }
             if (super.aClass2_Sub34_34.aClass57_Sub1_2.getValue() == 1) {

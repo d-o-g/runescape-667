@@ -27,7 +27,7 @@ public final class Class57_Sub29 extends Class57 {
     }
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(Z)I")
-    public int method7915() {
+    public int value() {
         return super.anInt9489;
     }
 

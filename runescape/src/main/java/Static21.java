@@ -121,7 +121,7 @@ public final class Static21 {
 
     @OriginalMember(owner = "client!am", name = "f", descriptor = "(B)Z")
     public static boolean method8119() {
-        if (Static98.aBoolean191) {
+        if (client.js) {
             try {
                 JavaScript.call("showVideoAd", GameShell.loaderApplet);
                 return true;

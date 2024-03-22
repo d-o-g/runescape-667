@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static360 {
 
-    @OriginalMember(owner = "client!lg", name = "h", descriptor = "Ljava/lang/String;")
-    public static String aString59;
-
     @OriginalMember(owner = "client!lg", name = "f", descriptor = "I")
     public static int anInt5820;
 

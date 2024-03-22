@@ -8,9 +8,6 @@ public final class Static715 {
     @OriginalMember(owner = "client!wla", name = "j", descriptor = "I")
     public static int anInt10810;
 
-    @OriginalMember(owner = "client!wla", name = "k", descriptor = "I")
-    public static int anInt10805 = 0;
-
     @OriginalMember(owner = "client!wla", name = "p", descriptor = "[I")
     public static final int[] anIntArray881 = new int[200];
 

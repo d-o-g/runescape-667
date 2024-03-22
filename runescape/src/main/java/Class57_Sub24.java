@@ -30,7 +30,7 @@ public final class Class57_Sub24 extends Class57 {
     }
 
     @OriginalMember(owner = "client!qka", name = "a", descriptor = "(Z)I")
-    public int getValue() {
+    public int value() {
         return super.anInt9489;
     }
 

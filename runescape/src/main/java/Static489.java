@@ -202,13 +202,13 @@ public final class Static489 {
             return;
         }
         if (Static213.anInt3472 != 0) {
-            Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(Static51.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
+            Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
         Static557.method7331();
         Static352.method5180();
         VideoTypeList.method1084();
         @Pc(430) boolean local430 = false;
-        if (Toolkit.active.method7990() && ClientOptions.instance.aClass57_Sub26_1.method7463() == 2) {
+        if (Toolkit.active.method7990() && ClientOptions.instance.waterDetail.value() == 2) {
             for (local310 = 0; local310 < Static319.aByteArrayArray16.length; local310++) {
                 if (Static421.aByteArrayArray19[local310] != null || Static177.aByteArrayArray5[local310] != null) {
                     local430 = true;
@@ -242,10 +242,10 @@ public final class Static489 {
         System.gc();
         Static314.noTimeout(true);
         Static699.method9139();
-        Static439.anInt6674 = ClientOptions.instance.aClass57_Sub12_1.method4364();
-        Static428.aBoolean487 = Static369.anInt4265 >= 96;
-        Static50.aBoolean566 = ClientOptions.instance.aClass57_Sub26_1.method7463() == 2;
-        Static305.aBoolean371 = ClientOptions.instance.lightDetail.getValue() == 1;
+        Static439.anInt6674 = ClientOptions.instance.hardShadows.value();
+        Static428.aBoolean487 = ClientOptions.maxmemory >= 96;
+        Static50.aBoolean566 = ClientOptions.instance.waterDetail.value() == 2;
+        Static305.aBoolean371 = ClientOptions.instance.lightDetail.value() == 1;
         Static478.anInt7198 = ClientOptions.instance.animatingBackground.value() == 1 ? -1 : Static164.areaLevel;
         Static718.aBoolean822 = ClientOptions.instance.aClass57_Sub23_1.method7054() == 1;
         Static196.aBoolean262 = ClientOptions.instance.textures.value() == 1;
@@ -283,7 +283,7 @@ public final class Static489 {
             Static101.method2001(Static118.aByteArrayArray3, Static2.aMapRegion);
         }
         Static352.method5180();
-        if (Static369.anInt4265 < 96) {
+        if (ClientOptions.maxmemory < 96) {
             Static358.method9191();
         }
         Static314.noTimeout(true);
@@ -307,11 +307,11 @@ public final class Static489 {
         }
         Static207.method4432();
         @Pc(825) int local825 = Static2.aMapRegion.maxLevel;
-        if (local825 > Static394.anInt6176) {
-            local825 = Static394.anInt6176;
+        if (local825 > Camera.renderingLevel) {
+            local825 = Camera.renderingLevel;
         }
-        if (Static394.anInt6176 - 1 > local825) {
-            local825 = Static394.anInt6176 - 1;
+        if (Camera.renderingLevel - 1 > local825) {
+            local825 = Camera.renderingLevel - 1;
         }
         if (ClientOptions.instance.animatingBackground.value() == 0) {
             Static3.method87(local825);

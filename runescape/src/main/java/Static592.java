@@ -10,11 +10,11 @@ public final class Static592 {
     public static void method7761() {
         @Pc(9) int local9 = Static121.anInt2333 * 512 + 256;
         @Pc(15) int local15 = Static709.anInt10667 * 512 + 256;
-        @Pc(24) int local24 = Static102.method2025(Static394.anInt6176, -29754, local15, local9) - Static363.anInt6934;
+        @Pc(24) int local24 = Static102.method2025(Camera.renderingLevel, -29754, local15, local9) - Static363.anInt6934;
         if (Static674.anInt10088 >= 100) {
             Static170.anInt2864 = Static121.anInt2333 * 512 + 256;
             Static110.anInt2186 = Static709.anInt10667 * 512 + 256;
-            Static359.anInt5801 = Static102.method2025(Static394.anInt6176, -29754, Static110.anInt2186, Static170.anInt2864) - Static363.anInt6934;
+            Static359.anInt5801 = Static102.method2025(Camera.renderingLevel, -29754, Static110.anInt2186, Static170.anInt2864) - Static363.anInt6934;
         } else {
             if (Static170.anInt2864 < local9) {
                 Static170.anInt2864 += Static694.anInt10411 + (local9 - Static170.anInt2864) * Static674.anInt10088 / 1000;
@@ -55,7 +55,7 @@ public final class Static592 {
         }
         local15 = Static12.anInt5741 * 512 + 256;
         local9 = Static441.anInt6689 * 512 + 256;
-        local24 = Static102.method2025(Static394.anInt6176, -29754, local15, local9) - Static55.anInt1125;
+        local24 = Static102.method2025(Camera.renderingLevel, -29754, local15, local9) - Static55.anInt1125;
         @Pc(259) int local259 = local9 - Static170.anInt2864;
         @Pc(264) int local264 = local24 - Static359.anInt5801;
         @Pc(269) int local269 = local15 - Static110.anInt2186;

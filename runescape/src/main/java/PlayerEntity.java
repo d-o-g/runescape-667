@@ -1,5 +1,6 @@
 import com.jagex.ParticleList;
 import com.jagex.Constants;
+import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
@@ -457,7 +458,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         this.anInt1430 = packet.g1b();
         this.anInt1431 = packet.g1b();
         this.aBoolean124 = packet.g1b() == 1;
-        if (Static446.aClass355_5 == Static2.aClass355_1 && Static608.staffModLevel >= 2) {
+        if (ModeWhere.LIVE == client.modeWhere && Static608.staffModLevel >= 2) {
             this.aBoolean124 = false;
         }
         this.anInt1433 = 0;
@@ -608,10 +609,10 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(Static419.objTypeList, local33, Static574.basTypeList, Static25.seqTypeList, arg0, super.anIntArray877, Static523.wearposDefaults, Static68.idkTypeList, arg1, Static690.aNPCTypeList_2, super.aClass152_Sub2_Sub1Array3, local95, local58, TimedVarDomain.instance);
         @Pc(155) int local155 = PlayerModel.cacheHardReferenceCount();
-        if (Static369.anInt4265 < 96 && local155 > 50) {
+        if (ClientOptions.maxmemory < 96 && local155 > 50) {
             Static358.method9191();
         }
-        if (Static446.aClass355_5 != Static2.aClass355_1 && local155 < 50) {
+        if (ModeWhere.LIVE != client.modeWhere && local155 < 50) {
             @Pc(181) int local181 = 50 - local155;
             while (Static107.anInt2161 < local181) {
                 Static163.aByteArrayArray36[Static107.anInt2161] = new byte[102400];
@@ -621,7 +622,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                 Static107.anInt2161--;
                 Static163.aByteArrayArray36[Static107.anInt2161] = null;
             }
-        } else if (Static446.aClass355_5 != Static2.aClass355_1) {
+        } else if (ModeWhere.LIVE != client.modeWhere) {
             Static107.anInt2161 = 0;
             Static163.aByteArrayArray36 = new byte[50][];
         }

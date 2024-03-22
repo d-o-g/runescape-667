@@ -39,7 +39,7 @@ public final class Static319 {
         if (arg1 && Static674.anInt10088 >= 100) {
             Static170.anInt2864 = Static121.anInt2333 * 512 + 256;
             Static110.anInt2186 = Static709.anInt10667 * 512 + 256;
-            Static359.anInt5801 = Static102.method2025(Static394.anInt6176, -29754, Static110.anInt2186, Static170.anInt2864) - Static363.anInt6934;
+            Static359.anInt5801 = Static102.method2025(Camera.renderingLevel, -29754, Static110.anInt2186, Static170.anInt2864) - Static363.anInt6934;
         }
         Static511.anInt7645 = 2;
         Static693.anInt10383 = -1;

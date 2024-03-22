@@ -27,7 +27,7 @@ public final class Static611 {
             local8 = 1;
             Static468.method7643();
         }
-        if (ClientOptions.instance.aClass57_Sub29_1.method7915() != 2) {
+        if (ClientOptions.instance.toolkit.value() != 2) {
             ClientOptions.instance.method5104(2, ClientOptions.instance.aClass57_Sub29_2);
             Static32.method880(2, false);
         }

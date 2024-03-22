@@ -87,8 +87,8 @@ public final class Static619 {
         Static524.aServerConnection_3 = ConnectionManager.GAME;
         Static470.anInt7113 = arg0;
         @Pc(18) String local18 = null;
-        if (Static265.aByteArray44 != null) {
-            @Pc(25) Packet local25 = new Packet(Static265.aByteArray44);
+        if (client.ssKey != null) {
+            @Pc(25) Packet local25 = new Packet(client.ssKey);
             local18 = Static287.method4154(local25.g8());
             Static430.aLong209 = local25.g8();
         }

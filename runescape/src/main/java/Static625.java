@@ -12,7 +12,7 @@ public final class Static625 {
     @OriginalMember(owner = "client!tp", name = "b", descriptor = "(I)I")
     public static int method8337() {
         @Pc(10) byte local10;
-        if (Static369.anInt4265 < 96) {
+        if (ClientOptions.maxmemory < 96) {
             local10 = 1;
             Static468.method7643();
         } else {
@@ -31,7 +31,7 @@ public final class Static625 {
                 local10 = 2;
             }
         }
-        if (ClientOptions.instance.aClass57_Sub29_1.method7915() != 0) {
+        if (ClientOptions.instance.toolkit.value() != 0) {
             ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
             Static32.method880(0, false);
         }

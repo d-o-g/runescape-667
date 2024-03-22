@@ -52,7 +52,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
         super.x = arg4;
         this.aBoolean183 = arg7;
         this.aBoolean180 = arg9;
-        this.aBoolean181 = arg0.method8006() && arg1.hardShadow && !this.aBoolean183 && ClientOptions.instance.aClass57_Sub12_1.method4364() != 0;
+        this.aBoolean181 = arg0.method8006() && arg1.hardShadow && !this.aBoolean183 && ClientOptions.instance.hardShadows.value() != 0;
         @Pc(68) int local68 = 2048;
         if (this.aBoolean180) {
             local68 |= 0x10000;

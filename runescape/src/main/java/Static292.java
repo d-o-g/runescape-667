@@ -11,9 +11,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static292 {
 
-    @OriginalMember(owner = "client!jea", name = "m", descriptor = "Lclient!pw;")
-    public static Node_Sub43 aClass2_Sub43_2;
-
     @OriginalMember(owner = "client!jea", name = "l", descriptor = "[I")
     public static int[] anIntArray387 = new int[1];
 
@@ -84,8 +81,8 @@ public final class Static292 {
         Static524.aServerConnection_3 = ConnectionManager.LOBBY;
         Static299.anInt4825 = 1;
         @Pc(16) String local16 = null;
-        if (Static265.aByteArray44 != null) {
-            @Pc(23) Packet local23 = new Packet(Static265.aByteArray44);
+        if (client.ssKey != null) {
+            @Pc(23) Packet local23 = new Packet(client.ssKey);
             local16 = Static287.method4154(local23.g8());
             Static430.aLong209 = local23.g8();
         }

@@ -42,7 +42,7 @@ public final class Class57_Sub18 extends Class57 {
     protected int method8354() {
         if (super.aClass2_Sub34_34.method5111()) {
             return 2;
-        } else if (super.aClass2_Sub34_34.aClass57_Sub29_1.method7913() && Static463.method6280(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915())) {
+        } else if (super.aClass2_Sub34_34.toolkit.method7913() && Static463.method6280(super.aClass2_Sub34_34.toolkit.value())) {
             return 1;
         } else {
             return 0;

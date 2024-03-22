@@ -44,7 +44,7 @@ public final class Static709 {
         @Pc(27) LoadState local27 = Static473.aLoadState_22;
         @Pc(35) int local35 = Static523.method3448();
         if (Static473.aLoadState_22 == local27) {
-            Static579.aString106 = Static473.aLoadState_22.stalledText.localise(Static51.language);
+            Static579.aString106 = Static473.aLoadState_22.stalledText.localise(client.language);
             if (Static473.aLoadState_22.updatePercentage) {
                 Static376.anInt5919 = Static473.aLoadState_22.startPercentage + local35 * (Static473.aLoadState_22.endPercentage - Static473.aLoadState_22.startPercentage) / 100;
             }
@@ -55,7 +55,7 @@ public final class Static709 {
             Static449.aClass364_1 = null;
             MainLogicManager.setStep(3);
         } else {
-            Static579.aString106 = local27.changedText.localise(Static51.language);
+            Static579.aString106 = local27.changedText.localise(client.language);
             if (Static473.aLoadState_22.displayPercentage) {
                 Static579.aString106 = Static579.aString106 + local27.endPercentage + "%";
             }
@@ -560,10 +560,10 @@ public final class Static709 {
                                             for (@Pc(2281) Class8_Sub4_Sub1 local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.first(); local2281 != null; local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.next()) {
                                                 if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.anInt6433) {
                                                     if (local2281.aShort74 > 0) {
-                                                        Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGIN.localise(Static51.language), "", 0, "", "", 5);
+                                                        Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGIN.localise(client.language), "", 0, "", "", 5);
                                                     }
                                                     if (local2281.aShort74 == 0) {
-                                                        Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGOUT.localise(Static51.language), "", 0, "", "", 5);
+                                                        Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGOUT.localise(client.language), "", 0, "", "", 5);
                                                     }
                                                     local2281.unlink();
                                                 }

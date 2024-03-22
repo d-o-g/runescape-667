@@ -1,5 +1,6 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
+import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.io.Files;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
@@ -130,8 +131,8 @@ public final class Static231 {
                         return;
                     }
                     if (arg2.equalsIgnoreCase("displayfps")) {
-                        Static105.displayFps = !Static105.displayFps;
-                        if (!Static105.displayFps) {
+                        client.displayFps = !client.displayFps;
+                        if (!client.displayFps) {
                             Static79.method1579("FPS off");
                             return;
                         }
@@ -155,7 +156,7 @@ public final class Static231 {
                         }
                         break label721;
                     }
-                    Static79.method1579("Heap: " + Static369.anInt4265 + "MB");
+                    Static79.method1579("Heap: " + ClientOptions.maxmemory + "MB");
                     return;
                 }
                 Static79.method1579("commands - This command");
@@ -167,10 +168,10 @@ public final class Static231 {
                 return;
             }
         } catch (@Pc(323) Exception local323) {
-            Static79.method1579(LocalisedText.DEBUG_CONSOLE_ERROR.localise(Static51.language));
+            Static79.method1579(LocalisedText.DEBUG_CONSOLE_ERROR.localise(client.language));
             return;
         }
-        if (Static446.aClass355_5 != Static2.aClass355_1 || Static608.staffModLevel >= 2) {
+        if (ModeWhere.LIVE != client.modeWhere || Static608.staffModLevel >= 2) {
             if (arg2.equalsIgnoreCase("errortest")) {
                 throw new RuntimeException();
             }
@@ -192,18 +193,18 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("fpson")) {
-                    Static105.displayFps = true;
+                    client.displayFps = true;
                     Static79.method1579("fps debug enabled");
                     return;
                 }
                 if (arg2.equalsIgnoreCase("fpsoff")) {
-                    Static105.displayFps = false;
+                    client.displayFps = false;
                     Static79.method1579("fps debug disabled");
                     return;
                 }
                 if (arg2.equals("systemmem")) {
                     try {
-                        Static79.method1579("System memory: " + jagmisc.getAvailablePhysicalMemory() / 1048576L + "/" + Static292.aClass2_Sub43_2.anInt7610 + "Mb");
+                        Static79.method1579("System memory: " + jagmisc.getAvailablePhysicalMemory() / 1048576L + "/" + SystemInfo.instance.totalMemory + "Mb");
                         return;
                     } catch (@Pc(474) Throwable local474) {
                         return;
@@ -331,7 +332,7 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk0")) {
                     Static32.method880(0, false);
-                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 0) {
+                    if (ClientOptions.instance.toolkit.value() == 0) {
                         Static79.method1579("Entered tk0");
                         ClientOptions.instance.method5104(0, ClientOptions.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
@@ -343,7 +344,7 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk1")) {
                     Static32.method880(1, false);
-                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 1) {
+                    if (ClientOptions.instance.toolkit.value() == 1) {
                         Static79.method1579("Entered tk1");
                         ClientOptions.instance.method5104(1, ClientOptions.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
@@ -355,7 +356,7 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk2")) {
                     Static32.method880(2, false);
-                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 2) {
+                    if (ClientOptions.instance.toolkit.value() == 2) {
                         Static79.method1579("Entered tk2");
                         ClientOptions.instance.method5104(2, ClientOptions.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
@@ -367,7 +368,7 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk3")) {
                     Static32.method880(3, false);
-                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() != 3) {
+                    if (ClientOptions.instance.toolkit.value() != 3) {
                         Static79.method1579("Failed to enter tk3");
                         return;
                     }
@@ -379,7 +380,7 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk5")) {
                     Static32.method880(5, false);
-                    if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 5) {
+                    if (ClientOptions.instance.toolkit.value() == 5) {
                         Static79.method1579("Entered tk5");
                         ClientOptions.instance.method5104(5, ClientOptions.instance.aClass57_Sub29_2);
                         Static666.method8693(1);
@@ -395,7 +396,7 @@ public final class Static231 {
                         return;
                     }
                     local501 = StringTools.parseDecimal(arg2.substring(6));
-                    if (local501 >= 0 && local501 <= Static461.method6268(Static369.anInt4265)) {
+                    if (local501 >= 0 && local501 <= Static461.method6268(ClientOptions.maxmemory)) {
                         ClientOptions.instance.method5104(local501, ClientOptions.instance.aClass57_Sub5_1);
                         Static666.method8693(1);
                         Static503.aBoolean578 = false;
@@ -653,11 +654,11 @@ public final class Static231 {
                 }
                 if (arg2.equals("autosetup")) {
                     Static519.method6831();
-                    Static79.method1579("Complete. com.jagex.graphics.Toolkit now: " + ClientOptions.instance.aClass57_Sub29_1.method7915());
+                    Static79.method1579("Complete. com.jagex.graphics.Toolkit now: " + ClientOptions.instance.toolkit.value());
                     return;
                 }
                 if (arg2.equals("errormessage")) {
-                    Static79.method1579(client.aClient1.method1648());
+                    Static79.method1579(client.aClient1.getErrorTrace());
                     return;
                 }
                 if (arg2.equals("heapdump")) {
@@ -802,17 +803,17 @@ public final class Static231 {
                     local2836.buffer.pjstr(arg2);
                     ConnectionManager.GAME.send(local2836);
                 }
-                if (arg2.startsWith("fps ") && Static2.aClass355_1 != Static446.aClass355_5) {
+                if (arg2.startsWith("fps ") && client.modeWhere != ModeWhere.LIVE) {
                     Static724.method9453(StringTools.parseDecimal(arg2.substring(4)));
                     return;
                 }
             } catch (@Pc(2894) Exception local2894) {
-                Static79.method1579(LocalisedText.DEBUG_CONSOLE_ERROR.localise(Static51.language));
+                Static79.method1579(LocalisedText.DEBUG_CONSOLE_ERROR.localise(client.language));
                 return;
             }
         }
         if (MainLogicManager.step != 11) {
-            Static79.method1579(LocalisedText.DEBUG_CONSOLE_UNKNOWNCOMMAND.localise(Static51.language) + arg2);
+            Static79.method1579(LocalisedText.DEBUG_CONSOLE_UNKNOWNCOMMAND.localise(client.language) + arg2);
         }
     }
 
@@ -822,7 +823,7 @@ public final class Static231 {
             return;
         }
         if (Static436.anInt3849 >= 100) {
-            Static67.method6098(LocalisedText.IGNORELISTFULL.localise(Static51.language));
+            Static67.method6098(LocalisedText.IGNORELISTFULL.localise(client.language));
             return;
         }
         @Pc(27) String local27 = Static390.method5492(arg1);
@@ -833,13 +834,13 @@ public final class Static231 {
         for (@Pc(33) int local33 = 0; local33 < Static436.anInt3849; local33++) {
             @Pc(40) String local40 = Static390.method5492(Static632.aStringArray44[local33]);
             if (local40 != null && local40.equals(local27)) {
-                Static67.method6098(arg1 + LocalisedText.IGNORELISTDUPE.localise(Static51.language));
+                Static67.method6098(arg1 + LocalisedText.IGNORELISTDUPE.localise(client.language));
                 return;
             }
             if (Static10.aStringArray1[local33] != null) {
                 local76 = Static390.method5492(Static10.aStringArray1[local33]);
                 if (local76 != null && local76.equals(local27)) {
-                    Static67.method6098(arg1 + LocalisedText.IGNORELISTDUPE.localise(Static51.language));
+                    Static67.method6098(arg1 + LocalisedText.IGNORELISTDUPE.localise(client.language));
                     return;
                 }
             }
@@ -847,19 +848,19 @@ public final class Static231 {
         for (@Pc(106) int local106 = 0; local106 < Static327.anInt5392; local106++) {
             local76 = Static390.method5492(Static330.aStringArray25[local106]);
             if (local76 != null && local76.equals(local27)) {
-                Static67.method6098(LocalisedText.REMOVEFRIEND1.localise(Static51.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(Static51.language));
+                Static67.method6098(LocalisedText.REMOVEFRIEND1.localise(client.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(client.language));
                 return;
             }
             if (Static572.aStringArray42[local106] != null) {
                 @Pc(154) String local154 = Static390.method5492(Static572.aStringArray42[local106]);
                 if (local154 != null && local154.equals(local27)) {
-                    Static67.method6098(LocalisedText.REMOVEFRIEND1.localise(Static51.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(Static51.language));
+                    Static67.method6098(LocalisedText.REMOVEFRIEND1.localise(client.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(client.language));
                     return;
                 }
             }
         }
         if (Static390.method5492(PlayerEntity.self.accountName).equals(local27)) {
-            Static67.method6098(LocalisedText.IGNORECANTADDSELF.localise(Static51.language));
+            Static67.method6098(LocalisedText.IGNORECANTADDSELF.localise(client.language));
             return;
         }
         @Pc(216) ServerConnection local216 = Static668.method8701();

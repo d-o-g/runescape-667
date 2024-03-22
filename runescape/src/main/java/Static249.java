@@ -89,7 +89,7 @@ public final class Static249 {
         if (arg0 == local13) {
             return false;
         } else {
-            ClientOptions.instance.method5104(arg0 ? 1 : 0, ClientOptions.instance.aClass57_Sub20_1);
+            ClientOptions.instance.method5104(arg0 ? 1 : 0, ClientOptions.instance.bloom);
             Static666.method8693(1);
             return true;
         }

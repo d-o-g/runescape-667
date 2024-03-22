@@ -40,13 +40,13 @@ public final class Static76 {
                     Static580.anInt8621 = -5;
                     return;
                 }
-                Static660.aConnectionInfo_4.rotateMethods();
+                Login.lobbyInfo.rotateMethods();
                 Static6.anInt95 = 1;
                 Static654.anInt9739 = 0;
                 Static720.anInt10865++;
             }
             if (Static6.anInt95 == 1) {
-                ConnectionManager.LOBBY.gameSocketRequest = Static660.aConnectionInfo_4.openSocket(SignLink.instance);
+                ConnectionManager.LOBBY.gameSocketRequest = Login.lobbyInfo.openSocket(SignLink.instance);
                 Static6.anInt95 = 2;
             }
             if (Static6.anInt95 == 2) {
@@ -71,7 +71,7 @@ public final class Static76 {
         } catch (@Pc(148) IOException local148) {
             ConnectionManager.LOBBY.close();
             if (Static720.anInt10865 < 2) {
-                Static660.aConnectionInfo_4.rotateMethods();
+                Login.lobbyInfo.rotateMethods();
                 Static720.anInt10865++;
                 Static654.anInt9739 = 0;
                 Static6.anInt95 = 1;

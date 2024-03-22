@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static527 {
 
-    @OriginalMember(owner = "client!qka", name = "f", descriptor = "Lclient!lja;")
-    public static ConnectionInfo aConnectionInfo_3;
-
     @OriginalMember(owner = "client!qka", name = "i", descriptor = "[Lclient!nba;")
     public static final Class254[] aClass254Array1 = new Class254[8];
 

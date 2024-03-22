@@ -52,7 +52,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
         this.aByte77 = (byte) arg10;
         this.aBoolean350 = arg1.interactivity != LocInteractivity.NONINTERACTIVE && !arg7;
         this.aBoolean348 = arg7;
-        this.aBoolean349 = arg0.method8006() && arg1.hardShadow && !this.aBoolean348 && ClientOptions.instance.aClass57_Sub12_1.method4364() != 0;
+        this.aBoolean349 = arg0.method8006() && arg1.hardShadow && !this.aBoolean348 && ClientOptions.instance.hardShadows.value() != 0;
         @Pc(81) ModelAndShadow local81 = this.method4045(arg0, 2048, this.aBoolean349);
         if (local81 != null) {
             this.model = local81.model;

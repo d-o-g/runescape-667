@@ -240,7 +240,7 @@ public final class WorldMap {
             @Pc(57) int y = (childY + (childHeight / 2)) - 20 - 18;
             toolkit.method7976(x - 152, y, 304, 34, client.OUTLINE_COLOURS[client.colourId].getRGB(), 0);
             toolkit.aa(x - 150, y + 2, loadingPercent * 3, 30, client.FILL_COLOURS[client.colourId].getRGB(), 0);
-            Fonts.b12.renderCentre(-1, x, LocalisedText.LOADINGDOTDOTDOT.localise(Static51.language), y + 20, Static399.aColorArray2[client.colourId].getRGB());
+            Fonts.b12.renderCentre(-1, x, LocalisedText.LOADINGDOTDOTDOT.localise(client.language), y + 20, Static399.aColorArray2[client.colourId].getRGB());
         } else {
             @Pc(114) int local114 = anInt2809 - (int) ((float) childWidth / currentZoom);
             @Pc(38) int z = anInt9389 + (int) ((float) childHeight / currentZoom);
@@ -266,7 +266,7 @@ public final class WorldMap {
                 }
             }
 
-            if (Static105.displayFps) {
+            if (client.displayFps) {
                 @Pc(250) int textX = childWidth + childX - 5;
                 @Pc(256) int textY = childHeight + childY - 8;
                 Fonts.p12.render(textX, "Fps:" + Static652.currentFps, 0xFFFF00, -1, textY);
@@ -1498,10 +1498,10 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!bw", name = "a", descriptor = "(IZIII)V")
     public static void method1293(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        if (ClientOptions.instance.aClass57_Sub29_1.method7915() == 0) {
+        if (ClientOptions.instance.toolkit.value() == 0) {
             Static668.method8700(false);
         } else {
-            Static114.anInt2256 = ClientOptions.instance.aClass57_Sub29_1.method7915();
+            Static114.anInt2256 = ClientOptions.instance.toolkit.value();
             Static32.method880(0, true);
         }
         Static696.aBoolean784 = arg1;

@@ -106,7 +106,7 @@ public final class Static57 {
             }
         }
         if (!local22) {
-            Static67.method6098(LocalisedText.UNABLETOFIND.localise(Static51.language) + arg0);
+            Static67.method6098(LocalisedText.UNABLETOFIND.localise(client.language) + arg0);
         }
         if (InterfaceManager.targeting) {
             InterfaceManager.endTargetMode();

@@ -13,9 +13,6 @@ public final class Static323 {
     @OriginalMember(owner = "client!kda", name = "h", descriptor = "I")
     public static int anInt5120;
 
-    @OriginalMember(owner = "client!kda", name = "j", descriptor = "I")
-    public static int anInt5121 = 0;
-
     @OriginalMember(owner = "client!kda", name = "a", descriptor = "()V")
     public static void method4624() {
         for (@Pc(1) int local1 = Static296.anInt4792; local1 < Static299.anInt4824; local1++) {

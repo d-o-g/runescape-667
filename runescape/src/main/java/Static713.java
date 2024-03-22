@@ -1,12 +1,8 @@
-import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static713 {
-
-    @OriginalMember(owner = "client!wk", name = "g", descriptor = "Lclient!tka;")
-    public static final Class355 aClass355_8 = new Class355("WTQA", "office", "_qa", 2);
 
     @OriginalMember(owner = "client!wk", name = "a", descriptor = "(IZ)V")
     public static void method9331(@OriginalArg(1) boolean arg0) {
@@ -23,52 +19,6 @@ public final class Static713 {
             Static74.aToolkit_4.DA(Static354.anInt5759, Static391.anInt6134, Static434.anInt6565, Static646.anInt9621);
             Static278.method4068(Static246.aDouble13);
         }
-    }
-
-    @OriginalMember(owner = "client!wk", name = "a", descriptor = "(BLjava/lang/String;)Ljava/lang/String;")
-    public static String method9333(@OriginalArg(1) String arg0) {
-        @Pc(9) StringBuffer local9 = new StringBuffer();
-        @Pc(12) int local12 = arg0.length();
-        for (@Pc(14) int local14 = 0; local14 < local12; local14++) {
-            @Pc(29) char local29 = arg0.charAt(local14);
-            if (local29 == '%' && local12 > local14 + 2) {
-                local29 = arg0.charAt(local14 + 1);
-                @Pc(84) int local84;
-                if (local29 >= '0' && local29 <= '9') {
-                    local84 = local29 - '0';
-                } else if (local29 >= 'a' && local29 <= 'f') {
-                    local84 = local29 + 10 - 97;
-                } else {
-                    if (local29 < 'A' || local29 > 'F') {
-                        local9.append('%');
-                        continue;
-                    }
-                    local84 = local29 + 10 - 'A';
-                }
-                local29 = arg0.charAt(local14 + 2);
-                local84 *= 16;
-                if (local29 >= '0' && local29 <= '9') {
-                    local84 += local29 - 48;
-                } else if (local29 >= 'a' && local29 <= 'f') {
-                    local84 += local29 + 10 - 97;
-                } else {
-                    if (local29 < 'A' || local29 > 'F') {
-                        local9.append('%');
-                        continue;
-                    }
-                    local84 += local29 + 10 - 65;
-                }
-                local14 += 2;
-                if (local84 != 0 && Cp1252.contains((byte) local84)) {
-                    local9.append(Cp1252.decodeChar((byte) local84));
-                }
-            } else if (local29 == '+') {
-                local9.append(' ');
-            } else {
-                local9.append(local29);
-            }
-        }
-        return local9.toString();
     }
 
 }

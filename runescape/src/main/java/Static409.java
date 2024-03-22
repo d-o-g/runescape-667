@@ -20,9 +20,9 @@ public final class Static409 {
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(II[[[Lclient!pha;IIZ)Z")
     public static boolean method5656(@OriginalArg(1) int arg0, @OriginalArg(2) Class291[][][] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
         @Pc(21) byte local21 = arg4 ? 1 : (byte) (Static198.anInt3276 & 0xFF);
-        if (Static328.aByteArrayArrayArray4[Static394.anInt6176][arg3][arg0] == local21) {
+        if (Static328.aByteArrayArrayArray4[Camera.renderingLevel][arg3][arg0] == local21) {
             return false;
-        } else if ((Static280.tileFlags[Static394.anInt6176][arg3][arg0] & 0x4) == 0) {
+        } else if ((Static280.tileFlags[Camera.renderingLevel][arg3][arg0] & 0x4) == 0) {
             return false;
         } else {
             @Pc(52) byte local52 = 0;
@@ -30,7 +30,7 @@ public final class Static409 {
             @Pc(58) int local58 = 0;
             @Pc(61) int local61 = local52 + 1;
             Static98.anIntArray176[0] = arg0;
-            Static328.aByteArrayArrayArray4[Static394.anInt6176][arg3][arg0] = local21;
+            Static328.aByteArrayArrayArray4[Camera.renderingLevel][arg3][arg0] = local21;
             while (local58 != local61) {
                 @Pc(78) int local78 = Static278.anIntArray351[local58] & 0xFFFF;
                 @Pc(86) int local86 = Static278.anIntArray351[local58] >> 16 & 0xFF;
@@ -39,7 +39,7 @@ public final class Static409 {
                 @Pc(108) int local108 = Static98.anIntArray176[local58] >> 16 & 0xFF;
                 local58 = local58 + 1 & 0xFFF;
                 @Pc(116) boolean local116 = false;
-                if ((Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0) {
+                if ((Static280.tileFlags[Camera.renderingLevel][local78][local100] & 0x4) == 0) {
                     local116 = true;
                 }
                 @Pc(133) boolean local133 = false;
@@ -48,7 +48,7 @@ public final class Static409 {
                 @Pc(235) int local235;
                 if (arg1 != null) {
                     label237:
-                    for (local139 = Static394.anInt6176 + 1; local139 <= 3; local139++) {
+                    for (local139 = Camera.renderingLevel + 1; local139 <= 3; local139++) {
                         if (arg1[local139] != null && (Static280.tileFlags[local139][local78][local100] & 0x8) == 0) {
                             @Pc(341) PositionEntity local341;
                             @Pc(351) int local351;
@@ -111,7 +111,7 @@ public final class Static409 {
                     }
                 }
                 if (local133) {
-                    local139 = Static246.activeGround[Static394.anInt6176 + 1].getHeight(local100, local78);
+                    local139 = Static246.activeGround[Camera.renderingLevel + 1].getHeight(local100, local78);
                     if (Static482.anIntArray588[arg2] < local139) {
                         Static482.anIntArray588[arg2] = local139;
                     }
@@ -129,58 +129,58 @@ public final class Static409 {
                     }
                 }
                 if (!local116) {
-                    if (local78 >= 1 && local21 != Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100]) {
+                    if (local78 >= 1 && local21 != Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 - 1][local100]) {
                         Static278.anIntArray351[local61] = 0xD3000000 | 0x120000 | local78 - 1;
                         Static98.anIntArray176[local61] = local100 | 0x130000;
-                        Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100] = local21;
+                        Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 - 1][local100] = local21;
                         local61 = local61 + 1 & 0xFFF;
                     }
                     local100++;
                     if (local100 < Static501.mapHeight) {
-                        if (local78 - 1 >= 0 && local21 != Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100] && (Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Static394.anInt6176][local78 - 1][local100 - 1] & 0x4) == 0) {
+                        if (local78 - 1 >= 0 && local21 != Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 - 1][local100] && (Static280.tileFlags[Camera.renderingLevel][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Camera.renderingLevel][local78 - 1][local100 - 1] & 0x4) == 0) {
                             Static278.anIntArray351[local61] = local78 - 1 | 0x120000 | 0x52000000;
                             Static98.anIntArray176[local61] = local100 | 0x130000;
                             local61 = local61 + 1 & 0xFFF;
-                            Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100] = local21;
+                            Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 - 1][local100] = local21;
                         }
-                        if (local21 != Static328.aByteArrayArrayArray4[Static394.anInt6176][local78][local100]) {
+                        if (local21 != Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78][local100]) {
                             Static278.anIntArray351[local61] = 0x13000000 | 0x520000 | local78;
                             Static98.anIntArray176[local61] = local100 | 0x530000;
-                            Static328.aByteArrayArrayArray4[Static394.anInt6176][local78][local100] = local21;
+                            Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78][local100] = local21;
                             local61 = local61 + 1 & 0xFFF;
                         }
-                        if (Static720.mapWidth > local78 + 1 && local21 != Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] && (Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Static394.anInt6176][local78 + 1][local100 - 1] & 0x4) == 0) {
+                        if (Static720.mapWidth > local78 + 1 && local21 != Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 + 1][local100] && (Static280.tileFlags[Camera.renderingLevel][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Camera.renderingLevel][local78 + 1][local100 - 1] & 0x4) == 0) {
                             Static278.anIntArray351[local61] = 0x92000000 | 0x520000 | local78 + 1;
                             Static98.anIntArray176[local61] = local100 | 0x530000;
-                            Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] = local21;
+                            Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 + 1][local100] = local21;
                             local61 = local61 + 1 & 0xFFF;
                         }
                     }
                     local100--;
-                    if (local78 + 1 < Static720.mapWidth && Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] != local21) {
+                    if (local78 + 1 < Static720.mapWidth && Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 + 1][local100] != local21) {
                         Static278.anIntArray351[local61] = local78 + 1 | 0x920000 | 0x53000000;
                         Static98.anIntArray176[local61] = local100 | 0x930000;
-                        Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] = local21;
+                        Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 + 1][local100] = local21;
                         local61 = local61 + 1 & 0xFFF;
                     }
                     local100--;
                     if (local100 >= 0) {
-                        if (local78 - 1 >= 0 && Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100] != local21 && (Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Static394.anInt6176][local78 - 1][local100 + 1] & 0x4) == 0) {
+                        if (local78 - 1 >= 0 && Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 - 1][local100] != local21 && (Static280.tileFlags[Camera.renderingLevel][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Camera.renderingLevel][local78 - 1][local100 + 1] & 0x4) == 0) {
                             Static278.anIntArray351[local61] = local78 - 1 | 0xD20000 | 0x12000000;
                             Static98.anIntArray176[local61] = local100 | 0xD30000;
                             local61 = local61 + 1 & 0xFFF;
-                            Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 - 1][local100] = local21;
+                            Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 - 1][local100] = local21;
                         }
-                        if (Static328.aByteArrayArrayArray4[Static394.anInt6176][local78][local100] != local21) {
+                        if (Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78][local100] != local21) {
                             Static278.anIntArray351[local61] = 0x93000000 | 0xD20000 | local78;
                             Static98.anIntArray176[local61] = local100 | 0xD30000;
-                            Static328.aByteArrayArrayArray4[Static394.anInt6176][local78][local100] = local21;
+                            Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78][local100] = local21;
                             local61 = local61 + 1 & 0xFFF;
                         }
-                        if (local78 + 1 < Static720.mapWidth && Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] != local21 && (Static280.tileFlags[Static394.anInt6176][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Static394.anInt6176][local78 + 1][local100 + 1] & 0x4) == 0) {
+                        if (local78 + 1 < Static720.mapWidth && Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 + 1][local100] != local21 && (Static280.tileFlags[Camera.renderingLevel][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Camera.renderingLevel][local78 + 1][local100 + 1] & 0x4) == 0) {
                             Static278.anIntArray351[local61] = local78 + 1 | 0x920000 | 0xD2000000;
                             Static98.anIntArray176[local61] = local100 | 0x930000;
-                            Static328.aByteArrayArrayArray4[Static394.anInt6176][local78 + 1][local100] = local21;
+                            Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 + 1][local100] = local21;
                             local61 = local61 + 1 & 0xFFF;
                         }
                     }

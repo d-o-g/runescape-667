@@ -7,9 +7,6 @@ public final class Static446 {
     @OriginalMember(owner = "client!oaa", name = "p", descriptor = "[[[I")
     public static int[][][] anIntArrayArrayArray9;
 
-    @OriginalMember(owner = "client!oaa", name = "c", descriptor = "Lclient!tka;")
-    public static final Class355 aClass355_5 = new Class355("LIVE", "", "", 0);
-
     @OriginalMember(owner = "client!oaa", name = "n", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___170 = new ServerProt(87, -2);
 

@@ -42,7 +42,7 @@ public final class Static296 {
     @OriginalMember(owner = "client!jh", name = "b", descriptor = "(I)V")
     public static void updateFeatureMask() {
         @Pc(5) int featureMask = 0;
-        if (ClientOptions.instance.lightDetail.getValue() == 1) {
+        if (ClientOptions.instance.lightDetail.value() == 1) {
             featureMask |= 0x1;
             featureMask |= 0x10;
             featureMask |= 0x20;

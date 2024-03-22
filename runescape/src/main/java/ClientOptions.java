@@ -15,6 +15,12 @@ public final class ClientOptions extends Node {
     @OriginalMember(owner = "client!mk", name = "d", descriptor = "Lclient!kv;")
     public static ClientOptions instance;
 
+    @OriginalMember(owner = "client!lla", name = "a", descriptor = "I")
+    public static int maxmemory = 64;
+
+    @OriginalMember(owner = "client!pk", name = "m", descriptor = "I")
+    public static int cpucount = 1;
+
     @OriginalMember(owner = "client!kv", name = "S", descriptor = "Lclient!hr;")
     public Class57_Sub11 aClass57_Sub11_1;
 
@@ -31,7 +37,7 @@ public final class ClientOptions extends Node {
     public Class57_Sub14 aClass57_Sub14_1;
 
     @OriginalMember(owner = "client!kv", name = "ib", descriptor = "Lclient!ro;")
-    public Class57_Sub26 aClass57_Sub26_1;
+    public Class57_Sub26 waterDetail;
 
     @OriginalMember(owner = "client!kv", name = "B", descriptor = "Lclient!dc;")
     public Class57_Sub2 skydetail;
@@ -55,13 +61,13 @@ public final class ClientOptions extends Node {
     public Class57_Sub8 aClass57_Sub8_1;
 
     @OriginalMember(owner = "client!kv", name = "K", descriptor = "Lclient!jh;")
-    public Class57_Sub12 aClass57_Sub12_1;
+    public Class57_Sub12 hardShadows;
 
     @OriginalMember(owner = "client!kv", name = "db", descriptor = "Lclient!jha;")
     public Class57_Sub13 aClass57_Sub13_1;
 
     @OriginalMember(owner = "client!kv", name = "v", descriptor = "Lclient!jha;")
-    public Class57_Sub13 aClass57_Sub13_2;
+    public Class57_Sub13 antialiasingMode;
 
     @OriginalMember(owner = "client!kv", name = "k", descriptor = "Lclient!cc;")
     public Class57_Sub1 screenSize;
@@ -106,7 +112,7 @@ public final class ClientOptions extends Node {
     public Class57_Sub28 aClass57_Sub28_1;
 
     @OriginalMember(owner = "client!kv", name = "l", descriptor = "Lclient!oc;")
-    public Class57_Sub20 aClass57_Sub20_1;
+    public Class57_Sub20 bloom;
 
     @OriginalMember(owner = "client!kv", name = "L", descriptor = "Lclient!g;")
     public Class57_Sub7 aClass57_Sub7_1;
@@ -136,21 +142,21 @@ public final class ClientOptions extends Node {
     public final Class221 aClass221_1;
 
     @OriginalMember(owner = "client!kv", name = "Z", descriptor = "Lclient!tba;")
-    public Class57_Sub29 aClass57_Sub29_1;
+    public Class57_Sub29 toolkit;
 
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ul;I)V")
     public ClientOptions(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1) {
         this.aModeGame_3 = arg0;
-        this.aClass221_1 = new Class221(SignLink.instance.signed, Static369.anInt4265, Static495.anInt7422, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
-        this.aClass57_Sub29_1 = new Class57_Sub29(arg1, this);
+        this.aClass221_1 = new Class221(SignLink.instance.signed, maxmemory, cpucount, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
+        this.toolkit = new Class57_Sub29(arg1, this);
         this.method5103(true);
     }
 
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ge;Lclient!ul;I)V")
     public ClientOptions(@OriginalArg(0) Packet arg0, @OriginalArg(1) ModeGame arg1, @OriginalArg(2) int arg2) {
         this.aModeGame_3 = arg1;
-        this.aClass221_1 = new Class221(SignLink.instance.signed, Static369.anInt4265, Static495.anInt7422, SignLink.osArchRaw.indexOf("arm") != -1);
-        this.aClass57_Sub29_1 = new Class57_Sub29(arg2, this);
+        this.aClass221_1 = new Class221(SignLink.instance.signed, maxmemory, cpucount, SignLink.osArchRaw.indexOf("arm") != -1);
+        this.toolkit = new Class57_Sub29(arg2, this);
         this.method5102(arg0);
     }
 
@@ -168,9 +174,9 @@ public final class ClientOptions extends Node {
                 }
                 this.method5103(false);
             } else if (local24 <= 25) {
-                this.aClass57_Sub13_2 = new Class57_Sub13(arg0.g1(), this);
-                this.aClass57_Sub13_1 = new Class57_Sub13(this.aClass57_Sub13_2.method4373(), this);
-                this.aClass57_Sub20_1 = new Class57_Sub20(arg0.g1(), this);
+                this.antialiasingMode = new Class57_Sub13(arg0.g1(), this);
+                this.aClass57_Sub13_1 = new Class57_Sub13(this.antialiasingMode.value(), this);
+                this.bloom = new Class57_Sub20(arg0.g1(), this);
                 this.aClass57_Sub22_1 = new Class57_Sub22(arg0.g1(), this);
                 this.aClass57_Sub5_1 = new Class57_Sub5(arg0.g1(), this);
                 this.aClass57_Sub8_1 = new Class57_Sub8(arg0.g1(), this);
@@ -179,7 +185,7 @@ public final class ClientOptions extends Node {
                 this.groundDecor = new Class57_Sub6(arg0.g1(), this);
                 this.aClass57_Sub27_1 = new Class57_Sub27(arg0.g1(), this);
                 this.lightDetail = new Class57_Sub24(arg0.g1(), this);
-                this.aClass57_Sub12_1 = new Class57_Sub12(arg0.g1(), this);
+                this.hardShadows = new Class57_Sub12(arg0.g1(), this);
                 if (local24 >= 24) {
                     this.aClass57_Sub3_1 = new Class57_Sub3(arg0.g1(), this);
                 }
@@ -194,10 +200,10 @@ public final class ClientOptions extends Node {
                 this.aClass57_Sub9_1 = new Class57_Sub9(arg0.g1(), this);
                 this.textures = new Class57_Sub30(arg0.g1(), this);
                 this.aClass57_Sub29_2 = new Class57_Sub29(arg0.g1(), this);
-                this.aClass57_Sub29_1 = new Class57_Sub29(this.aClass57_Sub29_2.method7915(), this);
+                this.toolkit = new Class57_Sub29(this.aClass57_Sub29_2.value(), this);
                 this.aClass57_Sub19_1 = new Class57_Sub19(arg0.g1(), this);
                 this.animatingBackground = new Class57_Sub19(this.aClass57_Sub19_1.value(), this);
-                this.aClass57_Sub26_1 = new Class57_Sub26(arg0.g1(), this);
+                this.waterDetail = new Class57_Sub26(arg0.g1(), this);
                 this.screenSize = new Class57_Sub1(arg0.g1(), this);
                 this.aClass57_Sub1_2 = new Class57_Sub1(this.screenSize.getValue(), this);
                 this.aClass57_Sub14_1 = new Class57_Sub14(arg0.g1(), this);
@@ -221,14 +227,14 @@ public final class ClientOptions extends Node {
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(ZB)V")
     public void method5103(@OriginalArg(0) boolean arg0) {
-        if (arg0 || this.aClass57_Sub13_2 == null) {
-            this.aClass57_Sub13_2 = new Class57_Sub13(this);
+        if (arg0 || this.antialiasingMode == null) {
+            this.antialiasingMode = new Class57_Sub13(this);
         }
         if (arg0 || this.aClass57_Sub13_1 == null) {
-            this.aClass57_Sub13_1 = new Class57_Sub13(this.aClass57_Sub13_2.method4373(), this);
+            this.aClass57_Sub13_1 = new Class57_Sub13(this.antialiasingMode.value(), this);
         }
-        if (arg0 || this.aClass57_Sub20_1 == null) {
-            this.aClass57_Sub20_1 = new Class57_Sub20(this);
+        if (arg0 || this.bloom == null) {
+            this.bloom = new Class57_Sub20(this);
         }
         if (arg0 || this.aClass57_Sub22_1 == null) {
             this.aClass57_Sub22_1 = new Class57_Sub22(this);
@@ -254,8 +260,8 @@ public final class ClientOptions extends Node {
         if (arg0 || this.lightDetail == null) {
             this.lightDetail = new Class57_Sub24(this);
         }
-        if (arg0 || this.aClass57_Sub12_1 == null) {
-            this.aClass57_Sub12_1 = new Class57_Sub12(this);
+        if (arg0 || this.hardShadows == null) {
+            this.hardShadows = new Class57_Sub12(this);
         }
         if (arg0 || this.aClass57_Sub3_1 == null) {
             this.aClass57_Sub3_1 = new Class57_Sub3(this);
@@ -287,8 +293,8 @@ public final class ClientOptions extends Node {
         if (arg0 || this.aClass57_Sub29_2 == null) {
             this.aClass57_Sub29_2 = new Class57_Sub29(this);
         }
-        if (arg0 || this.aClass57_Sub29_1 == null) {
-            this.aClass57_Sub29_1 = new Class57_Sub29(this.aClass57_Sub29_2.method7915(), this);
+        if (arg0 || this.toolkit == null) {
+            this.toolkit = new Class57_Sub29(this.aClass57_Sub29_2.value(), this);
         }
         if (arg0 || this.aClass57_Sub19_1 == null) {
             this.aClass57_Sub19_1 = new Class57_Sub19(this);
@@ -296,8 +302,8 @@ public final class ClientOptions extends Node {
         if (arg0 || this.animatingBackground == null) {
             this.animatingBackground = new Class57_Sub19(this.aClass57_Sub19_1.value(), this);
         }
-        if (arg0 || this.aClass57_Sub26_1 == null) {
-            this.aClass57_Sub26_1 = new Class57_Sub26(this);
+        if (arg0 || this.waterDetail == null) {
+            this.waterDetail = new Class57_Sub26(this);
         }
         if (arg0 || this.screenSize == null) {
             this.screenSize = new Class57_Sub1(this);
@@ -385,8 +391,8 @@ public final class ClientOptions extends Node {
     public Packet method5110() {
         @Pc(9) Packet local9 = new Packet(Static368.method5269());
         local9.p1(25);
-        local9.p1(this.aClass57_Sub13_2.method4373());
-        local9.p1(this.aClass57_Sub20_1.method6108());
+        local9.p1(this.antialiasingMode.value());
+        local9.p1(this.bloom.value());
         local9.p1(this.aClass57_Sub22_1.method6769());
         local9.p1(this.aClass57_Sub5_1.method2172());
         local9.p1(this.aClass57_Sub8_1.method3176());
@@ -394,8 +400,8 @@ public final class ClientOptions extends Node {
         local9.p1(this.aClass57_Sub23_1.method7054());
         local9.p1(this.groundDecor.value());
         local9.p1(this.aClass57_Sub27_1.method7667());
-        local9.p1(this.lightDetail.getValue());
-        local9.p1(this.aClass57_Sub12_1.method4364());
+        local9.p1(this.lightDetail.value());
+        local9.p1(this.hardShadows.value());
         local9.p1(this.aClass57_Sub3_1.method2120());
         local9.p1(this.aClass57_Sub28_1.method7838());
         local9.p1(this.aClass57_Sub4_1.method2143());
@@ -404,9 +410,9 @@ public final class ClientOptions extends Node {
         local9.p1(this.aClass57_Sub7_1.method2905());
         local9.p1(this.aClass57_Sub9_1.method3199());
         local9.p1(this.textures.value());
-        local9.p1(this.aClass57_Sub29_2.method7915());
+        local9.p1(this.aClass57_Sub29_2.value());
         local9.p1(this.aClass57_Sub19_1.value());
-        local9.p1(this.aClass57_Sub26_1.method7463());
+        local9.p1(this.waterDetail.value());
         local9.p1(this.screenSize.getValue());
         local9.p1(this.aClass57_Sub14_1.method5302());
         local9.p1(this.aClass57_Sub15_1.method5320());
@@ -424,7 +430,7 @@ public final class ClientOptions extends Node {
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(I)Z")
     public boolean method5111() {
-        return this.aClass57_Sub29_1.method7913() && this.aClass57_Sub29_1.method7915() == 0 && this.aClass221_1.method5197() < 96;
+        return this.toolkit.method7913() && this.toolkit.value() == 0 && this.aClass221_1.method5197() < 96;
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(ZILclient!ge;)V")
@@ -443,7 +449,7 @@ public final class ClientOptions extends Node {
         if (arg0 >= 17) {
             local89 = arg1.g1();
         }
-        this.aClass57_Sub12_1 = new Class57_Sub12(local89 >= local87 ? local89 : local87, this);
+        this.hardShadows = new Class57_Sub12(local89 >= local87 ? local89 : local87, this);
         @Pc(113) boolean local113 = true;
         @Pc(130) boolean local130;
         if (arg0 < 2) {
@@ -456,9 +462,9 @@ public final class ClientOptions extends Node {
             }
         }
         this.lightDetail = new Class57_Sub24(local113 | local130 ? 1 : 0, this);
-        this.aClass57_Sub26_1 = new Class57_Sub26(arg1.g1(), this);
+        this.waterDetail = new Class57_Sub26(arg1.g1(), this);
         this.aClass57_Sub16_1 = new Class57_Sub16(arg1.g1(), this);
-        this.aClass57_Sub13_2 = new Class57_Sub13(arg1.g1(), this);
+        this.antialiasingMode = new Class57_Sub13(arg1.g1(), this);
         this.aClass57_Sub17_1 = new Class57_Sub17(arg1.g1(), this);
         this.aClass57_Sub25_3 = new Class57_Sub25(arg1.g1(), this);
         if (arg0 >= 20) {
@@ -497,7 +503,7 @@ public final class ClientOptions extends Node {
             this.aClass57_Sub5_1 = new Class57_Sub5(arg1.g1(), this);
         }
         if (arg0 >= 10) {
-            this.aClass57_Sub20_1 = new Class57_Sub20(arg1.g1(), this);
+            this.bloom = new Class57_Sub20(arg1.g1(), this);
         }
         if (arg0 >= 11) {
             this.aClass57_Sub14_1 = new Class57_Sub14(arg1.g1(), this);

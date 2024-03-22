@@ -32,8 +32,8 @@ public class Class37 implements Interface13 {
     @OriginalMember(owner = "client!nha", name = "a", descriptor = "(ZI)V")
     @Override
     public void method7749() {
-        @Pc(19) int local19 = this.aClass160_2.aClass403_9.method9332(Static302.anInt4851, this.aSprite_7.scaleWidth()) + this.aClass160_2.anInt3850;
-        @Pc(34) int local34 = this.aClass160_2.aClass103_9.method2416(Static479.anInt7201, this.aSprite_7.scaleHeight()) + this.aClass160_2.anInt3845;
+        @Pc(19) int local19 = this.aClass160_2.aClass403_9.method9332(client.loadingScreenWidth, this.aSprite_7.scaleWidth()) + this.aClass160_2.anInt3850;
+        @Pc(34) int local34 = this.aClass160_2.aClass103_9.method2416(client.loadingScreenHeight, this.aSprite_7.scaleHeight()) + this.aClass160_2.anInt3845;
         this.aSprite_7.render(local19, local34);
     }
 

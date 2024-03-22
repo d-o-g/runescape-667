@@ -29,7 +29,7 @@ public final class Class57_Sub23 extends Class57 {
                 if (super.aClass2_Sub34_34.textures.value() == 1) {
                     return 2;
                 }
-                if (super.aClass2_Sub34_34.aClass57_Sub26_1.method7463() > 0) {
+                if (super.aClass2_Sub34_34.waterDetail.value() > 0) {
                     return 2;
                 }
             }

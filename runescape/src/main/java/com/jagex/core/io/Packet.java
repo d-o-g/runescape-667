@@ -250,6 +250,11 @@ public class Packet extends Node {
         }
     }
 
+    @OriginalMember(owner = "client!se", name = "a", descriptor = "(Ljava/lang/String;B)I")
+    public static int pjstr2len(@OriginalArg(0) String string) {
+        return string.length() + 2;
+    }
+
     @OriginalMember(owner = "client!ge", name = "a", descriptor = "(IB[BI)V")
     public final void pdata(@OriginalArg(0) int len, @OriginalArg(2) byte[] data, @OriginalArg(3) int off) {
         for (@Pc(6) int i = off; i < len + off; i++) {

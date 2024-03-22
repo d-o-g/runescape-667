@@ -8,9 +8,6 @@ public final class Static105 {
     @OriginalMember(owner = "client!df", name = "p", descriptor = "Lclient!fma;")
     public static final Class131 aClass131_3 = new Class131();
 
-    @OriginalMember(owner = "client!df", name = "l", descriptor = "Z")
-    public static boolean displayFps = false;
-
     @OriginalMember(owner = "client!df", name = "u", descriptor = "[Lclient!ho;")
     public static final Class171[] aClass171Array1 = new Class171[6];
 

@@ -10,9 +10,6 @@ public final class Static265 {
     @OriginalMember(owner = "client!iea", name = "a", descriptor = "[I")
     public static final int[] anIntArray328 = new int[32];
 
-    @OriginalMember(owner = "client!iea", name = "i", descriptor = "[B")
-    public static byte[] aByteArray44 = null;
-
     @OriginalMember(owner = "client!iea", name = "a", descriptor = "(IIZIIIFI)[I")
     public static int[] method3857(@OriginalArg(6) float arg0) {
         @Pc(6) int[] local6 = new int[2048];

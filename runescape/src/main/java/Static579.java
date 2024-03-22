@@ -11,8 +11,4 @@ public final class Static579 {
         return arg0 == 16711935 ? -1 : Static166.method2616(arg0);
     }
 
-    @OriginalMember(owner = "client!se", name = "a", descriptor = "(Ljava/lang/String;B)I")
-    public static int method7634(@OriginalArg(0) String arg0) {
-        return arg0.length() + 2;
-    }
 }

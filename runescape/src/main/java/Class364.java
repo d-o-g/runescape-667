@@ -158,7 +158,7 @@ public final class Class364 implements Runnable {
                                 Toolkit.active.method7984();
                             }
                         } catch (@Pc(205) Exception_Sub1 local205) {
-                            JagException.sendTrace(local205, local205.getMessage() + " (Recovered) " + client.aClient1.method1648());
+                            JagException.sendTrace(local205, local205.getMessage() + " (Recovered) " + client.aClient1.getErrorTrace());
                             Static32.method880(0, true);
                         }
                     }

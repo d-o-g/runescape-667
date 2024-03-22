@@ -17,19 +17,19 @@ public final class Class57_Sub20 extends Class57 {
 
     @OriginalMember(owner = "client!oc", name = "b", descriptor = "(B)Z")
     public boolean method6107() {
-        return Static140.method2367(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915());
+        return Static140.method2367(super.aClass2_Sub34_34.toolkit.value());
     }
 
     @OriginalMember(owner = "client!oc", name = "a", descriptor = "(IB)I")
     @Override
     public int method8352(@OriginalArg(0) int arg0) {
-        return Static140.method2367(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915()) ? 1 : 3;
+        return Static140.method2367(super.aClass2_Sub34_34.toolkit.value()) ? 1 : 3;
     }
 
     @OriginalMember(owner = "client!oc", name = "a", descriptor = "(B)V")
     @Override
     public void method8350() {
-        if (super.aClass2_Sub34_34.aClass57_Sub29_1.method7913() && !Static140.method2367(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915())) {
+        if (super.aClass2_Sub34_34.toolkit.method7913() && !Static140.method2367(super.aClass2_Sub34_34.toolkit.value())) {
             super.anInt9489 = 0;
         }
         if (super.anInt9489 < 0 || super.anInt9489 > 1) {
@@ -44,7 +44,7 @@ public final class Class57_Sub20 extends Class57 {
     }
 
     @OriginalMember(owner = "client!oc", name = "a", descriptor = "(Z)I")
-    public int method6108() {
+    public int value() {
         return super.anInt9489;
     }
 

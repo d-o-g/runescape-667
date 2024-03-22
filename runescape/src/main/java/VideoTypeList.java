@@ -73,7 +73,7 @@ public final class VideoTypeList {
         }
         if (Static234.aBoolean303) {
             @Pc(34) VideoType local34 = new VideoType(arg1, new Js5Video(4096, js5.js5_36, arg1), arg2, arg0);
-            local34.js5.setLanguage(Static384.aStringArray31[Static51.language]);
+            local34.js5.setLanguage(Static384.aStringArray31[client.language]);
             recentUse.put((long) arg1, local34);
         } else {
             Static635.method8380(arg1, arg0);

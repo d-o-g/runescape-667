@@ -23,7 +23,7 @@ public final class Static572 {
 
     @OriginalMember(owner = "client!s", name = "b", descriptor = "(III)V")
     public static void method7876(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(11) int local11 = Fonts.b12Metrics.stringWidth(LocalisedText.CHOOSEOPTION.localise(Static51.language));
+        @Pc(11) int local11 = Fonts.b12Metrics.stringWidth(LocalisedText.CHOOSEOPTION.localise(client.language));
         @Pc(68) int local68;
         @Pc(27) int local27;
         if (Static236.aBoolean304) {

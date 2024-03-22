@@ -15,14 +15,8 @@ public final class Static416 {
     @OriginalMember(owner = "client!nca", name = "o", descriptor = "Z")
     public static boolean aBoolean472 = false;
 
-    @OriginalMember(owner = "client!nca", name = "k", descriptor = "Z")
-    public static boolean aBoolean473 = false;
-
     @OriginalMember(owner = "client!nca", name = "m", descriptor = "I")
     public static int anInt6378 = 0;
-
-    @OriginalMember(owner = "client!nca", name = "q", descriptor = "J")
-    public static long aLong208 = 0L;
 
     @OriginalMember(owner = "client!nca", name = "a", descriptor = "(Z)V")
     public static void method5705() {

@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -25,18 +26,18 @@ public final class Static659 {
     @OriginalMember(owner = "client!ut", name = "e", descriptor = "(B)Ljava/lang/String;")
     public static String method8605() {
         @Pc(15) String local15 = "www";
-        if (Static2.aClass355_1 == Static704.aClass355_7) {
+        if (client.modeWhere == ModeWhere.WTRC) {
             local15 = "www-wtrc";
-        } else if (Static2.aClass355_1 == Static713.aClass355_8) {
+        } else if (client.modeWhere == ModeWhere.WTQA) {
             local15 = "www-wtqa";
-        } else if (Static2.aClass355_1 == Static425.aClass355_4) {
+        } else if (client.modeWhere == ModeWhere.WIP) {
             local15 = "www-wtwip";
         }
         @Pc(44) String local44 = "";
-        if (Static150.aString26 != null) {
-            local44 = "/p=" + Static150.aString26;
+        if (client.settings != null) {
+            local44 = "/p=" + client.settings;
         }
-        return "http://" + local15 + "." + client.modeGame.domainName + ".com/l=" + Static51.language + "/a=" + Static323.anInt5121 + local44 + "/";
+        return "http://" + local15 + "." + client.modeGame.domainName + ".com/l=" + client.language + "/a=" + client.affid + local44 + "/";
     }
 
     @OriginalMember(owner = "client!ut", name = "d", descriptor = "(B)Lclient!ge;")

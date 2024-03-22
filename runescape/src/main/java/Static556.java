@@ -46,7 +46,7 @@ public final class Static556 {
         }
         @Pc(63) String local63;
         if (InterfaceManager.targeting && MiniMenu.optionCount < 2) {
-            local63 = InterfaceManager.targetVerb + LocalisedText.MINISEPARATOR.localise(Static51.language) + InterfaceManager.targetedVerb + " ->";
+            local63 = InterfaceManager.targetVerb + LocalisedText.MINISEPARATOR.localise(client.language) + InterfaceManager.targetedVerb + " ->";
         } else if (Static209.aBoolean269 && KeyMonitor.instance.isPressed(81) && MiniMenu.optionCount > 2) {
             local63 = Static518.method9293(Static470.aClass2_Sub2_Sub16_10);
         } else {
@@ -86,7 +86,7 @@ public final class Static556 {
             }
         }
         if (MiniMenu.optionCount > 2) {
-            local63 = local63 + "<col=ffffff> / " + (MiniMenu.optionCount - 2) + LocalisedText.MOREOPTIONS.localise(Static51.language);
+            local63 = local63 + "<col=ffffff> / " + (MiniMenu.optionCount - 2) + LocalisedText.MOREOPTIONS.localise(client.language);
         }
         if (WorldMap.optionsComponent != null) {
             @Pc(232) Font local232 = WorldMap.optionsComponent.font(arg0);

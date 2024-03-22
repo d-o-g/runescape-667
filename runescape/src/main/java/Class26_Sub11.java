@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.js5.js5;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -8,8 +9,8 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!tj")
 public final class Class26_Sub11 extends Class26 {
 
-    @OriginalMember(owner = "client!tj", name = "l", descriptor = "[C")
-    public static final char[] aCharArray8 = new char[64];
+    static {
+    }
 
     @OriginalMember(owner = "client!tj", name = "k", descriptor = "Z")
     public boolean aBoolean722;
@@ -40,20 +41,6 @@ public final class Class26_Sub11 extends Class26 {
 
     @OriginalMember(owner = "client!tj", name = "v", descriptor = "Lclient!og;")
     public Interface18 anInterface18_6;
-
-    static {
-        for (@Pc(117) int local117 = 0; local117 < 26; local117++) {
-            aCharArray8[local117] = (char) (local117 + 65);
-        }
-        for (@Pc(131) int local131 = 26; local131 < 52; local131++) {
-            aCharArray8[local131] = (char) (local131 + 97 - 26);
-        }
-        for (@Pc(147) int local147 = 52; local147 < 62; local147++) {
-            aCharArray8[local147] = (char) (local147 - 4);
-        }
-        aCharArray8[63] = '-';
-        aCharArray8[62] = '*';
-    }
 
     @OriginalMember(owner = "client!tj", name = "<init>", descriptor = "(Lclient!tca;Lclient!sb;)V")
     public Class26_Sub11(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) js5 arg1) {

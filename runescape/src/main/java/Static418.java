@@ -24,7 +24,7 @@ public final class Static418 {
     @OriginalMember(owner = "client!nda", name = "e", descriptor = "(B)V")
     public static void method7859() {
         if (SignLink.instance.microsoftjava) {
-            Static369.anInt4265 = 96;
+            ClientOptions.maxmemory = 96;
             return;
         }
         try {
@@ -33,7 +33,7 @@ public final class Static418 {
                 try {
                     @Pc(38) Runtime local38 = Runtime.getRuntime();
                     @Pc(44) Long local44 = (Long) local34.invoke(local38, (Object[]) null);
-                    Static369.anInt4265 = (int) (local44 / 1048576L) + 1;
+                    ClientOptions.maxmemory = (int) (local44 / 1048576L) + 1;
                 } catch (@Pc(54) Throwable local54) {
                 }
             }

@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeWhere;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
@@ -59,7 +60,7 @@ public final class Static352 {
         Component.cacheReset();
         FontTypeList.cacheReset();
         Static327.method4895();
-        if (Static2.aClass355_1 != Static446.aClass355_5) {
+        if (client.modeWhere != ModeWhere.LIVE) {
             for (@Pc(92) int local92 = 0; local92 < Static163.aByteArrayArray36.length; local92++) {
                 Static163.aByteArrayArray36[local92] = null;
             }

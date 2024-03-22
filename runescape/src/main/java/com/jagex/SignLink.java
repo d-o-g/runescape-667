@@ -345,6 +345,7 @@ public final class SignLink implements Runnable {
 
         for (@Pc(123) int i = 0; i < cacheLocations.length; i++) {
             @Pc(128) String dir = cacheLocations[i];
+
             if (dir.length() <= 0 || (new File(dir)).exists()) {
                 try {
                     return new FileOnDisk(new File(dir, path), "rw", 10000L);

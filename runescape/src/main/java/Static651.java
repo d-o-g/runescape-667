@@ -183,7 +183,7 @@ public final class Static651 {
             return;
         }
         if (arg1.anInt10791 != 0) {
-            @Pc(67) String local67 = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(Static51.language) : LocalisedText.LEVEL.localise(Static51.language);
+            @Pc(67) String local67 = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(client.language) : LocalisedText.LEVEL.localise(client.language);
             local24 = local24 + Static693.method9009(PlayerEntity.self.anInt1444, arg1.anInt10791) + " (" + local67 + arg1.anInt10791 + ")";
         }
         if (InterfaceManager.targeting && !arg0) {
@@ -203,7 +203,7 @@ public final class Static651 {
             return;
         }
         for (@Pc(189) int local189 = local176.length - 1; local189 >= 0; local189--) {
-            if (local176[local189] != null && (local21.aByte107 == 0 || !local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) && !local176[local189].equalsIgnoreCase(LocalisedText.EXAMINE.localise(Static51.language)))) {
+            if (local176[local189] != null && (local21.aByte107 == 0 || !local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) && !local176[local189].equalsIgnoreCase(LocalisedText.EXAMINE.localise(client.language)))) {
                 @Pc(226) short local226 = 0;
                 @Pc(228) int local228 = Cursor.interaction;
                 if (local189 == 0) {
@@ -230,14 +230,14 @@ public final class Static651 {
                 if (local21.cursor2Op == local189) {
                     local228 = local21.cursor2;
                 }
-                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) ? local21.attackCursor : local228, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? local21.attackCursor : local228, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         if (local21.aByte107 != 1) {
             return;
         }
         for (@Pc(341) int local341 = 0; local341 < local176.length; local341++) {
-            if (local176[local341] != null && (local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) || local176[local341].equalsIgnoreCase(LocalisedText.EXAMINE.localise(Static51.language)))) {
+            if (local176[local341] != null && (local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) || local176[local341].equalsIgnoreCase(LocalisedText.EXAMINE.localise(client.language)))) {
                 @Pc(372) short local372 = 0;
                 if (arg1.anInt10791 > PlayerEntity.self.anInt1444) {
                     local372 = 2000;
@@ -271,7 +271,7 @@ public final class Static651 {
                 if (local21.cursor2Op == local341) {
                     local387 = local21.cursor2;
                 }
-                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) ? local21.attackCursor : local387, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? local21.attackCursor : local387, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         return;

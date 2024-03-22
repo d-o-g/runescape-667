@@ -32,7 +32,7 @@ public final class Static414 {
                         local63 = false;
                     }
                 }
-                @Pc(129) String local129 = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(Static51.language) : LocalisedText.LEVEL.localise(Static51.language);
+                @Pc(129) String local129 = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(client.language) : LocalisedText.LEVEL.localise(client.language);
                 if (arg1.anInt1444 >= arg1.anInt1437) {
                     local177 = arg1.method1424(false) + (local63 ? Static693.method9009(PlayerEntity.self.anInt1444, arg1.anInt1444) : "<col=ffffff>") + " (" + local129 + arg1.anInt1444 + ")";
                 } else {
@@ -41,7 +41,7 @@ public final class Static414 {
             } else if (arg1.anInt1436 == -1) {
                 local177 = arg1.method1424(false);
             } else {
-                local177 = arg1.method1424(false) + " (" + LocalisedText.SKILL.localise(Static51.language) + arg1.anInt1436 + ")";
+                local177 = arg1.method1424(false) + " (" + LocalisedText.SKILL.localise(client.language) + arg1.anInt1436 + ")";
             }
             if (InterfaceManager.targeting && !arg0 && (InterfaceManager.targetMask & 0x8) != 0) {
                 MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 44, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + local177, (long) arg1.anInt10740, false);
@@ -52,7 +52,7 @@ public final class Static414 {
                 for (@Pc(318) int local318 = 7; local318 >= 0; local318--) {
                     if (Static297.aStringArray24[local318] != null) {
                         @Pc(325) short local325 = 0;
-                        if (client.modeGame == ModeGame.RUNESCAPE && Static297.aStringArray24[local318].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language))) {
+                        if (client.modeGame == ModeGame.RUNESCAPE && Static297.aStringArray24[local318].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language))) {
                             if (Static324.aBoolean388 && PlayerEntity.self.anInt1444 < arg1.anInt1444) {
                                 local325 = 2000;
                             }
@@ -83,7 +83,7 @@ public final class Static414 {
                 }
             }
         } else if (InterfaceManager.targeting && (InterfaceManager.targetMask & 0x10) != 0) {
-            MiniMenu.addEntry(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(Static51.language), (long) arg1.anInt10740, false);
+            MiniMenu.addEntry(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(client.language), (long) arg1.anInt10740, false);
         }
     }
 

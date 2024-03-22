@@ -1,4 +1,5 @@
 import com.jagex.SignLink;
+import com.jagex.core.constants.ModeWhere;
 import com.jagex.graphics.Exception_Sub1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -28,26 +29,26 @@ public final class Static430 {
             client.gameConnection = new ConnectionInfo();
             client.gameConnection.id = arg0;
             client.gameConnection.address = arg1;
-            if (Static2.aClass355_1 != Static446.aClass355_5) {
+            if (client.modeWhere != ModeWhere.LIVE) {
                 client.gameConnection.defaultPort = client.gameConnection.id + 40000;
                 client.gameConnection.alternatePort = client.gameConnection.id + 50000;
             }
             for (@Pc(45) int local45 = 0; local45 < Static343.aClass297_Sub1Array2.length; local45++) {
                 if (Static343.aClass297_Sub1Array2[local45].anInt7569 == arg0) {
-                    Static715.anInt10805 = Static343.aClass297_Sub1Array2[local45].anInt7563;
+                    client.worldFlags = Static343.aClass297_Sub1Array2[local45].anInt7563;
                 }
             }
             return true;
         }
         @Pc(73) String local73 = "";
-        if (Static446.aClass355_5 != Static2.aClass355_1) {
+        if (ModeWhere.LIVE != client.modeWhere) {
             local73 = ":" + (arg0 + 7000);
         }
         @Pc(88) String local88 = "";
-        if (Static150.aString26 != null) {
-            local88 = "/p=" + Static150.aString26;
+        if (client.settings != null) {
+            local88 = "/p=" + client.settings;
         }
-        @Pc(152) String local152 = "http://" + arg1 + local73 + "/l=" + Static51.language + "/a=" + Static323.anInt5121 + local88 + "/j" + (Static98.aBoolean191 ? "1" : "0") + ",o" + (Static464.aBoolean533 ? "1" : "0") + ",a2";
+        @Pc(152) String local152 = "http://" + arg1 + local73 + "/l=" + client.language + "/a=" + client.affid + local88 + "/j" + (client.js ? "1" : "0") + ",o" + (client.objectTag ? "1" : "0") + ",a2";
         try {
             client.aClient1.getAppletContext().showDocument(new URL(local152), "_self");
             return true;

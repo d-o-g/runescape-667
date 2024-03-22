@@ -76,7 +76,7 @@ public final class Static294 {
                 local169 = Static140.anIntArray222[4] + 128;
             }
             local204 = Static288.anInt4621 + (int) Static171.aFloat64 & 0x3FFF;
-            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Static394.anInt6176, -29754, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
+            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Camera.renderingLevel, -29754, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
         } else if (Static511.anInt7645 == 4) {
             local169 = (int) Static479.aFloat123;
             if (Static188.anInt3103 >> 8 > local169) {
@@ -86,7 +86,7 @@ public final class Static294 {
                 local169 = Static140.anIntArray222[4] + 128;
             }
             local204 = (int) Static171.aFloat64 & 0x3FFF;
-            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Static394.anInt6176, -29754, Static249.anInt4018, Static433.anInt6262) - 200);
+            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Camera.renderingLevel, -29754, Static249.anInt4018, Static433.anInt6262) - 200);
         } else if (Static511.anInt7645 == 5) {
             Static110.method2079(local161);
         }
@@ -186,7 +186,7 @@ public final class Static294 {
         }
         if (Static426.aBoolean72) {
             Toolkit.active.fillRect(local155, local161, local159, local153, -16777216);
-            Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(Static51.language), false, Fonts.p12Metrics, Fonts.p12);
+            Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(client.language), false, Fonts.p12Metrics, Fonts.p12);
         }
         Static501.method6716(false);
     }

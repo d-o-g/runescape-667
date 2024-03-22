@@ -1,5 +1,6 @@
 import com.jagex.Constants;
 import com.jagex.SignLink;
+import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.crypto.IsaacCipher;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.JavaScript;
@@ -86,7 +87,7 @@ public final class Static364 {
                 if (Static299.anInt4825 == 2) {
                     client.gameConnection.rotateMethods();
                 } else {
-                    Static660.aConnectionInfo_4.rotateMethods();
+                    Login.lobbyInfo.rotateMethods();
                 }
                 Static135.anInt8223 = 1;
                 Static330.anInt5434 = 0;
@@ -96,7 +97,7 @@ public final class Static364 {
                 if (Static299.anInt4825 == 2) {
                     Static524.aServerConnection_3.gameSocketRequest = client.gameConnection.openSocket(SignLink.instance);
                 } else {
-                    Static524.aServerConnection_3.gameSocketRequest = Static660.aConnectionInfo_4.openSocket(SignLink.instance);
+                    Static524.aServerConnection_3.gameSocketRequest = Login.lobbyInfo.openSocket(SignLink.instance);
                 }
                 Static135.anInt8223 = 2;
             }
@@ -125,8 +126,8 @@ public final class Static364 {
                     @Pc(229) Packet local229 = Static570.method7552();
                     local229.p1(Static129.anInt2409);
                     local229.p2((int) (Math.random() * 9.9999999E7D));
-                    local229.p1(Static51.language);
-                    local229.p4(Static323.anInt5121);
+                    local229.p1(client.language);
+                    local229.p4(client.affid);
                     for (local250 = 0; local250 < 6; local250++) {
                         local229.p4((int) (Math.random() * 9.9999999E7D));
                     }
@@ -182,8 +183,8 @@ public final class Static364 {
                 @Pc(465) String local465 = Static524.aServerConnection_3.buffer.gjstr2();
                 Static524.aServerConnection_3.buffer.pos = 0;
                 @Pc(473) String local473 = "opensn";
-                if (!Static98.aBoolean191 || Static36.method980(SignLink.instance, local465, local473, 1).status == 2) {
-                    Static259.method3693(local465, local473, SignLink.instance, ClientOptions.instance.aClass57_Sub29_1.method7915() == 1, true);
+                if (!client.js || Static36.method980(SignLink.instance, local465, local473, 1).status == 2) {
+                    Static259.method3693(local465, local473, SignLink.instance, ClientOptions.instance.toolkit.value() == 1, true);
                 }
                 Static135.anInt8223 = 6;
             }
@@ -240,26 +241,26 @@ public final class Static364 {
                     local618.p1(InterfaceManager.getWindowMode());
                     local618.p2(GameShell.canvasWid);
                     local618.p2(GameShell.canvasHei);
-                    local618.p1(ClientOptions.instance.aClass57_Sub13_1.method4373());
+                    local618.p1(ClientOptions.instance.aClass57_Sub13_1.value());
                     Static176.method6690(local618);
-                    local618.pjstr(Static150.aString26);
-                    local618.p4(Static323.anInt5121);
+                    local618.pjstr(client.settings);
+                    local618.p4(client.affid);
                     local672 = ClientOptions.instance.method5110();
                     local618.p1(local672.pos);
                     local618.pdata(local672.pos, local672.data, 0);
                     Static503.aBoolean578 = true;
-                    @Pc(748) Packet local748 = new Packet(Static292.aClass2_Sub43_2.method6745());
-                    Static292.aClass2_Sub43_2.method6742(local748);
+                    @Pc(748) Packet local748 = new Packet(SystemInfo.instance.size());
+                    SystemInfo.instance.encode(local748);
                     local618.pdata(local748.data.length, local748.data, 0);
                     local618.p4(Static334.anInt5456);
-                    local618.p8(Static416.aLong208);
-                    local618.p1(Static389.aString64 == null ? 0 : 1);
-                    if (Static389.aString64 != null) {
-                        local618.pjstr(Static389.aString64);
+                    local618.p8(client.userFlow);
+                    local618.p1(client.addtionalInfo == null ? 0 : 1);
+                    if (client.addtionalInfo != null) {
+                        local618.pjstr(client.addtionalInfo);
                     }
                     local618.p1(Static183.method2796("jagtheora") ? 1 : 0);
-                    local618.p1(Static98.aBoolean191 ? 1 : 0);
-                    local618.p1(Static416.aBoolean473 ? 1 : 0);
+                    local618.p1(client.js ? 1 : 0);
+                    local618.p1(client.hc ? 1 : 0);
                     Static169.method2647(local618);
                     local618.tinyenc(Static219.anIntArray287, local646, local618.pos);
                     local618.psize2(local618.pos - local250);
@@ -281,10 +282,10 @@ public final class Static364 {
                         local618.pjstr(Static449.aString75);
                     }
                     local618.p1(client.modeGame.id);
-                    local618.p1(Static51.language);
+                    local618.p1(client.language);
                     Static176.method6690(local618);
-                    local618.pjstr(Static150.aString26);
-                    local618.p4(Static323.anInt5121);
+                    local618.pjstr(client.settings);
+                    local618.p4(client.affid);
                     Static169.method2647(local618);
                     local618.tinyenc(Static219.anIntArray287, local646, local618.pos);
                     local618.psize2(local618.pos - local250);
@@ -453,11 +454,11 @@ public final class Static364 {
                             Static668.aConnectionInfo_5.id = -1;
                         }
                         Static668.aConnectionInfo_5.address = local1435.gjstr2();
-                        if (Static446.aClass355_5 != Static2.aClass355_1) {
+                        if (ModeWhere.LIVE != client.modeWhere) {
                             Static668.aConnectionInfo_5.defaultPort = Static668.aConnectionInfo_5.id + 40000;
                             Static668.aConnectionInfo_5.alternatePort = Static668.aConnectionInfo_5.id + 50000;
                         }
-                        if (Static16.aClass355_2 != Static2.aClass355_1 && (Static2.aClass355_1 != Static713.aClass355_8 || Static608.staffModLevel < 2) && client.gameConnection.equalTo(Static527.aConnectionInfo_3)) {
+                        if (ModeWhere.LOCAL != client.modeWhere && (client.modeWhere != ModeWhere.WTQA || Static608.staffModLevel < 2) && client.gameConnection.equalTo(Login.worldInfo)) {
                             Static152.method9273();
                         }
                     } else {
@@ -467,7 +468,7 @@ public final class Static364 {
                         try {
                             JavaScript.call("zap", GameShell.loaderApplet);
                         } catch (@Pc(1850) Throwable local1850) {
-                            if (Static305.aBoolean372) {
+                            if (client.advert) {
                                 try {
                                     GameShell.loaderApplet.getAppletContext().showDocument(new URL(GameShell.loaderApplet.getCodeBase(), "blank.ws"), "tbi");
                                 } catch (@Pc(1868) Exception local1868) {
@@ -480,7 +481,7 @@ public final class Static364 {
                         } catch (@Pc(1879) Throwable local1879) {
                         }
                     }
-                    if (Static2.aClass355_1 == Static446.aClass355_5) {
+                    if (client.modeWhere == ModeWhere.LIVE) {
                         try {
                             JavaScript.call("loggedin", GameShell.loaderApplet);
                         } catch (@Pc(1892) Throwable local1892) {
@@ -570,7 +571,7 @@ public final class Static364 {
                 if (Static299.anInt4825 == 2) {
                     client.gameConnection.rotateMethods();
                 } else {
-                    Static660.aConnectionInfo_4.rotateMethods();
+                    Login.lobbyInfo.rotateMethods();
                 }
                 Static135.anInt8223 = 1;
                 Static76.anInt1601++;

@@ -135,10 +135,10 @@ public final class Static610 {
                         local37.aByte143++;
                     }
                     if (PlayerList.activePlayerSlot == arg0) {
-                        if (local37.level != Static394.anInt6176) {
+                        if (local37.level != Camera.renderingLevel) {
                             Static75.aBoolean521 = true;
                         }
-                        Static394.anInt6176 = local37.level;
+                        Camera.renderingLevel = local37.level;
                     }
                 } else {
                     local170 = arg1.method7412(30);
@@ -159,7 +159,7 @@ public final class Static610 {
                         local37.aByte143++;
                     }
                     if (PlayerList.activePlayerSlot == arg0) {
-                        Static394.anInt6176 = local37.level;
+                        Camera.renderingLevel = local37.level;
                     }
                 }
             }

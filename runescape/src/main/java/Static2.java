@@ -14,9 +14,6 @@ public final class Static2 {
     @OriginalMember(owner = "client!aaa", name = "L", descriptor = "Lclient!taa;")
     public static MapRegion aMapRegion;
 
-    @OriginalMember(owner = "client!aaa", name = "T", descriptor = "Lclient!tka;")
-    public static Class355 aClass355_1;
-
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(IBIILclient!cv;)V")
     public static void sortAllObjs(@OriginalArg(0) int z, @OriginalArg(2) int level, @OriginalArg(3) int x, @OriginalArg(4) ObjStackEntry entry) {
         @Pc(16) long key = (level << 14) | (z << 28) | x;

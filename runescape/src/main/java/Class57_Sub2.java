@@ -17,13 +17,13 @@ public final class Class57_Sub2 extends Class57 {
 
     @OriginalMember(owner = "client!dc", name = "b", descriptor = "(B)Z")
     public boolean method1985() {
-        return Static140.method2367(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915());
+        return Static140.method2367(super.aClass2_Sub34_34.toolkit.value());
     }
 
     @OriginalMember(owner = "client!dc", name = "a", descriptor = "(IB)I")
     @Override
     public int method8352(@OriginalArg(0) int arg0) {
-        return Static140.method2367(super.aClass2_Sub34_34.aClass57_Sub29_1.method7915()) ? 1 : 3;
+        return Static140.method2367(super.aClass2_Sub34_34.toolkit.value()) ? 1 : 3;
     }
 
     @OriginalMember(owner = "client!dc", name = "a", descriptor = "(B)V")

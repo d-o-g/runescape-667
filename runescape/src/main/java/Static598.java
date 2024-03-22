@@ -10,9 +10,6 @@ public final class Static598 {
     @OriginalMember(owner = "client!ss", name = "f", descriptor = "I")
     public static int anInt8832;
 
-    @OriginalMember(owner = "client!ss", name = "h", descriptor = "Lclient!hh;")
-    public static Class162 aClass162_5;
-
     @OriginalMember(owner = "client!ss", name = "e", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___219 = new ServerProt(119, 6);
 

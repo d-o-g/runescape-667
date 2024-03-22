@@ -51,9 +51,9 @@ Each `modewhere` specifies a different prefix to the website domain:
 | ModeWhere | Prefix    |
 |:----------|:----------|
 | LIVE      | www       |
-| RC        | www-wtrc  |
-| QA        | www-wtqa  |
-| WIP       | www-wtwip |
+| WTRC      | www-wtrc  |
+| WTQA      | www-wtqa  |
+| WTWIP     | www-wtwip |
 | LOCAL     | www       |
 | WTI       | www       |
 | INTBETA   | www       |

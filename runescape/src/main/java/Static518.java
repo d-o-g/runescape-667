@@ -17,11 +17,11 @@ public final class Static518 {
     @OriginalMember(owner = "client!qf", name = "a", descriptor = "(Lclient!pg;B)Ljava/lang/String;")
     public static String method9293(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub16 arg0) {
         if (arg0.aString88 == null || arg0.aString88.length() == 0) {
-            return arg0.aString86 == null || arg0.aString86.length() <= 0 ? arg0.aString87 : arg0.aString87 + LocalisedText.MINISEPARATOR.localise(Static51.language) + arg0.aString86;
+            return arg0.aString86 == null || arg0.aString86.length() <= 0 ? arg0.aString87 : arg0.aString87 + LocalisedText.MINISEPARATOR.localise(client.language) + arg0.aString86;
         } else if (arg0.aString86 == null || arg0.aString86.length() <= 0) {
-            return arg0.aString87 + LocalisedText.MINISEPARATOR.localise(Static51.language) + arg0.aString88;
+            return arg0.aString87 + LocalisedText.MINISEPARATOR.localise(client.language) + arg0.aString88;
         } else {
-            return arg0.aString87 + LocalisedText.MINISEPARATOR.localise(Static51.language) + arg0.aString86 + LocalisedText.MINISEPARATOR.localise(Static51.language) + arg0.aString88;
+            return arg0.aString87 + LocalisedText.MINISEPARATOR.localise(client.language) + arg0.aString86 + LocalisedText.MINISEPARATOR.localise(client.language) + arg0.aString88;
         }
     }
 }

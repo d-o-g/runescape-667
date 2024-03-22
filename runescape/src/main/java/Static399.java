@@ -28,7 +28,7 @@ public final class Static399 {
             local27 = 2;
             Static75.method6239();
         }
-        if (arg0 != ClientOptions.instance.aClass57_Sub29_1.method7915()) {
+        if (arg0 != ClientOptions.instance.toolkit.value()) {
             ClientOptions.instance.method5104(arg0, ClientOptions.instance.aClass57_Sub29_2);
             Static32.method880(arg0, false);
         }

@@ -121,7 +121,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (Static632.A_SERVER_PROT___229 == arg0.currentProt) {
-            Static331.walkText = arg0.currentPacketSize <= 2 ? LocalisedText.WALKHERE.localise(Static51.language) : local11.gjstr();
+            Static331.walkText = arg0.currentPacketSize <= 2 ? LocalisedText.WALKHERE.localise(client.language) : local11.gjstr();
             Static331.walkCursor = arg0.currentPacketSize <= 0 ? -1 : local11.g2();
             if (Static331.walkCursor == 65535) {
                 Static331.walkCursor = -1;
@@ -775,7 +775,7 @@ public final class Protocol {
                                                 local3044 = new byte[arg0.currentPacketSize];
                                                 local11.method7416(local3044, arg0.currentPacketSize);
                                                 local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
-                                                Static664.method8655(ClientOptions.instance.aClass57_Sub29_1.method7915() == 1, local627, true, SignLink.instance);
+                                                Static664.method8655(ClientOptions.instance.toolkit.value() == 1, local627, true, SignLink.instance);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (arg0.currentProt == Static444.A_SERVER_PROT___169) {
@@ -1488,8 +1488,8 @@ public final class Protocol {
                                                                     local11.method7416(local3044, arg0.currentPacketSize);
                                                                     local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
                                                                     local629 = "opensn";
-                                                                    if (!Static98.aBoolean191 || Static36.method980(SignLink.instance, local627, local629, 1).status == 2) {
-                                                                        Static259.method3693(local627, local629, SignLink.instance, ClientOptions.instance.aClass57_Sub29_1.method7915() == 1, true);
+                                                                    if (!client.js || Static36.method980(SignLink.instance, local627, local629, 1).status == 2) {
+                                                                        Static259.method3693(local627, local629, SignLink.instance, ClientOptions.instance.toolkit.value() == 1, true);
                                                                     }
                                                                     arg0.currentProt = null;
                                                                     return true;

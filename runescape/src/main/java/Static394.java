@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static394 {
 
-    @OriginalMember(owner = "client!mh", name = "B", descriptor = "I")
-    public static int anInt6176;
-
     @OriginalMember(owner = "client!mh", name = "a", descriptor = "(BFFIFFFF)F")
     public static float method5543(@OriginalArg(1) float arg0, @OriginalArg(2) float arg1, @OriginalArg(3) int arg2, @OriginalArg(4) float arg3, @OriginalArg(5) float arg4, @OriginalArg(6) float arg5, @OriginalArg(7) float arg6) {
         @Pc(7) float local7 = 0.0F;

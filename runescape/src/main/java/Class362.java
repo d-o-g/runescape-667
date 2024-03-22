@@ -1,5 +1,6 @@
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
+import com.jagex.core.constants.ModeWhere;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -63,8 +64,8 @@ public final class Class362 implements Runnable {
         }
         if (this.aSignedResource_7 == null) {
             try {
-                @Pc(23) int local23 = Static446.aClass355_5 == Static2.aClass355_1 ? 80 : Static527.aConnectionInfo_3.id + 7000;
-                this.aSignedResource_7 = SignLink.instance.openStream(new URL("http://" + Static527.aConnectionInfo_3.address + ":" + local23 + "/news.ws?game=" + client.modeGame.id));
+                @Pc(23) int local23 = ModeWhere.LIVE == client.modeWhere ? 80 : Login.worldInfo.id + 7000;
+                this.aSignedResource_7 = SignLink.instance.openStream(new URL("http://" + Login.worldInfo.address + ":" + local23 + "/news.ws?game=" + client.modeGame.id));
             } catch (@Pc(54) MalformedURLException local54) {
                 return true;
             }

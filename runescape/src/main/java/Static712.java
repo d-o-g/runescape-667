@@ -1,3 +1,4 @@
+import com.jagex.core.constants.ModeWhere;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -47,13 +48,13 @@ public final class Static712 {
             }
             if (InterfaceManager.getWindowMode() == 1) {
                 GameShell.topMargin = 0;
-                GameShell.canvasHei = Static479.anInt7201;
-                GameShell.leftMargin = (GameShell.frameWid - Static302.anInt4851) / 2;
-                GameShell.canvasWid = Static302.anInt4851;
+                GameShell.canvasHei = client.loadingScreenHeight;
+                GameShell.leftMargin = (GameShell.frameWid - client.loadingScreenWidth) / 2;
+                GameShell.canvasWid = client.loadingScreenWidth;
             } else {
                 Static323.method4625();
             }
-            if (Static2.aClass355_1 != Static446.aClass355_5) {
+            if (client.modeWhere != ModeWhere.LIVE) {
                 @Pc(101) boolean local101;
                 if (GameShell.canvasWid < 1024 && GameShell.canvasHei < 768) {
                     local101 = true;

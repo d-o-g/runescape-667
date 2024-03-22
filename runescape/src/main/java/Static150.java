@@ -14,9 +14,6 @@ public final class Static150 {
     @OriginalMember(owner = "client!en", name = "i", descriptor = "I")
     public static int anInt2632 = 0;
 
-    @OriginalMember(owner = "client!en", name = "f", descriptor = "Ljava/lang/String;")
-    public static String aString26 = null;
-
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(B)V")
     public static void method2455() {
         Static173.method2690();

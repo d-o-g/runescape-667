@@ -23,17 +23,17 @@ public final class Static684 {
             CutsceneManager.state = 0;
             Static717.anInt10817 = -1;
         }
-        if (!arg0 && Static62.anInt1465 == arg1 && Static525.anInt8907 == arg3 && (Static164.areaLevel == Static394.anInt6176 || ClientOptions.instance.animatingBackground.value() == 1)) {
+        if (!arg0 && Static62.anInt1465 == arg1 && Static525.anInt8907 == arg3 && (Static164.areaLevel == Camera.renderingLevel || ClientOptions.instance.animatingBackground.value() == 1)) {
             return;
         }
         Static525.anInt8907 = arg3;
         Static62.anInt1465 = arg1;
-        Static164.areaLevel = Static394.anInt6176;
+        Static164.areaLevel = Camera.renderingLevel;
         if (ClientOptions.instance.animatingBackground.value() == 1) {
             Static164.areaLevel = 0;
         }
         MainLogicManager.setStep(mainLogicStep);
-        Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(Static51.language), true, Fonts.p12Metrics, Fonts.p12);
+        Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(client.language), true, Fonts.p12Metrics, Fonts.p12);
         @Pc(74) int local74 = WorldMap.areaBaseX;
         WorldMap.areaBaseX = (Static62.anInt1465 - (Static720.mapWidth >> 4)) * 8;
         @Pc(85) int local85 = WorldMap.areaBaseY;

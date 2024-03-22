@@ -22,13 +22,13 @@ public final class Static81 {
         @Pc(38) int[] local38 = Static664.method8652(local8);
         @Pc(42) int local42 = local8.buffer.pos;
         local8.buffer.pjstr(arg0);
-        local8.buffer.p2(Static323.anInt5121);
+        local8.buffer.p2(client.affid);
         local8.buffer.pjstr(arg2);
-        local8.buffer.p8(Static416.aLong208);
-        local8.buffer.p1(Static51.language);
+        local8.buffer.p8(client.userFlow);
+        local8.buffer.p1(client.language);
         local8.buffer.p1(client.modeGame.id);
         Static176.method6690(local8.buffer);
-        @Pc(81) String local81 = Static389.aString64;
+        @Pc(81) String local81 = client.addtionalInfo;
         local8.buffer.p1(local81 == null ? 0 : 1);
         if (local81 != null) {
             local8.buffer.pjstr(local81);
@@ -44,7 +44,7 @@ public final class Static81 {
         Static654.anInt9739 = 0;
         Static6.anInt95 = 1;
         if (arg1 < 13) {
-            Static477.aBoolean543 = true;
+            client.under13 = true;
             Static358.method9190();
         }
     }

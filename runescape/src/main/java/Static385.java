@@ -63,7 +63,7 @@ public final class Static385 {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(B)Z")
     public static boolean method5421() {
-        if (Static98.aBoolean191) {
+        if (client.js) {
             try {
                 if ((Boolean) JavaScript.call("showingVideoAd", GameShell.loaderApplet)) {
                     return false;

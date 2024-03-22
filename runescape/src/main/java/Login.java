@@ -5,6 +5,12 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Login {
 
+    @OriginalMember(owner = "client!qka", name = "f", descriptor = "Lclient!lja;")
+    public static ConnectionInfo worldInfo;
+
+    @OriginalMember(owner = "client!uu", name = "o", descriptor = "Lclient!lja;")
+    public static ConnectionInfo lobbyInfo;
+
     @OriginalMember(owner = "client!he", name = "a", descriptor = "(IZ)V")
     public static void logout(@OriginalArg(1) boolean arg0) {
         @Pc(12) ServerConnection[] local12 = ConnectionManager.VALUES;

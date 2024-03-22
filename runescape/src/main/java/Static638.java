@@ -86,7 +86,7 @@ public final class Static638 {
         if (Static179.anInt2991 >= 100) {
             @Pc(22) int local22 = Static441.anInt6689 * 512 + 256;
             @Pc(28) int local28 = Static12.anInt5741 * 512 + 256;
-            @Pc(36) int local36 = Static102.method2025(Static394.anInt6176, -29754, local28, local22) - Static55.anInt1125;
+            @Pc(36) int local36 = Static102.method2025(Camera.renderingLevel, -29754, local28, local22) - Static55.anInt1125;
             @Pc(41) int local41 = local22 - Static170.anInt2864;
             @Pc(46) int local46 = local36 - Static359.anInt5801;
             @Pc(51) int local51 = local28 - Static110.anInt2186;

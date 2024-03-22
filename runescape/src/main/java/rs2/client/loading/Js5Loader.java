@@ -4,8 +4,6 @@ import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
-import rs2.client.loading.Loader;
-import rs2.client.loading.LoadingRequirementType;
 
 @OriginalClass("client!ft")
 public final class Js5Loader implements Loader {

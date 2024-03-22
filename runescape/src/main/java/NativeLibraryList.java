@@ -194,7 +194,7 @@ public final class NativeLibraryList {
 				return true;
 			} catch (@Pc(133) NoSuchMethodException ignored) {
                 System.load(file.getPath());
-                nativeLibraries.put(name, aClass6 == null ? (aClass6 = getClass("rs2.client.loading.Class332")) : aClass6);
+                nativeLibraries.put(name, aClass6 == null ? (aClass6 = getClass("rs2.client.loading.NativeLibrary")) : aClass6);
 
                 if (debug) {
                     System.out.println("Loaded " + name + " using fallback!");

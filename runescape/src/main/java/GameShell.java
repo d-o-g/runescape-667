@@ -35,6 +35,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
     @OriginalMember(owner = "client!kh", name = "f", descriptor = "[F")
     public static final float[] aFloatArray14 = new float[16384];
+
     @OriginalMember(owner = "client!fca", name = "a", descriptor = "Ljava/applet/Applet;")
     public static Applet loaderApplet;
 

@@ -33,8 +33,11 @@ import java.net.URL;
 public final class SignLink implements Runnable {
 
     private static final String UIDFileName = "random.dat";
+
     private static final String cacheDatFilename = "main_file_cache.dat2";
+
     private static final String cacheMasterIndexFilename = "main_file_cache.idx255";
+
     private static final String cacheIndexFilename = "main_file_cache.idx";
 
     @OriginalMember(owner = "client!oaa", name = "b", descriptor = "Lclient!vq;")
@@ -87,10 +90,11 @@ public final class SignLink implements Runnable {
     public static Method setFocusCycleRoot;
 
     @OriginalMember(owner = "client!vq", name = "w", descriptor = "I")
-    public static int storeId;
+    public static int cacheId;
 
     @OriginalMember(owner = "client!vq", name = "t", descriptor = "J")
     public static volatile long timeout = 0L;
+
     @OriginalMember(owner = "client!iu", name = "h", descriptor = "Lclient!vq;")
     public static SignLink aSignLink_4;
 
@@ -143,13 +147,13 @@ public final class SignLink implements Runnable {
     public final Thread thread;
 
     @OriginalMember(owner = "client!vq", name = "<init>", descriptor = "(ILjava/lang/String;IZ)V")
-    public SignLink(@OriginalArg(0) int storeId, @OriginalArg(1) String game, @OriginalArg(2) int archiveCount, @OriginalArg(3) boolean signed) throws Exception {
+    public SignLink(@OriginalArg(0) int cacheId, @OriginalArg(1) String game, @OriginalArg(2) int archiveCount, @OriginalArg(3) boolean signed) throws Exception {
         SignLink.game = game;
         SignLink.javaVersion = "1.1";
         SignLink.javaVendor = "Unknown";
 
         this.signed = signed;
-        SignLink.storeId = storeId;
+        SignLink.cacheId = cacheId;
 
         try {
             javaVendor = System.getProperty("java.vendor");
@@ -216,10 +220,10 @@ public final class SignLink implements Runnable {
             }
         }
 
-        FileCache.initialize(SignLink.storeId, SignLink.game);
+        FileCache.initialize(SignLink.cacheId, SignLink.game);
 
         if (this.signed) {
-            this.uidFile = new FileOnDisk(FileCache.get(null, SignLink.storeId, UIDFileName), "rw", 25L);
+            this.uidFile = new FileOnDisk(FileCache.get(null, SignLink.cacheId, UIDFileName), "rw", 25L);
             this.cacheDat = new FileOnDisk(FileCache.get(cacheDatFilename), "rw", 314572800L);
             this.masterIndex = new FileOnDisk(FileCache.get(cacheMasterIndexFilename), "rw", 1048576L);
             this.cacheIndex = new FileOnDisk[archiveCount];
@@ -314,7 +318,7 @@ public final class SignLink implements Runnable {
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(ILjava/lang/String;)Lclient!dm;")
     public static FileOnDisk openPrefs(@OriginalArg(1) String name) {
-        return openPrefs(game, storeId, name);
+        return openPrefs(game, cacheId, name);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/String;ILjava/lang/String;I)Lclient!dm;")
@@ -328,7 +332,7 @@ public final class SignLink implements Runnable {
             path = "jagex_" + game + "_preferences" + name + ".dat";
         }
 
-        @Pc(121) String[] dirs = {
+        @Pc(121) String[] cacheLocations = {
             "c:/rscache/",
             "/rscache/",
             homeDir,
@@ -339,8 +343,8 @@ public final class SignLink implements Runnable {
             ""
         };
 
-        for (@Pc(123) int i = 0; i < dirs.length; i++) {
-            @Pc(128) String dir = dirs[i];
+        for (@Pc(123) int i = 0; i < cacheLocations.length; i++) {
+            @Pc(128) String dir = cacheLocations[i];
             if (dir.length() <= 0 || (new File(dir)).exists()) {
                 try {
                     return new FileOnDisk(new File(dir, path), "rw", 10000L);
@@ -636,10 +640,10 @@ public final class SignLink implements Runnable {
                             Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("exit").invoke(this.fullscreenAdapter);
                         }
                     } else if (type == SignedResourceType.PREFERENCES_SPECIFIC_GAME) {
-                        @Pc(438) FileOnDisk file = openPrefs(game, storeId, (String) request.objectData);
+                        @Pc(438) FileOnDisk file = openPrefs(game, cacheId, (String) request.objectData);
                         request.result = file;
                     } else if (type == SignedResourceType.PREFERENCES) {
-                        @Pc(438) FileOnDisk file = openPrefs("", storeId, (String) request.objectData);
+                        @Pc(438) FileOnDisk file = openPrefs("", cacheId, (String) request.objectData);
                         request.result = file;
                     } else if (this.signed && type == SignedResourceType.MOVE_MOUSE) {
                         @Pc(460) int x = request.intData1;

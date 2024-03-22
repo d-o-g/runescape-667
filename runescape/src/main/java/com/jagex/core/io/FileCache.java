@@ -20,18 +20,18 @@ public final class FileCache {
     public static String game;
 
     @OriginalMember(owner = "client!uia", name = "e", descriptor = "I")
-    public static int storeId;
+    public static int cacheId;
 
     @OriginalMember(owner = "client!uia", name = "c", descriptor = "Ljava/lang/String;")
     public static String homeDir;
 
     @OriginalMember(owner = "client!uia", name = "a", descriptor = "(Ljava/lang/String;I)Ljava/io/File;")
     public static File get(@OriginalArg(0) String name) {
-        return get(game, storeId, name);
+        return get(game, cacheId, name);
     }
 
     @OriginalMember(owner = "client!uia", name = "a", descriptor = "(BLjava/lang/String;ILjava/lang/String;)Ljava/io/File;")
-    public static File get(@OriginalArg(1) String game, @OriginalArg(2) int storeId, @OriginalArg(3) String name) {
+    public static File get(@OriginalArg(1) String game, @OriginalArg(2) int cacheId, @OriginalArg(3) String name) {
         if (!initialized) {
             throw new RuntimeException("");
         }
@@ -53,8 +53,8 @@ public final class FileCache {
         };
 
         @Pc(91) String[] cacheDirectories = {
-            ".jagex_cache_" + storeId,
-            ".file_store_" + storeId
+            ".jagex_cache_" + cacheId,
+            ".file_store_" + cacheId
         };
 
         for (@Pc(99) int i = 0; i < 2; i++) {
@@ -62,7 +62,6 @@ public final class FileCache {
                 for (@Pc(105) int k = 0; k < cacheLocations.length; k++) {
                     @Pc(137) String path = cacheLocations[k] + cacheDirectories[j] + "/" + (game == null ? "" : game + "/") + name;
                     @Pc(139) RandomAccessFile raf = null;
-
                     try {
                         @Pc(144) File f = new File(path);
 
@@ -102,8 +101,8 @@ public final class FileCache {
     }
 
     @OriginalMember(owner = "client!uia", name = "a", descriptor = "(ILjava/lang/String;I)V")
-    public static void initialize(@OriginalArg(0) int storeId, @OriginalArg(1) String game) {
-        FileCache.storeId = storeId;
+    public static void initialize(@OriginalArg(0) int cacheId, @OriginalArg(1) String game) {
+        FileCache.cacheId = cacheId;
         FileCache.game = game;
 
         try {

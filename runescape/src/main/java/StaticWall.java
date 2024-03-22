@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.Base37;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
@@ -44,6 +45,8 @@ public final class StaticWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!jn", name = "eb", descriptor = "Lclient!r;")
     public Shadow aClass2_Sub2_Sub9_4;
+
+    private int arg0;
 
     @OriginalMember(owner = "client!jn", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIZ)V")
     public StaticWall(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) boolean arg10) {
@@ -145,8 +148,9 @@ public final class StaticWall extends Wall implements Location {
     @OriginalMember(owner = "client!jn", name = "k", descriptor = "(I)I")
     @Override
     public int method9286(@OriginalArg(0) int arg0) {
+        this.arg0 = arg0;
         if (arg0 != 2) {
-            Static306.method4476((String) null, 57);
+            Base37.encode((String) null);
         }
         return this.model == null ? 0 : this.model.fa();
     }

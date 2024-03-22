@@ -1,4 +1,4 @@
-package com.jagex.core.stringtools;
+package com.jagex.core.stringtools.general;
 
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

@@ -1,5 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
+import com.jagex.core.stringtools.general.Base37;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.Toolkit;
@@ -83,7 +84,7 @@ public final class Static292 {
         @Pc(16) String local16 = null;
         if (client.ssKey != null) {
             @Pc(23) Packet local23 = new Packet(client.ssKey);
-            local16 = Static287.method4154(local23.g8());
+            local16 = Base37.decode(local23.g8());
             Static430.aLong209 = local23.g8();
         }
         if (local16 == null) {

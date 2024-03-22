@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.Base37;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -18,7 +19,7 @@ public final class Static682 {
 
     @OriginalMember(owner = "client!vka", name = "a", descriptor = "(ILjava/lang/String;)Ljava/lang/String;")
     public static String method8923(@OriginalArg(1) String arg0) {
-        @Pc(17) String local17 = Static99.method1977(Static306.method4476(arg0, -120));
+        @Pc(17) String local17 = Base37.decodeName(Base37.encode(arg0));
         if (local17 == null) {
             local17 = "";
         }

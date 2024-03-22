@@ -2,6 +2,7 @@ import com.jagex.ChangeLocationRequest;
 import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.core.io.connection.Connection;
+import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.util.JagException;
 import com.jagex.game.DelayedStateChange;
@@ -228,11 +229,11 @@ public final class Protocol {
                             Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
                             @Pc(737) String local737 = Static288.aClass139_2.method2950(local657).method3903(local11);
                             if (local653 == 2) {
-                                Static662.method8625("<img=1>" + local629, "<img=1>" + local627, local657, local737, Static99.method1977(local639), 0, local627, 20);
+                                Static662.method8625("<img=1>" + local629, "<img=1>" + local627, local657, local737, Base37.decodeName(local639), 0, local627, 20);
                             } else if (local653 == 1) {
-                                Static662.method8625("<img=0>" + local629, "<img=0>" + local627, local657, local737, Static99.method1977(local639), 0, local627, 20);
+                                Static662.method8625("<img=0>" + local629, "<img=0>" + local627, local657, local737, Base37.decodeName(local639), 0, local627, 20);
                             } else {
-                                Static662.method8625(local629, local627, local657, local737, Static99.method1977(local639), 0, local627, 20);
+                                Static662.method8625(local629, local627, local657, local737, Base37.decodeName(local639), 0, local627, 20);
                             }
                         }
                         arg0.currentProt = null;
@@ -2060,7 +2061,7 @@ public final class Protocol {
                                                                                 local11.gjstr();
                                                                             }
                                                                             local4669 = local11.g8();
-                                                                            Static723.aString129 = Static287.method4154(local4669);
+                                                                            Static723.aString129 = Base37.decode(local4669);
                                                                             Static673.aByte140 = local11.g1b();
                                                                             local1409 = local11.g1();
                                                                             if (local1409 == 255) {
@@ -2169,11 +2170,11 @@ public final class Protocol {
                                                                                 Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
                                                                                 @Pc(9032) String local9032 = Static130.method2280(Static15.method189(local11));
                                                                                 if (local653 == 2 || local653 == 3) {
-                                                                                    Static662.method8625("<img=1>" + local629, "<img=1>" + local627, -1, local9032, Static99.method1977(local639), 0, local627, 9);
+                                                                                    Static662.method8625("<img=1>" + local629, "<img=1>" + local627, -1, local9032, Base37.decodeName(local639), 0, local627, 9);
                                                                                 } else if (local653 == 1) {
-                                                                                    Static662.method8625("<img=0>" + local629, "<img=0>" + local627, -1, local9032, Static99.method1977(local639), 0, local627, 9);
+                                                                                    Static662.method8625("<img=0>" + local629, "<img=0>" + local627, -1, local9032, Base37.decodeName(local639), 0, local627, 9);
                                                                                 } else {
-                                                                                    Static662.method8625(local629, local627, -1, local9032, Static99.method1977(local639), 0, local627, 9);
+                                                                                    Static662.method8625(local629, local627, -1, local9032, Base37.decodeName(local639), 0, local627, 9);
                                                                                 }
                                                                             }
                                                                             arg0.currentProt = null;

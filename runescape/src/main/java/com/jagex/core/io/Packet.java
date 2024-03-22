@@ -158,18 +158,19 @@ public class Packet extends Node {
         if (this.data != null) {
             cache(this.data);
         }
+
         this.data = null;
     }
 
     @OriginalMember(owner = "client!ge", name = "a", descriptor = "(IZ)V")
-    public final void p1(@OriginalArg(0) int arg0) {
-        this.data[this.pos++] = (byte) arg0;
+    public final void p1(@OriginalArg(0) int value) {
+        this.data[this.pos++] = (byte) value;
     }
 
     @OriginalMember(owner = "client!ge", name = "k", descriptor = "(II)V")
-    public final void p2(@OriginalArg(0) int arg0) {
-        this.data[this.pos++] = (byte) (arg0 >> 8);
-        this.data[this.pos++] = (byte) arg0;
+    public final void p2(@OriginalArg(0) int value) {
+        this.data[this.pos++] = (byte) (value >> 8);
+        this.data[this.pos++] = (byte) value;
     }
 
     @OriginalMember(owner = "client!ge", name = "b", descriptor = "(II)V")
@@ -194,23 +195,23 @@ public class Packet extends Node {
     }
 
     @OriginalMember(owner = "client!ge", name = "i", descriptor = "(II)V")
-    public final void ip4(@OriginalArg(1) int arg0) {
-        this.data[this.pos++] = (byte) arg0;
-        this.data[this.pos++] = (byte) (arg0 >> 8);
-        this.data[this.pos++] = (byte) (arg0 >> 16);
-        this.data[this.pos++] = (byte) (arg0 >> 24);
+    public final void ip4(@OriginalArg(1) int value) {
+        this.data[this.pos++] = (byte) value;
+        this.data[this.pos++] = (byte) (value >> 8);
+        this.data[this.pos++] = (byte) (value >> 16);
+        this.data[this.pos++] = (byte) (value >> 24);
     }
 
     @OriginalMember(owner = "client!ge", name = "a", descriptor = "(JI)V")
-    public final void p8(@OriginalArg(0) long arg0) {
-        this.data[this.pos++] = (byte) (int) (arg0 >> 56);
-        this.data[this.pos++] = (byte) (int) (arg0 >> 48);
-        this.data[this.pos++] = (byte) (int) (arg0 >> 40);
-        this.data[this.pos++] = (byte) (int) (arg0 >> 32);
-        this.data[this.pos++] = (byte) (int) (arg0 >> 24);
-        this.data[this.pos++] = (byte) (int) (arg0 >> 16);
-        this.data[this.pos++] = (byte) (int) (arg0 >> 8);
-        this.data[this.pos++] = (byte) (int) arg0;
+    public final void p8(@OriginalArg(0) long value) {
+        this.data[this.pos++] = (byte) (int) (value >> 56);
+        this.data[this.pos++] = (byte) (int) (value >> 48);
+        this.data[this.pos++] = (byte) (int) (value >> 40);
+        this.data[this.pos++] = (byte) (int) (value >> 32);
+        this.data[this.pos++] = (byte) (int) (value >> 24);
+        this.data[this.pos++] = (byte) (int) (value >> 16);
+        this.data[this.pos++] = (byte) (int) (value >> 8);
+        this.data[this.pos++] = (byte) (int) value;
     }
 
     @OriginalMember(owner = "client!ge", name = "a", descriptor = "(BIJ)V")
@@ -767,11 +768,11 @@ public class Packet extends Node {
     }
 
     @OriginalMember(owner = "client!ge", name = "a", descriptor = "(ZI)V")
-    public final void p4_alt2(@OriginalArg(1) int arg0) {
-        this.data[this.pos++] = (byte) (arg0 >> 8);
-        this.data[this.pos++] = (byte) arg0;
-        this.data[this.pos++] = (byte) (arg0 >> 24);
-        this.data[this.pos++] = (byte) (arg0 >> 16);
+    public final void p4_alt2(@OriginalArg(1) int value) {
+        this.data[this.pos++] = (byte) (value >> 8);
+        this.data[this.pos++] = (byte) value;
+        this.data[this.pos++] = (byte) (value >> 24);
+        this.data[this.pos++] = (byte) (value >> 16);
     }
 
     @OriginalMember(owner = "client!ge", name = "d", descriptor = "(IB)V")

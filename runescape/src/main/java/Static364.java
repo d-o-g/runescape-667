@@ -3,6 +3,7 @@ import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.crypto.IsaacCipher;
 import com.jagex.core.io.Packet;
+import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -205,7 +206,7 @@ public final class Static364 {
                 Static524.aServerConnection_3.buffer.pos = 16;
                 Static524.aServerConnection_3.buffer.tinydec(Static219.anIntArray287);
                 Static524.aServerConnection_3.buffer.pos = 0;
-                Static449.aString75 = Static319.aString51 = Static287.method4154(Static524.aServerConnection_3.buffer.g8());
+                Static449.aString75 = Static319.aString51 = Base37.decode(Static524.aServerConnection_3.buffer.g8());
                 Static430.aLong209 = Static524.aServerConnection_3.buffer.g8();
                 Static135.anInt8223 = 8;
             }

@@ -1,8 +1,7 @@
 package com.jagex.game.runetek6.sound;
 
 import com.jagex.core.io.Packet;
-import com.jagex.core.stringtools.Utf8;
-import com.jagex.game.runetek6.sound.OggStream;
+import com.jagex.core.stringtools.general.Utf8;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggStreamState;
 import org.openrs2.deob.annotation.OriginalArg;

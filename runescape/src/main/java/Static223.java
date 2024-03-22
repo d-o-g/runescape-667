@@ -50,8 +50,8 @@ public final class Static223 {
     public static void method9094(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         @Pc(22) DoublyLinkedNode_Sub2__ local22 = Static440.method5963(18, (long) arg0 << 32 | (long) arg2);
         local22.method202();
-        local22.anInt197 = arg3;
-        local22.anInt195 = arg1;
+        local22.primaryData = arg3;
+        local22.secondaryData = arg1;
     }
 
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(ZLclient!qf;)Lclient!pba;")

@@ -13,7 +13,7 @@ public final class Static205 {
 
     @OriginalMember(owner = "client!gg", name = "a", descriptor = "(IZB)V")
     public static void method3089(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(10) Node_Sub22 local10 = Static556.method7303(arg0, arg1);
+        @Pc(10) ClientInventory local10 = Static556.method7303(arg0, arg1);
         if (local10 != null) {
             for (@Pc(16) int local16 = 0; local16 < local10.anIntArray278.length; local16++) {
                 local10.anIntArray278[local16] = -1;

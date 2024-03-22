@@ -13,7 +13,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gfa")
-public final class Node_Sub22 extends Node {
+public final class ClientInventory extends Node {
 
     @OriginalMember(owner = "client!gfa", name = "t", descriptor = "[I")
     public int[] anIntArray278 = new int[]{-1};
@@ -22,7 +22,7 @@ public final class Node_Sub22 extends Node {
     public int[] anIntArray279 = new int[1];
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(ZI[I[IZ)J")
-    public long method3077(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3) {
+    public long method3077(@OriginalArg(0) boolean female, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3) {
         @Pc(7) long[] local7 = Packet.crc64table;
         @Pc(9) long local9 = -1L;
         @Pc(25) long local25 = local7[(int) ((local9 ^ (long) (arg1 >> 8)) & 0xFFL)] ^ local9 >>> 8;
@@ -38,16 +38,16 @@ public final class Node_Sub22 extends Node {
                 local9 = local9 >>> 8 ^ local7[(int) ((local9 ^ (long) arg3[local126]) & 0xFFL)];
             }
         }
-        return local7[(int) ((local9 ^ (long) (arg0 ? 1 : 0)) & 0xFFL)] ^ local9 >>> 8;
+        return local7[(int) ((local9 ^ (long) (female ? 1 : 0)) & 0xFFL)] ^ local9 >>> 8;
     }
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(IILclient!ha;IZLclient!gu;Lclient!ju;)Lclient!ka;")
-    public Model method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(4) boolean arg2, @OriginalArg(5) Animator arg3, @OriginalArg(6) PlayerModel arg4) {
+    public Model method3078(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(4) boolean female, @OriginalArg(5) Animator arg3, @OriginalArg(6) PlayerModel arg4) {
         @Pc(7) Model local7 = null;
         @Pc(9) int local9 = 2048;
         @Pc(11) BASType local11 = null;
         if (arg0 != -1) {
-            local11 = Static574.aBASTypeList_2.list(arg0);
+            local11 = Static574.basTypeList.list(arg0);
         }
         @Pc(23) int[] local23 = this.anIntArray278;
         if (local11 != null && local11.invObjSlots != null) {
@@ -64,7 +64,7 @@ public final class Node_Sub22 extends Node {
         if (arg3 != null) {
             local9 = arg3.functionMask() | 0x800;
         }
-        @Pc(116) long local116 = this.method3077(arg2, arg0, local23, arg4 == null ? null : arg4.clientpalette);
+        @Pc(116) long local116 = this.method3077(female, arg0, local23, arg4 == null ? null : arg4.clientpalette);
         if (Static166.A_WEIGHTED_CACHE___59 != null) {
             local7 = (Model) Static166.A_WEIGHTED_CACHE___59.get(local116);
         }
@@ -75,7 +75,7 @@ public final class Node_Sub22 extends Node {
             @Pc(151) int local151 = local9;
             @Pc(153) boolean local153 = false;
             for (@Pc(155) int local155 = 0; local155 < local23.length; local155++) {
-                if (local23[local155] != -1 && !Static419.aObjTypeList_1.list(local23[local155]).loadedModels(arg2, (ObjTypeCustomisation) null)) {
+                if (local23[local155] != -1 && !Static419.objTypeList.list(local23[local155]).loadedModels(female, (ObjTypeCustomisation) null)) {
                     local153 = true;
                 }
             }
@@ -85,7 +85,7 @@ public final class Node_Sub22 extends Node {
             @Pc(203) Mesh[] meshes = new Mesh[local23.length];
             for (@Pc(205) int local205 = 0; local205 < local23.length; local205++) {
                 if (local23[local205] != -1) {
-                    meshes[local205] = Static419.aObjTypeList_1.list(local23[local205]).playerModel((ObjTypeCustomisation) null, arg2);
+                    meshes[local205] = Static419.objTypeList.list(local23[local205]).playerModel((ObjTypeCustomisation) null, female);
                 }
             }
             @Pc(278) int tx;

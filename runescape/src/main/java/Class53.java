@@ -4,6 +4,7 @@ import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -42,7 +43,7 @@ public final class Class53 {
         if (this.aIterableHashTable_9 == null) {
             this.method1226();
         }
-        for (@Pc(30) Node_Sub46 local30 = (Node_Sub46) this.aIterableHashTable_9.get(Static203.method3071(arg0)); local30 != null; local30 = (Node_Sub46) this.aIterableHashTable_9.nextWithSameKey()) {
+        for (@Pc(30) Node_Sub46 local30 = (Node_Sub46) this.aIterableHashTable_9.get(StringTools.longHash(arg0)); local30 != null; local30 = (Node_Sub46) this.aIterableHashTable_9.nextWithSameKey()) {
             if (local30.aString100.equals(arg0)) {
                 return true;
             }
@@ -81,7 +82,7 @@ public final class Class53 {
             this.aIterableHashTable_9 = new IterableHashTable(local203.getBucketCount());
             @Pc(218) IterableHashTable local218 = new IterableHashTable(local203.getBucketCount());
             for (@Pc(223) StringNode local223 = (StringNode) local203.first(); local223 != null; local223 = (StringNode) local203.next()) {
-                @Pc(229) long local229 = Static203.method3071(local223.value);
+                @Pc(229) long local229 = StringTools.longHash(local223.value);
                 @Pc(235) Node_Sub46 local235;
                 for (local235 = (Node_Sub46) local218.get(local229); local235 != null && !local235.aString100.equals(local223.value); local235 = (Node_Sub46) local218.nextWithSameKey()) {
                 }
@@ -92,7 +93,7 @@ public final class Class53 {
                 local235.anInt8241++;
             }
             for (@Pc(283) StringNode local283 = (StringNode) local203.first(); local283 != null; local283 = (StringNode) local203.next()) {
-                @Pc(289) long local289 = Static203.method3071(local283.value);
+                @Pc(289) long local289 = StringTools.longHash(local283.value);
                 @Pc(296) Node_Sub26 local296;
                 for (local296 = (Node_Sub26) this.aIterableHashTable_9.get(local289); local296 != null && !local296.aString47.equals(local283.value); local296 = (Node_Sub26) this.aIterableHashTable_9.nextWithSameKey()) {
                 }
@@ -114,7 +115,7 @@ public final class Class53 {
         for (@Pc(39) int local39 = 0; local39 < local21.length; local39++) {
             if (local21[local39] != null) {
                 @Pc(48) String local48 = local21[local39];
-                @Pc(52) long local52 = Static203.method3071(local48);
+                @Pc(52) long local52 = StringTools.longHash(local48);
                 for (local58 = (Node_Sub46) local37.get(local52); local58 != null && !local58.aString100.equals(local48); local58 = (Node_Sub46) local37.nextWithSameKey()) {
                 }
                 if (local58 == null) {
@@ -127,7 +128,7 @@ public final class Class53 {
         for (@Pc(103) int local103 = 0; local103 < local21.length; local103++) {
             if (local21[local103] != null) {
                 @Pc(112) String local112 = local21[local103];
-                @Pc(116) long local116 = Static203.method3071(local112);
+                @Pc(116) long local116 = StringTools.longHash(local112);
                 @Pc(123) Node_Sub26 local123;
                 for (local123 = (Node_Sub26) this.aIterableHashTable_9.get(local116); local123 != null && !local123.aString47.equals(local112); local123 = (Node_Sub26) this.aIterableHashTable_9.nextWithSameKey()) {
                 }
@@ -315,7 +316,7 @@ public final class Class53 {
             this.method1226();
         }
         @Pc(26) Node_Sub26 local26;
-        for (local26 = (Node_Sub26) this.aIterableHashTable_9.get(Static203.method3071(arg0)); local26 != null && !local26.aString47.equals(arg0); local26 = (Node_Sub26) this.aIterableHashTable_9.nextWithSameKey()) {
+        for (local26 = (Node_Sub26) this.aIterableHashTable_9.get(StringTools.longHash(arg0)); local26 != null && !local26.aString47.equals(arg0); local26 = (Node_Sub26) this.aIterableHashTable_9.nextWithSameKey()) {
         }
         return local26;
     }

@@ -9,6 +9,16 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Minimap {
+
+    @OriginalMember(owner = "client!sda", name = "g", descriptor = "I")
+    public static int toggle = 0;
+
+    @OriginalMember(owner = "client!vga", name = "j", descriptor = "I")
+    public static int flagX = -1;
+
+    @OriginalMember(owner = "client!gka", name = "n", descriptor = "I")
+    public static int flagY = -1;
+
     @OriginalMember(owner = "client!aw", name = "a", descriptor = "(ILclient!ha;ILclient!hda;I)V")
     public static void draw(@OriginalArg(0) int y, @OriginalArg(1) Toolkit toolkit, @OriginalArg(3) Component component, @OriginalArg(4) int x) {
         @Pc(23) Graphic local23 = component.graphic(toolkit);
@@ -17,7 +27,7 @@ public final class Minimap {
         }
         @Pc(30) ClippingMask local30 = local23.aClippingMask;
         toolkit.KA(x, y, x + component.width, y - -component.height);
-        if (Static578.anInt8595 == 2 || Static578.anInt8595 == 5 || Static12.aSprite_26 == null) {
+        if (toggle == 2 || toggle == 5 || Static12.aSprite_26 == null) {
             toolkit.A(-16777216, local30, x, y);
             return;
         }
@@ -103,20 +113,20 @@ public final class Minimap {
         @Pc(589) int local589;
         @Pc(622) int local622;
         for (local381 = 0; local381 < local222; local381++) {
-            @Pc(541) Class8_Sub2_Sub1_Sub2_Sub1 local541 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local531[local381]];
+            @Pc(541) PlayerEntity local541 = PlayerList.highResolutionPlayers[local531[local381]];
             if (local541 != null && local541.method1417() && !local541.aBoolean124 && Static556.self != local541 && local541.aByte144 == Static556.self.aByte144) {
                 local490 = local541.anInt10690 / 128 - local90 / 128;
                 local585 = local541.anInt10694 / 128 - local93 / 128;
                 @Pc(587) boolean local587 = false;
                 for (local589 = 0; local589 < Static327.anInt5392; local589++) {
-                    if (local541.aString9.equals(Static330.aStringArray25[local589]) && Static371.anIntArray455[local589] != 0) {
+                    if (local541.accountName.equals(Static330.aStringArray25[local589]) && Static371.anIntArray455[local589] != 0) {
                         local587 = true;
                         break;
                     }
                 }
                 @Pc(620) boolean local620 = false;
                 for (local622 = 0; local622 < Static706.anInt10633; local622++) {
-                    if (local541.aString9.equals(Static87.aClass241Array1[local622].aString66)) {
+                    if (local541.accountName.equals(Static87.aClass241Array1[local622].aString66)) {
                         local620 = true;
                         break;
                     }
@@ -162,8 +172,8 @@ public final class Minimap {
                     @Pc(897) long local897 = local893 * local893;
                     Static114.method2132(local878, x, local897, local30, local796.anInt6367, y, local589, component);
                 }
-                if (local796.anInt6363 == 10 && local796.anInt6366 >= 0 && local796.anInt6366 < Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3.length) {
-                    @Pc(932) Class8_Sub2_Sub1_Sub2_Sub1 local932 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local796.anInt6366];
+                if (local796.anInt6363 == 10 && local796.anInt6366 >= 0 && local796.anInt6366 < PlayerList.highResolutionPlayers.length) {
+                    @Pc(932) PlayerEntity local932 = PlayerList.highResolutionPlayers[local796.anInt6366];
                     if (local932 != null) {
                         local589 = local932.anInt10690 / 128 - local90 / 128;
                         local843 = local932.anInt10694 / 128 - local93 / 128;
@@ -175,14 +185,29 @@ public final class Minimap {
         if (Static511.anInt7645 == 4) {
             return;
         }
-        if (Static675.anInt10156 != 0) {
-            local585 = Static675.anInt10156 * 4 + (Static556.self.method9302((byte) 50) + -1) * 2 + 2 - local90 / 128;
-            local878 = Static212.anInt3466 * 4 + Static556.self.method9302((byte) 127) * 2 + 2 - local93 / 128 - 2;
+        if (flagX != 0) {
+            local585 = flagX * 4 + (Static556.self.boundSize((byte) 50) + -1) * 2 + 2 - local90 / 128;
+            local878 = flagY * 4 + Static556.self.boundSize((byte) 127) * 2 + 2 - local93 / 128 - 2;
             Static6.method107(y, local30, Static691.aSpriteArray15[Static266.aBoolean583 ? 1 : 0], local878, local585, component, x);
         }
         if (!Static556.self.aBoolean124) {
             toolkit.method7971(3, 3, y + component.height / 2 - 1, component.width / 2 + x + -1, -1);
             return;
+        }
+    }
+
+    @OriginalMember(owner = "client!uga", name = "a", descriptor = "(Lclient!hda;III)V")
+    public static void drawCompass(@OriginalArg(0) Component component, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
+        @Pc(8) Graphic graphic = component.graphic(Static163.activeToolkit);
+        if (graphic == null) {
+            return;
+        }
+
+        Static163.activeToolkit.KA(arg1, arg2, arg1 + component.width, arg2 + component.height);
+        if (toggle >= 3) {
+            Static163.activeToolkit.A(-16777216, graphic.aClippingMask, arg1, arg2);
+        } else {
+            Static12.aSprite_27.method8183((float) component.width / 2.0F + (float) arg1, (float) component.height / 2.0F + (float) arg2, ((int) -Static171.aFloat64 & 0x3FFF) << 2, graphic.aClippingMask, arg1, arg2);
         }
     }
 }

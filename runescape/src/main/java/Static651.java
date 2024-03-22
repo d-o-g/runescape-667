@@ -25,7 +25,7 @@ public final class Static651 {
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
     public static void method8513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Class8_Sub2_Sub1_Sub2 arg3) {
         @Pc(9) BASType local9 = arg3.method9317();
-        @Pc(19) Animator local19 = arg3.aAnimator_10;
+        @Pc(19) Animator local19 = arg3.animator;
         @Pc(29) int local29 = arg3.anInt10756 - arg3.aClass126_7.anInt2889 & 0x3FFF;
         if (arg0 == -1) {
             if (local29 == 0 && arg3.anInt10749 <= 25) {
@@ -41,7 +41,7 @@ public final class Static651 {
                 arg3.aBoolean817 = false;
             } else if (!arg3.aBoolean817 || !local9.isReady(local19.getAnimationId())) {
                 local19.update(true, local9.ready());
-                arg3.aBoolean817 = arg3.aAnimator_10.isAnimating();
+                arg3.aBoolean817 = arg3.animator.isAnimating();
             }
         } else if (arg3.anInt10722 != -1 && (local29 >= 10240 || local29 <= 2048)) {
             @Pc(172) int local172 = Static464.anIntArray561[arg2] - arg3.aClass126_7.anInt2889 & 0x3FFF;
@@ -141,7 +141,7 @@ public final class Static651 {
             if (arg0[local10] != -1) {
                 local8 = false;
             }
-            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.aSeqTypeList_1.list(arg0[local10]).priority >= Static25.aSeqTypeList_1.list(arg3.anIntArray869[local10]).priority) {
+            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.seqTypeList.list(arg0[local10]).priority >= Static25.seqTypeList.list(arg3.anIntArray869[local10]).priority) {
                 arg3.anIntArray869 = arg0;
                 arg3.aAnimator_11.method9091(arg1);
                 if (arg2) {

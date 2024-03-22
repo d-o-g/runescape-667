@@ -25,7 +25,7 @@ public final class Static55 {
         }
         @Pc(35) long local35 = arg1.aLong233;
         if (local22 == 44) {
-            @Pc(44) Class8_Sub2_Sub1_Sub2_Sub1 local44 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local26];
+            @Pc(44) PlayerEntity local44 = PlayerList.highResolutionPlayers[local26];
             if (local44 != null) {
                 Static481.anInt7215 = 0;
                 Static676.anInt10206 = arg2;
@@ -38,7 +38,7 @@ public final class Static55 {
                 local64.buffer.p1_alt3(Static334.aClass319_1.method8479(82) ? 1 : 0);
                 local64.buffer.p2_alt3(Static77.anInt1614);
                 ConnectionManager.GAME.send(local64);
-                Static147.method2419(0, local44.pathY[0], local44.method9302((byte) 99), true, local44.pathX[0], 0, -2, local44.method9302((byte) 110));
+                Static147.method2419(0, local44.pathY[0], local44.boundSize((byte) 99), true, local44.pathX[0], 0, -2, local44.boundSize((byte) 110));
             }
         }
         @Pc(147) ClientMessage local147;
@@ -95,10 +95,10 @@ public final class Static55 {
                 Static147.method2419(0, local19, 1, true, local16, 0, -4, 1);
             }
         }
-        if (local22 == 10 && Static390.aComponent_9 == null) {
+        if (local22 == 10 && InterfaceManager.dialog == null) {
             Static479.method6461(local16, local19);
-            Static390.aComponent_9 = Static15.method186(local16, local19);
-            InterfaceManager.redraw(Static390.aComponent_9);
+            InterfaceManager.dialog = Static15.method186(local16, local19);
+            InterfaceManager.redraw(InterfaceManager.dialog);
         }
         @Pc(389) Class345 local389 = null;
         if (local22 == 2) {
@@ -124,7 +124,7 @@ public final class Static55 {
         }
         @Pc(494) ClientMessage local494;
         if (local389 != null) {
-            @Pc(474) Class8_Sub2_Sub1_Sub2_Sub1 local474 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local26];
+            @Pc(474) PlayerEntity local474 = PlayerList.highResolutionPlayers[local26];
             if (local474 != null) {
                 Static481.anInt7215 = 0;
                 Static305.anInt4882 = arg0;
@@ -134,7 +134,7 @@ public final class Static55 {
                 local494.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
                 local494.buffer.p2(local26);
                 ConnectionManager.GAME.send(local494);
-                Static147.method2419(0, local474.pathY[0], local474.method9302((byte) 125), true, local474.pathX[0], 0, -2, local474.method9302((byte) 60));
+                Static147.method2419(0, local474.pathY[0], local474.boundSize((byte) 125), true, local474.pathX[0], 0, -2, local474.boundSize((byte) 60));
             }
         }
         @Pc(548) Class345 local548 = null;
@@ -210,7 +210,7 @@ public final class Static55 {
                 local831.buffer.p1_alt1(Static334.aClass319_1.method8479(82) ? 1 : 0);
                 local831.buffer.p2_alt2(local26);
                 ConnectionManager.GAME.send(local831);
-                Static147.method2419(0, local813.pathY[0], local813.method9302((byte) 76), true, local813.pathX[0], 0, -2, local813.method9302((byte) 103));
+                Static147.method2419(0, local813.pathY[0], local813.boundSize((byte) 76), true, local813.pathX[0], 0, -2, local813.boundSize((byte) 103));
             }
         }
         @Pc(878) Class345 local878 = null;
@@ -289,7 +289,7 @@ public final class Static55 {
                 local1223.buffer.p4_alt3(Static450.anInt6819);
                 local1223.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
                 ConnectionManager.GAME.send(local1223);
-                Static147.method2419(0, local1205.pathY[0], local1205.method9302((byte) 44), true, local1205.pathX[0], 0, -2, local1205.method9302((byte) 50));
+                Static147.method2419(0, local1205.pathY[0], local1205.boundSize((byte) 44), true, local1205.pathX[0], 0, -2, local1205.boundSize((byte) 50));
             }
         }
         if (local22 == 20 || local22 == 1002) {

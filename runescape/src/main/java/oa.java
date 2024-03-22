@@ -3,6 +3,7 @@ import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
+import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.graphics.Font;
@@ -82,7 +83,7 @@ public final class oa extends Toolkit implements Interface5 {
             }
             Static307.method4479();
             this.MA(super.textureSource, 0, 0);
-            Static198.method2954(true, false);
+            ColourUtils.init(true, false);
             this.aBoolean510 = true;
             this.aMatrix_8 = new ja();
             this.setCamera(new ja());
@@ -808,7 +809,7 @@ public final class oa extends Toolkit implements Interface5 {
         this.aDeque_38.clear();
         this.FA();
         if (this.aBoolean510) {
-            Static300.method4390(false, true);
+            ColourUtils.destroy(false, true);
             this.aBoolean510 = false;
         }
         this.g();

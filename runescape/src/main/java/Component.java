@@ -46,6 +46,8 @@ public final class Component {
     static final int OBJ_TYPE_PLAYERMODEL = 5;
     static final int OBJ_TYPE_NPCMODEL = 6;
     static final int OBJ_TYPE_PLAYERHEAD_IGNOREWORN = 7;
+    static final int OBJ_TYPE_INVENTORY_MALE = 8;
+    static final int OBJ_TYPE_INVENTORY_FEMALE = 9;
 
     static final int TYPE_LAYER = 0;
     static final int TYPE_INVENTORY = 2;
@@ -176,7 +178,7 @@ public final class Component {
     public Object[] onScrollWheel;
 
     @OriginalMember(owner = "client!hda", name = "s", descriptor = "Lclient!gu;")
-    public Animator aAnimator_6;
+    public Animator animator;
 
     @OriginalMember(owner = "client!hda", name = "hd", descriptor = "[Ljava/lang/Object;")
     public Object[] anObjectArray12;
@@ -404,7 +406,7 @@ public final class Component {
     public int anInt3736 = 0;
 
     @OriginalMember(owner = "client!hda", name = "gb", descriptor = "I")
-    public int anInt3757 = 2;
+    public int objNumMode = 2;
 
     @OriginalMember(owner = "client!hda", name = "I", descriptor = "Z")
     public boolean aBoolean296 = false;

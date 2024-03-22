@@ -13,7 +13,7 @@ public final class Static89 {
     public static final Class155 aClass155_9 = new Class155(2);
 
     @OriginalMember(owner = "client!cp", name = "a", descriptor = "(ILclient!ca;IILclient!wj;Lclient!c;BI)V")
-    public static void method1714(@OriginalArg(0) int arg0, @OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub1 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class8_Sub2_Sub1_Sub2_Sub2 arg4, @OriginalArg(5) LocType arg5, @OriginalArg(7) int arg6) {
+    public static void method1714(@OriginalArg(0) int arg0, @OriginalArg(1) PlayerEntity arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class8_Sub2_Sub1_Sub2_Sub2 arg4, @OriginalArg(5) LocType arg5, @OriginalArg(7) int arg6) {
         @Pc(7) Node_Sub51 local7 = new Node_Sub51();
         local7.anInt9350 = arg0;
         local7.anInt9357 = arg2 << 9;
@@ -73,9 +73,9 @@ public final class Static89 {
         if (arg1 == null) {
             return;
         }
-        local7.aClass8_Sub2_Sub1_Sub2_Sub1_3 = arg1;
-        local7.anInt9362 = arg2 + arg1.method9302((byte) 46) << 9;
-        local7.anInt9349 = arg1.method9302((byte) 77) + arg3 << 9;
+        local7.aPlayerEntity_3 = arg1;
+        local7.anInt9362 = arg2 + arg1.boundSize((byte) 46) << 9;
+        local7.anInt9349 = arg1.boundSize((byte) 77) + arg3 << 9;
         local7.anInt9353 = Static326.method4870(arg1);
         local7.anInt9356 = arg1.anInt1452 << 9;
         local7.anInt9360 = 256;

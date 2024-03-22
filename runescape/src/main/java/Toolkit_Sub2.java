@@ -3,6 +3,7 @@ import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
+import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.Node2;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.ref.ReferenceCache;
@@ -212,7 +213,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             this.aClass73_Sub2_1 = new Matrix_Sub2();
             this.method7956(1);
             this.method8020(0);
-            Static198.method2954(true, true);
+            ColourUtils.init(true, true);
             this.aBoolean330 = true;
             this.anInt4184 = (int) SystemTimer.safetime();
         } catch (@Pc(99) Throwable local99) {
@@ -239,7 +240,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     @Override
     protected void method7987() {
         if (this.aBoolean330) {
-            Static300.method4390(true, false);
+            ColourUtils.destroy(true, false);
             this.aBoolean330 = false;
         }
         this.aClass2_Sub10_1 = null;

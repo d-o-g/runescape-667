@@ -35,7 +35,7 @@ public final class Static94 {
         Static533.method7119();
         Static605.method7914();
         for (@Pc(36) int local36 = 0; local36 < 2048; local36++) {
-            Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local36] = null;
+            PlayerList.highResolutionPlayers[local36] = null;
         }
         Static556.self = null;
         for (@Pc(49) int local49 = 0; local49 < Static416.anInt6378; local49++) {

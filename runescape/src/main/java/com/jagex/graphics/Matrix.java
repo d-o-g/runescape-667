@@ -44,7 +44,7 @@ public abstract class Matrix {
     public abstract void method7135(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(I)V")
-    public abstract void method7136(@OriginalArg(0) int arg0);
+    public abstract void makeRotationX(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!tt", name = "b", descriptor = "(III[I)V")
     public abstract void method7138(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3);

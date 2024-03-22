@@ -88,8 +88,8 @@ public final class Static489 {
             arg1.anInt10755 = 0;
             arg1.anIntArray869 = null;
             local16 = 0;
-            arg1.anInt10690 = arg1.pathX[0] * 512 + arg1.method9302((byte) 97) * 256;
-            arg1.anInt10694 = arg1.pathY[0] * 512 + arg1.method9302((byte) 113) * 256;
+            arg1.anInt10690 = arg1.pathX[0] * 512 + arg1.boundSize((byte) 97) * 256;
+            arg1.anInt10694 = arg1.pathY[0] * 512 + arg1.boundSize((byte) 113) * 256;
             arg1.method9316();
         }
         if (arg1 == Static556.self && (arg1.anInt10690 < 6144 || arg1.anInt10694 < 6144 || arg1.anInt10690 >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.anInt10694)) {
@@ -103,8 +103,8 @@ public final class Static489 {
             arg1.anIntArray869 = null;
             local16 = 0;
             local7 = -1;
-            arg1.anInt10690 = arg1.pathX[0] * 512 + arg1.method9302((byte) 69) * 256;
-            arg1.anInt10694 = arg1.pathY[0] * 512 + arg1.method9302((byte) 49) * 256;
+            arg1.anInt10690 = arg1.pathX[0] * 512 + arg1.boundSize((byte) 69) * 256;
+            arg1.anInt10694 = arg1.pathY[0] * 512 + arg1.boundSize((byte) 49) * 256;
             arg1.method9316();
         }
         local107 = Static112.method2104(arg1);

@@ -23,6 +23,6 @@ public final class Static362 {
                 return true;
             }
         }
-        return arg1.equalsIgnoreCase(Static556.self.aString9);
+        return arg1.equalsIgnoreCase(Static556.self.accountName);
     }
 }

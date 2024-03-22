@@ -169,16 +169,6 @@ public final class StringTools {
         }
     }
 
-    @OriginalMember(owner = "client!cw", name = "a", descriptor = "(ZLjava/lang/String;)I")
-    public static int hash(@OriginalArg(1) String string) {
-        @Pc(12) int length = string.length();
-        @Pc(14) int hash = 0;
-        for (@Pc(16) int i = 0; i < length; i++) {
-            hash = (hash << 5) + Cp1252.encodeChar(string.charAt(i)) - hash;
-        }
-        return hash;
-    }
-
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
     public static String replace(@OriginalArg(0) String string, @OriginalArg(2) String target, @OriginalArg(3) String replacement) {
         for (@Pc(13) int i = string.indexOf(target); i != -1; i = string.indexOf(target, i + replacement.length())) {
@@ -239,6 +229,26 @@ public final class StringTools {
                 }
             }
         }
+    }
+
+    @OriginalMember(owner = "client!gf", name = "a", descriptor = "(ILjava/lang/String;)J")
+    public static long longHash(@OriginalArg(1) String text) {
+        @Pc(15) int length = text.length();
+        @Pc(17) long hash = 0L;
+        for (@Pc(19) int i = 0; i < length; i++) {
+            hash = (long) text.charAt(i) + (hash << 5) - hash;
+        }
+        return hash;
+    }
+
+    @OriginalMember(owner = "client!gla", name = "a", descriptor = "(Ljava/lang/String;B)I")
+    public static int intHash(@OriginalArg(0) String text) {
+        @Pc(8) int length = text.length();
+        @Pc(17) int hash = 0;
+        for (@Pc(19) int i = 0; i < length; i++) {
+            hash = text.charAt(i) + (hash << 5) - hash;
+        }
+        return hash;
     }
 
     private StringTools() {

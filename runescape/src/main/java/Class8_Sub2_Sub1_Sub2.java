@@ -154,7 +154,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     public int anInt10747;
 
     @OriginalMember(owner = "client!cg", name = "qc", descriptor = "Lclient!gu;")
-    public final Animator aAnimator_10;
+    public final Animator animator;
 
     @OriginalMember(owner = "client!cg", name = "Ab", descriptor = "Lclient!gu;")
     public final Animator aAnimator_11;
@@ -246,7 +246,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         this.anIntArray873 = new int[Static523.graphicsDefaults.maxhitmarks];
         this.anInt10748 = -32768;
         this.anInt10747 = -1000;
-        this.aAnimator_10 = new Animator_Sub2(this, false);
+        this.animator = new Animator_Sub2(this, false);
         this.aAnimator_11 = new Animator_Sub2(this, false);
         this.anInt10749 = 0;
         this.anInt10757 = 256;
@@ -496,7 +496,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "g", descriptor = "(B)I")
-    public int method9302(@OriginalArg(0) byte arg0) {
+    public int boundSize(@OriginalArg(0) byte arg0) {
         if (arg0 <= 43) {
             this.method9314(49, 56, -61, -114, 70, -70);
         }
@@ -655,7 +655,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
             if (local19 == arg5) {
                 local38 = Static23.aClass128_1.method2694(arg5);
                 if (local38.aBoolean448 && local38.anInt5842 != -1) {
-                    @Pc(54) SeqType local54 = Static25.aSeqTypeList_1.list(local38.anInt5842);
+                    @Pc(54) SeqType local54 = Static25.seqTypeList.list(local38.anInt5842);
                     @Pc(57) int replayMode = local54.replayMode;
                     if (replayMode == SeqReplayMode.STOP) {
                         return;
@@ -669,8 +669,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                 local38 = Static23.aClass128_1.method2694(arg5);
                 @Pc(86) Class227 local86 = Static23.aClass128_1.method2694(local19);
                 if (local38.anInt5842 != -1 && local86.anInt5842 != -1) {
-                    @Pc(103) SeqType local103 = Static25.aSeqTypeList_1.list(local38.anInt5842);
-                    @Pc(109) SeqType local109 = Static25.aSeqTypeList_1.list(local86.anInt5842);
+                    @Pc(103) SeqType local103 = Static25.seqTypeList.list(local38.anInt5842);
+                    @Pc(109) SeqType local109 = Static25.seqTypeList.list(local86.anInt5842);
                     if (local103.priority < local109.priority) {
                         return;
                     }
@@ -812,7 +812,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     @OriginalMember(owner = "client!cg", name = "i", descriptor = "(B)Lclient!pda;")
     public final BASType method9317() {
         @Pc(13) int local13 = this.method9320(0);
-        return local13 == -1 ? Static636.A_BAS_TYPE___1 : Static574.aBASTypeList_2.list(local13);
+        return local13 == -1 ? Static636.A_BAS_TYPE___1 : Static574.basTypeList.list(local13);
     }
 
     @OriginalMember(owner = "client!cg", name = "b", descriptor = "(B)Z")

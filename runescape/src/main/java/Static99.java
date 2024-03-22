@@ -11,7 +11,7 @@ import java.net.Socket;
 public final class Static99 {
 
     @OriginalMember(owner = "client!dba", name = "x", descriptor = "Lclient!dg;")
-    public static SkyBoxSphereTypeList aSkyBoxSphereTypeList_1;
+    public static SkyBoxSphereTypeList skyBoxSphereTypeList;
 
     @OriginalMember(owner = "client!dba", name = "z", descriptor = "I")
     public static int anInt2077;

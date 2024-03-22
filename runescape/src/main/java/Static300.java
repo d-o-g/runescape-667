@@ -14,24 +14,6 @@ public final class Static300 {
         Static449.aString75 = "";
     }
 
-    @OriginalMember(owner = "client!jj", name = "a", descriptor = "(ZBZ)V")
-    public static void method4390(@OriginalArg(0) boolean arg0, @OriginalArg(2) boolean arg1) {
-        if (arg1) {
-            Static191.anInt3115--;
-            if (Static191.anInt3115 == 0) {
-                Static154.anIntArray237 = null;
-            }
-        }
-        if (!arg0) {
-            return;
-        }
-        Static432.anInt524--;
-        if (Static432.anInt524 == 0) {
-            Static323.anIntArray389 = null;
-            return;
-        }
-    }
-
     @OriginalMember(owner = "client!jj", name = "a", descriptor = "(ILclient!ge;)V")
     public static void method4392(@OriginalArg(1) Packet arg0) {
         @Pc(7) int local7 = arg0.gsmart();

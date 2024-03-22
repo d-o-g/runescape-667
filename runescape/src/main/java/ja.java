@@ -95,7 +95,7 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "(I)V")
     @Override
-    public void method7136(@OriginalArg(0) int arg0) {
+    public void makeRotationX(@OriginalArg(0) int arg0) {
         this.VA(this.nativeid, arg0);
     }
 

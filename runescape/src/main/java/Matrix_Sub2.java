@@ -196,7 +196,7 @@ public final class Matrix_Sub2 extends Matrix {
 
     @OriginalMember(owner = "client!eaa", name = "a", descriptor = "(I)V")
     @Override
-    public void method7136(@OriginalArg(0) int arg0) {
+    public void makeRotationX(@OriginalArg(0) int arg0) {
         this.aFloat59 = 1.0F;
         this.aFloat52 = this.aFloat61 = Static203.aFloatArray80[arg0 & 0x3FFF];
         this.aFloat54 = Static203.aFloatArray79[arg0 & 0x3FFF];

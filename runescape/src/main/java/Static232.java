@@ -33,9 +33,9 @@ public final class Static232 {
         }
         @Pc(49) int[] local49 = null;
         if (Static245.method8635(arg6.anInt7314)) {
-            local49 = Static419.aObjTypeList_1.list((int) arg6.aLong233).quests;
+            local49 = Static419.objTypeList.list((int) arg6.aLong233).quests;
         } else if (arg6.anInt7317 != -1) {
-            local49 = Static419.aObjTypeList_1.list(arg6.anInt7317).quests;
+            local49 = Static419.objTypeList.list(arg6.anInt7317).quests;
         } else if (Static598.method7825(arg6.anInt7314)) {
             @Pc(110) Node_Sub45 local110 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) arg6.aLong233);
             if (local110 != null) {

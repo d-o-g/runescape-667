@@ -14,10 +14,10 @@ public final class DoublyLinkedNode_Sub2__ extends Node2 {
     public int anInt192;
 
     @OriginalMember(owner = "client!aj", name = "w", descriptor = "I")
-    public int anInt195;
+    public int secondaryData;
 
     @OriginalMember(owner = "client!aj", name = "t", descriptor = "I")
-    public int anInt197;
+    public int primaryData;
 
     @OriginalMember(owner = "client!aj", name = "<init>", descriptor = "(IJ)V")
     public DoublyLinkedNode_Sub2__(@OriginalArg(0) int arg0, @OriginalArg(1) long arg1) {

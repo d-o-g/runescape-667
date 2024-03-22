@@ -28,11 +28,11 @@ public final class Static383 {
             if (local63) {
                 Static321.anIntArray388[Static652.anInt9713++] = arg0;
             }
-            if (Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[arg0] != null) {
+            if (PlayerList.highResolutionPlayers[arg0] != null) {
                 throw new RuntimeException("hr:lr");
             }
             @Pc(91) Class350 local91 = Static246.aClass350Array1[arg0];
-            @Pc(99) Class8_Sub2_Sub1_Sub2_Sub1 local99 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[arg0] = new Class8_Sub2_Sub1_Sub2_Sub1();
+            @Pc(99) PlayerEntity local99 = PlayerList.highResolutionPlayers[arg0] = new PlayerEntity();
             local99.anInt10740 = arg0;
             if (Static462.aClass2_Sub21Array1[arg0] != null) {
                 local99.method1420(Static462.aClass2_Sub21Array1[arg0]);

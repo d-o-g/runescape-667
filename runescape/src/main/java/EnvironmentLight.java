@@ -1,3 +1,4 @@
+import com.jagex.math.ColourUtils;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
@@ -80,7 +81,7 @@ public final class EnvironmentLight {
             this.aShortArray131[local75] = (short) (local100 | local85 << 8);
         }
         local63 = (local63 << Static52.anInt1066) + Static247.anInt3993;
-        @Pc(160) int local160 = Static154.anIntArray237 == null ? Static323.anIntArray389[Static105.method2043(arg1.g2()) & 0xFFFF] : Static154.anIntArray237[arg1.g2()];
+        @Pc(160) int local160 = ColourUtils.HSL_TO_RGB == null ? ColourUtils.HSV_TO_RGB[Static105.method2043(arg1.g2()) & 0xFFFF] : ColourUtils.HSL_TO_RGB[arg1.g2()];
         local85 = arg1.g1();
         this.anInt9371 = (local85 & 0xE0) << 3;
         this.preset = local85 & 0x1F;

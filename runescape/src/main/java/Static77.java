@@ -31,9 +31,9 @@ public final class Static77 {
                 Static449.method6115(true, true, local22);
             }
         }
-        if (Static390.aComponent_9 != null) {
-            InterfaceManager.redraw(Static390.aComponent_9);
-            Static390.aComponent_9 = null;
+        if (InterfaceManager.dialog != null) {
+            InterfaceManager.redraw(InterfaceManager.dialog);
+            InterfaceManager.dialog = null;
         }
     }
 

@@ -58,8 +58,8 @@ public final class Static242 {
         @Pc(7) int[] local7 = Static210.anIntArray280;
         @Pc(9) boolean local9 = false;
         for (@Pc(19) int local19 = 0; local19 < local5; local19++) {
-            @Pc(26) Class8_Sub2_Sub1_Sub2_Sub1 local26 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local7[local19]];
-            if (local26 != null && Static556.self != local26 && local26.aString9 != null && local26.aString9.equalsIgnoreCase(arg0)) {
+            @Pc(26) PlayerEntity local26 = PlayerList.highResolutionPlayers[local7[local19]];
+            if (local26 != null && Static556.self != local26 && local26.accountName != null && local26.accountName.equalsIgnoreCase(arg0)) {
                 @Pc(47) Class345 local47 = null;
                 if (arg1 == 1) {
                     local47 = Static424.aClass345_79;

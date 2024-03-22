@@ -17,9 +17,6 @@ public final class Static390 {
     @OriginalMember(owner = "client!mda", name = "H", descriptor = "I")
     public static int anInt6126 = 0;
 
-    @OriginalMember(owner = "client!mda", name = "B", descriptor = "Lclient!hda;")
-    public static Component aComponent_9 = null;
-
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(ILjava/lang/String;)Ljava/lang/String;")
     public static String method5492(@OriginalArg(1) String arg0) {
         if (arg0 == null) {
@@ -101,14 +98,14 @@ public final class Static390 {
 
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(IZIZI)I")
     public static int method5494(@OriginalArg(1) boolean arg0, @OriginalArg(2) int arg1, @OriginalArg(4) int arg2) {
-        @Pc(18) Node_Sub22 local18 = Static556.method7303(arg2, false);
+        @Pc(18) ClientInventory local18 = Static556.method7303(arg2, false);
         if (local18 == null) {
             return 0;
         }
         @Pc(25) int local25 = 0;
         for (@Pc(27) int local27 = 0; local27 < local18.anIntArray278.length; local27++) {
-            if (local18.anIntArray278[local27] >= 0 && local18.anIntArray278[local27] < Static419.aObjTypeList_1.num) {
-                @Pc(54) ObjType local54 = Static419.aObjTypeList_1.list(local18.anIntArray278[local27]);
+            if (local18.anIntArray278[local27] >= 0 && local18.anIntArray278[local27] < Static419.objTypeList.num) {
+                @Pc(54) ObjType local54 = Static419.objTypeList.list(local18.anIntArray278[local27]);
                 @Pc(64) int local64 = local54.param(arg1, Static523.instance.list(arg1).defaultint);
                 if (arg0) {
                     local25 += local64 * local18.anIntArray279[local27];

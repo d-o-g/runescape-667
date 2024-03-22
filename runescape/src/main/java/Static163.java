@@ -37,9 +37,9 @@ public final class Static163 {
         if (local26 != null) {
             InterfaceManager.redraw(local26);
         }
-        if (Static390.aComponent_9 != null) {
-            InterfaceManager.redraw(Static390.aComponent_9);
-            Static390.aComponent_9 = null;
+        if (InterfaceManager.dialog != null) {
+            InterfaceManager.redraw(InterfaceManager.dialog);
+            InterfaceManager.dialog = null;
         }
         Static94.method1840();
         if (local26 != null) {

@@ -1,3 +1,4 @@
+import com.jagex.math.ColourUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -3996,7 +3997,7 @@ public final class Class219 {
                 if (this.anInt5724 == 0) {
                     if (local50 > 0) {
                         do {
-                            local64 = Static323.anIntArray389[(int) arg5];
+                            local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                             arg5 += local54;
                             local71 = arg2 + 1;
                             if (arg7 < arg1[local71]) {
@@ -4027,7 +4028,7 @@ public final class Class219 {
                     }
                     local50 = arg4 - arg3 & 0x3;
                     if (local50 > 0) {
-                        local64 = Static323.anIntArray389[(int) arg5];
+                        local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                         do {
                             arg2++;
                             if (arg7 < arg1[arg2]) {
@@ -4044,7 +4045,7 @@ public final class Class219 {
                     local191 = 256 - this.anInt5724;
                     if (local50 > 0) {
                         do {
-                            local64 = Static323.anIntArray389[(int) arg5];
+                            local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                             arg5 += local54;
                             local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                             local71 = arg2 + 1;
@@ -4082,7 +4083,7 @@ public final class Class219 {
                     if (local50 <= 0) {
                         return;
                     }
-                    local64 = Static323.anIntArray389[(int) arg5];
+                    local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                     local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                     do {
                         arg2++;
@@ -4101,7 +4102,7 @@ public final class Class219 {
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
-                            arg0[arg2] = Static323.anIntArray389[(int) arg5];
+                            arg0[arg2] = ColourUtils.HSV_TO_RGB[(int) arg5];
                             arg1[arg2] = arg7;
                         }
                         arg7 += arg8;
@@ -4114,7 +4115,7 @@ public final class Class219 {
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
-                            local64 = Static323.anIntArray389[(int) arg5];
+                            local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                             local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                             local233 = arg0[arg2];
                             arg0[arg2] = local64 + ((local233 & 0xFF00FF) * local186 >> 8 & 0xFF00FF) + ((local233 & 0xFF00) * local186 >> 8 & 0xFF00);
@@ -4132,7 +4133,7 @@ public final class Class219 {
             if (this.anInt5724 == 0) {
                 if (local50 > 0) {
                     do {
-                        local64 = Static323.anIntArray389[(int) arg5];
+                        local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                         arg5 += local54;
                         local71 = arg2 + 1;
                         if (arg7 < arg1[local71]) {
@@ -4159,7 +4160,7 @@ public final class Class219 {
                 }
                 local50 = arg4 - arg3 & 0x3;
                 if (local50 > 0) {
-                    local64 = Static323.anIntArray389[(int) arg5];
+                    local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
@@ -4175,7 +4176,7 @@ public final class Class219 {
                 local191 = 256 - this.anInt5724;
                 if (local50 > 0) {
                     do {
-                        local64 = Static323.anIntArray389[(int) arg5];
+                        local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                         arg5 += local54;
                         local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                         local71 = arg2 + 1;
@@ -4209,7 +4210,7 @@ public final class Class219 {
                 if (local50 <= 0) {
                     return;
                 }
-                local64 = Static323.anIntArray389[(int) arg5];
+                local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                 local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                 do {
                     arg2++;
@@ -4227,7 +4228,7 @@ public final class Class219 {
                 do {
                     arg2++;
                     if (arg7 < arg1[arg2]) {
-                        arg0[arg2] = Static323.anIntArray389[(int) arg5];
+                        arg0[arg2] = ColourUtils.HSV_TO_RGB[(int) arg5];
                     }
                     arg7 += arg8;
                     arg5 += arg6;
@@ -4239,7 +4240,7 @@ public final class Class219 {
                 do {
                     arg2++;
                     if (arg7 < arg1[arg2]) {
-                        local64 = Static323.anIntArray389[(int) arg5];
+                        local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                         local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                         local233 = arg0[arg2];
                         arg0[arg2] = local64 + ((local233 & 0xFF00FF) * local186 >> 8 & 0xFF00FF) + ((local233 & 0xFF00) * local186 >> 8 & 0xFF00);
@@ -4536,9 +4537,9 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "(FFFFFFFFFFFF)V")
     public void method5153(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) float arg9, @OriginalArg(10) float arg10, @OriginalArg(11) float arg11) {
         if (this.aBoolean437) {
-            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, Static323.anIntArray389[(int) arg9], (int) arg3);
-            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, Static323.anIntArray389[(int) arg9], (int) arg4);
-            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, Static323.anIntArray389[(int) arg9], (int) arg5);
+            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg3);
+            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg4);
+            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg5);
             return;
         }
         @Pc(55) float local55 = arg4 - arg3;
@@ -7057,9 +7058,9 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "(FFFFFFFFFFFF)V")
     public void method5156(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) float arg9, @OriginalArg(10) float arg10, @OriginalArg(11) float arg11) {
         if (this.aBoolean437) {
-            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, Static323.anIntArray389[(int) arg9], (int) arg3);
-            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, Static323.anIntArray389[(int) arg9], (int) arg4);
-            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, Static323.anIntArray389[(int) arg9], (int) arg5);
+            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg3);
+            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg4);
+            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg5);
             return;
         }
         @Pc(55) float local55 = arg4 - arg3;
@@ -7488,7 +7489,7 @@ public final class Class219 {
                 if (this.anInt5724 == 0) {
                     if (local50 > 0) {
                         do {
-                            local64 = Static323.anIntArray389[(int) arg5];
+                            local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                             arg5 += local54;
                             local71 = arg2 + 1;
                             if (arg7 < arg1[local71]) {
@@ -7519,7 +7520,7 @@ public final class Class219 {
                     }
                     local50 = arg4 - arg3 & 0x3;
                     if (local50 > 0) {
-                        local64 = Static323.anIntArray389[(int) arg5];
+                        local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                         do {
                             arg2++;
                             if (arg7 < arg1[arg2]) {
@@ -7536,7 +7537,7 @@ public final class Class219 {
                     local191 = 256 - this.anInt5724;
                     if (local50 > 0) {
                         do {
-                            local64 = Static323.anIntArray389[(int) arg5];
+                            local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                             arg5 += local54;
                             local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                             local71 = arg2 + 1;
@@ -7574,7 +7575,7 @@ public final class Class219 {
                     if (local50 <= 0) {
                         return;
                     }
-                    local64 = Static323.anIntArray389[(int) arg5];
+                    local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                     local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                     do {
                         arg2++;
@@ -7593,7 +7594,7 @@ public final class Class219 {
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
-                            arg0[arg2] = Static323.anIntArray389[(int) arg5];
+                            arg0[arg2] = ColourUtils.HSV_TO_RGB[(int) arg5];
                             arg1[arg2] = arg7;
                         }
                         arg7 += arg8;
@@ -7606,7 +7607,7 @@ public final class Class219 {
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
-                            local64 = Static323.anIntArray389[(int) arg5];
+                            local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                             local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                             local233 = arg0[arg2];
                             arg0[arg2] = (local191 | local233 >> 24) << 24 | local64 + ((local233 & 0xFF00FF) * local186 >> 8 & 0xFF00FF) + ((local233 & 0xFF00) * local186 >> 8 & 0xFF00);
@@ -7624,7 +7625,7 @@ public final class Class219 {
             if (this.anInt5724 == 0) {
                 if (local50 > 0) {
                     do {
-                        local64 = Static323.anIntArray389[(int) arg5];
+                        local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                         arg5 += local54;
                         local71 = arg2 + 1;
                         if (arg7 < arg1[local71]) {
@@ -7651,7 +7652,7 @@ public final class Class219 {
                 }
                 local50 = arg4 - arg3 & 0x3;
                 if (local50 > 0) {
-                    local64 = Static323.anIntArray389[(int) arg5];
+                    local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
@@ -7667,7 +7668,7 @@ public final class Class219 {
                 local191 = 256 - this.anInt5724;
                 if (local50 > 0) {
                     do {
-                        local64 = Static323.anIntArray389[(int) arg5];
+                        local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                         arg5 += local54;
                         local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                         local71 = arg2 + 1;
@@ -7701,7 +7702,7 @@ public final class Class219 {
                 if (local50 <= 0) {
                     return;
                 }
-                local64 = Static323.anIntArray389[(int) arg5];
+                local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                 local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                 do {
                     arg2++;
@@ -7719,7 +7720,7 @@ public final class Class219 {
                 do {
                     arg2++;
                     if (arg7 < arg1[arg2]) {
-                        arg0[arg2] = Static323.anIntArray389[(int) arg5];
+                        arg0[arg2] = ColourUtils.HSV_TO_RGB[(int) arg5];
                     }
                     arg7 += arg8;
                     arg5 += arg6;
@@ -7731,7 +7732,7 @@ public final class Class219 {
                 do {
                     arg2++;
                     if (arg7 < arg1[arg2]) {
-                        local64 = Static323.anIntArray389[(int) arg5];
+                        local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
                         local64 = ((local64 & 0xFF00FF) * local191 >> 8 & 0xFF00FF) + ((local64 & 0xFF00) * local191 >> 8 & 0xFF00);
                         local233 = arg0[arg2];
                         arg0[arg2] = (local191 | local233 >> 24) << 24 | local64 + ((local233 & 0xFF00FF) * local186 >> 8 & 0xFF00FF) + ((local233 & 0xFF00) * local186 >> 8 & 0xFF00);

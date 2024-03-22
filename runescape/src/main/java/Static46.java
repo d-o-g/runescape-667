@@ -12,7 +12,7 @@ public final class Static46 {
 
     @OriginalMember(owner = "client!bja", name = "a", descriptor = "(BZI)I")
     public static int method1082(@OriginalArg(2) int arg0) {
-        @Pc(13) Node_Sub22 local13 = Static556.method7303(arg0, false);
+        @Pc(13) ClientInventory local13 = Static556.method7303(arg0, false);
         if (local13 == null) {
             return Static503.aClass335_1.method7657(arg0).anInt2072;
         }

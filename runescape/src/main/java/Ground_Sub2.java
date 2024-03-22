@@ -1,3 +1,4 @@
+import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.IterableHashTable;
@@ -439,7 +440,7 @@ public final class Ground_Sub2 extends Ground {
                                 } else if (local826 > 126) {
                                     local826 = 126;
                                 }
-                                local579 = Static154.anIntArray237[local536 & 0xFF80 | local826];
+                                local579 = ColourUtils.HSL_TO_RGB[local536 & 0xFF80 | local826];
                                 if ((this.anInt7486 & 0x7) == 0) {
                                     local581 = local602 * this.aClass19_Sub3_33.aFloatArray51[2] + local608 * this.aClass19_Sub3_33.aFloatArray51[1] + local610 * this.aClass19_Sub3_33.aFloatArray51[0];
                                     local581 = this.aClass19_Sub3_33.aFloat149 + local581 * (local581 > 0.0F ? this.aClass19_Sub3_33.aFloat129 : this.aClass19_Sub3_33.aFloat130);
@@ -461,7 +462,7 @@ public final class Ground_Sub2 extends Ground {
                                     } else if (local946 > 126) {
                                         local946 = 126;
                                     }
-                                    local972 = Static154.anIntArray237[local540 & 0xFF80 | local946];
+                                    local972 = ColourUtils.HSL_TO_RGB[local540 & 0xFF80 | local946];
                                     if ((this.anInt7486 & 0x7) == 0) {
                                         local702 = this.aClass19_Sub3_33.aFloatArray51[1] * local608 + local610 * this.aClass19_Sub3_33.aFloatArray51[0] + local602 * this.aClass19_Sub3_33.aFloatArray51[2];
                                         local702 = (local581 > 0.0F ? this.aClass19_Sub3_33.aFloat129 : this.aClass19_Sub3_33.aFloat130) * local581 + this.aClass19_Sub3_33.aFloat149;

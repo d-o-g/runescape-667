@@ -17,7 +17,7 @@ public final class Static610 {
             Static321.anIntArray388[Static652.anInt9713++] = arg0;
         }
         @Pc(33) int local33 = arg1.method7412(2);
-        @Pc(37) Class8_Sub2_Sub1_Sub2_Sub1 local37 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[arg0];
+        @Pc(37) PlayerEntity local37 = PlayerList.highResolutionPlayers[arg0];
         if (local33 != 0) {
             @Pc(165) int local165;
             @Pc(170) int local170;
@@ -140,7 +140,7 @@ public final class Static610 {
                     if (Static441.method5968(local573, local566)) {
                         local37.aByte143++;
                     }
-                    if (Static312.anInt5000 == arg0) {
+                    if (PlayerList.activePlayerSlot == arg0) {
                         if (local37.aByte144 != Static394.anInt6176) {
                             Static75.aBoolean521 = true;
                         }
@@ -164,14 +164,14 @@ public final class Static610 {
                     if (Static441.method5968(local573, local566)) {
                         local37.aByte143++;
                     }
-                    if (Static312.anInt5000 == arg0) {
+                    if (PlayerList.activePlayerSlot == arg0) {
                         Static394.anInt6176 = local37.aByte144;
                     }
                 }
             }
         } else if (local16) {
             local37.aBoolean127 = false;
-        } else if (Static312.anInt5000 == arg0) {
+        } else if (PlayerList.activePlayerSlot == arg0) {
             throw new RuntimeException("s:lr");
         } else {
             @Pc(70) Class350 local70 = Static246.aClass350Array1[arg0] = new Class350();
@@ -187,7 +187,7 @@ public final class Static610 {
             if (local37.anInt1452 > 0) {
                 Static76.method1552(local37);
             }
-            Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[arg0] = null;
+            PlayerList.highResolutionPlayers[arg0] = null;
             if (arg1.method7412(1) != 0) {
                 Static383.method5379(arg0, arg1);
             }

@@ -216,10 +216,10 @@ public final class Static605 {
                                 }
                             } else {
                                 local957 = -local212 - 1;
-                                if (local957 == Static312.anInt5000) {
+                                if (local957 == PlayerList.activePlayerSlot) {
                                     local948 = Static556.self;
                                 } else {
-                                    local948 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local957];
+                                    local948 = PlayerList.highResolutionPlayers[local957];
                                 }
                             }
                             if (local948 != null) {
@@ -245,7 +245,7 @@ public final class Static605 {
                     local42 = Static691.areaBaseX + local38;
                     local46 = local8.ig2();
                     local52 = local8.g2();
-                    if (local15 != Static312.anInt5000) {
+                    if (local15 != PlayerList.activePlayerSlot) {
                         @Pc(1151) boolean local1151 = local38 >= 0 && local25 >= 0 && Static720.mapWidth > local38 && local25 < Static501.mapHeight;
                         if (local1151 || Static55.method1218(Static117.anInt2282)) {
                             Static2.sortAllObjs(Static87.anInt1810, local34, local42, new ObjStackEntry(local46, local52));
@@ -402,8 +402,8 @@ public final class Static605 {
 
     @OriginalMember(owner = "client!tba", name = "b", descriptor = "(B)V")
     public static void method7914() {
-        Static675.anInt10156 = -1;
-        Static578.anInt8595 = 0;
-        Static212.anInt3466 = -1;
+        Minimap.flagX = -1;
+        Minimap.toggle = 0;
+        Minimap.flagY = -1;
     }
 }

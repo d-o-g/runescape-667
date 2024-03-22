@@ -1,6 +1,7 @@
 import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
+import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.graphics.Font;
@@ -477,7 +478,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
             this.anInt9178 = arg5;
             this.anInt9013 = this.anInt9021 = local313.height;
             this.anInt9122 = this.anInt8991 = local313.width;
-            Static198.method2954(true, false);
+            ColourUtils.init(true, false);
             if (super.textureSource == null) {
                 this.aNativeInterface3 = new NativeInterface(0, this.anInt9178);
                 this.aClass334_3 = null;
@@ -1091,7 +1092,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
             @Pc(38) Canvas local38 = (Canvas) local28.nextElement();
             this.method8051(local38, this.aHashtable6.get(local38));
         }
-        Static300.method4390(false, true);
+        ColourUtils.destroy(false, true);
         this.aNativeInterface3.release();
         this.aBoolean687 = true;
     }

@@ -1,3 +1,4 @@
+import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.LinkedList;
@@ -373,7 +374,7 @@ public final class Static30 {
                             }
                             @Pc(316) int local316 = (local261 + arg3 & 0xFC00) + (local261 & 0x380) + local294;
                             @Pc(322) int local322 = local16 + local167 * anInt5650;
-                            @Pc(333) int local333 = Static323.anIntArray389[Static105.method2043(Static75.method6238(local316)) & 0xFFFF];
+                            @Pc(333) int local333 = ColourUtils.HSV_TO_RGB[Static105.method2043(Static75.method6238(local316)) & 0xFFFF];
                             arg1[local322] = (byte) (local333 >> 16 & 0xFF);
                             arg2[local322] = (short) (local333 & 0xFFFF);
                         }
@@ -401,7 +402,7 @@ public final class Static30 {
                 A_HASH_TABLE___27.put((long) local41.anInt4563, local41);
             }
         }
-        Static198.method2954(false, true);
+        ColourUtils.init(false, true);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;IIII)V")
@@ -622,9 +623,9 @@ public final class Static30 {
                 local33 = 127;
             }
             local55 = (local27 + arg2 & 0xFC00) + (local27 & 0x380) + local33;
-            local68 = Static323.anIntArray389[Static105.method2043(Static203.method3066(local55)) & 0xFFFF] | 0xFF000000;
+            local68 = ColourUtils.HSV_TO_RGB[Static105.method2043(Static203.method3066(local55)) & 0xFFFF] | 0xFF000000;
         } else if (local11 >= 0) {
-            local68 = Static323.anIntArray389[Static105.method2043(Static203.method3066(arg0.getMetrics(local11).aShort37)) & 0xFFFF] | 0xFF000000;
+            local68 = ColourUtils.HSV_TO_RGB[Static105.method2043(Static203.method3066(arg0.getMetrics(local11).aShort37)) & 0xFFFF] | 0xFF000000;
         } else if (local4.anInt8249 == -1) {
             local68 = 0;
         } else {
@@ -636,7 +637,7 @@ public final class Static30 {
                 local33 = 127;
             }
             local55 = (local27 + arg2 & 0xFC00) + (local27 & 0x380) + local33;
-            local68 = Static323.anIntArray389[Static105.method2043(Static203.method3066(local55)) & 0xFFFF] | 0xFF000000;
+            local68 = ColourUtils.HSV_TO_RGB[Static105.method2043(Static203.method3066(local55)) & 0xFFFF] | 0xFF000000;
         }
         return local68;
     }

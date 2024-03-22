@@ -16,6 +16,6 @@ public final class Static487 {
     public static void method6516(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
         @Pc(21) DoublyLinkedNode_Sub2__ local21 = Static440.method5963(21, (long) arg0);
         local21.method202();
-        local21.anInt197 = arg1 ? 1 : 0;
+        local21.primaryData = arg1 ? 1 : 0;
     }
 }

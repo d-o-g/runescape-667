@@ -33,9 +33,9 @@ public final class Static32 {
         local11.buffer.p2_alt3(Static116.areaBaseY + arg1);
         local11.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
         Static266.aBoolean583 = false;
-        Static675.anInt10156 = arg0;
-        Static212.anInt3466 = arg1;
-        Static444.method5988();
+        Minimap.flagX = arg0;
+        Minimap.flagY = arg1;
+        Static444.resetMapFLag();
         return local11;
     }
 

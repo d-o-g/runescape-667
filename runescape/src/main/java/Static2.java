@@ -21,7 +21,7 @@ public final class Static2 {
     public static void method62(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         @Pc(9) DoublyLinkedNode_Sub2__ local9 = Static440.method5963(6, (long) arg1);
         local9.method202();
-        local9.anInt197 = arg0;
+        local9.primaryData = arg0;
     }
 
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(IBIILclient!cv;)V")
@@ -34,13 +34,13 @@ public final class Static2 {
             stack.objs.addLast(entry);
             return;
         }
-        @Pc(45) ObjType type = Static419.aObjTypeList_1.list(entry.id);
+        @Pc(45) ObjType type = Static419.objTypeList.list(entry.id);
         @Pc(48) int totalCost = type.cost;
         if (type.stackable == 1) {
             totalCost *= entry.count + 1;
         }
         for (@Pc(65) ObjStackEntry other = (ObjStackEntry) stack.objs.first(); other != null; other = (ObjStackEntry) stack.objs.next()) {
-            type = Static419.aObjTypeList_1.list(other.id);
+            type = Static419.objTypeList.list(other.id);
             @Pc(78) int otherTotalCost = type.cost;
             if (type.stackable == 1) {
                 otherTotalCost *= other.count + 1;

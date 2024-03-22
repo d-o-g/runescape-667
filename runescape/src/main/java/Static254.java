@@ -26,7 +26,6 @@ public final class Static254 {
         }
         Static408.method5632();
         Static694.anInt10405 = 0;
-        InterfaceManager.anInt6147 = 0;
         Static618.anInt9449 = 0;
         ObjType.shadowCount = 0;
         Static373.anInt5903 = 0;
@@ -47,7 +46,7 @@ public final class Static254 {
         Static171.aFloat64 = (float) ((int) (Math.random() * 160.0D) - 80 & 0x3FFF);
         Static439.method5954();
         for (@Pc(8697) int local8697 = 0; local8697 < 2048; local8697++) {
-            Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local8697] = null;
+            PlayerList.highResolutionPlayers[local8697] = null;
         }
         Static390.anInt6126 = 0;
         Static416.anInt6378 = 0;
@@ -90,7 +89,7 @@ public final class Static254 {
         Static377.anInt5930 = -1;
         InterfaceManager.subInterfaces = new IterableHashTable(8);
         Static656.method6692();
-        Static390.aComponent_9 = null;
+        InterfaceManager.dialog = null;
         for (@Pc(8849) int local8849 = 0; local8849 < 8; local8849++) {
             Static297.aStringArray24[local8849] = null;
             Static601.aBooleanArray28[local8849] = false;

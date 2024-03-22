@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static556 {
 
     @OriginalMember(owner = "client!rj", name = "c", descriptor = "Lclient!ca;")
-    public static Class8_Sub2_Sub1_Sub2_Sub1 self;
+    public static PlayerEntity self;
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "Lclient!uc;")
     public static Environment aEnvironment_2;
@@ -59,9 +59,9 @@ public final class Static556 {
             local63 = Static518.method9293(local55);
             @Pc(65) int[] local65 = null;
             if (Static245.method8635(local55.anInt7314)) {
-                local65 = Static419.aObjTypeList_1.list((int) local55.aLong233).quests;
+                local65 = Static419.objTypeList.list((int) local55.aLong233).quests;
             } else if (local55.anInt7317 != -1) {
-                local65 = Static419.aObjTypeList_1.list(local55.anInt7317).quests;
+                local65 = Static419.objTypeList.list(local55.anInt7317).quests;
             } else if (Static598.method7825(local55.anInt7314)) {
                 @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) local55.aLong233);
                 if (local93 != null) {
@@ -109,8 +109,8 @@ public final class Static556 {
     }
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(IBZ)Lclient!gfa;")
-    public static Node_Sub22 method7303(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
+    public static ClientInventory method7303(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
         @Pc(19) long local19 = (long) (arg0 | (arg1 ? Integer.MIN_VALUE : 0));
-        return (Node_Sub22) Static286.A_HASH_TABLE___23.get(local19);
+        return (ClientInventory) Static286.A_HASH_TABLE___23.get(local19);
     }
 }

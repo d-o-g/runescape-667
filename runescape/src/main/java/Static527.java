@@ -46,11 +46,11 @@ public final class Static527 {
                 }
                 if (local20.anInt711 < 0) {
                     @Pc(193) int local193 = -local20.anInt711 - 1;
-                    @Pc(198) Class8_Sub2_Sub1_Sub2_Sub1 local198;
-                    if (local193 == Static312.anInt5000) {
+                    @Pc(198) PlayerEntity local198;
+                    if (local193 == PlayerList.activePlayerSlot) {
                         local198 = Static556.self;
                     } else {
-                        local198 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local193];
+                        local198 = PlayerList.highResolutionPlayers[local193];
                     }
                     if (local198 != null && local198.anInt10690 >= 0 && Static720.mapWidth * 512 > local198.anInt10690 && local198.anInt10694 >= 0 && Static501.mapHeight * 512 > local198.anInt10694) {
                         local20.method813(Static102.method2025(local20.aByte144, -29754, local198.anInt10694, local198.anInt10690) - local20.lb, TimeUtils.clock, local198.anInt10694, local198.anInt10690);

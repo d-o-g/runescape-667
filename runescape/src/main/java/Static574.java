@@ -7,7 +7,7 @@ import java.awt.Dimension;
 public final class Static574 {
 
     @OriginalMember(owner = "client!saa", name = "e", descriptor = "Lclient!qp;")
-    public static BASTypeList aBASTypeList_2;
+    public static BASTypeList basTypeList;
 
     @OriginalMember(owner = "client!saa", name = "b", descriptor = "[I")
     public static final int[] anIntArray683 = new int[3];

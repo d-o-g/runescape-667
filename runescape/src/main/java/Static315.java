@@ -12,66 +12,6 @@ public final class Static315 {
         }
     }
 
-    @OriginalMember(owner = "client!k", name = "c", descriptor = "(I)V")
-    public static void method4575() {
-        if (Static323.anIntArray389 != null) {
-            return;
-        }
-        Static323.anIntArray389 = new int[65536];
-        @Pc(18) double local18 = Math.random() * 0.03D + 0.7D - 0.015D;
-        @Pc(20) int local20 = 0;
-        for (@Pc(22) int local22 = 0; local22 < 512; local22++) {
-            @Pc(40) float local40 = ((float) (local22 >> 3) / 64.0F + 0.0078125F) * 360.0F;
-            @Pc(49) float local49 = (float) (local22 & 0x7) / 8.0F + 0.0625F;
-            for (@Pc(51) int local51 = 0; local51 < 128; local51++) {
-                @Pc(57) float local57 = (float) local51 / 128.0F;
-                @Pc(59) float local59 = 0.0F;
-                @Pc(61) float local61 = 0.0F;
-                @Pc(63) float local63 = 0.0F;
-                @Pc(67) float local67 = local40 / 60.0F;
-                @Pc(70) int local70 = (int) local67;
-                @Pc(74) int local74 = local70 % 6;
-                @Pc(79) float local79 = local67 - (float) local70;
-                @Pc(86) float local86 = local57 * (1.0F - local49);
-                @Pc(95) float local95 = local57 * (1.0F - local79 * local49);
-                @Pc(106) float local106 = (1.0F - local49 * (1.0F - local79)) * local57;
-                if (local74 == 0) {
-                    local59 = local57;
-                    local63 = local86;
-                    local61 = local106;
-                } else if (local74 == 1) {
-                    local63 = local86;
-                    local59 = local95;
-                    local61 = local57;
-                } else if (local74 == 2) {
-                    local59 = local86;
-                    local61 = local57;
-                    local63 = local106;
-                } else if (local74 == 3) {
-                    local61 = local95;
-                    local59 = local86;
-                    local63 = local57;
-                } else if (local74 == 4) {
-                    local63 = local57;
-                    local59 = local106;
-                    local61 = local86;
-                } else if (local74 == 5) {
-                    local61 = local86;
-                    local63 = local95;
-                    local59 = local57;
-                }
-                local59 = (float) Math.pow((double) local59, local18);
-                local61 = (float) Math.pow((double) local61, local18);
-                local63 = (float) Math.pow((double) local63, local18);
-                @Pc(201) int local201 = (int) (local59 * 256.0F);
-                @Pc(206) int local206 = (int) (local61 * 256.0F);
-                @Pc(211) int local211 = (int) (local63 * 256.0F);
-                @Pc(224) int local224 = (local206 << 8) + (local201 << 16) + local211 - 16777216;
-                Static323.anIntArray389[local20++] = local224;
-            }
-        }
-    }
-
     @OriginalMember(owner = "client!k", name = "a", descriptor = "(IILclient!cka;)V")
     public static void method4577(@OriginalArg(0) int arg0, @OriginalArg(2) SeqType arg1) {
         if (Static33.anInt779 >= 50 || (arg1 == null || arg1.soundInfo == null || arg1.soundInfo.length <= arg0 || arg1.soundInfo[arg0] == null)) {

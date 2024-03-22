@@ -88,7 +88,7 @@ public final class Static632 {
         if (local187 > 0 && local172 > 0) {
             local182 = (local172 - local187) * local33 / local172;
         }
-        Static556.self.method9302((byte) 71);
+        Static556.self.boundSize((byte) 71);
         @Pc(214) int local214 = 8192;
         @Pc(225) int local225 = (arg1.anInt9362 + arg1.anInt9357) / 2 - arg3;
         @Pc(236) int local236 = (arg1.anInt9349 + arg1.anInt9352) / 2 - arg4;

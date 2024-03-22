@@ -15,7 +15,7 @@ public final class Class236 {
     public Class8_Sub2_Sub1_Sub2_Sub2 aClass8_Sub2_Sub1_Sub2_Sub2_1 = null;
 
     @OriginalMember(owner = "client!lw", name = "e", descriptor = "Lclient!ca;")
-    public Class8_Sub2_Sub1_Sub2_Sub1 aClass8_Sub2_Sub1_Sub2_Sub1_1 = null;
+    public PlayerEntity aClass8_Sub2_Sub1_Sub2_Sub1_1 = null;
 
     @OriginalMember(owner = "client!lw", name = "b", descriptor = "I")
     public final int anInt5985;
@@ -43,7 +43,7 @@ public final class Class236 {
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.aByte144 = this.aClass8_Sub2_Sub1_Sub2_Sub1_1.aByte143 = (byte) arg1;
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method1419(arg0, arg2);
         } else {
-            this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9326(true, arg2, arg0, arg1, this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9302((byte) 44));
+            this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9326(true, arg2, arg0, arg1, this.aClass8_Sub2_Sub1_Sub2_Sub2_1.boundSize((byte) 44));
         }
     }
 
@@ -72,7 +72,7 @@ public final class Class236 {
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10757 = this.aClass8_Sub2_Sub1_Sub2_Sub2_1.aNPCType_1.rotationSpeed << 3;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.drawPriority = Static457.anInt6933++;
             } else {
-                this.aClass8_Sub2_Sub1_Sub2_Sub1_1 = new Class8_Sub2_Sub1_Sub2_Sub1(25);
+                this.aClass8_Sub2_Sub1_Sub2_Sub1_1 = new PlayerEntity(25);
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method1420(Static518.aClass2_Sub21_18);
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1.anInt10751 = TimeUtils.clock;
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1.drawPriority = Static457.anInt6933++;
@@ -84,7 +84,7 @@ public final class Class236 {
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method1419(arg2, arg3);
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method9298(arg0, true);
         } else {
-            this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9326(true, arg3, arg2, arg1, this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9302((byte) 71));
+            this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9326(true, arg3, arg2, arg1, this.aClass8_Sub2_Sub1_Sub2_Sub2_1.boundSize((byte) 71));
             this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9298(arg0, true);
         }
     }

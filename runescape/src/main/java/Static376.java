@@ -11,9 +11,6 @@ public final class Static376 {
     @OriginalMember(owner = "client!lr", name = "g", descriptor = "[I")
     public static int[] anIntArray458;
 
-    @OriginalMember(owner = "client!lr", name = "e", descriptor = "Z")
-    public static boolean aBoolean452 = false;
-
     @OriginalMember(owner = "client!lr", name = "d", descriptor = "[F")
     public static final float[] aFloatArray42 = new float[4];
 

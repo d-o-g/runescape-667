@@ -346,7 +346,7 @@ public final class client extends GameShell {
             if (local97 != null) {
                 @Pc(103) byte local103 = local97.aNPCType_1.movementCapabilities;
                 if ((local103 & 0x1) != 0) {
-                    @Pc(114) int local114 = local97.method9302((byte) 48);
+                    @Pc(114) int local114 = local97.boundSize((byte) 48);
                     @Pc(142) int local142;
                     if ((local103 & 0x2) != 0 && local97.anInt10764 == 0 && Math.random() * 1000.0D < 10.0D) {
                         local142 = (int) Math.round(Math.random() * 10.0D - 5.0D);

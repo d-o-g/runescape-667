@@ -26,7 +26,7 @@ public final class Static479 {
         @Pc(9) DoublyLinkedNode_Sub2__ local9 = Static440.method5963(4, (long) arg3);
         local9.method202();
         local9.anInt192 = arg2;
-        local9.anInt197 = arg1;
-        local9.anInt195 = arg0;
+        local9.primaryData = arg1;
+        local9.secondaryData = arg0;
     }
 }

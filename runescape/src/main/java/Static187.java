@@ -33,7 +33,7 @@ public final class Static187 {
         }
         Static11.method146();
         for (@Pc(48) int local48 = 0; local48 < 2048; local48++) {
-            Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local48] = null;
+            PlayerList.highResolutionPlayers[local48] = null;
         }
         Static390.anInt6126 = 0;
         Static18.A_HASH_TABLE___2.clear();

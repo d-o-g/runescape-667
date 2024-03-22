@@ -14,9 +14,9 @@ public final class Static439 {
 
     @OriginalMember(owner = "client!ns", name = "a", descriptor = "(B)V")
     public static void method5954() {
-        Static212.anInt3466 = -1;
+        Minimap.flagY = -1;
         Static643.anInt9604 = -1;
-        Static675.anInt10156 = -1;
-        Static578.anInt8595 = 0;
+        Minimap.flagX = -1;
+        Minimap.toggle = 0;
     }
 }

@@ -45,7 +45,7 @@ public final class Static344 {
         @Pc(31) long local31 = (long) arg1 & 0xFFFFL | ((long) arg3 & 0xFFFFL) << 16 | (long) arg2 << 48 & 0xFFFFL << 48 | ((long) arg0 & 0xFFFFL) << 32;
         @Pc(43) SkyBox local43 = (SkyBox) Static123.A_WEIGHTED_CACHE___53.get(local31);
         if (local43 == null) {
-            local43 = Static324.aSkyBoxTypeList_1.skyBox(Static99.aSkyBoxSphereTypeList_1, arg3, arg1, arg0, arg2);
+            local43 = Static324.skyBoxTypeList.skyBox(Static99.skyBoxSphereTypeList, arg3, arg1, arg0, arg2);
             Static123.A_WEIGHTED_CACHE___53.put(local43, local31);
         }
         return local43;

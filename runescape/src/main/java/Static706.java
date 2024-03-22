@@ -114,7 +114,7 @@ public final class Static706 {
                 }
             }
         }
-        if (Static390.method5492(Static556.self.aString9).equals(local34)) {
+        if (Static390.method5492(Static556.self.accountName).equals(local34)) {
             Static67.method6098(LocalisedText.FRIENDCANTADDSELF.localise(Static51.language));
             return;
         }

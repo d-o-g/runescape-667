@@ -1,3 +1,4 @@
+import com.jagex.math.ColourUtils;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
@@ -356,7 +357,7 @@ public final class Model_Sub3 extends Model {
             for (local152 = 0; local152 < arg1.billboards.length; local152++) {
                 @Pc(394) MeshBillboard local394 = arg1.billboards[local152];
                 @Pc(399) Class376 local399 = Static402.method5582(local394.anInt592);
-                local335 = Static323.anIntArray389[arg1.faceColour[local394.face] & 0xFFFF] & 0xFFFFFF;
+                local335 = ColourUtils.HSV_TO_RGB[arg1.faceColour[local394.face] & 0xFFFF] & 0xFFFFFF;
                 local335 |= 255 - (arg1.faceTexSpace == null ? 0 : arg1.faceTexSpace[local394.face] & 0xFF) << 24;
                 this.aClass239Array1[local152] = new Class239(local394.face, arg1.faceA[local394.face], arg1.faceB[local394.face], arg1.faceC[local394.face], local399.anInt9696, local399.anInt9690, local399.anInt9693, local399.anInt9697, local399.anInt9689, local399.aBoolean747, local394.anInt591);
                 this.aClass245Array1[local152] = new Class245(local335);
@@ -794,9 +795,9 @@ public final class Model_Sub3 extends Model {
                     this.aClass219_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
-                this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]));
+                this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
             } else {
-                this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray672[arg0] & 0xFFFF]));
+                this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
             }
             return;
         }
@@ -846,9 +847,9 @@ public final class Model_Sub3 extends Model {
                 this.aClass219_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
             }
         } else if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]));
+            this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
         } else {
-            this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray672[arg0] & 0xFFFF]));
+            this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
         }
     }
 
@@ -898,7 +899,7 @@ public final class Model_Sub3 extends Model {
             for (local21 = 0; local21 < this.anInt8492; local21++) {
                 @Pc(108) Class239 local108 = this.aClass239Array1[local21];
                 @Pc(113) Class245 local113 = this.aClass245Array1[local21];
-                local113.anInt6225 = local113.anInt6225 & 0xFF000000 | Static323.anIntArray389[Static105.method2043(this.aShortArray120[local108.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                local113.anInt6225 = local113.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local108.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
             }
         }
         if (this.anInt8488 == 2) {
@@ -1280,7 +1281,7 @@ public final class Model_Sub3 extends Model {
                     for (local69 = 0; local69 < this.anInt8492; local69++) {
                         local2482 = this.aClass239Array1[local69];
                         local2487 = this.aClass245Array1[local69];
-                        local2487.anInt6225 = local2487.anInt6225 & 0xFF000000 | Static323.anIntArray389[Static105.method2043(this.aShortArray120[local2482.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                        local2487.anInt6225 = local2487.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local2482.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
                     }
                 }
             }
@@ -1479,9 +1480,9 @@ public final class Model_Sub3 extends Model {
                     this.aClass219_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
-                this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]));
+                this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
             } else {
-                this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray672[arg0] & 0xFFFF]));
+                this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
             }
             return;
         }
@@ -1531,9 +1532,9 @@ public final class Model_Sub3 extends Model {
                 this.aClass219_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
             }
         } else if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]));
+            this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
         } else {
-            this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, Static323.anIntArray389[this.anIntArray672[arg0] & 0xFFFF]));
+            this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
         }
     }
 
@@ -1698,7 +1699,7 @@ public final class Model_Sub3 extends Model {
                         for (local14 = 0; local14 < this.anInt8492; local14++) {
                             local508 = this.aClass239Array1[local14];
                             local513 = this.aClass245Array1[local14];
-                            local513.anInt6225 = local513.anInt6225 & 0xFF000000 | Static323.anIntArray389[Static105.method2043(this.aShortArray120[local508.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                            local513.anInt6225 = local513.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local508.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
                         }
                     }
                 } else {
@@ -1897,7 +1898,7 @@ public final class Model_Sub3 extends Model {
             for (@Pc(27) int local27 = 0; local27 < this.anInt8492; local27++) {
                 @Pc(33) Class239 local33 = this.aClass239Array1[local27];
                 @Pc(38) Class245 local38 = this.aClass245Array1[local27];
-                local38.anInt6225 = local38.anInt6225 & 0xFF000000 | Static323.anIntArray389[Static105.method2043(this.aShortArray120[local33.anInt6139]) & 0xFFFF] & 0xFFFFFF;
+                local38.anInt6225 = local38.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local33.anInt6139]) & 0xFFFF] & 0xFFFFFF;
             }
         }
         if (this.anInt8488 == 2) {
@@ -2405,7 +2406,7 @@ public final class Model_Sub3 extends Model {
                     for (local69 = 0; local69 < this.anInt8492; local69++) {
                         local994 = this.aClass239Array1[local69];
                         local999 = this.aClass245Array1[local69];
-                        local999.anInt6225 = local999.anInt6225 & 0xFF000000 | Static323.anIntArray389[Static105.method2043(this.aShortArray120[local994.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                        local999.anInt6225 = local999.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local994.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
                     }
                 }
             }
@@ -3117,7 +3118,7 @@ public final class Model_Sub3 extends Model {
             this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
         }
         if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5144((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]);
+            this.aClass219_1.method5144((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
         } else {
             this.aClass219_1.method5153((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], (float) (this.anIntArray668[arg0] & 0xFFFF), (float) (this.anIntArray664[arg0] & 0xFFFF), (float) (this.anIntArray672[arg0] & 0xFFFF));
         }
@@ -3250,7 +3251,7 @@ public final class Model_Sub3 extends Model {
                     this.aClass219_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
-                this.aClass219_1.method5144((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]);
+                this.aClass219_1.method5144((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
             } else {
                 this.aClass219_1.method5153((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
             }
@@ -3263,7 +3264,7 @@ public final class Model_Sub3 extends Model {
         }
         if (this.aShortArray123 == null || this.aShortArray123[arg0] == -1) {
             if (this.anIntArray672[arg0] == -1) {
-                local938 = Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF];
+                local938 = ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF];
                 this.aClass219_1.method5144((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, local938);
                 this.aClass219_1.method5144((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], local938);
                 return;
@@ -3469,7 +3470,7 @@ public final class Model_Sub3 extends Model {
                     this.aClass219_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
-                this.aClass219_1.method5158((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]);
+                this.aClass219_1.method5158((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
             } else {
                 this.aClass219_1.method5156((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
             }
@@ -3482,7 +3483,7 @@ public final class Model_Sub3 extends Model {
         }
         if (this.aShortArray123 == null || this.aShortArray123[arg0] == -1) {
             if (this.anIntArray672[arg0] == -1) {
-                local938 = Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF];
+                local938 = ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF];
                 this.aClass219_1.method5158((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, local938);
                 this.aClass219_1.method5158((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], local938);
                 return;
@@ -4235,7 +4236,7 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(ISI)I")
     public int method7531(@OriginalArg(0) int arg0, @OriginalArg(1) short arg1, @OriginalArg(2) int arg2) {
-        @Pc(6) int local6 = Static154.anIntArray237[this.method7534(arg0, arg2)];
+        @Pc(6) int local6 = ColourUtils.HSL_TO_RGB[this.method7534(arg0, arg2)];
         @Pc(15) TextureMetrics local15 = this.aClass19_Sub2_9.textureSource.getMetrics(arg1 & 0xFFFF);
         @Pc(20) int local20 = local15.alpha & 0xFF;
         @Pc(26) int local26;
@@ -4354,7 +4355,7 @@ public final class Model_Sub3 extends Model {
             this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
         }
         if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5158((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], Static323.anIntArray389[this.anIntArray668[arg0] & 0xFFFF]);
+            this.aClass219_1.method5158((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
         } else {
             this.aClass219_1.method5156((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], (float) (this.anIntArray668[arg0] & 0xFFFF), (float) (this.anIntArray664[arg0] & 0xFFFF), (float) (this.anIntArray672[arg0] & 0xFFFF));
         }

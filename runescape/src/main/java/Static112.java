@@ -23,7 +23,7 @@ public final class Static112 {
                     local24 = local54.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
             } else if (arg0.anInt10722 >= 32768) {
-                local24 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[arg0.anInt10722 - 32768];
+                local24 = PlayerList.highResolutionPlayers[arg0.anInt10722 - 32768];
             }
             if (local24 != null) {
                 local67 = arg0.anInt10690 - local24.anInt10690;
@@ -33,8 +33,8 @@ public final class Static112 {
                 }
             }
         }
-        if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub1) {
-            @Pc(104) Class8_Sub2_Sub1_Sub2_Sub1 local104 = (Class8_Sub2_Sub1_Sub2_Sub1) arg0;
+        if (arg0 instanceof PlayerEntity) {
+            @Pc(104) PlayerEntity local104 = (PlayerEntity) arg0;
             if (local104.anInt1467 != -1 && (local104.anInt10764 == 0 || local104.anInt10763 > 0)) {
                 local104.method9305(local104.anInt1467);
                 local104.anInt1467 = -1;

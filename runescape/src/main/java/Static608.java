@@ -70,7 +70,7 @@ public final class Static608 {
                 }
             } else {
                 if (local27 < local7) {
-                    local51 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local11[local27]];
+                    local51 = PlayerList.highResolutionPlayers[local11[local27]];
                 } else {
                     local51 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local27 - local7])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
                     local31 = ((Class8_Sub2_Sub1_Sub2_Sub2) local51).aNPCType_1;
@@ -106,7 +106,7 @@ public final class Static608 {
                 } else {
                     @Pc(262) byte local262 = 1;
                     if (local31 == null) {
-                        @Pc(283) Class8_Sub2_Sub1_Sub2_Sub1 local283 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local11[local27]];
+                        @Pc(283) PlayerEntity local283 = PlayerList.highResolutionPlayers[local11[local27]];
                         local267 = local51.method9317().hitbarSprite;
                         if (local283.aBoolean128) {
                             local262 = 2;
@@ -203,7 +203,7 @@ public final class Static608 {
                         local233 -= 2;
                     }
                     if (local31 == null) {
-                        @Pc(720) Class8_Sub2_Sub1_Sub2_Sub1 local720 = (Class8_Sub2_Sub1_Sub2_Sub1) local51;
+                        @Pc(720) PlayerEntity local720 = (PlayerEntity) local51;
                         if (local720.anInt1430 != -1) {
                             local496 = Static441.aSpriteArray10[local720.anInt1430];
                             local233 -= local496.getHeight();
@@ -228,7 +228,7 @@ public final class Static608 {
                 }
                 @Pc(905) Class254[] local905;
                 @Pc(913) Class254 local913;
-                if (!(local51 instanceof Class8_Sub2_Sub1_Sub2_Sub1)) {
+                if (!(local51 instanceof PlayerEntity)) {
                     local267 = 0;
                     local905 = Static527.aClass254Array1;
                     for (local504 = 0; local504 < local905.length; local504++) {
@@ -620,14 +620,14 @@ public final class Static608 {
             local2422 = Static324.anIntArray390[local2403];
             @Pc(2429) Class8_Sub2_Sub1_Sub2 local2429;
             if (local2422 < 2048) {
-                local2429 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local2422];
+                local2429 = PlayerList.highResolutionPlayers[local2422];
             } else {
                 local2429 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (local2422 - 2048))).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             }
             local267 = Static212.anIntArray283[local2403];
             @Pc(2452) Class8_Sub2_Sub1_Sub2 local2452;
             if (local267 < 2048) {
-                local2452 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local267];
+                local2452 = PlayerList.highResolutionPlayers[local267];
             } else {
                 local2452 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (local267 - 2048))).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             }

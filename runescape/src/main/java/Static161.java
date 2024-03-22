@@ -20,7 +20,7 @@ public final class Static161 {
     public static final Class345 aClass345_29 = new Class345(33, 0);
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(ILclient!ca;ILclient!rka;I)V")
-    public static void method2585(@OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub1 arg0, @OriginalArg(2) int arg1, @OriginalArg(3) PacketBuffer arg2, @OriginalArg(4) int arg3) {
+    public static void method2585(@OriginalArg(1) PlayerEntity arg0, @OriginalArg(2) int arg1, @OriginalArg(3) PacketBuffer arg2, @OriginalArg(4) int arg3) {
         @Pc(7) byte local7 = -1;
         @Pc(15) int local15;
         @Pc(18) int[] local18;
@@ -311,9 +311,9 @@ public final class Static161 {
             if (local29) {
                 local42.method9298(local108, true);
             }
-            local42.method9326(local170 == 1, local131 + Static556.self.pathY[0], local159 + Static556.self.pathX[0], local144, local42.method9302((byte) 91));
+            local42.method9326(local170 == 1, local131 + Static556.self.pathY[0], local159 + Static556.self.pathX[0], local144, local42.boundSize((byte) 91));
             if (local42.aNPCType_1.hasSounds()) {
-                Static89.method1714(local42.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local42.pathX[0], local42.pathY[0], local42, (LocType) null, 0);
+                Static89.method1714(local42.aByte144, (PlayerEntity) null, local42.pathX[0], local42.pathY[0], local42, (LocType) null, 0);
             }
         }
         local8.method7411();

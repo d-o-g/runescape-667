@@ -40,12 +40,12 @@ public final class Static643 {
                     }
                 }
                 if (local9.type == 6 && local9.modelAnimation != -1) {
-                    if (local9.aAnimator_6 == null) {
-                        local9.aAnimator_6 = new Animator_Sub1();
-                        local9.aAnimator_6.update(true, local9.modelAnimation);
+                    if (local9.animator == null) {
+                        local9.animator = new ComponentAnimator();
+                        local9.animator.update(true, local9.modelAnimation);
                     }
-                    if (local9.aAnimator_6.tick(Static35.anInt800) && local9.aAnimator_6.isFinished()) {
-                        local9.aAnimator_6.method9099();
+                    if (local9.animator.tick(Static35.anInt800) && local9.animator.isFinished()) {
+                        local9.animator.method9099();
                     }
                 }
             }

@@ -13,7 +13,7 @@ public final class Static647 {
     public static void method8467(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(20) DoublyLinkedNode_Sub2__ local20 = Static440.method5963(14, (long) arg0);
         local20.method202();
-        local20.anInt197 = arg1;
+        local20.primaryData = arg1;
     }
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(B)Z")

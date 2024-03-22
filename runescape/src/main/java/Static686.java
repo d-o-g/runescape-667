@@ -47,7 +47,7 @@ public final class Static686 {
             local116 = StaticWallDecor.lb;
         }
         Static115.method2136(local116);
-        @Pc(136) int local136 = Static556.self.method9302((byte) 70) << 8;
+        @Pc(136) int local136 = Static556.self.boundSize((byte) 70) << 8;
         Static220.method3198(Static35.anInt800, local136 + Static556.self.anInt10694, Static556.self.anInt10690 - -local136, Static556.self.aByte144);
         Static35.anInt800 = 0;
     }

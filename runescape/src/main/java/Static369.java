@@ -62,7 +62,7 @@ public final class Static369 {
                         local197.method9310(local197.aNPCType_1.size);
                         local197.anInt10757 = local197.aNPCType_1.rotationSpeed << 3;
                         local197.method9298((local197.aNPCType_1.spawnDirection + 4 & 0x80600007) << 11, true);
-                        local197.method9326(true, local135, local121, local98, local197.method9302((byte) 119));
+                        local197.method9326(true, local135, local121, local98, local197.boundSize((byte) 119));
                     }
                 }
             }
@@ -77,7 +77,7 @@ public final class Static369 {
         @Pc(31) Node_Sub36 local31;
         if (Static400.instance.aClass57_Sub29_1.method7915() == 0) {
             for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-                Static419.aObjTypeList_1.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? Static556.self.aPlayerModel_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
+                Static419.objTypeList.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? Static556.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
                 local31.unlink();
             }
             InterfaceManager.redrawAll();
@@ -90,7 +90,7 @@ public final class Static369 {
             Fonts.aFont_11 = Static158.aToolkit_5.createFont(FontMetrics.loadGroup(Fonts.p11FullGroup, js5.FONTMETRICS), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
         }
         for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-            Static419.aObjTypeList_1.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? Static556.self.aPlayerModel_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.aFont_11, local31.anInt5895);
+            Static419.objTypeList.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? Static556.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.aFont_11, local31.anInt5895);
             local31.unlink();
         }
     }

@@ -8,7 +8,7 @@ public final class Static68 {
     public static Class151 aClass151_3;
 
     @OriginalMember(owner = "client!cd", name = "r", descriptor = "Lclient!kr;")
-    public static IDKTypeList aIDKTypeList_3;
+    public static IDKTypeList idkTypeList;
 
     @OriginalMember(owner = "client!cd", name = "s", descriptor = "[I")
     public static int[] anIntArray316;

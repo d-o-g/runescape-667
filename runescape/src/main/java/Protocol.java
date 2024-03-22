@@ -93,9 +93,9 @@ public final class Protocol {
             if (local287 != null) {
                 Static449.method6115(false, true, local287);
             }
-            if (Static390.aComponent_9 != null) {
-                InterfaceManager.redraw(Static390.aComponent_9);
-                Static390.aComponent_9 = null;
+            if (InterfaceManager.dialog != null) {
+                InterfaceManager.redraw(InterfaceManager.dialog);
+                InterfaceManager.dialog = null;
             }
             arg0.currentProt = null;
             return true;
@@ -318,10 +318,10 @@ public final class Protocol {
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == Static314.A_SERVER_PROT___132) {
-                                for (local277 = 0; local277 < Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3.length; local277++) {
-                                    if (Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local277] != null) {
-                                        Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local277].anIntArray869 = null;
-                                        Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local277].aAnimator_11.update(true, -1);
+                                for (local277 = 0; local277 < PlayerList.highResolutionPlayers.length; local277++) {
+                                    if (PlayerList.highResolutionPlayers[local277] != null) {
+                                        PlayerList.highResolutionPlayers[local277].anIntArray869 = null;
+                                        PlayerList.highResolutionPlayers[local277].aAnimator_11.update(true, -1);
                                     }
                                 }
                                 for (local100 = 0; local100 < Static416.anInt6378; local100++) {
@@ -339,7 +339,7 @@ public final class Protocol {
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == Static619.A_SERVER_PROT___34) {
-                                Static578.anInt8595 = local11.g1();
+                                Minimap.toggle = local11.g1();
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == Static416.A_SERVER_PROT___165) {
@@ -571,7 +571,7 @@ public final class Protocol {
                                         } else if (arg0.currentProt == Static655.A_SERVER_PROT___237) {
                                             local277 = local11.g4();
                                             Static574.method7573();
-                                            Static479.method6462(Static312.anInt5000, 5, 0, local277);
+                                            Static479.method6462(PlayerList.activePlayerSlot, 5, 0, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (ServerProt.A_SERVER_PROT___147 == arg0.currentProt) {
@@ -974,7 +974,7 @@ public final class Protocol {
                                                     local526 = local11.g4_alt3();
                                                     Static574.method7573();
                                                     Static301.method4394(local526, local100, local277);
-                                                    @Pc(4005) ObjType local4005 = Static419.aObjTypeList_1.list(local277);
+                                                    @Pc(4005) ObjType local4005 = Static419.objTypeList.list(local277);
                                                     Static231.method3378(local4005.xan2d, local4005.zoom2d, local526, local4005.yan2d);
                                                     Static528.method7087(local4005.zan2d, local526, local4005.yof2d, local4005.xof2d);
                                                     arg0.currentProt = null;
@@ -1129,7 +1129,7 @@ public final class Protocol {
                                                             Static574.method7573();
                                                             for (local1413 = local277; local1413 <= local526; local1413++) {
                                                                 local644 = (long) local1413 + ((long) local100 << 32);
-                                                                local4597 = (ServerActiveProperties) Static291.A_HASH_TABLE___24.get(local644);
+                                                                local4597 = (ServerActiveProperties) InterfaceManager.serverActiveProperties.get(local644);
                                                                 if (local4597 != null) {
                                                                     local4611 = new ServerActiveProperties(local4597.events, local1409);
                                                                     local4597.unlink();
@@ -1138,7 +1138,7 @@ public final class Protocol {
                                                                 } else {
                                                                     local4611 = new ServerActiveProperties(0, local1409);
                                                                 }
-                                                                Static291.A_HASH_TABLE___24.put(local644, local4611);
+                                                                InterfaceManager.serverActiveProperties.put(local644, local4611);
                                                             }
                                                             arg0.currentProt = null;
                                                             return true;
@@ -1204,7 +1204,7 @@ public final class Protocol {
                                                                                 if (local667 == local2098) {
                                                                                     local4888 = Static23.aClass128_1.method2694(local2098);
                                                                                     if (local4888.aBoolean448 && local4888.anInt5842 != -1) {
-                                                                                        local4905 = Static25.aSeqTypeList_1.list(local4888.anInt5842);
+                                                                                        local4905 = Static25.seqTypeList.list(local4888.anInt5842);
                                                                                         @Pc(5134) int local5134 = local4905.replayMode;
                                                                                         if (local5134 == SeqReplayMode.STOP || local5134 == SeqReplayMode.RESTART_LOOP) {
                                                                                             local665 = false;
@@ -1216,8 +1216,8 @@ public final class Protocol {
                                                                                     local4888 = Static23.aClass128_1.method2694(local2098);
                                                                                     @Pc(5078) Class227 local5078 = Static23.aClass128_1.method2694(local667);
                                                                                     if (local4888.anInt5842 != -1 && local5078.anInt5842 != -1) {
-                                                                                        local4911 = Static25.aSeqTypeList_1.list(local4888.anInt5842);
-                                                                                        @Pc(5102) SeqType local5102 = Static25.aSeqTypeList_1.list(local5078.anInt5842);
+                                                                                        local4911 = Static25.seqTypeList.list(local4888.anInt5842);
+                                                                                        @Pc(5102) SeqType local5102 = Static25.seqTypeList.list(local5078.anInt5842);
                                                                                         if (local4911.priority < local5102.priority) {
                                                                                             local665 = false;
                                                                                         }
@@ -1242,11 +1242,11 @@ public final class Protocol {
                                                                         }
                                                                     } else if (local100 >> 28 != 0) {
                                                                         local653 = local100 & 0xFFFF;
-                                                                        @Pc(4839) Class8_Sub2_Sub1_Sub2_Sub1 local4839;
-                                                                        if (local653 == Static312.anInt5000) {
+                                                                        @Pc(4839) PlayerEntity local4839;
+                                                                        if (local653 == PlayerList.activePlayerSlot) {
                                                                             local4839 = Static556.self;
                                                                         } else {
-                                                                            local4839 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local653];
+                                                                            local4839 = PlayerList.highResolutionPlayers[local653];
                                                                         }
                                                                         if (local4839 != null) {
                                                                             @Pc(4850) Class199 local4850 = local4839.aClass199Array3[local526];
@@ -1260,7 +1260,7 @@ public final class Protocol {
                                                                                 if (local2098 == local1097) {
                                                                                     local4883 = Static23.aClass128_1.method2694(local2098);
                                                                                     if (local4883.aBoolean448 && local4883.anInt5842 != -1) {
-                                                                                        @Pc(4940) SeqType local4940 = Static25.aSeqTypeList_1.list(local4883.anInt5842);
+                                                                                        @Pc(4940) SeqType local4940 = Static25.seqTypeList.list(local4883.anInt5842);
                                                                                         replayMode = local4940.replayMode;
                                                                                         if (replayMode == SeqReplayMode.STOP || replayMode == SeqReplayMode.RESTART_LOOP) {
                                                                                             local4857 = false;
@@ -1272,8 +1272,8 @@ public final class Protocol {
                                                                                     local4883 = Static23.aClass128_1.method2694(local2098);
                                                                                     local4888 = Static23.aClass128_1.method2694(local1097);
                                                                                     if (local4883.anInt5842 != -1 && local4888.anInt5842 != -1) {
-                                                                                        local4905 = Static25.aSeqTypeList_1.list(local4883.anInt5842);
-                                                                                        local4911 = Static25.aSeqTypeList_1.list(local4888.anInt5842);
+                                                                                        local4905 = Static25.seqTypeList.list(local4883.anInt5842);
+                                                                                        local4911 = Static25.seqTypeList.list(local4888.anInt5842);
                                                                                         if (local4911.priority > local4905.priority) {
                                                                                             local4857 = false;
                                                                                         }
@@ -1807,7 +1807,7 @@ public final class Protocol {
                                                                                         Static87.aClass241Array1[local1449].anInt6148 = local1409;
                                                                                         Static87.aClass241Array1[local1449].aByte99 = local7377;
                                                                                         Static87.aClass241Array1[local1449].aString65 = local1427;
-                                                                                        if (local627.equals(Static556.self.aString9)) {
+                                                                                        if (local627.equals(Static556.self.accountName)) {
                                                                                             Static682.aByte142 = local7377;
                                                                                         }
                                                                                         Static352.anInt5754 = Static642.anInt9599;
@@ -1830,7 +1830,7 @@ public final class Protocol {
                                                                                 }
                                                                                 Static87.aClass241Array1[local1449 + 1] = local7394;
                                                                                 Static706.anInt10633++;
-                                                                                if (local627.equals(Static556.self.aString9)) {
+                                                                                if (local627.equals(Static556.self.accountName)) {
                                                                                     Static682.aByte142 = local7377;
                                                                                 }
                                                                             }
@@ -1849,11 +1849,11 @@ public final class Protocol {
                                                                             return true;
                                                                         } else if (ServerProt.A_SERVER_PROT___54 == arg0.currentProt) {
                                                                             local277 = local11.g2();
-                                                                            @Pc(7724) Class8_Sub2_Sub1_Sub2_Sub1 local7724;
-                                                                            if (local277 == Static312.anInt5000) {
+                                                                            @Pc(7724) PlayerEntity local7724;
+                                                                            if (local277 == PlayerList.activePlayerSlot) {
                                                                                 local7724 = Static556.self;
                                                                             } else {
-                                                                                local7724 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local277];
+                                                                                local7724 = PlayerList.highResolutionPlayers[local277];
                                                                             }
                                                                             if (local7724 == null) {
                                                                                 arg0.currentProt = null;
@@ -1862,12 +1862,12 @@ public final class Protocol {
                                                                             local526 = local11.g2();
                                                                             local1409 = local11.g1();
                                                                             local6565 = (local526 & 0x8000) != 0;
-                                                                            if (local7724.aString9 != null && local7724.aPlayerModel_1 != null) {
+                                                                            if (local7724.accountName != null && local7724.playerModel != null) {
                                                                                 local1425 = false;
                                                                                 if (local1409 <= 1) {
                                                                                     if (!local6565 && (Static389.aBoolean459 && !Static34.aBoolean62 || Static617.aBoolean724)) {
                                                                                         local1425 = true;
-                                                                                    } else if (Static71.method1524(local7724.aString9)) {
+                                                                                    } else if (Static71.method1524(local7724.accountName)) {
                                                                                         local1425 = true;
                                                                                     }
                                                                                 }
@@ -1927,7 +1927,7 @@ public final class Protocol {
                                                                             Static574.method7573();
                                                                             for (local1413 = local277; local1413 <= local526; local1413++) {
                                                                                 local644 = (long) local1413 + ((long) local100 << 32);
-                                                                                local4597 = (ServerActiveProperties) Static291.A_HASH_TABLE___24.get(local644);
+                                                                                local4597 = (ServerActiveProperties) InterfaceManager.serverActiveProperties.get(local644);
                                                                                 if (local4597 != null) {
                                                                                     local4611 = new ServerActiveProperties(local1409, local4597.targetParam);
                                                                                     local4597.unlink();
@@ -1936,7 +1936,7 @@ public final class Protocol {
                                                                                 } else {
                                                                                     local4611 = new ServerActiveProperties(local1409, -1);
                                                                                 }
-                                                                                Static291.A_HASH_TABLE___24.put(local644, local4611);
+                                                                                InterfaceManager.serverActiveProperties.put(local644, local4611);
                                                                             }
                                                                             arg0.currentProt = null;
                                                                             return true;
@@ -2075,7 +2075,7 @@ public final class Protocol {
                                                                                 local8611[local2098].anInt6148 = local11.g2();
                                                                                 local8611[local2098].aByte99 = local11.g1b();
                                                                                 local8611[local2098].aString65 = local11.gjstr();
-                                                                                if (local8611[local2098].aString66.equals(Static556.self.aString9)) {
+                                                                                if (local8611[local2098].aString66.equals(Static556.self.accountName)) {
                                                                                     Static682.aByte142 = local8611[local2098].aByte99;
                                                                                 }
                                                                             }

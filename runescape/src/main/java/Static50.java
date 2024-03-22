@@ -122,7 +122,7 @@ public final class Static50 {
 
     @OriginalMember(owner = "client!bm", name = "a", descriptor = "(Lclient!cg;B)V")
     public static void method6638(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
-        @Pc(8) Animator local8 = arg0.aAnimator_10;
+        @Pc(8) Animator local8 = arg0.animator;
         if (local8.isAnimating() && local8.tick(1) && local8.isFinished()) {
             if (arg0.aBoolean817) {
                 local8.update(true, arg0.method9317().ready());
@@ -195,7 +195,7 @@ public final class Static50 {
     public static void method6639(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(8) DoublyLinkedNode_Sub2__ local8 = Static440.method5963(15, 0L);
         local8.method202();
-        local8.anInt197 = arg1;
-        local8.anInt195 = arg0;
+        local8.primaryData = arg1;
+        local8.secondaryData = arg0;
     }
 }

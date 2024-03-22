@@ -3,6 +3,7 @@ import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
+import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.IterableHashTable;
@@ -682,7 +683,7 @@ public final class Toolkit_Sub3 extends Toolkit {
                         throw new RuntimeException("");
                     }
                 }
-                Static198.method2954(true, false);
+                ColourUtils.init(true, false);
                 this.aBoolean589 = true;
                 this.aClass169_1 = new Class169(this, super.textureSource);
                 this.method6992();
@@ -1167,7 +1168,7 @@ public final class Toolkit_Sub3 extends Toolkit {
             this.anOpenGL1 = null;
         }
         if (this.aBoolean589) {
-            Static300.method4390(false, true);
+            ColourUtils.destroy(false, true);
             this.aBoolean589 = false;
         }
     }

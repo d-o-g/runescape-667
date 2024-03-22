@@ -87,13 +87,4 @@ public final class Static203 {
         return Static96.anInt10171 != 0;
     }
 
-    @OriginalMember(owner = "client!gf", name = "a", descriptor = "(ILjava/lang/String;)J")
-    public static long method3071(@OriginalArg(1) String arg0) {
-        @Pc(15) int local15 = arg0.length();
-        @Pc(17) long local17 = 0L;
-        for (@Pc(19) int local19 = 0; local19 < local15; local19++) {
-            local17 = (long) arg0.charAt(local19) + (local17 << 5) - local17;
-        }
-        return local17;
-    }
 }

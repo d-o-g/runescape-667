@@ -54,7 +54,7 @@ public final class Node_Sub51 extends Node {
     public int anInt9360;
 
     @OriginalMember(owner = "client!tg", name = "P", descriptor = "Lclient!ca;")
-    public Class8_Sub2_Sub1_Sub2_Sub1 aClass8_Sub2_Sub1_Sub2_Sub1_3;
+    public PlayerEntity aPlayerEntity_3;
 
     @OriginalMember(owner = "client!tg", name = "l", descriptor = "Z")
     public boolean aBoolean713;
@@ -144,13 +144,13 @@ public final class Node_Sub51 extends Node {
                     this.anInt9355 = local37.soundStartDistance << 9;
                 }
             }
-        } else if (this.aClass8_Sub2_Sub1_Sub2_Sub1_3 != null) {
-            this.anInt9353 = Static326.method4870(this.aClass8_Sub2_Sub1_Sub2_Sub1_3);
-            this.anInt9358 = this.aClass8_Sub2_Sub1_Sub2_Sub1_3.anInt1460;
+        } else if (this.aPlayerEntity_3 != null) {
+            this.anInt9353 = Static326.method4870(this.aPlayerEntity_3);
+            this.anInt9358 = this.aPlayerEntity_3.anInt1460;
             this.anInt9355 = 0;
             this.anInt9359 = 256;
-            this.anInt9356 = this.aClass8_Sub2_Sub1_Sub2_Sub1_3.anInt1452 << 9;
-            this.aBoolean714 = this.aClass8_Sub2_Sub1_Sub2_Sub1_3.aBoolean126;
+            this.anInt9356 = this.aPlayerEntity_3.anInt1452 << 9;
+            this.aBoolean714 = this.aPlayerEntity_3.aBoolean126;
             this.anInt9360 = 256;
         }
         if (this.anInt9353 == local11 && this.aBoolean714 == local14) {

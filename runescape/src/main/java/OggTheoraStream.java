@@ -89,11 +89,11 @@ public final class OggTheoraStream extends OggStream {
     }
 
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(Lclient!ha;I)Lclient!st;")
-    public Sprite method5491(@OriginalArg(0) Toolkit arg0) {
+    public Sprite sprite(@OriginalArg(0) Toolkit toolkit) {
         if (this.aFrame7 == null) {
             return null;
         } else if (this.aBoolean462 || this.aSprite_29 == null) {
-            this.aSprite_29 = arg0.method7958(this.aFrame7.pixels, this.aFrame7.b, this.aFrame7.b, this.aFrame7.a, false);
+            this.aSprite_29 = toolkit.method7958(this.aFrame7.pixels, this.aFrame7.b, this.aFrame7.b, this.aFrame7.a, false);
             this.aBoolean462 = false;
             return this.aSprite_29;
         } else {

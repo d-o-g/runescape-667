@@ -43,7 +43,7 @@ public final class Static456 {
         Static242.method3502();
         Static442.anInt6699 = -1;
         Static115.method2136(StaticWallDecor.lb);
-        Static556.self = new Class8_Sub2_Sub1_Sub2_Sub1();
+        Static556.self = new PlayerEntity();
         Static556.self.anInt10694 = Static501.mapHeight * 512 / 2;
         Static556.self.anInt10690 = Static720.mapWidth * 512 / 2;
         Static556.self.pathX[0] = Static720.mapWidth / 2;

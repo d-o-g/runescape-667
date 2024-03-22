@@ -229,4 +229,14 @@ public final class Cp1252 {
     private Cp1252() {
         /* empty */
     }
+
+    @OriginalMember(owner = "client!cw", name = "a", descriptor = "(ZLjava/lang/String;)I")
+    public static int hashCp1252(@OriginalArg(1) String string) {
+        @Pc(12) int length = string.length();
+        @Pc(14) int hash = 0;
+        for (@Pc(16) int i = 0; i < length; i++) {
+            hash = (hash << 5) + encodeChar(string.charAt(i)) - hash;
+        }
+        return hash;
+    }
 }

@@ -90,7 +90,7 @@ public final class Class26_Sub4 extends Class26 {
         super.aClass19_Sub1_21.method8138(1);
         super.aClass19_Sub1_21.method8097(Static360.aClass172_3);
         @Pc(33) Matrix_Sub1 local33 = super.aClass19_Sub1_21.method8082();
-        local33.method7136(1024);
+        local33.makeRotationX(1024);
         super.aClass19_Sub1_21.method8073(Static104.aClass370_1);
         if (this.aBoolean247) {
             super.aClass19_Sub1_21.method8094(Static185.aClass121_3, Static438.aClass121_5);

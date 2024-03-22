@@ -34,7 +34,7 @@ public final class Static497 {
         }
         @Pc(22) int local22 = local6.walkSound;
         @Pc(32) BASType local32 = arg0.method9317();
-        @Pc(37) int local37 = arg0.aAnimator_10.getAnimationId();
+        @Pc(37) int local37 = arg0.animator.getAnimationId();
         if (local37 == -1 || arg0.aBoolean817) {
             local22 = local6.readySound;
         } else if (local32.run == local37 || local32.runFollowTurn180 == local37 || local32.runFollowTurnCw == local37 || local37 == local32.runFollowTurnCcw) {

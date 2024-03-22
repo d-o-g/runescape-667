@@ -30,7 +30,7 @@ public final class Static294 {
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(IIZIII)V")
-    public static void method4339(@OriginalArg(1) int arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public static void method4339(@OriginalArg(1) int arg0, @OriginalArg(2) boolean login, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         if (Static334.activeTiles == null) {
             Static163.activeToolkit.method7971(arg2, arg3, arg0, arg4, -16777216);
             return;
@@ -48,13 +48,13 @@ public final class Static294 {
             return;
         }
         Static198.anInt3276++;
-        if (Static556.self != null && Static556.self.anInt10690 + 256 - Static556.self.method9302((byte) 45) * 256 >> 9 == Static675.anInt10156 && Static556.self.anInt10694 - (Static556.self.method9302((byte) 48) - 1) * 256 >> 9 == Static212.anInt3466) {
-            Static675.anInt10156 = -1;
-            Static212.anInt3466 = -1;
-            Static444.method5988();
+        if ((Static556.self != null) && (Minimap.flagX == (((Static556.self.anInt10690 + 256) - (Static556.self.boundSize((byte) 45) * 256)) >> 9)) && (Minimap.flagY == ((Static556.self.anInt10694 - ((Static556.self.boundSize((byte) 48) - 1) * 256)) >> 9))) {
+            Minimap.flagX = -1;
+            Minimap.flagY = -1;
+            Static444.resetMapFLag();
         }
         Static710.method6711();
-        if (!arg1) {
+        if (!login) {
             Static527.method7083();
         }
         Static498.method6643(arg4, true, arg0, arg3, arg2);

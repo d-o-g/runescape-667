@@ -1,6 +1,4 @@
 import com.jagex.core.constants.ComponentClientCode;
-import com.jagex.core.constants.ModeGame;
-import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.TimeUtils;
@@ -12,14 +10,10 @@ import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.objtype.ObjStackability;
 import com.jagex.game.runetek6.config.objtype.ObjType;
-import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Model;
-import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Sprite;
-import com.jagex.graphics.TextureSource;
-import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -39,6 +33,9 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!lfa", name = "a", descriptor = "[Z")
     public static final boolean[] currentlyDirtyRect = new boolean[100];
+
+    @OriginalMember(owner = "client!je", name = "h", descriptor = "Lclient!av;")
+    public static final IterableHashTable serverActiveProperties = new IterableHashTable(512);
 
     @OriginalMember(owner = "client!ff", name = "k", descriptor = "I")
     public static int lastDrawCycle = -2;
@@ -97,14 +94,17 @@ public final class InterfaceManager {
     @OriginalMember(owner = "client!ef", name = "d", descriptor = "Z")
     public static boolean aBoolean210 = false;
 
-    @OriginalMember(owner = "client!mfa", name = "c", descriptor = "I")
-    public static int anInt6147;
-
     @OriginalMember(owner = "client!re", name = "n", descriptor = "Lclient!av;")
     public static IterableHashTable subInterfaces = new IterableHashTable(8);
 
     @OriginalMember(owner = "client!aka", name = "l", descriptor = "I")
     public static int rectDebug = 0;
+
+    @OriginalMember(owner = "client!mda", name = "B", descriptor = "Lclient!hda;")
+    public static Component dialog = null;
+
+    @OriginalMember(owner = "client!lr", name = "e", descriptor = "Z")
+    public static boolean clipComponents = false;
 
     static {
         for (@Pc(87) int i = 0; i < 100; i++) {
@@ -258,10 +258,12 @@ public final class InterfaceManager {
                 if (child.clientcode != 0) {
                     if (child.clientcode == ComponentClientCode.SCENE || child.clientcode == ComponentClientCode.LOGIN_SCENE) {
                         setOptions(posY, posX, child);
+
                         if (!aBoolean210) {
                             Static294.method4339(posY, child.clientcode == ComponentClientCode.LOGIN_SCENE, child.width, child.height, posX);
                             Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                         }
+
                         dirtyRectangles[rectangle] = true;
                         continue;
                     }
@@ -285,19 +287,20 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.COLOUR_CHOOSER_HUE) {
-                        drawColourBar(child, posX, posY, Static163.activeToolkit);
+                        ColourChooser.drawHue(child, posX, posY, Static163.activeToolkit);
                         continue;
                     }
 
                     if (child.clientcode == ComponentClientCode.COLOUR_CHOOSER_SATURATION_VALUE) {
-                        drawColourChart(Static163.activeToolkit, child.colour % 64, child, posX, posY);
+                        ColourChooser.drawSaturationValue(Static163.activeToolkit, child.colour % 64, child, posX, posY);
                         continue;
                     }
 
                     if (child.clientcode == ComponentClientCode.COMPASS) {
                         if (child.graphic(Static163.activeToolkit) != null) {
-                            drawCompass(child, posX, posY);
+                            Minimap.drawCompass(child, posX, posY);
                             flipDirtyRect[rectangle] = true;
+
                             Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
 
                             if (aBoolean210) {
@@ -312,14 +315,14 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.WORLD_MAP) {
-                        drawWorldMap(child.height, posX, posY, Static56.anTextureSource_3, Static163.activeToolkit, child.width);
+                        WorldMap.draw(child.height, posX, posY, Static56.anTextureSource_3, Static163.activeToolkit, child.width);
                         dirtyRectangles[rectangle] = true;
                         Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                         continue;
                     }
 
                     if (child.clientcode == ComponentClientCode.WORLD_MAP_OVERVIEW) {
-                        drawWorldMapOverview(child.width, Static163.activeToolkit, child.height, posX, posY);
+                        WorldMap.drawOverview(child.width, Static163.activeToolkit, child.height, posX, posY);
                         dirtyRectangles[rectangle] = true;
                         Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                         continue;
@@ -497,7 +500,7 @@ public final class InterfaceManager {
                             @Pc(1533) String text = child.text;
 
                             if (child.invObject != -1) {
-                                @Pc(1543) ObjType objType = Static419.aObjTypeList_1.list(child.invObject);
+                                @Pc(1543) ObjType objType = Static419.objTypeList.list(child.invObject);
                                 text = objType.name;
 
                                 if (text == null) {
@@ -516,27 +519,33 @@ public final class InterfaceManager {
                                     text = "";
                                 }
                             }
-                            if (child == Static390.aComponent_9) {
+
+                            if (child == dialog) {
                                 text = LocalisedText.PLEASEWAIT.localise(Static51.language);
                                 colour = child.colour;
                             }
-                            if (Static376.aBoolean452) {
+
+                            if (clipComponents) {
                                 Static163.activeToolkit.T(posX, posY, posX + child.width, child.height + posY);
                             }
-                            font.renderLines(child.verticalAlignment, colour | 255 - (transparency & 0xFF) << 24, child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Static679.aSpriteArray14, child.maxLines, 0, posY, child.height, 0, (ClippingMask) null, child.lineHeight, child.width, posX, child.horizontalAlignment, (int[]) null, text);
-                            if (Static376.aBoolean452) {
+
+                            font.renderLines(child.verticalAlignment, colour | ((255 - (transparency & 0xFF)) << 24), child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Static679.aSpriteArray14, child.maxLines, 0, posY, child.height, 0, null, child.lineHeight, child.width, posX, child.horizontalAlignment, null, text);
+
+                            if (clipComponents) {
                                 Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                             }
+
                             if (text.trim().length() > 0) {
-                                if (!Static376.aBoolean452) {
-                                    @Pc(1730) FontMetrics local1730 = Fonts.metrics(child.fontGraphic, Static163.activeToolkit);
-                                    @Pc(777) int local777 = local1730.paraWidth(Static679.aSpriteArray14, text, child.width);
-                                    @Pc(779) int local779 = local1730.stringHeight(child.width, child.lineHeight, text, Static679.aSpriteArray14);
+                                if (!clipComponents) {
+                                    @Pc(1730) FontMetrics metrics = Fonts.metrics(child.fontGraphic, Static163.activeToolkit);
+                                    @Pc(777) int textWidth = metrics.paraWidth(Static679.aSpriteArray14, text, child.width);
+                                    @Pc(779) int textHeight = metrics.stringHeight(child.width, child.lineHeight, text, Static679.aSpriteArray14);
+
                                     if (aBoolean210) {
                                         if (arg7) {
-                                            Static682.method8927(posY, posY + local779, posX, posX + local777);
+                                            Static682.method8927(posY, posY + textHeight, posX, posX + textWidth);
                                         } else {
-                                            Static595.method7810(posY, posX + local777, local779 + posY, posX);
+                                            Static595.method7810(posY, posX + textWidth, textHeight + posY, posX);
                                         }
                                     }
                                 } else if (aBoolean210) {
@@ -550,62 +559,74 @@ public final class InterfaceManager {
                         } else if (Component.redrawAll) {
                             redraw(child);
                         }
-                    } else if (child.type == 5) {
-                        if (child.skyBox < 0) {
-                            @Pc(1816) Sprite local1816;
+                    } else if (child.type == Component.TYPE_GRAPHIC) {
+                        if (child.skyBox >= 0) {
+                            child.skyBox(Static99.skyBoxSphereTypeList, Static324.skyBoxTypeList).method3162(Static163.activeToolkit, posY, posX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
+                        } else {
+                            @Pc(1816) Sprite sprite;
                             if (child.invObject != -1) {
-                                @Pc(1836) PlayerModel local1836 = child.objWearCol ? Static556.self.aPlayerModel_1 : null;
-                                local1816 = Static419.aObjTypeList_1.getCachedSprite(local1836, Static163.activeToolkit, child.anInt3757, child.invObject, child.outline, child.invCount, child.shadow | 0xFF000000);
-                            } else if (child.video == -1) {
-                                local1816 = child.sprite(Static163.activeToolkit);
+                                @Pc(1836) PlayerModel model = child.objWearCol ? Static556.self.playerModel : null;
+                                sprite = Static419.objTypeList.getCachedSprite(model, Static163.activeToolkit, child.objNumMode, child.invObject, child.outline, child.invCount, child.shadow | 0xFF000000);
+                            } else if (child.video != -1) {
+                                sprite = VideoTypeList.sprite(child.video, Static163.activeToolkit);
                             } else {
-                                local1816 = VideoTypeList.method8512(child.video, Static163.activeToolkit);
+                                sprite = child.sprite(Static163.activeToolkit);
                             }
-                            if (local1816 != null) {
-                                @Pc(323) int local323 = local1816.scaleWidth();
-                                @Pc(744) int local744 = local1816.scaleHeight();
-                                @Pc(1255) int local1255 = 255 - (transparency & 0xFF) << 24 | (child.colour == 0 ? 16777215 : child.colour & 0xFFFFFF);
+
+                            if (sprite != null) {
+                                @Pc(323) int scaleWidth = sprite.scaleWidth();
+                                @Pc(744) int scaleHeight = sprite.scaleHeight();
+                                @Pc(1255) int backgroundColour = ((255 - (transparency & 0xFF)) << 24) | ((child.colour != 0) ? (child.colour & 0xFFFFFF) : 0xFFFFFF);
+
                                 if (child.tiled) {
                                     Static163.activeToolkit.T(posX, posY, posX + child.width, posY - -child.height);
+
                                     if (child.angle2d != 0) {
-                                        @Pc(777) int local777 = (child.width + local323 - 1) / local323;
-                                        @Pc(779) int local779 = (local744 + child.height - 1) / local744;
-                                        for (@Pc(792) int local792 = 0; local792 < local777; local792++) {
-                                            for (@Pc(936) int local936 = 0; local936 < local779; local936++) {
-                                                if (child.colour == 0) {
-                                                    local1816.method8186((float) (local792 * local323 + posX) + (float) local323 / 2.0F, (float) (posY + local744 * local936) + (float) local744 / 2.0F, 4096, child.angle2d);
+                                        @Pc(777) int newWidth = (child.width + scaleWidth - 1) / scaleWidth;
+                                        @Pc(779) int newHeight = (child.height + scaleHeight - 1) / scaleHeight;
+
+                                        for (@Pc(792) int x = 0; x < newWidth; x++) {
+                                            for (@Pc(936) int y = 0; y < newHeight; y++) {
+                                                if (child.colour != 0) {
+                                                    sprite.method8187((float) (x * scaleWidth + posX) + ((float) scaleWidth / 2.0F), (float) scaleHeight / 2.0F + (float) (y * scaleHeight + posY), 4096, child.angle2d, backgroundColour);
                                                 } else {
-                                                    local1816.method8187((float) (local792 * local323 + posX) + (float) local323 / 2.0F, (float) local744 / 2.0F + (float) (local936 * local744 + posY), 4096, child.angle2d, local1255);
+                                                    sprite.method8186((float) (x * scaleWidth + posX) + ((float) scaleWidth / 2.0F), (float) (posY + scaleHeight * y) + (float) scaleHeight / 2.0F, 4096, child.angle2d);
                                                 }
                                             }
                                         }
-                                    } else if (child.colour == 0 && transparency == 0) {
-                                        local1816.method8198(posX, posY, child.width, child.height);
                                     } else {
-                                        local1816.method8189(posX, posY, child.width, child.height, 0, local1255, 1);
+                                        if (child.colour != 0 || transparency != 0) {
+                                            sprite.method8189(posX, posY, child.width, child.height, 0, backgroundColour, 1);
+                                        } else {
+                                            sprite.method8198(posX, posY, child.width, child.height);
+                                        }
                                     }
+
                                     Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
-                                } else if (child.colour == 0 && transparency == 0) {
-                                    if (child.angle2d != 0) {
-                                        local1816.method8186((float) child.width / 2.0F + (float) posX, (float) posY + (float) child.height / 2.0F, child.width * 4096 / local323, child.angle2d);
-                                    } else if (local323 == child.width && child.height == local744) {
-                                        local1816.render(posX, posY);
-                                    } else {
-                                        local1816.render(posX, posY, child.width, child.height);
-                                    }
-                                } else if (child.angle2d != 0) {
-                                    local1816.method8187((float) child.width / 2.0F + (float) posX, (float) child.height / 2.0F + (float) posY, child.width * 4096 / local323, child.angle2d, local1255);
-                                } else if (local323 == child.width && child.height == local744) {
-                                    local1816.render(posX, posY, 0, local1255, 1);
                                 } else {
-                                    local1816.render(posX, posY, child.width, child.height, 0, local1255, 1);
+                                    if (child.colour != 0 || transparency != 0) {
+                                        if (child.angle2d != 0) {
+                                            sprite.method8187(((float) child.width / 2.0F) + (float) posX, (float) child.height / 2.0F + (float) posY, child.width * 4096 / scaleWidth, child.angle2d, backgroundColour);
+                                        } else if (scaleWidth == child.width && scaleHeight == child.height) {
+                                            sprite.render(posX, posY, 0, backgroundColour, 1);
+                                        } else {
+                                            sprite.render(posX, posY, child.width, child.height, 0, backgroundColour, 1);
+                                        }
+                                    } else {
+                                        if (child.angle2d != 0) {
+                                            sprite.method8186(((float) child.width / 2.0F) + (float) posX, (float) posY + (float) child.height / 2.0F, child.width * 4096 / scaleWidth, child.angle2d);
+                                        } else if (scaleWidth == child.width && scaleHeight == child.height) {
+                                            sprite.render(posX, posY);
+                                        } else {
+                                            sprite.render(posX, posY, child.width, child.height);
+                                        }
+                                    }
                                 }
                             } else if (Component.redrawAll) {
                                 redraw(child);
                             }
-                        } else {
-                            child.skyBox(Static99.aSkyBoxSphereTypeList_1, Static324.aSkyBoxTypeList_1).method3162(Static163.activeToolkit, posY, posX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
                         }
+
                         if (aBoolean210) {
                             if (arg7) {
                                 Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
@@ -613,74 +634,86 @@ public final class InterfaceManager {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
                         }
-                    } else if (child.type == 6) {
+                    } else if (child.type == Component.TYPE_MODEL) {
                         Static104.method2033();
-                        NPCTypeCustomisation local1215 = null;
-                        @Pc(2313) Model local2313 = null;
-                        @Pc(744) int local744 = 0;
+                        NPCTypeCustomisation customisation = null;
+                        @Pc(2313) Model model = null;
+                        @Pc(744) int minY = 0;
+
                         if (child.invObject != -1) {
-                            @Pc(1543) ObjType local1543 = Static419.aObjTypeList_1.list(child.invObject);
-                            if (local1543 != null) {
-                                local1543 = local1543.getStacked(child.invCount);
-                                local2313 = local1543.model(child.aAnimator_6, 2048, child.objWearCol ? Static556.self.aPlayerModel_1 : null, 1, Static163.activeToolkit);
-                                if (local2313 == null) {
-                                    redraw(child);
+                            @Pc(1543) ObjType objType = Static419.objTypeList.list(child.invObject);
+                            if (objType != null) {
+                                objType = objType.getStacked(child.invCount);
+                                model = objType.model(child.animator, 2048, child.objWearCol ? Static556.self.playerModel : null, 1, Static163.activeToolkit);
+
+                                if (model != null) {
+                                    minY = -model.fa() >> 1;
                                 } else {
-                                    local744 = -local2313.fa() >> 1;
+                                    redraw(child);
                                 }
                             }
-                        } else if (child.objType == 5) {
-                            @Pc(1255) int local1255 = child.obj;
-                            if (local1255 >= 0 && local1255 < 2048) {
-                                @Pc(2341) Class8_Sub2_Sub1_Sub2_Sub1 local2341 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local1255];
-                                if (local2341 != null && (local1255 == Static312.anInt5000 || Static214.method3157(local2341.aString9) == child.objData)) {
-                                    local2313 = local2341.aPlayerModel_1.bodyModel(Static419.aObjTypeList_1, child.aAnimator_6, Static574.aBASTypeList_2, Static25.aSeqTypeList_1, 2048, (int[]) null, Static523.wearposDefaults, Static68.aIDKTypeList_3, Static163.activeToolkit, Static690.aNPCTypeList_2, (Animator[]) null, 0, (Animator) null, Static34.aClass304_1);
+                        } else if (child.objType == Component.OBJ_TYPE_PLAYERMODEL) {
+                            @Pc(1255) int slot = child.obj;
+                            if (slot >= 0 && slot < 2048) {
+                                @Pc(2341) PlayerEntity player = PlayerList.highResolutionPlayers[slot];
+
+                                if (player != null && (slot == PlayerList.activePlayerSlot || StringTools.intHash(player.accountName) == child.objData)) {
+                                    model = player.playerModel.bodyModel(Static419.objTypeList, child.animator, Static574.basTypeList, Static25.seqTypeList, 2048, null, Static523.wearposDefaults, Static68.idkTypeList, Static163.activeToolkit, Static690.aNPCTypeList_2, null, 0, null, Static34.aClass304_1);
                                 }
                             }
-                        } else if (child.objType == 8 || child.objType == 9) {
-                            @Pc(2468) Node_Sub22 local2468 = Static556.method7303(child.obj, false);
-                            if (local2468 != null) {
-                                local2313 = local2468.method3078(child.objData, Static163.activeToolkit, child.objType == 9, child.aAnimator_6, child.objWearCol ? Static556.self.aPlayerModel_1 : null);
+                        } else if (child.objType == Component.OBJ_TYPE_INVENTORY_MALE || child.objType == Component.OBJ_TYPE_INVENTORY_FEMALE) {
+                            @Pc(2468) ClientInventory inventory = Static556.method7303(child.obj, false);
+
+                            if (inventory != null) {
+                                model = inventory.method3078(child.objData, Static163.activeToolkit, child.objType == Component.OBJ_TYPE_INVENTORY_FEMALE, child.animator, child.objWearCol ? Static556.self.playerModel : null);
                             }
-                        } else if (child.aAnimator_6 != null && child.aAnimator_6.isAnimating()) {
-                            local2313 = child.model(Static163.activeToolkit, child.aAnimator_6, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.self.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
-                            if (local2313 == null && Component.redrawAll) {
+                        } else if (child.animator != null && child.animator.isAnimating()) {
+                            model = child.model(Static163.activeToolkit, child.animator, Static574.basTypeList, Static68.idkTypeList, Static25.seqTypeList, Static556.self.playerModel, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.objTypeList, 2048, customisation);
+
+                            if (model == null && Component.redrawAll) {
                                 redraw(child);
                             }
                         } else {
-                            local2313 = child.model(Static163.activeToolkit, (Animator) null, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.self.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
-                            if (local2313 == null && Component.redrawAll) {
+                            model = child.model(Static163.activeToolkit, null, Static574.basTypeList, Static68.idkTypeList, Static25.seqTypeList, Static556.self.playerModel, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.objTypeList, 2048, customisation);
+
+                            if (model == null && Component.redrawAll) {
                                 redraw(child);
                             }
                         }
-                        if (local2313 != null) {
+
+                        if (model != null) {
                             @Pc(1255) int local1255;
                             if (child.anInt3800 <= 0) {
                                 local1255 = 512;
                             } else {
                                 local1255 = (child.width << 9) / child.anInt3800;
                             }
+
                             @Pc(777) int local777;
                             if (child.anInt3825 <= 0) {
                                 local777 = 512;
                             } else {
                                 local777 = (child.height << 9) / child.anInt3825;
                             }
+
                             @Pc(779) int local779 = child.width / 2 + posX;
                             @Pc(792) int local792 = child.height / 2 + posY;
                             if (!child.orthoView) {
                                 local779 += child.modelOriginX * local1255 >> 9;
                                 local792 += child.modelOriginY * local777 >> 9;
                             }
+
                             Static460.aMatrix_10.makeIdentity();
                             Static163.activeToolkit.setCamera(Static460.aMatrix_10);
                             Static163.activeToolkit.DA(local779, local792, local1255, local777);
                             Static163.activeToolkit.ya();
+
                             if (child.disableZBuffer) {
                                 Static163.activeToolkit.C(false);
                             }
+
                             if (child.orthoView) {
-                                Static59.aMatrix_5.method7136(child.modelAngleX);
+                                Static59.aMatrix_5.makeRotationX(child.modelAngleX);
                                 Static59.aMatrix_5.rotateAxisY(child.modelAngleY);
                                 Static59.aMatrix_5.rotateAxisZ(child.modelAngleZ);
                                 Static59.aMatrix_5.translate(child.modelOriginX, child.modelOriginY, child.modelOriginZ);
@@ -689,37 +722,47 @@ public final class InterfaceManager {
                                 @Pc(938) int local938 = Trig1.COS[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
                                 Static59.aMatrix_5.makeRotationZ(-child.modelAngleZ << 3);
                                 Static59.aMatrix_5.rotateAxisY(child.modelAngleY << 3);
-                                Static59.aMatrix_5.translate(child.anInt3736 << 2, local744 + (child.anInt3804 << 2) + local936, (child.anInt3804 << 2) + local938);
+                                Static59.aMatrix_5.translate(child.anInt3736 << 2, minY + (child.anInt3804 << 2) + local936, (child.anInt3804 << 2) + local938);
                                 Static59.aMatrix_5.rotateAxisX(child.modelAngleX << 3);
                             }
-                            child.method3384(Static163.activeToolkit, local2313, Static59.aMatrix_5, TimeUtils.clock);
-                            if (Static376.aBoolean452) {
+
+                            child.method3384(Static163.activeToolkit, model, Static59.aMatrix_5, TimeUtils.clock);
+
+                            if (clipComponents) {
                                 Static163.activeToolkit.T(posX, posY, posX + child.width, child.height + posY);
                             }
+
                             if (child.orthoView) {
                                 if (child.modelOrtho) {
-                                    local2313.renderOrtho(Static59.aMatrix_5, (PickingCylinder) null, child.modelZoom, 1);
+                                    model.renderOrtho(Static59.aMatrix_5, null, child.modelZoom, 1);
                                 } else {
-                                    local2313.render(Static59.aMatrix_5, (PickingCylinder) null, 1);
+                                    model.render(Static59.aMatrix_5, null, 1);
+
                                     if (child.particleSystem != null) {
                                         Static163.activeToolkit.method8021(child.particleSystem.method3650());
                                     }
                                 }
-                            } else if (child.modelOrtho) {
-                                local2313.renderOrtho(Static59.aMatrix_5, (PickingCylinder) null, child.modelZoom << 2, 1);
                             } else {
-                                local2313.render(Static59.aMatrix_5, (PickingCylinder) null, 1);
-                                if (child.particleSystem != null) {
-                                    Static163.activeToolkit.method8021(child.particleSystem.method3650());
+                                if (child.modelOrtho) {
+                                    model.renderOrtho(Static59.aMatrix_5, null, child.modelZoom << 2, 1);
+                                } else {
+                                    model.render(Static59.aMatrix_5, null, 1);
+
+                                    if (child.particleSystem != null) {
+                                        Static163.activeToolkit.method8021(child.particleSystem.method3650());
+                                    }
                                 }
                             }
-                            if (Static376.aBoolean452) {
+
+                            if (clipComponents) {
                                 Static163.activeToolkit.KA(arg3, arg4, arg8, arg5);
                             }
+
                             if (child.disableZBuffer) {
                                 Static163.activeToolkit.C(true);
                             }
                         }
+
                         if (aBoolean210) {
                             if (arg7) {
                                 Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
@@ -727,7 +770,7 @@ public final class InterfaceManager {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
                         }
-                    } else if (child.type == 9) {
+                    } else if (child.type == Component.TYPE_LINE) {
                         @Pc(323) int local323;
                         @Pc(744) int local744;
                         @Pc(1255) int local1255;
@@ -741,11 +784,13 @@ public final class InterfaceManager {
                             local323 = posY;
                             local744 = posX + child.width;
                         }
-                        if (child.lineWidth == 1) {
-                            Static163.activeToolkit.method7951(posX, local323, local744, local1255, child.colour, 0);
-                        } else {
+
+                        if (child.lineWidth != 1) {
                             Static163.activeToolkit.method7947(posX, local323, local744, local1255, child.colour, child.lineWidth);
+                        } else {
+                            Static163.activeToolkit.method7951(posX, local323, local744, local1255, child.colour, 0);
                         }
+
                         if (aBoolean210) {
                             if (arg7) {
                                 Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
@@ -759,206 +804,58 @@ public final class InterfaceManager {
         }
     }
 
-    private InterfaceManager() {
-        /* empty */
-    }
-
     @OriginalMember(owner = "client!client", name = "b", descriptor = "(Lclient!hda;)Z")
-    public static boolean isHidden(@OriginalArg(0) Component arg0) {
+    public static boolean isHidden(@OriginalArg(0) Component component) {
         if (testOpacity) {
-            if (serverActiveProperties(arg0).events != 0) {
+            if (serverActiveProperties(component).events != 0) {
                 return false;
             }
-            if (arg0.type == 0) {
+
+            if (component.type == Component.TYPE_LAYER) {
                 return false;
             }
         }
-        return arg0.hidden;
+
+        return component.hidden;
     }
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ZLclient!hda;)V")
-    public static void drawSpinningPlayer(@OriginalArg(1) Component arg0) {
-        if (ComponentClientCode.SPINNING_PLAYER != arg0.clientcode) {
+    public static void drawSpinningPlayer(@OriginalArg(1) Component component) {
+        if (ComponentClientCode.SPINNING_PLAYER != component.clientcode) {
             return;
         }
-        if (Static556.self.aString9 == null) {
-            arg0.obj = 0;
-            arg0.objData = 0;
+
+        if (Static556.self.accountName == null) {
+            component.obj = 0;
+            component.objData = 0;
             return;
         }
-        arg0.modelAngleX = 150;
-        arg0.modelAngleY = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
-        arg0.objType = 5;
-        arg0.obj = Static312.anInt5000;
-        arg0.objData = Static214.method3157(Static556.self.aString9);
-        @Pc(55) Animator local55 = Static556.self.aAnimator_10;
-        if (local55 == null) {
-            arg0.aAnimator_6 = null;
+
+        component.modelAngleX = 150;
+        component.modelAngleY = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
+
+        component.objType = 5;
+        component.obj = PlayerList.activePlayerSlot;
+        component.objData = StringTools.intHash(Static556.self.accountName);
+
+        @Pc(55) Animator animator = Static556.self.animator;
+        if (animator == null) {
+            component.animator = null;
             return;
         }
-        if (arg0.aAnimator_6 == null) {
-            arg0.aAnimator_6 = new Animator_Sub1();
+
+        if (component.animator == null) {
+            component.animator = new ComponentAnimator();
         }
-        arg0.modelAnimation = local55.getAnimationId();
-        arg0.aAnimator_6.method9096(local55);
+
+        component.modelAnimation = animator.getAnimationId();
+        component.animator.copyFrom(animator);
     }
 
     @OriginalMember(owner = "client!client", name = "c", descriptor = "(Lclient!hda;)Lclient!ofa;")
-    public static ServerActiveProperties serverActiveProperties(@OriginalArg(0) Component arg0) {
-        @Pc(13) ServerActiveProperties local13 = (ServerActiveProperties) Static291.A_HASH_TABLE___24.get(((long) arg0.slot << 32) + (long) arg0.id);
-        return local13 == null ? arg0.serverActiveProperties : local13;
-    }
-
-    @OriginalMember(owner = "client!gka", name = "a", descriptor = "(Lclient!hda;IBILclient!ha;)V")
-    public static void drawColourBar(@OriginalArg(0) Component arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Toolkit arg3) {
-        for (@Pc(16) int local16 = 63; local16 >= 0; local16--) {
-            Static198.method2954(true, false);
-            @Pc(42) int local42 = (local16 & 0x3F) << 10 | 0x3F | 0x380;
-            @Pc(46) int local46 = Static154.anIntArray237[local42];
-            Static300.method4390(false, true);
-            arg3.aa(arg1, ((63 - local16) * arg0.height >> 6) + arg2, arg0.width, (arg0.height >> 6) + 1, local46, 0);
-        }
-    }
-
-    @OriginalMember(owner = "client!mfa", name = "a", descriptor = "(Lclient!ha;IBLclient!hda;II)V")
-    public static void drawColourChart(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Component arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        for (@Pc(10) int local10 = 7; local10 >= 0; local10--) {
-            for (@Pc(16) int local16 = 127; local16 >= 0; local16--) {
-                Static198.method2954(true, false);
-                @Pc(40) int local40 = (arg1 & 0x3F) << 10 | (local10 & 0x7) << 7 | local16 & 0x7F;
-                @Pc(44) int local44 = Static154.anIntArray237[local40];
-                Static300.method4390(false, true);
-                arg0.aa(arg3 + (arg2.width * local16 >> 7), arg4 + ((-local10 + 7) * arg2.height >> 3), (arg2.width >> 7) + 1, (arg2.height >> 3) - -1, local44, 0);
-            }
-        }
-        anInt6147++;
-    }
-
-    @OriginalMember(owner = "client!uga", name = "a", descriptor = "(Lclient!hda;III)V")
-    public static void drawCompass(@OriginalArg(0) Component arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(8) Graphic local8 = arg0.graphic(Static163.activeToolkit);
-        if (local8 == null) {
-            return;
-        }
-        Static163.activeToolkit.KA(arg1, arg2, arg1 + arg0.width, arg2 + arg0.height);
-        if (Static578.anInt8595 >= 3) {
-            Static163.activeToolkit.A(-16777216, local8.aClippingMask, arg1, arg2);
-        } else {
-            Static12.aSprite_27.method8183((float) arg0.width / 2.0F + (float) arg1, (float) arg0.height / 2.0F + (float) arg2, ((int) -Static171.aFloat64 & 0x3FFF) << 2, local8.aClippingMask, arg1, arg2);
-        }
-    }
-
-    @OriginalMember(owner = "client!cu", name = "a", descriptor = "(IIIILclient!d;Lclient!ha;I)V")
-    public static void drawWorldMap(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) TextureSource arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5) {
-        if (Static273.anInt4403 < 100) {
-            Static719.method9117(arg3, arg4);
-        }
-        arg4.KA(arg1, arg2, arg1 + arg5, arg2 + arg0);
-        @Pc(38) int local38;
-        @Pc(57) int local57;
-        if (Static273.anInt4403 < 100) {
-            local38 = arg5 / 2 + arg1;
-            arg4.aa(arg1, arg2, arg5, arg0, -16777216, 0);
-            local57 = arg2 + arg0 / 2 - 20 - 18;
-            arg4.method7976(local38 - 152, local57, 304, 34, Static337.aColorArray1[Static338.anInt5562].getRGB(), 0);
-            arg4.aa(local38 - 150, local57 + 2, Static273.anInt4403 * 3, 30, Static718.aColorArray3[Static338.anInt5562].getRGB(), 0);
-            Fonts.b12.renderCentre(-1, local38, LocalisedText.LOADINGDOTDOTDOT.localise(Static51.language), local57 + 20, Static399.aColorArray2[Static338.anInt5562].getRGB());
-            return;
-        }
-        @Pc(114) int local114 = Static164.anInt2809 - (int) ((float) arg5 / Static30.aFloat105);
-        local38 = Static615.anInt9389 + (int) ((float) arg0 / Static30.aFloat105);
-        local57 = Static164.anInt2809 + (int) ((float) arg5 / Static30.aFloat105);
-        Static329.anInt1750 = (int) ((float) (arg5 * 2) / Static30.aFloat105);
-        Static588.anInt8690 = (int) ((float) (arg0 * 2) / Static30.aFloat105);
-        @Pc(155) int local155 = Static615.anInt9389 - (int) ((float) arg0 / Static30.aFloat105);
-        Static510.anInt7639 = Static615.anInt9389 - (int) ((float) arg0 / Static30.aFloat105);
-        Static534.anInt8111 = Static164.anInt2809 - (int) ((float) arg5 / Static30.aFloat105);
-        Static30.method5062(Static30.anInt5655 + local114, local38 - -Static30.anInt5648, local57 + Static30.anInt5655, local155 - -Static30.anInt5648, arg1, arg2, arg5 + arg1, arg0 + arg2 + 1);
-        Static30.method5060(arg4);
-        @Pc(203) Deque local203 = Static30.method5081(arg4);
-        Static368.method5272(local203, arg4);
-        if (Static320.anInt5084 > 0) {
-            Static212.anInt3467--;
-            if (Static212.anInt3467 == 0) {
-                Static320.anInt5084--;
-                Static212.anInt3467 = 20;
-            }
-        }
-        if (!Static105.displayFps) {
-            return;
-        }
-        @Pc(250) int local250 = arg5 + arg1 - 5;
-        @Pc(256) int local256 = arg2 + arg0 - 8;
-        Fonts.p12.render(local250, "Fps:" + Static652.currentFps, 16776960, -1, local256);
-        @Pc(273) int local273 = local256 - 15;
-        @Pc(275) Runtime local275 = Runtime.getRuntime();
-        @Pc(285) int local285 = (int) ((local275.totalMemory() - local275.freeMemory()) / 1024L);
-        @Pc(287) int local287 = 16776960;
-        if (local285 > 65536) {
-            local287 = 16711680;
-        }
-        Fonts.p12.render(local250, "Mem:" + local285 + "k", local287, -1, local273);
-        local256 = local273 - 15;
-    }
-
-    @OriginalMember(owner = "client!qda", name = "a", descriptor = "(BILclient!ha;III)V")
-    public static void drawWorldMapOverview(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        arg1.KA(arg3, arg4, arg3 + arg0, arg2 + arg4);
-        arg1.method7971(arg0, arg2, arg4, arg3, -16777216);
-        if (Static273.anInt4403 < 100) {
-            return;
-        }
-        @Pc(44) float local44 = (float) Static30.anInt5644 / (float) Static30.anInt5650;
-        @Pc(46) int local46 = arg0;
-        @Pc(48) int local48 = arg2;
-        if (local44 < 1.0F) {
-            local48 = (int) (local44 * (float) arg0);
-        } else {
-            local46 = (int) ((float) arg2 / local44);
-        }
-        @Pc(75) int local75 = arg3 + (arg0 - local46) / 2;
-        @Pc(84) int local84 = arg4 + (arg2 - local48) / 2;
-        if (Static13.aSprite_4 == null || Static13.aSprite_4.getWidth() != arg0 || Static13.aSprite_4.getHeight() != arg2) {
-            Static30.method5062(Static30.anInt5655, Static30.anInt5648 + Static30.anInt5644, Static30.anInt5650 + Static30.anInt5655, Static30.anInt5648, local75, local84, local75 + local46, local84 - -local48);
-            Static30.method5060(arg1);
-            Static13.aSprite_4 = arg1.method7964(local75, local84, local46, local48, false);
-        }
-        Static13.aSprite_4.render(local75, local84);
-        @Pc(138) int local138 = local46 * Static329.anInt1750 / Static30.anInt5650;
-        @Pc(144) int local144 = Static588.anInt8690 * local48 / Static30.anInt5644;
-        @Pc(152) int local152 = Static534.anInt8111 * local46 / Static30.anInt5650 + local75;
-        @Pc(166) int local166 = local48 + local84 - local144 - Static510.anInt7639 * local48 / Static30.anInt5644;
-        @Pc(168) int local168 = -1996554240;
-        if (Static392.aModeGame_4 == ModeGame.STELLAR_DAWN) {
-            local168 = -1996488705;
-        }
-        arg1.aa(local152, local166, local138, local144, local168, 1);
-        arg1.method7976(local152, local166, local138, local144, local168, 0);
-        if (Static320.anInt5084 <= 0) {
-            return;
-        }
-        @Pc(202) int local202;
-        if (Static212.anInt3467 > 50) {
-            local202 = (100 - Static212.anInt3467) * 5;
-        } else {
-            local202 = Static212.anInt3467 * 5;
-        }
-        for (@Pc(213) Node_Sub20 local213 = (Node_Sub20) Static30.A_DEQUE___31.first(); local213 != null; local213 = (Node_Sub20) Static30.A_DEQUE___31.next()) {
-            @Pc(221) Class105 local221 = Static30.aClass246_3.method5584(local213.anInt3131);
-            if (Static408.method5634(local221)) {
-                @Pc(256) int local256;
-                @Pc(269) int local269;
-                if (Static475.anInt7168 == local213.anInt3131) {
-                    local256 = local75 + local213.anInt3129 * local46 / Static30.anInt5650;
-                    local269 = local84 + local48 * (Static30.anInt5644 - local213.anInt3124) / Static30.anInt5644;
-                    arg1.method7971(4, 4, local269 - 2, local256 - 2, local202 << 24 | 0xFFFF00);
-                } else if (Static409.anInt6318 != -1 && Static409.anInt6318 == local221.anInt2597) {
-                    local256 = local75 + local46 * local213.anInt3129 / Static30.anInt5650;
-                    local269 = local84 + (Static30.anInt5644 - local213.anInt3124) * local48 / Static30.anInt5644;
-                    arg1.method7971(4, 4, local269 - 2, local256 + -2, local202 << 24 | 0xFFFF00);
-                }
-            }
-        }
+    public static ServerActiveProperties serverActiveProperties(@OriginalArg(0) Component component) {
+        @Pc(13) ServerActiveProperties properties = (ServerActiveProperties) serverActiveProperties.get(((long) component.slot << 32) + (long) component.id);
+        return properties != null ? properties : component.serverActiveProperties;
     }
 
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IIIIIIIZI)V")
@@ -1016,5 +913,9 @@ public final class InterfaceManager {
         } else {
             return " <col=ffff00>" + text + "</col>";
         }
+    }
+
+    private InterfaceManager() {
+        /* empty */
     }
 }

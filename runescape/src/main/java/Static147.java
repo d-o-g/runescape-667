@@ -96,8 +96,8 @@ public final class Static147 {
                 local295 = local239[2] - local224[2];
                 local306 = (int) ((float) local224[0] + local273 * (float) local286);
                 local317 = (int) ((float) local224[2] + local273 * (float) local295);
-                local140 = local306 + (Static556.self.method9302((byte) 111) - 1 << 8) >> 9;
-                local142 = local317 + (Static556.self.method9302((byte) 102) - 1 << 8) >> 9;
+                local140 = local306 + (Static556.self.boundSize((byte) 111) - 1 << 8) >> 9;
+                local142 = local317 + (Static556.self.boundSize((byte) 102) - 1 << 8) >> 9;
                 @Pc(345) byte local345 = Static556.self.aByte144;
                 if (local345 < 3 && (Static280.tileFlags[1][local306 >> 9][local317 >> 9] & 0x2) != 0) {
                     local370 = local345 + 1;
@@ -147,12 +147,12 @@ public final class Static147 {
                     @Pc(735) int local735;
                     @Pc(864) int local864;
                     @Pc(614) int local614;
-                    if (local543.aRenderable_18 instanceof Class8_Sub2_Sub1_Sub2_Sub1) {
-                        @Pc(610) Class8_Sub2_Sub1_Sub2_Sub1 local610 = (Class8_Sub2_Sub1_Sub2_Sub1) local543.aRenderable_18;
-                        local614 = local610.method9302((byte) 50);
+                    if (local543.aRenderable_18 instanceof PlayerEntity) {
+                        @Pc(610) PlayerEntity local610 = (PlayerEntity) local543.aRenderable_18;
+                        local614 = local610.boundSize((byte) 50);
                         if ((local614 & 0x1) == 0 && (local610.anInt10690 & 0x1FF) == 0 && (local610.anInt10694 & 0x1FF) == 0 || (local614 & 0x1) == 1 && (local610.anInt10690 & 0x1FF) == 256 && (local610.anInt10694 & 0x1FF) == 256) {
-                            local286 = local610.anInt10690 - (local610.method9302((byte) 79) - 1 << 8);
-                            local295 = local610.anInt10694 - (local610.method9302((byte) 61) - 1 << 8);
+                            local286 = local610.anInt10690 - (local610.boundSize((byte) 79) - 1 << 8);
+                            local295 = local610.anInt10694 - (local610.boundSize((byte) 61) - 1 << 8);
                             for (local306 = 0; local306 < Static390.anInt6126; local306++) {
                                 @Pc(690) Node_Sub45 local690 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local306]);
                                 if (local690 != null) {
@@ -160,7 +160,7 @@ public final class Static147 {
                                     if (TimeUtils.clock != local695.anInt10743 && local695.aBoolean816) {
                                         local723 = local695.anInt10690 - (local695.aNPCType_1.size - 1 << 8);
                                         local735 = local695.anInt10694 - (local695.aNPCType_1.size - 1 << 8);
-                                        if (local286 <= local723 && local695.aNPCType_1.size <= local610.method9302((byte) 126) - (local723 - local286 >> 9) && local735 >= local295 && local695.aNPCType_1.size <= local610.method9302((byte) 121) - (local735 - local295 >> 9)) {
+                                        if (local286 <= local723 && local695.aNPCType_1.size <= local610.boundSize((byte) 126) - (local723 - local286 >> 9) && local735 >= local295 && local695.aNPCType_1.size <= local610.boundSize((byte) 121) - (local735 - local295 >> 9)) {
                                             Static651.method8517(local543.aRenderable_18.aByte144 != Static556.self.aByte144, local695);
                                             local695.anInt10743 = TimeUtils.clock;
                                         }
@@ -170,11 +170,11 @@ public final class Static147 {
                             local317 = Static338.anInt5564;
                             @Pc(820) int[] local820 = Static210.anIntArray280;
                             for (local723 = 0; local723 < local317; local723++) {
-                                @Pc(830) Class8_Sub2_Sub1_Sub2_Sub1 local830 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local820[local723]];
+                                @Pc(830) PlayerEntity local830 = PlayerList.highResolutionPlayers[local820[local723]];
                                 if (local830 != null && local830.anInt10743 != TimeUtils.clock && local830 != local610 && local830.aBoolean816) {
-                                    local864 = local830.anInt10690 - (local830.method9302((byte) 123) - 1 << 8);
-                                    @Pc(876) int local876 = local830.anInt10694 - (local830.method9302((byte) 67) - 1 << 8);
-                                    if (local864 >= local286 && local830.method9302((byte) 71) <= local610.method9302((byte) 110) - (local864 - local286 >> 9) && local876 >= local295 && local830.method9302((byte) 79) <= local610.method9302((byte) 100) - (local876 - local295 >> 9)) {
+                                    local864 = local830.anInt10690 - (local830.boundSize((byte) 123) - 1 << 8);
+                                    @Pc(876) int local876 = local830.anInt10694 - (local830.boundSize((byte) 67) - 1 << 8);
+                                    if (local864 >= local286 && local830.boundSize((byte) 71) <= local610.boundSize((byte) 110) - (local864 - local286 >> 9) && local876 >= local295 && local830.boundSize((byte) 79) <= local610.boundSize((byte) 100) - (local876 - local295 >> 9)) {
                                         Static414.method5696(local543.aRenderable_18.aByte144 != Static556.self.aByte144, local830);
                                         local830.anInt10743 = TimeUtils.clock;
                                     }
@@ -210,11 +210,11 @@ public final class Static147 {
                                 local306 = Static338.anInt5564;
                                 @Pc(1216) int[] local1216 = Static210.anIntArray280;
                                 for (local370 = 0; local370 < local306; local370++) {
-                                    @Pc(1226) Class8_Sub2_Sub1_Sub2_Sub1 local1226 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local1216[local370]];
+                                    @Pc(1226) PlayerEntity local1226 = PlayerList.highResolutionPlayers[local1216[local370]];
                                     if (local1226 != null && local1226.anInt10743 != TimeUtils.clock && local1226.aBoolean816) {
-                                        local735 = local1226.anInt10690 - (local1226.method9302((byte) 125) - 1 << 8);
-                                        local864 = local1226.anInt10694 - (local1226.method9302((byte) 76) - 1 << 8);
-                                        if (local614 <= local735 && local1226.method9302((byte) 98) <= local988.aNPCType_1.size - (local735 - local614 >> 9) && local286 <= local864 && local1226.method9302((byte) 127) <= local988.aNPCType_1.size - (local864 - local286 >> 9)) {
+                                        local735 = local1226.anInt10690 - (local1226.boundSize((byte) 125) - 1 << 8);
+                                        local864 = local1226.anInt10694 - (local1226.boundSize((byte) 76) - 1 << 8);
+                                        if (local614 <= local735 && local1226.boundSize((byte) 98) <= local988.aNPCType_1.size - (local735 - local614 >> 9) && local286 <= local864 && local1226.boundSize((byte) 127) <= local988.aNPCType_1.size - (local864 - local286 >> 9)) {
                                             Static414.method5696(Static556.self.aByte144 != local543.aRenderable_18.aByte144, local1226);
                                             local1226.anInt10743 = TimeUtils.clock;
                                         }
@@ -235,7 +235,7 @@ public final class Static147 {
                         if (local1406 != null) {
                             local295 = 0;
                             for (@Pc(1416) ObjStackEntry local1416 = (ObjStackEntry) local1406.objs.last(); local1416 != null; local1416 = (ObjStackEntry) local1406.objs.previous()) {
-                                @Pc(1424) ObjType local1424 = Static419.aObjTypeList_1.list(local1416.id);
+                                @Pc(1424) ObjType local1424 = Static419.objTypeList.list(local1416.id);
                                 if (Static156.aBoolean223 && Static556.self.aByte144 == local543.aRenderable_18.aByte144) {
                                     @Pc(1451) ParamType local1451 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
                                     if ((Static717.anInt10822 & 0x1) != 0 && (local1451 == null || local1424.param(Static610.anInt9329, local1451.defaultint) != local1451.defaultint)) {
@@ -347,14 +347,14 @@ public final class Static147 {
         if (local16 < 0 || local16 >= Static720.mapWidth || local21 < 0 || Static501.mapHeight <= local21) {
             return false;
         } else if (arg4 >= 0 && Static720.mapWidth > arg4 && arg1 >= 0 && arg1 < Static501.mapHeight) {
-            @Pc(98) int local98 = Static521.method6870(arg1, Static556.self.method9302((byte) 107), arg3, arg5, local16, arg2, Static480.anIntArray583, arg7, local21, arg6, Static577.A_COLLISION_MAP_ARRAY_1[Static556.self.aByte144], Static70.anIntArray147, arg4, arg0);
+            @Pc(98) int local98 = Static521.method6870(arg1, Static556.self.boundSize((byte) 107), arg3, arg5, local16, arg2, Static480.anIntArray583, arg7, local21, arg6, Static577.A_COLLISION_MAP_ARRAY_1[Static556.self.aByte144], Static70.anIntArray147, arg4, arg0);
             if (local98 < 1) {
                 return false;
             }
-            Static675.anInt10156 = Static70.anIntArray147[local98 - 1];
-            Static212.anInt3466 = Static480.anIntArray583[local98 - 1];
+            Minimap.flagX = Static70.anIntArray147[local98 - 1];
+            Minimap.flagY = Static480.anIntArray583[local98 - 1];
             Static266.aBoolean583 = false;
-            Static444.method5988();
+            Static444.resetMapFLag();
             return true;
         } else {
             return false;
@@ -365,7 +365,7 @@ public final class Static147 {
     public static void method2420(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(9) DoublyLinkedNode_Sub2__ local9 = Static440.method5963(5, (long) arg0);
         local9.method202();
-        local9.anInt197 = arg1;
+        local9.primaryData = arg1;
     }
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(JILclient!ha;)V")

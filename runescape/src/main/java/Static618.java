@@ -75,7 +75,7 @@ public final class Static618 {
     public static void method8319(@OriginalArg(0) PacketBuffer arg0) {
         for (@Pc(10) int local10 = 0; local10 < Static652.anInt9713; local10++) {
             @Pc(18) int local18 = Static321.anIntArray388[local10];
-            @Pc(22) Class8_Sub2_Sub1_Sub2_Sub1 local22 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local18];
+            @Pc(22) PlayerEntity local22 = PlayerList.highResolutionPlayers[local18];
             @Pc(26) int local26 = arg0.g1();
             if ((local26 & 0x80) != 0) {
                 local26 += arg0.g1() << 8;

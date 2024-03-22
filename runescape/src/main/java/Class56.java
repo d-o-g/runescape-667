@@ -12,6 +12,8 @@ import java.awt.Component;
 @OriginalClass("client!cd")
 public class Class56 {
 
+    private static boolean debug;
+
     @OriginalMember(owner = "client!cd", name = "t", descriptor = "[I")
     public int[] anIntArray315;
 
@@ -139,7 +141,8 @@ public class Class56 {
         this.aBoolean320 = true;
         try {
             this.method3583();
-        } catch (@Pc(19) Exception local19) {
+        } catch (@Pc(19) Exception exception) {
+            System.out.println("pcm_player - discardbuffer error: " + exception.getMessage());
             this.method3596();
             this.aLong129 = SystemTimer.safetime() + 2000L;
         }
@@ -164,9 +167,11 @@ public class Class56 {
                 this.aLong128 += (long) (256000 / Audio.sampleRate);
                 local11 = SystemTimer.safetime();
             }
-        } catch (@Pc(54) Exception local54) {
+        } catch (@Pc(54) Exception exception) {
+            System.out.println("pcm_player - stalldetect error: " + exception.getMessage());
             this.aLong128 = local11;
         }
+
         if (this.anIntArray315 == null) {
             return;
         }
@@ -210,6 +215,7 @@ public class Class56 {
                 if (this.aBoolean320) {
                     this.aBoolean320 = false;
                 } else if (this.anInt4101 == 0 && this.anInt4102 == 0) {
+                    System.out.println("pcm_player - soundcard has stopped consuming!");
                     this.method3596();
                     this.aLong129 = local11 + 2000L;
                     return;
@@ -221,7 +227,8 @@ public class Class56 {
                 this.anInt4101 = 0;
             }
             this.anInt4100 = local95;
-        } catch (@Pc(268) Exception local268) {
+        } catch (@Pc(268) Exception exception) {
+            System.out.println("pcm_player - error: " + exception.getMessage());
             this.method3596();
             this.aLong129 = local11 + 2000L;
         }
@@ -277,6 +284,13 @@ public class Class56 {
                                     }
                                     @Pc(148) Node_Sub6 local148 = local97.method9133();
                                     if (local148 != null) {
+                                        if (debug && local101 != null && local97.method9133() != null) {
+                                            System.out.println("Warning: a pcm_stream with substreams has set its \'w\' - this can cause");
+                                            System.out.println("         parent duplicate demotion, and high-pri substreams will be lost!");
+                                            System.out.println("         Guilty class name: " + local97.getClass().getName());
+                                            debug = true;
+                                        }
+
                                         @Pc(153) int local153 = local97.anInt10517;
                                         while (local148 != null) {
                                             this.method3591(local153 * local148.method9136() >> 8, local148);

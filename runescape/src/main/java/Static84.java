@@ -45,7 +45,7 @@ public final class Static84 {
                 local36 = local29.method5363();
             } else {
                 if (local21 < local1) {
-                    local36 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local3[local21]];
+                    local36 = PlayerList.highResolutionPlayers[local3[local21]];
                 } else {
                     local36 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local21 - local1])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
@@ -53,7 +53,7 @@ public final class Static84 {
                     continue;
                 }
             }
-            @Pc(68) int local68 = local36.method9302((byte) 81);
+            @Pc(68) int local68 = local36.boundSize((byte) 81);
             if ((local68 & 0x1) == 0) {
                 if ((local36.anInt10690 & 0x1FF) == 0 && (local36.anInt10694 & 0x1FF) == 0) {
                     continue;
@@ -86,7 +86,7 @@ public final class Static84 {
                 local36 = local29.method5363();
             } else {
                 if (local21 < local1) {
-                    local36 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local3[local21]];
+                    local36 = PlayerList.highResolutionPlayers[local3[local21]];
                 } else {
                     local36 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local21 - local1])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
@@ -99,7 +99,7 @@ public final class Static84 {
                 }
             }
             local36.anInt10735 = 0;
-            @Pc(80) int local80 = local36.method9302((byte) 121);
+            @Pc(80) int local80 = local36.boundSize((byte) 121);
             if ((local80 & 0x1) == 0) {
                 if ((local36.anInt10690 & 0x1FF) != 0 || (local36.anInt10694 & 0x1FF) != 0) {
                     local36.aBoolean816 = false;
@@ -158,7 +158,7 @@ public final class Static84 {
         @Pc(30) boolean local30 = local8 == 1 && local1 > 200 || local8 == 0 && local1 > 50;
         @Pc(103) int local103;
         for (@Pc(32) int local32 = 0; local32 < local1; local32++) {
-            @Pc(39) Class8_Sub2_Sub1_Sub2_Sub1 local39 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local3[local32]];
+            @Pc(39) PlayerEntity local39 = PlayerList.highResolutionPlayers[local3[local32]];
             if (!local39.method1417()) {
                 local39.drawPriority = -1;
             } else if (local39.aBoolean124) {
@@ -177,7 +177,7 @@ public final class Static84 {
                         if (local39.anInt10747 > TimeUtils.clock) {
                             local103 += 2;
                         }
-                        local103 += 5 - local39.method9302((byte) 67) << 2;
+                        local103 += 5 - local39.boundSize((byte) 67) << 2;
                         if (local39.aBoolean128 || local39.aBoolean125) {
                             local103 += 512;
                         } else {
@@ -207,7 +207,7 @@ public final class Static84 {
                     if (local166.anInt10747 > TimeUtils.clock) {
                         local213 += 2;
                     }
-                    local213 += 5 - local166.method9302((byte) 88) << 2;
+                    local213 += 5 - local166.boundSize((byte) 88) << 2;
                     if (Static150.anInt2632 == 0) {
                         if (local166.aNPCType_1.isFollower) {
                             local213 += 64;
@@ -246,7 +246,7 @@ public final class Static84 {
                         }
                     }
                 } else if (local292.anInt6363 == 10) {
-                    @Pc(333) Class8_Sub2_Sub1_Sub2_Sub1 local333 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local292.anInt6366];
+                    @Pc(333) PlayerEntity local333 = PlayerList.highResolutionPlayers[local292.anInt6366];
                     if (local333 != null && local333 != Static556.self && local333.drawPriority >= 0) {
                         local333.drawPriority += 2048;
                     }
@@ -345,7 +345,7 @@ public final class Static84 {
         for (@Pc(3) int local3 = 0; local3 < Static390.anInt6126; local3++) {
             @Pc(14) Class8_Sub2_Sub1_Sub2_Sub2 local14 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local3])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local14.aBoolean816 && local14.method9304((byte) -123) != -1) {
-                @Pc(34) int local34 = (local14.method9302((byte) 63) - 1) * 256 + 252;
+                @Pc(34) int local34 = (local14.boundSize((byte) 63) - 1) * 256 + 252;
                 @Pc(41) int local41 = local14.anInt10690 - local34 >> 9;
                 @Pc(48) int local48 = local14.anInt10694 - local34 >> 9;
                 @Pc(55) Class8_Sub2_Sub1_Sub2 local55 = Static184.method2798(local41, local48, local14.aByte144);
@@ -593,7 +593,7 @@ public final class Static84 {
                                     }
                                     if (local6.clientcode == ComponentClientCode.MINIMAP) {
                                         local524 = local6.graphic(Static163.activeToolkit);
-                                        if (local524 == null || Static578.anInt8595 != 0 && Static578.anInt8595 != 3 || Static400.aBoolean622 || arg10 < local30 || arg11 < local32 || arg10 >= local34 || arg11 >= local36) {
+                                        if (local524 == null || Minimap.toggle != 0 && Minimap.toggle != 3 || Static400.aBoolean622 || arg10 < local30 || arg11 < local32 || arg10 >= local34 || arg11 >= local36) {
                                             continue;
                                         }
                                         local549 = arg10 - local19;
@@ -624,7 +624,7 @@ public final class Static84 {
                                             local1191 = (Static433.anInt6262 >> 9) + (local1170 >> 2);
                                             local1199 = (Static249.anInt4018 >> 9) - (local1180 >> 2);
                                         } else {
-                                            @Pc(1208) int local1208 = (Static556.self.method9302((byte) 83) - 1) * 256;
+                                            @Pc(1208) int local1208 = (Static556.self.boundSize((byte) 83) - 1) * 256;
                                             local1191 = (Static556.self.anInt10690 - local1208 >> 9) + (local1170 >> 2);
                                             local1199 = (Static556.self.anInt10694 - local1208 >> 9) - (local1180 >> 2);
                                         }
@@ -990,7 +990,7 @@ public final class Static84 {
                                 }
                             }
                             if (local6.type == 5 && local6.skyBox != -1) {
-                                local6.skyBox(Static99.aSkyBoxSphereTypeList_1, Static324.aSkyBoxTypeList_1).method3168(Static400.instance.aClass57_Sub2_1.method1989(), local6.height, Static163.activeToolkit);
+                                local6.skyBox(Static99.skyBoxSphereTypeList, Static324.skyBoxTypeList).method3168(Static400.instance.aClass57_Sub2_1.method1989(), local6.height, Static163.activeToolkit);
                             }
                             Static542.method7202(local6);
                             if (local6.type == 0) {
@@ -1035,7 +1035,7 @@ public final class Static84 {
                 local31 = local24.method5363();
             } else {
                 if (local16 < local1) {
-                    local31 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local3[local16]];
+                    local31 = PlayerList.highResolutionPlayers[local3[local16]];
                 } else {
                     local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local16 - local1])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
@@ -1043,7 +1043,7 @@ public final class Static84 {
                     continue;
                 }
             }
-            @Pc(69) int local69 = local31.method9302((byte) 102);
+            @Pc(69) int local69 = local31.boundSize((byte) 102);
             if ((local69 & 0x1) == 0) {
                 if ((local31.anInt10690 & 0x1FF) != 0 || (local31.anInt10694 & 0x1FF) != 0) {
                     continue;

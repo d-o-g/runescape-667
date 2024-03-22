@@ -73,7 +73,7 @@ public final class Static145 {
                     local102 = arg0.anInt10690 - local116.anInt10690;
                 } else {
                     local72 = local25 & 0x7FFF;
-                    @Pc(76) Class8_Sub2_Sub1_Sub2_Sub1 local76 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local72];
+                    @Pc(76) PlayerEntity local76 = PlayerList.highResolutionPlayers[local72];
                     if (local76 == null) {
                         arg0.method9307(local19, -1);
                         continue;

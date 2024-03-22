@@ -1,3 +1,4 @@
+import com.jagex.math.ColourUtils;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
@@ -318,7 +319,7 @@ public final class Model_Sub1 extends Model {
                 if (local510 == -1) {
                     throw new RuntimeException();
                 }
-                local566 = Static154.anIntArray237[arg1.faceColour[local503.face] & 0xFFFF] & 0xFFFFFF;
+                local566 = ColourUtils.HSL_TO_RGB[arg1.faceColour[local503.face] & 0xFFFF] & 0xFFFFFF;
                 @Pc(585) int local585 = local566 | 255 - (arg1.faceTexSpace == null ? 0 : arg1.faceTexSpace[local503.face]) << 24;
                 this.aClass298Array1[local494] = new Class298(local510, arg1.faceA[local503.face], arg1.faceB[local503.face], arg1.faceC[local503.face], local508.anInt9696, local508.anInt9690, local508.anInt9693, local508.anInt9697, local508.anInt9689, local508.aBoolean747, local508.aBoolean748, local503.anInt591);
                 this.aClass18Array1[local494] = new Class18(local585);
@@ -1306,7 +1307,7 @@ public final class Model_Sub1 extends Model {
                         for (local20 = 0; local20 < this.anInt2713; local20++) {
                             local538 = this.aClass298Array1[local20];
                             local543 = this.aClass18Array1[local20];
-                            local543.anInt269 = Static154.anIntArray237[this.aShortArray40[local538.anInt7575] & 0xFFFF] & 0xFFFFFF | local543.anInt269 & 0xFF000000;
+                            local543.anInt269 = ColourUtils.HSL_TO_RGB[this.aShortArray40[local538.anInt7575] & 0xFFFF] & 0xFFFFFF | local543.anInt269 & 0xFF000000;
                         }
                     }
                     this.method2563();
@@ -1853,7 +1854,7 @@ public final class Model_Sub1 extends Model {
                             for (local40 = 0; local40 < this.anInt2713; local40++) {
                                 local1260 = this.aClass298Array1[local40];
                                 local1265 = this.aClass18Array1[local40];
-                                local1265.anInt269 = Static154.anIntArray237[this.aShortArray40[local1260.anInt7575] & 0xFFFF] & 0xFFFFFF | local1265.anInt269 & 0xFF000000;
+                                local1265.anInt269 = ColourUtils.HSL_TO_RGB[this.aShortArray40[local1260.anInt7575] & 0xFFFF] & 0xFFFFFF | local1265.anInt269 & 0xFF000000;
                             }
                         }
                         this.method2563();
@@ -2283,7 +2284,7 @@ public final class Model_Sub1 extends Model {
                             for (local40 = 0; local40 < this.anInt2713; local40++) {
                                 local2681 = this.aClass298Array1[local40];
                                 local2686 = this.aClass18Array1[local40];
-                                local2686.anInt269 = local2686.anInt269 & 0xFF000000 | Static154.anIntArray237[this.aShortArray40[local2681.anInt7575] & 0xFFFF] & 0xFFFFFF;
+                                local2686.anInt269 = local2686.anInt269 & 0xFF000000 | ColourUtils.HSL_TO_RGB[this.aShortArray40[local2681.anInt7575] & 0xFFFF] & 0xFFFFFF;
                             }
                         }
                         this.method2563();
@@ -3274,7 +3275,7 @@ public final class Model_Sub1 extends Model {
             for (@Pc(119) int local119 = 0; local119 < this.anInt2713; local119++) {
                 @Pc(126) Class298 local126 = this.aClass298Array1[local119];
                 @Pc(131) Class18 local131 = this.aClass18Array1[local119];
-                local131.anInt269 = Static154.anIntArray237[this.aShortArray40[local126.anInt7575] & 0xFFFF] & 0xFFFFFF | local131.anInt269 & 0xFF000000;
+                local131.anInt269 = ColourUtils.HSL_TO_RGB[this.aShortArray40[local126.anInt7575] & 0xFFFF] & 0xFFFFFF | local131.anInt269 & 0xFF000000;
             }
         }
         this.method2563();
@@ -3292,7 +3293,7 @@ public final class Model_Sub1 extends Model {
             for (@Pc(42) int local42 = 0; local42 < this.anInt2713; local42++) {
                 @Pc(49) Class298 local49 = this.aClass298Array1[local42];
                 @Pc(54) Class18 local54 = this.aClass18Array1[local42];
-                local54.anInt269 = local54.anInt269 & 0xFF000000 | Static154.anIntArray237[this.aShortArray40[local49.anInt7575] & 0xFFFF] & 0xFFFFFF;
+                local54.anInt269 = local54.anInt269 & 0xFF000000 | ColourUtils.HSL_TO_RGB[this.aShortArray40[local49.anInt7575] & 0xFFFF] & 0xFFFFFF;
             }
         }
         this.method2563();
@@ -3620,7 +3621,7 @@ public final class Model_Sub1 extends Model {
             for (local16 = 0; local16 < this.anInt2713; local16++) {
                 @Pc(108) Class298 local108 = this.aClass298Array1[local16];
                 @Pc(113) Class18 local113 = this.aClass18Array1[local16];
-                local113.anInt269 = Static154.anIntArray237[this.aShortArray40[local108.anInt7575] & 0xFFFF] & 0xFFFFFF | local113.anInt269 & 0xFF000000;
+                local113.anInt269 = ColourUtils.HSL_TO_RGB[this.aShortArray40[local108.anInt7575] & 0xFFFF] & 0xFFFFFF | local113.anInt269 & 0xFF000000;
             }
         }
         this.method2563();

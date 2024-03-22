@@ -148,7 +148,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(123) Class8_Sub7 local123 = null;
         if (Static400.instance.aClass57_Sub7_1.method2905() == 1 && local118.hasShadow && local104.animateShadow) {
             @Pc(159) Animator local159 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
-            @Pc(179) Animator local179 = super.aAnimator_10.isAnimating() && (!super.aBoolean817 || local159 == null) ? super.aAnimator_10 : null;
+            @Pc(179) Animator local179 = super.animator.isAnimating() && (!super.aBoolean817 || local159 == null) ? super.animator : null;
             @Pc(223) Model local223 = Static618.method8320(this.aNPCType_1.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.anInt10742, this.aNPCType_1.shadowInnerColour & 0xFFFF, super.anInt10716, this.aNPCType_1.size, arg0, this.aNPCType_1.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.aNPCType_1.shadowOuterColour & 0xFFFF);
             if (local223 != null) {
                 local123 = Static642.method8441(this.method9330(), super.aModelArray3.length + 1);
@@ -205,7 +205,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(5) int local5 = arg0;
         @Pc(9) BASType local9 = this.method9317();
         @Pc(27) Animator local27 = super.aAnimator_11.isAnimating() && !super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
-        @Pc(47) Animator local47 = super.aAnimator_10.isAnimating() && (!super.aBoolean817 || local27 == null) ? super.aAnimator_10 : null;
+        @Pc(47) Animator local47 = super.animator.isAnimating() && (!super.aBoolean817 || local27 == null) ? super.animator : null;
         @Pc(50) int local50 = local9.hillWidth;
         @Pc(53) int local53 = local9.hillHeight;
         if (local50 != 0 || local53 != 0 || local9.rollTargetAngle != 0 || local9.pitchTargetAngle != 0) {
@@ -216,7 +216,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             arg0 |= 0x80000;
         }
         @Pc(111) int local111 = super.aClass126_7.method2673(16383);
-        @Pc(134) Model local134 = super.aModelArray3[0] = this.aNPCType_1.getModel(Static34.aClass304_1, arg1, Static574.aBASTypeList_2, local27, local111, super.anIntArray877, this.aNPCTypeCustomisation_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
+        @Pc(134) Model local134 = super.aModelArray3[0] = this.aNPCType_1.getModel(Static34.aClass304_1, arg1, Static574.basTypeList, local27, local111, super.anIntArray877, this.aNPCTypeCustomisation_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
         if (local134 == null) {
             return false;
         }
@@ -224,7 +224,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         super.anInt10728 = local134.ma();
         this.method9306(local134);
         if (local50 == 0 && local53 == 0) {
-            this.method9314(local111, 0, 0, this.method9302((byte) 116) << 9, this.method9302((byte) 79) << 9, -86);
+            this.method9314(local111, 0, 0, this.boundSize((byte) 116) << 9, this.boundSize((byte) 79) << 9, -86);
         } else {
             this.method9314(local111, local9.hillMaxAngleX, local9.hillMaxAngleY, local50, local53, -119);
             if (super.anInt10746 != 0) {
@@ -335,7 +335,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         for (@Pc(110) int local110 = 0; local110 < super.aClass199Array3.length; local110++) {
             if (super.aClass199Array3[local110].anInt4930 != -1) {
                 @Pc(131) Class227 local131 = Static23.aClass128_1.method2694(super.aClass199Array3[local110].anInt4930);
-                if (local131.aBoolean448 && local131.anInt5842 != -1 && Static25.aSeqTypeList_1.list(local131.anInt5842).walkingPrecedence == 1) {
+                if (local131.aBoolean448 && local131.anInt5842 != -1 && Static25.seqTypeList.list(local131.anInt5842).walkingPrecedence == 1) {
                     super.aClass199Array3[local110].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local110].anInt4930 = -1;
                 }
@@ -367,7 +367,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
         for (@Pc(61) int local61 = 0; local61 < super.aClass199Array3.length; local61++) {
             if (super.aClass199Array3[local61].anInt4930 != -1) {
                 @Pc(81) Class227 local81 = Static23.aClass128_1.method2694(super.aClass199Array3[local61].anInt4930);
-                if (local81.aBoolean448 && local81.anInt5842 != -1 && Static25.aSeqTypeList_1.list(local81.anInt5842).walkingPrecedence == 1) {
+                if (local81.aBoolean448 && local81.anInt5842 != -1 && Static25.seqTypeList.list(local81.anInt5842).walkingPrecedence == 1) {
                     super.aClass199Array3[local61].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local61].anInt4930 = -1;
                 }

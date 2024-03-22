@@ -53,13 +53,14 @@ public final class VideoTypeList {
     }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(BILclient!ha;)Lclient!st;")
-    public static Sprite method8512(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1) {
-        @Pc(18) VideoType local18 = (VideoType) recentUse.get((long) arg0);
-        if (local18 != null) {
-            @Pc(25) OggTheoraStream local25 = local18.js5.getVideoStream();
-            local18.aBoolean18 = true;
-            if (local25 != null) {
-                return local25.method5491(arg1);
+    public static Sprite sprite(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1) {
+        @Pc(18) VideoType type = (VideoType) recentUse.get((long) arg0);
+        if (type != null) {
+            @Pc(25) OggTheoraStream stream = type.js5.getVideoStream();
+            type.aBoolean18 = true;
+
+            if (stream != null) {
+                return stream.sprite(arg1);
             }
         }
         return null;

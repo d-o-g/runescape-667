@@ -17,8 +17,8 @@ public final class Static466 {
             if (local5.aNPCType_1 != null) {
                 Static651.method8517(Static556.self.aByte144 != local5.aByte144, local5);
             }
-        } else if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub1) {
-            @Pc(33) Class8_Sub2_Sub1_Sub2_Sub1 local33 = (Class8_Sub2_Sub1_Sub2_Sub1) arg0;
+        } else if (arg0 instanceof PlayerEntity) {
+            @Pc(33) PlayerEntity local33 = (PlayerEntity) arg0;
             Static414.method5696(local33.aByte144 != Static556.self.aByte144, local33);
         }
     }

@@ -9,7 +9,7 @@ public final class Static419 {
     public static int[] anIntArray500;
 
     @OriginalMember(owner = "client!ne", name = "n", descriptor = "Lclient!es;")
-    public static ObjTypeList aObjTypeList_1;
+    public static ObjTypeList objTypeList;
 
     @OriginalMember(owner = "client!ne", name = "u", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray33 = new String[200];

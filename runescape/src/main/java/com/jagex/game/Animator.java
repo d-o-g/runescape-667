@@ -155,6 +155,7 @@ public class Animator {
         this.finished = false;
         this.delay = delay;
         this.loopCount = 0;
+
         if (this.animation != null) {
             this.newFrame(this.currentFrame, this.animation);
             this.resetSequences();
@@ -162,15 +163,15 @@ public class Animator {
     }
 
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(ILclient!gu;)V")
-    public final void method9096(@OriginalArg(1) Animator arg0) {
-        this.animation = arg0.animation;
-        this.runSecondary = arg0.runSecondary;
-        this.finished = arg0.finished;
-        this.delay = arg0.delay;
-        this.loopCount = arg0.loopCount;
-        this.nextFrame = arg0.nextFrame;
-        this.currentFrame = arg0.currentFrame;
-        this.frameOffset = arg0.frameOffset;
+    public final void copyFrom(@OriginalArg(1) Animator other) {
+        this.animation = other.animation;
+        this.runSecondary = other.runSecondary;
+        this.finished = other.finished;
+        this.delay = other.delay;
+        this.loopCount = other.loopCount;
+        this.nextFrame = other.nextFrame;
+        this.currentFrame = other.currentFrame;
+        this.frameOffset = other.frameOffset;
         this.resetSequences();
     }
 

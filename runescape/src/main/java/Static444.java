@@ -14,7 +14,7 @@ public final class Static444 {
     public static final ServerProt A_SERVER_PROT___169 = new ServerProt(42, -1);
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(B)V")
-    public static void method5988() {
+    public static void resetMapFLag() {
         @Pc(13) DoublyLinkedNode_Sub2__ local13 = Static440.method5963(15, 0L);
         local13.method205();
     }

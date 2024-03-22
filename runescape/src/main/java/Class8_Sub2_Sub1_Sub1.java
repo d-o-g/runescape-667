@@ -219,10 +219,10 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             @Pc(35) int local35;
             if (this.anInt706 < 0) {
                 local35 = -this.anInt706 - 1;
-                if (Static312.anInt5000 == local35) {
+                if (PlayerList.activePlayerSlot == local35) {
                     local21 = Static556.self;
                 } else {
-                    local21 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local35];
+                    local21 = PlayerList.highResolutionPlayers[local35];
                 }
             } else {
                 local35 = this.anInt706 - 1;
@@ -312,7 +312,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             return;
         }
         @Pc(25) Matrix local25 = arg0.scratchMatrix();
-        local25.method7136(this.anInt703);
+        local25.makeRotationX(this.anInt703);
         local25.rotateAxisY(this.anInt694);
         local25.translate((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);
         this.anInt717 = local18.fa();
@@ -328,7 +328,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             return null;
         }
         @Pc(27) Matrix local27 = arg0.scratchMatrix();
-        local27.method7136(this.anInt703);
+        local27.makeRotationX(this.anInt703);
         local27.rotateAxisY(this.anInt694);
         local27.translate((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);
         this.method817(arg0, local27, local19);

@@ -70,7 +70,7 @@ public final class Static231 {
         Static143.method3572();
         Static668.method8700(false);
         for (@Pc(34) int local34 = 0; local34 < 2048; local34++) {
-            @Pc(39) Class8_Sub2_Sub1_Sub2_Sub1 local39 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local34];
+            @Pc(39) PlayerEntity local39 = PlayerList.highResolutionPlayers[local34];
             if (local39 != null) {
                 for (@Pc(43) int local43 = 0; local43 < local39.aModelArray3.length; local43++) {
                     local39.aModelArray3[local43] = null;
@@ -116,9 +116,9 @@ public final class Static231 {
     public static void method3378(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         @Pc(9) DoublyLinkedNode_Sub2__ local9 = Static440.method5963(8, (long) arg2);
         local9.method202();
-        local9.anInt195 = arg3;
+        local9.secondaryData = arg3;
         local9.anInt192 = arg1;
-        local9.anInt197 = arg0;
+        local9.primaryData = arg0;
     }
 
     @OriginalMember(owner = "client!hd", name = "a", descriptor = "(ILjava/lang/String;)I")
@@ -428,8 +428,8 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("clipcomponents")) {
-                    Static376.aBoolean452 = !Static376.aBoolean452;
-                    Static79.method1579("clipcomponents=" + Static376.aBoolean452);
+                    InterfaceManager.clipComponents = !InterfaceManager.clipComponents;
+                    Static79.method1579("clipcomponents=" + InterfaceManager.clipComponents);
                     return;
                 }
                 if (arg2.startsWith("bloom")) {
@@ -501,7 +501,7 @@ public final class Static231 {
                 if (arg2.startsWith("cachespace")) {
                     Static79.method1579("I(s): " + Component.sprites.remaining() + "/" + Component.sprites.capacity());
                     Static79.method1579("I(m): " + Component.models.remaining() + "/" + Component.models.capacity());
-                    Static79.method1579("O(s): " + Static419.aObjTypeList_1.spriteCache.remaining() + "/" + Static419.aObjTypeList_1.spriteCache.capacity());
+                    Static79.method1579("O(s): " + Static419.objTypeList.spriteCache.remaining() + "/" + Static419.objTypeList.spriteCache.capacity());
                     return;
                 }
                 if (arg2.equals("renderprofile") || arg2.equals("rp")) {
@@ -866,7 +866,7 @@ public final class Static231 {
                 }
             }
         }
-        if (Static390.method5492(Static556.self.aString9).equals(local27)) {
+        if (Static390.method5492(Static556.self.accountName).equals(local27)) {
             Static67.method6098(LocalisedText.IGNORECANTADDSELF.localise(Static51.language));
             return;
         }

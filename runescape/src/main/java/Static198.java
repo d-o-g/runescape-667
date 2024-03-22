@@ -1,4 +1,3 @@
-import rs2.client.loading.LoadState;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -94,23 +93,6 @@ public final class Static198 {
             throw (NoClassDefFoundError) new NoClassDefFoundError().initCause(ex);
         }
         return instance;
-    }
-
-    @OriginalMember(owner = "client!gca", name = "a", descriptor = "(IZZ)V")
-    public static void method2954(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1) {
-        if (arg1) {
-            Static432.anInt524++;
-            Static315.method4575();
-        }
-        if (arg0) {
-            Static191.anInt3115++;
-            Static457.method6232();
-        }
-    }
-
-    @OriginalMember(owner = "client!gca", name = "a", descriptor = "(B)[Lclient!gca;")
-    public static LoadState[] method2955() {
-        return new LoadState[]{LoadState.WAIT_FOR_MEMORY, LoadState.INIT_LOADING_SCREEN_ARCHIVES, LoadState.FETCH_LOADING_SCREEN_RESOURCES, LoadState.INIT_FONT_INFO, LoadState.LOAD_FONTS, LoadState.FETCH_FONTS, LoadState.CREATE_COLLISION_MAPS, LoadState.OPEN_JS5_ARCHIVES, LoadState.GET_JS5_INDEXES, LoadState.PLAY_THEME_MUSIC, LoadState.SETUP_LIB_PATH, LoadState.DOWNLOAD_STUFF, LoadState.SETUP_CONFIG_DECODERS, LoadState.A_LOAD_STATE___14, LoadState.SETUP_STATIC_SPRITES, LoadState.SETUP_WORLD_MAP, LoadState.SETUP_VARC_SYSTEM, LoadState.LOAD_LOGIN_WINDOW, LoadState.SHOW_LOGIN_WINDOW, LoadState.CLEANUP, LoadState.COMPLETE};
     }
 
     @OriginalMember(owner = "client!gca", name = "a", descriptor = "(IIZ)Z")

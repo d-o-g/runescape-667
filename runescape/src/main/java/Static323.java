@@ -10,9 +10,6 @@ public final class Static323 {
     @OriginalMember(owner = "client!kda", name = "d", descriptor = "I")
     public static int anInt5119;
 
-    @OriginalMember(owner = "client!kda", name = "e", descriptor = "[I")
-    public static int[] anIntArray389;
-
     @OriginalMember(owner = "client!kda", name = "h", descriptor = "I")
     public static int anInt5120;
 

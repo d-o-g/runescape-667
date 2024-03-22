@@ -410,13 +410,13 @@ public final class Static364 {
                         Static34.aBoolean62 = local1435.g1() == 1;
                         Static298.aBoolean369 = local1435.g1() == 1;
                         Static617.aBoolean724 = local1435.g1() == 1;
-                        Static312.anInt5000 = local1435.g2();
+                        PlayerList.activePlayerSlot = local1435.g2();
                         Static126.aBoolean200 = local1435.g1() == 1;
                         Static106.anInt2153 = local1435.g3s();
                         Static174.aBoolean249 = local1435.g1() == 1;
                         Static416.aString71 = local1435.gjstr();
                         Static354.aLocTypeList_4.setAllowMembers(Static174.aBoolean249);
-                        Static419.aObjTypeList_1.setAllowMembers(Static174.aBoolean249);
+                        Static419.objTypeList.setAllowMembers(Static174.aBoolean249);
                         Static690.aNPCTypeList_2.setAllowMembers(Static174.aBoolean249);
                     } else if (Static524.aServerConnection_3.connection.hasAvailable(Static94.anInt1961)) {
                         Static524.aServerConnection_3.connection.read(local1435.data, Static94.anInt1961, 0);
@@ -443,7 +443,7 @@ public final class Static364 {
                         Static626.anInt9473 = local1435.g2();
                         Static636.anInt9527 = local1435.g2();
                         Static420.aBoolean479 = local1435.g1() == 1;
-                        Static556.self.aString9 = Static556.self.aString8 = Constants.playerDisplayName = local1435.gjstr2();
+                        Static556.self.accountName = Static556.self.aString8 = Constants.playerDisplayName = local1435.gjstr2();
                         Static639.anInt9571 = local1435.g1();
                         Static438.anInt6640 = local1435.g4();
                         Static587.aBoolean663 = local1435.g1() == 1;

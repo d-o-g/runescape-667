@@ -283,7 +283,7 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(I)V")
     @Override
-    public void method7136(@OriginalArg(0) int arg0) {
+    public void makeRotationX(@OriginalArg(0) int arg0) {
         this.aFloat153 = 1.0F;
         this.aFloat156 = this.aFloat154 = GameShell.aFloatArray14[arg0 & 0x3FFF];
         this.aFloat151 = GameShell.aFloatArray15[arg0 & 0x3FFF];

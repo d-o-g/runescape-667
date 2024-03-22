@@ -54,7 +54,7 @@ public final class Static35 {
                             @Pc(188) int local188 = local13.anInt2578 >> 24 & 0x3;
                             if (local188 == Static556.self.aByte144) {
                                 @Pc(199) int local199 = (local13.anInt2578 & 0xFF) << 9;
-                                @Pc(205) int local205 = Static556.self.method9302((byte) 126) << 8;
+                                @Pc(205) int local205 = Static556.self.boundSize((byte) 126) << 8;
                                 @Pc(212) int local212 = local13.anInt2578 >> 16 & 0xFF;
                                 @Pc(224) int local224 = (local212 << 9) + local205 + 256 - Static556.self.anInt10690;
                                 @Pc(231) int local231 = local13.anInt2578 >> 8 & 0xFF;

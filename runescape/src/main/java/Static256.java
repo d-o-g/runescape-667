@@ -69,7 +69,7 @@ public final class Static256 {
             if (arg0.aClass199Array3[local86].anInt4930 != -1 && arg0.aClass199Array3[local86].aAnimator_7.isDelayed()) {
                 @Pc(117) Class227 local117 = Static23.aClass128_1.method2694(arg0.aClass199Array3[local86].anInt4930);
                 if (local117.aBoolean448 && local117.anInt5842 != -1) {
-                    @Pc(133) SeqType local133 = Static25.aSeqTypeList_1.list(local117.anInt5842);
+                    @Pc(133) SeqType local133 = Static25.seqTypeList.list(local117.anInt5842);
                     if (arg0.anInt10762 > 0 && local133.animatingPrecedence == 0) {
                         Static521.anInt7756 = -1;
                         arg0.anInt10763++;
@@ -87,8 +87,8 @@ public final class Static256 {
         }
         @Pc(186) int local186 = arg0.anInt10690;
         @Pc(189) int local189 = arg0.anInt10694;
-        @Pc(206) int local206 = arg0.pathX[arg0.anInt10764 - 1] * 512 + arg0.method9302((byte) 76) * 256;
-        @Pc(222) int local222 = arg0.pathY[arg0.anInt10764 - 1] * 512 + arg0.method9302((byte) 105) * 256;
+        @Pc(206) int local206 = arg0.pathX[arg0.anInt10764 - 1] * 512 + arg0.boundSize((byte) 76) * 256;
+        @Pc(222) int local222 = arg0.pathY[arg0.anInt10764 - 1] * 512 + arg0.boundSize((byte) 105) * 256;
         if (local186 < local206) {
             if (local189 < local222) {
                 arg0.method9305(10240);

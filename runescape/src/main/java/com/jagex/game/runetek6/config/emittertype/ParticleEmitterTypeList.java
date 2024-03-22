@@ -9,8 +9,10 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class ParticleEmitterTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!jba", name = "d", descriptor = "Lclient!dla;")
-    private static final ReferenceCache recentUse = new ReferenceCache(64);
+    private static final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!mt", name = "O", descriptor = "Lclient!sb;")
     public static js5 configClient;

@@ -12,8 +12,10 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class FontTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 20;
+
     @OriginalMember(owner = "client!ts", name = "k", descriptor = "Lclient!dla;")
-    private static final ReferenceCache recentUse = new ReferenceCache(20);
+    private static final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!rg", name = "a", descriptor = "[I")
     private static int[] groups = null;

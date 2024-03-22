@@ -13,6 +13,8 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ql")
 public final class NPCTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!tg", name = "a", descriptor = "(ZI)I")
     private static int fileId(@OriginalArg(1) int id) {
         return id & 0x7F;
@@ -27,7 +29,7 @@ public final class NPCTypeList {
     public int featureMask;
 
     @OriginalMember(owner = "client!ql", name = "j", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!ql", name = "i", descriptor = "Lclient!dla;")
     public final ReferenceCache models = new ReferenceCache(50);

@@ -13,8 +13,10 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!bo")
 public final class ParamTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!bo", name = "a", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!bo", name = "d", descriptor = "Lclient!sb;")
     public final js5 configClient;

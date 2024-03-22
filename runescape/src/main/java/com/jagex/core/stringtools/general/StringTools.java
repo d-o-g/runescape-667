@@ -261,13 +261,14 @@ public final class StringTools {
         return c >= '0' && c <= '9';
     }
 
+    @OriginalMember(owner = "client!hka", name = "a", descriptor = "(CI)Z")
+    public static boolean isAlphabetical(@OriginalArg(0) char c) {
+        return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
+    }
+
     @OriginalMember(owner = "client!sp", name = "a", descriptor = "(ZC)Z")
     public static boolean isAlphanumeric(@OriginalArg(1) char c) {
         return c >= '0' && c <= '9' || c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
-    }
-
-    private StringTools() {
-        /* empty */
     }
 
     @OriginalMember(owner = "client!tb", name = "a", descriptor = "(BC)Z")
@@ -281,8 +282,7 @@ public final class StringTools {
         }
     }
 
-    @OriginalMember(owner = "client!hka", name = "a", descriptor = "(CI)Z")
-    public static boolean isAlphabetical(@OriginalArg(0) char c) {
-        return c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z';
+    private StringTools() {
+        /* empty */
     }
 }

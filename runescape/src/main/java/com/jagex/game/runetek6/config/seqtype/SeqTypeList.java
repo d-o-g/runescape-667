@@ -13,6 +13,8 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!bp")
 public final class SeqTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(II)I")
     private static int fileId(@OriginalArg(0) int id) {
         return id & 0x7F;
@@ -24,7 +26,7 @@ public final class SeqTypeList {
     }
 
     @OriginalMember(owner = "client!bp", name = "a", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!bp", name = "f", descriptor = "Lclient!dla;")
     public final ReferenceCache framesets = new ReferenceCache(100);

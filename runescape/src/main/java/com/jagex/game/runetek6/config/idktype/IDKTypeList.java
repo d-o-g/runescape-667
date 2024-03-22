@@ -13,8 +13,10 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!kr")
 public final class IDKTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!kr", name = "n", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!kr", name = "b", descriptor = "Lclient!sb;")
     public final js5 meshes;

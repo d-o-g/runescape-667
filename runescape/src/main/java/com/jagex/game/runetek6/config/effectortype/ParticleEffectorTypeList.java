@@ -11,6 +11,8 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class ParticleEffectorTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!lk", name = "a", descriptor = "[Lclient!ok;")
     public static final ParticleEffectorType[] types = new ParticleEffectorType[16];
 
@@ -18,7 +20,7 @@ public final class ParticleEffectorTypeList {
     public static final IterableHashTable table = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!wk", name = "h", descriptor = "Lclient!dla;")
-    private static final ReferenceCache recentUse = new ReferenceCache(64);
+    private static final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!lm", name = "k", descriptor = "I")
     private static int ptr = 0;

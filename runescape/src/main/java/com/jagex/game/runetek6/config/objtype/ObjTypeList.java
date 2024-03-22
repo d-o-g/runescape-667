@@ -22,11 +22,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!es")
 public final class ObjTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!es", name = "p", descriptor = "I")
     public int featureMask;
 
     @OriginalMember(owner = "client!es", name = "o", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!es", name = "b", descriptor = "Lclient!dla;")
     public final ReferenceCache modelCache = new ReferenceCache(50);

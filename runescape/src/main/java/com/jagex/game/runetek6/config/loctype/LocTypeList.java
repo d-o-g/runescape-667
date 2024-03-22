@@ -13,6 +13,8 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!gea")
 public final class LocTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(IB)I")
     private static int fileId(@OriginalArg(0) int id) {
         return id & 0xFF;
@@ -30,7 +32,7 @@ public final class LocTypeList {
     public boolean animateBackground = false;
 
     @OriginalMember(owner = "client!gea", name = "l", descriptor = "Lclient!dla;")
-    public ReferenceCache recentUse = new ReferenceCache(64);
+    public ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!gea", name = "f", descriptor = "Lclient!dla;")
     public final ReferenceCache models = new ReferenceCache(500);

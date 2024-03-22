@@ -12,11 +12,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!nh")
 public final class VarPlayerTypeListClient {
 
+    private static final int DEFAULT_CACHE_SIZE = 16;
+
     @OriginalMember(owner = "client!bda", name = "E", descriptor = "Lclient!nh;")
     public static VarPlayerTypeListClient instance;
 
     @OriginalMember(owner = "client!nh", name = "j", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     public final ModeGame game;
 

@@ -14,8 +14,10 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!dg")
 public final class SkyBoxSphereTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 16;
+
     @OriginalMember(owner = "client!dg", name = "f", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(16);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!dg", name = "h", descriptor = "Lclient!sb;")
     public final js5 configClient;

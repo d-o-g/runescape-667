@@ -5,18 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static326 {
 
-    @OriginalMember(owner = "client!kf", name = "b", descriptor = "Lclient!kf;")
-    public static final Class206 aClass206_1 = new Class206();
-
-    @OriginalMember(owner = "client!kf", name = "d", descriptor = "Lclient!kf;")
-    public static final Class206 aClass206_2 = new Class206();
-
-    @OriginalMember(owner = "client!kf", name = "c", descriptor = "Lclient!kf;")
-    public static final Class206 aClass206_3 = new Class206();
-
-    @OriginalMember(owner = "client!kf", name = "a", descriptor = "Lclient!kf;")
-    public static final Class206 aClass206_4 = new Class206();
-
     @OriginalMember(owner = "client!kf", name = "a", descriptor = "(ILclient!ca;)I")
     public static int method4870(@OriginalArg(1) Class8_Sub2_Sub1_Sub2_Sub1 arg0) {
         @Pc(6) int local6 = arg0.anInt1445;

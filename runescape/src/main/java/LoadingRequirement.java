@@ -1,22 +1,24 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.loading.Loader;
+import rs2.client.loading.LoadingRequirementType;
 
 @OriginalClass("client!rr")
 public final class LoadingRequirement {
 
     @OriginalMember(owner = "client!rr", name = "f", descriptor = "Lclient!jma;")
-    public Interface15 anInterface15_1;
+    public Loader anLoader_1;
 
     @OriginalMember(owner = "client!rr", name = "r", descriptor = "Lclient!kf;")
-    public final Class206 aClass206_5;
+    public final LoadingRequirementType aLoadingRequirementType_5;
 
     @OriginalMember(owner = "client!rr", name = "B", descriptor = "I")
     public int anInt8468;
 
     @OriginalMember(owner = "client!rr", name = "<init>", descriptor = "(Lclient!kf;)V")
-    public LoadingRequirement(@OriginalArg(0) Class206 arg0) {
-        this.aClass206_5 = arg0;
+    public LoadingRequirement(@OriginalArg(0) LoadingRequirementType arg0) {
+        this.aLoadingRequirementType_5 = arg0;
         this.anInt8468 = 1;
     }
 
@@ -26,16 +28,16 @@ public final class LoadingRequirement {
     }
 
     @OriginalMember(owner = "client!rr", name = "a", descriptor = "(B)Lclient!jma;")
-    public Interface15 method7469() {
-        return this.anInterface15_1;
+    public Loader method7469() {
+        return this.anLoader_1;
     }
 
     @OriginalMember(owner = "client!rr", name = "a", descriptor = "(Lclient!jma;I)V")
-    public void method7470(@OriginalArg(0) Interface15 arg0) {
-        if (arg0.method6464() != this.aClass206_5) {
+    public void method7470(@OriginalArg(0) Loader arg0) {
+        if (arg0.type() != this.aLoadingRequirementType_5) {
             throw new IllegalArgumentException();
         }
-        this.anInterface15_1 = arg0;
+        this.anLoader_1 = arg0;
     }
 
     @OriginalMember(owner = "client!rr", name = "a", descriptor = "(I)I")

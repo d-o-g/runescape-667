@@ -1,32 +1,40 @@
+package rs2.client.loading;
+
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.loading.Loader;
+import rs2.client.loading.LoadingRequirementType;
 
 @OriginalClass("client!ev")
-public final class Class115 implements Interface15 {
+public final class Js5GroupLoader implements Loader {
 
     @OriginalMember(owner = "client!ev", name = "h", descriptor = "Ljava/lang/String;")
-    public final String aString29;
+    public final String group;
 
     @OriginalMember(owner = "client!ev", name = "c", descriptor = "Lclient!sb;")
-    public final js5 aJs5_30;
+    public final js5 config;
 
     @OriginalMember(owner = "client!ev", name = "<init>", descriptor = "(Lclient!sb;Ljava/lang/String;)V")
-    public Class115(@OriginalArg(0) js5 arg0, @OriginalArg(1) String arg1) {
-        this.aString29 = arg1;
-        this.aJs5_30 = arg0;
+    public Js5GroupLoader(@OriginalArg(0) js5 config, @OriginalArg(1) String group) {
+        this.group = group;
+        this.config = config;
     }
 
     @OriginalMember(owner = "client!ev", name = "a", descriptor = "(I)I")
     @Override
-    public int method6465() {
-        return this.aJs5_30.requestgroupdownload(this.aString29) ? 100 : this.aJs5_30.completePercentage(this.aString29);
+    public int completePercentage() {
+        if (this.config.requestgroupdownload(this.group)) {
+            return 100;
+        } else {
+            return this.config.completePercentage(this.group);
+        }
     }
 
     @OriginalMember(owner = "client!ev", name = "a", descriptor = "(B)Lclient!kf;")
     @Override
-    public Class206 method6464() {
-        return Static326.aClass206_3;
+    public LoadingRequirementType type() {
+        return LoadingRequirementType.JS5_GROUP;
     }
 }

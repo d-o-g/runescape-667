@@ -2,31 +2,33 @@ import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.loading.Loader;
+import rs2.client.loading.LoadingRequirementType;
 
 @OriginalClass("client!pca")
-public final class Class288 implements Interface15 {
+public final class Js5FileLoader implements Loader {
 
     @OriginalMember(owner = "client!pca", name = "h", descriptor = "Lclient!sb;")
-    public final js5 aJs5_94;
+    public final js5 config;
 
     @OriginalMember(owner = "client!pca", name = "c", descriptor = "Ljava/lang/String;")
-    public final String aString83;
+    public final String fileName;
 
     @OriginalMember(owner = "client!pca", name = "<init>", descriptor = "(Lclient!sb;Ljava/lang/String;)V")
-    public Class288(@OriginalArg(0) js5 arg0, @OriginalArg(1) String arg1) {
-        this.aJs5_94 = arg0;
-        this.aString83 = arg1;
+    public Js5FileLoader(@OriginalArg(0) js5 config, @OriginalArg(1) String fileName) {
+        this.config = config;
+        this.fileName = fileName;
     }
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "(I)I")
     @Override
-    public int method6465() {
-        return this.aJs5_94.fileready(this.aString83) ? 100 : 0;
+    public int completePercentage() {
+        return this.config.fileready(this.fileName) ? 100 : 0;
     }
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "(B)Lclient!kf;")
     @Override
-    public Class206 method6464() {
-        return Static326.aClass206_2;
+    public LoadingRequirementType type() {
+        return LoadingRequirementType.JS5_FILE;
     }
 }

@@ -41,9 +41,9 @@ public final class Static583 {
             local165 = Static603.anIntArrayArrayArray18[Static197.anInt3260][local61 + 2][local63] + local94 - local135 - local127;
             local57[local63] = (float) local135 + ((float) local140 + (local54 * (float) local165 + (float) local149) * local54) * local54;
         }
-        Static110.anInt2186 = (int) local57[2] - Static116.areaBaseY * 512;
+        Static110.anInt2186 = (int) local57[2] - WorldMap.areaBaseY * 512;
         Static359.anInt5801 = (int) local57[1] * -1;
-        Static170.anInt2864 = (int) local57[0] - Static691.areaBaseX * 512;
+        Static170.anInt2864 = (int) local57[0] - WorldMap.areaBaseX * 512;
         @Pc(220) float[] local220 = new float[3];
         local94 = Static591.anInt8739 * 2;
         for (local127 = 0; local127 < 3; local127++) {

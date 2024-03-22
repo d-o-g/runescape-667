@@ -52,10 +52,10 @@ public final class DynamicWallDecor extends WallDecor implements Location {
             return null;
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
-        local22.method7125(super.anInt10690 + super.aShort101, super.anInt10691, super.anInt10694 + super.aShort102);
+        local22.method7125(super.x + super.aShort101, super.anInt10691, super.z + super.aShort102);
         @Pc(42) Class8_Sub7 local42 = Static642.method8441(this.aBoolean587, 1);
-        @Pc(55) int local55 = super.anInt10690 >> 9;
-        @Pc(60) int local60 = super.anInt10694 >> 9;
+        @Pc(55) int local55 = super.x >> 9;
+        @Pc(60) int local60 = super.z >> 9;
         this.aClass337_4.method7681(local60, local14, true, -9827, arg0, local55, local55, local60, local22);
         if (Static504.aBoolean579) {
             local14.renderOrtho(local22, local42.aPickingCylinderArray1[0], Static582.anInt8627, 0);
@@ -72,9 +72,9 @@ public final class DynamicWallDecor extends WallDecor implements Location {
         }
         this.aBoolean588 = local14.F() || this.aClass337_4.aParticleSystem_7 != null;
         if (this.aClass205_8 == null) {
-            this.aClass205_8 = Static317.method4583(super.anInt10691, super.anInt10690, local14, super.anInt10694);
+            this.aClass205_8 = Static317.method4583(super.anInt10691, super.x, local14, super.z);
         } else {
-            Static223.method9103(local14, super.anInt10694, super.anInt10691, super.anInt10690, this.aClass205_8);
+            Static223.method9103(local14, super.z, super.anInt10691, super.x, this.aClass205_8);
         }
         return local42;
     }
@@ -107,7 +107,7 @@ public final class DynamicWallDecor extends WallDecor implements Location {
             return false;
         } else {
             @Pc(25) Matrix local25 = arg3.scratchMatrix();
-            local25.method7125(super.aShort101 + super.anInt10690, super.anInt10691, super.anInt10694 + super.aShort102);
+            local25.method7125(super.aShort101 + super.x, super.anInt10691, super.z + super.aShort102);
             return Static504.aBoolean579 ? local17.pickedOrtho(arg1, arg0, local25, false, 0, Static582.anInt8627) : local17.picked(arg1, arg0, local25, false, 0);
         }
     }
@@ -163,10 +163,10 @@ public final class DynamicWallDecor extends WallDecor implements Location {
         if (local21 == null) {
             return;
         }
-        @Pc(28) int local28 = super.anInt10690 >> 9;
-        @Pc(33) int local33 = super.anInt10694 >> 9;
+        @Pc(28) int local28 = super.x >> 9;
+        @Pc(33) int local33 = super.z >> 9;
         @Pc(36) Matrix local36 = arg0.scratchMatrix();
-        local36.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local36.method7125(super.x, super.anInt10691, super.z);
         this.aClass337_4.method7681(local33, local21, false, arg1 - 9822, arg0, local28, local28, local33, local36);
     }
 

@@ -43,29 +43,37 @@ public final class Static314 {
     }
 
     @OriginalMember(owner = "client!jw", name = "a", descriptor = "(ZI)V")
-    public static void method4568(@OriginalArg(0) boolean arg0) {
+    public static void noTimeout(@OriginalArg(0) boolean forceSend) {
         Static557.method7331();
-        if (!Static109.method2070(MainLogicManager.step)) {
+
+        if (!MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
             return;
         }
-        @Pc(13) ServerConnection[] local13 = Static405.A_SERVER_CONNECTION_ARRAY_1;
-        for (@Pc(15) int local15 = 0; local15 < local13.length; local15++) {
-            @Pc(20) ServerConnection local20 = local13[local15];
-            local20.idleWriteTicks++;
-            if (local20.idleWriteTicks < 50 && !arg0) {
+
+        @Pc(13) ServerConnection[] connections = ConnectionManager.VALUES;
+        for (@Pc(15) int i = 0; i < connections.length; i++) {
+            @Pc(20) ServerConnection connection = connections[i];
+
+            connection.idleWriteTicks++;
+            if (connection.idleWriteTicks < 50 && !forceSend) {
                 return;
             }
-            local20.idleWriteTicks = 0;
-            if (!local20.errored && local20.connection != null) {
-                @Pc(59) ClientMessage local59 = Static293.method4335(Static415.aClass345_75, local20.cipher);
-                local20.send(local59);
+
+            connection.idleWriteTicks = 0;
+
+            if (!connection.errored && connection.connection != null) {
+                @Pc(59) ClientMessage message = ClientMessage.create(ClientProt.NO_TIMEOUT, connection.cipher);
+
+                connection.send(message);
+
                 try {
-                    local20.flush();
-                } catch (@Pc(68) IOException local68) {
-                    local20.errored = true;
+                    connection.flush();
+                } catch (@Pc(68) IOException ignored) {
+                    connection.errored = true;
                 }
             }
         }
+
         Static557.method7331();
     }
 }

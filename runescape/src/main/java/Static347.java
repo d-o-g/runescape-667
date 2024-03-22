@@ -12,7 +12,7 @@ public final class Static347 {
         if (arg0 != -1 && InterfaceList.loaded[arg0]) {
             Component.interfacesJs5.discardUnpacked(arg0);
             InterfaceList.interfaces[arg0] = null;
-            Static148.aComponentArrayArray1[arg0] = null;
+            InterfaceManager.cache[arg0] = null;
             InterfaceList.loaded[arg0] = false;
         }
     }

@@ -27,10 +27,10 @@ public final class Static587 {
     public static final int[] anIntArray689 = new int[]{16776960, 16711680, 65280, 65535, 16711935, 16777215};
 
     @OriginalMember(owner = "client!sia", name = "i", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_104 = new Class345(46, 3);
+    public static final ClientProt A_CLIENT_PROT___104 = new ClientProt(46, 3);
 
     @OriginalMember(owner = "client!sia", name = "a", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_105 = new Class345(87, 6);
+    public static final ClientProt A_CLIENT_PROT___105 = new ClientProt(87, 6);
 
     @OriginalMember(owner = "client!sia", name = "a", descriptor = "(Lclient!d;IIILjava/awt/Canvas;)Lclient!ha;")
     public static Toolkit method7698(@OriginalArg(0) TextureSource arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Canvas arg3) {

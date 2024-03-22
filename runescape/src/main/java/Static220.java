@@ -75,10 +75,10 @@ public final class Static220 {
                 }
             }
 
-            local42.anInt9357 = local42.npc.anInt10690;
-            local42.anInt9362 = local42.npc.anInt10690 + (local42.npc.boundSize((byte) 53) << 8);
-            local42.anInt9352 = local42.npc.anInt10694;
-            local42.anInt9349 = local42.npc.anInt10694 + (local42.npc.boundSize((byte) 68) << 8);
+            local42.anInt9357 = local42.npc.x;
+            local42.anInt9362 = local42.npc.x + (local42.npc.boundSize((byte) 53) << 8);
+            local42.anInt9352 = local42.npc.z;
+            local42.anInt9349 = local42.npc.z + (local42.npc.boundSize((byte) 68) << 8);
 
             Static632.method8366(currentTick, local42, arg3, arg2, arg1);
         }
@@ -128,38 +128,12 @@ public final class Static220 {
                 }
             }
 
-            local329.anInt9357 = local329.player.anInt10690;
-            local329.anInt9362 = local329.player.anInt10690 + (local329.player.boundSize((byte) 127) << 8);
-            local329.anInt9352 = local329.player.anInt10694;
-            local329.anInt9349 = local329.player.anInt10694 + (local329.player.boundSize((byte) 62) << 8);
+            local329.anInt9357 = local329.player.x;
+            local329.anInt9362 = local329.player.x + (local329.player.boundSize((byte) 127) << 8);
+            local329.anInt9352 = local329.player.z;
+            local329.anInt9349 = local329.player.z + (local329.player.boundSize((byte) 62) << 8);
 
             Static632.method8366(currentTick, local329, arg3, arg2, arg1);
-        }
-    }
-
-    @OriginalMember(owner = "client!gq", name = "a", descriptor = "(ZIZI[Lclient!hda;I)V")
-    public static void method3200(@OriginalArg(1) int arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Component[] arg3, @OriginalArg(5) int arg4) {
-        for (@Pc(5) int local5 = 0; local5 < arg3.length; local5++) {
-            @Pc(14) Component local14 = arg3[local5];
-            if (local14 != null && local14.layer == arg4) {
-                Static507.method6743(arg1, arg2, arg0, local14);
-                Static470.method6383(local14, arg0, arg2, -8525);
-                if (local14.scrollWidth - local14.width < local14.scrollX) {
-                    local14.scrollX = local14.scrollWidth - local14.width;
-                }
-                if (local14.scrollX < 0) {
-                    local14.scrollX = 0;
-                }
-                if (local14.scrollHeight - local14.height < local14.scrollY) {
-                    local14.scrollY = local14.scrollHeight - local14.height;
-                }
-                if (local14.scrollY < 0) {
-                    local14.scrollY = 0;
-                }
-                if (local14.type == 0) {
-                    Static134.method8956(local14, arg1);
-                }
-            }
         }
     }
 

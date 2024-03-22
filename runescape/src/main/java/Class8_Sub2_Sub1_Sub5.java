@@ -72,7 +72,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
         @Pc(8) Class227 local8 = Static23.aClass128_1.method2694(arg0);
         @Pc(22) Ground local22 = Static706.aGroundArray3[super.level];
         @Pc(36) Ground local36 = super.aByte143 < 3 ? Static706.aGroundArray3[super.aByte143 + 1] : null;
-        return this.aAnimator_8 == null || this.aAnimator_8.isFinished() ? local8.method5249((byte) 2, true, super.anInt10694, (Animator) null, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.anInt10694, this.aAnimator_8, local36, super.anInt10690, local22, arg2, super.anInt10691, arg1);
+        return this.aAnimator_8 == null || this.aAnimator_8.isFinished() ? local8.method5249((byte) 2, true, super.z, (Animator) null, local36, super.x, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.z, this.aAnimator_8, local36, super.x, local22, arg2, super.anInt10691, arg1);
     }
 
     @OriginalMember(owner = "client!pja", name = "finalize", descriptor = "()V")
@@ -92,7 +92,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
         @Pc(20) Model local20 = this.method6594(this.anInt7402, arg0, 0);
         if (local20 != null) {
             @Pc(25) Matrix local25 = arg0.scratchMatrix();
-            local25.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+            local25.method7125(super.x, super.anInt10691, super.z);
             this.method6593(local25, local20, arg0);
         }
     }
@@ -195,7 +195,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
             local24.a(this.anInt7400 * 2048);
         }
         @Pc(43) Matrix local43 = arg0.scratchMatrix();
-        local43.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local43.method7125(super.x, super.anInt10691, super.z);
         this.method6593(local43, local24, arg0);
         @Pc(62) Class8_Sub7 local62 = Static642.method8441(false, 1);
         if (Static504.aBoolean579) {

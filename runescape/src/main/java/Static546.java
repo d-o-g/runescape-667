@@ -9,12 +9,6 @@ public final class Static546 {
     @OriginalMember(owner = "client!rd", name = "n", descriptor = "I")
     public static int anInt8244;
 
-    @OriginalMember(owner = "client!rd", name = "r", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_97 = new Class345(66, 3);
-
-    @OriginalMember(owner = "client!rd", name = "q", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_98 = new Class345(61, 8);
-
     @OriginalMember(owner = "client!rd", name = "a", descriptor = "(I)[Lclient!it;")
     public static Class184[] method7249() {
         return new Class184[]{Static403.aClass184_12, Static560.aClass184_15, Static672.aClass184_18, Static240.aClass184_9, Static51.aClass184_1, Static642.aClass184_17, Static94.aClass184_5, Static363.aClass184_13, Static507.aClass184_14, Static208.aClass184_6, Static609.aClass184_16, Static87.aClass184_4, Static256.aClass184_10, Static705.aClass184_19};

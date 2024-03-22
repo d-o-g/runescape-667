@@ -36,7 +36,7 @@ public final class Class161 {
     }
 
     @OriginalMember(owner = "client!hf", name = "a", descriptor = "(II)V")
-    public void method3420(@OriginalArg(1) int arg0) {
+    public void cacheReset(@OriginalArg(1) int arg0) {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache;
         synchronized (this.aReferenceCache) {
             this.aReferenceCache.reset();

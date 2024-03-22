@@ -899,7 +899,7 @@ public final class Model_Sub3 extends Model {
             for (local21 = 0; local21 < this.anInt8492; local21++) {
                 @Pc(108) Class239 local108 = this.aClass239Array1[local21];
                 @Pc(113) Class245 local113 = this.aClass245Array1[local21];
-                local113.anInt6225 = local113.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local108.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                local113.anInt6225 = local113.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local108.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
             }
         }
         if (this.anInt8488 == 2) {
@@ -1281,7 +1281,7 @@ public final class Model_Sub3 extends Model {
                     for (local69 = 0; local69 < this.anInt8492; local69++) {
                         local2482 = this.aClass239Array1[local69];
                         local2487 = this.aClass245Array1[local69];
-                        local2487.anInt6225 = local2487.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local2482.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                        local2487.anInt6225 = local2487.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local2482.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
                     }
                 }
             }
@@ -1699,7 +1699,7 @@ public final class Model_Sub3 extends Model {
                         for (local14 = 0; local14 < this.anInt8492; local14++) {
                             local508 = this.aClass239Array1[local14];
                             local513 = this.aClass245Array1[local14];
-                            local513.anInt6225 = local513.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local508.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                            local513.anInt6225 = local513.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local508.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
                         }
                     }
                 } else {
@@ -1898,7 +1898,7 @@ public final class Model_Sub3 extends Model {
             for (@Pc(27) int local27 = 0; local27 < this.anInt8492; local27++) {
                 @Pc(33) Class239 local33 = this.aClass239Array1[local27];
                 @Pc(38) Class245 local38 = this.aClass245Array1[local27];
-                local38.anInt6225 = local38.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local33.anInt6139]) & 0xFFFF] & 0xFFFFFF;
+                local38.anInt6225 = local38.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local33.anInt6139]) & 0xFFFF] & 0xFFFFFF;
             }
         }
         if (this.anInt8488 == 2) {
@@ -2406,7 +2406,7 @@ public final class Model_Sub3 extends Model {
                     for (local69 = 0; local69 < this.anInt8492; local69++) {
                         local994 = this.aClass239Array1[local69];
                         local999 = this.aClass245Array1[local69];
-                        local999.anInt6225 = local999.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[Static105.method2043(this.aShortArray120[local994.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                        local999.anInt6225 = local999.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local994.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
                     }
                 }
             }
@@ -2472,7 +2472,7 @@ public final class Model_Sub3 extends Model {
                     if (local102 == 0) {
                         local154 = this.aShortArray120[local96] & 0xFFFF;
                         local163 = (local154 & 0x7F) * this.anInt8495 >> 7;
-                        local171 = Static105.method2043(local154 & 0xFFFFFF80 | local163);
+                        local171 = ColourUtils.hslToHsv(local154 & 0xFFFFFF80 | local163);
                         @Pc(192) Class378 local192;
                         if (this.aClass378Array1 == null || this.aClass378Array1[this.aShortArray122[local96]] == null) {
                             local192 = this.aClass378Array2[this.aShortArray122[local96]];
@@ -2504,7 +2504,7 @@ public final class Model_Sub3 extends Model {
                     } else if (local102 == 1) {
                         local154 = this.aShortArray120[local96] & 0xFFFF;
                         local163 = (local154 & 0x7F) * this.anInt8495 >> 7;
-                        local171 = Static105.method2043(local154 & 0xFFFFFF80 | local163);
+                        local171 = ColourUtils.hslToHsv(local154 & 0xFFFFFF80 | local163);
                         @Pc(444) Class301 local444 = this.aClass301Array1[local96];
                         local239 = local42 * local444.anInt7682 + local46 * local444.anInt7683 + local50 * local444.anInt7681 >> 16;
                         local221 = local239 > 256 ? local65 : local74;
@@ -3739,7 +3739,7 @@ public final class Model_Sub3 extends Model {
             if (local13 == -1) {
                 @Pc(23) int local23 = this.aShortArray120[local1] & 0xFFFF;
                 @Pc(32) int local32 = (local23 & 0x7F) * this.anInt8495 >> 7;
-                @Pc(40) short local40 = Static105.method2043(local23 & 0xFFFFFF80 | local32);
+                @Pc(40) short local40 = ColourUtils.hslToHsv(local23 & 0xFFFFFF80 | local32);
                 @Pc(53) int local53;
                 if (this.anIntArray672[local1] == -1) {
                     local53 = this.anIntArray668[local1] & 0xFFFE0000;

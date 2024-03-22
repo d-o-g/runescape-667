@@ -84,7 +84,7 @@ public final class Class27_Sub2 extends Class27 {
 
     @OriginalMember(owner = "client!di", name = "a", descriptor = "(I)V")
     @Override
-    public void method5597() {
+    public void reset() {
         if (this.aLong81 > this.aLong82) {
             this.aLong82 += this.aLong81 - this.aLong82;
         }

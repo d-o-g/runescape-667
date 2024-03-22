@@ -19,9 +19,9 @@ public final class Static157 {
         if (local4 == null) {
             return;
         }
-        arg4.anInt10690 = (arg1 << Static52.anInt1066) + Static247.anInt3993;
+        arg4.x = (arg1 << Static52.anInt1066) + Static247.anInt3993;
         arg4.anInt10691 = arg3;
-        arg4.anInt10694 = (arg2 << Static52.anInt1066) + Static247.anInt3993;
+        arg4.z = (arg2 << Static52.anInt1066) + Static247.anInt3993;
         local4.aClass8_Sub2_Sub5_1 = arg4;
         @Pc(36) int local36 = Static246.activeGround == Static693.aGroundArray2 ? 1 : 0;
         if (arg4.method9283()) {

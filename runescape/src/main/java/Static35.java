@@ -56,9 +56,9 @@ public final class Static35 {
                                 @Pc(199) int local199 = (local13.anInt2578 & 0xFF) << 9;
                                 @Pc(205) int local205 = PlayerEntity.self.boundSize((byte) 126) << 8;
                                 @Pc(212) int local212 = local13.anInt2578 >> 16 & 0xFF;
-                                @Pc(224) int local224 = (local212 << 9) + local205 + 256 - PlayerEntity.self.anInt10690;
+                                @Pc(224) int local224 = (local212 << 9) + local205 + 256 - PlayerEntity.self.x;
                                 @Pc(231) int local231 = local13.anInt2578 >> 8 & 0xFF;
-                                @Pc(243) int local243 = local205 + (local231 << 9) + 256 - PlayerEntity.self.anInt10694;
+                                @Pc(243) int local243 = local205 + (local231 << 9) + 256 - PlayerEntity.self.z;
                                 @Pc(251) int local251 = Math.abs(local224) + Math.abs(local243) - 512;
                                 if (local199 < local251) {
                                     local13.anInt2571 = -99999;
@@ -127,7 +127,7 @@ public final class Static35 {
             Static8.aClass2_Sub6_Sub1_1 = null;
             Static501.aBoolean575 = false;
         } else if (Static400.instance.aClass57_Sub25_2.method7208() != 0 && Static588.anInt8692 != -1 && !Static52.method1157(125)) {
-            @Pc(551) ClientMessage local551 = Static293.method4335(Static235.aClass345_49, ConnectionManager.GAME.cipher);
+            @Pc(551) ClientMessage local551 = ClientMessage.create(Static235.A_CLIENT_PROT___49, ConnectionManager.GAME.cipher);
             local551.buffer.p4(Static588.anInt8692);
             ConnectionManager.GAME.send(local551);
             Static588.anInt8692 = -1;

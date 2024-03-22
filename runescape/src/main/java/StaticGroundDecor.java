@@ -46,10 +46,10 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     public StaticGroundDecor(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) boolean arg9) {
         super(arg4, arg5, arg6, arg2, arg3, arg1.anInt1227);
         this.aShort20 = (short) arg1.id;
-        super.anInt10694 = arg6;
+        super.z = arg6;
         this.aByte38 = (byte) arg8;
         this.aBoolean182 = arg1.interactivity != LocInteractivity.NONINTERACTIVE && !arg7;
-        super.anInt10690 = arg4;
+        super.x = arg4;
         this.aBoolean183 = arg7;
         this.aBoolean180 = arg9;
         this.aBoolean181 = arg0.method8006() && arg1.hardShadow && !this.aBoolean183 && Static400.instance.aClass57_Sub12_1.method4364() != 0;
@@ -85,7 +85,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
             return null;
         }
         @Pc(20) Matrix local20 = arg0.scratchMatrix();
-        local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local20.method7125(super.x, super.anInt10691, super.z);
         @Pc(34) Class8_Sub7 local34 = Static642.method8441(this.aBoolean182, 1);
         if (Static504.aBoolean579) {
             this.model.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);
@@ -132,7 +132,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
             return false;
         } else {
             @Pc(21) Matrix local21 = arg3.scratchMatrix();
-            local21.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+            local21.method7125(super.x, super.anInt10691, super.z);
             return Static504.aBoolean579 ? local16.pickedOrtho(arg1, arg0, local21, false, 0, Static582.anInt8627) : local16.picked(arg1, arg0, local21, false, 0);
         }
     }
@@ -149,7 +149,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
             this.aClass2_Sub2_Sub9_1 = null;
         }
         if (local33 != null) {
-            Static630.method8357(local33, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
+            Static630.method8357(local33, super.aByte143, super.x, super.z, (boolean[]) null);
         }
     }
 
@@ -172,7 +172,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
                 local35 = Static706.aGroundArray3[super.aByte143 + 1];
             }
         }
-        return local13.modelAndShadow(this.aByte38, super.anInt10694, super.anInt10690, local29, arg3, super.anInt10691, 22, arg2, (LocTypeCustomisation) null, arg0, local35);
+        return local13.modelAndShadow(this.aByte38, super.z, super.x, local29, arg3, super.anInt10691, 22, arg2, (LocTypeCustomisation) null, arg0, local35);
     }
 
     @OriginalMember(owner = "client!cu", name = "h", descriptor = "(I)Z")
@@ -197,7 +197,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     @Override
     public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (this.aClass205_1 == null) {
-            this.aClass205_1 = Static317.method4583(super.anInt10691, super.anInt10690, this.method1834(arg0, 0), super.anInt10694);
+            this.aClass205_1 = Static317.method4583(super.anInt10691, super.x, this.method1834(arg0, 0), super.z);
         }
         if (arg1 >= -93) {
             this.aClass205_1 = null;
@@ -226,7 +226,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
             this.aClass2_Sub2_Sub9_1 = null;
         }
         if (local25 != null) {
-            Static292.method4618(local25, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
+            Static292.method4618(local25, super.aByte143, super.x, super.z, (boolean[]) null);
         }
     }
 

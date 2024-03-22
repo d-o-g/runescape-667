@@ -1,5 +1,4 @@
 import com.jagex.graphics.Matrix;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -24,23 +23,6 @@ public final class Static203 {
 
     @OriginalMember(owner = "client!gf", name = "j", descriptor = "Lclient!tt;")
     public static Matrix aMatrix_4;
-
-    @OriginalMember(owner = "client!gf", name = "a", descriptor = "(ZII)I")
-    public static int method3066(@OriginalArg(2) int arg0) {
-        if (arg0 == -2) {
-            return 12345678;
-        } else if (arg0 == -1) {
-            return 96;
-        } else {
-            @Pc(52) int local52 = (arg0 & 0x7F) * 96 >> 7;
-            if (local52 < 2) {
-                local52 = 2;
-            } else if (local52 > 126) {
-                local52 = 126;
-            }
-            return local52 + (arg0 & 0xFF80);
-        }
-    }
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(B)V")
     public static void method3068() {

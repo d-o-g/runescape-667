@@ -14,7 +14,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!el")
-public final class Class105 {
+public final class MapElementType {
 
     @OriginalMember(owner = "client!el", name = "B", descriptor = "I")
     public int anInt2582;

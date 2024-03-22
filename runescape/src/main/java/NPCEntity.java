@@ -99,7 +99,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(20) Matrix local20 = arg3.scratchMatrix();
         @Pc(25) int local25 = super.aClass126_7.method2673(16383);
         local20.rotate(local25);
-        local20.translate(super.anInt10690, super.anInt10691, super.anInt10694);
+        local20.translate(super.x, super.anInt10691, super.z);
         @Pc(38) boolean local38 = arg2;
         for (@Pc(40) int local40 = 0; local40 < super.aModelArray3.length; local40++) {
             if (super.aModelArray3[local40] != null) {
@@ -156,14 +156,14 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
         local22.rotate(local27);
-        @Pc(45) Class291 local45 = Static334.activeTiles[super.level][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
+        @Pc(45) Class291 local45 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
         if (local45 == null || local45.aGroundDecor_1 == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
         } else {
             @Pc(75) int local75 = super.anInt10732 - local45.aGroundDecor_1.aShort46;
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) local75 / 10.0F);
         }
-        local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 20, super.anInt10694);
+        local22.translate(super.x, -super.anInt10732 + super.anInt10691 - 20, super.z);
         @Pc(104) BASType local104 = this.method9317();
         @Pc(118) NPCType local118 = this.type.multinpcs == null ? this.type : this.type.getMultiNPC(TimedVarDomain.instance);
         super.aBoolean819 = false;
@@ -185,7 +185,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
             }
         }
         local22.rotate(local27);
-        local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 5, super.anInt10694);
+        local22.translate(super.x, -super.anInt10732 + super.anInt10691 - 5, super.z);
         if (local123 == null) {
             local123 = Static642.method8441(this.method9330(), super.aModelArray3.length);
         }
@@ -418,8 +418,8 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         super.pathX[0] = arg2;
         super.anInt10762 = 0;
         super.pathY[0] = arg1;
-        super.anInt10690 = (arg4 << 8) + (super.pathX[0] << 9);
-        super.anInt10694 = (super.pathY[0] << 9) + (arg4 << 8);
+        super.x = (arg4 << 8) + (super.pathX[0] << 9);
+        super.z = (super.pathY[0] << 9) + (arg4 << 8);
         if (super.aClass8_Sub5_8 != null) {
             super.aClass8_Sub5_8.method3656();
         }
@@ -439,7 +439,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         @Pc(26) Matrix local26 = arg0.scratchMatrix();
         local26.rotate(super.aClass126_7.method2673(16383));
-        local26.translate(super.anInt10690, super.anInt10691 - 20, super.anInt10694);
+        local26.translate(super.x, super.anInt10691 - 20, super.z);
         this.method9319(arg0, super.aBoolean820, super.aModelArray3, local26);
         for (@Pc(53) int local53 = 0; local53 < super.aModelArray3.length; local53++) {
             super.aModelArray3[local53] = null;

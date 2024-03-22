@@ -1,8 +1,6 @@
-import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Sprite;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -17,18 +15,6 @@ public final class Static517 {
 
     @OriginalMember(owner = "client!qea", name = "e", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_36 = new Class155(15);
-
-    @OriginalMember(owner = "client!qea", name = "a", descriptor = "(Lclient!sb;III)Lclient!ip;")
-    public static WorldMapArea method6820(@OriginalArg(0) js5 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(14) Packet local14 = new Packet(arg0.getfile(arg2, arg1));
-        @Pc(50) WorldMapArea local50 = new WorldMapArea(arg2, local14.gjstr(), local14.gjstr(), local14.g4(), local14.g4(), local14.g1() == 1, local14.g1(), local14.g1());
-        @Pc(54) int local54 = local14.g1();
-        for (@Pc(56) int local56 = 0; local56 < local54; local56++) {
-            local50.aDeque_26.addLast(new Node_Sub56(local14.g1(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2()));
-        }
-        local50.method4090();
-        return local50;
-    }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(ZIII)V")
     public static void method6822(@OriginalArg(0) boolean arg0) {
@@ -214,7 +200,7 @@ public final class Static517 {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(Lclient!eo;)V")
     public static void method6824(@OriginalArg(0) Renderable arg0) {
-        Static665.aToolkit_15.H(arg0.anInt10690, arg0.anInt10691 + (arg0.method9286(2) >> 1), arg0.anInt10694, Static486.anIntArray591);
+        Static665.aToolkit_15.H(arg0.x, arg0.anInt10691 + (arg0.method9286(2) >> 1), arg0.z, Static486.anIntArray591);
         arg0.anInt10692 = Static486.anIntArray591[0];
         arg0.anInt10698 = Static486.anIntArray591[1];
         arg0.anInt10697 = Static486.anIntArray591[2];

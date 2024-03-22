@@ -8,9 +8,6 @@ public final class Static338 {
     @OriginalMember(owner = "client!km", name = "d", descriptor = "I")
     public static int anInt5563;
 
-    @OriginalMember(owner = "client!km", name = "c", descriptor = "I")
-    public static int anInt5562 = 0;
-
     @OriginalMember(owner = "client!km", name = "a", descriptor = "I")
     public static int anInt5564 = 0;
 
@@ -20,8 +17,8 @@ public final class Static338 {
         for (@Pc(8) int local8 = 0; local8 < local6; local8++) {
             @Pc(13) byte[] local13 = arg0[local8];
             if (local13 != null) {
-                @Pc(26) int local26 = (Static89.anIntArray169[local8] >> 8) * 64 - Static691.areaBaseX;
-                @Pc(36) int local36 = (Static89.anIntArray169[local8] & 0xFF) * 64 - Static116.areaBaseY;
+                @Pc(26) int local26 = (Static89.anIntArray169[local8] >> 8) * 64 - WorldMap.areaBaseX;
+                @Pc(36) int local36 = (Static89.anIntArray169[local8] & 0xFF) * 64 - WorldMap.areaBaseY;
                 Static557.method7331();
                 arg1.loadLocations(local26, local36, Static577.A_COLLISION_MAP_ARRAY_1, Toolkit.active, local13);
             }

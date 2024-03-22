@@ -40,7 +40,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
             return false;
         } else {
             @Pc(20) Matrix local20 = arg3.scratchMatrix();
-            local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+            local20.method7125(super.x, super.anInt10691, super.z);
             return Static504.aBoolean579 ? local12.pickedOrtho(arg1, arg0, local20, false, 0, Static582.anInt8627) : local12.picked(arg1, arg0, local20, false, 0);
         }
     }
@@ -64,10 +64,10 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
         if (local21 == null) {
             return;
         }
-        @Pc(28) int local28 = super.anInt10690 >> 9;
-        @Pc(33) int local33 = super.anInt10694 >> 9;
+        @Pc(28) int local28 = super.x >> 9;
+        @Pc(33) int local33 = super.z >> 9;
         @Pc(36) Matrix local36 = arg0.scratchMatrix();
-        local36.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local36.method7125(super.x, super.anInt10691, super.z);
         this.aClass337_2.method7681(local33, local21, false, -9827, arg0, local28, local28, local33, local36);
     }
 
@@ -153,10 +153,10 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
             return null;
         }
         @Pc(30) Matrix local30 = arg0.scratchMatrix();
-        local30.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local30.method7125(super.x, super.anInt10691, super.z);
         @Pc(44) Class8_Sub7 local44 = Static642.method8441(this.aBoolean318, 1);
-        @Pc(49) int local49 = super.anInt10690 >> 9;
-        @Pc(54) int local54 = super.anInt10694 >> 9;
+        @Pc(49) int local49 = super.x >> 9;
+        @Pc(54) int local54 = super.z >> 9;
         this.aClass337_2.method7681(local54, local22, true, -9827, arg0, local49, local49, local54, local30);
         if (Static504.aBoolean579) {
             local22.renderOrtho(local30, local44.aPickingCylinderArray1[0], Static582.anInt8627, 0);
@@ -173,9 +173,9 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
         }
         this.aBoolean317 = local22.F() || this.aClass337_2.aParticleSystem_7 != null;
         if (this.aClass205_3 == null) {
-            this.aClass205_3 = Static317.method4583(super.anInt10691, super.anInt10690, local22, super.anInt10694);
+            this.aClass205_3 = Static317.method4583(super.anInt10691, super.x, local22, super.z);
         } else {
-            Static223.method9103(local22, super.anInt10694, super.anInt10691, super.anInt10690, this.aClass205_3);
+            Static223.method9103(local22, super.z, super.anInt10691, super.x, this.aClass205_3);
         }
         return local44;
     }

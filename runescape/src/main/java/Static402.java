@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static402 {
 
     @OriginalMember(owner = "client!ml", name = "p", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_72 = new Class345(76, 7);
+    public static final ClientProt A_CLIENT_PROT___72 = new ClientProt(76, 7);
 
     @OriginalMember(owner = "client!ml", name = "f", descriptor = "[B")
     public static final byte[] aByteArray68 = new byte[2048];

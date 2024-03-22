@@ -1,5 +1,4 @@
 import com.jagex.core.util.Arrays;
-import com.jagex.game.runetek6.config.iftype.SubInterface;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -34,17 +33,4 @@ public final class Static134 {
         }
     }
 
-    @OriginalMember(owner = "client!eda", name = "a", descriptor = "(Lclient!hda;BZ)V")
-    public static void method8956(@OriginalArg(0) Component arg0, @OriginalArg(2) boolean arg1) {
-        @Pc(16) int local16 = arg0.scrollWidth == 0 ? arg0.width : arg0.scrollWidth;
-        @Pc(37) int local37 = arg0.scrollHeight == 0 ? arg0.height : arg0.scrollHeight;
-        Static220.method3200(local16, arg1, local37, InterfaceList.interfaces[arg0.slot >> 16], arg0.slot);
-        if (arg0.dynamicComponents != null) {
-            Static220.method3200(local16, arg1, local37, arg0.dynamicComponents, arg0.slot);
-        }
-        @Pc(72) SubInterface local72 = (SubInterface) InterfaceManager.subInterfaces.get((long) arg0.slot);
-        if (local72 != null) {
-            Static19.method265(arg1, local72.id, local37, local16);
-        }
-    }
 }

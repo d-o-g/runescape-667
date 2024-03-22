@@ -142,7 +142,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         @Pc(24) Matrix local24 = arg0.scratchMatrix();
         local24.rotate(super.aClass126_7.method2673(arg1 ^ 0xFFFFC004));
-        local24.translate(super.anInt10690, arg1 + super.anInt10691, super.anInt10694);
+        local24.translate(super.x, arg1 + super.anInt10691, super.z);
         this.method9319(arg0, super.aBoolean820, super.aModelArray3, local24);
         for (@Pc(53) int local53 = 0; local53 < super.aModelArray3.length; local53++) {
             super.aModelArray3[local53] = null;
@@ -190,7 +190,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(22) Matrix local22 = arg3.scratchMatrix();
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
         local22.rotate(local27);
-        local22.translate(super.anInt10690, super.anInt10691, super.anInt10694);
+        local22.translate(super.x, super.anInt10691, super.z);
         @Pc(40) boolean local40 = arg2;
         for (@Pc(42) int local42 = 0; local42 < super.aModelArray3.length; local42++) {
             if (super.aModelArray3[local42] != null && (Static504.aBoolean579 ? super.aModelArray3[local42].pickedOrtho(arg1, arg0, local22, true, 0, Static582.anInt8627) : super.aModelArray3[local42].picked(arg1, arg0, local22, true, 0))) {
@@ -298,8 +298,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         super.anInt10762 = 0;
         super.pathY[0] = arg1;
         @Pc(26) int local26 = this.boundSize((byte) 84);
-        super.anInt10690 = local26 * 256 + super.pathX[0] * 512;
-        super.anInt10694 = super.pathY[0] * 512 + local26 * 256;
+        super.x = local26 * 256 + super.pathX[0] * 512;
+        super.z = super.pathY[0] * 512 + local26 * 256;
         if (self == this) {
             Static218.method3187();
         }
@@ -326,14 +326,14 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         @Pc(27) int local27 = super.aClass126_7.method2673(16383);
         local22.rotate(local27);
-        @Pc(53) Class291 local53 = Static334.activeTiles[super.level][super.anInt10690 >> Static52.anInt1066][super.anInt10694 >> Static52.anInt1066];
+        @Pc(53) Class291 local53 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
         if (local53 == null || local53.aGroundDecor_1 == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
         } else {
             @Pc(68) int local68 = super.anInt10732 - local53.aGroundDecor_1.aShort46;
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) local68 / 10.0F);
         }
-        local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 20, super.anInt10694);
+        local22.translate(super.x, -super.anInt10732 + super.anInt10691 - 20, super.z);
         super.aBoolean819 = false;
         @Pc(114) Class8_Sub7 local114 = null;
         if (Static400.instance.aClass57_Sub7_1.method2905() == 1) {
@@ -365,8 +365,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                         @Pc(298) Node_Sub45 local298 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local275.anInt6366);
                         if (local298 != null) {
                             @Pc(303) NPCEntity local303 = local298.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                            local310 = local303.anInt10690 - self.anInt10690;
-                            @Pc(316) int local316 = local303.anInt10694 - self.anInt10694;
+                            local310 = local303.x - self.x;
+                            @Pc(316) int local316 = local303.z - self.z;
                             if (Static504.aBoolean579) {
                                 this.method1416(super.aModelArray3[0], 92160000, arg0, local275.anInt6371, local310, local22, Static582.anInt8627, local316);
                             } else {
@@ -376,8 +376,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                     }
                     @Pc(371) int local371;
                     if (local275.anInt6363 == 2) {
-                        @Pc(364) int local364 = local275.anInt6369 - self.anInt10690;
-                        local371 = local275.anInt6362 - self.anInt10694;
+                        @Pc(364) int local364 = local275.anInt6369 - self.x;
+                        local371 = local275.anInt6362 - self.z;
                         local310 = local275.anInt6364 << 9;
                         local310 *= local310;
                         if (Static504.aBoolean579) {
@@ -389,8 +389,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                     if (local275.anInt6363 == 10 && local275.anInt6366 >= 0 && local275.anInt6366 < PlayerList.highResolutionPlayers.length) {
                         @Pc(438) PlayerEntity local438 = PlayerList.highResolutionPlayers[local275.anInt6366];
                         if (local438 != null) {
-                            local371 = local438.anInt10690 - self.anInt10690;
-                            local310 = local438.anInt10694 - self.anInt10694;
+                            local371 = local438.x - self.x;
+                            local310 = local438.z - self.z;
                             if (Static504.aBoolean579) {
                                 this.method1416(super.aModelArray3[0], 92160000, arg0, local275.anInt6371, local371, local22, Static582.anInt8627, local310);
                             } else {
@@ -401,10 +401,10 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                 }
             }
             local22.rotate(local27);
-            local22.translate(super.anInt10690, super.anInt10691, super.anInt10694);
+            local22.translate(super.x, super.anInt10691, super.z);
         }
         local22.rotate(local27);
-        local22.translate(super.anInt10690, -super.anInt10732 + super.anInt10691 - 5, super.anInt10694);
+        local22.translate(super.x, -super.anInt10732 + super.anInt10691 - 5, super.z);
         if (local114 == null) {
             local114 = Static642.method8441(true, super.aModelArray3.length);
         }
@@ -451,8 +451,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(44) int local44 = super.boundSize((byte) 85);
         this.method9310((local12 >> 3 & 0x7) + 1);
         this.aByte31 = (byte) (local12 >> 6 & 0x3);
-        super.anInt10690 += this.boundSize((byte) 44) - local44 << 8;
-        super.anInt10694 += this.boundSize((byte) 111) - local44 << 8;
+        super.x += this.boundSize((byte) 44) - local44 << 8;
+        super.z += this.boundSize((byte) 111) - local44 << 8;
         this.aByte33 = packet.g1b();
         this.anInt1430 = packet.g1b();
         this.anInt1431 = packet.g1b();
@@ -565,8 +565,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(603) int[] local603 = this.playerModel.clientpalette;
         this.playerModel.update(local332, local139, local144, local134, this.method9320(0), this.aByte32 == 1);
         if (local134 != local240) {
-            super.anInt10690 = (super.pathX[0] << 9) + (this.boundSize((byte) 83) << 8);
-            super.anInt10694 = (super.pathY[0] << 9) + (this.boundSize((byte) 45) << 8);
+            super.x = (super.pathX[0] << 9) + (this.boundSize((byte) 83) << 8);
+            super.z = (super.pathY[0] << 9) + (this.boundSize((byte) 45) << 8);
         }
         if (PlayerList.activePlayerSlot == super.anInt10740 && local603 != null) {
             for (local490 = 0; local490 < local332.length; local490++) {

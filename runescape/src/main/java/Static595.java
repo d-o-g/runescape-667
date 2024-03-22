@@ -17,7 +17,7 @@ public final class Static595 {
     public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
         Static164.method2606();
         if (arg2 == 0) {
-            Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
+            Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.canvas, Static400.instance.aClass57_Sub13_1.method4373() * 2);
             if (arg0 != null) {
                 Toolkit.active.GA(0);
                 @Pc(36) FontMetrics local36 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
@@ -29,7 +29,7 @@ public final class Static595 {
             @Pc(57) Toolkit local57 = null;
             @Pc(85) Font local85;
             if (arg0 != null) {
-                local57 = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.aCanvas7, 0);
+                local57 = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, Static434.canvas, 0);
                 local57.GA(0);
                 @Pc(76) FontMetrics local76 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
                 local85 = local57.createFont(local76, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
@@ -41,7 +41,7 @@ public final class Static595 {
             {
                 try {
                     var14 = true;
-                    Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, arg2, Static434.aCanvas7, Static400.instance.aClass57_Sub13_1.method4373() * 2);
+                    Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, arg2, Static434.canvas, Static400.instance.aClass57_Sub13_1.method4373() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
                         @Pc(118) FontMetrics local118 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);

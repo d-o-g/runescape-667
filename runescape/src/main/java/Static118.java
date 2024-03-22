@@ -11,9 +11,6 @@ public final class Static118 {
     @OriginalMember(owner = "client!dm", name = "f", descriptor = "[Z")
     public static boolean[] aBooleanArray4;
 
-    @OriginalMember(owner = "client!dm", name = "c", descriptor = "Z")
-    public static boolean aBoolean199 = false;
-
     @OriginalMember(owner = "client!dm", name = "d", descriptor = "[I")
     public static final int[] anIntArray197 = new int[1000];
 

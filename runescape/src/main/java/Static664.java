@@ -12,7 +12,7 @@ public final class Static664 {
     public static volatile boolean aBoolean759 = true;
 
     @OriginalMember(owner = "client!vaa", name = "v", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_115 = new Class345(40, 11);
+    public static final ClientProt A_CLIENT_PROT___115 = new ClientProt(40, 11);
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(ILclient!fk;)[I")
     public static int[] method8652(@OriginalArg(1) ClientMessage arg0) {
@@ -91,15 +91,15 @@ public final class Static664 {
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(I)V")
     public static void cacheRemoveSoftReferences() {
-        Static467.aClass96_3.method2351();
-        Static540.aClass79_6.method2072();
+        Static467.aFloorOverlayTypeList_3.method2351();
+        Static540.aFloorUnderlayTypeList_6.method2072();
         Static68.idkTypeList.cacheRemoveSoftReferences();
         Static354.aLocTypeList_4.cacheRemoveSoftReferences();
         Static690.aNPCTypeList_2.cacheRemoveSoftReferences();
         Static419.objTypeList.method2480();
         Static25.seqTypeList.cacheRemoveSoftReferences();
         Static23.aClass128_1.method2697();
-        Static529.aClass161_1.method3423();
+        WorldMap.varbitTypeList.method3423();
         Static36.aClass260_1.method5781();
         Static628.aClass342_5.method7787();
         Static648.aClass17_1.method266();

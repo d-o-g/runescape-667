@@ -23,8 +23,8 @@ public final class Static441 {
         @Pc(9) int local9 = arg0.anInt10759 - TimeUtils.clock;
         @Pc(20) int local20 = arg0.anInt10750 * 512 + arg0.boundSize((byte) 99) * 256;
         @Pc(32) int local32 = arg0.anInt10753 * 512 + arg0.boundSize((byte) 58) * 256;
-        arg0.anInt10694 += (local32 - arg0.anInt10694) / local9;
-        arg0.anInt10690 += (local20 - arg0.anInt10690) / local9;
+        arg0.z += (local32 - arg0.z) / local9;
+        arg0.x += (local20 - arg0.x) / local9;
         arg0.anInt10763 = 0;
         if (arg0.anInt10754 == 0) {
             arg0.method9305(8192);

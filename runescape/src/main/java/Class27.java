@@ -11,7 +11,7 @@ public abstract class Class27 {
     protected abstract int method5596(@OriginalArg(1) long arg0);
 
     @OriginalMember(owner = "client!nl", name = "a", descriptor = "(I)V")
-    public abstract void method5597();
+    public abstract void reset();
 
     @OriginalMember(owner = "client!nl", name = "a", descriptor = "(JI)I")
     public final int method5598(@OriginalArg(0) long arg0) {

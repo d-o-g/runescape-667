@@ -117,7 +117,7 @@ public final class Node_Sub1_Sub11 extends Node_Sub1 {
             this.anInt4532 = arg1.g2();
         }
         if (arg0) {
-            Static278.aClass345_57 = null;
+            Static278.aClientProt_57 = null;
         }
     }
 

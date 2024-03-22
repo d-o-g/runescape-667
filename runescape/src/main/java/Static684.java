@@ -34,14 +34,14 @@ public final class Static684 {
         }
         MainLogicManager.setStep(mainLogicStep);
         Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(Static51.language), true, Fonts.p12Metrics, Fonts.p12);
-        @Pc(74) int local74 = Static691.areaBaseX;
-        Static691.areaBaseX = (Static62.anInt1465 - (Static720.mapWidth >> 4)) * 8;
-        @Pc(85) int local85 = Static116.areaBaseY;
-        Static116.areaBaseY = (Static525.anInt8907 - (Static501.mapHeight >> 4)) * 8;
-        Static162.aClass2_Sub2_Sub13_2 = Static30.method5078(Static62.anInt1465 * 8, Static525.anInt8907 * 8);
-        Static42.aClass255_2 = null;
-        @Pc(109) int deltaX = Static691.areaBaseX - local74;
-        @Pc(113) int deltaY = Static116.areaBaseY - local85;
+        @Pc(74) int local74 = WorldMap.areaBaseX;
+        WorldMap.areaBaseX = (Static62.anInt1465 - (Static720.mapWidth >> 4)) * 8;
+        @Pc(85) int local85 = WorldMap.areaBaseY;
+        WorldMap.areaBaseY = (Static525.anInt8907 - (Static501.mapHeight >> 4)) * 8;
+        Static162.aClass2_Sub2_Sub13_2 = WorldMap.method5078(Static62.anInt1465 * 8, Static525.anInt8907 * 8);
+        Static42.aMapElementList_2 = null;
+        @Pc(109) int deltaX = WorldMap.areaBaseX - local74;
+        @Pc(113) int deltaY = WorldMap.areaBaseY - local85;
         @Pc(134) int local134;
         @Pc(136) int local136;
         @Pc(193) int local193;
@@ -55,8 +55,8 @@ public final class Static684 {
                         local318.pathX[local136] -= deltaX;
                         local318.pathY[local136] -= deltaY;
                     }
-                    local318.anInt10690 -= deltaX * 512;
-                    local318.anInt10694 -= deltaY * 512;
+                    local318.x -= deltaX * 512;
+                    local318.z -= deltaY * 512;
                 }
             }
         } else {
@@ -68,9 +68,9 @@ public final class Static684 {
                 @Pc(141) Node_Sub45 local141 = Static592.aClass2_Sub45Array1[local136];
                 if (local141 != null) {
                     @Pc(146) NPCEntity local146 = local141.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                    local146.anInt10694 -= deltaY * 512;
-                    local146.anInt10690 -= deltaX * 512;
-                    if (local146.anInt10690 >= 0 && local128 >= local146.anInt10690 && local146.anInt10694 >= 0 && local134 >= local146.anInt10694) {
+                    local146.z -= deltaY * 512;
+                    local146.x -= deltaX * 512;
+                    if (local146.x >= 0 && local128 >= local146.x && local146.z >= 0 && local134 >= local146.z) {
                         @Pc(191) boolean local191 = true;
                         for (local193 = 0; local193 < local146.pathX.length; local193++) {
                             local146.pathX[local193] -= deltaX;
@@ -105,8 +105,8 @@ public final class Static684 {
                     local389.pathX[local134] -= deltaX;
                     local389.pathY[local134] -= deltaY;
                 }
-                local389.anInt10694 -= deltaY * 512;
-                local389.anInt10690 -= deltaX * 512;
+                local389.z -= deltaY * 512;
+                local389.x -= deltaX * 512;
             }
         }
         @Pc(446) Class254[] local446 = Static527.aClass254Array1;
@@ -135,9 +135,9 @@ public final class Static684 {
         if (Static117.anInt2282 != 4) {
             for (@Pc(608) ObjStack local608 = (ObjStack) Static497.stacks.first(); local608 != null; local608 = (ObjStack) Static497.stacks.next()) {
                 @Pc(615) int local615 = (int) (local608.key & 0x3FFFL);
-                @Pc(619) int local619 = local615 - Static691.areaBaseX;
+                @Pc(619) int local619 = local615 - WorldMap.areaBaseX;
                 local193 = (int) (local608.key >> 14 & 0x3FFFL);
-                @Pc(632) int local632 = local193 - Static116.areaBaseY;
+                @Pc(632) int local632 = local193 - WorldMap.areaBaseY;
                 if (local619 < 0 || local632 < 0 || local619 >= Static720.mapWidth || local632 >= Static501.mapHeight) {
                     local608.unlink();
                 }

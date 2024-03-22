@@ -41,8 +41,8 @@ public final class Static498 {
                 local122 = (arg4 - local115) / 2;
                 if (arg1) {
                     Toolkit.active.la();
-                    Toolkit.active.method7971(local122, arg3, arg2, arg0, -16777216);
-                    Toolkit.active.method7971(local122, arg3, arg2, arg4 + arg0 - local122, -16777216);
+                    Toolkit.active.fillRect(local122, arg3, arg2, arg0, -16777216);
+                    Toolkit.active.fillRect(local122, arg3, arg2, arg4 + arg0 - local122, -16777216);
                 }
                 arg0 += local122;
                 arg4 -= local122 * 2;
@@ -56,8 +56,8 @@ public final class Static498 {
                 local122 = (arg3 - local115) / 2;
                 if (arg1) {
                     Toolkit.active.la();
-                    Toolkit.active.method7971(arg4, local122, arg2, arg0, -16777216);
-                    Toolkit.active.method7971(arg4, local122, arg2 + arg3 - local122, arg0, -16777216);
+                    Toolkit.active.fillRect(arg4, local122, arg2, arg0, -16777216);
+                    Toolkit.active.fillRect(arg4, local122, arg2 + arg3 - local122, arg0, -16777216);
                 }
                 arg3 -= local122 * 2;
                 arg2 += local122;
@@ -80,7 +80,7 @@ public final class Static498 {
             Static126.method2227(Toolkit.active, GameShell.canvasWid, Static32.anInt777, Static288.anInt4620, GameShell.canvasHei);
         }
         if (Static400.instance.aClass57_Sub3_1.method2118()) {
-            Static575.method7606(Static434.aCanvas7);
+            Static575.method7606(Static434.canvas);
         }
         if (Toolkit.active != null) {
             Static209.method3110();

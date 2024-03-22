@@ -30,7 +30,7 @@ public final class Static726 {
                 }
                 Static344.lastFriendTransmit = World.tick;
                 @Pc(101) ServerConnection local101 = Static668.method8701();
-                @Pc(107) ClientMessage local107 = Static293.method4335(Static8.aClass345_1, local101.cipher);
+                @Pc(107) ClientMessage local107 = ClientMessage.create(Static8.A_CLIENT_PROT___1, local101.cipher);
                 local107.buffer.p1(Static231.method3379(arg0));
                 local107.buffer.pjstr(arg0);
                 local101.send(local107);

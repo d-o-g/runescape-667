@@ -45,10 +45,10 @@ public final class StaticWallDecor extends WallDecor implements Location {
     @OriginalMember(owner = "client!im", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIII)V")
     public StaticWallDecor(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11) {
         super(arg4, arg5, arg6, arg2, arg3, arg8, arg9);
-        super.anInt10694 = arg6;
+        super.z = arg6;
         this.aShort52 = (short) arg1.id;
         this.aByte78 = (byte) arg11;
-        super.anInt10690 = arg4;
+        super.x = arg4;
         this.aByte77 = (byte) arg10;
         this.aBoolean350 = arg1.interactivity != LocInteractivity.NONINTERACTIVE && !arg7;
         this.aBoolean348 = arg7;
@@ -110,7 +110,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
             return false;
         } else {
             @Pc(23) Matrix local23 = arg3.scratchMatrix();
-            local23.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+            local23.method7125(super.x, super.anInt10691, super.z);
             return Static504.aBoolean579 ? local18.pickedOrtho(arg1, arg0, local23, false, 0, Static582.anInt8627) : local18.picked(arg1, arg0, local23, false, 0);
         }
     }
@@ -119,7 +119,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
     @Override
     public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (this.aClass205_4 == null) {
-            this.aClass205_4 = Static317.method4583(super.anInt10691, super.anInt10690, this.method4041(0, arg0), super.anInt10694);
+            this.aClass205_4 = Static317.method4583(super.anInt10691, super.x, this.method4041(0, arg0), super.z);
         }
         return this.aClass205_4;
     }
@@ -136,7 +136,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
             this.aClass2_Sub2_Sub9_2 = null;
         }
         if (local37 != null) {
-            Static630.method8357(local37, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
+            Static630.method8357(local37, super.aByte143, super.x, super.z, (boolean[]) null);
         }
     }
 
@@ -170,7 +170,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
             this.aClass2_Sub2_Sub9_2 = null;
         }
         if (arg1 < -42 && local28 != null) {
-            Static292.method4618(local28, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
+            Static292.method4618(local28, super.aByte143, super.x, super.z, (boolean[]) null);
         }
     }
 
@@ -206,7 +206,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
                 local24 = null;
             }
         }
-        return local17.modelAndShadow(this.aByte78, super.anInt10694, super.anInt10690, local29, arg2, super.anInt10691, this.aByte77, arg0, (LocTypeCustomisation) null, arg1, local24);
+        return local17.modelAndShadow(this.aByte78, super.z, super.x, local29, arg2, super.anInt10691, this.aByte77, arg0, (LocTypeCustomisation) null, arg1, local24);
     }
 
     @OriginalMember(owner = "client!im", name = "b", descriptor = "(I)I")
@@ -222,7 +222,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
             return null;
         }
         @Pc(12) Matrix local12 = arg0.scratchMatrix();
-        local12.method7125(super.anInt10690 + super.aShort101, super.anInt10691, super.aShort102 + super.anInt10694);
+        local12.method7125(super.x + super.aShort101, super.anInt10691, super.aShort102 + super.z);
         @Pc(41) Class8_Sub7 local41 = Static642.method8441(this.aBoolean350, 1);
         if (Static504.aBoolean579) {
             this.model.renderOrtho(local12, local41.aPickingCylinderArray1[0], Static582.anInt8627, 0);

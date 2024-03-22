@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static187 {
 
     @OriginalMember(owner = "client!fp", name = "M", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_36 = new Class345(68, -1);
+    public static final ClientProt A_CLIENT_PROT___36 = new ClientProt(68, -1);
 
     @OriginalMember(owner = "client!fp", name = "S", descriptor = "[S")
     public static final short[] aShortArray52 = new short[]{2, 22, 52, 30, 53, 9, 51, 15};
@@ -25,8 +25,8 @@ public final class Static187 {
         Static518.aClass2_Sub21_18 = null;
         Static298.method4385();
         Static525.anInt8907 = 0;
-        Static691.areaBaseX = 0;
-        Static116.areaBaseY = 0;
+        WorldMap.areaBaseX = 0;
+        WorldMap.areaBaseY = 0;
         Static62.anInt1465 = 0;
         for (@Pc(34) int local34 = 0; local34 < Static527.aClass254Array1.length; local34++) {
             Static527.aClass254Array1[local34] = null;

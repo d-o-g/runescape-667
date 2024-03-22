@@ -617,7 +617,7 @@ public final class Protocol {
                                             Static574.method7573();
                                             @Pc(2442) HookRequest local2442 = new HookRequest();
                                             local2442.arguments = local2379;
-                                            Static472.method6420(local2442);
+                                            ScriptRunner.executeHookInner(local2442);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static356.A_SERVER_PROT___149) {
@@ -640,9 +640,9 @@ public final class Protocol {
                                                 Static322.method9441();
                                             }
                                             InterfaceManager.topLevelInterface = local277;
-                                            Static122.method2208(local277);
+                                            InterfaceManager.restartInterfaceAnims(local277);
                                             Static640.method8435(false);
-                                            Static472.method6414(InterfaceManager.topLevelInterface);
+                                            ScriptRunner.executeOnLoad(InterfaceManager.topLevelInterface);
                                             for (local526 = 0; local526 < 100; local526++) {
                                                 InterfaceManager.dirtyRectangles[local526] = true;
                                             }
@@ -716,13 +716,13 @@ public final class Protocol {
                                             } else {
                                                 local100 = local277 >> 14 & 0x3FFF;
                                                 local526 = local277 & 0x3FFF;
-                                                local100 -= Static691.areaBaseX;
+                                                local100 -= WorldMap.areaBaseX;
                                                 if (local100 < 0) {
                                                     local100 = 0;
                                                 } else if (Static720.mapWidth <= local100) {
                                                     local100 = Static720.mapWidth;
                                                 }
-                                                local526 -= Static116.areaBaseY;
+                                                local526 -= WorldMap.areaBaseY;
                                                 Static692.anInt10376 = (local100 << 9) + 256;
                                                 if (local526 < 0) {
                                                     local526 = 0;
@@ -941,8 +941,8 @@ public final class Protocol {
                                                             }
                                                             local3721.anInt6363 = 2;
                                                             local3721.anInt6368 = local11.g1();
-                                                            local3721.anInt6369 += local11.g2() - Static691.areaBaseX << 9;
-                                                            local3721.anInt6362 += local11.g2() - Static116.areaBaseY << 9;
+                                                            local3721.anInt6369 += local11.g2() - WorldMap.areaBaseX << 9;
+                                                            local3721.anInt6362 += local11.g2() - WorldMap.areaBaseY << 9;
                                                             local3721.anInt6365 = local11.g1() << 2;
                                                             local3721.anInt6364 = local11.g2();
                                                         }
@@ -1302,8 +1302,8 @@ public final class Protocol {
                                                                     }
                                                                 } else {
                                                                     local653 = local100 >> 28 & 0x3;
-                                                                    local657 = (local100 >> 14 & 0x3FFF) - Static691.areaBaseX;
-                                                                    local3502 = (local100 & 0x3FFF) - Static116.areaBaseY;
+                                                                    local657 = (local100 >> 14 & 0x3FFF) - WorldMap.areaBaseX;
+                                                                    local3502 = (local100 & 0x3FFF) - WorldMap.areaBaseY;
                                                                     if (local657 >= 0 && local3502 >= 0 && local657 < Static720.mapWidth && local3502 < Static501.mapHeight) {
                                                                         if (local2098 == -1) {
                                                                             @Pc(5270) DoublyLinkedNode_Sub2_Sub20 local5270 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get((long) (local657 << 16 | local3502));
@@ -1366,10 +1366,10 @@ public final class Protocol {
                                                                     local5487 = InterfaceList.list(local277);
                                                                     if (local5487 != null) {
                                                                         InterfaceManager.redraw(local5487);
-                                                                        Static134.method8956(local5487, true);
+                                                                        InterfaceManager.calculateLayerDimensions(local5487, true);
                                                                     }
                                                                     if (InterfaceManager.topLevelInterface != -1) {
-                                                                        Static145.method2411(1, InterfaceManager.topLevelInterface);
+                                                                        InterfaceManager.runHookImmediate(InterfaceManager.IMMEDIATE_HOOK_TYPE_SUBCHANGE, InterfaceManager.topLevelInterface);
                                                                     }
                                                                     arg0.currentProt = null;
                                                                     return true;
@@ -1382,7 +1382,7 @@ public final class Protocol {
                                                                     if (local5445 != null) {
                                                                         Static449.method6115(false, local5445.id != local277, local5445);
                                                                     }
-                                                                    Static163.method8850(local526, local277, local100, false);
+                                                                    InterfaceManager.openSubInterface(local526, local277, local100, false);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static563.A_SERVER_PROT___207) {
@@ -1552,9 +1552,9 @@ public final class Protocol {
                                                                     for (@Pc(6277) ObjStack local6277 = (ObjStack) Static497.stacks.first(); local6277 != null; local6277 = (ObjStack) Static497.stacks.next()) {
                                                                         local100 = (int) (local6277.key >> 28 & 0x3L);
                                                                         local526 = (int) (local6277.key & 0x3FFFL);
-                                                                        local1409 = local526 - Static691.areaBaseX;
+                                                                        local1409 = local526 - WorldMap.areaBaseX;
                                                                         local1413 = (int) (local6277.key >> 14 & 0x3FFFL);
-                                                                        local2098 = local1413 - Static116.areaBaseY;
+                                                                        local2098 = local1413 - WorldMap.areaBaseY;
                                                                         if (Static87.anInt1810 == local100 && local1409 >= Static626.anInt9476 && Static626.anInt9476 + 8 > local1409 && local2098 >= Static270.anInt4354 && Static270.anInt4354 + 8 > local2098) {
                                                                             local6277.unlink();
                                                                             if (local1409 >= 0 && local2098 >= 0 && Static720.mapWidth > local1409 && local2098 < Static501.mapHeight) {
@@ -1623,7 +1623,7 @@ public final class Protocol {
                                                                         return false;
                                                                     } else if (arg0.currentProt == Static370.A_SERVER_PROT___152) {
                                                                         if (InterfaceManager.topLevelInterface != -1) {
-                                                                            Static145.method2411(0, InterfaceManager.topLevelInterface);
+                                                                            InterfaceManager.runHookImmediate(InterfaceManager.IMMEDIATE_HOOK_TYPE_DIALOGABORT, InterfaceManager.topLevelInterface);
                                                                         }
                                                                         arg0.currentProt = null;
                                                                         return true;
@@ -1678,8 +1678,8 @@ public final class Protocol {
                                                                         local992 = local2098 >> 2;
                                                                         local996 = local2098 & 0x3;
                                                                         local1449 = Static310.anIntArray379[local992];
-                                                                        local1409 -= Static116.areaBaseY;
-                                                                        local526 -= Static691.areaBaseX;
+                                                                        local1409 -= WorldMap.areaBaseY;
+                                                                        local526 -= WorldMap.areaBaseX;
                                                                         Static198.method2953(local100, local1409, local992, local1413, local526, local996, local1449);
                                                                         arg0.currentProt = null;
                                                                         return true;
@@ -1753,7 +1753,7 @@ public final class Protocol {
                                                                     } else if (arg0.currentProt == Static287.A_SERVER_PROT___119) {
                                                                         local277 = local11.g4();
                                                                         local100 = local11.g4();
-                                                                        @Pc(7309) ClientMessage local7309 = Static293.method4335(Static128.aClass345_106, arg0.cipher);
+                                                                        @Pc(7309) ClientMessage local7309 = ClientMessage.create(Static128.A_CLIENT_PROT___106, arg0.cipher);
                                                                         local7309.buffer.p4(local277);
                                                                         local7309.buffer.p4(local100);
                                                                         arg0.send(local7309);

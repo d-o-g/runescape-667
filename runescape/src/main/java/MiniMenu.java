@@ -42,10 +42,10 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!nea", name = "a", descriptor = "(ILclient!hda;II)V")
     public static void addMiniMenuOptions(@OriginalArg(1) Component arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        if (InterfaceManager.isTargeting) {
-            @Pc(16) ParamType local16 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
-            if (InterfaceManager.serverActiveProperties(arg0).isUseTarget() && (InterfaceManager.targetMask & 0x20) != 0 && (local16 == null || arg0.param(local16.defaultint, Static610.anInt9329) != local16.defaultint)) {
-                addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, InterfaceManager.targetVerb, 18, true, Cursor.targetEnter, InterfaceManager.targetedVerb + " -> " + arg0.opBase, (long) (arg0.id << 0 | arg0.slot), false);
+        if (InterfaceManager.targeting) {
+            @Pc(16) ParamType local16 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
+            if (InterfaceManager.serverActiveProperties(arg0).isUseTarget() && (InterfaceManager.targetMask & 0x20) != 0 && (local16 == null || arg0.param(local16.defaultint, InterfaceManager.targetParam) != local16.defaultint)) {
+                addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, InterfaceManager.targetVerb, 18, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> " + arg0.opBase, (long) (arg0.id << 0 | arg0.slot), false);
             }
         }
         @Pc(106) String local106;
@@ -126,7 +126,7 @@ public final class MiniMenu {
         @Pc(317) int local317;
         @Pc(140) int local140;
         @Pc(370) int local370;
-        if (Static706.aGroundArray3 != null && (!InterfaceManager.isTargeting || (InterfaceManager.targetMask & 0x40) != 0)) {
+        if (Static706.aGroundArray3 != null && (!InterfaceManager.targeting || (InterfaceManager.targetMask & 0x40) != 0)) {
             local140 = -1;
             @Pc(142) int local142 = -1;
             @Pc(145) int local145 = arg2.i();
@@ -160,12 +160,12 @@ public final class MiniMenu {
                 }
             }
             if (local140 != -1 && local142 != -1) {
-                if (InterfaceManager.isTargeting && (InterfaceManager.targetMask & 0x40) != 0) {
-                    @Pc(453) Component local453 = InterfaceList.getComponent(Static77.anInt1614, Static450.anInt6819);
+                if (InterfaceManager.targeting && (InterfaceManager.targetMask & 0x40) != 0) {
+                    @Pc(453) Component local453 = InterfaceList.getComponent(InterfaceManager.targetComponent, InterfaceManager.targetSlot);
                     if (local453 == null) {
                         InterfaceManager.endTargetMode();
                     } else {
-                        addEntry(false, -1, 0L, local140, local142, InterfaceManager.targetVerb, 21, true, Cursor.targetEnter, " ->", (long) (local140 << 0 | local142), true);
+                        addEntry(false, -1, 0L, local140, local142, InterfaceManager.targetVerb, 21, true, InterfaceManager.targetEnterCursor, " ->", (long) (local140 << 0 | local142), true);
                     }
                 } else {
                     if (Static501.aBoolean576) {
@@ -196,8 +196,8 @@ public final class MiniMenu {
                         local186 = ((PositionEntity) local543.aRenderable_18).aShort131;
                         local584 = ((PositionEntity) local543.aRenderable_18).aShort132;
                     } else {
-                        local584 = local543.aRenderable_18.anInt10694 >> 9;
-                        local186 = local543.aRenderable_18.anInt10690 >> 9;
+                        local584 = local543.aRenderable_18.z >> 9;
+                        local186 = local543.aRenderable_18.x >> 9;
                     }
                     @Pc(723) int local723;
                     @Pc(735) int local735;
@@ -206,16 +206,16 @@ public final class MiniMenu {
                     if (local543.aRenderable_18 instanceof PlayerEntity) {
                         @Pc(610) PlayerEntity local610 = (PlayerEntity) local543.aRenderable_18;
                         local614 = local610.boundSize((byte) 50);
-                        if ((local614 & 0x1) == 0 && (local610.anInt10690 & 0x1FF) == 0 && (local610.anInt10694 & 0x1FF) == 0 || (local614 & 0x1) == 1 && (local610.anInt10690 & 0x1FF) == 256 && (local610.anInt10694 & 0x1FF) == 256) {
-                            local286 = local610.anInt10690 - (local610.boundSize((byte) 79) - 1 << 8);
-                            local295 = local610.anInt10694 - (local610.boundSize((byte) 61) - 1 << 8);
+                        if ((local614 & 0x1) == 0 && (local610.x & 0x1FF) == 0 && (local610.z & 0x1FF) == 0 || (local614 & 0x1) == 1 && (local610.x & 0x1FF) == 256 && (local610.z & 0x1FF) == 256) {
+                            local286 = local610.x - (local610.boundSize((byte) 79) - 1 << 8);
+                            local295 = local610.z - (local610.boundSize((byte) 61) - 1 << 8);
                             for (local306 = 0; local306 < Static390.anInt6126; local306++) {
                                 @Pc(690) Node_Sub45 local690 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local306]);
                                 if (local690 != null) {
                                     @Pc(695) NPCEntity local695 = local690.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                                     if (TimeUtils.clock != local695.anInt10743 && local695.aBoolean816) {
-                                        local723 = local695.anInt10690 - (local695.type.size - 1 << 8);
-                                        local735 = local695.anInt10694 - (local695.type.size - 1 << 8);
+                                        local723 = local695.x - (local695.type.size - 1 << 8);
+                                        local735 = local695.z - (local695.type.size - 1 << 8);
                                         if (local286 <= local723 && local695.type.size <= local610.boundSize((byte) 126) - (local723 - local286 >> 9) && local735 >= local295 && local695.type.size <= local610.boundSize((byte) 121) - (local735 - local295 >> 9)) {
                                             Static651.method8517(local543.aRenderable_18.level != PlayerEntity.self.level, local695);
                                             local695.anInt10743 = TimeUtils.clock;
@@ -228,8 +228,8 @@ public final class MiniMenu {
                             for (local723 = 0; local723 < local317; local723++) {
                                 @Pc(830) PlayerEntity local830 = PlayerList.highResolutionPlayers[local820[local723]];
                                 if (local830 != null && local830.anInt10743 != TimeUtils.clock && local830 != local610 && local830.aBoolean816) {
-                                    local864 = local830.anInt10690 - (local830.boundSize((byte) 123) - 1 << 8);
-                                    @Pc(876) int local876 = local830.anInt10694 - (local830.boundSize((byte) 67) - 1 << 8);
+                                    local864 = local830.x - (local830.boundSize((byte) 123) - 1 << 8);
+                                    @Pc(876) int local876 = local830.z - (local830.boundSize((byte) 67) - 1 << 8);
                                     if (local864 >= local286 && local830.boundSize((byte) 71) <= local610.boundSize((byte) 110) - (local864 - local286 >> 9) && local876 >= local295 && local830.boundSize((byte) 79) <= local610.boundSize((byte) 100) - (local876 - local295 >> 9)) {
                                         Static414.method5696(local543.aRenderable_18.level != PlayerEntity.self.level, local830);
                                         local830.anInt10743 = TimeUtils.clock;
@@ -246,16 +246,16 @@ public final class MiniMenu {
                     if (local543.aRenderable_18 instanceof NPCEntity) {
                         @Pc(988) NPCEntity local988 = (NPCEntity) local543.aRenderable_18;
                         if (local988.type != null) {
-                            if ((local988.type.size & 0x1) == 0 && (local988.anInt10690 & 0x1FF) == 0 && (local988.anInt10694 & 0x1FF) == 0 || (local988.type.size & 0x1) == 1 && (local988.anInt10690 & 0x1FF) == 256 && (local988.anInt10694 & 0x1FF) == 256) {
-                                local614 = local988.anInt10690 - (local988.type.size - 1 << 8);
-                                local286 = local988.anInt10694 - (local988.type.size - 1 << 8);
+                            if ((local988.type.size & 0x1) == 0 && (local988.x & 0x1FF) == 0 && (local988.z & 0x1FF) == 0 || (local988.type.size & 0x1) == 1 && (local988.x & 0x1FF) == 256 && (local988.z & 0x1FF) == 256) {
+                                local614 = local988.x - (local988.type.size - 1 << 8);
+                                local286 = local988.z - (local988.type.size - 1 << 8);
                                 for (local295 = 0; local295 < Static390.anInt6126; local295++) {
                                     @Pc(1081) Node_Sub45 local1081 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local295]);
                                     if (local1081 != null) {
                                         @Pc(1086) NPCEntity local1086 = local1081.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                                         if (local1086.anInt10743 != TimeUtils.clock && local1086 != local988 && local1086.aBoolean816) {
-                                            local370 = local1086.anInt10690 - (local1086.type.size - 1 << 8);
-                                            local723 = local1086.anInt10694 - (local1086.type.size - 1 << 8);
+                                            local370 = local1086.x - (local1086.type.size - 1 << 8);
+                                            local723 = local1086.z - (local1086.type.size - 1 << 8);
                                             if (local614 <= local370 && local988.type.size - (local370 - local614 >> 9) >= local1086.type.size && local723 >= local286 && local1086.type.size <= local988.type.size - (local723 - local286 >> 9)) {
                                                 Static651.method8517(PlayerEntity.self.level != local543.aRenderable_18.level, local1086);
                                                 local1086.anInt10743 = TimeUtils.clock;
@@ -268,8 +268,8 @@ public final class MiniMenu {
                                 for (local370 = 0; local370 < local306; local370++) {
                                     @Pc(1226) PlayerEntity local1226 = PlayerList.highResolutionPlayers[local1216[local370]];
                                     if (local1226 != null && local1226.anInt10743 != TimeUtils.clock && local1226.aBoolean816) {
-                                        local735 = local1226.anInt10690 - (local1226.boundSize((byte) 125) - 1 << 8);
-                                        local864 = local1226.anInt10694 - (local1226.boundSize((byte) 76) - 1 << 8);
+                                        local735 = local1226.x - (local1226.boundSize((byte) 125) - 1 << 8);
+                                        local864 = local1226.z - (local1226.boundSize((byte) 76) - 1 << 8);
                                         if (local614 <= local735 && local1226.boundSize((byte) 98) <= local988.type.size - (local735 - local614 >> 9) && local286 <= local864 && local1226.boundSize((byte) 127) <= local988.type.size - (local864 - local286 >> 9)) {
                                             Static414.method5696(PlayerEntity.self.level != local543.aRenderable_18.level, local1226);
                                             local1226.anInt10743 = TimeUtils.clock;
@@ -285,17 +285,17 @@ public final class MiniMenu {
                         }
                     }
                     if (local543.aRenderable_18 instanceof Class8_Sub2_Sub5_Sub1) {
-                        @Pc(1385) int local1385 = local186 + Static691.areaBaseX;
-                        local614 = Static116.areaBaseY + local584;
+                        @Pc(1385) int local1385 = local186 + WorldMap.areaBaseX;
+                        local614 = WorldMap.areaBaseY + local584;
                         @Pc(1406) ObjStack local1406 = (ObjStack) Static497.stacks.get((long) (local614 << 14 | local543.aRenderable_18.level << 28 | local1385));
                         if (local1406 != null) {
                             local295 = 0;
                             for (@Pc(1416) ObjStackEntry local1416 = (ObjStackEntry) local1406.objs.last(); local1416 != null; local1416 = (ObjStackEntry) local1406.objs.previous()) {
                                 @Pc(1424) ObjType local1424 = Static419.objTypeList.list(local1416.id);
-                                if (InterfaceManager.isTargeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
-                                    @Pc(1451) ParamType local1451 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
-                                    if ((InterfaceManager.targetMask & 0x1) != 0 && (local1451 == null || local1424.param(Static610.anInt9329, local1451.defaultint) != local1451.defaultint)) {
-                                        addEntry(false, -1, (long) local1416.id, local186, local584, InterfaceManager.targetVerb, 17, true, Cursor.targetEnter, InterfaceManager.targetedVerb + " -> <col=ff9040>" + local1424.name, (long) local295, false);
+                                if (InterfaceManager.targeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
+                                    @Pc(1451) ParamType local1451 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
+                                    if ((InterfaceManager.targetMask & 0x1) != 0 && (local1451 == null || local1424.param(InterfaceManager.targetParam, local1451.defaultint) != local1451.defaultint)) {
+                                        addEntry(false, -1, (long) local1416.id, local186, local584, InterfaceManager.targetVerb, 17, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ff9040>" + local1424.name, (long) local295, false);
                                     }
                                 }
                                 if (local543.aRenderable_18.level == PlayerEntity.self.level) {
@@ -343,10 +343,10 @@ public final class MiniMenu {
                             local1661 = local1661.getMultiLoc(TimedVarDomain.instance);
                         }
                         if (local1661 != null) {
-                            if (InterfaceManager.isTargeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
-                                @Pc(1697) ParamType local1697 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
-                                if ((InterfaceManager.targetMask & 0x4) != 0 && (local1697 == null || local1661.param(local1697.defaultint, Static610.anInt9329) != local1697.defaultint)) {
-                                    addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, InterfaceManager.targetVerb, 60, true, Cursor.targetEnter, InterfaceManager.targetedVerb + " -> <col=00ffff>" + local1661.name, (long) local1654.hashCode(), false);
+                            if (InterfaceManager.targeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
+                                @Pc(1697) ParamType local1697 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
+                                if ((InterfaceManager.targetMask & 0x4) != 0 && (local1697 == null || local1661.param(local1697.defaultint, InterfaceManager.targetParam) != local1697.defaultint)) {
+                                    addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, InterfaceManager.targetVerb, 60, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=00ffff>" + local1661.name, (long) local1654.hashCode(), false);
                                 }
                             }
                             if (PlayerEntity.self.level == local543.aRenderable_18.level) {
@@ -412,7 +412,7 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!nca", name = "a", descriptor = "(ZIJIILjava/lang/String;IZILjava/lang/String;JBZ)V")
     public static void addEntry(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) long arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) String arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) String arg9, @OriginalArg(10) long arg10, @OriginalArg(12) boolean arg11) {
         if (!open && optionCount < 500) {
-            @Pc(20) int local20 = arg8 == -1 ? Cursor.targetEnd : arg8;
+            @Pc(20) int local20 = arg8 == -1 ? InterfaceManager.targetEndCursor : arg8;
             @Pc(36) DoublyLinkedNode_Sub2_Sub16 local36 = new DoublyLinkedNode_Sub2_Sub16(arg5, arg9, local20, arg6, arg1, arg2, arg3, arg4, arg7, arg0, arg10, arg11);
             Static84.method1662(local36);
         }
@@ -433,5 +433,14 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!ci", name = "a", descriptor = "(I)Z")
     public static boolean isPopulated() {
         return optionCount > 0;
+    }
+
+    @OriginalMember(owner = "client!cv", name = "b", descriptor = "(B)V")
+    public static void method1840() {
+        for (@Pc(4) DoublyLinkedNode_Sub2_Sub16 local4 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local4 != null; local4 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
+            if (Static466.method6326(local4.anInt7314)) {
+                Static679.method8911(local4);
+            }
+        }
     }
 }

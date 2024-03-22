@@ -31,12 +31,12 @@ public final class Static55 {
                 Static676.anInt10206 = arg2;
                 Static616.anInt9417 = 2;
                 Static305.anInt4882 = arg0;
-                @Pc(64) ClientMessage local64 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.cipher);
+                @Pc(64) ClientMessage local64 = ClientMessage.create(Static664.A_CLIENT_PROT___115, ConnectionManager.GAME.cipher);
                 local64.buffer.p2_alt1(local26);
-                local64.buffer.p4_alt1(Static450.anInt6819);
-                local64.buffer.p2(Static162.anInt2799);
+                local64.buffer.p4_alt1(InterfaceManager.targetSlot);
+                local64.buffer.p2(InterfaceManager.targetInvObj);
                 local64.buffer.p1_alt3(KeyMonitor.instance.isPressed(82) ? 1 : 0);
-                local64.buffer.p2_alt3(Static77.anInt1614);
+                local64.buffer.p2_alt3(InterfaceManager.targetComponent);
                 ConnectionManager.GAME.send(local64);
                 Static147.method2419(0, local44.pathY[0], local44.boundSize((byte) 99), true, local44.pathX[0], 0, -2, local44.boundSize((byte) 110));
             }
@@ -47,12 +47,12 @@ public final class Static55 {
             Static305.anInt4882 = arg0;
             Static481.anInt7215 = 0;
             Static676.anInt10206 = arg2;
-            local147 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.cipher);
+            local147 = ClientMessage.create(Static664.A_CLIENT_PROT___115, ConnectionManager.GAME.cipher);
             local147.buffer.p2_alt1(PlayerEntity.self.anInt10740);
-            local147.buffer.p4_alt1(Static450.anInt6819);
-            local147.buffer.p2(Static162.anInt2799);
+            local147.buffer.p4_alt1(InterfaceManager.targetSlot);
+            local147.buffer.p2(InterfaceManager.targetInvObj);
             local147.buffer.p1_alt3(KeyMonitor.instance.isPressed(82) ? 1 : 0);
-            local147.buffer.p2_alt3(Static77.anInt1614);
+            local147.buffer.p2_alt3(InterfaceManager.targetComponent);
             ConnectionManager.GAME.send(local147);
         }
         if (local22 == 12) {
@@ -71,7 +71,7 @@ public final class Static55 {
         }
         if (local22 == 58) {
             if (Static608.staffModLevel > 0 && KeyMonitor.instance.isPressed(82) && KeyMonitor.instance.isPressed(81)) {
-                Static624.teleport(PlayerEntity.self.level, Static116.areaBaseY + local19, Static691.areaBaseX + local16);
+                Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseY + local19, WorldMap.areaBaseX + local16);
             } else {
                 local147 = Static32.method878(local16, local19, local26);
                 if (local26 == 1) {
@@ -82,8 +82,8 @@ public final class Static55 {
                     local147.buffer.p1(Static29.anInt723);
                     local147.buffer.p1(Static660.anInt9835);
                     local147.buffer.p1(89);
-                    local147.buffer.p2(PlayerEntity.self.anInt10690);
-                    local147.buffer.p2(PlayerEntity.self.anInt10694);
+                    local147.buffer.p2(PlayerEntity.self.x);
+                    local147.buffer.p2(PlayerEntity.self.z);
                     local147.buffer.p1(63);
                 } else {
                     Static305.anInt4882 = arg0;
@@ -100,27 +100,27 @@ public final class Static55 {
             InterfaceManager.dialog = InterfaceList.getComponent(local16, local19);
             InterfaceManager.redraw(InterfaceManager.dialog);
         }
-        @Pc(389) Class345 local389 = null;
+        @Pc(389) ClientProt local389 = null;
         if (local22 == 2) {
-            local389 = Static424.aClass345_79;
+            local389 = Static424.A_CLIENT_PROT___79;
         } else if (local22 == 22) {
-            local389 = Static53.aClass345_7;
+            local389 = Static53.A_CLIENT_PROT___7;
         } else if (local22 == 52) {
-            local389 = Static412.aClass345_74;
+            local389 = Static412.A_CLIENT_PROT___74;
         } else if (local22 == 30) {
-            local389 = Static587.aClass345_104;
+            local389 = Static587.A_CLIENT_PROT___104;
         } else if (local22 == 53) {
-            local389 = Static675.aClass345_118;
+            local389 = Static675.A_CLIENT_PROT___118;
         } else if (local22 == 9) {
-            local389 = Static173.aClass345_30;
+            local389 = Static173.A_CLIENT_PROT___30;
         } else if (local22 == 51) {
-            local389 = Static273.aClass345_55;
+            local389 = Static273.A_CLIENT_PROT___55;
         } else if (local22 == 15) {
-            local389 = Static494.aClass345_89;
+            local389 = Static494.A_CLIENT_PROT___89;
         } else if (local22 == 48) {
-            local389 = Static571.aClass345_103;
+            local389 = Static571.A_CLIENT_PROT___103;
         } else if (local22 == 16) {
-            local389 = Static470.aClass345_88;
+            local389 = Static470.A_CLIENT_PROT___88;
         }
         @Pc(494) ClientMessage local494;
         if (local389 != null) {
@@ -130,51 +130,51 @@ public final class Static55 {
                 Static305.anInt4882 = arg0;
                 Static616.anInt9417 = 2;
                 Static676.anInt10206 = arg2;
-                local494 = Static293.method4335(local389, ConnectionManager.GAME.cipher);
+                local494 = ClientMessage.create(local389, ConnectionManager.GAME.cipher);
                 local494.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
                 local494.buffer.p2(local26);
                 ConnectionManager.GAME.send(local494);
                 Static147.method2419(0, local474.pathY[0], local474.boundSize((byte) 125), true, local474.pathX[0], 0, -2, local474.boundSize((byte) 60));
             }
         }
-        @Pc(548) Class345 local548 = null;
+        @Pc(548) ClientProt local548 = null;
         if (local22 == 25) {
-            local548 = Static235.aClass345_48;
+            local548 = Static235.A_CLIENT_PROT___48;
         } else if (local22 == 5) {
-            local548 = Static405.aClass345_73;
+            local548 = Static405.A_CLIENT_PROT___73;
         } else if (local22 == 50) {
-            local548 = Static631.aClass345_120;
+            local548 = Static631.A_CLIENT_PROT___120;
         } else if (local22 == 6) {
-            local548 = Static555.aClass345_99;
+            local548 = Static555.A_CLIENT_PROT___99;
         } else if (local22 == 45) {
-            local548 = Static87.aClass345_17;
+            local548 = Static87.A_CLIENT_PROT___17;
         } else if (local22 == 1007) {
-            local548 = Static214.aClass345_39;
+            local548 = Static214.A_CLIENT_PROT___39;
         }
         if (local548 != null) {
             Static305.anInt4882 = arg0;
             Static481.anInt7215 = 0;
             Static616.anInt9417 = 2;
             Static676.anInt10206 = arg2;
-            local494 = Static293.method4335(local548, ConnectionManager.GAME.cipher);
+            local494 = ClientMessage.create(local548, ConnectionManager.GAME.cipher);
             local494.buffer.p2_alt2(local26);
             local494.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
-            local494.buffer.p2(local19 + Static116.areaBaseY);
-            local494.buffer.p2_alt1(Static691.areaBaseX + local16);
+            local494.buffer.p2(local19 + WorldMap.areaBaseY);
+            local494.buffer.p2_alt1(WorldMap.areaBaseX + local16);
             ConnectionManager.GAME.send(local494);
             Static414.method5697(local19, local16);
         }
         if (local22 == 11) {
             if (Static608.staffModLevel > 0 && KeyMonitor.instance.isPressed(82) && KeyMonitor.instance.isPressed(81)) {
-                Static624.teleport(PlayerEntity.self.level, Static116.areaBaseY + local19, Static691.areaBaseX + local16);
+                Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseY + local19, WorldMap.areaBaseX + local16);
             } else {
                 Static481.anInt7215 = 0;
                 Static676.anInt10206 = arg2;
                 Static616.anInt9417 = 1;
                 Static305.anInt4882 = arg0;
-                local494 = Static293.method4335(Static512.aClass345_96, ConnectionManager.GAME.cipher);
-                local494.buffer.p2_alt3(local19 + Static116.areaBaseY);
-                local494.buffer.p2_alt1(Static691.areaBaseX + local16);
+                local494 = ClientMessage.create(Static512.A_CLIENT_PROT___96, ConnectionManager.GAME.cipher);
+                local494.buffer.p2_alt3(local19 + WorldMap.areaBaseY);
+                local494.buffer.p2_alt1(WorldMap.areaBaseX + local16);
                 ConnectionManager.GAME.send(local494);
             }
         }
@@ -184,19 +184,19 @@ public final class Static55 {
                 Static312.method4542(local741);
             }
         }
-        @Pc(750) Class345 local750 = null;
+        @Pc(750) ClientProt local750 = null;
         if (local22 == 49) {
-            local750 = Static297.aClass345_59;
+            local750 = Static297.A_CLIENT_PROT___59;
         } else if (local22 == 59) {
-            local750 = Static546.aClass345_97;
+            local750 = ClientProt.A_CLIENT_PROT___97;
         } else if (local22 == 47) {
-            local750 = Static131.aClass345_25;
+            local750 = Static131.A_CLIENT_PROT___25;
         } else if (local22 == 57) {
-            local750 = Static305.aClass345_60;
+            local750 = Static305.A_CLIENT_PROT___60;
         } else if (local22 == 3) {
-            local750 = Static420.aClass345_78;
+            local750 = Static420.A_CLIENT_PROT___78;
         } else if (local22 == 1011) {
-            local750 = Static591.aClass345_107;
+            local750 = Static591.A_CLIENT_PROT___107;
         }
         if (local750 != null) {
             @Pc(806) Node_Sub45 local806 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local26);
@@ -206,26 +206,26 @@ public final class Static55 {
                 Static616.anInt9417 = 2;
                 Static305.anInt4882 = arg0;
                 Static481.anInt7215 = 0;
-                @Pc(831) ClientMessage local831 = Static293.method4335(local750, ConnectionManager.GAME.cipher);
+                @Pc(831) ClientMessage local831 = ClientMessage.create(local750, ConnectionManager.GAME.cipher);
                 local831.buffer.p1_alt1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
                 local831.buffer.p2_alt2(local26);
                 ConnectionManager.GAME.send(local831);
                 Static147.method2419(0, local813.pathY[0], local813.boundSize((byte) 76), true, local813.pathX[0], 0, -2, local813.boundSize((byte) 103));
             }
         }
-        @Pc(878) Class345 local878 = null;
+        @Pc(878) ClientProt local878 = null;
         if (local22 == 19) {
-            local878 = Static57.aClass345_10;
+            local878 = Static57.A_CLIENT_PROT___10;
         } else if (local22 == 13) {
-            local878 = Static180.aClass345_33;
+            local878 = Static180.A_CLIENT_PROT___33;
         } else if (local22 == 46) {
-            local878 = Static402.aClass345_72;
+            local878 = Static402.A_CLIENT_PROT___72;
         } else if (local22 == 8) {
-            local878 = Static185.aClass345_35;
+            local878 = Static185.A_CLIENT_PROT___35;
         } else if (local22 == 1010) {
-            local878 = Static236.aClass345_50;
+            local878 = Static236.A_CLIENT_PROT___50;
         } else if (local22 == 1008) {
-            local878 = Static342.aClass345_61;
+            local878 = Static342.A_CLIENT_PROT___61;
         }
         @Pc(949) ClientMessage local949;
         if (local878 != null) {
@@ -233,11 +233,11 @@ public final class Static55 {
             Static616.anInt9417 = 2;
             Static481.anInt7215 = 0;
             Static676.anInt10206 = arg2;
-            local949 = Static293.method4335(local878, ConnectionManager.GAME.cipher);
+            local949 = ClientMessage.create(local878, ConnectionManager.GAME.cipher);
             local949.buffer.p1_alt1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
-            local949.buffer.p2_alt2(Static691.areaBaseX + local16);
+            local949.buffer.p2_alt2(WorldMap.areaBaseX + local16);
             local949.buffer.p2_alt3((int) (local35 >>> 32) & Integer.MAX_VALUE);
-            local949.buffer.p2_alt1(local19 + Static116.areaBaseY);
+            local949.buffer.p2_alt1(local19 + WorldMap.areaBaseY);
             ConnectionManager.GAME.send(local949);
             Static38.method1001(local16, local35, local19);
         }
@@ -249,12 +249,12 @@ public final class Static55 {
             Static616.anInt9417 = 1;
             Static305.anInt4882 = arg0;
             Static481.anInt7215 = 0;
-            local949 = Static293.method4335(Static181.aClass345_34, ConnectionManager.GAME.cipher);
-            local949.buffer.p2_alt2(Static691.areaBaseX + local16);
-            local949.buffer.p2_alt1(Static162.anInt2799);
-            local949.buffer.p4_alt2(Static450.anInt6819);
-            local949.buffer.p2_alt2(Static116.areaBaseY + local19);
-            local949.buffer.p2(Static77.anInt1614);
+            local949 = ClientMessage.create(Static181.A_CLIENT_PROT___34, ConnectionManager.GAME.cipher);
+            local949.buffer.p2_alt2(WorldMap.areaBaseX + local16);
+            local949.buffer.p2_alt1(InterfaceManager.targetInvObj);
+            local949.buffer.p4_alt2(InterfaceManager.targetSlot);
+            local949.buffer.p2_alt2(WorldMap.areaBaseY + local19);
+            local949.buffer.p2(InterfaceManager.targetComponent);
             ConnectionManager.GAME.send(local949);
             Static147.method2419(0, local19, 1, true, local16, 0, -4, 1);
         }
@@ -263,12 +263,12 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static305.anInt4882 = arg0;
             Static676.anInt10206 = arg2;
-            local949 = Static293.method4335(Static175.aClass345_31, ConnectionManager.GAME.cipher);
-            local949.buffer.p2(local16 + Static691.areaBaseX);
-            local949.buffer.p2(Static116.areaBaseY + local19);
-            local949.buffer.p2_alt3(Static162.anInt2799);
-            local949.buffer.p4_alt3(Static450.anInt6819);
-            local949.buffer.p2_alt1(Static77.anInt1614);
+            local949 = ClientMessage.create(Static175.A_CLIENT_PROT___31, ConnectionManager.GAME.cipher);
+            local949.buffer.p2(local16 + WorldMap.areaBaseX);
+            local949.buffer.p2(WorldMap.areaBaseY + local19);
+            local949.buffer.p2_alt3(InterfaceManager.targetInvObj);
+            local949.buffer.p4_alt3(InterfaceManager.targetSlot);
+            local949.buffer.p2_alt1(InterfaceManager.targetComponent);
             local949.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
             local949.buffer.p2_alt1(local26);
             ConnectionManager.GAME.send(local949);
@@ -282,11 +282,11 @@ public final class Static55 {
                 Static616.anInt9417 = 2;
                 Static676.anInt10206 = arg2;
                 Static305.anInt4882 = arg0;
-                @Pc(1223) ClientMessage local1223 = Static293.method4335(Static503.aClass345_94, ConnectionManager.GAME.cipher);
-                local1223.buffer.p2_alt3(Static77.anInt1614);
-                local1223.buffer.p2_alt1(Static162.anInt2799);
+                @Pc(1223) ClientMessage local1223 = ClientMessage.create(Static503.A_CLIENT_PROT___94, ConnectionManager.GAME.cipher);
+                local1223.buffer.p2_alt3(InterfaceManager.targetComponent);
+                local1223.buffer.p2_alt1(InterfaceManager.targetInvObj);
                 local1223.buffer.p2_alt1(local26);
-                local1223.buffer.p4_alt3(Static450.anInt6819);
+                local1223.buffer.p4_alt3(InterfaceManager.targetSlot);
                 local1223.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
                 ConnectionManager.GAME.send(local1223);
                 Static147.method2419(0, local1205.pathY[0], local1205.boundSize((byte) 44), true, local1205.pathX[0], 0, -2, local1205.boundSize((byte) 50));
@@ -300,18 +300,18 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static305.anInt4882 = arg0;
             Static616.anInt9417 = 2;
-            local949 = Static293.method4335(Static419.aClass345_77, ConnectionManager.GAME.cipher);
+            local949 = ClientMessage.create(Static419.A_CLIENT_PROT___77, ConnectionManager.GAME.cipher);
             local949.buffer.p1_alt2(KeyMonitor.instance.isPressed(82) ? 1 : 0);
-            local949.buffer.p2_alt1(Static116.areaBaseY + local19);
-            local949.buffer.p2_alt1(Static77.anInt1614);
-            local949.buffer.p4_alt1(Static450.anInt6819);
-            local949.buffer.p2_alt3(Static162.anInt2799);
-            local949.buffer.p2_alt1(local16 + Static691.areaBaseX);
+            local949.buffer.p2_alt1(WorldMap.areaBaseY + local19);
+            local949.buffer.p2_alt1(InterfaceManager.targetComponent);
+            local949.buffer.p4_alt1(InterfaceManager.targetSlot);
+            local949.buffer.p2_alt3(InterfaceManager.targetInvObj);
+            local949.buffer.p2_alt1(local16 + WorldMap.areaBaseX);
             local949.buffer.p2_alt2(Integer.MAX_VALUE & (int) (local35 >>> 32));
             ConnectionManager.GAME.send(local949);
             Static38.method1001(local16, local35, local19);
         }
-        if (InterfaceManager.isTargeting) {
+        if (InterfaceManager.targeting) {
             InterfaceManager.endTargetMode();
         }
         if (Static67.aComponent_10 != null && Static499.anInt7501 == 0) {

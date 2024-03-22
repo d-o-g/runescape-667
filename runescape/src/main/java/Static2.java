@@ -49,15 +49,15 @@ public final class Static2 {
     @OriginalMember(owner = "client!aaa", name = "b", descriptor = "(II)V")
     public static void method65(@OriginalArg(1) int arg0) {
         if (arg0 == 37) {
-            Static30.aFloat106 = 3.0F;
+            WorldMap.targetZoom = 3.0F;
         } else if (arg0 == 50) {
-            Static30.aFloat106 = 4.0F;
+            WorldMap.targetZoom = 4.0F;
         } else if (arg0 == 75) {
-            Static30.aFloat106 = 6.0F;
+            WorldMap.targetZoom = 6.0F;
         } else if (arg0 == 100) {
-            Static30.aFloat106 = 8.0F;
+            WorldMap.targetZoom = 8.0F;
         } else if (arg0 == 200) {
-            Static30.aFloat106 = 16.0F;
+            WorldMap.targetZoom = 16.0F;
         }
         Static558.anInt3181 = -1;
         Static558.anInt3181 = -1;

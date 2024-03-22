@@ -139,7 +139,7 @@ public final class Component {
     public Object[] onDragComplete;
 
     @OriginalMember(owner = "client!hda", name = "eb", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray6;
+    public Object[] onSubChange;
 
     @OriginalMember(owner = "client!hda", name = "rb", descriptor = "[S")
     public short[] retex_d;
@@ -214,10 +214,10 @@ public final class Component {
     public Object[] onVarcstrTransmit;
 
     @OriginalMember(owner = "client!hda", name = "od", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray19;
+    public Object[] onResize;
 
     @OriginalMember(owner = "client!hda", name = "B", descriptor = "[Ljava/lang/Object;")
-    public Object[] anObjectArray20;
+    public Object[] onDialogAbort;
 
     @OriginalMember(owner = "client!hda", name = "H", descriptor = "Ljava/lang/String;")
     public String pauseText;
@@ -421,7 +421,7 @@ public final class Component {
     public String targetVerb = "";
 
     @OriginalMember(owner = "client!hda", name = "S", descriptor = "I")
-    public int anInt3750 = 1;
+    public int aspectRatioWidth = 1;
 
     @OriginalMember(owner = "client!hda", name = "gd", descriptor = "I")
     public int lineHeight = 0;
@@ -490,7 +490,7 @@ public final class Component {
     public int positionY = 0;
 
     @OriginalMember(owner = "client!hda", name = "g", descriptor = "I")
-    public int anInt3795 = 1;
+    public int aspectRatioHeight = 1;
 
     @OriginalMember(owner = "client!hda", name = "Kc", descriptor = "I")
     public int scrollWidth = 0;
@@ -1129,7 +1129,7 @@ public final class Component {
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(I)V")
     public void clearScriptHooks() {
         this.onOpT = null;
-        this.anObjectArray20 = null;
+        this.onDialogAbort = null;
         this.onDragComplete = null;
         this.onRelease = null;
         this.inventoryTriggers = null;
@@ -1139,7 +1139,7 @@ public final class Component {
         this.varpTriggers = null;
         this.onVarcTransmit = null;
         this.onDrag = null;
-        this.anObjectArray19 = null;
+        this.onResize = null;
         this.onScrollWheel = null;
         this.varcstrTriggers = null;
         this.onOp = null;
@@ -1156,7 +1156,7 @@ public final class Component {
         this.onLoad = null;
         this.onStockTransmit = null;
         this.onKey = null;
-        this.anObjectArray6 = null;
+        this.onSubChange = null;
         this.onFriendTransmit = null;
         this.onClickRepeat = null;
         this.onTimer = null;

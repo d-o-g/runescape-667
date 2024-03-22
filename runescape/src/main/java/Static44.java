@@ -23,8 +23,8 @@ public final class Static44 {
             local24 = local7.width;
             local27 = local7.height;
         }
-        Static507.method6743(false, local27, local24, arg0);
-        Static470.method6383(arg0, local24, local27, -8525);
+        InterfaceManager.resize(false, local27, local24, arg0);
+        InterfaceManager.calculateDimensions(arg0, local24, local27, -8525);
     }
 
     @OriginalMember(owner = "client!bia", name = "a", descriptor = "(Lclient!bp;I)V")

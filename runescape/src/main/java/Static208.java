@@ -41,10 +41,10 @@ public final class Static208 {
         KeyMonitor.instance.method8482();
         MouseMonitor.instance.remove();
         client.aClient1.method1641();
-        Static434.aCanvas7.setBackground(Color.black);
+        Static434.canvas.setBackground(Color.black);
         Static470.anInt7112 = -1;
-        KeyMonitor.instance = Static681.method8921(Static434.aCanvas7);
-        MouseMonitor.instance = MouseMonitor.create(Static434.aCanvas7);
+        KeyMonitor.instance = Static681.method8921(Static434.canvas);
+        MouseMonitor.instance = MouseMonitor.create(Static434.canvas);
     }
 
     @OriginalMember(owner = "client!gha", name = "a", descriptor = "(Lclient!eo;Z[[[BIB)Z")
@@ -52,9 +52,9 @@ public final class Static208 {
         if (!Static581.aBoolean657) {
             return false;
         }
-        @Pc(9) int local9 = arg0.anInt10690 >> Static52.anInt1066;
+        @Pc(9) int local9 = arg0.x >> Static52.anInt1066;
         @Pc(11) int local11 = local9;
-        @Pc(16) int local16 = arg0.anInt10694 >> Static52.anInt1066;
+        @Pc(16) int local16 = arg0.z >> Static52.anInt1066;
         @Pc(18) int local18 = local16;
         if (arg0 instanceof PositionEntity) {
             local11 = ((PositionEntity) arg0).aShort134;

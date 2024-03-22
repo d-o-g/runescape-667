@@ -9,7 +9,7 @@ public final class Static669 {
     public static final ReferenceCache A_WEIGHTED_CACHE___215 = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!vd", name = "k", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_116 = new Class345(51, -1);
+    public static final ClientProt A_CLIENT_PROT___116 = new ClientProt(51, -1);
 
     @OriginalMember(owner = "client!vd", name = "m", descriptor = "I")
     public static int anInt9996 = -1;
@@ -19,7 +19,7 @@ public final class Static669 {
         Static180.anInt3001 = -1;
         Static558.anInt3181 = -1;
         Static164.anInt2809 = arg0;
-        Static387.method5440();
+        WorldMap.method5440();
     }
 
     @OriginalMember(owner = "client!vd", name = "a", descriptor = "(Lclient!pq;ZLclient!pq;II)I")

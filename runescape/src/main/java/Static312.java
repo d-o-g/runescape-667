@@ -24,24 +24,24 @@ public final class Static312 {
 
     @OriginalMember(owner = "client!jt", name = "a", descriptor = "(BLclient!hda;)V")
     public static void method4542(@OriginalArg(1) Component arg0) {
-        if (!InterfaceManager.isTargeting) {
+        if (!InterfaceManager.targeting) {
             return;
         }
         if (arg0.onOpT != null) {
-            @Pc(17) Component local17 = InterfaceList.getComponent(Static77.anInt1614, Static450.anInt6819);
+            @Pc(17) Component local17 = InterfaceList.getComponent(InterfaceManager.targetComponent, InterfaceManager.targetSlot);
             if (local17 != null) {
                 @Pc(23) HookRequest local23 = new HookRequest();
                 local23.arguments = arg0.onOpT;
                 local23.source = arg0;
                 local23.aComponent_13 = local17;
-                Static472.method6420(local23);
+                ScriptRunner.executeHookInner(local23);
             }
         }
-        @Pc(45) ClientMessage local45 = Static293.method4335(Static505.aClass345_119, ConnectionManager.GAME.cipher);
+        @Pc(45) ClientMessage local45 = ClientMessage.create(Static505.A_CLIENT_PROT___119, ConnectionManager.GAME.cipher);
         local45.buffer.p4_alt2(arg0.slot);
-        local45.buffer.p2_alt2(Static162.anInt2799);
-        local45.buffer.p2_alt3(Static77.anInt1614);
-        local45.buffer.p4_alt3(Static450.anInt6819);
+        local45.buffer.p2_alt2(InterfaceManager.targetInvObj);
+        local45.buffer.p2_alt3(InterfaceManager.targetComponent);
+        local45.buffer.p4_alt3(InterfaceManager.targetSlot);
         local45.buffer.p2_alt2(arg0.invObject);
         local45.buffer.p2_alt1(arg0.id);
         ConnectionManager.GAME.send(local45);

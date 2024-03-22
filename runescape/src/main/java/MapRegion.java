@@ -28,7 +28,7 @@ public final class MapRegion extends Class306 {
 
     @OriginalMember(owner = "client!taa", name = "<init>", descriptor = "(IIIZ)V")
     public MapRegion(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
-        super(arg0, arg1, arg2, arg3, Static467.aClass96_3, Static540.aClass79_6);
+        super(arg0, arg1, arg2, arg3, Static467.aFloorOverlayTypeList_3, Static540.aFloorUnderlayTypeList_6);
     }
 
     @OriginalMember(owner = "client!aq", name = "a", descriptor = "(ZIII)I")

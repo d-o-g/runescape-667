@@ -14,12 +14,9 @@ public final class Static77 {
     @OriginalMember(owner = "client!ci", name = "d", descriptor = "Lclient!kda;")
     public static final Class204 aClass204_1 = new Class204(1, 2);
 
-    @OriginalMember(owner = "client!ci", name = "h", descriptor = "I")
-    public static int anInt1614 = -1;
-
     @OriginalMember(owner = "client!ci", name = "a", descriptor = "(IZ)V")
     public static void method1557() {
-        @Pc(13) ClientMessage local13 = Static293.method4335(Static317.aClass345_62, ConnectionManager.GAME.cipher);
+        @Pc(13) ClientMessage local13 = ClientMessage.create(Static317.A_CLIENT_PROT___62, ConnectionManager.GAME.cipher);
         ConnectionManager.GAME.send(local13);
         for (@Pc(22) SubInterface local22 = (SubInterface) InterfaceManager.subInterfaces.first(); local22 != null; local22 = (SubInterface) InterfaceManager.subInterfaces.next()) {
             if (!local22.isLinked()) {

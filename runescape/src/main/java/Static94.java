@@ -12,15 +12,6 @@ public final class Static94 {
     @OriginalMember(owner = "client!cv", name = "n", descriptor = "Lclient!it;")
     public static final Class184 aClass184_5 = new Class184(8, 0, 4, 1);
 
-    @OriginalMember(owner = "client!cv", name = "b", descriptor = "(B)V")
-    public static void method1840() {
-        for (@Pc(4) DoublyLinkedNode_Sub2_Sub16 local4 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local4 != null; local4 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
-            if (Static466.method6326(local4.anInt7314)) {
-                Static679.method8911(local4);
-            }
-        }
-    }
-
     @OriginalMember(owner = "client!cv", name = "b", descriptor = "(I)V")
     public static void method1841() {
         Static524.aServerConnection_3.clear();

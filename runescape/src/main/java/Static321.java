@@ -8,7 +8,7 @@ public final class Static321 {
     public static int anInt5113;
 
     @OriginalMember(owner = "client!kca", name = "w", descriptor = "Lclient!ss;")
-    public static final Class345 VIDEO_STOP = new Class345(58, 2);
+    public static final ClientProt VIDEO_STOP = new ClientProt(58, 2);
 
     @OriginalMember(owner = "client!kca", name = "y", descriptor = "I")
     public static int lastMiscTransmit = 0;

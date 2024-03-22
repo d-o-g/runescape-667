@@ -1,5 +1,4 @@
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.runetek6.config.iftype.SubInterface;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -49,13 +48,13 @@ public final class Static84 {
             }
             @Pc(68) int local68 = local36.boundSize((byte) 81);
             if ((local68 & 0x1) == 0) {
-                if ((local36.anInt10690 & 0x1FF) == 0 && (local36.anInt10694 & 0x1FF) == 0) {
+                if ((local36.x & 0x1FF) == 0 && (local36.z & 0x1FF) == 0) {
                     continue;
                 }
-            } else if ((local36.anInt10690 & 0x1FF) == 256 && (local36.anInt10694 & 0x1FF) == 256) {
+            } else if ((local36.x & 0x1FF) == 256 && (local36.z & 0x1FF) == 256) {
                 continue;
             }
-            local36.anInt10691 = Static102.method2025(local36.level, -29754, local36.anInt10694, local36.anInt10690);
+            local36.anInt10691 = Static102.method2025(local36.level, -29754, local36.z, local36.x);
             Static102.method2026(local36, true);
         }
     }
@@ -95,11 +94,11 @@ public final class Static84 {
             local36.anInt10735 = 0;
             @Pc(80) int local80 = local36.boundSize((byte) 121);
             if ((local80 & 0x1) == 0) {
-                if ((local36.anInt10690 & 0x1FF) != 0 || (local36.anInt10694 & 0x1FF) != 0) {
+                if ((local36.x & 0x1FF) != 0 || (local36.z & 0x1FF) != 0) {
                     local36.aBoolean816 = false;
                     continue;
                 }
-            } else if ((local36.anInt10690 & 0x1FF) != 256 || (local36.anInt10694 & 0x1FF) != 256) {
+            } else if ((local36.x & 0x1FF) != 256 || (local36.z & 0x1FF) != 256) {
                 local36.aBoolean816 = false;
                 continue;
             }
@@ -108,8 +107,8 @@ public final class Static84 {
                 @Pc(140) int local140;
                 @Pc(166) int local166;
                 if (local80 == 1) {
-                    local135 = local36.anInt10690 >> 9;
-                    local140 = local36.anInt10694 >> 9;
+                    local135 = local36.x >> 9;
+                    local140 = local36.z >> 9;
                     if (local36.drawPriority != Static341.anIntArrayArray133[local135][local140]) {
                         local36.aBoolean816 = true;
                         continue;
@@ -121,10 +120,10 @@ public final class Static84 {
                     }
                 } else {
                     local135 = (local80 - 1) * 256 + 252;
-                    local140 = local36.anInt10690 - local135 >> 9;
-                    @Pc(196) int local196 = local36.anInt10694 - local135 >> 9;
-                    @Pc(203) int local203 = local36.anInt10690 + local135 >> 9;
-                    @Pc(210) int local210 = local36.anInt10694 + local135 >> 9;
+                    local140 = local36.x - local135 >> 9;
+                    @Pc(196) int local196 = local36.z - local135 >> 9;
+                    @Pc(203) int local203 = local36.x + local135 >> 9;
+                    @Pc(210) int local210 = local36.z + local135 >> 9;
                     if (!Static426.method1017(local203, local210, local140, local196, local36.drawPriority)) {
                         for (@Pc(221) int local221 = local140; local221 <= local203; local221++) {
                             for (@Pc(224) int local224 = local196; local224 <= local210; local224++) {
@@ -139,7 +138,7 @@ public final class Static84 {
                 }
             }
             local36.aBoolean816 = false;
-            local36.anInt10691 = Static102.method2025(local36.level, -29754, local36.anInt10694, local36.anInt10690);
+            local36.anInt10691 = Static102.method2025(local36.level, -29754, local36.z, local36.x);
             Static102.method2026(local36, true);
         }
     }
@@ -296,43 +295,6 @@ public final class Static84 {
         }
     }
 
-    @OriginalMember(owner = "client!client", name = "a", descriptor = "([Lclient!hda;II)V")
-    public static void method1663(@OriginalArg(0) Component[] arg0, @OriginalArg(2) int arg1) {
-        for (@Pc(1) int local1 = 0; local1 < arg0.length; local1++) {
-            @Pc(11) Component local11 = arg0[local1];
-            if (local11 != null) {
-                if (local11.type == 0) {
-                    if (local11.dynamicComponents != null) {
-                        method1663(local11.dynamicComponents, arg1);
-                    }
-                    @Pc(38) SubInterface local38 = (SubInterface) InterfaceManager.subInterfaces.get((long) local11.slot);
-                    if (local38 != null) {
-                        Static145.method2411(arg1, local38.id);
-                    }
-                }
-                @Pc(58) HookRequest local58;
-                if (arg1 == 0 && local11.anObjectArray20 != null) {
-                    local58 = new HookRequest();
-                    local58.source = local11;
-                    local58.arguments = local11.anObjectArray20;
-                    Static472.method6420(local58);
-                }
-                if (arg1 == 1 && local11.anObjectArray6 != null) {
-                    if (local11.id >= 0) {
-                        @Pc(88) Component local88 = InterfaceList.list(local11.slot);
-                        if (local88 == null || local88.staticComponents == null || local88.staticComponents.length <= local11.id || local88.staticComponents[local11.id] != local11) {
-                            continue;
-                        }
-                    }
-                    local58 = new HookRequest();
-                    local58.source = local11;
-                    local58.arguments = local11.anObjectArray6;
-                    Static472.method6420(local58);
-                }
-            }
-        }
-    }
-
     @OriginalMember(owner = "client!client", name = "c", descriptor = "()V")
     public static void method1664() {
         Static172.anInt2893 = 0;
@@ -340,8 +302,8 @@ public final class Static84 {
             @Pc(14) NPCEntity local14 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local3])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local14.aBoolean816 && local14.method9304((byte) -123) != -1) {
                 @Pc(34) int local34 = (local14.boundSize((byte) 63) - 1) * 256 + 252;
-                @Pc(41) int local41 = local14.anInt10690 - local34 >> 9;
-                @Pc(48) int local48 = local14.anInt10694 - local34 >> 9;
+                @Pc(41) int local41 = local14.x - local34 >> 9;
+                @Pc(48) int local48 = local14.z - local34 >> 9;
                 @Pc(55) Class8_Sub2_Sub1_Sub2 local55 = Static184.method2798(local41, local48, local14.level);
                 if (local55 != null) {
                     @Pc(60) int local60 = local55.anInt10740;
@@ -404,18 +366,18 @@ public final class Static84 {
             }
             @Pc(69) int local69 = local31.boundSize((byte) 102);
             if ((local69 & 0x1) == 0) {
-                if ((local31.anInt10690 & 0x1FF) != 0 || (local31.anInt10694 & 0x1FF) != 0) {
+                if ((local31.x & 0x1FF) != 0 || (local31.z & 0x1FF) != 0) {
                     continue;
                 }
-            } else if ((local31.anInt10690 & 0x1FF) != 256 || (local31.anInt10694 & 0x1FF) != 256) {
+            } else if ((local31.x & 0x1FF) != 256 || (local31.z & 0x1FF) != 256) {
                 continue;
             }
             @Pc(113) int local113;
             @Pc(118) int local118;
             @Pc(155) int local155;
             if (local69 == 1) {
-                local113 = local31.anInt10690 >> 9;
-                local118 = local31.anInt10694 >> 9;
+                local113 = local31.x >> 9;
+                local118 = local31.z >> 9;
                 if (local31.drawPriority > Static341.anIntArrayArray133[local113][local118]) {
                     Static341.anIntArrayArray133[local113][local118] = local31.drawPriority;
                     Static148.anIntArrayArray64[local113][local118] = 1;
@@ -424,10 +386,10 @@ public final class Static84 {
                 }
             } else {
                 local113 = (local69 - 1) * 256 + 60;
-                local118 = local31.anInt10690 - local113 >> 9;
-                @Pc(182) int local182 = local31.anInt10694 - local113 >> 9;
-                @Pc(189) int local189 = local31.anInt10690 + local113 >> 9;
-                @Pc(196) int local196 = local31.anInt10694 + local113 >> 9;
+                local118 = local31.x - local113 >> 9;
+                @Pc(182) int local182 = local31.z - local113 >> 9;
+                @Pc(189) int local189 = local31.x + local113 >> 9;
+                @Pc(196) int local196 = local31.z + local113 >> 9;
                 for (@Pc(198) int local198 = local118; local198 <= local189; local198++) {
                     for (@Pc(201) int local201 = local182; local201 <= local196; local201++) {
                         if (local31.drawPriority > Static341.anIntArrayArray133[local198][local201]) {

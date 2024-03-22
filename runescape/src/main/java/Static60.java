@@ -26,7 +26,7 @@ public final class Static60 {
         Static696.aBoolean784 = arg1;
         Static529.anInt8089 = arg2;
         Static227.anInt3694 = arg3;
-        Static30.method5072(arg0);
+        WorldMap.setArea(arg0);
         if (arg4 != -11493) {
             aBoolean86 = false;
         }

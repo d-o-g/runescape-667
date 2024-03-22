@@ -7,7 +7,7 @@ public final class Login {
 
     @OriginalMember(owner = "client!he", name = "a", descriptor = "(IZ)V")
     public static void logout(@OriginalArg(1) boolean arg0) {
-        @Pc(12) ServerConnection[] local12 = Static405.A_SERVER_CONNECTION_ARRAY_1;
+        @Pc(12) ServerConnection[] local12 = ConnectionManager.VALUES;
         for (@Pc(14) int local14 = 0; local14 < local12.length; local14++) {
             @Pc(19) ServerConnection local19 = local12[local14];
             local19.close();

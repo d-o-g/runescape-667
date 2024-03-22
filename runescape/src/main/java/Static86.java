@@ -13,5 +13,5 @@ public final class Static86 {
     public static int anInt1798 = 0;
 
     @OriginalMember(owner = "client!cma", name = "H", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_16 = new Class345(8, -1);
+    public static final ClientProt A_CLIENT_PROT___16 = new ClientProt(8, -1);
 }

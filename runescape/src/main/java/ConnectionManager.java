@@ -8,6 +8,9 @@ public final class ConnectionManager {
     @OriginalMember(owner = "client!mn", name = "k", descriptor = "Lclient!gw;")
     public static final ServerConnection LOBBY = new ServerConnection();
 
+    @OriginalMember(owner = "client!mn", name = "f", descriptor = "[Lclient!gw;")
+    public static final ServerConnection[] VALUES = new ServerConnection[]{GAME, LOBBY};
+
     @OriginalMember(owner = "client!oo", name = "q", descriptor = "Lclient!vn;")
     public static Connection reconnect;
 

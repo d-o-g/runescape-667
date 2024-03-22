@@ -110,7 +110,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             this.method9278((Toolkit) null, 104);
         }
         @Pc(16) Matrix local16 = arg3.scratchMatrix();
-        local16.method7125(super.anInt10690, super.anInt10691 - 10, super.anInt10694);
+        local16.method7125(super.x, super.anInt10691 - 10, super.z);
         @Pc(32) ObjType local32 = Static419.objTypeList.list(this.anInt8867);
         @Pc(42) Model local42 = local32.model((Animator) null, 131072, (PlayerModel) null, this.anInt8873, arg3);
         if (local42 != null && (Static504.aBoolean579 ? local42.pickedOrtho(arg1, arg0, local16, true, local32.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local32.picksizeshift))) {
@@ -143,8 +143,8 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
     @OriginalMember(owner = "client!sv", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
-        @Pc(17) Class286 local17 = Static467.method6351(super.level, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
-        @Pc(29) GroundDecor local29 = Static687.method8959(super.level, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
+        @Pc(17) Class286 local17 = Static467.method6351(super.level, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
+        @Pc(29) GroundDecor local29 = Static687.method8959(super.level, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
         @Pc(31) int local31 = 0;
         if (local17 != null && local17.aPositionEntity.aBoolean815) {
             local31 = local17.aPositionEntity.method9286(2);
@@ -164,16 +164,16 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             @Pc(115) int local115 = this.anInt8879 << 1;
             @Pc(122) int local122 = -local115 / 2;
             @Pc(127) int local127 = -local115 / 2;
-            @Pc(139) int local139 = local110.method7878(super.anInt10694 + local127, local122 + super.anInt10690);
+            @Pc(139) int local139 = local110.method7878(super.z + local127, local122 + super.x);
             @Pc(143) int local143 = local115 / 2;
             @Pc(148) int local148 = -local115 / 2;
-            @Pc(161) int local161 = local110.method7878(super.anInt10694 + local148, local143 + super.anInt10690);
+            @Pc(161) int local161 = local110.method7878(super.z + local148, local143 + super.x);
             @Pc(166) int local166 = -local115 / 2;
             @Pc(170) int local170 = local115 / 2;
-            @Pc(182) int local182 = local110.method7878(local170 + super.anInt10694, super.anInt10690 + local166);
+            @Pc(182) int local182 = local110.method7878(local170 + super.z, super.x + local166);
             @Pc(186) int local186 = local115 / 2;
             @Pc(190) int local190 = local115 / 2;
-            @Pc(203) int local203 = local110.method7878(super.anInt10694 + local190, local186 + super.anInt10690);
+            @Pc(203) int local203 = local110.method7878(super.z + local190, local186 + super.x);
             @Pc(215) int local215 = local161 > local139 ? local139 : local161;
             @Pc(223) int local223 = local203 > local182 ? local182 : local203;
             @Pc(235) int local235 = local161 < local203 ? local161 : local203;
@@ -199,7 +199,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
                 local94.translate(0, local297, 0);
             }
         }
-        local94.translate(super.anInt10690, super.anInt10691 - 10, super.anInt10694);
+        local94.translate(super.x, super.anInt10691 - 10, super.z);
         @Pc(345) Class8_Sub7 local345 = Static642.method8441(true, 3);
         this.anInt8879 = 0;
         this.aBoolean672 = false;

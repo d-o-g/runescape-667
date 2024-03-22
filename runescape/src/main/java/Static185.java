@@ -14,7 +14,7 @@ public final class Static185 {
     public static final Class121 aClass121_3 = new Class121();
 
     @OriginalMember(owner = "client!fn", name = "s", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_35 = new Class345(0, 7);
+    public static final ClientProt A_CLIENT_PROT___35 = new ClientProt(0, 7);
 
     @OriginalMember(owner = "client!fn", name = "a", descriptor = "(Lclient!ha;IIIIIIII)V")
     public static void method2814(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
@@ -45,13 +45,13 @@ public final class Static185 {
                 }
                 if (local30 == 3) {
                     if (local26 == 0) {
-                        arg0.method7971(1, 1, arg5, arg4, local45);
+                        arg0.fillRect(1, 1, arg5, arg4, local45);
                     } else if (local26 == 1) {
-                        arg0.method7971(1, 1, arg5, arg4 + 3, local45);
+                        arg0.fillRect(1, 1, arg5, arg4 + 3, local45);
                     } else if (local26 == 2) {
-                        arg0.method7971(1, 1, arg5 + 3, arg4 + 3, local45);
+                        arg0.fillRect(1, 1, arg5 + 3, arg4 + 3, local45);
                     } else if (local26 == 3) {
-                        arg0.method7971(1, 1, arg5 + 3, arg4, local45);
+                        arg0.fillRect(1, 1, arg5 + 3, arg4, local45);
                     }
                 }
                 if (local30 == 2) {

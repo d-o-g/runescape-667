@@ -8,9 +8,6 @@ public final class Static162 {
     @OriginalMember(owner = "client!faa", name = "d", descriptor = "Lclient!ip;")
     public static WorldMapArea aClass2_Sub2_Sub13_2;
 
-    @OriginalMember(owner = "client!faa", name = "i", descriptor = "I")
-    public static int anInt2799 = -1;
-
     @OriginalMember(owner = "client!faa", name = "a", descriptor = "I")
     public static int anInt2800 = -1;
 }

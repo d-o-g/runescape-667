@@ -46,7 +46,7 @@ public final class Static231 {
     public static final int anInt3733 = Static434.method5853(16);
 
     @OriginalMember(owner = "client!hd", name = "e", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_41 = new Class345(34, 4);
+    public static final ClientProt A_CLIENT_PROT___41 = new ClientProt(34, 4);
 
     @OriginalMember(owner = "client!hd", name = "m", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___102 = new ServerProt(34, 6);
@@ -149,8 +149,8 @@ public final class Static231 {
                     }
                     if (!arg2.equals("heap")) {
                         if (arg2.equalsIgnoreCase("getcamerapos")) {
-                            Static79.method1579("Pos: " + PlayerEntity.self.level + "," + ((Static170.anInt2864 >> 9) + Static691.areaBaseX >> 6) + "," + ((Static110.anInt2186 >> 9) + Static116.areaBaseY >> 6) + "," + ((Static170.anInt2864 >> 9) + Static691.areaBaseX & 0x3F) + "," + ((Static110.anInt2186 >> 9) + Static116.areaBaseY & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Static110.anInt2186, Static170.anInt2864) - Static359.anInt5801));
-                            Static79.method1579("Look: " + PlayerEntity.self.level + "," + (Static441.anInt6689 + Static691.areaBaseX >> 6) + "," + (Static116.areaBaseY + Static12.anInt5741 >> 6) + "," + (Static691.areaBaseX + Static441.anInt6689 & 0x3F) + "," + (Static116.areaBaseY + Static12.anInt5741 & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Static12.anInt5741, Static441.anInt6689) - Static55.anInt1125));
+                            Static79.method1579("Pos: " + PlayerEntity.self.level + "," + ((Static170.anInt2864 >> 9) + WorldMap.areaBaseX >> 6) + "," + ((Static110.anInt2186 >> 9) + WorldMap.areaBaseY >> 6) + "," + ((Static170.anInt2864 >> 9) + WorldMap.areaBaseX & 0x3F) + "," + ((Static110.anInt2186 >> 9) + WorldMap.areaBaseY & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Static110.anInt2186, Static170.anInt2864) - Static359.anInt5801));
+                            Static79.method1579("Look: " + PlayerEntity.self.level + "," + (Static441.anInt6689 + WorldMap.areaBaseX >> 6) + "," + (WorldMap.areaBaseY + Static12.anInt5741 >> 6) + "," + (WorldMap.areaBaseX + Static441.anInt6689 & 0x3F) + "," + (WorldMap.areaBaseY + Static12.anInt5741 & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Static12.anInt5741, Static441.anInt6689) - Static55.anInt1125));
                             return;
                         }
                         break label721;
@@ -277,7 +277,7 @@ public final class Static231 {
                 @Pc(725) int local725;
                 if (arg2.equalsIgnoreCase("breakcon")) {
                     SignLink.instance.timeout();
-                    @Pc(723) ServerConnection[] local723 = Static405.A_SERVER_CONNECTION_ARRAY_1;
+                    @Pc(723) ServerConnection[] local723 = ConnectionManager.VALUES;
                     for (local725 = 0; local725 < local723.length; local725++) {
                         @Pc(730) ServerConnection connection = local723[local725];
                         if (connection.connection != null) {
@@ -458,11 +458,11 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("getcgcoord")) {
-                    Static79.method1579("x:" + (PlayerEntity.self.anInt10690 >> 9) + " z:" + (PlayerEntity.self.anInt10694 >> 9));
+                    Static79.method1579("x:" + (PlayerEntity.self.x >> 9) + " z:" + (PlayerEntity.self.z >> 9));
                     return;
                 }
                 if (arg2.equalsIgnoreCase("getheight")) {
-                    Static79.method1579("Height: " + Static246.activeGround[PlayerEntity.self.level].getHeight(PlayerEntity.self.anInt10694 >> 9, PlayerEntity.self.anInt10690 >> 9));
+                    Static79.method1579("Height: " + Static246.activeGround[PlayerEntity.self.level].getHeight(PlayerEntity.self.z >> 9, PlayerEntity.self.x >> 9));
                     return;
                 }
                 if (arg2.equalsIgnoreCase("resetminimap")) {
@@ -555,7 +555,7 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("pc")) {
                     @Pc(1833) ServerConnection local1833 = Static668.method8701();
-                    @Pc(1839) ClientMessage local1839 = Static293.method4335(Static243.aClass345_52, local1833.cipher);
+                    @Pc(1839) ClientMessage local1839 = ClientMessage.create(Static243.A_CLIENT_PROT___52, local1833.cipher);
                     local1839.buffer.p1(0);
                     local521 = local1839.buffer.pos;
                     local582 = arg2.indexOf(" ", 4);
@@ -795,7 +795,7 @@ public final class Static231 {
                     return;
                 }
                 if (MainLogicManager.step == 11) {
-                    @Pc(2836) ClientMessage local2836 = Static293.method4335(Static459.aClass345_87, ConnectionManager.GAME.cipher);
+                    @Pc(2836) ClientMessage local2836 = ClientMessage.create(Static459.A_CLIENT_PROT___87, ConnectionManager.GAME.cipher);
                     local2836.buffer.p1(arg2.length() + 3);
                     local2836.buffer.p1(arg0 ? 1 : 0);
                     local2836.buffer.p1(arg1 ? 1 : 0);
@@ -863,7 +863,7 @@ public final class Static231 {
             return;
         }
         @Pc(216) ServerConnection local216 = Static668.method8701();
-        @Pc(222) ClientMessage local222 = Static293.method4335(Static113.aClass345_22, local216.cipher);
+        @Pc(222) ClientMessage local222 = ClientMessage.create(Static113.A_CLIENT_PROT___22, local216.cipher);
         local222.buffer.p1(method3379(arg1) + 1);
         local222.buffer.pjstr(arg1);
         local222.buffer.p1(arg0 ? 1 : 0);

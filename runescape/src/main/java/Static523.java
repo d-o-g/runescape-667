@@ -252,8 +252,8 @@ public final class Static523 {
             Static574.basTypeList = new BASTypeList(client.modeGame, Static51.language, js5.CONFIG, wearposDefaults);
             Static354.aClass267_1 = new Class267(client.modeGame, Static51.language, js5.CONFIG, js5.SPRITES);
             Static619.aClass387_2 = new Class387(client.modeGame, Static51.language, js5.CONFIG_ENUM);
-            Static467.aClass96_3 = new Class96(client.modeGame, Static51.language, js5.CONFIG);
-            Static540.aClass79_6 = new Class79(client.modeGame, Static51.language, js5.CONFIG);
+            Static467.aFloorOverlayTypeList_3 = new FloorOverlayTypeList(client.modeGame, Static51.language, js5.CONFIG);
+            Static540.aFloorUnderlayTypeList_6 = new FloorUnderlayTypeList(client.modeGame, Static51.language, js5.CONFIG);
             Static561.aClass220_2 = new Class220(client.modeGame, Static51.language, js5.CONFIG, js5.SPRITES);
             Static68.idkTypeList = new IDKTypeList(client.modeGame, Static51.language, js5.CONFIG, js5.MODELS);
             Static503.aClass335_1 = new Class335(client.modeGame, Static51.language, js5.CONFIG);
@@ -271,7 +271,7 @@ public final class Static523 {
             Static652.aClass214_1 = new Class214(client.modeGame, Static51.language, js5.CONFIG);
             Static718.aClass176_1 = new Class176(client.modeGame, Static51.language, js5.CONFIG);
             Static691.aClass210_1 = new Class210(client.modeGame, Static51.language, js5.CONFIG);
-            Static529.aClass161_1 = new Class161(client.modeGame, Static51.language, js5.CONFIG_STRUCT);
+            WorldMap.varbitTypeList = new Class161(client.modeGame, Static51.language, js5.CONFIG_STRUCT);
             Static36.aClass260_1 = new Class260(client.modeGame, Static51.language, js5.CONFIG);
             Static628.aClass342_5 = new Class342(client.modeGame, Static51.language, js5.CONFIG);
             Static648.aClass17_1 = new Class17(client.modeGame, Static51.language, js5.CONFIG);
@@ -303,7 +303,7 @@ public final class Static523 {
             }
         }
         if (LoadState.SETUP_WORLD_MAP == Static473.aLoadState_22) {
-            Static30.method5065(js5.WORLDMAPDATA, Static467.aClass96_3, Static540.aClass79_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aMSITypeList_4, TimedVarDomain.instance);
+            WorldMap.init(js5.WORLDMAPDATA, Static467.aFloorOverlayTypeList_3, Static540.aFloorUnderlayTypeList_6, Static354.aLocTypeList_4, Static577.aClass246_4, Static720.aMSITypeList_4, TimedVarDomain.instance);
         }
         if (LoadState.SETUP_VARC_SYSTEM == Static473.aLoadState_22) {
             Static37.aStringArray4 = new String[Static718.aClass176_1.anInt4266];

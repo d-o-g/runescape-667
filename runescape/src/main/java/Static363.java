@@ -68,7 +68,7 @@ public final class Static363 {
             }
         }
         try {
-            @Pc(43) Dimension local43 = Static434.aCanvas7.getSize();
+            @Pc(43) Dimension local43 = Static434.canvas.getSize();
             Static694.method9028(Toolkit.active, LocalisedText.PROFILING.localise(Static51.language), true, Fonts.p12Metrics, Fonts.p12);
             @Pc(67) Mesh local67 = Mesh.load(Static523.graphicsDefaults.profilingModel, js5.MODELS);
             @Pc(70) long local70 = SystemTimer.safetime();
@@ -164,17 +164,17 @@ public final class Static363 {
         if (modeChanged) {
             Static574.method7572();
         } else {
-            Static434.aCanvas7.setSize(GameShell.canvasWid, GameShell.canvasHei);
+            Static434.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);
             if (InterfaceManager.aBoolean210) {
-                Static575.method7606(Static434.aCanvas7);
+                Static575.method7606(Static434.canvas);
             } else {
-                Toolkit.active.method7935(Static434.aCanvas7, GameShell.canvasWid, GameShell.canvasHei);
+                Toolkit.active.method7935(Static434.canvas, GameShell.canvasWid, GameShell.canvasHei);
             }
             if (local95 == GameShell.frame) {
                 local110 = GameShell.frame.getInsets();
-                Static434.aCanvas7.setLocation(GameShell.leftMargin + local110.left, GameShell.topMargin + local110.top);
+                Static434.canvas.setLocation(GameShell.leftMargin + local110.left, GameShell.topMargin + local110.top);
             } else {
-                Static434.aCanvas7.setLocation(GameShell.leftMargin, GameShell.topMargin);
+                Static434.canvas.setLocation(GameShell.leftMargin, GameShell.topMargin);
             }
         }
         if (newMode >= 2) {
@@ -185,7 +185,7 @@ public final class Static363 {
         if (InterfaceManager.topLevelInterface != -1) {
             Static640.method8435(true);
         }
-        if (ConnectionManager.GAME.connection != null && Static109.method2070(MainLogicManager.step)) {
+        if (ConnectionManager.GAME.connection != null && MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
             Static371.method5284();
         }
         for (@Pc(258) int local258 = 0; local258 < 100; local258++) {

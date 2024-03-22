@@ -15,7 +15,7 @@ public final class Static236 {
     public static SignedResource aSignedResource_2;
 
     @OriginalMember(owner = "client!hfa", name = "v", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_50 = new Class345(69, 7);
+    public static final ClientProt A_CLIENT_PROT___50 = new ClientProt(69, 7);
 
     @OriginalMember(owner = "client!hfa", name = "r", descriptor = "Z")
     public static boolean aBoolean304 = false;
@@ -36,7 +36,7 @@ public final class Static236 {
                 return true;
             }
         } catch (@Pc(29) Exception local29) {
-            @Pc(106) String local106 = "T2 - " + (connection.currentProt == null ? -1 : connection.currentProt.getOpcode()) + "," + (connection.penultimateProt == null ? -1 : connection.penultimateProt.getOpcode()) + "," + (connection.antepenultimateProt == null ? -1 : connection.antepenultimateProt.getOpcode()) + " - " + connection.currentPacketSize + "," + (Static691.areaBaseX + PlayerEntity.self.pathX[0]) + "," + (Static116.areaBaseY + PlayerEntity.self.pathY[0]) + " - ";
+            @Pc(106) String local106 = "T2 - " + (connection.currentProt == null ? -1 : connection.currentProt.getOpcode()) + "," + (connection.penultimateProt == null ? -1 : connection.penultimateProt.getOpcode()) + "," + (connection.antepenultimateProt == null ? -1 : connection.antepenultimateProt.getOpcode()) + " - " + connection.currentPacketSize + "," + (WorldMap.areaBaseX + PlayerEntity.self.pathX[0]) + "," + (WorldMap.areaBaseY + PlayerEntity.self.pathY[0]) + " - ";
             for (@Pc(108) int local108 = 0; connection.currentPacketSize > local108 && local108 < 50; local108++) {
                 local106 = local106 + connection.buffer.data[local108] + ",";
             }

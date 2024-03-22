@@ -13,7 +13,7 @@ public final class Static32 {
     public static int anInt775;
 
     @OriginalMember(owner = "client!bba", name = "Z", descriptor = "I")
-    public static int anInt776;
+    public static int scheduledTicks;
 
     @OriginalMember(owner = "client!bba", name = "D", descriptor = "I")
     public static int anInt773 = 0;
@@ -25,13 +25,13 @@ public final class Static32 {
     public static ClientMessage method878(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(11) ClientMessage local11 = null;
         if (arg2 == 0) {
-            local11 = Static293.method4335(Static500.aClass345_91, ConnectionManager.GAME.cipher);
+            local11 = ClientMessage.create(Static500.A_CLIENT_PROT___91, ConnectionManager.GAME.cipher);
         }
         if (arg2 == 1) {
-            local11 = Static293.method4335(Static632.aClass345_111, ConnectionManager.GAME.cipher);
+            local11 = ClientMessage.create(Static632.A_CLIENT_PROT___111, ConnectionManager.GAME.cipher);
         }
-        local11.buffer.p2_alt3(arg0 + Static691.areaBaseX);
-        local11.buffer.p2_alt3(Static116.areaBaseY + arg1);
+        local11.buffer.p2_alt3(arg0 + WorldMap.areaBaseX);
+        local11.buffer.p2_alt3(WorldMap.areaBaseY + arg1);
         local11.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
         Static266.aBoolean583 = false;
         Minimap.flagX = arg0;

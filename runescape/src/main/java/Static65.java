@@ -30,7 +30,7 @@ public final class Static65 {
             local5.method7994();
         }
         @Pc(71) int local71 = (int) (SystemTimer.safetime() - local36);
-        local5.method7971(100, 100, 0, 0, -16777216);
+        local5.fillRect(100, 100, 0, 0, -16777216);
         if (local7) {
             local5.free();
         }

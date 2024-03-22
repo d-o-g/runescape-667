@@ -130,11 +130,11 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     public void method813(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         @Pc(9) double local9;
         if (!this.aBoolean59) {
-            local9 = (double) (arg3 - super.anInt10690);
-            @Pc(16) double local16 = (double) (arg2 - super.anInt10694);
+            local9 = (double) (arg3 - super.x);
+            @Pc(16) double local16 = (double) (arg2 - super.z);
             @Pc(25) double local25 = Math.sqrt(local16 * local16 + local9 * local9);
-            this.aDouble4 = (double) this.anInt709 * local16 / local25 + (double) super.anInt10694;
-            this.aDouble8 = (double) super.anInt10690 + local9 * (double) this.anInt709 / local25;
+            this.aDouble4 = (double) this.anInt709 * local16 / local25 + (double) super.z;
+            this.aDouble8 = (double) super.x + local9 * (double) this.anInt709 / local25;
             if (this.aBoolean57) {
                 this.aDouble5 = (double) (Static102.method2025(super.level, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721);
             } else {
@@ -235,9 +235,9 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         if (local21 == null) {
             return;
         }
-        super.anInt10694 = local21.anInt10694;
-        super.anInt10690 = local21.anInt10690;
-        super.anInt10691 = Static102.method2025(super.level, -29754, local21.anInt10694, local21.anInt10690) - this.anInt721;
+        super.z = local21.z;
+        super.x = local21.x;
+        super.anInt10691 = Static102.method2025(super.level, -29754, local21.z, local21.x) - this.anInt721;
         if (this.anInt695 < 0) {
             return;
         }
@@ -263,8 +263,8 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             @Pc(221) int local221 = Trig1.COS[local213];
             @Pc(232) int local232 = local217 * local109 + local221 * local107 >> 14;
             local109 = local109 * local221 - local217 * local107 >> 14;
-            super.anInt10694 += local109;
-            super.anInt10690 += local232;
+            super.z += local109;
+            super.x += local232;
         }
         return;
     }

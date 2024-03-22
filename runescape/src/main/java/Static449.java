@@ -32,9 +32,9 @@ public final class Static449 {
         if (local27 != null) {
             InterfaceManager.redraw(local27);
         }
-        Static94.method1840();
+        MiniMenu.method1840();
         if (!arg0 && InterfaceManager.topLevelInterface != -1) {
-            Static145.method2411(1, InterfaceManager.topLevelInterface);
+            InterfaceManager.runHookImmediate(InterfaceManager.IMMEDIATE_HOOK_TYPE_SUBCHANGE, InterfaceManager.topLevelInterface);
         }
         @Pc(55) Class331 local55 = new Class331(InterfaceManager.subInterfaces);
         for (@Pc(60) SubInterface local60 = (SubInterface) local55.first(); local60 != null; local60 = (SubInterface) local55.next()) {

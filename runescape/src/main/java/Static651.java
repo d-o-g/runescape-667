@@ -186,10 +186,10 @@ public final class Static651 {
             @Pc(67) String local67 = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(Static51.language) : LocalisedText.LEVEL.localise(Static51.language);
             local24 = local24 + Static693.method9009(PlayerEntity.self.anInt1444, arg1.anInt10791) + " (" + local67 + arg1.anInt10791 + ")";
         }
-        if (InterfaceManager.isTargeting && !arg0) {
-            @Pc(113) ParamType local113 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
-            if ((InterfaceManager.targetMask & 0x2) != 0 && (local113 == null || local21.param(Static610.anInt9329, local113.defaultint) != local113.defaultint)) {
-                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 23, true, Cursor.targetEnter, InterfaceManager.targetedVerb + " -> <col=ffff00>" + local24, (long) arg1.anInt10740, false);
+        if (InterfaceManager.targeting && !arg0) {
+            @Pc(113) ParamType local113 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
+            if ((InterfaceManager.targetMask & 0x2) != 0 && (local113 == null || local21.param(InterfaceManager.targetParam, local113.defaultint) != local113.defaultint)) {
+                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 23, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffff00>" + local24, (long) arg1.anInt10740, false);
             }
         }
         if (arg0) {

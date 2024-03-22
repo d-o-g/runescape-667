@@ -41,11 +41,11 @@ public final class Static556 {
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(Lclient!ha;I)V")
     public static void method7301(@OriginalArg(0) Toolkit arg0) {
-        if (MiniMenu.optionCount < 2 && !InterfaceManager.isTargeting || InterfaceManager.dragSource != null) {
+        if (MiniMenu.optionCount < 2 && !InterfaceManager.targeting || InterfaceManager.dragSource != null) {
             return;
         }
         @Pc(63) String local63;
-        if (InterfaceManager.isTargeting && MiniMenu.optionCount < 2) {
+        if (InterfaceManager.targeting && MiniMenu.optionCount < 2) {
             local63 = InterfaceManager.targetVerb + LocalisedText.MINISEPARATOR.localise(Static51.language) + InterfaceManager.targetedVerb + " ->";
         } else if (Static209.aBoolean269 && KeyMonitor.instance.isPressed(81) && MiniMenu.optionCount > 2) {
             local63 = Static518.method9293(Static470.aClass2_Sub2_Sub16_10);

@@ -43,8 +43,8 @@ public final class Static414 {
             } else {
                 local177 = arg1.method1424(false) + " (" + LocalisedText.SKILL.localise(Static51.language) + arg1.anInt1436 + ")";
             }
-            if (InterfaceManager.isTargeting && !arg0 && (InterfaceManager.targetMask & 0x8) != 0) {
-                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 44, true, Cursor.targetEnter, InterfaceManager.targetedVerb + " -> <col=ffffff>" + local177, (long) arg1.anInt10740, false);
+            if (InterfaceManager.targeting && !arg0 && (InterfaceManager.targetMask & 0x8) != 0) {
+                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 44, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + local177, (long) arg1.anInt10740, false);
             }
             if (arg0) {
                 MiniMenu.addEntry(true, 0, 0L, 0, 0, "<col=cccccc>" + local177, -1, false, -1, "", (long) arg1.anInt10740, false);
@@ -82,8 +82,8 @@ public final class Static414 {
                     }
                 }
             }
-        } else if (InterfaceManager.isTargeting && (InterfaceManager.targetMask & 0x10) != 0) {
-            MiniMenu.addEntry(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, Cursor.targetEnter, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(Static51.language), (long) arg1.anInt10740, false);
+        } else if (InterfaceManager.targeting && (InterfaceManager.targetMask & 0x10) != 0) {
+            MiniMenu.addEntry(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(Static51.language), (long) arg1.anInt10740, false);
         }
     }
 

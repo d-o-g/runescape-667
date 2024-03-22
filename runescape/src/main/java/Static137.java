@@ -10,7 +10,7 @@ public final class Static137 {
     public static final ServerProt A_SERVER_PROT___57 = new ServerProt(24, -1);
 
     @OriginalMember(owner = "client!ef", name = "e", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_28 = new Class345(7, -1);
+    public static final ClientProt A_CLIENT_PROT___28 = new ClientProt(7, -1);
 
     @OriginalMember(owner = "client!ef", name = "f", descriptor = "Lclient!om;")
     public static final Class280 aClass280_4 = new Class280(1);

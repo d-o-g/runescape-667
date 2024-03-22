@@ -11,7 +11,7 @@ public final class Static180 {
     public static int anInt2995 = 0;
 
     @OriginalMember(owner = "client!fka", name = "j", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_33 = new Class345(2, 7);
+    public static final ClientProt A_CLIENT_PROT___33 = new ClientProt(2, 7);
 
     @OriginalMember(owner = "client!fka", name = "n", descriptor = "J")
     public static long aLong108 = -1L;
@@ -29,7 +29,7 @@ public final class Static180 {
             return;
         }
         @Pc(45) ServerConnection local45 = Static668.method8701();
-        @Pc(53) ClientMessage local53 = Static293.method4335(Static507.aClass345_95, local45.cipher);
+        @Pc(53) ClientMessage local53 = ClientMessage.create(Static507.A_CLIENT_PROT___95, local45.cipher);
         local53.buffer.p1(Static231.method3379(local29.aString2) + 2);
         local53.buffer.p2(arg0);
         local53.buffer.pjstr(local29.aString2);

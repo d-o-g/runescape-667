@@ -42,17 +42,17 @@ public final class Class246 {
     }
 
     @OriginalMember(owner = "client!ml", name = "b", descriptor = "(III)V")
-    public void method5583(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
+    public void setCaches(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         this.aReferenceCache_134 = new ReferenceCache(arg0);
         this.aReferenceCache_135 = new ReferenceCache(arg1);
     }
 
     @OriginalMember(owner = "client!ml", name = "a", descriptor = "(BI)Lclient!el;")
-    public Class105 method5584(@OriginalArg(1) int arg0) {
+    public MapElementType list(@OriginalArg(1) int arg0) {
         @Pc(6) ReferenceCache local6 = this.aReferenceCache_134;
-        @Pc(16) Class105 local16;
+        @Pc(16) MapElementType local16;
         synchronized (this.aReferenceCache_134) {
-            local16 = (Class105) this.aReferenceCache_134.get((long) arg0);
+            local16 = (MapElementType) this.aReferenceCache_134.get((long) arg0);
         }
         if (local16 != null) {
             return local16;
@@ -62,7 +62,7 @@ public final class Class246 {
         synchronized (this.aJs5_82) {
             local39 = this.aJs5_82.getfile(arg0, 36);
         }
-        local16 = new Class105();
+        local16 = new MapElementType();
         local16.aClass246_2 = this;
         local16.anInt2590 = arg0;
         if (local39 != null) {

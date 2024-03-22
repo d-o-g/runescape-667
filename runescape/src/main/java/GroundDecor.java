@@ -14,10 +14,10 @@ public abstract class GroundDecor extends Renderable {
     protected GroundDecor(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         super.level = (byte) arg3;
         super.anInt10691 = arg1;
-        super.anInt10694 = arg2;
+        super.z = arg2;
         this.aShort46 = (short) arg5;
         super.aByte143 = (byte) arg4;
-        super.anInt10690 = arg0;
+        super.x = arg0;
     }
 
     @OriginalMember(owner = "client!eia", name = "a", descriptor = "(BLclient!ha;)Z")
@@ -26,18 +26,18 @@ public abstract class GroundDecor extends Renderable {
         if (arg0 != 59) {
             this.aShort46 = -95;
         }
-        return Static588.method7714(super.anInt10694 >> Static52.anInt1066, super.aByte143, super.anInt10690 >> Static52.anInt1066);
+        return Static588.method7714(super.z >> Static52.anInt1066, super.aByte143, super.x >> Static52.anInt1066);
     }
 
     @OriginalMember(owner = "client!eia", name = "g", descriptor = "(I)Z")
     @Override
     public final boolean method9275() {
-        return Static258.aBooleanArrayArray3[Static35.anInt813 + (super.anInt10690 >> Static52.anInt1066) - Static403.anInt6246][Static35.anInt813 + (super.anInt10694 >> Static52.anInt1066) - Static550.anInt8271];
+        return Static258.aBooleanArrayArray3[Static35.anInt813 + (super.x >> Static52.anInt1066) - Static403.anInt6246][Static35.anInt813 + (super.z >> Static52.anInt1066) - Static550.anInt8271];
     }
 
     @OriginalMember(owner = "client!eia", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
     public final int method9288(@OriginalArg(0) PointLight[] arg0) {
-        return this.method9277(arg0, super.anInt10694 >> Static52.anInt1066, super.anInt10690 >> Static52.anInt1066);
+        return this.method9277(arg0, super.z >> Static52.anInt1066, super.x >> Static52.anInt1066);
     }
 }

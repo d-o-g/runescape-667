@@ -6,9 +6,6 @@ public final class Static688 {
     @OriginalMember(owner = "client!vp", name = "E", descriptor = "F")
     public static float aFloat216;
 
-    @OriginalMember(owner = "client!vp", name = "K", descriptor = "I")
-    public static int anInt10356;
-
     @OriginalMember(owner = "client!vp", name = "B", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___250 = new ServerProt(88, -2);
 

@@ -48,9 +48,9 @@ public final class Node_Sub56 extends Node {
 
     @OriginalMember(owner = "client!vj", name = "a", descriptor = "([IIII)V")
     public void method8907(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
+        arg0[0] = 0;
         arg0[1] = arg1 + this.anInt10266 - this.anInt10280;
         arg0[2] = arg2 + this.anInt10275 - this.anInt10271;
-        arg0[0] = 0;
     }
 
     @OriginalMember(owner = "client!vj", name = "a", descriptor = "(III)Z")

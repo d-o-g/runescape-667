@@ -7,7 +7,7 @@ public final class Static297 {
     public static boolean loadingSpritesRaw;
 
     @OriginalMember(owner = "client!jha", name = "o", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_59 = new Class345(9, 3);
+    public static final ClientProt A_CLIENT_PROT___59 = new ClientProt(9, 3);
 
     @OriginalMember(owner = "client!jha", name = "g", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___125 = new ServerProt(66, 10);

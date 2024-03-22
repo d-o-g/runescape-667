@@ -34,23 +34,23 @@ public final class Static294 {
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(IIZIII)V")
     public static void method4339(@OriginalArg(1) int arg0, @OriginalArg(2) boolean login, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         if (Static334.activeTiles == null) {
-            Toolkit.active.method7971(arg2, arg3, arg0, arg4, -16777216);
+            Toolkit.active.fillRect(arg2, arg3, arg0, arg4, -16777216);
             return;
         }
         @Pc(19) boolean local19 = false;
         if (CutsceneManager.state == 0) {
-            if (PlayerEntity.self.anInt10690 < 0 || PlayerEntity.self.anInt10690 >= Static720.mapWidth * 512 || PlayerEntity.self.anInt10694 < 0 || PlayerEntity.self.anInt10694 >= Static501.mapHeight * 512) {
+            if (PlayerEntity.self.x < 0 || PlayerEntity.self.x >= Static720.mapWidth * 512 || PlayerEntity.self.z < 0 || PlayerEntity.self.z >= Static501.mapHeight * 512) {
                 local19 = true;
             }
         } else if (!Static421.aBoolean480) {
             local19 = true;
         }
         if (local19) {
-            Toolkit.active.method7971(arg2, arg3, arg0, arg4, -16777216);
+            Toolkit.active.fillRect(arg2, arg3, arg0, arg4, -16777216);
             return;
         }
         Static198.anInt3276++;
-        if ((PlayerEntity.self != null) && (Minimap.flagX == (((PlayerEntity.self.anInt10690 + 256) - (PlayerEntity.self.boundSize((byte) 45) * 256)) >> 9)) && (Minimap.flagY == ((PlayerEntity.self.anInt10694 - ((PlayerEntity.self.boundSize((byte) 48) - 1) * 256)) >> 9))) {
+        if ((PlayerEntity.self != null) && (Minimap.flagX == (((PlayerEntity.self.x + 256) - (PlayerEntity.self.boundSize((byte) 45) * 256)) >> 9)) && (Minimap.flagY == ((PlayerEntity.self.z - ((PlayerEntity.self.boundSize((byte) 48) - 1) * 256)) >> 9))) {
             Minimap.flagX = -1;
             Minimap.flagY = -1;
             DelayedStateChange.resetMapFlag();
@@ -76,7 +76,7 @@ public final class Static294 {
                 local169 = Static140.anIntArray222[4] + 128;
             }
             local204 = Static288.anInt4621 + (int) Static171.aFloat64 & 0x3FFF;
-            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Static394.anInt6176, -29754, PlayerEntity.self.anInt10694, PlayerEntity.self.anInt10690) - 200);
+            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Static394.anInt6176, -29754, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
         } else if (Static511.anInt7645 == 4) {
             local169 = (int) Static479.aFloat123;
             if (Static188.anInt3103 >> 8 > local169) {
@@ -163,9 +163,9 @@ public final class Static294 {
         @Pc(688) byte local688 = Static400.instance.aClass57_Sub4_2.method2143() == 2 ? (byte) Static198.anInt3276 : 1;
         if (InterfaceManager.aBoolean210) {
             Static648.method8483(-Static323.anInt5119 & 0x3FFF, -Static81.anInt1644 & 0x3FFF, -Static598.anInt8832 & 0x3FFF);
-            Static466.method6324(local688, Static170.anInt2864, Static110.anInt2186, Static359.anInt5801, PlayerEntity.self.anInt10694 >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static582.anInt8627, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.anInt10690 >> 9);
+            Static466.method6324(local688, Static170.anInt2864, Static110.anInt2186, Static359.anInt5801, PlayerEntity.self.z >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static582.anInt8627, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.x >> 9);
         } else {
-            Static283.method4100(TimeUtils.clock, Static170.anInt2864, Static359.anInt5801, Static110.anInt2186, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.anInt10690 >> 9, PlayerEntity.self.anInt10694 >> 9, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static504.aBoolean579 ? Static582.anInt8627 : -1, 0, false);
+            Static283.method4100(TimeUtils.clock, Static170.anInt2864, Static359.anInt5801, Static110.anInt2186, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9, Static400.instance.aClass57_Sub8_1.method3176() == 0, Static504.aBoolean579 ? Static582.anInt8627 : -1, 0, false);
         }
         Static557.method7331();
         if (MainLogicManager.step == 11) {
@@ -185,7 +185,7 @@ public final class Static294 {
             Static426.aBoolean72 = false;
         }
         if (Static426.aBoolean72) {
-            Toolkit.active.method7971(local155, local161, local159, local153, -16777216);
+            Toolkit.active.fillRect(local155, local161, local159, local153, -16777216);
             Static694.method9028(Toolkit.active, LocalisedText.LOADING.localise(Static51.language), false, Fonts.p12Metrics, Fonts.p12);
         }
         Static501.method6716(false);

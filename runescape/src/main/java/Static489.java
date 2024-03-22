@@ -78,7 +78,7 @@ public final class Static489 {
             Static354.method5181(arg1);
         }
         @Pc(107) int local107;
-        if (arg1.anInt10690 < 512 || arg1.anInt10694 < 512 || Static720.mapWidth * 512 - 512 <= arg1.anInt10690 || arg1.anInt10694 >= Static501.mapHeight * 512 - 512) {
+        if (arg1.x < 512 || arg1.z < 512 || Static720.mapWidth * 512 - 512 <= arg1.x || arg1.z >= Static501.mapHeight * 512 - 512) {
             arg1.aAnimator_11.update(true, -1);
             for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
                 arg1.aClass199Array3[local107].anInt4930 = -1;
@@ -89,11 +89,11 @@ public final class Static489 {
             arg1.anInt10755 = 0;
             arg1.anIntArray869 = null;
             local16 = 0;
-            arg1.anInt10690 = arg1.pathX[0] * 512 + arg1.boundSize((byte) 97) * 256;
-            arg1.anInt10694 = arg1.pathY[0] * 512 + arg1.boundSize((byte) 113) * 256;
+            arg1.x = arg1.pathX[0] * 512 + arg1.boundSize((byte) 97) * 256;
+            arg1.z = arg1.pathY[0] * 512 + arg1.boundSize((byte) 113) * 256;
             arg1.method9316();
         }
-        if (arg1 == PlayerEntity.self && (arg1.anInt10690 < 6144 || arg1.anInt10694 < 6144 || arg1.anInt10690 >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.anInt10694)) {
+        if (arg1 == PlayerEntity.self && (arg1.x < 6144 || arg1.z < 6144 || arg1.x >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.z)) {
             arg1.aAnimator_11.update(true, -1);
             for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
                 arg1.aClass199Array3[local107].anInt4930 = -1;
@@ -104,8 +104,8 @@ public final class Static489 {
             arg1.anIntArray869 = null;
             local16 = 0;
             local7 = -1;
-            arg1.anInt10690 = arg1.pathX[0] * 512 + arg1.boundSize((byte) 69) * 256;
-            arg1.anInt10694 = arg1.pathY[0] * 512 + arg1.boundSize((byte) 49) * 256;
+            arg1.x = arg1.pathX[0] * 512 + arg1.boundSize((byte) 69) * 256;
+            arg1.z = arg1.pathY[0] * 512 + arg1.boundSize((byte) 49) * 256;
             arg1.method9316();
         }
         local107 = Static112.method2104(arg1);
@@ -117,7 +117,7 @@ public final class Static489 {
 
     @OriginalMember(owner = "client!ph", name = "d", descriptor = "(I)V")
     public static void method6548() {
-        Static314.method4568(false);
+        Static314.noTimeout(false);
         Static593.anInt8763 = 0;
         @Pc(10) boolean local10 = true;
         for (@Pc(12) int local12 = 0; local12 < Static319.aByteArrayArray16.length; local12++) {
@@ -157,11 +157,11 @@ public final class Static489 {
                 }
             }
         }
-        if (Static42.aClass255_2 == null) {
-            if (Static162.aClass2_Sub2_Sub13_2 == null || !js5.WORLDMAPDATA.groupExists(Static162.aClass2_Sub2_Sub13_2.aString48 + "_staticelements")) {
-                Static42.aClass255_2 = new Class255(0);
-            } else if (js5.WORLDMAPDATA.requestgroupdownload(Static162.aClass2_Sub2_Sub13_2.aString48 + "_staticelements")) {
-                Static42.aClass255_2 = Static284.method4103(Static174.aBoolean249, js5.WORLDMAPDATA, Static162.aClass2_Sub2_Sub13_2.aString48 + "_staticelements");
+        if (Static42.aMapElementList_2 == null) {
+            if (Static162.aClass2_Sub2_Sub13_2 == null || !js5.WORLDMAPDATA.groupExists(Static162.aClass2_Sub2_Sub13_2.file + "_staticelements")) {
+                Static42.aMapElementList_2 = new MapElementList(0);
+            } else if (js5.WORLDMAPDATA.requestgroupdownload(Static162.aClass2_Sub2_Sub13_2.file + "_staticelements")) {
+                Static42.aMapElementList_2 = MapElementList.load(Static174.mapMembers, js5.WORLDMAPDATA, Static162.aClass2_Sub2_Sub13_2.file + "_staticelements");
             } else {
                 local10 = false;
                 Static593.anInt8763++;
@@ -178,8 +178,8 @@ public final class Static489 {
             @Pc(287) byte[] local287 = Static118.aByteArrayArray3[local282];
             @Pc(299) int local299;
             if (local287 != null) {
-                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - Static691.areaBaseX;
-                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - Static116.areaBaseY;
+                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - WorldMap.areaBaseX;
+                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseY;
                 if (Static117.anInt2282 != 0) {
                     local299 = 10;
                     local310 = 10;
@@ -188,8 +188,8 @@ public final class Static489 {
             }
             local287 = Static421.aByteArrayArray19[local282];
             if (local287 != null) {
-                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - Static691.areaBaseX;
-                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - Static116.areaBaseY;
+                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - WorldMap.areaBaseX;
+                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseY;
                 if (Static117.anInt2282 != 0) {
                     local310 = 10;
                     local299 = 10;
@@ -240,7 +240,7 @@ public final class Static489 {
         Static112.aBoolean197 = false;
         Static557.method7331();
         System.gc();
-        Static314.method4568(true);
+        Static314.noTimeout(true);
         Static699.method9139();
         Static439.anInt6674 = Static400.instance.aClass57_Sub12_1.method4364();
         Static428.aBoolean487 = Static369.anInt4265 >= 96;
@@ -262,10 +262,10 @@ public final class Static489 {
             Static134.aMapRegion_3 = new MapRegion(1, Static720.mapWidth, Static501.mapHeight, true);
             if (Static117.anInt2282 == 0) {
                 Static73.method9312(Static177.aByteArrayArray5, Static134.aMapRegion_3);
-                Static314.method4568(true);
+                Static314.noTimeout(true);
             } else {
                 Static693.method9010(Static177.aByteArrayArray5, Static134.aMapRegion_3);
-                Static314.method4568(true);
+                Static314.noTimeout(true);
             }
             Static134.aMapRegion_3.method7885(Static2.aMapRegion.tileHeights[0]);
             Static134.aMapRegion_3.method7881((int[][][]) null, Toolkit.active, (CollisionMap[]) null);
@@ -273,36 +273,36 @@ public final class Static489 {
         }
         Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Static577.A_COLLISION_MAP_ARRAY_1);
         if (Static117.anInt2282 == 0) {
-            Static314.method4568(true);
+            Static314.noTimeout(true);
             Static338.method4994(Static118.aByteArrayArray3, Static2.aMapRegion);
             if (Static363.aByteArrayArray22 != null) {
                 Static369.method3847();
             }
         } else {
-            Static314.method4568(true);
+            Static314.noTimeout(true);
             Static101.method2001(Static118.aByteArrayArray3, Static2.aMapRegion);
         }
         Static352.method5180();
         if (Static369.anInt4265 < 96) {
             Static358.method9191();
         }
-        Static314.method4568(true);
+        Static314.noTimeout(true);
         Static2.aMapRegion.method7888(Toolkit.active, local430 ? Static693.aGroundArray2[0] : null, (Ground) null);
         Static2.aMapRegion.method7898(false, Toolkit.active);
-        Static314.method4568(true);
+        Static314.noTimeout(true);
         if (local430) {
             Static379.method5355(true);
-            Static314.method4568(true);
+            Static314.noTimeout(true);
             if (Static117.anInt2282 == 0) {
                 Static338.method4994(Static421.aByteArrayArray19, Static134.aMapRegion_3);
             } else {
                 Static101.method2001(Static421.aByteArrayArray19, Static134.aMapRegion_3);
             }
             Static352.method5180();
-            Static314.method4568(true);
+            Static314.noTimeout(true);
             Static134.aMapRegion_3.method7888(Toolkit.active, (Ground) null, Static706.aGroundArray3[0]);
             Static134.aMapRegion_3.method7898(true, Toolkit.active);
-            Static314.method4568(true);
+            Static314.noTimeout(true);
             Static379.method5355(false);
         }
         Static207.method4432();
@@ -334,7 +334,7 @@ public final class Static489 {
         Static442.method5969();
         @Pc(920) ClientMessage local920;
         if (GameShell.frame != null && ConnectionManager.GAME.connection != null && MainLogicManager.step == 12) {
-            local920 = Static293.method4335(Static694.aClass345_122, ConnectionManager.GAME.cipher);
+            local920 = ClientMessage.create(Static694.A_CLIENT_PROT___122, ConnectionManager.GAME.cipher);
             local920.buffer.p4(1057001181);
             ConnectionManager.GAME.send(local920);
         }
@@ -361,13 +361,13 @@ public final class Static489 {
         } else {
             MainLogicManager.setStep(11);
             if (ConnectionManager.GAME.connection != null) {
-                local920 = Static293.method4335(Static161.aClass345_29, ConnectionManager.GAME.cipher);
+                local920 = ClientMessage.create(Static161.A_CLIENT_PROT___29, ConnectionManager.GAME.cipher);
                 ConnectionManager.GAME.send(local920);
             }
         }
         Static606.method7934();
         Static557.method7331();
-        Static199.method2977();
+        Static199.doneslowupdate();
         Static75.aBoolean521 = true;
         if (Static28.aBoolean43) {
             Static79.method1579("Took: " + (SystemTimer.safetime() - Static690.aLong318) + "ms");

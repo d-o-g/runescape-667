@@ -15,9 +15,6 @@ public final class Static691 {
     @OriginalMember(owner = "client!vs", name = "t", descriptor = "Lclient!kka;")
     public static Class210 aClass210_1;
 
-    @OriginalMember(owner = "client!vs", name = "o", descriptor = "I")
-    public static int areaBaseX;
-
     @OriginalMember(owner = "client!vs", name = "m", descriptor = "I")
     public static int anInt10368 = 0;
 

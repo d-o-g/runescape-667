@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!nq")
-public final class Class264 {
+public final class FloorUnderlayType {
 
     @OriginalMember(owner = "client!nq", name = "l", descriptor = "I")
     public int anInt6630;

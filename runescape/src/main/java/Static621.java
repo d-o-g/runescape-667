@@ -6,6 +6,6 @@ public final class Static621 {
     public static int[] anIntArray766;
 
     @OriginalMember(owner = "client!tl", name = "g", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_113 = new Class345(93, 1);
+    public static final ClientProt A_CLIENT_PROT___113 = new ClientProt(93, 1);
 
 }

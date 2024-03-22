@@ -31,10 +31,10 @@ public final class Node_Sub37 extends Node {
     public int anInt6192 = Integer.MAX_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "p", descriptor = "Lclient!fu;")
-    public final Node_Sub20 aClass2_Sub20_1;
+    public final MapElementListEntry aClass2_Sub20_1;
 
     @OriginalMember(owner = "client!mi", name = "<init>", descriptor = "(Lclient!fu;)V")
-    public Node_Sub37(@OriginalArg(0) Node_Sub20 arg0) {
+    public Node_Sub37(@OriginalArg(0) MapElementListEntry arg0) {
         this.aClass2_Sub20_1 = arg0;
     }
 

@@ -27,7 +27,7 @@ public final class Class27_Sub1 extends Class27 {
 
     @OriginalMember(owner = "client!au", name = "a", descriptor = "(I)V")
     @Override
-    public void method5597() {
+    public void reset() {
         this.aLong20 = 0L;
         if (this.aLong19 > this.aLong18) {
             this.aLong18 += this.aLong19 - this.aLong18;

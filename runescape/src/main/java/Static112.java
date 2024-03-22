@@ -26,8 +26,8 @@ public final class Static112 {
                 local24 = PlayerList.highResolutionPlayers[arg0.anInt10722 - 32768];
             }
             if (local24 != null) {
-                local67 = arg0.anInt10690 - local24.anInt10690;
-                local74 = arg0.anInt10694 - local24.anInt10694;
+                local67 = arg0.x - local24.x;
+                local74 = arg0.z - local24.z;
                 if (local67 != 0 || local74 != 0) {
                     arg0.method9305((int) (Math.atan2((double) local67, (double) local74) * 2607.5945876176133D) & 0x3FFF);
                 }
@@ -42,8 +42,8 @@ public final class Static112 {
         } else if (arg0 instanceof NPCEntity) {
             @Pc(138) NPCEntity local138 = (NPCEntity) arg0;
             if (local138.anInt10774 != -1 && (local138.anInt10764 == 0 || local138.anInt10763 > 0)) {
-                local67 = local138.anInt10690 - (local138.anInt10774 - Static691.areaBaseX - Static691.areaBaseX) * 256;
-                local74 = local138.anInt10694 - (local138.anInt10767 - Static116.areaBaseY - Static116.areaBaseY) * 256;
+                local67 = local138.x - (local138.anInt10774 - WorldMap.areaBaseX - WorldMap.areaBaseX) * 256;
+                local74 = local138.z - (local138.anInt10767 - WorldMap.areaBaseY - WorldMap.areaBaseY) * 256;
                 if (local67 != 0 || local74 != 0) {
                     local138.method9305((int) (Math.atan2((double) local67, (double) local74) * 2607.5945876176133D) & 0x3FFF);
                 }

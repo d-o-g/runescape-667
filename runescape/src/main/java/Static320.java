@@ -73,7 +73,7 @@ public final class Static320 {
             if (local64 == 0) {
                 if (Static470.aClass2_Sub2_Sub16_10 != null) {
                     Static407.method5628();
-                } else if (InterfaceManager.isTargeting) {
+                } else if (InterfaceManager.targeting) {
                     InterfaceManager.endTargetMode();
                 }
             }

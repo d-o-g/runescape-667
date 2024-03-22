@@ -242,7 +242,7 @@ public abstract class Toolkit {
     public abstract boolean method7970();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIBII)V")
-    public final void method7971(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public final void fillRect(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         this.aa(arg3, arg2, arg0, arg1, arg4, 1);
     }
 

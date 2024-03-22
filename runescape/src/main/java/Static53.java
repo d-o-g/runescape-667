@@ -6,6 +6,6 @@ public final class Static53 {
     public static float aFloat28;
 
     @OriginalMember(owner = "client!bp", name = "i", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_7 = new Class345(53, 3);
+    public static final ClientProt A_CLIENT_PROT___7 = new ClientProt(53, 3);
 
 }

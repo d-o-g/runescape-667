@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static710 {
 
-    @OriginalMember(owner = "client!wha", name = "e", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_93 = new Class345(52, 8);
-
     @OriginalMember(owner = "client!wha", name = "l", descriptor = "I")
     public static int varclanUpdateCount = 0;
 
@@ -15,7 +12,7 @@ public final class Static710 {
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
     public static void method6710(@OriginalArg(1) Component arg0, @OriginalArg(2) Component arg1) {
-        @Pc(15) ClientMessage local15 = Static293.method4335(Static671.aClass345_117, ConnectionManager.GAME.cipher);
+        @Pc(15) ClientMessage local15 = ClientMessage.create(Static671.A_CLIENT_PROT___117, ConnectionManager.GAME.cipher);
         local15.buffer.p2(arg1.invObject);
         local15.buffer.p2_alt1(arg0.id);
         local15.buffer.p2_alt2(arg0.invObject);

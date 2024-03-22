@@ -13,7 +13,7 @@ public final class Static133 {
     public static final Deque A_DEQUE___13 = new Deque();
 
     @OriginalMember(owner = "client!ed", name = "d", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_26 = new Class345(89, 4);
+    public static final ClientProt A_CLIENT_PROT___26 = new ClientProt(89, 4);
 
     @OriginalMember(owner = "client!ed", name = "b", descriptor = "I")
     public static int anInt2458 = 0;

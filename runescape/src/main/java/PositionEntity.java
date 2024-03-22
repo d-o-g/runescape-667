@@ -33,8 +33,8 @@ public abstract class PositionEntity extends Renderable {
         super.level = (byte) arg0;
         this.aShort133 = (short) arg8;
         super.aByte143 = (byte) arg1;
-        super.anInt10694 = arg4;
-        super.anInt10690 = arg2;
+        super.z = arg4;
+        super.x = arg2;
         this.aBoolean815 = arg9;
         this.aByte145 = arg10;
         this.aShort134 = (short) arg6;

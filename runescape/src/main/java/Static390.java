@@ -54,42 +54,42 @@ public final class Static390 {
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(ZI)Lclient!rt;")
     public static Class327 method5493(@OriginalArg(1) int arg0) {
         if (arg0 == 0) {
-            if ((double) Static30.aFloat105 == 3.0D) {
+            if ((double) WorldMap.currentZoom == 3.0D) {
                 return Static559.aClass327_7;
             }
-            if ((double) Static30.aFloat105 == 4.0D) {
+            if ((double) WorldMap.currentZoom == 4.0D) {
                 return Static484.aClass327_6;
             }
-            if ((double) Static30.aFloat105 == 6.0D) {
+            if ((double) WorldMap.currentZoom == 6.0D) {
                 return Static142.aClass327_1;
             }
-            if ((double) Static30.aFloat105 >= 8.0D) {
+            if ((double) WorldMap.currentZoom >= 8.0D) {
                 return Static651.aClass327_8;
             }
         } else if (arg0 == 1) {
-            if ((double) Static30.aFloat105 == 3.0D) {
+            if ((double) WorldMap.currentZoom == 3.0D) {
                 return Static142.aClass327_1;
             }
-            if ((double) Static30.aFloat105 == 4.0D) {
+            if ((double) WorldMap.currentZoom == 4.0D) {
                 return Static651.aClass327_8;
             }
-            if ((double) Static30.aFloat105 == 6.0D) {
+            if ((double) WorldMap.currentZoom == 6.0D) {
                 return Static275.aClass327_2;
             }
-            if ((double) Static30.aFloat105 >= 8.0D) {
+            if ((double) WorldMap.currentZoom >= 8.0D) {
                 return aClass327_5;
             }
         } else if (arg0 == 2) {
-            if ((double) Static30.aFloat105 == 3.0D) {
+            if ((double) WorldMap.currentZoom == 3.0D) {
                 return Static275.aClass327_2;
             }
-            if ((double) Static30.aFloat105 == 4.0D) {
+            if ((double) WorldMap.currentZoom == 4.0D) {
                 return aClass327_5;
             }
-            if ((double) Static30.aFloat105 == 6.0D) {
+            if ((double) WorldMap.currentZoom == 6.0D) {
                 return Static364.aClass327_4;
             }
-            if ((double) Static30.aFloat105 >= 8.0D) {
+            if ((double) WorldMap.currentZoom >= 8.0D) {
                 return Static359.aClass327_3;
             }
         }

@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ef")
-public final class Class96 {
+public final class FloorOverlayTypeList {
 
     @OriginalMember(owner = "client!ef", name = "b", descriptor = "Lclient!dla;")
     public final ReferenceCache aReferenceCache_55 = new ReferenceCache(64);
@@ -20,12 +20,12 @@ public final class Class96 {
     public final js5 aJs5_23;
 
     @OriginalMember(owner = "client!ef", name = "q", descriptor = "I")
-    public final int anInt2506;
+    public final int num;
 
     @OriginalMember(owner = "client!ef", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class96(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
+    public FloorOverlayTypeList(@OriginalArg(0) ModeGame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_23 = arg2;
-        this.anInt2506 = this.aJs5_23.fileLimit(4);
+        this.num = this.aJs5_23.fileLimit(4);
     }
 
     @OriginalMember(owner = "client!ef", name = "a", descriptor = "(B)V")
@@ -45,11 +45,11 @@ public final class Class96 {
     }
 
     @OriginalMember(owner = "client!ef", name = "a", descriptor = "(IB)Lclient!re;")
-    public Class318 method2352(@OriginalArg(0) int arg0) {
+    public FloorOverlayType list(@OriginalArg(0) int arg0) {
         @Pc(15) ReferenceCache local15 = this.aReferenceCache_55;
-        @Pc(25) Class318 local25;
+        @Pc(25) FloorOverlayType local25;
         synchronized (this.aReferenceCache_55) {
-            local25 = (Class318) this.aReferenceCache_55.get((long) arg0);
+            local25 = (FloorOverlayType) this.aReferenceCache_55.get((long) arg0);
         }
         if (local25 != null) {
             return local25;
@@ -59,8 +59,8 @@ public final class Class96 {
         synchronized (this.aJs5_23) {
             local48 = this.aJs5_23.getfile(arg0, 4);
         }
-        local25 = new Class318();
-        local25.aClass96_5 = this;
+        local25 = new FloorOverlayType();
+        local25.aFloorOverlayTypeList_5 = this;
         local25.anInt8253 = arg0;
         if (local48 != null) {
             local25.method7256(new Packet(local48));

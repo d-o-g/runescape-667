@@ -10,19 +10,19 @@ public abstract class Class8_Sub2_Sub5 extends Renderable {
 
     @OriginalMember(owner = "client!nda", name = "<init>", descriptor = "(IIIII)V")
     public Class8_Sub2_Sub5(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        super.anInt10690 = arg0;
+        super.x = arg0;
         super.aByte143 = (byte) arg4;
         super.anInt10691 = arg1;
-        super.anInt10694 = arg2;
+        super.z = arg2;
         super.level = (byte) arg3;
     }
 
     @OriginalMember(owner = "client!nda", name = "a", descriptor = "(BLclient!ha;)Z")
     @Override
     public final boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1) {
-        @Pc(15) Class286 local15 = Static467.method6351(super.level, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066);
+        @Pc(15) Class286 local15 = Static467.method6351(super.level, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
         if (arg0 == 59) {
-            return local15 != null && local15.aPositionEntity.aBoolean815 ? Static282.method3976(local15.aPositionEntity.method9286(2) + this.method9286(2), super.level, super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066) : Static588.method7714(super.anInt10694 >> Static52.anInt1066, super.level, super.anInt10690 >> Static52.anInt1066);
+            return local15 != null && local15.aPositionEntity.aBoolean815 ? Static282.method3976(local15.aPositionEntity.method9286(2) + this.method9286(2), super.level, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066) : Static588.method7714(super.z >> Static52.anInt1066, super.level, super.x >> Static52.anInt1066);
         } else {
             return true;
         }
@@ -31,7 +31,7 @@ public abstract class Class8_Sub2_Sub5 extends Renderable {
     @OriginalMember(owner = "client!nda", name = "g", descriptor = "(I)Z")
     @Override
     public final boolean method9275() {
-        return Static258.aBooleanArrayArray3[(super.anInt10690 >> Static52.anInt1066) + Static35.anInt813 - Static403.anInt6246][Static35.anInt813 + (super.anInt10694 >> Static52.anInt1066) - Static550.anInt8271];
+        return Static258.aBooleanArrayArray3[(super.x >> Static52.anInt1066) + Static35.anInt813 - Static403.anInt6246][Static35.anInt813 + (super.z >> Static52.anInt1066) - Static550.anInt8271];
     }
 
     @OriginalMember(owner = "client!nda", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
@@ -45,7 +45,7 @@ public abstract class Class8_Sub2_Sub5 extends Renderable {
     @OriginalMember(owner = "client!nda", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
     public final int method9288(@OriginalArg(0) PointLight[] arg0) {
-        return this.method9277(arg0, super.anInt10694 >> Static52.anInt1066, super.anInt10690 >> Static52.anInt1066);
+        return this.method9277(arg0, super.z >> Static52.anInt1066, super.x >> Static52.anInt1066);
     }
 
     @OriginalMember(owner = "client!nda", name = "j", descriptor = "(I)V")

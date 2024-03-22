@@ -35,7 +35,7 @@ public final class Static242 {
 
     @OriginalMember(owner = "client!hj", name = "c", descriptor = "(I)V")
     public static void method3502() {
-        Static525.aClass2_Sub2_Sub16_12 = new DoublyLinkedNode_Sub2_Sub16(LocalisedText.CANCEL.localise(Static51.language), "", Cursor.targetEnd, 1012, -1, 0L, 0, 0, true, false, 0L, true);
+        Static525.aClass2_Sub2_Sub16_12 = new DoublyLinkedNode_Sub2_Sub16(LocalisedText.CANCEL.localise(Static51.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
     }
 
     @OriginalMember(owner = "client!hj", name = "a", descriptor = "(IZ)I")
@@ -60,22 +60,22 @@ public final class Static242 {
         for (@Pc(19) int local19 = 0; local19 < local5; local19++) {
             @Pc(26) PlayerEntity local26 = PlayerList.highResolutionPlayers[local7[local19]];
             if (local26 != null && PlayerEntity.self != local26 && local26.accountName != null && local26.accountName.equalsIgnoreCase(arg0)) {
-                @Pc(47) Class345 local47 = null;
+                @Pc(47) ClientProt local47 = null;
                 if (arg1 == 1) {
-                    local47 = Static424.aClass345_79;
+                    local47 = Static424.A_CLIENT_PROT___79;
                 } else if (arg1 == 4) {
-                    local47 = Static587.aClass345_104;
+                    local47 = Static587.A_CLIENT_PROT___104;
                 } else if (arg1 == 5) {
-                    local47 = Static675.aClass345_118;
+                    local47 = Static675.A_CLIENT_PROT___118;
                 } else if (arg1 == 6) {
-                    local47 = Static173.aClass345_30;
+                    local47 = Static173.A_CLIENT_PROT___30;
                 } else if (arg1 == 7) {
-                    local47 = Static273.aClass345_55;
+                    local47 = Static273.A_CLIENT_PROT___55;
                 } else if (arg1 == 9) {
-                    local47 = Static571.aClass345_103;
+                    local47 = Static571.A_CLIENT_PROT___103;
                 }
                 if (local47 != null) {
-                    @Pc(108) ClientMessage local108 = Static293.method4335(local47, ConnectionManager.GAME.cipher);
+                    @Pc(108) ClientMessage local108 = ClientMessage.create(local47, ConnectionManager.GAME.cipher);
                     local108.buffer.p1(0);
                     local108.buffer.p2(local7[local19]);
                     ConnectionManager.GAME.send(local108);

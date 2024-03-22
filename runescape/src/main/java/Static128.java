@@ -8,7 +8,7 @@ public final class Static128 {
     public static Class164 aClass164_8;
 
     @OriginalMember(owner = "client!ea", name = "f", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_106 = new Class345(6, 8);
+    public static final ClientProt A_CLIENT_PROT___106 = new ClientProt(6, 8);
 
     @OriginalMember(owner = "client!ea", name = "a", descriptor = "(ILjava/lang/String;)V")
     public static void method7754(@OriginalArg(1) String arg0) {
@@ -16,7 +16,7 @@ public final class Static128 {
             return;
         }
         @Pc(21) ServerConnection local21 = Static668.method8701();
-        @Pc(27) ClientMessage local27 = Static293.method4335(Static436.aClass345_45, local21.cipher);
+        @Pc(27) ClientMessage local27 = ClientMessage.create(Static436.A_CLIENT_PROT___45, local21.cipher);
         local27.buffer.p1(Static231.method3379(arg0));
         local27.buffer.pjstr(arg0);
         local21.send(local27);

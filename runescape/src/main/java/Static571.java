@@ -12,6 +12,6 @@ public final class Static571 {
     public static final long aLong269 = (long) (Math.random() * 9.999999999E9D);
 
     @OriginalMember(owner = "client!rw", name = "D", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_103 = new Class345(43, 3);
+    public static final ClientProt A_CLIENT_PROT___103 = new ClientProt(43, 3);
 
 }

@@ -16,7 +16,7 @@ public abstract class Renderable extends Node {
     public byte level;
 
     @OriginalMember(owner = "client!eo", name = "f", descriptor = "I")
-    public int anInt10690;
+    public int x;
 
     @OriginalMember(owner = "client!eo", name = "q", descriptor = "Z")
     public boolean aBoolean812;
@@ -28,7 +28,7 @@ public abstract class Renderable extends Node {
     public int anInt10692;
 
     @OriginalMember(owner = "client!eo", name = "v", descriptor = "I")
-    public int anInt10694;
+    public int z;
 
     @OriginalMember(owner = "client!eo", name = "t", descriptor = "Lclient!eo;")
     public Renderable aRenderable_25;

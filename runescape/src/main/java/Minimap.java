@@ -43,8 +43,8 @@ public final class Minimap {
         } else {
             local79 = 4096 - Static660.anInt9835 * 16;
             local87 = (int) -Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
-            local90 = PlayerEntity.self.anInt10690;
-            local93 = PlayerEntity.self.anInt10694;
+            local90 = PlayerEntity.self.x;
+            local93 = PlayerEntity.self.z;
         }
         @Pc(120) int local120 = local90 / 128 + 208 + 48 - Static720.mapWidth * 2;
         @Pc(137) int local137 = Static501.mapHeight * 4 + 48 - local93 / 128 - (Static501.mapHeight - 104) * 2;
@@ -55,11 +55,11 @@ public final class Minimap {
         @Pc(222) int local222;
         for (@Pc(171) IntNode local171 = (IntNode) Static612.A_DEQUE___67.first(); local171 != null; local171 = (IntNode) Static612.A_DEQUE___67.next()) {
             @Pc(178) int local178 = local171.value;
-            local190 = (Static42.aClass255_2.anIntArray495[local178] >> 14 & 0x3FFF) - Static691.areaBaseX;
-            local200 = (Static42.aClass255_2.anIntArray495[local178] & 0x3FFF) - Static116.areaBaseY;
+            local190 = (Static42.aMapElementList_2.anIntArray495[local178] >> 14 & 0x3FFF) - WorldMap.areaBaseX;
+            local200 = (Static42.aMapElementList_2.anIntArray495[local178] & 0x3FFF) - WorldMap.areaBaseY;
             local211 = local190 * 4 + 2 - local90 / 128;
             local222 = local200 * 4 + 2 - local93 / 128;
-            Static620.method8322(local222, x, local30, toolkit, Static42.aClass255_2.anIntArray496[local178], y, local211, component);
+            Static620.method8322(local222, x, local30, toolkit, Static42.aMapElementList_2.anIntArray496[local178], y, local211, component);
         }
         for (local190 = 0; local190 < Static536.anInt8148; local190++) {
             local200 = Static566.anIntArray654[local190] * 4 + 2 - local90 / 128;
@@ -78,8 +78,8 @@ public final class Minimap {
         for (@Pc(334) ObjStack local334 = (ObjStack) Static497.stacks.first(); local334 != null; local334 = (ObjStack) Static497.stacks.next()) {
             local211 = (int) (local334.key >> 28 & 0x3L);
             if (Static643.anInt9604 == local211) {
-                local222 = (int) (local334.key & 0x3FFFL) - Static691.areaBaseX;
-                @Pc(370) int local370 = (int) (local334.key >> 14 & 0x3FFFL) - Static116.areaBaseY;
+                local222 = (int) (local334.key & 0x3FFFL) - WorldMap.areaBaseX;
+                @Pc(370) int local370 = (int) (local334.key >> 14 & 0x3FFFL) - WorldMap.areaBaseY;
                 local381 = local222 * 4 + 2 - local90 / 128;
                 local392 = local370 * 4 + 2 - local93 / 128;
                 Static6.method107(y, local30, Static471.aSpriteArray11[0], local392, local381, component, x);
@@ -96,8 +96,8 @@ public final class Minimap {
                         local446 = local446.getMultiNPC(TimedVarDomain.instance);
                     }
                     if (local446 != null && local446.displayOnMiniMap && local446.interactive) {
-                        local392 = local432.anInt10690 / 128 - local90 / 128;
-                        local490 = local432.anInt10694 / 128 - local93 / 128;
+                        local392 = local432.x / 128 - local90 / 128;
+                        local490 = local432.z / 128 - local93 / 128;
                         if (local446.mapElement == -1) {
                             Static6.method107(y, local30, Static471.aSpriteArray11[1], local490, local392, component, x);
                         } else {
@@ -115,8 +115,8 @@ public final class Minimap {
         for (local381 = 0; local381 < local222; local381++) {
             @Pc(541) PlayerEntity local541 = PlayerList.highResolutionPlayers[local531[local381]];
             if (local541 != null && local541.method1417() && !local541.aBoolean124 && PlayerEntity.self != local541 && local541.level == PlayerEntity.self.level) {
-                local490 = local541.anInt10690 / 128 - local90 / 128;
-                local585 = local541.anInt10694 / 128 - local93 / 128;
+                local490 = local541.x / 128 - local90 / 128;
+                local585 = local541.z / 128 - local93 / 128;
                 @Pc(587) boolean local587 = false;
                 for (local589 = 0; local589 < Static327.anInt5392; local589++) {
                     if (local541.accountName.equals(Static330.aStringArray25[local589]) && Static371.anIntArray455[local589] != 0) {
@@ -160,8 +160,8 @@ public final class Minimap {
                     @Pc(828) Node_Sub45 local828 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local796.anInt6366);
                     if (local828 != null) {
                         @Pc(833) NPCEntity local833 = local828.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                        local843 = local833.anInt10690 / 128 - local90 / 128;
-                        local622 = local833.anInt10694 / 128 - local93 / 128;
+                        local843 = local833.x / 128 - local90 / 128;
+                        local622 = local833.z / 128 - local93 / 128;
                         Static114.method2132(local843, x, 360000L, local30, local796.anInt6367, y, local622, component);
                     }
                 }
@@ -175,8 +175,8 @@ public final class Minimap {
                 if (local796.anInt6363 == 10 && local796.anInt6366 >= 0 && local796.anInt6366 < PlayerList.highResolutionPlayers.length) {
                     @Pc(932) PlayerEntity local932 = PlayerList.highResolutionPlayers[local796.anInt6366];
                     if (local932 != null) {
-                        local589 = local932.anInt10690 / 128 - local90 / 128;
-                        local843 = local932.anInt10694 / 128 - local93 / 128;
+                        local589 = local932.x / 128 - local90 / 128;
+                        local843 = local932.z / 128 - local93 / 128;
                         Static114.method2132(local589, x, 360000L, local30, local796.anInt6367, y, local843, component);
                     }
                 }
@@ -191,7 +191,7 @@ public final class Minimap {
             Static6.method107(y, local30, Static691.aSpriteArray15[Static266.aBoolean583 ? 1 : 0], local878, local585, component, x);
         }
         if (!PlayerEntity.self.aBoolean124) {
-            toolkit.method7971(3, 3, y + component.height / 2 - 1, component.width / 2 + x + -1, -1);
+            toolkit.fillRect(3, 3, y + component.height / 2 - 1, component.width / 2 + x + -1, -1);
             return;
         }
     }
@@ -210,4 +210,5 @@ public final class Minimap {
             Static12.aSprite_27.method8183((float) component.width / 2.0F + (float) arg1, (float) component.height / 2.0F + (float) arg2, ((int) -Static171.aFloat64 & 0x3FFF) << 2, graphic.aClippingMask, arg1, arg2);
         }
     }
+
 }

@@ -39,8 +39,8 @@ public final class Static354 {
             @Pc(64) int local64 = arg0.anInt10753 * 512 + arg0.boundSize((byte) 89) * 256;
             @Pc(76) int local76 = arg0.anInt10761 * 512 + arg0.boundSize((byte) 107) * 256;
             @Pc(88) int local88 = arg0.anInt10758 * 512 + arg0.boundSize((byte) 115) * 256;
-            arg0.anInt10690 = (local76 * local40 + local52 * (local34 - local40)) / local34;
-            arg0.anInt10694 = (local40 * local88 + local64 * (local34 - local40)) / local34;
+            arg0.x = (local76 * local40 + local52 * (local34 - local40)) / local34;
+            arg0.z = (local40 * local88 + local64 * (local34 - local40)) / local34;
         }
         arg0.anInt10763 = 0;
         if (arg0.anInt10754 == 0) {

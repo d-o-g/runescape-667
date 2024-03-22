@@ -49,7 +49,7 @@ public final class DynamicLocation extends PositionEntity implements Location {
             return false;
         } else {
             @Pc(20) Matrix local20 = arg3.scratchMatrix();
-            local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+            local20.method7125(super.x, super.anInt10691, super.z);
             return Static504.aBoolean579 ? local12.pickedOrtho(arg1, arg0, local20, false, 0, Static582.anInt8627) : local12.picked(arg1, arg0, local20, false, 0);
         }
     }
@@ -62,7 +62,7 @@ public final class DynamicLocation extends PositionEntity implements Location {
             return null;
         }
         @Pc(30) Matrix local30 = arg0.scratchMatrix();
-        local30.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local30.method7125(super.x, super.anInt10691, super.z);
         @Pc(44) Class8_Sub7 local44 = Static642.method8441(this.aBoolean517, 1);
         this.aClass337_3.method7681(super.aShort133, local14, true, -9827, arg0, super.aShort134, super.aShort131, super.aShort132, local30);
         if (Static504.aBoolean579) {
@@ -80,9 +80,9 @@ public final class DynamicLocation extends PositionEntity implements Location {
         }
         this.aBoolean518 = local14.F() || this.aClass337_3.aParticleSystem_7 != null;
         if (this.aClass205_7 == null) {
-            this.aClass205_7 = Static317.method4583(super.anInt10691, super.anInt10690, local14, super.anInt10694);
+            this.aClass205_7 = Static317.method4583(super.anInt10691, super.x, local14, super.z);
         } else {
-            Static223.method9103(local14, super.anInt10694, super.anInt10691, super.anInt10690, this.aClass205_7);
+            Static223.method9103(local14, super.z, super.anInt10691, super.x, this.aClass205_7);
         }
         return local44;
     }
@@ -120,7 +120,7 @@ public final class DynamicLocation extends PositionEntity implements Location {
         @Pc(12) Model local12 = this.aClass337_3.method7678(arg0, true, true, true, 262144);
         if (arg1 == -5 && local12 != null) {
             @Pc(22) Matrix local22 = arg0.scratchMatrix();
-            local22.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+            local22.method7125(super.x, super.anInt10691, super.z);
             this.aClass337_3.method7681(super.aShort133, local12, false, -9827, arg0, super.aShort134, super.aShort131, super.aShort132, local22);
         }
     }

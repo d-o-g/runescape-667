@@ -43,7 +43,7 @@ public final class Static25 {
             InterfaceManager.topLevelInterface = Static523.graphicsDefaults.lobby_interface;
             Static640.method8435(false);
             InterfaceManager.redrawAll();
-            Static472.method6414(InterfaceManager.topLevelInterface);
+            ScriptRunner.executeOnLoad(InterfaceManager.topLevelInterface);
         }
         Static461.aBoolean529 = true;
     }

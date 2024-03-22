@@ -13,7 +13,7 @@ public final class Static563 {
     public static final int anInt8460 = 13156520;
 
     @OriginalMember(owner = "client!ro", name = "j", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_102 = new Class345(88, -1);
+    public static final ClientProt A_CLIENT_PROT___102 = new ClientProt(88, -1);
 
     @OriginalMember(owner = "client!ro", name = "a", descriptor = "()V")
     public static void method7461() {

@@ -7,18 +7,18 @@ public final class Static687 {
 
     @OriginalMember(owner = "client!vo", name = "a", descriptor = "(IIII)I")
     public static int method8957(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
-        if (Static273.anInt4403 < 100) {
+        if (WorldMap.loadingPercent < 100) {
             return -2;
         }
         @Pc(13) int local13 = -2;
         @Pc(15) int local15 = Integer.MAX_VALUE;
-        @Pc(19) int local19 = arg2 - Static30.anInt5655;
-        @Pc(23) int local23 = arg1 - Static30.anInt5648;
-        for (@Pc(34) Node_Sub20 local34 = (Node_Sub20) Static30.A_DEQUE___31.first(); local34 != null; local34 = (Node_Sub20) Static30.A_DEQUE___31.next()) {
-            if (local34.anInt3131 == arg0) {
-                @Pc(46) int local46 = local34.anInt3129;
-                @Pc(49) int local49 = local34.anInt3124;
-                @Pc(59) int local59 = Static30.anInt5648 + local49 | Static30.anInt5655 + local46 << 14;
+        @Pc(19) int local19 = arg2 - WorldMap.areaX;
+        @Pc(23) int local23 = arg1 - WorldMap.areaY;
+        for (@Pc(34) MapElementListEntry local34 = (MapElementListEntry) WorldMap.elements.first(); local34 != null; local34 = (MapElementListEntry) WorldMap.elements.next()) {
+            if (local34.id == arg0) {
+                @Pc(46) int local46 = local34.x;
+                @Pc(49) int local49 = local34.y;
+                @Pc(59) int local59 = WorldMap.areaY + local49 | WorldMap.areaX + local46 << 14;
                 @Pc(78) int local78 = (local23 - local49) * (local23 - local49) + (local19 - local46) * (-local46 + local19);
                 if (local13 < 0 || local15 > local78) {
                     local15 = local78;

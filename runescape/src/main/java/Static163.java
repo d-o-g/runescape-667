@@ -1,4 +1,3 @@
-import com.jagex.game.runetek6.config.iftype.SubInterface;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -21,34 +20,6 @@ public final class Static163 {
         @Pc(39) int local39 = Static459.aCalendar3.get(12);
         @Pc(43) int local43 = Static459.aCalendar3.get(13);
         return Static146.aStringArray8[local19 - 1] + ", " + local23 / 10 + local23 % 10 + "-" + Static361.aStringArray29[local27] + "-" + local31 + " " + local35 / 10 + local35 % 10 + ":" + local39 / 10 + local39 % 10 + ":" + local43 / 10 + local43 % 10 + " GMT";
-    }
-
-    @OriginalMember(owner = "client!fb", name = "a", descriptor = "(IIIIZ)Lclient!aha;")
-    public static SubInterface method8850(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) boolean arg3) {
-        @Pc(7) SubInterface local7 = new SubInterface();
-        local7.id = arg1;
-        local7.type = arg0;
-        InterfaceManager.subInterfaces.put((long) arg2, local7);
-        Static122.method2208(arg1);
-        @Pc(26) Component local26 = InterfaceList.list(arg2);
-        if (local26 != null) {
-            InterfaceManager.redraw(local26);
-        }
-        if (InterfaceManager.dialog != null) {
-            InterfaceManager.redraw(InterfaceManager.dialog);
-            InterfaceManager.dialog = null;
-        }
-        Static94.method1840();
-        if (local26 != null) {
-            Static134.method8956(local26, !arg3);
-        }
-        if (!arg3) {
-            Static472.method6414(arg1);
-        }
-        if (!arg3 && InterfaceManager.topLevelInterface != -1) {
-            Static145.method2411(1, InterfaceManager.topLevelInterface);
-        }
-        return local7;
     }
 
     @OriginalMember(owner = "client!fb", name = "a", descriptor = "([II[III)V")

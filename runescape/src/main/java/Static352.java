@@ -32,15 +32,15 @@ public final class Static352 {
 
     @OriginalMember(owner = "client!lc", name = "c", descriptor = "(B)V")
     public static void method5180() {
-        Static467.aClass96_3.method2349();
-        Static540.aClass79_6.method2067();
+        Static467.aFloorOverlayTypeList_3.method2349();
+        Static540.aFloorUnderlayTypeList_6.method2067();
         Static68.idkTypeList.cacheReset();
         Static354.aLocTypeList_4.cacheReset();
         Static690.aNPCTypeList_2.cacheReset();
         Static419.objTypeList.cacheReset();
         Static25.seqTypeList.cacheReset();
         Static23.aClass128_1.method2699();
-        Static529.aClass161_1.method3429();
+        WorldMap.varbitTypeList.method3429();
         Static36.aClass260_1.method5784();
         Static628.aClass342_5.method7783();
         Static648.aClass17_1.method269();

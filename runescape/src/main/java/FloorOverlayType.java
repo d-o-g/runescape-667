@@ -5,10 +5,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!re")
-public final class Class318 {
+public final class FloorOverlayType {
 
     @OriginalMember(owner = "client!re", name = "e", descriptor = "Lclient!ef;")
-    public Class96 aClass96_5;
+    public FloorOverlayTypeList aFloorOverlayTypeList_5;
 
     @OriginalMember(owner = "client!re", name = "h", descriptor = "I")
     public int anInt8253;
@@ -38,7 +38,7 @@ public final class Class318 {
     public int anInt8256 = 127;
 
     @OriginalMember(owner = "client!re", name = "g", descriptor = "I")
-    public int anInt8255 = -1;
+    public int texture = -1;
 
     @OriginalMember(owner = "client!re", name = "a", descriptor = "Z")
     public boolean aBoolean628 = false;
@@ -67,18 +67,18 @@ public final class Class318 {
         if (arg1 == 1) {
             this.anInt8249 = Static579.method7633(arg0.g3());
         } else if (arg1 == 2) {
-            this.anInt8255 = arg0.g1();
+            this.texture = arg0.g1();
         } else if (arg1 == 3) {
-            this.anInt8255 = arg0.g2();
-            if (this.anInt8255 == 65535) {
-                this.anInt8255 = -1;
+            this.texture = arg0.g2();
+            if (this.texture == 65535) {
+                this.texture = -1;
             }
         } else if (arg1 == 5) {
             this.aBoolean626 = false;
         } else if (arg1 == 7) {
             this.anInt8248 = Static579.method7633(arg0.g3());
         } else if (arg1 == 8) {
-            this.aClass96_5.anInt2509 = this.anInt8253;
+            this.aFloorOverlayTypeList_5.anInt2509 = this.anInt8253;
         } else if (arg1 == 9) {
             this.anInt8250 = arg0.g2() << 2;
         } else if (arg1 == 10) {

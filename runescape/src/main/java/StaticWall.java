@@ -48,8 +48,8 @@ public final class StaticWall extends Wall implements Location {
     @OriginalMember(owner = "client!jn", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIZ)V")
     public StaticWall(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) boolean arg10) {
         super(arg4, arg5, arg6, arg2, arg3, Static490.method6553(arg9, arg8));
-        super.anInt10690 = arg4;
-        super.anInt10694 = arg6;
+        super.x = arg4;
+        super.z = arg6;
         this.aBoolean379 = arg1.interactivity != LocInteractivity.NONINTERACTIVE && !arg7;
         this.aShort60 = (short) arg1.id;
         this.aByte88 = (byte) arg8;
@@ -103,7 +103,7 @@ public final class StaticWall extends Wall implements Location {
             this.aClass2_Sub2_Sub9_4 = null;
         }
         if (local21 != null) {
-            Static630.method8357(local21, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
+            Static630.method8357(local21, super.aByte143, super.x, super.z, (boolean[]) null);
         }
     }
 
@@ -155,7 +155,7 @@ public final class StaticWall extends Wall implements Location {
     @Override
     public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (this.aClass205_6 == null) {
-            this.aClass205_6 = Static317.method4583(super.anInt10691, super.anInt10690, this.method4474(arg0, 0), super.anInt10694);
+            this.aClass205_6 = Static317.method4583(super.anInt10691, super.x, this.method4474(arg0, 0), super.z);
         }
         if (arg1 >= -93) {
             this.aClass205_6 = null;
@@ -208,7 +208,7 @@ public final class StaticWall extends Wall implements Location {
             this.aClass2_Sub2_Sub9_4 = null;
         }
         if (local24 != null) {
-            Static292.method4618(local24, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
+            Static292.method4618(local24, super.aByte143, super.x, super.z, (boolean[]) null);
         }
     }
 
@@ -238,7 +238,7 @@ public final class StaticWall extends Wall implements Location {
                 local38 = null;
             }
         }
-        return local11.modelAndShadow(this.aByte87, super.anInt10694, super.anInt10690, local27, arg2, super.anInt10691, this.aByte88, arg0, (LocTypeCustomisation) null, arg1, local38);
+        return local11.modelAndShadow(this.aByte87, super.z, super.x, local27, arg2, super.anInt10691, this.aByte88, arg0, (LocTypeCustomisation) null, arg1, local38);
     }
 
     @OriginalMember(owner = "client!jn", name = "d", descriptor = "(Lclient!ha;I)V")
@@ -260,7 +260,7 @@ public final class StaticWall extends Wall implements Location {
             return false;
         } else {
             @Pc(14) Matrix local14 = arg3.scratchMatrix();
-            local14.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+            local14.method7125(super.x, super.anInt10691, super.z);
             return Static504.aBoolean579 ? local9.pickedOrtho(arg1, arg0, local14, false, 0, Static582.anInt8627) : local9.picked(arg1, arg0, local14, false, 0);
         }
     }
@@ -278,7 +278,7 @@ public final class StaticWall extends Wall implements Location {
             return null;
         }
         @Pc(20) Matrix local20 = arg0.scratchMatrix();
-        local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local20.method7125(super.x, super.anInt10691, super.z);
         @Pc(34) Class8_Sub7 local34 = Static642.method8441(this.aBoolean379, 1);
         if (Static504.aBoolean579) {
             this.model.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);

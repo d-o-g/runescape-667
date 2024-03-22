@@ -11,7 +11,7 @@ public final class Static113 {
     public static int anInt2238;
 
     @OriginalMember(owner = "client!dja", name = "g", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_22 = new Class345(17, -1);
+    public static final ClientProt A_CLIENT_PROT___22 = new ClientProt(17, -1);
 
     @OriginalMember(owner = "client!dja", name = "h", descriptor = "Lclient!av;")
     public static final IterableHashTable A_HASH_TABLE___12 = new IterableHashTable(16);

@@ -111,7 +111,7 @@ public final class Static709 {
         @Pc(71) ClientMessage local71;
         @Pc(80) int local80;
         while (Static232.method3400()) {
-            local71 = Static293.method4335(Static632.aClass345_110, ConnectionManager.GAME.cipher);
+            local71 = ClientMessage.create(Static632.A_CLIENT_PROT___110, ConnectionManager.GAME.cipher);
             local71.buffer.p1(0);
             local80 = local71.buffer.pos;
             Static437.method5915(local71.buffer);
@@ -123,7 +123,7 @@ public final class Static709 {
                 Static211.aClass2_Sub12_3 = Static151.aClass226_20.method5245(client.gameConnection.address);
             }
         } else if (Static211.aClass2_Sub12_3.anInt1631 != -1) {
-            local71 = Static293.method4335(Static50.aClass345_90, ConnectionManager.GAME.cipher);
+            local71 = ClientMessage.create(Static50.A_CLIENT_PROT___90, ConnectionManager.GAME.cipher);
             local71.buffer.p2(Static211.aClass2_Sub12_3.anInt1631);
             ConnectionManager.GAME.send(local71);
             Static211.aClass2_Sub12_3 = null;
@@ -156,7 +156,7 @@ public final class Static709 {
                 }
                 if (Static172.anInt2890 != local226 || local208 != Static634.anInt9516) {
                     if (local179 == null) {
-                        local179 = Static293.method4335(Static603.aClass345_109, ConnectionManager.GAME.cipher);
+                        local179 = ClientMessage.create(Static603.A_CLIENT_PROT___109, ConnectionManager.GAME.cipher);
                         local179.buffer.p1(0);
                         local181 = local179.buffer.pos;
                     }
@@ -221,14 +221,14 @@ public final class Static709 {
                 local581 = 1;
             }
             local282 = (int) local527;
-            @Pc(603) ClientMessage local603 = Static293.method4335(Static111.aClass345_21, ConnectionManager.GAME.cipher);
+            @Pc(603) ClientMessage local603 = ClientMessage.create(Static111.A_CLIENT_PROT___21, ConnectionManager.GAME.cipher);
             local603.buffer.p2_alt3(local581 << 15 | local282);
             local603.buffer.p4_alt2(local208 | local541 << 16);
             ConnectionManager.GAME.send(local603);
         }
         @Pc(660) long local660;
         if (Static216.anInt3530 > 0) {
-            local179 = Static293.method4335(Static187.aClass345_36, ConnectionManager.GAME.cipher);
+            local179 = ClientMessage.create(Static187.A_CLIENT_PROT___36, ConnectionManager.GAME.cipher);
             local179.buffer.p1(Static216.anInt3530 * 3);
             for (local181 = 0; local181 < Static216.anInt3530; local181++) {
                 @Pc(652) Interface27 local652 = Static591.anInterface27Array2[local181];
@@ -248,19 +248,19 @@ public final class Static709 {
         if (Static273.aBoolean339 && Static232.anInt3764 <= 0) {
             Static273.aBoolean339 = false;
             Static232.anInt3764 = 20;
-            local179 = Static293.method4335(Static235.aClass345_47, ConnectionManager.GAME.cipher);
+            local179 = ClientMessage.create(Static235.A_CLIENT_PROT___47, ConnectionManager.GAME.cipher);
             local179.buffer.p2((int) Static479.aFloat123 >> 3);
             local179.buffer.p2((int) Static171.aFloat64 >> 3);
             ConnectionManager.GAME.send(local179);
         }
         if (Static91.aBoolean750 != Static50.aBoolean565) {
             Static50.aBoolean565 = Static91.aBoolean750;
-            local179 = Static293.method4335(Static621.aClass345_113, ConnectionManager.GAME.cipher);
+            local179 = ClientMessage.create(Static621.A_CLIENT_PROT___113, ConnectionManager.GAME.cipher);
             local179.buffer.p1(Static91.aBoolean750 ? 1 : 0);
             ConnectionManager.GAME.send(local179);
         }
         if (!Static503.aBoolean578) {
-            local179 = Static293.method4335(Static600.aClass345_108, ConnectionManager.GAME.cipher);
+            local179 = ClientMessage.create(Static600.A_CLIENT_PROT___108, ConnectionManager.GAME.cipher);
             local179.buffer.p1(0);
             local181 = local179.buffer.pos;
             @Pc(810) Packet local810 = Static400.instance.method5110();
@@ -509,16 +509,16 @@ public final class Static709 {
         Static702.aBoolean797 = false;
         InterfaceManager.dragTarget = null;
         WorldMap.setOptions(-1, -1, (Component) null);
-        if (!InterfaceManager.isTargeting) {
-            Cursor.targetEnd = -1;
+        if (!InterfaceManager.targeting) {
+            InterfaceManager.targetEndCursor = -1;
         }
         Static443.method5981();
         World.tick++;
-        if (Static118.aBoolean199) {
-            @Pc(1980) ClientMessage local1980 = Static293.method4335(Static133.aClass345_26, ConnectionManager.GAME.cipher);
-            local1980.buffer.p4_alt3(Static614.anInt9373 | Static688.anInt10356 << 28 | Static503.anInt7582 << 14);
+        if (WorldMap.clicked) {
+            @Pc(1980) ClientMessage local1980 = ClientMessage.create(Static133.A_CLIENT_PROT___26, ConnectionManager.GAME.cipher);
+            local1980.buffer.p4_alt3(WorldMap.clickedY | WorldMap.clickedLevel << 28 | WorldMap.clickedX << 14);
             ConnectionManager.GAME.send(local1980);
-            Static118.aBoolean199 = false;
+            WorldMap.clicked = false;
         }
         while (true) {
             @Pc(2006) HookRequest local2006;
@@ -548,7 +548,7 @@ public final class Static709 {
                                                 } else if (local541 > 3) {
                                                     local541 = 3;
                                                 }
-                                                Static624.teleport(local541, PlayerEntity.self.pathY[0] + Static116.areaBaseY, Static691.areaBaseX - -PlayerEntity.self.pathX[0]);
+                                                Static624.teleport(local541, PlayerEntity.self.pathY[0] + WorldMap.areaBaseY, WorldMap.areaBaseX - -PlayerEntity.self.pathX[0]);
                                             }
                                             Static320.method4598();
                                             for (local541 = 0; local541 < 5; local541++) {
@@ -628,7 +628,7 @@ public final class Static709 {
                                                 Static171.anInt2887 = -1;
                                             }
                                             if (ConnectionManager.GAME.idleWriteTicks > 50) {
-                                                @Pc(2571) ClientMessage local2571 = Static293.method4335(Static415.aClass345_75, ConnectionManager.GAME.cipher);
+                                                @Pc(2571) ClientMessage local2571 = ClientMessage.create(ClientProt.NO_TIMEOUT, ConnectionManager.GAME.cipher);
                                                 ConnectionManager.GAME.send(local2571);
                                             }
                                             if (Static252.aBoolean316) {
@@ -649,7 +649,7 @@ public final class Static709 {
                                         }
                                         local2026 = InterfaceList.list(local2011.layer);
                                     } while (local2026 == null || local2026.staticComponents == null || local2026.staticComponents.length <= local2011.id || local2011 != local2026.staticComponents[local2011.id]);
-                                    Static472.method6420(local2006);
+                                    ScriptRunner.executeHookInner(local2006);
                                 }
                             }
                             local2011 = local2006.source;
@@ -658,7 +658,7 @@ public final class Static709 {
                             }
                             local2026 = InterfaceList.list(local2011.layer);
                         } while (local2026 == null || local2026.staticComponents == null || local2011.id >= local2026.staticComponents.length || local2026.staticComponents[local2011.id] != local2011);
-                        Static472.method6420(local2006);
+                        ScriptRunner.executeHookInner(local2006);
                     }
                 }
                 local2011 = local2006.source;
@@ -667,7 +667,7 @@ public final class Static709 {
                 }
                 local2026 = InterfaceList.list(local2011.layer);
             } while (local2026 == null || local2026.staticComponents == null || local2026.staticComponents.length <= local2011.id || local2026.staticComponents[local2011.id] != local2011);
-            Static472.method6420(local2006);
+            ScriptRunner.executeHookInner(local2006);
         }
     }
 }

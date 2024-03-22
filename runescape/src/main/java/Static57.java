@@ -11,7 +11,7 @@ public final class Static57 {
     public static float aFloat29;
 
     @OriginalMember(owner = "client!bt", name = "n", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_10 = new Class345(11, 7);
+    public static final ClientProt A_CLIENT_PROT___10 = new ClientProt(11, 7);
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(FIIFI[FIIIIIF[FI)V")
     public static void method1224(@OriginalArg(0) float arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) float arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float[] arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) float arg10, @OriginalArg(12) float[] arg11, @OriginalArg(13) int arg12) {
@@ -84,7 +84,7 @@ public final class Static57 {
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(ILjava/lang/String;)V")
     public static void method1231(@OriginalArg(1) String arg0) {
-        if (!InterfaceManager.isTargeting || (InterfaceManager.targetMask & 0x18) == 0) {
+        if (!InterfaceManager.targeting || (InterfaceManager.targetMask & 0x18) == 0) {
             return;
         }
         @Pc(22) boolean local22 = false;
@@ -93,12 +93,12 @@ public final class Static57 {
         for (@Pc(28) int local28 = 0; local28 < local24; local28++) {
             @Pc(35) PlayerEntity local35 = PlayerList.highResolutionPlayers[local26[local28]];
             if (local35.accountName != null && local35.accountName.equalsIgnoreCase(arg0) && (PlayerEntity.self == local35 && (InterfaceManager.targetMask & 0x10) != 0 || (InterfaceManager.targetMask & 0x8) != 0)) {
-                @Pc(75) ClientMessage local75 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.cipher);
+                @Pc(75) ClientMessage local75 = ClientMessage.create(Static664.A_CLIENT_PROT___115, ConnectionManager.GAME.cipher);
                 local75.buffer.p2_alt1(local26[local28]);
-                local75.buffer.p4_alt1(Static450.anInt6819);
-                local75.buffer.p2(Static162.anInt2799);
+                local75.buffer.p4_alt1(InterfaceManager.targetSlot);
+                local75.buffer.p2(InterfaceManager.targetInvObj);
                 local75.buffer.p1_alt3(0);
-                local75.buffer.p2_alt3(Static77.anInt1614);
+                local75.buffer.p2_alt3(InterfaceManager.targetComponent);
                 ConnectionManager.GAME.send(local75);
                 Static147.method2419(0, local35.pathY[0], local35.boundSize((byte) 65), true, local35.pathX[0], 0, -2, local35.boundSize((byte) 81));
                 local22 = true;
@@ -108,7 +108,7 @@ public final class Static57 {
         if (!local22) {
             Static67.method6098(LocalisedText.UNABLETOFIND.localise(Static51.language) + arg0);
         }
-        if (InterfaceManager.isTargeting) {
+        if (InterfaceManager.targeting) {
             InterfaceManager.endTargetMode();
         }
     }

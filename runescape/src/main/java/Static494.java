@@ -18,7 +18,7 @@ public final class Static494 {
     public static boolean aBoolean563 = false;
 
     @OriginalMember(owner = "client!pja", name = "ib", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_89 = new Class345(62, 3);
+    public static final ClientProt A_CLIENT_PROT___89 = new ClientProt(62, 3);
 
     @OriginalMember(owner = "client!pja", name = "e", descriptor = "(I)V")
     public static void method6596() {
@@ -32,8 +32,8 @@ public final class Static494 {
     @OriginalMember(owner = "client!pja", name = "e", descriptor = "(B)V")
     public static void method6597() {
         Static659.anInt9817 = 0;
-        @Pc(17) int local17 = (PlayerEntity.self.anInt10690 >> 9) + Static691.areaBaseX;
-        @Pc(24) int local24 = Static116.areaBaseY + (PlayerEntity.self.anInt10694 >> 9);
+        @Pc(17) int local17 = (PlayerEntity.self.x >> 9) + WorldMap.areaBaseX;
+        @Pc(24) int local24 = WorldMap.areaBaseY + (PlayerEntity.self.z >> 9);
         if (local17 >= 3053 && local17 <= 3156 && local24 >= 3056 && local24 <= 3136) {
             Static659.anInt9817 = 1;
         }

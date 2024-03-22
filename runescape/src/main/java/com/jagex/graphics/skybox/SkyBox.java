@@ -196,10 +196,10 @@ public final class SkyBox {
                             this.aSprite_10.render(arg7 + local233, local187 + arg11, arg2, arg2, 0, local10 << 24 | 0xFFFFFF, local161);
                         }
                         if ((this.anInt3501 & 0xFF000000) != 0) {
-                            arg3.method7971(arg6, local187 + arg11 + 1, 0, 0, this.anInt3501);
+                            arg3.fillRect(arg6, local187 + arg11 + 1, 0, 0, this.anInt3501);
                         }
                         if ((this.anInt3511 & 0xFF000000) != 0) {
-                            arg3.method7971(arg6, arg2 - arg2 - local187 - arg11, arg2 + arg11 + local187, 0, this.anInt3511);
+                            arg3.fillRect(arg6, arg2 - arg2 - local187 - arg11, arg2 + arg11 + local187, 0, this.anInt3511);
                         }
                     } else {
                         while (arg2 < local187) {

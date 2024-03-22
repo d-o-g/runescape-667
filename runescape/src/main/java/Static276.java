@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static276 {
 
     @OriginalMember(owner = "client!ila", name = "k", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_56 = new Class345(59, -1);
+    public static final ClientProt A_CLIENT_PROT___56 = new ClientProt(59, -1);
 
     @OriginalMember(owner = "client!ila", name = "a", descriptor = "(I)V")
     public static void method3986() {
@@ -51,8 +51,8 @@ public final class Static276 {
             Static682.anIntArray817[local30] = 1000000;
             Static153.anIntArray235[local30] = 0;
         }
-        @Pc(92) int local92 = PlayerEntity.self.anInt10690;
-        @Pc(95) int local95 = PlayerEntity.self.anInt10694;
+        @Pc(92) int local92 = PlayerEntity.self.x;
+        @Pc(95) int local95 = PlayerEntity.self.z;
         @Pc(149) int local149;
         if (Static511.anInt7645 != 1 && Static692.anInt10376 == -1) {
             local149 = Static102.method2025(Static394.anInt6176, -29754, Static110.anInt2186, Static170.anInt2864);
@@ -148,7 +148,7 @@ public final class Static276 {
             }
             return;
         }
-        JagException.sendTrace((Throwable) null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + Static691.areaBaseX + "," + Static116.areaBaseY);
+        JagException.sendTrace((Throwable) null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + WorldMap.areaBaseX + "," + WorldMap.areaBaseY);
         return;
     }
 }

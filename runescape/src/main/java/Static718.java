@@ -4,8 +4,6 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.Color;
-
 public final class Static718 {
 
     @OriginalMember(owner = "client!wo", name = "A", descriptor = "Lclient!ida;")
@@ -20,16 +18,13 @@ public final class Static718 {
     @OriginalMember(owner = "client!wo", name = "r", descriptor = "Z")
     public static boolean aBoolean822 = false;
 
-    @OriginalMember(owner = "client!wo", name = "y", descriptor = "[Ljava/awt/Color;")
-    public static final Color[] aColorArray3 = new Color[]{new Color(9179409), new Color(3289650), new Color(3289650), new Color(3289650)};
-
     @OriginalMember(owner = "client!wo", name = "a", descriptor = "(Lclient!re;BLclient!ha;)I")
-    public static int method9367(@OriginalArg(0) Class318 arg0, @OriginalArg(2) Toolkit arg1) {
+    public static int method9367(@OriginalArg(0) FloorOverlayType arg0, @OriginalArg(2) Toolkit arg1) {
         if (arg0.anInt8248 != -1) {
             return arg0.anInt8248;
         }
-        if (arg0.anInt8255 != -1) {
-            @Pc(31) TextureMetrics local31 = arg1.textureSource.getMetrics(arg0.anInt8255);
+        if (arg0.texture != -1) {
+            @Pc(31) TextureMetrics local31 = arg1.textureSource.getMetrics(arg0.texture);
             if (!local31.aBoolean240) {
                 return local31.aShort37;
             }

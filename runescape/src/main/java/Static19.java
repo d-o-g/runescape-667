@@ -19,10 +19,4 @@ public final class Static19 {
         return Static340.method5011(arg1, arg0) | (arg1 & 0x70000) != 0 || Static598.method7828(arg1, arg0);
     }
 
-    @OriginalMember(owner = "client!al", name = "a", descriptor = "(ZIIII)V")
-    public static void method265(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        if (InterfaceList.load(arg1)) {
-            Static220.method3200(arg3, arg0, arg2, InterfaceList.interfaces[arg1], -1);
-        }
-    }
 }

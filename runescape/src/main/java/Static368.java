@@ -71,12 +71,12 @@ public final class Static368 {
 
     @OriginalMember(owner = "client!lka", name = "a", descriptor = "(ILclient!sia;ILclient!ha;I)V")
     public static void method5272(@OriginalArg(1) Deque arg0, @OriginalArg(3) Toolkit arg1) {
-        Static551.aDeque_54.clear();
+        WorldMap.aDeque_54.clear();
         if (Static178.aBoolean251) {
             return;
         }
-        for (@Pc(27) Node_Sub20 local27 = (Node_Sub20) arg0.first(); local27 != null; local27 = (Node_Sub20) arg0.next()) {
-            @Pc(35) Class105 local35 = Static30.aClass246_3.method5584(local27.anInt3131);
+        for (@Pc(27) MapElementListEntry local27 = (MapElementListEntry) arg0.first(); local27 != null; local27 = (MapElementListEntry) arg0.next()) {
+            @Pc(35) MapElementType local35 = WorldMap.mapElementTypeList.list(local27.id);
             if (Static408.method5634(local35)) {
                 @Pc(47) boolean local47 = Static351.method5138(arg1, local35, local27);
                 if (local47) {

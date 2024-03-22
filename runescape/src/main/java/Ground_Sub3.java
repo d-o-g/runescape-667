@@ -300,7 +300,7 @@ public final class Ground_Sub3 extends Ground {
             if (arg6[local67] == -1) {
                 arg6[local67] = 0;
             } else {
-                arg6[local67] = ColourUtils.HSV_TO_RGB[Static105.method2043(arg6[local67]) & 0xFFFF] << 8 | 0xFF;
+                arg6[local67] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(arg6[local67]) & 0xFFFF] << 8 | 0xFF;
             }
         }
         if (arg7 != null) {
@@ -308,7 +308,7 @@ public final class Ground_Sub3 extends Ground {
                 if (arg7[local106] == -1) {
                     arg7[local106] = 0;
                 } else {
-                    arg7[local106] = ColourUtils.HSV_TO_RGB[Static105.method2043(arg7[local106]) & 0xFFFF] << 8 | 0xFF;
+                    arg7[local106] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(arg7[local106]) & 0xFFFF] << 8 | 0xFF;
                 }
             }
         }
@@ -571,15 +571,15 @@ public final class Ground_Sub3 extends Ground {
                         if (local2258) {
                             local2264 = arg8[local1961];
                             if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
-                                local1760.anIntArray802[local1961] = ColourUtils.HSV_TO_RGB[Static105.method2043(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
+                                local1760.anIntArray802[local1961] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
                             }
                             local2264 = arg8[local2008];
                             if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
-                                local1760.anIntArray802[local2008] = ColourUtils.HSV_TO_RGB[Static105.method2043(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
+                                local1760.anIntArray802[local2008] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
                             }
                             local2264 = arg8[local2098];
                             if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
-                                local1760.anIntArray802[local2098] = ColourUtils.HSV_TO_RGB[Static105.method2043(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
+                                local1760.anIntArray802[local2098] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
                             }
                         }
                         local1760.aShortArray139[local1834] = -1;
@@ -1374,7 +1374,7 @@ public final class Ground_Sub3 extends Ground {
             for (local370 = 0; local370 < local126; local370++) {
                 if (arg9[local370] >= 0 || arg10 != null && arg10[local370] >= 0) {
                     if (arg9[local370] >= 0) {
-                        local118.anIntArray230[local118.aShort33] = Static105.method2043(arg9[local370]);
+                        local118.anIntArray230[local118.aShort33] = ColourUtils.hslToHsv(arg9[local370]);
                     } else {
                         local118.anIntArray230[local118.aShort33] = -1;
                     }
@@ -1382,7 +1382,7 @@ public final class Ground_Sub3 extends Ground {
                         if (arg10[local370] == -1) {
                             local118.anIntArray231[local118.aShort33] = -1;
                         } else {
-                            local118.anIntArray231[local118.aShort33] = Static105.method2043(arg10[local370]);
+                            local118.anIntArray231[local118.aShort33] = ColourUtils.hslToHsv(arg10[local370]);
                         }
                     }
                     local118.aShortArray34[local118.aShort33] = (short) arg6[local370];
@@ -1405,7 +1405,7 @@ public final class Ground_Sub3 extends Ground {
             local79 = arg9[0];
             local85 = arg11[0];
             if (arg10 != null) {
-                local741.anInt2898 = Static244.method3513(this.aByteArrayArray31[arg0][arg1] - this.aByteArrayArray30[arg0][arg1], Static105.method2043(arg10[0]));
+                local741.anInt2898 = Static244.method3513(this.aByteArrayArray31[arg0][arg1] - this.aByteArrayArray30[arg0][arg1], ColourUtils.hslToHsv(arg10[0]));
                 if (local79 == -1) {
                     local741.aByte59 = (byte) (local741.aByte59 | 0x2);
                 }
@@ -1418,7 +1418,7 @@ public final class Ground_Sub3 extends Ground {
                 local849 = this.aClass19_Sub2_8.textureSource.getMetrics(local85);
             }
             if (local849 == null || (local741.aByte59 & 0x2) != 0 || local849.aBoolean240) {
-                @Pc(987) short local987 = Static105.method2043(local79);
+                @Pc(987) short local987 = ColourUtils.hslToHsv(local79);
                 local741.aShort42 = (short) Static244.method3513(this.aByteArrayArray31[arg0][arg1] - this.aByteArrayArray30[arg0][arg1], local987);
                 local741.aShort39 = (short) Static244.method3513(this.aByteArrayArray31[arg0 + 1][arg1] - this.aByteArrayArray30[arg0 + 1][arg1], local987);
                 local741.aShort41 = (short) Static244.method3513(this.aByteArrayArray31[arg0 + 1][arg1 + 1] - this.aByteArrayArray30[arg0 + 1][arg1 + 1], local987);

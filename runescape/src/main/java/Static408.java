@@ -27,12 +27,12 @@ public final class Static408 {
     }
 
     @OriginalMember(owner = "client!ms", name = "a", descriptor = "(ZLclient!el;)Z")
-    public static boolean method5634(@OriginalArg(1) Class105 arg0) {
+    public static boolean method5634(@OriginalArg(1) MapElementType arg0) {
         if (arg0 == null) {
             return false;
         } else if (!arg0.aBoolean214) {
             return false;
-        } else if (!arg0.method2425(Static30.anVarDomain_3)) {
+        } else if (!arg0.method2425(WorldMap.varDomain)) {
             return false;
         } else if (Static268.A_HASH_TABLE___22.get((long) arg0.anInt2590) == null) {
             return Static232.A_HASH_TABLE___18.get((long) arg0.anInt2597) == null;

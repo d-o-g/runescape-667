@@ -12,9 +12,6 @@ public final class Static358 {
     @OriginalMember(owner = "client!lf", name = "d", descriptor = "Ljava/lang/Class;")
     public static Class aClass28;
 
-    @OriginalMember(owner = "client!lf", name = "g", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_124 = new Class345(18, 8);
-
     @OriginalMember(owner = "client!lf", name = "r", descriptor = "Z")
     public static boolean aBoolean803 = false;
 

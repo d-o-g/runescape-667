@@ -11,9 +11,6 @@ public final class Static273 {
     @OriginalMember(owner = "client!ik", name = "M", descriptor = "I")
     public static int anInt4395 = 100;
 
-    @OriginalMember(owner = "client!ik", name = "t", descriptor = "I")
-    public static int anInt4403 = 0;
-
     @OriginalMember(owner = "client!ik", name = "u", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___113 = new ServerProt(1, -1);
 
@@ -24,7 +21,7 @@ public final class Static273 {
     public static boolean aBoolean340 = true;
 
     @OriginalMember(owner = "client!ik", name = "J", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_55 = new Class345(49, 3);
+    public static final ClientProt A_CLIENT_PROT___55 = new ClientProt(49, 3);
 
     @OriginalMember(owner = "client!ik", name = "a", descriptor = "(Lclient!bd;ZIILclient!sb;II)V")
     public static void method3961(@OriginalArg(0) Node_Sub6_Sub1 arg0, @OriginalArg(3) int arg1, @OriginalArg(4) js5 arg2, @OriginalArg(5) int arg3) {
@@ -35,7 +32,7 @@ public final class Static273 {
     @OriginalMember(owner = "client!ik", name = "g", descriptor = "(I)Lclient!fk;")
     public static ClientMessage method3962() {
         @Pc(6) ClientMessage local6 = Static119.method2174();
-        local6.aClass345_32 = null;
+        local6.aClientProt_32 = null;
         local6.anInt2986 = 0;
         local6.buffer = new PacketBuffer(5000);
         return local6;

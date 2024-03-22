@@ -16,8 +16,8 @@ public abstract class Wall extends Renderable {
         this.aShort58 = (short) arg5;
         super.anInt10691 = arg1;
         super.level = (byte) arg3;
-        super.anInt10694 = arg2;
-        super.anInt10690 = arg0;
+        super.z = arg2;
+        super.x = arg0;
         super.aByte143 = (byte) arg4;
     }
 
@@ -27,14 +27,14 @@ public abstract class Wall extends Renderable {
         if (arg0 != 59) {
             this.aShort58 = -17;
         }
-        return Static73.method9308(super.anInt10690 >> Static52.anInt1066, super.anInt10694 >> Static52.anInt1066, this, super.aByte143);
+        return Static73.method9308(super.x >> Static52.anInt1066, super.z >> Static52.anInt1066, this, super.aByte143);
     }
 
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
     public final int method9288(@OriginalArg(0) PointLight[] arg0) {
-        @Pc(10) int local10 = super.anInt10690 >> Static52.anInt1066;
-        @Pc(21) int local21 = super.anInt10694 >> Static52.anInt1066;
+        @Pc(10) int local10 = super.x >> Static52.anInt1066;
+        @Pc(21) int local21 = super.z >> Static52.anInt1066;
         @Pc(23) int local23 = 0;
         if (Static403.anInt6246 == local10) {
             local23++;
@@ -73,6 +73,6 @@ public abstract class Wall extends Renderable {
     @OriginalMember(owner = "client!kp", name = "g", descriptor = "(I)Z")
     @Override
     public final boolean method9275() {
-        return Static258.aBooleanArrayArray3[(super.anInt10690 >> Static52.anInt1066) + Static35.anInt813 - Static403.anInt6246][Static35.anInt813 + (super.anInt10694 >> Static52.anInt1066) - Static550.anInt8271];
+        return Static258.aBooleanArrayArray3[(super.x >> Static52.anInt1066) + Static35.anInt813 - Static403.anInt6246][Static35.anInt813 + (super.z >> Static52.anInt1066) - Static550.anInt8271];
     }
 }

@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static610 {
 
-    @OriginalMember(owner = "client!tf", name = "c", descriptor = "I")
-    public static int anInt9329;
-
     @OriginalMember(owner = "client!tf", name = "a", descriptor = "(ILclient!rka;I)V")
     public static void method8217(@OriginalArg(0) int arg0, @OriginalArg(1) PacketBuffer arg1) {
         @Pc(16) boolean local16 = arg1.method7412(1) == 1;
@@ -148,8 +145,8 @@ public final class Static610 {
                     local175 = local170 >> 28;
                     local539 = local170 >> 14 & 0x3FFF;
                     local551 = local170 & 0x3FFF;
-                    local566 = (local37.pathX[0] + Static691.areaBaseX + local539 & 0x3FFF) - Static691.areaBaseX;
-                    local573 = (local551 + local37.pathY[0] + Static116.areaBaseY & 0x3FFF) - Static116.areaBaseY;
+                    local566 = (local37.pathX[0] + WorldMap.areaBaseX + local539 & 0x3FFF) - WorldMap.areaBaseX;
+                    local573 = (local551 + local37.pathY[0] + WorldMap.areaBaseY & 0x3FFF) - WorldMap.areaBaseY;
                     if (local16) {
                         local37.aBoolean127 = true;
                         local37.anInt1448 = local573;
@@ -172,7 +169,7 @@ public final class Static610 {
             throw new RuntimeException("s:lr");
         } else {
             @Pc(70) Class350 local70 = Static246.aClass350Array1[arg0] = new Class350();
-            local70.anInt9324 = (local37.level << 28) + ((Static691.areaBaseX + local37.pathX[0] >> 6 << 14) + (Static116.areaBaseY + local37.pathY[0] >> 6));
+            local70.anInt9324 = (local37.level << 28) + ((WorldMap.areaBaseX + local37.pathX[0] >> 6 << 14) + (WorldMap.areaBaseY + local37.pathY[0] >> 6));
             if (local37.anInt1467 == -1) {
                 local70.anInt9326 = local37.aClass126_7.method2673(16383);
             } else {

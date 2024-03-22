@@ -12,13 +12,13 @@ public final class Static466 {
 
     @OriginalMember(owner = "client!om", name = "a", descriptor = "(Z)I")
     public static int method6323() {
-        if ((double) Static30.aFloat106 == 3.0D) {
+        if ((double) WorldMap.targetZoom == 3.0D) {
             return 37;
-        } else if ((double) Static30.aFloat106 == 4.0D) {
+        } else if ((double) WorldMap.targetZoom == 4.0D) {
             return 50;
-        } else if ((double) Static30.aFloat106 == 6.0D) {
+        } else if ((double) WorldMap.targetZoom == 6.0D) {
             return 75;
-        } else if ((double) Static30.aFloat106 == 8.0D) {
+        } else if ((double) WorldMap.targetZoom == 8.0D) {
             return 100;
         } else {
             return 200;

@@ -38,7 +38,7 @@ public final class Static254 {
         for (@Pc(8628) int local8628 = 0; local8628 < Static527.aClass254Array1.length; local8628++) {
             Static527.aClass254Array1[local8628] = null;
         }
-        InterfaceManager.isTargeting = false;
+        InterfaceManager.targeting = false;
         Static368.method5273();
         Static29.anInt723 = (int) (Math.random() * 120.0D) - 60;
         Static288.anInt4621 = (int) (Math.random() * 80.0D) - 40;

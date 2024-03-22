@@ -59,9 +59,9 @@ public final class Static145 {
                 if ((local25 & -1073741824) == -1073741824) {
                     local72 = local25 & 0xFFFFFFF;
                     @Pc(148) int local148 = local72 >> 14;
-                    local102 = arg0.anInt10690 - (local148 - Static691.areaBaseX) * 512 - 256;
+                    local102 = arg0.x - (local148 - WorldMap.areaBaseX) * 512 - 256;
                     @Pc(164) int local164 = local72 & 0x3FFF;
-                    local95 = arg0.anInt10694 - (local164 - Static116.areaBaseY) * 512 - 256;
+                    local95 = arg0.z - (local164 - WorldMap.areaBaseY) * 512 - 256;
                 } else if ((local25 & 0x8000) == 0) {
                     @Pc(111) Node_Sub45 local111 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local25);
                     if (local111 == null) {
@@ -69,8 +69,8 @@ public final class Static145 {
                         continue;
                     }
                     @Pc(116) NPCEntity local116 = local111.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                    local95 = arg0.anInt10694 - local116.anInt10694;
-                    local102 = arg0.anInt10690 - local116.anInt10690;
+                    local95 = arg0.z - local116.z;
+                    local102 = arg0.x - local116.x;
                 } else {
                     local72 = local25 & 0x7FFF;
                     @Pc(76) PlayerEntity local76 = PlayerList.highResolutionPlayers[local72];
@@ -78,8 +78,8 @@ public final class Static145 {
                         arg0.method9307(local19, -1);
                         continue;
                     }
-                    local95 = arg0.anInt10694 - local76.anInt10694;
-                    local102 = arg0.anInt10690 - local76.anInt10690;
+                    local95 = arg0.z - local76.z;
+                    local102 = arg0.x - local76.x;
                 }
                 if (local102 != 0 || local95 != 0) {
                     arg0.method9307(local19, (int) (Math.atan2((double) local102, (double) local95) * 2607.5945876176133D) & 0x3FFF);
@@ -91,13 +91,6 @@ public final class Static145 {
         if (local17) {
             arg0.anIntArray872 = null;
             arg0.anIntArray877 = null;
-        }
-    }
-
-    @OriginalMember(owner = "client!eja", name = "a", descriptor = "(III)V")
-    public static void method2411(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        if (InterfaceList.load(arg1)) {
-            Static84.method1663(InterfaceList.interfaces[arg1], arg0);
         }
     }
 

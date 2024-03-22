@@ -21,20 +21,20 @@ public final class Static668 {
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(ZI)V")
     public static void method8700(@OriginalArg(0) boolean arg0) {
-        if (arg0 && Static30.aClass2_Sub2_Sub13_3 != null) {
-            Static357.anInt6504 = Static30.aClass2_Sub2_Sub13_3.anInt4563;
+        if (arg0 && WorldMap.area != null) {
+            Static357.anInt6504 = WorldMap.area.id;
         } else {
             Static357.anInt6504 = -1;
         }
-        Static551.aDeque_54 = null;
+        WorldMap.aDeque_54 = null;
         WorldMap.component = null;
-        Static30.aClass2_Sub2_Sub13_3 = null;
-        Static273.anInt4403 = 0;
-        Static30.method5070();
-        Static30.A_DEQUE___31.clear();
+        WorldMap.area = null;
+        WorldMap.loadingPercent = 0;
+        WorldMap.method5070();
+        WorldMap.elements.clear();
         Static359.aClass327_3 = null;
         Static484.aClass327_6 = null;
-        Static30.aClass255_3 = null;
+        WorldMap.staticElements = null;
         Static651.aClass327_8 = null;
         Static180.anInt3001 = -1;
         Static13.aSprite_4 = null;
@@ -44,17 +44,17 @@ public final class Static668 {
         Static364.aClass327_4 = null;
         Static275.aClass327_2 = null;
         Static558.anInt3181 = -1;
-        if (Static30.aClass246_3 != null) {
-            Static30.aClass246_3.method5586();
-            Static30.aClass246_3.method5583(128, 64);
+        if (WorldMap.mapElementTypeList != null) {
+            WorldMap.mapElementTypeList.method5586();
+            WorldMap.mapElementTypeList.setCaches(128, 64);
         }
-        if (Static30.aMSITypeList_3 != null) {
-            Static30.aMSITypeList_3.setCache(64, 64);
+        if (WorldMap.msiTypeList != null) {
+            WorldMap.msiTypeList.setCache(64, 64);
         }
-        if (Static30.aLocTypeList_3 != null) {
-            Static30.aLocTypeList_3.setRecentUse(64);
+        if (WorldMap.locTypeList != null) {
+            WorldMap.locTypeList.setRecentUse(64);
         }
-        Static529.aClass161_1.method3420(64);
+        WorldMap.varbitTypeList.cacheReset(64);
     }
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(B)Lclient!gw;")

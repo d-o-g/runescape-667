@@ -8,6 +8,6 @@ public final class Static182 {
         Static615.anInt9389 = arg0;
         Static558.anInt3181 = -1;
         Static558.anInt3181 = -1;
-        Static387.method5440();
+        WorldMap.method5440();
     }
 }

@@ -78,10 +78,10 @@ public final class DynamicWall extends Wall implements Location {
             return null;
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
-        local22.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local22.method7125(super.x, super.anInt10691, super.z);
         @Pc(36) Class8_Sub7 local36 = Static642.method8441(this.aBoolean192, 1);
-        @Pc(49) int local49 = super.anInt10690 >> 9;
-        @Pc(54) int local54 = super.anInt10694 >> 9;
+        @Pc(49) int local49 = super.x >> 9;
+        @Pc(54) int local54 = super.z >> 9;
         this.aClass337_1.method7681(local54, local14, true, -9827, arg0, local49, local49, local54, local22);
         if (Static504.aBoolean579) {
             local14.renderOrtho(local22, local36.aPickingCylinderArray1[0], Static582.anInt8627, 0);
@@ -98,9 +98,9 @@ public final class DynamicWall extends Wall implements Location {
         }
         this.aBoolean193 = local14.F() || this.aClass337_1.aParticleSystem_7 != null;
         if (this.aClass205_2 == null) {
-            this.aClass205_2 = Static317.method4583(super.anInt10691, super.anInt10690, local14, super.anInt10694);
+            this.aClass205_2 = Static317.method4583(super.anInt10691, super.x, local14, super.z);
         } else {
-            Static223.method9103(local14, super.anInt10694, super.anInt10691, super.anInt10690, this.aClass205_2);
+            Static223.method9103(local14, super.z, super.anInt10691, super.x, this.aClass205_2);
         }
         return local36;
     }
@@ -130,7 +130,7 @@ public final class DynamicWall extends Wall implements Location {
             return false;
         } else {
             @Pc(20) Matrix local20 = arg3.scratchMatrix();
-            local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+            local20.method7125(super.x, super.anInt10691, super.z);
             return Static504.aBoolean579 ? local12.pickedOrtho(arg1, arg0, local20, false, 0, Static582.anInt8627) : local12.picked(arg1, arg0, local20, false, 0);
         }
     }
@@ -154,10 +154,10 @@ public final class DynamicWall extends Wall implements Location {
         if (local17 == null) {
             return;
         }
-        @Pc(24) int local24 = super.anInt10690 >> 9;
-        @Pc(29) int local29 = super.anInt10694 >> 9;
+        @Pc(24) int local24 = super.x >> 9;
+        @Pc(29) int local29 = super.z >> 9;
         @Pc(32) Matrix local32 = arg0.scratchMatrix();
-        local32.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local32.method7125(super.x, super.anInt10691, super.z);
         this.aClass337_1.method7681(local29, local17, false, -9827, arg0, local24, local24, local29, local32);
     }
 

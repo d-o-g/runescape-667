@@ -47,7 +47,7 @@ public final class TimedVarDomain implements VarDomain {
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(IB)I")
     @Override
     public int getVarbitValue(@OriginalArg(0) int arg0) {
-        @Pc(8) Class95 local8 = Static529.aClass161_1.method3426(arg0);
+        @Pc(8) Class95 local8 = WorldMap.varbitTypeList.method3426(arg0);
         @Pc(11) int local11 = local8.anInt2501;
         @Pc(22) int local22 = local8.anInt2497;
         @Pc(25) int local25 = local8.anInt2499;
@@ -69,7 +69,7 @@ public final class TimedVarDomain implements VarDomain {
 
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(BII)V")
     public void method6868(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(13) Class95 local13 = Static529.aClass161_1.method3426(arg1);
+        @Pc(13) Class95 local13 = WorldMap.varbitTypeList.method3426(arg1);
         @Pc(16) int local16 = local13.anInt2501;
         @Pc(19) int local19 = local13.anInt2497;
         @Pc(22) int local22 = local13.anInt2499;
@@ -89,7 +89,7 @@ public final class TimedVarDomain implements VarDomain {
 
     @OriginalMember(owner = "client!qga", name = "b", descriptor = "(III)V")
     public void method6871(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(8) Class95 local8 = Static529.aClass161_1.method3426(arg1);
+        @Pc(8) Class95 local8 = WorldMap.varbitTypeList.method3426(arg1);
         @Pc(11) int local11 = local8.anInt2501;
         @Pc(14) int local14 = local8.anInt2497;
         @Pc(17) int local17 = local8.anInt2499;

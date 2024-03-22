@@ -178,4 +178,38 @@ public final class ColourUtils {
             HSL_TO_RGB[local27] = local311;
         }
     }
+
+    @OriginalMember(owner = "client!df", name = "a", descriptor = "(II)S")
+    public static short hslToHsv(@OriginalArg(1) int colour) {
+        @Pc(9) int hue = colour >> 10 & 0x3F;
+        @Pc(21) int saturation = colour >> 3 & 0x70;
+        @Pc(25) int lightness = colour & 0x7F;
+
+        @Pc(46) int newLightness = (lightness <= 64) ? ((lightness * saturation) >> 7) : ((saturation * (127 - lightness)) >> 7);
+        @Pc(50) int value = newLightness + lightness;
+        @Pc(58) int newSaturation;
+        if (value == 0) {
+            newSaturation = newLightness << 1;
+        } else {
+            newSaturation = (newLightness << 8) / value;
+        }
+        return (short) (((newSaturation >> 4) << 7) | (hue << 10) | value);
+    }
+
+    @OriginalMember(owner = "client!gf", name = "a", descriptor = "(ZII)I")
+    public static int method3066(@OriginalArg(2) int arg0) {
+        if (arg0 == -2) {
+            return 12345678;
+        } else if (arg0 == -1) {
+            return 96;
+        } else {
+            @Pc(52) int local52 = (arg0 & 0x7F) * 96 >> 7;
+            if (local52 < 2) {
+                local52 = 2;
+            } else if (local52 > 126) {
+                local52 = 126;
+            }
+            return local52 + (arg0 & 0xFF80);
+        }
+    }
 }

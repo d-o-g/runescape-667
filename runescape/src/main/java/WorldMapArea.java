@@ -1,5 +1,7 @@
 import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.io.Packet;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -9,34 +11,34 @@ import org.openrs2.deob.annotation.Pc;
 public final class WorldMapArea extends Node2 {
 
     @OriginalMember(owner = "client!ip", name = "J", descriptor = "I")
-    public int anInt4552 = 0;
+    public int maxX = 0;
 
     @OriginalMember(owner = "client!ip", name = "L", descriptor = "I")
-    public int anInt4559 = 12800;
+    public int minY = 12800;
 
     @OriginalMember(owner = "client!ip", name = "u", descriptor = "I")
-    public int anInt4560 = 12800;
+    public int minX = 12800;
 
     @OriginalMember(owner = "client!ip", name = "B", descriptor = "Z")
     public boolean aBoolean354 = true;
 
     @OriginalMember(owner = "client!ip", name = "I", descriptor = "I")
-    public int anInt4562 = 0;
+    public int maxY = 0;
 
     @OriginalMember(owner = "client!ip", name = "N", descriptor = "I")
     public int anInt4561 = -1;
 
     @OriginalMember(owner = "client!ip", name = "w", descriptor = "I")
-    public int anInt4564 = -1;
+    public int zoom = -1;
 
     @OriginalMember(owner = "client!ip", name = "H", descriptor = "Ljava/lang/String;")
-    public final String aString48;
+    public final String file;
 
     @OriginalMember(owner = "client!ip", name = "C", descriptor = "I")
-    public final int anInt4556;
+    public final int origin;
 
     @OriginalMember(owner = "client!ip", name = "A", descriptor = "I")
-    public final int anInt4563;
+    public final int id;
 
     @OriginalMember(owner = "client!ip", name = "F", descriptor = "Ljava/lang/String;")
     public final String aString49;
@@ -46,17 +48,29 @@ public final class WorldMapArea extends Node2 {
 
     @OriginalMember(owner = "client!ip", name = "<init>", descriptor = "(ILjava/lang/String;Ljava/lang/String;IIZII)V")
     public WorldMapArea(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) String arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
-        this.aString48 = arg1;
+        this.file = arg1;
         this.anInt4561 = arg4;
-        this.anInt4556 = arg3;
-        this.anInt4564 = arg6;
-        this.anInt4563 = arg0;
+        this.origin = arg3;
+        this.zoom = arg6;
+        this.id = arg0;
         this.aBoolean354 = arg5;
         this.aString49 = arg2;
-        if (this.anInt4564 == 255) {
-            this.anInt4564 = 0;
+        if (this.zoom == 255) {
+            this.zoom = 0;
         }
         this.aDeque_26 = new Deque();
+    }
+
+    @OriginalMember(owner = "client!qea", name = "a", descriptor = "(Lclient!sb;III)Lclient!ip;")
+    public static WorldMapArea decode(@OriginalArg(0) js5 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+        @Pc(14) Packet local14 = new Packet(arg0.getfile(arg2, arg1));
+        @Pc(50) WorldMapArea local50 = new WorldMapArea(arg2, local14.gjstr(), local14.gjstr(), local14.g4(), local14.g4(), local14.g1() == 1, local14.g1(), local14.g1());
+        @Pc(54) int local54 = local14.g1();
+        for (@Pc(56) int local56 = 0; local56 < local54; local56++) {
+            local50.aDeque_26.addLast(new Node_Sub56(local14.g1(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2(), local14.g2()));
+        }
+        local50.method4090();
+        return local50;
     }
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(III[I)Z")
@@ -81,10 +95,10 @@ public final class WorldMapArea extends Node2 {
     }
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(I[IIII)Z")
-    public boolean method4088(@OriginalArg(1) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
+    public boolean method4088(@OriginalArg(1) int[] destination, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         for (@Pc(15) Node_Sub56 local15 = (Node_Sub56) this.aDeque_26.first(); local15 != null; local15 = (Node_Sub56) this.aDeque_26.next()) {
             if (local15.method8912(arg1, arg2, arg3)) {
-                local15.method8907(arg0, arg3, arg1);
+                local15.method8907(destination, arg3, arg1);
                 return true;
             }
         }
@@ -93,22 +107,22 @@ public final class WorldMapArea extends Node2 {
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(I)V")
     public void method4090() {
-        this.anInt4562 = 0;
-        this.anInt4560 = 12800;
-        this.anInt4559 = 12800;
-        this.anInt4552 = 0;
+        this.maxY = 0;
+        this.minX = 12800;
+        this.minY = 12800;
+        this.maxX = 0;
         for (@Pc(28) Node_Sub56 local28 = (Node_Sub56) this.aDeque_26.first(); local28 != null; local28 = (Node_Sub56) this.aDeque_26.next()) {
-            if (local28.anInt10275 < this.anInt4559) {
-                this.anInt4559 = local28.anInt10275;
+            if (local28.anInt10275 < this.minY) {
+                this.minY = local28.anInt10275;
             }
-            if (this.anInt4552 < local28.anInt10270) {
-                this.anInt4552 = local28.anInt10270;
+            if (this.maxX < local28.anInt10270) {
+                this.maxX = local28.anInt10270;
             }
-            if (this.anInt4562 < local28.anInt10265) {
-                this.anInt4562 = local28.anInt10265;
+            if (this.maxY < local28.anInt10265) {
+                this.maxY = local28.anInt10265;
             }
-            if (this.anInt4560 > local28.anInt10266) {
-                this.anInt4560 = local28.anInt10266;
+            if (this.minX > local28.anInt10266) {
+                this.minX = local28.anInt10266;
             }
         }
     }

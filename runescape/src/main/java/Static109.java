@@ -55,8 +55,4 @@ public final class Static109 {
         }
     }
 
-    @OriginalMember(owner = "client!dh", name = "b", descriptor = "(II)Z")
-    public static boolean method2070(@OriginalArg(0) int arg0) {
-        return arg0 == 11 || arg0 == 12 || arg0 == 13;
-    }
 }

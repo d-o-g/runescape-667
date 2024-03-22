@@ -12,8 +12,8 @@ public final class Static468 {
 
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZIII)V")
     public static void method7641(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(8) int local8 = arg2 + Static691.areaBaseX;
-        @Pc(12) int local12 = Static116.areaBaseY + arg1;
+        @Pc(8) int local8 = arg2 + WorldMap.areaBaseX;
+        @Pc(12) int local12 = WorldMap.areaBaseY + arg1;
         if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.animatingBackground.value() == 0 && arg0 != PlayerEntity.self.level) {
             return;
         }
@@ -61,9 +61,9 @@ public final class Static468 {
         local103.level = (byte) arg0;
         local103.anInt10691 = local209;
         local103.aByte143 = (byte) arg0;
-        local103.anInt10694 = arg1 << 9;
+        local103.z = arg1 << 9;
         local103.anInt8885 = 0;
-        local103.anInt10690 = arg2 << 9;
+        local103.x = arg2 << 9;
         if (Static441.method5968(arg1, arg2)) {
             local103.aByte143++;
         }

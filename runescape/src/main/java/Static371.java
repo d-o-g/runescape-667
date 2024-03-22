@@ -8,7 +8,7 @@ public final class Static371 {
 
     @OriginalMember(owner = "client!lma", name = "b", descriptor = "(I)V")
     public static void method5284() {
-        @Pc(22) ClientMessage local22 = Static293.method4335(Static587.aClass345_105, ConnectionManager.GAME.cipher);
+        @Pc(22) ClientMessage local22 = ClientMessage.create(Static587.A_CLIENT_PROT___105, ConnectionManager.GAME.cipher);
         local22.buffer.p1(InterfaceManager.getWindowMode());
         local22.buffer.p2(GameShell.canvasWid);
         local22.buffer.p2(GameShell.canvasHei);

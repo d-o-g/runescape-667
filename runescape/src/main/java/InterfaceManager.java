@@ -31,6 +31,8 @@ import java.awt.Rectangle;
 public final class InterfaceManager {
 
     private static final int ROOT = 0xABCDABCD;
+    public static final int IMMEDIATE_HOOK_TYPE_DIALOGABORT = 0;
+    public static final int IMMEDIATE_HOOK_TYPE_SUBCHANGE = 1;
 
     @OriginalMember(owner = "client!lia", name = "b", descriptor = "[Z")
     public static final boolean[] dirtyRectangles = new boolean[100];
@@ -90,7 +92,7 @@ public final class InterfaceManager {
     public static int dragStartY = 0;
 
     @OriginalMember(owner = "client!ld", name = "e", descriptor = "Lclient!hda;")
-    public static Component dragParent = null;
+    public static Component dragLayer = null;
 
     @OriginalMember(owner = "client!fe", name = "e", descriptor = "I")
     public static int dragParentY = -1;
@@ -129,7 +131,7 @@ public final class InterfaceManager {
     public static int dragTicks;
 
     @OriginalMember(owner = "client!et", name = "c", descriptor = "Z")
-    public static boolean isTargeting = false;
+    public static boolean targeting = false;
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "Ljava/lang/String;")
     public static String targetVerb = null;
@@ -145,6 +147,27 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!wn", name = "c", descriptor = "I")
     public static int targetMask;
+
+    @OriginalMember(owner = "client!el", name = "R", descriptor = "[[Lclient!hda;")
+    public static Component[][] cache;
+
+    @OriginalMember(owner = "client!tf", name = "c", descriptor = "I")
+    public static int targetParam;
+
+    @OriginalMember(owner = "client!oda", name = "u", descriptor = "I")
+    public static int targetSlot;
+
+    @OriginalMember(owner = "client!faa", name = "i", descriptor = "I")
+    public static int targetInvObj = -1;
+
+    @OriginalMember(owner = "client!ci", name = "h", descriptor = "I")
+    public static int targetComponent = -1;
+
+    @OriginalMember(owner = "client!lla", name = "f", descriptor = "I")
+    public static int targetEnterCursor;
+
+    @OriginalMember(owner = "client!nv", name = "o", descriptor = "I")
+    public static int targetEndCursor = -1;
 
     static {
         for (@Pc(87) int i = 0; i < 100; i++) {
@@ -247,13 +270,13 @@ public final class InterfaceManager {
                         mouseY = dragParentY;
                     }
 
-                    if (dragParentX + dragParent.width < mouseX - -child.width) {
-                        mouseX = dragParentX + dragParent.width - child.width;
+                    if (dragParentX + dragLayer.width < mouseX - -child.width) {
+                        mouseX = dragParentX + dragLayer.width - child.width;
                     }
                     posX = mouseX;
 
-                    if (dragParentY + dragParent.height < mouseY + child.height) {
-                        mouseY = dragParentY + dragParent.height - child.height;
+                    if (dragParentY + dragLayer.height < mouseY + child.height) {
+                        mouseY = dragParentY + dragLayer.height - child.height;
                     }
                     posY = mouseY;
                 }
@@ -494,7 +517,7 @@ public final class InterfaceManager {
                             }
 
                             if (alpha > 0) {
-                                Toolkit.active.method7971(x2 - x1, -y1 + y2, y1, x1, blue << 16 | alpha << 24 | red << 8 | green);
+                                Toolkit.active.fillRect(x2 - x1, -y1 + y2, y1, x1, blue << 16 | alpha << 24 | red << 8 | green);
                             }
                         }
                     }
@@ -854,10 +877,10 @@ public final class InterfaceManager {
                 local60 = Static599.anInt8837;
                 Static691.anInt10368 = 1;
             }
-            if (Static148.aComponentArrayArray1[arg0] == null) {
+            if (cache[arg0] == null) {
                 draw(-1, arg6, InterfaceList.interfaces[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
             } else {
-                draw(-1, arg6, Static148.aComponentArrayArray1[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+                draw(-1, arg6, cache[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
             }
             if (aBoolean210) {
                 if (arg5 >= 0 && Static691.anInt10368 == 2) {
@@ -993,7 +1016,7 @@ public final class InterfaceManager {
 
         @Pc(116) int cursor = Static679.method8909();
         if (cursor == -1) {
-            cursor = Cursor.targetEnd;
+            cursor = targetEndCursor;
         }
         if (cursor == -1) {
             cursor = Cursor.dflt;
@@ -1001,7 +1024,7 @@ public final class InterfaceManager {
 
         Static115.method2136(cursor);
         @Pc(136) int size = PlayerEntity.self.boundSize((byte) 70) << 8;
-        Static220.method3198(Static35.currentTick, size + PlayerEntity.self.anInt10694, PlayerEntity.self.anInt10690 + size, PlayerEntity.self.level);
+        Static220.method3198(Static35.currentTick, size + PlayerEntity.self.z, PlayerEntity.self.x + size, PlayerEntity.self.level);
         Static35.currentTick = 0;
     }
 
@@ -1067,7 +1090,7 @@ public final class InterfaceManager {
         Static676.method8859(Toolkit.active);
         @Pc(77) int local77 = Static679.method8909();
         if (local77 == -1) {
-            local77 = Cursor.targetEnd;
+            local77 = targetEndCursor;
         }
         if (local77 == -1) {
             local77 = Cursor.dflt;
@@ -1093,7 +1116,7 @@ public final class InterfaceManager {
         draw(topLevelInterface, local46, GameShell.canvasWid + local46, local48, local48, -1, local46, GameShell.canvasHei + local48);
 
         if (dragChildren != null) {
-            draw(ROOT, dragOffsetX, dragChildren, local46, local48, local48 + GameShell.canvasHei, dragParent.rectangle, true, local46 + GameShell.canvasWid, dragOffsetY);
+            draw(ROOT, dragOffsetX, dragChildren, local46, local48, local48 + GameShell.canvasHei, dragLayer.rectangle, true, local46 + GameShell.canvasWid, dragOffsetY);
             dragChildren = null;
         }
     }
@@ -1144,7 +1167,7 @@ public final class InterfaceManager {
                 y2 = endY < parentY2 ? endY : parentY2;
             }
 
-            if ((component.type == Component.TYPE_LAYER) || component.hasHook || (serverActiveProperties(component).events != 0) || (component == dragParent) || (component.clientcode == ComponentClientCode.MINIMAP) || (component.clientcode == ComponentClientCode.WORLD_MAP_OPTIONS) || (component.clientcode == ComponentClientCode.SCENE) || (component.clientcode == ComponentClientCode.LOGIN_SCENE)) {
+            if ((component.type == Component.TYPE_LAYER) || component.hasHook || (serverActiveProperties(component).events != 0) || (component == dragLayer) || (component.clientcode == ComponentClientCode.MINIMAP) || (component.clientcode == ComponentClientCode.WORLD_MAP_OPTIONS) || (component.clientcode == ComponentClientCode.SCENE) || (component.clientcode == ComponentClientCode.LOGIN_SCENE)) {
                 if (isHidden(component)) {
                     continue;
                 }
@@ -1173,12 +1196,12 @@ public final class InterfaceManager {
 
                         if (dragTicks == 0) {
                             dragSource = null;
-                            dragParent = null;
+                            dragLayer = null;
                         }
 
                         Static460.anInt6964 = 0;
                         WorldMap.hovered = false;
-                        Static118.aBoolean199 = false;
+                        WorldMap.clicked = false;
 
                         if (!MiniMenu.open) {
                             MiniMenu.reset();
@@ -1211,11 +1234,11 @@ public final class InterfaceManager {
                         }
                     }
 
-                    if (!isTargeting && hovered) {
+                    if (!targeting && hovered) {
                         if (component.mouseOverCursor >= 0) {
-                            Cursor.targetEnd = component.mouseOverCursor;
+                            targetEndCursor = component.mouseOverCursor;
                         } else if (component.noClickThrough) {
-                            Cursor.targetEnd = -1;
+                            targetEndCursor = -1;
                         }
                     }
 
@@ -1302,7 +1325,7 @@ public final class InterfaceManager {
                         dragTarget = component;
                     }
 
-                    if (component == dragParent) {
+                    if (component == dragLayer) {
                         aBoolean428 = true;
                         dragParentX = startX;
                         dragParentY = startY;
@@ -1390,17 +1413,17 @@ public final class InterfaceManager {
                                     local1199 = (Static249.anInt4018 >> 9) - (local1180 >> 2);
                                 } else {
                                     @Pc(1208) int local1208 = (PlayerEntity.self.boundSize((byte) 83) - 1) * 256;
-                                    local1191 = (PlayerEntity.self.anInt10690 - local1208 >> 9) + (local1170 >> 2);
-                                    local1199 = (PlayerEntity.self.anInt10694 - local1208 >> 9) - (local1180 >> 2);
+                                    local1191 = (PlayerEntity.self.x - local1208 >> 9) + (local1170 >> 2);
+                                    local1199 = (PlayerEntity.self.z - local1208 >> 9) - (local1180 >> 2);
                                 }
 
-                                if (isTargeting && (targetMask & 0x40) != 0) {
-                                    @Pc(1243) Component local1243 = InterfaceList.getComponent(Static77.anInt1614, Static450.anInt6819);
+                                if (targeting && (targetMask & 0x40) != 0) {
+                                    @Pc(1243) Component local1243 = InterfaceList.getComponent(targetComponent, targetSlot);
 
                                     if (local1243 == null) {
                                         endTargetMode();
                                     } else {
-                                        MiniMenu.addEntry(false, component.invObject, 1L, local1191, local1199, targetVerb, 21, true, Cursor.targetEnter, " ->", (component.id << 0) | component.slot, true);
+                                        MiniMenu.addEntry(false, component.invObject, 1L, local1191, local1199, targetVerb, 21, true, targetEnterCursor, " ->", (component.id << 0) | component.slot, true);
                                     }
                                 } else {
                                     if (client.modeGame == ModeGame.STELLAR_DAWN) {
@@ -1421,12 +1444,12 @@ public final class InterfaceManager {
                                 }
 
                                 if (clicked) {
-                                    @Pc(402) int local402 = (int) ((double) (orthoDeltaX + log.getX() - startX - component.width / 2) * 2.0D / (double) Static30.aFloat105);
-                                    @Pc(549) int local549 = (int) -((double) (orthoDeltaY + log.getY() - startY - component.height / 2) * 2.0D / (double) Static30.aFloat105);
-                                    @Pc(555) int local555 = Static164.anInt2809 + local402 + Static30.anInt5655;
-                                    @Pc(569) int local569 = Static615.anInt9389 + local549 + Static30.anInt5648;
+                                    @Pc(402) int local402 = (int) ((double) (orthoDeltaX + log.getX() - startX - component.width / 2) * 2.0D / (double) WorldMap.currentZoom);
+                                    @Pc(549) int local549 = (int) -((double) (orthoDeltaY + log.getY() - startY - component.height / 2) * 2.0D / (double) WorldMap.currentZoom);
+                                    @Pc(555) int local555 = Static164.anInt2809 + local402 + WorldMap.areaX;
+                                    @Pc(569) int local569 = Static615.anInt9389 + local549 + WorldMap.areaY;
 
-                                    @Pc(1383) WorldMapArea area = WorldMap.area();
+                                    @Pc(1383) WorldMapArea area = WorldMap.getArea();
                                     if (area == null) {
                                         continue;
                                     }
@@ -1444,10 +1467,10 @@ public final class InterfaceManager {
                                             continue;
                                         }
 
-                                        Static118.aBoolean199 = true;
-                                        Static688.anInt10356 = level;
-                                        Static503.anInt7582 = x;
-                                        Static614.anInt9373 = y;
+                                        WorldMap.clicked = true;
+                                        WorldMap.clickedLevel = level;
+                                        WorldMap.clickedX = x;
+                                        WorldMap.clickedY = y;
                                     }
 
                                     Static460.anInt6964 = 1;
@@ -1465,8 +1488,8 @@ public final class InterfaceManager {
                                     }
                                     if (Static460.anInt6964 == 2) {
                                         Static1.aBoolean821 = true;
-                                        Static669.method8711(Static661.anInt6055 + (int) ((double) (dragStartX - MouseMonitor.instance.getRecordedX()) * 2.0D / (double) Static30.aFloat106));
-                                        Static182.method2786(Static417.anInt6399 - (int) ((double) (dragStartY - MouseMonitor.instance.getRecordedY()) * 2.0D / (double) Static30.aFloat106));
+                                        Static669.method8711(Static661.anInt6055 + (int) ((double) (dragStartX - MouseMonitor.instance.getRecordedX()) * 2.0D / (double) WorldMap.targetZoom));
+                                        Static182.method2786(Static417.anInt6399 - (int) ((double) (dragStartY - MouseMonitor.instance.getRecordedY()) * 2.0D / (double) WorldMap.targetZoom));
                                     }
                                     continue;
                                 }
@@ -1854,129 +1877,127 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!dn", name = "a", descriptor = "(IIILjava/lang/String;I)V")
-    public static void ifButtonXSend(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) String arg2, @OriginalArg(4) int arg3) {
-        @Pc(8) Component local8 = InterfaceList.getComponent(arg1, arg0);
-        if (local8 == null) {
+    public static void ifButtonXSend(@OriginalArg(1) int component, @OriginalArg(2) int idAndSlot, @OriginalArg(3) String arg2, @OriginalArg(4) int op) {
+        @Pc(8) Component button = InterfaceList.getComponent(idAndSlot, component);
+        if (button == null) {
             return;
         }
-        if (local8.onOp != null) {
-            @Pc(19) HookRequest local19 = new HookRequest();
-            local19.arguments = local8.onOp;
-            local19.anInt7219 = arg3;
-            local19.aString84 = arg2;
-            local19.source = local8;
-            Static472.method6420(local19);
-        }
-        if (MainLogicManager.step != 11 || !serverActiveProperties(local8).isOpEnabled(arg3 - 1)) {
-            return;
-        }
-        @Pc(64) ClientMessage local64;
-        if (arg3 == 1) {
-            local64 = Static293.method4335(Static546.aClass345_98, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local64, arg1);
-            ConnectionManager.GAME.send(local64);
-        }
-        if (arg3 == 2) {
-            local64 = Static293.method4335(Static323.aClass345_65, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local64, arg1);
-            ConnectionManager.GAME.send(local64);
-        }
-        if (arg3 == 3) {
-            local64 = Static293.method4335(Static255.aClass345_54, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local64, arg1);
-            ConnectionManager.GAME.send(local64);
-        }
-        @Pc(148) ClientMessage local148;
-        if (arg3 == 4) {
-            local148 = Static293.method4335(Static710.aClass345_93, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local148, arg1);
-            ConnectionManager.GAME.send(local148);
-        }
-        if (arg3 == 5) {
-            local148 = Static293.method4335(Static693.aClass345_121, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local148, arg1);
-            ConnectionManager.GAME.send(local148);
-        }
-        if (arg3 == 6) {
-            local148 = Static293.method4335(Static126.aClass345_23, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local148, arg1);
-            ConnectionManager.GAME.send(local148);
-        }
-        if (arg3 == 7) {
-            local148 = Static293.method4335(Static358.aClass345_124, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local148, arg1);
-            ConnectionManager.GAME.send(local148);
-        }
-        if (arg3 == 8) {
-            local148 = Static293.method4335(Static700.aClass345_123, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local148, arg1);
-            ConnectionManager.GAME.send(local148);
-        }
-        if (arg3 == 9) {
-            local148 = Static293.method4335(Static372.aClass345_69, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local148, arg1);
-            ConnectionManager.GAME.send(local148);
-        }
-        if (arg3 == 10) {
-            local148 = Static293.method4335(Static713.aClass345_125, ConnectionManager.GAME.cipher);
-            Static277.method4040(arg0, local8.invObject, local148, arg1);
-            ConnectionManager.GAME.send(local148);
-        }
-    }
 
-    @OriginalMember(owner = "client!or", name = "h", descriptor = "(I)V")
-    public static void endTargetMode() {
-        if (!isTargeting) {
+        if (button.onOp != null) {
+            @Pc(19) HookRequest hook = new HookRequest();
+            hook.arguments = button.onOp;
+            hook.anInt7219 = op;
+            hook.aString84 = arg2;
+            hook.source = button;
+            ScriptRunner.executeHookInner(hook);
+        }
+
+        if (MainLogicManager.step != 11 || !serverActiveProperties(button).isOpEnabled(op - 1)) {
             return;
         }
-        @Pc(14) Component local14 = InterfaceList.getComponent(Static77.anInt1614, Static450.anInt6819);
-        if (local14 != null && local14.onTargetLeave != null) {
-            @Pc(25) HookRequest local25 = new HookRequest();
-            local25.arguments = local14.onTargetLeave;
-            local25.source = local14;
-            Static472.method6420(local25);
-        }
-        Cursor.targetEnd = -1;
-        isTargeting = false;
-        Static162.anInt2799 = -1;
-        if (local14 != null) {
-            redraw(local14);
+
+        if (op == 1) {
+            @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON1, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
+        } else if (op == 2) {
+            @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON2, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
+        } else if (op == 3) {
+            @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON3, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
+        } else if (op == 4) {
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON4, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
+        } else if (op == 5) {
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON5, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
+        } else if (op == 6) {
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON6, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
+        } else if (op == 7) {
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON7, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
+        } else if (op == 8) {
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON8, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
+        } else if (op == 9) {
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON9, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
+        } else if (op == 10) {
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON10, ConnectionManager.GAME.cipher);
+            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ConnectionManager.GAME.send(message);
         }
     }
 
     @OriginalMember(owner = "client!md", name = "a", descriptor = "(IBLclient!hda;I)V")
-    public static void enterTargetMode(@OriginalArg(0) int arg0, @OriginalArg(2) Component arg1, @OriginalArg(3) int arg2) {
-        if (arg1 == null) {
+    public static void enterTargetMode(@OriginalArg(0) int targetMask, @OriginalArg(2) Component target, @OriginalArg(3) int targetParam) {
+        if (target == null) {
             return;
         }
-        if (arg1.onTargetEnter != null) {
-            @Pc(14) HookRequest local14 = new HookRequest();
-            local14.source = arg1;
-            local14.arguments = arg1.onTargetEnter;
-            Static472.method6420(local14);
+
+        if (target.onTargetEnter != null) {
+            @Pc(14) HookRequest hook = new HookRequest();
+            hook.source = target;
+            hook.arguments = target.onTargetEnter;
+            ScriptRunner.executeHookInner(hook);
         }
-        Static162.anInt2799 = arg1.invObject;
-        Static450.anInt6819 = arg1.slot;
-        isTargeting = true;
-        Static610.anInt9329 = arg2;
-        Cursor.targetEnter = arg1.targetEnterCursor;
-        Static77.anInt1614 = arg1.id;
-        Cursor.targetEnd = arg1.targetEndCursor;
-        targetMask = arg0;
-        redraw(arg1);
+
+        InterfaceManager.targetInvObj = target.invObject;
+        InterfaceManager.targetSlot = target.slot;
+        InterfaceManager.targeting = true;
+        InterfaceManager.targetParam = targetParam;
+        InterfaceManager.targetEnterCursor = target.targetEnterCursor;
+        InterfaceManager.targetComponent = target.id;
+        InterfaceManager.targetEndCursor = target.targetEndCursor;
+        InterfaceManager.targetMask = targetMask;
+        redraw(target);
+    }
+
+    @OriginalMember(owner = "client!or", name = "h", descriptor = "(I)V")
+    public static void endTargetMode() {
+        if (!targeting) {
+            return;
+        }
+
+        @Pc(14) Component target = InterfaceList.getComponent(InterfaceManager.targetComponent, InterfaceManager.targetSlot);
+        if (target != null && target.onTargetLeave != null) {
+            @Pc(25) HookRequest hook = new HookRequest();
+            hook.arguments = target.onTargetLeave;
+            hook.source = target;
+            ScriptRunner.executeHookInner(hook);
+        }
+
+        InterfaceManager.targetEndCursor = -1;
+        InterfaceManager.targeting = false;
+        InterfaceManager.targetInvObj = -1;
+
+        if (target != null) {
+            redraw(target);
+        }
     }
 
     @OriginalMember(owner = "client!sr", name = "a", descriptor = "(ILclient!hda;ZI)V")
-    public static void dragTryPickup(@OriginalArg(0) int arg0, @OriginalArg(1) Component arg1, @OriginalArg(3) int arg2) {
-        if (dragSource != null || MiniMenu.open || (arg1 == null || getServerDragLayer(arg1) == null)) {
+    public static void dragTryPickup(@OriginalArg(0) int dragStartY, @OriginalArg(1) Component dragSource, @OriginalArg(3) int dragStartX) {
+        if (InterfaceManager.dragSource != null || MiniMenu.open || (dragSource == null || getServerDragLayer(dragSource) == null)) {
             return;
         }
-        dragSource = arg1;
-        dragParent = getServerDragLayer(arg1);
-        dragStartY = arg0;
-        dragStartX = arg2;
-        dragging = false;
-        dragTicks = 0;
+
+        InterfaceManager.dragSource = dragSource;
+        InterfaceManager.dragLayer = getServerDragLayer(dragSource);
+        InterfaceManager.dragStartY = dragStartY;
+        InterfaceManager.dragStartX = dragStartX;
+        InterfaceManager.dragging = false;
+        InterfaceManager.dragTicks = 0;
     }
 
     @OriginalMember(owner = "client!nk", name = "a", descriptor = "(IIIIIIIIIIII)V")
@@ -1985,10 +2006,10 @@ public final class InterfaceManager {
             return;
         }
 
-        if (Static148.aComponentArrayArray1[arg7] == null) {
+        if (cache[arg7] == null) {
             logicComponentList(InterfaceList.interfaces[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
         } else {
-            logicComponentList(Static148.aComponentArrayArray1[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
+            logicComponentList(cache[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
         }
     }
 
@@ -2015,6 +2036,262 @@ public final class InterfaceManager {
             }
         } else {
             return null;
+        }
+    }
+
+    @OriginalMember(owner = "client!fb", name = "a", descriptor = "(IIIIZ)Lclient!aha;")
+    public static SubInterface openSubInterface(@OriginalArg(0) int type, @OriginalArg(1) int id, @OriginalArg(2) int idAndSlot, @OriginalArg(4) boolean scripted) {
+        @Pc(7) SubInterface sub = new SubInterface();
+        sub.id = id;
+        sub.type = type;
+        subInterfaces.put(idAndSlot, sub);
+
+        restartInterfaceAnims(id);
+
+        @Pc(26) Component parent = InterfaceList.list(idAndSlot);
+        if (parent != null) {
+            redraw(parent);
+        }
+
+        if (dialog != null) {
+            redraw(dialog);
+            dialog = null;
+        }
+
+        MiniMenu.method1840();
+
+        if (parent != null) {
+            calculateLayerDimensions(parent, !scripted);
+        }
+
+        if (!scripted) {
+            ScriptRunner.executeOnLoad(id);
+        }
+
+        if (!scripted && topLevelInterface != -1) {
+            runHookImmediate(IMMEDIATE_HOOK_TYPE_SUBCHANGE, topLevelInterface);
+        }
+
+        return sub;
+    }
+
+    @OriginalMember(owner = "client!dq", name = "a", descriptor = "(II)V")
+    public static void restartInterfaceAnims(@OriginalArg(0) int id) {
+        if (!InterfaceList.load(id)) {
+            return;
+        }
+
+        @Pc(13) Component[] children = InterfaceList.interfaces[id];
+        for (@Pc(15) int i = 0; i < children.length; i++) {
+            @Pc(20) Component child = children[i];
+
+            if (child != null && child.animator != null) {
+                child.animator.resetImmediately();
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!eja", name = "a", descriptor = "(III)V")
+    public static void runHookImmediate(@OriginalArg(1) int type, @OriginalArg(2) int id) {
+        if (InterfaceList.load(id)) {
+            runHookImmediate(InterfaceList.interfaces[id], type);
+        }
+    }
+
+    @OriginalMember(owner = "client!client", name = "a", descriptor = "([Lclient!hda;II)V")
+    public static void runHookImmediate(@OriginalArg(0) Component[] children, @OriginalArg(2) int type) {
+        for (@Pc(1) int i = 0; i < children.length; i++) {
+            @Pc(11) Component child = children[i];
+            if (child == null) {
+                continue;
+            }
+
+            if (child.type == Component.TYPE_LAYER) {
+                if (child.dynamicComponents != null) {
+                    runHookImmediate(child.dynamicComponents, type);
+                }
+
+                @Pc(38) SubInterface sub = (SubInterface) subInterfaces.get(child.slot);
+                if (sub != null) {
+                    runHookImmediate(type, sub.id);
+                }
+            }
+
+            @Pc(58) HookRequest hook;
+            if (type == IMMEDIATE_HOOK_TYPE_DIALOGABORT && child.onDialogAbort != null) {
+                hook = new HookRequest();
+                hook.source = child;
+                hook.arguments = child.onDialogAbort;
+                ScriptRunner.executeHookInner(hook);
+            }
+
+            if (type == IMMEDIATE_HOOK_TYPE_SUBCHANGE && child.onSubChange != null) {
+                if (child.id >= 0) {
+                    @Pc(88) Component sub = InterfaceList.list(child.slot);
+
+                    if (sub == null || sub.staticComponents == null || sub.staticComponents.length <= child.id || sub.staticComponents[child.id] != child) {
+                        continue;
+                    }
+                }
+
+                hook = new HookRequest();
+                hook.source = child;
+                hook.arguments = child.onSubChange;
+                ScriptRunner.executeHookInner(hook);
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!eda", name = "a", descriptor = "(Lclient!hda;BZ)V")
+    public static void calculateLayerDimensions(@OriginalArg(0) Component layer, @OriginalArg(2) boolean execScript) {
+        @Pc(16) int width = layer.scrollWidth == 0 ? layer.width : layer.scrollWidth;
+        @Pc(37) int height = layer.scrollHeight == 0 ? layer.height : layer.scrollHeight;
+
+        calculateComponentListDimensions(width, execScript, height, InterfaceList.interfaces[layer.slot >> 16], layer.slot);
+
+        if (layer.dynamicComponents != null) {
+            calculateComponentListDimensions(width, execScript, height, layer.dynamicComponents, layer.slot);
+        }
+
+        @Pc(72) SubInterface sub = (SubInterface) subInterfaces.get(layer.slot);
+        if (sub != null) {
+            calculateComponentListDimensions(execScript, sub.id, height, width);
+        }
+    }
+
+    @OriginalMember(owner = "client!al", name = "a", descriptor = "(ZIIII)V")
+    public static void calculateComponentListDimensions(@OriginalArg(0) boolean execScript, @OriginalArg(1) int arg1, @OriginalArg(3) int height, @OriginalArg(4) int width) {
+        if (InterfaceList.load(arg1)) {
+            calculateComponentListDimensions(width, execScript, height, InterfaceList.interfaces[arg1], -1);
+        }
+    }
+
+    @OriginalMember(owner = "client!gq", name = "a", descriptor = "(ZIZI[Lclient!hda;I)V")
+    public static void calculateComponentListDimensions(@OriginalArg(1) int width, @OriginalArg(2) boolean execScript, @OriginalArg(3) int height, @OriginalArg(4) Component[] children, @OriginalArg(5) int parent) {
+        for (@Pc(5) int i = 0; i < children.length; i++) {
+            @Pc(14) Component child = children[i];
+
+            if (child != null && child.layer == parent) {
+                resize(execScript, height, width, child);
+                calculateDimensions(child, width, height, -8525);
+
+                if (child.scrollX > child.scrollWidth - child.width) {
+                    child.scrollX = child.scrollWidth - child.width;
+                }
+                if (child.scrollX < 0) {
+                    child.scrollX = 0;
+                }
+                if (child.scrollY > child.scrollHeight - child.height) {
+                    child.scrollY = child.scrollHeight - child.height;
+                }
+                if (child.scrollY < 0) {
+                    child.scrollY = 0;
+                }
+
+                if (child.type == Component.TYPE_LAYER) {
+                    calculateLayerDimensions(child, execScript);
+                }
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!pw", name = "a", descriptor = "(ZIIILclient!hda;)V")
+    public static void resize(@OriginalArg(0) boolean execScript, @OriginalArg(1) int parentHeight, @OriginalArg(3) int parentWidth, @OriginalArg(4) Component component) {
+        @Pc(6) int width = component.width;
+        @Pc(16) int height = component.height;
+
+        if (component.sizeTypeHorizontal == 0) {
+            component.width = component.baseWidth;
+        } else if (component.sizeTypeHorizontal == 1) {
+            component.width = parentWidth - component.baseWidth;
+        } else if (component.sizeTypeHorizontal == 2) {
+            component.width = (component.baseWidth * parentWidth) >> 14;
+        }
+
+        if (component.sizeTypeVertical == 0) {
+            component.height = component.baseHeight;
+        } else if (component.sizeTypeVertical == 1) {
+            component.height = parentHeight - component.baseHeight;
+        } else if (component.sizeTypeVertical == 2) {
+            component.height = (parentHeight * component.baseHeight) >> 14;
+        }
+
+        if (component.sizeTypeHorizontal == 4) {
+            component.width = component.aspectRatioHeight * component.height / component.aspectRatioWidth;
+        }
+
+        if (component.sizeTypeVertical == 4) {
+            component.height = component.width * component.aspectRatioWidth / component.aspectRatioHeight;
+        }
+
+        if (testOpacity && (serverActiveProperties(component).events != 0 || component.type == Component.TYPE_LAYER)) {
+            if (component.height < 5 && component.width < 5) {
+                component.height = 5;
+                component.width = 5;
+            } else {
+                if (component.width <= 0) {
+                    component.width = 5;
+                }
+                if (component.height <= 0) {
+                    component.height = 5;
+                }
+            }
+        }
+
+        if (component.clientcode == ComponentClientCode.SCENE) {
+            viewport = component;
+        }
+
+        if (execScript && component.onResize != null && (width != component.width || height != component.height)) {
+            @Pc(225) HookRequest hook = new HookRequest();
+            hook.arguments = component.onResize;
+            hook.source = component;
+            Static521.A_DEQUE___44.addLast(hook);
+        }
+    }
+
+    @OriginalMember(owner = "client!or", name = "a", descriptor = "(Lclient!hda;III)V")
+    public static void calculateDimensions(@OriginalArg(0) Component component, @OriginalArg(1) int width, @OriginalArg(2) int height, @OriginalArg(3) int arg3) {
+        if (component.postTypeVertical == 0) {
+            component.positionY = component.basePosY;
+        } else if (component.postTypeVertical == 1) {
+            component.positionY = component.basePosY + ((height - component.height) / 2);
+        } else if (component.postTypeVertical == 2) {
+            component.positionY = height - component.height - component.basePosY;
+        } else if (component.postTypeVertical == 3) {
+            component.positionY = (component.basePosY * height) >> 14;
+        } else if (component.postTypeVertical == 4) {
+            component.positionY = ((height - component.height) / 2) + ((height * component.basePosY) >> 14);
+        } else {
+            component.positionY = height - ((component.basePosY * height) >> 14) - component.height;
+        }
+
+        if (component.posTypeHorizontal == 0) {
+            component.positionX = component.basePosX;
+        } else if (component.posTypeHorizontal == 1) {
+            component.positionX = component.basePosX + ((width - component.width) / 2);
+        } else if (component.posTypeHorizontal == 2) {
+            component.positionX = width - component.width - component.basePosX;
+        } else if (component.posTypeHorizontal == 3) {
+            component.positionX = (component.basePosX * width) >> 14;
+        } else if (component.posTypeHorizontal == 4) {
+            component.positionX = ((width - component.width) / 2) + ((width * component.basePosX) >> 14);
+        } else {
+            component.positionX = width - ((width * component.basePosX) >> 14) - component.width;
+        }
+
+        if (testOpacity && (serverActiveProperties(component).events != 0 || component.type == Component.TYPE_LAYER)) {
+            if (component.positionX < 0) {
+                component.positionX = 0;
+            } else if (width < component.width + component.positionX) {
+                component.positionX = width - component.width;
+            }
+
+            if (component.positionY < 0) {
+                component.positionY = 0;
+            } else if (component.positionY + component.height > height) {
+                component.positionY = height - component.height;
+            }
         }
     }
 

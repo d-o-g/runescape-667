@@ -26,9 +26,9 @@ public final class Static605 {
         if (arg0 == Static704.aClass287_17) {
             local15 = local8.g1();
             local21 = (local15 & 0x7) + Static270.anInt4354;
-            local25 = Static116.areaBaseY + local21;
+            local25 = WorldMap.areaBaseY + local21;
             local34 = Static626.anInt9476 + (local15 >> 4 & 0x7);
-            local38 = Static691.areaBaseX + local34;
+            local38 = WorldMap.areaBaseX + local34;
             local42 = local8.g2();
             local46 = local8.g2();
             local52 = local8.g2();
@@ -237,9 +237,9 @@ public final class Static605 {
                     local15 = local8.g2_alt2();
                     local21 = local8.g1_alt1();
                     local25 = Static270.anInt4354 + (local21 & 0x7);
-                    local34 = local25 + Static116.areaBaseY;
+                    local34 = local25 + WorldMap.areaBaseY;
                     local38 = Static626.anInt9476 + (local21 >> 4 & 0x7);
-                    local42 = Static691.areaBaseX + local38;
+                    local42 = WorldMap.areaBaseX + local38;
                     local46 = local8.ig2();
                     local52 = local8.g2();
                     if (local15 != PlayerList.activePlayerSlot) {
@@ -275,9 +275,9 @@ public final class Static605 {
                     local15 = local8.g2();
                     local21 = local8.g1();
                     local25 = (local21 & 0x7) + Static270.anInt4354;
-                    local34 = local25 + Static116.areaBaseY;
+                    local34 = local25 + WorldMap.areaBaseY;
                     local38 = (local21 >> 4 & 0x7) + Static626.anInt9476;
-                    local42 = local38 + Static691.areaBaseX;
+                    local42 = local38 + WorldMap.areaBaseX;
                     @Pc(1389) ObjStack local1389 = (ObjStack) Static497.stacks.get((long) (local34 << 14 | Static87.anInt1810 << 28 | local42));
                     if (local1389 != null) {
                         for (@Pc(1399) ObjStackEntry local1399 = (ObjStackEntry) local1389.objs.first(); local1399 != null; local1399 = (ObjStackEntry) local1389.objs.next()) {
@@ -347,9 +347,9 @@ public final class Static605 {
                 } else if (Static18.aClass287_2 == arg0) {
                     local15 = local8.g1_alt2();
                     local21 = Static270.anInt4354 + (local15 & 0x7);
-                    local25 = local21 + Static116.areaBaseY;
+                    local25 = local21 + WorldMap.areaBaseY;
                     local34 = (local15 >> 4 & 0x7) + Static626.anInt9476;
-                    local38 = Static691.areaBaseX + local34;
+                    local38 = WorldMap.areaBaseX + local34;
                     local42 = local8.g2_alt2();
                     local46 = local8.g2();
                     @Pc(1886) boolean local1886 = local34 >= 0 && local21 >= 0 && local34 < Static720.mapWidth && local21 < Static501.mapHeight;

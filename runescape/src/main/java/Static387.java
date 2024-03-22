@@ -6,30 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static387 {
 
-    @OriginalMember(owner = "client!mc", name = "b", descriptor = "(I)V")
-    public static void method5440() {
-        if (Static164.anInt2809 < 0) {
-            Static180.anInt3001 = -1;
-            Static558.anInt3181 = -1;
-            Static164.anInt2809 = 0;
-        }
-        if (Static30.anInt5650 < Static164.anInt2809) {
-            Static180.anInt3001 = -1;
-            Static164.anInt2809 = Static30.anInt5650;
-            Static558.anInt3181 = -1;
-        }
-        if (Static615.anInt9389 < 0) {
-            Static558.anInt3181 = -1;
-            Static180.anInt3001 = -1;
-            Static615.anInt9389 = 0;
-        }
-        if (Static30.anInt5644 < Static615.anInt9389) {
-            Static558.anInt3181 = -1;
-            Static180.anInt3001 = -1;
-            Static615.anInt9389 = Static30.anInt5644;
-        }
-    }
-
     @OriginalMember(owner = "client!mc", name = "a", descriptor = "(Lclient!ge;II)Ljava/lang/String;")
     public static String method5441(@OriginalArg(0) Packet arg0) {
         try {

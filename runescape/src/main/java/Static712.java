@@ -61,19 +61,19 @@ public final class Static712 {
                     local101 = false;
                 }
             }
-            Static434.aCanvas7.setSize(GameShell.canvasWid, GameShell.canvasHei);
+            Static434.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);
             if (Toolkit.active != null) {
                 if (InterfaceManager.aBoolean210) {
-                    Static575.method7606(Static434.aCanvas7);
+                    Static575.method7606(Static434.canvas);
                 } else {
-                    Toolkit.active.method7935(Static434.aCanvas7, GameShell.canvasWid, GameShell.canvasHei);
+                    Toolkit.active.method7935(Static434.canvas, GameShell.canvasWid, GameShell.canvasHei);
                 }
             }
             if (local22 == GameShell.frame) {
                 local44 = GameShell.frame.getInsets();
-                Static434.aCanvas7.setLocation(local44.left + GameShell.leftMargin, local44.top + GameShell.topMargin);
+                Static434.canvas.setLocation(local44.left + GameShell.leftMargin, local44.top + GameShell.topMargin);
             } else {
-                Static434.aCanvas7.setLocation(GameShell.leftMargin, GameShell.topMargin);
+                Static434.canvas.setLocation(GameShell.leftMargin, GameShell.topMargin);
             }
             if (InterfaceManager.topLevelInterface != -1) {
                 Static640.method8435(true);

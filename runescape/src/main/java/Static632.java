@@ -10,13 +10,13 @@ public final class Static632 {
     public static int anInt9503;
 
     @OriginalMember(owner = "client!u", name = "r", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_110 = new Class345(78, -1);
+    public static final ClientProt A_CLIENT_PROT___110 = new ClientProt(78, -1);
 
     @OriginalMember(owner = "client!u", name = "l", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray44 = new String[100];
 
     @OriginalMember(owner = "client!u", name = "f", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_111 = new Class345(83, 18);
+    public static final ClientProt A_CLIENT_PROT___111 = new ClientProt(83, 18);
 
     @OriginalMember(owner = "client!u", name = "e", descriptor = "[F")
     public static final float[] aFloatArray70 = new float[4];

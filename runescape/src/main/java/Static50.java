@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static50 {
 
     @OriginalMember(owner = "client!bm", name = "b", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_90 = new Class345(85, 2);
+    public static final ClientProt A_CLIENT_PROT___90 = new ClientProt(85, 2);
 
     @OriginalMember(owner = "client!bm", name = "c", descriptor = "Z")
     public static boolean aBoolean565 = true;

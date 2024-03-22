@@ -85,8 +85,8 @@ public final class Static256 {
                 }
             }
         }
-        @Pc(186) int local186 = arg0.anInt10690;
-        @Pc(189) int local189 = arg0.anInt10694;
+        @Pc(186) int local186 = arg0.x;
+        @Pc(189) int local189 = arg0.z;
         @Pc(206) int local206 = arg0.pathX[arg0.anInt10764 - 1] * 512 + arg0.boundSize((byte) 76) * 256;
         @Pc(222) int local222 = arg0.pathY[arg0.anInt10764 - 1] * 512 + arg0.boundSize((byte) 105) * 256;
         if (local186 < local206) {
@@ -112,8 +112,8 @@ public final class Static256 {
         }
         @Pc(348) byte local348 = arg0.aByteArray111[arg0.anInt10764 - 1];
         if (!arg1 && (local206 - local186 > 1024 || local206 - local186 < -1024 || local222 - local189 > 1024 || local222 - local189 < -1024)) {
-            arg0.anInt10694 = local222;
-            arg0.anInt10690 = local206;
+            arg0.z = local222;
+            arg0.x = local206;
             arg0.method9298(arg0.anInt10756, false);
             Static524.anInt8042 = 0;
             if (arg0.anInt10762 > 0) {
@@ -161,8 +161,8 @@ public final class Static256 {
             local422 <<= 0x9;
             if (arg0.anInt10764 == 1) {
                 local468 = arg0.anInt10765 * arg0.anInt10765;
-                @Pc(642) int local642 = (local206 >= arg0.anInt10690 ? local206 - arg0.anInt10690 : arg0.anInt10690 - local206) << 9;
-                @Pc(661) int local661 = (arg0.anInt10694 <= local222 ? local222 - arg0.anInt10694 : arg0.anInt10694 + -local222) << 9;
+                @Pc(642) int local642 = (local206 >= arg0.x ? local206 - arg0.x : arg0.x - local206) << 9;
+                @Pc(661) int local661 = (arg0.z <= local222 ? local222 - arg0.z : arg0.z + -local222) << 9;
                 @Pc(673) int local673 = local642 > local661 ? local642 : local661;
                 @Pc(680) int local680 = local673 * local9.movementAcceleration * 2;
                 if (local680 < local468) {
@@ -199,16 +199,16 @@ public final class Static256 {
             Static521.anInt7756 = -1;
         } else {
             if (local206 > local186) {
-                arg0.anInt10690 += local422;
+                arg0.x += local422;
                 Static524.anInt8042 |= 0x4;
-                if (arg0.anInt10690 > local206) {
-                    arg0.anInt10690 = local206;
+                if (arg0.x > local206) {
+                    arg0.x = local206;
                 }
             } else if (local206 < local186) {
-                arg0.anInt10690 -= local422;
+                arg0.x -= local422;
                 Static524.anInt8042 |= 0x8;
-                if (local206 > arg0.anInt10690) {
-                    arg0.anInt10690 = local206;
+                if (local206 > arg0.x) {
+                    arg0.x = local206;
                 }
             }
             if (local422 >= 32) {
@@ -218,19 +218,19 @@ public final class Static256 {
             }
             if (local222 > local189) {
                 Static524.anInt8042 |= 0x1;
-                arg0.anInt10694 += local422;
-                if (local222 < arg0.anInt10694) {
-                    arg0.anInt10694 = local222;
+                arg0.z += local422;
+                if (local222 < arg0.z) {
+                    arg0.z = local222;
                 }
             } else if (local222 < local189) {
-                arg0.anInt10694 -= local422;
+                arg0.z -= local422;
                 Static524.anInt8042 |= 0x2;
-                if (local222 > arg0.anInt10694) {
-                    arg0.anInt10694 = local222;
+                if (local222 > arg0.z) {
+                    arg0.z = local222;
                 }
             }
         }
-        if (arg0.anInt10690 != local206 || local222 != arg0.anInt10694) {
+        if (arg0.x != local206 || local222 != arg0.z) {
             return;
         }
         arg0.anInt10764--;

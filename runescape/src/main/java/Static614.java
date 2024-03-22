@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static614 {
 
-    @OriginalMember(owner = "client!th", name = "p", descriptor = "I")
-    public static int anInt9373;
-
     @OriginalMember(owner = "client!th", name = "q", descriptor = "D")
     public static double aDouble22;
 
@@ -32,15 +29,15 @@ public final class Static614 {
 
     @OriginalMember(owner = "client!th", name = "b", descriptor = "(I)V")
     public static void method8245() {
-        Static467.aClass96_3.method2355();
-        Static540.aClass79_6.method2073();
+        Static467.aFloorOverlayTypeList_3.method2355();
+        Static540.aFloorUnderlayTypeList_6.method2073();
         Static68.idkTypeList.cacheClean(5);
         Static354.aLocTypeList_4.cacheClean(5);
         Static690.aNPCTypeList_2.cacheClean(5);
         Static419.objTypeList.cacheClean(5);
         Static25.seqTypeList.cacheClean();
         Static23.aClass128_1.method2698();
-        Static529.aClass161_1.method3428();
+        WorldMap.varbitTypeList.method3428();
         Static36.aClass260_1.method5785();
         Static628.aClass342_5.method7784();
         Static648.aClass17_1.method267();

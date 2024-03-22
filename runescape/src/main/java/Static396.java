@@ -16,7 +16,7 @@ public final class Static396 {
     @OriginalMember(owner = "client!mi", name = "a", descriptor = "(I)V")
     public static void method5551() {
         @Pc(10) ServerConnection local10 = Static668.method8701();
-        @Pc(18) ClientMessage local18 = Static293.method4335(Static244.aClass345_53, local10.cipher);
+        @Pc(18) ClientMessage local18 = ClientMessage.create(Static244.A_CLIENT_PROT___53, local10.cipher);
         local18.buffer.p1(0);
         local10.send(local18);
     }

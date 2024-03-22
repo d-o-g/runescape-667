@@ -11,7 +11,7 @@ public final class Static603 {
     public static final int[][][] anIntArrayArrayArray18 = new int[2][][];
 
     @OriginalMember(owner = "client!taa", name = "E", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_109 = new Class345(29, -1);
+    public static final ClientProt A_CLIENT_PROT___109 = new ClientProt(29, -1);
 
     @OriginalMember(owner = "client!taa", name = "b", descriptor = "(Z)V")
     public static void method7899() {
@@ -31,17 +31,17 @@ public final class Static603 {
             if (InterfaceManager.dragParentX > local46) {
                 local46 = InterfaceManager.dragParentX;
             }
-            if (InterfaceManager.dragSource.width + local46 > InterfaceManager.dragParentX - -InterfaceManager.dragParent.width) {
-                local46 = InterfaceManager.dragParent.width + InterfaceManager.dragParentX - InterfaceManager.dragSource.width;
+            if (InterfaceManager.dragSource.width + local46 > InterfaceManager.dragParentX - -InterfaceManager.dragLayer.width) {
+                local46 = InterfaceManager.dragLayer.width + InterfaceManager.dragParentX - InterfaceManager.dragSource.width;
             }
             if (local52 < InterfaceManager.dragParentY) {
                 local52 = InterfaceManager.dragParentY;
             }
-            if (InterfaceManager.dragParentY + InterfaceManager.dragParent.height < local52 - -InterfaceManager.dragSource.height) {
-                local52 = InterfaceManager.dragParentY + InterfaceManager.dragParent.height - InterfaceManager.dragSource.height;
+            if (InterfaceManager.dragParentY + InterfaceManager.dragLayer.height < local52 - -InterfaceManager.dragSource.height) {
+                local52 = InterfaceManager.dragParentY + InterfaceManager.dragLayer.height - InterfaceManager.dragSource.height;
             }
-            @Pc(119) int local119 = InterfaceManager.dragParent.scrollX + local46 - InterfaceManager.dragParentX;
-            @Pc(127) int local127 = InterfaceManager.dragParent.scrollY + local52 - InterfaceManager.dragParentY;
+            @Pc(119) int local119 = InterfaceManager.dragLayer.scrollX + local46 - InterfaceManager.dragParentX;
+            @Pc(127) int local127 = InterfaceManager.dragLayer.scrollY + local52 - InterfaceManager.dragParentY;
             @Pc(197) HookRequest local197;
             if (MouseMonitor.instance.isDown()) {
                 if (InterfaceManager.dragSource.dragDeadTime < InterfaceManager.dragTicks) {
@@ -57,7 +57,7 @@ public final class Static603 {
                     local197.mouseX = local119;
                     local197.mouseY = local127;
                     local197.arguments = InterfaceManager.dragSource.onDrag;
-                    Static472.method6420(local197);
+                    ScriptRunner.executeHookInner(local197);
                     return;
                 }
             } else {
@@ -70,7 +70,7 @@ public final class Static603 {
                         local197.source = InterfaceManager.dragSource;
                         local197.mouseY = local127;
                         local197.arguments = InterfaceManager.dragSource.onDragComplete;
-                        Static472.method6420(local197);
+                        ScriptRunner.executeHookInner(local197);
                     }
                     if (InterfaceManager.dragTarget != null && Static84.method1657(InterfaceManager.dragSource) != null) {
                         Static710.method6710(InterfaceManager.dragSource, InterfaceManager.dragTarget);
@@ -88,7 +88,7 @@ public final class Static603 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(BLclient!fu;Lclient!ha;Lclient!el;)V")
-    public static void method7902(@OriginalArg(1) Node_Sub20 arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) Class105 arg2) {
+    public static void method7902(@OriginalArg(1) MapElementListEntry arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) MapElementType arg2) {
         @Pc(8) Sprite local8 = arg2.method2428(arg1);
         if (local8 == null) {
             return;
@@ -119,20 +119,20 @@ public final class Static603 {
             local40 = Static142.aClass327_1.method7536() * local36 + Static142.aClass327_1.method7538() / 2;
         }
         local56 = local15 / 2 + arg0.anInt3130;
-        if (local31 < Static30.anInt5649 + local15) {
-            local56 = local15 / 2 + Static30.anInt5649 + local38 / 2 + 15;
-            local31 = Static30.anInt5649;
-        } else if (Static30.anInt5651 - local15 < local31) {
-            local31 = Static30.anInt5651 - local15;
-            local56 = Static30.anInt5651 - local15 / 2 - local38 / 2 - 10 - 5;
+        if (local31 < WorldMap.anInt5649 + local15) {
+            local56 = local15 / 2 + WorldMap.anInt5649 + local38 / 2 + 15;
+            local31 = WorldMap.anInt5649;
+        } else if (WorldMap.anInt5651 - local15 < local31) {
+            local31 = WorldMap.anInt5651 - local15;
+            local56 = WorldMap.anInt5651 - local15 / 2 - local38 / 2 - 10 - 5;
         }
         @Pc(163) int local163 = arg0.anInt3122;
-        if (local15 + Static30.anInt5653 > local34) {
-            local163 = Static30.anInt5653 + local15 / 2 + 10;
-            local34 = Static30.anInt5653;
-        } else if (Static30.anInt5646 - local15 < local34) {
-            local163 = Static30.anInt5646 - local15 / 2 - local40 - 10;
-            local34 = Static30.anInt5646 - local15;
+        if (local15 + WorldMap.anInt5653 > local34) {
+            local163 = WorldMap.anInt5653 + local15 / 2 + 10;
+            local34 = WorldMap.anInt5653;
+        } else if (WorldMap.anInt5646 - local15 < local34) {
+            local163 = WorldMap.anInt5646 - local15 / 2 - local40 - 10;
+            local34 = WorldMap.anInt5646 - local15;
         }
         local78 = (int) (Math.atan2((double) (local31 - arg0.anInt3130), (double) (local34 - arg0.anInt3122)) / 3.141592653589793D * 32767.0D) & 0xFFFF;
         local8.method8186((float) local31 + (float) local15 / 2.0F, (float) local34 + (float) local15 / 2.0F, 4096, local78);
@@ -146,7 +146,7 @@ public final class Static603 {
             local257 = local38 + local246 + 10;
             local259 = Static142.aClass327_1.method7536() * local36 + local163 + 3;
             if (arg2.anInt2605 != 0) {
-                arg1.method7971(local257 - local246, local259 - local163, local163, local246, arg2.anInt2605);
+                arg1.fillRect(local257 - local246, local259 - local163, local163, local246, arg2.anInt2605);
             }
             if (arg2.anInt2608 != 0) {
                 arg1.method7945(local163, arg2.anInt2608, local257 - local246, local259 - local163, local246);
@@ -173,6 +173,6 @@ public final class Static603 {
         local393.anInt6186 = local34 - local15;
         local393.anInt6184 = local248;
         local393.anInt6185 = local257;
-        Static551.aDeque_54.addLast(local393);
+        WorldMap.aDeque_54.addLast(local393);
     }
 }

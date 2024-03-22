@@ -17,7 +17,7 @@ public final class Static161 {
     public static final ServerProt A_SERVER_PROT___62 = new ServerProt(22, 10);
 
     @OriginalMember(owner = "client!fa", name = "q", descriptor = "Lclient!ss;")
-    public static final Class345 aClass345_29 = new Class345(33, 0);
+    public static final ClientProt A_CLIENT_PROT___29 = new ClientProt(33, 0);
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(ILclient!ca;ILclient!rka;I)V")
     public static void method2585(@OriginalArg(1) PlayerEntity arg0, @OriginalArg(2) int arg1, @OriginalArg(3) PacketBuffer arg2, @OriginalArg(4) int arg3) {

@@ -19,7 +19,7 @@ public final class Static106 {
 
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ZII)V")
     public static void method2048(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        Static180.anInt3001 = arg0 - Static30.anInt5655;
-        Static558.anInt3181 = arg1 - Static30.anInt5648;
+        Static180.anInt3001 = arg0 - WorldMap.areaX;
+        Static558.anInt3181 = arg1 - WorldMap.areaY;
     }
 }

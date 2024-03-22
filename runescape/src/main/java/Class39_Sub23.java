@@ -94,8 +94,8 @@ public final class Class39_Sub23 extends Class39 {
         if (this.anInt9980 < 0) {
             local15 = Static219.aClass236Array1[this.anInt9982].method5363();
             local18 = local15.level;
-            local21 = local15.anInt10694;
-            local24 = local15.anInt10690;
+            local21 = local15.z;
+            local24 = local15.x;
         } else {
             local21 = this.anInt9972 * 512 + 256;
             local24 = this.anInt9980 * 512 + 256;
@@ -108,8 +108,8 @@ public final class Class39_Sub23 extends Class39 {
             local63 = this.anInt9985 * 512 + 256;
         } else {
             local15 = Static219.aClass236Array1[this.anInt9989].method5363();
-            local63 = local15.anInt10690;
-            local56 = local15.anInt10694;
+            local63 = local15.x;
+            local56 = local15.z;
             if (local18 < 0) {
                 local18 = local15.level;
             }

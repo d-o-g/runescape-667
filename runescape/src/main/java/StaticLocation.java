@@ -91,7 +91,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             this.shadow = null;
         }
         if (local16 != null) {
-            Static292.method4618(local16, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
+            Static292.method4618(local16, super.aByte143, super.x, super.z, (boolean[]) null);
         }
         if (arg1 > -42) {
             this.model = null;
@@ -156,7 +156,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             return arg2 ? false : false;
         } else {
             @Pc(14) Matrix local14 = arg3.scratchMatrix();
-            local14.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+            local14.method7125(super.x, super.anInt10691, super.z);
             return Static504.aBoolean579 ? local9.pickedOrtho(arg1, arg0, local14, false, 0, Static582.anInt8627) : local9.picked(arg1, arg0, local14, false, 0);
         }
     }
@@ -191,7 +191,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             return null;
         } else {
             if (this.aClass205_5 == null) {
-                this.aClass205_5 = Static317.method4583(super.anInt10691, super.anInt10690, this.method4221(arg0, 0), super.anInt10694);
+                this.aClass205_5 = Static317.method4583(super.anInt10691, super.x, this.method4221(arg0, 0), super.z);
             }
             return this.aClass205_5;
         }
@@ -209,7 +209,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             this.shadow = null;
         }
         if (shadow != null) {
-            Static630.method8357(shadow, super.aByte143, super.anInt10690, super.anInt10694, (boolean[]) null);
+            Static630.method8357(shadow, super.aByte143, super.x, super.z, (boolean[]) null);
         }
     }
 
@@ -247,7 +247,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             return null;
         }
         @Pc(20) Matrix local20 = arg0.scratchMatrix();
-        local20.method7125(super.anInt10690, super.anInt10691, super.anInt10694);
+        local20.method7125(super.x, super.anInt10691, super.z);
         @Pc(34) Class8_Sub7 local34 = Static642.method8441(this.aBoolean364, 1);
         if (Static504.aBoolean579) {
             this.model.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);
@@ -292,7 +292,7 @@ public final class StaticLocation extends PositionEntity implements Location {
                 local33 = Static706.aGroundArray3[super.aByte143 + 1];
             }
         }
-        return local11.modelAndShadow(this.aByte84 == 11 ? this.aByte83 + 4 : this.aByte83, super.anInt10694, super.anInt10690, local27, arg1, super.anInt10691, this.aByte84 == 11 ? 10 : this.aByte84, arg0, (LocTypeCustomisation) null, arg2, local33);
+        return local11.modelAndShadow(this.aByte84 == 11 ? this.aByte83 + 4 : this.aByte83, super.z, super.x, local27, arg1, super.anInt10691, this.aByte84 == 11 ? 10 : this.aByte84, arg0, (LocTypeCustomisation) null, arg2, local33);
     }
 
     @OriginalMember(owner = "client!jda", name = "c", descriptor = "(I)I")

@@ -21,9 +21,9 @@ public final class Static150 {
     public static void method2455() {
         Static173.method2690();
         Static517.method6822(Static400.instance.aClass57_Sub17_1.method5667() == 1);
-        Static719.aClass56_5 = Static638.method8394(SignLink.instance, 0, 22050, Static434.aCanvas7);
+        Static719.aClass56_5 = Static638.method8394(SignLink.instance, 0, 22050, Static434.canvas);
         Static697.method9120(Static48.method1100((Node_Sub6_Sub1) null));
-        Static559.aClass56_3 = Static638.method8394(SignLink.instance, 1, 2048, Static434.aCanvas7);
+        Static559.aClass56_3 = Static638.method8394(SignLink.instance, 1, 2048, Static434.canvas);
         Static559.aClass56_3.method3582(Static336.aClass2_Sub6_Sub3_1);
     }
 

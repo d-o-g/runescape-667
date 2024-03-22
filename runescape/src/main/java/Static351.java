@@ -18,16 +18,16 @@ public final class Static351 {
     }
 
     @OriginalMember(owner = "client!laa", name = "a", descriptor = "(Lclient!ha;ILclient!el;ILclient!fu;I)Z")
-    public static boolean method5138(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) Class105 arg1, @OriginalArg(4) Node_Sub20 arg2) {
+    public static boolean method5138(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) MapElementType arg1, @OriginalArg(4) MapElementListEntry arg2) {
         @Pc(7) int local7 = Integer.MAX_VALUE;
         @Pc(9) int local9 = Integer.MIN_VALUE;
         @Pc(11) int local11 = Integer.MAX_VALUE;
         @Pc(13) int local13 = Integer.MIN_VALUE;
         if (arg1.anIntArray228 != null) {
-            local13 = Static30.anInt5646 - (arg2.anInt3124 + arg1.anInt2588 - Static30.anInt5654) * (Static30.anInt5646 - Static30.anInt5653) / (Static30.anInt5645 - Static30.anInt5654);
-            local11 = Static30.anInt5646 - (arg2.anInt3124 + arg1.anInt2594 - Static30.anInt5654) * (Static30.anInt5646 + -Static30.anInt5653) / (Static30.anInt5645 - Static30.anInt5654);
-            local7 = Static30.anInt5649 + (Static30.anInt5651 - Static30.anInt5649) * (-Static30.anInt5652 + arg1.anInt2598 - -arg2.anInt3129) / (Static30.anInt5647 - Static30.anInt5652);
-            local9 = Static30.anInt5649 + (arg1.anInt2614 + arg2.anInt3129 - Static30.anInt5652) * (Static30.anInt5651 - Static30.anInt5649) / (Static30.anInt5647 - Static30.anInt5652);
+            local13 = WorldMap.anInt5646 - (arg2.y + arg1.anInt2588 - WorldMap.anInt5654) * (WorldMap.anInt5646 - WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
+            local11 = WorldMap.anInt5646 - (arg2.y + arg1.anInt2594 - WorldMap.anInt5654) * (WorldMap.anInt5646 + -WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
+            local7 = WorldMap.anInt5649 + (WorldMap.anInt5651 - WorldMap.anInt5649) * (-WorldMap.anInt5652 + arg1.anInt2598 - -arg2.x) / (WorldMap.anInt5647 - WorldMap.anInt5652);
+            local9 = WorldMap.anInt5649 + (arg1.anInt2614 + arg2.x - WorldMap.anInt5652) * (WorldMap.anInt5651 - WorldMap.anInt5649) / (WorldMap.anInt5647 - WorldMap.anInt5652);
         }
         @Pc(102) Sprite local102 = null;
         @Pc(104) int local104 = 0;
@@ -73,8 +73,8 @@ public final class Static351 {
             local209 = Static390.method5493(arg1.anInt2615);
             if (local209 != null) {
                 local211 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, (int[]) null, (Sprite[]) null, arg1.aString25);
-                local215 = arg2.anInt3122 - arg1.anInt2617 * (Static30.anInt5646 - Static30.anInt5653) / (Static30.anInt5645 - Static30.anInt5654);
-                local213 = arg1.anInt2600 * (Static30.anInt5651 - Static30.anInt5649) / (Static30.anInt5647 - Static30.anInt5652) + arg2.anInt3130;
+                local215 = arg2.anInt3122 - arg1.anInt2617 * (WorldMap.anInt5646 - WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
+                local213 = arg1.anInt2600 * (WorldMap.anInt5651 - WorldMap.anInt5649) / (WorldMap.anInt5647 - WorldMap.anInt5652) + arg2.anInt3130;
                 if (local102 == null) {
                     local215 -= local211 * local209.method7538() / 2;
                 } else {
@@ -108,12 +108,12 @@ public final class Static351 {
                 }
             }
         }
-        if (local9 < Static30.anInt5649 || Static30.anInt5651 < local7 || Static30.anInt5653 > local13 || local11 > Static30.anInt5646) {
+        if (local9 < WorldMap.anInt5649 || WorldMap.anInt5651 < local7 || WorldMap.anInt5653 > local13 || local11 > WorldMap.anInt5646) {
             return true;
         }
-        Static30.method5071(arg0, arg2, arg1);
+        WorldMap.method5071(arg0, arg2, arg1);
         if (local102 != null) {
-            if (Static320.anInt5084 > 0 && (Static475.anInt7168 != -1 && arg2.anInt3131 == Static475.anInt7168 || Static409.anInt6318 != -1 && arg1.anInt2597 == Static409.anInt6318)) {
+            if (Static320.anInt5084 > 0 && (Static475.anInt7168 != -1 && arg2.id == Static475.anInt7168 || Static409.anInt6318 != -1 && arg1.anInt2597 == Static409.anInt6318)) {
                 if (Static212.anInt3467 > 50) {
                     local312 = 200 - Static212.anInt3467 * 2;
                 } else {
@@ -141,7 +141,7 @@ public final class Static351 {
             local612.anInt6184 = local231;
             local612.anInt6187 = local233;
             local612.anInt6195 = local104;
-            Static551.aDeque_54.addLast(local612);
+            WorldMap.aDeque_54.addLast(local612);
         }
         return false;
     }

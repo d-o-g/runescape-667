@@ -70,7 +70,7 @@ public final class Class57_Sub29 extends Class57 {
     @Override
     public int method8352(@OriginalArg(0) int arg0) {
         if (super.aClass2_Sub34_34.method5108().method5203()) {
-            return arg0 == 3 && !Static436.method3417("jagdx") ? 3 : 2;
+            return arg0 == 3 && !NativeLibraryList.method3417("jagdx") ? 3 : 2;
         } else {
             return 3;
         }

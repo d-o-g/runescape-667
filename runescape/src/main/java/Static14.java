@@ -15,7 +15,7 @@ public final class Static14 {
 
     @OriginalMember(owner = "client!ai", name = "a", descriptor = "(ILjava/lang/String;)Z")
     public static boolean loadNativeLibrary(@OriginalArg(1) String arg0) {
-        return Static93.method1833(aClass1 == null ? (aClass1 = getClass("rs2.client.loading.Class332")) : aClass1, arg0);
+        return NativeLibraryList.loadNative(aClass1 == null ? (aClass1 = getClass("rs2.client.loading.Class332")) : aClass1, arg0);
     }
 
     static Class getClass(String name) {

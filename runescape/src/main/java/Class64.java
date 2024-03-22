@@ -23,7 +23,7 @@ public final class Class64 implements Interface15 {
         if (this.aBoolean138) {
             return 100;
         }
-        @Pc(14) int local14 = Static53.method1168(this.aString12);
+        @Pc(14) int local14 = NativeLibraryList.loadLibrary(this.aString12);
         if (local14 >= 0 && local14 <= 100) {
             return local14;
         } else {

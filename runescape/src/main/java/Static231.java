@@ -1,5 +1,6 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
+import com.jagex.core.io.Files;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
@@ -774,7 +775,7 @@ public final class Static231 {
                         Static79.method1579("No such file");
                         return;
                     }
-                    @Pc(2712) byte[] local2712 = Static629.method8348(local2592);
+                    @Pc(2712) byte[] local2712 = Files.read(local2592);
                     if (local2712 == null) {
                         Static79.method1579("Failed to read file");
                         return;

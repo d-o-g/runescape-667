@@ -229,7 +229,7 @@ public final class Static523 {
             Static81.method1586(2);
         }
         if (LoadState.SETUP_LIB_PATH == Static473.aLoadState_22) {
-            Static529.method7096(js5.DLLS, SignLink.instance);
+            NativeLibraryList.init(js5.DLLS, SignLink.instance);
         }
         if (LoadState.DOWNLOAD_STUFF == Static473.aLoadState_22) {
             local12 = Static460.method6266();

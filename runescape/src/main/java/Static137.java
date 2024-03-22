@@ -1,12 +1,7 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
-import java.util.Hashtable;
-
 public final class Static137 {
-
-    @OriginalMember(owner = "client!ef", name = "g", descriptor = "Ljava/util/Hashtable;")
-    public static Hashtable aHashtable2 = new Hashtable();
 
     @OriginalMember(owner = "client!ef", name = "c", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_56 = new Class225(11, 3);

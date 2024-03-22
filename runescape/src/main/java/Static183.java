@@ -14,6 +14,6 @@ public final class Static183 {
 
     @OriginalMember(owner = "client!fm", name = "a", descriptor = "(Ljava/lang/String;Z)Z")
     public static boolean method2796(@OriginalArg(0) String arg0) {
-        return Static137.aHashtable2.containsKey(arg0);
+        return NativeLibraryList.nativeLibraries.containsKey(arg0);
     }
 }

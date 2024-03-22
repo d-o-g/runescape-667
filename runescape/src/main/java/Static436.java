@@ -1,4 +1,3 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static436 {
@@ -20,8 +19,4 @@ public final class Static436 {
         return ParticleSystem.setting;
     }
 
-    @OriginalMember(owner = "client!no", name = "a", descriptor = "(Ljava/lang/String;I)Z")
-    public static boolean method3417(@OriginalArg(0) String arg0) {
-        return Static154.loadedLibraries.containsKey(arg0);
-    }
 }

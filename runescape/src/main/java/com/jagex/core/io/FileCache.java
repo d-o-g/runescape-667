@@ -1,4 +1,4 @@
-package com.jagex;
+package com.jagex.core.io;
 
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

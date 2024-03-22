@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static185 {
 
-    @OriginalMember(owner = "client!fn", name = "m", descriptor = "Ljava/lang/String;")
-    public static String aString34;
-
     // $FF: synthetic field
     @OriginalMember(owner = "client!fn", name = "n", descriptor = "Ljava/lang/Class;")
     public static Class aClass8;

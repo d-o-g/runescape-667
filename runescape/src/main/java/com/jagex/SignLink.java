@@ -2,6 +2,7 @@ package com.jagex;
 
 import com.jagex.core.constants.FileStore;
 import com.jagex.core.constants.SignedResourceType;
+import com.jagex.core.io.FileCache;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.socket.ProxyAuthenticationException;
 import com.jagex.core.io.socket.SocketFactory;

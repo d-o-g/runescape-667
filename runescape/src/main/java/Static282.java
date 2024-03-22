@@ -2,13 +2,6 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
 public final class Static282 {
 
     @OriginalMember(owner = "client!is", name = "f", descriptor = "I")
@@ -35,16 +28,6 @@ public final class Static282 {
         } else {
             return false;
         }
-    }
-
-    @OriginalMember(owner = "client!is", name = "a", descriptor = "(Ljava/io/File;I[BI)V")
-    public static void method3977(@OriginalArg(0) File arg0, @OriginalArg(2) byte[] arg1, @OriginalArg(3) int arg2) throws IOException {
-        @Pc(14) DataInputStream local14 = new DataInputStream(new BufferedInputStream(new FileInputStream(arg0)));
-        try {
-            local14.readFully(arg1, 0, arg2);
-        } catch (@Pc(21) EOFException local21) {
-        }
-        local14.close();
     }
 
     @OriginalMember(owner = "client!is", name = "a", descriptor = "(FFFIB)F")

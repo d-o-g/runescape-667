@@ -15,7 +15,7 @@ public final class Static710 {
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
     public static void method6710(@OriginalArg(1) Component arg0, @OriginalArg(2) Component arg1) {
-        @Pc(15) ClientMessage local15 = Static293.method4335(Static671.aClass345_117, ConnectionManager.GAME.aClass186_1);
+        @Pc(15) ClientMessage local15 = Static293.method4335(Static671.aClass345_117, ConnectionManager.GAME.cipher);
         local15.buffer.p2(arg1.invObject);
         local15.buffer.p2_alt1(arg0.id);
         local15.buffer.p2_alt2(arg0.invObject);

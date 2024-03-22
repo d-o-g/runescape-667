@@ -65,14 +65,4 @@ public final class Static507 {
         }
     }
 
-    @OriginalMember(owner = "client!pw", name = "c", descriptor = "(Z)V")
-    public static void method6744() {
-        for (@Pc(15) VideoType local15 = (VideoType) VideoTypeList.recentUse.first(); local15 != null; local15 = (VideoType) VideoTypeList.recentUse.next()) {
-            if (local15.aBoolean18) {
-                local15.aBoolean18 = false;
-            } else {
-                Static121.method2199(local15.anInt182);
-            }
-        }
-    }
 }

@@ -52,31 +52,4 @@ public final class Static236 {
         }
     }
 
-    @OriginalMember(owner = "client!hfa", name = "c", descriptor = "(I)V")
-    public static void method3453() {
-        for (@Pc(16) VideoType local16 = (VideoType) VideoTypeList.recentUse.first(); local16 != null; local16 = (VideoType) VideoTypeList.recentUse.next()) {
-            if (local16.js5.method9177()) {
-                Static121.method2199(local16.anInt182);
-            } else {
-                local16.js5.readNextPages();
-                try {
-                    local16.js5.tick();
-                } catch (@Pc(43) Exception local43) {
-                    JagException.sendTrace(local43, "TV: " + local16.anInt182);
-                    Static121.method2199(local16.anInt182);
-                }
-                if (!local16.aBoolean14 && !local16.aBoolean16) {
-                    @Pc(73) OggVorbisStream local73 = local16.js5.getAudioStream();
-                    if (local73 != null) {
-                        @Pc(79) Node_Sub6_Sub5 local79 = local73.method3960();
-                        if (local79 != null) {
-                            local79.method9147(local16.anInt180);
-                            Static336.aClass2_Sub6_Sub3_1.method5882(local79);
-                            local16.aBoolean14 = true;
-                        }
-                    }
-                }
-            }
-        }
-    }
 }

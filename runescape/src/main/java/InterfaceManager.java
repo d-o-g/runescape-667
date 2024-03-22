@@ -559,7 +559,7 @@ public final class InterfaceManager {
                             } else if (child.video == -1) {
                                 local1816 = child.sprite(Static163.activeToolkit);
                             } else {
-                                local1816 = Static651.method8512(child.video, Static163.activeToolkit);
+                                local1816 = VideoTypeList.method8512(child.video, Static163.activeToolkit);
                             }
                             if (local1816 != null) {
                                 @Pc(323) int local323 = local1816.scaleWidth();

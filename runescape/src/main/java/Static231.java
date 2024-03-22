@@ -563,7 +563,7 @@ public final class Static231 {
                 }
                 if (arg2.startsWith("pc")) {
                     @Pc(1833) ServerConnection local1833 = Static668.method8701();
-                    @Pc(1839) ClientMessage local1839 = Static293.method4335(Static243.aClass345_52, local1833.aClass186_1);
+                    @Pc(1839) ClientMessage local1839 = Static293.method4335(Static243.aClass345_52, local1833.cipher);
                     local1839.buffer.p1(0);
                     local521 = local1839.buffer.pos;
                     local582 = arg2.indexOf(" ", 4);
@@ -803,7 +803,7 @@ public final class Static231 {
                     return;
                 }
                 if (Static283.step == 11) {
-                    @Pc(2836) ClientMessage local2836 = Static293.method4335(Static459.aClass345_87, ConnectionManager.GAME.aClass186_1);
+                    @Pc(2836) ClientMessage local2836 = Static293.method4335(Static459.aClass345_87, ConnectionManager.GAME.cipher);
                     local2836.buffer.p1(arg2.length() + 3);
                     local2836.buffer.p1(arg0 ? 1 : 0);
                     local2836.buffer.p1(arg1 ? 1 : 0);
@@ -871,7 +871,7 @@ public final class Static231 {
             return;
         }
         @Pc(216) ServerConnection local216 = Static668.method8701();
-        @Pc(222) ClientMessage local222 = Static293.method4335(Static113.aClass345_22, local216.aClass186_1);
+        @Pc(222) ClientMessage local222 = Static293.method4335(Static113.aClass345_22, local216.cipher);
         local222.buffer.p1(method3379(arg1) + 1);
         local222.buffer.pjstr(arg1);
         local222.buffer.p1(arg0 ? 1 : 0);

@@ -32,7 +32,7 @@ public final class Static700 {
         }
         Static244.method3512();
         Static352.method5180();
-        Static46.method1084();
+        VideoTypeList.method1084();
         System.gc();
         Static163.activeToolkit.ya();
     }

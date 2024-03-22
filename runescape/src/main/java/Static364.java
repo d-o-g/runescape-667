@@ -1,5 +1,6 @@
 import com.jagex.Constants;
 import com.jagex.SignLink;
+import com.jagex.core.crypto.IsaacCipher;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
@@ -290,7 +291,7 @@ public final class Static364 {
                 }
                 Static524.aServerConnection_3.send(local186);
                 Static524.aServerConnection_3.flush();
-                Static524.aServerConnection_3.aClass186_1 = new Class186(Static219.anIntArray287);
+                Static524.aServerConnection_3.cipher = new IsaacCipher(Static219.anIntArray287);
                 for (@Pc(938) int local938 = 0; local938 < 4; local938++) {
                     Static219.anIntArray287[local938] += 50;
                 }
@@ -349,7 +350,7 @@ public final class Static364 {
                 Static524.aServerConnection_3.clear();
                 local186 = Static273.method3962();
                 local618 = local186.buffer;
-                local618.method7422(Static524.aServerConnection_3.aClass186_1);
+                local618.method7422(Static524.aServerConnection_3.cipher);
                 local618.method7418(LoginProt.A_LOGIN_PROT___61.opcode);
                 Static524.aServerConnection_3.send(local186);
                 Static524.aServerConnection_3.flush();

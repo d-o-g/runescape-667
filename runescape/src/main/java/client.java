@@ -444,7 +444,7 @@ public final class client extends GameShell {
                                                 if (ConnectionManager.LOBBY != null) {
                                                     ConnectionManager.LOBBY.idleWriteTicks++;
                                                     if (ConnectionManager.LOBBY.idleWriteTicks > 50) {
-                                                        @Pc(823) ClientMessage local823 = Static293.method4335(Static415.aClass345_75, ConnectionManager.LOBBY.aClass186_1);
+                                                        @Pc(823) ClientMessage local823 = Static293.method4335(Static415.aClass345_75, ConnectionManager.LOBBY.cipher);
                                                         ConnectionManager.LOBBY.send(local823);
                                                     }
                                                     try {
@@ -640,7 +640,7 @@ public final class client extends GameShell {
                 Static32.method880(0, false);
             }
         }
-        Static507.method6744();
+        VideoTypeList.method6744();
         local110 = Static400.instance.aClass57_Sub21_1.method6360();
         if (local110 == 0) {
             TimeUtils.sleep(15L);
@@ -705,7 +705,7 @@ public final class client extends GameShell {
             Static228.js5MasterIndex.process();
         }
         Static601.method7865();
-        Static236.method3453();
+        VideoTypeList.method3453();
         Static334.aClass319_1.method8481();
         MouseMonitor.instance.record();
         if (Static163.activeToolkit != null) {

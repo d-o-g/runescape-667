@@ -75,7 +75,7 @@ public final class Static242 {
                     local47 = Static571.aClass345_103;
                 }
                 if (local47 != null) {
-                    @Pc(108) ClientMessage local108 = Static293.method4335(local47, ConnectionManager.GAME.aClass186_1);
+                    @Pc(108) ClientMessage local108 = Static293.method4335(local47, ConnectionManager.GAME.cipher);
                     local108.buffer.p1(0);
                     local108.buffer.p2(local7[local19]);
                     ConnectionManager.GAME.send(local108);

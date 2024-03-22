@@ -24,7 +24,7 @@ public final class Static698 {
             return;
         }
         @Pc(16) ServerConnection local16 = Static668.method8701();
-        @Pc(29) ClientMessage local29 = Static293.method4335(Static244.aClass345_53, local16.aClass186_1);
+        @Pc(29) ClientMessage local29 = Static293.method4335(Static244.aClass345_53, local16.cipher);
         local29.buffer.p1(Static231.method3379(arg0));
         local29.buffer.pjstr(arg0);
         local16.send(local29);

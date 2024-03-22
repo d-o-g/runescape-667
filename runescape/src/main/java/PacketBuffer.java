@@ -1,3 +1,4 @@
+import com.jagex.core.crypto.IsaacCipher;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -8,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class PacketBuffer extends Packet {
 
     @OriginalMember(owner = "client!rka", name = "Sb", descriptor = "Lclient!iv;")
-    public Class186 aClass186_2;
+    public IsaacCipher cipher;
 
     @OriginalMember(owner = "client!rka", name = "Rb", descriptor = "I")
     public int anInt8422;
@@ -44,19 +45,19 @@ public final class PacketBuffer extends Packet {
 
     @OriginalMember(owner = "client!rka", name = "j", descriptor = "(Z)Z")
     public boolean method7413() {
-        @Pc(22) int local22 = super.data[super.pos] - this.aClass186_2.method4108() & 0xFF;
+        @Pc(22) int local22 = super.data[super.pos] - this.cipher.method4108() & 0xFF;
         return local22 >= 128;
     }
 
     @OriginalMember(owner = "client!rka", name = "a", descriptor = "([IB)V")
     public void method7415(@OriginalArg(0) int[] arg0) {
-        this.aClass186_2 = new Class186(arg0);
+        this.cipher = new IsaacCipher(arg0);
     }
 
     @OriginalMember(owner = "client!rka", name = "a", descriptor = "([BIIZ)V")
     public void method7416(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int arg1) {
         for (@Pc(7) int local7 = 0; local7 < arg1; local7++) {
-            arg0[local7] = (byte) (super.data[super.pos++] - this.aClass186_2.method4105());
+            arg0[local7] = (byte) (super.data[super.pos++] - this.cipher.peek());
         }
     }
 
@@ -67,7 +68,7 @@ public final class PacketBuffer extends Packet {
 
     @OriginalMember(owner = "client!rka", name = "n", descriptor = "(II)V")
     public void method7418(@OriginalArg(1) int arg0) {
-        super.data[super.pos++] = (byte) (arg0 + this.aClass186_2.method4105());
+        super.data[super.pos++] = (byte) (arg0 + this.cipher.peek());
     }
 
     @OriginalMember(owner = "client!rka", name = "m", descriptor = "(II)I")
@@ -77,12 +78,12 @@ public final class PacketBuffer extends Packet {
 
     @OriginalMember(owner = "client!rka", name = "x", descriptor = "(I)I")
     public int method7421() {
-        @Pc(30) int local30 = super.data[super.pos++] - this.aClass186_2.method4105() & 0xFF;
-        return local30 < 128 ? local30 : (super.data[super.pos++] - this.aClass186_2.method4105() & 0xFF) + (local30 - 128 << 8);
+        @Pc(30) int local30 = super.data[super.pos++] - this.cipher.peek() & 0xFF;
+        return local30 < 128 ? local30 : (super.data[super.pos++] - this.cipher.peek() & 0xFF) + (local30 - 128 << 8);
     }
 
     @OriginalMember(owner = "client!rka", name = "a", descriptor = "(Lclient!iv;I)V")
-    public void method7422(@OriginalArg(0) Class186 arg0) {
-        this.aClass186_2 = arg0;
+    public void method7422(@OriginalArg(0) IsaacCipher arg0) {
+        this.cipher = arg0;
     }
 }

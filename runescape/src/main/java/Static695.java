@@ -1,6 +1,5 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static695 {
 
@@ -20,12 +19,4 @@ public final class Static695 {
         Static238.method3471(Static319.aString51.equals(""), Static319.aString51, true, "");
     }
 
-    @OriginalMember(owner = "client!vw", name = "a", descriptor = "(IZ)V")
-    public static void method9267(@OriginalArg(0) int arg0) {
-        @Pc(10) VideoType local10 = (VideoType) VideoTypeList.recentUse.get((long) arg0);
-        if (local10 != null) {
-            local10.aBoolean16 = !local10.aBoolean16;
-            local10.js5.method9174(local10.aBoolean16);
-        }
-    }
 }

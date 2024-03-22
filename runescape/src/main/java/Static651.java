@@ -7,8 +7,6 @@ import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.graphics.Interface9;
-import com.jagex.graphics.Sprite;
-import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -23,19 +21,6 @@ public final class Static651 {
 
     @OriginalMember(owner = "client!uja", name = "h", descriptor = "Lclient!lga;")
     public static final Class225 aClass225_235 = new Class225(43, -2);
-
-    @OriginalMember(owner = "client!uja", name = "a", descriptor = "(BILclient!ha;)Lclient!st;")
-    public static Sprite method8512(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1) {
-        @Pc(18) VideoType local18 = (VideoType) VideoTypeList.recentUse.get((long) arg0);
-        if (local18 != null) {
-            @Pc(25) OggTheoraStream local25 = local18.js5.getVideoStream();
-            local18.aBoolean18 = true;
-            if (local25 != null) {
-                return local25.method5491(arg1);
-            }
-        }
-        return null;
-    }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
     public static void method8513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Class8_Sub2_Sub1_Sub2 arg3) {

@@ -93,7 +93,7 @@ public final class Static57 {
         for (@Pc(28) int local28 = 0; local28 < local24; local28++) {
             @Pc(35) Class8_Sub2_Sub1_Sub2_Sub1 local35 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local26[local28]];
             if (local35.aString9 != null && local35.aString9.equalsIgnoreCase(arg0) && (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == local35 && (Static717.anInt10822 & 0x10) != 0 || (Static717.anInt10822 & 0x8) != 0)) {
-                @Pc(75) ClientMessage local75 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.aClass186_1);
+                @Pc(75) ClientMessage local75 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.cipher);
                 local75.buffer.p2_alt1(local26[local28]);
                 local75.buffer.p4_alt1(Static450.anInt6819);
                 local75.buffer.p2(Static162.anInt2799);

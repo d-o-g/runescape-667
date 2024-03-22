@@ -57,7 +57,7 @@ public final class Static314 {
             }
             local20.idleWriteTicks = 0;
             if (!local20.errored && local20.connection != null) {
-                @Pc(59) ClientMessage local59 = Static293.method4335(Static415.aClass345_75, local20.aClass186_1);
+                @Pc(59) ClientMessage local59 = Static293.method4335(Static415.aClass345_75, local20.cipher);
                 local20.send(local59);
                 try {
                     local20.flush();

@@ -40,7 +40,7 @@ public final class Static312 {
                 Static472.method6420(local23);
             }
         }
-        @Pc(45) ClientMessage local45 = Static293.method4335(Static505.aClass345_119, ConnectionManager.GAME.aClass186_1);
+        @Pc(45) ClientMessage local45 = Static293.method4335(Static505.aClass345_119, ConnectionManager.GAME.cipher);
         local45.buffer.p4_alt2(arg0.slot);
         local45.buffer.p2_alt2(Static162.anInt2799);
         local45.buffer.p2_alt3(Static77.anInt1614);

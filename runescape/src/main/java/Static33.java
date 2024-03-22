@@ -12,7 +12,7 @@ public final class Static33 {
         Static421.aBoolean480 = false;
         Static518.aClass2_Sub21_18 = null;
         Static298.method4385();
-        ConnectionManager.GAME.send(Static293.method4335(Static45.aClass345_5, ConnectionManager.GAME.aClass186_1));
+        ConnectionManager.GAME.send(Static293.method4335(Static45.aClass345_5, ConnectionManager.GAME.cipher));
     }
 
     @OriginalMember(owner = "client!bc", name = "a", descriptor = "(I)[Lclient!wk;")

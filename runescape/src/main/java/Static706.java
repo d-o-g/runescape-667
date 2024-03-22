@@ -119,7 +119,7 @@ public final class Static706 {
             return;
         }
         @Pc(230) ServerConnection local230 = Static668.method8701();
-        @Pc(236) ClientMessage local236 = Static293.method4335(Static669.aClass345_116, local230.aClass186_1);
+        @Pc(236) ClientMessage local236 = Static293.method4335(Static669.aClass345_116, local230.cipher);
         local236.buffer.p1(Static231.method3379(arg0));
         local236.buffer.pjstr(arg0);
         local230.send(local236);

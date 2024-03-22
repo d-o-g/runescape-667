@@ -25,10 +25,4 @@ public final class Static46 {
         return local24 + Static503.aClass335_1.method7657(arg0).anInt2072 - local13.anIntArray278.length;
     }
 
-    @OriginalMember(owner = "client!bja", name = "a", descriptor = "(I)V")
-    public static void method1084() {
-        for (@Pc(8) VideoType local8 = (VideoType) VideoTypeList.recentUse.first(); local8 != null; local8 = (VideoType) VideoTypeList.recentUse.next()) {
-            Static121.method2199(local8.anInt182);
-        }
-    }
 }

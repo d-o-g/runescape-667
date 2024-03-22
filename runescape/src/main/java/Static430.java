@@ -68,7 +68,7 @@ public final class Static430 {
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(Ljava/lang/String;II)V")
     public static void method5819(@OriginalArg(0) String arg0, @OriginalArg(2) int arg1) {
         @Pc(10) ServerConnection local10 = Static668.method8701();
-        @Pc(16) ClientMessage local16 = Static293.method4335(Static425.aClass345_80, local10.aClass186_1);
+        @Pc(16) ClientMessage local16 = Static293.method4335(Static425.aClass345_80, local10.cipher);
         local16.buffer.p1(Static231.method3379(arg0) + 1);
         local16.buffer.pjstr(arg0);
         local16.buffer.p1_alt2(arg1);

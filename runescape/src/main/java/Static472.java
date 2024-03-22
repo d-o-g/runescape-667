@@ -1439,14 +1439,14 @@ public final class Static472 {
                                         if (StringTools.isDecimal(local4911)) {
                                             local21 = StringTools.parseDecimal(local4911);
                                         }
-                                        @Pc(4974) ClientMessage local4974 = Static293.method4335(Static330.aClass345_66, ConnectionManager.GAME.aClass186_1);
+                                        @Pc(4974) ClientMessage local4974 = Static293.method4335(Static330.aClass345_66, ConnectionManager.GAME.cipher);
                                         local4974.buffer.p4(local21);
                                         ConnectionManager.GAME.send(local4974);
                                         return;
                                     }
                                     if (arg0 == 3105) {
                                         local4911 = aStringArray37[--anInt7139];
-                                        local5005 = Static293.method4335(Static276.aClass345_56, ConnectionManager.GAME.aClass186_1);
+                                        local5005 = Static293.method4335(Static276.aClass345_56, ConnectionManager.GAME.cipher);
                                         local5005.buffer.p1(local4911.length() + 1);
                                         local5005.buffer.pjstr(local4911);
                                         ConnectionManager.GAME.send(local5005);
@@ -1454,7 +1454,7 @@ public final class Static472 {
                                     }
                                     if (arg0 == 3106) {
                                         local4911 = aStringArray37[--anInt7139];
-                                        local5005 = Static293.method4335(Static137.aClass345_28, ConnectionManager.GAME.aClass186_1);
+                                        local5005 = Static293.method4335(Static137.aClass345_28, ConnectionManager.GAME.cipher);
                                         local5005.buffer.p1(local4911.length() + 1);
                                         local5005.buffer.pjstr(local4911);
                                         ConnectionManager.GAME.send(local5005);
@@ -1485,7 +1485,7 @@ public final class Static472 {
                                     }
                                     if (arg0 == 3110) {
                                         local15 = anIntArray578[--anInt7142];
-                                        local5005 = Static293.method4335(Static209.aClass345_37, ConnectionManager.GAME.aClass186_1);
+                                        local5005 = Static293.method4335(Static209.aClass345_37, ConnectionManager.GAME.cipher);
                                         local5005.buffer.p2(local15);
                                         ConnectionManager.GAME.send(local5005);
                                         return;
@@ -1531,14 +1531,14 @@ public final class Static472 {
                                     }
                                     if (arg0 == 3116) {
                                         local15 = anIntArray578[--anInt7142];
-                                        local5005 = Static293.method4335(Static436.aClass345_44, ConnectionManager.GAME.aClass186_1);
+                                        local5005 = Static293.method4335(Static436.aClass345_44, ConnectionManager.GAME.cipher);
                                         local5005.buffer.p2(local15);
                                         ConnectionManager.GAME.send(local5005);
                                         return;
                                     }
                                     if (arg0 == 3117) {
                                         local4911 = aStringArray37[--anInt7139];
-                                        local5005 = Static293.method4335(Static357.aClass345_82, ConnectionManager.GAME.aClass186_1);
+                                        local5005 = Static293.method4335(Static357.aClass345_82, ConnectionManager.GAME.cipher);
                                         local5005.buffer.p1(local4911.length() + 1);
                                         local5005.buffer.pjstr(local4911);
                                         ConnectionManager.GAME.send(local5005);
@@ -3056,7 +3056,7 @@ public final class Static472 {
                                                         return;
                                                     }
                                                     Static486.aByte115 = -1;
-                                                    local5005 = Static293.method4335(Static429.aClass345_81, ConnectionManager.LOBBY.aClass186_1);
+                                                    local5005 = Static293.method4335(Static429.aClass345_81, ConnectionManager.LOBBY.cipher);
                                                     local5005.buffer.p1(0);
                                                     local27 = local5005.buffer.pos;
                                                     local5005.buffer.pjstr(local4911);
@@ -3581,7 +3581,7 @@ public final class Static472 {
                 }
                 Static87.anInt1806 = anIntArray578[anInt7142 + 2];
                 local57 = Static668.method8701();
-                local63 = Static293.method4335(Static98.aClass345_20, local57.aClass186_1);
+                local63 = Static293.method4335(Static98.aClass345_20, local57.cipher);
                 local63.buffer.p1(Static133.anInt2458);
                 local63.buffer.p1(Static726.aClass280_7.anInt7039);
                 local63.buffer.p1(Static87.anInt1806);
@@ -3602,7 +3602,7 @@ public final class Static472 {
                     local101 = local101.substring(0, 80);
                 }
                 @Pc(135) ServerConnection local135 = Static668.method8701();
-                @Pc(141) ClientMessage local141 = Static293.method4335(Static245.aClass345_114, local135.aClass186_1);
+                @Pc(141) ClientMessage local141 = Static293.method4335(Static245.aClass345_114, local135.cipher);
                 local141.buffer.p1(Static231.method3379(local95) + Static231.method3379(local101) + 2);
                 local141.buffer.pjstr(local95);
                 local141.buffer.p1(local109 - 1);
@@ -3645,7 +3645,7 @@ public final class Static472 {
             if (arg0 == 5006) {
                 local192 = anIntArray578[--anInt7142];
                 local289 = Static668.method8701();
-                local295 = Static293.method4335(Static356.aClass345_67, local289.aClass186_1);
+                local295 = Static293.method4335(Static356.aClass345_67, local289.cipher);
                 local295.buffer.p1(local192);
                 local289.send(local295);
                 return;
@@ -3661,7 +3661,7 @@ public final class Static472 {
                 local101 = aStringArray37[anInt7139 + 1];
                 if (Static608.anInt9290 != 0 || (!Static389.aBoolean459 || Static34.aBoolean62) && !Static617.aBoolean724) {
                     @Pc(360) ServerConnection local360 = Static668.method8701();
-                    @Pc(366) ClientMessage local366 = Static293.method4335(Static243.aClass345_52, local360.aClass186_1);
+                    @Pc(366) ClientMessage local366 = Static293.method4335(Static243.aClass345_52, local360.cipher);
                     local366.buffer.p2(0);
                     local375 = local366.buffer.pos;
                     local366.buffer.pjstr(local95);
@@ -3851,7 +3851,7 @@ public final class Static472 {
             }
             if (arg0 == 5059) {
                 local57 = Static668.method8701();
-                local63 = Static293.method4335(Static456.aClass345_85, local57.aClass186_1);
+                local63 = Static293.method4335(Static456.aClass345_85, local57.cipher);
                 local63.buffer.p1(0);
                 local109 = local63.buffer.pos;
                 local63.buffer.p1(0);
@@ -3864,7 +3864,7 @@ public final class Static472 {
             if (arg0 == 5060) {
                 local95 = aStringArray37[--anInt7139];
                 local289 = Static668.method8701();
-                local295 = Static293.method4335(Static234.aClass345_46, local289.aClass186_1);
+                local295 = Static293.method4335(Static234.aClass345_46, local289.cipher);
                 local295.buffer.p1(0);
                 local115 = local295.buffer.pos;
                 local295.buffer.pjstr(local95);
@@ -3876,7 +3876,7 @@ public final class Static472 {
             }
             if (arg0 == 5061) {
                 local57 = Static668.method8701();
-                local63 = Static293.method4335(Static456.aClass345_85, local57.aClass186_1);
+                local63 = Static293.method4335(Static456.aClass345_85, local57.cipher);
                 local63.buffer.p1(0);
                 local109 = local63.buffer.pos;
                 local63.buffer.p1(1);
@@ -3982,7 +3982,7 @@ public final class Static472 {
             }
             if (arg0 == 5074) {
                 local57 = Static668.method8701();
-                local63 = Static293.method4335(Static456.aClass345_85, local57.aClass186_1);
+                local63 = Static293.method4335(Static456.aClass345_85, local57.cipher);
                 local63.buffer.p1(0);
                 local109 = local63.buffer.pos;
                 local63.buffer.p1(2);
@@ -3994,7 +3994,7 @@ public final class Static472 {
             }
             if (arg0 == 5075) {
                 local57 = Static668.method8701();
-                local63 = Static293.method4335(Static456.aClass345_85, local57.aClass186_1);
+                local63 = Static293.method4335(Static456.aClass345_85, local57.cipher);
                 local63.buffer.p1(0);
                 local109 = local63.buffer.pos;
                 local63.buffer.p1(3);
@@ -4413,7 +4413,7 @@ public final class Static472 {
                         local101 = aStringArray37[anInt7139 + 1];
                         local109 = anIntArray578[--anInt7142];
                         @Pc(3411) ServerConnection local3411 = Static668.method8701();
-                        @Pc(3417) ClientMessage local3417 = Static293.method4335(Static563.aClass345_102, local3411.aClass186_1);
+                        @Pc(3417) ClientMessage local3417 = Static293.method4335(Static563.aClass345_102, local3411.cipher);
                         local3417.buffer.p1(Static231.method3379(local95) + Static231.method3379(local101) + 1);
                         local3417.buffer.pjstr(local95);
                         local3417.buffer.pjstr(local101);
@@ -5520,7 +5520,7 @@ public final class Static472 {
                                 return;
                             }
                             Static149.aBoolean221 = true;
-                            @Pc(7662) ClientMessage local7662 = Static293.method4335(Static231.aClass345_41, ConnectionManager.LOBBY.aClass186_1);
+                            @Pc(7662) ClientMessage local7662 = Static293.method4335(Static231.aClass345_41, ConnectionManager.LOBBY.cipher);
                             local7662.buffer.p4(Static379.anInt5968);
                             ConnectionManager.LOBBY.send(local7662);
                             anIntArray578[anInt7142++] = 0;
@@ -5996,21 +5996,21 @@ public final class Static472 {
                                 } else if (local834 < 0) {
                                     local834 = 0;
                                 }
-                                Static515.method6802(false, local192, local834);
+                                VideoTypeList.method6802(false, local192, local834);
                             }
                             return;
                         }
                         if (arg0 == 7101) {
                             local192 = anIntArray578[--anInt7142];
                             if (local192 != -1) {
-                                Static121.method2199(local192);
+                                VideoTypeList.method2199(local192);
                             }
                             return;
                         }
                         if (arg0 == 7102) {
                             local192 = anIntArray578[--anInt7142];
                             if (local192 != -1) {
-                                Static695.method9267(local192);
+                                VideoTypeList.method9267(local192);
                             }
                             return;
                         }
@@ -6359,7 +6359,7 @@ public final class Static472 {
             }
         }
         @Pc(650) ServerConnection local650 = Static668.method8701();
-        @Pc(656) ClientMessage local656 = Static293.method4335(Static278.aClass345_57, local650.aClass186_1);
+        @Pc(656) ClientMessage local656 = Static293.method4335(Static278.aClass345_57, local650.cipher);
         local656.buffer.p1(0);
         @Pc(665) int local665 = local656.buffer.pos;
         local656.buffer.p1(local20);

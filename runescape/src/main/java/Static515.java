@@ -1,6 +1,5 @@
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.Toolkit;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -23,20 +22,6 @@ public final class Static515 {
         }
         @Pc(41) String local41 = Static192.method2874(arg10);
         Fonts.b12.render(arg6, 0, arg2, local41, arg8 + 3, Static186.aSpriteArray5, Static460.anIntArray554);
-    }
-
-    @OriginalMember(owner = "client!qda", name = "a", descriptor = "(ZIII)V")
-    public static void method6802(@OriginalArg(0) boolean arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        if (VideoTypeList.recentUse.get((long) arg1) != null) {
-            return;
-        }
-        if (Static234.aBoolean303) {
-            @Pc(34) VideoType local34 = new VideoType(arg1, new Js5Video(4096, js5.js5_36, arg1), arg2, arg0);
-            local34.js5.setLanguage(Static384.aStringArray31[Static51.language]);
-            VideoTypeList.recentUse.put((long) arg1, local34);
-        } else {
-            Static635.method8380(arg1, arg0);
-        }
     }
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(Lclient!ge;B)Lclient!no;")

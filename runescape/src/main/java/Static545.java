@@ -46,7 +46,7 @@ public final class Static545 {
                 }
                 Static344.anInt5621 = Static642.anInt9599;
                 @Pc(118) ServerConnection local118 = Static668.method8701();
-                @Pc(124) ClientMessage local124 = Static293.method4335(Static86.aClass345_16, local118.aClass186_1);
+                @Pc(124) ClientMessage local124 = Static293.method4335(Static86.aClass345_16, local118.cipher);
                 local124.buffer.p1(Static231.method3379(arg0));
                 local124.buffer.pjstr(arg0);
                 local118.send(local124);

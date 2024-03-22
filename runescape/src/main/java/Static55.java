@@ -31,7 +31,7 @@ public final class Static55 {
                 Static676.anInt10206 = arg2;
                 Static616.anInt9417 = 2;
                 Static305.anInt4882 = arg0;
-                @Pc(64) ClientMessage local64 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.aClass186_1);
+                @Pc(64) ClientMessage local64 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.cipher);
                 local64.buffer.p2_alt1(local26);
                 local64.buffer.p4_alt1(Static450.anInt6819);
                 local64.buffer.p2(Static162.anInt2799);
@@ -47,7 +47,7 @@ public final class Static55 {
             Static305.anInt4882 = arg0;
             Static481.anInt7215 = 0;
             Static676.anInt10206 = arg2;
-            local147 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.aClass186_1);
+            local147 = Static293.method4335(Static664.aClass345_115, ConnectionManager.GAME.cipher);
             local147.buffer.p2_alt1(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10740);
             local147.buffer.p4_alt1(Static450.anInt6819);
             local147.buffer.p2(Static162.anInt2799);
@@ -130,7 +130,7 @@ public final class Static55 {
                 Static305.anInt4882 = arg0;
                 Static616.anInt9417 = 2;
                 Static676.anInt10206 = arg2;
-                local494 = Static293.method4335(local389, ConnectionManager.GAME.aClass186_1);
+                local494 = Static293.method4335(local389, ConnectionManager.GAME.cipher);
                 local494.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
                 local494.buffer.p2(local26);
                 ConnectionManager.GAME.send(local494);
@@ -156,7 +156,7 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static616.anInt9417 = 2;
             Static676.anInt10206 = arg2;
-            local494 = Static293.method4335(local548, ConnectionManager.GAME.aClass186_1);
+            local494 = Static293.method4335(local548, ConnectionManager.GAME.cipher);
             local494.buffer.p2_alt2(local26);
             local494.buffer.p1(Static334.aClass319_1.method8479(82) ? 1 : 0);
             local494.buffer.p2(local19 + Static116.anInt2270);
@@ -172,7 +172,7 @@ public final class Static55 {
                 Static676.anInt10206 = arg2;
                 Static616.anInt9417 = 1;
                 Static305.anInt4882 = arg0;
-                local494 = Static293.method4335(Static512.aClass345_96, ConnectionManager.GAME.aClass186_1);
+                local494 = Static293.method4335(Static512.aClass345_96, ConnectionManager.GAME.cipher);
                 local494.buffer.p2_alt3(local19 + Static116.anInt2270);
                 local494.buffer.p2_alt1(Static691.anInt10367 + local16);
                 ConnectionManager.GAME.send(local494);
@@ -206,7 +206,7 @@ public final class Static55 {
                 Static616.anInt9417 = 2;
                 Static305.anInt4882 = arg0;
                 Static481.anInt7215 = 0;
-                @Pc(831) ClientMessage local831 = Static293.method4335(local750, ConnectionManager.GAME.aClass186_1);
+                @Pc(831) ClientMessage local831 = Static293.method4335(local750, ConnectionManager.GAME.cipher);
                 local831.buffer.p1_alt1(Static334.aClass319_1.method8479(82) ? 1 : 0);
                 local831.buffer.p2_alt2(local26);
                 ConnectionManager.GAME.send(local831);
@@ -233,7 +233,7 @@ public final class Static55 {
             Static616.anInt9417 = 2;
             Static481.anInt7215 = 0;
             Static676.anInt10206 = arg2;
-            local949 = Static293.method4335(local878, ConnectionManager.GAME.aClass186_1);
+            local949 = Static293.method4335(local878, ConnectionManager.GAME.cipher);
             local949.buffer.p1_alt1(Static334.aClass319_1.method8479(82) ? 1 : 0);
             local949.buffer.p2_alt2(Static691.anInt10367 + local16);
             local949.buffer.p2_alt3((int) (local35 >>> 32) & Integer.MAX_VALUE);
@@ -249,7 +249,7 @@ public final class Static55 {
             Static616.anInt9417 = 1;
             Static305.anInt4882 = arg0;
             Static481.anInt7215 = 0;
-            local949 = Static293.method4335(Static181.aClass345_34, ConnectionManager.GAME.aClass186_1);
+            local949 = Static293.method4335(Static181.aClass345_34, ConnectionManager.GAME.cipher);
             local949.buffer.p2_alt2(Static691.anInt10367 + local16);
             local949.buffer.p2_alt1(Static162.anInt2799);
             local949.buffer.p4_alt2(Static450.anInt6819);
@@ -263,7 +263,7 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static305.anInt4882 = arg0;
             Static676.anInt10206 = arg2;
-            local949 = Static293.method4335(Static175.aClass345_31, ConnectionManager.GAME.aClass186_1);
+            local949 = Static293.method4335(Static175.aClass345_31, ConnectionManager.GAME.cipher);
             local949.buffer.p2(local16 + Static691.anInt10367);
             local949.buffer.p2(Static116.anInt2270 + local19);
             local949.buffer.p2_alt3(Static162.anInt2799);
@@ -282,7 +282,7 @@ public final class Static55 {
                 Static616.anInt9417 = 2;
                 Static676.anInt10206 = arg2;
                 Static305.anInt4882 = arg0;
-                @Pc(1223) ClientMessage local1223 = Static293.method4335(Static503.aClass345_94, ConnectionManager.GAME.aClass186_1);
+                @Pc(1223) ClientMessage local1223 = Static293.method4335(Static503.aClass345_94, ConnectionManager.GAME.cipher);
                 local1223.buffer.p2_alt3(Static77.anInt1614);
                 local1223.buffer.p2_alt1(Static162.anInt2799);
                 local1223.buffer.p2_alt1(local26);
@@ -300,7 +300,7 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static305.anInt4882 = arg0;
             Static616.anInt9417 = 2;
-            local949 = Static293.method4335(Static419.aClass345_77, ConnectionManager.GAME.aClass186_1);
+            local949 = Static293.method4335(Static419.aClass345_77, ConnectionManager.GAME.cipher);
             local949.buffer.p1_alt2(Static334.aClass319_1.method8479(82) ? 1 : 0);
             local949.buffer.p2_alt1(Static116.anInt2270 + local19);
             local949.buffer.p2_alt1(Static77.anInt1614);

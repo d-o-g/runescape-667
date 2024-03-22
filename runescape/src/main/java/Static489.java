@@ -205,7 +205,7 @@ public final class Static489 {
         }
         Static557.method7331();
         Static352.method5180();
-        Static46.method1084();
+        VideoTypeList.method1084();
         @Pc(430) boolean local430 = false;
         if (Static163.activeToolkit.method7990() && Static400.instance.aClass57_Sub26_1.method7463() == 2) {
             for (local310 = 0; local310 < Static319.aByteArrayArray16.length; local310++) {
@@ -333,7 +333,7 @@ public final class Static489 {
         Static442.method5969();
         @Pc(920) ClientMessage local920;
         if (Static353.aFrame10 != null && ConnectionManager.GAME.connection != null && Static283.step == 12) {
-            local920 = Static293.method4335(Static694.aClass345_122, ConnectionManager.GAME.aClass186_1);
+            local920 = Static293.method4335(Static694.aClass345_122, ConnectionManager.GAME.cipher);
             local920.buffer.p4(1057001181);
             ConnectionManager.GAME.send(local920);
         }
@@ -360,7 +360,7 @@ public final class Static489 {
         } else {
             Static81.method1586(11);
             if (ConnectionManager.GAME.connection != null) {
-                local920 = Static293.method4335(Static161.aClass345_29, ConnectionManager.GAME.aClass186_1);
+                local920 = Static293.method4335(Static161.aClass345_29, ConnectionManager.GAME.cipher);
                 ConnectionManager.GAME.send(local920);
             }
         }

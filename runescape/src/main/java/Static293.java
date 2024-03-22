@@ -1,6 +1,7 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.SignLink;
 import com.jagex.core.constants.LocLayer;
+import com.jagex.core.crypto.IsaacCipher;
 import com.jagex.core.io.connection.Connection;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
@@ -568,7 +569,7 @@ public final class Static293 {
                                     } else if (Static618.aClass225_226 == arg0.aClass225_93) {
                                         local277 = local11.ig2();
                                         Static574.method7573();
-                                        Static695.method9267(local277);
+                                        VideoTypeList.method9267(local277);
                                         arg0.aClass225_93 = null;
                                         return true;
                                     } else if (arg0.aClass225_93 == Static286.aClass225_118) {
@@ -1037,7 +1038,7 @@ public final class Static293 {
                                                     local277 = local11.g1_alt3();
                                                     local100 = local11.g2();
                                                     Static574.method7573();
-                                                    Static515.method6802(true, local100, local277);
+                                                    VideoTypeList.method6802(true, local100, local277);
                                                     arg0.aClass225_93 = null;
                                                     return true;
                                                 } else if (arg0.aClass225_93 == Static479.aClass225_177) {
@@ -1060,7 +1061,7 @@ public final class Static293 {
                                                 } else if (Static334.aClass225_140 == arg0.aClass225_93) {
                                                     local277 = local11.g2_alt3();
                                                     Static574.method7573();
-                                                    Static121.method2199(local277);
+                                                    VideoTypeList.method2199(local277);
                                                     arg0.aClass225_93 = null;
                                                     return true;
                                                 } else if (Static166.aClass225_63 == arg0.aClass225_93) {
@@ -1805,7 +1806,7 @@ public final class Static293 {
                                                                     } else if (arg0.aClass225_93 == Static287.aClass225_119) {
                                                                         local277 = local11.g4();
                                                                         local100 = local11.g4();
-                                                                        @Pc(7309) ClientMessage local7309 = method4335(Static128.aClass345_106, arg0.aClass186_1);
+                                                                        @Pc(7309) ClientMessage local7309 = method4335(Static128.aClass345_106, arg0.cipher);
                                                                         local7309.buffer.p4(local277);
                                                                         local7309.buffer.p4(local100);
                                                                         arg0.send(local7309);
@@ -2249,7 +2250,7 @@ public final class Static293 {
     }
 
     @OriginalMember(owner = "client!jfa", name = "a", descriptor = "(ILclient!ss;Lclient!iv;)Lclient!fk;")
-    public static ClientMessage method4335(@OriginalArg(1) Class345 arg0, @OriginalArg(2) Class186 arg1) {
+    public static ClientMessage method4335(@OriginalArg(1) Class345 arg0, @OriginalArg(2) IsaacCipher arg1) {
         @Pc(6) ClientMessage local6 = Static119.method2174();
         local6.anInt2986 = arg0.anInt8827;
         local6.aClass345_32 = arg0;

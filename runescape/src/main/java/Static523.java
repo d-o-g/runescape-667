@@ -161,7 +161,7 @@ public final class Static523 {
             }
             FontTypeList.method7549(Static163.activeToolkit);
             Fonts.init(Static163.activeToolkit);
-            Static81.method1586(1);
+            MainLogicManager.setStep(1);
         }
         if (LoadState.CREATE_COLLISION_MAPS == Static473.aLoadState_22) {
             for (local12 = 0; local12 < 4; local12++) {
@@ -226,7 +226,7 @@ public final class Static523 {
             }
             Static9.method124(local746);
             Static674.method8806();
-            Static81.method1586(2);
+            MainLogicManager.setStep(2);
         }
         if (LoadState.SETUP_LIB_PATH == Static473.aLoadState_22) {
             NativeLibraryList.init(js5.DLLS, SignLink.instance);

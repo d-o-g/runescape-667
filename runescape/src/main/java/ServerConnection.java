@@ -27,10 +27,10 @@ public final class ServerConnection {
     public int writeRate;
 
     @OriginalMember(owner = "client!gw", name = "z", descriptor = "Lclient!lga;")
-    public Class225 aClass225_91;
+    public ServerProt antepenultimateProt;
 
     @OriginalMember(owner = "client!gw", name = "o", descriptor = "Lclient!lga;")
-    public Class225 aClass225_92;
+    public ServerProt aServerProt_92;
 
     @OriginalMember(owner = "client!gw", name = "B", descriptor = "I")
     public int read;
@@ -39,7 +39,7 @@ public final class ServerConnection {
     public int readRate;
 
     @OriginalMember(owner = "client!gw", name = "e", descriptor = "Lclient!lga;")
-    public Class225 aClass225_94;
+    public ServerProt penultimateProt;
 
     @OriginalMember(owner = "client!gw", name = "w", descriptor = "I")
     public int written;
@@ -51,16 +51,16 @@ public final class ServerConnection {
     public int buffered = 0;
 
     @OriginalMember(owner = "client!gw", name = "d", descriptor = "Lclient!ge;")
-    public final Packet writeBuffer = new Packet(1350);
+    public final Packet writePacket = new Packet(1350);
 
     @OriginalMember(owner = "client!gw", name = "y", descriptor = "Lclient!rka;")
     public final PacketBuffer buffer = new PacketBuffer(15000);
 
     @OriginalMember(owner = "client!gw", name = "j", descriptor = "Lclient!lga;")
-    public Class225 aClass225_93 = null;
+    public ServerProt currentProt = null;
 
     @OriginalMember(owner = "client!gw", name = "u", descriptor = "I")
-    public int anInt3648 = 0;
+    public int currentPacketSize = 0;
 
     @OriginalMember(owner = "client!gw", name = "g", descriptor = "I")
     public int idleWriteTicks = 0;
@@ -96,24 +96,24 @@ public final class ServerConnection {
             return;
         }
 
-        this.writeBuffer.pos = 0;
+        this.writePacket.pos = 0;
 
         while (true) {
             @Pc(23) ClientMessage message = (ClientMessage) this.messages.first();
-            if (message == null || message.totalSize > this.writeBuffer.data.length - this.writeBuffer.pos) {
+            if (message == null || message.totalSize > this.writePacket.data.length - this.writePacket.pos) {
                 break;
             }
 
-            this.writeBuffer.pdata(message.totalSize, message.buffer.data, 0);
+            this.writePacket.pdata(message.totalSize, message.buffer.data, 0);
             this.buffered -= message.totalSize;
             message.unlink();
             message.buffer.cache();
             message.method2768();
         }
 
-        this.connection.write(this.writeBuffer.data, this.writeBuffer.pos, 0);
+        this.connection.write(this.writePacket.data, this.writePacket.pos, 0);
         this.idleWriteTicks = 0;
-        this.written += this.writeBuffer.pos;
+        this.written += this.writePacket.pos;
     }
 
     @OriginalMember(owner = "client!gw", name = "c", descriptor = "(I)V")

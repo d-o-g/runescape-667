@@ -36,8 +36,8 @@ public final class Class231 {
         for (@Pc(41) int local41 = this.anIntArray454.length - 1; local41 >= 0; local41--) {
             @Pc(48) int local48 = this.anIntArray454[local41];
             @Pc(53) int local53 = this.anIntArray453[local41];
-            local24.anIntArray879[local24.anInt10764] = local53 >> 16;
-            local24.anIntArray878[local24.anInt10764] = local53 & 0xFFFF;
+            local24.pathX[local24.anInt10764] = local53 >> 16;
+            local24.pathY[local24.anInt10764] = local53 & 0xFFFF;
             @Pc(71) byte local71 = 1;
             if (local48 == 0) {
                 local71 = 0;

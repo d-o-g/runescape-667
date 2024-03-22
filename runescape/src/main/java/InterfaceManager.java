@@ -554,7 +554,7 @@ public final class InterfaceManager {
                         if (child.skyBox < 0) {
                             @Pc(1816) Sprite local1816;
                             if (child.invObject != -1) {
-                                @Pc(1836) PlayerModel local1836 = child.objWearCol ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null;
+                                @Pc(1836) PlayerModel local1836 = child.objWearCol ? Static556.self.aPlayerModel_1 : null;
                                 local1816 = Static419.aObjTypeList_1.getCachedSprite(local1836, Static163.activeToolkit, child.anInt3757, child.invObject, child.outline, child.invCount, child.shadow | 0xFF000000);
                             } else if (child.video == -1) {
                                 local1816 = child.sprite(Static163.activeToolkit);
@@ -622,7 +622,7 @@ public final class InterfaceManager {
                             @Pc(1543) ObjType local1543 = Static419.aObjTypeList_1.list(child.invObject);
                             if (local1543 != null) {
                                 local1543 = local1543.getStacked(child.invCount);
-                                local2313 = local1543.model(child.aAnimator_6, 2048, child.objWearCol ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null, 1, Static163.activeToolkit);
+                                local2313 = local1543.model(child.aAnimator_6, 2048, child.objWearCol ? Static556.self.aPlayerModel_1 : null, 1, Static163.activeToolkit);
                                 if (local2313 == null) {
                                     redraw(child);
                                 } else {
@@ -640,15 +640,15 @@ public final class InterfaceManager {
                         } else if (child.objType == 8 || child.objType == 9) {
                             @Pc(2468) Node_Sub22 local2468 = Static556.method7303(child.obj, false);
                             if (local2468 != null) {
-                                local2313 = local2468.method3078(child.objData, Static163.activeToolkit, child.objType == 9, child.aAnimator_6, child.objWearCol ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null);
+                                local2313 = local2468.method3078(child.objData, Static163.activeToolkit, child.objType == 9, child.aAnimator_6, child.objWearCol ? Static556.self.aPlayerModel_1 : null);
                             }
                         } else if (child.aAnimator_6 != null && child.aAnimator_6.isAnimating()) {
-                            local2313 = child.model(Static163.activeToolkit, child.aAnimator_6, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
+                            local2313 = child.model(Static163.activeToolkit, child.aAnimator_6, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.self.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
                             if (local2313 == null && Component.redrawAll) {
                                 redraw(child);
                             }
                         } else {
-                            local2313 = child.model(Static163.activeToolkit, (Animator) null, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
+                            local2313 = child.model(Static163.activeToolkit, (Animator) null, Static574.aBASTypeList_2, Static68.aIDKTypeList_3, Static25.aSeqTypeList_1, Static556.self.aPlayerModel_1, Static34.aClass304_1, Static690.aNPCTypeList_2, Static419.aObjTypeList_1, 2048, local1215);
                             if (local2313 == null && Component.redrawAll) {
                                 redraw(child);
                             }
@@ -781,7 +781,7 @@ public final class InterfaceManager {
         if (ComponentClientCode.SPINNING_PLAYER != arg0.clientcode) {
             return;
         }
-        if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9 == null) {
+        if (Static556.self.aString9 == null) {
             arg0.obj = 0;
             arg0.objData = 0;
             return;
@@ -790,8 +790,8 @@ public final class InterfaceManager {
         arg0.modelAngleY = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
         arg0.objType = 5;
         arg0.obj = Static312.anInt5000;
-        arg0.objData = Static214.method3157(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9);
-        @Pc(55) Animator local55 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aAnimator_10;
+        arg0.objData = Static214.method3157(Static556.self.aString9);
+        @Pc(55) Animator local55 = Static556.self.aAnimator_10;
         if (local55 == null) {
             arg0.aAnimator_6 = null;
             return;

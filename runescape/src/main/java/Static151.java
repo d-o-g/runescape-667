@@ -19,6 +19,6 @@ public final class Static151 {
             Static319.aString51 = "";
         }
         Static129.anInt2409 = arg0;
-        Static81.method1586(6);
+        MainLogicManager.setStep(6);
     }
 }

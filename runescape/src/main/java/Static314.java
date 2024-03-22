@@ -11,7 +11,7 @@ public final class Static314 {
     public static int anInt5035;
 
     @OriginalMember(owner = "client!jw", name = "D", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_132 = new Class225(27, 0);
+    public static final ServerProt A_SERVER_PROT___132 = new ServerProt(27, 0);
 
     @OriginalMember(owner = "client!jw", name = "b", descriptor = "(B)V")
     public static void method4562() {
@@ -45,7 +45,7 @@ public final class Static314 {
     @OriginalMember(owner = "client!jw", name = "a", descriptor = "(ZI)V")
     public static void method4568(@OriginalArg(0) boolean arg0) {
         Static557.method7331();
-        if (!Static109.method2070(Static283.step)) {
+        if (!Static109.method2070(MainLogicManager.step)) {
             return;
         }
         @Pc(13) ServerConnection[] local13 = Static405.A_SERVER_CONNECTION_ARRAY_1;

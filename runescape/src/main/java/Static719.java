@@ -38,7 +38,7 @@ public final class Static719 {
             @Pc(77) int[] local77 = new int[3];
             @Pc(79) int local79 = -1;
             @Pc(81) int local81 = -1;
-            if (Static30.aClass2_Sub2_Sub13_3.method4088(local77, Static116.anInt2270 + (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9), Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144, (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9) + Static691.anInt10367)) {
+            if (Static30.aClass2_Sub2_Sub13_3.method4088(local77, Static116.areaBaseY + (Static556.self.anInt10694 >> 9), Static556.self.aByte144, (Static556.self.anInt10690 >> 9) + Static691.areaBaseX)) {
                 local79 = local77[1] - Static30.anInt5655;
                 local81 = local77[2] - Static30.anInt5648;
             }

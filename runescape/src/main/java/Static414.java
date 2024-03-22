@@ -18,13 +18,13 @@ public final class Static414 {
         if (Static594.anInt8777 >= 400) {
             return;
         }
-        if (arg1 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2) {
+        if (arg1 != Static556.self) {
             @Pc(177) String local177;
             if (arg1.anInt1436 == 0) {
                 @Pc(63) boolean local63 = true;
-                if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1471 != -1 && arg1.anInt1471 != -1) {
-                    @Pc(91) int local91 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1471 < arg1.anInt1471 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1471 : arg1.anInt1471;
-                    @Pc(98) int local98 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444 - arg1.anInt1444;
+                if (Static556.self.anInt1471 != -1 && arg1.anInt1471 != -1) {
+                    @Pc(91) int local91 = Static556.self.anInt1471 < arg1.anInt1471 ? Static556.self.anInt1471 : arg1.anInt1471;
+                    @Pc(98) int local98 = Static556.self.anInt1444 - arg1.anInt1444;
                     if (local98 < 0) {
                         local98 = -local98;
                     }
@@ -34,9 +34,9 @@ public final class Static414 {
                 }
                 @Pc(129) String local129 = ModeGame.STELLAR_DAWN == Static392.aModeGame_4 ? LocalisedText.RATING.localise(Static51.language) : LocalisedText.LEVEL.localise(Static51.language);
                 if (arg1.anInt1444 >= arg1.anInt1437) {
-                    local177 = arg1.method1424(false) + (local63 ? Static693.method9009(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444, arg1.anInt1444) : "<col=ffffff>") + " (" + local129 + arg1.anInt1444 + ")";
+                    local177 = arg1.method1424(false) + (local63 ? Static693.method9009(Static556.self.anInt1444, arg1.anInt1444) : "<col=ffffff>") + " (" + local129 + arg1.anInt1444 + ")";
                 } else {
-                    local177 = arg1.method1424(false) + (local63 ? Static693.method9009(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444, arg1.anInt1444) : "<col=ffffff>") + " (" + local129 + arg1.anInt1444 + "+" + (arg1.anInt1437 - arg1.anInt1444) + ")";
+                    local177 = arg1.method1424(false) + (local63 ? Static693.method9009(Static556.self.anInt1444, arg1.anInt1444) : "<col=ffffff>") + " (" + local129 + arg1.anInt1444 + "+" + (arg1.anInt1437 - arg1.anInt1444) + ")";
                 }
             } else if (arg1.anInt1436 == -1) {
                 local177 = arg1.method1424(false);
@@ -53,14 +53,14 @@ public final class Static414 {
                     if (Static297.aStringArray24[local318] != null) {
                         @Pc(325) short local325 = 0;
                         if (Static392.aModeGame_4 == ModeGame.RUNESCAPE && Static297.aStringArray24[local318].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language))) {
-                            if (Static324.aBoolean388 && Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444 < arg1.anInt1444) {
+                            if (Static324.aBoolean388 && Static556.self.anInt1444 < arg1.anInt1444) {
                                 local325 = 2000;
                             }
-                            if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1433 == 0 || arg1.anInt1433 == 0) {
+                            if (Static556.self.anInt1433 == 0 || arg1.anInt1433 == 0) {
                                 if (arg1.aBoolean125) {
                                     local325 = 2000;
                                 }
-                            } else if (arg1.anInt1433 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1433) {
+                            } else if (arg1.anInt1433 == Static556.self.anInt1433) {
                                 local325 = 2000;
                             } else {
                                 local325 = 0;

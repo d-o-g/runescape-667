@@ -205,10 +205,10 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     protected boolean aBoolean820;
 
     @OriginalMember(owner = "client!cg", name = "Lb", descriptor = "[I")
-    public final int[] anIntArray878;
+    public final int[] pathY;
 
     @OriginalMember(owner = "client!cg", name = "L", descriptor = "[I")
-    public final int[] anIntArray879;
+    public final int[] pathX;
 
     @OriginalMember(owner = "client!cg", name = "Nb", descriptor = "[Lclient!jq;")
     public final Class199[] aClass199Array3;
@@ -263,8 +263,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         this.anInt10765 = 0;
         this.aBoolean819 = false;
         this.aBoolean820 = false;
-        this.anIntArray878 = new int[arg0];
-        this.anIntArray879 = new int[arg0];
+        this.pathY = new int[arg0];
+        this.pathX = new int[arg0];
         this.aClass199Array3 = new Class199[4];
         this.aByteArray111 = new byte[arg0];
         this.aModelArray3 = new Model[5];

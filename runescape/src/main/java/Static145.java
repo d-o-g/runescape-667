@@ -59,9 +59,9 @@ public final class Static145 {
                 if ((local25 & -1073741824) == -1073741824) {
                     local72 = local25 & 0xFFFFFFF;
                     @Pc(148) int local148 = local72 >> 14;
-                    local102 = arg0.anInt10690 - (local148 - Static691.anInt10367) * 512 - 256;
+                    local102 = arg0.anInt10690 - (local148 - Static691.areaBaseX) * 512 - 256;
                     @Pc(164) int local164 = local72 & 0x3FFF;
-                    local95 = arg0.anInt10694 - (local164 - Static116.anInt2270) * 512 - 256;
+                    local95 = arg0.anInt10694 - (local164 - Static116.areaBaseY) * 512 - 256;
                 } else if ((local25 & 0x8000) == 0) {
                     @Pc(111) Node_Sub45 local111 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local25);
                     if (local111 == null) {

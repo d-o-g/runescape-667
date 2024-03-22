@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static605 {
 
     @OriginalMember(owner = "client!tba", name = "h", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_220 = new Class225(108, 12);
+    public static final ServerProt A_SERVER_PROT___220 = new ServerProt(108, 12);
 
     @OriginalMember(owner = "client!tba", name = "g", descriptor = "Lclient!hda;")
     public static Component aComponent_15 = null;
@@ -29,9 +29,9 @@ public final class Static605 {
         if (arg0 == Static704.aClass287_17) {
             local15 = local8.g1();
             local21 = (local15 & 0x7) + Static270.anInt4354;
-            local25 = Static116.anInt2270 + local21;
+            local25 = Static116.areaBaseY + local21;
             local34 = Static626.anInt9476 + (local15 >> 4 & 0x7);
-            local38 = Static691.anInt10367 + local34;
+            local38 = Static691.areaBaseX + local34;
             local42 = local8.g2();
             local46 = local8.g2();
             local52 = local8.g2();
@@ -152,7 +152,7 @@ public final class Static605 {
                 local212 = local8.g2();
                 if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
                     local217 = local42 + 1;
-                    if (local21 - local217 <= Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] && local217 + local21 >= Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] && Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0] >= local25 - local217 && local217 + local25 >= Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0]) {
+                    if (local21 - local217 <= Static556.self.pathX[0] && local217 + local21 >= Static556.self.pathX[0] && Static556.self.pathY[0] >= local25 - local217 && local217 + local25 >= Static556.self.pathY[0]) {
                         Static165.method2608(local537, local52, local34, local46, local212, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16));
                     }
                 }
@@ -217,7 +217,7 @@ public final class Static605 {
                             } else {
                                 local957 = -local212 - 1;
                                 if (local957 == Static312.anInt5000) {
-                                    local948 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2;
+                                    local948 = Static556.self;
                                 } else {
                                     local948 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local957];
                                 }
@@ -240,9 +240,9 @@ public final class Static605 {
                     local15 = local8.g2_alt2();
                     local21 = local8.g1_alt1();
                     local25 = Static270.anInt4354 + (local21 & 0x7);
-                    local34 = local25 + Static116.anInt2270;
+                    local34 = local25 + Static116.areaBaseY;
                     local38 = Static626.anInt9476 + (local21 >> 4 & 0x7);
-                    local42 = Static691.anInt10367 + local38;
+                    local42 = Static691.areaBaseX + local38;
                     local46 = local8.ig2();
                     local52 = local8.g2();
                     if (local15 != Static312.anInt5000) {
@@ -270,7 +270,7 @@ public final class Static605 {
                     local212 = local8.g2();
                     if (local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
                         local217 = local42 + 1;
-                        if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] >= local21 - local217 && local217 + local21 >= Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] && Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0] >= local25 - local217 && Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0] <= local25 + local217) {
+                        if (Static556.self.pathX[0] >= local21 - local217 && local217 + local21 >= Static556.self.pathX[0] && Static556.self.pathY[0] >= local25 - local217 && Static556.self.pathY[0] <= local25 + local217) {
                             Static179.method2770(local46, local52, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16), local212, local537, local34);
                         }
                     }
@@ -278,9 +278,9 @@ public final class Static605 {
                     local15 = local8.g2();
                     local21 = local8.g1();
                     local25 = (local21 & 0x7) + Static270.anInt4354;
-                    local34 = local25 + Static116.anInt2270;
+                    local34 = local25 + Static116.areaBaseY;
                     local38 = (local21 >> 4 & 0x7) + Static626.anInt9476;
-                    local42 = local38 + Static691.anInt10367;
+                    local42 = local38 + Static691.areaBaseX;
                     @Pc(1389) ObjStack local1389 = (ObjStack) Static497.stacks.get((long) (local34 << 14 | Static87.anInt1810 << 28 | local42));
                     if (local1389 != null) {
                         for (@Pc(1399) ObjStackEntry local1399 = (ObjStackEntry) local1389.objs.first(); local1399 != null; local1399 = (ObjStackEntry) local1389.objs.next()) {
@@ -350,9 +350,9 @@ public final class Static605 {
                 } else if (Static18.aClass287_2 == arg0) {
                     local15 = local8.g1_alt2();
                     local21 = Static270.anInt4354 + (local15 & 0x7);
-                    local25 = local21 + Static116.anInt2270;
+                    local25 = local21 + Static116.areaBaseY;
                     local34 = (local15 >> 4 & 0x7) + Static626.anInt9476;
-                    local38 = Static691.anInt10367 + local34;
+                    local38 = Static691.areaBaseX + local34;
                     local42 = local8.g2_alt2();
                     local46 = local8.g2();
                     @Pc(1886) boolean local1886 = local34 >= 0 && local21 >= 0 && local34 < Static720.mapWidth && local21 < Static501.mapHeight;
@@ -394,7 +394,7 @@ public final class Static605 {
                     }
                 } else {
                     JagException.sendTrace((Throwable) null, "T3 - " + arg0);
-                    Static233.method3409(false);
+                    Login.logout(false);
                 }
             }
         }

@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static303 {
 
     @OriginalMember(owner = "client!jka", name = "l", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_126 = new Class225(9, 10);
+    public static final ServerProt A_SERVER_PROT___126 = new ServerProt(9, 10);
 
     @OriginalMember(owner = "client!jka", name = "r", descriptor = "I")
     public static int anInt4868 = 0;
@@ -21,7 +21,7 @@ public final class Static303 {
         }
         Static129.anInt2409 = arg0;
         ConnectionManager.LOBBY.close();
-        Static81.method1586(5);
+        MainLogicManager.setStep(5);
     }
 
     @OriginalMember(owner = "client!jka", name = "a", descriptor = "(Lclient!ge;B)Lclient!gha;")

@@ -130,7 +130,7 @@ public final class Static538 {
                 local31.method9310(local31.aNPCType_1.size);
                 local31.anInt10757 = local31.aNPCType_1.rotationSpeed << 3;
                 if (local31.aNPCType_1.hasSounds()) {
-                    Static89.method1714(local31.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local31.anIntArray879[0], local31.anIntArray878[0], local31, (LocType) null, 0);
+                    Static89.method1714(local31.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local31.pathX[0], local31.pathY[0], local31, (LocType) null, 0);
                 }
             }
             if ((local35 & 0x2) != 0) {
@@ -212,12 +212,12 @@ public final class Static538 {
                 local31.anInt10759 = local15.g2() + TimeUtils.clock;
                 local31.anInt10755 = local15.g2_alt3() + TimeUtils.clock;
                 local31.anInt10754 = local15.g1_alt3();
-                local31.anInt10758 += local31.anIntArray878[0];
+                local31.anInt10758 += local31.pathY[0];
                 local31.anInt10764 = 1;
-                local31.anInt10753 += local31.anIntArray878[0];
-                local31.anInt10761 += local31.anIntArray879[0];
+                local31.anInt10753 += local31.pathY[0];
+                local31.anInt10761 += local31.pathX[0];
                 local31.anInt10762 = 0;
-                local31.anInt10750 += local31.anIntArray879[0];
+                local31.anInt10750 += local31.pathX[0];
             }
             if ((local35 & 0x10) != 0) {
                 @Pc(814) int[] local814 = new int[4];

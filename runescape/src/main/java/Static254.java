@@ -21,7 +21,7 @@ public final class Static254 {
     @OriginalMember(owner = "client!hr", name = "c", descriptor = "(I)V")
     public static void method3605() {
         js5.CONFIG.discardunpacked = 1;
-        if (Static283.step == 15) {
+        if (MainLogicManager.step == 15) {
             Static187.method2842();
         }
         Static408.method5632();

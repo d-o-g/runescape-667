@@ -48,7 +48,7 @@ public final class Static527 {
                     @Pc(193) int local193 = -local20.anInt711 - 1;
                     @Pc(198) Class8_Sub2_Sub1_Sub2_Sub1 local198;
                     if (local193 == Static312.anInt5000) {
-                        local198 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2;
+                        local198 = Static556.self;
                     } else {
                         local198 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local193];
                     }

@@ -25,8 +25,8 @@ public final class Static187 {
         Static518.aClass2_Sub21_18 = null;
         Static298.method4385();
         Static525.anInt8907 = 0;
-        Static691.anInt10367 = 0;
-        Static116.anInt2270 = 0;
+        Static691.areaBaseX = 0;
+        Static116.areaBaseY = 0;
         Static62.anInt1465 = 0;
         for (@Pc(34) int local34 = 0; local34 < Static527.aClass254Array1.length; local34++) {
             Static527.aClass254Array1[local34] = null;

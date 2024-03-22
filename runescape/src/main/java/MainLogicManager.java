@@ -1,0 +1,87 @@
+import com.jagex.js5.js5;
+import org.openrs2.deob.annotation.OriginalArg;
+import org.openrs2.deob.annotation.OriginalMember;
+import org.openrs2.deob.annotation.Pc;
+
+public final class MainLogicManager {
+    @OriginalMember(owner = "client!it", name = "g", descriptor = "I")
+    public static int step = 0;
+
+    @OriginalMember(owner = "client!tka", name = "a", descriptor = "(BI)Z")
+    public static boolean isAtLobbyScreen(@OriginalArg(1) int arg0) {
+        return arg0 == 7 || arg0 == 8 || arg0 == 9 || arg0 == 10;
+    }
+
+    @OriginalMember(owner = "client!cka", name = "a", descriptor = "(IB)V")
+    public static void setStep(@OriginalArg(0) int arg0) {
+        if (step == arg0) {
+            return;
+        }
+        if (arg0 == 14 || arg0 == 15) {
+            Static670.method8735();
+        }
+        if (arg0 != 14 && ConnectionManager.reconnect != null) {
+            ConnectionManager.reconnect.close();
+            ConnectionManager.reconnect = null;
+        }
+        if (arg0 == 3) {
+            Static456.method6228(Static523.graphicsDefaults.login_interface != Static377.anInt5930);
+        }
+        if (arg0 == 7) {
+            Static25.method688(Static523.graphicsDefaults.lobby_interface != Static377.anInt5930);
+        }
+        if (arg0 == 5 || arg0 == 13) {
+            Static369.method3852();
+        } else if (arg0 == 6 || arg0 == 9 && step != 10) {
+            Static670.method8735();
+        }
+        if (Static594.method7782(step)) {
+            js5.CONFIG.discardunpacked = 2;
+            js5.CONFIG_ENUM.discardunpacked = 2;
+            js5.CONFIG_LOC.discardunpacked = 2;
+            js5.CONFIG_NPC.discardunpacked = 2;
+            js5.CONFIG_OBJ.discardunpacked = 2;
+            js5.CONFIG_SEQ.discardunpacked = 2;
+            js5.CONFIG_SPOT.discardunpacked = 2;
+        }
+        if (Static594.method7782(arg0)) {
+            Static593.anInt8763 = 0;
+            Static357.anInt6508 = 1;
+            Static440.anInt6683 = 1;
+            Static213.anInt3472 = 0;
+            Static13.anInt150 = 0;
+            Static668.method8700(true);
+            js5.CONFIG.discardunpacked = 1;
+            js5.CONFIG_ENUM.discardunpacked = 1;
+            js5.CONFIG_LOC.discardunpacked = 1;
+            js5.CONFIG_NPC.discardunpacked = 1;
+            js5.CONFIG_OBJ.discardunpacked = 1;
+            js5.CONFIG_SEQ.discardunpacked = 1;
+            js5.CONFIG_SPOT.discardunpacked = 1;
+        }
+        if (arg0 == 12 || arg0 == 3) {
+            Static314.method4562();
+        }
+        @Pc(213) boolean local213 = arg0 == 2 || Static41.method1027(arg0) || isAtLobbyScreen(arg0);
+        @Pc(235) boolean local235 = step == 2 || Static41.method1027(step) || isAtLobbyScreen(step);
+        if (local235 != local213) {
+            if (local213) {
+                Static588.anInt8692 = Static597.anInt8821;
+                if (Static400.instance.aClass57_Sub25_4.method7208() == 0) {
+                    Static312.method4541();
+                } else {
+                    Static57.method1225(Static597.anInt8821, Static400.instance.aClass57_Sub25_4.method7208(), js5.MIDI_SONGS);
+                    Static550.method7266();
+                }
+                client.js5WorkerThread.writeLoggedIn(false);
+            } else {
+                Static312.method4541();
+                client.js5WorkerThread.writeLoggedIn(true);
+            }
+        }
+        if (Static594.method7782(arg0) || arg0 == 14 || arg0 == 15) {
+            Static163.activeToolkit.method7969();
+        }
+        step = arg0;
+    }
+}

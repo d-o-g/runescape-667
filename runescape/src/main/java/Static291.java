@@ -8,7 +8,7 @@ public final class Static291 {
     public static Sprite[] aSpriteArray8;
 
     @OriginalMember(owner = "client!je", name = "e", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_123 = new Class225(128, -2);
+    public static final ServerProt A_SERVER_PROT___123 = new ServerProt(128, -2);
 
     @OriginalMember(owner = "client!je", name = "h", descriptor = "Lclient!av;")
     public static final IterableHashTable A_HASH_TABLE___24 = new IterableHashTable(512);

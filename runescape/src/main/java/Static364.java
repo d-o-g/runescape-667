@@ -120,7 +120,7 @@ public final class Static364 {
                     local203 = local186.buffer.pos;
                     local186.buffer.p4(667);
                     if (Static299.anInt4825 == 2) {
-                        local186.buffer.p1(Static283.step == 14 ? 1 : 0);
+                        local186.buffer.p1(MainLogicManager.step == 14 ? 1 : 0);
                     }
                     @Pc(229) Packet local229 = Static570.method7552();
                     local229.p1(Static129.anInt2409);
@@ -229,7 +229,7 @@ public final class Static364 {
                     local646 = local618.pos;
                     if (!Static311.aBoolean384) {
                         local618.p4(667);
-                        local618.p1(Static283.step == 14 ? 1 : 0);
+                        local618.p1(MainLogicManager.step == 14 ? 1 : 0);
                         local646 = local618.pos;
                         local672 = Static659.method8608();
                         local618.pdata(local672.pos, local672.data, 0);
@@ -318,7 +318,7 @@ public final class Static364 {
                     Static135.anInt8223 = 13;
                 } else if (local360 == 15) {
                     Static135.anInt8223 = 19;
-                    Static524.aServerConnection_3.anInt3648 = -2;
+                    Static524.aServerConnection_3.currentPacketSize = -2;
                 } else if (local360 == 23 && Static76.anInt1601 < 3) {
                     Static330.anInt5434 = 0;
                     Static135.anInt8223 = 1;
@@ -443,7 +443,7 @@ public final class Static364 {
                         Static626.anInt9473 = local1435.g2();
                         Static636.anInt9527 = local1435.g2();
                         Static420.aBoolean479 = local1435.g1() == 1;
-                        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString8 = Constants.playerDisplayName = local1435.gjstr2();
+                        Static556.self.aString9 = Static556.self.aString8 = Constants.playerDisplayName = local1435.gjstr2();
                         Static639.anInt9571 = local1435.g1();
                         Static438.anInt6640 = local1435.g4();
                         Static587.aBoolean663 = local1435.g1() == 1;
@@ -490,8 +490,8 @@ public final class Static364 {
                         Static135.anInt8223 = 0;
                         Static342.method4464(2);
                         Static249.method3538();
-                        Static81.method1586(7);
-                        Static524.aServerConnection_3.aClass225_93 = null;
+                        MainLogicManager.setStep(7);
+                        Static524.aServerConnection_3.currentProt = null;
                         return;
                     }
                     Static135.anInt8223 = 16;
@@ -512,21 +512,21 @@ public final class Static364 {
                         }
                         Static524.aServerConnection_3.connection.read(local1435.data, 1, 3);
                     }
-                    Static524.aServerConnection_3.aClass225_93 = Static585.method7677()[local1435.method7421()];
-                    Static524.aServerConnection_3.anInt3648 = local1435.g2();
+                    Static524.aServerConnection_3.currentProt = Static585.method7677()[local1435.method7421()];
+                    Static524.aServerConnection_3.currentPacketSize = local1435.g2();
                     Static135.anInt8223 = 15;
                 }
                 if (Static135.anInt8223 == 15) {
-                    if (Static524.aServerConnection_3.connection.hasAvailable(Static524.aServerConnection_3.anInt3648)) {
-                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, Static524.aServerConnection_3.anInt3648, 0);
+                    if (Static524.aServerConnection_3.connection.hasAvailable(Static524.aServerConnection_3.currentPacketSize)) {
+                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, Static524.aServerConnection_3.currentPacketSize, 0);
                         Static524.aServerConnection_3.buffer.pos = 0;
-                        local360 = Static524.aServerConnection_3.anInt3648;
+                        local360 = Static524.aServerConnection_3.currentPacketSize;
                         Static135.anInt8223 = 0;
                         Static342.method4464(2);
                         Static254.method3605();
                         Static168.method2633(Static524.aServerConnection_3.buffer);
                         Static62.anInt1465 = -1;
-                        if (Static524.aServerConnection_3.aClass225_93 == Static291.aClass225_123) {
+                        if (Static524.aServerConnection_3.currentProt == Static291.A_SERVER_PROT___123) {
                             Static466.method6325();
                         } else {
                             Static434.method5855();
@@ -534,29 +534,29 @@ public final class Static364 {
                         if (Static524.aServerConnection_3.buffer.pos != local360) {
                             throw new RuntimeException("lswp pos:" + Static524.aServerConnection_3.buffer.pos + " psize:" + local360);
                         }
-                        Static524.aServerConnection_3.aClass225_93 = null;
+                        Static524.aServerConnection_3.currentProt = null;
                     }
                 } else if (Static135.anInt8223 == 19) {
-                    if (Static524.aServerConnection_3.anInt3648 == -2) {
+                    if (Static524.aServerConnection_3.currentPacketSize == -2) {
                         if (!Static524.aServerConnection_3.connection.hasAvailable(2)) {
                             return;
                         }
                         Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 2, 0);
                         Static524.aServerConnection_3.buffer.pos = 0;
-                        Static524.aServerConnection_3.anInt3648 = Static524.aServerConnection_3.buffer.g2();
+                        Static524.aServerConnection_3.currentPacketSize = Static524.aServerConnection_3.buffer.g2();
                     }
-                    if (Static524.aServerConnection_3.connection.hasAvailable(Static524.aServerConnection_3.anInt3648)) {
-                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, Static524.aServerConnection_3.anInt3648, 0);
+                    if (Static524.aServerConnection_3.connection.hasAvailable(Static524.aServerConnection_3.currentPacketSize)) {
+                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, Static524.aServerConnection_3.currentPacketSize, 0);
                         Static524.aServerConnection_3.buffer.pos = 0;
                         Static135.anInt8223 = 0;
-                        local360 = Static524.aServerConnection_3.anInt3648;
+                        local360 = Static524.aServerConnection_3.currentPacketSize;
                         Static342.method4464(15);
                         Static94.method1841();
                         Static168.method2633(Static524.aServerConnection_3.buffer);
                         if (local360 != Static524.aServerConnection_3.buffer.pos) {
                             throw new RuntimeException("lswpr pos:" + Static524.aServerConnection_3.buffer.pos + " psize:" + local360);
                         }
-                        Static524.aServerConnection_3.aClass225_93 = null;
+                        Static524.aServerConnection_3.currentProt = null;
                     }
                 }
             } else if (Static524.aServerConnection_3.connection.hasAvailable(1)) {

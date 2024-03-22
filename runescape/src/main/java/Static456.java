@@ -43,13 +43,13 @@ public final class Static456 {
         Static242.method3502();
         Static442.anInt6699 = -1;
         Static115.method2136(StaticWallDecor.lb);
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 = new Class8_Sub2_Sub1_Sub2_Sub1();
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 = Static501.mapHeight * 512 / 2;
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 = Static720.mapWidth * 512 / 2;
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0] = Static720.mapWidth / 2;
+        Static556.self = new Class8_Sub2_Sub1_Sub2_Sub1();
+        Static556.self.anInt10694 = Static501.mapHeight * 512 / 2;
+        Static556.self.anInt10690 = Static720.mapWidth * 512 / 2;
+        Static556.self.pathX[0] = Static720.mapWidth / 2;
         Static110.anInt2186 = 0;
         Static170.anInt2864 = 0;
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0] = Static501.mapHeight / 2;
+        Static556.self.pathY[0] = Static501.mapHeight / 2;
         if (Static511.anInt7645 == 2) {
             Static110.anInt2186 = Static709.anInt10667 << 9;
             Static170.anInt2864 = Static121.anInt2333 << 9;

@@ -42,7 +42,7 @@ public final class Static431 {
         }
         @Pc(134) int local134 = arg0.anIntArray156 == null ? 255 : arg0.anIntArray156[arg1];
         if (local93 == 0) {
-            if (arg2 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2) {
+            if (arg2 == Static556.self) {
                 if (!arg0.vorbisSound) {
                     Static161.method2586(local80, 0, local55, local61, local134);
                     return;
@@ -52,7 +52,7 @@ public final class Static431 {
         } else if (Static400.instance.aClass57_Sub25_1.method7208() != 0) {
             @Pc(184) int local184 = arg2.anInt10690 - 256 >> 9;
             @Pc(191) int local191 = arg2.anInt10694 - 256 >> 9;
-            @Pc(212) int local212 = arg2 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 ? 0 : local93 + (local191 << 8) + (local184 << 16) + (arg2.aByte144 << 24);
+            @Pc(212) int local212 = arg2 == Static556.self ? 0 : local93 + (local191 << 8) + (local184 << 16) + (arg2.aByte144 << 24);
             Static409.aClass104Array1[Static33.anInt779++] = new Class104((byte) (arg0.vorbisSound ? 2 : 1), local55, local61, 0, local134, local212, local80, arg2);
         }
     }

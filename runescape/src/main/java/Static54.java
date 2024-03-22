@@ -14,10 +14,10 @@ public final class Static54 {
     @OriginalMember(owner = "client!bq", name = "a", descriptor = "(I)V")
     public static void method1179() {
         Static342.method4465(Static400.instance.aClass57_Sub5_1.method2172());
-        @Pc(19) int local19 = (Static691.anInt10367 >> 3) + (Static170.anInt2864 >> 12);
-        @Pc(28) int local28 = (Static110.anInt2186 >> 12) + (Static116.anInt2270 >> 3);
-        Static394.anInt6176 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 = 0;
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.method1419(8, 8);
+        @Pc(19) int local19 = (Static691.areaBaseX >> 3) + (Static170.anInt2864 >> 12);
+        @Pc(28) int local28 = (Static110.anInt2186 >> 12) + (Static116.areaBaseY >> 3);
+        Static394.anInt6176 = Static556.self.aByte144 = 0;
+        Static556.self.method1419(8, 8);
         Static22.anIntArrayArray11 = new int[18][4];
         Static363.aByteArrayArray22 = new byte[18][];
         Static177.aByteArrayArray5 = new byte[18][];
@@ -58,14 +58,14 @@ public final class Static54 {
             Static298.anIntArray367[local99] = -1;
         }
         @Pc(309) byte local309;
-        if (Static283.step == 3) {
+        if (MainLogicManager.step == 3) {
             local309 = 4;
-        } else if (Static283.step == 9) {
+        } else if (MainLogicManager.step == 9) {
             local309 = 10;
-        } else if (Static283.step == 7) {
+        } else if (MainLogicManager.step == 7) {
             local309 = 8;
         } else {
-            throw new RuntimeException(String.valueOf(Static283.step));
+            throw new RuntimeException(String.valueOf(MainLogicManager.step));
         }
         Static684.method8931(false, local19, local309, local28);
     }

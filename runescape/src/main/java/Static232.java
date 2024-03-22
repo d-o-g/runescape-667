@@ -15,7 +15,7 @@ public final class Static232 {
     public static int anInt3829;
 
     @OriginalMember(owner = "client!hda", name = "i", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_103 = new Class225(38, 0);
+    public static final ServerProt A_SERVER_PROT___103 = new ServerProt(38, 0);
 
     @OriginalMember(owner = "client!hda", name = "sd", descriptor = "I")
     public static int anInt3764 = 0;

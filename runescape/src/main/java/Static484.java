@@ -221,9 +221,9 @@ public final class Static484 {
                 Static577.aClass246_4.method5583(1024, 64);
                 for (local214 = 0; local214 < Static42.aClass255_2.anInt6373; local214++) {
                     local216 = Static42.aClass255_2.anIntArray495[local214];
-                    if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 == local216 >> 28) {
-                        local218 = (local216 >> 14 & 0x3FFF) - Static691.anInt10367;
-                        local229 = (local216 & 0x3FFF) - Static116.anInt2270;
+                    if (Static556.self.aByte144 == local216 >> 28) {
+                        local218 = (local216 >> 14 & 0x3FFF) - Static691.areaBaseX;
+                        local229 = (local216 & 0x3FFF) - Static116.areaBaseY;
                         if (local218 >= 0 && local218 < Static720.mapWidth && local229 >= 0 && local229 < Static501.mapHeight) {
                             Static612.A_DEQUE___67.addLast(new IntNode(local214));
                         } else {

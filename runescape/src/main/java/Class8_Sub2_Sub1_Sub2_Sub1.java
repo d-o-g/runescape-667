@@ -243,20 +243,20 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(IIIB)V")
     public void method1418(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) byte arg2) {
-        if (super.anInt10764 < super.anIntArray879.length - 1) {
+        if (super.anInt10764 < super.pathX.length - 1) {
             super.anInt10764++;
         }
         for (@Pc(24) int local24 = super.anInt10764; local24 > 0; local24--) {
-            super.anIntArray879[local24] = super.anIntArray879[local24 - 1];
-            super.anIntArray878[local24] = super.anIntArray878[local24 - 1];
+            super.pathX[local24] = super.pathX[local24 - 1];
+            super.pathY[local24] = super.pathY[local24 - 1];
             super.aByteArray111[local24] = super.aByteArray111[local24 - 1];
         }
-        super.anIntArray879[0] = arg1;
+        super.pathX[0] = arg1;
         super.aByteArray111[0] = arg2;
         if (-24527 != -24527) {
             this.method9304((byte) -13);
         }
-        super.anIntArray878[0] = arg0;
+        super.pathY[0] = arg0;
     }
 
     @OriginalMember(owner = "client!ca", name = "g", descriptor = "(B)I")
@@ -275,14 +275,14 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!ca", name = "c", descriptor = "(III)V")
     public void method1419(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
         super.anInt10764 = 0;
-        super.anIntArray879[0] = arg0;
+        super.pathX[0] = arg0;
         super.anInt10763 = 0;
         super.anInt10762 = 0;
-        super.anIntArray878[0] = arg1;
+        super.pathY[0] = arg1;
         @Pc(26) int local26 = this.method9302((byte) 84);
-        super.anInt10690 = local26 * 256 + super.anIntArray879[0] * 512;
-        super.anInt10694 = super.anIntArray878[0] * 512 + local26 * 256;
-        if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this) {
+        super.anInt10690 = local26 * 256 + super.pathX[0] * 512;
+        super.anInt10694 = super.pathY[0] * 512 + local26 * 256;
+        if (Static556.self == this) {
             Static218.method3187();
         }
         if (super.aClass8_Sub5_8 != null) {
@@ -338,7 +338,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
             }
         }
         @Pc(269) int local269;
-        if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this) {
+        if (Static556.self == this) {
             for (local269 = Static527.aClass254Array1.length - 1; local269 >= 0; local269--) {
                 @Pc(275) Class254 local275 = Static527.aClass254Array1[local269];
                 if (local275 != null && local275.anInt6371 != -1) {
@@ -347,8 +347,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                         @Pc(298) Node_Sub45 local298 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local275.anInt6366);
                         if (local298 != null) {
                             @Pc(303) Class8_Sub2_Sub1_Sub2_Sub2 local303 = local298.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                            local310 = local303.anInt10690 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690;
-                            @Pc(316) int local316 = local303.anInt10694 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694;
+                            local310 = local303.anInt10690 - Static556.self.anInt10690;
+                            @Pc(316) int local316 = local303.anInt10694 - Static556.self.anInt10694;
                             if (Static504.aBoolean579) {
                                 this.method1416(super.aModelArray3[0], 92160000, arg0, local275.anInt6371, local310, local22, Static582.anInt8627, local316);
                             } else {
@@ -358,8 +358,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                     }
                     @Pc(371) int local371;
                     if (local275.anInt6363 == 2) {
-                        @Pc(364) int local364 = local275.anInt6369 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690;
-                        local371 = local275.anInt6362 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694;
+                        @Pc(364) int local364 = local275.anInt6369 - Static556.self.anInt10690;
+                        local371 = local275.anInt6362 - Static556.self.anInt10694;
                         local310 = local275.anInt6364 << 9;
                         local310 *= local310;
                         if (Static504.aBoolean579) {
@@ -371,8 +371,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
                     if (local275.anInt6363 == 10 && local275.anInt6366 >= 0 && local275.anInt6366 < Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3.length) {
                         @Pc(438) Class8_Sub2_Sub1_Sub2_Sub1 local438 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local275.anInt6366];
                         if (local438 != null) {
-                            local371 = local438.anInt10690 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690;
-                            local310 = local438.anInt10694 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694;
+                            local371 = local438.anInt10690 - Static556.self.anInt10690;
+                            local310 = local438.anInt10694 - Static556.self.anInt10694;
                             if (Static504.aBoolean579) {
                                 this.method1416(super.aModelArray3[0], 92160000, arg0, local275.anInt6371, local371, local22, Static582.anInt8627, local310);
                             } else {
@@ -394,13 +394,13 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         if (Static504.aBoolean579) {
             for (local269 = 0; local269 < super.aModelArray3.length; local269++) {
                 if (super.aModelArray3[local269] != null) {
-                    super.aModelArray3[local269].renderOrtho(local22, local114.aPickingCylinderArray1[local269], Static582.anInt8627, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this ? 1 : 0);
+                    super.aModelArray3[local269].renderOrtho(local22, local114.aPickingCylinderArray1[local269], Static582.anInt8627, Static556.self == this ? 1 : 0);
                 }
             }
         } else {
             for (local269 = 0; local269 < super.aModelArray3.length; local269++) {
                 if (super.aModelArray3[local269] != null) {
-                    super.aModelArray3[local269].render(local22, local114.aPickingCylinderArray1[local269], Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this ? 1 : 0);
+                    super.aModelArray3[local269].render(local22, local114.aPickingCylinderArray1[local269], Static556.self == this ? 1 : 0);
                 }
             }
         }
@@ -500,7 +500,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         }
         this.anInt1443 = packet.g2();
         this.aString8 = packet.gjstr();
-        if (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 == this) {
+        if (Static556.self == this) {
             Constants.playerDisplayName = this.aString8;
         }
         this.aString9 = this.aString8;
@@ -547,8 +547,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         @Pc(603) int[] local603 = this.aPlayerModel_1.clientpalette;
         this.aPlayerModel_1.update(local332, local139, local144, local134, this.method9320(0), this.aByte32 == 1);
         if (local134 != local240) {
-            super.anInt10690 = (super.anIntArray879[0] << 9) + (this.method9302((byte) 83) << 8);
-            super.anInt10694 = (super.anIntArray878[0] << 9) + (this.method9302((byte) 45) << 8);
+            super.anInt10690 = (super.pathX[0] << 9) + (this.method9302((byte) 83) << 8);
+            super.anInt10694 = (super.pathY[0] << 9) + (this.method9302((byte) 45) << 8);
         }
         if (Static312.anInt5000 == super.anInt10740 && local603 != null) {
             for (local490 = 0; local490 < local332.length; local490++) {
@@ -716,7 +716,7 @@ public final class Class8_Sub2_Sub1_Sub2_Sub1 extends Class8_Sub2_Sub1_Sub2 {
         this.anInt1467 = -1;
         if (arg1 < 0 || Static720.mapWidth <= arg1 || arg0 < 0 || Static501.mapHeight <= arg0) {
             this.method1419(arg1, arg0);
-        } else if (super.anIntArray879[0] >= 0 && super.anIntArray879[0] < Static720.mapWidth && super.anIntArray878[0] >= 0 && Static501.mapHeight > super.anIntArray878[0]) {
+        } else if (super.pathX[0] >= 0 && super.pathX[0] < Static720.mapWidth && super.pathY[0] >= 0 && Static501.mapHeight > super.pathY[0]) {
             if (arg2 == 2) {
                 Static360.method5232(this, arg1, arg0);
             }

@@ -21,18 +21,18 @@ public final class Static168 {
     public static void method2633(@OriginalArg(0) PacketBuffer arg0) {
         arg0.method7417();
         @Pc(10) int local10 = Static312.anInt5000;
-        @Pc(20) Class8_Sub2_Sub1_Sub2_Sub1 local20 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local10] = new Class8_Sub2_Sub1_Sub2_Sub1();
+        @Pc(20) Class8_Sub2_Sub1_Sub2_Sub1 local20 = Static556.self = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local10] = new Class8_Sub2_Sub1_Sub2_Sub1();
         local20.anInt10740 = local10;
         @Pc(28) int local28 = arg0.method7412(30);
         @Pc(33) byte local33 = (byte) (local28 >> 28);
         @Pc(39) int local39 = local28 >> 14 & 0x3FFF;
-        local20.anIntArray879[0] = local39 - Static691.anInt10367;
+        local20.pathX[0] = local39 - Static691.areaBaseX;
         @Pc(51) int local51 = local28 & 0x3FFF;
-        local20.anInt10690 = (local20.anIntArray879[0] << 9) + (local20.method9302((byte) 53) << 8);
-        local20.anIntArray878[0] = local51 - Static116.anInt2270;
-        local20.anInt10694 = (local20.anIntArray878[0] << 9) + (local20.method9302((byte) 65) << 8);
+        local20.anInt10690 = (local20.pathX[0] << 9) + (local20.method9302((byte) 53) << 8);
+        local20.pathY[0] = local51 - Static116.areaBaseY;
+        local20.anInt10694 = (local20.pathY[0] << 9) + (local20.method9302((byte) 65) << 8);
         Static394.anInt6176 = local20.aByte144 = local20.aByte143 = local33;
-        if (Static441.method5968(local20.anIntArray878[0], local20.anIntArray879[0])) {
+        if (Static441.method5968(local20.pathY[0], local20.pathX[0])) {
             local20.aByte143++;
         }
         if (Static462.aClass2_Sub21Array1[local10] != null) {

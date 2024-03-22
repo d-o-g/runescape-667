@@ -14,7 +14,7 @@ public final class Static655 {
     public static LoadState[] aLoadStateArray1;
 
     @OriginalMember(owner = "client!un", name = "I", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_237 = new Class225(18, 4);
+    public static final ServerProt A_SERVER_PROT___237 = new ServerProt(18, 4);
 
     @OriginalMember(owner = "client!un", name = "t", descriptor = "I")
     public static int anInt9763 = -1;

@@ -42,8 +42,8 @@ public final class Static112 {
         } else if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub2) {
             @Pc(138) Class8_Sub2_Sub1_Sub2_Sub2 local138 = (Class8_Sub2_Sub1_Sub2_Sub2) arg0;
             if (local138.anInt10774 != -1 && (local138.anInt10764 == 0 || local138.anInt10763 > 0)) {
-                local67 = local138.anInt10690 - (local138.anInt10774 - Static691.anInt10367 - Static691.anInt10367) * 256;
-                local74 = local138.anInt10694 - (local138.anInt10767 - Static116.anInt2270 - Static116.anInt2270) * 256;
+                local67 = local138.anInt10690 - (local138.anInt10774 - Static691.areaBaseX - Static691.areaBaseX) * 256;
+                local74 = local138.anInt10694 - (local138.anInt10767 - Static116.areaBaseY - Static116.areaBaseY) * 256;
                 if (local67 != 0 || local74 != 0) {
                     local138.method9305((int) (Math.atan2((double) local67, (double) local74) * 2607.5945876176133D) & 0x3FFF);
                 }

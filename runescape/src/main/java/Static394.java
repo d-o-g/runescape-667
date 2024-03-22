@@ -23,7 +23,7 @@ public final class Static394 {
             @Pc(70) int local70 = (int) local53 >> 9;
             @Pc(75) int local75 = (int) local65 >> 9;
             if (local70 > 0 && local75 > 0 && Static720.mapWidth > local70 && local75 < Static501.mapHeight) {
-                @Pc(104) int local104 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144;
+                @Pc(104) int local104 = Static556.self.aByte144;
                 if (local104 < 3 && (Static280.tileFlags[1][local70][local75] & 0x2) != 0) {
                     local104++;
                 }

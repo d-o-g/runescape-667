@@ -19,7 +19,7 @@ public final class Static489 {
     public static int anInt7343;
 
     @OriginalMember(owner = "client!ph", name = "I", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_185 = new Class225(8, 6);
+    public static final ServerProt A_SERVER_PROT___185 = new ServerProt(8, 6);
 
     @OriginalMember(owner = "client!ph", name = "D", descriptor = "[Lclient!pa;")
     public static final Class283[] aClass283Array1 = new Class283[100];
@@ -88,11 +88,11 @@ public final class Static489 {
             arg1.anInt10755 = 0;
             arg1.anIntArray869 = null;
             local16 = 0;
-            arg1.anInt10690 = arg1.anIntArray879[0] * 512 + arg1.method9302((byte) 97) * 256;
-            arg1.anInt10694 = arg1.anIntArray878[0] * 512 + arg1.method9302((byte) 113) * 256;
+            arg1.anInt10690 = arg1.pathX[0] * 512 + arg1.method9302((byte) 97) * 256;
+            arg1.anInt10694 = arg1.pathY[0] * 512 + arg1.method9302((byte) 113) * 256;
             arg1.method9316();
         }
-        if (arg1 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 && (arg1.anInt10690 < 6144 || arg1.anInt10694 < 6144 || arg1.anInt10690 >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.anInt10694)) {
+        if (arg1 == Static556.self && (arg1.anInt10690 < 6144 || arg1.anInt10694 < 6144 || arg1.anInt10690 >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.anInt10694)) {
             arg1.aAnimator_11.update(true, -1);
             for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
                 arg1.aClass199Array3[local107].anInt4930 = -1;
@@ -103,8 +103,8 @@ public final class Static489 {
             arg1.anIntArray869 = null;
             local16 = 0;
             local7 = -1;
-            arg1.anInt10690 = arg1.anIntArray879[0] * 512 + arg1.method9302((byte) 69) * 256;
-            arg1.anInt10694 = arg1.anIntArray878[0] * 512 + arg1.method9302((byte) 49) * 256;
+            arg1.anInt10690 = arg1.pathX[0] * 512 + arg1.method9302((byte) 69) * 256;
+            arg1.anInt10694 = arg1.pathY[0] * 512 + arg1.method9302((byte) 49) * 256;
             arg1.method9316();
         }
         local107 = Static112.method2104(arg1);
@@ -177,8 +177,8 @@ public final class Static489 {
             @Pc(287) byte[] local287 = Static118.aByteArrayArray3[local282];
             @Pc(299) int local299;
             if (local287 != null) {
-                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - Static691.anInt10367;
-                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - Static116.anInt2270;
+                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - Static691.areaBaseX;
+                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - Static116.areaBaseY;
                 if (Static117.anInt2282 != 0) {
                     local299 = 10;
                     local310 = 10;
@@ -187,8 +187,8 @@ public final class Static489 {
             }
             local287 = Static421.aByteArrayArray19[local282];
             if (local287 != null) {
-                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - Static691.anInt10367;
-                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - Static116.anInt2270;
+                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - Static691.areaBaseX;
+                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - Static116.areaBaseY;
                 if (Static117.anInt2282 != 0) {
                     local310 = 10;
                     local299 = 10;
@@ -332,7 +332,7 @@ public final class Static489 {
         Static352.method5180();
         Static442.method5969();
         @Pc(920) ClientMessage local920;
-        if (Static353.aFrame10 != null && ConnectionManager.GAME.connection != null && Static283.step == 12) {
+        if (Static353.aFrame10 != null && ConnectionManager.GAME.connection != null && MainLogicManager.step == 12) {
             local920 = Static293.method4335(Static694.aClass345_122, ConnectionManager.GAME.cipher);
             local920.buffer.p4(1057001181);
             ConnectionManager.GAME.send(local920);
@@ -351,14 +351,14 @@ public final class Static489 {
                 }
             }
         }
-        if (Static283.step == 4) {
-            Static81.method1586(3);
-        } else if (Static283.step == 8) {
-            Static81.method1586(7);
-        } else if (Static283.step == 10) {
-            Static81.method1586(9);
+        if (MainLogicManager.step == 4) {
+            MainLogicManager.setStep(3);
+        } else if (MainLogicManager.step == 8) {
+            MainLogicManager.setStep(7);
+        } else if (MainLogicManager.step == 10) {
+            MainLogicManager.setStep(9);
         } else {
-            Static81.method1586(11);
+            MainLogicManager.setStep(11);
             if (ConnectionManager.GAME.connection != null) {
                 local920 = Static293.method4335(Static161.aClass345_29, ConnectionManager.GAME.cipher);
                 ConnectionManager.GAME.send(local920);

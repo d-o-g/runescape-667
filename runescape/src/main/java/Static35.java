@@ -52,13 +52,13 @@ public final class Static35 {
                             local179 = local13.anInt2577 * (local13.aByte49 == 3 ? Static400.instance.lb.method7208() : Static400.instance.aClass57_Sub25_3.method7208()) >> 2;
                         } else {
                             @Pc(188) int local188 = local13.anInt2578 >> 24 & 0x3;
-                            if (local188 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
+                            if (local188 == Static556.self.aByte144) {
                                 @Pc(199) int local199 = (local13.anInt2578 & 0xFF) << 9;
-                                @Pc(205) int local205 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.method9302((byte) 126) << 8;
+                                @Pc(205) int local205 = Static556.self.method9302((byte) 126) << 8;
                                 @Pc(212) int local212 = local13.anInt2578 >> 16 & 0xFF;
-                                @Pc(224) int local224 = (local212 << 9) + local205 + 256 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690;
+                                @Pc(224) int local224 = (local212 << 9) + local205 + 256 - Static556.self.anInt10690;
                                 @Pc(231) int local231 = local13.anInt2578 >> 8 & 0xFF;
-                                @Pc(243) int local243 = local205 + (local231 << 9) + 256 - Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694;
+                                @Pc(243) int local243 = local205 + (local231 << 9) + 256 - Static556.self.anInt10694;
                                 @Pc(251) int local251 = Math.abs(local224) + Math.abs(local243) - 512;
                                 if (local199 < local251) {
                                     local13.anInt2571 = -99999;

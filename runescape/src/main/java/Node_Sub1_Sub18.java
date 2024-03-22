@@ -24,7 +24,7 @@ public final class Node_Sub1_Sub18 extends Node_Sub1 {
             super.aBoolean824 = arg1.g1() == 1;
         }
         if (arg0) {
-            Static389.aClass225_157 = null;
+            Static389.aServerProt_157 = null;
         }
     }
 

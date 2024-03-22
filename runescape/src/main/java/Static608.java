@@ -18,7 +18,7 @@ public final class Static608 {
     public static int anInt9289;
 
     @OriginalMember(owner = "client!td", name = "l", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_222 = new Class225(67, 3);
+    public static final ServerProt A_SERVER_PROT___222 = new ServerProt(67, 3);
 
     @OriginalMember(owner = "client!td", name = "n", descriptor = "I")
     public static int anInt9290 = 0;
@@ -81,7 +81,7 @@ public final class Static608 {
                         }
                     }
                 }
-                if (local51.drawPriority < 0 || local51.anInt10704 != Static198.anInt3276 && Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 != local51.aByte144) {
+                if (local51.drawPriority < 0 || local51.anInt10704 != Static198.anInt3276 && Static556.self.aByte144 != local51.aByte144) {
                     continue;
                 }
             }

@@ -24,20 +24,20 @@ public final class Static94 {
     @OriginalMember(owner = "client!cv", name = "b", descriptor = "(I)V")
     public static void method1841() {
         Static524.aServerConnection_3.clear();
-        Static524.aServerConnection_3.aClass225_93 = null;
+        Static524.aServerConnection_3.currentProt = null;
         Static524.aServerConnection_3.buffer.pos = 0;
         Static524.aServerConnection_3.anInt3646 = 0;
-        Static524.aServerConnection_3.aClass225_91 = null;
-        Static524.aServerConnection_3.aClass225_94 = null;
-        Static524.aServerConnection_3.anInt3648 = 0;
+        Static524.aServerConnection_3.antepenultimateProt = null;
+        Static524.aServerConnection_3.penultimateProt = null;
+        Static524.aServerConnection_3.currentPacketSize = 0;
         Static249.anInt4008 = 0;
-        Static524.aServerConnection_3.aClass225_92 = null;
+        Static524.aServerConnection_3.aServerProt_92 = null;
         Static533.method7119();
         Static605.method7914();
         for (@Pc(36) int local36 = 0; local36 < 2048; local36++) {
             Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local36] = null;
         }
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 = null;
+        Static556.self = null;
         for (@Pc(49) int local49 = 0; local49 < Static416.anInt6378; local49++) {
             @Pc(55) Class8_Sub2_Sub1_Sub2_Sub2 local55 = Static592.aClass2_Sub45Array1[local49].aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local55 != null) {
@@ -48,7 +48,7 @@ public final class Static94 {
         Static511.anInt7645 = 1;
         Static693.anInt10383 = -1;
         Static692.anInt10376 = -1;
-        Static81.method1586(11);
+        MainLogicManager.setStep(11);
         for (@Pc(79) int local79 = 0; local79 < 100; local79++) {
             InterfaceManager.dirtyRectangles[local79] = true;
         }

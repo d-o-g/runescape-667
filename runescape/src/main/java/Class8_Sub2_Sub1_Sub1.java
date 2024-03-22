@@ -220,7 +220,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             if (this.anInt706 < 0) {
                 local35 = -this.anInt706 - 1;
                 if (Static312.anInt5000 == local35) {
-                    local21 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2;
+                    local21 = Static556.self;
                 } else {
                     local21 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local35];
                 }

@@ -33,7 +33,7 @@ public final class Static110 {
             local28 = Static140.anIntArray222[4] + 128;
         }
         @Pc(63) int local63 = (int) Static171.aFloat64 + Static288.anInt4621 & 0x3FFF;
-        Static292.method4606(local28, (local28 >> 3) * 3 + 600 << 2, arg0, Static494.anInt7409, local63, Static38.anInt920, Static102.method2025(Static394.anInt6176, -29754, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690) - 200);
+        Static292.method4606(local28, (local28 >> 3) * 3 + 600 << 2, arg0, Static494.anInt7409, local63, Static38.anInt920, Static102.method2025(Static394.anInt6176, -29754, Static556.self.anInt10694, Static556.self.anInt10690) - 200);
         @Pc(107) float local107 = 1.0F - (float) ((100 - local7) * (-local7 + 100) * (100 - local7)) / 1000000.0F;
         Static170.anInt2864 = (int) ((float) Static70.anInt1569 + (float) (Static170.anInt2864 - Static70.anInt1569) * local107);
         Static359.anInt5801 = (int) ((float) (Static359.anInt5801 - Static302.anInt4854) * local107 + (float) Static302.anInt4854);

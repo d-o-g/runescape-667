@@ -6,21 +6,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static370 {
 
     @OriginalMember(owner = "client!lm", name = "l", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_152 = new Class225(4, 0);
+    public static final ServerProt A_SERVER_PROT___152 = new ServerProt(4, 0);
 
     @OriginalMember(owner = "client!lm", name = "j", descriptor = "Lclient!pc;")
     public static final Class287 aClass287_11 = new Class287(9, -1);
-
-    @OriginalMember(owner = "client!lm", name = "b", descriptor = "(Z)V")
-    public static void method5279() {
-        if (Static620.method8321(Static283.step)) {
-            Static233.method3409(false);
-        } else {
-            Static467.aConnection_2 = ConnectionManager.GAME.connection;
-            ConnectionManager.GAME.connection = null;
-            Static81.method1586(14);
-        }
-    }
 
     @OriginalMember(owner = "client!lm", name = "d", descriptor = "(I)V")
     public static void method5280() {

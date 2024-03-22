@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static408 {
 
     @OriginalMember(owner = "client!ms", name = "d", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_162 = new Class225(102, -1);
+    public static final ServerProt A_SERVER_PROT___162 = new ServerProt(102, -1);
 
     @OriginalMember(owner = "client!ms", name = "a", descriptor = "(I)V")
     public static void method5632() {
@@ -12,9 +12,9 @@ public final class Static408 {
         Static524.aServerConnection_3.clear();
         Static524.aServerConnection_3.anInt3646 = 0;
         Static249.anInt4008 = 0;
-        Static524.aServerConnection_3.aClass225_91 = null;
-        Static524.aServerConnection_3.aClass225_94 = null;
-        Static524.aServerConnection_3.aClass225_92 = null;
+        Static524.aServerConnection_3.antepenultimateProt = null;
+        Static524.aServerConnection_3.penultimateProt = null;
+        Static524.aServerConnection_3.aServerProt_92 = null;
         Static524.aServerConnection_3.buffer.pos = 0;
         Static102.method2022();
         Static251.anInt4036 = 0;

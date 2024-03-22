@@ -74,7 +74,7 @@ public final class Static322 {
 
     @OriginalMember(owner = "client!kd", name = "a", descriptor = "(Z)V")
     public static void method9441() {
-        Static81.method1586(12);
+        MainLogicManager.setStep(12);
         Static300.method4393();
         System.gc();
     }

@@ -9,5 +9,5 @@ public final class Static31 {
     public static final Class242 aClass242_2 = new Class242("", 14);
 
     @OriginalMember(owner = "client!bb", name = "a", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_14 = new Class225(26, 3);
+    public static final ServerProt A_SERVER_PROT___14 = new ServerProt(26, 3);
 }

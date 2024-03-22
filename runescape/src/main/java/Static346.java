@@ -18,7 +18,7 @@ public final class Static346 {
     public static int[] anIntArray420 = new int[4];
 
     @OriginalMember(owner = "client!kt", name = "S", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_145 = new Class225(124, 1);
+    public static final ServerProt A_SERVER_PROT___145 = new ServerProt(124, 1);
 
     @OriginalMember(owner = "client!kt", name = "c", descriptor = "(I)V")
     public static void method5085() {
@@ -50,8 +50,8 @@ public final class Static346 {
             Static416.anInt6378 = Static18.A_HASH_TABLE___2.size();
             Static18.A_HASH_TABLE___2.copyTo(Static592.aClass2_Sub45Array1);
         }
-        if (ConnectionManager.GAME.buffer.pos != ConnectionManager.GAME.anInt3648) {
-            throw new RuntimeException("gnp1 pos:" + ConnectionManager.GAME.buffer.pos + " psize:" + ConnectionManager.GAME.anInt3648);
+        if (ConnectionManager.GAME.buffer.pos != ConnectionManager.GAME.currentPacketSize) {
+            throw new RuntimeException("gnp1 pos:" + ConnectionManager.GAME.buffer.pos + " psize:" + ConnectionManager.GAME.currentPacketSize);
         }
         for (local33 = 0; local33 < Static390.anInt6126; local33++) {
             if (Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local33]) == null) {

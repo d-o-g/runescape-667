@@ -87,8 +87,8 @@ public final class Static256 {
         }
         @Pc(186) int local186 = arg0.anInt10690;
         @Pc(189) int local189 = arg0.anInt10694;
-        @Pc(206) int local206 = arg0.anIntArray879[arg0.anInt10764 - 1] * 512 + arg0.method9302((byte) 76) * 256;
-        @Pc(222) int local222 = arg0.anIntArray878[arg0.anInt10764 - 1] * 512 + arg0.method9302((byte) 105) * 256;
+        @Pc(206) int local206 = arg0.pathX[arg0.anInt10764 - 1] * 512 + arg0.method9302((byte) 76) * 256;
+        @Pc(222) int local222 = arg0.pathY[arg0.anInt10764 - 1] * 512 + arg0.method9302((byte) 105) * 256;
         if (local186 < local206) {
             if (local189 < local222) {
                 arg0.method9305(10240);

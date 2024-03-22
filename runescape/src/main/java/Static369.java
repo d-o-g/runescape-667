@@ -46,8 +46,8 @@ public final class Static369 {
                     @Pc(98) int local98 = local94 >> 14;
                     @Pc(104) int local104 = local94 >> 7 & 0x3F;
                     @Pc(108) int local108 = local94 & 0x3F;
-                    @Pc(121) int local121 = local104 + (Static89.anIntArray169[local13] >> 8) * 64 - Static691.anInt10367;
-                    @Pc(135) int local135 = (Static89.anIntArray169[local13] & 0xFF) * 64 + local108 - Static116.anInt2270;
+                    @Pc(121) int local121 = local104 + (Static89.anIntArray169[local13] >> 8) * 64 - Static691.areaBaseX;
+                    @Pc(135) int local135 = (Static89.anIntArray169[local13] & 0xFF) * 64 + local108 - Static116.areaBaseY;
                     @Pc(142) NPCType local142 = Static690.aNPCTypeList_2.list(local66.g2());
                     @Pc(149) Node_Sub45 local149 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local88);
                     if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.areaLevel && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapHeight) {
@@ -77,7 +77,7 @@ public final class Static369 {
         @Pc(31) Node_Sub36 local31;
         if (Static400.instance.aClass57_Sub29_1.method7915() == 0) {
             for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-                Static419.aObjTypeList_1.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
+                Static419.aObjTypeList_1.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? Static556.self.aPlayerModel_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
                 local31.unlink();
             }
             InterfaceManager.redrawAll();
@@ -90,7 +90,7 @@ public final class Static369 {
             Fonts.aFont_11 = Static158.aToolkit_5.createFont(FontMetrics.loadGroup(Fonts.p11FullGroup, js5.FONTMETRICS), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
         }
         for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-            Static419.aObjTypeList_1.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aPlayerModel_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.aFont_11, local31.anInt5895);
+            Static419.aObjTypeList_1.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? Static556.self.aPlayerModel_1 : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.aFont_11, local31.anInt5895);
             local31.unlink();
         }
     }

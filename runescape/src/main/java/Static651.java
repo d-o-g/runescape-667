@@ -20,7 +20,7 @@ public final class Static651 {
     public static Interface9[] anInterface9Array1;
 
     @OriginalMember(owner = "client!uja", name = "h", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_235 = new Class225(43, -2);
+    public static final ServerProt A_SERVER_PROT___235 = new ServerProt(43, -2);
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
     public static void method8513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Class8_Sub2_Sub1_Sub2 arg3) {
@@ -184,7 +184,7 @@ public final class Static651 {
         }
         if (arg1.anInt10791 != 0) {
             @Pc(67) String local67 = ModeGame.STELLAR_DAWN == Static392.aModeGame_4 ? LocalisedText.RATING.localise(Static51.language) : LocalisedText.LEVEL.localise(Static51.language);
-            local24 = local24 + Static693.method9009(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444, arg1.anInt10791) + " (" + local67 + arg1.anInt10791 + ")";
+            local24 = local24 + Static693.method9009(Static556.self.anInt1444, arg1.anInt10791) + " (" + local67 + arg1.anInt10791 + ")";
         }
         if (Static156.aBoolean223 && !arg0) {
             @Pc(113) ParamType local113 = Static610.anInt9329 == -1 ? null : Static523.instance.list(Static610.anInt9329);
@@ -239,7 +239,7 @@ public final class Static651 {
         for (@Pc(341) int local341 = 0; local341 < local176.length; local341++) {
             if (local176[local341] != null && (local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(Static51.language)) || local176[local341].equalsIgnoreCase(LocalisedText.EXAMINE.localise(Static51.language)))) {
                 @Pc(372) short local372 = 0;
-                if (arg1.anInt10791 > Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt1444) {
+                if (arg1.anInt10791 > Static556.self.anInt1444) {
                     local372 = 2000;
                 }
                 @Pc(385) short local385 = 0;

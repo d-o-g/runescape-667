@@ -184,7 +184,7 @@ public final class Static363 {
         if (Static377.anInt5930 != -1) {
             Static640.method8435(true);
         }
-        if (ConnectionManager.GAME.connection != null && Static109.method2070(Static283.step)) {
+        if (ConnectionManager.GAME.connection != null && Static109.method2070(MainLogicManager.step)) {
             Static371.method5284();
         }
         for (@Pc(258) int local258 = 0; local258 < 100; local258++) {

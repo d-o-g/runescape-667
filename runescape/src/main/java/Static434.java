@@ -260,7 +260,7 @@ public final class Static434 {
         @Pc(32) int local32 = local8.g2();
         Static165.method2607();
         Static342.method4465(local12);
-        @Pc(46) int local46 = (ConnectionManager.GAME.anInt3648 - local8.pos) / 16;
+        @Pc(46) int local46 = (ConnectionManager.GAME.currentPacketSize - local8.pos) / 16;
         Static22.anIntArrayArray11 = new int[local46][4];
         @Pc(55) int local55;
         for (@Pc(52) int local52 = 0; local52 < local46; local52++) {

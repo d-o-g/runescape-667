@@ -8,13 +8,13 @@ public final class Static468 {
     public static Renderable[] aRenderableArray10;
 
     @OriginalMember(owner = "client!op", name = "r", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_212 = new Class225(77, -2);
+    public static final ServerProt A_SERVER_PROT___212 = new ServerProt(77, -2);
 
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZIII)V")
     public static void method7641(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(8) int local8 = arg2 + Static691.anInt10367;
-        @Pc(12) int local12 = Static116.anInt2270 + arg1;
-        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.animatingBackground.value() == 0 && arg0 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144) {
+        @Pc(8) int local8 = arg2 + Static691.areaBaseX;
+        @Pc(12) int local12 = Static116.areaBaseY + arg1;
+        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || Static400.instance.animatingBackground.value() == 0 && arg0 != Static556.self.aByte144) {
             return;
         }
         @Pc(67) long local67 = (long) (local12 << 14 | arg0 << 28 | local8);

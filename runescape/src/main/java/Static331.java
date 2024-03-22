@@ -17,13 +17,13 @@ public final class Static331 {
     public static js5 aJs5_65;
 
     @OriginalMember(owner = "client!ki", name = "e", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_138 = new Class225(36, 4);
+    public static final ServerProt A_SERVER_PROT___138 = new ServerProt(36, 4);
 
     @OriginalMember(owner = "client!ki", name = "i", descriptor = "I")
     public static int anInt5439 = -1;
 
     @OriginalMember(owner = "client!ki", name = "g", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_139 = new Class225(118, -2);
+    public static final ServerProt A_SERVER_PROT___139 = new ServerProt(118, -2);
 
     @OriginalMember(owner = "client!ki", name = "a", descriptor = "I")
     public static int anInt5441 = -50;

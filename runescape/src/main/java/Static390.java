@@ -12,7 +12,7 @@ public final class Static390 {
     public static final int[] anIntArray476 = new int[]{1, 4, 1, 2, 1};
 
     @OriginalMember(owner = "client!mda", name = "z", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_158 = new Class225(53, -1);
+    public static final ServerProt A_SERVER_PROT___158 = new ServerProt(53, -1);
 
     @OriginalMember(owner = "client!mda", name = "H", descriptor = "I")
     public static int anInt6126 = 0;

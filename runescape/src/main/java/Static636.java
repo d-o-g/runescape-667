@@ -13,7 +13,7 @@ public final class Static636 {
     public static final BASType A_BAS_TYPE___1 = new BASType();
 
     @OriginalMember(owner = "client!uba", name = "c", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_230 = new Class225(93, 6);
+    public static final ServerProt A_SERVER_PROT___230 = new ServerProt(93, 6);
 
     @OriginalMember(owner = "client!uba", name = "e", descriptor = "[I")
     public static final int[] anIntArray742 = new int[]{-1, -1, 1, 1};

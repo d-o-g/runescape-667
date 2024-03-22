@@ -18,7 +18,7 @@ public final class Static647 {
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(B)Z")
     public static boolean method8468() {
-        return Static283.step >= 1;
+        return MainLogicManager.step >= 1;
     }
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(JZII)Ljava/lang/String;")

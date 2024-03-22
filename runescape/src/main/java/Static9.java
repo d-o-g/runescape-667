@@ -15,7 +15,7 @@ public final class Static9 {
     public static int[] anIntArray18 = new int[2];
 
     @OriginalMember(owner = "client!af", name = "n", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_3 = new Class225(98, 6);
+    public static final ServerProt A_SERVER_PROT___3 = new ServerProt(98, 6);
 
     @OriginalMember(owner = "client!af", name = "b", descriptor = "[I")
     public static final int[] anIntArray19 = new int[3];

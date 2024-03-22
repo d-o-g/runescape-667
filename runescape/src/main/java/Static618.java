@@ -17,13 +17,13 @@ public final class Static618 {
     public static int anInt9449;
 
     @OriginalMember(owner = "client!tja", name = "I", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_226 = new Class225(141, 2);
+    public static final ServerProt A_SERVER_PROT___226 = new ServerProt(141, 2);
 
     @OriginalMember(owner = "client!tja", name = "G", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___68 = new Deque();
 
     @OriginalMember(owner = "client!tja", name = "z", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_227 = new Class225(81, 12);
+    public static final ServerProt A_SERVER_PROT___227 = new ServerProt(81, 12);
 
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(III)Z")
     public static boolean method8316(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {

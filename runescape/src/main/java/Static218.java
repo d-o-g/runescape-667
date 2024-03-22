@@ -25,7 +25,7 @@ public final class Static218 {
         Static367.method5268();
         Static59.aString63 = arg0;
         Static449.aString75 = arg1;
-        Static81.method1586(5);
+        MainLogicManager.setStep(5);
     }
 
     @OriginalMember(owner = "client!go", name = "b", descriptor = "(I)V")

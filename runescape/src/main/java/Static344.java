@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static344 {
 
     @OriginalMember(owner = "client!kr", name = "m", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_144 = new Class225(92, 4);
+    public static final ServerProt A_SERVER_PROT___144 = new ServerProt(92, 4);
 
     @OriginalMember(owner = "client!kr", name = "i", descriptor = "I")
     public static int anInt5617 = -50;

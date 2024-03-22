@@ -23,7 +23,7 @@ public final class Static84 {
     public static final Class287 aClass287_6 = new Class287(11, 8);
 
     @OriginalMember(owner = "client!client", name = "tb", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_36 = new Class225(28, 4);
+    public static final ServerProt A_SERVER_PROT___36 = new ServerProt(28, 4);
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "()V")
     public static void method1652() {
@@ -167,7 +167,7 @@ public final class Static84 {
                 local39.method9294();
                 if (local39.aShort131 >= 0 && local39.aShort132 >= 0 && local39.aShort134 < Static720.mapWidth && local39.aShort133 < Static501.mapHeight) {
                     local39.aBoolean129 = local39.aBoolean817 ? local30 : false;
-                    if (local39 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2) {
+                    if (local39 == Static556.self) {
                         local39.drawPriority = Integer.MAX_VALUE;
                     } else {
                         local103 = 0;
@@ -247,7 +247,7 @@ public final class Static84 {
                     }
                 } else if (local292.anInt6363 == 10) {
                     @Pc(333) Class8_Sub2_Sub1_Sub2_Sub1 local333 = Static621.aClass8_Sub2_Sub1_Sub2_Sub1Array3[local292.anInt6366];
-                    if (local333 != null && local333 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2 && local333.drawPriority >= 0) {
+                    if (local333 != null && local333 != Static556.self && local333.drawPriority >= 0) {
                         local333.drawPriority += 2048;
                     }
                 }
@@ -624,9 +624,9 @@ public final class Static84 {
                                             local1191 = (Static433.anInt6262 >> 9) + (local1170 >> 2);
                                             local1199 = (Static249.anInt4018 >> 9) - (local1180 >> 2);
                                         } else {
-                                            @Pc(1208) int local1208 = (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.method9302((byte) 83) - 1) * 256;
-                                            local1191 = (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 - local1208 >> 9) + (local1170 >> 2);
-                                            local1199 = (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 - local1208 >> 9) - (local1180 >> 2);
+                                            @Pc(1208) int local1208 = (Static556.self.method9302((byte) 83) - 1) * 256;
+                                            local1191 = (Static556.self.anInt10690 - local1208 >> 9) + (local1170 >> 2);
+                                            local1199 = (Static556.self.anInt10694 - local1208 >> 9) - (local1180 >> 2);
                                         }
                                         if (Static156.aBoolean223 && (Static717.anInt10822 & 0x40) != 0) {
                                             @Pc(1243) Component local1243 = Static15.method186(Static77.anInt1614, Static450.anInt6819);

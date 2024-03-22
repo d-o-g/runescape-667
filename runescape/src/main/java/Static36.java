@@ -13,7 +13,7 @@ public final class Static36 {
     public static Class260 aClass260_1;
 
     @OriginalMember(owner = "client!bda", name = "D", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_15 = new Class225(70, -2);
+    public static final ServerProt A_SERVER_PROT___15 = new ServerProt(70, -2);
 
     @OriginalMember(owner = "client!bda", name = "a", descriptor = "(IB)V")
     public static void method977(@OriginalArg(0) int arg0, @OriginalArg(1) byte arg1) {

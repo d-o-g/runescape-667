@@ -15,11 +15,11 @@ public final class Static466 {
         if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub2) {
             @Pc(5) Class8_Sub2_Sub1_Sub2_Sub2 local5 = (Class8_Sub2_Sub1_Sub2_Sub2) arg0;
             if (local5.aNPCType_1 != null) {
-                Static651.method8517(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 != local5.aByte144, local5);
+                Static651.method8517(Static556.self.aByte144 != local5.aByte144, local5);
             }
         } else if (arg0 instanceof Class8_Sub2_Sub1_Sub2_Sub1) {
             @Pc(33) Class8_Sub2_Sub1_Sub2_Sub1 local33 = (Class8_Sub2_Sub1_Sub2_Sub1) arg0;
-            Static414.method5696(local33.aByte144 != Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144, local33);
+            Static414.method5696(local33.aByte144 != Static556.self.aByte144, local33);
         }
     }
 
@@ -352,7 +352,7 @@ public final class Static466 {
             }
         }
         local8.method7411();
-        local50 = (ConnectionManager.GAME.anInt3648 - local8.pos) / 16;
+        local50 = (ConnectionManager.GAME.currentPacketSize - local8.pos) / 16;
         Static22.anIntArrayArray11 = new int[local50][4];
         for (local54 = 0; local54 < local50; local54++) {
             for (local61 = 0; local61 < 4; local61++) {

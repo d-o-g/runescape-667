@@ -22,15 +22,15 @@ public final class Static667 {
         Static331.method4925(Static679.aSpriteArray14);
         InterfaceManager.redrawAll();
         Static296.updateFeatureMask();
-        if (Static283.step == 3) {
-            Static81.method1586(4);
-        } else if (Static283.step == 7) {
-            Static81.method1586(8);
-        } else if (Static283.step == 9) {
-            Static81.method1586(10);
-        } else if (Static283.step == 11) {
-            Static81.method1586(12);
-        } else if (Static283.step == 1 || Static283.step == 2) {
+        if (MainLogicManager.step == 3) {
+            MainLogicManager.setStep(4);
+        } else if (MainLogicManager.step == 7) {
+            MainLogicManager.setStep(8);
+        } else if (MainLogicManager.step == 9) {
+            MainLogicManager.setStep(10);
+        } else if (MainLogicManager.step == 11) {
+            MainLogicManager.setStep(12);
+        } else if (MainLogicManager.step == 1 || MainLogicManager.step == 2) {
             Static143.method3572();
         }
     }

@@ -21,9 +21,6 @@ public final class Static12 {
     @OriginalMember(owner = "client!ah", name = "f", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_24 = new Class155(13);
 
-    @OriginalMember(owner = "client!ah", name = "d", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_147 = new Class225(51, 0);
-
     @OriginalMember(owner = "client!ah", name = "a", descriptor = "(Lclient!ge;I)V")
     public static void method5164(@OriginalArg(0) Packet arg0) {
         while (true) {

@@ -52,7 +52,7 @@ public final class Static709 {
             }
         } else if (LoadState.COMPLETE == Static473.aLoadState_22) {
             Static449.aClass364_1 = null;
-            Static81.method1586(3);
+            MainLogicManager.setStep(3);
         } else {
             Static579.aString106 = local27.changedText.localise(Static51.language);
             if (Static473.aLoadState_22.displayPercentage) {
@@ -71,7 +71,7 @@ public final class Static709 {
             return;
         }
         for (@Pc(157) int local157 = Static214.anInt3500 + 1; local157 < Static234.anInterface22Array1.length; local157++) {
-            if (Static234.anInterface22Array1[local157].method8460() >= 100 && Static214.anInt3500 == local157 - 1 && Static283.step >= 1 && Static449.aClass364_1.method8376()) {
+            if (Static234.anInterface22Array1[local157].method8460() >= 100 && Static214.anInt3500 == local157 - 1 && MainLogicManager.step >= 1 && Static449.aClass364_1.method8376()) {
                 try {
                     Static234.anInterface22Array1[local157].method8464();
                 } catch (@Pc(197) Exception local197) {
@@ -96,15 +96,15 @@ public final class Static709 {
         }
         if (ConnectionManager.GAME.errored) {
             ConnectionManager.GAME.errored = false;
-            Static370.method5279();
+            ConnectionManager.disconnect();
             return;
         }
         if (!Static400.aBoolean622) {
             Static79.method1578();
         }
-        for (@Pc(34) int local34 = 0; local34 < 100 && Static236.method3451(ConnectionManager.GAME); local34++) {
+        for (@Pc(34) int local34 = 0; local34 < 100 && Static236.readPacket(ConnectionManager.GAME); local34++) {
         }
-        if (Static283.step != 11) {
+        if (MainLogicManager.step != 11) {
             return;
         }
         @Pc(71) ClientMessage local71;
@@ -286,7 +286,7 @@ public final class Static709 {
             Static552.aFloat207 /= 2.0F;
         }
         Static630.method8358();
-        if (Static283.step != 11) {
+        if (MainLogicManager.step != 11) {
             return;
         }
         Static159.method2575();
@@ -294,7 +294,7 @@ public final class Static709 {
         Static35.method918();
         ConnectionManager.GAME.anInt3646++;
         if (ConnectionManager.GAME.anInt3646 > 750) {
-            Static370.method5279();
+            ConnectionManager.disconnect();
             return;
         }
         if (CutsceneManager.state == 0) {
@@ -305,7 +305,7 @@ public final class Static709 {
                 Static266.method6774();
                 CutsceneManager.state = 2;
             }
-            if (CutsceneManager.state == 2 && Static283.step != 12) {
+            if (CutsceneManager.state == 2 && MainLogicManager.step != 12) {
                 Static25.A_HASH_TABLE___4.clear();
                 Static440.anInt6680 = 0;
                 Static607.anInt9251 = TimeUtils.clock;
@@ -541,13 +541,13 @@ public final class Static709 {
                                                 Static603.method7899();
                                             }
                                             if (Static608.anInt9290 > 0 && Static334.aClass319_1.method8479(82) && Static334.aClass319_1.method8479(81) && Static611.anInt9341 != 0) {
-                                                local541 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 - Static611.anInt9341;
+                                                local541 = Static556.self.aByte144 - Static611.anInt9341;
                                                 if (local541 < 0) {
                                                     local541 = 0;
                                                 } else if (local541 > 3) {
                                                     local541 = 3;
                                                 }
-                                                Static624.method8331(local541, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0] + Static116.anInt2270, Static691.anInt10367 - -Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0]);
+                                                Static624.method8331(local541, Static556.self.pathY[0] + Static116.areaBaseY, Static691.areaBaseX - -Static556.self.pathX[0]);
                                             }
                                             Static320.method4598();
                                             for (local541 = 0; local541 < 5; local541++) {
@@ -638,7 +638,7 @@ public final class Static709 {
                                                 ConnectionManager.GAME.flush();
                                                 return;
                                             } catch (@Pc(2588) IOException local2588) {
-                                                Static370.method5279();
+                                                ConnectionManager.disconnect();
                                                 return;
                                             }
                                         }

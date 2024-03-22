@@ -11,7 +11,7 @@ public final class Static446 {
     public static final Class355 aClass355_5 = new Class355("LIVE", "", "", 0);
 
     @OriginalMember(owner = "client!oaa", name = "n", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_170 = new Class225(87, -2);
+    public static final ServerProt A_SERVER_PROT___170 = new ServerProt(87, -2);
 
     @OriginalMember(owner = "client!oaa", name = "g", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray35 = new String[100];

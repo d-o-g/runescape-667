@@ -7,7 +7,7 @@ public final class Static133 {
     public static float aFloat63;
 
     @OriginalMember(owner = "client!ed", name = "h", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_55 = new Class225(90, 17);
+    public static final ServerProt A_SERVER_PROT___55 = new ServerProt(90, 17);
 
     @OriginalMember(owner = "client!ed", name = "g", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___13 = new Deque();

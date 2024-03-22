@@ -51,8 +51,8 @@ public final class Static276 {
             Static682.anIntArray817[local30] = 1000000;
             Static153.anIntArray235[local30] = 0;
         }
-        @Pc(92) int local92 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690;
-        @Pc(95) int local95 = Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694;
+        @Pc(92) int local92 = Static556.self.anInt10690;
+        @Pc(95) int local95 = Static556.self.anInt10694;
         @Pc(149) int local149;
         if (Static511.anInt7645 != 1 && Static692.anInt10376 == -1) {
             local149 = Static102.method2025(Static394.anInt6176, -29754, Static110.anInt2186, Static170.anInt2864);
@@ -148,7 +148,7 @@ public final class Static276 {
             }
             return;
         }
-        JagException.sendTrace((Throwable) null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + Static691.anInt10367 + "," + Static116.anInt2270);
+        JagException.sendTrace((Throwable) null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + Static691.areaBaseX + "," + Static116.areaBaseY);
         return;
     }
 }

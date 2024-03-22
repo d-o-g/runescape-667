@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static556 {
 
     @OriginalMember(owner = "client!rj", name = "c", descriptor = "Lclient!ca;")
-    public static Class8_Sub2_Sub1_Sub2_Sub1 aClass8_Sub2_Sub1_Sub2_Sub1_2;
+    public static Class8_Sub2_Sub1_Sub2_Sub1 self;
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "Lclient!uc;")
     public static Environment aEnvironment_2;

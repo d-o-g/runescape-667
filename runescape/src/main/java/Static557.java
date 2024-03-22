@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static557 {
 
     @OriginalMember(owner = "client!rja", name = "G", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_205 = new Class225(61, 20);
+    public static final ServerProt A_SERVER_PROT___205 = new ServerProt(61, 20);
 
     @OriginalMember(owner = "client!rja", name = "C", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_37 = new Class155(0);

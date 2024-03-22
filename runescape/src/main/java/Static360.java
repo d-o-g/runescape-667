@@ -80,8 +80,8 @@ public final class Static360 {
 
     @OriginalMember(owner = "client!lg", name = "a", descriptor = "(Lclient!ca;IZBI)V")
     public static void method5232(@OriginalArg(0) Class8_Sub2_Sub1_Sub2_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2) {
-        @Pc(10) int local10 = arg0.anIntArray879[0];
-        @Pc(15) int local15 = arg0.anIntArray878[0];
+        @Pc(10) int local10 = arg0.pathX[0];
+        @Pc(15) int local15 = arg0.pathY[0];
         if (local10 < 0 || local10 >= Static720.mapWidth || local15 < 0 || Static501.mapHeight <= local15 || (arg1 < 0 || arg1 >= Static720.mapWidth || arg2 < 0 || Static501.mapHeight <= arg2)) {
             return;
         }

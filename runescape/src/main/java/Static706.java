@@ -17,7 +17,7 @@ public final class Static706 {
     public static int anInt10633;
 
     @OriginalMember(owner = "client!wfa", name = "Q", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_255 = new Class225(105, -1);
+    public static final ServerProt A_SERVER_PROT___255 = new ServerProt(105, -1);
 
     @OriginalMember(owner = "client!wfa", name = "a", descriptor = "(IILclient!gp;III)V")
     public static void method9220(@OriginalArg(0) int arg0, @OriginalArg(2) LocTypeCustomisation arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
@@ -114,7 +114,7 @@ public final class Static706 {
                 }
             }
         }
-        if (Static390.method5492(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9).equals(local34)) {
+        if (Static390.method5492(Static556.self.aString9).equals(local34)) {
             Static67.method6098(LocalisedText.FRIENDCANTADDSELF.localise(Static51.language));
             return;
         }

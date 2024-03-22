@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static533 {
 
     @OriginalMember(owner = "client!qp", name = "d", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_196 = new Class225(114, 4);
+    public static final ServerProt A_SERVER_PROT___196 = new ServerProt(114, 4);
 
     @OriginalMember(owner = "client!qp", name = "f", descriptor = "[I")
     public static final int[] anIntArray628 = new int[1000];

@@ -17,11 +17,6 @@ public final class Static620 {
     @OriginalMember(owner = "client!tka", name = "e", descriptor = "Lclient!pba;")
     public static Class286 aClass286_3;
 
-    @OriginalMember(owner = "client!tka", name = "a", descriptor = "(BI)Z")
-    public static boolean method8321(@OriginalArg(1) int arg0) {
-        return arg0 == 7 || arg0 == 8 || arg0 == 9 || arg0 == 10;
-    }
-
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "(IIILclient!aa;Lclient!ha;IIILclient!hda;)V")
     public static void method8322(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) ClippingMask arg2, @OriginalArg(4) Toolkit arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Component arg7) {
         @Pc(10) Class105 local10 = Static577.aClass246_4.method5584(arg4);

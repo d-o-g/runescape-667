@@ -1,4 +1,3 @@
-import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -14,7 +13,7 @@ public final class Static233 {
     public static final int[][] anIntArrayArray90 = new int[][]{{0, 2, 4, 6}, {6, 0, 2, 3, 5, 3}, {6, 0, 2, 4}, {2, 5, 6, 1}, {0, 2, 6}, {6, 0, 2}, {5, 6, 0, 1, 2, 4}, {7, 7, 1, 2, 4, 6}, {2, 4, 4, 7}, {6, 6, 4, 0, 1, 1, 3, 3}, {0, 2, 2, 6, 6, 4}, {0, 2, 2, 3, 7, 0, 4, 3}, {0, 2, 4, 6}};
 
     @OriginalMember(owner = "client!he", name = "g", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_104 = new Class225(115, 8);
+    public static final ServerProt A_SERVER_PROT___104 = new ServerProt(115, 8);
 
     @OriginalMember(owner = "client!he", name = "a", descriptor = "(IIIIIII)V")
     public static void method3407(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3) {
@@ -34,37 +33,4 @@ public final class Static233 {
         }
     }
 
-    @OriginalMember(owner = "client!he", name = "a", descriptor = "(IZ)V")
-    public static void method3409(@OriginalArg(1) boolean arg0) {
-        @Pc(12) ServerConnection[] local12 = Static405.A_SERVER_CONNECTION_ARRAY_1;
-        for (@Pc(14) int local14 = 0; local14 < local12.length; local14++) {
-            @Pc(19) ServerConnection local19 = local12[local14];
-            local19.close();
-        }
-        Static707.method9227();
-        Static352.method5180();
-        Static563.method7461();
-        for (@Pc(36) int local36 = 0; local36 < 4; local36++) {
-            Static577.A_COLLISION_MAP_ARRAY_1[local36].method2467();
-        }
-        Static668.method8700(false);
-        System.gc();
-        Static312.method4541();
-        Static588.anInt8692 = -1;
-        Static501.aBoolean575 = false;
-        Static550.method7266();
-        Static609.method8213(true);
-        Static300.method4393();
-        Static723.method9450();
-        Static187.method2842();
-        if (arg0) {
-            Static81.method1586(13);
-            return;
-        }
-        Static81.method1586(3);
-        try {
-            JavaScript.call("loggedout", GameShell.loaderApplet);
-        } catch (@Pc(86) Throwable local86) {
-        }
-    }
 }

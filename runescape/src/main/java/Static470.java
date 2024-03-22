@@ -102,7 +102,7 @@ public final class Static470 {
 
     @OriginalMember(owner = "client!or", name = "a", descriptor = "(Z)Z")
     public static boolean method6387() {
-        if (Static283.step == 3) {
+        if (MainLogicManager.step == 3) {
             return Static135.anInt8223 == 0 && Static6.anInt95 == 0;
         } else {
             return false;

@@ -12,10 +12,10 @@ public final class Static266 {
     public static int[] anIntArray615;
 
     @OriginalMember(owner = "client!ifa", name = "g", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_191 = new Class225(138, -1);
+    public static final ServerProt A_SERVER_PROT___191 = new ServerProt(138, -1);
 
     @OriginalMember(owner = "client!ifa", name = "i", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_192 = new Class225(109, 10);
+    public static final ServerProt A_SERVER_PROT___192 = new ServerProt(109, 10);
 
     @OriginalMember(owner = "client!ifa", name = "h", descriptor = "Z")
     public static boolean aBoolean583 = true;

@@ -10,7 +10,7 @@ public final class Static297 {
     public static final Class345 aClass345_59 = new Class345(9, 3);
 
     @OriginalMember(owner = "client!jha", name = "g", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_125 = new Class225(66, 10);
+    public static final ServerProt A_SERVER_PROT___125 = new ServerProt(66, 10);
 
     @OriginalMember(owner = "client!jha", name = "k", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray24 = new String[8];

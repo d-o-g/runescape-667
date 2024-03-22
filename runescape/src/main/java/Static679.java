@@ -28,7 +28,7 @@ public final class Static679 {
     public static final Class92 aClass92_15 = new Class92(1);
 
     @OriginalMember(owner = "client!vj", name = "l", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_247 = new Class225(63, 5);
+    public static final ServerProt A_SERVER_PROT___247 = new ServerProt(63, 5);
 
     @OriginalMember(owner = "client!vj", name = "a", descriptor = "(Z)I")
     public static int method8909() {

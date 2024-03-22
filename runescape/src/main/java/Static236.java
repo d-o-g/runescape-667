@@ -30,24 +30,24 @@ public final class Static236 {
     }
 
     @OriginalMember(owner = "client!hfa", name = "a", descriptor = "(Lclient!gw;I)Z")
-    public static boolean method3451(@OriginalArg(0) ServerConnection arg0) {
+    public static boolean readPacket(@OriginalArg(0) ServerConnection connection) {
         try {
-            return Static293.method4334(arg0);
+            return Protocol.readServerMessage(connection);
         } catch (@Pc(15) IOException local15) {
-            if (Static283.step == 9) {
-                arg0.connection = null;
+            if (MainLogicManager.step == 9) {
+                connection.connection = null;
                 return false;
             } else {
-                Static370.method5279();
+                ConnectionManager.disconnect();
                 return true;
             }
         } catch (@Pc(29) Exception local29) {
-            @Pc(106) String local106 = "T2 - " + (arg0.aClass225_93 == null ? -1 : arg0.aClass225_93.method5239()) + "," + (arg0.aClass225_94 == null ? -1 : arg0.aClass225_94.method5239()) + "," + (arg0.aClass225_91 == null ? -1 : arg0.aClass225_91.method5239()) + " - " + arg0.anInt3648 + "," + (Static691.anInt10367 + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0]) + "," + (Static116.anInt2270 + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0]) + " - ";
-            for (@Pc(108) int local108 = 0; arg0.anInt3648 > local108 && local108 < 50; local108++) {
-                local106 = local106 + arg0.buffer.data[local108] + ",";
+            @Pc(106) String local106 = "T2 - " + (connection.currentProt == null ? -1 : connection.currentProt.getOpcode()) + "," + (connection.penultimateProt == null ? -1 : connection.penultimateProt.getOpcode()) + "," + (connection.antepenultimateProt == null ? -1 : connection.antepenultimateProt.getOpcode()) + " - " + connection.currentPacketSize + "," + (Static691.areaBaseX + Static556.self.pathX[0]) + "," + (Static116.areaBaseY + Static556.self.pathY[0]) + " - ";
+            for (@Pc(108) int local108 = 0; connection.currentPacketSize > local108 && local108 < 50; local108++) {
+                local106 = local106 + connection.buffer.data[local108] + ",";
             }
             JagException.sendTrace(local29, local106);
-            Static233.method3409(false);
+            Login.logout(false);
             return true;
         }
     }

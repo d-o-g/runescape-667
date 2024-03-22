@@ -24,8 +24,8 @@ public final class Static610 {
             @Pc(175) int local175;
             if (local33 == 1) {
                 local165 = arg1.method7412(3);
-                local170 = local37.anIntArray879[0];
-                local175 = local37.anIntArray878[0];
+                local170 = local37.pathX[0];
+                local175 = local37.pathY[0];
                 if (local165 == 0) {
                     local175--;
                     local170--;
@@ -56,8 +56,8 @@ public final class Static610 {
                 }
             } else if (local33 == 2) {
                 local165 = arg1.method7412(4);
-                local170 = local37.anIntArray879[0];
-                local175 = local37.anIntArray878[0];
+                local170 = local37.pathX[0];
+                local175 = local37.pathY[0];
                 if (local165 == 0) {
                     local170 -= 2;
                     local175 -= 2;
@@ -127,8 +127,8 @@ public final class Static610 {
                     if (local551 > 15) {
                         local551 -= 32;
                     }
-                    local566 = local37.anIntArray879[0] + local539;
-                    local573 = local551 + local37.anIntArray878[0];
+                    local566 = local37.pathX[0] + local539;
+                    local573 = local551 + local37.pathY[0];
                     if (local16) {
                         local37.anInt1441 = local566;
                         local37.aBoolean127 = true;
@@ -151,8 +151,8 @@ public final class Static610 {
                     local175 = local170 >> 28;
                     local539 = local170 >> 14 & 0x3FFF;
                     local551 = local170 & 0x3FFF;
-                    local566 = (local37.anIntArray879[0] + Static691.anInt10367 + local539 & 0x3FFF) - Static691.anInt10367;
-                    local573 = (local551 + local37.anIntArray878[0] + Static116.anInt2270 & 0x3FFF) - Static116.anInt2270;
+                    local566 = (local37.pathX[0] + Static691.areaBaseX + local539 & 0x3FFF) - Static691.areaBaseX;
+                    local573 = (local551 + local37.pathY[0] + Static116.areaBaseY & 0x3FFF) - Static116.areaBaseY;
                     if (local16) {
                         local37.aBoolean127 = true;
                         local37.anInt1448 = local573;
@@ -175,7 +175,7 @@ public final class Static610 {
             throw new RuntimeException("s:lr");
         } else {
             @Pc(70) Class350 local70 = Static246.aClass350Array1[arg0] = new Class350();
-            local70.anInt9324 = (local37.aByte144 << 28) + ((Static691.anInt10367 + local37.anIntArray879[0] >> 6 << 14) + (Static116.anInt2270 + local37.anIntArray878[0] >> 6));
+            local70.anInt9324 = (local37.aByte144 << 28) + ((Static691.areaBaseX + local37.pathX[0] >> 6 << 14) + (Static116.areaBaseY + local37.pathY[0] >> 6));
             if (local37.anInt1467 == -1) {
                 local70.anInt9326 = local37.aClass126_7.method2673(16383);
             } else {

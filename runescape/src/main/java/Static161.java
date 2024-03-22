@@ -14,7 +14,7 @@ public final class Static161 {
     public static long[][][] aLongArrayArrayArray1;
 
     @OriginalMember(owner = "client!fa", name = "n", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_62 = new Class225(22, 10);
+    public static final ServerProt A_SERVER_PROT___62 = new ServerProt(22, 10);
 
     @OriginalMember(owner = "client!fa", name = "q", descriptor = "Lclient!ss;")
     public static final Class345 aClass345_29 = new Class345(33, 0);
@@ -163,7 +163,7 @@ public final class Static161 {
             if (local574.charAt(0) == '~') {
                 local574 = local574.substring(1);
                 Static44.method1072(local574, arg0.method1424(false), 0, arg0.aString8, arg0.method1422(), 2);
-            } else if (arg0 == Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2) {
+            } else if (arg0 == Static556.self) {
                 Static44.method1072(local574, arg0.method1424(false), 0, arg0.aString8, arg0.method1422(), 2);
             }
             arg0.method1413(0, 0, local574);
@@ -196,11 +196,11 @@ public final class Static161 {
                 arg0.anInt10753 += arg0.anInt1448;
                 arg0.anInt10761 += arg0.anInt1441;
             } else {
-                arg0.anInt10761 += arg0.anIntArray879[0];
+                arg0.anInt10761 += arg0.pathX[0];
                 arg0.anInt10764 = 1;
-                arg0.anInt10758 += arg0.anIntArray878[0];
-                arg0.anInt10753 += arg0.anIntArray878[0];
-                arg0.anInt10750 += arg0.anIntArray879[0];
+                arg0.anInt10758 += arg0.pathY[0];
+                arg0.anInt10753 += arg0.pathY[0];
+                arg0.anInt10750 += arg0.pathX[0];
             }
             arg0.anInt10762 = 0;
         }
@@ -268,7 +268,7 @@ public final class Static161 {
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(I)V")
     public static void method2588() {
         @Pc(8) PacketBuffer local8 = ConnectionManager.GAME.buffer;
-        while (local8.method7420(ConnectionManager.GAME.anInt3648) >= 15) {
+        while (local8.method7420(ConnectionManager.GAME.currentPacketSize) >= 15) {
             @Pc(22) int local22 = local8.method7412(15);
             if (local22 == 32767) {
                 break;
@@ -311,9 +311,9 @@ public final class Static161 {
             if (local29) {
                 local42.method9298(local108, true);
             }
-            local42.method9326(local170 == 1, local131 + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray878[0], local159 + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anIntArray879[0], local144, local42.method9302((byte) 91));
+            local42.method9326(local170 == 1, local131 + Static556.self.pathY[0], local159 + Static556.self.pathX[0], local144, local42.method9302((byte) 91));
             if (local42.aNPCType_1.hasSounds()) {
-                Static89.method1714(local42.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local42.anIntArray879[0], local42.anIntArray878[0], local42, (LocType) null, 0);
+                Static89.method1714(local42.aByte144, (Class8_Sub2_Sub1_Sub2_Sub1) null, local42.pathX[0], local42.pathY[0], local42, (LocType) null, 0);
             }
         }
         local8.method7411();

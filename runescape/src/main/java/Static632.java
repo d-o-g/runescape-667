@@ -22,7 +22,7 @@ public final class Static632 {
     public static final float[] aFloatArray70 = new float[4];
 
     @OriginalMember(owner = "client!u", name = "p", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_229 = new Class225(89, -1);
+    public static final ServerProt A_SERVER_PROT___229 = new ServerProt(89, -1);
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(Lclient!ge;I)Lclient!is;")
     public static Class138 method8359(@OriginalArg(0) Packet arg0) {
@@ -88,7 +88,7 @@ public final class Static632 {
         if (local187 > 0 && local172 > 0) {
             local182 = (local172 - local187) * local33 / local172;
         }
-        Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.method9302((byte) 71);
+        Static556.self.method9302((byte) 71);
         @Pc(214) int local214 = 8192;
         @Pc(225) int local225 = (arg1.anInt9362 + arg1.anInt9357) / 2 - arg3;
         @Pc(236) int local236 = (arg1.anInt9349 + arg1.anInt9352) / 2 - arg4;

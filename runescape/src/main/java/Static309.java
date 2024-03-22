@@ -6,5 +6,5 @@ public final class Static309 {
     public static double aDouble16;
 
     @OriginalMember(owner = "client!jq", name = "b", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_130 = new Class225(56, 28);
+    public static final ServerProt A_SERVER_PROT___130 = new ServerProt(56, 28);
 }

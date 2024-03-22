@@ -13,9 +13,9 @@ public final class Static674 {
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(II)V")
     public static void method8789(@OriginalArg(0) int arg0) {
-        if (Static283.step == 7 && (Static135.anInt8223 == 0 && Static6.anInt95 == 0)) {
+        if (MainLogicManager.step == 7 && (Static135.anInt8223 == 0 && Static6.anInt95 == 0)) {
             Static470.anInt7113 = arg0;
-            Static81.method1586(9);
+            MainLogicManager.setStep(9);
         }
     }
 

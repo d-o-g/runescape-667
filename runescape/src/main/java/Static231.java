@@ -48,7 +48,7 @@ public final class Static231 {
     public static final Class345 aClass345_41 = new Class345(34, 4);
 
     @OriginalMember(owner = "client!hd", name = "m", descriptor = "Lclient!lga;")
-    public static final Class225 aClass225_102 = new Class225(34, 6);
+    public static final ServerProt A_SERVER_PROT___102 = new ServerProt(34, 6);
 
     @OriginalMember(owner = "client!hd", name = "b", descriptor = "(I)V")
     public static void method3375() {
@@ -157,8 +157,8 @@ public final class Static231 {
                     }
                     if (!arg2.equals("heap")) {
                         if (arg2.equalsIgnoreCase("getcamerapos")) {
-                            Static79.method1579("Pos: " + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 + "," + ((Static170.anInt2864 >> 9) + Static691.anInt10367 >> 6) + "," + ((Static110.anInt2186 >> 9) + Static116.anInt2270 >> 6) + "," + ((Static170.anInt2864 >> 9) + Static691.anInt10367 & 0x3F) + "," + ((Static110.anInt2186 >> 9) + Static116.anInt2270 & 0x3F) + " Height: " + (Static102.method2025(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144, -29754, Static110.anInt2186, Static170.anInt2864) - Static359.anInt5801));
-                            Static79.method1579("Look: " + Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144 + "," + (Static441.anInt6689 + Static691.anInt10367 >> 6) + "," + (Static116.anInt2270 + Static12.anInt5741 >> 6) + "," + (Static691.anInt10367 + Static441.anInt6689 & 0x3F) + "," + (Static116.anInt2270 + Static12.anInt5741 & 0x3F) + " Height: " + (Static102.method2025(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144, -29754, Static12.anInt5741, Static441.anInt6689) - Static55.anInt1125));
+                            Static79.method1579("Pos: " + Static556.self.aByte144 + "," + ((Static170.anInt2864 >> 9) + Static691.areaBaseX >> 6) + "," + ((Static110.anInt2186 >> 9) + Static116.areaBaseY >> 6) + "," + ((Static170.anInt2864 >> 9) + Static691.areaBaseX & 0x3F) + "," + ((Static110.anInt2186 >> 9) + Static116.areaBaseY & 0x3F) + " Height: " + (Static102.method2025(Static556.self.aByte144, -29754, Static110.anInt2186, Static170.anInt2864) - Static359.anInt5801));
+                            Static79.method1579("Look: " + Static556.self.aByte144 + "," + (Static441.anInt6689 + Static691.areaBaseX >> 6) + "," + (Static116.areaBaseY + Static12.anInt5741 >> 6) + "," + (Static691.areaBaseX + Static441.anInt6689 & 0x3F) + "," + (Static116.areaBaseY + Static12.anInt5741 & 0x3F) + " Height: " + (Static102.method2025(Static556.self.aByte144, -29754, Static12.anInt5741, Static441.anInt6689) - Static55.anInt1125));
                             return;
                         }
                         break label721;
@@ -259,9 +259,9 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("clientdrop")) {
                     Static79.method1579("Dropped client connection");
-                    if (Static283.step == 11) {
-                        Static370.method5279();
-                    } else if (Static283.step == 12) {
+                    if (MainLogicManager.step == 11) {
+                        ConnectionManager.disconnect();
+                    } else if (MainLogicManager.step == 12) {
                         ConnectionManager.GAME.errored = true;
                         return;
                     }
@@ -466,11 +466,11 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("getcgcoord")) {
-                    Static79.method1579("x:" + (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9) + " z:" + (Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9));
+                    Static79.method1579("x:" + (Static556.self.anInt10690 >> 9) + " z:" + (Static556.self.anInt10694 >> 9));
                     return;
                 }
                 if (arg2.equalsIgnoreCase("getheight")) {
-                    Static79.method1579("Height: " + Static246.activeGround[Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aByte144].getHeight(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10694 >> 9, Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.anInt10690 >> 9));
+                    Static79.method1579("Height: " + Static246.activeGround[Static556.self.aByte144].getHeight(Static556.self.anInt10694 >> 9, Static556.self.anInt10690 >> 9));
                     return;
                 }
                 if (arg2.equalsIgnoreCase("resetminimap")) {
@@ -802,7 +802,7 @@ public final class Static231 {
                     Static79.method1579("cs2debug:" + Static472.aBoolean538);
                     return;
                 }
-                if (Static283.step == 11) {
+                if (MainLogicManager.step == 11) {
                     @Pc(2836) ClientMessage local2836 = Static293.method4335(Static459.aClass345_87, ConnectionManager.GAME.cipher);
                     local2836.buffer.p1(arg2.length() + 3);
                     local2836.buffer.p1(arg0 ? 1 : 0);
@@ -819,7 +819,7 @@ public final class Static231 {
                 return;
             }
         }
-        if (Static283.step != 11) {
+        if (MainLogicManager.step != 11) {
             Static79.method1579(LocalisedText.DEBUG_CONSOLE_UNKNOWNCOMMAND.localise(Static51.language) + arg2);
         }
     }
@@ -866,7 +866,7 @@ public final class Static231 {
                 }
             }
         }
-        if (Static390.method5492(Static556.aClass8_Sub2_Sub1_Sub2_Sub1_2.aString9).equals(local27)) {
+        if (Static390.method5492(Static556.self.aString9).equals(local27)) {
             Static67.method6098(LocalisedText.IGNORECANTADDSELF.localise(Static51.language));
             return;
         }

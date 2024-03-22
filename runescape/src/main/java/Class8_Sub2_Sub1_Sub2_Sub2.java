@@ -298,8 +298,8 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IIB)V")
     public void method9325(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(10) int local10 = super.anIntArray879[0];
-        @Pc(20) int local20 = super.anIntArray878[0];
+        @Pc(10) int local10 = super.pathX[0];
+        @Pc(20) int local20 = super.pathY[0];
         if (arg1 == 0) {
             local20++;
         }
@@ -341,16 +341,16 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
                 }
             }
         }
-        if (super.anInt10764 < super.anIntArray879.length - 1) {
+        if (super.anInt10764 < super.pathX.length - 1) {
             super.anInt10764++;
         }
         for (@Pc(201) int local201 = super.anInt10764; local201 > 0; local201--) {
-            super.anIntArray879[local201] = super.anIntArray879[local201 - 1];
-            super.anIntArray878[local201] = super.anIntArray878[local201 - 1];
+            super.pathX[local201] = super.pathX[local201 - 1];
+            super.pathY[local201] = super.pathY[local201 - 1];
             super.aByteArray111[local201] = super.aByteArray111[local201 - 1];
         }
-        super.anIntArray879[0] = local10;
-        super.anIntArray878[0] = local20;
+        super.pathX[0] = local10;
+        super.pathY[0] = local20;
         super.aByteArray111[0] = (byte) arg0;
     }
 
@@ -374,30 +374,30 @@ public final class Class8_Sub2_Sub1_Sub2_Sub2 extends Class8_Sub2_Sub1_Sub2 {
             }
         }
         if (!arg0) {
-            @Pc(134) int local134 = arg2 - super.anIntArray879[0];
-            @Pc(142) int local142 = arg1 - super.anIntArray878[0];
+            @Pc(134) int local134 = arg2 - super.pathX[0];
+            @Pc(142) int local142 = arg1 - super.pathY[0];
             if (local134 >= -8 && local134 <= 8 && local142 >= -8 && local142 <= 8) {
-                if (super.anIntArray879.length - 1 > super.anInt10764) {
+                if (super.pathX.length - 1 > super.anInt10764) {
                     super.anInt10764++;
                 }
                 for (@Pc(183) int local183 = super.anInt10764; local183 > 0; local183--) {
-                    super.anIntArray879[local183] = super.anIntArray879[local183 - 1];
-                    super.anIntArray878[local183] = super.anIntArray878[local183 - 1];
+                    super.pathX[local183] = super.pathX[local183 - 1];
+                    super.pathY[local183] = super.pathY[local183 - 1];
                     super.aByteArray111[local183] = super.aByteArray111[local183 - 1];
                 }
-                super.anIntArray879[0] = arg2;
+                super.pathX[0] = arg2;
                 super.aByteArray111[0] = 1;
-                super.anIntArray878[0] = arg1;
+                super.pathY[0] = arg1;
                 return;
             }
         }
         super.anInt10764 = 0;
         super.anInt10763 = 0;
-        super.anIntArray879[0] = arg2;
+        super.pathX[0] = arg2;
         super.anInt10762 = 0;
-        super.anIntArray878[0] = arg1;
-        super.anInt10690 = (arg4 << 8) + (super.anIntArray879[0] << 9);
-        super.anInt10694 = (super.anIntArray878[0] << 9) + (arg4 << 8);
+        super.pathY[0] = arg1;
+        super.anInt10690 = (arg4 << 8) + (super.pathX[0] << 9);
+        super.anInt10694 = (super.pathY[0] << 9) + (arg4 << 8);
         if (super.aClass8_Sub5_8 != null) {
             super.aClass8_Sub5_8.method3656();
         }

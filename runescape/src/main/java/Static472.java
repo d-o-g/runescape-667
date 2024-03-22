@@ -1,5 +1,6 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
+import com.jagex.game.DelayedStateChange;
 import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.IterableHashTable;
@@ -410,7 +411,7 @@ public final class Static472 {
                         }
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
-                            Static435.method5862(component.slot);
+                            DelayedStateChange.interfaceResetScrollPosition(component.slot);
                         }
                         return;
                     }
@@ -418,7 +419,7 @@ public final class Static472 {
                         component.colour = anIntArray578[--anInt7142];
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
-                            Static633.method9425(component.slot);
+                            DelayedStateChange.interfaceResetColour(component.slot);
                         }
                         return;
                     }
@@ -444,7 +445,7 @@ public final class Static472 {
                             InterfaceManager.redraw(component);
                         }
                         if (component.id == -1) {
-                            Static236.method3450(component.slot);
+                            DelayedStateChange.interfaceResetGraphic(component.slot);
                         }
                         return;
                     }
@@ -463,7 +464,7 @@ public final class Static472 {
                         component.obj = anIntArray578[--anInt7142];
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
-                            Static96.method8819(component.slot);
+                            DelayedStateChange.interfaceResetModel(component.slot);
                         }
                         return;
                     }
@@ -477,8 +478,8 @@ public final class Static472 {
                         component.modelZoom = anIntArray578[anInt7142 + 5];
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
-                            Static77.method1558(component.slot);
-                            Static580.method7651(component.slot);
+                            DelayedStateChange.interfaceResetModelAngle(component.slot);
+                            DelayedStateChange.interfaceResetModelOffset(component.slot);
                         }
                         return;
                     }
@@ -497,7 +498,7 @@ public final class Static472 {
                             InterfaceManager.redraw(component);
                         }
                         if (component.id == -1) {
-                            Static62.method1423(component.slot);
+                            DelayedStateChange.interfaceResetModelAnim(component.slot);
                         }
                         return;
                     }
@@ -513,7 +514,7 @@ public final class Static472 {
                             InterfaceManager.redraw(component);
                         }
                         if (component.id == -1) {
-                            Static611.method8227(component.slot);
+                            DelayedStateChange.interfaceResetText(component.slot);
                         }
                         return;
                     }
@@ -521,7 +522,7 @@ public final class Static472 {
                         component.fontGraphic = anIntArray578[--anInt7142];
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
-                            Static273.method3959(component.slot);
+                            DelayedStateChange.interfaceResetTextFont(component.slot);
                         }
                         return;
                     }
@@ -577,7 +578,7 @@ public final class Static472 {
                         component.modelZoom = anIntArray578[--anInt7142];
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
-                            Static77.method1558(component.slot);
+                            DelayedStateChange.interfaceResetModelAngle(component.slot);
                         }
                         return;
                     }
@@ -631,7 +632,7 @@ public final class Static472 {
                                 InterfaceManager.redraw(component);
                             }
                             if (component.id == -1) {
-                                Static80.method1583(component.slot);
+                                DelayedStateChange.interfaceResetVideo(component.slot);
                             }
                             return;
                         }
@@ -648,7 +649,7 @@ public final class Static472 {
                             component.setRecol(local1899, local21, local1892);
                             InterfaceManager.redraw(component);
                             if (component.id == -1) {
-                                Static321.method4619(component.slot, local21);
+                                DelayedStateChange.interfaceResetRecol(component.slot, local21);
                             }
                             return;
                         }
@@ -663,7 +664,7 @@ public final class Static472 {
                             component.setRetex(local1892, local21, local1899);
                             InterfaceManager.redraw(component);
                             if (component.id == -1) {
-                                Static693.method9013(component.slot, local21);
+                                DelayedStateChange.interfaceResetRetex(component.slot, local21);
                             }
                             return;
                         }
@@ -673,7 +674,7 @@ public final class Static472 {
                         component.fontMonospaced = anIntArray578[--anInt7142] == 1;
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
-                            Static682.method8926(component.slot);
+                            DelayedStateChange.interfaceResetFontMono(component.slot);
                         }
                         return;
                     }
@@ -693,7 +694,7 @@ public final class Static472 {
                         component.clickMask = anIntArray578[--anInt7142] == 1;
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
-                            Static71.method1523(component.slot);
+                            DelayedStateChange.interfaceResetClickmask(component.slot);
                         }
                         return;
                     }
@@ -710,9 +711,9 @@ public final class Static472 {
                         local21 = anIntArray578[anInt7142];
                         local27 = anIntArray578[anInt7142 + 1];
                         if (component.id == -1) {
-                            Static329.method1631(component.slot);
-                            Static77.method1558(component.slot);
-                            Static580.method7651(component.slot);
+                            DelayedStateChange.interfaceResetObject(component.slot);
+                            DelayedStateChange.interfaceResetModelAngle(component.slot);
+                            DelayedStateChange.interfaceResetModelOffset(component.slot);
                         }
                         if (local21 == -1) {
                             component.objType = 1;
@@ -754,7 +755,7 @@ public final class Static472 {
                         component.objType = 2;
                         component.obj = anIntArray578[--anInt7142];
                         if (component.id == -1) {
-                            Static96.method8819(component.slot);
+                            DelayedStateChange.interfaceResetModel(component.slot);
                         }
                         return;
                     }
@@ -762,7 +763,7 @@ public final class Static472 {
                         component.objType = 3;
                         component.obj = -1;
                         if (component.id == -1) {
-                            Static96.method8819(component.slot);
+                            DelayedStateChange.interfaceResetModel(component.slot);
                         }
                         return;
                     }
@@ -770,7 +771,7 @@ public final class Static472 {
                         component.objType = 6;
                         component.obj = anIntArray578[--anInt7142];
                         if (component.id == -1) {
-                            Static96.method8819(component.slot);
+                            DelayedStateChange.interfaceResetModel(component.slot);
                         }
                         return;
                     }
@@ -778,7 +779,7 @@ public final class Static472 {
                         component.objType = 5;
                         component.obj = anIntArray578[--anInt7142];
                         if (component.id == -1) {
-                            Static96.method8819(component.slot);
+                            DelayedStateChange.interfaceResetModel(component.slot);
                         }
                         return;
                     }
@@ -813,7 +814,7 @@ public final class Static472 {
                             component.objWearCol = false;
                         }
                         if (component.id == -1) {
-                            Static96.method8819(component.slot);
+                            DelayedStateChange.interfaceResetModel(component.slot);
                         }
                         return;
                     }
@@ -822,7 +823,7 @@ public final class Static472 {
                         component.obj = PlayerList.activePlayerSlot;
                         component.objData = 0;
                         if (component.id == -1) {
-                            Static96.method8819(component.slot);
+                            DelayedStateChange.interfaceResetModel(component.slot);
                         }
                         return;
                     }
@@ -3110,7 +3111,7 @@ public final class Static472 {
                     InterfaceManager.redraw(component);
                     Static44.method1073(component);
                     if (component.id == -1) {
-                        Static415.method5698(component.slot);
+                        DelayedStateChange.interfaceResetPosition(component.slot);
                     }
                     return;
                 }
@@ -3148,7 +3149,7 @@ public final class Static472 {
                         InterfaceManager.redraw(component);
                     }
                     if (component.id == -1) {
-                        Static550.method7265(component.slot);
+                        DelayedStateChange.interfaceResetHide(component.slot);
                     }
                     return;
                 }
@@ -3386,7 +3387,7 @@ public final class Static472 {
                         } else if (local34 == 43) {
                             local96 = local11[local5];
                             Static511.anIntArray614[local96] = anIntArray578[--anInt7142];
-                            Static135.method7239(local96);
+                            DelayedStateChange.resetVarc(local96);
                             Static624.aBoolean727 |= Static118.aBooleanArray4[local96];
                         } else if (local34 == 44) {
                             local96 = local11[local5] >> 16;
@@ -3432,7 +3433,7 @@ public final class Static472 {
                         } else if (local34 == 48) {
                             local96 = local11[local5];
                             Static37.aStringArray4[local96] = aStringArray37[--anInt7139];
-                            Static85.method9262(local96);
+                            DelayedStateChange.resetVarcstr(local96);
                         } else if (local34 == 51) {
                             @Pc(889) IterableHashTable local889 = arg0.aIterableHashTableArray1[local11[local5]];
                             @Pc(902) IntNode local902 = (IntNode) local889.get((long) anIntArray578[--anInt7142]);

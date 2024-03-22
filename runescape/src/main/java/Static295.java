@@ -1,16 +1,8 @@
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static295 {
-
-    @OriginalMember(owner = "client!jga", name = "a", descriptor = "(III)V")
-    public static void method4347(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(14) DoublyLinkedNode_Sub2__ local14 = Static440.method5963(13, (long) arg0);
-        local14.method202();
-        local14.primaryData = arg1;
-    }
 
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(IIIBILclient!qha;)Lclient!gb;")
     public static Class93_Sub2_Sub1 method4353(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Toolkit_Sub3 arg4) {

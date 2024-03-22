@@ -36,13 +36,6 @@ public final class Static540 {
         }
     }
 
-    @OriginalMember(owner = "client!r", name = "a", descriptor = "(IBI)V")
-    public static void method6537(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(16) DoublyLinkedNode_Sub2__ local16 = Static440.method5963(1, (long) arg1);
-        local16.method202();
-        local16.primaryData = arg0;
-    }
-
     @OriginalMember(owner = "client!r", name = "a", descriptor = "(Ljava/lang/String;BILjava/lang/String;)I")
     public static int method6538(@OriginalArg(0) String arg0, @OriginalArg(2) int arg1, @OriginalArg(3) String arg2) {
         @Pc(6) int local6 = arg2.length();

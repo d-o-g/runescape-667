@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
@@ -354,18 +355,11 @@ public final class Static147 {
             Minimap.flagX = Static70.anIntArray147[local98 - 1];
             Minimap.flagY = Static480.anIntArray583[local98 - 1];
             Static266.aBoolean583 = false;
-            Static444.resetMapFLag();
+            DelayedStateChange.resetMapFlag();
             return true;
         } else {
             return false;
         }
-    }
-
-    @OriginalMember(owner = "client!eka", name = "a", descriptor = "(IIB)V")
-    public static void method2420(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(9) DoublyLinkedNode_Sub2__ local9 = Static440.method5963(5, (long) arg0);
-        local9.method202();
-        local9.primaryData = arg1;
     }
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(JILclient!ha;)V")

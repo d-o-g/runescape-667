@@ -43,10 +43,4 @@ public final class Static394 {
         return -1.0F;
     }
 
-    @OriginalMember(owner = "client!mh", name = "a", descriptor = "(ZILjava/lang/String;)V")
-    public static void method5544(@OriginalArg(1) int arg0, @OriginalArg(2) String arg1) {
-        @Pc(9) DoublyLinkedNode_Sub2__ local9 = Static440.method5963(2, (long) arg0);
-        local9.method202();
-        local9.aString1 = arg1;
-    }
 }

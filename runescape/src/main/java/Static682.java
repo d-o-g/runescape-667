@@ -28,12 +28,6 @@ public final class Static682 {
         return local17;
     }
 
-    @OriginalMember(owner = "client!vka", name = "b", descriptor = "(II)V")
-    public static void method8926(@OriginalArg(1) int arg0) {
-        @Pc(17) DoublyLinkedNode_Sub2__ local17 = Static440.method5963(20, (long) arg0);
-        local17.method205();
-    }
-
     @OriginalMember(owner = "client!vka", name = "a", descriptor = "(IIIBI)V")
     public static void method8927(@OriginalArg(0) int bottom, @OriginalArg(1) int top, @OriginalArg(2) int left, @OriginalArg(4) int right) {
         if (Static448.anInt6796 != 1) {

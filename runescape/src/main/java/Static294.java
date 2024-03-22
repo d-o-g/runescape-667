@@ -1,5 +1,6 @@
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -51,7 +52,7 @@ public final class Static294 {
         if ((Static556.self != null) && (Minimap.flagX == (((Static556.self.anInt10690 + 256) - (Static556.self.boundSize((byte) 45) * 256)) >> 9)) && (Minimap.flagY == ((Static556.self.anInt10694 - ((Static556.self.boundSize((byte) 48) - 1) * 256)) >> 9))) {
             Minimap.flagX = -1;
             Minimap.flagY = -1;
-            Static444.resetMapFLag();
+            DelayedStateChange.resetMapFlag();
         }
         Static710.method6711();
         if (!login) {

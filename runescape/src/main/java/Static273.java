@@ -26,12 +26,6 @@ public final class Static273 {
     @OriginalMember(owner = "client!ik", name = "J", descriptor = "Lclient!ss;")
     public static final Class345 aClass345_55 = new Class345(49, 3);
 
-    @OriginalMember(owner = "client!ik", name = "a", descriptor = "(II)V")
-    public static void method3959(@OriginalArg(0) int arg0) {
-        @Pc(17) DoublyLinkedNode_Sub2__ local17 = Static440.method5963(16, (long) arg0);
-        local17.method205();
-    }
-
     @OriginalMember(owner = "client!ik", name = "a", descriptor = "(Lclient!bd;ZIILclient!sb;II)V")
     public static void method3961(@OriginalArg(0) Node_Sub6_Sub1 arg0, @OriginalArg(3) int arg1, @OriginalArg(4) js5 arg2, @OriginalArg(5) int arg3) {
         Static611.method8229(arg1, arg3, arg2);

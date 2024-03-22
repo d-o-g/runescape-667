@@ -1,6 +1,7 @@
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.DelayedStateChange;
 import rs2.client.event.mouse.MouseLog;
 import rs2.client.loading.LoadState;
 import com.jagex.game.LocalisedText;
@@ -343,22 +344,22 @@ public final class Static709 {
             Static36.method977(local80, (byte) 108);
             Static142.anIntArray225[Static635.anInt9525++ & 0x1F] = local80;
         }
-        for (@Pc(1099) DoublyLinkedNode_Sub2__ change = Static81.method1587(); change != null; change = Static81.method1587()) {
-            local541 = change.method203();
-            local660 = change.method204();
+        for (@Pc(1099) DelayedStateChange change = DelayedStateChange.removeFirst(); change != null; change = DelayedStateChange.removeFirst()) {
+            local541 = change.getType();
+            local660 = change.getValue();
             if (local541 == 1) {
                 Static511.anIntArray614[(int) local660] = change.primaryData;
                 Static624.aBoolean727 |= Static118.aBooleanArray4[(int) local660];
                 Static278.anIntArray350[Static52.anInt1065++ & 0x1F] = (int) local660;
             } else if (local541 == 2) {
-                Static37.aStringArray4[(int) local660] = change.aString1;
+                Static37.aStringArray4[(int) local660] = change.stringData;
                 Static268.anIntArray332[Static455.anInt6917++ & 0x1F] = (int) local660;
             } else {
                 @Pc(1143) Component local1143;
                 if (local541 == 3) {
                     local1143 = InterfaceList.list((int) local660);
-                    if (!change.aString1.equals(local1143.text)) {
-                        local1143.text = change.aString1;
+                    if (!change.stringData.equals(local1143.text)) {
+                        local1143.text = change.stringData;
                         InterfaceManager.redraw(local1143);
                     }
                 } else {
@@ -367,7 +368,7 @@ public final class Static709 {
                         local1143 = InterfaceList.list((int) local660);
                         local288 = change.primaryData;
                         local300 = change.secondaryData;
-                        local1739 = change.anInt192;
+                        local1739 = change.tertiaryData;
                         if (local288 != local1143.objType || local300 != local1143.obj || local1739 != local1143.objData) {
                             local1143.objData = local1739;
                             local1143.objType = local288;
@@ -408,10 +409,10 @@ public final class Static709 {
                         }
                     } else if (local541 == 8) {
                         local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.modelAngleX || change.secondaryData != local1143.modelAngleY || local1143.modelZoom != change.anInt192) {
+                        if (change.primaryData != local1143.modelAngleX || change.secondaryData != local1143.modelAngleY || local1143.modelZoom != change.tertiaryData) {
                             local1143.modelAngleX = change.primaryData;
                             local1143.modelAngleY = change.secondaryData;
-                            local1143.modelZoom = change.anInt192;
+                            local1143.modelZoom = change.tertiaryData;
                             if (local1143.invObject != -1) {
                                 if (local1143.anInt3800 > 0) {
                                     local1143.modelZoom = local1143.modelZoom * 32 / local1143.anInt3800;
@@ -430,10 +431,10 @@ public final class Static709 {
                         }
                     } else if (local541 == 10) {
                         local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.anInt3736 || local1143.anInt3804 != change.secondaryData || change.anInt192 != local1143.modelAngleZ) {
+                        if (change.primaryData != local1143.anInt3736 || local1143.anInt3804 != change.secondaryData || change.tertiaryData != local1143.modelAngleZ) {
                             local1143.anInt3736 = change.primaryData;
                             local1143.anInt3804 = change.secondaryData;
-                            local1143.modelAngleZ = change.anInt192;
+                            local1143.modelAngleZ = change.tertiaryData;
                             InterfaceManager.redraw(local1143);
                         }
                     } else if (local541 == 11) {

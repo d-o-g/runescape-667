@@ -1,7 +1,6 @@
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static85 {
 
@@ -10,12 +9,6 @@ public final class Static85 {
 
     @OriginalMember(owner = "client!cm", name = "p", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___257 = new ServerProt(76, 9);
-
-    @OriginalMember(owner = "client!cm", name = "a", descriptor = "(II)V")
-    public static void method9262(@OriginalArg(1) int arg0) {
-        @Pc(11) DoublyLinkedNode_Sub2__ local11 = Static440.method5963(2, (long) arg0);
-        local11.method205();
-    }
 
     @OriginalMember(owner = "client!cm", name = "a", descriptor = "(IIIIILclient!ha;)V")
     public static void method9264(@OriginalArg(1) int arg0, @OriginalArg(3) int arg1, @OriginalArg(5) Toolkit arg2) {

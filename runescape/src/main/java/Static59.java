@@ -1,5 +1,4 @@
 import com.jagex.core.datastruct.key.Deque;
-import com.jagex.core.datastruct.key.Queue;
 import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -9,9 +8,6 @@ public final class Static59 {
 
     @OriginalMember(owner = "client!bv", name = "m", descriptor = "Lclient!tt;")
     public static Matrix aMatrix_5;
-
-    @OriginalMember(owner = "client!bv", name = "k", descriptor = "Lclient!jga;")
-    public static final Queue A_QUEUE___9 = new Queue();
 
     @OriginalMember(owner = "client!bv", name = "o", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___33 = new Deque();

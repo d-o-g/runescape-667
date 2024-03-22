@@ -16,12 +16,6 @@ public final class Static321 {
     @OriginalMember(owner = "client!kca", name = "O", descriptor = "[I")
     public static final int[] anIntArray388 = new int[2048];
 
-    @OriginalMember(owner = "client!kca", name = "a", descriptor = "(IIZ)V")
-    public static void method4619(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(23) DoublyLinkedNode_Sub2__ local23 = Static440.method5963(18, (long) arg1 << 32 | (long) arg0);
-        local23.method205();
-    }
-
     @OriginalMember(owner = "client!kca", name = "a", descriptor = "(IB)Lclient!wca;")
     public static Class396 method4620() {
         return new Class396(1, false);

@@ -12,10 +12,4 @@ public final class Static487 {
         return ((local7 & 0x1) == 0 ? local23 : -local23) + ((local7 & 0x2) == 0 ? local48 : -local48);
     }
 
-    @OriginalMember(owner = "client!pg", name = "a", descriptor = "(IIZ)V")
-    public static void method6516(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
-        @Pc(21) DoublyLinkedNode_Sub2__ local21 = Static440.method5963(21, (long) arg0);
-        local21.method202();
-        local21.primaryData = arg1 ? 1 : 0;
-    }
 }

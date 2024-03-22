@@ -1,5 +1,6 @@
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
+import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
@@ -58,7 +59,7 @@ public final class Static254 {
         Static159.aDeque_15 = new Deque();
         Static227.aDeque_18 = new Deque();
         Static34.aClass304_1.method6867();
-        Static457.method6230();
+        DelayedStateChange.clear();
         Static121.anInt2333 = 0;
         Static55.anInt1125 = 0;
         Static12.anInt5741 = 0;

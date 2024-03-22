@@ -23,12 +23,6 @@ public final class Static236 {
     @OriginalMember(owner = "client!hfa", name = "u", descriptor = "Z")
     public static boolean aBoolean305 = false;
 
-    @OriginalMember(owner = "client!hfa", name = "a", descriptor = "(IZ)V")
-    public static void method3450(@OriginalArg(0) int arg0) {
-        @Pc(16) DoublyLinkedNode_Sub2__ local16 = Static440.method5963(14, (long) arg0);
-        local16.method205();
-    }
-
     @OriginalMember(owner = "client!hfa", name = "a", descriptor = "(Lclient!gw;I)Z")
     public static boolean readPacket(@OriginalArg(0) ServerConnection connection) {
         try {

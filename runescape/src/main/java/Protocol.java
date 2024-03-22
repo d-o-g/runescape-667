@@ -4,6 +4,7 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.io.connection.Connection;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.util.JagException;
+import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.objtype.ObjType;
@@ -111,7 +112,7 @@ public final class Protocol {
             local277 = local11.g4_alt2();
             local100 = local11.g1_alt1();
             Static574.method7573();
-            Static450.method6127(local100, local277);
+            DelayedStateChange.interfaceSetHide(local100, local277);
             arg0.currentProt = null;
             return true;
         } else if (Static347.A_SERVER_PROT___146 == arg0.currentProt) {
@@ -136,21 +137,21 @@ public final class Protocol {
                 local446 = local11.g1_alt2() == 1;
                 local100 = local11.g4_alt3();
                 Static574.method7573();
-                Static487.method6516(local100, local446);
+                DelayedStateChange.interfaceSetClickmask(local100, local446);
                 arg0.currentProt = null;
                 return true;
             } else if (Static489.A_SERVER_PROT___185 == arg0.currentProt) {
                 local277 = local11.g2_alt2();
                 local100 = local11.g4_alt1();
                 Static574.method7573();
-                Static382.method5370(local277, local100);
+                DelayedStateChange.interfaceSetScrollPosition(local277, local100);
                 arg0.currentProt = null;
                 return true;
             } else if (Static201.A_SERVER_PROT___206 == arg0.currentProt) {
                 local277 = local11.g4_alt1();
                 local100 = local11.g2_alt2();
                 Static574.method7573();
-                Static700.method9153(local100, local277);
+                DelayedStateChange.interfaceSetVideo(local100, local277);
                 arg0.currentProt = null;
                 return true;
             } else {
@@ -160,7 +161,7 @@ public final class Protocol {
                     local100 = local11.g2s_alt1();
                     local526 = local11.g4_alt3();
                     Static574.method7573();
-                    Static555.method7298(local100, local277, local526);
+                    DelayedStateChange.interfaceSetPosition(local100, local277, local526);
                     arg0.currentProt = null;
                     return true;
                 } else if (arg0.currentProt == Static331.A_SERVER_PROT___139) {
@@ -349,7 +350,7 @@ public final class Protocol {
                                     local100 = -1;
                                 }
                                 Static574.method7573();
-                                Static479.method6462(local100, 1, -1, local277);
+                                DelayedStateChange.method6462(local100, 1, -1, local277);
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == Static286.A_SERVER_PROT___117) {
@@ -524,7 +525,7 @@ public final class Protocol {
                                             local100 = -1;
                                         }
                                         Static574.method7573();
-                                        Static681.method8920(local277, local100);
+                                        DelayedStateChange.interfaceSetTextFont(local277, local100);
                                         arg0.currentProt = null;
                                         return true;
                                     } else {
@@ -556,7 +557,7 @@ public final class Protocol {
                                             local277 = local11.ig2();
                                             local100 = local11.g4();
                                             Static574.method7573();
-                                            Static540.method6537(local100, local277);
+                                            DelayedStateChange.setVarc(local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static452.A_SERVER_PROT___173) {
@@ -565,13 +566,13 @@ public final class Protocol {
                                             local526 = local11.g2_alt3();
                                             local1409 = local11.g2_alt2();
                                             Static574.method7573();
-                                            Static479.method6462(local1409 << 16 | local526, 7, local100, local277);
+                                            DelayedStateChange.method6462(local1409 << 16 | local526, 7, local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static655.A_SERVER_PROT___237) {
                                             local277 = local11.g4();
                                             Static574.method7573();
-                                            Static479.method6462(PlayerList.activePlayerSlot, 5, 0, local277);
+                                            DelayedStateChange.method6462(PlayerList.activePlayerSlot, 5, 0, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (ServerProt.A_SERVER_PROT___147 == arg0.currentProt) {
@@ -622,7 +623,7 @@ public final class Protocol {
                                             local277 = local11.ig2();
                                             local100 = local11.g4();
                                             Static574.method7573();
-                                            Static647.method8467(local100, local277);
+                                            DelayedStateChange.interfaceSetGraphic(local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static491.A_SERVER_PROT___254) {
@@ -702,7 +703,7 @@ public final class Protocol {
                                             local277 = local11.g4_alt2();
                                             local100 = local11.g2();
                                             Static574.method7573();
-                                            Static2.method62(local100, local277);
+                                            DelayedStateChange.interfaceSetColour(local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static344.A_SERVER_PROT___144 == arg0.currentProt) {
@@ -849,7 +850,7 @@ public final class Protocol {
                                                 local526 = local11.ig2();
                                                 local1409 = local11.ig2();
                                                 Static574.method7573();
-                                                Static223.method9094(local277, local1409, local100, local526);
+                                                DelayedStateChange.interfaceSetRecol(local277, local1409, local100, local526);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else {
@@ -973,10 +974,10 @@ public final class Protocol {
                                                     local100 = local11.g4();
                                                     local526 = local11.g4_alt3();
                                                     Static574.method7573();
-                                                    Static301.method4394(local526, local100, local277);
+                                                    DelayedStateChange.interfaceSetObject(local526, local100, local277);
                                                     @Pc(4005) ObjType local4005 = Static419.objTypeList.list(local277);
-                                                    Static231.method3378(local4005.xan2d, local4005.zoom2d, local526, local4005.yan2d);
-                                                    Static528.method7087(local4005.zan2d, local526, local4005.yof2d, local4005.xof2d);
+                                                    DelayedStateChange.interfaceSetModelAngle(local4005.xan2d, local4005.zoom2d, local526, local4005.yan2d);
+                                                    DelayedStateChange.interfaceSetModelOffset(local4005.zan2d, local526, local4005.yof2d, local4005.xof2d);
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (arg0.currentProt == Static208.A_SERVER_PROT___83) {
@@ -1051,7 +1052,7 @@ public final class Protocol {
                                                         local277 = local11.g2_alt3();
                                                         local627 = local11.gjstr();
                                                         Static574.method7573();
-                                                        Static394.method5544(local277, local627);
+                                                        DelayedStateChange.setVarcstr(local277, local627);
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (arg0.currentProt == Static231.A_SERVER_PROT___102) {
@@ -1159,7 +1160,7 @@ public final class Protocol {
                                                             local100 = local11.g2_alt3();
                                                             local526 = local11.g4();
                                                             Static574.method7573();
-                                                            Static295.method4347(local526, local277 + (local100 << 16));
+                                                            DelayedStateChange.method4347(local526, local277 + (local100 << 16));
                                                             arg0.currentProt = null;
                                                             return true;
                                                         } else if (arg0.currentProt == Static137.A_SERVER_PROT___56) {
@@ -1330,7 +1331,7 @@ public final class Protocol {
                                                                     local100 = -1;
                                                                 }
                                                                 Static574.method7573();
-                                                                Static479.method6462(local100, 2, -1, local277);
+                                                                DelayedStateChange.method6462(local100, 2, -1, local277);
                                                                 arg0.currentProt = null;
                                                                 return true;
                                                             } else if (Static36.A_SERVER_PROT___15 == arg0.currentProt) {
@@ -1404,14 +1405,14 @@ public final class Protocol {
                                                                     local526 = local11.g4_alt1();
                                                                     local1409 = local11.g2_alt3();
                                                                     Static574.method7573();
-                                                                    Static231.method3378(local1409, local277, local526, local100);
+                                                                    DelayedStateChange.interfaceSetModelAngle(local1409, local277, local526, local100);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (Static454.A_SERVER_PROT___174 == arg0.currentProt) {
                                                                     local1937 = local11.gjstr();
                                                                     local100 = local11.g2_alt2();
                                                                     Static574.method7573();
-                                                                    Static394.method5544(local100, local1937);
+                                                                    DelayedStateChange.setVarcstr(local100, local1937);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static663.A_SERVER_PROT___241) {
@@ -1511,7 +1512,7 @@ public final class Protocol {
                                                                     local100 = local11.g2();
                                                                     local526 = local11.g4_alt3();
                                                                     Static574.method7573();
-                                                                    Static479.method6462(local100, 5, local526, local277);
+                                                                    DelayedStateChange.method6462(local100, 5, local526, local277);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static598.A_SERVER_PROT___219) {
@@ -1576,7 +1577,7 @@ public final class Protocol {
                                                                 } else if (arg0.currentProt == Static533.A_SERVER_PROT___196) {
                                                                     local277 = local11.g4_alt1();
                                                                     Static574.method7573();
-                                                                    Static479.method6462(-1, 3, -1, local277);
+                                                                    DelayedStateChange.method6462(-1, 3, -1, local277);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else {
@@ -1946,7 +1947,7 @@ public final class Protocol {
                                                                             local526 = local11.g2();
                                                                             local1409 = local11.g1_alt3();
                                                                             Static574.method7573();
-                                                                            Static167.method2630(local526, local1409, local100, local277);
+                                                                            DelayedStateChange.interfaceSetRetex(local526, local1409, local100, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static157.A_SERVER_PROT___61) {
@@ -1963,7 +1964,7 @@ public final class Protocol {
                                                                             local277 = local11.g2s_alt3();
                                                                             local100 = local11.g4_alt2();
                                                                             Static574.method7573();
-                                                                            Static147.method2420(local100, local277);
+                                                                            DelayedStateChange.interfaceSetModelAnim(local100, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static707.A_SERVER_PROT___256 == arg0.currentProt) {
@@ -1982,7 +1983,7 @@ public final class Protocol {
                                                                             local277 = local11.g2_alt3();
                                                                             local931 = local11.g1b_alt3();
                                                                             Static574.method7573();
-                                                                            Static540.method6537(local931, local277);
+                                                                            DelayedStateChange.setVarc(local931, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static468.A_SERVER_PROT___212) {
@@ -2008,7 +2009,7 @@ public final class Protocol {
                                                                             local277 = local11.g4();
                                                                             local627 = local11.gjstr();
                                                                             Static574.method7573();
-                                                                            Static211.method4998(local277, local627);
+                                                                            DelayedStateChange.interfaceSetText(local277, local627);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___53) {
@@ -2109,7 +2110,7 @@ public final class Protocol {
                                                                                 local100 = -1;
                                                                                 local277 = -1;
                                                                             }
-                                                                            Static50.method6639(local100, local277);
+                                                                            DelayedStateChange.setMapFlag(local100, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static211.A_SERVER_PROT___143) {

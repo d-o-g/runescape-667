@@ -1,6 +1,5 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static96 {
 
@@ -9,12 +8,6 @@ public final class Static96 {
 
     @OriginalMember(owner = "client!da", name = "q", descriptor = "I")
     public static int anInt10171 = 0;
-
-    @OriginalMember(owner = "client!da", name = "b", descriptor = "(II)V")
-    public static void method8819(@OriginalArg(1) int arg0) {
-        @Pc(18) DoublyLinkedNode_Sub2__ local18 = Static440.method5963(4, (long) arg0);
-        local18.method205();
-    }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(II)Lclient!pf;")
     public static Node_Sub1 method8821(@OriginalArg(0) int arg0) {

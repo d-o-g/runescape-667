@@ -1,3 +1,4 @@
+import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -35,7 +36,7 @@ public final class Static32 {
         Static266.aBoolean583 = false;
         Minimap.flagX = arg0;
         Minimap.flagY = arg1;
-        Static444.resetMapFLag();
+        DelayedStateChange.resetMapFlag();
         return local11;
     }
 

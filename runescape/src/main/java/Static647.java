@@ -9,13 +9,6 @@ public final class Static647 {
     @OriginalMember(owner = "client!uh", name = "s", descriptor = "Lclient!kda;")
     public static final Class204 aClass204_13 = new Class204(6, 1);
 
-    @OriginalMember(owner = "client!uh", name = "a", descriptor = "(III)V")
-    public static void method8467(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(20) DoublyLinkedNode_Sub2__ local20 = Static440.method5963(14, (long) arg0);
-        local20.method202();
-        local20.primaryData = arg1;
-    }
-
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(B)Z")
     public static boolean method8468() {
         return MainLogicManager.step >= 1;

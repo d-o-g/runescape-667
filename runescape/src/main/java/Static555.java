@@ -1,6 +1,5 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static555 {
 
@@ -18,11 +17,4 @@ public final class Static555 {
         return (arg0 & 0x8000) != 0;
     }
 
-    @OriginalMember(owner = "client!ria", name = "a", descriptor = "(IIII)V")
-    public static void method7298(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(14) DoublyLinkedNode_Sub2__ local14 = Static440.method5963(11, (long) arg2);
-        local14.method202();
-        local14.primaryData = arg0;
-        local14.secondaryData = arg1;
-    }
 }

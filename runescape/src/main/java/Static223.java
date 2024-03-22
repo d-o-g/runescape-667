@@ -46,14 +46,6 @@ public final class Static223 {
         return new Class317(arg1, local50, arg0);
     }
 
-    @OriginalMember(owner = "client!gu", name = "a", descriptor = "(IIIII)V")
-    public static void method9094(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        @Pc(22) DoublyLinkedNode_Sub2__ local22 = Static440.method5963(18, (long) arg0 << 32 | (long) arg2);
-        local22.method202();
-        local22.primaryData = arg3;
-        local22.secondaryData = arg1;
-    }
-
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(ZLclient!qf;)Lclient!pba;")
     public static Class286 method9095(@OriginalArg(1) PositionEntity arg0) {
         @Pc(7) Class286 local7;

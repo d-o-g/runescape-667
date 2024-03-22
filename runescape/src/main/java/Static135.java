@@ -32,9 +32,4 @@ public final class Static135 {
         Static10.aClass213_1.method5010();
     }
 
-    @OriginalMember(owner = "client!ee", name = "a", descriptor = "(ZI)V")
-    public static void method7239(@OriginalArg(1) int arg0) {
-        @Pc(14) DoublyLinkedNode_Sub2__ local14 = Static440.method5963(1, (long) arg0);
-        local14.method205();
-    }
 }

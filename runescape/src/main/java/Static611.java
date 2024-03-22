@@ -11,12 +11,6 @@ public final class Static611 {
     @OriginalMember(owner = "client!tfa", name = "i", descriptor = "I")
     public static int anInt9341 = 0;
 
-    @OriginalMember(owner = "client!tfa", name = "a", descriptor = "(II)V")
-    public static void method8227(@OriginalArg(1) int arg0) {
-        @Pc(23) DoublyLinkedNode_Sub2__ local23 = Static440.method5963(3, (long) arg0);
-        local23.method205();
-    }
-
     @OriginalMember(owner = "client!tfa", name = "c", descriptor = "(ZI)I")
     public static int method8228(@OriginalArg(1) int arg0) {
         @Pc(8) byte local8;

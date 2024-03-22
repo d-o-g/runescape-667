@@ -1,4 +1,3 @@
-import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,28 +6,6 @@ public final class Static81 {
 
     @OriginalMember(owner = "client!cka", name = "q", descriptor = "I")
     public static int anInt1644;
-
-    @OriginalMember(owner = "client!cka", name = "a", descriptor = "(I)Lclient!aj;")
-    public static DoublyLinkedNode_Sub2__ method1587() {
-        @Pc(17) DoublyLinkedNode_Sub2__ local17 = (DoublyLinkedNode_Sub2__) Static138.A_QUEUE___6.first();
-        if (local17 != null) {
-            local17.unlink();
-            local17.unlink2();
-            return local17;
-        }
-        do {
-            local17 = (DoublyLinkedNode_Sub2__) Static59.A_QUEUE___9.first();
-            if (local17 == null) {
-                return null;
-            }
-            if (local17.method201() > SystemTimer.safetime()) {
-                return null;
-            }
-            local17.unlink();
-            local17.unlink2();
-        } while ((local17.key2 & Long.MIN_VALUE) == 0L);
-        return local17;
-    }
 
     @OriginalMember(owner = "client!cka", name = "c", descriptor = "(I)V")
     public static void method1589() {

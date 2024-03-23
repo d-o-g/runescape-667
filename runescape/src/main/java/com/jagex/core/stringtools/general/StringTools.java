@@ -256,6 +256,16 @@ public final class StringTools {
         return hash;
     }
 
+    @OriginalMember(owner = "client!cw", name = "a", descriptor = "(ZLjava/lang/String;)I")
+    public static int intHashCp1252(@OriginalArg(1) String text) {
+        @Pc(12) int length = text.length();
+        @Pc(14) int hash = 0;
+        for (@Pc(16) int i = 0; i < length; i++) {
+            hash = (hash << 5) + Cp1252.encode(text.charAt(i)) - hash;
+        }
+        return hash;
+    }
+
     @OriginalMember(owner = "client!im", name = "a", descriptor = "(IC)Z")
     public static boolean isNumeric(@OriginalArg(1) char c) {
         return c >= '0' && c <= '9';

@@ -4,7 +4,6 @@ import com.jagex.core.compress.BzipDecompressor;
 import com.jagex.core.compress.GzipDecompressor;
 import com.jagex.core.io.ByteArrayWrapper;
 import com.jagex.core.io.Packet;
-import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.JagException;
@@ -242,9 +241,9 @@ public final class js5 {
 
         @Pc(13) String groupNameLower = groupName.toLowerCase();
         @Pc(16) String fileNameLower = fileName.toLowerCase();
-        @Pc(25) int groupId = this.index.groupNameTable.find(Cp1252.hash(groupNameLower));
+        @Pc(25) int groupId = this.index.groupNameTable.find(StringTools.intHashCp1252(groupNameLower));
         if (groupId >= 0) {
-            @Pc(41) int fileId = this.index.fileNameTables[groupId].find(Cp1252.hash(fileNameLower));
+            @Pc(41) int fileId = this.index.fileNameTables[groupId].find(StringTools.intHashCp1252(fileNameLower));
             return fileId >= 0;
         } else {
             return false;
@@ -561,7 +560,7 @@ public final class js5 {
     public boolean groupExists(@OriginalArg(0) String groupName) {
         if (this.indexReady()) {
             @Pc(21) String groupNameLower = groupName.toLowerCase();
-            @Pc(30) int groupId = this.index.groupNameTable.find(Cp1252.hash(groupNameLower));
+            @Pc(30) int groupId = this.index.groupNameTable.find(StringTools.intHashCp1252(groupNameLower));
             return groupId >= 0;
         } else {
             return false;
@@ -592,7 +591,7 @@ public final class js5 {
     public int getgroupid(@OriginalArg(0) String groupName) {
         if (this.indexReady()) {
             @Pc(19) String groupNameLower = groupName.toLowerCase();
-            @Pc(28) int groupId = this.index.groupNameTable.find(Cp1252.hash(groupNameLower));
+            @Pc(28) int groupId = this.index.groupNameTable.find(StringTools.intHashCp1252(groupNameLower));
             return this.isValidGroup(groupId) ? groupId : -1;
         } else {
             return -1;
@@ -635,7 +634,7 @@ public final class js5 {
     public int completePercentage(@OriginalArg(1) String groupName) {
         if (this.indexReady()) {
             @Pc(24) String groupNameLower = groupName.toLowerCase();
-            @Pc(33) int groupId = this.index.groupNameTable.find(Cp1252.hash(groupNameLower));
+            @Pc(33) int groupId = this.index.groupNameTable.find(StringTools.intHashCp1252(groupNameLower));
             return this.completePercentage(groupId);
         } else {
             return 0;
@@ -678,7 +677,7 @@ public final class js5 {
     public boolean requestgroupdownload(@OriginalArg(0) String groupName) {
         if (this.indexReady()) {
             @Pc(13) String groupNameLower = groupName.toLowerCase();
-            @Pc(22) int groupId = this.index.groupNameTable.find(Cp1252.hash(groupNameLower));
+            @Pc(22) int groupId = this.index.groupNameTable.find(StringTools.intHashCp1252(groupNameLower));
             return this.requestgroupdownload(groupId);
         } else {
             return false;
@@ -703,9 +702,9 @@ public final class js5 {
 
         @Pc(13) String groupNameLower = groupName.toLowerCase();
         @Pc(16) String fileNameLower = fileName.toLowerCase();
-        @Pc(25) int groupId = this.index.groupNameTable.find(Cp1252.hash(groupNameLower));
+        @Pc(25) int groupId = this.index.groupNameTable.find(StringTools.intHashCp1252(groupNameLower));
         if (this.isValidGroup(groupId)) {
-            @Pc(53) int local53 = this.index.fileNameTables[groupId].find(Cp1252.hash(fileNameLower));
+            @Pc(53) int local53 = this.index.fileNameTables[groupId].find(StringTools.intHashCp1252(fileNameLower));
             return this.getfile(local53, groupId);
         } else {
             return null;
@@ -729,7 +728,7 @@ public final class js5 {
     public void requestGroup(@OriginalArg(0) String groupName) {
         if (this.indexReady()) {
             @Pc(12) String local12 = groupName.toLowerCase();
-            @Pc(29) int local29 = this.index.groupNameTable.find(Cp1252.hash(local12));
+            @Pc(29) int local29 = this.index.groupNameTable.find(StringTools.intHashCp1252(local12));
             this.requestGroup(local29);
         }
     }
@@ -761,9 +760,9 @@ public final class js5 {
 
         @Pc(13) String groupNameLower = groupName.toLowerCase();
         @Pc(16) String fileNameLower = fileName.toLowerCase();
-        @Pc(25) int groupId = this.index.groupNameTable.find(Cp1252.hash(groupNameLower));
+        @Pc(25) int groupId = this.index.groupNameTable.find(StringTools.intHashCp1252(groupNameLower));
         if (this.isValidGroup(groupId)) {
-            @Pc(44) int fileId = this.index.fileNameTables[groupId].find(Cp1252.hash(fileNameLower));
+            @Pc(44) int fileId = this.index.fileNameTables[groupId].find(StringTools.intHashCp1252(fileNameLower));
             return this.requestdownload(fileId, groupId);
         } else {
             return false;

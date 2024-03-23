@@ -18,11 +18,11 @@ public final class WordPack {
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ILclient!ge;Ljava/lang/String;)I")
     public static int encode(@OriginalArg(1) Packet packet, @OriginalArg(2) String word) {
-        @Pc(12) int local12 = packet.pos;
-        @Pc(16) byte[] local16 = Cp1252.encode(word);
-        packet.psmarts(local16.length);
-        packet.pos += huffman.compress(packet.pos, 0, local16.length, packet.data, local16);
-        return packet.pos - local12;
+        @Pc(12) int posBefore = packet.pos;
+        @Pc(16) byte[] encoded = Cp1252.encode(word);
+        packet.psmarts(encoded.length);
+        packet.pos += huffman.compress(packet.pos, 0, encoded.length, packet.data, encoded);
+        return packet.pos - posBefore;
     }
 
     @OriginalMember(owner = "client!aia", name = "a", descriptor = "(BLclient!ge;)Ljava/lang/String;")

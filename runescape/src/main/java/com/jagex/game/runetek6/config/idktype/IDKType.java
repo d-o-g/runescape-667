@@ -75,6 +75,7 @@ public final class IDKType {
             if (code == 0) {
                 return;
             }
+
             this.decode(code, packet);
         }
     }

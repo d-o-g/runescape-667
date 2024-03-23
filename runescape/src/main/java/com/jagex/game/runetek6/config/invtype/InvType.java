@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.invtype;
+
 import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -6,26 +8,27 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!dba")
-public final class DoublyLinkedNode_Sub2_Sub6 extends Node2 {
+public final class InvType extends Node2 {
 
     @OriginalMember(owner = "client!dba", name = "v", descriptor = "I")
-    public int anInt2072 = 0;
+    public int size = 0;
 
     @OriginalMember(owner = "client!dba", name = "a", descriptor = "(ILclient!ge;B)V")
-    public void method1978(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
-        if (arg0 == 2) {
-            this.anInt2072 = arg1.g2();
+    public void decode(@OriginalArg(0) int code, @OriginalArg(1) Packet arg1) {
+        if (code == 2) {
+            this.size = arg1.g2();
         }
     }
 
     @OriginalMember(owner = "client!dba", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void decode(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(11) int local11 = arg0.g1();
-            if (local11 == 0) {
+            @Pc(11) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method1978(local11, arg0);
+
+            this.decode(code, packet);
         }
     }
 }

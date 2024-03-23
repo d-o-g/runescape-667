@@ -9,6 +9,7 @@ import com.jagex.game.runetek6.config.enumtype.EnumType;
 import com.jagex.game.runetek6.config.enumtype.EnumTypeList;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
+import com.jagex.game.runetek6.config.invtype.InvTypeList;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
@@ -1641,7 +1642,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3304) {
                                         local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = InvTypeList.instance.list(local15).anInt2072;
+                                        anIntArray578[anInt7142++] = InvTypeList.instance.list(local15).size;
                                         return;
                                     }
                                     if (arg0 == 3305) {

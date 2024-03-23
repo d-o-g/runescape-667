@@ -6,6 +6,7 @@ import com.jagex.game.runetek6.config.enumtype.EnumTypeList;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
 import com.jagex.game.runetek6.config.flutype.FloorUnderlayTypeList;
 import com.jagex.game.runetek6.config.hitmarktype.HitmarkTypeList;
+import com.jagex.game.runetek6.config.invtype.InvTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;

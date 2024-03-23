@@ -1,6 +1,9 @@
+package com.jagex.game.runetek6.config.invtype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,11 +13,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!sfa")
 public final class InvTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!ps", name = "d", descriptor = "Lclient!sfa;")
     public static InvTypeList instance;
 
     @OriginalMember(owner = "client!sfa", name = "c", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     private final ModeGame game;
 
@@ -30,15 +35,15 @@ public final class InvTypeList {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
-        this.num = this.configClient.fileLimit(5);
+        this.num = this.configClient.fileLimit(Js5ConfigGroup.INVTYPE);
     }
 
     @OriginalMember(owner = "client!sfa", name = "a", descriptor = "(II)Lclient!dba;")
-    public DoublyLinkedNode_Sub2_Sub6 list(@OriginalArg(0) int id) {
+    public InvType list(@OriginalArg(0) int id) {
         @Pc(6) ReferenceCache local6 = this.recentUse;
-        @Pc(16) DoublyLinkedNode_Sub2_Sub6 type;
+        @Pc(16) InvType type;
         synchronized (this.recentUse) {
-            type = (DoublyLinkedNode_Sub2_Sub6) this.recentUse.get(id);
+            type = (InvType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -50,7 +55,7 @@ public final class InvTypeList {
             data = this.configClient.getfile(id, 5);
         }
 
-        type = new DoublyLinkedNode_Sub2_Sub6();
+        type = new InvType();
         if (data != null) {
             type.decode(new Packet(data));
         }

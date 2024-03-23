@@ -95,6 +95,7 @@ public final class SeqType {
             if (code == 0) {
                 return;
             }
+
             this.decode(code, packet);
         }
     }

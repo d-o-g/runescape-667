@@ -8,6 +8,8 @@ import com.jagex.game.runetek6.config.hitmarktype.HitmarkTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.graphics.particles.ModelParticleEffector;
@@ -310,8 +312,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
             if (local50.anInt4930 == -1 || local50.aAnimator_7.isDelayed()) {
                 this.aModelArray3[local13 + 1] = null;
             } else {
-                @Pc(76) Class227 local76 = SpotAnimationTypeList.instance.list(local50.anInt4930);
-                @Pc(95) boolean local95 = local76.aByte96 == 3 && (arg5 != 0 || arg1 != 0);
+                @Pc(76) SpotAnimationType local76 = SpotAnimationTypeList.instance.list(local50.anInt4930);
+                @Pc(95) boolean local95 = local76.hillType == 3 && (arg5 != 0 || arg1 != 0);
                 @Pc(97) int local97 = arg0;
                 if (local95) {
                     local97 = arg0 | 0x7;
@@ -326,7 +328,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                         local97 |= 0x7;
                     }
                 }
-                @Pc(146) Model local146 = this.aModelArray3[local13 + 1] = local76.method5252(local50.aAnimator_7, local16, local97, arg2);
+                @Pc(146) Model local146 = this.aModelArray3[local13 + 1] = local76.model(local50.aAnimator_7, local16, local97, arg2);
                 if (local146 != null) {
                     if (local50.anInt4928 >= 0 && arg3.wornTransformations != null && arg3.wornTransformations[local50.anInt4928] != null) {
                         @Pc(171) int local171 = 0;
@@ -655,11 +657,11 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         @Pc(16) Class199 local16 = this.aClass199Array3[arg0];
         @Pc(19) int local19 = local16.anInt4930;
         if (arg5 != -1 && local19 != -1) {
-            @Pc(38) Class227 local38;
+            @Pc(38) SpotAnimationType local38;
             if (local19 == arg5) {
                 local38 = SpotAnimationTypeList.instance.list(arg5);
-                if (local38.aBoolean448 && local38.anInt5842 != -1) {
-                    @Pc(54) SeqType local54 = SeqTypeList.instance.list(local38.anInt5842);
+                if (local38.loopSeq && local38.seq != -1) {
+                    @Pc(54) SeqType local54 = SeqTypeList.instance.list(local38.seq);
                     @Pc(57) int replayMode = local54.replayMode;
                     if (replayMode == SeqReplayMode.STOP) {
                         return;
@@ -671,10 +673,10 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                 }
             } else {
                 local38 = SpotAnimationTypeList.instance.list(arg5);
-                @Pc(86) Class227 local86 = SpotAnimationTypeList.instance.list(local19);
-                if (local38.anInt5842 != -1 && local86.anInt5842 != -1) {
-                    @Pc(103) SeqType local103 = SeqTypeList.instance.list(local38.anInt5842);
-                    @Pc(109) SeqType local109 = SeqTypeList.instance.list(local86.anInt5842);
+                @Pc(86) SpotAnimationType local86 = SpotAnimationTypeList.instance.list(local19);
+                if (local38.seq != -1 && local86.seq != -1) {
+                    @Pc(103) SeqType local103 = SeqTypeList.instance.list(local38.seq);
+                    @Pc(109) SeqType local109 = SeqTypeList.instance.list(local86.seq);
                     if (local103.priority < local109.priority) {
                         return;
                     }
@@ -682,7 +684,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
             }
         }
         @Pc(118) byte local118 = 0;
-        if (arg5 != -1 && !SpotAnimationTypeList.instance.list(arg5).aBoolean448) {
+        if (arg5 != -1 && !SpotAnimationTypeList.instance.list(arg5).loopSeq) {
             local118 = 2;
         }
         local16.anInt4929 = arg1;
@@ -692,7 +694,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         if (arg5 != -1 && arg2) {
             local118 = 1;
         }
-        local16.aAnimator_7.update(arg5 == -1 ? -1 : SpotAnimationTypeList.instance.list(arg5).anInt5842, arg3 & 0xFFFF, local118, false);
+        local16.aAnimator_7.update(arg5 == -1 ? -1 : SpotAnimationTypeList.instance.list(arg5).seq, arg3 & 0xFFFF, local118, false);
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(II)V")

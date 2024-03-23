@@ -1,6 +1,8 @@
 import com.jagex.ParticleList;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.particles.ModelParticleEmitter;
@@ -41,11 +43,11 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
         super(arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, false, (byte) 0);
         this.anInt7402 = arg0;
         this.anInt7400 = arg11;
-        @Pc(36) Class227 local36 = SpotAnimationTypeList.instance.list(this.anInt7402);
-        @Pc(39) int local39 = local36.anInt5842;
+        @Pc(36) SpotAnimationType local36 = SpotAnimationTypeList.instance.list(this.anInt7402);
+        @Pc(39) int local39 = local36.seq;
         if (local39 != -1) {
             this.aAnimator_8 = new Animator_Sub2(this, false);
-            @Pc(59) int local59 = local36.aBoolean448 ? 0 : 2;
+            @Pc(59) int local59 = local36.loopSeq ? 0 : 2;
             if (arg12) {
                 local59 = 1;
             }
@@ -69,10 +71,10 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IILclient!ha;I)Lclient!ka;")
     public Model method6594(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2) {
-        @Pc(8) Class227 local8 = SpotAnimationTypeList.instance.list(arg0);
+        @Pc(8) SpotAnimationType local8 = SpotAnimationTypeList.instance.list(arg0);
         @Pc(22) Ground local22 = Static706.aGroundArray3[super.level];
         @Pc(36) Ground local36 = super.aByte143 < 3 ? Static706.aGroundArray3[super.aByte143 + 1] : null;
-        return this.aAnimator_8 == null || this.aAnimator_8.isFinished() ? local8.method5249((byte) 2, true, super.z, null, local36, super.x, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.z, this.aAnimator_8, local36, super.x, local22, arg2, super.anInt10691, arg1);
+        return this.aAnimator_8 == null || this.aAnimator_8.isFinished() ? local8.model((byte) 2, true, super.z, null, local36, super.x, local22, arg2, super.anInt10691, arg1) : local8.model((byte) 2, true, super.z, this.aAnimator_8, local36, super.x, local22, arg2, super.anInt10691, arg1);
     }
 
     @OriginalMember(owner = "client!pja", name = "finalize", descriptor = "()V")

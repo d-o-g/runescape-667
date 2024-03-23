@@ -49,6 +49,7 @@ public final class SkyBoxType {
             if (code == 0) {
                 return;
             }
+
             this.decode(code, packet);
         }
     }

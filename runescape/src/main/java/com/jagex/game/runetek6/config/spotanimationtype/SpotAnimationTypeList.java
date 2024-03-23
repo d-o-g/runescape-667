@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.spotanimationtype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
@@ -26,20 +28,20 @@ public final class SpotAnimationTypeList {
     }
 
     @OriginalMember(owner = "client!fh", name = "b", descriptor = "I")
-    public int anInt2921;
+    public int featureMask;
 
     @OriginalMember(owner = "client!fh", name = "i", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!fh", name = "k", descriptor = "Lclient!dla;")
-    public final ReferenceCache aReferenceCache_62 = new ReferenceCache(60);
+    public final ReferenceCache modelCache = new ReferenceCache(60);
 
     private final ModeGame game;
 
     private final int languageId;
 
     @OriginalMember(owner = "client!fh", name = "f", descriptor = "Lclient!sb;")
-    public final js5 aJs5_34;
+    public final js5 models;
 
     @OriginalMember(owner = "client!fh", name = "d", descriptor = "Lclient!sb;")
     public final js5 configClient;
@@ -47,10 +49,10 @@ public final class SpotAnimationTypeList {
     private final int num;
 
     @OriginalMember(owner = "client!fh", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public SpotAnimationTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 arg3) {
+    public SpotAnimationTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 models) {
         this.game = game;
         this.languageId = languageId;
-        this.aJs5_34 = arg3;
+        this.models = models;
         this.configClient = configClient;
 
         @Pc(26) int lastGroup = this.configClient.groupSize() - 1;
@@ -58,11 +60,11 @@ public final class SpotAnimationTypeList {
     }
 
     @OriginalMember(owner = "client!fh", name = "a", descriptor = "(II)Lclient!lia;")
-    public Class227 list(@OriginalArg(1) int id) {
+    public SpotAnimationType list(@OriginalArg(1) int id) {
         @Pc(14) ReferenceCache local14 = this.recentUse;
-        @Pc(24) Class227 type;
+        @Pc(24) SpotAnimationType type;
         synchronized (this.recentUse) {
-            type = (Class227) this.recentUse.get(id);
+            type = (SpotAnimationType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -74,7 +76,7 @@ public final class SpotAnimationTypeList {
             data = this.configClient.getfile(fileId(id), groupId(id));
         }
 
-        type = new Class227();
+        type = new SpotAnimationType();
         type.id = id;
         type.myList = this;
         if (data != null) {
@@ -89,11 +91,12 @@ public final class SpotAnimationTypeList {
     }
 
     @OriginalMember(owner = "client!fh", name = "a", descriptor = "(BI)V")
-    public void setFeatureMask(@OriginalArg(1) int arg0) {
-        this.anInt2921 = arg0;
-        @Pc(9) ReferenceCache local9 = this.aReferenceCache_62;
-        synchronized (this.aReferenceCache_62) {
-            this.aReferenceCache_62.reset();
+    public void setFeatureMask(@OriginalArg(1) int featureMask) {
+        this.featureMask = featureMask;
+
+        @Pc(9) ReferenceCache local9 = this.modelCache;
+        synchronized (this.modelCache) {
+            this.modelCache.reset();
         }
     }
 
@@ -103,9 +106,9 @@ public final class SpotAnimationTypeList {
         synchronized (this.recentUse) {
             this.recentUse.removeSoftReferences();
         }
-        local6 = this.aReferenceCache_62;
-        synchronized (this.aReferenceCache_62) {
-            this.aReferenceCache_62.removeSoftReferences();
+        local6 = this.modelCache;
+        synchronized (this.modelCache) {
+            this.modelCache.removeSoftReferences();
         }
     }
 
@@ -115,9 +118,9 @@ public final class SpotAnimationTypeList {
         synchronized (this.recentUse) {
             this.recentUse.clean(maxAge);
         }
-        @Pc(30) ReferenceCache local30 = this.aReferenceCache_62;
-        synchronized (this.aReferenceCache_62) {
-            this.aReferenceCache_62.clean(maxAge);
+        @Pc(30) ReferenceCache local30 = this.modelCache;
+        synchronized (this.modelCache) {
+            this.modelCache.clean(maxAge);
         }
     }
 
@@ -127,9 +130,9 @@ public final class SpotAnimationTypeList {
         synchronized (this.recentUse) {
             this.recentUse.reset();
         }
-        local6 = this.aReferenceCache_62;
-        synchronized (this.aReferenceCache_62) {
-            this.aReferenceCache_62.reset();
+        local6 = this.modelCache;
+        synchronized (this.modelCache) {
+            this.modelCache.reset();
         }
     }
 }

@@ -15,6 +15,8 @@ import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
@@ -1199,7 +1201,7 @@ public final class Protocol {
                                                                 if (local100 >> 30 == 0) {
                                                                     @Pc(4943) int replayMode;
                                                                     @Pc(4911) SeqType local4911;
-                                                                    @Pc(4888) Class227 local4888;
+                                                                    @Pc(4888) SpotAnimationType local4888;
                                                                     @Pc(4905) SeqType local4905;
                                                                     if (local100 >> 29 != 0) {
                                                                         local653 = local100 & 0xFFFF;
@@ -1215,8 +1217,8 @@ public final class Protocol {
                                                                             if (local2098 != -1 && local667 != -1) {
                                                                                 if (local667 == local2098) {
                                                                                     local4888 = SpotAnimationTypeList.instance.list(local2098);
-                                                                                    if (local4888.aBoolean448 && local4888.anInt5842 != -1) {
-                                                                                        local4905 = SeqTypeList.instance.list(local4888.anInt5842);
+                                                                                    if (local4888.loopSeq && local4888.seq != -1) {
+                                                                                        local4905 = SeqTypeList.instance.list(local4888.seq);
                                                                                         @Pc(5134) int local5134 = local4905.replayMode;
                                                                                         if (local5134 == SeqReplayMode.STOP || local5134 == SeqReplayMode.RESTART_LOOP) {
                                                                                             local665 = false;
@@ -1226,10 +1228,10 @@ public final class Protocol {
                                                                                     }
                                                                                 } else {
                                                                                     local4888 = SpotAnimationTypeList.instance.list(local2098);
-                                                                                    @Pc(5078) Class227 local5078 = SpotAnimationTypeList.instance.list(local667);
-                                                                                    if (local4888.anInt5842 != -1 && local5078.anInt5842 != -1) {
-                                                                                        local4911 = SeqTypeList.instance.list(local4888.anInt5842);
-                                                                                        @Pc(5102) SeqType local5102 = SeqTypeList.instance.list(local5078.anInt5842);
+                                                                                    @Pc(5078) SpotAnimationType local5078 = SpotAnimationTypeList.instance.list(local667);
+                                                                                    if (local4888.seq != -1 && local5078.seq != -1) {
+                                                                                        local4911 = SeqTypeList.instance.list(local4888.seq);
+                                                                                        @Pc(5102) SeqType local5102 = SeqTypeList.instance.list(local5078.seq);
                                                                                         if (local4911.priority < local5102.priority) {
                                                                                             local665 = false;
                                                                                         }
@@ -1244,11 +1246,11 @@ public final class Protocol {
                                                                                     local5042.aAnimator_7.update(true, -1);
                                                                                 } else {
                                                                                     local4888 = SpotAnimationTypeList.instance.list(local2098);
-                                                                                    replayMode = local4888.aBoolean448 ? 0 : 2;
+                                                                                    replayMode = local4888.loopSeq ? 0 : 2;
                                                                                     if (local4806) {
                                                                                         replayMode = 1;
                                                                                     }
-                                                                                    local5042.aAnimator_7.update(local4888.anInt5842, local277, replayMode, false);
+                                                                                    local5042.aAnimator_7.update(local4888.seq, local277, replayMode, false);
                                                                                 }
                                                                             }
                                                                         }
@@ -1267,12 +1269,12 @@ public final class Protocol {
                                                                             }
                                                                             local4857 = true;
                                                                             local1097 = local4850.anInt4930;
-                                                                            @Pc(4883) Class227 local4883;
+                                                                            @Pc(4883) SpotAnimationType local4883;
                                                                             if (local2098 != -1 && local1097 != -1) {
                                                                                 if (local2098 == local1097) {
                                                                                     local4883 = SpotAnimationTypeList.instance.list(local2098);
-                                                                                    if (local4883.aBoolean448 && local4883.anInt5842 != -1) {
-                                                                                        @Pc(4940) SeqType local4940 = SeqTypeList.instance.list(local4883.anInt5842);
+                                                                                    if (local4883.loopSeq && local4883.seq != -1) {
+                                                                                        @Pc(4940) SeqType local4940 = SeqTypeList.instance.list(local4883.seq);
                                                                                         replayMode = local4940.replayMode;
                                                                                         if (replayMode == SeqReplayMode.STOP || replayMode == SeqReplayMode.RESTART_LOOP) {
                                                                                             local4857 = false;
@@ -1283,9 +1285,9 @@ public final class Protocol {
                                                                                 } else {
                                                                                     local4883 = SpotAnimationTypeList.instance.list(local2098);
                                                                                     local4888 = SpotAnimationTypeList.instance.list(local1097);
-                                                                                    if (local4883.anInt5842 != -1 && local4888.anInt5842 != -1) {
-                                                                                        local4905 = SeqTypeList.instance.list(local4883.anInt5842);
-                                                                                        local4911 = SeqTypeList.instance.list(local4888.anInt5842);
+                                                                                    if (local4883.seq != -1 && local4888.seq != -1) {
+                                                                                        local4905 = SeqTypeList.instance.list(local4883.seq);
+                                                                                        local4911 = SeqTypeList.instance.list(local4888.seq);
                                                                                         if (local4911.priority > local4905.priority) {
                                                                                             local4857 = false;
                                                                                         }
@@ -1301,11 +1303,11 @@ public final class Protocol {
                                                                                     local4850.aAnimator_7.update(true, -1);
                                                                                 } else {
                                                                                     local4883 = SpotAnimationTypeList.instance.list(local2098);
-                                                                                    @Pc(5006) int local5006 = local4883.aBoolean448 ? 0 : 2;
+                                                                                    @Pc(5006) int local5006 = local4883.loopSeq ? 0 : 2;
                                                                                     if (local4806) {
                                                                                         local5006 = 1;
                                                                                     }
-                                                                                    local4850.aAnimator_7.update(local4883.anInt5842, local277, local5006, false);
+                                                                                    local4850.aAnimator_7.update(local4883.seq, local277, local5006, false);
                                                                                 }
                                                                             }
                                                                         }

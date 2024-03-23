@@ -1,6 +1,8 @@
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.graphics.Mesh;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -135,9 +137,9 @@ public final class Static50 {
             if (arg0.aClass199Array3[local50].anInt4930 != -1) {
                 local75 = arg0.aClass199Array3[local50].aAnimator_7;
                 if (local75.isDelayed()) {
-                    @Pc(88) Class227 local88 = SpotAnimationTypeList.instance.list(arg0.aClass199Array3[local50].anInt4930);
+                    @Pc(88) SpotAnimationType local88 = SpotAnimationTypeList.instance.list(arg0.aClass199Array3[local50].anInt4930);
                     @Pc(92) SeqType local92 = local75.getAnimation();
-                    if (local88.aBoolean448) {
+                    if (local88.loopSeq) {
                         if (local92.animatingPrecedence == 3) {
                             if (arg0.anInt10762 > 0 && TimeUtils.clock >= arg0.anInt10759 && arg0.anInt10755 < TimeUtils.clock) {
                                 local75.update(true, -1);

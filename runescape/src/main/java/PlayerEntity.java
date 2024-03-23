@@ -16,6 +16,8 @@ import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeCustomisation;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -729,8 +731,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         for (@Pc(33) int local33 = 0; local33 < super.aClass199Array3.length; local33++) {
             if (super.aClass199Array3[local33].anInt4930 != -1) {
-                @Pc(56) Class227 local56 = SpotAnimationTypeList.instance.list(super.aClass199Array3[local33].anInt4930);
-                if (local56.aBoolean448 && local56.anInt5842 != -1 && SeqTypeList.instance.list(local56.anInt5842).walkingPrecedence == 1) {
+                @Pc(56) SpotAnimationType local56 = SpotAnimationTypeList.instance.list(super.aClass199Array3[local33].anInt4930);
+                if (local56.loopSeq && local56.seq != -1 && SeqTypeList.instance.list(local56.seq).walkingPrecedence == 1) {
                     super.aClass199Array3[local33].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local33].anInt4930 = -1;
                 }

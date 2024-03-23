@@ -6,6 +6,8 @@ import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -359,8 +361,8 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         for (@Pc(110) int local110 = 0; local110 < super.aClass199Array3.length; local110++) {
             if (super.aClass199Array3[local110].anInt4930 != -1) {
-                @Pc(131) Class227 local131 = SpotAnimationTypeList.instance.list(super.aClass199Array3[local110].anInt4930);
-                if (local131.aBoolean448 && local131.anInt5842 != -1 && SeqTypeList.instance.list(local131.anInt5842).walkingPrecedence == 1) {
+                @Pc(131) SpotAnimationType local131 = SpotAnimationTypeList.instance.list(super.aClass199Array3[local110].anInt4930);
+                if (local131.loopSeq && local131.seq != -1 && SeqTypeList.instance.list(local131.seq).walkingPrecedence == 1) {
                     super.aClass199Array3[local110].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local110].anInt4930 = -1;
                 }
@@ -391,8 +393,8 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         for (@Pc(61) int local61 = 0; local61 < super.aClass199Array3.length; local61++) {
             if (super.aClass199Array3[local61].anInt4930 != -1) {
-                @Pc(81) Class227 local81 = SpotAnimationTypeList.instance.list(super.aClass199Array3[local61].anInt4930);
-                if (local81.aBoolean448 && local81.anInt5842 != -1 && SeqTypeList.instance.list(local81.anInt5842).walkingPrecedence == 1) {
+                @Pc(81) SpotAnimationType local81 = SpotAnimationTypeList.instance.list(super.aClass199Array3[local61].anInt4930);
+                if (local81.loopSeq && local81.seq != -1 && SeqTypeList.instance.list(local81.seq).walkingPrecedence == 1) {
                     super.aClass199Array3[local61].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local61].anInt4930 = -1;
                 }

@@ -2,6 +2,8 @@ import com.jagex.ParticleList;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.graphics.particles.ModelParticleEffector;
@@ -112,7 +114,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         this.anInt706 = arg10;
         this.anInt705 = arg8;
         this.anInt709 = arg9;
-        @Pc(82) int local82 = SpotAnimationTypeList.instance.list(this.anInt715).anInt5842;
+        @Pc(82) int local82 = SpotAnimationTypeList.instance.list(this.anInt715).seq;
         this.aAnimator_1 = new Animator_Sub2(this, false);
         this.aAnimator_1.update(true, local82);
     }
@@ -190,8 +192,8 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;I)Lclient!ka;")
     public Model method814(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2) {
-        @Pc(17) Class227 local17 = SpotAnimationTypeList.instance.list(this.anInt715);
-        return local17.method5252(this.aAnimator_1, (byte) 2, arg0, arg1);
+        @Pc(17) SpotAnimationType local17 = SpotAnimationTypeList.instance.list(this.anInt715);
+        return local17.model(this.aAnimator_1, (byte) 2, arg0, arg1);
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(I)V")

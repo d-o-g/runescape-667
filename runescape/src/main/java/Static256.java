@@ -1,4 +1,6 @@
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
+import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.game.runetek6.config.bastype.BASType;
@@ -64,9 +66,9 @@ public final class Static256 {
         }
         for (@Pc(86) int local86 = 0; local86 < arg0.aClass199Array3.length; local86++) {
             if (arg0.aClass199Array3[local86].anInt4930 != -1 && arg0.aClass199Array3[local86].aAnimator_7.isDelayed()) {
-                @Pc(117) Class227 local117 = SpotAnimationTypeList.instance.list(arg0.aClass199Array3[local86].anInt4930);
-                if (local117.aBoolean448 && local117.anInt5842 != -1) {
-                    @Pc(133) SeqType local133 = SeqTypeList.instance.list(local117.anInt5842);
+                @Pc(117) SpotAnimationType local117 = SpotAnimationTypeList.instance.list(arg0.aClass199Array3[local86].anInt4930);
+                if (local117.loopSeq && local117.seq != -1) {
+                    @Pc(133) SeqType local133 = SeqTypeList.instance.list(local117.seq);
                     if (arg0.anInt10762 > 0 && local133.animatingPrecedence == 0) {
                         Static521.anInt7756 = -1;
                         arg0.anInt10763++;

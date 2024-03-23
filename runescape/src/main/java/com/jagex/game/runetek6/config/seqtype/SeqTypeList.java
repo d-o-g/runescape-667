@@ -32,7 +32,7 @@ public final class SeqTypeList {
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!bp", name = "f", descriptor = "Lclient!dla;")
-    public final ReferenceCache framesets = new ReferenceCache(100);
+    public final ReferenceCache framesetCache = new ReferenceCache(100);
 
     private final ModeGame game;
 
@@ -96,9 +96,9 @@ public final class SeqTypeList {
         synchronized (this.recentUse) {
             this.recentUse.clean(5);
         }
-        local6 = this.framesets;
-        synchronized (this.framesets) {
-            this.framesets.clean(5);
+        local6 = this.framesetCache;
+        synchronized (this.framesetCache) {
+            this.framesetCache.clean(5);
         }
     }
 
@@ -108,9 +108,9 @@ public final class SeqTypeList {
         synchronized (this.recentUse) {
             this.recentUse.removeSoftReferences();
         }
-        local2 = this.framesets;
-        synchronized (this.framesets) {
-            this.framesets.removeSoftReferences();
+        local2 = this.framesetCache;
+        synchronized (this.framesetCache) {
+            this.framesetCache.removeSoftReferences();
         }
     }
 
@@ -120,20 +120,20 @@ public final class SeqTypeList {
         synchronized (this.recentUse) {
             this.recentUse.reset();
         }
-        local7 = this.framesets;
-        synchronized (this.framesets) {
-            this.framesets.reset();
+        local7 = this.framesetCache;
+        synchronized (this.framesetCache) {
+            this.framesetCache.reset();
         }
     }
 
     @OriginalMember(owner = "client!bp", name = "b", descriptor = "(II)Lclient!rw;")
     public AnimFrameset getFrameset(@OriginalArg(0) int id) {
-        @Pc(12) ReferenceCache local12 = this.framesets;
-        synchronized (this.framesets) {
-            @Pc(22) AnimFrameset frameset = (AnimFrameset) this.framesets.get(id);
+        @Pc(12) ReferenceCache local12 = this.framesetCache;
+        synchronized (this.framesetCache) {
+            @Pc(22) AnimFrameset frameset = (AnimFrameset) this.framesetCache.get(id);
             if (frameset == null) {
                 frameset = new AnimFrameset(id);
-                this.framesets.put(frameset, id);
+                this.framesetCache.put(frameset, id);
             }
 
             return frameset.isReady() ? frameset : null;

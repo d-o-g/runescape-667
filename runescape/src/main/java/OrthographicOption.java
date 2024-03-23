@@ -1,14 +1,10 @@
+import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!dja")
 public final class OrthographicOption extends Option {
-
-    @OriginalMember(owner = "client!le", name = "a", descriptor = "(II)Z")
-    public static boolean method5202(@OriginalArg(1) int value) {
-        return value == 2 || value == 3;
-    }
 
     @OriginalMember(owner = "client!dja", name = "<init>", descriptor = "(Lclient!kv;)V")
     public OrthographicOption(@OriginalArg(0) ClientOptions options) {
@@ -20,6 +16,11 @@ public final class OrthographicOption extends Option {
         super(value, options);
     }
 
+    @OriginalMember(owner = "client!mba", name = "a", descriptor = "(II)Z")
+    public static boolean isSoftware(@OriginalArg(0) int value) {
+        return value == 0 || value == 2;
+    }
+
     @OriginalMember(owner = "client!dja", name = "c", descriptor = "(B)Z")
     public boolean isCompatible() {
         return true;
@@ -29,7 +30,7 @@ public final class OrthographicOption extends Option {
     @Override
     public void validate() {
         if (this.method2118()) {
-            if (super.options.toolkit.isActive() && !ToolkitOption.isSoftware(super.options.toolkit.getValue())) {
+            if (super.options.toolkit.isActive() && !isSoftware(super.options.toolkit.getValue())) {
                 super.value = 1;
             }
             if (super.options.screenSize.getValue() == 1) {
@@ -46,14 +47,14 @@ public final class OrthographicOption extends Option {
 
     @OriginalMember(owner = "client!dja", name = "b", descriptor = "(B)Z")
     public boolean method2118() {
-        return method5202(super.value);
+        return ToolkitType.is3d(super.value);
     }
 
     @OriginalMember(owner = "client!dja", name = "a", descriptor = "(IB)I")
     @Override
     public int getCompatibility(@OriginalArg(0) int value) {
-        if (method5202(value)) {
-            if (super.options.toolkit.isActive() && !ToolkitOption.isSoftware(super.options.toolkit.getValue())) {
+        if (ToolkitType.is3d(value)) {
+            if (super.options.toolkit.isActive() && !isSoftware(super.options.toolkit.getValue())) {
                 return 3;
             }
             if (super.options.screenSize.getValue() == 1) {
@@ -62,7 +63,7 @@ public final class OrthographicOption extends Option {
         }
         if (value == 3) {
             return 3;
-        } else if (method5202(value)) {
+        } else if (ToolkitType.is3d(value)) {
             return 2;
         } else {
             return 1;

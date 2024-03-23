@@ -1,3 +1,4 @@
+import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -42,7 +43,7 @@ public final class MaxScreenSizeOption extends Option {
     protected int getDefaultValue() {
         if (super.options.isLowDetail()) {
             return 2;
-        } else if (super.options.toolkit.isActive() && Static463.method6280(super.options.toolkit.getValue())) {
+        } else if (super.options.toolkit.isActive() && ToolkitType.isSoftware(super.options.toolkit.getValue())) {
             return 1;
         } else {
             return 0;

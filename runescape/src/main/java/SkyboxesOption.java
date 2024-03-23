@@ -1,3 +1,4 @@
+import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -17,13 +18,13 @@ public final class SkyboxesOption extends Option {
 
     @OriginalMember(owner = "client!dc", name = "b", descriptor = "(B)Z")
     public boolean isCompatible() {
-        return ToolkitOption.isHardware(super.options.toolkit.getValue());
+        return ToolkitType.isHardware(super.options.toolkit.getValue());
     }
 
     @OriginalMember(owner = "client!dc", name = "a", descriptor = "(IB)I")
     @Override
     public int getCompatibility(@OriginalArg(0) int value) {
-        return ToolkitOption.isHardware(super.options.toolkit.getValue()) ? 1 : 3;
+        return ToolkitType.isHardware(super.options.toolkit.getValue()) ? 1 : 3;
     }
 
     @OriginalMember(owner = "client!dc", name = "a", descriptor = "(B)V")

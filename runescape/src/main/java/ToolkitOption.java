@@ -5,16 +5,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 @OriginalClass("client!tba")
 public final class ToolkitOption extends Option {
 
-    @OriginalMember(owner = "client!mba", name = "a", descriptor = "(II)Z")
-    public static boolean isSoftware(@OriginalArg(0) int value) {
-        return value == 0 || value == 2;
-    }
-
-    @OriginalMember(owner = "client!ega", name = "a", descriptor = "(IB)Z")
-    public static boolean isHardware(@OriginalArg(0) int value) {
-        return value == 1 || value == 3 || value == 5;
-    }
-
     @OriginalMember(owner = "client!tba", name = "e", descriptor = "Z")
     public boolean dflt = false;
 

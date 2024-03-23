@@ -1,6 +1,7 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
+import com.jagex.graphics.ToolkitType;
 import com.jagex.core.io.Files;
 import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.core.stringtools.general.StringTools;
@@ -529,11 +530,11 @@ public final class Static231 {
                         Static79.method1579("Performance: " + Static363.method6235(local725, local501));
                         return;
                     }
-                    Static79.method1579("Java toolkit: " + Static363.method6235(local725, 0));
-                    Static79.method1579("SSE toolkit:  " + Static363.method6235(local725, 2));
-                    Static79.method1579("D3D toolkit:  " + Static363.method6235(local725, 3));
-                    Static79.method1579("GL toolkit:   " + Static363.method6235(local725, 1));
-                    Static79.method1579("GLX toolkit:  " + Static363.method6235(local725, 5));
+                    Static79.method1579("Java toolkit: " + Static363.method6235(local725, ToolkitType.JAVA));
+                    Static79.method1579("SSE toolkit:  " + Static363.method6235(local725, ToolkitType.SSE));
+                    Static79.method1579("D3D toolkit:  " + Static363.method6235(local725, ToolkitType.D3D));
+                    Static79.method1579("GL toolkit:   " + Static363.method6235(local725, ToolkitType.GL));
+                    Static79.method1579("GLX toolkit:  " + Static363.method6235(local725, ToolkitType.GLX));
                     return;
                 }
                 if (arg2.equals("nonpcs")) {

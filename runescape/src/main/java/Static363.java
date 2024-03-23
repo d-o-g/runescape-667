@@ -58,16 +58,19 @@ public final class Static363 {
     }
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(III)I")
-    public static int method6235(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public static int method6235(@OriginalArg(0) int arg0, @OriginalArg(1) int toolkit) {
         if (Static523.graphicsDefaults.profilingModel == -1) {
             return 1;
         }
-        if (arg1 != ClientOptions.instance.toolkit.getValue()) {
-            Static667.method8695(true, LocalisedText.PROFILING.localise(client.language), arg1);
-            if (arg1 != ClientOptions.instance.toolkit.getValue()) {
+
+        if (toolkit != ClientOptions.instance.toolkit.getValue()) {
+            Static667.method8695(true, LocalisedText.PROFILING.localise(client.language), toolkit);
+
+            if (toolkit != ClientOptions.instance.toolkit.getValue()) {
                 return -1;
             }
         }
+
         try {
             @Pc(43) Dimension local43 = GameShell.canvas.getSize();
             Static694.drawLoadingText(Toolkit.active, LocalisedText.PROFILING.localise(client.language), true, Fonts.p12Metrics, Fonts.p12);

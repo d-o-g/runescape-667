@@ -247,7 +247,7 @@ public final class Static523 {
             if (graphicsDefaults.profilingModel != -1 && !js5.MODELS.requestdownload(0, graphicsDefaults.profilingModel)) {
                 return 99;
             }
-            ArchiveTextureSource.instance = new ArchiveTextureSource(js5.MATERIALS, js5.TEXTURES, js5.SPRITES);
+            Js5TextureSource.instance = new Js5TextureSource(js5.MATERIALS, js5.TEXTURES, js5.SPRITES);
             ParamTypeList.instance = new ParamTypeList(client.modeGame, client.language, js5.CONFIG);
             BASTypeList.instance = new BASTypeList(client.modeGame, client.language, js5.CONFIG, wearposDefaults);
             CursorTypeList.instance = new CursorTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
@@ -285,7 +285,7 @@ public final class Static523 {
             Static296.updateFeatureMask();
             Static44.setSeqTypeList(SeqTypeList.instance);
             ParticleManager.init(js5.CONFIG_PARTICLE);
-            Static405.method5592(ArchiveTextureSource.instance, js5.MODELS);
+            Static405.method5592(Js5TextureSource.instance, js5.MODELS);
             @Pc(1119) HuffmanCodec codec = new HuffmanCodec(js5.BINARY.getfile("huffman", ""));
             HuffmanCodec.setInstance(codec);
 

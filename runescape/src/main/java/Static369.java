@@ -83,7 +83,7 @@ public final class Static369 {
         if (Static158.aToolkit_5 == null) {
             @Pc(85) Canvas local85 = new Canvas();
             local85.setSize(36, 32);
-            Static158.aToolkit_5 = Static255.method3612(js5.SHADERS, ArchiveTextureSource.instance, 0, local85, 0);
+            Static158.aToolkit_5 = Static255.method3612(js5.SHADERS, Js5TextureSource.instance, 0, local85, 0);
             Fonts.aFont_11 = Static158.aToolkit_5.createFont(FontMetrics.loadGroup(Fonts.p11FullGroup, js5.FONTMETRICS), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
         }
         for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {

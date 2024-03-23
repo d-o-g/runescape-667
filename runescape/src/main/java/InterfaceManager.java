@@ -379,7 +379,7 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.WORLD_MAP) {
-                        WorldMap.draw(child.height, posX, posY, ArchiveTextureSource.instance, Toolkit.active, child.width);
+                        WorldMap.draw(child.height, posX, posY, Js5TextureSource.instance, Toolkit.active, child.width);
                         dirtyRectangles[rectangle] = true;
                         Toolkit.active.KA(arg3, arg4, arg8, arg5);
                         continue;

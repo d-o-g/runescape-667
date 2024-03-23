@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vm")
-public final class DoublyLinkedNode_Sub2_Sub21 extends Node2 {
+public final class Texture extends Node2 {
 
     @OriginalMember(owner = "client!vm", name = "E", descriptor = "[I")
     public final int[] anIntArray824;
@@ -29,7 +29,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends Node2 {
     public final Node_Sub1[] aClass2_Sub1Array39;
 
     @OriginalMember(owner = "client!vm", name = "<init>", descriptor = "()V")
-    public DoublyLinkedNode_Sub2_Sub21() {
+    public Texture() {
         this.anIntArray824 = new int[0];
         this.anIntArray823 = new int[0];
         this.aClass2_Sub1_2 = new Node_Sub1_Sub17(0);
@@ -42,7 +42,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends Node2 {
     }
 
     @OriginalMember(owner = "client!vm", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public DoublyLinkedNode_Sub2_Sub21(@OriginalArg(0) Packet arg0) {
+    public Texture(@OriginalArg(0) Packet arg0) {
         @Pc(7) int local7 = arg0.g1();
         @Pc(9) int local9 = 0;
         @Pc(11) int local11 = 0;
@@ -153,7 +153,7 @@ public final class DoublyLinkedNode_Sub2_Sub21 extends Node2 {
     }
 
     @OriginalMember(owner = "client!vm", name = "a", descriptor = "(Lclient!sb;Lclient!d;B)Z")
-    public boolean method8947(@OriginalArg(0) js5 arg0, @OriginalArg(1) TextureSource arg1) {
+    public boolean available(@OriginalArg(0) js5 arg0, @OriginalArg(1) TextureSource arg1) {
         @Pc(12) int local12;
         if (Static426.anInt940 < 0) {
             for (local12 = 0; local12 < this.anIntArray824.length; local12++) {

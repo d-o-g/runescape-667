@@ -2,6 +2,7 @@ import com.jagex.Class84;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
+import com.jagex.game.runetek6.config.msitype.MSITypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.core.io.Files;

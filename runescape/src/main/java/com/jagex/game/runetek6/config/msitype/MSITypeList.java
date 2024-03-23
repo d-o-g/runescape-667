@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.msitype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
@@ -11,11 +13,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!u")
 public final class MSITypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!wr", name = "s", descriptor = "Lclient!u;")
     public static MSITypeList instance;
 
     @OriginalMember(owner = "client!u", name = "d", descriptor = "Lclient!dla;")
-    public ReferenceCache recentUse = new ReferenceCache(64);
+    public ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!u", name = "n", descriptor = "Lclient!dla;")
     public ReferenceCache spriteCache = new ReferenceCache(64);
@@ -83,7 +87,7 @@ public final class MSITypeList {
         }
 
         type = new MSIType();
-        type.typeList = this;
+        type.myList = this;
         if (data != null) {
             type.decode(new Packet(data));
         }

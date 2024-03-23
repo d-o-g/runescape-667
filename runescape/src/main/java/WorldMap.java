@@ -11,6 +11,8 @@ import com.jagex.game.runetek6.config.flutype.FloorUnderlayType;
 import com.jagex.game.runetek6.config.flutype.FloorUnderlayTypeList;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
+import com.jagex.game.runetek6.config.msitype.MSIType;
+import com.jagex.game.runetek6.config.msitype.MSITypeList;
 import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;

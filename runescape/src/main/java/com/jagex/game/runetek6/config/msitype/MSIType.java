@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.msitype;
+
 import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.Sprite;
@@ -11,7 +13,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class MSIType {
 
     @OriginalMember(owner = "client!ia", name = "b", descriptor = "Lclient!u;")
-    public MSITypeList typeList;
+    public MSITypeList myList;
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "I")
     public int anInt4165;
@@ -25,16 +27,16 @@ public final class MSIType {
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(ILclient!ha;ZI)Lclient!st;")
     public Sprite sprite(@OriginalArg(0) int count, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) boolean flipHorizontal) {
         @Pc(23) long key = toolkit.index << 19 | (flipHorizontal ? 0x40000 : 0) | count << 16 | this.image;
-        @Pc(31) Sprite sprite = (Sprite) this.typeList.spriteCache.get(key);
+        @Pc(31) Sprite sprite = (Sprite) this.myList.spriteCache.get(key);
         if (sprite != null) {
             return sprite;
         }
 
-        if (!this.typeList.sprites.fileready(this.image)) {
+        if (!this.myList.sprites.fileready(this.image)) {
             return null;
         }
 
-        @Pc(55) IndexedImage image = IndexedImage.loadFirst(this.typeList.sprites, this.image, 0);
+        @Pc(55) IndexedImage image = IndexedImage.loadFirst(this.myList.sprites, this.image, 0);
         if (image != null) {
             image.offY2 = image.offX1 = image.offX2 = image.offY1 = 0;
             if (flipHorizontal) {
@@ -47,14 +49,14 @@ public final class MSIType {
 
         sprite = toolkit.createSprite(image, true);
         if (sprite != null) {
-            this.typeList.spriteCache.put(sprite, key);
+            this.myList.spriteCache.put(sprite, key);
         }
         return sprite;
     }
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(B)Z")
     public boolean ready() {
-        return this.typeList.sprites.fileready(this.image);
+        return this.myList.sprites.fileready(this.image);
     }
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(IILclient!ge;)V")
@@ -77,6 +79,7 @@ public final class MSIType {
             if (code == 0) {
                 return;
             }
+
             this.decode(code, packet);
         }
     }

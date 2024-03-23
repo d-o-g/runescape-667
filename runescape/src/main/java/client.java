@@ -31,6 +31,7 @@ import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
+import com.jagex.game.runetek6.config.questtype.QuestTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
 import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;

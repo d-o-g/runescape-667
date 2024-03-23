@@ -24,6 +24,16 @@ public final class ObjTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 64;
 
+    @OriginalMember(owner = "client!sm", name = "a", descriptor = "(II)I")
+    private static int groupId(@OriginalArg(1) int id) {
+        return id >>> 8;
+    }
+
+    @OriginalMember(owner = "client!gu", name = "b", descriptor = "(ZI)I")
+    private static int fileId(@OriginalArg(1) int id) {
+        return id & 0xFF;
+    }
+
     @OriginalMember(owner = "client!ne", name = "n", descriptor = "Lclient!es;")
     public static ObjTypeList instance;
 
@@ -112,16 +122,6 @@ public final class ObjTypeList {
             /* 3 */ null,
             /* 4 */ LocalisedText.DROP.localise(this.languageId)
         };
-    }
-
-    @OriginalMember(owner = "client!gu", name = "b", descriptor = "(ZI)I")
-    public static int fileId(@OriginalArg(1) int arg0) {
-        return arg0 & 0xFF;
-    }
-
-    @OriginalMember(owner = "client!sm", name = "a", descriptor = "(II)I")
-    public static int groupId(@OriginalArg(1) int arg0) {
-        return arg0 >>> 8;
     }
 
     @OriginalMember(owner = "client!es", name = "b", descriptor = "(B)V")

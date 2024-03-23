@@ -1,6 +1,9 @@
+package com.jagex.game.runetek6.config.questtype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,11 +13,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!bka")
 public final class QuestTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!ija", name = "m", descriptor = "Lclient!bka;")
     public static QuestTypeList instance;
 
     @OriginalMember(owner = "client!bka", name = "d", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     private final ModeGame game;
 
@@ -32,7 +37,7 @@ public final class QuestTypeList {
         this.configClient = configClient;
 
         if (this.configClient != null) {
-            this.num = this.configClient.fileLimit(35);
+            this.num = this.configClient.fileLimit(Js5ConfigGroup.QUESTTYPE);
         } else {
             this.num = 0;
         }
@@ -47,11 +52,11 @@ public final class QuestTypeList {
     }
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "(IB)Lclient!la;")
-    public Class218 list(@OriginalArg(0) int id) {
+    public QuestType list(@OriginalArg(0) int id) {
         @Pc(6) ReferenceCache local6 = this.recentUse;
-        @Pc(16) Class218 type;
+        @Pc(16) QuestType type;
         synchronized (this.recentUse) {
-            type = (Class218) this.recentUse.get(id);
+            type = (QuestType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -63,7 +68,7 @@ public final class QuestTypeList {
             data = this.configClient.getfile(id, 35);
         }
 
-        type = new Class218();
+        type = new QuestType();
         if (data != null) {
             type.decode(new Packet(data));
         }

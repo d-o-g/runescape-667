@@ -285,6 +285,7 @@ public final class NPCType {
             if (code == 0) {
                 return;
             }
+
             this.decode(code, packet);
         }
     }

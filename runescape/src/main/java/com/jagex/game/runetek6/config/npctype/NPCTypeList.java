@@ -18,14 +18,14 @@ public final class NPCTypeList {
     @OriginalMember(owner = "client!vr", name = "b", descriptor = "Lclient!ql;")
     public static NPCTypeList instance;
 
-    @OriginalMember(owner = "client!tg", name = "a", descriptor = "(ZI)I")
-    private static int fileId(@OriginalArg(1) int id) {
-        return id & 0x7F;
-    }
-
     @OriginalMember(owner = "client!wk", name = "a", descriptor = "(IB)I")
     private static int groupId(@OriginalArg(0) int id) {
         return id >>> 7;
+    }
+
+    @OriginalMember(owner = "client!tg", name = "a", descriptor = "(ZI)I")
+    private static int fileId(@OriginalArg(1) int id) {
+        return id & 0x7F;
     }
 
     @OriginalMember(owner = "client!ql", name = "q", descriptor = "I")

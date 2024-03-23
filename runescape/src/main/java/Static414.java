@@ -15,7 +15,7 @@ public final class Static414 {
 
     @OriginalMember(owner = "client!nba", name = "a", descriptor = "(ZLclient!ca;I)V")
     public static void method5696(@OriginalArg(0) boolean arg0, @OriginalArg(1) PlayerEntity arg1) {
-        if (MiniMenu.optionCount >= 400) {
+        if (MiniMenu.entryCount >= 400) {
             return;
         }
         if (arg1 != PlayerEntity.self) {
@@ -75,8 +75,8 @@ public final class Static414 {
                 }
             }
             if (!arg0) {
-                for (@Pc(484) DoublyLinkedNode_Sub2_Sub16 local484 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local484 != null; local484 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
-                    if (local484.anInt7314 == 58) {
+                for (@Pc(484) MiniMenuEntry local484 = (MiniMenuEntry) MiniMenu.entry.first(); local484 != null; local484 = (MiniMenuEntry) MiniMenu.entry.next()) {
+                    if (local484.action == 58) {
                         local484.aString88 = "<col=ffffff>" + local177;
                         return;
                     }

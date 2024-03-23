@@ -33,11 +33,6 @@ public final class Static242 {
         return Static135.anInt8223 != 0;
     }
 
-    @OriginalMember(owner = "client!hj", name = "c", descriptor = "(I)V")
-    public static void method3502() {
-        Static525.aClass2_Sub2_Sub16_12 = new DoublyLinkedNode_Sub2_Sub16(LocalisedText.CANCEL.localise(client.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
-    }
-
     @OriginalMember(owner = "client!hj", name = "a", descriptor = "(IZ)I")
     public static int method3503(@OriginalArg(1) boolean arg0) {
         @Pc(5) int local5 = Static448.anInt6796;

@@ -181,11 +181,11 @@ public final class ScriptRunner {
         @Pc(71) Component[] local71;
         if (arg0.id == -1) {
             @Pc(119) int local119 = arg0.slot >>> 16;
-            @Pc(123) Component[] local123 = InterfaceManager.cache[local119];
+            @Pc(123) Component[] local123 = InterfaceList.cache[local119];
             if (local123 == null) {
                 local71 = InterfaceList.interfaces[local119];
                 @Pc(132) int local132 = local71.length;
-                local123 = InterfaceManager.cache[local119] = new Component[local132];
+                local123 = InterfaceList.cache[local119] = new Component[local132];
                 Arrays.copy(local71, 0, local123, 0, local71.length);
             }
             @Pc(148) int local148;
@@ -928,7 +928,7 @@ public final class ScriptRunner {
                             return;
                         }
                         if (arg0 == 1311) {
-                            component.anInt3776 = anIntArray578[--anInt7142];
+                            component.targetOpCursor = anIntArray578[--anInt7142];
                             return;
                         }
                         if (arg0 == 1312 || arg0 == 1313) {
@@ -1524,7 +1524,7 @@ public final class ScriptRunner {
                                         local21 = anIntArray578[anInt7142 + 1];
                                         local4760 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                         if (local4760 != null) {
-                                            Static449.method6115(true, local4760.id != local21, local4760);
+                                            InterfaceManager.closeSubInterface(true, local4760.id != local21, local4760);
                                         }
                                         InterfaceManager.openSubInterface(3, local21, local15, true);
                                         return;
@@ -1534,7 +1534,7 @@ public final class ScriptRunner {
                                         local15 = anIntArray578[anInt7142];
                                         local4653 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                         if (local4653 != null && local4653.type == 3) {
-                                            Static449.method6115(true, true, local4653);
+                                            InterfaceManager.closeSubInterface(true, true, local4653);
                                         }
                                         return;
                                     }
@@ -1671,7 +1671,7 @@ public final class ScriptRunner {
                                     if (arg0 == 3308) {
                                         @Pc(5929) byte local5929 = PlayerEntity.self.level;
                                         local21 = (PlayerEntity.self.x >> 9) + WorldMap.areaBaseX;
-                                        local27 = (PlayerEntity.self.z >> 9) + WorldMap.areaBaseY;
+                                        local27 = (PlayerEntity.self.z >> 9) + WorldMap.areaBaseZ;
                                         anIntArray578[anInt7142++] = (local5929 << 28) + (local21 << 14) + local27;
                                         return;
                                     }
@@ -3207,11 +3207,11 @@ public final class ScriptRunner {
         @Pc(69) Component[] local69;
         if (arg0.id == -1) {
             @Pc(106) int local106 = arg0.slot >>> 16;
-            @Pc(110) Component[] local110 = InterfaceManager.cache[local106];
+            @Pc(110) Component[] local110 = InterfaceList.cache[local106];
             if (local110 == null) {
                 local69 = InterfaceList.interfaces[local106];
                 @Pc(119) int local119 = local69.length;
-                local110 = InterfaceManager.cache[local106] = new Component[local119];
+                local110 = InterfaceList.cache[local106] = new Component[local119];
                 Arrays.copy(local69, 0, local110, 0, local69.length);
             }
             @Pc(135) int local135;
@@ -4463,7 +4463,7 @@ public final class ScriptRunner {
                         local192 = anIntArray578[anInt7142];
                         local834 = anIntArray578[anInt7142 + 1];
                         if (local192 >= 0 && local192 < 2) {
-                            Static603.anIntArrayArrayArray18[local192] = new int[local834 << 1][4];
+                            Camera.spline[local192] = new int[local834 << 1][4];
                         }
                         return;
                     }
@@ -4476,14 +4476,14 @@ public final class ScriptRunner {
                         local375 = anIntArray578[anInt7142 + 4];
                         local3561 = anIntArray578[anInt7142 + 5];
                         @Pc(3567) int local3567 = anIntArray578[anInt7142 + 6];
-                        if (local192 >= 0 && local192 < 2 && Static603.anIntArrayArrayArray18[local192] != null && local834 >= 0 && local834 < Static603.anIntArrayArrayArray18[local192].length) {
-                            Static603.anIntArrayArrayArray18[local192][local834] = new int[]{(local109 >> 14 & 0x3FFF) << 9, local115 << 2, (local109 & 0x3FFF) << 9, local3567};
-                            Static603.anIntArrayArrayArray18[local192][local834 + 1] = new int[]{(local375 >> 14 & 0x3FFF) << 9, local3561 << 2, (local375 & 0x3FFF) << 9};
+                        if (local192 >= 0 && local192 < 2 && Camera.spline[local192] != null && local834 >= 0 && local834 < Camera.spline[local192].length) {
+                            Camera.spline[local192][local834] = new int[]{(local109 >> 14 & 0x3FFF) << 9, local115 << 2, (local109 & 0x3FFF) << 9, local3567};
+                            Camera.spline[local192][local834 + 1] = new int[]{(local375 >> 14 & 0x3FFF) << 9, local3561 << 2, (local375 & 0x3FFF) << 9};
                         }
                         return;
                     }
                     if (arg0 == 5407) {
-                        local192 = Static603.anIntArrayArrayArray18[anIntArray578[--anInt7142]].length >> 1;
+                        local192 = Camera.spline[anIntArray578[--anInt7142]].length >> 1;
                         anIntArray578[anInt7142++] = local192;
                         return;
                     }
@@ -4664,7 +4664,7 @@ public final class ScriptRunner {
                         local834 = anIntArray578[anInt7142 + 1];
                         local109 = anIntArray578[anInt7142 + 2];
                         local115 = anIntArray578[anInt7142 + 3];
-                        Static319.method4595((local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, false, local109, local834 << 2, (local192 & 0x3FFF) - WorldMap.areaBaseY, local115);
+                        Static319.method4595((local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, false, local109, local834 << 2, (local192 & 0x3FFF) - WorldMap.areaBaseZ, local115);
                         return;
                     }
                     if (arg0 == 5501) {
@@ -4673,7 +4673,7 @@ public final class ScriptRunner {
                         local834 = anIntArray578[anInt7142 + 1];
                         local109 = anIntArray578[anInt7142 + 2];
                         local115 = anIntArray578[anInt7142 + 3];
-                        Static638.method8397(local109, (local192 & 0x3FFF) - WorldMap.areaBaseY, (local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, local834 << 2, local115);
+                        Static638.method8397(local109, (local192 & 0x3FFF) - WorldMap.areaBaseZ, (local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, local834 << 2, local115);
                         return;
                     }
                     if (arg0 == 5502) {
@@ -4684,24 +4684,24 @@ public final class ScriptRunner {
                         }
                         Static197.anInt3260 = local192;
                         local834 = anIntArray578[anInt7142 + 1];
-                        if (local834 + 1 >= Static603.anIntArrayArrayArray18[Static197.anInt3260].length >> 1) {
+                        if (local834 + 1 >= Camera.spline[Static197.anInt3260].length >> 1) {
                             throw new RuntimeException();
                         }
                         Static303.anInt4868 = local834;
-                        Static260.anInt4244 = 0;
-                        Static71.anInt1581 = anIntArray578[anInt7142 + 2];
-                        Static410.anInt6322 = anIntArray578[anInt7142 + 3];
+                        Camera.splineRate = 0;
+                        Camera.splineStart = anIntArray578[anInt7142 + 2];
+                        Camera.splineEnd = anIntArray578[anInt7142 + 3];
                         local109 = anIntArray578[anInt7142 + 4];
                         if (local109 >= 2) {
                             throw new RuntimeException();
                         }
-                        Static374.anInt5907 = local109;
+                        Camera.lookSpline = local109;
                         local115 = anIntArray578[anInt7142 + 5];
-                        if (local115 + 1 >= Static603.anIntArrayArrayArray18[Static374.anInt5907].length >> 1) {
+                        if (local115 + 1 >= Camera.spline[Camera.lookSpline].length >> 1) {
                             throw new RuntimeException();
                         }
-                        Static591.anInt8739 = local115;
-                        Static511.anInt7645 = 3;
+                        Camera.splineLookOffset = local115;
+                        Camera.anInt7645 = 3;
                         Static693.anInt10383 = -1;
                         Static692.anInt10376 = -1;
                         return;
@@ -4749,7 +4749,7 @@ public final class ScriptRunner {
                         } else if (local834 >= Static720.mapWidth) {
                             local834 = Static720.mapWidth;
                         }
-                        local109 -= WorldMap.areaBaseY;
+                        local109 -= WorldMap.areaBaseZ;
                         if (local109 < 0) {
                             local109 = 0;
                         } else if (local109 >= Static501.mapHeight) {
@@ -4757,7 +4757,7 @@ public final class ScriptRunner {
                         }
                         Static433.anInt6262 = (local834 << 9) + 256;
                         Static249.anInt4018 = (local109 << 9) + 256;
-                        Static511.anInt7645 = 4;
+                        Camera.anInt7645 = 4;
                         Static693.anInt10383 = -1;
                         Static692.anInt10376 = -1;
                         return;
@@ -4785,7 +4785,7 @@ public final class ScriptRunner {
                             } else if (local834 >= Static720.mapWidth) {
                                 local834 = Static720.mapWidth;
                             }
-                            local109 -= WorldMap.areaBaseY;
+                            local109 -= WorldMap.areaBaseZ;
                             if (local109 < 0) {
                                 local109 = 0;
                             } else if (local109 >= Static501.mapHeight) {
@@ -4800,7 +4800,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5547) {
-                        anIntArray578[anInt7142++] = Static511.anInt7645 == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = Camera.anInt7645 == 1 ? 1 : 0;
                         return;
                     }
                 } else if (arg0 < 5700) {

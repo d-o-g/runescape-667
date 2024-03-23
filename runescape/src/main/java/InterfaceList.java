@@ -8,6 +8,9 @@ public final class InterfaceList {
     @OriginalMember(owner = "client!of", name = "z", descriptor = "[[Lclient!hda;")
     public static Component[][] interfaces;
 
+    @OriginalMember(owner = "client!el", name = "R", descriptor = "[[Lclient!hda;")
+    public static Component[][] cache;
+
     @OriginalMember(owner = "client!ec", name = "G", descriptor = "[Z")
     public static boolean[] loaded;
 
@@ -66,10 +69,6 @@ public final class InterfaceList {
         }
     }
 
-    private InterfaceList() {
-        /* empty */
-    }
-
     @OriginalMember(owner = "client!aia", name = "a", descriptor = "(III)Lclient!hda;")
     public static Component getComponent(@OriginalArg(1) int component, @OriginalArg(2) int id) {
         @Pc(21) Component inter = list(id);
@@ -81,5 +80,16 @@ public final class InterfaceList {
         } else {
             return null;
         }
+    }
+
+    @OriginalMember(owner = "client!up", name = "c", descriptor = "(Z)V")
+    public static void reset() {
+        interfaces = new Component[Component.interfacesJs5.groupSize()][];
+        cache = new Component[Component.interfacesJs5.groupSize()][];
+        loaded = new boolean[Component.interfacesJs5.groupSize()];
+    }
+
+    private InterfaceList() {
+        /* empty */
     }
 }

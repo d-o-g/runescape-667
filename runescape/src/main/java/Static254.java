@@ -62,7 +62,7 @@ public final class Static254 {
         Static227.aDeque_18 = new Deque();
         TimedVarDomain.instance.reset();
         DelayedStateChange.clear();
-        Static121.anInt2333 = 0;
+        Camera.anInt2333 = 0;
         Static55.anInt1125 = 0;
         Static12.anInt5741 = 0;
         Static441.anInt6689 = 0;
@@ -70,7 +70,7 @@ public final class Static254 {
         Static674.anInt10088 = 0;
         Static363.anInt6934 = 0;
         Static179.anInt2991 = 0;
-        Static709.anInt10667 = 0;
+        Camera.anInt10667 = 0;
         Static694.anInt10411 = 0;
         for (@Pc(8765) int local8765 = 0; local8765 < Static511.varcs.length; local8765++) {
             if (!Static118.permVarcs[local8765]) {
@@ -78,7 +78,7 @@ public final class Static254 {
             }
         }
         if (InterfaceManager.topLevelInterface != -1) {
-            Static347.method5094(InterfaceManager.topLevelInterface);
+            InterfaceManager.closeInterface(InterfaceManager.topLevelInterface);
         }
         for (@Pc(8803) SubInterface local8803 = (SubInterface) InterfaceManager.subInterfaces.first(); local8803 != null; local8803 = (SubInterface) InterfaceManager.subInterfaces.next()) {
             if (!local8803.isLinked()) {
@@ -87,11 +87,11 @@ public final class Static254 {
                     break;
                 }
             }
-            Static449.method6115(false, true, local8803);
+            InterfaceManager.closeSubInterface(false, true, local8803);
         }
         InterfaceManager.topLevelInterface = -1;
         InterfaceManager.subInterfaces = new IterableHashTable(8);
-        Static656.method6692();
+        InterfaceList.reset();
         InterfaceManager.dialog = null;
         for (@Pc(8849) int local8849 = 0; local8849 < 8; local8849++) {
             Static297.aStringArray24[local8849] = null;
@@ -119,7 +119,7 @@ public final class Static254 {
         ClientOptions.instance.update(ClientOptions.instance.animateBackgroundDefault.getValue(), ClientOptions.instance.animateBackground);
         Static334.anInt5456 = 0;
         Static533.method7119();
-        Static371.method5284();
+        Protocol.sendWindowStatus();
         Static211.aClass2_Sub12_3 = null;
         Static675.aLong307 = 0L;
         js5.CONFIG.discardunpacked = 2;

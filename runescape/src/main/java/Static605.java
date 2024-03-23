@@ -27,7 +27,7 @@ public final class Static605 {
         if (arg0 == Static704.aClass287_17) {
             local15 = local8.g1();
             local21 = (local15 & 0x7) + Static270.anInt4354;
-            local25 = WorldMap.areaBaseY + local21;
+            local25 = WorldMap.areaBaseZ + local21;
             local34 = Static626.anInt9476 + (local15 >> 4 & 0x7);
             local38 = WorldMap.areaBaseX + local34;
             local42 = local8.g2();
@@ -238,7 +238,7 @@ public final class Static605 {
                     local15 = local8.g2_alt2();
                     local21 = local8.g1_alt1();
                     local25 = Static270.anInt4354 + (local21 & 0x7);
-                    local34 = local25 + WorldMap.areaBaseY;
+                    local34 = local25 + WorldMap.areaBaseZ;
                     local38 = Static626.anInt9476 + (local21 >> 4 & 0x7);
                     local42 = WorldMap.areaBaseX + local38;
                     local46 = local8.ig2();
@@ -276,7 +276,7 @@ public final class Static605 {
                     local15 = local8.g2();
                     local21 = local8.g1();
                     local25 = (local21 & 0x7) + Static270.anInt4354;
-                    local34 = local25 + WorldMap.areaBaseY;
+                    local34 = local25 + WorldMap.areaBaseZ;
                     local38 = (local21 >> 4 & 0x7) + Static626.anInt9476;
                     local42 = local38 + WorldMap.areaBaseX;
                     @Pc(1389) ObjStack local1389 = (ObjStack) Static497.stacks.get(local34 << 14 | Static87.anInt1810 << 28 | local42);
@@ -348,7 +348,7 @@ public final class Static605 {
                 } else if (Static18.aClass287_2 == arg0) {
                     local15 = local8.g1_alt2();
                     local21 = Static270.anInt4354 + (local15 & 0x7);
-                    local25 = local21 + WorldMap.areaBaseY;
+                    local25 = local21 + WorldMap.areaBaseZ;
                     local34 = (local15 >> 4 & 0x7) + Static626.anInt9476;
                     local38 = WorldMap.areaBaseX + local34;
                     local42 = local8.g2_alt2();

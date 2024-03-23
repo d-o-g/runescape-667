@@ -40,7 +40,7 @@ public final class Minimap {
         @Pc(93) int local93;
         @Pc(87) int local87;
         @Pc(79) int local79;
-        if (Static511.anInt7645 == 4) {
+        if (Camera.anInt7645 == 4) {
             local87 = (int) -Static171.aFloat64 & 0x3FFF;
             local79 = 4096;
             local93 = Static249.anInt4018;
@@ -61,7 +61,7 @@ public final class Minimap {
         for (@Pc(171) IntNode local171 = (IntNode) Static612.A_DEQUE___67.first(); local171 != null; local171 = (IntNode) Static612.A_DEQUE___67.next()) {
             @Pc(178) int local178 = local171.value;
             local190 = (Static42.aMapElementList_2.anIntArray495[local178] >> 14 & 0x3FFF) - WorldMap.areaBaseX;
-            local200 = (Static42.aMapElementList_2.anIntArray495[local178] & 0x3FFF) - WorldMap.areaBaseY;
+            local200 = (Static42.aMapElementList_2.anIntArray495[local178] & 0x3FFF) - WorldMap.areaBaseZ;
             local211 = local190 * 4 + 2 - local90 / 128;
             local222 = local200 * 4 + 2 - local93 / 128;
             Static620.method8322(local222, x, local30, toolkit, Static42.aMapElementList_2.anIntArray496[local178], y, local211, component);
@@ -84,7 +84,7 @@ public final class Minimap {
             local211 = (int) (local334.key >> 28 & 0x3L);
             if (Static643.anInt9604 == local211) {
                 local222 = (int) (local334.key & 0x3FFFL) - WorldMap.areaBaseX;
-                @Pc(370) int local370 = (int) (local334.key >> 14 & 0x3FFFL) - WorldMap.areaBaseY;
+                @Pc(370) int local370 = (int) (local334.key >> 14 & 0x3FFFL) - WorldMap.areaBaseZ;
                 local381 = local222 * 4 + 2 - local90 / 128;
                 local392 = local370 * 4 + 2 - local93 / 128;
                 Static6.method107(y, local30, Static471.aSpriteArray11[0], local392, local381, component, x);
@@ -187,7 +187,7 @@ public final class Minimap {
                 }
             }
         }
-        if (Static511.anInt7645 == 4) {
+        if (Camera.anInt7645 == 4) {
             return;
         }
         if (flagX != 0) {

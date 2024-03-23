@@ -26,7 +26,7 @@ public final class Static77 {
                 }
             }
             if (local22.type == 0) {
-                Static449.method6115(true, true, local22);
+                InterfaceManager.closeSubInterface(true, true, local22);
             }
         }
         if (InterfaceManager.dialog != null) {

@@ -1,4 +1,10 @@
+import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.datastruct.LinkedList;
+import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.key.IterableHashTable;
+import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.Queue;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -15,68 +21,45 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class MiniMenu {
+    @OriginalMember(owner = "client!vu", name = "f", descriptor = "Lclient!sia;")
+    public static final Deque entry = new Deque();
+
+    @OriginalMember(owner = "client!pha", name = "m", descriptor = "Lclient!av;")
+    public static final IterableHashTable categories = new IterableHashTable(16);
+
+    @OriginalMember(owner = "client!wn", name = "k", descriptor = "Lclient!dla;")
+    public static final ReferenceCache cache = new ReferenceCache(30);
+
+    @OriginalMember(owner = "client!la", name = "v", descriptor = "Lclient!jga;")
+    public static final Queue innerEntries = new Queue();
+
     @OriginalMember(owner = "client!mk", name = "c", descriptor = "Z")
     public static boolean open = false;
 
-    @OriginalMember(owner = "client!cja", name = "l", descriptor = "I")
-    public static int anInt1634;
-
     @OriginalMember(owner = "client!sn", name = "j", descriptor = "I")
-    public static int optionCount = 0;
+    public static int entryCount = 0;
+
+    @OriginalMember(owner = "client!bb", name = "c", descriptor = "I")
+    public static int innerCount = 0;
+
+    @OriginalMember(owner = "client!qja", name = "c", descriptor = "Lclient!pg;")
+    public static MiniMenuEntry CANCEL;
 
     @OriginalMember(owner = "client!cja", name = "b", descriptor = "(B)V")
     public static void reset() {
-        for (@Pc(10) DoublyLinkedNode_Sub2_Sub4 local10 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local10 != null; local10 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
-            if (local10.anInt1534 > 1) {
-                local10.anInt1534 = 0;
-                Static717.A_WEIGHTED_CACHE___232.put(local10, ((DoublyLinkedNode_Sub2_Sub16) local10.aQueue_3.sentinel.next2).aLong234);
-                local10.aQueue_3.clear();
+        for (@Pc(10) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) innerEntries.next()) {
+            if (inner.size > 1) {
+                inner.size = 0;
+                cache.put(inner, ((MiniMenuEntry) inner.entries.sentinel.next2).entryKey);
+                inner.entries.clear();
             }
         }
-        optionCount = 0;
-        Static31.anInt767 = 0;
-        if (98 != 98) {
-            anInt1634 = 47;
-        }
-        Static693.A_DEQUE___79.clear();
-        Static490.A_HASH_TABLE___34.clear();
-        Static350.A_QUEUE___8.clear();
-        Static84.method1662(Static525.aClass2_Sub2_Sub16_12);
-    }
-
-    @OriginalMember(owner = "client!nea", name = "a", descriptor = "(ILclient!hda;II)V")
-    public static void addMiniMenuOptions(@OriginalArg(1) Component arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        if (InterfaceManager.targeting) {
-            @Pc(16) ParamType local16 = InterfaceManager.targetParam == -1 ? null : ParamTypeList.instance.list(InterfaceManager.targetParam);
-            if (InterfaceManager.serverActiveProperties(arg0).isUseTarget() && (InterfaceManager.targetMask & 0x20) != 0 && (local16 == null || arg0.param(local16.defaultint, InterfaceManager.targetParam) != local16.defaultint)) {
-                addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, InterfaceManager.targetVerb, 18, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> " + arg0.opBase, arg0.id << 0 | arg0.slot, false);
-            }
-        }
-        @Pc(106) String local106;
-        for (@Pc(97) int local97 = 9; local97 >= 5; local97--) {
-            local106 = InterfaceManager.getOp(arg0, local97);
-            if (local106 != null) {
-                addEntry(false, arg0.invObject, local97 + 1, arg0.id, arg0.slot, local106, 1002, true, Static372.method5292(local97, arg0), arg0.opBase, arg0.slot | arg0.id << 0, false);
-            }
-        }
-        local106 = InterfaceManager.getComponentTargetVerb(arg0);
-        if (local106 != null) {
-            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, local106, 12, true, arg0.anInt3776, arg0.opBase, arg0.id << 0 | arg0.slot, false);
-        }
-        for (@Pc(193) int local193 = 4; local193 >= 0; local193--) {
-            @Pc(204) String local204 = InterfaceManager.getOp(arg0, local193);
-            if (local204 != null) {
-                addEntry(false, arg0.invObject, local193 + 1, arg0.id, arg0.slot, local204, 20, true, Static372.method5292(local193, arg0), arg0.opBase, arg0.slot | arg0.id << 0, false);
-            }
-        }
-        if (!InterfaceManager.serverActiveProperties(arg0).isPauseButton()) {
-            return;
-        }
-        if (arg0.pauseText == null) {
-            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, LocalisedText.CONTINUE.localise(client.language), 10, true, -1, "", arg0.slot | arg0.id << 0, false);
-        } else {
-            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, arg0.pauseText, 10, true, -1, "", arg0.slot | arg0.id << 0, false);
-        }
+        entryCount = 0;
+        innerCount = 0;
+        entry.clear();
+        categories.clear();
+        innerEntries.clear();
+        addEntryInner(CANCEL);
     }
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(IIILclient!ha;)V")
@@ -290,7 +273,7 @@ public final class MiniMenu {
                     }
                     if (local543.aRenderable_18 instanceof Class8_Sub2_Sub5_Sub1) {
                         @Pc(1385) int local1385 = local186 + WorldMap.areaBaseX;
-                        local614 = WorldMap.areaBaseY + local584;
+                        local614 = WorldMap.areaBaseZ + local584;
                         @Pc(1406) ObjStack local1406 = (ObjStack) Static497.stacks.get(local614 << 14 | local543.aRenderable_18.level << 28 | local1385);
                         if (local1406 != null) {
                             local295 = 0;
@@ -414,11 +397,11 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!nca", name = "a", descriptor = "(ZIJIILjava/lang/String;IZILjava/lang/String;JBZ)V")
-    public static void addEntry(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) long arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) String arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) String arg9, @OriginalArg(10) long arg10, @OriginalArg(12) boolean arg11) {
-        if (!open && optionCount < 500) {
-            @Pc(20) int local20 = arg8 == -1 ? InterfaceManager.targetEndCursor : arg8;
-            @Pc(36) DoublyLinkedNode_Sub2_Sub16 local36 = new DoublyLinkedNode_Sub2_Sub16(arg5, arg9, local20, arg6, arg1, arg2, arg3, arg4, arg7, arg0, arg10, arg11);
-            Static84.method1662(local36);
+    public static void addEntry(@OriginalArg(0) boolean arg0, @OriginalArg(1) int invObject, @OriginalArg(2) long arg2, @OriginalArg(3) int id, @OriginalArg(4) int slot, @OriginalArg(5) String targetVerb, @OriginalArg(6) int action, @OriginalArg(7) boolean arg7, @OriginalArg(8) int cursor, @OriginalArg(9) String opBase, @OriginalArg(10) long key, @OriginalArg(12) boolean arg11) {
+        if (!open && entryCount < 500) {
+            @Pc(20) int targetEndCursor = cursor != -1 ? cursor : InterfaceManager.targetEndCursor;
+            @Pc(36) MiniMenuEntry entry = new MiniMenuEntry(targetVerb, opBase, targetEndCursor, action, invObject, arg2, id, slot, arg7, arg0, key, arg11);
+            addEntryInner(entry);
         }
     }
 
@@ -427,24 +410,99 @@ public final class MiniMenu {
         if (Static96.aClass2_Sub2_Sub16_13 == null) {
             return false;
         } else {
-            if (Static96.aClass2_Sub2_Sub16_13.anInt7314 >= 2000) {
-                Static96.aClass2_Sub2_Sub16_13.anInt7314 -= 2000;
+            if (Static96.aClass2_Sub2_Sub16_13.action >= 2000) {
+                Static96.aClass2_Sub2_Sub16_13.action -= 2000;
             }
-            return Static96.aClass2_Sub2_Sub16_13.anInt7314 == 1002;
+            return Static96.aClass2_Sub2_Sub16_13.action == 1002;
         }
     }
 
     @OriginalMember(owner = "client!ci", name = "a", descriptor = "(I)Z")
     public static boolean isPopulated() {
-        return optionCount > 0;
+        return entryCount > 0;
     }
 
     @OriginalMember(owner = "client!cv", name = "b", descriptor = "(B)V")
     public static void method1840() {
-        for (@Pc(4) DoublyLinkedNode_Sub2_Sub16 local4 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local4 != null; local4 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
-            if (Static466.method6326(local4.anInt7314)) {
+        for (@Pc(4) MiniMenuEntry local4 = (MiniMenuEntry) entry.first(); local4 != null; local4 = (MiniMenuEntry) entry.next()) {
+            if (Static466.method6326(local4.action)) {
                 Static679.method8911(local4);
             }
         }
+    }
+
+    @OriginalMember(owner = "client!client", name = "a", descriptor = "(BLclient!pg;)V")
+    public static void addEntryInner(@OriginalArg(1) MiniMenuEntry entry) {
+        if (entry == null) {
+            return;
+        }
+
+        MiniMenu.entry.addLast(entry);
+        entryCount++;
+
+        @Pc(33) MiniMenuEntryInner inner;
+        if (entry.independent || "".equals(entry.opBase)) {
+            inner = new MiniMenuEntryInner(entry.opBase);
+            innerCount++;
+        } else {
+            @Pc(41) long key = entry.entryKey;
+            for (inner = (MiniMenuEntryInner) categories.get(key); inner != null && !inner.title.equals(entry.opBase); inner = (MiniMenuEntryInner) categories.nextWithSameKey()) {
+            }
+
+            if (inner == null) {
+                inner = (MiniMenuEntryInner) cache.get(key);
+                if (inner != null && !inner.title.equals(entry.opBase)) {
+                    inner = null;
+                }
+                if (inner == null) {
+                    inner = new MiniMenuEntryInner(entry.opBase);
+                }
+
+                categories.put(key, inner);
+                innerCount++;
+            }
+        }
+
+        if (inner.add(entry)) {
+            reposition(inner);
+        }
+    }
+
+    @OriginalMember(owner = "client!mb", name = "a", descriptor = "(Lclient!cba;B)V")
+    public static void reposition(@OriginalArg(0) MiniMenuEntryInner inner) {
+        @Pc(5) boolean inserted = false;
+        inner.unlink2();
+
+        for (@Pc(21) MiniMenuEntryInner child = (MiniMenuEntryInner) innerEntries.first(); child != null; child = (MiniMenuEntryInner) innerEntries.next()) {
+            if (isActionBefore(inner.getAction(), child.getAction())) {
+                inserted = true;
+                Node2.attachAfter(child, inner);
+                break;
+            }
+        }
+
+        if (!inserted) {
+            innerEntries.add(inner);
+        }
+    }
+
+    @OriginalMember(owner = "client!rd", name = "a", descriptor = "(BII)Z")
+    public static boolean isActionBefore(@OriginalArg(1) int curr, @OriginalArg(2) int prev) {
+        if (prev >= 1000 && curr < 1000) {
+            return true;
+        } else if (prev >= 1000 || curr >= 1000) {
+            return prev >= 1000 && curr >= 1000;
+        } else if (MiniMenuAction.isTarget(curr)) {
+            return true;
+        } else if (!MiniMenuAction.isTarget(prev)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @OriginalMember(owner = "client!hj", name = "c", descriptor = "(I)V")
+    public static void setCancelEntry() {
+        CANCEL = new MiniMenuEntry(LocalisedText.CANCEL.localise(client.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
     }
 }

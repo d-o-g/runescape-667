@@ -17,9 +17,6 @@ public final class Static374 {
     @OriginalMember(owner = "client!lp", name = "d", descriptor = "[I")
     public static final int[] anIntArray457 = new int[1];
 
-    @OriginalMember(owner = "client!lp", name = "a", descriptor = "I")
-    public static int anInt5907 = -1;
-
     @OriginalMember(owner = "client!lp", name = "a", descriptor = "(II)V")
     public static void method5303(@OriginalArg(1) int arg0) {
         @Pc(1) Shadow local1 = null;

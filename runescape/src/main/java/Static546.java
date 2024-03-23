@@ -9,19 +9,6 @@ public final class Static546 {
     @OriginalMember(owner = "client!rd", name = "n", descriptor = "I")
     public static int anInt8244;
 
-    @OriginalMember(owner = "client!rd", name = "a", descriptor = "(BII)Z")
-    public static boolean method7250(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        if (arg1 >= 1000 && arg0 < 1000) {
-            return true;
-        } else if (arg1 >= 1000 || arg0 >= 1000) {
-            return arg1 >= 1000 && arg0 >= 1000;
-        } else if (Static348.method5113(arg0)) {
-            return true;
-        } else {
-            return !Static348.method5113(arg1);
-        }
-    }
-
     @OriginalMember(owner = "client!rd", name = "a", descriptor = "(Lclient!ha;I)V")
     public static void method7251(@OriginalArg(0) Toolkit arg0) {
         @Pc(7) int local7 = 0;

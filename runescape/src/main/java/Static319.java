@@ -34,14 +34,14 @@ public final class Static319 {
         Static363.anInt6934 = arg3;
         Static694.anInt10411 = arg2;
         Static674.anInt10088 = arg5;
-        Static709.anInt10667 = arg4;
-        Static121.anInt2333 = arg0;
+        Camera.anInt10667 = arg4;
+        Camera.anInt2333 = arg0;
         if (arg1 && Static674.anInt10088 >= 100) {
-            Static170.anInt2864 = Static121.anInt2333 * 512 + 256;
-            Static110.anInt2186 = Static709.anInt10667 * 512 + 256;
-            Static359.anInt5801 = Static102.method2025(Camera.renderingLevel, -29754, Static110.anInt2186, Static170.anInt2864) - Static363.anInt6934;
+            Camera.positionX = Camera.anInt2333 * 512 + 256;
+            Camera.positionZ = Camera.anInt10667 * 512 + 256;
+            Camera.positionY = Static102.method2025(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX) - Static363.anInt6934;
         }
-        Static511.anInt7645 = 2;
+        Camera.anInt7645 = 2;
         Static693.anInt10383 = -1;
         Static692.anInt10376 = -1;
     }

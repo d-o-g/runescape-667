@@ -10,11 +10,6 @@ public final class Static640 {
     @OriginalMember(owner = "client!uda", name = "B", descriptor = "S")
     public static short aShort122 = 256;
 
-    @OriginalMember(owner = "client!uda", name = "a", descriptor = "(IZ)V")
-    public static void method8435(@OriginalArg(1) boolean arg0) {
-        InterfaceManager.calculateComponentListDimensions(arg0, InterfaceManager.topLevelInterface, GameShell.canvasHei, GameShell.canvasWid);
-    }
-
     @OriginalMember(owner = "client!uda", name = "i", descriptor = "(I)Lclient!wca;")
     public static Class396 method8436() {
         return Static321.method4620();

@@ -170,7 +170,7 @@ public final class Static651 {
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IZLclient!wj;)V")
     public static void method8517(@OriginalArg(1) boolean arg0, @OriginalArg(2) NPCEntity arg1) {
-        if (MiniMenu.optionCount >= 400) {
+        if (MiniMenu.entryCount >= 400) {
             return;
         }
         @Pc(21) NPCType local21 = arg1.type;

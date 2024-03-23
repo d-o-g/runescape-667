@@ -1,6 +1,5 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.game.LocalisedText;
-import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -36,12 +35,12 @@ public final class Static684 {
         Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(client.language), true, Fonts.p12Metrics, Fonts.p12);
         @Pc(74) int local74 = WorldMap.areaBaseX;
         WorldMap.areaBaseX = (Static62.anInt1465 - (Static720.mapWidth >> 4)) * 8;
-        @Pc(85) int local85 = WorldMap.areaBaseY;
-        WorldMap.areaBaseY = (Static525.anInt8907 - (Static501.mapHeight >> 4)) * 8;
+        @Pc(85) int local85 = WorldMap.areaBaseZ;
+        WorldMap.areaBaseZ = (Static525.anInt8907 - (Static501.mapHeight >> 4)) * 8;
         Static162.aClass2_Sub2_Sub13_2 = WorldMap.method5078(Static62.anInt1465 * 8, Static525.anInt8907 * 8);
         Static42.aMapElementList_2 = null;
         @Pc(109) int deltaX = WorldMap.areaBaseX - local74;
-        @Pc(113) int deltaY = WorldMap.areaBaseY - local85;
+        @Pc(113) int deltaY = WorldMap.areaBaseZ - local85;
         @Pc(134) int local134;
         @Pc(136) int local136;
         @Pc(193) int local193;
@@ -137,7 +136,7 @@ public final class Static684 {
                 @Pc(615) int local615 = (int) (local608.key & 0x3FFFL);
                 @Pc(619) int local619 = local615 - WorldMap.areaBaseX;
                 local193 = (int) (local608.key >> 14 & 0x3FFFL);
-                @Pc(632) int local632 = local193 - WorldMap.areaBaseY;
+                @Pc(632) int local632 = local193 - WorldMap.areaBaseZ;
                 if (local619 < 0 || local632 < 0 || local619 >= Static720.mapWidth || local632 >= Static501.mapHeight) {
                     local608.unlink();
                 }
@@ -153,15 +152,15 @@ public final class Static684 {
 
         if (mainLogicStep != 12) {
             Static441.anInt6689 -= deltaX;
-            Static121.anInt2333 -= deltaX;
-            Static709.anInt10667 -= deltaY;
-            Static110.anInt2186 -= deltaY * 512;
-            Static170.anInt2864 -= deltaX * 512;
+            Camera.anInt2333 -= deltaX;
+            Camera.anInt10667 -= deltaY;
+            Camera.positionZ -= deltaY * 512;
+            Camera.positionX -= deltaX * 512;
             Static12.anInt5741 -= deltaY;
             if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaY) > Static501.mapHeight) {
                 Static218.method3187();
             }
-        } else if (Static511.anInt7645 == 4) {
+        } else if (Camera.anInt7645 == 4) {
             Static433.anInt6262 -= deltaX * 512;
             Static38.anInt920 -= deltaY * 512;
             Static249.anInt4018 -= deltaY * 512;
@@ -169,7 +168,7 @@ public final class Static684 {
         } else {
             Static693.anInt10383 = -1;
             Static692.anInt10376 = -1;
-            Static511.anInt7645 = 1;
+            Camera.anInt7645 = 1;
         }
         Static533.method7119();
         Static244.method3512();

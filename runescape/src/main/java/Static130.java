@@ -35,10 +35,10 @@ public final class Static130 {
     public static String method2281() {
         if (MiniMenu.open || Static470.aClass2_Sub2_Sub16_10 == null) {
             return "";
-        } else if ((Static470.aClass2_Sub2_Sub16_10.aString86 == null || Static470.aClass2_Sub2_Sub16_10.aString86.length() == 0) && Static470.aClass2_Sub2_Sub16_10.aString88 != null && Static470.aClass2_Sub2_Sub16_10.aString88.length() > 0) {
+        } else if ((Static470.aClass2_Sub2_Sub16_10.opBase == null || Static470.aClass2_Sub2_Sub16_10.opBase.length() == 0) && Static470.aClass2_Sub2_Sub16_10.aString88 != null && Static470.aClass2_Sub2_Sub16_10.aString88.length() > 0) {
             return Static470.aClass2_Sub2_Sub16_10.aString88;
         } else {
-            return Static470.aClass2_Sub2_Sub16_10.aString86;
+            return Static470.aClass2_Sub2_Sub16_10.opBase;
         }
     }
 

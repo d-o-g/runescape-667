@@ -7,16 +7,6 @@ public final class Static347 {
     @OriginalMember(owner = "client!ku", name = "n", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___146 = new ServerProt(47, 4);
 
-    @OriginalMember(owner = "client!ku", name = "a", descriptor = "(IZ)V")
-    public static void method5094(@OriginalArg(0) int arg0) {
-        if (arg0 != -1 && InterfaceList.loaded[arg0]) {
-            Component.interfacesJs5.discardUnpacked(arg0);
-            InterfaceList.interfaces[arg0] = null;
-            InterfaceManager.cache[arg0] = null;
-            InterfaceList.loaded[arg0] = false;
-        }
-    }
-
     @OriginalMember(owner = "client!ku", name = "a", descriptor = "(III)Lclient!pha;")
     public static Class291 method5095(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         if (Static334.activeTiles[arg0][arg1][arg2] == null) {

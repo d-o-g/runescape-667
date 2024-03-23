@@ -360,7 +360,7 @@ public final class Static523 {
             }
         }
         if (LoadState.SHOW_LOGIN_WINDOW == Static473.aLoadState_22) {
-            Static456.method6228(true);
+            InterfaceManager.openLoginScreen(true);
         }
         if (LoadState.CLEANUP == Static473.aLoadState_22) {
             Static449.aClass364_1.method8372();

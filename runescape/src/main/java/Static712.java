@@ -77,7 +77,7 @@ public final class Static712 {
                 GameShell.canvas.setLocation(GameShell.leftMargin, GameShell.topMargin);
             }
             if (InterfaceManager.topLevelInterface != -1) {
-                Static640.method8435(true);
+                InterfaceManager.refreshTopLevelInterface(true);
             }
             Static288.method4182();
         }

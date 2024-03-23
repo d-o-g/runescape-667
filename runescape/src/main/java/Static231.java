@@ -158,8 +158,8 @@ public final class Static231 {
                     }
                     if (!arg2.equals("heap")) {
                         if (arg2.equalsIgnoreCase("getcamerapos")) {
-                            Static79.method1579("Pos: " + PlayerEntity.self.level + "," + ((Static170.anInt2864 >> 9) + WorldMap.areaBaseX >> 6) + "," + ((Static110.anInt2186 >> 9) + WorldMap.areaBaseY >> 6) + "," + ((Static170.anInt2864 >> 9) + WorldMap.areaBaseX & 0x3F) + "," + ((Static110.anInt2186 >> 9) + WorldMap.areaBaseY & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Static110.anInt2186, Static170.anInt2864) - Static359.anInt5801));
-                            Static79.method1579("Look: " + PlayerEntity.self.level + "," + (Static441.anInt6689 + WorldMap.areaBaseX >> 6) + "," + (WorldMap.areaBaseY + Static12.anInt5741 >> 6) + "," + (WorldMap.areaBaseX + Static441.anInt6689 & 0x3F) + "," + (WorldMap.areaBaseY + Static12.anInt5741 & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Static12.anInt5741, Static441.anInt6689) - Static55.anInt1125));
+                            Static79.method1579("Pos: " + PlayerEntity.self.level + "," + ((Camera.positionX >> 9) + WorldMap.areaBaseX >> 6) + "," + ((Camera.positionZ >> 9) + WorldMap.areaBaseZ >> 6) + "," + ((Camera.positionX >> 9) + WorldMap.areaBaseX & 0x3F) + "," + ((Camera.positionZ >> 9) + WorldMap.areaBaseZ & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Camera.positionZ, Camera.positionX) - Camera.positionY));
+                            Static79.method1579("Look: " + PlayerEntity.self.level + "," + (Static441.anInt6689 + WorldMap.areaBaseX >> 6) + "," + (WorldMap.areaBaseZ + Static12.anInt5741 >> 6) + "," + (WorldMap.areaBaseX + Static441.anInt6689 & 0x3F) + "," + (WorldMap.areaBaseZ + Static12.anInt5741 & 0x3F) + " Height: " + (Static102.method2025(PlayerEntity.self.level, -29754, Static12.anInt5741, Static441.anInt6689) - Static55.anInt1125));
                             return;
                         }
                         break label721;

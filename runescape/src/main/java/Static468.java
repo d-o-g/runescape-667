@@ -13,7 +13,7 @@ public final class Static468 {
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZIII)V")
     public static void method7641(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(8) int local8 = arg2 + WorldMap.areaBaseX;
-        @Pc(12) int local12 = WorldMap.areaBaseY + arg1;
+        @Pc(12) int local12 = WorldMap.areaBaseZ + arg1;
         if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || ClientOptions.instance.animateBackground.getValue() == 0 && arg0 != PlayerEntity.self.level) {
             return;
         }

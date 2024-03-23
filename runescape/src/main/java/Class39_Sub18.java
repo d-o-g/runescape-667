@@ -40,15 +40,15 @@ public final class Class39_Sub18 extends Class39 {
     public void method9161() {
         Static75.aClass357Array2[this.anInt8181].method8328(0);
         Static75.aClass357Array2[this.anInt8183].method8328(1);
-        Static71.anInt1581 = this.anInt8178;
+        Camera.splineStart = this.anInt8178;
         Static197.anInt3260 = 0;
-        Static374.anInt5907 = 1;
-        Static511.anInt7645 = 3;
-        Static260.anInt4244 = 0;
-        Static591.anInt8739 = this.anInt8182;
+        Camera.lookSpline = 1;
+        Camera.anInt7645 = 3;
+        Camera.splineRate = 0;
+        Camera.splineLookOffset = this.anInt8182;
         Static303.anInt4868 = this.anInt8180;
-        Static410.anInt6322 = this.anInt8184;
-        Static583.method7659();
+        Camera.splineEnd = this.anInt8184;
+        Camera.splineTick();
         Static421.aBoolean480 = true;
     }
 }

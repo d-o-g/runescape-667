@@ -12,13 +12,13 @@ public final class Static55 {
     public static int anInt1124 = 0;
 
     @OriginalMember(owner = "client!br", name = "a", descriptor = "(IILclient!pg;I)V")
-    public static void method1217(@OriginalArg(0) int arg0, @OriginalArg(2) DoublyLinkedNode_Sub2_Sub16 arg1, @OriginalArg(3) int arg2) {
-        if (arg1 == null || arg1 == Static693.A_DEQUE___79.sentinel) {
+    public static void method1217(@OriginalArg(0) int arg0, @OriginalArg(2) MiniMenuEntry arg1, @OriginalArg(3) int arg2) {
+        if (arg1 == null || arg1 == MiniMenu.entry.sentinel) {
             return;
         }
         @Pc(16) int local16 = arg1.anInt7316;
         @Pc(19) int local19 = arg1.anInt7313;
-        @Pc(22) int local22 = arg1.anInt7314;
+        @Pc(22) int local22 = arg1.action;
         @Pc(26) int local26 = (int) arg1.aLong233;
         if (local22 >= 2000) {
             local22 -= 2000;
@@ -71,7 +71,7 @@ public final class Static55 {
         }
         if (local22 == 58) {
             if (Static608.staffModLevel > 0 && KeyMonitor.instance.isPressed(82) && KeyMonitor.instance.isPressed(81)) {
-                Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseY + local19, WorldMap.areaBaseX + local16);
+                Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseZ + local19, WorldMap.areaBaseX + local16);
             } else {
                 local147 = Static32.method878(local16, local19, local26);
                 if (local26 == 1) {
@@ -159,21 +159,21 @@ public final class Static55 {
             local494 = ClientMessage.create(local548, ConnectionManager.GAME.cipher);
             local494.buffer.p2_alt2(local26);
             local494.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
-            local494.buffer.p2(local19 + WorldMap.areaBaseY);
+            local494.buffer.p2(local19 + WorldMap.areaBaseZ);
             local494.buffer.p2_alt1(WorldMap.areaBaseX + local16);
             ConnectionManager.GAME.send(local494);
             Static414.method5697(local19, local16);
         }
         if (local22 == 11) {
             if (Static608.staffModLevel > 0 && KeyMonitor.instance.isPressed(82) && KeyMonitor.instance.isPressed(81)) {
-                Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseY + local19, WorldMap.areaBaseX + local16);
+                Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseZ + local19, WorldMap.areaBaseX + local16);
             } else {
                 Static481.anInt7215 = 0;
                 Static676.anInt10206 = arg2;
                 Static616.anInt9417 = 1;
                 Static305.anInt4882 = arg0;
                 local494 = ClientMessage.create(Static512.A_CLIENT_PROT___96, ConnectionManager.GAME.cipher);
-                local494.buffer.p2_alt3(local19 + WorldMap.areaBaseY);
+                local494.buffer.p2_alt3(local19 + WorldMap.areaBaseZ);
                 local494.buffer.p2_alt1(WorldMap.areaBaseX + local16);
                 ConnectionManager.GAME.send(local494);
             }
@@ -237,7 +237,7 @@ public final class Static55 {
             local949.buffer.p1_alt1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
             local949.buffer.p2_alt2(WorldMap.areaBaseX + local16);
             local949.buffer.p2_alt3((int) (local35 >>> 32) & Integer.MAX_VALUE);
-            local949.buffer.p2_alt1(local19 + WorldMap.areaBaseY);
+            local949.buffer.p2_alt1(local19 + WorldMap.areaBaseZ);
             ConnectionManager.GAME.send(local949);
             Static38.method1001(local16, local35, local19);
         }
@@ -253,7 +253,7 @@ public final class Static55 {
             local949.buffer.p2_alt2(WorldMap.areaBaseX + local16);
             local949.buffer.p2_alt1(InterfaceManager.targetInvObj);
             local949.buffer.p4_alt2(InterfaceManager.targetSlot);
-            local949.buffer.p2_alt2(WorldMap.areaBaseY + local19);
+            local949.buffer.p2_alt2(WorldMap.areaBaseZ + local19);
             local949.buffer.p2(InterfaceManager.targetComponent);
             ConnectionManager.GAME.send(local949);
             Static147.method2419(0, local19, 1, true, local16, 0, -4, 1);
@@ -265,7 +265,7 @@ public final class Static55 {
             Static676.anInt10206 = arg2;
             local949 = ClientMessage.create(Static175.A_CLIENT_PROT___31, ConnectionManager.GAME.cipher);
             local949.buffer.p2(local16 + WorldMap.areaBaseX);
-            local949.buffer.p2(WorldMap.areaBaseY + local19);
+            local949.buffer.p2(WorldMap.areaBaseZ + local19);
             local949.buffer.p2_alt3(InterfaceManager.targetInvObj);
             local949.buffer.p4_alt3(InterfaceManager.targetSlot);
             local949.buffer.p2_alt1(InterfaceManager.targetComponent);
@@ -293,7 +293,7 @@ public final class Static55 {
             }
         }
         if (local22 == 20 || local22 == 1002) {
-            InterfaceManager.ifButtonXSend(local19, local16, arg1.aString86, local26);
+            InterfaceManager.ifButtonXSend(local19, local16, arg1.opBase, local26);
         }
         if (local22 == 60) {
             Static676.anInt10206 = arg2;
@@ -302,7 +302,7 @@ public final class Static55 {
             Static616.anInt9417 = 2;
             local949 = ClientMessage.create(Static419.A_CLIENT_PROT___77, ConnectionManager.GAME.cipher);
             local949.buffer.p1_alt2(KeyMonitor.instance.isPressed(82) ? 1 : 0);
-            local949.buffer.p2_alt1(WorldMap.areaBaseY + local19);
+            local949.buffer.p2_alt1(WorldMap.areaBaseZ + local19);
             local949.buffer.p2_alt1(InterfaceManager.targetComponent);
             local949.buffer.p4_alt1(InterfaceManager.targetSlot);
             local949.buffer.p2_alt3(InterfaceManager.targetInvObj);

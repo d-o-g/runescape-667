@@ -226,7 +226,7 @@ public final class Static484 {
                     local216 = Static42.aMapElementList_2.anIntArray495[local214];
                     if (PlayerEntity.self.level == local216 >> 28) {
                         local218 = (local216 >> 14 & 0x3FFF) - WorldMap.areaBaseX;
-                        local229 = (local216 & 0x3FFF) - WorldMap.areaBaseY;
+                        local229 = (local216 & 0x3FFF) - WorldMap.areaBaseZ;
                         if (local218 >= 0 && local218 < Static720.mapWidth && local229 >= 0 && local229 < Static501.mapHeight) {
                             Static612.A_DEQUE___67.addLast(new IntNode(local214));
                         } else {

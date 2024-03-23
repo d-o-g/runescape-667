@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static96 {
 
     @OriginalMember(owner = "client!da", name = "o", descriptor = "Lclient!pg;")
-    public static DoublyLinkedNode_Sub2_Sub16 aClass2_Sub2_Sub16_13;
+    public static MiniMenuEntry aClass2_Sub2_Sub16_13;
 
     @OriginalMember(owner = "client!da", name = "q", descriptor = "I")
     public static int anInt10171 = 0;

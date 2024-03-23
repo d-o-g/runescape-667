@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.key.Queue;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -6,9 +5,6 @@ public final class Static350 {
 
     @OriginalMember(owner = "client!la", name = "a", descriptor = "[J")
     public static long[] aLongArray9;
-
-    @OriginalMember(owner = "client!la", name = "v", descriptor = "Lclient!jga;")
-    public static final Queue A_QUEUE___8 = new Queue();
 
     @OriginalMember(owner = "client!la", name = "u", descriptor = "[I")
     public static final int[] anIntArray433 = new int[1000];

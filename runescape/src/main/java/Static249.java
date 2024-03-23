@@ -40,14 +40,14 @@ public final class Static249 {
     }
 
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(BLclient!pg;)I")
-    public static int method3536(@OriginalArg(1) DoublyLinkedNode_Sub2_Sub16 arg0) {
+    public static int method3536(@OriginalArg(1) MiniMenuEntry arg0) {
         @Pc(15) String local15 = Static518.method9293(arg0);
         @Pc(17) int[] local17 = null;
-        if (Static245.method8635(arg0.anInt7314)) {
+        if (Static245.method8635(arg0.action)) {
             local17 = ObjTypeList.instance.list((int) arg0.aLong233).quests;
         } else if (arg0.anInt7317 != -1) {
             local17 = ObjTypeList.instance.list(arg0.anInt7317).quests;
-        } else if (Static598.method7825(arg0.anInt7314)) {
+        } else if (Static598.method7825(arg0.action)) {
             @Pc(51) Node_Sub45 local51 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((int) arg0.aLong233);
             if (local51 != null) {
                 @Pc(56) NPCEntity local56 = local51.aClass8_Sub2_Sub1_Sub2_Sub2_2;
@@ -59,7 +59,7 @@ public final class Static249 {
                     local17 = local59.quests;
                 }
             }
-        } else if (Static523.method3444(arg0.anInt7314)) {
+        } else if (Static523.method3444(arg0.action)) {
             @Pc(89) LocType local89 = LocTypeList.instance.list((int) (arg0.aLong233 >>> 32 & 0x7FFFFFFFL));
             if (local89.multiLocs != null) {
                 local89 = local89.getMultiLoc(TimedVarDomain.instance);

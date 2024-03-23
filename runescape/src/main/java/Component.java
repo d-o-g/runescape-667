@@ -502,7 +502,7 @@ public final class Component {
     public int anInt3800 = 0;
 
     @OriginalMember(owner = "client!hda", name = "md", descriptor = "I")
-    public int anInt3776 = -1;
+    public int targetOpCursor = -1;
 
     @OriginalMember(owner = "client!hda", name = "A", descriptor = "I")
     public int width = 0;

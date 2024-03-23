@@ -1,12 +1,8 @@
-import com.jagex.core.datastruct.key.IterableHashTable;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static490 {
-
-    @OriginalMember(owner = "client!pha", name = "m", descriptor = "Lclient!av;")
-    public static final IterableHashTable A_HASH_TABLE___34 = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!pha", name = "a", descriptor = "(ZIIIIIIIF)[[I")
     public static int[][] method6551(@OriginalArg(8) float arg0) {

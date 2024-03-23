@@ -27,7 +27,7 @@ public final class Static187 {
         Static298.method4385();
         Static525.anInt8907 = 0;
         WorldMap.areaBaseX = 0;
-        WorldMap.areaBaseY = 0;
+        WorldMap.areaBaseZ = 0;
         Static62.anInt1465 = 0;
         for (@Pc(34) int local34 = 0; local34 < Static527.aClass254Array1.length; local34++) {
             Static527.aClass254Array1[local34] = null;

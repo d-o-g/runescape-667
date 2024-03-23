@@ -8,9 +8,6 @@ import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static603 {
 
-    @OriginalMember(owner = "client!taa", name = "H", descriptor = "[[[I")
-    public static final int[][][] anIntArrayArrayArray18 = new int[2][][];
-
     @OriginalMember(owner = "client!taa", name = "E", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___109 = new ClientProt(29, -1);
 
@@ -76,7 +73,7 @@ public final class Static603 {
                     if (InterfaceManager.dragTarget != null && Static84.method1657(InterfaceManager.dragSource) != null) {
                         Static710.method6710(InterfaceManager.dragSource, InterfaceManager.dragTarget);
                     }
-                } else if ((Static219.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.optionCount > 2) {
+                } else if ((Static219.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.entryCount > 2) {
                     Static455.method6223(InterfaceManager.dragStartX + InterfaceManager.dragLastX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);
                 } else if (MiniMenu.isPopulated()) {
                     Static455.method6223(InterfaceManager.dragLastX + InterfaceManager.dragStartX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);

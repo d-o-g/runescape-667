@@ -62,6 +62,6 @@ public final class Class357 {
             local13[local15 * 2 + 1][2] = this.anIntArray734[local15];
             local13[local15 * 2 + 1][3] = this.anIntArray730[local15];
         }
-        Static603.anIntArrayArrayArray18[arg0] = local13;
+        Camera.spline[arg0] = local13;
     }
 }

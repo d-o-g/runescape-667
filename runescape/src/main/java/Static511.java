@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static511 {
 
-    @OriginalMember(owner = "client!qb", name = "j", descriptor = "I")
-    public static int anInt7645;
-
     @OriginalMember(owner = "client!qb", name = "g", descriptor = "[I")
     public static int[] varcs;
 

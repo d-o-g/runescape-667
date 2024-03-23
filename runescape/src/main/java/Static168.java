@@ -29,7 +29,7 @@ public final class Static168 {
         local20.pathX[0] = local39 - WorldMap.areaBaseX;
         @Pc(51) int local51 = local28 & 0x3FFF;
         local20.x = (local20.pathX[0] << 9) + (local20.boundSize((byte) 53) << 8);
-        local20.pathY[0] = local51 - WorldMap.areaBaseY;
+        local20.pathY[0] = local51 - WorldMap.areaBaseZ;
         local20.z = (local20.pathY[0] << 9) + (local20.boundSize((byte) 65) << 8);
         Camera.renderingLevel = local20.level = local20.aByte143 = local33;
         if (Static441.method5968(local20.pathY[0], local20.pathX[0])) {

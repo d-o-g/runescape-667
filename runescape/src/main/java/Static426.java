@@ -16,9 +16,6 @@ public final class Static426 {
     @OriginalMember(owner = "client!nha", name = "b", descriptor = "Z")
     public static boolean aBoolean72 = true;
 
-    @OriginalMember(owner = "client!nha", name = "c", descriptor = "Z")
-    public static boolean aBoolean73 = false;
-
     @OriginalMember(owner = "client!nha", name = "a", descriptor = "(BLjava/lang/String;)V")
     public static void method1016(@OriginalArg(1) String arg0) {
         System.exit(1);

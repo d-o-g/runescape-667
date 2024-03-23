@@ -18,7 +18,7 @@ public final class Static338 {
             @Pc(13) byte[] local13 = arg0[local8];
             if (local13 != null) {
                 @Pc(26) int local26 = (Static89.anIntArray169[local8] >> 8) * 64 - WorldMap.areaBaseX;
-                @Pc(36) int local36 = (Static89.anIntArray169[local8] & 0xFF) * 64 - WorldMap.areaBaseY;
+                @Pc(36) int local36 = (Static89.anIntArray169[local8] & 0xFF) * 64 - WorldMap.areaBaseZ;
                 Static557.method7331();
                 arg1.loadLocations(local26, local36, Static577.A_COLLISION_MAP_ARRAY_1, Toolkit.active, local13);
             }
@@ -32,7 +32,7 @@ public final class Static338 {
         } else if (Static470.aClass2_Sub2_Sub16_10 == null) {
             return 0;
         } else {
-            @Pc(23) int local23 = Static470.aClass2_Sub2_Sub16_10.anInt7314;
+            @Pc(23) int local23 = Static470.aClass2_Sub2_Sub16_10.action;
             if (Static466.method6326(local23)) {
                 return 1;
             } else if (Static245.method8635(local23)) {

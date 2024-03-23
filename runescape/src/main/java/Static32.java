@@ -31,7 +31,7 @@ public final class Static32 {
             local11 = ClientMessage.create(Static632.A_CLIENT_PROT___111, ConnectionManager.GAME.cipher);
         }
         local11.buffer.p2_alt3(arg0 + WorldMap.areaBaseX);
-        local11.buffer.p2_alt3(WorldMap.areaBaseY + arg1);
+        local11.buffer.p2_alt3(WorldMap.areaBaseZ + arg1);
         local11.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
         Static266.aBoolean583 = false;
         Minimap.flagX = arg0;

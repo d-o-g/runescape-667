@@ -5,12 +5,12 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static192 {
 
     @OriginalMember(owner = "client!fu", name = "a", descriptor = "(Lclient!cba;B)Ljava/lang/String;")
-    public static String method2874(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub4 arg0) {
-        return arg0.aString10 + " <col=ffffff>>";
+    public static String method2874(@OriginalArg(0) MiniMenuEntryInner arg0) {
+        return arg0.title + " <col=ffffff>>";
     }
 
     @OriginalMember(owner = "client!fu", name = "a", descriptor = "(Lclient!cba;I)I")
-    public static int method2875(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub4 arg0) {
+    public static int method2875(@OriginalArg(0) MiniMenuEntryInner arg0) {
         @Pc(14) String local14 = method2874(arg0);
         return Fonts.b12Metrics.stringWidth(Static186.aSpriteArray5, local14);
     }

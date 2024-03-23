@@ -22,7 +22,7 @@ public final class Static25 {
     public static void method688(@OriginalArg(0) boolean arg0) {
         if (arg0) {
             if (InterfaceManager.topLevelInterface != -1) {
-                Static347.method5094(InterfaceManager.topLevelInterface);
+                InterfaceManager.closeInterface(InterfaceManager.topLevelInterface);
             }
             for (@Pc(16) SubInterface local16 = (SubInterface) InterfaceManager.subInterfaces.first(); local16 != null; local16 = (SubInterface) InterfaceManager.subInterfaces.next()) {
                 if (!local16.isLinked()) {
@@ -31,13 +31,13 @@ public final class Static25 {
                         break;
                     }
                 }
-                Static449.method6115(false, true, local16);
+                InterfaceManager.closeSubInterface(false, true, local16);
             }
             InterfaceManager.topLevelInterface = -1;
             InterfaceManager.subInterfaces = new IterableHashTable(8);
-            Static656.method6692();
+            InterfaceList.reset();
             InterfaceManager.topLevelInterface = Static523.graphicsDefaults.lobby_interface;
-            Static640.method8435(false);
+            InterfaceManager.refreshTopLevelInterface(false);
             InterfaceManager.redrawAll();
             ScriptRunner.executeOnLoad(InterfaceManager.topLevelInterface);
         }

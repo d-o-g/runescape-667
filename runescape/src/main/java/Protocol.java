@@ -103,7 +103,7 @@ public final class Protocol {
             Static574.method7573();
             @Pc(287) SubInterface local287 = (SubInterface) InterfaceManager.subInterfaces.get(local277);
             if (local287 != null) {
-                Static449.method6115(false, true, local287);
+                InterfaceManager.closeSubInterface(false, true, local287);
             }
             if (InterfaceManager.dialog != null) {
                 InterfaceManager.redraw(InterfaceManager.dialog);
@@ -653,7 +653,7 @@ public final class Protocol {
                                             }
                                             InterfaceManager.topLevelInterface = local277;
                                             InterfaceManager.restartInterfaceAnims(local277);
-                                            Static640.method8435(false);
+                                            InterfaceManager.refreshTopLevelInterface(false);
                                             ScriptRunner.executeOnLoad(InterfaceManager.topLevelInterface);
                                             for (local526 = 0; local526 < 100; local526++) {
                                                 InterfaceManager.dirtyRectangles[local526] = true;
@@ -735,7 +735,7 @@ public final class Protocol {
                                                 } else if (Static720.mapWidth <= local100) {
                                                     local100 = Static720.mapWidth;
                                                 }
-                                                local526 -= WorldMap.areaBaseY;
+                                                local526 -= WorldMap.areaBaseZ;
                                                 Static692.anInt10376 = (local100 << 9) + 256;
                                                 if (local526 < 0) {
                                                     local526 = 0;
@@ -956,7 +956,7 @@ public final class Protocol {
                                                             local3721.anInt6363 = 2;
                                                             local3721.anInt6368 = local11.g1();
                                                             local3721.anInt6369 += local11.g2() - WorldMap.areaBaseX << 9;
-                                                            local3721.anInt6362 += local11.g2() - WorldMap.areaBaseY << 9;
+                                                            local3721.anInt6362 += local11.g2() - WorldMap.areaBaseZ << 9;
                                                             local3721.anInt6365 = local11.g1() << 2;
                                                             local3721.anInt6364 = local11.g2();
                                                         }
@@ -1317,7 +1317,7 @@ public final class Protocol {
                                                                 } else {
                                                                     local653 = local100 >> 28 & 0x3;
                                                                     local657 = (local100 >> 14 & 0x3FFF) - WorldMap.areaBaseX;
-                                                                    local3502 = (local100 & 0x3FFF) - WorldMap.areaBaseY;
+                                                                    local3502 = (local100 & 0x3FFF) - WorldMap.areaBaseZ;
                                                                     if (local657 >= 0 && local3502 >= 0 && local657 < Static720.mapWidth && local3502 < Static501.mapHeight) {
                                                                         if (local2098 == -1) {
                                                                             @Pc(5270) DoublyLinkedNode_Sub2_Sub20 local5270 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get(local657 << 16 | local3502);
@@ -1367,7 +1367,7 @@ public final class Protocol {
                                                                     @Pc(5438) SubInterface local5438 = (SubInterface) InterfaceManager.subInterfaces.get(local100);
                                                                     local5445 = (SubInterface) InterfaceManager.subInterfaces.get(local277);
                                                                     if (local5445 != null) {
-                                                                        Static449.method6115(false, local5438 == null || local5438.id != local5445.id, local5445);
+                                                                        InterfaceManager.closeSubInterface(false, local5438 == null || local5438.id != local5445.id, local5445);
                                                                     }
                                                                     if (local5438 != null) {
                                                                         local5438.unlink();
@@ -1394,7 +1394,7 @@ public final class Protocol {
                                                                     Static574.method7573();
                                                                     local5445 = (SubInterface) InterfaceManager.subInterfaces.get(local100);
                                                                     if (local5445 != null) {
-                                                                        Static449.method6115(false, local5445.id != local277, local5445);
+                                                                        InterfaceManager.closeSubInterface(false, local5445.id != local277, local5445);
                                                                     }
                                                                     InterfaceManager.openSubInterface(local526, local277, local100, false);
                                                                     arg0.currentProt = null;
@@ -1568,7 +1568,7 @@ public final class Protocol {
                                                                         local526 = (int) (local6277.key & 0x3FFFL);
                                                                         local1409 = local526 - WorldMap.areaBaseX;
                                                                         local1413 = (int) (local6277.key >> 14 & 0x3FFFL);
-                                                                        local2098 = local1413 - WorldMap.areaBaseY;
+                                                                        local2098 = local1413 - WorldMap.areaBaseZ;
                                                                         if (Static87.anInt1810 == local100 && local1409 >= Static626.anInt9476 && Static626.anInt9476 + 8 > local1409 && local2098 >= Static270.anInt4354 && Static270.anInt4354 + 8 > local2098) {
                                                                             local6277.unlink();
                                                                             if (local1409 >= 0 && local2098 >= 0 && Static720.mapWidth > local1409 && local2098 < Static501.mapHeight) {
@@ -1692,7 +1692,7 @@ public final class Protocol {
                                                                         local992 = local2098 >> 2;
                                                                         local996 = local2098 & 0x3;
                                                                         local1449 = Static310.anIntArray379[local992];
-                                                                        local1409 -= WorldMap.areaBaseY;
+                                                                        local1409 -= WorldMap.areaBaseZ;
                                                                         local526 -= WorldMap.areaBaseX;
                                                                         Static198.method2953(local100, local1409, local992, local1413, local526, local996, local1449);
                                                                         arg0.currentProt = null;
@@ -2212,5 +2212,15 @@ public final class Protocol {
 
     private Protocol() {
         /* empty */
+    }
+
+    @OriginalMember(owner = "client!lma", name = "b", descriptor = "(I)V")
+    public static void sendWindowStatus() {
+        @Pc(22) ClientMessage local22 = ClientMessage.create(Static587.A_CLIENT_PROT___105, ConnectionManager.GAME.cipher);
+        local22.buffer.p1(InterfaceManager.getWindowMode());
+        local22.buffer.p2(GameShell.canvasWid);
+        local22.buffer.p2(GameShell.canvasHei);
+        local22.buffer.p1(ClientOptions.instance.antialiasingQuality.getValue());
+        ConnectionManager.GAME.send(local22);
     }
 }

@@ -25,13 +25,13 @@ public final class Static320 {
     @OriginalMember(owner = "client!kc", name = "a", descriptor = "(Z)V")
     public static void method4598() {
         if (!MiniMenu.open) {
-            Static236.aBoolean304 = Static143.anInt4059 != -1 && Static143.anInt4059 <= MiniMenu.optionCount || MiniMenu.optionCount * 16 + (Static60.aBoolean87 ? 26 : 22) > GameShell.canvasHei;
+            Static236.aBoolean304 = Static143.anInt4059 != -1 && Static143.anInt4059 <= MiniMenu.entryCount || MiniMenu.entryCount * 16 + (Static60.aBoolean87 ? 26 : 22) > GameShell.canvasHei;
         }
         Static204.A_DEQUE___16.clear();
         Static239.A_DEQUE___19.clear();
         @Pc(64) int local64;
-        for (@Pc(57) DoublyLinkedNode_Sub2_Sub16 local57 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local57 != null; local57 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
-            local64 = local57.anInt7314;
+        for (@Pc(57) MiniMenuEntry local57 = (MiniMenuEntry) MiniMenu.entry.first(); local57 != null; local57 = (MiniMenuEntry) MiniMenu.entry.next()) {
+            local64 = local57.action;
             if (local64 < 1000) {
                 local57.unlink();
                 if (local64 == 21 || local64 == 60 || local64 == 23 || local64 == 17 || local64 == 44 || local64 == 4 || local64 == 18) {
@@ -41,18 +41,18 @@ public final class Static320 {
                 }
             }
         }
-        Static204.A_DEQUE___16.appendTo(Static693.A_DEQUE___79);
-        Static239.A_DEQUE___19.appendTo(Static693.A_DEQUE___79);
-        if (MiniMenu.optionCount <= 1) {
+        Static204.A_DEQUE___16.appendTo(MiniMenu.entry);
+        Static239.A_DEQUE___19.appendTo(MiniMenu.entry);
+        if (MiniMenu.entryCount <= 1) {
             Static470.aClass2_Sub2_Sub16_10 = null;
             Static96.aClass2_Sub2_Sub16_13 = null;
         } else {
-            if (Static209.aBoolean269 && KeyMonitor.instance.isPressed(81) && MiniMenu.optionCount > 2) {
-                Static470.aClass2_Sub2_Sub16_10 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.sentinel.prev.prev;
+            if (Static209.aBoolean269 && KeyMonitor.instance.isPressed(81) && MiniMenu.entryCount > 2) {
+                Static470.aClass2_Sub2_Sub16_10 = (MiniMenuEntry) MiniMenu.entry.sentinel.prev.prev;
             } else {
-                Static470.aClass2_Sub2_Sub16_10 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.sentinel.prev;
+                Static470.aClass2_Sub2_Sub16_10 = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
             }
-            Static96.aClass2_Sub2_Sub16_13 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.sentinel.prev;
+            Static96.aClass2_Sub2_Sub16_13 = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
         }
         local64 = -1;
         @Pc(204) MouseLog local204 = (MouseLog) Static226.mouseLogs.first();
@@ -60,10 +60,10 @@ public final class Static320 {
             local64 = local204.getType();
         }
         if (!MiniMenu.open) {
-            if (local64 == 0 && (Static219.mouseButtons == 1 && MiniMenu.optionCount > 2 || MiniMenu.topEntryIsIfButtonX1())) {
+            if (local64 == 0 && (Static219.mouseButtons == 1 && MiniMenu.entryCount > 2 || MiniMenu.topEntryIsIfButtonX1())) {
                 local64 = 2;
             }
-            if (local64 == 2 && MiniMenu.optionCount > 0 && local204 != null) {
+            if (local64 == 2 && MiniMenu.entryCount > 0 && local204 != null) {
                 if (InterfaceManager.dragSource == null && Static460.anInt6964 == 0) {
                     Static572.method7876(local204.getY(), local204.getX());
                 } else {
@@ -105,7 +105,7 @@ public final class Static320 {
                     local426 = -1;
                     local428 = -1;
                     @Pc(444) int local444;
-                    for (@Pc(430) int local430 = 0; local430 < Static31.anInt767; local430++) {
+                    for (@Pc(430) int local430 = 0; local430 < MiniMenu.innerCount; local430++) {
                         if (Static60.aBoolean87) {
                             local444 = local430 * 16 + Static84.anInt1775 + 33;
                             if (local321 > local444 - 13 && local444 + 4 > local321) {
@@ -124,10 +124,10 @@ public final class Static320 {
                     }
                     if (local426 != -1) {
                         local444 = 0;
-                        @Pc(525) Class299 local525 = new Class299(Static350.A_QUEUE___8);
-                        for (@Pc(530) DoublyLinkedNode_Sub2_Sub4 local530 = (DoublyLinkedNode_Sub2_Sub4) local525.first(); local530 != null; local530 = (DoublyLinkedNode_Sub2_Sub4) local525.next()) {
+                        @Pc(525) Class299 local525 = new Class299(MiniMenu.innerEntries);
+                        for (@Pc(530) MiniMenuEntryInner local530 = (MiniMenuEntryInner) local525.first(); local530 != null; local530 = (MiniMenuEntryInner) local525.next()) {
                             if (local444 == local426) {
-                                if (local530.anInt1534 > 1) {
+                                if (local530.size > 1) {
                                     Static609.method8214(local428, local321, local530);
                                 }
                                 break;
@@ -145,10 +145,10 @@ public final class Static320 {
         local321 = local204.getY();
         @Pc(661) int local661;
         @Pc(886) Class299 local886;
-        @Pc(762) DoublyLinkedNode_Sub2_Sub16 local762;
+        @Pc(762) MiniMenuEntry local762;
         if (Static139.aClass2_Sub2_Sub4_1 != null && Static692.anInt10375 <= local317 && Static85.anInt10675 + Static692.anInt10375 >= local317 && local321 >= Static493.anInt7364 && Static493.anInt7364 + Static25.anInt598 >= local321) {
             local661 = -1;
-            for (local426 = 0; local426 < Static139.aClass2_Sub2_Sub4_1.anInt1534; local426++) {
+            for (local426 = 0; local426 < Static139.aClass2_Sub2_Sub4_1.size; local426++) {
                 if (Static60.aBoolean87) {
                     local428 = local426 * 16 + Static493.anInt7364 + 33;
                     if (local321 > local428 - 13 && local428 + 4 > local321) {
@@ -163,8 +163,8 @@ public final class Static320 {
             }
             if (local661 != -1) {
                 local428 = 0;
-                local886 = new Class299(Static139.aClass2_Sub2_Sub4_1.aQueue_3);
-                for (local762 = (DoublyLinkedNode_Sub2_Sub16) local886.first(); local762 != null; local762 = (DoublyLinkedNode_Sub2_Sub16) local886.next()) {
+                local886 = new Class299(Static139.aClass2_Sub2_Sub4_1.entries);
+                for (local762 = (MiniMenuEntry) local886.first(); local762 != null; local762 = (MiniMenuEntry) local886.next()) {
                     if (local661 == local428) {
                         Static55.method1217(local321, local762, local317);
                         break;
@@ -180,14 +180,14 @@ public final class Static320 {
         }
         if (!Static236.aBoolean304) {
             local661 = -1;
-            for (local426 = 0; local426 < MiniMenu.optionCount; local426++) {
+            for (local426 = 0; local426 < MiniMenu.entryCount; local426++) {
                 if (Static60.aBoolean87) {
-                    local428 = (MiniMenu.optionCount - local426 - 1) * 16 + Static84.anInt1775 + 33;
+                    local428 = (MiniMenu.entryCount - local426 - 1) * 16 + Static84.anInt1775 + 33;
                     if (local321 > local428 - 13 && local321 < local428 + 4) {
                         local661 = local426;
                     }
                 } else {
-                    local428 = Static84.anInt1775 + (-local426 + MiniMenu.optionCount + -1) * 16 + 31;
+                    local428 = Static84.anInt1775 + (-local426 + MiniMenu.entryCount + -1) * 16 + 31;
                     if (local321 > local428 - 13 && local428 + 3 > local321) {
                         local661 = local426;
                     }
@@ -195,8 +195,8 @@ public final class Static320 {
             }
             if (local661 != -1) {
                 local428 = 0;
-                @Pc(757) Class191 local757 = new Class191(Static693.A_DEQUE___79);
-                for (local762 = (DoublyLinkedNode_Sub2_Sub16) local757.first(); local762 != null; local762 = (DoublyLinkedNode_Sub2_Sub16) local757.next()) {
+                @Pc(757) Class191 local757 = new Class191(MiniMenu.entry);
+                for (local762 = (MiniMenuEntry) local757.first(); local762 != null; local762 = (MiniMenuEntry) local757.next()) {
                     if (local661 == local428) {
                         Static55.method1217(local321, local762, local317);
                         break;
@@ -208,7 +208,7 @@ public final class Static320 {
             return;
         }
         local661 = -1;
-        for (local426 = 0; local426 < Static31.anInt767; local426++) {
+        for (local426 = 0; local426 < MiniMenu.innerCount; local426++) {
             if (Static60.aBoolean87) {
                 local428 = local426 * 16 + Static84.anInt1775 + 33;
                 if (local428 - 13 < local321 && local321 < local428 + 4) {
@@ -227,10 +227,10 @@ public final class Static320 {
             return;
         }
         local428 = 0;
-        local886 = new Class299(Static350.A_QUEUE___8);
-        for (@Pc(891) DoublyLinkedNode_Sub2_Sub4 local891 = (DoublyLinkedNode_Sub2_Sub4) local886.first(); local891 != null; local891 = (DoublyLinkedNode_Sub2_Sub4) local886.next()) {
+        local886 = new Class299(MiniMenu.innerEntries);
+        for (@Pc(891) MiniMenuEntryInner local891 = (MiniMenuEntryInner) local886.first(); local891 != null; local891 = (MiniMenuEntryInner) local886.next()) {
             if (local428 == local661) {
-                Static55.method1217(local321, (DoublyLinkedNode_Sub2_Sub16) local891.aQueue_3.sentinel.next2, local317);
+                Static55.method1217(local321, (MiniMenuEntry) local891.entries.sentinel.next2, local317);
                 Static488.method6522();
                 return;
             }

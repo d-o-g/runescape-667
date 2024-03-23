@@ -87,23 +87,23 @@ public final class Static638 {
             @Pc(22) int local22 = Static441.anInt6689 * 512 + 256;
             @Pc(28) int local28 = Static12.anInt5741 * 512 + 256;
             @Pc(36) int local36 = Static102.method2025(Camera.renderingLevel, -29754, local28, local22) - Static55.anInt1125;
-            @Pc(41) int local41 = local22 - Static170.anInt2864;
-            @Pc(46) int local46 = local36 - Static359.anInt5801;
-            @Pc(51) int local51 = local28 - Static110.anInt2186;
+            @Pc(41) int local41 = local22 - Camera.positionX;
+            @Pc(46) int local46 = local36 - Camera.positionY;
+            @Pc(51) int local51 = local28 - Camera.positionZ;
             @Pc(62) int local62 = (int) Math.sqrt(local51 * local51 + local41 * local41);
-            Static598.anInt8832 = (int) (Math.atan2(local46, local62) * 2607.5945876176133D) & 0x3FFF;
-            Static323.anInt5119 = (int) (-2607.5945876176133D * Math.atan2(local41, local51)) & 0x3FFF;
-            if (Static598.anInt8832 < 1024) {
-                Static598.anInt8832 = 1024;
+            Camera.pitch = (int) (Math.atan2(local46, local62) * 2607.5945876176133D) & 0x3FFF;
+            Camera.yaw = (int) (-2607.5945876176133D * Math.atan2(local41, local51)) & 0x3FFF;
+            if (Camera.pitch < 1024) {
+                Camera.pitch = 1024;
             }
-            Static81.anInt1644 = 0;
-            if (Static598.anInt8832 > 3072) {
-                Static598.anInt8832 = 3072;
+            Camera.roll = 0;
+            if (Camera.pitch > 3072) {
+                Camera.pitch = 3072;
             }
         }
         Static693.anInt10383 = -1;
         Static692.anInt10376 = -1;
-        Static511.anInt7645 = 2;
+        Camera.anInt7645 = 2;
     }
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(III)Lclient!nda;")

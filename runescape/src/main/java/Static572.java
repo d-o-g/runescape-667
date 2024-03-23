@@ -27,9 +27,9 @@ public final class Static572 {
         @Pc(68) int local68;
         @Pc(27) int local27;
         if (Static236.aBoolean304) {
-            for (@Pc(18) DoublyLinkedNode_Sub2_Sub4 local18 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local18 != null; local18 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
-                if (local18.anInt1534 == 1) {
-                    local27 = Static249.method3536((DoublyLinkedNode_Sub2_Sub16) local18.aQueue_3.sentinel.next2);
+            for (@Pc(18) MiniMenuEntryInner local18 = (MiniMenuEntryInner) MiniMenu.innerEntries.first(); local18 != null; local18 = (MiniMenuEntryInner) MiniMenu.innerEntries.next()) {
+                if (local18.size == 1) {
+                    local27 = Static249.method3536((MiniMenuEntry) local18.entries.sentinel.next2);
                 } else {
                     local27 = Static192.method2875(local18);
                 }
@@ -38,18 +38,18 @@ public final class Static572 {
                 }
             }
             local11 += 8;
-            Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + Static31.anInt767 * 16;
-            local68 = Static31.anInt767 * 16 + 21;
+            Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + MiniMenu.innerCount * 16;
+            local68 = MiniMenu.innerCount * 16 + 21;
         } else {
-            for (@Pc(74) DoublyLinkedNode_Sub2_Sub16 local74 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.first(); local74 != null; local74 = (DoublyLinkedNode_Sub2_Sub16) Static693.A_DEQUE___79.next()) {
+            for (@Pc(74) MiniMenuEntry local74 = (MiniMenuEntry) MiniMenu.entry.first(); local74 != null; local74 = (MiniMenuEntry) MiniMenu.entry.next()) {
                 local27 = Static249.method3536(local74);
                 if (local11 < local27) {
                     local11 = local27;
                 }
             }
             local11 += 8;
-            Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + MiniMenu.optionCount * 16;
-            local68 = MiniMenu.optionCount * 16 + 21;
+            Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + MiniMenu.entryCount * 16;
+            local68 = MiniMenu.entryCount * 16 + 21;
         }
         @Pc(118) int local118 = arg1 - local11 / 2;
         if (GameShell.canvasWid < local11 + local118) {

@@ -105,7 +105,7 @@ public final class WorldMap {
     public static int areaY;
 
     @OriginalMember(owner = "client!dl", name = "k", descriptor = "I")
-    public static int areaBaseY;
+    public static int areaBaseZ;
 
     @OriginalMember(owner = "client!vs", name = "o", descriptor = "I")
     public static int areaBaseX;
@@ -426,7 +426,7 @@ public final class WorldMap {
             @Pc(77) int[] coord = new int[3];
             @Pc(79) int relativeX = -1;
             @Pc(81) int relativeY = -1;
-            if (area.method4088(coord, areaBaseY + (PlayerEntity.self.z >> 9), PlayerEntity.self.level, (PlayerEntity.self.x >> 9) + areaBaseX)) {
+            if (area.method4088(coord, areaBaseZ + (PlayerEntity.self.z >> 9), PlayerEntity.self.level, (PlayerEntity.self.x >> 9) + areaBaseX)) {
                 relativeX = coord[1] - areaX;
                 relativeY = coord[2] - areaY;
             }

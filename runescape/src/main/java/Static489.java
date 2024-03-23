@@ -3,9 +3,7 @@ import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
-import com.jagex.graphics.Ground;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -179,7 +177,7 @@ public final class Static489 {
             @Pc(299) int local299;
             if (local287 != null) {
                 local299 = (Static89.anIntArray169[local282] >> 8) * 64 - WorldMap.areaBaseX;
-                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseY;
+                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseZ;
                 if (Static117.anInt2282 != 0) {
                     local299 = 10;
                     local310 = 10;
@@ -189,7 +187,7 @@ public final class Static489 {
             local287 = Static421.aByteArrayArray19[local282];
             if (local287 != null) {
                 local299 = (Static89.anIntArray169[local282] >> 8) * 64 - WorldMap.areaBaseX;
-                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseY;
+                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseZ;
                 if (Static117.anInt2282 != 0) {
                     local310 = 10;
                     local299 = 10;

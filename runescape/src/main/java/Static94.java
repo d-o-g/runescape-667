@@ -33,14 +33,14 @@ public final class Static94 {
             }
         }
         Static576.method7614();
-        Static511.anInt7645 = 1;
+        Camera.anInt7645 = 1;
         Static693.anInt10383 = -1;
         Static692.anInt10376 = -1;
         MainLogicManager.setStep(11);
         for (@Pc(79) int local79 = 0; local79 < 100; local79++) {
             InterfaceManager.dirtyRectangles[local79] = true;
         }
-        Static371.method5284();
+        Protocol.sendWindowStatus();
         Static675.aLong307 = 0L;
         Static211.aClass2_Sub12_3 = null;
     }

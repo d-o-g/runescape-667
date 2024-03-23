@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static170 {
 
-    @OriginalMember(owner = "client!fea", name = "h", descriptor = "I")
-    public static int anInt2864;
-
     @OriginalMember(owner = "client!fea", name = "a", descriptor = "(IB)V")
     public static void setFeatureMask(@OriginalArg(0) int arg0) {
         Static584.anInt8635 = arg0;

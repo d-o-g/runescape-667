@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.Class331;
+import com.jagex.core.datastruct.key.HashTableIterator;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
@@ -24,7 +24,7 @@ public final class Static556 {
             return InterfaceList.list(arg0.layer);
         }
         @Pc(25) int local25 = arg0.slot >>> 16;
-        @Pc(30) Class331 local30 = new Class331(InterfaceManager.subInterfaces);
+        @Pc(30) HashTableIterator local30 = new HashTableIterator(InterfaceManager.subInterfaces);
         for (@Pc(35) SubInterface local35 = (SubInterface) local30.first(); local35 != null; local35 = (SubInterface) local30.next()) {
             if (local35.id == local25) {
                 return InterfaceList.list((int) local35.key);
@@ -44,26 +44,26 @@ public final class Static556 {
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(Lclient!ha;I)V")
     public static void method7301(@OriginalArg(0) Toolkit arg0) {
-        if (MiniMenu.optionCount < 2 && !InterfaceManager.targeting || InterfaceManager.dragSource != null) {
+        if (MiniMenu.entryCount < 2 && !InterfaceManager.targeting || InterfaceManager.dragSource != null) {
             return;
         }
         @Pc(63) String local63;
-        if (InterfaceManager.targeting && MiniMenu.optionCount < 2) {
+        if (InterfaceManager.targeting && MiniMenu.entryCount < 2) {
             local63 = InterfaceManager.targetVerb + LocalisedText.MINISEPARATOR.localise(client.language) + InterfaceManager.targetedVerb + " ->";
-        } else if (Static209.aBoolean269 && KeyMonitor.instance.isPressed(81) && MiniMenu.optionCount > 2) {
+        } else if (Static209.aBoolean269 && KeyMonitor.instance.isPressed(81) && MiniMenu.entryCount > 2) {
             local63 = Static518.method9293(Static470.aClass2_Sub2_Sub16_10);
         } else {
-            @Pc(55) DoublyLinkedNode_Sub2_Sub16 local55 = Static470.aClass2_Sub2_Sub16_10;
+            @Pc(55) MiniMenuEntry local55 = Static470.aClass2_Sub2_Sub16_10;
             if (local55 == null) {
                 return;
             }
             local63 = Static518.method9293(local55);
             @Pc(65) int[] local65 = null;
-            if (Static245.method8635(local55.anInt7314)) {
+            if (Static245.method8635(local55.action)) {
                 local65 = ObjTypeList.instance.list((int) local55.aLong233).quests;
             } else if (local55.anInt7317 != -1) {
                 local65 = ObjTypeList.instance.list(local55.anInt7317).quests;
-            } else if (Static598.method7825(local55.anInt7314)) {
+            } else if (Static598.method7825(local55.action)) {
                 @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((int) local55.aLong233);
                 if (local93 != null) {
                     @Pc(98) NPCEntity local98 = local93.aClass8_Sub2_Sub1_Sub2_Sub2_2;
@@ -75,7 +75,7 @@ public final class Static556 {
                         local65 = local101.quests;
                     }
                 }
-            } else if (Static523.method3444(local55.anInt7314)) {
+            } else if (Static523.method3444(local55.action)) {
                 @Pc(131) LocType local131 = LocTypeList.instance.list((int) (local55.aLong233 >>> 32 & 0x7FFFFFFFL));
                 if (local131.multiLocs != null) {
                     local131 = local131.getMultiLoc(TimedVarDomain.instance);
@@ -88,8 +88,8 @@ public final class Static556 {
                 local63 = local63 + Static72.method1527(local65);
             }
         }
-        if (MiniMenu.optionCount > 2) {
-            local63 = local63 + "<col=ffffff> / " + (MiniMenu.optionCount - 2) + LocalisedText.MOREOPTIONS.localise(client.language);
+        if (MiniMenu.entryCount > 2) {
+            local63 = local63 + "<col=ffffff> / " + (MiniMenu.entryCount - 2) + LocalisedText.MOREOPTIONS.localise(client.language);
         }
         if (WorldMap.optionsComponent != null) {
             @Pc(232) Font local232 = WorldMap.optionsComponent.font(arg0);

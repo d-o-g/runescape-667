@@ -68,12 +68,12 @@ public final class Static292 {
             local67 = local71 * Trig1.SIN[local65] >> 14;
             local71 = Trig1.COS[local65] * local71 >> 14;
         }
-        Static598.anInt8832 = arg0;
-        Static110.anInt2186 = arg5 - local71;
-        Static170.anInt2864 = arg3 - local67;
-        Static359.anInt5801 = arg6 - local69;
-        Static81.anInt1644 = 0;
-        Static323.anInt5119 = arg4;
+        Camera.pitch = arg0;
+        Camera.positionZ = arg5 - local71;
+        Camera.positionX = arg3 - local67;
+        Camera.positionY = arg6 - local69;
+        Camera.roll = 0;
+        Camera.yaw = arg4;
     }
 
     @OriginalMember(owner = "client!jea", name = "b", descriptor = "(I)V")

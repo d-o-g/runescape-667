@@ -242,7 +242,7 @@ public final class Static256 {
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(Lclient!da;Ljava/lang/String;Lclient!ve;IIIZLclient!hda;Lclient!aa;III)V")
     public static void method3639(@OriginalArg(0) Font arg0, @OriginalArg(1) String arg1, @OriginalArg(2) FontMetrics arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Component arg6, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         @Pc(11) int local11;
-        if (Static511.anInt7645 == 4) {
+        if (Camera.anInt7645 == 4) {
             local11 = (int) Static171.aFloat64 & 0x3FFF;
         } else {
             local11 = (int) Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
@@ -254,7 +254,7 @@ public final class Static256 {
         }
         @Pc(74) int local74 = Trig1.SIN[local11];
         @Pc(78) int local78 = Trig1.COS[local11];
-        if (Static511.anInt7645 != 4) {
+        if (Camera.anInt7645 != 4) {
             local74 = local74 * 256 / (Static660.anInt9835 + 256);
             local78 = local78 * 256 / (Static660.anInt9835 + 256);
         }

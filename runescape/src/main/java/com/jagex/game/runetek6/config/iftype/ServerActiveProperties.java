@@ -12,13 +12,7 @@ public final class ServerActiveProperties extends Node {
     public static final ServerActiveProperties DEFAULT = new ServerActiveProperties(0, -1);
 
     /**
-     * 0x01 = TGT_OBJ
-     * 0x02 = TGT_NPC
-     * 0x04 = TGT_LOC
-     * 0x08 = TGT_PLAYER
-     * 0x10 = TGT_SELF
-     * 0x20 = TGT_BUTTON
-     * 0x40 = TGT_GROUND
+     * @see TargetMask
      */
     @OriginalMember(owner = "client!tla", name = "a", descriptor = "(II)I")
     public static int targetMaskFrom(@OriginalArg(0) int events) {

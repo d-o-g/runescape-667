@@ -74,7 +74,7 @@ public final class Static35 {
                                     @Pc(307) short local307 = local301.aShort131;
                                 }
                                 if (local224 != 0 || local243 != 0) {
-                                    @Pc(336) int local336 = -Static323.anInt5119 - (int) (Math.atan2(local224, local243) * 2607.5945876176133D) - 4096 & 0x3FFF;
+                                    @Pc(336) int local336 = -Camera.yaw - (int) (Math.atan2(local224, local243) * 2607.5945876176133D) - 4096 & 0x3FFF;
                                     if (local336 > 8192) {
                                         local336 = 16384 - local336;
                                     }

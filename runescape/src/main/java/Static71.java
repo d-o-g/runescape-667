@@ -13,9 +13,6 @@ public final class Static71 {
     @OriginalMember(owner = "client!cea", name = "w", descriptor = "Ljava/lang/Object;")
     public static Object anObject4;
 
-    @OriginalMember(owner = "client!cea", name = "A", descriptor = "I")
-    public static int anInt1581 = 0;
-
     @OriginalMember(owner = "client!cea", name = "a", descriptor = "(ILjava/lang/String;)Z")
     public static boolean method1524(@OriginalArg(1) String arg0) {
         if (arg0 == null) {

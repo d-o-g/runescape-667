@@ -534,10 +534,10 @@ public final class client extends GameShell {
             Static503.aBoolean578 = true;
         }
         if (Static334.activeTiles != null) {
-            if (Static511.anInt7645 == 2) {
+            if (Camera.anInt7645 == 2) {
                 Static592.method7761();
-            } else if (Static511.anInt7645 == 3) {
-                Static583.method7659();
+            } else if (Camera.anInt7645 == 3) {
+                Camera.splineTick();
             }
         }
         if (Static494.aBoolean563) {
@@ -812,7 +812,7 @@ public final class client extends GameShell {
                                                 } else if (local541 > 3) {
                                                     local541 = 3;
                                                 }
-                                                Static624.teleport(local541, PlayerEntity.self.pathY[0] + WorldMap.areaBaseY, WorldMap.areaBaseX - -PlayerEntity.self.pathX[0]);
+                                                Static624.teleport(local541, PlayerEntity.self.pathY[0] + WorldMap.areaBaseZ, WorldMap.areaBaseX - -PlayerEntity.self.pathX[0]);
                                             }
                                             Static320.method4598();
                                             for (local541 = 0; local541 < 5; local541++) {
@@ -833,7 +833,7 @@ public final class client extends GameShell {
                                                 }
                                             }
                                             if (14590 != 14590) {
-                                                Static709.anInt10667 = -107;
+                                                Camera.anInt10667 = -107;
                                             }
                                             Static392.anInt6143++;
                                             if (Static392.anInt6143 > 500) {
@@ -1168,12 +1168,12 @@ public final class client extends GameShell {
             }
         }
         if ((MainLogicManager.step == 3 || MainLogicManager.step == 9 || MainLogicManager.step == 7) && (!Static242.method3500() || MainLogicManager.step == 9 && Static169.anInt2855 == 42) && Static6.anInt95 == 0) {
-            if (Static511.anInt7645 == 2) {
+            if (Camera.anInt7645 == 2) {
                 Static592.method7761();
             } else {
-                Static583.method7659();
+                Camera.splineTick();
             }
-            if (Static170.anInt2864 >> 9 < 14 || Static170.anInt2864 >> 9 >= Static720.mapWidth - 14 || Static110.anInt2186 >> 9 < 14 || Static110.anInt2186 >> 9 >= Static501.mapHeight - 14) {
+            if (Camera.positionX >> 9 < 14 || Camera.positionX >> 9 >= Static720.mapWidth - 14 || Camera.positionZ >> 9 < 14 || Camera.positionZ >> 9 >= Static501.mapHeight - 14) {
                 Static54.method1179();
             }
         }
@@ -1672,10 +1672,10 @@ public final class client extends GameShell {
     public String getErrorTrace() {
         @Pc(5) String trace = null;
         try {
-            trace = "[1)" + WorldMap.areaBaseX + "," + WorldMap.areaBaseY + "," + Static720.mapWidth + "," + Static501.mapHeight + "|";
+            trace = "[1)" + WorldMap.areaBaseX + "," + WorldMap.areaBaseZ + "," + Static720.mapWidth + "," + Static501.mapHeight + "|";
 
             if (PlayerEntity.self != null) {
-                trace = trace + "2)" + Camera.renderingLevel + "," + (PlayerEntity.self.pathX[0] + WorldMap.areaBaseX) + "," + (WorldMap.areaBaseY + PlayerEntity.self.pathY[0]) + "|";
+                trace = trace + "2)" + Camera.renderingLevel + "," + (PlayerEntity.self.pathX[0] + WorldMap.areaBaseX) + "," + (WorldMap.areaBaseZ + PlayerEntity.self.pathY[0]) + "|";
             }
 
             trace = trace + "3)" + ClientOptions.instance.toolkit.getValue() + "|4)" + ClientOptions.instance.antialiasingMode.getValue() + "|5)" + InterfaceManager.getWindowMode() + "|6)" + GameShell.canvasWid + "," + GameShell.canvasHei + "|";

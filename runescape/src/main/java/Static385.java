@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -75,19 +74,4 @@ public final class Static385 {
         return true;
     }
 
-    @OriginalMember(owner = "client!mb", name = "a", descriptor = "(Lclient!cba;B)V")
-    public static void method5424(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub4 arg0) {
-        @Pc(5) boolean local5 = false;
-        arg0.unlink2();
-        for (@Pc(21) DoublyLinkedNode_Sub2_Sub4 local21 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local21 != null; local21 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
-            if (Static546.method7250(arg0.method1468(), local21.method1468())) {
-                local5 = true;
-                Node2.attachAfter(local21, arg0);
-                break;
-            }
-        }
-        if (!local5) {
-            Static350.A_QUEUE___8.add(arg0);
-        }
-    }
 }

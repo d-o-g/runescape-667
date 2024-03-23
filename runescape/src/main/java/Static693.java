@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Toolkit;
@@ -13,9 +12,6 @@ public final class Static693 {
 
     @OriginalMember(owner = "client!vu", name = "b", descriptor = "I")
     public static int anInt10383;
-
-    @OriginalMember(owner = "client!vu", name = "f", descriptor = "Lclient!sia;")
-    public static final Deque A_DEQUE___79 = new Deque();
 
     @OriginalMember(owner = "client!vu", name = "e", descriptor = "I")
     public static int anInt10382 = -1;
@@ -94,10 +90,10 @@ public final class Static693 {
             Static572.aBooleanArray29[local1] = false;
         }
         Static179.anInt2991 = 0;
-        Static374.anInt5907 = -1;
+        Camera.lookSpline = -1;
         Static314.anInt5035 = 0;
         Static197.anInt3260 = -1;
-        Static511.anInt7645 = 1;
+        Camera.anInt7645 = 1;
         anInt10383 = -1;
         Static692.anInt10376 = -1;
     }

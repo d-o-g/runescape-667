@@ -20,9 +20,6 @@ public final class Static260 {
     @OriginalMember(owner = "client!iba", name = "o", descriptor = "Ljava/util/Calendar;")
     public static final Calendar aCalendar2 = Calendar.getInstance();
 
-    @OriginalMember(owner = "client!iba", name = "h", descriptor = "I")
-    public static int anInt4244 = 0;
-
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(Lclient!ge;Z)Lclient!an;")
     public static Class21 method3828(@OriginalArg(0) Packet arg0) {
         @Pc(14) Class21 local14 = new Class21();

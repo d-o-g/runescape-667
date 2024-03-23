@@ -264,38 +264,6 @@ public final class Static84 {
         return arg0;
     }
 
-    @OriginalMember(owner = "client!client", name = "a", descriptor = "(BLclient!pg;)V")
-    public static void method1662(@OriginalArg(1) DoublyLinkedNode_Sub2_Sub16 arg0) {
-        if (arg0 == null) {
-            return;
-        }
-        Static693.A_DEQUE___79.addLast(arg0);
-        MiniMenu.optionCount++;
-        @Pc(33) DoublyLinkedNode_Sub2_Sub4 local33;
-        if (arg0.aBoolean551 || "".equals(arg0.aString86)) {
-            local33 = new DoublyLinkedNode_Sub2_Sub4(arg0.aString86);
-            Static31.anInt767++;
-        } else {
-            @Pc(41) long local41 = arg0.aLong234;
-            for (local33 = (DoublyLinkedNode_Sub2_Sub4) Static490.A_HASH_TABLE___34.get(local41); local33 != null && !local33.aString10.equals(arg0.aString86); local33 = (DoublyLinkedNode_Sub2_Sub4) Static490.A_HASH_TABLE___34.nextWithSameKey()) {
-            }
-            if (local33 == null) {
-                local33 = (DoublyLinkedNode_Sub2_Sub4) Static717.A_WEIGHTED_CACHE___232.get(local41);
-                if (local33 != null && !local33.aString10.equals(arg0.aString86)) {
-                    local33 = null;
-                }
-                if (local33 == null) {
-                    local33 = new DoublyLinkedNode_Sub2_Sub4(arg0.aString86);
-                }
-                Static490.A_HASH_TABLE___34.put(local41, local33);
-                Static31.anInt767++;
-            }
-        }
-        if (local33.method1471(arg0)) {
-            Static385.method5424(local33);
-        }
-    }
-
     @OriginalMember(owner = "client!client", name = "c", descriptor = "()V")
     public static void method1664() {
         Static172.anInt2893 = 0;

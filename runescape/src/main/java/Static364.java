@@ -27,6 +27,9 @@ public final class Static364 {
     @OriginalMember(owner = "client!lia", name = "p", descriptor = "D")
     public static double aDouble17;
 
+    @OriginalMember(owner = "client!cja", name = "l", descriptor = "I")
+    public static int anInt1634;
+
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Z)Lclient!fu;")
     public static MapElementListEntry method5248() {
         if (WorldMap.elements == null || Static444.aClass191_1 == null) {
@@ -316,7 +319,7 @@ public final class Static364 {
                     Static135.anInt8223 = 12;
                 } else if (local360 == 29 || local360 == 45) {
                     Static135.anInt8223 = 18;
-                    MiniMenu.anInt1634 = local360;
+                    anInt1634 = local360;
                 } else if (local360 == 1) {
                     Static135.anInt8223 = 10;
                     Static342.method4464(local360);
@@ -380,13 +383,13 @@ public final class Static364 {
                     Static135.anInt8223 = 9;
                 }
             } else if (Static135.anInt8223 == 18) {
-                if (MiniMenu.anInt1634 == 29) {
+                if (anInt1634 == 29) {
                     if (!Static524.aServerConnection_3.connection.hasAvailable(1)) {
                         return;
                     }
                     Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 1, 0);
                     Static329.anInt1749 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
-                } else if (MiniMenu.anInt1634 == 45) {
+                } else if (anInt1634 == 45) {
                     if (!Static524.aServerConnection_3.connection.hasAvailable(3)) {
                         return;
                     }
@@ -394,10 +397,10 @@ public final class Static364 {
                     Static356.anInt5780 = (Static524.aServerConnection_3.buffer.data[2] & 0xFF) + ((Static524.aServerConnection_3.buffer.data[1] & 0xFF) << 8);
                     Static329.anInt1749 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
                 } else {
-                    throw new IllegalStateException("Login step 18 not valid for pendingResponse=" + MiniMenu.anInt1634);
+                    throw new IllegalStateException("Login step 18 not valid for pendingResponse=" + anInt1634);
                 }
                 Static135.anInt8223 = 0;
-                Static342.method4464(MiniMenu.anInt1634);
+                Static342.method4464(anInt1634);
                 Static524.aServerConnection_3.connection.close();
                 Static524.aServerConnection_3.connection = null;
                 Static564.method7465();

@@ -32,14 +32,14 @@ public final class Static620 {
             @Pc(66) int local66;
             for (local36 = 0; local36 < local34.length / 2; local36++) {
                 @Pc(51) int local51;
-                if (Static511.anInt7645 == 4) {
+                if (Camera.anInt7645 == 4) {
                     local51 = (int) Static171.aFloat64 & 0x3FFF;
                 } else {
                     local51 = (int) Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
                 }
                 local62 = Trig1.SIN[local51];
                 local66 = Trig1.COS[local51];
-                if (Static511.anInt7645 != 4) {
+                if (Camera.anInt7645 != 4) {
                     local62 = local62 * 256 / (Static660.anInt9835 + 256);
                     local66 = local66 * 256 / (Static660.anInt9835 + 256);
                 }

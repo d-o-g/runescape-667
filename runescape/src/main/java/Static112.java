@@ -43,7 +43,7 @@ public final class Static112 {
             @Pc(138) NPCEntity local138 = (NPCEntity) arg0;
             if (local138.anInt10774 != -1 && (local138.anInt10764 == 0 || local138.anInt10763 > 0)) {
                 local67 = local138.x - (local138.anInt10774 - WorldMap.areaBaseX - WorldMap.areaBaseX) * 256;
-                local74 = local138.z - (local138.anInt10767 - WorldMap.areaBaseY - WorldMap.areaBaseY) * 256;
+                local74 = local138.z - (local138.anInt10767 - WorldMap.areaBaseZ - WorldMap.areaBaseZ) * 256;
                 if (local67 != 0 || local74 != 0) {
                     local138.method9305((int) (Math.atan2(local67, local74) * 2607.5945876176133D) & 0x3FFF);
                 }

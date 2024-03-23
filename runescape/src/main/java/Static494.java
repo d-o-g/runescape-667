@@ -33,7 +33,7 @@ public final class Static494 {
     public static void method6597() {
         Static659.anInt9817 = 0;
         @Pc(17) int local17 = (PlayerEntity.self.x >> 9) + WorldMap.areaBaseX;
-        @Pc(24) int local24 = WorldMap.areaBaseY + (PlayerEntity.self.z >> 9);
+        @Pc(24) int local24 = WorldMap.areaBaseZ + (PlayerEntity.self.z >> 9);
         if (local17 >= 3053 && local17 <= 3156 && local24 >= 3056 && local24 <= 3136) {
             Static659.anInt9817 = 1;
         }

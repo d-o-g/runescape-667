@@ -1,5 +1,3 @@
-import com.jagex.SignLink;
-import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Mesh;
@@ -10,9 +8,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Insets;
 
 public final class Static363 {
 
@@ -106,91 +102,4 @@ public final class Static363 {
         }
     }
 
-    @OriginalMember(owner = "client!li", name = "a", descriptor = "(IIIIIZ)V")
-    public static void windowModeChanged(@OriginalArg(0) int oldMode, @OriginalArg(1) int height, @OriginalArg(2) int newMode, @OriginalArg(4) int width, @OriginalArg(5) boolean modeChanged) {
-        if (GameShell.fsframe != null && (newMode != 3 || width != Static328.fullscreenWidth || Static110.fullscreenHeight != height)) {
-            Static655.method8562(SignLink.instance, GameShell.fsframe);
-            GameShell.fsframe = null;
-        }
-        if (newMode == 3 && GameShell.fsframe == null) {
-            GameShell.fsframe = Static489.createFullscreenFrame(SignLink.instance, width, height, 0, 0);
-            if (GameShell.fsframe != null) {
-                Static328.fullscreenWidth = width;
-                Static110.fullscreenHeight = height;
-                ClientOptions.save();
-            }
-        }
-        if (newMode == 3 && GameShell.fsframe == null) {
-            windowModeChanged(oldMode, -1, ClientOptions.instance.screenSizeDefault.getValue(), -1, true);
-            return;
-        }
-        @Pc(95) Container local95;
-        @Pc(110) Insets local110;
-        if (GameShell.fsframe != null) {
-            client.frameHei = height;
-            client.frameWid = width;
-            local95 = GameShell.fsframe;
-        } else if (GameShell.frame == null) {
-            if (GameShell.loaderApplet == null) {
-                local95 = GameShell.instance;
-            } else {
-                local95 = GameShell.loaderApplet;
-            }
-            client.frameWid = local95.getSize().width;
-            client.frameHei = local95.getSize().height;
-        } else {
-            local110 = GameShell.frame.getInsets();
-            client.frameWid = GameShell.frame.getSize().width - local110.right - local110.left;
-            @Pc(126) int local126 = -local110.top;
-            client.frameHei = GameShell.frame.getSize().height + local126 - local110.bottom;
-            local95 = GameShell.frame;
-        }
-        if (newMode == 1) {
-            GameShell.topMargin = 0;
-            GameShell.leftMargin = (client.frameWid - client.loadingScreenWidth) / 2;
-            GameShell.canvasHei = client.loadingScreenHeight;
-            GameShell.canvasWid = client.loadingScreenWidth;
-        } else {
-            Static323.method4625();
-        }
-        if (client.modeWhere != ModeWhere.LIVE) {
-            @Pc(178) boolean local178;
-            if (GameShell.canvasWid < 1024 && GameShell.canvasHei < 768) {
-                local178 = true;
-            } else {
-                local178 = false;
-            }
-        }
-        if (modeChanged) {
-            Static574.method7572();
-        } else {
-            GameShell.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);
-            if (InterfaceManager.aBoolean210) {
-                Static575.method7606(GameShell.canvas);
-            } else {
-                Toolkit.active.method7935(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
-            }
-            if (local95 == GameShell.frame) {
-                local110 = GameShell.frame.getInsets();
-                GameShell.canvas.setLocation(GameShell.leftMargin + local110.left, GameShell.topMargin + local110.top);
-            } else {
-                GameShell.canvas.setLocation(GameShell.leftMargin, GameShell.topMargin);
-            }
-        }
-        if (newMode >= 2) {
-            InterfaceManager.resizableScreen = true;
-        } else {
-            InterfaceManager.resizableScreen = false;
-        }
-        if (InterfaceManager.topLevelInterface != -1) {
-            Static640.method8435(true);
-        }
-        if (ConnectionManager.GAME.connection != null && MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
-            Static371.method5284();
-        }
-        for (@Pc(258) int local258 = 0; local258 < 100; local258++) {
-            InterfaceManager.dirtyRectangles[local258] = true;
-        }
-        GameShell.fullredraw = true;
-    }
 }

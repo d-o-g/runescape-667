@@ -22,14 +22,14 @@ public final class Static114 {
         }
         local37 -= 10;
         @Pc(64) int local64;
-        if (Static511.anInt7645 == 4) {
+        if (Camera.anInt7645 == 4) {
             local64 = (int) Static171.aFloat64 & 0x3FFF;
         } else {
             local64 = Static29.anInt723 + (int) Static171.aFloat64 & 0x3FFF;
         }
         @Pc(77) int local77 = Trig1.SIN[local64];
         @Pc(81) int local81 = Trig1.COS[local64];
-        if (Static511.anInt7645 != 4) {
+        if (Camera.anInt7645 != 4) {
             local81 = local81 * 256 / (Static660.anInt9835 + 256);
             local77 = local77 * 256 / (Static660.anInt9835 + 256);
         }

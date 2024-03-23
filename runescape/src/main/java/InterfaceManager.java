@@ -1,7 +1,12 @@
+import com.jagex.SignLink;
 import com.jagex.core.constants.ComponentClientCode;
+import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.constants.WindowMode;
+import com.jagex.core.datastruct.key.HashTableIterator;
 import com.jagex.core.datastruct.key.IterableHashTable;
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
@@ -12,11 +17,14 @@ import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.iftype.DragRender;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
+import com.jagex.game.runetek6.config.iftype.TargetMask;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjStackability;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
+import com.jagex.game.runetek6.config.paramtype.ParamType;
+import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
 import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
@@ -34,6 +42,8 @@ import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.mouse.MouseLog;
 import rs2.client.event.mouse.MouseMonitor;
 
+import java.awt.Container;
+import java.awt.Insets;
 import java.awt.Rectangle;
 
 public final class InterfaceManager {
@@ -155,9 +165,6 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!wn", name = "c", descriptor = "I")
     public static int targetMask;
-
-    @OriginalMember(owner = "client!el", name = "R", descriptor = "[[Lclient!hda;")
-    public static Component[][] cache;
 
     @OriginalMember(owner = "client!tf", name = "c", descriptor = "I")
     public static int targetParam;
@@ -870,13 +877,13 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IIIIIIIZI)V")
     public static void draw(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7) {
-        @Pc(17) int local17;
         if (InterfaceList.load(arg0)) {
-            local17 = 0;
+            @Pc(17) int local17 = 0;
             @Pc(58) int local58 = 0;
             @Pc(60) int local60 = 0;
             @Pc(62) int local62 = 0;
             @Pc(64) int local64 = 0;
+
             if (aBoolean210) {
                 local62 = Static582.anInt8629;
                 local64 = Static691.anInt10368;
@@ -885,11 +892,13 @@ public final class InterfaceManager {
                 local60 = Static599.anInt8837;
                 Static691.anInt10368 = 1;
             }
-            if (cache[arg0] == null) {
-                draw(-1, arg6, InterfaceList.interfaces[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+
+            if (InterfaceList.cache[arg0] != null) {
+                draw(-1, arg6, InterfaceList.cache[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
             } else {
-                draw(-1, arg6, cache[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+                draw(-1, arg6, InterfaceList.interfaces[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
             }
+
             if (aBoolean210) {
                 if (arg5 >= 0 && Static691.anInt10368 == 2) {
                     Static682.method8927(Static320.anInt5085, Static582.anInt8629, Static435.anInt6597, Static599.anInt8837);
@@ -901,7 +910,7 @@ public final class InterfaceManager {
                 Static599.anInt8837 = local60;
             }
         } else if (arg5 == -1) {
-            for (local17 = 0; local17 < 100; local17++) {
+            for (@Pc(17) int local17 = 0; local17 < 100; local17++) {
                 dirtyRectangles[local17] = true;
             }
         } else {
@@ -970,6 +979,15 @@ public final class InterfaceManager {
         return properties != null ? properties : component.serverActiveProperties;
     }
 
+    @OriginalMember(owner = "client!fw", name = "a", descriptor = "(BI)V")
+    public static void resetServerActiveProperties(@OriginalArg(1) int id) {
+        for (@Pc(11) Node node = serverActiveProperties.first(); node != null; node = serverActiveProperties.next()) {
+            if ((long) id == (node.key >> 48 & 0xFFFFL)) {
+                node.unlink();
+            }
+        }
+    }
+
     @OriginalMember(owner = "client!lg", name = "b", descriptor = "(II)Ljava/lang/String;")
     public static String invText(@OriginalArg(1) int count) {
         @Pc(8) String text = Integer.toString(count);
@@ -989,9 +1007,9 @@ public final class InterfaceManager {
     @OriginalMember(owner = "client!vn", name = "a", descriptor = "(JI)V")
     public static void method7930(@OriginalArg(0) long arg0) {
         if (Static334.activeTiles != null) {
-            if (Static511.anInt7645 == 1 || Static511.anInt7645 == 5) {
+            if (Camera.anInt7645 == 1 || Camera.anInt7645 == 5) {
                 Static604.method7903(arg0);
-            } else if (Static511.anInt7645 == 4) {
+            } else if (Camera.anInt7645 == 4) {
                 Static349.method5121(arg0);
             }
         }
@@ -1251,7 +1269,7 @@ public final class InterfaceManager {
                     }
 
                     if (!MiniMenu.open && hovered) {
-                        MiniMenu.addMiniMenuOptions(component, mouseX2 - startX, mouseX2 - startY);
+                        addMiniMenuOptions(component, mouseX2 - startX, mouseX2 - startY);
                     }
 
                     @Pc(462) boolean pressedOver = false;
@@ -1398,7 +1416,7 @@ public final class InterfaceManager {
                                 local555 -= component.height / 2;
 
                                 @Pc(1125) int local1125;
-                                if (Static511.anInt7645 == 4) {
+                                if (Camera.anInt7645 == 4) {
                                     local1125 = (int) Static171.aFloat64 & 0x3FFF;
                                 } else {
                                     local1125 = (int) Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
@@ -1406,7 +1424,7 @@ public final class InterfaceManager {
 
                                 @Pc(1137) int local1137 = Trig1.SIN[local1125];
                                 @Pc(1141) int local1141 = Trig1.COS[local1125];
-                                if (Static511.anInt7645 != 4) {
+                                if (Camera.anInt7645 != 4) {
                                     local1137 = local1137 * (Static660.anInt9835 + 256) >> 8;
                                     local1141 = local1141 * (Static660.anInt9835 + 256) >> 8;
                                 }
@@ -1416,7 +1434,7 @@ public final class InterfaceManager {
 
                                 @Pc(1191) int local1191;
                                 @Pc(1199) int local1199;
-                                if (Static511.anInt7645 == 4) {
+                                if (Camera.anInt7645 == 4) {
                                     local1191 = (Static433.anInt6262 >> 9) + (local1170 >> 2);
                                     local1199 = (Static249.anInt4018 >> 9) - (local1180 >> 2);
                                 } else {
@@ -1503,7 +1521,7 @@ public final class InterfaceManager {
                                 }
 
                                 if (Static460.anInt6964 > 0 && !Static1.aBoolean821) {
-                                    if ((Static219.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.optionCount > 2) {
+                                    if ((Static219.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.entryCount > 2) {
                                         Static455.method6223(dragStartX, dragStartY);
                                     } else if (MiniMenu.isPopulated()) {
                                         Static455.method6223(dragStartX, dragStartY);
@@ -1838,7 +1856,7 @@ public final class InterfaceManager {
                             }
                         }
 
-                        if (Static272.camFinished && component.onCamFinished != null) {
+                        if (Camera.finished && component.onCamFinished != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onCamFinished;
@@ -2014,10 +2032,10 @@ public final class InterfaceManager {
             return;
         }
 
-        if (cache[arg7] == null) {
+        if (InterfaceList.cache[arg7] == null) {
             logicComponentList(InterfaceList.interfaces[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
         } else {
-            logicComponentList(cache[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
+            logicComponentList(InterfaceList.cache[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
         }
     }
 
@@ -2303,21 +2321,282 @@ public final class InterfaceManager {
         }
     }
 
-    private InterfaceManager() {
-        /* empty */
-    }
-
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(IIIZI)V")
-    public static void changeWindowMode(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) int arg3) {
+    public static void changeWindowMode(@OriginalArg(1) int mode, @OriginalArg(2) int width, @OriginalArg(3) boolean modeDifferent, @OriginalArg(4) int height) {
         Static498.method6646();
         Static297.aLong153 = 0L;
-        @Pc(10) int local10 = getWindowMode();
-        if (arg0 == 3 || local10 == 3) {
-            arg2 = true;
+
+        @Pc(10) int current = getWindowMode();
+        if (mode == WindowMode.FULLSCREEN || current == WindowMode.FULLSCREEN) {
+            modeDifferent = true;
         }
         if (!Toolkit.active.method7983()) {
-            arg2 = true;
+            modeDifferent = true;
         }
-        Static363.windowModeChanged(local10, arg3, arg0, arg1, arg2);
+
+        windowModeChanged(current, height, mode, width, modeDifferent);
+    }
+
+    @OriginalMember(owner = "client!li", name = "a", descriptor = "(IIIIIZ)V")
+    public static void windowModeChanged(@OriginalArg(0) int oldMode, @OriginalArg(1) int height, @OriginalArg(2) int newMode, @OriginalArg(4) int width, @OriginalArg(5) boolean modeChanged) {
+        if (GameShell.fsframe != null && (newMode != WindowMode.FULLSCREEN || width != Static328.fullscreenWidth || height != Static110.fullscreenHeight)) {
+            Static655.method8562(SignLink.instance, GameShell.fsframe);
+            GameShell.fsframe = null;
+        }
+
+        if (newMode == 3 && GameShell.fsframe == null) {
+            GameShell.fsframe = Static489.createFullscreenFrame(SignLink.instance, width, height, 0, 0);
+            if (GameShell.fsframe != null) {
+                Static328.fullscreenWidth = width;
+                Static110.fullscreenHeight = height;
+                ClientOptions.save();
+            }
+        }
+
+        if (newMode == WindowMode.FULLSCREEN && GameShell.fsframe == null) {
+            windowModeChanged(oldMode, -1, ClientOptions.instance.screenSizeDefault.getValue(), -1, true);
+            return;
+        }
+
+        @Pc(95) Container topContainer;
+        if (GameShell.fsframe != null) {
+            client.frameHei = height;
+            client.frameWid = width;
+            topContainer = GameShell.fsframe;
+        } else if (GameShell.frame != null) {
+            @Pc(110) Insets insets = GameShell.frame.getInsets();
+            client.frameWid = GameShell.frame.getSize().width - insets.right - insets.left;
+
+            @Pc(126) int negativeTop = -insets.top;
+            client.frameHei = GameShell.frame.getSize().height + negativeTop - insets.bottom;
+            topContainer = GameShell.frame;
+        } else {
+            if (GameShell.loaderApplet == null) {
+                topContainer = GameShell.instance;
+            } else {
+                topContainer = GameShell.loaderApplet;
+            }
+
+            client.frameWid = topContainer.getSize().width;
+            client.frameHei = topContainer.getSize().height;
+        }
+
+        if (newMode == WindowMode.FIXED) {
+            GameShell.topMargin = 0;
+            GameShell.leftMargin = (client.frameWid - client.loadingScreenWidth) / 2;
+            GameShell.canvasHei = client.loadingScreenHeight;
+            GameShell.canvasWid = client.loadingScreenWidth;
+        } else {
+            Static323.method4625();
+        }
+
+        if (client.modeWhere != ModeWhere.LIVE) {
+            @Pc(178) boolean tooSmall;
+            if (GameShell.canvasWid < 1024 && GameShell.canvasHei < 768) {
+                tooSmall = true;
+            } else {
+                tooSmall = false;
+            }
+        }
+
+        if (modeChanged) {
+            Static574.method7572();
+        } else {
+            GameShell.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);
+
+            if (aBoolean210) {
+                Static575.method7606(GameShell.canvas);
+            } else {
+                Toolkit.active.method7935(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
+            }
+
+            if (topContainer == GameShell.frame) {
+                @Pc(110) Insets local110 = GameShell.frame.getInsets();
+                GameShell.canvas.setLocation(GameShell.leftMargin + local110.left, GameShell.topMargin + local110.top);
+            } else {
+                GameShell.canvas.setLocation(GameShell.leftMargin, GameShell.topMargin);
+            }
+        }
+
+        if (newMode >= WindowMode.RESIZABLE) {
+            resizableScreen = true;
+        } else {
+            resizableScreen = false;
+        }
+
+        if (topLevelInterface != -1) {
+            refreshTopLevelInterface(true);
+        }
+
+        if (ConnectionManager.GAME.connection != null && MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
+            Protocol.sendWindowStatus();
+        }
+
+        for (@Pc(258) int i = 0; i < 100; i++) {
+            dirtyRectangles[i] = true;
+        }
+
+        GameShell.fullredraw = true;
+    }
+
+    @OriginalMember(owner = "client!uda", name = "a", descriptor = "(IZ)V")
+    public static void refreshTopLevelInterface(@OriginalArg(1) boolean id) {
+        calculateComponentListDimensions(id, topLevelInterface, GameShell.canvasHei, GameShell.canvasWid);
+    }
+
+    @OriginalMember(owner = "client!nea", name = "a", descriptor = "(ILclient!hda;II)V")
+    public static void addMiniMenuOptions(@OriginalArg(1) Component component, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
+        if (targeting) {
+            @Pc(16) ParamType param = targetParam == -1 ? null : ParamTypeList.instance.list(targetParam);
+
+            if (serverActiveProperties(component).isUseTarget() && (targetMask & TargetMask.TGT_BUTTON) != 0 && (param == null || component.param(param.defaultint, targetParam) != param.defaultint)) {
+                MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, targetVerb, MiniMenuAction.IF_BUTTONT, true, targetEnterCursor, targetedVerb + " -> " + component.opBase, (component.id << 0) | component.slot, false);
+            }
+        }
+
+        for (@Pc(97) int i = 9; i >= 5; i--) {
+            @Pc(106) String op = getOp(component, i);
+
+            if (op != null) {
+                MiniMenu.addEntry(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX1, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
+            }
+        }
+
+        @Pc(106) String targetVerb = getComponentTargetVerb(component);
+        if (targetVerb != null) {
+            MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, targetVerb, MiniMenuAction.TGT_BUTTON, true, component.targetOpCursor, component.opBase, (component.id << 0) | component.slot, false);
+        }
+
+        for (@Pc(193) int i = 4; i >= 0; i--) {
+            @Pc(204) String op = getOp(component, i);
+
+            if (op != null) {
+                MiniMenu.addEntry(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX2, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
+            }
+        }
+
+        if (serverActiveProperties(component).isPauseButton()) {
+            if (component.pauseText == null) {
+                MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, LocalisedText.CONTINUE.localise(client.language), MiniMenuAction.PAUSE_BUTTON, true, -1, "", (component.id << 0) | component.slot, false);
+            } else {
+                MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, component.pauseText, MiniMenuAction.PAUSE_BUTTON, true, -1, "", (component.id << 0) | component.slot, false);
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!ln", name = "a", descriptor = "(ILclient!hda;I)I")
+    public static int opCursor(@OriginalArg(0) int op, @OriginalArg(1) Component component) {
+        if (!serverActiveProperties(component).isOpEnabled(op) && component.onOp == null) {
+            return -1;
+        } else if (component.opCursors == null || op >= component.opCursors.length) {
+            return -1;
+        } else {
+            return component.opCursors[op];
+        }
+    }
+
+    @OriginalMember(owner = "client!oh", name = "a", descriptor = "(IZ)V")
+    public static void openLoginScreen(@OriginalArg(1) boolean unloaded) {
+        if (unloaded) {
+            if (topLevelInterface != -1) {
+                closeInterface(topLevelInterface);
+            }
+
+            for (@Pc(21) SubInterface sub = (SubInterface) subInterfaces.first(); sub != null; sub = (SubInterface) subInterfaces.next()) {
+                if (!sub.isLinked()) {
+                    sub = (SubInterface) subInterfaces.first();
+
+                    if (sub == null) {
+                        break;
+                    }
+                }
+
+                closeSubInterface(false, true, sub);
+            }
+
+            topLevelInterface = -1;
+            subInterfaces = new IterableHashTable(8);
+            InterfaceList.reset();
+            topLevelInterface = Static523.graphicsDefaults.login_interface;
+            refreshTopLevelInterface(false);
+            redrawAll();
+            ScriptRunner.executeOnLoad(topLevelInterface);
+        }
+
+        Static300.method4389();
+        Static461.aBoolean529 = false;
+        MiniMenu.setCancelEntry();
+        targetEndCursor = -1;
+        Static115.method2136(Cursor.dflt);
+        PlayerEntity.self = new PlayerEntity();
+        PlayerEntity.self.z = Static501.mapHeight * 512 / 2;
+        PlayerEntity.self.x = Static720.mapWidth * 512 / 2;
+        PlayerEntity.self.pathX[0] = Static720.mapWidth / 2;
+        Camera.positionZ = 0;
+        Camera.positionX = 0;
+        PlayerEntity.self.pathY[0] = Static501.mapHeight / 2;
+
+        if (Camera.anInt7645 == 2) {
+            Camera.positionZ = Camera.anInt10667 << 9;
+            Camera.positionX = Camera.anInt2333 << 9;
+        } else {
+            Camera.splineTick();
+        }
+
+        Static218.method3187();
+    }
+
+    @OriginalMember(owner = "client!ku", name = "a", descriptor = "(IZ)V")
+    public static void closeInterface(@OriginalArg(0) int arg0) {
+        if (arg0 != -1 && InterfaceList.loaded[arg0]) {
+            Component.interfacesJs5.discardUnpacked(arg0);
+            InterfaceList.interfaces[arg0] = null;
+            InterfaceList.cache[arg0] = null;
+            InterfaceList.loaded[arg0] = false;
+        }
+    }
+
+    @OriginalMember(owner = "client!od", name = "a", descriptor = "(BZZLclient!aha;)V")
+    public static void closeSubInterface(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean close, @OriginalArg(3) SubInterface sub) {
+        @Pc(6) int subId = sub.id;
+        @Pc(10) int idAndSlot = (int) sub.key;
+        sub.unlink();
+
+        if (close) {
+            closeInterface(subId);
+        }
+
+        resetServerActiveProperties(subId);
+
+        @Pc(27) Component inter = InterfaceList.list(idAndSlot);
+        if (inter != null) {
+            redraw(inter);
+        }
+
+        MiniMenu.method1840();
+
+        if (!arg0 && topLevelInterface != -1) {
+            runHookImmediate(IMMEDIATE_HOOK_TYPE_SUBCHANGE, topLevelInterface);
+        }
+
+        @Pc(55) HashTableIterator local55 = new HashTableIterator(subInterfaces);
+        for (@Pc(60) SubInterface local60 = (SubInterface) local55.first(); local60 != null; local60 = (SubInterface) local55.next()) {
+            if (!local60.isLinked()) {
+                local60 = (SubInterface) local55.first();
+                if (local60 == null) {
+                    break;
+                }
+            }
+            if (local60.type == 3) {
+                @Pc(84) int local84 = (int) local60.key;
+                if (subId == local84 >>> 16) {
+                    closeSubInterface(arg0, true, local60);
+                }
+            }
+        }
+    }
+
+    private InterfaceManager() {
+        /* empty */
     }
 }

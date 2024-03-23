@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -9,35 +8,24 @@ public final class Static145 {
     @OriginalMember(owner = "client!eja", name = "g", descriptor = "I")
     public static int anInt2561 = 0;
 
-    @OriginalMember(owner = "client!eja", name = "a", descriptor = "(ZLclient!cm;Lclient!cm;)V")
-    public static void method2408(@OriginalArg(1) Node2 arg0, @OriginalArg(2) Node2 arg1) {
-        if (arg0.prev2 != null) {
-            arg0.unlink2();
-        }
-        arg0.prev2 = arg1.prev2;
-        arg0.next2 = arg1;
-        arg0.prev2.next2 = arg0;
-        arg0.next2.prev2 = arg0;
-    }
-
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(I)V")
     public static void method2409() {
         for (@Pc(10) int local10 = 0; local10 < 5; local10++) {
             Static572.aBooleanArray29[local10] = false;
         }
-        Static70.anInt1569 = Static170.anInt2864;
-        Static411.anInt6329 = Static110.anInt2186;
-        Static225.anInt3641 = Static323.anInt5119;
+        Static70.anInt1569 = Camera.positionX;
+        Static411.anInt6329 = Camera.positionZ;
+        Static225.anInt3641 = Camera.yaw;
         Static197.anInt3260 = -1;
-        Static340.anInt5584 = Static598.anInt8832;
+        Static340.anInt5584 = Camera.pitch;
         Static693.anInt10383 = -1;
         Static692.anInt10376 = -1;
-        Static374.anInt5907 = -1;
+        Camera.lookSpline = -1;
         Static212.anInt3468 = TimeUtils.clock;
         Static179.anInt2991 = 0;
         Static314.anInt5035 = 0;
-        Static511.anInt7645 = 5;
-        Static302.anInt4854 = Static359.anInt5801;
+        Camera.anInt7645 = 5;
+        Static302.anInt4854 = Camera.positionY;
     }
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(Lclient!cg;Z)V")
@@ -61,7 +49,7 @@ public final class Static145 {
                     @Pc(148) int local148 = local72 >> 14;
                     local102 = arg0.x - (local148 - WorldMap.areaBaseX) * 512 - 256;
                     @Pc(164) int local164 = local72 & 0x3FFF;
-                    local95 = arg0.z - (local164 - WorldMap.areaBaseY) * 512 - 256;
+                    local95 = arg0.z - (local164 - WorldMap.areaBaseZ) * 512 - 256;
                 } else if ((local25 & 0x8000) == 0) {
                     @Pc(111) Node_Sub45 local111 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local25);
                     if (local111 == null) {

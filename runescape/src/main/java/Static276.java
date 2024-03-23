@@ -54,26 +54,26 @@ public final class Static276 {
         @Pc(92) int local92 = PlayerEntity.self.x;
         @Pc(95) int local95 = PlayerEntity.self.z;
         @Pc(149) int local149;
-        if (Static511.anInt7645 != 1 && Static692.anInt10376 == -1) {
-            local149 = Static102.method2025(Camera.renderingLevel, -29754, Static110.anInt2186, Static170.anInt2864);
-            if (local149 - Static359.anInt5801 < 3200 && (Static280.tileFlags[Camera.renderingLevel][Static170.anInt2864 >> 9][Static110.anInt2186 >> 9] & 0x4) != 0) {
-                Static409.method5656(Static110.anInt2186 >> 9, Static334.activeTiles, 1, Static170.anInt2864 >> 9, false);
+        if (Camera.anInt7645 != 1 && Static692.anInt10376 == -1) {
+            local149 = Static102.method2025(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX);
+            if (local149 - Camera.positionY < 3200 && (Static280.tileFlags[Camera.renderingLevel][Camera.positionX >> 9][Camera.positionZ >> 9] & 0x4) != 0) {
+                Static409.method5656(Camera.positionZ >> 9, Static334.activeTiles, 1, Camera.positionX >> 9, false);
                 return;
             }
             return;
         }
-        if (Static511.anInt7645 != 1) {
+        if (Camera.anInt7645 != 1) {
             local92 = Static692.anInt10376;
             local95 = Static693.anInt10383;
         }
         if ((Static280.tileFlags[Camera.renderingLevel][local92 >> 9][local95 >> 9] & 0x4) != 0) {
             Static409.method5656(local95 >> 9, Static334.activeTiles, 0, local92 >> 9, false);
         }
-        if (Static598.anInt8832 >= 2560) {
+        if (Camera.pitch >= 2560) {
             return;
         }
-        local149 = Static170.anInt2864 >> 9;
-        @Pc(153) int local153 = Static110.anInt2186 >> 9;
+        local149 = Camera.positionX >> 9;
+        @Pc(153) int local153 = Camera.positionZ >> 9;
         @Pc(157) int local157 = local92 >> 9;
         @Pc(161) int local161 = local95 >> 9;
         @Pc(169) int local169;
@@ -148,7 +148,7 @@ public final class Static276 {
             }
             return;
         }
-        JagException.sendTrace(null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + WorldMap.areaBaseX + "," + WorldMap.areaBaseY);
+        JagException.sendTrace(null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + WorldMap.areaBaseX + "," + WorldMap.areaBaseZ);
         return;
     }
 }

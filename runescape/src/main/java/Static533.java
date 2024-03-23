@@ -11,18 +11,18 @@ public final class Static533 {
 
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "(B)V")
     public static void method7119() {
-        for (@Pc(8) DoublyLinkedNode_Sub2_Sub4 local8 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.first(); local8 != null; local8 = (DoublyLinkedNode_Sub2_Sub4) Static350.A_QUEUE___8.next()) {
-            if (local8.anInt1534 > 1) {
-                local8.anInt1534 = 0;
-                Static717.A_WEIGHTED_CACHE___232.put(local8, ((DoublyLinkedNode_Sub2_Sub16) local8.aQueue_3.sentinel.next2).aLong234);
-                local8.aQueue_3.clear();
+        for (@Pc(8) MiniMenuEntryInner local8 = (MiniMenuEntryInner) MiniMenu.innerEntries.first(); local8 != null; local8 = (MiniMenuEntryInner) MiniMenu.innerEntries.next()) {
+            if (local8.size > 1) {
+                local8.size = 0;
+                MiniMenu.cache.put(local8, ((MiniMenuEntry) local8.entries.sentinel.next2).entryKey);
+                local8.entries.clear();
             }
         }
-        Static31.anInt767 = 0;
-        MiniMenu.optionCount = 0;
-        Static693.A_DEQUE___79.clear();
-        Static490.A_HASH_TABLE___34.clear();
-        Static350.A_QUEUE___8.clear();
+        MiniMenu.innerCount = 0;
+        MiniMenu.entryCount = 0;
+        MiniMenu.entry.clear();
+        MiniMenu.categories.clear();
+        MiniMenu.innerEntries.clear();
         MiniMenu.open = false;
     }
 }

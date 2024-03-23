@@ -45,7 +45,7 @@ public final class Static383 {
             @Pc(141) int local141 = local127 & 0xFF;
             @Pc(149) int local149 = (local137 << 6) + (local45 - WorldMap.areaBaseX);
             local99.aBoolean125 = local91.aBoolean712;
-            @Pc(161) int local161 = (local141 << 6) + local50 - WorldMap.areaBaseY;
+            @Pc(161) int local161 = (local141 << 6) + local50 - WorldMap.areaBaseZ;
             local99.aBoolean128 = local91.aBoolean711;
             local99.aByteArray111[0] = Static139.aByteArray30[arg0];
             local99.level = local99.aByte143 = (byte) local131;

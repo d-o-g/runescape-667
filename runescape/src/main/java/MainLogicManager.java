@@ -26,7 +26,7 @@ public final class MainLogicManager {
             ConnectionManager.reconnect = null;
         }
         if (arg0 == 3) {
-            Static456.method6228(Static523.graphicsDefaults.login_interface != InterfaceManager.topLevelInterface);
+            InterfaceManager.openLoginScreen(Static523.graphicsDefaults.login_interface != InterfaceManager.topLevelInterface);
         }
         if (arg0 == 7) {
             Static25.method688(Static523.graphicsDefaults.lobby_interface != InterfaceManager.topLevelInterface);

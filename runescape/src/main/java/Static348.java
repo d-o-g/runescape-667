@@ -1,4 +1,3 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static348 {
@@ -14,8 +13,4 @@ public final class Static348 {
         Static416.method5705();
     }
 
-    @OriginalMember(owner = "client!kv", name = "a", descriptor = "(II)Z")
-    public static boolean method5113(@OriginalArg(1) int arg0) {
-        return arg0 == 21 || arg0 == 60 || arg0 == 23 || arg0 == 17 || arg0 == 44 || arg0 == 4 || arg0 == 18;
-    }
 }

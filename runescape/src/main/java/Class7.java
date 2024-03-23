@@ -75,7 +75,7 @@ public final class Class7 {
                     for (@Pc(90) int local90 = 0; local90 < 128; local90++) {
                         @Pc(111) float local111 = (float) ((local26[local78 + local90] & 0xFF) - (local26[local90 + local88] & 0xFF));
                         @Pc(138) float local138 = (float) ((local26[local67 + (local90 - 1 & 0x7F)] & 0xFF) - (local26[local67 + (local90 + 1 & 0x7F)] & 0xFF));
-                        @Pc(153) float local153 = (float) (128.0D / Math.sqrt((double) (local111 * local111 + local138 * local138 + 16384.0F)));
+                        @Pc(153) float local153 = (float) (128.0D / Math.sqrt(local111 * local111 + local138 * local138 + 16384.0F));
                         local42[local44++] = (byte) (int) (local138 * local153 + 127.0F);
                         local42[local44++] = (byte) (int) (local153 * 128.0F + 127.0F);
                         local42[local44++] = (byte) (int) (local111 * local153 + 127.0F);

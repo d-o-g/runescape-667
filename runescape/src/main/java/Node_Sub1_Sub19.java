@@ -49,7 +49,7 @@ public final class Node_Sub1_Sub19 extends Node_Sub1 {
                 @Pc(96) int local96 = local68 >> 12;
                 @Pc(102) int local102 = local92 * local92 >> 12;
                 @Pc(108) int local108 = local96 * local96 >> 12;
-                @Pc(122) int local122 = (int) (Math.sqrt((double) ((float) (local108 + local102 + 4096) / 4096.0F)) * 4096.0D);
+                @Pc(122) int local122 = (int) (Math.sqrt((float) (local108 + local102 + 4096) / 4096.0F) * 4096.0D);
                 @Pc(128) int local128;
                 @Pc(126) int local126;
                 @Pc(130) int local130;

@@ -8,7 +8,7 @@ public final class Static44 {
 
     @OriginalMember(owner = "client!bia", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;I)V")
     public static void method1072(@OriginalArg(0) String arg0, @OriginalArg(1) String arg1, @OriginalArg(3) int arg2, @OriginalArg(4) String arg3, @OriginalArg(5) String arg4, @OriginalArg(6) int arg5) {
-        Static662.method8625(arg4, arg1, -1, arg0, (String) null, arg2, arg3, arg5);
+        Static662.method8625(arg4, arg1, -1, arg0, null, arg2, arg3, arg5);
     }
 
     @OriginalMember(owner = "client!bia", name = "a", descriptor = "(ILclient!hda;)V")

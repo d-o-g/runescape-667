@@ -77,7 +77,7 @@ public final class Static305 {
                     local58.setColor(arg2);
                     local58.drawString(Static484.aString85, GameShell.canvasWid / 2 - Static484.aString85.length() * 6 / 2, GameShell.canvasHei / 2 + -26);
                 }
-                local6.drawImage(Static103.anImage1, 0, 0, (ImageObserver) null);
+                local6.drawImage(Static103.anImage1, 0, 0, null);
             } catch (@Pc(205) Exception local205) {
                 local6.setColor(Color.black);
                 local6.fillRect(0, 0, GameShell.canvasWid, GameShell.canvasHei);

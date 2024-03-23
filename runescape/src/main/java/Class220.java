@@ -78,7 +78,7 @@ public final class Class220 {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         @Pc(16) Class285 type;
         synchronized (this.recentUse) {
-            type = (Class285) this.recentUse.get((long) id);
+            type = (Class285) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -98,7 +98,7 @@ public final class Class220 {
 
         @Pc(66) ReferenceCache local66 = this.recentUse;
         synchronized (this.recentUse) {
-            this.recentUse.put(type, (long) id);
+            this.recentUse.put(type, id);
             return type;
         }
     }

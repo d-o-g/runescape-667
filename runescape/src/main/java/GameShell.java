@@ -208,7 +208,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 TimeUtils.sleep(10L);
             }
         } catch (@Pc(103) Exception local103) {
-            JagException.sendTrace(local103, (String) null);
+            JagException.sendTrace(local103, null);
         }
     }
 
@@ -323,7 +323,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 }
             }
         } catch (@Pc(92) Throwable local92) {
-            JagException.sendTrace(local92, (String) null);
+            JagException.sendTrace(local92, null);
             this.error("crash");
         }
     }
@@ -460,7 +460,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
         } else {
             topContainer = loaderApplet;
         }
-        topContainer.setLayout((LayoutManager) null);
+        topContainer.setLayout(null);
         canvas = new Canvas_Sub1(this);
         topContainer.add(canvas);
         canvas.setSize(canvasWid, canvasHei);

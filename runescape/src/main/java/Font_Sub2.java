@@ -202,7 +202,7 @@ public final class Font_Sub2 extends Font {
         OpenGL.glDisable(OpenGL.GL_TEXTURE_GEN_T);
         this.aClass19_Sub3_16.method7021(5890, 768, 0);
         this.aClass19_Sub3_16.method7031(8448, 8448);
-        this.aClass19_Sub3_16.method7001((Class93) null);
+        this.aClass19_Sub3_16.method7001(null);
         this.aClass19_Sub3_16.method7014(0);
         if (this.aBoolean275 || shadow) {
             this.aClass19_Sub3_16.method7021(5890, 768, 0);

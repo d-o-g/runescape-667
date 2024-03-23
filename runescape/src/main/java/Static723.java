@@ -29,13 +29,13 @@ public final class Static723 {
             local7 = 4096;
         }
         if (Static479.aFloat123 < (float) local5) {
-            Static479.aFloat123 = (float) local5;
+            Static479.aFloat123 = local5;
         }
         while (Static171.aFloat64 >= 16384.0F) {
             Static171.aFloat64 -= 16384.0F;
         }
         if ((float) local7 < Static479.aFloat123) {
-            Static479.aFloat123 = (float) local7;
+            Static479.aFloat123 = local7;
         }
         while (Static171.aFloat64 < 0.0F) {
             Static171.aFloat64 += 16384.0F;

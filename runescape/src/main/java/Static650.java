@@ -219,7 +219,7 @@ public final class Static650 {
         if (local7 != 0) {
             local3 = -local3;
         }
-        return (float) ((double) local3 * Math.pow(2.0D, (double) (local13 - 788)));
+        return (float) ((double) local3 * Math.pow(2.0D, local13 - 788));
     }
 
     @OriginalMember(owner = "client!uj", name = "a", descriptor = "([BI)V")

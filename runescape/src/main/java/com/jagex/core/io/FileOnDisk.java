@@ -94,7 +94,7 @@ public final class FileOnDisk {
     public int read(@OriginalArg(1) int len, @OriginalArg(2) byte[] data, @OriginalArg(3) int off) throws IOException {
         @Pc(19) int result = this.file.read(data, off, len);
         if (result > 0) {
-            this.position += (long) result;
+            this.position += result;
         }
         return result;
     }

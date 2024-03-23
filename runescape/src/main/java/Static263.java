@@ -9,7 +9,7 @@ public final class Static263 {
 
     @OriginalMember(owner = "client!ida", name = "a", descriptor = "(ZIIILjava/lang/String;)V")
     public static void method3855(@OriginalArg(0) boolean arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) String arg3) {
-        Static311.method4538(false, arg0, arg1, arg2, arg3, (String) null);
+        Static311.method4538(false, arg0, arg1, arg2, arg3, null);
     }
 
     @OriginalMember(owner = "client!ida", name = "a", descriptor = "(Lclient!rka;I)V")

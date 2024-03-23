@@ -74,9 +74,9 @@ public final class Static397 {
         @Pc(36) float local36 = arg6[2] * (float) local3 + arg6[1] * (float) local11 + arg6[0] * (float) local15;
         @Pc(57) float local57 = (float) local11 * arg6[4] + arg6[3] * (float) local15 + (float) local3 * arg6[5];
         @Pc(78) float local78 = arg6[8] * (float) local3 + arg6[7] * (float) local11 + arg6[6] * (float) local15;
-        @Pc(93) float local93 = (float) Math.sqrt((double) (local36 * local36 + local57 * local57 + local78 * local78));
-        @Pc(111) float local111 = (float) Math.atan2((double) local36, (double) local78) / 6.2831855F + 0.5F;
-        @Pc(124) float local124 = (float) Math.asin((double) (local57 / local93)) / 3.1415927F + arg5 + 0.5F;
+        @Pc(93) float local93 = (float) Math.sqrt(local36 * local36 + local57 * local57 + local78 * local78);
+        @Pc(111) float local111 = (float) Math.atan2(local36, local78) / 6.2831855F + 0.5F;
+        @Pc(124) float local124 = (float) Math.asin(local57 / local93) / 3.1415927F + arg5 + 0.5F;
         @Pc(146) float local146;
         if (arg7 == 1) {
             local146 = local111;
@@ -100,14 +100,14 @@ public final class Static397 {
         if (local7 == -1) {
             return;
         }
-        @Pc(27) Sprite local27 = (Sprite) Static541.A_WEIGHTED_CACHE___174.get((long) local7);
+        @Pc(27) Sprite local27 = (Sprite) Static541.A_WEIGHTED_CACHE___174.get(local7);
         if (local27 == null) {
             @Pc(34) IndexedImage[] local34 = IndexedImage.load(js5.SPRITES, local7, 0);
             if (local34 == null) {
                 return;
             }
             local27 = Toolkit.active.createSprite(local34[0], true);
-            Static541.A_WEIGHTED_CACHE___174.put(local27, (long) local7);
+            Static541.A_WEIGHTED_CACHE___174.put(local27, local7);
         }
         Static418.method7860(arg1.level, arg1.z, 0, arg1.x, arg1.boundSize((byte) 55) * 256);
         @Pc(75) int local75 = arg0 + Static215.anIntArray284[0] - 18;

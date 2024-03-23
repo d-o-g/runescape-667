@@ -109,7 +109,7 @@ public final class Static523 {
             if (!Static228.js5MasterIndex.method5800()) {
                 return 0;
             }
-            Static595.method7807((String) null, true, 0);
+            Static595.method7807(null, true, 0);
             Static297.loadingSpritesRaw = !Static589.method7721();
             js5.LOADING_SPRITES = client.createJs5(false, Static297.loadingSpritesRaw ? Js5Archive.LOADING_SPRITES_RAW : Js5Archive.LOADING_SPRITES, 1);
             js5.LOADING_SCREENS = client.createJs5(false, Js5Archive.LOADING_SCREENS, 1);

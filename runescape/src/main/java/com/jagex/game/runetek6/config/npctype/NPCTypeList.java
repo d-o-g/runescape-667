@@ -166,7 +166,7 @@ public final class NPCTypeList {
         @Pc(14) ReferenceCache local14 = this.recentUse;
         @Pc(24) NPCType type;
         synchronized (this.recentUse) {
-            type = (NPCType) this.recentUse.get((long) id);
+            type = (NPCType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -181,7 +181,7 @@ public final class NPCTypeList {
         type = new NPCType();
         type.typeList = this;
         type.id = id;
-        type.op = (String[]) this.defaultOps.clone();
+        type.op = this.defaultOps.clone();
         if (data != null) {
             type.decode(new Packet(data));
         }
@@ -189,7 +189,7 @@ public final class NPCTypeList {
 
         @Pc(90) ReferenceCache local90 = this.recentUse;
         synchronized (this.recentUse) {
-            this.recentUse.put(type, (long) id);
+            this.recentUse.put(type, id);
             return type;
         }
     }

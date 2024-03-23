@@ -90,9 +90,9 @@ public final class Static638 {
             @Pc(41) int local41 = local22 - Static170.anInt2864;
             @Pc(46) int local46 = local36 - Static359.anInt5801;
             @Pc(51) int local51 = local28 - Static110.anInt2186;
-            @Pc(62) int local62 = (int) Math.sqrt((double) (local51 * local51 + local41 * local41));
-            Static598.anInt8832 = (int) (Math.atan2((double) local46, (double) local62) * 2607.5945876176133D) & 0x3FFF;
-            Static323.anInt5119 = (int) (-2607.5945876176133D * Math.atan2((double) local41, (double) local51)) & 0x3FFF;
+            @Pc(62) int local62 = (int) Math.sqrt(local51 * local51 + local41 * local41);
+            Static598.anInt8832 = (int) (Math.atan2(local46, local62) * 2607.5945876176133D) & 0x3FFF;
+            Static323.anInt5119 = (int) (-2607.5945876176133D * Math.atan2(local41, local51)) & 0x3FFF;
             if (Static598.anInt8832 < 1024) {
                 Static598.anInt8832 = 1024;
             }

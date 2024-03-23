@@ -95,7 +95,7 @@ public final class Protocol {
         if (Static586.A_SERVER_PROT___215 == arg0.currentProt) {
             local277 = local11.g4_alt1();
             Static574.method7573();
-            @Pc(287) SubInterface local287 = (SubInterface) InterfaceManager.subInterfaces.get((long) local277);
+            @Pc(287) SubInterface local287 = (SubInterface) InterfaceManager.subInterfaces.get(local277);
             if (local287 != null) {
                 Static449.method6115(false, true, local287);
             }
@@ -206,8 +206,8 @@ public final class Protocol {
                             local629 = local11.gjstr();
                         }
                         local639 = local11.g8();
-                        local644 = (long) local11.g2();
-                        local649 = (long) local11.g3();
+                        local644 = local11.g2();
+                        local649 = local11.g3();
                         local653 = local11.g1();
                         local657 = local11.g2();
                         @Pc(663) long local663 = (local644 << 32) + local649;
@@ -286,8 +286,8 @@ public final class Protocol {
                             if (Static224.A_SERVER_PROT___89 == arg0.currentProt) {
                                 local446 = local11.g1() == 1;
                                 local627 = local11.gjstr();
-                                local983 = (long) local11.g2();
-                                local988 = (long) local11.g3();
+                                local983 = local11.g2();
+                                local988 = local11.g3();
                                 local992 = local11.g1();
                                 local996 = local11.g2();
                                 local1002 = (local983 << 32) + local988;
@@ -504,7 +504,7 @@ public final class Protocol {
                                         local1937 = local11.gjstr();
                                         local100 = local11.g2();
                                         local629 = Static288.aClass139_2.method2950(local100).method3903(local11);
-                                        Static662.method8625(local1937, local1937, local100, local629, (String) null, 0, local1937, 19);
+                                        Static662.method8625(local1937, local1937, local100, local629, null, 0, local1937, 19);
                                         arg0.currentProt = null;
                                         return true;
                                     } else if (arg0.currentProt == Static526.A_SERVER_PROT___194) {
@@ -665,7 +665,7 @@ public final class Protocol {
                                                 local2579[local526] = local11.g2_alt3();
                                             }
                                             local1409 = local11.g2_alt2();
-                                            @Pc(2608) Node_Sub45 local2608 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local1409);
+                                            @Pc(2608) Node_Sub45 local2608 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local1409);
                                             if (local2608 != null) {
                                                 Static651.method8515(local2579, local277, true, local2608.aClass8_Sub2_Sub1_Sub2_Sub2_2);
                                             }
@@ -792,8 +792,8 @@ public final class Protocol {
                                                 if (local446) {
                                                     local629 = local11.gjstr();
                                                 }
-                                                local639 = (long) local11.g2();
-                                                local644 = (long) local11.g3();
+                                                local639 = local11.g2();
+                                                local644 = local11.g3();
                                                 local996 = local11.g1();
                                                 local1449 = local11.g2();
                                                 @Pc(3134) long local3134 = local644 + (local639 << 32);
@@ -817,11 +817,11 @@ public final class Protocol {
                                                     Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
                                                     local1090 = Static288.aClass139_2.method2950(local1449).method3903(local11);
                                                     if (local996 == 2) {
-                                                        Static662.method8625("<img=1>" + local629, "<img=1>" + local627, local1449, local1090, (String) null, 0, local627, 18);
+                                                        Static662.method8625("<img=1>" + local629, "<img=1>" + local627, local1449, local1090, null, 0, local627, 18);
                                                     } else if (local996 == 1) {
-                                                        Static662.method8625("<img=0>" + local629, "<img=0>" + local627, local1449, local1090, (String) null, 0, local627, 18);
+                                                        Static662.method8625("<img=0>" + local629, "<img=0>" + local627, local1449, local1090, null, 0, local627, 18);
                                                     } else {
-                                                        Static662.method8625(local629, local627, local1449, local1090, (String) null, 0, local627, 18);
+                                                        Static662.method8625(local629, local627, local1449, local1090, null, 0, local627, 18);
                                                     }
                                                 }
                                                 arg0.currentProt = null;
@@ -868,8 +868,8 @@ public final class Protocol {
                                                 if (arg0.currentProt == Static266.A_SERVER_PROT___191) {
                                                     local446 = local11.g1() == 1;
                                                     local627 = local11.gjstr();
-                                                    local983 = (long) local11.g2();
-                                                    local988 = (long) local11.g3();
+                                                    local983 = local11.g2();
+                                                    local988 = local11.g3();
                                                     local992 = local11.g1();
                                                     local649 = (local983 << 32) + local988;
                                                     local1491 = false;
@@ -1201,7 +1201,7 @@ public final class Protocol {
                                                                     @Pc(4905) SeqType local4905;
                                                                     if (local100 >> 29 != 0) {
                                                                         local653 = local100 & 0xFFFF;
-                                                                        @Pc(5032) Node_Sub45 local5032 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local653);
+                                                                        @Pc(5032) Node_Sub45 local5032 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local653);
                                                                         if (local5032 != null) {
                                                                             @Pc(5037) NPCEntity local5037 = local5032.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                                                                             @Pc(5042) Class199 local5042 = local5037.aClass199Array3[local526];
@@ -1314,7 +1314,7 @@ public final class Protocol {
                                                                     local3502 = (local100 & 0x3FFF) - WorldMap.areaBaseY;
                                                                     if (local657 >= 0 && local3502 >= 0 && local657 < Static720.mapWidth && local3502 < Static501.mapHeight) {
                                                                         if (local2098 == -1) {
-                                                                            @Pc(5270) DoublyLinkedNode_Sub2_Sub20 local5270 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get((long) (local657 << 16 | local3502));
+                                                                            @Pc(5270) DoublyLinkedNode_Sub2_Sub20 local5270 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get(local657 << 16 | local3502);
                                                                             if (local5270 != null) {
                                                                                 local5270.aClass8_Sub2_Sub1_Sub5_1.method6600();
                                                                                 local5270.unlink();
@@ -1327,7 +1327,7 @@ public final class Protocol {
                                                                                 local667 = local653 + 1;
                                                                             }
                                                                             @Pc(5334) Class8_Sub2_Sub1_Sub5 local5334 = new Class8_Sub2_Sub1_Sub5(local2098, local277, local653, local667, local1021, Static102.method2025(local653, -29754, local1097, local1021) - local1413, local1097, local657, local657, local3502, local3502, local992, local4806);
-                                                                            Static346.A_HASH_TABLE___29.put((long) (local3502 | local657 << 16), new DoublyLinkedNode_Sub2_Sub20(local5334));
+                                                                            Static346.A_HASH_TABLE___29.put(local3502 | local657 << 16, new DoublyLinkedNode_Sub2_Sub20(local5334));
                                                                         }
                                                                     }
                                                                 }
@@ -1358,14 +1358,14 @@ public final class Protocol {
                                                                     local277 = local11.g4_alt2();
                                                                     local100 = local11.g4_alt3();
                                                                     Static574.method7573();
-                                                                    @Pc(5438) SubInterface local5438 = (SubInterface) InterfaceManager.subInterfaces.get((long) local100);
-                                                                    local5445 = (SubInterface) InterfaceManager.subInterfaces.get((long) local277);
+                                                                    @Pc(5438) SubInterface local5438 = (SubInterface) InterfaceManager.subInterfaces.get(local100);
+                                                                    local5445 = (SubInterface) InterfaceManager.subInterfaces.get(local277);
                                                                     if (local5445 != null) {
                                                                         Static449.method6115(false, local5438 == null || local5438.id != local5445.id, local5445);
                                                                     }
                                                                     if (local5438 != null) {
                                                                         local5438.unlink();
-                                                                        InterfaceManager.subInterfaces.put((long) local277, local5438);
+                                                                        InterfaceManager.subInterfaces.put(local277, local5438);
                                                                     }
                                                                     @Pc(5487) Component local5487 = InterfaceList.list(local100);
                                                                     if (local5487 != null) {
@@ -1386,7 +1386,7 @@ public final class Protocol {
                                                                     local100 = local11.g4_alt1();
                                                                     local526 = local11.g1();
                                                                     Static574.method7573();
-                                                                    local5445 = (SubInterface) InterfaceManager.subInterfaces.get((long) local100);
+                                                                    local5445 = (SubInterface) InterfaceManager.subInterfaces.get(local100);
                                                                     if (local5445 != null) {
                                                                         Static449.method6115(false, local5445.id != local277, local5445);
                                                                     }
@@ -1431,8 +1431,8 @@ public final class Protocol {
                                                                     if (local446) {
                                                                         local629 = local11.gjstr();
                                                                     }
-                                                                    local639 = (long) local11.g2();
-                                                                    local644 = (long) local11.g3();
+                                                                    local639 = local11.g2();
+                                                                    local644 = local11.g3();
                                                                     local996 = local11.g1();
                                                                     local1002 = local644 + (local639 << 32);
                                                                     local1004 = false;
@@ -1459,11 +1459,11 @@ public final class Protocol {
                                                                         Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
                                                                         local3582 = Static130.method2280(Static15.method189(local11));
                                                                         if (local996 == 2) {
-                                                                            Static662.method8625("<img=1>" + local629, "<img=1>" + local627, -1, local3582, (String) null, 0, local627, 7);
+                                                                            Static662.method8625("<img=1>" + local629, "<img=1>" + local627, -1, local3582, null, 0, local627, 7);
                                                                         } else if (local996 == 1) {
-                                                                            Static662.method8625("<img=0>" + local629, "<img=0>" + local627, -1, local3582, (String) null, 0, local627, 7);
+                                                                            Static662.method8625("<img=0>" + local629, "<img=0>" + local627, -1, local3582, null, 0, local627, 7);
                                                                         } else {
-                                                                            Static662.method8625(local629, local627, -1, local3582, (String) null, 0, local627, 3);
+                                                                            Static662.method8625(local629, local627, -1, local3582, null, 0, local627, 3);
                                                                         }
                                                                     }
                                                                     arg0.currentProt = null;
@@ -1610,11 +1610,11 @@ public final class Protocol {
                                                                         if (!local6565 && Static659.anInt9817 == 0) {
                                                                             local1750 = Static130.method2280(Static15.method189(local11));
                                                                             if (local1409 == 2) {
-                                                                                Static662.method8625("<img=1>" + local629, "<img=1>" + local627, -1, local1750, (String) null, 0, local627, 24);
+                                                                                Static662.method8625("<img=1>" + local629, "<img=1>" + local627, -1, local1750, null, 0, local627, 24);
                                                                             } else if (local1409 == 1) {
-                                                                                Static662.method8625("<img=0>" + local629, "<img=0>" + local627, -1, local1750, (String) null, 0, local627, 24);
+                                                                                Static662.method8625("<img=0>" + local629, "<img=0>" + local627, -1, local1750, null, 0, local627, 24);
                                                                             } else {
-                                                                                Static662.method8625(local629, local627, -1, local1750, (String) null, 0, local627, 24);
+                                                                                Static662.method8625(local629, local627, -1, local1750, null, 0, local627, 24);
                                                                             }
                                                                         }
                                                                         arg0.currentProt = null;
@@ -1749,11 +1749,11 @@ public final class Protocol {
                                                                         if (!local1425 && Static659.anInt9817 == 0) {
                                                                             local1427 = Static288.aClass139_2.method2950(local1413).method3903(local11);
                                                                             if (local1409 == 2) {
-                                                                                Static662.method8625("<img=1>" + local629, "<img=1>" + local627, local1413, local1427, (String) null, 0, local627, 25);
+                                                                                Static662.method8625("<img=1>" + local629, "<img=1>" + local627, local1413, local1427, null, 0, local627, 25);
                                                                             } else if (local1409 == 1) {
-                                                                                Static662.method8625("<img=0>" + local629, "<img=0>" + local627, local1413, local1427, (String) null, 0, local627, 25);
+                                                                                Static662.method8625("<img=0>" + local629, "<img=0>" + local627, local1413, local1427, null, 0, local627, 25);
                                                                             } else {
-                                                                                Static662.method8625(local629, local627, local1413, local1427, (String) null, 0, local627, 25);
+                                                                                Static662.method8625(local629, local627, local1413, local1427, null, 0, local627, 25);
                                                                             }
                                                                         }
                                                                         arg0.currentProt = null;
@@ -1898,11 +1898,11 @@ public final class Protocol {
                                                                                         local1449 = local6565 ? 17 : 2;
                                                                                     }
                                                                                     if (local1409 == 2) {
-                                                                                        Static662.method8625("<img=1>" + local7724.method1422(), "<img=1>" + local7724.method1424(false), local996, local1427, (String) null, 0, local7724.aString8, local1449);
+                                                                                        Static662.method8625("<img=1>" + local7724.method1422(), "<img=1>" + local7724.method1424(false), local996, local1427, null, 0, local7724.aString8, local1449);
                                                                                     } else if (local1409 == 1) {
-                                                                                        Static662.method8625("<img=0>" + local7724.method1422(), "<img=0>" + local7724.method1424(false), local996, local1427, (String) null, 0, local7724.aString8, local1449);
+                                                                                        Static662.method8625("<img=0>" + local7724.method1422(), "<img=0>" + local7724.method1424(false), local996, local1427, null, 0, local7724.aString8, local1449);
                                                                                     } else {
-                                                                                        Static662.method8625(local7724.method1422(), local7724.method1424(false), local996, local1427, (String) null, 0, local7724.aString8, local1449);
+                                                                                        Static662.method8625(local7724.method1422(), local7724.method1424(false), local996, local1427, null, 0, local7724.aString8, local1449);
                                                                                     }
                                                                                 }
                                                                             }
@@ -2144,8 +2144,8 @@ public final class Protocol {
                                                                                 local629 = local11.gjstr();
                                                                             }
                                                                             local639 = local11.g8();
-                                                                            local644 = (long) local11.g2();
-                                                                            local649 = (long) local11.g3();
+                                                                            local644 = local11.g2();
+                                                                            local649 = local11.g3();
                                                                             local653 = local11.g1();
                                                                             @Pc(8945) long local8945 = local649 + (local644 << 32);
                                                                             local4857 = false;
@@ -2182,7 +2182,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else {
-                                                                            JagException.sendTrace((Throwable) null, "T1 - " + (arg0.currentProt == null ? -1 : arg0.currentProt.getOpcode()) + "," + (arg0.penultimateProt == null ? -1 : arg0.penultimateProt.getOpcode()) + "," + (arg0.antepenultimateProt == null ? -1 : arg0.antepenultimateProt.getOpcode()) + " - " + arg0.currentPacketSize);
+                                                                            JagException.sendTrace(null, "T1 - " + (arg0.currentProt == null ? -1 : arg0.currentProt.getOpcode()) + "," + (arg0.penultimateProt == null ? -1 : arg0.penultimateProt.getOpcode()) + "," + (arg0.antepenultimateProt == null ? -1 : arg0.antepenultimateProt.getOpcode()) + " - " + arg0.currentPacketSize);
                                                                             Login.logout(false);
                                                                             return true;
                                                                         }

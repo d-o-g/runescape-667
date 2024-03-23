@@ -53,7 +53,7 @@ public final class Class101_Sub3 extends Class101 {
         if (this.aBoolean274) {
             this.aClass36_3.method1005('\u0001');
             super.aClass19_Sub3_42.method7014(1);
-            super.aClass19_Sub3_42.method7001((Class93) null);
+            super.aClass19_Sub3_42.method7001(null);
             super.aClass19_Sub3_42.method7014(0);
         } else {
             super.aClass19_Sub3_42.method7029(0, 5890);

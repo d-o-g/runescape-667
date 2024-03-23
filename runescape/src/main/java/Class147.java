@@ -12,7 +12,7 @@ public final class Class147 implements VarDomain {
     @OriginalMember(owner = "client!gl", name = "a", descriptor = "(II)I")
     @Override
     public int getVarValueInt(@OriginalArg(0) int arg0) {
-        @Pc(18) IntNode local18 = (IntNode) Static25.A_HASH_TABLE___4.get((long) arg0);
+        @Pc(18) IntNode local18 = (IntNode) Static25.A_HASH_TABLE___4.get(arg0);
         return local18 == null ? TimedVarDomain.instance.getVarValueInt(arg0) : local18.value;
     }
 

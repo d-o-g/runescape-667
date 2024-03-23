@@ -53,7 +53,7 @@ public final class Class139 {
 
     @OriginalMember(owner = "client!gba", name = "a", descriptor = "(IZ)Lclient!ih;")
     public DoublyLinkedNode_Sub2_Sub12 method2950(@OriginalArg(0) int arg0) {
-        @Pc(11) DoublyLinkedNode_Sub2_Sub12 local11 = (DoublyLinkedNode_Sub2_Sub12) this.aReferenceCache_70.get((long) arg0);
+        @Pc(11) DoublyLinkedNode_Sub2_Sub12 local11 = (DoublyLinkedNode_Sub2_Sub12) this.aReferenceCache_70.get(arg0);
         if (local11 != null) {
             return local11;
         }
@@ -71,7 +71,7 @@ public final class Class139 {
         if (arg0 >= 32768) {
             local11.method3902();
         }
-        this.aReferenceCache_70.put(local11, (long) arg0);
+        this.aReferenceCache_70.put(local11, arg0);
         return local11;
     }
 }

@@ -91,7 +91,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             this.shadow = null;
         }
         if (local16 != null) {
-            Static292.method4618(local16, super.aByte143, super.x, super.z, (boolean[]) null);
+            Static292.method4618(local16, super.aByte143, super.x, super.z, null);
         }
         if (arg1 > -42) {
             this.model = null;
@@ -209,7 +209,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             this.shadow = null;
         }
         if (shadow != null) {
-            Static630.method8357(shadow, super.aByte143, super.x, super.z, (boolean[]) null);
+            Static630.method8357(shadow, super.aByte143, super.x, super.z, null);
         }
     }
 
@@ -272,7 +272,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             }
         }
         if (arg4 <= 101) {
-            this.method9278((Toolkit) null, -1);
+            this.method9278(null, -1);
         }
     }
 
@@ -292,7 +292,7 @@ public final class StaticLocation extends PositionEntity implements Location {
                 local33 = Static706.aGroundArray3[super.aByte143 + 1];
             }
         }
-        return local11.modelAndShadow(this.aByte84 == 11 ? this.aByte83 + 4 : this.aByte83, super.z, super.x, local27, arg1, super.anInt10691, this.aByte84 == 11 ? 10 : this.aByte84, arg0, (LocTypeCustomisation) null, arg2, local33);
+        return local11.modelAndShadow(this.aByte84 == 11 ? this.aByte83 + 4 : this.aByte83, super.z, super.x, local27, arg1, super.anInt10691, this.aByte84 == 11 ? 10 : this.aByte84, arg0, null, arg2, local33);
     }
 
     @OriginalMember(owner = "client!jda", name = "c", descriptor = "(I)I")

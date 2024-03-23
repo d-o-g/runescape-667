@@ -99,7 +99,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(IDI)Lclient!dk;")
     public DoublyLinkedNode_Sub2_Sub8 method9142(@OriginalArg(0) int arg0, @OriginalArg(1) double arg1) {
-        @Pc(11) long local11 = (long) (arg0 | this.anInt10521 << 0);
+        @Pc(11) long local11 = arg0 | this.anInt10521 << 0;
         @Pc(17) DoublyLinkedNode_Sub2_Sub8 local17 = (DoublyLinkedNode_Sub2_Sub8) recentUse.get(local11);
         if (local17 == null) {
             local17 = new DoublyLinkedNode_Sub2_Sub8(new short[this.anInt10521][arg0], arg1);

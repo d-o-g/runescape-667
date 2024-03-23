@@ -29,7 +29,7 @@ public final class Class40 {
     public int[] anIntArray73;
 
     @OriginalMember(owner = "client!bha", name = "h", descriptor = "Lclient!ge;")
-    public final Packet aClass2_Sub21_3 = new Packet((byte[]) null);
+    public final Packet aClass2_Sub21_3 = new Packet(null);
 
     @OriginalMember(owner = "client!bha", name = "<init>", descriptor = "()V")
     public Class40() {

@@ -275,7 +275,7 @@ public final class ObjTypeList {
         @Pc(26) ObjType type;
 
         synchronized (this.recentUse) {
-            type = (ObjType) this.recentUse.get((long) id);
+            type = (ObjType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -338,7 +338,7 @@ public final class ObjTypeList {
 
         @Pc(238) ReferenceCache local238 = this.recentUse;
         synchronized (this.recentUse) {
-            this.recentUse.put(type, (long) id);
+            this.recentUse.put(type, id);
             return type;
         }
     }

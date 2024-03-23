@@ -46,33 +46,33 @@ public final class MiniMenu {
         if (InterfaceManager.targeting) {
             @Pc(16) ParamType local16 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
             if (InterfaceManager.serverActiveProperties(arg0).isUseTarget() && (InterfaceManager.targetMask & 0x20) != 0 && (local16 == null || arg0.param(local16.defaultint, InterfaceManager.targetParam) != local16.defaultint)) {
-                addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, InterfaceManager.targetVerb, 18, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> " + arg0.opBase, (long) (arg0.id << 0 | arg0.slot), false);
+                addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, InterfaceManager.targetVerb, 18, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> " + arg0.opBase, arg0.id << 0 | arg0.slot, false);
             }
         }
         @Pc(106) String local106;
         for (@Pc(97) int local97 = 9; local97 >= 5; local97--) {
             local106 = InterfaceManager.getOp(arg0, local97);
             if (local106 != null) {
-                addEntry(false, arg0.invObject, (long) (local97 + 1), arg0.id, arg0.slot, local106, 1002, true, Static372.method5292(local97, arg0), arg0.opBase, (long) (arg0.slot | arg0.id << 0), false);
+                addEntry(false, arg0.invObject, local97 + 1, arg0.id, arg0.slot, local106, 1002, true, Static372.method5292(local97, arg0), arg0.opBase, arg0.slot | arg0.id << 0, false);
             }
         }
         local106 = InterfaceManager.getComponentTargetVerb(arg0);
         if (local106 != null) {
-            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, local106, 12, true, arg0.anInt3776, arg0.opBase, (long) (arg0.id << 0 | arg0.slot), false);
+            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, local106, 12, true, arg0.anInt3776, arg0.opBase, arg0.id << 0 | arg0.slot, false);
         }
         for (@Pc(193) int local193 = 4; local193 >= 0; local193--) {
             @Pc(204) String local204 = InterfaceManager.getOp(arg0, local193);
             if (local204 != null) {
-                addEntry(false, arg0.invObject, (long) (local193 + 1), arg0.id, arg0.slot, local204, 20, true, Static372.method5292(local193, arg0), arg0.opBase, (long) (arg0.slot | arg0.id << 0), false);
+                addEntry(false, arg0.invObject, local193 + 1, arg0.id, arg0.slot, local204, 20, true, Static372.method5292(local193, arg0), arg0.opBase, arg0.slot | arg0.id << 0, false);
             }
         }
         if (!InterfaceManager.serverActiveProperties(arg0).isPauseButton()) {
             return;
         }
         if (arg0.pauseText == null) {
-            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, LocalisedText.CONTINUE.localise(client.language), 10, true, -1, "", (long) (arg0.slot | arg0.id << 0), false);
+            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, LocalisedText.CONTINUE.localise(client.language), 10, true, -1, "", arg0.slot | arg0.id << 0, false);
         } else {
-            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, arg0.pauseText, 10, true, -1, "", (long) (arg0.slot | arg0.id << 0), false);
+            addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, arg0.pauseText, 10, true, -1, "", arg0.slot | arg0.id << 0, false);
         }
     }
 
@@ -166,13 +166,13 @@ public final class MiniMenu {
                     if (local453 == null) {
                         InterfaceManager.endTargetMode();
                     } else {
-                        addEntry(false, -1, 0L, local140, local142, InterfaceManager.targetVerb, 21, true, InterfaceManager.targetEnterCursor, " ->", (long) (local140 << 0 | local142), true);
+                        addEntry(false, -1, 0L, local140, local142, InterfaceManager.targetVerb, 21, true, InterfaceManager.targetEnterCursor, " ->", local140 << 0 | local142, true);
                     }
                 } else {
                     if (Static501.aBoolean576) {
-                        addEntry(false, -1, 0L, local140, local142, LocalisedText.FACEHERE.localise(client.language), 11, true, -1, "", (long) (local142 | local140 << 0), true);
+                        addEntry(false, -1, 0L, local140, local142, LocalisedText.FACEHERE.localise(client.language), 11, true, -1, "", local142 | local140 << 0, true);
                     }
-                    addEntry(false, -1, 0L, local140, local142, Static331.walkText, 58, true, Static331.walkCursor, "", (long) (local142 | local140 << 0), true);
+                    addEntry(false, -1, 0L, local140, local142, Static331.walkText, 58, true, Static331.walkCursor, "", local142 | local140 << 0, true);
                 }
             }
         }
@@ -211,7 +211,7 @@ public final class MiniMenu {
                             local286 = local610.x - (local610.boundSize((byte) 79) - 1 << 8);
                             local295 = local610.z - (local610.boundSize((byte) 61) - 1 << 8);
                             for (local306 = 0; local306 < Static390.anInt6126; local306++) {
-                                @Pc(690) Node_Sub45 local690 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local306]);
+                                @Pc(690) Node_Sub45 local690 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local306]);
                                 if (local690 != null) {
                                     @Pc(695) NPCEntity local695 = local690.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                                     if (TimeUtils.clock != local695.anInt10743 && local695.aBoolean816) {
@@ -251,7 +251,7 @@ public final class MiniMenu {
                                 local614 = local988.x - (local988.type.size - 1 << 8);
                                 local286 = local988.z - (local988.type.size - 1 << 8);
                                 for (local295 = 0; local295 < Static390.anInt6126; local295++) {
-                                    @Pc(1081) Node_Sub45 local1081 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local295]);
+                                    @Pc(1081) Node_Sub45 local1081 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local295]);
                                     if (local1081 != null) {
                                         @Pc(1086) NPCEntity local1086 = local1081.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                                         if (local1086.anInt10743 != TimeUtils.clock && local1086 != local988 && local1086.aBoolean816) {
@@ -288,7 +288,7 @@ public final class MiniMenu {
                     if (local543.aRenderable_18 instanceof Class8_Sub2_Sub5_Sub1) {
                         @Pc(1385) int local1385 = local186 + WorldMap.areaBaseX;
                         local614 = WorldMap.areaBaseY + local584;
-                        @Pc(1406) ObjStack local1406 = (ObjStack) Static497.stacks.get((long) (local614 << 14 | local543.aRenderable_18.level << 28 | local1385));
+                        @Pc(1406) ObjStack local1406 = (ObjStack) Static497.stacks.get(local614 << 14 | local543.aRenderable_18.level << 28 | local1385);
                         if (local1406 != null) {
                             local295 = 0;
                             for (@Pc(1416) ObjStackEntry local1416 = (ObjStackEntry) local1406.objs.last(); local1416 != null; local1416 = (ObjStackEntry) local1406.objs.previous()) {
@@ -296,7 +296,7 @@ public final class MiniMenu {
                                 if (InterfaceManager.targeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
                                     @Pc(1451) ParamType local1451 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
                                     if ((InterfaceManager.targetMask & 0x1) != 0 && (local1451 == null || local1424.param(InterfaceManager.targetParam, local1451.defaultint) != local1451.defaultint)) {
-                                        addEntry(false, -1, (long) local1416.id, local186, local584, InterfaceManager.targetVerb, 17, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ff9040>" + local1424.name, (long) local295, false);
+                                        addEntry(false, -1, local1416.id, local186, local584, InterfaceManager.targetVerb, 17, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ff9040>" + local1424.name, local295, false);
                                     }
                                 }
                                 if (local543.aRenderable_18.level == PlayerEntity.self.level) {
@@ -329,7 +329,7 @@ public final class MiniMenu {
                                             if (local723 == local1424.cursor2op) {
                                                 local864 = local1424.cursor2;
                                             }
-                                            addEntry(false, -1, (long) local1416.id, local186, local584, local1525[local723], local1540, true, local864, "<col=ff9040>" + local1424.name, (long) local295, false);
+                                            addEntry(false, -1, local1416.id, local186, local584, local1525[local723], local1540, true, local864, "<col=ff9040>" + local1424.name, local295, false);
                                         }
                                     }
                                 }
@@ -347,7 +347,7 @@ public final class MiniMenu {
                             if (InterfaceManager.targeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
                                 @Pc(1697) ParamType local1697 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
                                 if ((InterfaceManager.targetMask & 0x4) != 0 && (local1697 == null || local1661.param(local1697.defaultint, InterfaceManager.targetParam) != local1697.defaultint)) {
-                                    addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, InterfaceManager.targetVerb, 60, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=00ffff>" + local1661.name, (long) local1654.hashCode(), false);
+                                    addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, InterfaceManager.targetVerb, 60, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=00ffff>" + local1661.name, local1654.hashCode(), false);
                                 }
                             }
                             if (PlayerEntity.self.level == local543.aRenderable_18.level) {
@@ -381,7 +381,7 @@ public final class MiniMenu {
                                             if (local1661.cursor2Op == local295) {
                                                 local317 = local1661.cursor2;
                                             }
-                                            addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, local1763[local295], local1780, true, local317, "<col=00ffff>" + local1661.name, (long) local1654.hashCode(), false);
+                                            addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, local1763[local295], local1780, true, local317, "<col=00ffff>" + local1661.name, local1654.hashCode(), false);
                                         }
                                     }
                                 }

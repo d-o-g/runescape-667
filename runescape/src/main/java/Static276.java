@@ -148,7 +148,7 @@ public final class Static276 {
             }
             return;
         }
-        JagException.sendTrace((Throwable) null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + WorldMap.areaBaseX + "," + WorldMap.areaBaseY);
+        JagException.sendTrace(null, "RC: " + local149 + "," + local153 + " " + local157 + "," + local161 + " " + WorldMap.areaBaseX + "," + WorldMap.areaBaseY);
         return;
     }
 }

@@ -41,7 +41,7 @@ public final class Static48 {
                 while (local100-- > 0) {
                     @Pc(117) int local117 = local12.g4();
                     @Pc(121) int local121 = local12.g4();
-                    local107.put((long) local117, new IntNode(local121));
+                    local107.put(local117, new IntNode(local121));
                 }
             }
         }

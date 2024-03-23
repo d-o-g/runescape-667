@@ -52,7 +52,7 @@ public final class IDKTypeList {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         @Pc(24) IDKType type;
         synchronized (this.recentUse) {
-            type = (IDKType) this.recentUse.get((long) id);
+            type = (IDKType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;

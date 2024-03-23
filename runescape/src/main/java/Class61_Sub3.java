@@ -94,7 +94,7 @@ public final class Class61_Sub3 extends Class61 implements Interface18 {
             @Pc(114) int local114 = arg2 * this.aClass92_17.anInt2416;
             @Pc(117) int local117 = local80.getRowPitch();
             if (local108 == local117 && local108 == local114) {
-                local80.a((byte[]) arg5, arg6, 0, local108 * arg3);
+                local80.a(arg5, arg6, 0, local108 * arg3);
             } else {
                 for (@Pc(145) int local145 = 0; local145 < arg3; local145++) {
                     local80.a(arg5, local114 * local145 + arg6, local145 * local117, local108);
@@ -138,7 +138,7 @@ public final class Class61_Sub3 extends Class61 implements Interface18 {
         @Pc(46) int local46 = arg4 * this.aClass92_17.anInt2416;
         @Pc(49) int local49 = local19.getRowPitch();
         if (local46 == local49 && local46 == local40) {
-            local19.a((byte[]) arg2, 0, 0, local46 * arg1);
+            local19.a(arg2, 0, 0, local46 * arg1);
         } else {
             for (@Pc(63) int local63 = 0; local63 < arg1; local63++) {
                 local19.a(arg2, local63 * local40, local49 * local63, local46);
@@ -178,7 +178,7 @@ public final class Class61_Sub3 extends Class61 implements Interface18 {
         }
         @Pc(48) int local48 = local28.getRowPitch();
         if (arg1 * 4 == local48) {
-            local28.a((int[]) arg0, 0, 0, arg0.length);
+            local28.a(arg0, 0, 0, arg0.length);
         } else {
             for (@Pc(64) int local64 = 0; local64 < arg2; local64++) {
                 local28.a(arg0, arg1 * local64, local64 * local48, arg1);

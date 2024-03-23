@@ -132,7 +132,7 @@ public final class CachedResourceWorker implements Runnable {
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(B[BILclient!af;)Lclient!vp;")
     public Js5ResourceRequest write(@OriginalArg(1) byte[] data, @OriginalArg(2) int archiveId, @OriginalArg(3) FileSystem_Client fileSystem) {
         @Pc(7) Js5ResourceRequest request = new Js5ResourceRequest();
-        request.key2 = (long) archiveId;
+        request.key2 = archiveId;
         request.type = Js5ResourceRequest.TYPE_WRITE;
         request.data = data;
         request.fileSystem = fileSystem;
@@ -147,7 +147,7 @@ public final class CachedResourceWorker implements Runnable {
         local7.fileSystem = fileSystem;
         local7.urgent = false;
         local7.type = Js5ResourceRequest.TYPE_VERIFY;
-        local7.key2 = (long) key;
+        local7.key2 = key;
         this.add(local7);
         return local7;
     }

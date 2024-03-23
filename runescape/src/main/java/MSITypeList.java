@@ -67,7 +67,7 @@ public final class MSITypeList {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         @Pc(16) MSIType type;
         synchronized (this.recentUse) {
-            type = (MSIType) this.recentUse.get((long) id);
+            type = (MSIType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;

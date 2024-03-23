@@ -361,7 +361,7 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(I)V")
     public static void setArea(@OriginalArg(0) int id) {
-        area = (WorldMapArea) areas.get((long) id);
+        area = (WorldMapArea) areas.get(id);
     }
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(IIIBI)V")
@@ -595,7 +595,7 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(I)Lclient!ip;")
     public static WorldMapArea getArea(@OriginalArg(0) int arg0) {
-        return (WorldMapArea) areas.get((long) arg0);
+        return (WorldMapArea) areas.get(arg0);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;)V")
@@ -899,9 +899,9 @@ public final class WorldMap {
                                 }
                                 arg0.aa(local28, local70, local44, local84, local175, 0);
                             } else if (local179 <= 0) {
-                                method5061(arg0, local28, local70, local44, local84, local175, local177, aByteArray59[local173], (short[]) null, (byte[]) null, true);
+                                method5061(arg0, local28, local70, local44, local84, local175, local177, aByteArray59[local173], null, null, true);
                             } else if (local179 == 65535) {
-                                @Pc(282) Node_Sub23 local282 = (Node_Sub23) aIterableHashTable.get((long) (local50 << 16 | local93));
+                                @Pc(282) Node_Sub23 local282 = (Node_Sub23) aIterableHashTable.get(local50 << 16 | local93);
                                 if (local282 != null) {
                                     method5061(arg0, local28, local70, local44, local84, local175, local177, aByteArray59[local173], local282.aShortArray59, local282.aByteArray38, true);
                                 }
@@ -948,9 +948,9 @@ public final class WorldMap {
                             if (local173 >= 0 && local173 < areaHeight) {
                                 local175 = aShortArray78[local57 + local173 * areaWidth] & 0xFFFF;
                                 if (local175 <= 0) {
-                                    method5063(arg0, local40, local80, local50, local93, (short[]) null, (byte[]) null);
+                                    method5063(arg0, local40, local80, local50, local93, null, null);
                                 } else if (local175 == 65535) {
-                                    @Pc(459) Node_Sub23 local459 = (Node_Sub23) aIterableHashTable.get((long) (local57 << 16 | local173));
+                                    @Pc(459) Node_Sub23 local459 = (Node_Sub23) aIterableHashTable.get(local57 << 16 | local173);
                                     if (local459 != null) {
                                         method5063(arg0, local40, local80, local50, local93, local459.aShortArray59, local459.aByteArray38);
                                     }
@@ -1225,7 +1225,7 @@ public final class WorldMap {
                         local215[local220] = (short) arg1.g2();
                         local218[local220] = arg1.g1b();
                     }
-                    aIterableHashTable.put((long) (arg4 << 16 | arg5), new Node_Sub23(local215, local218));
+                    aIterableHashTable.put(arg4 << 16 | arg5, new Node_Sub23(local215, local218));
                 }
             } else {
                 local215 = null;
@@ -1258,7 +1258,7 @@ public final class WorldMap {
                 if (local15 != 0) {
                     @Pc(35) int local35;
                     if (local15 == 65535) {
-                        @Pc(31) Node_Sub23 local31 = (Node_Sub23) aIterableHashTable.get((long) (local1 << 16 | local4));
+                        @Pc(31) Node_Sub23 local31 = (Node_Sub23) aIterableHashTable.get(local1 << 16 | local4);
                         if (local31 != null) {
                             for (local35 = 0; local35 < local31.aShortArray59.length; local35++) {
                                 @Pc(46) LocType local46 = locTypeList.list(local31.aShortArray59[local35] & 0xFFFF);

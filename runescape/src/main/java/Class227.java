@@ -91,7 +91,7 @@ public final class Class227 {
         @Pc(65) ReferenceCache local65 = this.myList.aReferenceCache_62;
         @Pc(85) Model local85;
         synchronized (this.myList.aReferenceCache_62) {
-            local85 = (Model) this.myList.aReferenceCache_62.get((long) (this.id |= arg9.index << 29));
+            local85 = (Model) this.myList.aReferenceCache_62.get(this.id |= arg9.index << 29);
         }
         if (local85 == null || arg9.compareFunctionMasks(local85.ua(), local15) != 0) {
             if (local85 != null) {
@@ -126,7 +126,7 @@ public final class Class227 {
             local85.s(local15);
             @Pc(232) ReferenceCache local232 = this.myList.aReferenceCache_62;
             synchronized (this.myList.aReferenceCache_62) {
-                this.myList.aReferenceCache_62.put(local85, (long) (this.id |= arg9.index << 29));
+                this.myList.aReferenceCache_62.put(local85, this.id |= arg9.index << 29);
             }
         }
         @Pc(263) Model local263 = local85.copy(arg0, local15, true);
@@ -215,6 +215,6 @@ public final class Class227 {
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Lclient!gu;BIBLclient!ha;)Lclient!ka;")
     public Model method5252(@OriginalArg(0) Animator arg0, @OriginalArg(1) byte arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Toolkit arg3) {
-        return this.method5249(arg1, false, 0, arg0, (Ground) null, 0, (Ground) null, arg2, 0, arg3);
+        return this.method5249(arg1, false, 0, arg0, null, 0, null, arg2, 0, arg3);
     }
 }

@@ -261,11 +261,11 @@ public final class Static256 {
         }
         @Pc(107) int local107 = local78 * arg10 + arg8 * local74 >> 14;
         @Pc(118) int local118 = arg8 * local78 - arg10 * local74 >> 14;
-        @Pc(125) int local125 = arg2.paraWidth((Sprite[]) null, arg1, 100);
+        @Pc(125) int local125 = arg2.paraWidth(null, arg1, 100);
         @Pc(131) int local131 = local107 - local125 / 2;
-        @Pc(139) int local139 = arg2.stringHeight(100, 0, arg1, (Sprite[]) null);
+        @Pc(139) int local139 = arg2.stringHeight(100, 0, arg1, null);
         if (local131 >= -arg6.width && arg6.width >= local131 && local118 >= -arg6.height && arg6.height >= local118) {
-            arg0.renderLines(arg9, (int[]) null, arg4, arg1, arg7, (Sprite[]) null, arg6.height / 2 + arg9 - local118 - arg5 - local139, 0, arg3, 1, arg6.width / 2 + local131 + arg3, 0, 0, local125, 50);
+            arg0.renderLines(arg9, null, arg4, arg1, arg7, null, arg6.height / 2 + arg9 - local118 - arg5 - local139, 0, arg3, 1, arg6.width / 2 + local131 + arg3, 0, 0, local125, 50);
         }
     }
 }

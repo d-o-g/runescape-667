@@ -1935,7 +1935,7 @@ public final class Model_Sub3 extends Model {
                 local105 >>= 0x1;
                 local113 >>= 0x1;
             }
-            @Pc(169) int local169 = (int) Math.sqrt((double) (local105 * local105 + local113 * local113 + local121 * local121));
+            @Pc(169) int local169 = (int) Math.sqrt(local105 * local105 + local113 * local113 + local121 * local121);
             if (local169 <= 0) {
                 local169 = 1;
             }
@@ -3718,8 +3718,8 @@ public final class Model_Sub3 extends Model {
         this.aShort113 = (short) local18;
         this.aShort112 = (short) local14;
         this.aShort111 = (short) local20;
-        this.aShort118 = (short) (int) (Math.sqrt((double) local6) + 0.99D);
-        this.aShort114 = (short) (int) (Math.sqrt((double) local8) + 0.99D);
+        this.aShort118 = (short) (int) (Math.sqrt(local6) + 0.99D);
+        this.aShort114 = (short) (int) (Math.sqrt(local8) + 0.99D);
         this.aBoolean652 = true;
     }
 
@@ -4400,10 +4400,10 @@ public final class Model_Sub3 extends Model {
         if (hillType != 4 && (local38 < 0 || local43 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8894 || local48 < 0 || local53 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8892)) {
             return;
         }
-        @Pc(94) int[][] local94 = ((Ground_Sub3) floor).anIntArrayArray226;
+        @Pc(94) int[][] local94 = floor.anIntArrayArray226;
         @Pc(96) int[][] local96 = null;
         if (ceiling != null) {
-            local96 = ((Ground_Sub3) ceiling).anIntArrayArray226;
+            local96 = ceiling.anIntArrayArray226;
         }
         if (hillType == 4 || hillType == 5) {
             if (ceiling == null) {

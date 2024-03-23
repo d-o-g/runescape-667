@@ -24,7 +24,7 @@ public final class Node_Sub1_Sub34 extends Node_Sub1 {
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (arg0 <= 107) {
-            SignLink.getDisplayProperties((SignLink) null, false);
+            SignLink.getDisplayProperties(null, false);
         }
         if (super.aClass180_41.aBoolean338) {
             @Pc(28) int local28 = Static273.anIntArray341[arg1];

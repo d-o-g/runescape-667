@@ -51,7 +51,7 @@ public final class Node_Sub10_Sub1 extends Node_Sub10 implements ImageProducer {
     public synchronized void addConsumer(@OriginalArg(0) ImageConsumer arg0) {
         this.anImageConsumer1 = arg0;
         arg0.setDimensions(super.anInt7053, super.anInt7050);
-        arg0.setProperties((Hashtable) null);
+        arg0.setProperties(null);
         arg0.setColorModel(this.aColorModel1);
         arg0.setHints(14);
     }

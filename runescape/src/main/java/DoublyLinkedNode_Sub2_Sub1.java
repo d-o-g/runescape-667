@@ -36,7 +36,7 @@ public final class DoublyLinkedNode_Sub2_Sub1 extends Node2 {
             } else {
                 local45 = new IntNode(arg1.g4());
             }
-            this.aIterableHashTable_1.put((long) local36, local45);
+            this.aIterableHashTable_1.put(local36, local45);
         }
     }
 
@@ -45,7 +45,7 @@ public final class DoublyLinkedNode_Sub2_Sub1 extends Node2 {
         if (this.aIterableHashTable_1 == null) {
             return arg0;
         } else {
-            @Pc(17) IntNode local17 = (IntNode) this.aIterableHashTable_1.get((long) arg1);
+            @Pc(17) IntNode local17 = (IntNode) this.aIterableHashTable_1.get(arg1);
             return local17 == null ? arg0 : local17.value;
         }
     }
@@ -66,7 +66,7 @@ public final class DoublyLinkedNode_Sub2_Sub1 extends Node2 {
         if (this.aIterableHashTable_1 == null) {
             return arg1;
         } else {
-            @Pc(23) StringNode local23 = (StringNode) this.aIterableHashTable_1.get((long) arg0);
+            @Pc(23) StringNode local23 = (StringNode) this.aIterableHashTable_1.get(arg0);
             return local23 == null ? arg1 : local23.value;
         }
     }

@@ -19,7 +19,7 @@ public final class Node_Sub1_Sub22 extends Node_Sub1 {
     @Override
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
-            this.method9416(true, (Packet) null, 2);
+            this.method9416(true, null, 2);
         }
         if (arg2 == 0) {
             this.anInt7034 = arg1.g2();
@@ -41,7 +41,7 @@ public final class Node_Sub1_Sub22 extends Node_Sub1 {
                 @Pc(91) int local91 = local63 >> 12;
                 @Pc(97) int local97 = local87 * local87 >> 12;
                 @Pc(103) int local103 = local91 * local91 >> 12;
-                @Pc(118) int local118 = (int) (Math.sqrt((double) ((float) (local97 + local103 + 4096) / 4096.0F)) * 4096.0D);
+                @Pc(118) int local118 = (int) (Math.sqrt((float) (local97 + local103 + 4096) / 4096.0F) * 4096.0D);
                 @Pc(130) int local130 = local118 == 0 ? 0 : 16777216 / local118;
                 local18[local50] = 4096 - local130;
             }

@@ -77,7 +77,7 @@ public final class Node_Sub1_Sub7 extends Node_Sub1 {
         @Pc(101) int local101 = Static608.anInt9289 / local56 + 1;
         @Pc(105) int[][] local105 = new int[local101][3];
         @Pc(109) int[][] local109 = new int[local101][3];
-        @Pc(116) Random local116 = new Random((long) this.anInt2124);
+        @Pc(116) Random local116 = new Random(this.anInt2124);
         while (true) {
             while (true) {
                 @Pc(126) int local126 = local56 + Static623.method8326(-5208, local63 - local56, local116);

@@ -132,7 +132,7 @@ public final class Class46 implements Runnable {
     @OriginalMember(owner = "client!bl", name = "a", descriptor = "(Lclient!qe;)V")
     public void method1105(@OriginalArg(0) Class302 arg0) {
         if (this.aClass302_1 != null) {
-            this.aClass302_1.method6811((Class46) null);
+            this.aClass302_1.method6811(null);
         }
         this.aClass302_1 = arg0;
         if (this.aClass302_1 != null) {

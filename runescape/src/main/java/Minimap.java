@@ -91,7 +91,7 @@ public final class Minimap {
         }
         @Pc(490) int local490;
         for (local211 = 0; local211 < Static390.anInt6126; local211++) {
-            @Pc(427) Node_Sub45 local427 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local211]);
+            @Pc(427) Node_Sub45 local427 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local211]);
             if (local427 != null) {
                 @Pc(432) NPCEntity local432 = local427.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 if (local432.method9322() && local432.level == PlayerEntity.self.level) {
@@ -161,7 +161,7 @@ public final class Minimap {
             if (local796 != null && local796.anInt6363 != 0 && TimeUtils.clock % 20 < 10) {
                 @Pc(843) int local843;
                 if (local796.anInt6363 == 1) {
-                    @Pc(828) Node_Sub45 local828 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local796.anInt6366);
+                    @Pc(828) Node_Sub45 local828 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local796.anInt6366);
                     if (local828 != null) {
                         @Pc(833) NPCEntity local833 = local828.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                         local843 = local833.x / 128 - local90 / 128;
@@ -172,7 +172,7 @@ public final class Minimap {
                 if (local796.anInt6363 == 2) {
                     local878 = local796.anInt6369 / 128 - local90 / 128;
                     local589 = local796.anInt6362 / 128 - local93 / 128;
-                    @Pc(893) long local893 = (long) (local796.anInt6364 << 7);
+                    @Pc(893) long local893 = local796.anInt6364 << 7;
                     @Pc(897) long local897 = local893 * local893;
                     Static114.method2132(local878, x, local897, local30, local796.anInt6367, y, local589, component);
                 }

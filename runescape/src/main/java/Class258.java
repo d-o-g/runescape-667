@@ -158,7 +158,7 @@ public final class Class258 {
                 Static423.anIntArray508[local102] = 0;
                 Static423.anIntArray511[local102] = (int) ((double) this.anIntArray504[local102] * local16);
                 Static423.anIntArray512[local102] = (this.anIntArray502[local102] << 14) / 100;
-                Static423.anIntArray507[local102] = (int) ((double) (this.aClass211_5.anInt5476 - this.aClass211_5.anInt5475) * 32.768D * Math.pow(1.0057929410678534D, (double) this.anIntArray510[local102]) / local16);
+                Static423.anIntArray507[local102] = (int) ((double) (this.aClass211_5.anInt5476 - this.aClass211_5.anInt5475) * 32.768D * Math.pow(1.0057929410678534D, this.anIntArray510[local102]) / local16);
                 Static423.anIntArray509[local102] = (int) ((double) this.aClass211_5.anInt5475 * 32.768D / local16);
             }
         }

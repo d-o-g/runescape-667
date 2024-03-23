@@ -59,7 +59,7 @@ public final class ProxySocketFactory extends SocketFactory {
                 @Pc(65) Method getProxyAuth = authInfo.getDeclaredMethod("getProxyAuth", stringClass == null ? (stringClass = Class.forName("java.lang.String")) : stringClass, Integer.TYPE);
                 getProxyAuth.setAccessible(true);
 
-                @Pc(87) Object object = getProxyAuth.invoke((Object) null, address.getHostName(), Integer.valueOf(address.getPort()));
+                @Pc(87) Object object = getProxyAuth.invoke(null, address.getHostName(), Integer.valueOf(address.getPort()));
                 if (object != null) {
                     @Pc(98) Method supportsPreemptiveAuthorization = authInfo.getDeclaredMethod("supportsPreemptiveAuthorization");
                     supportsPreemptiveAuthorization.setAccessible(true);

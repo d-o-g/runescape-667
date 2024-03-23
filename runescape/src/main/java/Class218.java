@@ -168,7 +168,7 @@ public final class Class218 {
                         } else {
                             local237 = new IntNode(arg1.g4());
                         }
-                        this.aIterableHashTable_30.put((long) local228, local237);
+                        this.aIterableHashTable_30.put(local228, local237);
                     }
                 }
             }

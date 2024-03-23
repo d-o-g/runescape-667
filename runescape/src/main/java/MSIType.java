@@ -24,7 +24,7 @@ public final class MSIType {
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(ILclient!ha;ZI)Lclient!st;")
     public Sprite sprite(@OriginalArg(0) int count, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) boolean flipHorizontal) {
-        @Pc(23) long key = (long) (toolkit.index << 19 | (flipHorizontal ? 0x40000 : 0) | count << 16 | this.image);
+        @Pc(23) long key = toolkit.index << 19 | (flipHorizontal ? 0x40000 : 0) | count << 16 | this.image;
         @Pc(31) Sprite sprite = (Sprite) this.typeList.spriteCache.get(key);
         if (sprite != null) {
             return sprite;

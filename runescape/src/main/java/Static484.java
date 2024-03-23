@@ -159,7 +159,7 @@ public final class Static484 {
                                 local730 = (Location) Static302.getWall(local216, local211, local214);
                             }
                             if (local730 == null) {
-                                local730 = (Location) Static114.getWallDecor(local216, local211, local214);
+                                local730 = Static114.getWallDecor(local216, local211, local214);
                             }
                             if (local730 != null) {
                                 @Pc(776) LocType local776 = Static354.aLocTypeList_4.list(local730.getId());

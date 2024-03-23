@@ -27,7 +27,7 @@ public final class Node_Sub1_Sub31 extends Node_Sub1 {
     public void method8691(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(9) int local9 = Static54.anIntArray92[arg0];
         @Pc(13) int local13 = Static273.anIntArray341[arg1];
-        @Pc(24) float local24 = (float) Math.atan2((double) (local9 - 2048), (double) (local13 - 2048));
+        @Pc(24) float local24 = (float) Math.atan2(local9 - 2048, local13 - 2048);
         if ((double) local24 >= -3.141592653589793D && (double) local24 <= -2.356194490192345D) {
             Static187.anInt3093 = arg1;
             Static37.anInt916 = arg0;

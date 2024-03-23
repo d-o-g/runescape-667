@@ -88,7 +88,7 @@ public final class Ground_Sub3 extends Ground {
             for (@Pc(34) int local34 = 1; local34 < arg3; local34++) {
                 @Pc(53) int local53 = arg6[local34 + 1][local31] - arg6[local34 - 1][local31];
                 @Pc(69) int local69 = arg6[local34][local31 + 1] - arg6[local34][local31 - 1];
-                @Pc(84) int local84 = (int) Math.sqrt((double) (local53 * local53 + arg7 * 512 + local69 * local69));
+                @Pc(84) int local84 = (int) Math.sqrt(local53 * local53 + arg7 * 512 + local69 * local69);
                 @Pc(90) int local90 = (local53 << 8) / local84;
                 @Pc(96) int local96 = arg7 * -512 / local84;
                 @Pc(102) int local102 = (local69 << 8) / local84;

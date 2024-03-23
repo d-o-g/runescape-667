@@ -29,7 +29,7 @@ public final class Class26_Sub4 extends Class26 {
                 for (@Pc(47) int local47 = 0; local47 < 64; local47++) {
                     @Pc(57) float local57 = (float) local47 * 2.0F / 64.0F - 1.0F;
                     @Pc(66) float local66 = (float) local44 * 2.0F / 64.0F - 1.0F;
-                    @Pc(81) float local81 = (float) (1.0D / Math.sqrt((double) (local66 * local66 + local57 * local57 + 1.0F)));
+                    @Pc(81) float local81 = (float) (1.0D / Math.sqrt(local66 * local66 + local57 * local57 + 1.0F));
                     @Pc(85) float local85 = local66 * local81;
                     @Pc(89) float local89 = local57 * local81;
                     for (@Pc(91) int local91 = 0; local91 < 6; local91++) {
@@ -51,9 +51,9 @@ public final class Class26_Sub4 extends Class26 {
                         @Pc(156) int local156;
                         @Pc(165) int local165;
                         if (local97 > 0.0F) {
-                            local147 = (int) (Math.pow((double) local97, 96.0D) * (double) local28);
-                            local156 = (int) ((double) local28 * Math.pow((double) local97, 36.0D));
-                            local165 = (int) ((double) local28 * Math.pow((double) local97, 12.0D));
+                            local147 = (int) (Math.pow(local97, 96.0D) * (double) local28);
+                            local156 = (int) ((double) local28 * Math.pow(local97, 36.0D));
+                            local165 = (int) ((double) local28 * Math.pow(local97, 12.0D));
                         } else {
                             local165 = 0;
                             local156 = 0;
@@ -137,7 +137,7 @@ public final class Class26_Sub4 extends Class26 {
     public void method8286() {
         if (this.aBoolean248) {
             super.aClass19_Sub1_21.method8138(1);
-            super.aClass19_Sub1_21.method8088((Interface17) null);
+            super.aClass19_Sub1_21.method8088(null);
             super.aClass19_Sub1_21.method8097(Static582.aClass172_4);
             super.aClass19_Sub1_21.method8031();
             if (this.aBoolean247) {
@@ -152,7 +152,7 @@ public final class Class26_Sub4 extends Class26 {
                 super.aClass19_Sub1_21.method8080(0, Static189.aClass168_2);
                 super.aClass19_Sub1_21.method8080(1, Static188.aClass168_1);
                 super.aClass19_Sub1_21.method8142(Static189.aClass168_2, 0);
-                super.aClass19_Sub1_21.method8088((Interface17) null);
+                super.aClass19_Sub1_21.method8088(null);
             }
             super.aClass19_Sub1_21.method8138(0);
             this.aBoolean248 = false;

@@ -18,7 +18,7 @@ public final class Static365 {
 
     @OriginalMember(owner = "client!lj", name = "a", descriptor = "(F)F")
     public static float method5259(@OriginalArg(0) float arg0) {
-        @Pc(7) float local7 = (float) Math.pow(2.0D, (double) arg0) * 32.703197F;
+        @Pc(7) float local7 = (float) Math.pow(2.0D, arg0) * 32.703197F;
         return local7 * 3.1415927F / 11025.0F;
     }
 }

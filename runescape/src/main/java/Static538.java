@@ -31,7 +31,7 @@ public final class Static538 {
         @Pc(15) PacketBuffer local15 = ConnectionManager.GAME.buffer;
         for (@Pc(17) int local17 = 0; local17 < Static86.anInt1798; local17++) {
             @Pc(23) int local23 = Static458.anIntArray553[local17];
-            @Pc(31) NPCEntity local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local23)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(31) NPCEntity local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get(local23)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             @Pc(35) int local35 = local15.g1();
             if ((local35 & 0x80) != 0) {
                 local35 += local15.g1() << 8;
@@ -130,7 +130,7 @@ public final class Static538 {
                 local31.method9310(local31.type.size);
                 local31.anInt10757 = local31.type.rotationSpeed << 3;
                 if (local31.type.hasSounds()) {
-                    Static89.method1714(local31.level, (PlayerEntity) null, local31.pathX[0], local31.pathY[0], local31, (LocType) null, 0);
+                    Static89.method1714(local31.level, null, local31.pathX[0], local31.pathY[0], local31, null, 0);
                 }
             }
             if ((local35 & 0x2) != 0) {

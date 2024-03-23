@@ -145,7 +145,7 @@ public final class ParticleEmitter extends Node {
                 this.anInt8277 = local235 * local226 - local252 * local210;
                 while (true) {
                     if (this.anInt8275 <= 32767 && this.anInt8277 <= 32767 && this.anInt8278 <= 32767 && this.anInt8275 >= -32767 && this.anInt8277 >= -32767 && this.anInt8278 >= -32767) {
-                        local362 = (int) Math.sqrt((double) (this.anInt8275 * this.anInt8275 + this.anInt8277 * this.anInt8277 + this.anInt8278 * this.anInt8278));
+                        local362 = (int) Math.sqrt(this.anInt8275 * this.anInt8275 + this.anInt8277 * this.anInt8277 + this.anInt8278 * this.anInt8278);
                         if (local362 <= 0) {
                             local362 = 1;
                         }
@@ -153,8 +153,8 @@ public final class ParticleEmitter extends Node {
                         this.anInt8275 = this.anInt8275 * 32767 / local362;
                         this.anInt8278 = this.anInt8278 * 32767 / local362;
                         if (this.type.maxAngleH > 0 || this.type.maxAngleV > 0) {
-                            local414 = (int) (Math.atan2((double) this.anInt8278, (double) this.anInt8275) * 2607.5945876176133D);
-                            local435 = (int) (Math.atan2((double) this.anInt8277, Math.sqrt((double) (this.anInt8275 * this.anInt8275 + this.anInt8278 * this.anInt8278))) * 2607.5945876176133D);
+                            local414 = (int) (Math.atan2(this.anInt8278, this.anInt8275) * 2607.5945876176133D);
+                            local435 = (int) (Math.atan2(this.anInt8277, Math.sqrt(this.anInt8275 * this.anInt8275 + this.anInt8278 * this.anInt8278)) * 2607.5945876176133D);
                             this.anInt8273 = this.type.maxAngleH - this.type.minAngleH;
                             this.anInt8272 = this.type.minAngleH + local414 - (this.anInt8273 >> 1);
                             this.anInt8274 = this.type.maxAngleV - this.type.minAngleV;

@@ -261,7 +261,7 @@ public final class Static161 {
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(IIIIII)V")
     public static void method2586(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         if (ClientOptions.instance.soundVolume.getValue() != 0 && arg3 != 0 && Static33.anInt779 < 50 && arg2 != -1) {
-            Static409.aClass104Array1[Static33.anInt779++] = new Class104((byte) 1, arg2, arg3, arg1, arg4, 0, arg0, (Renderable) null);
+            Static409.aClass104Array1[Static33.anInt779++] = new Class104((byte) 1, arg2, arg3, arg1, arg4, 0, arg0, null);
         }
     }
 
@@ -274,13 +274,13 @@ public final class Static161 {
                 break;
             }
             @Pc(29) boolean local29 = false;
-            @Pc(36) Node_Sub45 local36 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local22);
+            @Pc(36) Node_Sub45 local36 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local22);
             @Pc(42) NPCEntity local42;
             if (local36 == null) {
                 local42 = new NPCEntity();
                 local42.anInt10740 = local22;
                 local36 = new Node_Sub45(local42);
-                Static18.A_HASH_TABLE___2.put((long) local22, local36);
+                Static18.A_HASH_TABLE___2.put(local22, local36);
                 Static592.aClass2_Sub45Array1[Static416.anInt6378++] = local36;
                 local29 = true;
             }
@@ -313,7 +313,7 @@ public final class Static161 {
             }
             local42.method9326(local170 == 1, local131 + PlayerEntity.self.pathY[0], local159 + PlayerEntity.self.pathX[0], local144, local42.boundSize((byte) 91));
             if (local42.type.hasSounds()) {
-                Static89.method1714(local42.level, (PlayerEntity) null, local42.pathX[0], local42.pathY[0], local42, (LocType) null, 0);
+                Static89.method1714(local42.level, null, local42.pathX[0], local42.pathY[0], local42, null, 0);
             }
         }
         local8.method7411();

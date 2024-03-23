@@ -667,7 +667,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
                 }
             }
         }
-        @Pc(117) Node_Sub11 local117 = (Node_Sub11) this.aIterableHashTable_7.get((long) this.anIntArray54[arg0]);
+        @Pc(117) Node_Sub11 local117 = (Node_Sub11) this.aIterableHashTable_7.get(this.anIntArray54[arg0]);
         if (local117 == null) {
             return;
         }
@@ -793,14 +793,14 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         @Pc(29) int[] local29 = new int[]{22050};
         for (@Pc(35) Node_Sub55 local35 = (Node_Sub55) arg2.aIterableHashTable_8.first(); local35 != null; local35 = (Node_Sub55) arg2.aIterableHashTable_8.next()) {
             @Pc(40) int local40 = (int) local35.key;
-            @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aIterableHashTable_7.get((long) local40);
+            @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aIterableHashTable_7.get(local40);
             if (local48 == null) {
                 local48 = Static680.method8917(arg1, local40);
                 if (local48 == null) {
                     local15 = false;
                     continue;
                 }
-                this.aIterableHashTable_7.put((long) local40, local48);
+                this.aIterableHashTable_7.put(local40, local48);
             }
             if (!local48.method1526(arg0, local29, local35.aByteArray105)) {
                 local15 = false;

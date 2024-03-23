@@ -18,7 +18,7 @@ public final class Static678 {
             }
         }
         if (arg0 != -1) {
-            method8901(-83, (Packet) null);
+            method8901(-83, null);
         }
     }
 }

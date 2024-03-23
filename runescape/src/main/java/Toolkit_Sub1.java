@@ -563,7 +563,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
             this.aFloatArray58[2] = -arg5;
             this.aFloatArray58[0] = -arg3;
             this.aFloatArray58[1] = -arg4;
-            @Pc(162) float local162 = (float) (1.0D / Math.sqrt((double) (arg4 * arg4 + arg3 * arg3 + arg5 * arg5)));
+            @Pc(162) float local162 = (float) (1.0D / Math.sqrt(arg4 * arg4 + arg3 * arg3 + arg5 * arg5));
             this.aFloatArray60[2] = local162 * arg5;
             this.aFloatArray60[0] = arg3 * local162;
             this.aFloatArray60[1] = arg4 * local162;
@@ -891,7 +891,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
         if (local12 == 0.0F && local18 == 0.0F) {
             local12 = 1.0F;
         } else {
-            local41 = (float) (1.0D / Math.sqrt((double) (local12 * local12 + local18 * local18)));
+            local41 = (float) (1.0D / Math.sqrt(local12 * local12 + local18 * local18));
             local18 *= local41;
             local12 *= local41;
         }
@@ -1908,8 +1908,8 @@ public abstract class Toolkit_Sub1 extends Toolkit {
         @Pc(18) float local18 = 0.0F;
         @Pc(20) float local20 = 1.0F;
         if (local10 != 0.0F || local16 != 0.0F) {
-            local20 = (float) Math.sqrt((double) (local16 * local16 + local10 * local10));
-            local18 = (float) Math.atan2((double) local16, (double) local10);
+            local20 = (float) Math.sqrt(local16 * local16 + local10 * local10);
+            local18 = (float) Math.atan2(local16, local10);
         }
         this.method8149();
         this.method8112(arg4);
@@ -1962,7 +1962,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
         if (local10 == 0.0F && local16 == 0.0F) {
             local10 = 1.0F;
         } else {
-            @Pc(43) float local43 = (float) (1.0D / Math.sqrt((double) (local10 * local10 + local16 * local16)));
+            @Pc(43) float local43 = (float) (1.0D / Math.sqrt(local10 * local10 + local16 * local16));
             local10 *= local43;
             local16 *= local43;
         }

@@ -138,7 +138,7 @@ public final class ParticleSystem extends Node {
                 @Pc(96) ParticleEffector local96 = null;
                 if (arg0[local21].type().visibility == 1 && Static654.anInt9740 < 32) {
                     local96 = new ParticleEffector(arg0[local21], this);
-                    Static519.aHashTable_1.put(local96, (long) arg0[local21].type);
+                    Static519.aHashTable_1.put(local96, arg0[local21].type);
                     Static654.anInt9740++;
                 }
                 if (local96 == null) {
@@ -275,8 +275,8 @@ public final class ParticleSystem extends Node {
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(IZ)V")
     public void init(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
         ParticleManager.systems.add(this);
-        this.aLong133 = (long) arg0;
-        this.lastRunningCheck = (long) arg0;
+        this.aLong133 = arg0;
+        this.lastRunningCheck = arg0;
         this.aBoolean326 = true;
         this.aBoolean325 = arg1;
     }

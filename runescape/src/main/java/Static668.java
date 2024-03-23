@@ -116,12 +116,12 @@ public final class Static668 {
                             local467 = local467 + Static393.aStringArray32[local472] + '\n';
                         }
                     }
-                    Static175.aClipboard1.setContents(new StringSelection(local467), (ClipboardOwner) null);
+                    Static175.aClipboard1.setContents(new StringSelection(local467), null);
                 }
             } else if (local151 == 67 && (local159 & 0x4) != 0) {
                 if (Static175.aClipboard1 != null) {
                     try {
-                        @Pc(207) Transferable local207 = Static175.aClipboard1.getContents((Object) null);
+                        @Pc(207) Transferable local207 = Static175.aClipboard1.getContents(null);
                         if (local207 != null) {
                             @Pc(214) String local214 = (String) local207.getTransferData(DataFlavor.stringFlavor);
                             if (local214 != null) {

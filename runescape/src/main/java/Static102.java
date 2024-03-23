@@ -29,7 +29,7 @@ public final class Static102 {
     @OriginalMember(owner = "client!dd", name = "b", descriptor = "(IIII)I")
     public static int method2025(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (arg1 != -29754) {
-            method2026((PositionEntity) null, false);
+            method2026(null, false);
         }
         if (Static246.activeGround == null) {
             return 0;

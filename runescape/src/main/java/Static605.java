@@ -33,7 +33,7 @@ public final class Static605 {
             local46 = local8.g2();
             local52 = local8.g2();
             if (Static497.stacks != null) {
-                @Pc(69) ObjStack local69 = (ObjStack) Static497.stacks.get((long) (Static87.anInt1810 << 28 | local25 << 14 | local38));
+                @Pc(69) ObjStack local69 = (ObjStack) Static497.stacks.get(Static87.anInt1810 << 28 | local25 << 14 | local38);
                 if (local69 != null) {
                     for (@Pc(77) ObjStackEntry local77 = (ObjStackEntry) local69.objs.first(); local77 != null; local77 = (ObjStackEntry) local69.objs.next()) {
                         if ((local42 & 0x7FFF) == local77.id && local77.count == local46) {
@@ -89,7 +89,7 @@ public final class Static605 {
                 local219 = local210.retex_d.length;
             }
             if ((local34 & 0x1) == 1) {
-                Static296.method4361((LocTypeCustomisation) null, Static87.anInt1810, local25, local42, local46);
+                Static296.method4361(null, Static87.anInt1810, local25, local42, local46);
             } else {
                 @Pc(278) int[] local278 = null;
                 if ((local34 & 0x2) == 2) {
@@ -112,7 +112,7 @@ public final class Static605 {
                         local343[local353] = (short) local8.g2();
                     }
                 }
-                Static296.method4361(new LocTypeCustomisation((long) Static356.aLong177++, local278, local310, local343), Static87.anInt1810, local25, local42, local46);
+                Static296.method4361(new LocTypeCustomisation(Static356.aLong177++, local278, local310, local343), Static87.anInt1810, local25, local42, local46);
             }
         } else if (arg0 == Static420.aClass287_13) {
             local15 = local8.g2_alt3();
@@ -207,7 +207,7 @@ public final class Static605 {
                             @Pc(957) int local957;
                             if (local212 >= 0) {
                                 local957 = local212 - 1;
-                                @Pc(964) Node_Sub45 local964 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local957);
+                                @Pc(964) Node_Sub45 local964 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local957);
                                 if (local964 != null) {
                                     local948 = local964.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                                 }
@@ -278,7 +278,7 @@ public final class Static605 {
                     local34 = local25 + WorldMap.areaBaseY;
                     local38 = (local21 >> 4 & 0x7) + Static626.anInt9476;
                     local42 = local38 + WorldMap.areaBaseX;
-                    @Pc(1389) ObjStack local1389 = (ObjStack) Static497.stacks.get((long) (local34 << 14 | Static87.anInt1810 << 28 | local42));
+                    @Pc(1389) ObjStack local1389 = (ObjStack) Static497.stacks.get(local34 << 14 | Static87.anInt1810 << 28 | local42);
                     if (local1389 != null) {
                         for (@Pc(1399) ObjStackEntry local1399 = (ObjStackEntry) local1389.objs.first(); local1399 != null; local1399 = (ObjStackEntry) local1389.objs.next()) {
                             if (local1399.id == (local15 & 0x7FFF)) {
@@ -372,7 +372,7 @@ public final class Static605 {
                     local46 = local8.g1();
                     if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
                         if (local34 == -1) {
-                            @Pc(2004) DoublyLinkedNode_Sub2_Sub20 local2004 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get((long) (local21 << 16 | local25));
+                            @Pc(2004) DoublyLinkedNode_Sub2_Sub20 local2004 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get(local21 << 16 | local25);
                             if (local2004 != null) {
                                 local2004.aClass8_Sub2_Sub1_Sub5_1.method6600();
                                 local2004.unlink();
@@ -386,11 +386,11 @@ public final class Static605 {
                                 local212++;
                             }
                             @Pc(2065) Class8_Sub2_Sub1_Sub5 local2065 = new Class8_Sub2_Sub1_Sub5(local34, local42, Static87.anInt1810, local212, local52, Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);
-                            Static346.A_HASH_TABLE___29.put((long) (local21 << 16 | local25), new DoublyLinkedNode_Sub2_Sub20(local2065));
+                            Static346.A_HASH_TABLE___29.put(local21 << 16 | local25, new DoublyLinkedNode_Sub2_Sub20(local2065));
                         }
                     }
                 } else {
-                    JagException.sendTrace((Throwable) null, "T3 - " + arg0);
+                    JagException.sendTrace(null, "T3 - " + arg0);
                     Login.logout(false);
                 }
             }

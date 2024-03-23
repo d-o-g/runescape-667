@@ -130,18 +130,18 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     public void method813(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         @Pc(9) double local9;
         if (!this.aBoolean59) {
-            local9 = (double) (arg3 - super.x);
-            @Pc(16) double local16 = (double) (arg2 - super.z);
+            local9 = arg3 - super.x;
+            @Pc(16) double local16 = arg2 - super.z;
             @Pc(25) double local25 = Math.sqrt(local16 * local16 + local9 * local9);
             this.aDouble4 = (double) this.anInt709 * local16 / local25 + (double) super.z;
             this.aDouble8 = (double) super.x + local9 * (double) this.anInt709 / local25;
             if (this.aBoolean57) {
-                this.aDouble5 = (double) (Static102.method2025(super.level, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721);
+                this.aDouble5 = Static102.method2025(super.level, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721;
             } else {
-                this.aDouble5 = (double) super.anInt10691;
+                this.aDouble5 = super.anInt10691;
             }
         }
-        local9 = (double) (this.anInt697 + 1 - arg1);
+        local9 = this.anInt697 + 1 - arg1;
         this.aDouble2 = ((double) arg2 - this.aDouble4) / local9;
         this.aDouble7 = ((double) arg3 - this.aDouble8) / local9;
         this.aDouble6 = Math.sqrt(this.aDouble7 * this.aDouble7 + this.aDouble2 * this.aDouble2);
@@ -226,7 +226,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
                 }
             } else {
                 local35 = this.anInt706 - 1;
-                @Pc(58) Node_Sub45 local58 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local35);
+                @Pc(58) Node_Sub45 local58 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local35);
                 if (local58 != null) {
                     local21 = local58.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
@@ -290,7 +290,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             this.aParticleSystem_1 = ParticleSystem.create(TimeUtils.clock, true);
         }
         if (this.aParticleSystem_1 != null) {
-            this.aParticleSystem_1.method3643(arg0, (long) TimeUtils.clock, local9, local12);
+            this.aParticleSystem_1.method3643(arg0, TimeUtils.clock, local9, local12);
             this.aParticleSystem_1.method3658(super.level, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
         }
     }
@@ -375,7 +375,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         this.aBoolean59 = true;
         this.aDouble4 += (double) arg0 * this.aDouble2;
         if (this.aBoolean57) {
-            this.aDouble5 = (double) (Static102.method2025(super.level, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721);
+            this.aDouble5 = Static102.method2025(super.level, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721;
         } else if (this.anInt705 == -1) {
             this.aDouble5 += this.aDouble1 * (double) arg0;
         } else {

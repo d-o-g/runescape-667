@@ -134,7 +134,7 @@ public abstract class Class35 {
     public void method5807() {
         this.aShortArray97 = new short[this.anInt6505];
         for (@Pc(18) int local18 = 0; local18 < this.anInt6505; local18++) {
-            this.aShortArray97[local18] = (short) (int) Math.pow(2.0D, (double) local18);
+            this.aShortArray97[local18] = (short) (int) Math.pow(2.0D, local18);
         }
     }
 
@@ -146,7 +146,7 @@ public abstract class Class35 {
 
     @OriginalMember(owner = "client!lea", name = "b", descriptor = "(B)V")
     public void method5810() {
-        @Pc(10) Random local10 = new Random((long) this.anInt6510);
+        @Pc(10) Random local10 = new Random(this.anInt6510);
         for (@Pc(12) int local12 = 0; local12 < 255; local12++) {
             this.aShortArray98[local12] = (short) local12;
         }

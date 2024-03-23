@@ -190,7 +190,7 @@ public final class Static651 {
         if (InterfaceManager.targeting && !arg0) {
             @Pc(113) ParamType local113 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
             if ((InterfaceManager.targetMask & 0x2) != 0 && (local113 == null || local21.param(InterfaceManager.targetParam, local113.defaultint) != local113.defaultint)) {
-                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 23, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                MiniMenu.addEntry(false, -1, arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 23, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffff00>" + local24, arg1.anInt10740, false);
             }
         }
         if (arg0) {
@@ -231,7 +231,7 @@ public final class Static651 {
                 if (local21.cursor2Op == local189) {
                     local228 = local21.cursor2;
                 }
-                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? local21.attackCursor : local228, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                MiniMenu.addEntry(false, -1, arg1.anInt10740, 0, 0, local176[local189], local226, true, local176[local189].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? local21.attackCursor : local228, "<col=ffff00>" + local24, arg1.anInt10740, false);
             }
         }
         if (local21.aByte107 != 1) {
@@ -272,7 +272,7 @@ public final class Static651 {
                 if (local21.cursor2Op == local341) {
                     local387 = local21.cursor2;
                 }
-                MiniMenu.addEntry(false, -1, (long) arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? local21.attackCursor : local387, "<col=ffff00>" + local24, (long) arg1.anInt10740, false);
+                MiniMenu.addEntry(false, -1, arg1.anInt10740, 0, 0, local176[local341], local385, true, local176[local341].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? local21.attackCursor : local387, "<col=ffff00>" + local24, arg1.anInt10740, false);
             }
         }
         return;

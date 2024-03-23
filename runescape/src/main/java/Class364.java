@@ -187,7 +187,7 @@ public final class Class364 implements Runnable {
             @Pc(304) long local304 = SystemTimer.safetime();
             @Pc(312) int local312 = (int) (local8 + 20L - local304);
             if (local312 > 0) {
-                TimeUtils.sleep((long) local312);
+                TimeUtils.sleep(local312);
             }
         }
     }

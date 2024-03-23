@@ -139,7 +139,7 @@ public final class Ground_Sub1 extends Ground {
                 if (local127 > 0 && local121 > 0 && local127 < super.anInt8894 && local121 < super.anInt8892) {
                     @Pc(202) int local202 = arg6[local127 + 1][local121] - arg6[local127 - 1][local121];
                     @Pc(218) int local218 = arg6[local127][local121 + 1] - arg6[local127][local121 - 1];
-                    @Pc(237) float local237 = (float) (1.0D / Math.sqrt((double) (local218 * local218 + local202 * local202 + arg7 * 4 * arg7)));
+                    @Pc(237) float local237 = (float) (1.0D / Math.sqrt(local218 * local218 + local202 * local202 + arg7 * 4 * arg7));
                     this.aFloatArrayArray3[local127][local121] = local237 * (float) local202;
                     this.aFloatArrayArray4[local127][local121] = local237 * (float) (-arg7 * 2);
                     this.aFloatArrayArray5[local127][local121] = local237 * (float) local218;
@@ -297,7 +297,7 @@ public final class Ground_Sub1 extends Ground {
             }
             this.aClass19_Sub1_9.method8080(0, Static189.aClass168_2);
             this.aClass19_Sub1_9.method8142(Static189.aClass168_2, 0);
-            this.aClass19_Sub1_9.method8088((Interface17) null);
+            this.aClass19_Sub1_9.method8088(null);
             this.aClass19_Sub1_9.L(local268, local272, this.aClass19_Sub1_9.anInt9185);
         }
         if (this.aClass293_1 == null) {
@@ -762,7 +762,7 @@ public final class Ground_Sub1 extends Ground {
         this.aClass19_Sub1_9.method8083(false);
         this.aClass19_Sub1_9.method8053(0);
         this.aClass19_Sub1_9.method8108(false, -2, false);
-        this.aClass19_Sub1_9.method8088((Interface17) null);
+        this.aClass19_Sub1_9.method8088(null);
         @Pc(306) Matrix_Sub1 local306 = this.aClass19_Sub1_9.method8040();
         @Pc(311) float[] local311 = this.aClass19_Sub1_9.method8133();
         local311[13] = 1.0F - ((float) 0 + (float) (arg3 * 1024) / 128.0F) / (float) this.aClass19_Sub1_9.anInt9013;

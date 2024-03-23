@@ -44,8 +44,8 @@ public final class Static395 {
     public static float[] method9163(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
         @Pc(6) float[] local6 = new float[9];
         @Pc(9) float[] local9 = new float[9];
-        @Pc(17) float local17 = (float) Math.cos((double) ((float) arg5 * 0.024543693F));
-        @Pc(25) float local25 = (float) Math.sin((double) ((float) arg5 * 0.024543693F));
+        @Pc(17) float local17 = (float) Math.cos((float) arg5 * 0.024543693F);
+        @Pc(25) float local25 = (float) Math.sin((float) arg5 * 0.024543693F);
         local6[5] = 0.0F;
         local6[2] = local25;
         local6[6] = -local25;
@@ -59,9 +59,9 @@ public final class Static395 {
         @Pc(72) float local72 = 1.0F;
         @Pc(77) float local77 = (float) arg6 / 32767.0F;
         @Pc(79) float local79 = 0.0F;
-        @Pc(89) float local89 = -((float) Math.sqrt((double) (1.0F - local77 * local77)));
+        @Pc(89) float local89 = -((float) Math.sqrt(1.0F - local77 * local77));
         @Pc(94) float local94 = 1.0F - local77;
-        @Pc(105) float local105 = (float) Math.sqrt((double) (arg4 * arg4 + arg3 * arg3));
+        @Pc(105) float local105 = (float) Math.sqrt(arg4 * arg4 + arg3 * arg3);
         if (local105 == 0.0F && local77 == 0.0F) {
             local9 = local6;
         } else {

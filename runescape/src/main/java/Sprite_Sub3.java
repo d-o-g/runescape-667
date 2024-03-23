@@ -131,7 +131,7 @@ public final class Sprite_Sub3 extends Sprite {
         this.aClass19_Sub1_12.method8031();
         this.aClass19_Sub1_12.method8080(0, Static189.aClass168_2);
         this.aClass19_Sub1_12.method8094(Static209.aClass121_4, Static209.aClass121_4);
-        this.aClass19_Sub1_12.method8088((Interface17) null);
+        this.aClass19_Sub1_12.method8088(null);
         this.aClass19_Sub1_12.method8138(0);
         this.aClass19_Sub1_12.method8031();
     }
@@ -415,7 +415,7 @@ public final class Sprite_Sub3 extends Sprite {
         this.aClass19_Sub1_12.method8031();
         this.aClass19_Sub1_12.method8080(0, Static189.aClass168_2);
         this.aClass19_Sub1_12.method8094(Static209.aClass121_4, Static209.aClass121_4);
-        this.aClass19_Sub1_12.method8088((Interface17) null);
+        this.aClass19_Sub1_12.method8088(null);
         this.aClass19_Sub1_12.method8138(0);
         this.aClass19_Sub1_12.method8031();
     }

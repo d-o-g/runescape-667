@@ -267,7 +267,7 @@ public final class i extends Model implements Interface5 {
     @Override
     public void renderOrtho(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder cylinder, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (cylinder == null) {
-            this.anOa2.method6087().method9(this, arg0, (int[]) null, arg2, arg3);
+            this.anOa2.method6087().method9(this, arg0, null, arg2, arg3);
             return;
         }
         Static445.anIntArray542[5] = 0;
@@ -341,7 +341,7 @@ public final class i extends Model implements Interface5 {
     @Override
     public void render(@OriginalArg(0) Matrix matrix, @OriginalArg(1) PickingCylinder cylinder, @OriginalArg(2) int flags) {
         if (cylinder == null) {
-            this.anOa2.method6087().method8(this, matrix, (int[]) null, flags);
+            this.anOa2.method6087().method8(this, matrix, null, flags);
             return;
         }
         Static445.anIntArray542[5] = 0;

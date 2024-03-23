@@ -58,7 +58,7 @@ public final class FullscreenAdapter {
         }
 
         if (arg1 != 1503493474) {
-            this.previousDisplayMode = (DisplayMode) null;
+            this.previousDisplayMode = null;
         }
 
         try {

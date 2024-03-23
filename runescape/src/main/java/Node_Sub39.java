@@ -57,7 +57,7 @@ public final class Node_Sub39 extends Node {
         this.anInt6585 = arg5;
         this.anInt6592 = arg1;
         this.aFloat121 = (float) arg2;
-        this.aClass134_Sub2_1 = new Class134_Sub2(this.aClass19_Sub3_31, 5123, (byte[]) null, 1);
+        this.aClass134_Sub2_1 = new Class134_Sub2(this.aClass19_Sub3_31, 5123, null, 1);
     }
 
     @OriginalMember(owner = "client!nm", name = "a", descriptor = "(I[II)V")

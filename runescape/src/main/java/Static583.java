@@ -59,9 +59,9 @@ public final class Static583 {
         @Pc(353) float local353 = local220[0] - local57[0];
         @Pc(363) float local363 = -1.0F * (local220[1] - local57[1]);
         @Pc(372) float local372 = local220[2] - local57[2];
-        @Pc(382) double local382 = Math.sqrt((double) (local353 * local353 + local372 * local372));
-        Static598.anInt8832 = (int) (Math.atan2((double) local363, local382) * 2607.5945876176133D) & 0x3FFF;
-        Static323.anInt5119 = (int) (-Math.atan2((double) local353, (double) local372) * 2607.5945876176133D) & 0x3FFF;
+        @Pc(382) double local382 = Math.sqrt(local353 * local353 + local372 * local372);
+        Static598.anInt8832 = (int) (Math.atan2(local363, local382) * 2607.5945876176133D) & 0x3FFF;
+        Static323.anInt5119 = (int) (-Math.atan2(local353, local372) * 2607.5945876176133D) & 0x3FFF;
         Static81.anInt1644 = ((Static603.anIntArrayArrayArray18[Static197.anInt3260][local61 + 2][3] - Static603.anIntArrayArrayArray18[Static197.anInt3260][local61][3]) * Static260.anInt4244 >> 16) + Static603.anIntArrayArrayArray18[Static197.anInt3260][local61][3];
     }
 }

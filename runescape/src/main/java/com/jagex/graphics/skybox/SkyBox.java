@@ -263,7 +263,7 @@ public final class SkyBox {
             this.aModel_2.updateAlphas((byte) arg1, this.aByteArray35);
             this.anInt3503 = arg1;
         }
-        this.aModel_2.render(local36, (PickingCylinder) null, 0);
+        this.aModel_2.render(local36, null, 0);
         arg4.setCamera(local7);
     }
 

@@ -40,7 +40,7 @@ public final class Node_Sub1_Sub23 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!or", name = "c", descriptor = "(B)V")
     public void method6382() {
-        @Pc(12) Random local12 = new Random((long) this.anInt7106);
+        @Pc(12) Random local12 = new Random(this.anInt7106);
         this.aShortArray104 = new short[512];
         if (this.anInt7099 > 0) {
             for (@Pc(31) int local31 = 0; local31 < 512; local31++) {
@@ -84,7 +84,7 @@ public final class Node_Sub1_Sub23 extends Node_Sub1 {
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
         if (arg0 <= 107) {
-            InterfaceManager.calculateDimensions((Component) null, -42, 121, -79);
+            InterfaceManager.calculateDimensions(null, -42, 121, -79);
         }
         if (super.aClass180_41.aBoolean338) {
             @Pc(34) int local34 = Static273.anIntArray341[arg1] * this.anInt7110 + 2048;
@@ -116,18 +116,18 @@ public final class Node_Sub1_Sub23 extends Node_Sub1 {
                             local160 = local160 >= 0 ? local160 : -local160;
                             local206 = local148 <= local160 ? local160 : local148;
                         } else if (local163 == 4) {
-                            local148 = (int) (Math.sqrt((double) ((float) (local148 < 0 ? -local148 : local148) / 4096.0F)) * 4096.0D);
-                            local160 = (int) (Math.sqrt((double) ((float) (local160 < 0 ? -local160 : local160) / 4096.0F)) * 4096.0D);
+                            local148 = (int) (Math.sqrt((float) (local148 < 0 ? -local148 : local148) / 4096.0F) * 4096.0D);
+                            local160 = (int) (Math.sqrt((float) (local160 < 0 ? -local160 : local160) / 4096.0F) * 4096.0D);
                             local206 = local160 + local148;
                             local206 = local206 * local206 >> 12;
                         } else if (local163 == 5) {
                             local160 *= local160;
                             local148 *= local148;
-                            local206 = (int) (Math.sqrt(Math.sqrt((double) ((float) (local160 + local148) / 1.6777216E7F))) * 4096.0D);
+                            local206 = (int) (Math.sqrt(Math.sqrt((float) (local160 + local148) / 1.6777216E7F)) * 4096.0D);
                         } else if (local163 == 2) {
                             local206 = (local148 >= 0 ? local148 : -local148) + (local160 < 0 ? -local160 : local160);
                         } else {
-                            local206 = (int) (Math.sqrt((double) ((float) (local160 * local160 + local148 * local148) / 1.6777216E7F)) * 4096.0D);
+                            local206 = (int) (Math.sqrt((float) (local160 * local160 + local148 * local148) / 1.6777216E7F) * 4096.0D);
                         }
                         if (local206 < Static143.anInt4056) {
                             Static162.anInt2798 = Static109.anInt2178;

@@ -47,9 +47,9 @@ public final class Class101_Sub4 extends Class101 {
             return;
         }
         super.aClass19_Sub3_42.method7014(1);
-        super.aClass19_Sub3_42.method7001((Class93) null);
+        super.aClass19_Sub3_42.method7001(null);
         super.aClass19_Sub3_42.method7014(0);
-        super.aClass19_Sub3_42.method7001((Class93) null);
+        super.aClass19_Sub3_42.method7001(null);
         OpenGL.glUseProgramObjectARB(0L);
         this.aBoolean431 = false;
     }

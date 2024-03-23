@@ -236,7 +236,7 @@ public final class Node_Sub31_Sub1 extends Node_Sub31 {
     public void method4607(@OriginalArg(1) int arg0) {
         OpenGL.glUseProgramObjectARB(0L);
         super.aClass19_Sub3_22.method7014(1);
-        super.aClass19_Sub3_22.method7001((Class93) null);
+        super.aClass19_Sub3_22.method7001(null);
         super.aClass19_Sub3_22.method7014(0);
     }
 

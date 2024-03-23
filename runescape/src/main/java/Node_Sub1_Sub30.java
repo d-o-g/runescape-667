@@ -63,7 +63,7 @@ public final class Node_Sub1_Sub30 extends Node_Sub1 {
             this.anInt9789 = arg1.g1();
         }
         if (arg0) {
-            this.method9416(true, (Packet) null, -94);
+            this.method9416(true, null, -94);
         }
     }
 

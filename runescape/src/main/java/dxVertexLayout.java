@@ -39,6 +39,6 @@ public final class dxVertexLayout extends Class244 {
             }
         }
         local7.finish();
-        this.anIDirect3DVertexDeclaration1 = arg0.anIDirect3DDevice1.a(local7, (IDirect3DVertexDeclaration) null);
+        this.anIDirect3DVertexDeclaration1 = arg0.anIDirect3DDevice1.a(local7, null);
     }
 }

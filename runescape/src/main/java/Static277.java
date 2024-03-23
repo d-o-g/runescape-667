@@ -11,7 +11,7 @@ public final class Static277 {
         @Pc(5) long local5 = 0x400000L;
         @Pc(18) long local18 = 0x8000000000000000L;
         @Pc(25) LocType local25 = Static354.aLocTypeList_4.list(loc.getId());
-        @Pc(46) long flags = (long) (x | (z << 7) | (loc.getShape() << 14) | (loc.getRotation() << 20) | 0x40000000);
+        @Pc(46) long flags = x | (z << 7) | (loc.getShape() << 14) | (loc.getRotation() << 20) | 0x40000000;
         if (local25.interactivity == LocInteractivity.NONINTERACTIVE) {
             flags |= local18;
         }

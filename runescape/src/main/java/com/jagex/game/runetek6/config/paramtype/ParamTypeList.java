@@ -88,7 +88,7 @@ public final class ParamTypeList {
 
         @Pc(70) ReferenceCache local70 = this.recentUse;
         synchronized (this.recentUse) {
-            this.recentUse.put(type, (long) id);
+            this.recentUse.put(type, id);
             return type;
         }
     }

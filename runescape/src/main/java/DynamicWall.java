@@ -59,7 +59,7 @@ public final class DynamicWall extends Wall implements Location {
     @Override
     public void method9280(@OriginalArg(0) int arg0) {
         if (arg0 != 27811) {
-            this.method9279(-29, 50, false, (Toolkit) null);
+            this.method9279(-29, 50, false, null);
         }
         throw new IllegalStateException();
     }

@@ -33,10 +33,10 @@ public final class Class119 implements Runnable {
                     }
                 }
                 TimeUtils.sleep(10L);
-                Static61.method1312(this.aSignLink_2, (Object) null);
+                Static61.method1312(this.aSignLink_2, null);
             }
         } catch (@Pc(49) Exception local49) {
-            JagException.sendTrace(local49, (String) null);
+            JagException.sendTrace(local49, null);
         } finally {
             @Pc(59) Object local59 = null;
             this.aBoolean242 = false;

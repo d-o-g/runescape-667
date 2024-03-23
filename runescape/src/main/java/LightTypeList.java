@@ -51,7 +51,7 @@ public final class LightTypeList {
         @Pc(13) ReferenceCache local13 = this.recentUse;
         @Pc(23) LightType type;
         synchronized (this.recentUse) {
-            type = (LightType) this.recentUse.get((long) id);
+            type = (LightType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -70,7 +70,7 @@ public final class LightTypeList {
 
         @Pc(70) ReferenceCache local70 = this.recentUse;
         synchronized (this.recentUse) {
-            this.recentUse.put(type, (long) id);
+            this.recentUse.put(type, id);
             return type;
         }
     }

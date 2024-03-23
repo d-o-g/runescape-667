@@ -30,7 +30,7 @@ public final class Class15 implements IEnumModesCallback {
 
     @OriginalMember(owner = "client!ak", name = "<init>", descriptor = "()V")
     public Class15() {
-        this.aDirectDraw1.initialize((_Guid) null);
+        this.aDirectDraw1.initialize(null);
     }
 
     @OriginalMember(owner = "client!ak", name = "a", descriptor = "(Ljava/awt/Frame;IIIII)V")
@@ -61,10 +61,10 @@ public final class Class15 implements IEnumModesCallback {
 
     @OriginalMember(owner = "client!ak", name = "a", descriptor = "(I)[I")
     public int[] method250() {
-        this.aDirectDraw1.enumDisplayModes(0, (DDSurfaceDesc) null, (IUnknown) null, this);
+        this.aDirectDraw1.enumDisplayModes(0, null, null, this);
         anIntArray28 = new int[anInt240];
         anInt240 = 0;
-        this.aDirectDraw1.enumDisplayModes(0, (DDSurfaceDesc) null, (IUnknown) null, this);
+        this.aDirectDraw1.enumDisplayModes(0, null, null, this);
         @Pc(20) int[] local20 = anIntArray28;
         anIntArray28 = null;
         anInt240 = 0;

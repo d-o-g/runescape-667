@@ -338,7 +338,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
     @OriginalMember(owner = "client!tca", name = "b", descriptor = "(IIZ)V")
     public synchronized void method8160(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(20) IntNode local20 = new IntNode(arg0);
-        local20.key = (long) arg1;
+        local20.key = arg1;
         this.aDeque_62.addLast(local20);
     }
 
@@ -397,7 +397,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
         this.method8072(false);
         this.method8123(false);
         this.method8083(false);
-        this.method8088((Interface17) null);
+        this.method8088(null);
         this.method8108(false, -2, false);
         this.method8054(1);
         this.method8053(0);
@@ -551,7 +551,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
     @OriginalMember(owner = "client!tca", name = "k", descriptor = "(II)V")
     public synchronized void method8162(@OriginalArg(0) int arg0) {
         @Pc(7) Node local7 = new Node();
-        local7.key = (long) arg0;
+        local7.key = arg0;
         this.aDeque_65.addLast(local7);
     }
 
@@ -683,7 +683,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(BII)V")
     public synchronized void method8164(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         @Pc(13) IntNode local13 = new IntNode(arg1);
-        local13.key = (long) arg0;
+        local13.key = arg0;
         this.aDeque_61.addLast(local13);
     }
 

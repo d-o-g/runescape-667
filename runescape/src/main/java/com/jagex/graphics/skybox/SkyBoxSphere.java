@@ -249,7 +249,7 @@ public final class SkyBoxSphere {
         arg0.setCamera(arg0.createMatrix());
         @Pc(209) Matrix local209 = arg0.createMatrix();
         local209.method7125(0, 0, arg0.i() - local147.HA());
-        local147.renderOrtho(local209, (PickingCylinder) null, 1024, 1);
+        local147.renderOrtho(local209, null, 1024, 1);
         @Pc(231) int local231 = this.anInt5638 * 13 / 16;
         @Pc(238) int local238 = (this.anInt5638 - local231) / 2;
         aSprite.render(local238, local238, local231, local231, 0, this.anInt5634 | 0xFF000000, 1);
@@ -319,7 +319,7 @@ public final class SkyBoxSphere {
         arg0.setCamera(arg0.createMatrix());
         @Pc(238) Matrix local238 = arg0.scratchMatrix();
         local238.method7125(0, 0, arg0.i() - local190.HA());
-        local190.renderOrtho(local238, (PickingCylinder) null, arg0.i(), 1);
+        local190.renderOrtho(local238, null, arg0.i(), 1);
         this.aSprite_24 = arg0.method7964(0, 0, this.anInt5638, this.anInt5638, true);
         this.aSprite_24.method8196();
         arg0.DA(local219[0], local219[1], local219[2], local219[3]);
@@ -365,7 +365,7 @@ public final class SkyBoxSphere {
             local7 = this.anInt5635 - arg0;
             local12 = this.anInt5626 - arg1;
             local17 = this.anInt5630 - arg2;
-            this.anInt5631 = (int) Math.sqrt((double) (local7 * local7 + local12 * local12 + local17 * local17));
+            this.anInt5631 = (int) Math.sqrt(local7 * local7 + local12 * local12 + local17 * local17);
             if (this.anInt5631 == 0) {
                 this.anInt5631 = 1;
             }
@@ -373,7 +373,7 @@ public final class SkyBoxSphere {
             local12 = (local12 << 8) / this.anInt5631;
             local17 = (local17 << 8) / this.anInt5631;
         }
-        @Pc(90) int local90 = (int) (Math.sqrt((double) (local7 * local7 + local12 * local12 + local17 * local17)) * 256.0D);
+        @Pc(90) int local90 = (int) (Math.sqrt(local7 * local7 + local12 * local12 + local17 * local17) * 256.0D);
         if (local90 > 128) {
             local7 = (local7 << 16) / local90;
             local12 = (local12 << 16) / local90;
@@ -396,8 +396,8 @@ public final class SkyBoxSphere {
         if (local143 != this.anInt5638) {
             this.anInt5638 = local143;
         }
-        this.anInt5639 = (int) (Math.asin((double) ((float) local12 / 256.0F)) * 2607.5945876176133D) & 0x3FFF;
-        this.anInt5628 = (int) (Math.atan2((double) local7, (double) -local17) * 2607.5945876176133D) & 0x3FFF;
+        this.anInt5639 = (int) (Math.asin((float) local12 / 256.0F) * 2607.5945876176133D) & 0x3FFF;
+        this.anInt5628 = (int) (Math.atan2(local7, -local17) * 2607.5945876176133D) & 0x3FFF;
         this.aSprite_24 = null;
         return true;
     }

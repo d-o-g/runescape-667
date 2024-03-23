@@ -288,7 +288,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(III)Lclient!tw;")
     public ResourceRequest fetchgroup_inner(@OriginalArg(0) int groupId, @OriginalArg(1) int mode) {
-        @Pc(19) ResourceRequest request = (ResourceRequest) this.waiting.get((long) groupId);
+        @Pc(19) ResourceRequest request = (ResourceRequest) this.waiting.get(groupId);
         if (request != null && mode == 0 && !request.urgent && request.incomplete) {
             request.unlink();
             request = null;
@@ -323,7 +323,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
                 throw new RuntimeException("Invalid fetchgroup mode!");
             }
 
-            this.waiting.put((long) groupId, request);
+            this.waiting.put(groupId, request);
         }
 
         if (request.incomplete) {

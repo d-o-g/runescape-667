@@ -173,7 +173,7 @@ public abstract class Video {
     @OriginalMember(owner = "client!lf", name = "d", descriptor = "(I)Z")
     public boolean isVideoBehind() {
         if (this.audioStream == null) {
-            @Pc(42) double frameRate = (double) this.videoStream.frameRate();
+            @Pc(42) double frameRate = this.videoStream.frameRate();
             return (frameRate == 0.0D) || ((double) SystemTimer.safetime() >= ((1000.0D / frameRate) + (double) this.videoStream.getLastDecodeTime()));
         } else {
             return !this.videoStream.isSetup() || (this.getTime() > this.videoStream.getTime());
@@ -204,7 +204,7 @@ public abstract class Video {
             @Pc(26) OggStream stream;
 
             if (this.aBoolean801) {
-                stream = (OggStream) this.streams.get((long) this.page.getSerialNumber());
+                stream = (OggStream) this.streams.get(this.page.getSerialNumber());
             } else {
                 stream = this.nextStream();
 

@@ -354,10 +354,10 @@ public final class Node_Sub8 extends Node {
                         local103 = local65 >> 16 & 0x7F;
                         if (local103 > 0) {
                             @Pc(182) int local182 = local16[local91];
-                            @Pc(190) Node_Sub55 local190 = (Node_Sub55) this.aIterableHashTable_8.get((long) local182);
+                            @Pc(190) Node_Sub55 local190 = (Node_Sub55) this.aIterableHashTable_8.get(local182);
                             if (local190 == null) {
                                 local190 = new Node_Sub55(new byte[128]);
-                                this.aIterableHashTable_8.put((long) local182, local190);
+                                this.aIterableHashTable_8.put(local182, local190);
                             }
                             local190.aByteArray105[local97] = 1;
                         }

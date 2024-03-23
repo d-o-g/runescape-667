@@ -31,7 +31,7 @@ public final class Class334 {
 
     @OriginalMember(owner = "client!sf", name = "a", descriptor = "(BI)Lclient!og;")
     public Interface18 method7654(@OriginalArg(1) int arg0) {
-        @Pc(12) Object local12 = this.aReferenceCache_187.get((long) arg0);
+        @Pc(12) Object local12 = this.aReferenceCache_187.get(arg0);
         if (local12 != null) {
             return (Interface18) local12;
         } else if (this.anTextureSource_9.textureAvailable(arg0)) {
@@ -51,7 +51,7 @@ public final class Class334 {
                 local105 = this.aClass19_Sub1_20.method8034(local35.aByte53 != 0, local45, local45, local79);
             }
             local105.method9052(local35.aBoolean236, local35.aBoolean235);
-            this.aReferenceCache_187.put(local105, (long) arg0);
+            this.aReferenceCache_187.put(local105, arg0);
             return local105;
         } else {
             return null;

@@ -75,7 +75,7 @@ public final class ClientInventory extends Node {
             @Pc(151) int local151 = local9;
             @Pc(153) boolean local153 = false;
             for (@Pc(155) int local155 = 0; local155 < local23.length; local155++) {
-                if (local23[local155] != -1 && !Static419.objTypeList.list(local23[local155]).loadedModels(female, (ObjTypeCustomisation) null)) {
+                if (local23[local155] != -1 && !Static419.objTypeList.list(local23[local155]).loadedModels(female, null)) {
                     local153 = true;
                 }
             }
@@ -85,7 +85,7 @@ public final class ClientInventory extends Node {
             @Pc(203) Mesh[] meshes = new Mesh[local23.length];
             for (@Pc(205) int local205 = 0; local205 < local23.length; local205++) {
                 if (local23[local205] != -1) {
-                    meshes[local205] = Static419.objTypeList.list(local23[local205]).playerModel((ObjTypeCustomisation) null, female);
+                    meshes[local205] = Static419.objTypeList.list(local23[local205]).playerModel(null, female);
                 }
             }
             @Pc(278) int tx;

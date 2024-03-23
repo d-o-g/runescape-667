@@ -16,7 +16,7 @@ public final class Static76 {
 
     @OriginalMember(owner = "client!cha", name = "a", descriptor = "(BLclient!ca;)V")
     public static void method1552(@OriginalArg(1) PlayerEntity arg0) {
-        @Pc(19) Node_Sub51 local19 = (Node_Sub51) Static113.A_HASH_TABLE___12.get((long) arg0.anInt10740);
+        @Pc(19) Node_Sub51 local19 = (Node_Sub51) Static113.A_HASH_TABLE___12.get(arg0.anInt10740);
         if (local19 == null) {
             return;
         }

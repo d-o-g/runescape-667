@@ -1079,7 +1079,7 @@ public final class Component {
     public void setParam(@OriginalArg(0) String value, @OriginalArg(1) int id) {
         if (this.params == null) {
             this.params = new IterableHashTable(16);
-            this.params.put((long) id, new StringNode(value));
+            this.params.put(id, new StringNode(value));
             return;
         }
 

@@ -199,7 +199,7 @@ public final class Js5WorkerThread {
                             @Pc(338) int compressedLength = this.read.g4();
                             @Pc(342) int compressionType = flags & 0x7F;
                             @Pc(354) boolean prefetch = (flags & 0x80) != 0;
-                            @Pc(361) long key = (long) ((archiveId << 16) + groupId);
+                            @Pc(361) long key = (archiveId << 16) + groupId;
 
                             @Pc(371) Js5WorkerRequestMessage message;
                             if (prefetch) {
@@ -413,7 +413,7 @@ public final class Js5WorkerThread {
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(IIBZB)Lclient!rja;")
     public Js5WorkerRequestMessage requestIndex(@OriginalArg(0) int archiveId, @OriginalArg(1) int groupId, @OriginalArg(3) boolean urgent, @OriginalArg(4) byte padding) {
-        @Pc(19) long key = (long) ((archiveId << 16) + groupId);
+        @Pc(19) long key = (archiveId << 16) + groupId;
         @Pc(23) Js5WorkerRequestMessage message = new Js5WorkerRequestMessage();
         message.urgent = urgent;
         message.padding = padding;

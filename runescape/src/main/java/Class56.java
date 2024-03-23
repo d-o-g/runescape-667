@@ -164,7 +164,7 @@ public class Class56 {
             }
             while (local11 > this.aLong128 + 5000L) {
                 this.method3584();
-                this.aLong128 += (long) (256000 / Audio.sampleRate);
+                this.aLong128 += 256000 / Audio.sampleRate;
                 local11 = SystemTimer.safetime();
             }
         } catch (@Pc(54) Exception exception) {

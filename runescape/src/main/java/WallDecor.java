@@ -54,7 +54,7 @@ public abstract class WallDecor extends Renderable implements Location {
     @Override
     public final boolean method9290(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
-            Static622.method6854((String) null, 109, (Toolkit_Sub3) null, (byte) 91);
+            Static622.method6854(null, 109, null, (byte) 91);
         }
         return false;
     }

@@ -86,7 +86,7 @@ public final class FileSystem_Client {
                         return null;
                     }
 
-                    this.datFile.seek((long) (block * 520));
+                    this.datFile.seek(block * 520);
 
                     @Pc(161) int remaining = size - read;
                     if (remaining > 512) {
@@ -134,7 +134,7 @@ public final class FileSystem_Client {
                     if (this.indexFile.length() < (long) (arg1 * 6 + 6)) {
                         return false;
                     }
-                    this.indexFile.seek((long) (arg1 * 6));
+                    this.indexFile.seek(arg1 * 6);
                     this.indexFile.read(6, buffer, 0);
                     local84 = (buffer[5] & 0xFF) + (((buffer[3] & 0xFF) << 16) + ((buffer[4] & 0xFF) << 8));
                     if (local84 <= 0 || this.datFile.length() / 520L < (long) local84) {
@@ -152,7 +152,7 @@ public final class FileSystem_Client {
                 buffer[1] = (byte) (arg2 >> 8);
                 buffer[5] = (byte) local84;
                 buffer[4] = (byte) (local84 >> 8);
-                this.indexFile.seek((long) (arg1 * 6));
+                this.indexFile.seek(arg1 * 6);
                 this.indexFile.write(0, 6, buffer);
                 @Pc(173) int local173 = 0;
                 @Pc(175) int local175 = 0;
@@ -163,7 +163,7 @@ public final class FileSystem_Client {
                             @Pc(181) int local181 = 0;
                             @Pc(217) int local217;
                             if (arg3) {
-                                this.datFile.seek((long) (local84 * 520));
+                                this.datFile.seek(local84 * 520);
                                 try {
                                     this.datFile.read(8, buffer, 0);
                                 } catch (@Pc(201) EOFException local201) {
@@ -201,7 +201,7 @@ public final class FileSystem_Client {
                             buffer[5] = (byte) (local181 >> 8);
                             buffer[6] = (byte) local181;
                             buffer[7] = (byte) this.fsid;
-                            this.datFile.seek((long) (local84 * 520));
+                            this.datFile.seek(local84 * 520);
                             this.datFile.write(0, 8, buffer);
                             local217 = arg2 - local173;
                             if (local217 > 512) {

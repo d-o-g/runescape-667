@@ -250,9 +250,9 @@ public class Animator {
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(IIZLclient!ka;)V")
     public final void animatePartial(@OriginalArg(0) int arg0, @OriginalArg(3) Model arg1) {
         if (this.method9111()) {
-            arg1.method7496(this.frameOffset, this.primarySequences.aClass2_Sub2_Sub18_1, this.primarySequences.aClass2_Sub2_Sub18_2, this.primarySequences.anInt6448, (int[]) null, this.animation.frameDurations[this.currentFrame], this.animation.rotateNormals, this.primarySequences.anInt6450, arg0);
+            arg1.method7496(this.frameOffset, this.primarySequences.aClass2_Sub2_Sub18_1, this.primarySequences.aClass2_Sub2_Sub18_2, this.primarySequences.anInt6448, null, this.animation.frameDurations[this.currentFrame], this.animation.rotateNormals, this.primarySequences.anInt6450, arg0);
             if (this.runSecondary && this.animation.secondaryFrames != null && this.secondarySequences.aBoolean481) {
-                arg1.method7496(this.frameOffset, this.secondarySequences.aClass2_Sub2_Sub18_1, this.secondarySequences.aClass2_Sub2_Sub18_2, this.secondarySequences.anInt6448, (int[]) null, this.animation.frameDurations[this.currentFrame], this.animation.rotateNormals, this.secondarySequences.anInt6450, arg0);
+                arg1.method7496(this.frameOffset, this.secondarySequences.aClass2_Sub2_Sub18_1, this.secondarySequences.aClass2_Sub2_Sub18_2, this.secondarySequences.anInt6448, null, this.animation.frameDurations[this.currentFrame], this.animation.rotateNormals, this.secondarySequences.anInt6450, arg0);
             }
         }
     }

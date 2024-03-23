@@ -165,7 +165,7 @@ public final class Class26_Sub8 extends Class26 {
     @Override
     public void method8286() {
         this.aClass19_Sub1_21.method8138(1);
-        this.aClass19_Sub1_21.method8088((Interface17) null);
+        this.aClass19_Sub1_21.method8088(null);
         this.aClass19_Sub1_21.method8094(Static209.aClass121_4, Static209.aClass121_4);
         this.aClass19_Sub1_21.method8080(0, Static189.aClass168_2);
         this.aClass19_Sub1_21.method8080(2, Static454.aClass168_5);
@@ -177,7 +177,7 @@ public final class Class26_Sub8 extends Class26 {
             this.aBoolean554 = false;
         }
         if (this.anIDirect3DVertexShader3 != null) {
-            this.aClass19_Sub1_Sub1_6.method4856((IDirect3DVertexShader) null);
+            this.aClass19_Sub1_Sub1_6.method4856(null);
             this.anIDirect3DVertexShader3 = null;
         }
     }

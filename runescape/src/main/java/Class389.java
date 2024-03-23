@@ -32,13 +32,13 @@ public final class Class389 {
 
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "(B)Lclient!wp;")
     public synchronized IndexedImage method8934() {
-        @Pc(13) IndexedImage local13 = (IndexedImage) this.myList.aReferenceCache_143.get((long) this.anInt10305);
+        @Pc(13) IndexedImage local13 = (IndexedImage) this.myList.aReferenceCache_143.get(this.anInt10305);
         if (local13 != null) {
             return local13;
         }
         local13 = IndexedImage.loadFirst(this.myList.aJs5_88, this.anInt10305, 0);
         if (local13 != null) {
-            this.myList.aReferenceCache_143.put(local13, (long) this.anInt10305);
+            this.myList.aReferenceCache_143.put(local13, this.anInt10305);
         }
         return local13;
     }

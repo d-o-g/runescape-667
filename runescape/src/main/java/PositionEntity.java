@@ -145,7 +145,7 @@ public abstract class PositionEntity extends Renderable {
     @Override
     public final boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1) {
         if (arg0 != 59) {
-            this.method9284((byte) -4, (Toolkit) null);
+            this.method9284((byte) -4, null);
         }
         return Static15.method188(this.aShort132, this.aShort134, this.method9278(arg1, -115), this.aShort133, this.aShort131, super.aByte143);
     }

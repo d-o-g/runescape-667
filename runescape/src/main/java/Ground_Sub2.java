@@ -130,7 +130,7 @@ public final class Ground_Sub2 extends Ground {
             for (@Pc(121) int local121 = 1; local121 < super.anInt8894; local121++) {
                 @Pc(140) int local140 = arg6[local121 + 1][local115] - arg6[local121 - 1][local115];
                 @Pc(157) int local157 = arg6[local121][local115 + 1] - arg6[local121][local115 - 1];
-                @Pc(176) float local176 = (float) (1.0D / Math.sqrt((double) (local157 * local157 + arg7 * 4 * arg7 + local140 * local140)));
+                @Pc(176) float local176 = (float) (1.0D / Math.sqrt(local157 * local157 + arg7 * 4 * arg7 + local140 * local140));
                 this.aFloatArrayArray14[local121][local115] = (float) local140 * local176;
                 this.aFloatArrayArray15[local121][local115] = (float) (-arg7 * 2) * local176;
                 this.aFloatArrayArray16[local121][local115] = local176 * (float) local157;
@@ -196,7 +196,7 @@ public final class Ground_Sub2 extends Ground {
         this.aClass19_Sub3_33.method6972(false);
         this.aClass19_Sub3_33.method7017(0);
         this.aClass19_Sub3_33.method7046(-2);
-        this.aClass19_Sub3_33.method7001((Class93) null);
+        this.aClass19_Sub3_33.method7001(null);
         Static699.aFloatArray81[5] = (float) 1024 / ((float) super.anInt8888 * 128.0F * (float) this.aClass19_Sub3_33.anInt7956);
         Static699.aFloatArray81[0] = (float) 1024 / ((float) this.aClass19_Sub3_33.anInt7869 * 128.0F * (float) super.anInt8888);
         Static699.aFloatArray81[2] = 0.0F;
@@ -802,7 +802,7 @@ public final class Ground_Sub2 extends Ground {
             }
             this.aClass19_Sub3_33.method7021(5890, 768, 0);
             this.aClass19_Sub3_33.method7029(0, 5890);
-            this.aClass19_Sub3_33.method7001((Class93) null);
+            this.aClass19_Sub3_33.method7001(null);
             this.aClass19_Sub3_33.L(local138, local252, this.aClass19_Sub3_33.anInt8009);
         }
         if (this.aClass170_1 == null) {
@@ -810,7 +810,7 @@ public final class Ground_Sub2 extends Ground {
         }
         OpenGL.glPushMatrix();
         OpenGL.glTranslatef(0.0F, -1.0F, 0.0F);
-        this.aClass19_Sub3_33.method7039((Class94) null, (Class94) null, this.aClass94_11, this.aClass94_14);
+        this.aClass19_Sub3_33.method7039(null, null, this.aClass94_11, this.aClass94_14);
         this.aClass170_1.method3542(arg2, arg0, arg5, arg1, arg4);
         OpenGL.glPopMatrix();
     }

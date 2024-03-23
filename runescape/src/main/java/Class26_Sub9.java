@@ -90,7 +90,7 @@ public final class Class26_Sub9 extends Class26 {
     @OriginalMember(owner = "client!qn", name = "e", descriptor = "(I)V")
     @Override
     public void method8286() {
-        this.aClass19_Sub1_Sub1_7.method4856((IDirect3DVertexShader) null);
+        this.aClass19_Sub1_Sub1_7.method4856(null);
         this.aClass19_Sub1_21.method8080(0, Static189.aClass168_2);
         this.aClass19_Sub1_21.method8080(1, Static207.aClass168_4);
         this.aClass19_Sub1_21.method8080(2, Static454.aClass168_5);

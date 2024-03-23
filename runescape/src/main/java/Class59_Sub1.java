@@ -13,7 +13,7 @@ public final class Class59_Sub1 extends Class59 {
 
     @OriginalMember(owner = "client!ce", name = "<init>", descriptor = "(I)V")
     public Class59_Sub1(@OriginalArg(0) int arg0) {
-        @Pc(11) Random local11 = new Random((long) arg0);
+        @Pc(11) Random local11 = new Random(arg0);
         for (@Pc(13) int local13 = 0; local13 < 256; local13++) {
             this.anIntArray146[local13] = this.anIntArray146[local13 + 256] = local13;
         }

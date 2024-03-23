@@ -201,10 +201,10 @@ public final class Model_Sub2 extends Model {
     @OriginalMember(owner = "client!kla", name = "<init>", descriptor = "(Lclient!qha;)V")
     public Model_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0) {
         this.aClass19_Sub3_24 = arg0;
-        this.aClass94_8 = new Class94((Interface12) null, 5126, 3, 0);
-        this.aClass94_9 = new Class94((Interface12) null, 5126, 2, 0);
-        this.aClass94_7 = new Class94((Interface12) null, 5126, 3, 0);
-        this.aClass94_6 = new Class94((Interface12) null, 5121, 4, 0);
+        this.aClass94_8 = new Class94(null, 5126, 3, 0);
+        this.aClass94_9 = new Class94(null, 5126, 2, 0);
+        this.aClass94_7 = new Class94(null, 5126, 3, 0);
+        this.aClass94_6 = new Class94(null, 5121, 4, 0);
         this.aClass136_1 = new Class136();
     }
 
@@ -214,16 +214,16 @@ public final class Model_Sub2 extends Model {
         this.anInt5520 = arg2;
         this.anInt5529 = arg5;
         if (Static277.method4044(arg2, arg5)) {
-            this.aClass94_8 = new Class94((Interface12) null, 5126, 3, 0);
+            this.aClass94_8 = new Class94(null, 5126, 3, 0);
         }
         if (Static240.method3483(arg2, arg5)) {
-            this.aClass94_9 = new Class94((Interface12) null, 5126, 2, 0);
+            this.aClass94_9 = new Class94(null, 5126, 2, 0);
         }
         if (Static279.method4074(arg5, arg2)) {
-            this.aClass94_7 = new Class94((Interface12) null, 5126, 3, 0);
+            this.aClass94_7 = new Class94(null, 5126, 3, 0);
         }
         if (Static116.method2142(arg2, arg5)) {
-            this.aClass94_6 = new Class94((Interface12) null, 5121, 4, 0);
+            this.aClass94_6 = new Class94(null, 5121, 4, 0);
         }
         if (Static340.method5012(arg5, arg2)) {
             this.aClass136_1 = new Class136();
@@ -404,7 +404,7 @@ public final class Model_Sub2 extends Model {
                 local989 >>= 0x1;
                 local980 >>= 0x1;
             }
-            @Pc(1056) int local1056 = (int) Math.sqrt((double) (local989 * local989 + local980 * local980 + local998 * local998));
+            @Pc(1056) int local1056 = (int) Math.sqrt(local989 * local989 + local980 * local980 + local998 * local998);
             if (local1056 <= 0) {
                 local1056 = 1;
             }
@@ -1011,8 +1011,8 @@ public final class Model_Sub2 extends Model {
         this.aShort69 = (short) local25;
         this.aShort66 = (short) local7;
         this.aShort62 = (short) local13;
-        this.aShort70 = (short) (int) (Math.sqrt((double) local27) + 0.99D);
-        this.aShort65 = (short) (int) (Math.sqrt((double) local29) + 0.99D);
+        this.aShort70 = (short) (int) (Math.sqrt(local27) + 0.99D);
+        this.aShort65 = (short) (int) (Math.sqrt(local29) + 0.99D);
         this.aBoolean424 = true;
     }
 
@@ -1229,7 +1229,7 @@ public final class Model_Sub2 extends Model {
         this.aClass19_Sub3_24.method7011();
         this.aClass19_Sub3_24.C(!this.aBoolean421);
         this.aClass19_Sub3_24.method7008(false);
-        this.aClass19_Sub3_24.method7039((Class94) null, (Class94) null, this.aClass19_Sub3_24.aClass94_15, this.aClass19_Sub3_24.aClass94_16);
+        this.aClass19_Sub3_24.method7039(null, null, this.aClass19_Sub3_24.aClass94_15, this.aClass19_Sub3_24.aClass94_16);
         for (@Pc(49) int local49 = 0; local49 < this.anInt5533; local49++) {
             @Pc(58) Class97 local58 = this.aClass97Array1[local49];
             @Pc(63) Class223 local63 = this.aClass223Array1[local49];
@@ -1240,7 +1240,7 @@ public final class Model_Sub2 extends Model {
                 @Pc(152) float local152 = Static9.aFloat1 + local138 * Static376.aFloat113 + Static393.aFloat117 * local94 + local115 * Static238.aFloat73;
                 @Pc(166) float local166 = Static209.aFloat70 + Static409.aFloat118 * local138 + Static91.aFloat208 * local115 + Static430.aFloat120 * local94;
                 @Pc(180) float local180 = local115 * Static188.aFloat65 + Static289.aFloat84 * local94 + Static190.aFloat66 * local138 + Static24.aFloat20;
-                @Pc(201) float local201 = (float) (1.0D / Math.sqrt((double) (local180 * local180 + local152 * local152 + local166 * local166))) * (float) local58.anInt2514;
+                @Pc(201) float local201 = (float) (1.0D / Math.sqrt(local180 * local180 + local152 * local152 + local166 * local166)) * (float) local58.anInt2514;
                 local16.method7144(local63.anInt5809 * local58.aShort30 >> 7, (float) local63.anInt5807 + local152 - local201 * local152, local63.anInt5803, local58.aShort32 * local63.anInt5802 >> 7, local201 * local180 - local180, local166 * local201 + ((float) local63.anInt5800 - local166));
                 this.aClass19_Sub3_24.method7012(local16);
                 @Pc(253) int local253 = local63.anInt5805;
@@ -2887,7 +2887,7 @@ public final class Model_Sub2 extends Model {
                     local516 = (float) (local500 >> 16 & 0xFF) * this.aClass19_Sub3_24.aFloat143;
                     @Pc(527) float local527 = (float) (local500 >> 8 & 0xFF) * this.aClass19_Sub3_24.aFloat137;
                     @Pc(536) float local536 = (float) (local500 >>> 24) * this.aClass19_Sub3_24.aFloat148;
-                    @Pc(541) short local541 = (short) local422[local505];
+                    @Pc(541) short local541 = local422[local505];
                     if (local541 == 0) {
                         local569 = (local454 * (float) local418[local505] + local442 * (float) local410[local505] + local448 * (float) local414[local505]) * 0.0026041667F;
                     } else {
@@ -2918,7 +2918,7 @@ public final class Model_Sub2 extends Model {
                     local203.p1(local656);
                     local203.p1(255 - (this.aByteArray54[local480] & 0xFF));
                     local505 = this.aShortArray71[local480];
-                    local541 = (short) local422[local505];
+                    local541 = local422[local505];
                     if (local541 == 0) {
                         local569 = (local454 * (float) local418[local505] + (float) local414[local505] * local448 + (float) local410[local505] * local442) * 0.0026041667F;
                     } else {
@@ -2949,7 +2949,7 @@ public final class Model_Sub2 extends Model {
                     local203.p1(local656);
                     local203.p1(255 - (this.aByteArray54[local480] & 0xFF));
                     local505 = this.aShortArray76[local480];
-                    local541 = (short) local422[local505];
+                    local541 = local422[local505];
                     if (local541 == 0) {
                         local569 = (local454 * (float) local418[local505] + (float) local410[local505] * local442 + local448 * (float) local414[local505]) * 0.0026041667F;
                     } else {

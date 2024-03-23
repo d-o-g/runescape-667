@@ -33,7 +33,7 @@ public final class Class101_Sub1 extends Class101 {
                 for (@Pc(45) int local45 = 0; local45 < 64; local45++) {
                     @Pc(55) float local55 = (float) local42 * 2.0F / 64.0F - 1.0F;
                     @Pc(64) float local64 = (float) local45 * 2.0F / 64.0F - 1.0F;
-                    @Pc(79) float local79 = (float) (1.0D / Math.sqrt((double) (local64 * local64 + local55 * local55 + 1.0F)));
+                    @Pc(79) float local79 = (float) (1.0D / Math.sqrt(local64 * local64 + local55 * local55 + 1.0F));
                     @Pc(83) float local83 = local55 * local79;
                     @Pc(87) float local87 = local64 * local79;
                     for (@Pc(89) int local89 = 0; local89 < 6; local89++) {
@@ -55,9 +55,9 @@ public final class Class101_Sub1 extends Class101 {
                         @Pc(144) int local144;
                         @Pc(142) int local142;
                         if (local115 > 0.0F) {
-                            local145 = (int) (Math.pow((double) local115, 96.0D) * (double) local26);
-                            local144 = (int) ((double) local26 * Math.pow((double) local115, 36.0D));
-                            local142 = (int) ((double) local26 * Math.pow((double) local115, 12.0D));
+                            local145 = (int) (Math.pow(local115, 96.0D) * (double) local26);
+                            local144 = (int) ((double) local26 * Math.pow(local115, 36.0D));
+                            local142 = (int) ((double) local26 * Math.pow(local115, 12.0D));
                         } else {
                             local142 = 0;
                             local144 = 0;
@@ -100,10 +100,10 @@ public final class Class101_Sub1 extends Class101 {
         if (this.aBoolean213) {
             if (!this.aBoolean212) {
                 super.aClass19_Sub3_42.method7014(2);
-                super.aClass19_Sub3_42.method7001((Class93) null);
+                super.aClass19_Sub3_42.method7001(null);
             }
             super.aClass19_Sub3_42.method7014(1);
-            super.aClass19_Sub3_42.method7001((Class93) null);
+            super.aClass19_Sub3_42.method7001(null);
             super.aClass19_Sub3_42.method7014(0);
             this.aClass36_1.method1005('\u0001');
             this.aBoolean213 = false;

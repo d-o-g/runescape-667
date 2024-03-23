@@ -92,7 +92,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
     @Override
     public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 > -93) {
-            this.method9278((Toolkit) null, 61);
+            this.method9278(null, 61);
         }
         return null;
     }
@@ -107,26 +107,26 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
     @Override
     public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
         if (arg2) {
-            this.method9278((Toolkit) null, 104);
+            this.method9278(null, 104);
         }
         @Pc(16) Matrix local16 = arg3.scratchMatrix();
         local16.method7125(super.x, super.anInt10691 - 10, super.z);
         @Pc(32) ObjType local32 = Static419.objTypeList.list(this.anInt8867);
-        @Pc(42) Model local42 = local32.model((Animator) null, 131072, (PlayerModel) null, this.anInt8873, arg3);
+        @Pc(42) Model local42 = local32.model(null, 131072, null, this.anInt8873, arg3);
         if (local42 != null && (Static504.aBoolean579 ? local42.pickedOrtho(arg1, arg0, local16, true, local32.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local32.picksizeshift))) {
             return true;
         }
         @Pc(82) ObjType local82;
         if (this.anInt8878 != -1) {
             local82 = Static419.objTypeList.list(this.anInt8878);
-            local42 = local82.model((Animator) null, 131072, (PlayerModel) null, this.anInt8874, arg3);
+            local42 = local82.model(null, 131072, null, this.anInt8874, arg3);
             if (local42 != null && (Static504.aBoolean579 ? local42.pickedOrtho(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local82.picksizeshift))) {
                 return true;
             }
         }
         if (this.anInt8876 != -1) {
             local82 = Static419.objTypeList.list(this.anInt8876);
-            local42 = local82.model((Animator) null, 131072, (PlayerModel) null, this.anInt8872, arg3);
+            local42 = local82.model(null, 131072, null, this.anInt8872, arg3);
             if (local42 != null && (Static504.aBoolean579 ? local42.pickedOrtho(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local82.picksizeshift))) {
                 return true;
             }
@@ -179,13 +179,13 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             @Pc(235) int local235 = local161 < local203 ? local161 : local203;
             @Pc(243) int local243 = local139 >= local182 ? local182 : local139;
             if (local115 != 0) {
-                @Pc(259) int local259 = (int) (Math.atan2((double) (local215 - local223), (double) local115) * 2607.5945876176133D) & 0x3FFF;
+                @Pc(259) int local259 = (int) (Math.atan2(local215 - local223, local115) * 2607.5945876176133D) & 0x3FFF;
                 if (local259 != 0) {
                     local94.rotateAxisX(local259);
                 }
             }
             if (local115 != 0) {
-                @Pc(285) int local285 = (int) (Math.atan2((double) (local243 - local235), (double) local115) * 2607.5945876176133D) & 0x3FFF;
+                @Pc(285) int local285 = (int) (Math.atan2(local243 - local235, local115) * 2607.5945876176133D) & 0x3FFF;
                 if (local285 != 0) {
                     local94.rotateAxisZ(-local285);
                 }
@@ -205,7 +205,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         this.aBoolean672 = false;
         @Pc(369) Model local369;
         if (this.anInt8876 != -1) {
-            local369 = Static419.objTypeList.list(this.anInt8876).model((Animator) null, 2048, (PlayerModel) null, this.anInt8872, arg0);
+            local369 = Static419.objTypeList.list(this.anInt8876).model(null, 2048, null, this.anInt8872, arg0);
             if (local369 != null) {
                 if (Static504.aBoolean579) {
                     local369.renderOrtho(local94, local345.aPickingCylinderArray1[2], Static582.anInt8627, 0);
@@ -217,7 +217,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             }
         }
         if (this.anInt8878 != -1) {
-            local369 = Static419.objTypeList.list(this.anInt8878).model((Animator) null, 2048, (PlayerModel) null, this.anInt8874, arg0);
+            local369 = Static419.objTypeList.list(this.anInt8878).model(null, 2048, null, this.anInt8874, arg0);
             if (local369 != null) {
                 if (Static504.aBoolean579) {
                     local369.renderOrtho(local94, local345.aPickingCylinderArray1[1], Static582.anInt8627, 0);
@@ -230,7 +230,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
                 }
             }
         }
-        local369 = Static419.objTypeList.list(this.anInt8867).model((Animator) null, 2048, (PlayerModel) null, this.anInt8873, arg0);
+        local369 = Static419.objTypeList.list(this.anInt8867).model(null, 2048, null, this.anInt8873, arg0);
         if (local369 != null) {
             if (Static504.aBoolean579) {
                 local369.renderOrtho(local94, local345.aPickingCylinderArray1[0], Static582.anInt8627, 0);

@@ -65,7 +65,7 @@ public final class Node_Sub1_Sub28 extends Node_Sub1 {
         }
         this.anIntArray724[this.anInt9415] = 4096;
         if (-3749 != -3749) {
-            this.method9416(true, (Packet) null, 96);
+            this.method9416(true, null, 96);
         }
         this.anIntArray725[this.anInt9415] = this.anIntArray725[0] + 4096;
     }

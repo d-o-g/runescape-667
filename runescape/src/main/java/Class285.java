@@ -59,10 +59,10 @@ public final class Class285 {
         if (this.anInt7181 < 0) {
             return null;
         }
-        @Pc(22) Sprite local22 = (Sprite) this.myList.aReferenceCache_121.get((long) this.anInt7181);
+        @Pc(22) Sprite local22 = (Sprite) this.myList.aReferenceCache_121.get(this.anInt7181);
         if (local22 == null) {
             this.method6455(arg0);
-            local22 = (Sprite) this.myList.aReferenceCache_121.get((long) this.anInt7181);
+            local22 = (Sprite) this.myList.aReferenceCache_121.get(this.anInt7181);
         }
         return local22;
     }
@@ -72,10 +72,10 @@ public final class Class285 {
         if (this.anInt7180 < 0) {
             return null;
         }
-        @Pc(29) Sprite local29 = (Sprite) this.myList.aReferenceCache_121.get((long) this.anInt7180);
+        @Pc(29) Sprite local29 = (Sprite) this.myList.aReferenceCache_121.get(this.anInt7180);
         if (local29 == null) {
             this.method6455(arg0);
-            local29 = (Sprite) this.myList.aReferenceCache_121.get((long) this.anInt7180);
+            local29 = (Sprite) this.myList.aReferenceCache_121.get(this.anInt7180);
         }
         return local29;
     }
@@ -85,10 +85,10 @@ public final class Class285 {
         if (this.anInt7187 < 0) {
             return null;
         }
-        @Pc(27) Sprite local27 = (Sprite) this.myList.aReferenceCache_121.get((long) this.anInt7187);
+        @Pc(27) Sprite local27 = (Sprite) this.myList.aReferenceCache_121.get(this.anInt7187);
         if (local27 == null) {
             this.method6455(arg0);
-            local27 = (Sprite) this.myList.aReferenceCache_121.get((long) this.anInt7187);
+            local27 = (Sprite) this.myList.aReferenceCache_121.get(this.anInt7187);
         }
         return local27;
     }
@@ -98,10 +98,10 @@ public final class Class285 {
         if (this.anInt7183 < 0) {
             return null;
         }
-        @Pc(20) Sprite local20 = (Sprite) this.myList.aReferenceCache_121.get((long) this.anInt7183);
+        @Pc(20) Sprite local20 = (Sprite) this.myList.aReferenceCache_121.get(this.anInt7183);
         if (local20 == null) {
             this.method6455(arg0);
-            local20 = (Sprite) this.myList.aReferenceCache_121.get((long) this.anInt7183);
+            local20 = (Sprite) this.myList.aReferenceCache_121.get(this.anInt7183);
         }
         return local20;
     }
@@ -110,21 +110,21 @@ public final class Class285 {
     public void method6455(@OriginalArg(1) Toolkit arg0) {
         @Pc(7) js5 local7 = this.myList.aJs5_76;
         @Pc(34) IndexedImage local34;
-        if (this.anInt7183 >= 0 && this.myList.aReferenceCache_121.get((long) this.anInt7183) == null && local7.fileready(this.anInt7183)) {
+        if (this.anInt7183 >= 0 && this.myList.aReferenceCache_121.get(this.anInt7183) == null && local7.fileready(this.anInt7183)) {
             local34 = IndexedImage.loadFirst(local7, this.anInt7183);
-            this.myList.aReferenceCache_121.put(arg0.createSprite(local34, true), (long) this.anInt7183);
+            this.myList.aReferenceCache_121.put(arg0.createSprite(local34, true), this.anInt7183);
         }
-        if (this.anInt7181 >= 0 && this.myList.aReferenceCache_121.get((long) this.anInt7181) == null && local7.fileready(this.anInt7181)) {
+        if (this.anInt7181 >= 0 && this.myList.aReferenceCache_121.get(this.anInt7181) == null && local7.fileready(this.anInt7181)) {
             local34 = IndexedImage.loadFirst(local7, this.anInt7181);
-            this.myList.aReferenceCache_121.put(arg0.createSprite(local34, true), (long) this.anInt7181);
+            this.myList.aReferenceCache_121.put(arg0.createSprite(local34, true), this.anInt7181);
         }
-        if (this.anInt7180 >= 0 && this.myList.aReferenceCache_121.get((long) this.anInt7180) == null && local7.fileready(this.anInt7180)) {
+        if (this.anInt7180 >= 0 && this.myList.aReferenceCache_121.get(this.anInt7180) == null && local7.fileready(this.anInt7180)) {
             local34 = IndexedImage.loadFirst(local7, this.anInt7180);
-            this.myList.aReferenceCache_121.put(arg0.createSprite(local34, true), (long) this.anInt7180);
+            this.myList.aReferenceCache_121.put(arg0.createSprite(local34, true), this.anInt7180);
         }
-        if (this.anInt7187 >= 0 && this.myList.aReferenceCache_121.get((long) this.anInt7187) == null && local7.fileready(this.anInt7187)) {
+        if (this.anInt7187 >= 0 && this.myList.aReferenceCache_121.get(this.anInt7187) == null && local7.fileready(this.anInt7187)) {
             local34 = IndexedImage.loadFirst(local7, this.anInt7187);
-            this.myList.aReferenceCache_121.put(arg0.createSprite(local34, true), (long) this.anInt7187);
+            this.myList.aReferenceCache_121.put(arg0.createSprite(local34, true), this.anInt7187);
         }
     }
 

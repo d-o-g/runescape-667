@@ -58,7 +58,7 @@ public final class Class101_Sub9 extends Class101 {
         super.aClass19_Sub3_42.method7014(1);
         @Pc(64) int local64;
         if ((arg1 & 0x80) != 0) {
-            super.aClass19_Sub3_42.method7001((Class93) null);
+            super.aClass19_Sub3_42.method7001(null);
         } else if ((arg0 & 0x1) != 1) {
             if (this.aClass329_6.aBoolean655) {
                 super.aClass19_Sub3_42.method7001(this.aClass329_6.aClass93_Sub3_2);
@@ -131,7 +131,7 @@ public final class Class101_Sub9 extends Class101 {
         if (this.aClass36_6 != null) {
             this.aClass36_6.method1005('\u0001');
             super.aClass19_Sub3_42.method7014(1);
-            super.aClass19_Sub3_42.method7001((Class93) null);
+            super.aClass19_Sub3_42.method7001(null);
             super.aClass19_Sub3_42.method7014(0);
         }
     }

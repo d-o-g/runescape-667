@@ -92,7 +92,7 @@ public final class OggVorbisStream extends OggStream {
         @Pc(35) float[][] local35 = this.dspState.pcmOut(this.vorbisInfo.channels);
         this.aDouble14 = this.dspState.granuleTime();
         if (this.aDouble14 == -1.0D) {
-            this.aDouble14 = (double) ((float) this.anInt4396 / (float) this.vorbisInfo.rate);
+            this.aDouble14 = (float) this.anInt4396 / (float) this.vorbisInfo.rate;
         }
         this.dspState.read(local35[0].length);
         this.anInt4396 += local35[0].length;

@@ -60,7 +60,7 @@ public abstract class Class8_Sub2_Sub5 extends Renderable {
     @Override
     public final boolean method9290(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
-            this.method9284((byte) -87, (Toolkit) null);
+            this.method9284((byte) -87, null);
         }
         return false;
     }

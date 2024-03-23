@@ -69,7 +69,7 @@ public final class BufferedFile {
 
             if (this.writePosition != -1L && this.virtualPosition >= this.writePosition && (long) len + this.virtualPosition <= (long) this.writeCount + this.writePosition) {
                 Arrays.copy(this.aByteArray67, (int) (this.virtualPosition - this.writePosition), data, off, len);
-                this.virtualPosition += (long) len;
+                this.virtualPosition += len;
                 return;
             }
 
@@ -82,7 +82,7 @@ public final class BufferedFile {
                 }
 
                 Arrays.copy(this.aByteArray66, (int) (this.virtualPosition - this.aLong199), data, off, local132);
-                this.virtualPosition += (long) local132;
+                this.virtualPosition += local132;
                 off = local132;
                 len -= local132;
             }
@@ -97,10 +97,10 @@ public final class BufferedFile {
                         break;
                     }
 
-                    this.virtualPosition += (long) local132;
+                    this.virtualPosition += local132;
                     len -= local132;
                     off += local132;
-                    this.aLong197 += (long) local132;
+                    this.aLong197 += local132;
                 }
             } else if (len > 0) {
                 this.fill();
@@ -110,7 +110,7 @@ public final class BufferedFile {
                 }
                 Arrays.copy(this.aByteArray66, 0, data, off, local132);
                 off += local132;
-                this.virtualPosition += (long) local132;
+                this.virtualPosition += local132;
                 len -= local132;
             }
 
@@ -177,7 +177,7 @@ public final class BufferedFile {
                 Arrays.copy(arg2, off, this.aByteArray67, (int) (this.virtualPosition - this.writePosition), local95);
                 off += local95;
                 len -= local95;
-                this.virtualPosition += (long) local95;
+                this.virtualPosition += local95;
                 this.writeCount = this.aByteArray67.length;
                 this.flush();
             }
@@ -190,7 +190,7 @@ public final class BufferedFile {
 
                 this.file.write(arg2, off, len);
 
-                this.aLong197 += (long) len;
+                this.aLong197 += len;
                 if (this.aLong197 > this.aLong196) {
                     this.aLong196 = this.aLong197;
                 }
@@ -214,14 +214,14 @@ public final class BufferedFile {
                     Arrays.copy(arg2, (int) (local188 + (long) off - this.virtualPosition), this.aByteArray66, (int) (local188 - this.aLong199), local324);
                 }
 
-                this.virtualPosition += (long) len;
+                this.virtualPosition += len;
             } else if (len > 0) {
                 if (this.writePosition == -1L) {
                     this.writePosition = this.virtualPosition;
                 }
 
                 Arrays.copy(arg2, off, this.aByteArray67, (int) (this.virtualPosition - this.writePosition), len);
-                this.virtualPosition += (long) len;
+                this.virtualPosition += len;
 
                 if ((long) this.writeCount < this.virtualPosition - this.writePosition) {
                     this.writeCount = (int) (this.virtualPosition - this.writePosition);
@@ -256,7 +256,7 @@ public final class BufferedFile {
             }
 
             this.anInt6212 += local61;
-            this.aLong197 += (long) local61;
+            this.aLong197 += local61;
         }
     }
 
@@ -289,7 +289,7 @@ public final class BufferedFile {
 
         this.file.write(this.aByteArray67, 0, this.writeCount);
 
-        this.aLong197 += (long) this.writeCount;
+        this.aLong197 += this.writeCount;
         if (this.aLong197 > this.aLong196) {
             this.aLong196 = this.aLong197;
         }

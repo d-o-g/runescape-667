@@ -225,7 +225,7 @@ public final class Sprite_Sub2 extends Sprite {
         OpenGL.glEnd();
         this.aClass19_Sub3_28.method7021(5890, 768, 0);
         this.aClass19_Sub3_28.method6991(0);
-        this.aClass19_Sub3_28.method7001((Class93) null);
+        this.aClass19_Sub3_28.method7001(null);
         this.aClass19_Sub3_28.method7014(0);
     }
 
@@ -270,7 +270,7 @@ public final class Sprite_Sub2 extends Sprite {
         OpenGL.glEnd();
         this.aClass19_Sub3_28.method7021(5890, 768, 0);
         this.aClass19_Sub3_28.method6991(0);
-        this.aClass19_Sub3_28.method7001((Class93) null);
+        this.aClass19_Sub3_28.method7001(null);
         this.aClass19_Sub3_28.method7014(0);
     }
 
@@ -392,7 +392,7 @@ public final class Sprite_Sub2 extends Sprite {
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(I)V")
     public void method5422() {
         this.aClass19_Sub3_28.method7014(1);
-        this.aClass19_Sub3_28.method7001((Class93) null);
+        this.aClass19_Sub3_28.method7001(null);
         this.aClass19_Sub3_28.method7031(8448, 8448);
         this.aClass19_Sub3_28.method7021(34168, 768, 1);
         this.aClass19_Sub3_28.method7029(0, 5890);

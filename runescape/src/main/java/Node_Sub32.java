@@ -92,7 +92,7 @@ public final class Node_Sub32 extends Node {
                     if (local146 > 0 && local146 < this.aClass178_Sub1_1.anInt8894 - 1) {
                         local178 = arg1.getHeight(local123, local146 + 1) - arg1.getHeight(local123, local146 - 1);
                         local195 = arg1.getHeight(local123 + 1, local146) - arg1.getHeight(local123 - 1, local146);
-                        @Pc(210) float local210 = (float) (1.0D / Math.sqrt((double) (local195 * local195 + local178 * local178 + 65536)));
+                        @Pc(210) float local210 = (float) (1.0D / Math.sqrt(local195 * local195 + local178 * local178 + 65536));
                         this.aFloatArrayArray8[local139][local116] = (float) local178 * local210;
                         this.aFloatArrayArray7[local139][local116] = local210 * -256.0F;
                         this.aFloatArrayArray6[local139][local116] = local210 * (float) local195;
@@ -294,7 +294,7 @@ public final class Node_Sub32 extends Node {
         local214 = (float) (this.aClass2_Sub7_1.getX() - local15);
         local222 = (float) (this.aClass2_Sub7_1.getY() - local30);
         local229 = (float) (this.aClass2_Sub7_1.getZ() - local23);
-        local236 = (float) Math.sqrt((double) (local222 * local222 + local214 * local214 + local229 * local229));
+        local236 = (float) Math.sqrt(local222 * local222 + local214 * local214 + local229 * local229);
         local243 = 1.0F / local236;
         local214 *= local243;
         local222 *= local243;
@@ -366,7 +366,7 @@ public final class Node_Sub32 extends Node {
             }
         }
         if (arg2 <= 43) {
-            this.method4564(119, 109, (byte) 93, 25, (boolean[][]) null);
+            this.method4564(119, 109, (byte) 93, 25, null);
         }
     }
 }

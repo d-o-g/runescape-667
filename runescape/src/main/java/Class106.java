@@ -65,7 +65,7 @@ public final class Class106 implements Interface16 {
             if (this.anIDirect3DVertexBuffer1 != null) {
                 this.anIDirect3DVertexBuffer1.a(111);
             }
-            this.anIDirect3DVertexBuffer1 = this.aClass19_Sub1_Sub1_4.anIDirect3DDevice1.a(this.anInt2619, local17, 0, local26, (IDirect3DVertexBuffer) this.anIDirect3DVertexBuffer1);
+            this.anIDirect3DVertexBuffer1 = this.aClass19_Sub1_Sub1_4.anIDirect3DDevice1.a(this.anInt2619, local17, 0, local26, this.anIDirect3DVertexBuffer1);
             this.anInt2620 = this.anInt2619;
         }
         return this.anIDirect3DVertexBuffer1 != null;

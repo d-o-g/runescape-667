@@ -122,7 +122,7 @@ public final class Class337 {
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Z)I")
     public int method7673(@OriginalArg(0) boolean arg0) {
         if (!arg0) {
-            this.method7678((Toolkit) null, false, false, false, 98);
+            this.method7678(null, false, false, false, 98);
         }
         return this.anInt8652;
     }
@@ -264,7 +264,7 @@ public final class Class337 {
                 if (arg3) {
                     this.aClass2_Sub2_Sub9_6 = local389.shadow;
                     this.aBooleanArray27 = null;
-                    Static630.method8357(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aRenderable_21.x, this.aRenderable_21.z, (boolean[]) null);
+                    Static630.method8357(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aRenderable_21.x, this.aRenderable_21.z, null);
                     this.aBoolean662 = true;
                 }
                 this.anInt8660 = local171.fa();
@@ -329,9 +329,9 @@ public final class Class337 {
         }
         arg1.method7476(arg8);
         if (arg2) {
-            this.aParticleSystem_7.method3643(arg4, (long) TimeUtils.clock, local11, local14);
+            this.aParticleSystem_7.method3643(arg4, TimeUtils.clock, local11, local14);
         } else {
-            this.aParticleSystem_7.method3649((long) TimeUtils.clock);
+            this.aParticleSystem_7.method3649(TimeUtils.clock);
         }
         this.aParticleSystem_7.method3658(this.aByte132, arg6, arg5, arg7, arg0);
     }

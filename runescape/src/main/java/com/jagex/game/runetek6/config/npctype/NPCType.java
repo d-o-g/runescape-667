@@ -517,7 +517,7 @@ public final class NPCType {
                     param = new IntNode(packet.g4());
                 }
 
-                this.params.put((long) id, param);
+                this.params.put(id, param);
             }
         }
     }
@@ -548,7 +548,7 @@ public final class NPCType {
             newFunctionMask = animator.functionMask() | 0x800;
         }
 
-        @Pc(71) long key = (long) ((toolkit.index << 16) | this.id);
+        @Pc(71) long key = (toolkit.index << 16) | this.id;
         if (customisation != null) {
             key |= customisation.id << 24;
         }
@@ -702,7 +702,7 @@ public final class NPCType {
             animated = true;
         }
 
-        @Pc(116) long key = (long) (this.id | toolkit.index << 16);
+        @Pc(116) long key = this.id | toolkit.index << 16;
         if (customisation != null) {
             key |= customisation.id << 24;
         }

@@ -26,7 +26,7 @@ public final class Static499 {
         } else if (arg0 == 'Œ') {
             return 'E';
         } else {
-            return (char) (arg0 == 'œ' ? 'e' : '\u0000');
+            return arg0 == 'œ' ? 'e' : '\u0000';
         }
     }
 }

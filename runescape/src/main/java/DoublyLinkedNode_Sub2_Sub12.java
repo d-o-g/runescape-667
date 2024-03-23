@@ -91,7 +91,7 @@ public final class DoublyLinkedNode_Sub2_Sub12 extends Node2 {
             }
             @Pc(22) int local22 = this.method3898(local15).anInt4576;
             if (local22 > 0) {
-                arg0.pVarLong(local22, (long) arg1[local15]);
+                arg0.pVarLong(local22, arg1[local15]);
             }
         }
     }

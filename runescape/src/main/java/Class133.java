@@ -44,7 +44,7 @@ public final class Class133 implements Interface13 {
     public void method7749() {
         @Pc(27) int local27 = this.aClass125_1.aClass403_2.method9332(client.loadingScreenWidth, this.aClass125_1.anInt2865) + this.aClass125_1.anInt2868;
         @Pc(41) int local41 = this.aClass125_1.aClass103_3.method2416(client.loadingScreenHeight, this.aClass125_1.anInt2859) + this.aClass125_1.anInt2869;
-        this.aFont_4.renderLines(0, (int[]) null, this.aClass125_1.anInt2867, this.aClass125_1.aString30, (ClippingMask) null, (Sprite[]) null, local41, this.aClass125_1.anInt2862, 0, this.aClass125_1.anInt2860, local27, this.aClass125_1.anInt2870, this.aClass125_1.anInt2866, this.aClass125_1.anInt2865, this.aClass125_1.anInt2859);
+        this.aFont_4.renderLines(0, null, this.aClass125_1.anInt2867, this.aClass125_1.aString30, null, null, local41, this.aClass125_1.anInt2862, 0, this.aClass125_1.anInt2860, local27, this.aClass125_1.anInt2870, this.aClass125_1.anInt2866, this.aClass125_1.anInt2865, this.aClass125_1.anInt2859);
     }
 
     @OriginalMember(owner = "client!fo", name = "b", descriptor = "(I)Z")

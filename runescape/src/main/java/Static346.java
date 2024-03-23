@@ -32,7 +32,7 @@ public final class Static346 {
         @Pc(33) int local33;
         for (@Pc(25) int local25 = 0; local25 < Static78.anInt1622; local25++) {
             local33 = Static118.anIntArray197[local25];
-            @Pc(40) Node_Sub45 local40 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local33);
+            @Pc(40) Node_Sub45 local40 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local33);
             @Pc(43) NPCEntity local43 = local40.aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local43.anInt10751 != Static572.anInt8896) {
                 if (MiniMenu.open && Static321.method4622(local33)) {
@@ -41,7 +41,7 @@ public final class Static346 {
                 if (local43.type.hasSounds()) {
                     Static58.method1259(local43);
                 }
-                local43.method9328((NPCType) null);
+                local43.method9328(null);
                 local40.unlink();
                 local23 = true;
             }
@@ -54,7 +54,7 @@ public final class Static346 {
             throw new RuntimeException("gnp1 pos:" + ConnectionManager.GAME.buffer.pos + " psize:" + ConnectionManager.GAME.currentPacketSize);
         }
         for (local33 = 0; local33 < Static390.anInt6126; local33++) {
-            if (Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local33]) == null) {
+            if (Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local33]) == null) {
                 throw new RuntimeException("gnp2 pos:" + local33 + " size:" + Static390.anInt6126);
             }
         }

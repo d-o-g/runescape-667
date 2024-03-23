@@ -59,9 +59,9 @@ public final class Static592 {
         @Pc(259) int local259 = local9 - Static170.anInt2864;
         @Pc(264) int local264 = local24 - Static359.anInt5801;
         @Pc(269) int local269 = local15 - Static110.anInt2186;
-        @Pc(280) int local280 = (int) Math.sqrt((double) (local269 * local269 + local259 * local259));
-        @Pc(291) int local291 = (int) (Math.atan2((double) local264, (double) local280) * 2607.5945876176133D) & 0x3FFF;
-        @Pc(302) int local302 = (int) (-2607.5945876176133D * Math.atan2((double) local259, (double) local269)) & 0x3FFF;
+        @Pc(280) int local280 = (int) Math.sqrt(local269 * local269 + local259 * local259);
+        @Pc(291) int local291 = (int) (Math.atan2(local264, local280) * 2607.5945876176133D) & 0x3FFF;
+        @Pc(302) int local302 = (int) (-2607.5945876176133D * Math.atan2(local259, local269)) & 0x3FFF;
         if (local291 < 1024) {
             local291 = 1024;
         }

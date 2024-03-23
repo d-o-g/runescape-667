@@ -446,7 +446,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
             super.aModelArray3[local53] = null;
         }
         if (arg1 != -5) {
-            this.method9278((Toolkit) null, -21);
+            this.method9278(null, -21);
         }
     }
 

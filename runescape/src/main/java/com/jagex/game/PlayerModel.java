@@ -208,7 +208,7 @@ public final class PlayerModel {
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!es;Lclient!gu;IZLclient!qp;Lclient!bp;I[ILclient!vl;Lclient!kr;Lclient!ha;Lclient!ql;[Lclient!gu;ILclient!gu;Lclient!uk;)Lclient!ka;")
     public Model bodyModel(@OriginalArg(0) ObjTypeList objTypeList, @OriginalArg(1) Animator animator, @OriginalArg(4) BASTypeList basTypeList, @OriginalArg(5) SeqTypeList arg3, @OriginalArg(6) int functionMask, @OriginalArg(7) int[] arg5, @OriginalArg(8) WearposDefaults wearposDefaults, @OriginalArg(9) IDKTypeList idkTypeList, @OriginalArg(10) Toolkit toolkit, @OriginalArg(11) NPCTypeList npcTypeList, @OriginalArg(12) Animator[] animators, @OriginalArg(13) int arg11, @OriginalArg(14) Animator arg12, @OriginalArg(15) VarDomain varDomain) {
         if (this.npcId != -1) {
-            return npcTypeList.list(this.npcId).getModel(varDomain, toolkit, basTypeList, animator, arg11, arg5, (NPCTypeCustomisation) null, arg12, functionMask, animators);
+            return npcTypeList.list(this.npcId).getModel(varDomain, toolkit, basTypeList, animator, arg11, arg5, null, arg12, functionMask, animators);
         }
         @Pc(28) int newFunctionMask = functionMask;
         @Pc(31) long hash = this.hash;
@@ -257,7 +257,7 @@ public final class PlayerModel {
                         for (local116 = 0; local116 < wearposDefaults.animationHiddenRightHandSlots.length; local116++) {
                             identikit[wearposDefaults.animationHiddenRightHandSlots[local116]] = 0;
                         }
-                        hash ^= (long) identikit[wearposDefaults.rightHandSlot];
+                        hash ^= identikit[wearposDefaults.rightHandSlot];
                     }
                 }
             }
@@ -603,7 +603,7 @@ public final class PlayerModel {
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!kr;BLclient!bp;Lclient!uk;Lclient!gu;Lclient!es;Lclient!ql;Lclient!ha;I)Lclient!ka;")
     public Model wornHeadModel(@OriginalArg(0) IDKTypeList idkTypeList, @OriginalArg(2) SeqTypeList seqTypeList, @OriginalArg(3) VarDomain varDomain, @OriginalArg(4) Animator animator, @OriginalArg(5) ObjTypeList objTypeList, @OriginalArg(6) NPCTypeList npcTypeList, @OriginalArg(7) Toolkit toolkit, @OriginalArg(8) int functionMask) {
         if (this.npcId != -1) {
-            return npcTypeList.list(this.npcId).headModel(functionMask, animator, (NPCTypeCustomisation) null, toolkit, varDomain);
+            return npcTypeList.list(this.npcId).headModel(functionMask, animator, null, toolkit, varDomain);
         }
 
         @Pc(35) int newFunctionMask = animator == null ? functionMask : animator.functionMask() | 0x800;

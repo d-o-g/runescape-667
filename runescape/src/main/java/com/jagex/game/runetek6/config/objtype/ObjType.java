@@ -938,7 +938,7 @@ public final class ObjType {
         @Pc(87) ReferenceCache local87 = this.myList.modelCache;
         @Pc(104) Model model;
         synchronized (this.myList.modelCache) {
-            model = (Model) this.myList.modelCache.get((long) (this.myid | toolkit.index << 29));
+            model = (Model) this.myList.modelCache.get(this.myid | toolkit.index << 29);
         }
 
         if (model == null || toolkit.compareFunctionMasks(model.ua(), newFunctionMask) != 0) {
@@ -1006,7 +1006,7 @@ public final class ObjType {
             model.s(newFunctionMask);
             @Pc(426) ReferenceCache local426 = this.myList.modelCache;
             synchronized (this.myList.modelCache) {
-                this.myList.modelCache.put(model, (long) (this.myid | toolkit.index << 29));
+                this.myList.modelCache.put(model, this.myid | toolkit.index << 29);
             }
         }
 

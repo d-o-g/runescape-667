@@ -719,8 +719,8 @@ public final class LocType {
             shape = LocShapes.WALLDECOR_STRAIGHT_NOOFFSET;
         }
 
-        @Pc(21) long key = (long) (rotation + (this.id << 10) + (shape << 3));
-        key |= (long) (toolkit.index << 29);
+        @Pc(21) long key = rotation + (this.id << 10) + (shape << 3);
+        key |= toolkit.index << 29;
         if (customisation != null) {
             key |= customisation.id << 32;
         }
@@ -757,7 +757,7 @@ public final class LocType {
             shadow = modelAndShadow.shadow;
 
             if (addShadow && shadow == null) {
-                shadow = modelAndShadow.shadow = model.ba((Shadow) null);
+                shadow = modelAndShadow.shadow = model.ba(null);
             }
         } else {
             if (model != null) {
@@ -779,7 +779,7 @@ public final class LocType {
             }
 
             if (addShadow) {
-                shadow = model.ba((Shadow) null);
+                shadow = model.ba(null);
             }
 
             model.s(newFunctionMask);
@@ -823,9 +823,9 @@ public final class LocType {
             shape = LocShapes.WALLDECOR_STRAIGHT_NOOFFSET;
         }
 
-        @Pc(22) long key = (long) ((this.id << 10) + ((shape << 3) + rotation));
+        @Pc(22) long key = (this.id << 10) + ((shape << 3) + rotation);
         @Pc(24) int functionMaskBefore = functionMask;
-        key |= (long) (toolkit.index << 29);
+        key |= toolkit.index << 29;
         if (customisation != null) {
             key |= customisation.id << 32;
         }
@@ -973,7 +973,7 @@ public final class LocType {
         @Pc(179) int[] models = (customisation != null && customisation.models != null) ? customisation.models : this.models[shapeIndex];
         @Pc(182) int modelCount = models.length;
         if (modelCount > 0) {
-            @Pc(191) long key = (long) toolkit.index;
+            @Pc(191) long key = toolkit.index;
             for (@Pc(193) int i = 0; i < modelCount; i++) {
                 key = (key * 67783L) + (long) models[i];
             }

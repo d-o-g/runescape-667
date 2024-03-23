@@ -62,7 +62,7 @@ public final class Static556 {
             } else if (local55.anInt7317 != -1) {
                 local65 = Static419.objTypeList.list(local55.anInt7317).quests;
             } else if (Static598.method7825(local55.anInt7314)) {
-                @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) local55.aLong233);
+                @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((int) local55.aLong233);
                 if (local93 != null) {
                     @Pc(98) NPCEntity local98 = local93.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                     @Pc(101) NPCType local101 = local98.type;
@@ -109,7 +109,7 @@ public final class Static556 {
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(IBZ)Lclient!gfa;")
     public static ClientInventory method7303(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
-        @Pc(19) long local19 = (long) (arg0 | (arg1 ? Integer.MIN_VALUE : 0));
+        @Pc(19) long local19 = arg0 | (arg1 ? Integer.MIN_VALUE : 0);
         return (ClientInventory) Static286.A_HASH_TABLE___23.get(local19);
     }
 }

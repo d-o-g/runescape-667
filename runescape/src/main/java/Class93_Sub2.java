@@ -65,7 +65,7 @@ public class Class93_Sub2 extends Class93 {
         this.anInt3248 = arg3;
         this.anInt3255 = arg4;
         super.aClass19_Sub3_43.method7001(this);
-        OpenGL.glTexImage2Dub(super.anInt10912, 0, super.anInt10911, arg3, arg4, 0, Static391.method5505(super.anInt10911), OpenGL.GL_UNSIGNED_BYTE, (byte[]) null, 0);
+        OpenGL.glTexImage2Dub(super.anInt10912, 0, super.anInt10911, arg3, arg4, 0, Static391.method5505(super.anInt10911), OpenGL.GL_UNSIGNED_BYTE, null, 0);
         this.method9438(true);
     }
 

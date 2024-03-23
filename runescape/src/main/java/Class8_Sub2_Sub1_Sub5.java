@@ -62,7 +62,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
             this.aParticleSystem = ParticleSystem.create(TimeUtils.clock, true);
         }
         if (this.aParticleSystem != null) {
-            this.aParticleSystem.method3643(arg2, (long) TimeUtils.clock, local9, local19);
+            this.aParticleSystem.method3643(arg2, TimeUtils.clock, local9, local19);
             this.aParticleSystem.method3658(super.level, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
         }
     }
@@ -72,7 +72,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
         @Pc(8) Class227 local8 = Static23.aClass128_1.list(arg0);
         @Pc(22) Ground local22 = Static706.aGroundArray3[super.level];
         @Pc(36) Ground local36 = super.aByte143 < 3 ? Static706.aGroundArray3[super.aByte143 + 1] : null;
-        return this.aAnimator_8 == null || this.aAnimator_8.isFinished() ? local8.method5249((byte) 2, true, super.z, (Animator) null, local36, super.x, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.z, this.aAnimator_8, local36, super.x, local22, arg2, super.anInt10691, arg1);
+        return this.aAnimator_8 == null || this.aAnimator_8.isFinished() ? local8.method5249((byte) 2, true, super.z, null, local36, super.x, local22, arg2, super.anInt10691, arg1) : local8.method5249((byte) 2, true, super.z, this.aAnimator_8, local36, super.x, local22, arg2, super.anInt10691, arg1);
     }
 
     @OriginalMember(owner = "client!pja", name = "finalize", descriptor = "()V")
@@ -87,7 +87,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
-            this.method9289((Toolkit) null, 72);
+            this.method9289(null, 72);
         }
         @Pc(20) Model local20 = this.method6594(this.anInt7402, arg0, 0);
         if (local20 != null) {
@@ -170,7 +170,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
     @Override
     public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 >= -93) {
-            this.method9279(-78, 64, true, (Toolkit) null);
+            this.method9279(-78, 64, true, null);
         }
         return null;
     }
@@ -179,7 +179,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
     @Override
     public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
         if (arg4 < 101) {
-            this.method9276((Toolkit) null);
+            this.method9276(null);
         }
         throw new IllegalStateException();
     }

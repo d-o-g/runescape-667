@@ -33,7 +33,7 @@ public final class Static115 {
             }
         }
         if (arg0 == -1 && Static470.anInt7112 != -1) {
-            SignLink.instance.method8995(GameShell.canvas, (int[]) null, new Point(), -1, -1);
+            SignLink.instance.method8995(GameShell.canvas, null, new Point(), -1, -1);
             Static470.anInt7112 = -1;
         }
     }

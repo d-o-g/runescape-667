@@ -89,7 +89,7 @@ public final class Class101_Sub2 extends Class101 {
         this.aClass36_2.method1005('\u0001');
         if (super.aClass19_Sub3_42.anInt8008 > 0) {
             super.aClass19_Sub3_42.method7014(1);
-            super.aClass19_Sub3_42.method7001((Class93) null);
+            super.aClass19_Sub3_42.method7001(null);
             super.aClass19_Sub3_42.method6995(1.0F, 0.0F);
             super.aClass19_Sub3_42.method7014(0);
         }

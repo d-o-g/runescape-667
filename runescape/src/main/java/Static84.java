@@ -41,7 +41,7 @@ public final class Static84 {
                 if (local21 < local1) {
                     local36 = PlayerList.highResolutionPlayers[local3[local21]];
                 } else {
-                    local36 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local21 - local1])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    local36 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local21 - local1])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
                 if (local36.drawPriority < 0) {
                     continue;
@@ -82,7 +82,7 @@ public final class Static84 {
                 if (local21 < local1) {
                     local36 = PlayerList.highResolutionPlayers[local3[local21]];
                 } else {
-                    local36 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local21 - local1])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    local36 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local21 - local1])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
                 if (local36.level != arg0) {
                     continue;
@@ -190,7 +190,7 @@ public final class Static84 {
             }
         }
         for (@Pc(155) int local155 = 0; local155 < Static390.anInt6126; local155++) {
-            @Pc(166) NPCEntity local166 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local155])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(166) NPCEntity local166 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local155])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local166.method9322() && local166.type.isVisible(TimedVarDomain.instance)) {
                 local166.method9294();
                 if (local166.aShort131 >= 0 && local166.aShort132 >= 0 && local166.aShort134 < Static720.mapWidth && local166.aShort133 < Static501.mapHeight) {
@@ -232,7 +232,7 @@ public final class Static84 {
             @Pc(292) Class254 local292 = Static527.aClass254Array1[local103];
             if (local292 != null) {
                 if (local292.anInt6363 == 1) {
-                    @Pc(308) Node_Sub45 local308 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local292.anInt6366);
+                    @Pc(308) Node_Sub45 local308 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local292.anInt6366);
                     if (local308 != null) {
                         @Pc(313) NPCEntity local313 = local308.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                         if (local313.drawPriority >= 0) {
@@ -300,7 +300,7 @@ public final class Static84 {
     public static void method1664() {
         Static172.anInt2893 = 0;
         for (@Pc(3) int local3 = 0; local3 < Static390.anInt6126; local3++) {
-            @Pc(14) NPCEntity local14 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local3])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(14) NPCEntity local14 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local3])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             if (local14.aBoolean816 && local14.method9304((byte) -123) != -1) {
                 @Pc(34) int local34 = (local14.boundSize((byte) 63) - 1) * 256 + 252;
                 @Pc(41) int local41 = local14.x - local34 >> 9;
@@ -359,7 +359,7 @@ public final class Static84 {
                 if (local16 < local1) {
                     local31 = PlayerList.highResolutionPlayers[local3[local16]];
                 } else {
-                    local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local16 - local1])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    local31 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local16 - local1])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
                 if (local31.level != arg0 || local31.drawPriority < 0) {
                     continue;

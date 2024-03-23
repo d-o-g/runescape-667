@@ -101,7 +101,7 @@ public final class Node_Sub1_Sub24 extends Node_Sub1 {
             super.aBoolean824 = arg1.g1() == 1;
         }
         if (arg0) {
-            this.method9416(false, (Packet) null, -67);
+            this.method9416(false, null, -67);
         }
     }
 }

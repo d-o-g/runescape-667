@@ -165,7 +165,7 @@ public final class LocTypeList {
         @Pc(12) ReferenceCache local12 = this.recentUse;
         @Pc(22) LocType type;
         synchronized (this.recentUse) {
-            type = (LocType) this.recentUse.get((long) id);
+            type = (LocType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;

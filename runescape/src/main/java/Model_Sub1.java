@@ -380,7 +380,7 @@ public final class Model_Sub1 extends Model {
                 local899 >>= 0x1;
                 local891 >>= 0x1;
             }
-            @Pc(957) int local957 = (int) Math.sqrt((double) (local891 * local891 + local882 * local882 + local899 * local899));
+            @Pc(957) int local957 = (int) Math.sqrt(local891 * local891 + local882 * local882 + local899 * local899);
             if (local957 <= 0) {
                 local957 = 1;
             }
@@ -1120,7 +1120,7 @@ public final class Model_Sub1 extends Model {
                 @Pc(151) float local151 = local137 * Static53.aFloat28 + local116 * Static18.aFloat2 + local94 * Static305.aFloat86 + Static279.aFloat82;
                 @Pc(165) float local165 = Static706.aFloat217 + Static654.aFloat209 * local137 + Static348.aFloat107 * local94 + local116 * Static580.aFloat176;
                 @Pc(179) float local179 = local137 * Static382.aFloat114 + Static624.aFloat198 * local116 + local94 * Static355.aFloat111 + Static115.aFloat50;
-                @Pc(200) float local200 = (float) (1.0D / Math.sqrt((double) (local179 * local179 + local165 * local165 + local151 * local151))) * (float) local57.anInt7576;
+                @Pc(200) float local200 = (float) (1.0D / Math.sqrt(local179 * local179 + local165 * local165 + local151 * local151)) * (float) local57.anInt7576;
                 @Pc(205) Matrix_Sub1 local205 = this.aClass19_Sub1_6.method8040();
                 local205.method1893(local179 - local179 * local200, local62.anInt266 * local57.aShort98 >> 7, local62.anInt268 * local57.aShort99 >> 7, (float) local62.anInt263 + local165 - local165 * local200, (float) local62.anInt262 + local151 - local151 * local200, local62.anInt267);
                 local205.method1878(this.aClass19_Sub1_6.aClass73_Sub1_17);
@@ -3543,8 +3543,8 @@ public final class Model_Sub1 extends Model {
         this.anInt2768 = local9;
         this.anInt2771 = local25;
         this.anInt2758 = local19;
-        this.anInt2701 = (int) (Math.sqrt((double) local27) + 0.99D);
-        this.anInt2708 = (int) (Math.sqrt((double) local29) + 0.99D);
+        this.anInt2701 = (int) (Math.sqrt(local27) + 0.99D);
+        this.anInt2708 = (int) (Math.sqrt(local29) + 0.99D);
         this.aBoolean232 = true;
     }
 

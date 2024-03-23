@@ -590,7 +590,7 @@ public final class MapRegion extends Class306 {
                 wall = new DynamicWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, animation);
             }
 
-            Static584.method7665(level, x, z, wall, (Wall) null);
+            Static584.method7665(level, x, z, wall, null);
 
             if (rotation == 0) {
                 if (Static404.aBoolean465 && locType.castsShadow) {
@@ -652,7 +652,7 @@ public final class MapRegion extends Class306 {
                 wall = new DynamicWall(toolkit, locType, level, arg7, absX, averageHeight, absZ, super.underwater, shape, rotation, animation);
             }
 
-            Static584.method7665(level, x, z, wall, (Wall) null);
+            Static584.method7665(level, x, z, wall, null);
 
             if (locType.castsShadow && Static404.aBoolean465) {
                 if (rotation == 0) {
@@ -1053,7 +1053,7 @@ public final class MapRegion extends Class306 {
             location = (Location) Static302.getWall(level, x, z);
         }
         if (layer == LocLayer.WALLDECOR) {
-            location = (Location) Static114.getWallDecor(level, x, z);
+            location = Static114.getWallDecor(level, x, z);
         }
         if (layer == LocLayer.GROUND) {
             location = (Location) Static578.getEntity(level, x, z, locClass == null ? (locClass = getClass("Location")) : locClass);

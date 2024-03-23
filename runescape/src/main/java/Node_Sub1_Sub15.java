@@ -55,7 +55,7 @@ public final class Node_Sub1_Sub15 extends Node_Sub1 {
         if (super.aClass180_41.aBoolean338) {
             @Pc(20) int local20 = this.anInt5424 >> 1;
             @Pc(25) int[][] local25 = super.aClass180_41.method3932();
-            @Pc(32) Random local32 = new Random((long) this.anInt5419);
+            @Pc(32) Random local32 = new Random(this.anInt5419);
             for (@Pc(34) int local34 = 0; local34 < this.anInt5420; local34++) {
                 @Pc(60) int local60 = this.anInt5424 > 0 ? this.anInt5418 + Static623.method8326(-5208, this.anInt5424, local32) - local20 : this.anInt5418;
                 @Pc(66) int local66 = local60 >> 4 & 0xFF;

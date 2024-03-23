@@ -61,7 +61,7 @@ public abstract class Node_Sub1 extends Node {
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(ZLclient!ge;I)V")
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
-            Static485.method9420(true, (float[]) null, 33);
+            Static485.method9420(true, null, 33);
         }
     }
 

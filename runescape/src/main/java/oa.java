@@ -184,9 +184,9 @@ public final class oa extends Toolkit implements Interface5 {
     public void method8019(@OriginalArg(0) Canvas arg0) {
         if (arg0 == null) {
             this.aP1 = null;
-            this.t((p) null);
+            this.t(null);
         } else {
-            @Pc(10) p local10 = (p) this.aIterableHashTable_33.get((long) arg0.hashCode());
+            @Pc(10) p local10 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
             this.aP1 = local10;
             this.t(local10);
         }
@@ -198,7 +198,7 @@ public final class oa extends Toolkit implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get((long) arg0.hashCode());
+        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
         local8.method6439(arg0, arg1, arg2);
         if (arg0 != null && arg0 == this.aP1.aCanvas9) {
             this.method8019(arg0);
@@ -236,11 +236,11 @@ public final class oa extends Toolkit implements Interface5 {
             if (local9) {
                 throw new IllegalArgumentException("Cannot specify alpha with non-mono font unless someone writes it");
             }
-            return new h(this, this.aYa2, arg0, arg1, (Sprite[]) null);
+            return new h(this, this.aYa2, arg0, arg1, null);
         } else if (local9) {
             throw new IllegalArgumentException("Cannot specify alpha with non-mono font unless someone writes it");
         } else {
-            return new n(this, this.aYa2, arg0, arg1, (Sprite[]) null);
+            return new n(this, this.aYa2, arg0, arg1, null);
         }
     }
 
@@ -352,9 +352,9 @@ public final class oa extends Toolkit implements Interface5 {
     @Override
     public void method7972(@OriginalArg(0) Canvas arg0) {
         if (this.aP1.aCanvas9 == arg0) {
-            this.method8019((Canvas) null);
+            this.method8019(null);
         }
-        @Pc(18) p local18 = (p) this.aIterableHashTable_33.get((long) arg0.hashCode());
+        @Pc(18) p local18 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
         if (local18 != null) {
             local18.unlink();
             local18.method6442();
@@ -499,7 +499,7 @@ public final class oa extends Toolkit implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get((long) arg0.hashCode());
+        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
         if (local8 == null) {
             try {
                 @Pc(15) Class local15 = Class.forName("java.awt.Canvas");
@@ -508,7 +508,7 @@ public final class oa extends Toolkit implements Interface5 {
             } catch (@Pc(39) Exception local39) {
             }
             local8 = new p(this, arg0, arg1, arg2);
-            this.aIterableHashTable_33.put((long) arg0.hashCode(), local8);
+            this.aIterableHashTable_33.put(arg0.hashCode(), local8);
         } else if (local8.anInt7161 != arg1 || local8.anInt7162 != arg2) {
             local8.method6439(arg0, arg1, arg2);
         }

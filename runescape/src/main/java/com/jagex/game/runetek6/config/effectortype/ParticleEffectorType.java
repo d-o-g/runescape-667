@@ -80,9 +80,9 @@ public final class ParticleEffectorType {
     public void postDecode() {
         this.cosTheta = Trig1.COS[this.angle << 3];
 
-        @Pc(15) long x = (long) this.dirX;
-        @Pc(19) long y = (long) this.dirY;
-        @Pc(23) long z = (long) this.dirZ;
+        @Pc(15) long x = this.dirX;
+        @Pc(19) long y = this.dirY;
+        @Pc(23) long z = this.dirZ;
 
         this.dirLength = (int) Math.sqrt((double) ((x * x) + (y * y) + (z * z)));
 
@@ -93,10 +93,10 @@ public final class ParticleEffectorType {
         if (this.effectType == 0) {
             this.maxRange = Integer.MAX_VALUE;
         } else if (this.effectType == 1) {
-            this.maxRange = (long) ((this.dirLength * 8) / this.strength);
+            this.maxRange = (this.dirLength * 8) / this.strength;
             this.maxRange *= this.maxRange;
         } else if (this.effectType == 2) {
-            this.maxRange = (long) ((this.dirLength * 8) / this.strength);
+            this.maxRange = (this.dirLength * 8) / this.strength;
         }
 
         if (this.attract) {

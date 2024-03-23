@@ -178,7 +178,7 @@ public final class MapElementType {
         if (this.aIterableHashTable_14 == null) {
             return arg1;
         } else {
-            @Pc(17) StringNode local17 = (StringNode) this.aIterableHashTable_14.get((long) arg0);
+            @Pc(17) StringNode local17 = (StringNode) this.aIterableHashTable_14.get(arg0);
             return local17 == null ? arg1 : local17.value;
         }
     }
@@ -188,14 +188,14 @@ public final class MapElementType {
         if (this.aIterableHashTable_14 == null) {
             return arg0;
         } else {
-            @Pc(27) IntNode local27 = (IntNode) this.aIterableHashTable_14.get((long) arg1);
+            @Pc(27) IntNode local27 = (IntNode) this.aIterableHashTable_14.get(arg1);
             return local27 == null ? arg0 : local27.value;
         }
     }
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(ILclient!ha;)Lclient!st;")
     public Sprite method2428(@OriginalArg(1) Toolkit arg0) {
-        @Pc(28) Sprite local28 = (Sprite) this.myList.aReferenceCache_135.get((long) (this.anInt2618 | 0x20000 | arg0.index << 29));
+        @Pc(28) Sprite local28 = (Sprite) this.myList.aReferenceCache_135.get(this.anInt2618 | 0x20000 | arg0.index << 29);
         if (local28 != null) {
             return local28;
         }
@@ -203,7 +203,7 @@ public final class MapElementType {
         @Pc(49) IndexedImage local49 = IndexedImage.loadFirst(this.myList.aJs5_83, this.anInt2618, 0);
         if (local49 != null) {
             local28 = arg0.createSprite(local49, true);
-            this.myList.aReferenceCache_135.put(local28, (long) (this.anInt2618 | 0x20000 | arg0.index << 29));
+            this.myList.aReferenceCache_135.put(local28, this.anInt2618 | 0x20000 | arg0.index << 29);
         }
         return local28;
     }
@@ -231,14 +231,14 @@ public final class MapElementType {
     public Sprite method2431(@OriginalArg(0) boolean arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(22) int local22 = arg0 ? this.anInt2591 : this.anInt2596;
         @Pc(29) int local29 = arg1.index << 29 | local22;
-        @Pc(38) Sprite local38 = (Sprite) this.myList.aReferenceCache_135.get((long) local29);
+        @Pc(38) Sprite local38 = (Sprite) this.myList.aReferenceCache_135.get(local29);
         if (local38 != null) {
             return local38;
         } else if (this.myList.aJs5_83.fileready(local22)) {
             @Pc(60) IndexedImage local60 = IndexedImage.loadFirst(this.myList.aJs5_83, local22, 0);
             if (local60 != null) {
                 local38 = arg1.createSprite(local60, true);
-                this.myList.aReferenceCache_135.put(local38, (long) local29);
+                this.myList.aReferenceCache_135.put(local38, local29);
             }
             return local38;
         } else {
@@ -343,7 +343,7 @@ public final class MapElementType {
                             } else {
                                 local323 = new IntNode(arg0.g4());
                             }
-                            this.aIterableHashTable_14.put((long) local314, local323);
+                            this.aIterableHashTable_14.put(local314, local323);
                         }
                         return;
                     }

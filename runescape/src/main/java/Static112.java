@@ -18,7 +18,7 @@ public final class Static112 {
         if (arg0.anInt10722 != -1) {
             @Pc(24) Class8_Sub2_Sub1_Sub2 local24 = null;
             if (arg0.anInt10722 < 32768) {
-                @Pc(54) Node_Sub45 local54 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) arg0.anInt10722);
+                @Pc(54) Node_Sub45 local54 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(arg0.anInt10722);
                 if (local54 != null) {
                     local24 = local54.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 }
@@ -29,7 +29,7 @@ public final class Static112 {
                 local67 = arg0.x - local24.x;
                 local74 = arg0.z - local24.z;
                 if (local67 != 0 || local74 != 0) {
-                    arg0.method9305((int) (Math.atan2((double) local67, (double) local74) * 2607.5945876176133D) & 0x3FFF);
+                    arg0.method9305((int) (Math.atan2(local67, local74) * 2607.5945876176133D) & 0x3FFF);
                 }
             }
         }
@@ -45,7 +45,7 @@ public final class Static112 {
                 local67 = local138.x - (local138.anInt10774 - WorldMap.areaBaseX - WorldMap.areaBaseX) * 256;
                 local74 = local138.z - (local138.anInt10767 - WorldMap.areaBaseY - WorldMap.areaBaseY) * 256;
                 if (local67 != 0 || local74 != 0) {
-                    local138.method9305((int) (Math.atan2((double) local67, (double) local74) * 2607.5945876176133D) & 0x3FFF);
+                    local138.method9305((int) (Math.atan2(local67, local74) * 2607.5945876176133D) & 0x3FFF);
                 }
                 local138.anInt10774 = -1;
             }

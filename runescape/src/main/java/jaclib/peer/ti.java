@@ -65,7 +65,7 @@ public final class ti {
     public void b(@OriginalArg(0) int arg0) {
         this.a(26588);
         while (this.a != null) {
-            this.a(this.a, (int) 20993);
+            this.a(this.a, 20993);
         }
         this.a(26588);
     }

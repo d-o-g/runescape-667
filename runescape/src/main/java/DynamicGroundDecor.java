@@ -58,7 +58,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
-            this.method3581((LocTypeCustomisation) null);
+            this.method3581(null);
         }
         @Pc(21) Model local21 = this.aClass337_2.method7678(arg0, true, true, true, 262144);
         if (local21 == null) {
@@ -125,7 +125,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
     @Override
     public int method9286(@OriginalArg(0) int arg0) {
         if (arg0 != 2) {
-            this.removeShadow((Toolkit) null, 33);
+            this.removeShadow(null, 33);
         }
         return this.aClass337_2.method7671();
     }

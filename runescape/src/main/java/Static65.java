@@ -24,7 +24,7 @@ public final class Static65 {
             @Pc(19) Canvas local19 = new Canvas();
             local19.setSize(100, 100);
             local7 = true;
-            local5 = Static255.method3612((js5) null, (TextureSource) null, 0, local19, 0);
+            local5 = Static255.method3612(null, null, 0, local19, 0);
         }
         @Pc(36) long local36 = SystemTimer.safetime();
         for (@Pc(38) int local38 = 0; local38 < 10000; local38++) {

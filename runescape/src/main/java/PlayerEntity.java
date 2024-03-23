@@ -159,17 +159,17 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(BIIILclient!ka;Lclient!tt;Lclient!ha;I)V")
     public void method1414(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Model arg4, @OriginalArg(5) Matrix arg5, @OriginalArg(6) Toolkit arg6, @OriginalArg(7) int arg7) {
         if (arg0 != -74) {
-            this.method9289((Toolkit) null, 41);
+            this.method9289(null, 41);
         }
         @Pc(20) int local20 = arg7 * arg7 + arg1 * arg1;
         if (local20 < 262144 || local20 > arg2) {
             return;
         }
-        @Pc(53) int local53 = (int) (Math.atan2((double) arg1, (double) arg7) * 2607.5945876176133D - (double) super.aClass126_7.method2673(16383)) & 0x3FFF;
+        @Pc(53) int local53 = (int) (Math.atan2(arg1, arg7) * 2607.5945876176133D - (double) super.aClass126_7.method2673(16383)) & 0x3FFF;
         @Pc(65) Model local65 = Static691.method9004(super.anInt10746, super.anInt10742, arg3, super.anInt10716, local53, arg6);
         if (local65 != null) {
             arg6.C(false);
-            local65.render(arg5, (PickingCylinder) null, 0);
+            local65.render(arg5, null, 0);
             arg6.C(true);
         }
     }
@@ -210,7 +210,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     @Override
     public boolean method9290(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
-            this.method1414((byte) 124, 20, -110, 30, (Model) null, (Matrix) null, (Toolkit) null, 15);
+            this.method1414((byte) 124, 20, -110, 30, null, null, null, 15);
         }
         return false;
     }
@@ -247,11 +247,11 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         if (local12 < 262144 || local12 > arg1) {
             return;
         }
-        @Pc(53) int local53 = (int) (Math.atan2((double) arg4, (double) arg7) * 2607.5945876176133D - (double) super.aClass126_7.method2673(16383)) & 0x3FFF;
+        @Pc(53) int local53 = (int) (Math.atan2(arg4, arg7) * 2607.5945876176133D - (double) super.aClass126_7.method2673(16383)) & 0x3FFF;
         @Pc(65) Model local65 = Static691.method9004(super.anInt10746, super.anInt10742, arg3, super.anInt10716, local53, arg2);
         if (local65 != null) {
             arg2.C(false);
-            local65.renderOrtho(arg5, (PickingCylinder) null, arg6, 0);
+            local65.renderOrtho(arg5, null, arg6, 0);
             arg2.C(true);
         }
     }
@@ -364,7 +364,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                 if (local275 != null && local275.anInt6371 != -1) {
                     @Pc(310) int local310;
                     if (local275.anInt6363 == 1) {
-                        @Pc(298) Node_Sub45 local298 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local275.anInt6366);
+                        @Pc(298) Node_Sub45 local298 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local275.anInt6366);
                         if (local298 != null) {
                             @Pc(303) NPCEntity local303 = local298.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                             local310 = local303.x - self.x;

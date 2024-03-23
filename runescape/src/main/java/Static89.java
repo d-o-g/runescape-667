@@ -84,7 +84,7 @@ public final class Static89 {
         local7.soundVolume = arg1.soundVolume;
         local7.anInt9355 = 0;
         local7.vorbis = arg1.vorbis;
-        Static113.A_HASH_TABLE___12.put((long) arg1.anInt10740, local7);
+        Static113.A_HASH_TABLE___12.put(arg1.anInt10740, local7);
         return;
     }
 
@@ -96,7 +96,7 @@ public final class Static89 {
         @Pc(45) float local45 = (float) local9 * arg0[2] + arg0[1] * (float) local20 + (float) local5 * arg0[0];
         @Pc(66) float local66 = (float) local9 * arg0[5] + (float) local20 * arg0[4] + arg0[3] * (float) local5;
         @Pc(87) float local87 = arg0[6] * (float) local5 + (float) local20 * arg0[7] + arg0[8] * (float) local9;
-        @Pc(98) float local98 = (float) Math.atan2((double) local45, (double) local87) / 6.2831855F + 0.5F;
+        @Pc(98) float local98 = (float) Math.atan2(local45, local87) / 6.2831855F + 0.5F;
         if (arg6 != 1.0F) {
             local98 *= arg6;
         }

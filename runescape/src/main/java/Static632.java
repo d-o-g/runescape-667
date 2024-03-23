@@ -95,7 +95,7 @@ public final class Static632 {
         @Pc(264) int local264;
         @Pc(275) int local275;
         if (local225 != 0 || local236 != 0) {
-            local264 = -Static323.anInt5119 - (int) (Math.atan2((double) local225, (double) local236) * 2607.5945876176133D) - 4096 & 0x3FFF;
+            local264 = -Static323.anInt5119 - (int) (Math.atan2(local225, local236) * 2607.5945876176133D) - 4096 & 0x3FFF;
             if (local264 > 8192) {
                 local264 = 16384 - local264;
             }

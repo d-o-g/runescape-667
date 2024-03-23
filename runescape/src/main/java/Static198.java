@@ -43,7 +43,7 @@ public final class Static198 {
                 }
             }
         } else if (arg6 == 1) {
-            local52 = (Location) Static114.getWallDecor(arg0, arg4, arg1);
+            local52 = Static114.getWallDecor(arg0, arg4, arg1);
             if (local52 != null) {
                 if (local52 instanceof DynamicWallDecor) {
                     ((DynamicWallDecor) local52).aClass337_4.method7672(arg3);

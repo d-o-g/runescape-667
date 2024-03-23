@@ -490,7 +490,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
             local1 = new int[arg2 * arg3];
             @Pc(56) int local56 = this.aPixelBuffer1.getRowPitch();
             if (local56 == arg2 * 4) {
-                this.aPixelBuffer1.a((int[]) local1, 0, 0, arg3 * arg2);
+                this.aPixelBuffer1.a(local1, 0, 0, arg3 * arg2);
             } else {
                 for (@Pc(74) int local74 = 0; local74 < arg3; local74++) {
                     this.aPixelBuffer1.a(local1, arg2 * local74, local74 * local56, arg2);
@@ -750,7 +750,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
     protected void method8027() {
         if (this.aBooleanArray16[this.anInt9148]) {
             this.aBooleanArray16[this.anInt9148] = false;
-            this.anIDirect3DDevice1.SetTexture(this.anInt9148, (IDirect3DBaseTexture) null);
+            this.anIDirect3DDevice1.SetTexture(this.anInt9148, null);
             this.method8030();
             this.method8039();
         }

@@ -1364,7 +1364,7 @@ public final class ScriptRunner {
                                 }
                                 if (arg0 == 2702) {
                                     local15 = anIntArray578[--anInt7142];
-                                    local4653 = (SubInterface) InterfaceManager.subInterfaces.get((long) local15);
+                                    local4653 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                     if (local4653 != null) {
                                         anIntArray578[anInt7142++] = 1;
                                         return;
@@ -1392,7 +1392,7 @@ public final class ScriptRunner {
                                     anInt7142 -= 2;
                                     local15 = anIntArray578[anInt7142];
                                     local21 = anIntArray578[anInt7142 + 1];
-                                    local4760 = (SubInterface) InterfaceManager.subInterfaces.get((long) local15);
+                                    local4760 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                     if (local4760 != null && local4760.id == local21) {
                                         anIntArray578[anInt7142++] = 1;
                                         return;
@@ -1503,7 +1503,7 @@ public final class ScriptRunner {
                                         anInt7142 -= 2;
                                         local15 = anIntArray578[anInt7142];
                                         local21 = anIntArray578[anInt7142 + 1];
-                                        local4760 = (SubInterface) InterfaceManager.subInterfaces.get((long) local15);
+                                        local4760 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                         if (local4760 != null) {
                                             Static449.method6115(true, local4760.id != local21, local4760);
                                         }
@@ -1513,7 +1513,7 @@ public final class ScriptRunner {
                                     if (arg0 == 3112) {
                                         anInt7142--;
                                         local15 = anIntArray578[anInt7142];
-                                        local4653 = (SubInterface) InterfaceManager.subInterfaces.get((long) local15);
+                                        local4653 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                         if (local4653 != null && local4653.type == 3) {
                                             Static449.method6115(true, true, local4653);
                                         }
@@ -2547,8 +2547,8 @@ public final class ScriptRunner {
                                             @Pc(9712) long local9712;
                                             if (arg0 == 4007) {
                                                 anInt7142 -= 2;
-                                                local9705 = (long) anIntArray578[anInt7142];
-                                                local9712 = (long) anIntArray578[anInt7142 + 1];
+                                                local9705 = anIntArray578[anInt7142];
+                                                local9712 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = (int) (local9705 + local9705 * local9712 / 100L);
                                                 return;
                                             }
@@ -2588,7 +2588,7 @@ public final class ScriptRunner {
                                                     anIntArray578[anInt7142++] = 0;
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = (int) Math.pow((double) local15, (double) local21);
+                                                anIntArray578[anInt7142++] = (int) Math.pow(local15, local21);
                                                 return;
                                             }
                                             if (arg0 == 4013) {
@@ -2603,7 +2603,7 @@ public final class ScriptRunner {
                                                     anIntArray578[anInt7142++] = Integer.MAX_VALUE;
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = (int) Math.pow((double) local15, 1.0D / (double) local21);
+                                                anIntArray578[anInt7142++] = (int) Math.pow(local15, 1.0D / (double) local21);
                                                 return;
                                             }
                                             if (arg0 == 4014) {
@@ -2636,9 +2636,9 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4018) {
                                                 anInt7142 -= 3;
-                                                local9705 = (long) anIntArray578[anInt7142];
-                                                local9712 = (long) anIntArray578[anInt7142 + 1];
-                                                @Pc(10099) long local10099 = (long) anIntArray578[anInt7142 + 2];
+                                                local9705 = anIntArray578[anInt7142];
+                                                local9712 = anIntArray578[anInt7142 + 1];
+                                                @Pc(10099) long local10099 = anIntArray578[anInt7142 + 2];
                                                 anIntArray578[anInt7142++] = (int) (local9705 * local10099 / local9712);
                                                 return;
                                             }
@@ -2835,7 +2835,7 @@ public final class ScriptRunner {
                                             if (arg0 == 4124) {
                                                 local575 = anIntArray578[--anInt7142] != 0;
                                                 local21 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = StringTools.formatNumber(client.language, local575, (long) local21, 0);
+                                                aStringArray37[anInt7139++] = StringTools.formatNumber(client.language, local575, local21, 0);
                                                 return;
                                             }
                                             if (arg0 == 4125) {
@@ -3443,7 +3443,7 @@ public final class ScriptRunner {
                             DelayedStateChange.resetVarcstr(local96);
                         } else if (local34 == 51) {
                             @Pc(889) IterableHashTable local889 = arg0.aIterableHashTableArray1[local11[local5]];
-                            @Pc(902) IntNode local902 = (IntNode) local889.get((long) anIntArray578[--anInt7142]);
+                            @Pc(902) IntNode local902 = (IntNode) local889.get(anIntArray578[--anInt7142]);
                             if (local902 != null) {
                                 local5 += local902.value;
                             }
@@ -4273,14 +4273,14 @@ public final class ScriptRunner {
                     local192 = anIntArray578[anInt7142];
                     local1578 = anIntArray578[anInt7142 + 1] == 1;
                     if (Static232.A_HASH_TABLE___18 != null) {
-                        local2867 = Static232.A_HASH_TABLE___18.get((long) local192);
+                        local2867 = Static232.A_HASH_TABLE___18.get(local192);
                         if (local2867 != null && !local1578) {
                             local2867.unlink();
                             return;
                         }
                         if (local2867 == null && local1578) {
                             local2867 = new Node();
-                            Static232.A_HASH_TABLE___18.put((long) local192, local2867);
+                            Static232.A_HASH_TABLE___18.put(local192, local2867);
                         }
                     }
                     return;
@@ -4289,7 +4289,7 @@ public final class ScriptRunner {
                 if (arg0 == 5232) {
                     local192 = anIntArray578[--anInt7142];
                     if (Static232.A_HASH_TABLE___18 != null) {
-                        local2914 = Static232.A_HASH_TABLE___18.get((long) local192);
+                        local2914 = Static232.A_HASH_TABLE___18.get(local192);
                         anIntArray578[anInt7142++] = local2914 == null ? 0 : 1;
                         return;
                     }
@@ -4301,14 +4301,14 @@ public final class ScriptRunner {
                     local192 = anIntArray578[anInt7142];
                     local1578 = anIntArray578[anInt7142 + 1] == 1;
                     if (Static268.A_HASH_TABLE___22 != null) {
-                        local2867 = Static268.A_HASH_TABLE___22.get((long) local192);
+                        local2867 = Static268.A_HASH_TABLE___22.get(local192);
                         if (local2867 != null && !local1578) {
                             local2867.unlink();
                             return;
                         }
                         if (local2867 == null && local1578) {
                             local2867 = new Node();
-                            Static268.A_HASH_TABLE___22.put((long) local192, local2867);
+                            Static268.A_HASH_TABLE___22.put(local192, local2867);
                         }
                     }
                     return;
@@ -4316,7 +4316,7 @@ public final class ScriptRunner {
                 if (arg0 == 5234) {
                     local192 = anIntArray578[--anInt7142];
                     if (Static268.A_HASH_TABLE___22 != null) {
-                        local2914 = Static268.A_HASH_TABLE___22.get((long) local192);
+                        local2914 = Static268.A_HASH_TABLE___22.get(local192);
                         anIntArray578[anInt7142++] = local2914 == null ? 0 : 1;
                         return;
                     }
@@ -4604,7 +4604,7 @@ public final class ScriptRunner {
                     if (arg0 == 5432) {
                         local95 = "";
                         if (Static175.aClipboard1 != null) {
-                            @Pc(4173) Transferable local4173 = Static175.aClipboard1.getContents((Object) null);
+                            @Pc(4173) Transferable local4173 = Static175.aClipboard1.getContents(null);
                             if (local4173 != null) {
                                 try {
                                     local95 = (String) local4173.getTransferData(DataFlavor.stringFlavor);

@@ -40,7 +40,7 @@ public final class SkyBoxSphereTypeList {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         @Pc(16) SkyBoxSphereType type;
         synchronized (this.recentUse) {
-            type = (SkyBoxSphereType) this.recentUse.get((long) id);
+            type = (SkyBoxSphereType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;

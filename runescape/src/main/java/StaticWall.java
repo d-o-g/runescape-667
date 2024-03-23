@@ -106,7 +106,7 @@ public final class StaticWall extends Wall implements Location {
             this.aClass2_Sub2_Sub9_4 = null;
         }
         if (local21 != null) {
-            Static630.method8357(local21, super.aByte143, super.x, super.z, (boolean[]) null);
+            Static630.method8357(local21, super.aByte143, super.x, super.z, null);
         }
     }
 
@@ -150,7 +150,7 @@ public final class StaticWall extends Wall implements Location {
     public int method9286(@OriginalArg(0) int arg0) {
         this.arg0 = arg0;
         if (arg0 != 2) {
-            Base37.encode((String) null);
+            Base37.encode(null);
         }
         return this.model == null ? 0 : this.model.fa();
     }
@@ -212,7 +212,7 @@ public final class StaticWall extends Wall implements Location {
             this.aClass2_Sub2_Sub9_4 = null;
         }
         if (local24 != null) {
-            Static292.method4618(local24, super.aByte143, super.x, super.z, (boolean[]) null);
+            Static292.method4618(local24, super.aByte143, super.x, super.z, null);
         }
     }
 
@@ -242,7 +242,7 @@ public final class StaticWall extends Wall implements Location {
                 local38 = null;
             }
         }
-        return local11.modelAndShadow(this.aByte87, super.z, super.x, local27, arg2, super.anInt10691, this.aByte88, arg0, (LocTypeCustomisation) null, arg1, local38);
+        return local11.modelAndShadow(this.aByte87, super.z, super.x, local27, arg2, super.anInt10691, this.aByte88, arg0, null, arg1, local38);
     }
 
     @OriginalMember(owner = "client!jn", name = "d", descriptor = "(Lclient!ha;I)V")

@@ -38,7 +38,7 @@ public final class Static232 {
         } else if (arg6.anInt7317 != -1) {
             local49 = Static419.objTypeList.list(arg6.anInt7317).quests;
         } else if (Static598.method7825(arg6.anInt7314)) {
-            @Pc(110) Node_Sub45 local110 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (int) arg6.aLong233);
+            @Pc(110) Node_Sub45 local110 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((int) arg6.aLong233);
             if (local110 != null) {
                 @Pc(115) NPCEntity local115 = local110.aClass8_Sub2_Sub1_Sub2_Sub2_2;
                 @Pc(118) NPCType local118 = local115.type;

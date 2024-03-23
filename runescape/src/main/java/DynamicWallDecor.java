@@ -157,7 +157,7 @@ public final class DynamicWallDecor extends WallDecor implements Location {
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
-            this.method6862((LocTypeCustomisation) null);
+            this.method6862(null);
         }
         @Pc(21) Model local21 = this.aClass337_4.method7678(arg0, false, true, true, 262144);
         if (local21 == null) {

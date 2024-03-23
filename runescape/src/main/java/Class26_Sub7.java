@@ -30,7 +30,7 @@ public final class Class26_Sub7 extends Class26 {
             super.aClass19_Sub1_21.method8080(2, Static454.aClass168_5);
             super.aClass19_Sub1_21.method8142(Static189.aClass168_2, 0);
             super.aClass19_Sub1_21.method8031();
-            super.aClass19_Sub1_21.method8088((Interface17) null);
+            super.aClass19_Sub1_21.method8088(null);
             super.aClass19_Sub1_21.method8138(0);
             this.aBoolean535 = false;
         } else {

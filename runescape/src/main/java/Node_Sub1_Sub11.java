@@ -59,7 +59,7 @@ public final class Node_Sub1_Sub11 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!in", name = "g", descriptor = "(I)V")
     public void method4069(@OriginalArg(0) int arg0) {
-        @Pc(12) Random local12 = new Random((long) this.anInt4527);
+        @Pc(12) Random local12 = new Random(this.anInt4527);
         this.anInt4529 = 4096 / this.anInt4540;
         this.anInt4538 = 4096 / this.anInt4527;
         this.anInt4533 = this.anInt4528 / 2;

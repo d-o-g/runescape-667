@@ -60,7 +60,7 @@ public final class SkyBoxTypeList {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         @Pc(22) SkyBoxType type;
         synchronized (this.recentUse) {
-            type = (SkyBoxType) this.recentUse.get((long) id);
+            type = (SkyBoxType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;

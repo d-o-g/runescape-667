@@ -227,7 +227,7 @@ public final class Static489 {
         Static21.method8043(Toolkit.active, Static455.anInt6915, Static720.mapWidth, Static501.mapHeight, local310, local430, Toolkit.active.getMaxLights() > 0);
         Static483.method6490(Static699.anInt10539);
         if (Static699.anInt10539 == 0) {
-            Static110.method2082((Font) null);
+            Static110.method2082(null);
         } else {
             Static110.method2082(Fonts.p11);
         }
@@ -268,7 +268,7 @@ public final class Static489 {
                 Static314.noTimeout(true);
             }
             Static134.aMapRegion_3.method7885(Static2.aMapRegion.tileHeights[0]);
-            Static134.aMapRegion_3.method7881((int[][][]) null, Toolkit.active, (CollisionMap[]) null);
+            Static134.aMapRegion_3.method7881(null, Toolkit.active, null);
             Static379.method5355(false);
         }
         Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Static577.A_COLLISION_MAP_ARRAY_1);
@@ -287,7 +287,7 @@ public final class Static489 {
             Static358.method9191();
         }
         Static314.noTimeout(true);
-        Static2.aMapRegion.method7888(Toolkit.active, local430 ? Static693.aGroundArray2[0] : null, (Ground) null);
+        Static2.aMapRegion.method7888(Toolkit.active, local430 ? Static693.aGroundArray2[0] : null, null);
         Static2.aMapRegion.method7898(false, Toolkit.active);
         Static314.noTimeout(true);
         if (local430) {
@@ -300,7 +300,7 @@ public final class Static489 {
             }
             Static352.method5180();
             Static314.noTimeout(true);
-            Static134.aMapRegion_3.method7888(Toolkit.active, (Ground) null, Static706.aGroundArray3[0]);
+            Static134.aMapRegion_3.method7888(Toolkit.active, null, Static706.aGroundArray3[0]);
             Static134.aMapRegion_3.method7898(true, Toolkit.active);
             Static314.noTimeout(true);
             Static379.method5355(false);

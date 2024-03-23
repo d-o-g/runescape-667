@@ -28,7 +28,7 @@ public final class Node_Sub1_Sub32 extends Node_Sub1 {
     @Override
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
-            this.method9416(false, (Packet) null, 34);
+            this.method9416(false, null, 34);
         }
         if (arg2 == 0) {
             this.anInt10015 = arg1.g2();
@@ -83,14 +83,14 @@ public final class Node_Sub1_Sub32 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!vda", name = "c", descriptor = "(B)V")
     public void method8734(@OriginalArg(0) byte arg0) {
-        @Pc(11) double local11 = Math.cos((double) ((float) this.anInt10017 / 4096.0F));
-        this.anIntArray789[0] = (int) (local11 * Math.sin((double) ((float) this.anInt10016 / 4096.0F)) * 4096.0D);
-        this.anIntArray789[1] = (int) (local11 * 4096.0D * Math.cos((double) ((float) this.anInt10016 / 4096.0F)));
-        this.anIntArray789[2] = (int) (Math.sin((double) ((float) this.anInt10017 / 4096.0F)) * 4096.0D);
+        @Pc(11) double local11 = Math.cos((float) this.anInt10017 / 4096.0F);
+        this.anIntArray789[0] = (int) (local11 * Math.sin((float) this.anInt10016 / 4096.0F) * 4096.0D);
+        this.anIntArray789[1] = (int) (local11 * 4096.0D * Math.cos((float) this.anInt10016 / 4096.0F));
+        this.anIntArray789[2] = (int) (Math.sin((float) this.anInt10017 / 4096.0F) * 4096.0D);
         @Pc(76) int local76 = this.anIntArray789[0] * this.anIntArray789[0] >> 12;
         @Pc(88) int local88 = this.anIntArray789[1] * this.anIntArray789[1] >> 12;
         @Pc(100) int local100 = this.anIntArray789[2] * this.anIntArray789[2] >> 12;
-        @Pc(113) int local113 = (int) (Math.sqrt((double) (local76 + local88 + local100 >> 12)) * 4096.0D);
+        @Pc(113) int local113 = (int) (Math.sqrt(local76 + local88 + local100 >> 12) * 4096.0D);
         if (local113 != 0) {
             this.anIntArray789[0] = (this.anIntArray789[0] << 12) / local113;
             this.anIntArray789[1] = (this.anIntArray789[1] << 12) / local113;

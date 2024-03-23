@@ -37,7 +37,7 @@ public class Class35_Sub2 extends Class35 {
         super(arg0, arg1, arg2, arg3, arg4);
         this.anInt6521 = (int) (arg6 * 4096.0F);
         this.anInt6517 = (int) (arg7 * 4096.0F);
-        this.anInt6513 = this.anInt6515 = (int) (Math.pow(0.5D, (double) -arg5) * 4096.0D);
+        this.anInt6513 = this.anInt6515 = (int) (Math.pow(0.5D, -arg5) * 4096.0D);
     }
 
     @OriginalMember(owner = "client!hga", name = "a", descriptor = "(IBB)V")

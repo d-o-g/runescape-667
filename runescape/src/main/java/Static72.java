@@ -21,12 +21,12 @@ public final class Static72 {
         for (@Pc(11) int local11 = 0; local11 < arg0.length; local11++) {
             @Pc(19) Class218 local19 = Static272.aClass45_1.list(arg0[local11]);
             if (local19.anInt5704 != -1) {
-                @Pc(34) Sprite local34 = (Sprite) Static452.A_WEIGHTED_CACHE___149.get((long) local19.anInt5704);
+                @Pc(34) Sprite local34 = (Sprite) Static452.A_WEIGHTED_CACHE___149.get(local19.anInt5704);
                 if (local34 == null) {
                     @Pc(42) IndexedImage local42 = IndexedImage.loadFirst(js5.SPRITES, local19.anInt5704, 0);
                     if (local42 != null) {
                         local34 = Toolkit.active.createSprite(local42, true);
-                        Static452.A_WEIGHTED_CACHE___149.put(local34, (long) local19.anInt5704);
+                        Static452.A_WEIGHTED_CACHE___149.put(local34, local19.anInt5704);
                     }
                 }
                 if (local34 != null) {

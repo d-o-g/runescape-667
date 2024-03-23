@@ -262,7 +262,7 @@ public final class client extends GameShell {
             local241.method1635(modeWhat.getId() + 32, modeGame.domainName);
             frame.setLocation(40, 40);
         } catch (@Pc(265) Exception local265) {
-            JagException.sendTrace(local265, (String) null);
+            JagException.sendTrace(local265, null);
         }
     }
 
@@ -751,7 +751,7 @@ public final class client extends GameShell {
         InterfaceManager.aBoolean428 = false;
         Static702.aBoolean797 = false;
         InterfaceManager.dragTarget = null;
-        WorldMap.setOptions(-1, -1, (Component) null);
+        WorldMap.setOptions(-1, -1, null);
         if (!InterfaceManager.targeting) {
             InterfaceManager.targetEndCursor = -1;
         }
@@ -922,7 +922,7 @@ public final class client extends GameShell {
                 @Pc(25) Class local25 = GameShell.loaderApplet.getClass();
                 @Pc(31) Field local31 = local25.getDeclaredField("canvas");
                 GameShell.canvas = (Canvas) local31.get(GameShell.loaderApplet);
-                local31.set(GameShell.loaderApplet, (Object) null);
+                local31.set(GameShell.loaderApplet, null);
                 if (GameShell.canvas != null) {
                     return;
                 }
@@ -1096,8 +1096,8 @@ public final class client extends GameShell {
             }
         }
         Static35.currentTick++;
-        InterfaceManager.setOptions(-1, -1, (Component) null);
-        WorldMap.setOptions(-1, -1, (Component) null);
+        InterfaceManager.setOptions(-1, -1, null);
+        WorldMap.setOptions(-1, -1, null);
         Static443.method5981();
         World.tick++;
         for (local46 = 0; local46 < Static416.anInt6378; local46++) {
@@ -1480,7 +1480,7 @@ public final class client extends GameShell {
         if (TimeUtils.clock % 1000 == 1) {
             @Pc(27) GregorianCalendar local27 = new GregorianCalendar();
             Static178.anInt2947 = local27.get(11) * 600 + local27.get(12) * 10 + local27.get(13) / 6;
-            Static493.aRandom1.setSeed((long) Static178.anInt2947);
+            Static493.aRandom1.setSeed(Static178.anInt2947);
         }
         ConnectionManager.GAME.recordStats();
         ConnectionManager.LOBBY.recordStats();

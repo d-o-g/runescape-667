@@ -23,7 +23,7 @@ public final class Class228 {
     public float method5254(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) float arg2) {
         @Pc(30) float local30 = (float) this.anIntArrayArrayArray7[arg0][0][arg1] + arg2 * (float) (this.anIntArrayArrayArray7[arg0][1][arg1] - this.anIntArrayArrayArray7[arg0][0][arg1]);
         @Pc(34) float local34 = local30 * 0.0015258789F;
-        return 1.0F - (float) Math.pow(10.0D, (double) (-local34 / 20.0F));
+        return 1.0F - (float) Math.pow(10.0D, -local34 / 20.0F);
     }
 
     @OriginalMember(owner = "client!lj", name = "a", descriptor = "(IF)I")
@@ -32,18 +32,18 @@ public final class Class228 {
         if (arg0 == 0) {
             local20 = (float) this.anIntArray451[0] + (float) (this.anIntArray451[1] - this.anIntArray451[0]) * arg1;
             @Pc(24) float local24 = local20 * 0.0030517578F;
-            Static365.aFloat112 = (float) Math.pow(0.1D, (double) (local24 / 20.0F));
+            Static365.aFloat112 = (float) Math.pow(0.1D, local24 / 20.0F);
             Static365.anInt5849 = (int) (Static365.aFloat112 * 65536.0F);
         }
         if (this.anIntArray452[arg0] == 0) {
             return 0;
         }
         local20 = this.method5254(arg0, 0, arg1);
-        Static365.aFloatArrayArray12[arg0][0] = -2.0F * local20 * (float) Math.cos((double) this.method5258(arg0, 0, arg1));
+        Static365.aFloatArrayArray12[arg0][0] = -2.0F * local20 * (float) Math.cos(this.method5258(arg0, 0, arg1));
         Static365.aFloatArrayArray12[arg0][1] = local20 * local20;
         for (@Pc(77) int local77 = 1; local77 < this.anIntArray452[arg0]; local77++) {
             local20 = this.method5254(arg0, local77, arg1);
-            @Pc(97) float local97 = -2.0F * local20 * (float) Math.cos((double) this.method5258(arg0, local77, arg1));
+            @Pc(97) float local97 = -2.0F * local20 * (float) Math.cos(this.method5258(arg0, local77, arg1));
             @Pc(101) float local101 = local20 * local20;
             Static365.aFloatArrayArray12[arg0][local77 * 2 + 1] = Static365.aFloatArrayArray12[arg0][local77 * 2 - 1] * local101;
             Static365.aFloatArrayArray12[arg0][local77 * 2] = Static365.aFloatArrayArray12[arg0][local77 * 2 - 1] * local97 + Static365.aFloatArrayArray12[arg0][local77 * 2 - 2] * local101;

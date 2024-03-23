@@ -129,7 +129,7 @@ public abstract class Model {
                 local49 = null;
             }
         }
-        this.method7497(local49, arg11, arg7, false, (int[]) null, 0, arg12, local44, local47, 65535, arg8);
+        this.method7497(local49, arg11, arg7, false, null, 0, arg12, local44, local47, 65535, arg8);
         @Pc(81) AnimFrame local81 = arg10.frames[arg13];
         @Pc(83) AnimFrame local83 = null;
         if (arg5 != null) {
@@ -139,7 +139,7 @@ public abstract class Model {
             }
         }
         this.method7499(0, new int[0], 0, 0, 0, 0, arg8);
-        this.method7497(local83, arg11, arg0, true, (int[]) null, 0, arg9, local81, local81.base, 65535, arg8);
+        this.method7497(local83, arg11, arg0, true, null, 0, arg9, local81, local81.base, 65535, arg8);
         this.wa();
         this.method7494();
     }
@@ -205,7 +205,7 @@ public abstract class Model {
                 local28 = null;
             }
         }
-        this.method7497(local28, (boolean[]) null, arg1, false, (int[]) null, arg6, arg2, local23, local26, 65535, arg7);
+        this.method7497(local28, null, arg1, false, null, arg6, arg2, local23, local26, 65535, arg7);
         this.wa();
         this.method7494();
     }
@@ -284,7 +284,7 @@ public abstract class Model {
         @Pc(141) int local141 = local82 > local40 ? local40 : local82;
         @Pc(171) int local171;
         if (arg5 != 0) {
-            @Pc(156) int local156 = (int) (Math.atan2((double) (local113 - local125), (double) arg5) * 2607.5945876176133D) & 0x3FFF;
+            @Pc(156) int local156 = (int) (Math.atan2(local113 - local125, arg5) * 2607.5945876176133D) & 0x3FFF;
             if (local156 != 0) {
                 if (arg1 != 0) {
                     if (local156 > 8192) {
@@ -301,7 +301,7 @@ public abstract class Model {
         }
         @Pc(192) int local192 = local40 + local101;
         if (arg3 != 0) {
-            @Pc(207) int local207 = (int) (Math.atan2((double) (local141 - local133), (double) arg3) * 2607.5945876176133D) & 0x3FFF;
+            @Pc(207) int local207 = (int) (Math.atan2(local141 - local133, arg3) * 2607.5945876176133D) & 0x3FFF;
             if (local207 != 0) {
                 if (arg7 != 0) {
                     if (local207 > 8192) {
@@ -411,7 +411,7 @@ public abstract class Model {
                 local34 = null;
             }
         }
-        this.method7497(local34, (boolean[]) null, arg0, false, arg4, 0, arg5, local29, local32, arg8, arg6);
+        this.method7497(local34, null, arg0, false, arg4, 0, arg5, local29, local32, arg8, arg6);
         this.wa();
         this.method7494();
     }

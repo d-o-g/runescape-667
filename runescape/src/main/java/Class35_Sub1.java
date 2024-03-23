@@ -22,7 +22,7 @@ public class Class35_Sub1 extends Class35 {
     protected Class35_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5) {
         super(arg0, arg1, arg2, arg3, arg4);
         for (@Pc(13) int local13 = 0; super.anInt6505 > local13; local13++) {
-            this.anIntArray467[local13] = (short) (int) (Math.pow((double) arg5, (double) local13) * 4096.0D);
+            this.anIntArray467[local13] = (short) (int) (Math.pow(arg5, local13) * 4096.0D);
         }
     }
 

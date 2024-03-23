@@ -44,12 +44,12 @@ public final class Static369 {
                     @Pc(121) int local121 = local104 + (Static89.anIntArray169[local13] >> 8) * 64 - WorldMap.areaBaseX;
                     @Pc(135) int local135 = (Static89.anIntArray169[local13] & 0xFF) * 64 + local108 - WorldMap.areaBaseY;
                     @Pc(142) NPCType local142 = Static690.aNPCTypeList_2.list(local66.g2());
-                    @Pc(149) Node_Sub45 local149 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local88);
+                    @Pc(149) Node_Sub45 local149 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local88);
                     if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.areaLevel && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapHeight) {
                         @Pc(197) NPCEntity local197 = new NPCEntity();
                         local197.anInt10740 = local88;
                         @Pc(205) Node_Sub45 local205 = new Node_Sub45(local197);
-                        Static18.A_HASH_TABLE___2.put((long) local88, local205);
+                        Static18.A_HASH_TABLE___2.put(local88, local205);
                         Static592.aClass2_Sub45Array1[Static416.anInt6378++] = local205;
                         Static103.anIntArray187[Static390.anInt6126++] = local88;
                         local197.anInt10751 = TimeUtils.clock;

@@ -76,7 +76,7 @@ public final class Class11 implements Interface20 {
         if (this.anIDirect3DIndexBuffer1 != null) {
             this.anIDirect3DIndexBuffer1.a(110);
         }
-        this.anIDirect3DIndexBuffer1 = this.aClass19_Sub1_Sub1_1.anIDirect3DDevice1.a(this.anInt134, local27, this.aClass397_1 == Static702.aClass397_17 ? 101 : 102, local32, (IDirect3DIndexBuffer) this.anIDirect3DIndexBuffer1);
+        this.anIDirect3DIndexBuffer1 = this.aClass19_Sub1_Sub1_1.anIDirect3DDevice1.a(this.anInt134, local27, this.aClass397_1 == Static702.aClass397_17 ? 101 : 102, local32, this.anIDirect3DIndexBuffer1);
         this.anInt135 = this.anInt134;
     }
 

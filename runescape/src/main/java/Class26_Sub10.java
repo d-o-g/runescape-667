@@ -92,12 +92,12 @@ public final class Class26_Sub10 extends Class26 {
         if (!this.aBoolean643) {
             return;
         }
-        this.aClass19_Sub1_Sub1_8.method4856((IDirect3DVertexShader) null);
-        this.aClass19_Sub1_Sub1_8.method4858((IDirect3DPixelShader) null);
+        this.aClass19_Sub1_Sub1_8.method4856(null);
+        this.aClass19_Sub1_Sub1_8.method4858(null);
         this.aClass19_Sub1_21.method8138(1);
-        this.aClass19_Sub1_21.method8088((Interface17) null);
+        this.aClass19_Sub1_21.method8088(null);
         this.aClass19_Sub1_21.method8138(0);
-        this.aClass19_Sub1_21.method8088((Interface17) null);
+        this.aClass19_Sub1_21.method8088(null);
         this.aBoolean643 = false;
     }
 

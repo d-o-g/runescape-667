@@ -170,7 +170,7 @@ public final class DynamicLocation extends PositionEntity implements Location {
     @Override
     public void removeShadow(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 >= -42) {
-            this.method9285(72, true, (Toolkit) null, -2, (byte) 37, -105, (Renderable) null);
+            this.method9285(72, true, null, -2, (byte) 37, -105, null);
         }
         this.aClass337_3.method7669(arg0);
     }

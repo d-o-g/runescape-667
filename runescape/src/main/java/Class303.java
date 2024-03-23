@@ -138,7 +138,7 @@ public final class Class303 implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IB)Lclient!vm;")
     public DoublyLinkedNode_Sub2_Sub21 method6819(@OriginalArg(0) int arg0) {
-        @Pc(10) Node2 local10 = this.aLinkedHashTable_3.get((long) arg0);
+        @Pc(10) Node2 local10 = this.aLinkedHashTable_3.get(arg0);
         if (local10 != null) {
             return (DoublyLinkedNode_Sub2_Sub21) local10;
         }
@@ -147,7 +147,7 @@ public final class Class303 implements TextureSource {
             return null;
         } else {
             @Pc(43) DoublyLinkedNode_Sub2_Sub21 local43 = new DoublyLinkedNode_Sub2_Sub21(new Packet(local30));
-            this.aLinkedHashTable_3.put(local43, (long) arg0);
+            this.aLinkedHashTable_3.put(local43, arg0);
             return local43;
         }
     }
@@ -155,7 +155,7 @@ public final class Class303 implements TextureSource {
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IZIIBF)[I")
     @Override
     public int[] rgbOutput(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) float arg4) {
-        return this.method6819(arg3).method8951(this.aJs5_99, (double) arg4, this.aTextureMetricsArray1[arg3].aBoolean238, this, arg1, arg2, arg0);
+        return this.method6819(arg3).method8951(this.aJs5_99, arg4, this.aTextureMetricsArray1[arg3].aBoolean238, this, arg1, arg2, arg0);
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(I)I")
@@ -186,6 +186,6 @@ public final class Class303 implements TextureSource {
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(FIIZZI)[I")
     @Override
     public int[] argbOutput(@OriginalArg(0) float arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3) {
-        return this.method6819(arg1).method8948(arg2, (double) arg0, this.aTextureMetricsArray1[arg1].aBoolean238, arg3, this, this.aJs5_99);
+        return this.method6819(arg1).method8948(arg2, arg0, this.aTextureMetricsArray1[arg1].aBoolean238, arg3, this, this.aJs5_99);
     }
 }

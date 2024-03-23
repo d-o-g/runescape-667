@@ -10,7 +10,7 @@ public final class Static544 {
         if (arg0.aBoolean309) {
             if (arg0.originalId < 0 || Static235.method3424(arg0.originalId, arg0.originalShape)) {
                 if (arg1) {
-                    Static706.method9220(arg0.layer, (LocTypeCustomisation) null, arg0.anInt4006, arg0.anInt4010, arg0.anInt4016);
+                    Static706.method9220(arg0.layer, null, arg0.anInt4006, arg0.anInt4010, arg0.anInt4016);
                 } else {
                     Static235.method3421(arg0.anInt4006, arg0.originalShape, arg0.originalRotation, arg0.anInt4016, -1, arg0.layer, arg0.anInt4010, arg0.originalId);
                 }

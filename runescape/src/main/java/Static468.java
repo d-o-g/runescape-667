@@ -17,7 +17,7 @@ public final class Static468 {
         if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || ClientOptions.instance.animateBackground.getValue() == 0 && arg0 != PlayerEntity.self.level) {
             return;
         }
-        @Pc(67) long local67 = (long) (local12 << 14 | arg0 << 28 | local8);
+        @Pc(67) long local67 = local12 << 14 | arg0 << 28 | local8;
         @Pc(73) ObjStack local73 = (ObjStack) Static497.stacks.get(local67);
         if (local73 == null) {
             Static638.method8398(arg0, arg2, arg1);

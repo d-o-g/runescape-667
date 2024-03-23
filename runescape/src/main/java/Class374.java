@@ -167,7 +167,7 @@ public final class Class374 implements Interface22 {
     public Object method8476(@OriginalArg(0) Class arg0, @OriginalArg(1) String arg1) throws IllegalAccessException, NoSuchFieldException {
         @Pc(7) Field local7 = arg0.getDeclaredField(arg1);
         @Pc(17) Object local17 = local7.get(GameShell.loaderApplet);
-        local7.set(GameShell.loaderApplet, (Object) null);
+        local7.set(GameShell.loaderApplet, null);
         return local17;
     }
 
@@ -208,71 +208,71 @@ public final class Class374 implements Interface22 {
             }
             @Pc(79) Graphics local79 = Static103.anImage1.getGraphics();
             local79.clearRect(0, 0, GameShell.canvasWid, GameShell.canvasHei);
-            @Pc(90) int local90 = this.anImage9.getWidth((ImageObserver) null);
-            @Pc(95) int local95 = this.anImage12.getWidth((ImageObserver) null);
-            @Pc(100) int local100 = this.anImage10.getWidth((ImageObserver) null);
-            @Pc(105) int local105 = this.anImage9.getHeight((ImageObserver) null);
-            @Pc(110) int local110 = this.anImage12.getHeight((ImageObserver) null);
-            @Pc(115) int local115 = this.anImage10.getHeight((ImageObserver) null);
-            local79.drawImage(this.anImage9, this.method8469(local90) + this.anInt9634 - this.anInt9640 / 2, this.method8466(local105) - -this.anInt9643, (ImageObserver) null);
+            @Pc(90) int local90 = this.anImage9.getWidth(null);
+            @Pc(95) int local95 = this.anImage12.getWidth(null);
+            @Pc(100) int local100 = this.anImage10.getWidth(null);
+            @Pc(105) int local105 = this.anImage9.getHeight(null);
+            @Pc(110) int local110 = this.anImage12.getHeight(null);
+            @Pc(115) int local115 = this.anImage10.getHeight(null);
+            local79.drawImage(this.anImage9, this.method8469(local90) + this.anInt9634 - this.anInt9640 / 2, this.method8466(local105) - -this.anInt9643, null);
             @Pc(152) int local152 = local90 + this.anInt9634 - this.anInt9640 / 2;
             @Pc(160) int local160 = this.anInt9640 / 2 + this.anInt9634;
             for (@Pc(162) int local162 = local152; local162 <= local160; local162 += local100) {
-                local79.drawImage(this.anImage10, this.method8469(local90) + this.anInt9634 + local162, this.method8466(local115) - -this.anInt9643, (ImageObserver) null);
+                local79.drawImage(this.anImage10, this.method8469(local90) + this.anInt9634 + local162, this.method8466(local115) - -this.anInt9643, null);
             }
-            local79.drawImage(this.anImage12, this.method8469(local95) + this.anInt9634 + this.anInt9640 / 2, this.method8466(local110) + this.anInt9643, (ImageObserver) null);
-            @Pc(231) int local231 = this.anImage11.getWidth((ImageObserver) null);
-            @Pc(236) int local236 = this.anImage11.getHeight((ImageObserver) null);
-            @Pc(241) int local241 = this.anImage5.getWidth((ImageObserver) null);
-            @Pc(246) int local246 = this.anImage5.getHeight((ImageObserver) null);
-            @Pc(251) int local251 = this.anImage7.getHeight((ImageObserver) null);
-            @Pc(256) int local256 = this.anImage8.getWidth((ImageObserver) null);
-            @Pc(261) int local261 = this.anImage8.getHeight((ImageObserver) null);
-            @Pc(266) int local266 = this.anImage7.getWidth((ImageObserver) null);
-            @Pc(271) int local271 = this.anImage4.getWidth((ImageObserver) null);
-            @Pc(276) int local276 = this.anImage6.getWidth((ImageObserver) null);
+            local79.drawImage(this.anImage12, this.method8469(local95) + this.anInt9634 + this.anInt9640 / 2, this.method8466(local110) + this.anInt9643, null);
+            @Pc(231) int local231 = this.anImage11.getWidth(null);
+            @Pc(236) int local236 = this.anImage11.getHeight(null);
+            @Pc(241) int local241 = this.anImage5.getWidth(null);
+            @Pc(246) int local246 = this.anImage5.getHeight(null);
+            @Pc(251) int local251 = this.anImage7.getHeight(null);
+            @Pc(256) int local256 = this.anImage8.getWidth(null);
+            @Pc(261) int local261 = this.anImage8.getHeight(null);
+            @Pc(266) int local266 = this.anImage7.getWidth(null);
+            @Pc(271) int local271 = this.anImage4.getWidth(null);
+            @Pc(276) int local276 = this.anImage6.getWidth(null);
             @Pc(286) int local286 = this.method8469(this.anInt9638) + this.anInt9645;
             @Pc(296) int local296 = this.method8466(this.anInt9648) + this.anInt9646;
-            local79.drawImage(this.anImage11, local286, local296 + (this.anInt9648 - local236) / 2, (ImageObserver) null);
-            local79.drawImage(this.anImage5, local286 + this.anInt9638 - local241, local296 + (this.anInt9648 + -local246) / 2, (ImageObserver) null);
+            local79.drawImage(this.anImage11, local286, local296 + (this.anInt9648 - local236) / 2, null);
+            local79.drawImage(this.anImage5, local286 + this.anInt9638 - local241, local296 + (this.anInt9648 + -local246) / 2, null);
             if (this.anImage13 == null) {
                 this.anImage13 = GameShell.canvas.createImage(this.anInt9638 - local231 - local241, this.anInt9648);
             }
             @Pc(358) Graphics local358 = this.anImage13.getGraphics();
             for (@Pc(360) int local360 = 0; local360 < this.anInt9638 - local241 - local231; local360 += local256) {
-                local358.drawImage(this.anImage8, local360, 0, (ImageObserver) null);
+                local358.drawImage(this.anImage8, local360, 0, null);
             }
             for (@Pc(392) int local392 = 0; local392 < this.anInt9638 - local241 - local231; local392 += local266) {
-                local358.drawImage(this.anImage7, local392, this.anInt9648 - local251, (ImageObserver) null);
+                local358.drawImage(this.anImage7, local392, this.anInt9648 - local251, null);
             }
             @Pc(439) int local439 = local63 * (this.anInt9638 - local241 - local231) / 100;
             @Pc(480) int local480;
             if (local439 > 0) {
                 @Pc(458) Image local458 = GameShell.canvas.createImage(local439, this.anInt9648 - local251 - local261);
-                @Pc(462) int local462 = local458.getWidth((ImageObserver) null);
+                @Pc(462) int local462 = local458.getWidth(null);
                 @Pc(465) Graphics local465 = local458.getGraphics();
                 @Pc(475) int local475 = this.anInt9644 * Static556.method7302() / 10 % local271;
                 for (local480 = local475 - local271; local480 < local462; local480 += local271) {
-                    local465.drawImage(this.anImage4, local480, 0, (ImageObserver) null);
+                    local465.drawImage(this.anImage4, local480, 0, null);
                 }
-                local358.drawImage(local458, 0, local261, (ImageObserver) null);
+                local358.drawImage(local458, 0, local261, null);
             }
             @Pc(516) int local516 = local439;
             local439 = this.anInt9638 - local241 - local231 - local439;
             if (local439 > 0) {
                 @Pc(542) Image local542 = GameShell.canvas.createImage(local439, this.anInt9648 - local251 - local261);
-                @Pc(546) int local546 = local542.getWidth((ImageObserver) null);
+                @Pc(546) int local546 = local542.getWidth(null);
                 @Pc(549) Graphics local549 = local542.getGraphics();
                 for (local480 = 0; local480 < local546; local480 += local276) {
-                    local549.drawImage(this.anImage6, local480, 0, (ImageObserver) null);
+                    local549.drawImage(this.anImage6, local480, 0, null);
                 }
-                local358.drawImage(local542, local516, local261, (ImageObserver) null);
+                local358.drawImage(local542, local516, local261, null);
             }
-            local79.drawImage(this.anImage13, local286 + local231, local296, (ImageObserver) null);
+            local79.drawImage(this.anImage13, local286 + local231, local296, null);
             local79.setFont(this.aFont2);
             local79.setColor(this.aColor1);
             local79.drawString(local67, (this.anInt9638 - this.aFontMetrics1.stringWidth(local67)) / 2 + local286, this.anInt9632 + 4 + local296 + this.anInt9648 / 2);
-            local43.drawImage(Static103.anImage1, 0, 0, (ImageObserver) null);
+            local43.drawImage(Static103.anImage1, 0, 0, null);
         } catch (@Pc(634) Exception local634) {
             this.aBoolean741 = true;
         }

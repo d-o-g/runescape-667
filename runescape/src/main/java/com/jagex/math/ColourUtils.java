@@ -98,9 +98,9 @@ public final class ColourUtils {
                     local63 = local95;
                     local59 = local57;
                 }
-                local59 = (float) Math.pow((double) local59, local18);
-                local61 = (float) Math.pow((double) local61, local18);
-                local63 = (float) Math.pow((double) local63, local18);
+                local59 = (float) Math.pow(local59, local18);
+                local61 = (float) Math.pow(local61, local18);
+                local63 = (float) Math.pow(local63, local18);
                 @Pc(201) int local201 = (int) (local59 * 256.0F);
                 @Pc(206) int local206 = (int) (local61 * 256.0F);
                 @Pc(211) int local211 = (int) (local63 * 256.0F);

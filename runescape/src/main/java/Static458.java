@@ -22,10 +22,10 @@ public final class Static458 {
                             ((Location) local29.aGroundDecor_1).method6856();
                         }
                         if (local29.aWallDecor_1 instanceof Location) {
-                            ((Location) local29.aWallDecor_1).method6856();
+                            local29.aWallDecor_1.method6856();
                         }
                         if (local29.aClass8_Sub2_Sub4_2 instanceof Location) {
-                            ((Location) local29.aClass8_Sub2_Sub4_2).method6856();
+                            local29.aClass8_Sub2_Sub4_2.method6856();
                         }
                         if (local29.aClass8_Sub2_Sub3_2 instanceof Location) {
                             ((Location) local29.aClass8_Sub2_Sub3_2).method6856();

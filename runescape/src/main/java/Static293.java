@@ -24,7 +24,7 @@ public final class Static293 {
             location = (Location) Static302.getWall(request.anInt4010, request.anInt4016, request.anInt4006);
         }
         if (request.layer == LocLayer.WALLDECOR) {
-            location = (Location) Static114.getWallDecor(request.anInt4010, request.anInt4016, request.anInt4006);
+            location = Static114.getWallDecor(request.anInt4010, request.anInt4016, request.anInt4006);
         }
         if (request.layer == LocLayer.GROUND) {
             location = (Location) Static578.getEntity(request.anInt4010, request.anInt4016, request.anInt4006, aClass10 == null ? (aClass10 = getClass("Location")) : aClass10);

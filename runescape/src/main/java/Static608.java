@@ -74,7 +74,7 @@ public final class Static608 {
                 if (local27 < local7) {
                     local51 = PlayerList.highResolutionPlayers[local11[local27]];
                 } else {
-                    local51 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) Static103.anIntArray187[local27 - local7])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    local51 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local27 - local7])).aClass8_Sub2_Sub1_Sub2_Sub2_2;
                     local31 = ((NPCEntity) local51).type;
                     if (local31.multinpcs != null) {
                         local31 = local31.getMultiNPC(TimedVarDomain.instance);
@@ -121,7 +121,7 @@ public final class Static608 {
                     }
                     @Pc(295) Sprite[] local295 = Static119.aSpriteArray3;
                     if (local267 != -1) {
-                        local306 = (Sprite[]) Static230.A_WEIGHTED_CACHE___81.get((long) local267);
+                        local306 = (Sprite[]) Static230.A_WEIGHTED_CACHE___81.get(local267);
                         if (local306 == null) {
                             local313 = IndexedImage.load(js5.SPRITES, local267, 0);
                             if (local313 != null) {
@@ -129,7 +129,7 @@ public final class Static608 {
                                 for (local321 = 0; local321 < local313.length; local321++) {
                                     local306[local321] = Toolkit.active.createSprite(local313[local321], true);
                                 }
-                                Static230.A_WEIGHTED_CACHE___81.put(local306, (long) local267);
+                                Static230.A_WEIGHTED_CACHE___81.put(local306, local267);
                             }
                         }
                         if (local306 != null && local306.length >= 2) {
@@ -170,7 +170,7 @@ public final class Static608 {
                             local504 = local51.method9317().timerbarSprite;
                         }
                         if (local504 != -1) {
-                            local306 = (Sprite[]) Static669.A_WEIGHTED_CACHE___215.get((long) local504);
+                            local306 = (Sprite[]) Static669.A_WEIGHTED_CACHE___215.get(local504);
                             if (local306 == null) {
                                 local313 = IndexedImage.load(js5.SPRITES, local504, 0);
                                 if (local313 != null) {
@@ -178,7 +178,7 @@ public final class Static608 {
                                     for (local321 = 0; local321 < local313.length; local321++) {
                                         local306[local321] = Toolkit.active.createSprite(local313[local321], true);
                                     }
-                                    Static669.A_WEIGHTED_CACHE___215.put(local306, (long) local504);
+                                    Static669.A_WEIGHTED_CACHE___215.put(local306, local504);
                                 }
                             }
                             if (local306 != null && local306.length == 4) {
@@ -624,14 +624,14 @@ public final class Static608 {
             if (local2422 < 2048) {
                 local2429 = PlayerList.highResolutionPlayers[local2422];
             } else {
-                local2429 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (local2422 - 2048))).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                local2429 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get(local2422 - 2048)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             }
             local267 = Static212.anIntArray283[local2403];
             @Pc(2452) Class8_Sub2_Sub1_Sub2 local2452;
             if (local267 < 2048) {
                 local2452 = PlayerList.highResolutionPlayers[local267];
             } else {
-                local2452 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get((long) (local267 - 2048))).aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                local2452 = ((Node_Sub45) Static18.A_HASH_TABLE___2.get(local267 - 2048)).aClass8_Sub2_Sub1_Sub2_Sub2_2;
             }
             Static397.method5557(arg2, local2429, local2452, arg3, arg1, arg0, --local2429.anInt10735);
         }

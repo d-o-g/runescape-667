@@ -739,9 +739,9 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         @Pc(218) int local218 = local74 < local119 ? local74 : local119;
         @Pc(226) int local226 = local210 > local165 ? local165 : local210;
         @Pc(234) int local234 = local119 >= local210 ? local210 : local119;
-        this.anInt10746 = (int) (Math.atan2((double) (local218 - local226), (double) arg4) * 2607.5945876176133D) & 0x3FFF;
+        this.anInt10746 = (int) (Math.atan2(local218 - local226, arg4) * 2607.5945876176133D) & 0x3FFF;
         @Pc(257) int local257 = local165 > local74 ? local74 : local165;
-        this.anInt10742 = (int) (Math.atan2((double) (local257 - local234), (double) arg3) * 2607.5945876176133D) & 0x3FFF;
+        this.anInt10742 = (int) (Math.atan2(local257 - local234, arg3) * 2607.5945876176133D) & 0x3FFF;
         if (arg5 >= -78) {
             return;
         }
@@ -883,11 +883,11 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                         }
                     }
                 }
-                this.aClass8_Sub5_8.method3643(arg0, (long) TimeUtils.clock, local138, local191);
+                this.aClass8_Sub5_8.method3643(arg0, TimeUtils.clock, local138, local191);
                 this.aBoolean820 = true;
             }
         } else if (this.aClass8_Sub5_8 != null) {
-            this.aClass8_Sub5_8.method3649((long) TimeUtils.clock);
+            this.aClass8_Sub5_8.method3649(TimeUtils.clock);
         }
         if (this.aClass8_Sub5_8 != null) {
             this.aClass8_Sub5_8.method3658(super.level, super.aShort131, super.aShort134, super.aShort132, super.aShort133);

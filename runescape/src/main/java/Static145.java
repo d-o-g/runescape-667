@@ -63,7 +63,7 @@ public final class Static145 {
                     @Pc(164) int local164 = local72 & 0x3FFF;
                     local95 = arg0.z - (local164 - WorldMap.areaBaseY) * 512 - 256;
                 } else if ((local25 & 0x8000) == 0) {
-                    @Pc(111) Node_Sub45 local111 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((long) local25);
+                    @Pc(111) Node_Sub45 local111 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local25);
                     if (local111 == null) {
                         arg0.method9307(local19, -1);
                         continue;
@@ -82,7 +82,7 @@ public final class Static145 {
                     local102 = arg0.x - local76.x;
                 }
                 if (local102 != 0 || local95 != 0) {
-                    arg0.method9307(local19, (int) (Math.atan2((double) local102, (double) local95) * 2607.5945876176133D) & 0x3FFF);
+                    arg0.method9307(local19, (int) (Math.atan2(local102, local95) * 2607.5945876176133D) & 0x3FFF);
                 }
             } else if (!arg0.method9307(local19, -1)) {
                 local17 = false;

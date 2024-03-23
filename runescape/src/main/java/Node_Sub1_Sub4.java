@@ -39,7 +39,7 @@ public final class Node_Sub1_Sub4 extends Node_Sub1 {
                     local58 = this.anInt1169 * (local41 - local27);
                 } else {
                     @Pc(70) int local70 = local47 * local47 + local33 * local33 >> 12;
-                    local58 = (int) (Math.sqrt((double) ((float) local70 / 4096.0F)) * 4096.0D);
+                    local58 = (int) (Math.sqrt((float) local70 / 4096.0F) * 4096.0D);
                     local58 = (int) ((double) (local58 * this.anInt1169) * 3.141592653589793D);
                 }
                 local58 -= local58 & 0xFFFFF000;

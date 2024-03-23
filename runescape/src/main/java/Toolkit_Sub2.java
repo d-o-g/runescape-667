@@ -443,7 +443,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             }
             return;
         }
-        @Pc(10) Node_Sub10 local10 = (Node_Sub10) this.aIterableHashTable_20.get((long) arg0.hashCode());
+        @Pc(10) Node_Sub10 local10 = (Node_Sub10) this.aIterableHashTable_20.get(arg0.hashCode());
         if (local10 == null) {
             return;
         }
@@ -626,7 +626,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             return;
         }
         if (this.anInt4215 != local2) {
-            @Pc(34) Sprite local34 = (Sprite) this.aReferenceCache_88.get((long) local2);
+            @Pc(34) Sprite local34 = (Sprite) this.aReferenceCache_88.get(local2);
             if (local34 == null) {
                 @Pc(40) int[] local40 = this.method3788(local2);
                 if (local40 == null) {
@@ -634,7 +634,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 }
                 @Pc(54) int local54 = this.method3798(local2) ? 64 : this.lb;
                 local34 = this.createSprite(local54, local54, local54, local40);
-                this.aReferenceCache_88.put(local34, (long) local2);
+                this.aReferenceCache_88.put(local34, local2);
             }
             this.anInt4215 = local2;
             this.aSprite_17 = local34;
@@ -934,13 +934,13 @@ public final class Toolkit_Sub2 extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aIterableHashTable_20.get((long) arg0.hashCode());
+        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aIterableHashTable_20.get(arg0.hashCode());
         if (local8 == null) {
             return;
         }
         local8.unlink();
         local8 = Static538.method7192(arg2, arg0, arg1);
-        this.aIterableHashTable_20.put((long) arg0.hashCode(), local8);
+        this.aIterableHashTable_20.put(arg0.hashCode(), local8);
         if (this.aCanvas3 != arg0 || this.aClass87_1 != null) {
             return;
         }
@@ -1182,7 +1182,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     public void ZA(@OriginalArg(0) int arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
         this.anInt4191 = (int) (arg1 * 65535.0F);
         this.anInt4187 = (int) (arg2 * 65535.0F);
-        @Pc(26) float local26 = (float) Math.sqrt((double) (arg3 * arg3 + arg4 * arg4 + arg5 * arg5));
+        @Pc(26) float local26 = (float) Math.sqrt(arg3 * arg3 + arg4 * arg4 + arg5 * arg5);
         this.anInt4189 = (int) (arg3 * 65535.0F / local26);
         this.anInt4204 = (int) (arg4 * 65535.0F / local26);
         this.anInt4198 = (int) (arg5 * 65535.0F / local26);
@@ -1297,7 +1297,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             @Pc(178) int local178;
             @Pc(182) int local182;
             if (arg2 + arg3 < 0) {
-                local178 = (int) (Math.sqrt((double) (arg2 * arg2 + arg3 * arg3)) * 256.0D);
+                local178 = (int) (Math.sqrt(arg2 * arg2 + arg3 * arg3) * 256.0D);
                 local182 = local178 % local31;
                 local35 = local31 + local149 - arg7 - local182;
                 arg7 = local35 % local31;
@@ -1324,7 +1324,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 local178 = (int) Math.floor((double) local229 / (double) arg2 + 0.5D);
                 local243 = arg2 + arg0;
                 local182 = arg4 >>> 24;
-                local260 = (int) Math.sqrt((double) ((local178 >> 8) * (local178 >> 8) + 65536));
+                local260 = (int) Math.sqrt((local178 >> 8) * (local178 >> 8) + 65536);
                 if (local182 == 255 && true) {
                     while (arg0 <= local243) {
                         local278 = arg1 >> 16;
@@ -1360,7 +1360,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 local178 = (int) Math.floor((double) local243 / (double) arg3 + 0.5D);
                 local229 = arg3 + arg1;
                 local182 = arg4 >>> 24;
-                local260 = (int) Math.sqrt((double) ((local178 >> 8) * (local178 >> 8) + 65536));
+                local260 = (int) Math.sqrt((local178 >> 8) * (local178 >> 8) + 65536);
                 if (local182 == 255 && true) {
                     while (arg1 <= local229) {
                         local278 = arg0 >> 16;
@@ -1833,7 +1833,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "c", descriptor = "(I)V")
     @Override
     public void method8016(@OriginalArg(0) int arg0) {
-        this.aClass399Array1[arg0].method9196((Runnable) null);
+        this.aClass399Array1[arg0].method9196(null);
     }
 
     @OriginalMember(owner = "client!iaa", name = "j", descriptor = "(I)V")
@@ -1929,7 +1929,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             return;
         }
         if (this.anInt4215 != arg6) {
-            @Pc(33) Sprite local33 = (Sprite) this.aReferenceCache_88.get((long) arg6);
+            @Pc(33) Sprite local33 = (Sprite) this.aReferenceCache_88.get(arg6);
             if (local33 == null) {
                 @Pc(39) int[] local39 = this.method3788(arg6);
                 if (local39 == null) {
@@ -1937,7 +1937,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 }
                 @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.lb;
                 local33 = this.createSprite(local53, local53, local53, local39);
-                this.aReferenceCache_88.put(local33, (long) arg6);
+                this.aReferenceCache_88.put(local33, arg6);
             }
             this.anInt4215 = arg6;
             this.aSprite_17 = local33;
@@ -2227,7 +2227,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         @Pc(2) ReferenceCache local2 = this.aReferenceCache_89;
         @Pc(12) Node_Sub29 local12;
         synchronized (this.aReferenceCache_89) {
-            local12 = (Node_Sub29) this.aReferenceCache_89.get((long) arg0);
+            local12 = (Node_Sub29) this.aReferenceCache_89.get(arg0);
             if (local12 == null) {
                 if (!super.textureSource.textureAvailable(arg0)) {
                     return null;
@@ -2235,7 +2235,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 @Pc(34) TextureMetrics local34 = super.textureSource.getMetrics(arg0);
                 @Pc(48) int local48 = local34.small || this.aBoolean332 ? 64 : this.lb;
                 local12 = new Node_Sub29(arg0, local48, super.textureSource.rgbOutput(local48, true, local48, arg0, 0.7F), local34.alphaBlendMode != 1);
-                this.aReferenceCache_89.put(local12, (long) arg0);
+                this.aReferenceCache_89.put(local12, arg0);
             }
         }
         local12.aBoolean341 = true;
@@ -2533,7 +2533,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         @Pc(79) int local79;
         @Pc(83) int local83;
         if (arg2 + arg3 < 0) {
-            local79 = (int) (Math.sqrt((double) (arg2 * arg2 + arg3 * arg3)) * 256.0D);
+            local79 = (int) (Math.sqrt(arg2 * arg2 + arg3 * arg3) * 256.0D);
             local83 = local79 % local50;
             local38 = local50 + local42 - arg10 - local83;
             arg10 = local38 % local50;
@@ -2559,7 +2559,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             arg0 += 32768;
             local144 = arg2 << 16;
             local79 = (int) Math.floor((double) local144 / (double) arg3 + 0.5D);
-            local83 = (int) Math.sqrt((double) ((local79 >> 8) * (local79 >> 8) + 65536));
+            local83 = (int) Math.sqrt((local79 >> 8) * (local79 >> 8) + 65536);
             local130 = arg3 + arg1;
             local161 = arg4 >>> 24;
             if (local161 == 255 && true) {
@@ -2600,7 +2600,7 @@ public final class Toolkit_Sub2 extends Toolkit {
         local79 = (int) Math.floor((double) local130 / (double) arg2 + 0.5D);
         local144 = arg2 + arg0;
         local83 = arg4 >>> 24;
-        local161 = (int) Math.sqrt((double) ((local79 >> 8) * (local79 >> 8) + 65536));
+        local161 = (int) Math.sqrt((local79 >> 8) * (local79 >> 8) + 65536);
         if (local83 == 255 && true) {
             while (arg0 <= local144) {
                 local179 = arg1 >> 16;
@@ -2757,7 +2757,7 @@ public final class Toolkit_Sub2 extends Toolkit {
             return;
         }
         if (this.anInt4215 != arg6) {
-            @Pc(33) Sprite local33 = (Sprite) this.aReferenceCache_88.get((long) arg6);
+            @Pc(33) Sprite local33 = (Sprite) this.aReferenceCache_88.get(arg6);
             if (local33 == null) {
                 @Pc(39) int[] local39 = this.method3788(arg6);
                 if (local39 == null) {
@@ -2765,7 +2765,7 @@ public final class Toolkit_Sub2 extends Toolkit {
                 }
                 @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.lb;
                 local33 = this.createSprite(local53, local53, local53, local39);
-                this.aReferenceCache_88.put(local33, (long) arg6);
+                this.aReferenceCache_88.put(local33, arg6);
             }
             this.anInt4215 = arg6;
             this.aSprite_17 = local33;
@@ -2819,10 +2819,10 @@ public final class Toolkit_Sub2 extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aIterableHashTable_20.get((long) arg0.hashCode());
+        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aIterableHashTable_20.get(arg0.hashCode());
         if (local8 == null) {
             local8 = Static538.method7192(arg2, arg0, arg1);
-            this.aIterableHashTable_20.put((long) arg0.hashCode(), local8);
+            this.aIterableHashTable_20.put(arg0.hashCode(), local8);
         } else if (local8.anInt7053 != arg1 || local8.anInt7050 != arg2) {
             this.method7935(arg0, arg1, arg2);
         }
@@ -2882,9 +2882,9 @@ public final class Toolkit_Sub2 extends Toolkit {
     @Override
     public void method7972(@OriginalArg(0) Canvas arg0) {
         if (this.aCanvas3 == arg0) {
-            this.method8019((Canvas) null);
+            this.method8019(null);
         }
-        @Pc(17) Node_Sub10 local17 = (Node_Sub10) this.aIterableHashTable_20.get((long) arg0.hashCode());
+        @Pc(17) Node_Sub10 local17 = (Node_Sub10) this.aIterableHashTable_20.get(arg0.hashCode());
         if (local17 != null) {
             local17.unlink();
         }

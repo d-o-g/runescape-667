@@ -105,7 +105,7 @@ public final class Static603 {
         @Pc(56) int local56;
         @Pc(78) int local78;
         if (arg2.aString25 != null) {
-            local36 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, (int[]) null, (Sprite[]) null, arg2.aString25);
+            local36 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, arg2.aString25);
             for (local56 = 0; local56 < local36; local56++) {
                 @Pc(61) String local61 = Static37.aStringArray5[local56];
                 if (local56 < local36 - 1) {
@@ -134,7 +134,7 @@ public final class Static603 {
             local163 = WorldMap.anInt5646 - local15 / 2 - local40 - 10;
             local34 = WorldMap.anInt5646 - local15;
         }
-        local78 = (int) (Math.atan2((double) (local31 - arg0.anInt3130), (double) (local34 - arg0.anInt3122)) / 3.141592653589793D * 32767.0D) & 0xFFFF;
+        local78 = (int) (Math.atan2(local31 - arg0.anInt3130, local34 - arg0.anInt3122) / 3.141592653589793D * 32767.0D) & 0xFFFF;
         local8.method8186((float) local31 + (float) local15 / 2.0F, (float) local34 + (float) local15 / 2.0F, 4096, local78);
         @Pc(246) int local246 = -2;
         @Pc(248) int local248 = -2;

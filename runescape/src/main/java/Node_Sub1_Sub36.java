@@ -37,7 +37,7 @@ public final class Node_Sub1_Sub36 extends Node_Sub1 {
             this.anInt10258 = arg1.g2();
         }
         if (arg0) {
-            Static678.method8901(-90, (Packet) null);
+            Static678.method8901(-90, null);
         }
     }
 
@@ -65,7 +65,7 @@ public final class Node_Sub1_Sub36 extends Node_Sub1 {
             }
         }
         if (arg0 < 107) {
-            Static678.method8901(-124, (Packet) null);
+            Static678.method8901(-124, null);
         }
         return local11;
     }

@@ -72,7 +72,7 @@ public final class Static351 {
         if (arg1.aString25 != null) {
             local209 = Static390.method5493(arg1.anInt2615);
             if (local209 != null) {
-                local211 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, (int[]) null, (Sprite[]) null, arg1.aString25);
+                local211 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, arg1.aString25);
                 local215 = arg2.anInt3122 - arg1.anInt2617 * (WorldMap.anInt5646 - WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
                 local213 = arg1.anInt2600 * (WorldMap.anInt5651 - WorldMap.anInt5649) / (WorldMap.anInt5647 - WorldMap.anInt5652) + arg2.anInt3130;
                 if (local102 == null) {

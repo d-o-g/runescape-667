@@ -144,10 +144,10 @@ public final class Class67_Sub1_Sub1 extends Class67_Sub1 {
         local11.method9363(0);
         this.aClass19_Sub3_1.method6993(local11);
         this.aClass19_Sub3_1.method7014(1);
-        this.aClass19_Sub3_1.method7001((Class93) null);
+        this.aClass19_Sub3_1.method7001(null);
         this.aClass19_Sub3_1.method7031(8448, 8448);
         this.aClass19_Sub3_1.method7014(0);
-        this.aClass19_Sub3_1.method7001((Class93) null);
+        this.aClass19_Sub3_1.method7001(null);
         OpenGL.glPopAttrib();
         this.aClass19_Sub3_1.KA(Static654.anIntArray760[0], Static654.anIntArray760[1], Static654.anIntArray760[2], Static654.anIntArray760[3]);
         if (local7 && !this.aClass19_Sub3_1.aBoolean610) {

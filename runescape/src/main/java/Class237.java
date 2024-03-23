@@ -14,7 +14,7 @@ public final class Class237 {
 
     @OriginalMember(owner = "client!mc", name = "<init>", descriptor = "(Lclient!hd;)V")
     public Class237(@OriginalArg(0) Class157 arg0) {
-        this.aLong184 = (long) arg0.anInt3729;
+        this.aLong184 = arg0.anInt3729;
         this.anInt6068 = 1;
     }
 
@@ -37,7 +37,7 @@ public final class Class237 {
 
     @OriginalMember(owner = "client!mc", name = "a", descriptor = "(Lclient!hd;I)V")
     public void method5444(@OriginalArg(0) Class157 arg0) {
-        this.aLong184 |= (long) (arg0.anInt3729 << this.anInt6068++ * Static231.anInt3733);
+        this.aLong184 |= arg0.anInt3729 << this.anInt6068++ * Static231.anInt3733;
     }
 
     @OriginalMember(owner = "client!mc", name = "b", descriptor = "(II)Lclient!hd;")

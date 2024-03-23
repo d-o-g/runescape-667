@@ -22,7 +22,7 @@ public final class Node_Sub1_Sub29 extends Node_Sub1 {
             this.anInt9572 = arg1.g2();
         }
         if (arg0) {
-            this.method9416(false, (Packet) null, 11);
+            this.method9416(false, null, 11);
         }
     }
 
@@ -30,7 +30,7 @@ public final class Node_Sub1_Sub29 extends Node_Sub1 {
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (arg0 <= 107) {
-            Static639.method8418((Class297_Sub1) null, 60, -47, true, -23, (Class297_Sub1) null, true);
+            Static639.method8418(null, 60, -47, true, -23, null, true);
         }
         @Pc(25) int[] local25 = super.aClass180_41.method3935(arg1);
         if (super.aClass180_41.aBoolean338) {

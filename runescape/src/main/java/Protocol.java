@@ -18,6 +18,7 @@ import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

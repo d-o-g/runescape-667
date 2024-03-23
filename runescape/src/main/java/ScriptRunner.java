@@ -18,6 +18,8 @@ import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingType;
+import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.math.ColourUtils;
@@ -3511,8 +3513,8 @@ public final class ScriptRunner {
                             local96 = local11[local5];
                             @Pc(1178) Integer local1178 = (Integer) Static279.anObjectArray35[local96];
                             if (local1178 == null) {
-                                @Pc(1185) Class122 local1185 = VarClanSettingTypeList.instance.list(local96);
-                                if (local1185.aChar3 == 'i' || local1185.aChar3 == '1') {
+                                @Pc(1185) VarClanSettingType local1185 = VarClanSettingTypeList.instance.list(local96);
+                                if (local1185.dataType == 'i' || local1185.dataType == '1') {
                                     anIntArray578[anInt7142++] = 0;
                                 } else {
                                     anIntArray578[anInt7142++] = -1;
@@ -3522,16 +3524,16 @@ public final class ScriptRunner {
                             }
                         } else if (local34 == 107) {
                             local96 = local11[local5];
-                            @Pc(1236) Class122 local1236 = VarClanSettingTypeList.instance.list(local96);
-                            if (local1236.aChar3 != '\u0001') {
+                            @Pc(1236) VarClanSettingType local1236 = VarClanSettingTypeList.instance.list(local96);
+                            if (local1236.dataType != '\u0001') {
                                 anIntArray578[anInt7142++] = 0;
                             }
-                            @Pc(1256) Integer local1256 = (Integer) Static279.anObjectArray35[local1236.anInt2816];
+                            @Pc(1256) Integer local1256 = (Integer) Static279.anObjectArray35[local1236.id];
                             if (local1256 == null) {
                                 anIntArray578[anInt7142++] = 0;
                             } else {
-                                @Pc(1284) int local1284 = local1236.anInt2817 == 31 ? -1 : (0x1 << local1236.anInt2817 + 1) - 1;
-                                anIntArray578[anInt7142++] = (local1256 & local1284) >>> local1236.anInt2812;
+                                @Pc(1284) int local1284 = local1236.end == 31 ? -1 : (0x1 << local1236.end + 1) - 1;
+                                anIntArray578[anInt7142++] = (local1256 & local1284) >>> local1236.start;
                             }
                         } else if (local34 == 108) {
                             local96 = local11[local5];

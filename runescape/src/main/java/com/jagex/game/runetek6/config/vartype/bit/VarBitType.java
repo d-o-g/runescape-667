@@ -37,6 +37,7 @@ public final class VarBitType {
             if (decode == 0) {
                 return;
             }
+
             this.decode(packet, decode);
         }
     }

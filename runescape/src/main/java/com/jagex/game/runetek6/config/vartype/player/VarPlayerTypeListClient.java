@@ -3,6 +3,7 @@ package com.jagex.game.runetek6.config.vartype.player;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -12,7 +13,7 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!nh")
 public final class VarPlayerTypeListClient {
 
-    private static final int DEFAULT_CACHE_SIZE = 16;
+    private static final int DEFAULT_CACHE_SIZE = 64;
 
     @OriginalMember(owner = "client!bda", name = "E", descriptor = "Lclient!nh;")
     public static VarPlayerTypeListClient instance;
@@ -37,7 +38,7 @@ public final class VarPlayerTypeListClient {
         this.configClient = configClient;
 
         if (this.configClient != null) {
-            this.num = this.configClient.fileLimit(16);
+            this.num = this.configClient.fileLimit(Js5ConfigGroup.VARP);
         } else {
             this.num = 0;
         }

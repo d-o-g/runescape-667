@@ -17,14 +17,14 @@ public final class VarBitTypeListClient {
     @OriginalMember(owner = "client!qla", name = "a", descriptor = "Lclient!hf;")
     public static VarBitTypeListClient instance;
 
-    @OriginalMember(owner = "client!kd", name = "b", descriptor = "(BI)I")
-    private static int fileId(@OriginalArg(1) int id) {
-        return id & 0x3FF;
-    }
-
     @OriginalMember(owner = "client!qe", name = "a", descriptor = "(II)I")
     private static int groupId(@OriginalArg(1) int id) {
         return id >>> 10;
+    }
+
+    @OriginalMember(owner = "client!kd", name = "b", descriptor = "(BI)I")
+    private static int fileId(@OriginalArg(1) int id) {
+        return id & 0x3FF;
     }
 
     @OriginalMember(owner = "client!hf", name = "c", descriptor = "Lclient!dla;")

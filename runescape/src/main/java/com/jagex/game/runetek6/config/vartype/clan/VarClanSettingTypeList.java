@@ -1,6 +1,9 @@
+package com.jagex.game.runetek6.config.vartype.clan;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,11 +13,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!sn")
 public final class VarClanSettingTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "Lclient!sn;")
     public static VarClanSettingTypeList instance;
 
     @OriginalMember(owner = "client!sn", name = "e", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     private final ModeGame game;
 
@@ -35,7 +40,7 @@ public final class VarClanSettingTypeList {
         if (this.configClient == null) {
             this.num = 0;
         } else {
-            this.num = this.configClient.fileLimit(47);
+            this.num = this.configClient.fileLimit(Js5ConfigGroup.VAR_CLAN_SETTING);
         }
     }
 
@@ -56,11 +61,11 @@ public final class VarClanSettingTypeList {
     }
 
     @OriginalMember(owner = "client!sn", name = "b", descriptor = "(II)Lclient!fc;")
-    public Class122 list(@OriginalArg(0) int id) {
+    public VarClanSettingType list(@OriginalArg(0) int id) {
         @Pc(6) ReferenceCache local6 = this.recentUse;
-        @Pc(16) Class122 type;
+        @Pc(16) VarClanSettingType type;
         synchronized (this.recentUse) {
-            type = (Class122) this.recentUse.get(id);
+            type = (VarClanSettingType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -72,7 +77,7 @@ public final class VarClanSettingTypeList {
             data = this.configClient.getfile(id, 47);
         }
 
-        type = new Class122();
+        type = new VarClanSettingType();
         if (data != null) {
             type.decode(new Packet(data));
         }

@@ -1,6 +1,9 @@
+package com.jagex.game.runetek6.config.vartype.clan;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,11 +13,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!al")
 public final class VarClanTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!ui", name = "y", descriptor = "Lclient!al;")
     public static VarClanTypeList instance;
 
     @OriginalMember(owner = "client!al", name = "b", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     private final ModeGame game;
 
@@ -32,18 +37,18 @@ public final class VarClanTypeList {
         this.configClient = configClient;
 
         if (this.configClient != null) {
-            this.num = this.configClient.fileLimit(54);
+            this.num = this.configClient.fileLimit(Js5ConfigGroup.VAR_CLAN);
         } else {
             this.num = 0;
         }
     }
 
     @OriginalMember(owner = "client!al", name = "a", descriptor = "(II)Lclient!sla;")
-    public Class341 list(@OriginalArg(0) int id) {
+    public VarClanType list(@OriginalArg(0) int id) {
         @Pc(6) ReferenceCache local6 = this.recentUse;
-        @Pc(16) Class341 type;
+        @Pc(16) VarClanType type;
         synchronized (this.recentUse) {
-            type = (Class341) this.recentUse.get(id);
+            type = (VarClanType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -55,7 +60,7 @@ public final class VarClanTypeList {
             data = this.configClient.getfile(id, 54);
         }
 
-        type = new Class341();
+        type = new VarClanType();
         if (data != null) {
             type.decode(new Packet(data));
         }

@@ -20,6 +20,8 @@ import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingType;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
+import com.jagex.game.runetek6.config.vartype.clan.VarClanType;
+import com.jagex.game.runetek6.config.vartype.clan.VarClanTypeList;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.math.ColourUtils;
@@ -125,23 +127,23 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "(I)I")
     public static int method6411(@OriginalArg(0) int arg0) {
-        @Pc(4) Class341 local4 = VarClanTypeList.instance.list(arg0);
+        @Pc(4) VarClanType local4 = VarClanTypeList.instance.list(arg0);
         if (local4 == null) {
             throw new RuntimeException("sr-c113");
         }
-        @Pc(29) Integer local29 = aClass164_7.method3495(client.modeGame.id << 16 | local4.anInt8745, local4.anInt8746, local4.anInt8742);
+        @Pc(29) Integer local29 = aClass164_7.method3495(client.modeGame.id << 16 | local4.id, local4.end, local4.start);
         return local29 == null ? 0 : local29;
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(I)I")
     public static int method6412(@OriginalArg(0) int arg0) {
-        @Pc(4) Class341 local4 = VarClanTypeList.instance.list(arg0);
+        @Pc(4) VarClanType local4 = VarClanTypeList.instance.list(arg0);
         if (local4 == null) {
             throw new RuntimeException("sr-c112");
         }
         @Pc(24) Integer local24 = aClass164_7.method3490(client.modeGame.id << 16 | arg0);
         if (local24 == null) {
-            return local4.aChar7 == 'i' || local4.aChar7 == '1' ? 0 : -1;
+            return local4.dataType == 'i' || local4.dataType == '1' ? 0 : -1;
         } else {
             return local24;
         }

@@ -40,6 +40,7 @@ import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
+import com.jagex.game.runetek6.config.vartype.clan.VarClanTypeList;
 import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Toolkit;

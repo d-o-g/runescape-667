@@ -23,6 +23,7 @@ import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
+import com.jagex.game.runetek6.config.vartype.clan.VarClanTypeList;
 import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

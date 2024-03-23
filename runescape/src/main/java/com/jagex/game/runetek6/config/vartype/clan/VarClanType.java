@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.vartype.clan;
+
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -6,39 +8,40 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!sla")
-public final class Class341 {
+public final class VarClanType {
 
     @OriginalMember(owner = "client!sla", name = "h", descriptor = "I")
-    public int anInt8742;
+    public int start;
 
     @OriginalMember(owner = "client!sla", name = "g", descriptor = "I")
-    public int anInt8745;
+    public int id;
 
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "C")
-    public char aChar7;
+    public char dataType;
 
     @OriginalMember(owner = "client!sla", name = "e", descriptor = "I")
-    public int anInt8746;
+    public int end;
 
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "(ILclient!ge;Z)V")
-    public void method7762(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
-        if (arg0 == 1) {
-            this.aChar7 = Cp1252.decodeChar(arg1.g1b());
-        } else if (arg0 == 2) {
-            this.anInt8745 = arg1.g2();
-            this.anInt8742 = arg1.g1();
-            this.anInt8746 = arg1.g1();
+    public void decode(@OriginalArg(0) int code, @OriginalArg(1) Packet packet) {
+        if (code == 1) {
+            this.dataType = Cp1252.decodeChar(packet.g1b());
+        } else if (code == 2) {
+            this.id = packet.g2();
+            this.start = packet.g1();
+            this.end = packet.g1();
         }
     }
 
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void decode(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(14) int local14 = arg0.g1();
-            if (local14 == 0) {
+            @Pc(14) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method7762(local14, arg0);
+
+            this.decode(code, packet);
         }
     }
 }

@@ -39,7 +39,7 @@ public final class BASTypeList {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
-        this.num = this.configClient.fileLimit(32);
+        this.num = this.configClient.fileLimit(Js5ConfigGroup.BASTYPE);
         this.wearposDefaults = wearposDefaults;
     }
 

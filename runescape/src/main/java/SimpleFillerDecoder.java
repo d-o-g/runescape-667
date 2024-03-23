@@ -1,5 +1,7 @@
 import com.jagex.game.QuickChatDynamicCommand;
 import com.jagex.game.QuickChatFillerDecoder;
+import com.jagex.game.runetek6.config.enumtype.EnumType;
+import com.jagex.game.runetek6.config.enumtype.EnumTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import org.openrs2.deob.annotation.OriginalArg;

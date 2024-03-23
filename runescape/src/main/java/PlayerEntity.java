@@ -8,6 +8,8 @@ import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.enumtype.EnumType;
+import com.jagex.game.runetek6.config.enumtype.EnumTypeList;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjType;
@@ -688,7 +690,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         if (local40 != null && local40[this.aByte31] != -1) {
             @Pc(62) EnumType local62 = EnumTypeList.instance.list(local40[this.aByte31]);
-            if (local62.aChar1 == 's') {
+            if (local62.valType == 's') {
                 local5 = local5 + local62.getString(this.aByte33 & 0xFF);
             } else {
                 JagException.sendTrace(new Throwable(), "gdn1");

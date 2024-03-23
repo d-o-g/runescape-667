@@ -2,7 +2,6 @@ package com.jagex.game.runetek6.config.cursortype;
 
 import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
-import com.jagex.game.runetek6.config.cursortype.CursorTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -41,7 +40,7 @@ public final class CursorType {
         if (cursor != null) {
             return cursor;
         }
-        cursor = IndexedImage.loadFirst(this.myList.aJs5_88, this.graphic, 0);
+        cursor = IndexedImage.loadFirst(this.myList.sprites, this.graphic, 0);
         if (cursor != null) {
             this.myList.cursorCache.put(cursor, this.graphic);
         }

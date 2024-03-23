@@ -1,8 +1,12 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhat;
+import com.jagex.game.runetek6.config.enumtype.EnumMapping;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.enumtype.EnumStringMapping;
+import com.jagex.game.runetek6.config.enumtype.EnumType;
+import com.jagex.game.runetek6.config.enumtype.EnumTypeList;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
@@ -1880,12 +1884,12 @@ public final class ScriptRunner {
                                             local27 = anIntArray578[anInt7142 + 2];
                                             local506 = anIntArray578[anInt7142 + 3];
                                             local6868 = EnumTypeList.instance.list(local27);
-                                            if (local6868.aChar2 == local15 && local6868.aChar1 == local21) {
-                                                if (local21 == 115) {
+                                            if (local6868.keyType == local15 && local6868.valType == local21) {
+                                                if (local21 == 's') {
                                                     aStringArray37[anInt7139++] = local6868.getString(local506);
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = local6868.method1227(local506);
+                                                anIntArray578[anInt7142++] = local6868.getInt(local506);
                                                 return;
                                             }
                                             throw new RuntimeException("C3408-1 " + local27 + "-" + local506);
@@ -1900,10 +1904,10 @@ public final class ScriptRunner {
                                                 throw new RuntimeException("C3409-2");
                                             }
                                             local6963 = EnumTypeList.instance.list(local21);
-                                            if (local6963.aChar1 != local15) {
+                                            if (local6963.valType != local15) {
                                                 throw new RuntimeException("C3409-1");
                                             }
-                                            anIntArray578[anInt7142++] = local6963.method1233(local27) ? 1 : 0;
+                                            anIntArray578[anInt7142++] = local6963.hasOutput(local27) ? 1 : 0;
                                             return;
                                         }
                                         if (arg0 == 3410) {
@@ -1913,16 +1917,16 @@ public final class ScriptRunner {
                                                 throw new RuntimeException("C3410-2");
                                             }
                                             local6822 = EnumTypeList.instance.list(local15);
-                                            if (local6822.aChar1 != 's') {
+                                            if (local6822.valType != 's') {
                                                 throw new RuntimeException("C3410-1");
                                             }
-                                            anIntArray578[anInt7142++] = local6822.method1221(local1394) ? 1 : 0;
+                                            anIntArray578[anInt7142++] = local6822.hasOutputString(local1394) ? 1 : 0;
                                             return;
                                         }
                                         if (arg0 == 3411) {
                                             local15 = anIntArray578[--anInt7142];
-                                            @Pc(7072) EnumType local7072 = EnumTypeList.instance.list(local15);
-                                            anIntArray578[anInt7142++] = local7072.method1228();
+                                            @Pc(7072) EnumType type = EnumTypeList.instance.list(local15);
+                                            anIntArray578[anInt7142++] = type.getOutputCount();
                                             return;
                                         }
                                         if (arg0 == 3412) {
@@ -1934,13 +1938,13 @@ public final class ScriptRunner {
                                                 throw new RuntimeException();
                                             }
                                             local6963 = EnumTypeList.instance.list(local21);
-                                            if (local6963.aChar1 != local15) {
+                                            if (local6963.valType != local15) {
                                                 throw new RuntimeException();
                                             }
-                                            @Pc(7133) Node_Sub40 local7133 = local6963.method1223(local27);
+                                            @Pc(7133) EnumMapping mapping = local6963.getReversed(local27);
                                             local72 = 0;
-                                            if (local7133 != null) {
-                                                local72 = local7133.anIntArray531.length;
+                                            if (mapping != null) {
+                                                local72 = mapping.index.length;
                                             }
                                             anIntArray578[anInt7142++] = local72;
                                             return;
@@ -1952,13 +1956,13 @@ public final class ScriptRunner {
                                                 throw new RuntimeException();
                                             }
                                             local6822 = EnumTypeList.instance.list(local15);
-                                            if (local6822.aChar1 != 's') {
+                                            if (local6822.valType != 's') {
                                                 throw new RuntimeException();
                                             }
-                                            @Pc(7196) Node_Sub26 local7196 = local6822.method1237(local1394);
+                                            @Pc(7196) EnumStringMapping mapping = local6822.getReversed(local1394);
                                             local2978 = 0;
-                                            if (local7196 != null) {
-                                                local2978 = local7196.anIntArray318.length;
+                                            if (mapping != null) {
+                                                local2978 = mapping.index.length;
                                             }
                                             anIntArray578[anInt7142++] = local2978;
                                             return;
@@ -1974,15 +1978,15 @@ public final class ScriptRunner {
                                                 throw new RuntimeException();
                                             }
                                             @Pc(7261) EnumType local7261 = EnumTypeList.instance.list(local27);
-                                            if (local7261.aChar2 != local21) {
+                                            if (local7261.keyType != local21) {
                                                 throw new RuntimeException();
                                             }
-                                            if (local7261.aChar1 != local15) {
+                                            if (local7261.valType != local15) {
                                                 throw new RuntimeException();
                                             }
-                                            @Pc(7284) Node_Sub40 local7284 = local7261.method1223(local506);
-                                            if (local2978 >= 0 && local7284 != null && local7284.anIntArray531.length > local2978) {
-                                                anIntArray578[anInt7142++] = local7284.anIntArray531[local2978];
+                                            @Pc(7284) EnumMapping mapping = local7261.getReversed(local506);
+                                            if (local2978 >= 0 && mapping != null && mapping.index.length > local2978) {
+                                                anIntArray578[anInt7142++] = mapping.index[local2978];
                                                 return;
                                             }
                                             throw new RuntimeException();
@@ -1997,15 +2001,15 @@ public final class ScriptRunner {
                                                 throw new RuntimeException();
                                             }
                                             local6868 = EnumTypeList.instance.list(local21);
-                                            if (local6868.aChar2 != local15) {
+                                            if (local6868.keyType != local15) {
                                                 throw new RuntimeException();
                                             }
-                                            if (local6868.aChar1 != 's') {
+                                            if (local6868.valType != 's') {
                                                 throw new RuntimeException();
                                             }
-                                            @Pc(7381) Node_Sub26 local7381 = local6868.method1237(local7345);
-                                            if (local27 >= 0 && local7381 != null && local7381.anIntArray318.length > local27) {
-                                                anIntArray578[anInt7142++] = local7381.anIntArray318[local27];
+                                            @Pc(7381) EnumStringMapping local7381 = local6868.getReversed(local7345);
+                                            if (local27 >= 0 && local7381 != null && local7381.index.length > local27) {
+                                                anIntArray578[anInt7142++] = local7381.index[local27];
                                                 return;
                                             }
                                             throw new RuntimeException();

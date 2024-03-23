@@ -3,6 +3,7 @@ package com.jagex.game.runetek6.config.cursortype;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -26,7 +27,7 @@ public final class CursorTypeList {
     private final int languageId;
 
     @OriginalMember(owner = "client!nv", name = "b", descriptor = "Lclient!sb;")
-    public final js5 aJs5_88;
+    public final js5 sprites;
 
     @OriginalMember(owner = "client!nv", name = "d", descriptor = "Lclient!sb;")
     public final js5 configClient;
@@ -34,12 +35,12 @@ public final class CursorTypeList {
     private final int num;
 
     @OriginalMember(owner = "client!nv", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public CursorTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 arg3) {
+    public CursorTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 sprites) {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
-        this.aJs5_88 = arg3;
-        this.num = this.configClient.fileLimit(33);
+        this.sprites = sprites;
+        this.num = this.configClient.fileLimit(Js5ConfigGroup.CURSORTYPE);
     }
 
     @OriginalMember(owner = "client!nv", name = "b", descriptor = "(II)V")

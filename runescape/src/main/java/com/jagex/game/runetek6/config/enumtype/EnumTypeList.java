@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.enumtype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
@@ -10,21 +12,23 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!vka")
 public final class EnumTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 128;
+
     @OriginalMember(owner = "client!tk", name = "d", descriptor = "Lclient!vka;")
     public static EnumTypeList instance;
 
-    @OriginalMember(owner = "client!c", name = "a", descriptor = "(BI)I")
-    public static int fileId(@OriginalArg(1) int arg0) {
-        return arg0 & 0xFF;
+    @OriginalMember(owner = "client!fq", name = "a", descriptor = "(II)I")
+    private static int groupId(@OriginalArg(1) int id) {
+        return id >>> 8;
     }
 
-    @OriginalMember(owner = "client!fq", name = "a", descriptor = "(II)I")
-    public static int groupId(@OriginalArg(1) int arg0) {
-        return arg0 >>> 8;
+    @OriginalMember(owner = "client!c", name = "a", descriptor = "(BI)I")
+    private static int fileId(@OriginalArg(1) int id) {
+        return id & 0xFF;
     }
 
     @OriginalMember(owner = "client!vka", name = "j", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(128);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     private final ModeGame game;
 

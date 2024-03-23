@@ -1,20 +1,22 @@
+package com.jagex.game.runetek6.config.enumtype;
+
 import com.jagex.core.datastruct.key.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!hu")
-public final class Node_Sub26 extends Node {
+public final class EnumStringMapping extends Node {
 
     @OriginalMember(owner = "client!hu", name = "l", descriptor = "[I")
-    public final int[] anIntArray318;
+    public final int[] index;
 
     @OriginalMember(owner = "client!hu", name = "q", descriptor = "Ljava/lang/String;")
-    public final String aString47;
+    public final String value;
 
     @OriginalMember(owner = "client!hu", name = "<init>", descriptor = "(Ljava/lang/String;I)V")
-    public Node_Sub26(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        this.anIntArray318 = new int[arg1];
-        this.aString47 = arg0;
+    public EnumStringMapping(@OriginalArg(0) String value, @OriginalArg(1) int index) {
+        this.index = new int[index];
+        this.value = value;
     }
 }

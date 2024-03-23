@@ -185,7 +185,7 @@ public final class Static364 {
                 Static524.aServerConnection_3.buffer.pos = 0;
                 @Pc(473) String local473 = "opensn";
                 if (!client.js || Static36.method980(SignLink.instance, local465, local473, 1).status == 2) {
-                    Static259.method3693(local465, local473, SignLink.instance, ClientOptions.instance.toolkit.value() == 1, true);
+                    Static259.method3693(local465, local473, SignLink.instance, ClientOptions.instance.toolkit.getValue() == 1, true);
                 }
                 Static135.anInt8223 = 6;
             }
@@ -242,11 +242,11 @@ public final class Static364 {
                     local618.p1(InterfaceManager.getWindowMode());
                     local618.p2(GameShell.canvasWid);
                     local618.p2(GameShell.canvasHei);
-                    local618.p1(ClientOptions.instance.aClass57_Sub13_1.value());
+                    local618.p1(ClientOptions.instance.antialiasingQuality.getValue());
                     Static176.method6690(local618);
                     local618.pjstr(client.settings);
                     local618.p4(client.affid);
-                    local672 = ClientOptions.instance.method5110();
+                    local672 = ClientOptions.instance.encode();
                     local618.p1(local672.pos);
                     local618.pdata(local672.pos, local672.data, 0);
                     Static503.aBoolean578 = true;

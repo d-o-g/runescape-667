@@ -439,8 +439,8 @@ public final class MovingParticle extends Particle {
     @OriginalMember(owner = "client!pp", name = "b", descriptor = "()V")
     public void method6697() {
         this.aParticleEmitter_1.system.aMovingParticle[this.aShort91] = null;
-        ParticleSystem.particleCache[ParticleSystem.particleFreePtr] = this;
-        ParticleSystem.particleFreePtr = ParticleSystem.particleFreePtr + 1 & 0x3FF;
+        ParticleManager.particleCache[ParticleManager.particleFreePtr] = this;
+        ParticleManager.particleFreePtr = ParticleManager.particleFreePtr + 1 & 0x3FF;
         this.unlink();
         this.unlink2();
     }

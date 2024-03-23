@@ -14,7 +14,7 @@ public final class Static468 {
     public static void method7641(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(8) int local8 = arg2 + WorldMap.areaBaseX;
         @Pc(12) int local12 = WorldMap.areaBaseY + arg1;
-        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || ClientOptions.instance.animatingBackground.value() == 0 && arg0 != PlayerEntity.self.level) {
+        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || ClientOptions.instance.animateBackground.getValue() == 0 && arg0 != PlayerEntity.self.level) {
             return;
         }
         @Pc(67) long local67 = (long) (local12 << 14 | arg0 << 28 | local8);
@@ -72,29 +72,29 @@ public final class Static468 {
 
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZZ)V")
     public static void method7643() {
-        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub19_1);
-        ClientOptions.instance.update(0, ClientOptions.instance.animatingBackground);
-        ClientOptions.instance.update(1, ClientOptions.instance.aClass57_Sub4_1);
-        ClientOptions.instance.update(1, ClientOptions.instance.aClass57_Sub4_2);
+        ClientOptions.instance.update(0, ClientOptions.instance.animateBackgroundDefault);
+        ClientOptions.instance.update(0, ClientOptions.instance.animateBackground);
+        ClientOptions.instance.update(1, ClientOptions.instance.removeRoofs);
+        ClientOptions.instance.update(1, ClientOptions.instance.removeRoofsOverride);
         ClientOptions.instance.update(0, ClientOptions.instance.groundDecor);
-        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub16_1);
-        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub23_1);
-        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub27_1);
-        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub8_1);
-        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub7_1);
+        ClientOptions.instance.update(0, ClientOptions.instance.fog);
+        ClientOptions.instance.update(0, ClientOptions.instance.groundBlending);
+        ClientOptions.instance.update(0, ClientOptions.instance.idleAnimations);
+        ClientOptions.instance.update(0, ClientOptions.instance.flickeringEffects);
+        ClientOptions.instance.update(0, ClientOptions.instance.spotShadows);
         ClientOptions.instance.update(0, ClientOptions.instance.hardShadows);
         ClientOptions.instance.update(0, ClientOptions.instance.textures);
         ClientOptions.instance.update(0, ClientOptions.instance.lightDetail);
         ClientOptions.instance.update(0, ClientOptions.instance.waterDetail);
         ClientOptions.instance.update(0, ClientOptions.instance.antialiasingMode);
-        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub13_1);
-        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub28_1);
-        ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub5_1);
+        ClientOptions.instance.update(0, ClientOptions.instance.antialiasingQuality);
+        ClientOptions.instance.update(0, ClientOptions.instance.particles);
+        ClientOptions.instance.update(0, ClientOptions.instance.buildArea);
         ClientOptions.instance.update(0, ClientOptions.instance.bloom);
         ClientOptions.instance.update(0, ClientOptions.instance.skydetail);
         Static376.method5313();
-        ClientOptions.instance.update(2, ClientOptions.instance.aClass57_Sub18_1);
-        ClientOptions.instance.update(1, ClientOptions.instance.aClass57_Sub15_1);
+        ClientOptions.instance.update(2, ClientOptions.instance.maxScreenSize);
+        ClientOptions.instance.update(1, ClientOptions.instance.graphicsQuality);
         Static296.updateFeatureMask();
         Static218.method3187();
         Static284.aBoolean355 = true;

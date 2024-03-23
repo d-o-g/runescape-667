@@ -4,49 +4,49 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!sga")
-public final class Class57_Sub27 extends Class57 {
+public final class IdleAnimationsOption extends Option {
 
     @OriginalMember(owner = "client!sga", name = "<init>", descriptor = "(ILclient!kv;)V")
-    public Class57_Sub27(@OriginalArg(0) int arg0, @OriginalArg(1) ClientOptions arg1) {
-        super(arg0, arg1);
+    public IdleAnimationsOption(@OriginalArg(0) int value, @OriginalArg(1) ClientOptions options) {
+        super(value, options);
     }
 
     @OriginalMember(owner = "client!sga", name = "<init>", descriptor = "(Lclient!kv;)V")
-    public Class57_Sub27(@OriginalArg(0) ClientOptions arg0) {
-        super(arg0);
+    public IdleAnimationsOption(@OriginalArg(0) ClientOptions options) {
+        super(options);
     }
 
     @OriginalMember(owner = "client!sga", name = "a", descriptor = "(ZI)V")
     @Override
-    protected void method8353(@OriginalArg(1) int arg0) {
-        super.anInt9489 = arg0;
+    protected void setValue(@OriginalArg(1) int value) {
+        super.value = value;
     }
 
     @OriginalMember(owner = "client!sga", name = "a", descriptor = "(IB)I")
     @Override
-    public int method8352(@OriginalArg(0) int arg0) {
+    public int getCompatibility(@OriginalArg(0) int value) {
         return 1;
     }
 
     @OriginalMember(owner = "client!sga", name = "a", descriptor = "(B)V")
     @Override
-    public void method8350() {
-        if (super.aClass2_Sub34_34.method5105() == ModeGame.STELLAR_DAWN) {
-            super.anInt9489 = 2;
+    public void validate() {
+        if (super.options.getModeGame() == ModeGame.STELLAR_DAWN) {
+            super.value = 2;
         }
-        if (super.anInt9489 < 0 || super.anInt9489 > 2) {
-            super.anInt9489 = this.method8354();
+        if (super.value < 0 || super.value > 2) {
+            super.value = this.getDefaultValue();
         }
     }
 
     @OriginalMember(owner = "client!sga", name = "a", descriptor = "(I)I")
     @Override
-    protected int method8354() {
+    protected int getDefaultValue() {
         return 1;
     }
 
     @OriginalMember(owner = "client!sga", name = "a", descriptor = "(Z)I")
-    public int method7667() {
-        return super.anInt9489;
+    public int getValue() {
+        return super.value;
     }
 }

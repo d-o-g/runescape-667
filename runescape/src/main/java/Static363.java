@@ -62,9 +62,9 @@ public final class Static363 {
         if (Static523.graphicsDefaults.profilingModel == -1) {
             return 1;
         }
-        if (arg1 != ClientOptions.instance.toolkit.value()) {
+        if (arg1 != ClientOptions.instance.toolkit.getValue()) {
             Static667.method8695(true, LocalisedText.PROFILING.localise(client.language), arg1);
-            if (arg1 != ClientOptions.instance.toolkit.value()) {
+            if (arg1 != ClientOptions.instance.toolkit.getValue()) {
                 return -1;
             }
         }
@@ -118,11 +118,11 @@ public final class Static363 {
             if (GameShell.fsframe != null) {
                 Static328.fullscreenWidth = width;
                 Static110.fullscreenHeight = height;
-                ClientOptions.save(1);
+                ClientOptions.save();
             }
         }
         if (newMode == 3 && GameShell.fsframe == null) {
-            windowModeChanged(oldMode, -1, ClientOptions.instance.screenSize.getValue(), -1, true);
+            windowModeChanged(oldMode, -1, ClientOptions.instance.screenSizeDefault.getValue(), -1, true);
             return;
         }
         @Pc(95) Container local95;

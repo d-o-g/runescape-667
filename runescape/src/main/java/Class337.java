@@ -204,7 +204,7 @@ public final class Class337 {
         }
         this.method7680(this.aRenderable_21, arg2);
         if (arg3) {
-            arg3 &= this.aBoolean661 & !this.aBoolean662 & ClientOptions.instance.hardShadows.value() != 0;
+            arg3 &= this.aBoolean661 & !this.aBoolean662 & ClientOptions.instance.hardShadows.getValue() != 0;
         }
         if (arg1 && !arg3) {
             this.anInt8647 = local11.id;
@@ -294,7 +294,7 @@ public final class Class337 {
         if (!this.aAnimator_9.isAnimating()) {
             this.method7676(0, -1, false);
         } else if (this.aAnimator_9.tick(TimeUtils.clock - this.anInt8643)) {
-            if (ClientOptions.instance.hardShadows.value() == 2) {
+            if (ClientOptions.instance.hardShadows.getValue() == 2) {
                 this.aBoolean662 = false;
             }
             if (this.aAnimator_9.isFinished()) {

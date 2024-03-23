@@ -155,8 +155,8 @@ public final class NativeLibraryList {
     }
 
     @OriginalMember(owner = "client!no", name = "a", descriptor = "(Ljava/lang/String;I)Z")
-    public static boolean method3417(@OriginalArg(0) String arg0) {
-        return libraries.containsKey(arg0);
+    public static boolean isLoaded(@OriginalArg(0) String name) {
+        return libraries.containsKey(name);
     }
 
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(Ljava/lang/Class;ZLjava/lang/String;)Z")

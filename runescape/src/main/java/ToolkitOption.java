@@ -3,13 +3,23 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!tba")
-public final class ToolkitOption extends Class57 {
+public final class ToolkitOption extends Option {
+
+    @OriginalMember(owner = "client!mba", name = "a", descriptor = "(II)Z")
+    public static boolean isSoftware(@OriginalArg(0) int value) {
+        return value == 0 || value == 2;
+    }
+
+    @OriginalMember(owner = "client!ega", name = "a", descriptor = "(IB)Z")
+    public static boolean isHardware(@OriginalArg(0) int value) {
+        return value == 1 || value == 3 || value == 5;
+    }
 
     @OriginalMember(owner = "client!tba", name = "e", descriptor = "Z")
-    public boolean aBoolean674 = false;
+    public boolean dflt = false;
 
     @OriginalMember(owner = "client!tba", name = "k", descriptor = "Z")
-    public boolean aBoolean675 = true;
+    public boolean active = true;
 
     @OriginalMember(owner = "client!tba", name = "<init>", descriptor = "(ILclient!kv;)V")
     public ToolkitOption(@OriginalArg(0) int value, @OriginalArg(1) ClientOptions options) {
@@ -17,60 +27,60 @@ public final class ToolkitOption extends Class57 {
     }
 
     @OriginalMember(owner = "client!tba", name = "<init>", descriptor = "(Lclient!kv;)V")
-    public ToolkitOption(@OriginalArg(0) ClientOptions arg0) {
-        super(arg0);
+    public ToolkitOption(@OriginalArg(0) ClientOptions options) {
+        super(options);
     }
 
     @OriginalMember(owner = "client!tba", name = "b", descriptor = "(I)Z")
-    public boolean method7913() {
-        return this.aBoolean675;
+    public boolean isActive() {
+        return this.active;
     }
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(Z)I")
-    public int value() {
-        return super.anInt9489;
+    public int getValue() {
+        return super.value;
     }
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(B)V")
     @Override
-    public void method8350() {
-        if (!super.aClass2_Sub34_34.method5108().method5203()) {
-            super.anInt9489 = 0;
+    public void validate() {
+        if (!super.options.getEnvironment().isSigned()) {
+            super.value = 0;
         }
-        if (super.anInt9489 < 0 || super.anInt9489 > 5) {
-            super.anInt9489 = this.method8354();
+        if (super.value < 0 || super.value > 5) {
+            super.value = this.getDefaultValue();
         }
     }
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(I)I")
     @Override
-    protected int method8354() {
-        this.aBoolean674 = true;
-        return super.aClass2_Sub34_34.method5108().method5203() ? 2 : 0;
+    protected int getDefaultValue() {
+        this.dflt = true;
+        return super.options.getEnvironment().isSigned() ? 2 : 0;
     }
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(ZI)V")
     @Override
-    protected void method8353(@OriginalArg(1) int arg0) {
-        this.aBoolean674 = false;
-        super.anInt9489 = arg0;
+    protected void setValue(@OriginalArg(1) int value) {
+        this.dflt = false;
+        super.value = value;
     }
 
     @OriginalMember(owner = "client!tba", name = "c", descriptor = "(B)Z")
-    public boolean method7917() {
-        return super.aClass2_Sub34_34.method5108().method5203();
+    public boolean isCompatible() {
+        return super.options.getEnvironment().isSigned();
     }
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(ZB)V")
-    public void method7918(@OriginalArg(0) boolean arg0) {
-        this.aBoolean675 = arg0;
+    public void setActive(@OriginalArg(0) boolean active) {
+        this.active = active;
     }
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(IB)I")
     @Override
-    public int method8352(@OriginalArg(0) int arg0) {
-        if (super.aClass2_Sub34_34.method5108().method5203()) {
-            return arg0 == 3 && !NativeLibraryList.method3417("jagdx") ? 3 : 2;
+    public int getCompatibility(@OriginalArg(0) int value) {
+        if (super.options.getEnvironment().isSigned()) {
+            return value == 3 && !NativeLibraryList.isLoaded("jagdx") ? 3 : 2;
         } else {
             return 3;
         }

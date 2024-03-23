@@ -1355,7 +1355,7 @@ public final class InterfaceManager {
                             if (component.clientcode == ComponentClientCode.SCENE || component.clientcode == ComponentClientCode.LOGIN_SCENE) {
                                 viewport = component;
                                 if (Static456.aSkyBox_3 != null) {
-                                    Static456.aSkyBox_3.method3168(ClientOptions.instance.skydetail.value(), component.height, Toolkit.active);
+                                    Static456.aSkyBox_3.method3168(ClientOptions.instance.skydetail.getValue(), component.height, Toolkit.active);
                                 }
 
                                 if (component.clientcode == ComponentClientCode.SCENE) {
@@ -1840,7 +1840,7 @@ public final class InterfaceManager {
                     }
 
                     if (component.type == Component.TYPE_GRAPHIC && component.skyBox != -1) {
-                        component.skyBox(Static99.skyBoxSphereTypeList, Static324.skyBoxTypeList).method3168(ClientOptions.instance.skydetail.value(), component.height, Toolkit.active);
+                        component.skyBox(Static99.skyBoxSphereTypeList, Static324.skyBoxTypeList).method3168(ClientOptions.instance.skydetail.getValue(), component.height, Toolkit.active);
                     }
 
                     Static542.prefetchSprite(component);

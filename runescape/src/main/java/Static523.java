@@ -76,7 +76,7 @@ public final class Static523 {
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(I)I")
     public static int method3448() {
         @Pc(12) int local12;
-        if (ClientOptions.instance.safeMode.value() == 0) {
+        if (ClientOptions.instance.safeMode.getValue() == 0) {
             for (local12 = 0; local12 < Static671.anInt10026; local12++) {
                 if (Static194.anInterface27Array1[local12].method2666() == 's' || Static194.anInterface27Array1[local12].method2666() == 'S') {
                     ClientOptions.instance.update(1, ClientOptions.instance.safeMode);
@@ -127,7 +127,7 @@ public final class Static523 {
             Static324.anInt5129 = js5.LOADING_SPRITES.indexCrc();
             Static466.anInt7042 = js5.LOADING_SCREENS.indexCrc();
             Fonts.load(js5.LOADING_SPRITES);
-            @Pc(250) int local250 = ClientOptions.instance.aClass57_Sub11_1.method3603();
+            @Pc(250) int local250 = ClientOptions.instance.loadingSequence.getValue();
             Static333.aClass279_1 = new Class279(client.modeGame, client.language, js5.LOADING_SCREENS);
             @Pc(262) int[] local262 = Static333.aClass279_1.method6275(local250);
             if (local262.length == 0) {
@@ -280,11 +280,11 @@ public final class Static523 {
             Static68.aClass151_3 = new Class151(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
             Static288.aClass139_2 = new Class139(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new Class251());
             Static412.method5693();
-            Static354.aLocTypeList_4.setAnimateBackground(ClientOptions.instance.animatingBackground.value() == 0);
+            Static354.aLocTypeList_4.setAnimateBackground(ClientOptions.instance.animateBackground.getValue() == 0);
             TimedVarDomain.instance = new TimedVarDomain();
             Static296.updateFeatureMask();
             Static44.method1074(Static25.seqTypeList);
-            ParticleSystem.init(js5.CONFIG_PARTICLE);
+            ParticleManager.init(js5.CONFIG_PARTICLE);
             Static405.method5592(Static56.anTextureSource_3, js5.MODELS);
             @Pc(1119) Class197 local1119 = new Class197(js5.BINARY.getfile("huffman", ""));
             Static342.method4462(local1119);
@@ -363,20 +363,20 @@ public final class Static523 {
             Static242.aThread1 = null;
             Static333.aClass279_1 = null;
             Static9.method123();
-            Static3.chooseSafeMode = ClientOptions.instance.safeMode.value() == 1;
+            Static3.chooseSafeMode = ClientOptions.instance.safeMode.getValue() == 1;
             ClientOptions.instance.update(1, ClientOptions.instance.safeMode);
             if (Static3.chooseSafeMode) {
-                ClientOptions.instance.update(0, ClientOptions.instance.aToolkitOption_2);
-            } else if (ClientOptions.instance.aToolkitOption_2.aBoolean674 && SystemInfo.instance.totalMemory < 512 && SystemInfo.instance.totalMemory != 0) {
-                ClientOptions.instance.update(0, ClientOptions.instance.aToolkitOption_2);
+                ClientOptions.instance.update(0, ClientOptions.instance.toolkitDefault);
+            } else if (ClientOptions.instance.toolkitDefault.dflt && SystemInfo.instance.totalMemory < 512 && SystemInfo.instance.totalMemory != 0) {
+                ClientOptions.instance.update(0, ClientOptions.instance.toolkitDefault);
             }
-            ClientOptions.save(1);
+            ClientOptions.save();
             if (Static3.chooseSafeMode) {
                 Static32.method880(0, false);
             } else {
-                Static32.method880(ClientOptions.instance.aToolkitOption_2.value(), false);
+                Static32.method880(ClientOptions.instance.toolkitDefault.getValue(), false);
             }
-            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
             FontTypeList.method7549(Toolkit.active);
             Fonts.init(Toolkit.active);
             Static239.method3472(js5.SPRITES, Toolkit.active);

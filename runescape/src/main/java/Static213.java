@@ -48,7 +48,7 @@ public final class Static213 {
                     @Pc(79) int local79 = local59 + arg3;
                     if (local75 > 0 && local79 > 0 && arg2 - 1 > local75 && arg4 - 1 > local79) {
                         @Pc(111) LocType local111 = Static354.aLocTypeList_4.list(local12);
-                        if (local71 != 22 || ClientOptions.instance.groundDecor.value() != 0 || local111.interactivity != LocInteractivity.NONINTERACTIVE || local111.movementPolicy == 1 || local111.obstructiveGround) {
+                        if (local71 != 22 || ClientOptions.instance.groundDecor.getValue() != 0 || local111.interactivity != LocInteractivity.NONINTERACTIVE || local111.movementPolicy == 1 || local111.obstructiveGround) {
                             local26 = true;
                             if (!local111.isLoaded()) {
                                 local5 = false;

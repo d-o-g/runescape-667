@@ -4,35 +4,35 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!fia")
-public final class Class57_Sub6 extends Class57 {
+public final class GroundDecorOption extends Option {
 
     @OriginalMember(owner = "client!fia", name = "<init>", descriptor = "(Lclient!kv;)V")
-    public Class57_Sub6(@OriginalArg(0) ClientOptions arg0) {
-        super(arg0);
+    public GroundDecorOption(@OriginalArg(0) ClientOptions options) {
+        super(options);
     }
 
     @OriginalMember(owner = "client!fia", name = "<init>", descriptor = "(ILclient!kv;)V")
-    public Class57_Sub6(@OriginalArg(0) int arg0, @OriginalArg(1) ClientOptions arg1) {
-        super(arg0, arg1);
+    public GroundDecorOption(@OriginalArg(0) int value, @OriginalArg(1) ClientOptions options) {
+        super(value, options);
     }
 
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(ZI)V")
     @Override
-    protected void method8353(@OriginalArg(1) int arg0) {
-        super.anInt9489 = arg0;
+    protected void setValue(@OriginalArg(1) int value) {
+        super.value = value;
     }
 
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(Z)I")
-    public int value() {
-        return super.anInt9489;
+    public int getValue() {
+        return super.value;
     }
 
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(IB)I")
     @Override
-    public int method8352(@OriginalArg(0) int arg0) {
-        if (super.aClass2_Sub34_34.method5111()) {
+    public int getCompatibility(@OriginalArg(0) int value) {
+        if (super.options.isLowDetail()) {
             return 3;
-        } else if (super.aClass2_Sub34_34.method5105() == ModeGame.RUNESCAPE) {
+        } else if (super.options.getModeGame() == ModeGame.RUNESCAPE) {
             return 1;
         } else {
             return 3;
@@ -40,30 +40,30 @@ public final class Class57_Sub6 extends Class57 {
     }
 
     @OriginalMember(owner = "client!fia", name = "b", descriptor = "(B)Z")
-    public boolean method2715() {
-        if (super.aClass2_Sub34_34.method5111()) {
+    public boolean isCompatible() {
+        if (super.options.isLowDetail()) {
             return false;
         } else {
-            return super.aClass2_Sub34_34.method5105() == ModeGame.RUNESCAPE;
+            return super.options.getModeGame() == ModeGame.RUNESCAPE;
         }
     }
 
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(I)I")
     @Override
-    protected int method8354() {
+    protected int getDefaultValue() {
         return 1;
     }
 
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(B)V")
     @Override
-    public void method8350() {
-        if (super.aClass2_Sub34_34.method5105() != ModeGame.RUNESCAPE) {
-            super.anInt9489 = 1;
-        } else if (super.aClass2_Sub34_34.method5111()) {
-            super.anInt9489 = 0;
+    public void validate() {
+        if (super.options.getModeGame() != ModeGame.RUNESCAPE) {
+            super.value = 1;
+        } else if (super.options.isLowDetail()) {
+            super.value = 0;
         }
-        if (super.anInt9489 != 0 && super.anInt9489 != 1) {
-            super.anInt9489 = this.method8354();
+        if (super.value != 0 && super.value != 1) {
+            super.value = this.getDefaultValue();
         }
     }
 }

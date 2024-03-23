@@ -1,7 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
-import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
@@ -15,6 +15,18 @@ import java.lang.reflect.Field;
 @OriginalClass("client!kv")
 public final class ClientOptions extends Node {
 
+    // $FF: synthetic field
+    @OriginalMember(owner = "client!kv", name = "y", descriptor = "Ljava/lang/Class;")
+    public static Class optionsClass;
+
+    // $FF: synthetic field
+    @OriginalMember(owner = "client!lka", name = "i", descriptor = "Ljava/lang/Class;")
+    public static Class aClass15;
+
+    // $FF: synthetic field
+    @OriginalMember(owner = "client!lka", name = "h", descriptor = "Ljava/lang/Class;")
+    public static Class aClass14;
+
     @OriginalMember(owner = "client!mk", name = "d", descriptor = "Lclient!kv;")
     public static ClientOptions instance;
 
@@ -25,118 +37,118 @@ public final class ClientOptions extends Node {
     public static int cpucount = 1;
 
     @OriginalMember(owner = "client!kv", name = "S", descriptor = "Lclient!hr;")
-    public Class57_Sub11 aClass57_Sub11_1;
+    public LoadingSequenceOption loadingSequence;
 
     @OriginalMember(owner = "client!kv", name = "U", descriptor = "Lclient!rba;")
-    public Class57_Sub25 aClass57_Sub25_1;
+    public VolumeOption backgroundSoundVolume;
 
     @OriginalMember(owner = "client!kv", name = "gb", descriptor = "Lclient!sga;")
-    public Class57_Sub27 aClass57_Sub27_1;
+    public IdleAnimationsOption idleAnimations;
 
     @OriginalMember(owner = "client!kv", name = "H", descriptor = "Lclient!fia;")
-    public Class57_Sub6 groundDecor;
+    public GroundDecorOption groundDecor;
 
     @OriginalMember(owner = "client!kv", name = "fb", descriptor = "Lclient!lo;")
-    public Class57_Sub14 aClass57_Sub14_1;
+    public CustomCursors customCursors;
 
     @OriginalMember(owner = "client!kv", name = "ib", descriptor = "Lclient!ro;")
-    public Class57_Sub26 waterDetail;
+    public WaterDetailOption waterDetail;
 
     @OriginalMember(owner = "client!kv", name = "B", descriptor = "Lclient!dc;")
-    public Class57_Sub2 skydetail;
+    public SkyboxesOption skydetail;
 
     @OriginalMember(owner = "client!kv", name = "eb", descriptor = "Lclient!ls;")
-    public Class57_Sub15 aClass57_Sub15_1;
+    public GraphicsQuality graphicsQuality;
 
     @OriginalMember(owner = "client!kv", name = "z", descriptor = "Lclient!rba;")
-    public Class57_Sub25 aClass57_Sub25_2;
+    public VolumeOption musicVolume;
 
     @OriginalMember(owner = "client!kv", name = "w", descriptor = "Lclient!tv;")
-    public Class57_Sub30 textures;
+    public TextureQuality textures;
 
     @OriginalMember(owner = "client!kv", name = "lb", descriptor = "Lclient!rba;")
-    public Class57_Sub25 lb;
+    public VolumeOption speechVolume;
 
     @OriginalMember(owner = "client!kv", name = "t", descriptor = "Lclient!nt;")
-    public Class57_Sub19 aClass57_Sub19_1;
+    public AnimateBackgroundOption animateBackgroundDefault;
 
     @OriginalMember(owner = "client!kv", name = "o", descriptor = "Lclient!gma;")
-    public Class57_Sub8 aClass57_Sub8_1;
+    public FlickeringEffectsOption flickeringEffects;
 
     @OriginalMember(owner = "client!kv", name = "K", descriptor = "Lclient!jh;")
-    public Class57_Sub12 hardShadows;
+    public HardShadowsOption hardShadows;
 
     @OriginalMember(owner = "client!kv", name = "db", descriptor = "Lclient!jha;")
-    public Class57_Sub13 aClass57_Sub13_1;
+    public AntialiasingMode antialiasingQuality;
 
     @OriginalMember(owner = "client!kv", name = "v", descriptor = "Lclient!jha;")
-    public Class57_Sub13 antialiasingMode;
+    public AntialiasingMode antialiasingMode;
 
     @OriginalMember(owner = "client!kv", name = "k", descriptor = "Lclient!cc;")
-    public Class57_Sub1 screenSize;
+    public ScreenSizeOption screenSizeDefault;
 
     @OriginalMember(owner = "client!kv", name = "m", descriptor = "Lclient!qia;")
-    public Class57_Sub23 aClass57_Sub23_1;
+    public GroundBlendingOption groundBlending;
 
     @OriginalMember(owner = "client!kv", name = "M", descriptor = "Lclient!tba;")
-    public ToolkitOption aToolkitOption_2;
+    public ToolkitOption toolkitDefault;
 
     @OriginalMember(owner = "client!kv", name = "u", descriptor = "Lclient!oq;")
-    public Class57_Sub21 cpuUsage;
+    public CpuUsageOption cpuUsage;
 
     @OriginalMember(owner = "client!kv", name = "D", descriptor = "Lclient!rba;")
-    public Class57_Sub25 aClass57_Sub25_3;
+    public VolumeOption soundVolume;
 
     @OriginalMember(owner = "client!kv", name = "x", descriptor = "Lclient!dma;")
-    public Class57_Sub5 aClass57_Sub5_1;
+    public BuildAreaOption buildArea;
 
     @OriginalMember(owner = "client!kv", name = "p", descriptor = "Lclient!dja;")
-    public Class57_Sub3 aClass57_Sub3_1;
+    public OrthographicOption orthographic;
 
     @OriginalMember(owner = "client!kv", name = "bb", descriptor = "Lclient!qb;")
-    public Class57_Sub22 aClass57_Sub22_1;
+    public BrightnessOption brightness;
 
     @OriginalMember(owner = "client!kv", name = "W", descriptor = "Lclient!hl;")
-    public Class57_Sub10 safeMode;
+    public SafeModeOption safeMode;
 
     @OriginalMember(owner = "client!kv", name = "A", descriptor = "Lclient!nt;")
-    public Class57_Sub19 animatingBackground;
+    public AnimateBackgroundOption animateBackground;
 
     @OriginalMember(owner = "client!kv", name = "P", descriptor = "Lclient!dl;")
-    public Class57_Sub4 aClass57_Sub4_1;
+    public RemoveRoofsOption removeRoofs;
 
     @OriginalMember(owner = "client!kv", name = "V", descriptor = "Lclient!nf;")
-    public Class57_Sub18 aClass57_Sub18_1;
+    public MaxScreenSizeOption maxScreenSize;
 
     @OriginalMember(owner = "client!kv", name = "I", descriptor = "Lclient!dl;")
-    public Class57_Sub4 aClass57_Sub4_2;
+    public RemoveRoofsOption removeRoofsOverride;
 
     @OriginalMember(owner = "client!kv", name = "Q", descriptor = "Lclient!su;")
-    public Class57_Sub28 aClass57_Sub28_1;
+    public ParticlesOption particles;
 
     @OriginalMember(owner = "client!kv", name = "l", descriptor = "Lclient!oc;")
-    public Class57_Sub20 bloom;
+    public BloomOption bloom;
 
     @OriginalMember(owner = "client!kv", name = "L", descriptor = "Lclient!g;")
-    public Class57_Sub7 aClass57_Sub7_1;
+    public SpotShadowsOption spotShadows;
 
     @OriginalMember(owner = "client!kv", name = "G", descriptor = "Lclient!rba;")
-    public Class57_Sub25 aClass57_Sub25_4;
+    public VolumeOption loginVolume;
 
     @OriginalMember(owner = "client!kv", name = "N", descriptor = "Lclient!mv;")
-    public Class57_Sub17 aClass57_Sub17_1;
+    public StereoSoundOption stereoSound;
 
     @OriginalMember(owner = "client!kv", name = "X", descriptor = "Lclient!cc;")
-    public Class57_Sub1 aClass57_Sub1_2;
+    public ScreenSizeOption screenSize;
 
     @OriginalMember(owner = "client!kv", name = "hb", descriptor = "Lclient!gq;")
-    public Class57_Sub9 aClass57_Sub9_1;
+    public SmallTexturesOption smallTextures;
 
     @OriginalMember(owner = "client!kv", name = "T", descriptor = "Lclient!mea;")
-    public Class57_Sub16 aClass57_Sub16_1;
+    public FogOption fog;
 
     @OriginalMember(owner = "client!kv", name = "R", descriptor = "Lclient!qka;")
-    public Class57_Sub24 lightDetail;
+    public LightDetailOption lightDetail;
 
     @OriginalMember(owner = "client!kv", name = "n", descriptor = "Lclient!ul;")
     public final ModeGame game;
@@ -164,242 +176,263 @@ public final class ClientOptions extends Node {
     }
 
     @OriginalMember(owner = "client!vba", name = "h", descriptor = "(I)V")
-    public static void save(@OriginalArg(0) int arg0) {
-        @Pc(5) FileOnDisk local5 = null;
+    public static void save() {
+        @Pc(5) FileOnDisk file = null;
         try {
-            @Pc(18) SignedResource local18 = SignLink.instance.openPrefs("", true);
-            while (local18.status == 0) {
+            @Pc(18) SignedResource resource = SignLink.instance.openPrefs("", true);
+            while (resource.status == 0) {
                 TimeUtils.sleep(1L);
             }
-            if (local18.status == 1) {
-                local5 = (FileOnDisk) local18.result;
-                @Pc(41) Packet local41 = instance.method5110();
-                local5.write(local41.data, 0, local41.pos);
+
+            if (resource.status == 1) {
+                file = (FileOnDisk) resource.result;
+                @Pc(41) Packet packet = instance.encode();
+                file.write(packet.data, 0, packet.pos);
             }
-        } catch (@Pc(51) Exception local51) {
+        } catch (@Pc(51) Exception ignored) {
+            /* empty */
         }
+
         try {
-            if (local5 != null) {
-                local5.close();
+            if (file != null) {
+                file.close();
             }
-        } catch (@Pc(58) Exception local58) {
+        } catch (@Pc(58) Exception ignored) {
+            /* empty */
         }
     }
 
+    @OriginalMember(owner = "client!lka", name = "a", descriptor = "(B)I")
+    public static int optionCount() {
+        @Pc(5) int count = 0;
+        @Pc(26) Field[] fields = (aClass14 == null ? (aClass14 = getClass("ClientOptions")) : aClass14).getDeclaredFields();
+        for (@Pc(30) int i = 0; i < fields.length; i++) {
+            @Pc(35) Field field = fields[i];
+            if ((aClass15 == null ? (aClass15 = getClass("Option")) : aClass15).isAssignableFrom(field.getType())) {
+                count++;
+            }
+        }
+        return count + 1;
+    }
+
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(Lclient!ge;Z)V")
-    public void decode(@OriginalArg(0) Packet arg0) {
-        if (arg0 == null || arg0.data == null) {
+    public void decode(@OriginalArg(0) Packet packet) {
+        if (packet == null || packet.data == null) {
             this.loadDefaults(true);
         } else {
-            @Pc(24) int local24 = arg0.g1();
-            if (local24 < 23) {
+            @Pc(24) int version = packet.g1();
+
+            if (version < 23) {
                 try {
-                    this.method5112(local24, arg0);
-                } catch (@Pc(34) Exception local34) {
+                    this.decodeLegacy(version, packet);
+                } catch (@Pc(34) Exception ignored) {
                     this.loadDefaults(true);
                 }
+
                 this.loadDefaults(false);
-            } else if (local24 <= 25) {
-                this.antialiasingMode = new Class57_Sub13(arg0.g1(), this);
-                this.aClass57_Sub13_1 = new Class57_Sub13(this.antialiasingMode.value(), this);
-                this.bloom = new Class57_Sub20(arg0.g1(), this);
-                this.aClass57_Sub22_1 = new Class57_Sub22(arg0.g1(), this);
-                this.aClass57_Sub5_1 = new Class57_Sub5(arg0.g1(), this);
-                this.aClass57_Sub8_1 = new Class57_Sub8(arg0.g1(), this);
-                this.aClass57_Sub16_1 = new Class57_Sub16(arg0.g1(), this);
-                this.aClass57_Sub23_1 = new Class57_Sub23(arg0.g1(), this);
-                this.groundDecor = new Class57_Sub6(arg0.g1(), this);
-                this.aClass57_Sub27_1 = new Class57_Sub27(arg0.g1(), this);
-                this.lightDetail = new Class57_Sub24(arg0.g1(), this);
-                this.hardShadows = new Class57_Sub12(arg0.g1(), this);
-                if (local24 >= 24) {
-                    this.aClass57_Sub3_1 = new Class57_Sub3(arg0.g1(), this);
+            } else if (version <= 25) {
+                this.antialiasingMode = new AntialiasingMode(packet.g1(), this);
+                this.antialiasingQuality = new AntialiasingMode(this.antialiasingMode.getValue(), this);
+                this.bloom = new BloomOption(packet.g1(), this);
+                this.brightness = new BrightnessOption(packet.g1(), this);
+                this.buildArea = new BuildAreaOption(packet.g1(), this);
+                this.flickeringEffects = new FlickeringEffectsOption(packet.g1(), this);
+                this.fog = new FogOption(packet.g1(), this);
+                this.groundBlending = new GroundBlendingOption(packet.g1(), this);
+                this.groundDecor = new GroundDecorOption(packet.g1(), this);
+                this.idleAnimations = new IdleAnimationsOption(packet.g1(), this);
+                this.lightDetail = new LightDetailOption(packet.g1(), this);
+                this.hardShadows = new HardShadowsOption(packet.g1(), this);
+                if (version >= 24) {
+                    this.orthographic = new OrthographicOption(packet.g1(), this);
                 }
-                this.aClass57_Sub28_1 = new Class57_Sub28(arg0.g1(), this);
-                this.aClass57_Sub4_1 = new Class57_Sub4(arg0.g1(), this);
-                this.aClass57_Sub4_2 = new Class57_Sub4(this.aClass57_Sub4_1.method2143(), this);
-                this.aClass57_Sub18_1 = new Class57_Sub18(arg0.g1(), this);
-                if (local24 >= 25) {
-                    this.skydetail = new Class57_Sub2(arg0.g1(), this);
+                this.particles = new ParticlesOption(packet.g1(), this);
+                this.removeRoofs = new RemoveRoofsOption(packet.g1(), this);
+                this.removeRoofsOverride = new RemoveRoofsOption(this.removeRoofs.getValue(), this);
+                this.maxScreenSize = new MaxScreenSizeOption(packet.g1(), this);
+                if (version >= 25) {
+                    this.skydetail = new SkyboxesOption(packet.g1(), this);
                 }
-                this.aClass57_Sub7_1 = new Class57_Sub7(arg0.g1(), this);
-                this.aClass57_Sub9_1 = new Class57_Sub9(arg0.g1(), this);
-                this.textures = new Class57_Sub30(arg0.g1(), this);
-                this.aToolkitOption_2 = new ToolkitOption(arg0.g1(), this);
-                this.toolkit = new ToolkitOption(this.aToolkitOption_2.value(), this);
-                this.aClass57_Sub19_1 = new Class57_Sub19(arg0.g1(), this);
-                this.animatingBackground = new Class57_Sub19(this.aClass57_Sub19_1.value(), this);
-                this.waterDetail = new Class57_Sub26(arg0.g1(), this);
-                this.screenSize = new Class57_Sub1(arg0.g1(), this);
-                this.aClass57_Sub1_2 = new Class57_Sub1(this.screenSize.getValue(), this);
-                this.aClass57_Sub14_1 = new Class57_Sub14(arg0.g1(), this);
-                this.aClass57_Sub15_1 = new Class57_Sub15(arg0.g1(), this);
-                this.cpuUsage = new Class57_Sub21(arg0.g1(), this);
-                this.aClass57_Sub11_1 = new Class57_Sub11(arg0.g1(), this);
-                this.safeMode = new Class57_Sub10(arg0.g1(), this);
-                this.aClass57_Sub25_3 = new Class57_Sub25(arg0.g1(), this);
-                this.aClass57_Sub25_1 = new Class57_Sub25(arg0.g1(), this);
-                this.lb = new Class57_Sub25(arg0.g1(), this);
-                this.aClass57_Sub25_2 = new Class57_Sub25(arg0.g1(), this);
-                this.aClass57_Sub25_4 = new Class57_Sub25(arg0.g1(), this);
-                this.aClass57_Sub17_1 = new Class57_Sub17(arg0.g1(), this);
+                this.spotShadows = new SpotShadowsOption(packet.g1(), this);
+                this.smallTextures = new SmallTexturesOption(packet.g1(), this);
+                this.textures = new TextureQuality(packet.g1(), this);
+                this.toolkitDefault = new ToolkitOption(packet.g1(), this);
+                this.toolkit = new ToolkitOption(this.toolkitDefault.getValue(), this);
+                this.animateBackgroundDefault = new AnimateBackgroundOption(packet.g1(), this);
+                this.animateBackground = new AnimateBackgroundOption(this.animateBackgroundDefault.getValue(), this);
+                this.waterDetail = new WaterDetailOption(packet.g1(), this);
+                this.screenSizeDefault = new ScreenSizeOption(packet.g1(), this);
+                this.screenSize = new ScreenSizeOption(this.screenSizeDefault.getValue(), this);
+                this.customCursors = new CustomCursors(packet.g1(), this);
+                this.graphicsQuality = new GraphicsQuality(packet.g1(), this);
+                this.cpuUsage = new CpuUsageOption(packet.g1(), this);
+                this.loadingSequence = new LoadingSequenceOption(packet.g1(), this);
+                this.safeMode = new SafeModeOption(packet.g1(), this);
+                this.soundVolume = new VolumeOption(packet.g1(), this);
+                this.backgroundSoundVolume = new VolumeOption(packet.g1(), this);
+                this.speechVolume = new VolumeOption(packet.g1(), this);
+                this.musicVolume = new VolumeOption(packet.g1(), this);
+                this.loginVolume = new VolumeOption(packet.g1(), this);
+                this.stereoSound = new StereoSoundOption(packet.g1(), this);
                 this.loadDefaults(false);
             } else {
                 this.loadDefaults(true);
             }
         }
-        this.method5109();
+
+        this.validate();
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(ZB)V")
-    public void loadDefaults(@OriginalArg(0) boolean arg0) {
-        if (arg0 || this.antialiasingMode == null) {
-            this.antialiasingMode = new Class57_Sub13(this);
+    public void loadDefaults(@OriginalArg(0) boolean all) {
+        if (all || this.antialiasingMode == null) {
+            this.antialiasingMode = new AntialiasingMode(this);
         }
-        if (arg0 || this.aClass57_Sub13_1 == null) {
-            this.aClass57_Sub13_1 = new Class57_Sub13(this.antialiasingMode.value(), this);
+        if (all || this.antialiasingQuality == null) {
+            this.antialiasingQuality = new AntialiasingMode(this.antialiasingMode.getValue(), this);
         }
-        if (arg0 || this.bloom == null) {
-            this.bloom = new Class57_Sub20(this);
+        if (all || this.bloom == null) {
+            this.bloom = new BloomOption(this);
         }
-        if (arg0 || this.aClass57_Sub22_1 == null) {
-            this.aClass57_Sub22_1 = new Class57_Sub22(this);
+        if (all || this.brightness == null) {
+            this.brightness = new BrightnessOption(this);
         }
-        if (arg0 || this.aClass57_Sub5_1 == null) {
-            this.aClass57_Sub5_1 = new Class57_Sub5(this);
+        if (all || this.buildArea == null) {
+            this.buildArea = new BuildAreaOption(this);
         }
-        if (arg0 || this.aClass57_Sub8_1 == null) {
-            this.aClass57_Sub8_1 = new Class57_Sub8(this);
+        if (all || this.flickeringEffects == null) {
+            this.flickeringEffects = new FlickeringEffectsOption(this);
         }
-        if (arg0 || this.aClass57_Sub16_1 == null) {
-            this.aClass57_Sub16_1 = new Class57_Sub16(this);
+        if (all || this.fog == null) {
+            this.fog = new FogOption(this);
         }
-        if (arg0 || this.aClass57_Sub23_1 == null) {
-            this.aClass57_Sub23_1 = new Class57_Sub23(this);
+        if (all || this.groundBlending == null) {
+            this.groundBlending = new GroundBlendingOption(this);
         }
-        if (arg0 || this.groundDecor == null) {
-            this.groundDecor = new Class57_Sub6(this);
+        if (all || this.groundDecor == null) {
+            this.groundDecor = new GroundDecorOption(this);
         }
-        if (arg0 || this.aClass57_Sub27_1 == null) {
-            this.aClass57_Sub27_1 = new Class57_Sub27(this);
+        if (all || this.idleAnimations == null) {
+            this.idleAnimations = new IdleAnimationsOption(this);
         }
-        if (arg0 || this.lightDetail == null) {
-            this.lightDetail = new Class57_Sub24(this);
+        if (all || this.lightDetail == null) {
+            this.lightDetail = new LightDetailOption(this);
         }
-        if (arg0 || this.hardShadows == null) {
-            this.hardShadows = new Class57_Sub12(this);
+        if (all || this.hardShadows == null) {
+            this.hardShadows = new HardShadowsOption(this);
         }
-        if (arg0 || this.aClass57_Sub3_1 == null) {
-            this.aClass57_Sub3_1 = new Class57_Sub3(this);
+        if (all || this.orthographic == null) {
+            this.orthographic = new OrthographicOption(this);
         }
-        if (arg0 || this.aClass57_Sub28_1 == null) {
-            this.aClass57_Sub28_1 = new Class57_Sub28(this);
+        if (all || this.particles == null) {
+            this.particles = new ParticlesOption(this);
         }
-        if (arg0 || this.aClass57_Sub4_1 == null) {
-            this.aClass57_Sub4_1 = new Class57_Sub4(this);
+        if (all || this.removeRoofs == null) {
+            this.removeRoofs = new RemoveRoofsOption(this);
         }
-        if (arg0 || this.aClass57_Sub4_2 == null) {
-            this.aClass57_Sub4_2 = new Class57_Sub4(this.aClass57_Sub4_1.method2143(), this);
+        if (all || this.removeRoofsOverride == null) {
+            this.removeRoofsOverride = new RemoveRoofsOption(this.removeRoofs.getValue(), this);
         }
-        if (arg0 || this.aClass57_Sub18_1 == null) {
-            this.aClass57_Sub18_1 = new Class57_Sub18(this);
+        if (all || this.maxScreenSize == null) {
+            this.maxScreenSize = new MaxScreenSizeOption(this);
         }
-        if (arg0 || this.skydetail == null) {
-            this.skydetail = new Class57_Sub2(this);
+        if (all || this.skydetail == null) {
+            this.skydetail = new SkyboxesOption(this);
         }
-        if (arg0 || this.aClass57_Sub7_1 == null) {
-            this.aClass57_Sub7_1 = new Class57_Sub7(this);
+        if (all || this.spotShadows == null) {
+            this.spotShadows = new SpotShadowsOption(this);
         }
-        if (arg0 || this.aClass57_Sub9_1 == null) {
-            this.aClass57_Sub9_1 = new Class57_Sub9(this);
+        if (all || this.smallTextures == null) {
+            this.smallTextures = new SmallTexturesOption(this);
         }
-        if (arg0 || this.textures == null) {
-            this.textures = new Class57_Sub30(this);
+        if (all || this.textures == null) {
+            this.textures = new TextureQuality(this);
         }
-        if (arg0 || this.aToolkitOption_2 == null) {
-            this.aToolkitOption_2 = new ToolkitOption(this);
+        if (all || this.toolkitDefault == null) {
+            this.toolkitDefault = new ToolkitOption(this);
         }
-        if (arg0 || this.toolkit == null) {
-            this.toolkit = new ToolkitOption(this.aToolkitOption_2.value(), this);
+        if (all || this.toolkit == null) {
+            this.toolkit = new ToolkitOption(this.toolkitDefault.getValue(), this);
         }
-        if (arg0 || this.aClass57_Sub19_1 == null) {
-            this.aClass57_Sub19_1 = new Class57_Sub19(this);
+        if (all || this.animateBackgroundDefault == null) {
+            this.animateBackgroundDefault = new AnimateBackgroundOption(this);
         }
-        if (arg0 || this.animatingBackground == null) {
-            this.animatingBackground = new Class57_Sub19(this.aClass57_Sub19_1.value(), this);
+        if (all || this.animateBackground == null) {
+            this.animateBackground = new AnimateBackgroundOption(this.animateBackgroundDefault.getValue(), this);
         }
-        if (arg0 || this.waterDetail == null) {
-            this.waterDetail = new Class57_Sub26(this);
+        if (all || this.waterDetail == null) {
+            this.waterDetail = new WaterDetailOption(this);
         }
-        if (arg0 || this.screenSize == null) {
-            this.screenSize = new Class57_Sub1(this);
+        if (all || this.screenSizeDefault == null) {
+            this.screenSizeDefault = new ScreenSizeOption(this);
         }
-        if (arg0 || this.aClass57_Sub1_2 == null) {
-            this.aClass57_Sub1_2 = new Class57_Sub1(this.screenSize.getValue(), this);
+        if (all || this.screenSize == null) {
+            this.screenSize = new ScreenSizeOption(this.screenSizeDefault.getValue(), this);
         }
-        if (arg0 || this.aClass57_Sub14_1 == null) {
-            this.aClass57_Sub14_1 = new Class57_Sub14(this);
+        if (all || this.customCursors == null) {
+            this.customCursors = new CustomCursors(this);
         }
-        if (arg0 || this.aClass57_Sub15_1 == null) {
-            this.aClass57_Sub15_1 = new Class57_Sub15(this);
+        if (all || this.graphicsQuality == null) {
+            this.graphicsQuality = new GraphicsQuality(this);
         }
-        if (arg0 || this.cpuUsage == null) {
-            this.cpuUsage = new Class57_Sub21(this);
+        if (all || this.cpuUsage == null) {
+            this.cpuUsage = new CpuUsageOption(this);
         }
-        if (arg0 || this.aClass57_Sub11_1 == null) {
-            this.aClass57_Sub11_1 = new Class57_Sub11(this);
+        if (all || this.loadingSequence == null) {
+            this.loadingSequence = new LoadingSequenceOption(this);
         }
-        if (arg0 || this.safeMode == null) {
-            this.safeMode = new Class57_Sub10(this);
+        if (all || this.safeMode == null) {
+            this.safeMode = new SafeModeOption(this);
         }
-        if (arg0 || this.aClass57_Sub25_3 == null) {
-            this.aClass57_Sub25_3 = new Class57_Sub25(this);
+        if (all || this.soundVolume == null) {
+            this.soundVolume = new VolumeOption(this);
         }
-        if (arg0 || this.aClass57_Sub25_1 == null) {
-            this.aClass57_Sub25_1 = new Class57_Sub25(this);
+        if (all || this.backgroundSoundVolume == null) {
+            this.backgroundSoundVolume = new VolumeOption(this);
         }
-        if (arg0 || this.lb == null) {
-            this.lb = new Class57_Sub25(this);
+        if (all || this.speechVolume == null) {
+            this.speechVolume = new VolumeOption(this);
         }
-        if (arg0 || this.aClass57_Sub25_2 == null) {
-            this.aClass57_Sub25_2 = new Class57_Sub25(this);
+        if (all || this.musicVolume == null) {
+            this.musicVolume = new VolumeOption(this);
         }
-        if (arg0 || this.aClass57_Sub25_4 == null) {
-            this.aClass57_Sub25_4 = new Class57_Sub25(this);
+        if (all || this.loginVolume == null) {
+            this.loginVolume = new VolumeOption(this);
         }
-        if (arg0 || this.aClass57_Sub17_1 == null) {
-            this.aClass57_Sub17_1 = new Class57_Sub17(this);
+        if (all || this.stereoSound == null) {
+            this.stereoSound = new StereoSoundOption(this);
         }
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(IILclient!ta;)V")
-    public void update(@OriginalArg(1) int arg0, @OriginalArg(2) Class57 arg1) {
-        arg1.method8351(arg0);
-        this.method5109();
+    public void update(@OriginalArg(1) int value, @OriginalArg(2) Option option) {
+        option.setSafeValue(value);
+        this.validate();
     }
 
     @OriginalMember(owner = "client!kv", name = "h", descriptor = "(I)Lclient!ul;")
-    public ModeGame method5105() {
+    public ModeGame getModeGame() {
         return this.game;
     }
 
     @OriginalMember(owner = "client!kv", name = "b", descriptor = "(I)Lclient!le;")
-    public EnvironmentContext method5108() {
+    public EnvironmentContext getEnvironment() {
         return this.environment;
     }
 
     @OriginalMember(owner = "client!kv", name = "g", descriptor = "(I)V")
-    public void method5109() {
+    public void validate() {
         try {
-            @Pc(7) Field[] local7 = this.getClass().getDeclaredFields();
-            for (@Pc(11) int local11 = 0; local11 < local7.length; local11++) {
-                @Pc(16) Field local16 = local7[local11];
-                if ((Static348.aClass12 == null ? (Static348.aClass12 = getClass("Class57")) : Static348.aClass12).isAssignableFrom(local16.getType())) {
-                    @Pc(36) Class57 local36 = (Class57) local16.get(this);
-                    local36.method8350();
+            @Pc(7) Field[] fields = this.getClass().getDeclaredFields();
+            for (@Pc(11) int i = 0; i < fields.length; i++) {
+                @Pc(16) Field field = fields[i];
+                if ((optionsClass == null ? (optionsClass = getClass("Option")) : optionsClass).isAssignableFrom(field.getType())) {
+                    @Pc(36) Option option = (Option) field.get(this);
+                    option.validate();
                 }
             }
-        } catch (@Pc(58) IllegalAccessException local58) {
+        } catch (@Pc(58) IllegalAccessException ignored) {
+            /* empty */
         }
     }
 
@@ -414,149 +447,149 @@ public final class ClientOptions extends Node {
     }
 
     @OriginalMember(owner = "client!kv", name = "d", descriptor = "(I)Lclient!ge;")
-    public Packet method5110() {
-        @Pc(9) Packet local9 = new Packet(Static368.method5269());
+    public Packet encode() {
+        @Pc(9) Packet local9 = new Packet(optionCount());
         local9.p1(25);
-        local9.p1(this.antialiasingMode.value());
-        local9.p1(this.bloom.value());
-        local9.p1(this.aClass57_Sub22_1.method6769());
-        local9.p1(this.aClass57_Sub5_1.method2172());
-        local9.p1(this.aClass57_Sub8_1.method3176());
-        local9.p1(this.aClass57_Sub16_1.method5507());
-        local9.p1(this.aClass57_Sub23_1.method7054());
-        local9.p1(this.groundDecor.value());
-        local9.p1(this.aClass57_Sub27_1.method7667());
-        local9.p1(this.lightDetail.value());
-        local9.p1(this.hardShadows.value());
-        local9.p1(this.aClass57_Sub3_1.method2120());
-        local9.p1(this.aClass57_Sub28_1.method7838());
-        local9.p1(this.aClass57_Sub4_1.method2143());
-        local9.p1(this.aClass57_Sub18_1.method5767());
-        local9.p1(this.skydetail.value());
-        local9.p1(this.aClass57_Sub7_1.method2905());
-        local9.p1(this.aClass57_Sub9_1.method3199());
-        local9.p1(this.textures.value());
-        local9.p1(this.aToolkitOption_2.value());
-        local9.p1(this.aClass57_Sub19_1.value());
-        local9.p1(this.waterDetail.value());
-        local9.p1(this.screenSize.getValue());
-        local9.p1(this.aClass57_Sub14_1.method5302());
-        local9.p1(this.aClass57_Sub15_1.method5320());
+        local9.p1(this.antialiasingMode.getValue());
+        local9.p1(this.bloom.getValue());
+        local9.p1(this.brightness.getValue());
+        local9.p1(this.buildArea.getValue());
+        local9.p1(this.flickeringEffects.getValue());
+        local9.p1(this.fog.getValue());
+        local9.p1(this.groundBlending.getValue());
+        local9.p1(this.groundDecor.getValue());
+        local9.p1(this.idleAnimations.getValue());
+        local9.p1(this.lightDetail.getValue());
+        local9.p1(this.hardShadows.getValue());
+        local9.p1(this.orthographic.method2120());
+        local9.p1(this.particles.getValue());
+        local9.p1(this.removeRoofs.getValue());
+        local9.p1(this.maxScreenSize.getValue());
+        local9.p1(this.skydetail.getValue());
+        local9.p1(this.spotShadows.getValue());
+        local9.p1(this.smallTextures.getValue());
+        local9.p1(this.textures.getvalue());
+        local9.p1(this.toolkitDefault.getValue());
+        local9.p1(this.animateBackgroundDefault.getValue());
+        local9.p1(this.waterDetail.getValue());
+        local9.p1(this.screenSizeDefault.getValue());
+        local9.p1(this.customCursors.getValue());
+        local9.p1(this.graphicsQuality.getValue());
         local9.p1(this.cpuUsage.value());
-        local9.p1(this.aClass57_Sub11_1.method3603());
-        local9.p1(this.safeMode.value());
-        local9.p1(this.aClass57_Sub25_3.method7208());
-        local9.p1(this.aClass57_Sub25_1.method7208());
-        local9.p1(this.lb.method7208());
-        local9.p1(this.aClass57_Sub25_2.method7208());
-        local9.p1(this.aClass57_Sub25_4.method7208());
-        local9.p1(this.aClass57_Sub17_1.method5667());
+        local9.p1(this.loadingSequence.getValue());
+        local9.p1(this.safeMode.getValue());
+        local9.p1(this.soundVolume.getValue());
+        local9.p1(this.backgroundSoundVolume.getValue());
+        local9.p1(this.speechVolume.getValue());
+        local9.p1(this.musicVolume.getValue());
+        local9.p1(this.loginVolume.getValue());
+        local9.p1(this.stereoSound.getValue());
         return local9;
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(I)Z")
-    public boolean method5111() {
-        return this.toolkit.method7913() && this.toolkit.value() == 0 && this.environment.method5197() < 96;
+    public boolean isLowDetail() {
+        return this.toolkit.isActive() && this.toolkit.getValue() == 0 && this.environment.getHeapSize() < 96;
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(ZILclient!ge;)V")
-    public void method5112(@OriginalArg(1) int arg0, @OriginalArg(2) Packet arg1) {
-        this.aClass57_Sub22_1 = new Class57_Sub22(arg1.g1(), this);
-        this.aClass57_Sub19_1 = new Class57_Sub19(arg1.g1(), this);
-        this.aClass57_Sub4_1 = new Class57_Sub4(arg1.g1() + 1, this);
-        this.groundDecor = new Class57_Sub6(arg1.g1(), this);
-        this.aClass57_Sub9_1 = new Class57_Sub9(arg1.g1(), this);
-        this.aClass57_Sub27_1 = new Class57_Sub27(arg1.g1(), this);
-        this.aClass57_Sub8_1 = new Class57_Sub8(arg1.g1(), this);
-        arg1.g1();
-        this.aClass57_Sub7_1 = new Class57_Sub7(arg1.g1(), this);
-        @Pc(87) int local87 = arg1.g1();
+    public void decodeLegacy(@OriginalArg(1) int version, @OriginalArg(2) Packet packet) {
+        this.brightness = new BrightnessOption(packet.g1(), this);
+        this.animateBackgroundDefault = new AnimateBackgroundOption(packet.g1(), this);
+        this.removeRoofs = new RemoveRoofsOption(packet.g1() + 1, this);
+        this.groundDecor = new GroundDecorOption(packet.g1(), this);
+        this.smallTextures = new SmallTexturesOption(packet.g1(), this);
+        this.idleAnimations = new IdleAnimationsOption(packet.g1(), this);
+        this.flickeringEffects = new FlickeringEffectsOption(packet.g1(), this);
+        packet.g1();
+        this.spotShadows = new SpotShadowsOption(packet.g1(), this);
+        @Pc(87) int local87 = packet.g1();
         @Pc(89) int local89 = 0;
-        if (arg0 >= 17) {
-            local89 = arg1.g1();
+        if (version >= 17) {
+            local89 = packet.g1();
         }
-        this.hardShadows = new Class57_Sub12(local89 >= local87 ? local89 : local87, this);
+        this.hardShadows = new HardShadowsOption(local89 >= local87 ? local89 : local87, this);
         @Pc(113) boolean local113 = true;
         @Pc(130) boolean local130;
-        if (arg0 < 2) {
-            local130 = arg1.g1() == 1;
-            arg1.g1();
+        if (version < 2) {
+            local130 = packet.g1() == 1;
+            packet.g1();
         } else {
-            local130 = arg1.g1() == 1;
-            if (arg0 >= 17) {
-                local113 = arg1.g1() == 1;
+            local130 = packet.g1() == 1;
+            if (version >= 17) {
+                local113 = packet.g1() == 1;
             }
         }
-        this.lightDetail = new Class57_Sub24(local113 | local130 ? 1 : 0, this);
-        this.waterDetail = new Class57_Sub26(arg1.g1(), this);
-        this.aClass57_Sub16_1 = new Class57_Sub16(arg1.g1(), this);
-        this.antialiasingMode = new Class57_Sub13(arg1.g1(), this);
-        this.aClass57_Sub17_1 = new Class57_Sub17(arg1.g1(), this);
-        this.aClass57_Sub25_3 = new Class57_Sub25(arg1.g1(), this);
-        if (arg0 >= 20) {
-            this.lb = new Class57_Sub25(arg1.g1(), this);
+        this.lightDetail = new LightDetailOption(local113 | local130 ? 1 : 0, this);
+        this.waterDetail = new WaterDetailOption(packet.g1(), this);
+        this.fog = new FogOption(packet.g1(), this);
+        this.antialiasingMode = new AntialiasingMode(packet.g1(), this);
+        this.stereoSound = new StereoSoundOption(packet.g1(), this);
+        this.soundVolume = new VolumeOption(packet.g1(), this);
+        if (version >= 20) {
+            this.speechVolume = new VolumeOption(packet.g1(), this);
         } else {
-            this.lb = new Class57_Sub25(this.aClass57_Sub25_3.method7208(), this);
+            this.speechVolume = new VolumeOption(this.soundVolume.getValue(), this);
         }
-        this.aClass57_Sub25_2 = new Class57_Sub25(arg1.g1(), this);
-        this.aClass57_Sub25_1 = new Class57_Sub25(arg1.g1(), this);
-        if (arg0 >= 21) {
-            this.aClass57_Sub25_4 = new Class57_Sub25(arg1.g1(), this);
+        this.musicVolume = new VolumeOption(packet.g1(), this);
+        this.backgroundSoundVolume = new VolumeOption(packet.g1(), this);
+        if (version >= 21) {
+            this.loginVolume = new VolumeOption(packet.g1(), this);
         } else {
-            this.aClass57_Sub25_4 = new Class57_Sub25(this.aClass57_Sub25_2.method7208(), this);
+            this.loginVolume = new VolumeOption(this.musicVolume.getValue(), this);
         }
-        if (arg0 >= 1) {
-            arg1.g2();
-            arg1.g2();
+        if (version >= 1) {
+            packet.g2();
+            packet.g2();
         }
-        if (arg0 >= 3 && arg0 < 6) {
-            arg1.g1();
+        if (version >= 3 && version < 6) {
+            packet.g1();
         }
-        if (arg0 >= 4) {
-            this.aClass57_Sub28_1 = new Class57_Sub28(arg1.g1(), this);
+        if (version >= 4) {
+            this.particles = new ParticlesOption(packet.g1(), this);
         }
-        arg1.g4();
-        if (arg0 >= 6) {
-            this.screenSize = new Class57_Sub1(arg1.g1(), this);
+        packet.g4();
+        if (version >= 6) {
+            this.screenSizeDefault = new ScreenSizeOption(packet.g1(), this);
         }
-        if (arg0 >= 7) {
-            this.safeMode = new Class57_Sub10(arg1.g1(), this);
+        if (version >= 7) {
+            this.safeMode = new SafeModeOption(packet.g1(), this);
         }
-        if (arg0 >= 8) {
-            arg1.g1();
+        if (version >= 8) {
+            packet.g1();
         }
-        if (arg0 >= 9) {
-            this.aClass57_Sub5_1 = new Class57_Sub5(arg1.g1(), this);
+        if (version >= 9) {
+            this.buildArea = new BuildAreaOption(packet.g1(), this);
         }
-        if (arg0 >= 10) {
-            this.bloom = new Class57_Sub20(arg1.g1(), this);
+        if (version >= 10) {
+            this.bloom = new BloomOption(packet.g1(), this);
         }
-        if (arg0 >= 11) {
-            this.aClass57_Sub14_1 = new Class57_Sub14(arg1.g1(), this);
+        if (version >= 11) {
+            this.customCursors = new CustomCursors(packet.g1(), this);
         }
-        if (arg0 >= 12) {
-            this.aClass57_Sub27_1 = new Class57_Sub27(arg1.g1(), this);
+        if (version >= 12) {
+            this.idleAnimations = new IdleAnimationsOption(packet.g1(), this);
         }
-        if (arg0 >= 13) {
-            this.aClass57_Sub23_1 = new Class57_Sub23(arg1.g1(), this);
+        if (version >= 13) {
+            this.groundBlending = new GroundBlendingOption(packet.g1(), this);
         }
-        if (arg0 >= 14) {
-            this.aToolkitOption_2 = new ToolkitOption(arg1.g1(), this);
+        if (version >= 14) {
+            this.toolkitDefault = new ToolkitOption(packet.g1(), this);
         }
-        if (arg0 >= 15) {
-            this.cpuUsage = new Class57_Sub21(arg1.g1(), this);
+        if (version >= 15) {
+            this.cpuUsage = new CpuUsageOption(packet.g1(), this);
         }
-        if (arg0 >= 16) {
-            this.textures = new Class57_Sub30(arg1.g1(), this);
+        if (version >= 16) {
+            this.textures = new TextureQuality(packet.g1(), this);
         }
-        if (arg0 >= 18) {
-            this.aClass57_Sub15_1 = new Class57_Sub15(arg1.g1(), this);
+        if (version >= 18) {
+            this.graphicsQuality = new GraphicsQuality(packet.g1(), this);
         }
-        if (arg0 >= 19) {
-            this.aClass57_Sub18_1 = new Class57_Sub18(arg1.g1(), this);
+        if (version >= 19) {
+            this.maxScreenSize = new MaxScreenSizeOption(packet.g1(), this);
         }
-        if (arg0 >= 22) {
-            this.aClass57_Sub11_1 = new Class57_Sub11(arg1.g1(), this);
+        if (version >= 22) {
+            this.loadingSequence = new LoadingSequenceOption(packet.g1(), this);
         }
     }
 }

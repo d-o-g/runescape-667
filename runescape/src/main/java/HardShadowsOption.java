@@ -3,50 +3,50 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!jh")
-public final class Class57_Sub12 extends Class57 {
+public final class HardShadowsOption extends Option {
 
     @OriginalMember(owner = "client!jh", name = "<init>", descriptor = "(ILclient!kv;)V")
-    public Class57_Sub12(@OriginalArg(0) int arg0, @OriginalArg(1) ClientOptions arg1) {
-        super(arg0, arg1);
+    public HardShadowsOption(@OriginalArg(0) int value, @OriginalArg(1) ClientOptions options) {
+        super(value, options);
     }
 
     @OriginalMember(owner = "client!jh", name = "<init>", descriptor = "(Lclient!kv;)V")
-    public Class57_Sub12(@OriginalArg(0) ClientOptions arg0) {
-        super(arg0);
+    public HardShadowsOption(@OriginalArg(0) ClientOptions options) {
+        super(options);
     }
 
     @OriginalMember(owner = "client!jh", name = "b", descriptor = "(B)Z")
-    public boolean method4360() {
-        if (super.aClass2_Sub34_34.method5111()) {
+    public boolean isCompatible() {
+        if (super.options.isLowDetail()) {
             return false;
         } else {
-            return super.aClass2_Sub34_34.textures.value() != 0;
+            return super.options.textures.getvalue() != 0;
         }
     }
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(I)I")
     @Override
-    protected int method8354() {
+    protected int getDefaultValue() {
         return 2;
     }
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(ZI)V")
     @Override
-    protected void method8353(@OriginalArg(1) int arg0) {
-        super.anInt9489 = arg0;
+    protected void setValue(@OriginalArg(1) int value) {
+        super.value = value;
     }
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(Z)I")
-    public int value() {
-        return super.anInt9489;
+    public int getValue() {
+        return super.value;
     }
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(IB)I")
     @Override
-    public int method8352(@OriginalArg(0) int arg0) {
-        if (super.aClass2_Sub34_34.method5111()) {
+    public int getCompatibility(@OriginalArg(0) int value) {
+        if (super.options.isLowDetail()) {
             return 3;
-        } else if (super.aClass2_Sub34_34.textures.value() == 0) {
+        } else if (super.options.textures.getvalue() == 0) {
             return 3;
         } else {
             return 1;
@@ -55,15 +55,15 @@ public final class Class57_Sub12 extends Class57 {
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(B)V")
     @Override
-    public void method8350() {
-        if (super.aClass2_Sub34_34.method5111()) {
-            super.anInt9489 = 0;
+    public void validate() {
+        if (super.options.isLowDetail()) {
+            super.value = 0;
         }
-        if (super.aClass2_Sub34_34.textures.value() == 0) {
-            super.anInt9489 = 0;
+        if (super.options.textures.getvalue() == 0) {
+            super.value = 0;
         }
-        if (super.anInt9489 < 0 || super.anInt9489 > 2) {
-            super.anInt9489 = this.method8354();
+        if (super.value < 0 || super.value > 2) {
+            super.value = this.getDefaultValue();
         }
     }
 }

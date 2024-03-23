@@ -505,7 +505,7 @@ public final class client extends GameShell {
             local179 = ClientMessage.create(Static600.A_CLIENT_PROT___108, ConnectionManager.GAME.cipher);
             local179.buffer.p1(0);
             local181 = local179.buffer.pos;
-            @Pc(810) Packet local810 = ClientOptions.instance.method5110();
+            @Pc(810) Packet local810 = ClientOptions.instance.encode();
             local179.buffer.pdata(local810.pos, local810.data, 0);
             local179.buffer.psize1(local179.buffer.pos - local181);
             ConnectionManager.GAME.send(local179);
@@ -1316,7 +1316,7 @@ public final class client extends GameShell {
         }
 
         if (GameShell.fsframe != null && !GameShell.focus && Static475.method6445(MainLogicManager.step)) {
-            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
         }
 
         @Pc(209) boolean local209 = false;
@@ -1436,9 +1436,9 @@ public final class client extends GameShell {
             cacheClean();
         }
 
-        if (ClientOptions.instance.safeMode.value() == 1 && MainLogicManager.step == 3 && InterfaceManager.topLevelInterface != -1) {
+        if (ClientOptions.instance.safeMode.getValue() == 1 && MainLogicManager.step == 3 && InterfaceManager.topLevelInterface != -1) {
             ClientOptions.instance.update(0, ClientOptions.instance.safeMode);
-            ClientOptions.save(1);
+            ClientOptions.save();
         }
     }
 
@@ -1454,7 +1454,7 @@ public final class client extends GameShell {
     @OriginalMember(owner = "client!client", name = "k", descriptor = "(I)V")
     @Override
     protected void mainloop() {
-        if (ClientOptions.instance.toolkit.value() != 2) {
+        if (ClientOptions.instance.toolkit.getValue() != 2) {
             this.gameTick();
             return;
         }
@@ -1656,13 +1656,13 @@ public final class client extends GameShell {
                 trace = trace + "2)" + Camera.renderingLevel + "," + (PlayerEntity.self.pathX[0] + WorldMap.areaBaseX) + "," + (WorldMap.areaBaseY + PlayerEntity.self.pathY[0]) + "|";
             }
 
-            trace = trace + "3)" + ClientOptions.instance.toolkit.value() + "|4)" + ClientOptions.instance.antialiasingMode.value() + "|5)" + InterfaceManager.getWindowMode() + "|6)" + GameShell.canvasWid + "," + GameShell.canvasHei + "|";
-            trace = trace + "7)" + ClientOptions.instance.lightDetail.value() + "|";
-            trace = trace + "8)" + ClientOptions.instance.hardShadows.value() + "|";
-            trace = trace + "9)" + ClientOptions.instance.waterDetail.value() + "|";
-            trace = trace + "10)" + ClientOptions.instance.textures.value() + "|";
-            trace = trace + "11)" + ClientOptions.instance.bloom.value() + "|";
-            trace = trace + "12)" + ClientOptions.instance.animatingBackground.value() + "|";
+            trace = trace + "3)" + ClientOptions.instance.toolkit.getValue() + "|4)" + ClientOptions.instance.antialiasingMode.getValue() + "|5)" + InterfaceManager.getWindowMode() + "|6)" + GameShell.canvasWid + "," + GameShell.canvasHei + "|";
+            trace = trace + "7)" + ClientOptions.instance.lightDetail.getValue() + "|";
+            trace = trace + "8)" + ClientOptions.instance.hardShadows.getValue() + "|";
+            trace = trace + "9)" + ClientOptions.instance.waterDetail.getValue() + "|";
+            trace = trace + "10)" + ClientOptions.instance.textures.getvalue() + "|";
+            trace = trace + "11)" + ClientOptions.instance.bloom.getValue() + "|";
+            trace = trace + "12)" + ClientOptions.instance.animateBackground.getValue() + "|";
             trace = trace + "13)" + ClientOptions.maxmemory + "|";
             trace = trace + "14)" + MainLogicManager.step;
 
@@ -1671,7 +1671,7 @@ public final class client extends GameShell {
             }
 
             try {
-                if (ClientOptions.instance.toolkit.value() == 2) {
+                if (ClientOptions.instance.toolkit.getValue() == 2) {
                     @Pc(273) Class local273 = Class.forName("java.lang.ClassLoader");
                     @Pc(279) Field local279 = local273.getDeclaredField("nativeLibraries");
                     @Pc(284) Class local284 = Class.forName("java.lang.reflect.AccessibleObject");
@@ -1868,7 +1868,7 @@ public final class client extends GameShell {
     @OriginalMember(owner = "client!client", name = "c", descriptor = "(I)V")
     @Override
     protected void draw() {
-        if (ClientOptions.instance.toolkit.value() != 2) {
+        if (ClientOptions.instance.toolkit.getValue() != 2) {
             this.mainredraw();
             return;
         }

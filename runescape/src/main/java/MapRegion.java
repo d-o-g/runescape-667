@@ -416,7 +416,7 @@ public final class MapRegion extends Class306 {
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IILclient!eq;ILclient!ha;IIIIII)V")
     public void loadLocation(@OriginalArg(0) int shape, @OriginalArg(1) int arg1, @OriginalArg(2) CollisionMap collisionMap, @OriginalArg(3) int z, @OriginalArg(4) Toolkit toolkit, @OriginalArg(5) int x, @OriginalArg(6) int rotation, @OriginalArg(8) int arg7, @OriginalArg(9) int level, @OriginalArg(10) int animation) {
-        boolean animatingBackground = ClientOptions.instance.animatingBackground.value() != 0;
+        boolean animatingBackground = ClientOptions.instance.animateBackground.getValue() != 0;
         boolean tileVisible = Static696.isTileVisibleFrom(z, Static164.areaLevel, x, arg7);
         if (!animatingBackground && !tileVisible) {
             return;
@@ -427,7 +427,7 @@ public final class MapRegion extends Class306 {
         }
 
         @Pc(40) LocType locType = Static354.aLocTypeList_4.list(arg1);
-        boolean texturesEnabled = ClientOptions.instance.textures.value() == 0;
+        boolean texturesEnabled = ClientOptions.instance.textures.getvalue() == 0;
         if (texturesEnabled && locType.requiresTextures) {
             return;
         }
@@ -487,7 +487,7 @@ public final class MapRegion extends Class306 {
         }
 
         if (shape == LocShapes.GROUNDDECOR) {
-            if (ClientOptions.instance.groundDecor.value() == 0 && locType.interactivity == LocInteractivity.NONINTERACTIVE && locType.movementPolicy != 1 && !locType.obstructiveGround) {
+            if (ClientOptions.instance.groundDecor.getValue() == 0 && locType.interactivity == LocInteractivity.NONINTERACTIVE && locType.movementPolicy != 1 && !locType.obstructiveGround) {
                 return;
             }
 

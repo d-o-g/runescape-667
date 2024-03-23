@@ -23,13 +23,13 @@ public final class Static684 {
             CutsceneManager.state = 0;
             Static717.anInt10817 = -1;
         }
-        if (!arg0 && Static62.anInt1465 == arg1 && Static525.anInt8907 == arg3 && (Static164.areaLevel == Camera.renderingLevel || ClientOptions.instance.animatingBackground.value() == 1)) {
+        if (!arg0 && Static62.anInt1465 == arg1 && Static525.anInt8907 == arg3 && (Static164.areaLevel == Camera.renderingLevel || ClientOptions.instance.animateBackground.getValue() == 1)) {
             return;
         }
         Static525.anInt8907 = arg3;
         Static62.anInt1465 = arg1;
         Static164.areaLevel = Camera.renderingLevel;
-        if (ClientOptions.instance.animatingBackground.value() == 1) {
+        if (ClientOptions.instance.animateBackground.getValue() == 1) {
             Static164.areaLevel = 0;
         }
         MainLogicManager.setStep(mainLogicStep);

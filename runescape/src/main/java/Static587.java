@@ -70,7 +70,7 @@ public final class Static587 {
             @Pc(20) DisplayProperties[] local20 = SignLink.getDisplayProperties(SignLink.instance, true);
             @Pc(24) DisplayProperties[] local24 = new DisplayProperties[local20.length];
             @Pc(26) int local26 = 0;
-            @Pc(31) int local31 = ClientOptions.instance.aClass57_Sub18_1.method5767();
+            @Pc(31) int local31 = ClientOptions.instance.maxScreenSize.getValue();
             @Pc(112) int local112;
             @Pc(117) DisplayProperties local117;
             label69:

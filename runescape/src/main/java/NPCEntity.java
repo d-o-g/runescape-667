@@ -169,7 +169,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(118) NPCType local118 = this.type.multinpcs == null ? this.type : this.type.getMultiNPC(TimedVarDomain.instance);
         super.aBoolean819 = false;
         @Pc(123) Class8_Sub7 local123 = null;
-        if (ClientOptions.instance.aClass57_Sub7_1.method2905() == 1 && local118.hasShadow && local104.animateShadow) {
+        if (ClientOptions.instance.spotShadows.getValue() == 1 && local118.hasShadow && local104.animateShadow) {
             @Pc(159) Animator local159 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
             @Pc(179) Animator local179 = super.animator.isAnimating() && (!super.ready || local159 == null) ? super.animator : null;
             @Pc(223) Model local223 = Static618.method8320(this.type.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.anInt10742, this.type.shadowInnerColour & 0xFFFF, super.anInt10716, this.type.size, arg0, this.type.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.type.shadowOuterColour & 0xFFFF);

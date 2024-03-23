@@ -338,7 +338,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         local22.translate(super.x, -super.anInt10732 + super.anInt10691 - 20, super.z);
         super.aBoolean819 = false;
         @Pc(114) Class8_Sub7 local114 = null;
-        if (ClientOptions.instance.aClass57_Sub7_1.method2905() == 1) {
+        if (ClientOptions.instance.spotShadows.getValue() == 1) {
             @Pc(126) BASType local126 = this.method9317();
             if (local126.animateShadow && (this.playerModel.npcId == -1 || Static690.aNPCTypeList_2.list(this.playerModel.npcId).hasShadow)) {
                 @Pc(166) Animator local166 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;

@@ -7,11 +7,6 @@ public final class Static386 {
     @OriginalMember(owner = "client!mba", name = "D", descriptor = "I")
     public static int anInt6062;
 
-    @OriginalMember(owner = "client!mba", name = "a", descriptor = "(II)Z")
-    public static boolean method5436(@OriginalArg(0) int arg0) {
-        return arg0 == 0 || arg0 == 2;
-    }
-
     @OriginalMember(owner = "client!mba", name = "a", descriptor = "(Ljava/lang/String;I)Ljava/lang/String;")
     public static String method5439(@OriginalArg(0) String arg0) {
         @Pc(5) String local5 = null;

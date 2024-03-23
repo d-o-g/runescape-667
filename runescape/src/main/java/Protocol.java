@@ -776,12 +776,12 @@ public final class Protocol {
                                             @Pc(3044) byte[] local3044;
                                             if (Static692.A_SERVER_PROT___251 == arg0.currentProt) {
                                                 if (GameShell.fsframe != null) {
-                                                    InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                                                    InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                                                 }
                                                 local3044 = new byte[arg0.currentPacketSize];
                                                 local11.method7416(local3044, arg0.currentPacketSize);
                                                 local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
-                                                Static664.method8655(ClientOptions.instance.toolkit.value() == 1, local627, true, SignLink.instance);
+                                                Static664.method8655(ClientOptions.instance.toolkit.getValue() == 1, local627, true, SignLink.instance);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (arg0.currentProt == Static444.A_SERVER_PROT___169) {
@@ -1489,14 +1489,14 @@ public final class Protocol {
                                                                     return true;
                                                                 } else if (Static272.A_SERVER_PROT___112 == arg0.currentProt) {
                                                                     if (GameShell.fsframe != null) {
-                                                                        InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                                                                        InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                                                                     }
                                                                     local3044 = new byte[arg0.currentPacketSize];
                                                                     local11.method7416(local3044, arg0.currentPacketSize);
                                                                     local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
                                                                     local629 = "opensn";
                                                                     if (!client.js || Static36.method980(SignLink.instance, local627, local629, 1).status == 2) {
-                                                                        Static259.method3693(local627, local629, SignLink.instance, ClientOptions.instance.toolkit.value() == 1, true);
+                                                                        Static259.method3693(local627, local629, SignLink.instance, ClientOptions.instance.toolkit.getValue() == 1, true);
                                                                     }
                                                                     arg0.currentProt = null;
                                                                     return true;

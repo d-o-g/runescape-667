@@ -1496,10 +1496,10 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!bw", name = "a", descriptor = "(IZIII)V")
     public static void method1293(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        if (ClientOptions.instance.toolkit.value() == 0) {
+        if (ClientOptions.instance.toolkit.getValue() == 0) {
             Static668.method8700(false);
         } else {
-            Static114.anInt2256 = ClientOptions.instance.toolkit.value();
+            Static114.anInt2256 = ClientOptions.instance.toolkit.getValue();
             Static32.method880(0, true);
         }
         Static696.aBoolean784 = arg1;

@@ -26,7 +26,7 @@ public final class Static574 {
             }
             Toolkit.active.method8019(GameShell.canvas);
         } else {
-            Static32.method880(ClientOptions.instance.toolkit.value(), false);
+            Static32.method880(ClientOptions.instance.toolkit.getValue(), false);
         }
         InterfaceManager.redrawAll();
         Static75.aBoolean521 = true;

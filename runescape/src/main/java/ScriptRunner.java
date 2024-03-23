@@ -4355,7 +4355,7 @@ public final class ScriptRunner {
                 }
                 if (arg0 == 5301) {
                     if (GameShell.fsframe != null) {
-                        InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                        InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                     }
                     return;
                 }
@@ -4399,15 +4399,15 @@ public final class ScriptRunner {
                     return;
                 }
                 if (arg0 == 5308) {
-                    anIntArray578[anInt7142++] = ClientOptions.instance.screenSize.getValue();
+                    anIntArray578[anInt7142++] = ClientOptions.instance.screenSizeDefault.getValue();
                     return;
                 }
                 if (arg0 == 5309) {
                     local192 = anIntArray578[--anInt7142];
                     if (local192 >= 1 && local192 <= 2) {
+                        ClientOptions.instance.update(local192, ClientOptions.instance.screenSizeDefault);
                         ClientOptions.instance.update(local192, ClientOptions.instance.screenSize);
-                        ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub1_2);
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         return;
                     }
                     return;
@@ -4469,7 +4469,7 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5411) {
                         if (GameShell.fsframe != null) {
-                            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                         }
                         if (GameShell.frame != null) {
                             Static266.saveVarcs();
@@ -4477,7 +4477,7 @@ public final class ScriptRunner {
                             return;
                         }
                         local95 = client.quitUrl == null ? Static659.method8605() : client.quitUrl;
-                        Static664.method8655(ClientOptions.instance.toolkit.value() == 1, local95, false, SignLink.instance);
+                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == 1, local95, false, SignLink.instance);
                         return;
                     }
                     if (arg0 == 5419) {
@@ -4498,12 +4498,12 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5421) {
                         if (GameShell.fsframe != null) {
-                            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSize.getValue(), -1, false, -1);
+                            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                         }
                         local95 = aStringArray37[--anInt7139];
                         local1578 = anIntArray578[--anInt7142] == 1;
                         local198 = Static659.method8605() + local95;
-                        Static664.method8655(ClientOptions.instance.toolkit.value() == 1, local198, local1578, SignLink.instance);
+                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == 1, local198, local1578, SignLink.instance);
                         return;
                     }
                     if (arg0 == 5422) {
@@ -4953,61 +4953,61 @@ public final class ScriptRunner {
                 } else if (arg0 < 6100) {
                     if (arg0 == 6001) {
                         local192 = anIntArray578[--anInt7142];
-                        ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub22_1);
+                        ClientOptions.instance.update(local192, ClientOptions.instance.brightness);
                         Static449.mapBuild();
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     @Pc(5337) boolean local5337;
                     if (arg0 == 6002) {
                         local5337 = anIntArray578[--anInt7142] == 1;
-                        ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.aClass57_Sub19_1);
-                        ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animatingBackground);
+                        ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animateBackgroundDefault);
+                        ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animateBackground);
                         Static449.mapBuild();
                         Static77.method1561();
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6003) {
                         local5337 = anIntArray578[--anInt7142] == 1;
-                        ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.aClass57_Sub4_1);
-                        ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.aClass57_Sub4_2);
+                        ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.removeRoofs);
+                        ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.removeRoofsOverride);
                         Static77.method1561();
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6005) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.groundDecor);
                         Static449.mapBuild();
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6007) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub27_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.idleAnimations);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6008) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub8_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.flickeringEffects);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6010) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub7_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.spotShadows);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6011) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.hardShadows);
                         Static449.mapBuild();
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -5015,46 +5015,46 @@ public final class ScriptRunner {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.lightDetail);
                         Static296.updateFeatureMask();
                         Static218.method3187();
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6014) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 2 : 0, ClientOptions.instance.waterDetail);
                         Static449.mapBuild();
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6015) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub16_1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.fog);
                         Static449.mapBuild();
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6016) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub13_1);
-                        Static32.method880(ClientOptions.instance.toolkit.value(), false);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.antialiasingQuality);
+                        Static32.method880(ClientOptions.instance.toolkit.getValue(), false);
+                        ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6017) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.aClass57_Sub17_1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.stereoSound);
                         Static150.method2455();
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6018) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub25_3);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.soundVolume);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6019) {
                         local192 = anIntArray578[--anInt7142];
-                        local834 = ClientOptions.instance.aClass57_Sub25_2.method7208();
+                        local834 = ClientOptions.instance.musicVolume.getValue();
                         if (local192 != local834) {
                             if (MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
                                 if (local834 == 0 && Static588.anInt8692 != -1) {
@@ -5068,39 +5068,39 @@ public final class ScriptRunner {
                                     Static126.method2226(local192);
                                 }
                             }
-                            ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub25_2);
-                            ClientOptions.save(1);
+                            ClientOptions.instance.update(local192, ClientOptions.instance.musicVolume);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                         }
                         return;
                     }
                     if (arg0 == 6020) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub25_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.backgroundSoundVolume);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6021) {
-                        local192 = ClientOptions.instance.aClass57_Sub4_1.method2143();
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 0 : local192, ClientOptions.instance.aClass57_Sub4_2);
+                        local192 = ClientOptions.instance.removeRoofs.getValue();
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 0 : local192, ClientOptions.instance.removeRoofsOverride);
                         Static77.method1561();
                         return;
                     }
                     if (arg0 == 6023) {
                         local192 = anIntArray578[--anInt7142];
-                        ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub28_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(local192, ClientOptions.instance.particles);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6024) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.antialiasingMode);
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6025) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub5_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.buildArea);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -5113,18 +5113,18 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6028) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.aClass57_Sub14_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.customCursors);
+                        ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6029) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub27_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.idleAnimations);
+                        ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6030) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.aClass57_Sub23_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.groundBlending);
+                        ClientOptions.save();
                         Static449.mapBuild();
                         return;
                     }
@@ -5140,48 +5140,48 @@ public final class ScriptRunner {
                         anInt7142 -= 2;
                         local192 = anIntArray578[anInt7142];
                         local1578 = anIntArray578[anInt7142 + 1] == 1;
-                        ClientOptions.instance.update(local192, ClientOptions.instance.aToolkitOption_2);
+                        ClientOptions.instance.update(local192, ClientOptions.instance.toolkitDefault);
                         if (!local1578) {
-                            ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub15_1);
+                            ClientOptions.instance.update(0, ClientOptions.instance.graphicsQuality);
                         }
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6033) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.cpuUsage);
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6034) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.textures);
-                        ClientOptions.save(1);
+                        ClientOptions.save();
                         Static296.updateFeatureMask();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6035) {
-                        local192 = ClientOptions.instance.aClass57_Sub19_1.value();
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : local192, ClientOptions.instance.animatingBackground);
+                        local192 = ClientOptions.instance.animateBackgroundDefault.getValue();
+                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : local192, ClientOptions.instance.animateBackground);
                         Static449.mapBuild();
                         Static77.method1561();
                         return;
                     }
                     if (arg0 == 6036) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.aClass57_Sub18_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.maxScreenSize);
+                        ClientOptions.save();
                         Static284.aBoolean355 = true;
                         return;
                     }
                     if (arg0 == 6037) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.lb);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.speechVolume);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6038) {
                         local192 = anIntArray578[--anInt7142];
-                        local834 = ClientOptions.instance.aClass57_Sub25_4.method7208();
+                        local834 = ClientOptions.instance.loginVolume.getValue();
                         if (local192 != local834 && Static588.anInt8692 == Static597.anInt8821) {
                             if (!MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
                                 if (local834 == 0) {
@@ -5195,8 +5195,8 @@ public final class ScriptRunner {
                                     Static126.method2226(local192);
                                 }
                             }
-                            ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub25_4);
-                            ClientOptions.save(1);
+                            ClientOptions.instance.update(local192, ClientOptions.instance.loginVolume);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                         }
                         return;
@@ -5206,18 +5206,18 @@ public final class ScriptRunner {
                         if (local192 > 255 || local192 < 0) {
                             local192 = 0;
                         }
-                        if (local192 != ClientOptions.instance.aClass57_Sub11_1.method3603()) {
-                            ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub11_1);
-                            ClientOptions.save(1);
+                        if (local192 != ClientOptions.instance.loadingSequence.getValue()) {
+                            ClientOptions.instance.update(local192, ClientOptions.instance.loadingSequence);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                         }
                         return;
                     }
                     if (arg0 == 6040) {
                         local192 = anIntArray578[--anInt7142];
-                        if (local192 != ClientOptions.instance.aClass57_Sub3_1.method2120()) {
-                            ClientOptions.instance.update(local192, ClientOptions.instance.aClass57_Sub3_1);
-                            ClientOptions.save(1);
+                        if (local192 != ClientOptions.instance.orthographic.method2120()) {
+                            ClientOptions.instance.update(local192, ClientOptions.instance.orthographic);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                             Static498.method6646();
                         }
@@ -5225,76 +5225,76 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6041) {
                         local192 = anIntArray578[--anInt7142];
-                        if (local192 != ClientOptions.instance.skydetail.value()) {
+                        if (local192 != ClientOptions.instance.skydetail.getValue()) {
                             ClientOptions.instance.update(local192, ClientOptions.instance.skydetail);
-                            ClientOptions.save(1);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                         }
                         return;
                     }
                 } else if (arg0 < 6200) {
                     if (arg0 == 6101) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub22_1.method6769();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.brightness.getValue();
                         return;
                     }
                     if (arg0 == 6102) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub19_1.value() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.animateBackgroundDefault.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6103) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub4_1.method2143() == 2 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.removeRoofs.getValue() == 2 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6105) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.groundDecor.value() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.groundDecor.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6107) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub27_1.method7667();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.idleAnimations.getValue();
                         return;
                     }
                     if (arg0 == 6108) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub8_1.method3176() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.flickeringEffects.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6110) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub7_1.method2905() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.spotShadows.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6111) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.hardShadows.value();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.hardShadows.getValue();
                         return;
                     }
                     if (arg0 == 6112) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.lightDetail.value() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.lightDetail.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6114) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.waterDetail.value() == 2 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.waterDetail.getValue() == 2 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6115) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub16_1.method5507() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.fog.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6116) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub13_1.value();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingQuality.getValue();
                         return;
                     }
                     if (arg0 == 6117) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub17_1.method5667() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.stereoSound.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6118) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub25_3.method7208();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.soundVolume.getValue();
                         return;
                     }
                     if (arg0 == 6119) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub25_2.method7208();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.musicVolume.getValue();
                         return;
                     }
                     if (arg0 == 6120) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub25_1.method7208();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.backgroundSoundVolume.getValue();
                         return;
                     }
                     if (arg0 == 6123) {
@@ -5302,35 +5302,35 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6124) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingMode.value();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingMode.getValue();
                         return;
                     }
                     if (arg0 == 6125) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub5_1.method2172();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.buildArea.getValue();
                         return;
                     }
                     if (arg0 == 6127) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.bloom.value() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.bloom.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6128) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub14_1.method5302() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.customCursors.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6129) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub27_1.method7667();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.idleAnimations.getValue();
                         return;
                     }
                     if (arg0 == 6130) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub23_1.method7054() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.groundBlending.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6131) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.toolkit.value();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.toolkit.getValue();
                         return;
                     }
                     if (arg0 == 6132) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aToolkitOption_2.value();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.toolkitDefault.getValue();
                         return;
                     }
                     if (arg0 == 6133) {
@@ -5342,23 +5342,23 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6136) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.textures.value() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.textures.getvalue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6138) {
-                        anIntArray578[anInt7142++] = Static363.method6235(200, ClientOptions.instance.toolkit.value());
+                        anIntArray578[anInt7142++] = Static363.method6235(200, ClientOptions.instance.toolkit.getValue());
                         return;
                     }
                     if (arg0 == 6139) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub18_1.method5767();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.maxScreenSize.getValue();
                         return;
                     }
                     if (arg0 == 6142) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.lb.method7208();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.speechVolume.getValue();
                         return;
                     }
                     if (arg0 == 6143) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub25_4.method7208();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.loginVolume.getValue();
                         return;
                     }
                     if (arg0 == 6144) {
@@ -5366,11 +5366,11 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6145) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub11_1.method3603();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.loadingSequence.getValue();
                         return;
                     }
                     if (arg0 == 6146) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub3_1.method2120();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.orthographic.method2120();
                         return;
                     }
                     if (arg0 == 6147) {
@@ -5382,7 +5382,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6149) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.skydetail.value();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.skydetail.getValue();
                         return;
                     }
                 } else if (arg0 < 6300) {
@@ -5934,44 +5934,44 @@ public final class ScriptRunner {
                     } else if (arg0 < 7100) {
                         if (arg0 == 7000) {
                             local192 = Static519.method6831();
-                            anIntArray578[anInt7142++] = Static165.anInt2810 = ClientOptions.instance.toolkit.value();
+                            anIntArray578[anInt7142++] = Static165.anInt2810 = ClientOptions.instance.toolkit.getValue();
                             anIntArray578[anInt7142++] = local192;
                             Static449.mapBuild();
-                            ClientOptions.save(1);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7001) {
                             Static395.method9162();
                             Static449.mapBuild();
-                            ClientOptions.save(1);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7002) {
                             Static133.method2316();
                             Static449.mapBuild();
-                            ClientOptions.save(1);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7003) {
                             Static75.method6239();
                             Static449.mapBuild();
-                            ClientOptions.save(1);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7004) {
                             Static468.method7643();
                             Static449.mapBuild();
-                            ClientOptions.save(1);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7005) {
-                            ClientOptions.instance.update(0, ClientOptions.instance.aClass57_Sub15_1);
-                            ClientOptions.save(1);
+                            ClientOptions.instance.update(0, ClientOptions.instance.graphicsQuality);
+                            ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
@@ -5990,7 +5990,7 @@ public final class ScriptRunner {
                             return;
                         }
                         if (arg0 == 7007) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub15_1.method5320();
+                            anIntArray578[anInt7142++] = ClientOptions.instance.graphicsQuality.getValue();
                             return;
                         }
                     } else if (arg0 < 7200) {
@@ -6028,84 +6028,84 @@ public final class ScriptRunner {
                         }
                     } else if (arg0 < 7300) {
                         if (arg0 == 7201) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.groundDecor.method2715() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.groundDecor.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7202) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub7_1.method2906() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.spotShadows.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7203) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.hardShadows.method4360() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.hardShadows.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7204) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.waterDetail.method7464() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.waterDetail.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7205) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingMode.method4372() && Toolkit.active.method8015() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingMode.isCompatible() && Toolkit.active.method8015() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7206) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub28_1.method7837() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.particles.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7207) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub5_1.method2173() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.buildArea.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7208) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.bloom.method6107() && Toolkit.active.method7936() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.bloom.isCompatible() && Toolkit.active.method7936() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7209) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub23_1.method7053() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.groundBlending.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7210) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.textures.method8355() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.textures.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7211) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub18_1.method5768() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.maxScreenSize.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7212) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub16_1.method5504() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.fog.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7213) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub3_1.method2117() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.orthographic.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7214) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aToolkitOption_2.method7917() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.toolkitDefault.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7215) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.skydetail.method1985() ? 1 : 0;
+                            anIntArray578[anInt7142++] = ClientOptions.instance.skydetail.isCompatible() ? 1 : 0;
                             return;
                         }
                     } else if (arg0 < 7400) {
                         if (arg0 == 7301) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.groundDecor.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.groundDecor.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7302) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub7_1.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.spotShadows.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7303) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.hardShadows.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.hardShadows.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7304) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.waterDetail.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.waterDetail.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7305) {
@@ -6114,17 +6114,17 @@ public final class ScriptRunner {
                                 anIntArray578[anInt7142++] = 3;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingMode.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingMode.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7306) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub28_1.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.particles.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7307) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub5_1.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.buildArea.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7308) {
@@ -6133,42 +6133,42 @@ public final class ScriptRunner {
                                 anIntArray578[anInt7142++] = 3;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = ClientOptions.instance.bloom.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.bloom.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7309) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub23_1.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.groundBlending.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7310) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.textures.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.textures.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7311) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub18_1.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.maxScreenSize.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7312) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub16_1.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.fog.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7313) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aClass57_Sub3_1.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.orthographic.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7314) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.aToolkitOption_2.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.toolkitDefault.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7315) {
                             local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.skydetail.method8352(local192);
+                            anIntArray578[anInt7142++] = ClientOptions.instance.skydetail.getCompatibility(local192);
                             return;
                         }
                     }

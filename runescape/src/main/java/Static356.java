@@ -41,8 +41,4 @@ public final class Static356 {
         return local1;
     }
 
-    @OriginalMember(owner = "client!le", name = "a", descriptor = "(II)Z")
-    public static boolean method5202(@OriginalArg(1) int arg0) {
-        return arg0 == 2 || arg0 == 3;
-    }
 }

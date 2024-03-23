@@ -91,7 +91,7 @@ public final class Static249 {
             return false;
         } else {
             ClientOptions.instance.update(arg0 ? 1 : 0, ClientOptions.instance.bloom);
-            ClientOptions.save(1);
+            ClientOptions.save();
             return true;
         }
     }

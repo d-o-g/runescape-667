@@ -115,8 +115,8 @@ public final class Static254 {
         Static273.aBoolean339 = true;
         client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
         Static331.walkText = LocalisedText.WALKHERE.localise(client.language);
-        ClientOptions.instance.update(ClientOptions.instance.aClass57_Sub4_1.method2143(), ClientOptions.instance.aClass57_Sub4_2);
-        ClientOptions.instance.update(ClientOptions.instance.aClass57_Sub19_1.value(), ClientOptions.instance.animatingBackground);
+        ClientOptions.instance.update(ClientOptions.instance.removeRoofs.getValue(), ClientOptions.instance.removeRoofsOverride);
+        ClientOptions.instance.update(ClientOptions.instance.animateBackgroundDefault.getValue(), ClientOptions.instance.animateBackground);
         Static334.anInt5456 = 0;
         Static533.method7119();
         Static371.method5284();

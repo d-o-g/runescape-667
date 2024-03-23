@@ -17,7 +17,7 @@ public final class Static150 {
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(B)V")
     public static void method2455() {
         Static173.method2690();
-        Static517.method6822(ClientOptions.instance.aClass57_Sub17_1.method5667() == 1);
+        Static517.method6822(ClientOptions.instance.stereoSound.getValue() == 1);
         Static719.aClass56_5 = Static638.method8394(SignLink.instance, 0, 22050, GameShell.canvas);
         Static697.method9120(Static48.method1100((Node_Sub6_Sub1) null));
         Static559.aClass56_3 = Static638.method8394(SignLink.instance, 1, 2048, GameShell.canvas);

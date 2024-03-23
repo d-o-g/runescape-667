@@ -334,10 +334,10 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk0")) {
                     Static32.method880(0, false);
-                    if (ClientOptions.instance.toolkit.value() == 0) {
+                    if (ClientOptions.instance.toolkit.getValue() == 0) {
                         Static79.method1579("Entered tk0");
-                        ClientOptions.instance.update(0, ClientOptions.instance.aToolkitOption_2);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(0, ClientOptions.instance.toolkitDefault);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -346,10 +346,10 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk1")) {
                     Static32.method880(1, false);
-                    if (ClientOptions.instance.toolkit.value() == 1) {
+                    if (ClientOptions.instance.toolkit.getValue() == 1) {
                         Static79.method1579("Entered tk1");
-                        ClientOptions.instance.update(1, ClientOptions.instance.aToolkitOption_2);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(1, ClientOptions.instance.toolkitDefault);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -358,10 +358,10 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk2")) {
                     Static32.method880(2, false);
-                    if (ClientOptions.instance.toolkit.value() == 2) {
+                    if (ClientOptions.instance.toolkit.getValue() == 2) {
                         Static79.method1579("Entered tk2");
-                        ClientOptions.instance.update(2, ClientOptions.instance.aToolkitOption_2);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(2, ClientOptions.instance.toolkitDefault);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -370,22 +370,22 @@ public final class Static231 {
                 }
                 if (arg2.equalsIgnoreCase("tk3")) {
                     Static32.method880(3, false);
-                    if (ClientOptions.instance.toolkit.value() != 3) {
+                    if (ClientOptions.instance.toolkit.getValue() != 3) {
                         Static79.method1579("Failed to enter tk3");
                         return;
                     }
                     Static79.method1579("Entered tk3");
-                    ClientOptions.instance.update(3, ClientOptions.instance.aToolkitOption_2);
-                    ClientOptions.save(1);
+                    ClientOptions.instance.update(3, ClientOptions.instance.toolkitDefault);
+                    ClientOptions.save();
                     Static503.aBoolean578 = false;
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk5")) {
                     Static32.method880(5, false);
-                    if (ClientOptions.instance.toolkit.value() == 5) {
+                    if (ClientOptions.instance.toolkit.getValue() == 5) {
                         Static79.method1579("Entered tk5");
-                        ClientOptions.instance.update(5, ClientOptions.instance.aToolkitOption_2);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(5, ClientOptions.instance.toolkitDefault);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
@@ -399,10 +399,10 @@ public final class Static231 {
                     }
                     local501 = StringTools.parseDecimal(arg2.substring(6));
                     if (local501 >= 0 && local501 <= Static461.method6268(ClientOptions.maxmemory)) {
-                        ClientOptions.instance.update(local501, ClientOptions.instance.aClass57_Sub5_1);
-                        ClientOptions.save(1);
+                        ClientOptions.instance.update(local501, ClientOptions.instance.buildArea);
+                        ClientOptions.save();
                         Static503.aBoolean578 = false;
-                        Static79.method1579("maxbuildarea=" + ClientOptions.instance.aClass57_Sub5_1.method2172());
+                        Static79.method1579("maxbuildarea=" + ClientOptions.instance.buildArea.getValue());
                         return;
                     }
                     Static79.method1579("Invalid buildarea value");
@@ -656,7 +656,7 @@ public final class Static231 {
                 }
                 if (arg2.equals("autosetup")) {
                     Static519.method6831();
-                    Static79.method1579("Complete. com.jagex.graphics.Toolkit now: " + ClientOptions.instance.toolkit.value());
+                    Static79.method1579("Complete. com.jagex.graphics.Toolkit now: " + ClientOptions.instance.toolkit.getValue());
                     return;
                 }
                 if (arg2.equals("errormessage")) {
@@ -692,11 +692,11 @@ public final class Static231 {
                         return;
                     }
                     local725 = StringTools.parseDecimal(arg2.substring(local501 + 1));
-                    ClientOptions.instance.update(local725, ClientOptions.instance.aClass57_Sub3_1);
-                    ClientOptions.save(1);
+                    ClientOptions.instance.update(local725, ClientOptions.instance.orthographic);
+                    ClientOptions.save();
                     Static503.aBoolean578 = false;
                     Static498.method6646();
-                    if (local725 != ClientOptions.instance.aClass57_Sub3_1.method2120()) {
+                    if (local725 != ClientOptions.instance.orthographic.method2120()) {
                         Static79.method1579("Failed to change ortho mode");
                         return;
                     }
@@ -704,7 +704,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("orthozoom ")) {
-                    if (ClientOptions.instance.aClass57_Sub3_1.method2120() == 0) {
+                    if (ClientOptions.instance.orthographic.method2120() == 0) {
                         Static79.method1579("enable ortho mode first (use 'ortho <n>')");
                         return;
                     }
@@ -729,7 +729,7 @@ public final class Static231 {
                 if (arg2.startsWith("skydetail ")) {
                     local501 = StringTools.parseDecimal(arg2.substring(arg2.indexOf(32) + 1));
                     ClientOptions.instance.update(local501, ClientOptions.instance.skydetail);
-                    Static79.method1579("skydetail is " + (ClientOptions.instance.skydetail.value() == 0 ? "low" : "high"));
+                    Static79.method1579("skydetail is " + (ClientOptions.instance.skydetail.getValue() == 0 ? "low" : "high"));
                     return;
                 }
                 @Pc(2592) File local2592;

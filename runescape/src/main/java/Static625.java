@@ -31,11 +31,11 @@ public final class Static625 {
                 local10 = 2;
             }
         }
-        if (ClientOptions.instance.toolkit.value() != 0) {
-            ClientOptions.instance.update(0, ClientOptions.instance.aToolkitOption_2);
+        if (ClientOptions.instance.toolkit.getValue() != 0) {
+            ClientOptions.instance.update(0, ClientOptions.instance.toolkitDefault);
             Static32.method880(0, false);
         }
-        ClientOptions.save(1);
+        ClientOptions.save();
         return local10;
     }
 }

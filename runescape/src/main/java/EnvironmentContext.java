@@ -6,42 +6,42 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class EnvironmentContext {
 
     @OriginalMember(owner = "client!le", name = "b", descriptor = "Z")
-    public final boolean aBoolean442;
+    public final boolean signed;
 
     @OriginalMember(owner = "client!le", name = "n", descriptor = "I")
-    public final int anInt5771;
+    public final int cpuCount;
 
     @OriginalMember(owner = "client!le", name = "k", descriptor = "Z")
-    public final boolean aBoolean441;
+    public final boolean armCpu;
 
     @OriginalMember(owner = "client!le", name = "o", descriptor = "I")
-    public final int anInt5772;
+    public final int heapSize;
 
     @OriginalMember(owner = "client!le", name = "<init>", descriptor = "(ZIIZ)V")
     public EnvironmentContext(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
-        this.aBoolean442 = arg0;
-        this.anInt5771 = arg2;
-        this.aBoolean441 = arg3;
-        this.anInt5772 = arg1;
+        this.signed = arg0;
+        this.cpuCount = arg2;
+        this.armCpu = arg3;
+        this.heapSize = arg1;
     }
 
     @OriginalMember(owner = "client!le", name = "d", descriptor = "(B)I")
-    public int method5197() {
-        return this.anInt5772;
+    public int getHeapSize() {
+        return this.heapSize;
     }
 
     @OriginalMember(owner = "client!le", name = "a", descriptor = "(B)Z")
-    public boolean method5198() {
-        return this.aBoolean441;
+    public boolean isArmCpu() {
+        return this.armCpu;
     }
 
     @OriginalMember(owner = "client!le", name = "c", descriptor = "(B)I")
-    public int method5201() {
-        return this.anInt5771;
+    public int cpuCount() {
+        return this.cpuCount;
     }
 
     @OriginalMember(owner = "client!le", name = "a", descriptor = "(I)Z")
-    public boolean method5203() {
-        return this.aBoolean442;
+    public boolean isSigned() {
+        return this.signed;
     }
 }

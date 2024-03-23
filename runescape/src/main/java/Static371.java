@@ -12,7 +12,7 @@ public final class Static371 {
         local22.buffer.p1(InterfaceManager.getWindowMode());
         local22.buffer.p2(GameShell.canvasWid);
         local22.buffer.p2(GameShell.canvasHei);
-        local22.buffer.p1(ClientOptions.instance.aClass57_Sub13_1.value());
+        local22.buffer.p1(ClientOptions.instance.antialiasingQuality.getValue());
         ConnectionManager.GAME.send(local22);
     }
 }

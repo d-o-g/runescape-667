@@ -59,7 +59,7 @@ public final class StaticWall extends Wall implements Location {
         this.aBoolean376 = arg7;
         this.aBoolean378 = arg10;
         this.aByte87 = (byte) arg9;
-        this.aBoolean377 = arg0.method8006() && arg1.hardShadow && !this.aBoolean376 && ClientOptions.instance.hardShadows.value() != 0;
+        this.aBoolean377 = arg0.method8006() && arg1.hardShadow && !this.aBoolean376 && ClientOptions.instance.hardShadows.getValue() != 0;
         @Pc(77) int local77 = 2048;
         if (this.aBoolean378) {
             local77 |= 0x10000;

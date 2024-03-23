@@ -2,13 +2,10 @@ import com.jagex.ParticleList;
 import com.jagex.core.datastruct.Node;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.LinkedList;
-import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
-import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.particles.ParticleLimits;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -23,50 +20,13 @@ public final class ParticleSystem extends Node {
     @OriginalMember(owner = "client!hv", name = "f", descriptor = "[Z")
     public static final boolean[] aBooleanArray6 = new boolean[8];
 
-    @OriginalMember(owner = "client!kw", name = "y", descriptor = "I")
-    public static int systemFreePtr = 0;
-
-    @OriginalMember(owner = "client!jga", name = "l", descriptor = "I")
-    public static int systemNextPtr = 0;
-
-    @OriginalMember(owner = "client!rka", name = "Ob", descriptor = "I")
-    public static int particleFreePtr = 0;
-
-    @OriginalMember(owner = "client!sv", name = "L", descriptor = "I")
-    public static int particleNextPtr = 0;
-
-    @OriginalMember(owner = "client!kp", name = "w", descriptor = "Lclient!fla;")
-    public static LinkedList systems;
-
-    @OriginalMember(owner = "client!qv", name = "e", descriptor = "[Lclient!pp;")
-    public static MovingParticle[] particleCache;
-
-    @OriginalMember(owner = "client!pw", name = "G", descriptor = "I")
-    public static int setting = 2;
-
-    @OriginalMember(owner = "client!cka", name = "x", descriptor = "[Lclient!hv;")
-    public static ParticleSystem[] systemCache;
-
-    @OriginalMember(owner = "client!fp", name = "a", descriptor = "(Lclient!sb;I)V")
-    public static void init(@OriginalArg(0) js5 configClient) {
-        particleFreePtr = 0;
-        particleNextPtr = 0;
-        systems = new LinkedList();
-        particleCache = new MovingParticle[1024];
-        systemCache = new ParticleSystem[ParticleLimits.anIntArray265[setting] + 1];
-        systemFreePtr = 0;
-        systemNextPtr = 0;
-        ParticleEmitterTypeList.setConfigClient(configClient);
-        ParticleEffectorTypeList.setConfigClient(configClient);
-    }
-
     @OriginalMember(owner = "client!hv", name = "b", descriptor = "(IZ)Lclient!hv;")
     public static ParticleSystem create(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        if (systemFreePtr == systemNextPtr) {
+        if (ParticleManager.systemFreePtr == ParticleManager.systemNextPtr) {
             return new ParticleSystem(arg0, arg1);
         } else {
-            @Pc(6) ParticleSystem system = systemCache[systemNextPtr];
-            systemNextPtr = systemNextPtr + 1 & ParticleLimits.anIntArray265[setting];
+            @Pc(6) ParticleSystem system = ParticleManager.systemCache[ParticleManager.systemNextPtr];
+            ParticleManager.systemNextPtr = ParticleManager.systemNextPtr + 1 & ParticleLimits.anIntArray265[ParticleManager.option];
             system.init(arg0, arg1);
             return system;
         }
@@ -265,8 +225,8 @@ public final class ParticleSystem extends Node {
         this.aDeque_22 = new Deque();
         this.anInt4150 = 0;
         this.unlink();
-        systemCache[systemFreePtr] = this;
-        systemFreePtr = systemFreePtr + 1 & ParticleLimits.anIntArray265[setting];
+        ParticleManager.systemCache[ParticleManager.systemFreePtr] = this;
+        ParticleManager.systemFreePtr = ParticleManager.systemFreePtr + 1 & ParticleLimits.anIntArray265[ParticleManager.option];
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J)Z")
@@ -314,7 +274,7 @@ public final class ParticleSystem extends Node {
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(IZ)V")
     public void init(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        systems.add(this);
+        ParticleManager.systems.add(this);
         this.aLong133 = (long) arg0;
         this.lastRunningCheck = (long) arg0;
         this.aBoolean326 = true;

@@ -15,6 +15,9 @@ public final class SeqTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 64;
 
+    @OriginalMember(owner = "client!as", name = "d", descriptor = "Lclient!bp;")
+    public static SeqTypeList instance;
+
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(II)I")
     private static int fileId(@OriginalArg(0) int id) {
         return id & 0x7F;

@@ -16,6 +16,9 @@ public final class BASTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 64;
 
+    @OriginalMember(owner = "client!saa", name = "e", descriptor = "Lclient!qp;")
+    public static BASTypeList instance;
+
     @OriginalMember(owner = "client!qp", name = "h", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 

@@ -3,6 +3,7 @@ import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -68,7 +69,7 @@ public final class Static605 {
             if (local21 == 11) {
                 local21 = 10;
             }
-            @Pc(210) LocType local210 = Static354.aLocTypeList_4.list(local52);
+            @Pc(210) LocType local210 = LocTypeList.instance.list(local52);
             local212 = 0;
             if (local210.modelShapes != null) {
                 local217 = -1;
@@ -130,7 +131,7 @@ public final class Static605 {
         } else if (arg0 == Static328.aClass287_10) {
             local15 = local8.g2();
             local21 = local8.g1();
-            Static354.aLocTypeList_4.list(local15).loadedModels(local21);
+            LocTypeList.instance.list(local15).loadedModels(local21);
         } else {
             @Pc(537) int local537;
             if (arg0 == Static481.aClass287_15) {

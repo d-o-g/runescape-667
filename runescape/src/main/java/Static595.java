@@ -18,7 +18,7 @@ public final class Static595 {
     public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int toolkit) {
         Static164.method2606();
         if (toolkit == ToolkitType.JAVA) {
-            Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, GameShell.canvas, ClientOptions.instance.antialiasingQuality.getValue() * 2);
+            Toolkit.active = Static255.method3612(js5.SHADERS, ArchiveTextureSource.instance, 0, GameShell.canvas, ClientOptions.instance.antialiasingQuality.getValue() * 2);
             if (arg0 != null) {
                 Toolkit.active.GA(0);
                 @Pc(36) FontMetrics local36 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
@@ -30,7 +30,7 @@ public final class Static595 {
             @Pc(57) Toolkit local57 = null;
             @Pc(85) Font local85;
             if (arg0 != null) {
-                local57 = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, GameShell.canvas, 0);
+                local57 = Static255.method3612(js5.SHADERS, ArchiveTextureSource.instance, 0, GameShell.canvas, 0);
                 local57.GA(0);
                 @Pc(76) FontMetrics local76 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
                 local85 = local57.createFont(local76, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
@@ -42,7 +42,7 @@ public final class Static595 {
             {
                 try {
                     var14 = true;
-                    Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, toolkit, GameShell.canvas, ClientOptions.instance.antialiasingQuality.getValue() * 2);
+                    Toolkit.active = Static255.method3612(js5.SHADERS, ArchiveTextureSource.instance, toolkit, GameShell.canvas, ClientOptions.instance.antialiasingQuality.getValue() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
                         @Pc(118) FontMetrics local118 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);

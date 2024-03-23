@@ -1,10 +1,6 @@
-import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static690 {
-
-    @OriginalMember(owner = "client!vr", name = "b", descriptor = "Lclient!ql;")
-    public static NPCTypeList aNPCTypeList_2;
 
     @OriginalMember(owner = "client!vr", name = "e", descriptor = "J")
     public static long aLong318;

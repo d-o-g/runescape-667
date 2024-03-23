@@ -2,6 +2,8 @@ import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
@@ -43,7 +45,7 @@ public final class Static369 {
                     @Pc(108) int local108 = local94 & 0x3F;
                     @Pc(121) int local121 = local104 + (Static89.anIntArray169[local13] >> 8) * 64 - WorldMap.areaBaseX;
                     @Pc(135) int local135 = (Static89.anIntArray169[local13] & 0xFF) * 64 + local108 - WorldMap.areaBaseY;
-                    @Pc(142) NPCType local142 = Static690.aNPCTypeList_2.list(local66.g2());
+                    @Pc(142) NPCType local142 = NPCTypeList.instance.list(local66.g2());
                     @Pc(149) Node_Sub45 local149 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local88);
                     if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.areaLevel && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapHeight) {
                         @Pc(197) NPCEntity local197 = new NPCEntity();
@@ -72,7 +74,7 @@ public final class Static369 {
         @Pc(31) Node_Sub36 local31;
         if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
             for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-                Static419.objTypeList.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? PlayerEntity.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
+                ObjTypeList.instance.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? PlayerEntity.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
                 local31.unlink();
             }
             InterfaceManager.redrawAll();
@@ -81,11 +83,11 @@ public final class Static369 {
         if (Static158.aToolkit_5 == null) {
             @Pc(85) Canvas local85 = new Canvas();
             local85.setSize(36, 32);
-            Static158.aToolkit_5 = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, local85, 0);
+            Static158.aToolkit_5 = Static255.method3612(js5.SHADERS, ArchiveTextureSource.instance, 0, local85, 0);
             Fonts.aFont_11 = Static158.aToolkit_5.createFont(FontMetrics.loadGroup(Fonts.p11FullGroup, js5.FONTMETRICS), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
         }
         for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-            Static419.objTypeList.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? PlayerEntity.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.aFont_11, local31.anInt5895);
+            ObjTypeList.instance.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? PlayerEntity.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.aFont_11, local31.anInt5895);
             local31.unlink();
         }
     }

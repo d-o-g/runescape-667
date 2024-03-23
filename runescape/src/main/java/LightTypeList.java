@@ -10,6 +10,9 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!vga")
 public final class LightTypeList {
 
+    @OriginalMember(owner = "client!bka", name = "k", descriptor = "Lclient!vga;")
+    public static LightTypeList instance;
+
     @OriginalMember(owner = "client!vga", name = "l", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(64);
 

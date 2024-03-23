@@ -1,4 +1,5 @@
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -20,7 +21,7 @@ public final class Static38 {
             Static147.method2419(local17, arg2, 0, true, arg0, 0, local10, 0);
             return;
         }
-        @Pc(62) LocType local62 = Static354.aLocTypeList_4.list(local29);
+        @Pc(62) LocType local62 = LocTypeList.instance.list(local29);
         @Pc(75) int local75;
         @Pc(78) int local78;
         if (local17 == 0 || local17 == 2) {

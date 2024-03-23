@@ -1,6 +1,9 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -53,10 +56,10 @@ public final class Static296 {
             featureMask |= 0x40;
         }
         Component.setFeatureMask(featureMask);
-        Static354.aLocTypeList_4.setFeatureMask(featureMask);
-        Static419.objTypeList.setFeatureMask(featureMask);
-        Static690.aNPCTypeList_2.setFeatureMask(featureMask);
-        Static23.aClass128_1.setFeatureMask(featureMask);
+        LocTypeList.instance.setFeatureMask(featureMask);
+        ObjTypeList.instance.setFeatureMask(featureMask);
+        NPCTypeList.instance.setFeatureMask(featureMask);
+        SpotAnimationTypeList.instance.setFeatureMask(featureMask);
         Static41.setFeatureMask(featureMask);
         Static298.setFeatureMask(featureMask);
         PlayerModel.setFeatureMask(featureMask);

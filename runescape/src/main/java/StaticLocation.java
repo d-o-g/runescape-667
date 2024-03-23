@@ -1,6 +1,6 @@
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
-import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -278,7 +278,7 @@ public final class StaticLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(Lclient!ha;BZI)Lclient!od;")
     public ModelAndShadow method4223(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
-        @Pc(11) LocType local11 = Static354.aLocTypeList_4.list(this.aShort57 & 0xFFFF);
+        @Pc(11) LocType local11 = LocTypeList.instance.list(this.aShort57 & 0xFFFF);
         @Pc(27) Ground local27;
         @Pc(33) Ground local33;
         if (this.aBoolean363) {

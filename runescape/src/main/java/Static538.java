@@ -1,6 +1,6 @@
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -126,7 +126,7 @@ public final class Static538 {
                 if (local31.type.hasSounds()) {
                     Static58.method1259(local31);
                 }
-                local31.method9328(Static690.aNPCTypeList_2.list(local15.ig2()));
+                local31.method9328(NPCTypeList.instance.list(local15.ig2()));
                 local31.method9310(local31.type.size);
                 local31.anInt10757 = local31.type.rotationSpeed << 3;
                 if (local31.type.hasSounds()) {

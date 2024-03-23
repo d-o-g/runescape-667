@@ -8,7 +8,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vka")
-public final class Class387 {
+public final class EnumTypeList {
+
+    @OriginalMember(owner = "client!tk", name = "d", descriptor = "Lclient!vka;")
+    public static EnumTypeList instance;
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(BI)I")
     public static int fileId(@OriginalArg(1) int arg0) {
@@ -33,7 +36,7 @@ public final class Class387 {
     private final int num;
 
     @OriginalMember(owner = "client!vka", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class387(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+    public EnumTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
@@ -47,18 +50,18 @@ public final class Class387 {
     }
 
     @OriginalMember(owner = "client!vka", name = "a", descriptor = "(II)Lclient!bt;")
-    public Class53 method8925(@OriginalArg(0) int id) {
+    public EnumType list(@OriginalArg(0) int id) {
         @Pc(6) ReferenceCache local6 = this.recentUse;
-        @Pc(16) Class53 type;
+        @Pc(16) EnumType type;
         synchronized (this.recentUse) {
-            type = (Class53) this.recentUse.get(id);
+            type = (EnumType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
         }
 
         @Pc(40) byte[] data = this.configClient.getfile(fileId(id), groupId(id));
-        type = new Class53();
+        type = new EnumType();
         if (data != null) {
             type.decode(new Packet(data));
         }

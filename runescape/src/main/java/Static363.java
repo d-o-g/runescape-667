@@ -4,7 +4,6 @@ import com.jagex.core.util.SystemTimer;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
-import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -25,9 +24,6 @@ public final class Static363 {
 
     @OriginalMember(owner = "client!li", name = "g", descriptor = "J")
     public static long aLong219;
-
-    @OriginalMember(owner = "client!li", name = "a", descriptor = "Lclient!it;")
-    public static final Class184 aClass184_13 = new Class184(9, 0, 4, 1);
 
     @OriginalMember(owner = "client!li", name = "c", descriptor = "Lclient!nga;")
     public static final Class259 aClass259_14 = new Class259();

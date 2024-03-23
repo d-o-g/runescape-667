@@ -6,6 +6,9 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -418,9 +421,9 @@ public final class Static364 {
                         Static106.anInt2153 = local1435.g3s();
                         Static174.mapMembers = local1435.g1() == 1;
                         Static416.aString71 = local1435.gjstr();
-                        Static354.aLocTypeList_4.setAllowMembers(Static174.mapMembers);
-                        Static419.objTypeList.setAllowMembers(Static174.mapMembers);
-                        Static690.aNPCTypeList_2.setAllowMembers(Static174.mapMembers);
+                        LocTypeList.instance.setAllowMembers(Static174.mapMembers);
+                        ObjTypeList.instance.setAllowMembers(Static174.mapMembers);
+                        NPCTypeList.instance.setAllowMembers(Static174.mapMembers);
                     } else if (Static524.aServerConnection_3.connection.hasAvailable(Static94.anInt1961)) {
                         Static524.aServerConnection_3.connection.read(local1435.data, Static94.anInt1961, 0);
                         local1435.pos = 0;

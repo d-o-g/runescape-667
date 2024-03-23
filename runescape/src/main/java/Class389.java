@@ -15,7 +15,7 @@ public final class Class389 {
     public int anInt10305;
 
     @OriginalMember(owner = "client!vla", name = "b", descriptor = "Lclient!nv;")
-    public Class267 myList;
+    public CursorTypeList myList;
 
     @OriginalMember(owner = "client!vla", name = "d", descriptor = "I")
     public int anInt10308;

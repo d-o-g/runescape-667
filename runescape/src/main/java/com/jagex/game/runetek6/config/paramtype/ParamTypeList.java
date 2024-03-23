@@ -15,6 +15,9 @@ public final class ParamTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 64;
 
+    @OriginalMember(owner = "client!mba", name = "F", descriptor = "Lclient!bo;")
+    public static ParamTypeList instance;
+
     @OriginalMember(owner = "client!bo", name = "a", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 

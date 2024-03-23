@@ -7,12 +7,19 @@ import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
+import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.iftype.DragRender;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjStackability;
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
+import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
+import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
+import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
@@ -372,7 +379,7 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.WORLD_MAP) {
-                        WorldMap.draw(child.height, posX, posY, Static56.anTextureSource_3, Toolkit.active, child.width);
+                        WorldMap.draw(child.height, posX, posY, ArchiveTextureSource.instance, Toolkit.active, child.width);
                         dirtyRectangles[rectangle] = true;
                         Toolkit.active.KA(arg3, arg4, arg8, arg5);
                         continue;
@@ -557,7 +564,7 @@ public final class InterfaceManager {
                             @Pc(1533) String text = child.text;
 
                             if (child.invObject != -1) {
-                                @Pc(1543) ObjType objType = Static419.objTypeList.list(child.invObject);
+                                @Pc(1543) ObjType objType = ObjTypeList.instance.list(child.invObject);
                                 text = objType.name;
 
                                 if (text == null) {
@@ -618,12 +625,12 @@ public final class InterfaceManager {
                         }
                     } else if (child.type == Component.TYPE_GRAPHIC) {
                         if (child.skyBox >= 0) {
-                            child.skyBox(Static99.skyBoxSphereTypeList, Static324.skyBoxTypeList).method3162(Toolkit.active, posY, posX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
+                            child.skyBox(SkyBoxSphereTypeList.instance, SkyBoxTypeList.instance).method3162(Toolkit.active, posY, posX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
                         } else {
                             @Pc(1816) Sprite sprite;
                             if (child.invObject != -1) {
                                 @Pc(1836) PlayerModel model = child.objWearCol ? PlayerEntity.self.playerModel : null;
-                                sprite = Static419.objTypeList.getCachedSprite(model, Toolkit.active, child.objNumMode, child.invObject, child.outline, child.invCount, child.shadow | 0xFF000000);
+                                sprite = ObjTypeList.instance.getCachedSprite(model, Toolkit.active, child.objNumMode, child.invObject, child.outline, child.invCount, child.shadow | 0xFF000000);
                             } else if (child.video != -1) {
                                 sprite = VideoTypeList.frame(child.video, Toolkit.active);
                             } else {
@@ -698,7 +705,7 @@ public final class InterfaceManager {
                         @Pc(744) int minY = 0;
 
                         if (child.invObject != -1) {
-                            @Pc(1543) ObjType objType = Static419.objTypeList.list(child.invObject);
+                            @Pc(1543) ObjType objType = ObjTypeList.instance.list(child.invObject);
                             if (objType != null) {
                                 objType = objType.getStacked(child.invCount);
                                 model = objType.model(child.animator, 2048, child.objWearCol ? PlayerEntity.self.playerModel : null, 1, Toolkit.active);
@@ -715,7 +722,7 @@ public final class InterfaceManager {
                                 @Pc(2341) PlayerEntity player = PlayerList.highResolutionPlayers[slot];
 
                                 if (player != null && (slot == PlayerList.activePlayerSlot || StringTools.intHash(player.accountName) == child.objData)) {
-                                    model = player.playerModel.bodyModel(Static419.objTypeList, child.animator, Static574.basTypeList, Static25.seqTypeList, 2048, null, Static523.wearposDefaults, Static68.idkTypeList, Toolkit.active, Static690.aNPCTypeList_2, null, 0, null, TimedVarDomain.instance);
+                                    model = player.playerModel.bodyModel(ObjTypeList.instance, child.animator, BASTypeList.instance, SeqTypeList.instance, 2048, null, Static523.wearposDefaults, IDKTypeList.instance, Toolkit.active, NPCTypeList.instance, null, 0, null, TimedVarDomain.instance);
                                 }
                             }
                         } else if (child.objType == Component.OBJ_TYPE_INVENTORY_MALE || child.objType == Component.OBJ_TYPE_INVENTORY_FEMALE) {
@@ -725,13 +732,13 @@ public final class InterfaceManager {
                                 model = inventory.method3078(child.objData, Toolkit.active, child.objType == Component.OBJ_TYPE_INVENTORY_FEMALE, child.animator, child.objWearCol ? PlayerEntity.self.playerModel : null);
                             }
                         } else if (child.animator != null && child.animator.isAnimating()) {
-                            model = child.model(Toolkit.active, child.animator, Static574.basTypeList, Static68.idkTypeList, Static25.seqTypeList, PlayerEntity.self.playerModel, TimedVarDomain.instance, Static690.aNPCTypeList_2, Static419.objTypeList, 2048, customisation);
+                            model = child.model(Toolkit.active, child.animator, BASTypeList.instance, IDKTypeList.instance, SeqTypeList.instance, PlayerEntity.self.playerModel, TimedVarDomain.instance, NPCTypeList.instance, ObjTypeList.instance, 2048, customisation);
 
                             if (model == null && Component.redrawAll) {
                                 redraw(child);
                             }
                         } else {
-                            model = child.model(Toolkit.active, null, Static574.basTypeList, Static68.idkTypeList, Static25.seqTypeList, PlayerEntity.self.playerModel, TimedVarDomain.instance, Static690.aNPCTypeList_2, Static419.objTypeList, 2048, customisation);
+                            model = child.model(Toolkit.active, null, BASTypeList.instance, IDKTypeList.instance, SeqTypeList.instance, PlayerEntity.self.playerModel, TimedVarDomain.instance, NPCTypeList.instance, ObjTypeList.instance, 2048, customisation);
 
                             if (model == null && Component.redrawAll) {
                                 redraw(child);
@@ -1840,7 +1847,7 @@ public final class InterfaceManager {
                     }
 
                     if (component.type == Component.TYPE_GRAPHIC && component.skyBox != -1) {
-                        component.skyBox(Static99.skyBoxSphereTypeList, Static324.skyBoxTypeList).method3168(ClientOptions.instance.skydetail.getValue(), component.height, Toolkit.active);
+                        component.skyBox(SkyBoxSphereTypeList.instance, SkyBoxTypeList.instance).method3168(ClientOptions.instance.skydetail.getValue(), component.height, Toolkit.active);
                     }
 
                     Static542.prefetchSprite(component);

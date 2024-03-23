@@ -1,5 +1,6 @@
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
+import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -21,7 +22,7 @@ public final class Static310 {
                     if (local20 == -1) {
                         arg3.aClass152_Sub2_Sub1Array3[local30] = null;
                     } else {
-                        @Pc(60) SeqType local60 = Static25.seqTypeList.list(local20);
+                        @Pc(60) SeqType local60 = SeqTypeList.instance.list(local20);
                         @Pc(63) int replayMode = local60.replayMode;
                         @Pc(68) Animator_Sub2_Sub1 local68 = arg3.aClass152_Sub2_Sub1Array3[local30];
                         if (local68 != null && local68.isAnimating()) {

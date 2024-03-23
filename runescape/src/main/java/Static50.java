@@ -135,7 +135,7 @@ public final class Static50 {
             if (arg0.aClass199Array3[local50].anInt4930 != -1) {
                 local75 = arg0.aClass199Array3[local50].aAnimator_7;
                 if (local75.isDelayed()) {
-                    @Pc(88) Class227 local88 = Static23.aClass128_1.list(arg0.aClass199Array3[local50].anInt4930);
+                    @Pc(88) Class227 local88 = SpotAnimationTypeList.instance.list(arg0.aClass199Array3[local50].anInt4930);
                     @Pc(92) SeqType local92 = local75.getAnimation();
                     if (local88.aBoolean448) {
                         if (local92.animatingPrecedence == 3) {

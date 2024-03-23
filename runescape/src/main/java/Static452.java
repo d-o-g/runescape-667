@@ -35,7 +35,7 @@ public final class Static452 {
 
     @OriginalMember(owner = "client!oea", name = "a", descriptor = "(Lclient!c;BILclient!ha;II)V")
     public static void method6173(@OriginalArg(0) LocType arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Toolkit arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        @Pc(9) MSIType local9 = Static720.aMSITypeList_4.list(arg0.msi);
+        @Pc(9) MSIType local9 = MSITypeList.instance.list(arg0.msi);
         if (local9.image == -1) {
             return;
         }

@@ -8,13 +8,28 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!fh")
-public final class Class128 {
+public final class SpotAnimationTypeList {
+
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
+    @OriginalMember(owner = "client!an", name = "b", descriptor = "Lclient!fh;")
+    public static SpotAnimationTypeList instance;
+
+    @OriginalMember(owner = "client!lfa", name = "a", descriptor = "(II)I")
+    private static int groupId(@OriginalArg(0) int id) {
+        return id >>> 8;
+    }
+
+    @OriginalMember(owner = "client!rl", name = "a", descriptor = "(II)I")
+    private static int fileId(@OriginalArg(1) int id) {
+        return id & 0xFF;
+    }
 
     @OriginalMember(owner = "client!fh", name = "b", descriptor = "I")
     public int anInt2921;
 
     @OriginalMember(owner = "client!fh", name = "i", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!fh", name = "k", descriptor = "Lclient!dla;")
     public final ReferenceCache aReferenceCache_62 = new ReferenceCache(60);
@@ -32,24 +47,14 @@ public final class Class128 {
     private final int num;
 
     @OriginalMember(owner = "client!fh", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public Class128(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 arg3) {
+    public SpotAnimationTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 arg3) {
         this.game = game;
         this.languageId = languageId;
         this.aJs5_34 = arg3;
         this.configClient = configClient;
 
-        @Pc(26) int local26 = this.configClient.groupSize() - 1;
-        this.num = this.configClient.fileLimit(local26);
-    }
-
-    @OriginalMember(owner = "client!rl", name = "a", descriptor = "(II)I")
-    public static int fileId(@OriginalArg(1) int arg0) {
-        return arg0 & 0xFF;
-    }
-
-    @OriginalMember(owner = "client!lfa", name = "a", descriptor = "(II)I")
-    public static int groupId(@OriginalArg(0) int arg0) {
-        return arg0 >>> 8;
+        @Pc(26) int lastGroup = this.configClient.groupSize() - 1;
+        this.num = this.configClient.fileLimit(lastGroup);
     }
 
     @OriginalMember(owner = "client!fh", name = "a", descriptor = "(II)Lclient!lia;")

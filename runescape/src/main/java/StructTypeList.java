@@ -8,7 +8,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!kq")
-public final class Class214 {
+public final class StructTypeList {
+
+    @OriginalMember(owner = "client!uka", name = "x", descriptor = "Lclient!kq;")
+    public static StructTypeList instance;
 
     @OriginalMember(owner = "client!kq", name = "f", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(256);
@@ -23,7 +26,7 @@ public final class Class214 {
     private final int num;
 
     @OriginalMember(owner = "client!kq", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class214(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+    public StructTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
         this.game=game;
         this.languageId=languageId;
         this.configClient = configClient;

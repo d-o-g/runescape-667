@@ -1,14 +1,10 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
-import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static25 {
-
-    @OriginalMember(owner = "client!as", name = "d", descriptor = "Lclient!bp;")
-    public static SeqTypeList seqTypeList;
 
     @OriginalMember(owner = "client!as", name = "g", descriptor = "I")
     public static int anInt598;

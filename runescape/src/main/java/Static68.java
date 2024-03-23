@@ -1,14 +1,7 @@
-import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static68 {
-
-    @OriginalMember(owner = "client!cd", name = "c", descriptor = "Lclient!gt;")
-    public static Class151 aClass151_3;
-
-    @OriginalMember(owner = "client!cd", name = "r", descriptor = "Lclient!kr;")
-    public static IDKTypeList idkTypeList;
 
     @OriginalMember(owner = "client!cd", name = "s", descriptor = "[I")
     public static int[] anIntArray316;

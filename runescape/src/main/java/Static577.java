@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static577 {
 
-    @OriginalMember(owner = "client!sca", name = "a", descriptor = "Lclient!ml;")
-    public static MapElementTypeList aMapElementTypeList_4;
-
     @OriginalMember(owner = "client!sca", name = "d", descriptor = "[Lclient!eq;")
     public static final CollisionMap[] A_COLLISION_MAP_ARRAY_1 = new CollisionMap[4];
 

@@ -9,9 +9,6 @@ public final class Static94 {
     @OriginalMember(owner = "client!cv", name = "k", descriptor = "I")
     public static int anInt1961;
 
-    @OriginalMember(owner = "client!cv", name = "n", descriptor = "Lclient!it;")
-    public static final Class184 aClass184_5 = new Class184(8, 0, 4, 1);
-
     @OriginalMember(owner = "client!cv", name = "b", descriptor = "(I)V")
     public static void method1841() {
         Static524.aServerConnection_3.clear();

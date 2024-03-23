@@ -3,7 +3,8 @@ import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASType;
-import com.jagex.game.runetek6.config.objtype.ObjTypeCustomisation;
+import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
@@ -47,7 +48,7 @@ public final class ClientInventory extends Node {
         @Pc(9) int local9 = 2048;
         @Pc(11) BASType local11 = null;
         if (arg0 != -1) {
-            local11 = Static574.basTypeList.list(arg0);
+            local11 = BASTypeList.instance.list(arg0);
         }
         @Pc(23) int[] local23 = this.anIntArray278;
         if (local11 != null && local11.invObjSlots != null) {
@@ -75,7 +76,7 @@ public final class ClientInventory extends Node {
             @Pc(151) int local151 = local9;
             @Pc(153) boolean local153 = false;
             for (@Pc(155) int local155 = 0; local155 < local23.length; local155++) {
-                if (local23[local155] != -1 && !Static419.objTypeList.list(local23[local155]).loadedModels(female, null)) {
+                if (local23[local155] != -1 && !ObjTypeList.instance.list(local23[local155]).loadedModels(female, null)) {
                     local153 = true;
                 }
             }
@@ -85,7 +86,7 @@ public final class ClientInventory extends Node {
             @Pc(203) Mesh[] meshes = new Mesh[local23.length];
             for (@Pc(205) int local205 = 0; local205 < local23.length; local205++) {
                 if (local23[local205] != -1) {
-                    meshes[local205] = Static419.objTypeList.list(local23[local205]).playerModel(null, female);
+                    meshes[local205] = ObjTypeList.instance.list(local23[local205]).playerModel(null, female);
                 }
             }
             @Pc(278) int tx;

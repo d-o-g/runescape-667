@@ -1,4 +1,5 @@
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -24,13 +25,13 @@ public final class Static2 {
             stack.objs.addLast(entry);
             return;
         }
-        @Pc(45) ObjType type = Static419.objTypeList.list(entry.id);
+        @Pc(45) ObjType type = ObjTypeList.instance.list(entry.id);
         @Pc(48) int totalCost = type.cost;
         if (type.stackable == 1) {
             totalCost *= entry.count + 1;
         }
         for (@Pc(65) ObjStackEntry other = (ObjStackEntry) stack.objs.first(); other != null; other = (ObjStackEntry) stack.objs.next()) {
-            type = Static419.objTypeList.list(other.id);
+            type = ObjTypeList.instance.list(other.id);
             @Pc(78) int otherTotalCost = type.cost;
             if (type.stackable == 1) {
                 otherTotalCost *= other.count + 1;

@@ -6,7 +6,10 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ida")
-public final class Class176 {
+public final class VarcstrTypeList {
+
+    @OriginalMember(owner = "client!wo", name = "A", descriptor = "Lclient!ida;")
+    public static VarcstrTypeList instance;
 
     private final ReferenceCache recentUse = new ReferenceCache(64);
 
@@ -21,7 +24,7 @@ public final class Class176 {
     public final int num;
 
     @OriginalMember(owner = "client!ida", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class176(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+    public VarcstrTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;

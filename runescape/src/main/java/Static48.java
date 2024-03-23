@@ -8,9 +8,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static48 {
 
-    @OriginalMember(owner = "client!bka", name = "k", descriptor = "Lclient!vga;")
-    public static LightTypeList aLightTypeList_1;
-
     @OriginalMember(owner = "client!bka", name = "i", descriptor = "[Lclient!eo;")
     public static Renderable[] aRenderableArray3;
 

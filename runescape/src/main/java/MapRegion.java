@@ -5,6 +5,7 @@ import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocOcclusionMode;
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
@@ -28,7 +29,7 @@ public final class MapRegion extends Class306 {
 
     @OriginalMember(owner = "client!taa", name = "<init>", descriptor = "(IIIZ)V")
     public MapRegion(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
-        super(arg0, arg1, arg2, arg3, Static467.aFloorOverlayTypeList_3, Static540.aFloorUnderlayTypeList_6);
+        super(arg0, arg1, arg2, arg3, FloorOverlayTypeList.instance, FloorUnderlayTypeList.instance);
     }
 
     @OriginalMember(owner = "client!aq", name = "a", descriptor = "(ZIII)I")
@@ -251,7 +252,7 @@ public final class MapRegion extends Class306 {
                                         for (local504 = 0; local504 < local86; local504++) {
                                             @Pc(512) EnvironmentLight local512 = new EnvironmentLight(arg3, arg1, 2);
                                             if (local512.preset == 31) {
-                                                @Pc(523) LightType local523 = Static48.aLightTypeList_1.list(arg1.g2());
+                                                @Pc(523) LightType local523 = LightTypeList.instance.list(arg1.g2());
                                                 local512.updateParameters(local523.anInt10374, local523.anInt10372, local523.anInt10373, local523.anInt10377);
                                             }
                                             if (arg3.getMaxLights() > 0) {
@@ -426,7 +427,7 @@ public final class MapRegion extends Class306 {
             this.maxLevel = level;
         }
 
-        @Pc(40) LocType locType = Static354.aLocTypeList_4.list(arg1);
+        @Pc(40) LocType locType = LocTypeList.instance.list(arg1);
         boolean texturesEnabled = ClientOptions.instance.textures.getvalue() == 0;
         if (texturesEnabled && locType.requiresTextures) {
             return;
@@ -810,7 +811,7 @@ public final class MapRegion extends Class306 {
             @Pc(1844) int local1844 = 65;
             @Pc(1850) Location wall = (Location) Static302.getWall(level, x, z);
             if (wall != null) {
-                local1844 = Static354.aLocTypeList_4.list(wall.getId()).anInt1243 + 1;
+                local1844 = LocTypeList.instance.list(wall.getId()).anInt1243 + 1;
             }
 
             if (isStatic) {
@@ -832,7 +833,7 @@ public final class MapRegion extends Class306 {
             @Pc(1844) int local1844 = 33;
             @Pc(1850) Location wall = (Location) Static302.getWall(level, x, z);
             if (wall != null) {
-                local1844 = (Static354.aLocTypeList_4.list(wall.getId()).anInt1243 / 2) + 1;
+                local1844 = (LocTypeList.instance.list(wall.getId()).anInt1243 / 2) + 1;
             }
 
             if (isStatic) {
@@ -869,7 +870,7 @@ public final class MapRegion extends Class306 {
             @Pc(495) int local495 = 33;
             @Pc(2134) Location wall = (Location) Static302.getWall(level, x, z);
             if (wall != null) {
-                local495 = (Static354.aLocTypeList_4.list(wall.getId()).anInt1243 / 2) + 1;
+                local495 = (LocTypeList.instance.list(wall.getId()).anInt1243 / 2) + 1;
             }
 
             @Pc(2178) WallDecor primaryDecor;
@@ -922,7 +923,7 @@ public final class MapRegion extends Class306 {
                     for (@Pc(70) int i = 0; i < count; i++) {
                         @Pc(78) EnvironmentLight envLight = new EnvironmentLight(toolkit, packet, 2);
                         if (envLight.preset == 31) {
-                            @Pc(91) LightType type = Static48.aLightTypeList_1.list(packet.g2());
+                            @Pc(91) LightType type = LightTypeList.instance.list(packet.g2());
                             envLight.updateParameters(type.anInt10374, type.anInt10372, type.anInt10373, type.anInt10377);
                         }
 
@@ -1090,7 +1091,7 @@ public final class MapRegion extends Class306 {
                 @Pc(77) int locShape = shapeAndRotation >> 2;
                 @Pc(81) int locRotation = shapeAndRotation & 0x3;
                 if ((locLevel == regionLevel) && (locX >= regionX) && (locX < (regionX + 8)) && (locZ >= regionZ) && (locZ < (regionZ + 8))) {
-                    @Pc(113) LocType locType = Static354.aLocTypeList_4.list(id);
+                    @Pc(113) LocType locType = LocTypeList.instance.list(id);
                     @Pc(130) int rx = rotateLocX(locType.width, locZ & 0x7, locType.length, locRotation, locX & 0x7, regionRotation) + x;
                     @Pc(147) int rz = rotateLocZ(regionRotation, locZ & 0x7, locType.length, locRotation, locType.width, locX & 0x7) + z;
                     if (rx > 0 && rz > 0 && rx < super.width - 1 && rz < super.height - 1) {
@@ -1183,7 +1184,7 @@ public final class MapRegion extends Class306 {
         if (local13 == null) {
             return;
         }
-        @Pc(22) LocType local22 = Static354.aLocTypeList_4.list(local13.getId());
+        @Pc(22) LocType local22 = LocTypeList.instance.list(local13.getId());
         @Pc(26) int local26 = local13.getShape();
         @Pc(30) int local30 = local13.getRotation();
         if (local22.hasSounds()) {

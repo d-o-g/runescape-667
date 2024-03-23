@@ -28,7 +28,7 @@ public final class Static44 {
     }
 
     @OriginalMember(owner = "client!bia", name = "a", descriptor = "(Lclient!bp;I)V")
-    public static void method1074(@OriginalArg(0) SeqTypeList arg0) {
+    public static void setSeqTypeList(@OriginalArg(0) SeqTypeList arg0) {
         Animator.aSeqTypeList_2 = arg0;
     }
 }

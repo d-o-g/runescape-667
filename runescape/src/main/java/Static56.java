@@ -1,10 +1,6 @@
-import com.jagex.graphics.TextureSource;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static56 {
-
-    @OriginalMember(owner = "client!bs", name = "i", descriptor = "Lclient!d;")
-    public static TextureSource anTextureSource_3;
 
     @OriginalMember(owner = "client!bs", name = "e", descriptor = "J")
     public static long aLong38 = -1L;

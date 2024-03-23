@@ -11,6 +11,9 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!u")
 public final class MSITypeList {
 
+    @OriginalMember(owner = "client!wr", name = "s", descriptor = "Lclient!u;")
+    public static MSITypeList instance;
+
     @OriginalMember(owner = "client!u", name = "d", descriptor = "Lclient!dla;")
     public ReferenceCache recentUse = new ReferenceCache(64);
 

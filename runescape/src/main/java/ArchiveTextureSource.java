@@ -10,7 +10,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qea")
-public final class Class303 implements TextureSource {
+public final class ArchiveTextureSource implements TextureSource {
+
+    @OriginalMember(owner = "client!bs", name = "i", descriptor = "Lclient!d;")
+    public static TextureSource instance;
 
     @OriginalMember(owner = "client!qea", name = "k", descriptor = "Lclient!ts;")
     public final LruCache aLinkedHashTable_3 = new LruCache(256);
@@ -28,7 +31,7 @@ public final class Class303 implements TextureSource {
     public final TextureMetrics[] aTextureMetricsArray1;
 
     @OriginalMember(owner = "client!qea", name = "<init>", descriptor = "(Lclient!sb;Lclient!sb;Lclient!sb;)V")
-    public Class303(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2) {
+    public ArchiveTextureSource(@OriginalArg(0) js5 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_99 = arg2;
         this.aJs5_98 = arg1;
         @Pc(24) Packet local24 = new Packet(arg0.getfile(0, 0));

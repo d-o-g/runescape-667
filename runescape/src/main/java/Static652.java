@@ -9,9 +9,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static652 {
 
-    @OriginalMember(owner = "client!uka", name = "x", descriptor = "Lclient!kq;")
-    public static Class214 aClass214_1;
-
     @OriginalMember(owner = "client!uka", name = "o", descriptor = "I")
     public static int currentFps = 0;
 

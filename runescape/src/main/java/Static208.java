@@ -8,9 +8,6 @@ import java.awt.Color;
 
 public final class Static208 {
 
-    @OriginalMember(owner = "client!gha", name = "u", descriptor = "Lclient!it;")
-    public static final Class184 aClass184_6 = new Class184(11, 0, 1, 2);
-
     @OriginalMember(owner = "client!gha", name = "w", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___83 = new ServerProt(113, 3);
 

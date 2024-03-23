@@ -7,7 +7,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gt")
-public final class Class151 {
+public final class QuickChatCatTypeList {
+
+    @OriginalMember(owner = "client!cd", name = "c", descriptor = "Lclient!gt;")
+    public static QuickChatCatTypeList instance;
 
     @OriginalMember(owner = "client!gt", name = "g", descriptor = "Lclient!dla;")
     public final ReferenceCache aReferenceCache_79 = new ReferenceCache(64);
@@ -19,7 +22,7 @@ public final class Class151 {
     public final js5 aJs5_50;
 
     @OriginalMember(owner = "client!gt", name = "<init>", descriptor = "(ILclient!sb;Lclient!sb;)V")
-    public Class151(@OriginalArg(0) int arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2) {
+    public QuickChatCatTypeList(@OriginalArg(0) int arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2) {
         this.aJs5_51 = arg2;
         this.aJs5_50 = arg1;
         if (this.aJs5_50 != null) {

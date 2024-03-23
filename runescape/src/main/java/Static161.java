@@ -1,6 +1,6 @@
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -300,7 +300,7 @@ public final class Static161 {
                 local131 -= 32;
             }
             @Pc(144) int local144 = local8.method7412(2);
-            local42.method9328(Static690.aNPCTypeList_2.list(local8.method7412(15)));
+            local42.method9328(NPCTypeList.instance.list(local8.method7412(15)));
             @Pc(159) int local159 = local8.method7412(5);
             if (local159 > 15) {
                 local159 -= 32;

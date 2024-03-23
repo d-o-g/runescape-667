@@ -7,12 +7,16 @@ import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.idktype.IDKTypeList;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeCustomisation;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
+import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
-import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -288,7 +292,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             }
             return super.boundSize((byte) 76);
         } else {
-            return Static690.aNPCTypeList_2.list(this.playerModel.npcId).size;
+            return NPCTypeList.instance.list(this.playerModel.npcId).size;
         }
     }
 
@@ -340,7 +344,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(114) Class8_Sub7 local114 = null;
         if (ClientOptions.instance.spotShadows.getValue() == 1) {
             @Pc(126) BASType local126 = this.method9317();
-            if (local126.animateShadow && (this.playerModel.npcId == -1 || Static690.aNPCTypeList_2.list(this.playerModel.npcId).hasShadow)) {
+            if (local126.animateShadow && (this.playerModel.npcId == -1 || NPCTypeList.instance.list(this.playerModel.npcId).hasShadow)) {
                 @Pc(166) Animator local166 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
                 @Pc(186) Animator local186 = super.animator.isAnimating() && (!super.ready || local166 == null) ? super.animator : null;
                 @Pc(212) Model local212 = Static618.method8320(240, super.aModelArray3[0], super.anInt10742, 0, super.anInt10716, 1, arg0, 160, local186 == null ? local166 : local186, super.anInt10746, local27, 0);
@@ -487,7 +491,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                     if (local191 >= 32768) {
                         local191 = Static349.anIntArray426[local191 - 32768];
                         local139[local151] = local191 | 0x40000000;
-                        local149[local151] = Static419.objTypeList.list(local191);
+                        local149[local151] = ObjTypeList.instance.list(local191);
                         local240 = local149[local151].team;
                         if (local240 != 0) {
                             this.anInt1433 = local240;
@@ -573,7 +577,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         if (PlayerList.activePlayerSlot == super.anInt10740 && local603 != null) {
             for (local490 = 0; local490 < local332.length; local490++) {
                 if (local332[local490] != local603[local490]) {
-                    Static419.objTypeList.spriteCacheReset();
+                    ObjTypeList.instance.spriteCacheReset();
                     break;
                 }
             }
@@ -608,7 +612,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         if (local119) {
             arg0 |= 0x80000;
         }
-        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(Static419.objTypeList, local33, Static574.basTypeList, Static25.seqTypeList, arg0, super.anIntArray877, Static523.wearposDefaults, Static68.idkTypeList, arg1, Static690.aNPCTypeList_2, super.aClass152_Sub2_Sub1Array3, local95, local58, TimedVarDomain.instance);
+        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(ObjTypeList.instance, local33, BASTypeList.instance, SeqTypeList.instance, arg0, super.anIntArray877, Static523.wearposDefaults, IDKTypeList.instance, arg1, NPCTypeList.instance, super.aClass152_Sub2_Sub1Array3, local95, local58, TimedVarDomain.instance);
         @Pc(155) int local155 = PlayerModel.cacheHardReferenceCount();
         if (ClientOptions.maxmemory < 96 && local155 > 50) {
             Static358.method9191();
@@ -683,9 +687,9 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             local40 = Static406.anIntArray484;
         }
         if (local40 != null && local40[this.aByte31] != -1) {
-            @Pc(62) Class53 local62 = Static619.aClass387_2.method8925(local40[this.aByte31]);
+            @Pc(62) EnumType local62 = EnumTypeList.instance.list(local40[this.aByte31]);
             if (local62.aChar1 == 's') {
-                local5 = local5 + local62.method1229(this.aByte33 & 0xFF);
+                local5 = local5 + local62.getString(this.aByte33 & 0xFF);
             } else {
                 JagException.sendTrace(new Throwable(), "gdn1");
                 local40[this.aByte31] = -1;
@@ -723,8 +727,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         for (@Pc(33) int local33 = 0; local33 < super.aClass199Array3.length; local33++) {
             if (super.aClass199Array3[local33].anInt4930 != -1) {
-                @Pc(56) Class227 local56 = Static23.aClass128_1.list(super.aClass199Array3[local33].anInt4930);
-                if (local56.aBoolean448 && local56.anInt5842 != -1 && Static25.seqTypeList.list(local56.anInt5842).walkingPrecedence == 1) {
+                @Pc(56) Class227 local56 = SpotAnimationTypeList.instance.list(super.aClass199Array3[local33].anInt4930);
+                if (local56.aBoolean448 && local56.anInt5842 != -1 && SeqTypeList.instance.list(local56.anInt5842).walkingPrecedence == 1) {
                     super.aClass199Array3[local33].aAnimator_7.update(true, -1);
                     super.aClass199Array3[local33].anInt4930 = -1;
                 }

@@ -1,5 +1,6 @@
 import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.io.Packet;
+import com.jagex.game.QuickChatDynamicCommand;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -12,7 +13,7 @@ public final class DoublyLinkedNode_Sub2_Sub12 extends Node2 {
     public int[][] anIntArrayArray101;
 
     @OriginalMember(owner = "client!ih", name = "v", descriptor = "Lclient!gba;")
-    public Class139 aClass139_1;
+    public QuickChatPhraseTypeList aClass139_1;
 
     @OriginalMember(owner = "client!ih", name = "F", descriptor = "[I")
     public int[] anIntArray331;
@@ -27,8 +28,8 @@ public final class DoublyLinkedNode_Sub2_Sub12 extends Node2 {
     public boolean aBoolean334 = true;
 
     @OriginalMember(owner = "client!ih", name = "b", descriptor = "(II)Lclient!it;")
-    public Class184 method3898(@OriginalArg(1) int arg0) {
-        return this.anIntArray331 == null || arg0 < 0 || arg0 > this.anIntArray331.length ? null : Static446.method6091(this.anIntArray331[arg0]);
+    public QuickChatDynamicCommand method3898(@OriginalArg(1) int arg0) {
+        return this.anIntArray331 == null || arg0 < 0 || arg0 > this.anIntArray331.length ? null : QuickChatDynamicCommand.fromId(this.anIntArray331[arg0]);
     }
 
     @OriginalMember(owner = "client!ih", name = "a", descriptor = "(Lclient!ge;I)V")
@@ -73,7 +74,7 @@ public final class DoublyLinkedNode_Sub2_Sub12 extends Node2 {
         if (this.anIntArray331 != null) {
             for (@Pc(15) int local15 = 0; local15 < this.anIntArray331.length; local15++) {
                 local10.append(this.aStringArray23[local15]);
-                local10.append(this.aClass139_1.method2948(this.method3898(local15), arg0.gVarLong(Static446.method6091(this.anIntArray331[local15]).anInt4577), this.anIntArrayArray101[local15]));
+                local10.append(this.aClass139_1.method2948(this.method3898(local15), arg0.gVarLong(QuickChatDynamicCommand.fromId(this.anIntArray331[local15]).anInt4577), this.anIntArrayArray101[local15]));
             }
         }
         local10.append(this.aStringArray23[this.aStringArray23.length - 1]);
@@ -130,7 +131,7 @@ public final class DoublyLinkedNode_Sub2_Sub12 extends Node2 {
             this.anIntArray331 = new int[local21];
             for (local27 = 0; local27 < local21; local27++) {
                 @Pc(71) int local71 = arg0.g2();
-                @Pc(75) Class184 local75 = Static446.method6091(local71);
+                @Pc(75) QuickChatDynamicCommand local75 = QuickChatDynamicCommand.fromId(local71);
                 if (local75 != null) {
                     this.anIntArray331[local27] = local71;
                     this.anIntArrayArray101[local27] = new int[local75.anInt4573];

@@ -15,6 +15,9 @@ public final class IDKTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 64;
 
+    @OriginalMember(owner = "client!cd", name = "r", descriptor = "Lclient!kr;")
+    public static IDKTypeList instance;
+
     @OriginalMember(owner = "client!kr", name = "n", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 

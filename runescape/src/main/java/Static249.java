@@ -1,5 +1,7 @@
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -42,9 +44,9 @@ public final class Static249 {
         @Pc(15) String local15 = Static518.method9293(arg0);
         @Pc(17) int[] local17 = null;
         if (Static245.method8635(arg0.anInt7314)) {
-            local17 = Static419.objTypeList.list((int) arg0.aLong233).quests;
+            local17 = ObjTypeList.instance.list((int) arg0.aLong233).quests;
         } else if (arg0.anInt7317 != -1) {
-            local17 = Static419.objTypeList.list(arg0.anInt7317).quests;
+            local17 = ObjTypeList.instance.list(arg0.anInt7317).quests;
         } else if (Static598.method7825(arg0.anInt7314)) {
             @Pc(51) Node_Sub45 local51 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((int) arg0.aLong233);
             if (local51 != null) {
@@ -58,7 +60,7 @@ public final class Static249 {
                 }
             }
         } else if (Static523.method3444(arg0.anInt7314)) {
-            @Pc(89) LocType local89 = Static354.aLocTypeList_4.list((int) (arg0.aLong233 >>> 32 & 0x7FFFFFFFL));
+            @Pc(89) LocType local89 = LocTypeList.instance.list((int) (arg0.aLong233 >>> 32 & 0x7FFFFFFFL));
             if (local89.multiLocs != null) {
                 local89 = local89.getMultiLoc(TimedVarDomain.instance);
             }

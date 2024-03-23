@@ -4,8 +4,10 @@ import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
+import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
+import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Interface9;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -142,7 +144,7 @@ public final class Static651 {
             if (arg0[local10] != -1) {
                 local8 = false;
             }
-            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || Static25.seqTypeList.list(arg0[local10]).priority >= Static25.seqTypeList.list(arg3.anIntArray869[local10]).priority) {
+            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || SeqTypeList.instance.list(arg0[local10]).priority >= SeqTypeList.instance.list(arg3.anIntArray869[local10]).priority) {
                 arg3.anIntArray869 = arg0;
                 arg3.aAnimator_11.method9091(arg1);
                 if (arg2) {
@@ -188,7 +190,7 @@ public final class Static651 {
             local24 = local24 + Static693.method9009(PlayerEntity.self.anInt1444, arg1.anInt10791) + " (" + local67 + arg1.anInt10791 + ")";
         }
         if (InterfaceManager.targeting && !arg0) {
-            @Pc(113) ParamType local113 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
+            @Pc(113) ParamType local113 = InterfaceManager.targetParam == -1 ? null : ParamTypeList.instance.list(InterfaceManager.targetParam);
             if ((InterfaceManager.targetMask & 0x2) != 0 && (local113 == null || local21.param(InterfaceManager.targetParam, local113.defaultint) != local113.defaultint)) {
                 MiniMenu.addEntry(false, -1, arg1.anInt10740, 0, 0, InterfaceManager.targetVerb, 23, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffff00>" + local24, arg1.anInt10740, false);
             }

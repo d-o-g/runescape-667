@@ -1,6 +1,7 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.core.io.Files;
 import com.jagex.core.stringtools.general.NameTools;
@@ -472,8 +473,8 @@ public final class Static231 {
                 if (arg2.equalsIgnoreCase("resetminimap")) {
                     js5.SPRITES.discardPacked();
                     js5.SPRITES.discardUnpacked();
-                    Static720.aMSITypeList_4.cacheReset();
-                    Static577.aMapElementTypeList_4.cacheReset();
+                    MSITypeList.instance.cacheReset();
+                    MapElementTypeList.instance.cacheReset();
                     Static244.method3512();
                     Static79.method1579("Minimap reset");
                     return;
@@ -497,7 +498,7 @@ public final class Static231 {
                 if (arg2.startsWith("cachespace")) {
                     Static79.method1579("I(s): " + Component.sprites.remaining() + "/" + Component.sprites.capacity());
                     Static79.method1579("I(m): " + Component.models.remaining() + "/" + Component.models.capacity());
-                    Static79.method1579("O(s): " + Static419.objTypeList.spriteCache.remaining() + "/" + Static419.objTypeList.spriteCache.capacity());
+                    Static79.method1579("O(s): " + ObjTypeList.instance.spriteCache.remaining() + "/" + ObjTypeList.instance.spriteCache.capacity());
                     return;
                 }
                 if (arg2.equals("renderprofile") || arg2.equals("rp")) {

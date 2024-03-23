@@ -29,7 +29,7 @@ public final class Class227 {
     public short[] aShortArray82;
 
     @OriginalMember(owner = "client!lia", name = "e", descriptor = "Lclient!fh;")
-    public Class128 myList;
+    public SpotAnimationTypeList myList;
 
     @OriginalMember(owner = "client!lia", name = "c", descriptor = "[S")
     public short[] aShortArray83;

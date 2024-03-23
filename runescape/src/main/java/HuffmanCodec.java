@@ -4,7 +4,15 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!jm")
-public final class Class197 {
+public final class HuffmanCodec {
+
+    @OriginalMember(owner = "client!uba", name = "a", descriptor = "Lclient!jm;")
+    public static HuffmanCodec instance;
+
+    @OriginalMember(owner = "client!kp", name = "a", descriptor = "(ILclient!jm;)V")
+    public static void setInstance(@OriginalArg(1) HuffmanCodec codec) {
+        instance = codec;
+    }
 
     @OriginalMember(owner = "client!jm", name = "o", descriptor = "[I")
     public final int[] anIntArray374;
@@ -16,7 +24,7 @@ public final class Class197 {
     public int[] anIntArray373;
 
     @OriginalMember(owner = "client!jm", name = "<init>", descriptor = "([B)V")
-    public Class197(@OriginalArg(0) byte[] arg0) {
+    public HuffmanCodec(@OriginalArg(0) byte[] arg0) {
         @Pc(6) int local6 = arg0.length;
         this.anIntArray374 = new int[local6];
         this.aByteArray50 = arg0;

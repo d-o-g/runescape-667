@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static642 {
 
-    @OriginalMember(owner = "client!uea", name = "b", descriptor = "Lclient!it;")
-    public static final Class184 aClass184_17 = new Class184(7, 0, 1, 1);
-
     @OriginalMember(owner = "client!uea", name = "a", descriptor = "(ZBI)Lclient!pea;")
     public static Class8_Sub7 method8441(@OriginalArg(0) boolean arg0, @OriginalArg(2) int arg1) {
         @Pc(7) LinkedList[] local7 = Class43.A_ENTITY_LIST_ARRAY_1;

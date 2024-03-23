@@ -2,7 +2,13 @@ import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhat;
 import com.jagex.game.DelayedStateChange;
+import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
+import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
@@ -109,7 +115,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "(I)I")
     public static int method6411(@OriginalArg(0) int arg0) {
-        @Pc(4) Class341 local4 = Static648.aClass17_1.list(arg0);
+        @Pc(4) Class341 local4 = VarClanTypeList.instance.list(arg0);
         if (local4 == null) {
             throw new RuntimeException("sr-c113");
         }
@@ -119,7 +125,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(I)I")
     public static int method6412(@OriginalArg(0) int arg0) {
-        @Pc(4) Class341 local4 = Static648.aClass17_1.list(arg0);
+        @Pc(4) Class341 local4 = VarClanTypeList.instance.list(arg0);
         if (local4 == null) {
             throw new RuntimeException("sr-c112");
         }
@@ -350,13 +356,13 @@ public final class ScriptRunner {
                     }
                     for (local27 = 0; local27 < Static698.anIntArray831.length; local27++) {
                         if (Static698.anIntArray831[local27] == local15) {
-                            PlayerEntity.self.playerModel.setIDKPart(local21, Static68.idkTypeList, local27);
+                            PlayerEntity.self.playerModel.setIDKPart(local21, IDKTypeList.instance, local27);
                             return;
                         }
                     }
                     for (local506 = 0; local506 < Static540.anIntArray594.length; local506++) {
                         if (Static540.anIntArray594[local506] == local15) {
-                            PlayerEntity.self.playerModel.setIDKPart(local21, Static68.idkTypeList, local506);
+                            PlayerEntity.self.playerModel.setIDKPart(local21, IDKTypeList.instance, local506);
                             return;
                         }
                     }
@@ -387,7 +393,7 @@ public final class ScriptRunner {
                     if (PlayerEntity.self.playerModel == null) {
                         return;
                     }
-                    PlayerEntity.self.playerModel.setObj(local21, local15, Static419.objTypeList);
+                    PlayerEntity.self.playerModel.setObj(local21, local15, ObjTypeList.instance);
                     return;
                 }
             } else if ((arg0 < 1000 || arg0 >= 1100) && (arg0 < 2000 || arg0 >= 2100)) {
@@ -612,7 +618,7 @@ public final class ScriptRunner {
                         anInt7142 -= 2;
                         local21 = anIntArray578[anInt7142];
                         local27 = anIntArray578[anInt7142 + 1];
-                        local1756 = Static523.instance.list(local21);
+                        local1756 = ParamTypeList.instance.list(local21);
                         if (local27 != local1756.defaultint) {
                             component.setParam(local21, local27);
                             return;
@@ -623,7 +629,7 @@ public final class ScriptRunner {
                     if (arg0 == 1128) {
                         local21 = anIntArray578[--anInt7142];
                         local1791 = aStringArray37[--anInt7139];
-                        local1756 = Static523.instance.list(local21);
+                        local1756 = ParamTypeList.instance.list(local21);
                         if (!local1756.defaultstr.equals(local1791)) {
                             component.setParam(local1791, local21);
                             return;
@@ -689,7 +695,7 @@ public final class ScriptRunner {
                         anInt7142 -= 2;
                         local21 = anIntArray578[anInt7142];
                         local27 = anIntArray578[anInt7142 + 1];
-                        local1756 = Static523.instance.list(local21);
+                        local1756 = ParamTypeList.instance.list(local21);
                         if (local27 != local1756.defaultint) {
                             component.setParam(local21, local27);
                             return;
@@ -735,7 +741,7 @@ public final class ScriptRunner {
                         } else {
                             component.objWearCol = false;
                         }
-                        @Pc(2236) ObjType local2236 = Static419.objTypeList.list(local21);
+                        @Pc(2236) ObjType local2236 = ObjTypeList.instance.list(local21);
                         component.modelAngleX = local2236.xan2d;
                         component.modelAngleY = local2236.yan2d;
                         component.modelAngleZ = local2236.zan2d;
@@ -1160,7 +1166,7 @@ public final class ScriptRunner {
                             }
                             if (arg0 == 1613) {
                                 local21 = anIntArray578[--anInt7142];
-                                local3848 = Static523.instance.list(local21);
+                                local3848 = ParamTypeList.instance.list(local21);
                                 if (local3848.isString()) {
                                     aStringArray37[anInt7139++] = component.param(local3848.defaultstr, local21);
                                     return;
@@ -1631,7 +1637,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3304) {
                                         local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = Static503.aClass335_1.list(local15).anInt2072;
+                                        anIntArray578[anInt7142++] = InvTypeList.instance.list(local15).anInt2072;
                                         return;
                                     }
                                     if (arg0 == 3305) {
@@ -1857,26 +1863,26 @@ public final class ScriptRunner {
                                 } else {
                                     @Pc(7345) String local7345;
                                     if (arg0 < 3500) {
-                                        @Pc(6822) Class53 local6822;
+                                        @Pc(6822) EnumType local6822;
                                         if (arg0 == 3400) {
                                             anInt7142 -= 2;
                                             local15 = anIntArray578[anInt7142];
                                             local21 = anIntArray578[anInt7142 + 1];
-                                            local6822 = Static619.aClass387_2.method8925(local15);
-                                            aStringArray37[anInt7139++] = local6822.method1229(local21);
+                                            local6822 = EnumTypeList.instance.list(local15);
+                                            aStringArray37[anInt7139++] = local6822.getString(local21);
                                             return;
                                         }
-                                        @Pc(6868) Class53 local6868;
+                                        @Pc(6868) EnumType local6868;
                                         if (arg0 == 3408) {
                                             anInt7142 -= 4;
                                             local15 = anIntArray578[anInt7142];
                                             local21 = anIntArray578[anInt7142 + 1];
                                             local27 = anIntArray578[anInt7142 + 2];
                                             local506 = anIntArray578[anInt7142 + 3];
-                                            local6868 = Static619.aClass387_2.method8925(local27);
+                                            local6868 = EnumTypeList.instance.list(local27);
                                             if (local6868.aChar2 == local15 && local6868.aChar1 == local21) {
                                                 if (local21 == 115) {
-                                                    aStringArray37[anInt7139++] = local6868.method1229(local506);
+                                                    aStringArray37[anInt7139++] = local6868.getString(local506);
                                                     return;
                                                 }
                                                 anIntArray578[anInt7142++] = local6868.method1227(local506);
@@ -1884,7 +1890,7 @@ public final class ScriptRunner {
                                             }
                                             throw new RuntimeException("C3408-1 " + local27 + "-" + local506);
                                         }
-                                        @Pc(6963) Class53 local6963;
+                                        @Pc(6963) EnumType local6963;
                                         if (arg0 == 3409) {
                                             anInt7142 -= 3;
                                             local15 = anIntArray578[anInt7142];
@@ -1893,7 +1899,7 @@ public final class ScriptRunner {
                                             if (local21 == -1) {
                                                 throw new RuntimeException("C3409-2");
                                             }
-                                            local6963 = Static619.aClass387_2.method8925(local21);
+                                            local6963 = EnumTypeList.instance.list(local21);
                                             if (local6963.aChar1 != local15) {
                                                 throw new RuntimeException("C3409-1");
                                             }
@@ -1906,7 +1912,7 @@ public final class ScriptRunner {
                                             if (local15 == -1) {
                                                 throw new RuntimeException("C3410-2");
                                             }
-                                            local6822 = Static619.aClass387_2.method8925(local15);
+                                            local6822 = EnumTypeList.instance.list(local15);
                                             if (local6822.aChar1 != 's') {
                                                 throw new RuntimeException("C3410-1");
                                             }
@@ -1915,7 +1921,7 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3411) {
                                             local15 = anIntArray578[--anInt7142];
-                                            @Pc(7072) Class53 local7072 = Static619.aClass387_2.method8925(local15);
+                                            @Pc(7072) EnumType local7072 = EnumTypeList.instance.list(local15);
                                             anIntArray578[anInt7142++] = local7072.method1228();
                                             return;
                                         }
@@ -1927,7 +1933,7 @@ public final class ScriptRunner {
                                             if (local21 == -1) {
                                                 throw new RuntimeException();
                                             }
-                                            local6963 = Static619.aClass387_2.method8925(local21);
+                                            local6963 = EnumTypeList.instance.list(local21);
                                             if (local6963.aChar1 != local15) {
                                                 throw new RuntimeException();
                                             }
@@ -1945,7 +1951,7 @@ public final class ScriptRunner {
                                             if (local15 == -1) {
                                                 throw new RuntimeException();
                                             }
-                                            local6822 = Static619.aClass387_2.method8925(local15);
+                                            local6822 = EnumTypeList.instance.list(local15);
                                             if (local6822.aChar1 != 's') {
                                                 throw new RuntimeException();
                                             }
@@ -1967,7 +1973,7 @@ public final class ScriptRunner {
                                             if (local27 == -1) {
                                                 throw new RuntimeException();
                                             }
-                                            @Pc(7261) Class53 local7261 = Static619.aClass387_2.method8925(local27);
+                                            @Pc(7261) EnumType local7261 = EnumTypeList.instance.list(local27);
                                             if (local7261.aChar2 != local21) {
                                                 throw new RuntimeException();
                                             }
@@ -1990,7 +1996,7 @@ public final class ScriptRunner {
                                             if (local21 == -1) {
                                                 throw new RuntimeException();
                                             }
-                                            local6868 = Static619.aClass387_2.method8925(local21);
+                                            local6868 = EnumTypeList.instance.list(local21);
                                             if (local6868.aChar2 != local15) {
                                                 throw new RuntimeException();
                                             }
@@ -2857,7 +2863,7 @@ public final class ScriptRunner {
                                         } else if (arg0 < 4300) {
                                             if (arg0 == 4200) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = Static419.objTypeList.list(local15).name;
+                                                aStringArray37[anInt7139++] = ObjTypeList.instance.list(local15).name;
                                                 return;
                                             }
                                             @Pc(11206) ObjType local11206;
@@ -2865,7 +2871,7 @@ public final class ScriptRunner {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local11206 = Static419.objTypeList.list(local15);
+                                                local11206 = ObjTypeList.instance.list(local15);
                                                 if (local21 >= 1 && local21 <= 5 && local11206.op[local21 - 1] != null) {
                                                     aStringArray37[anInt7139++] = local11206.op[local21 - 1];
                                                     return;
@@ -2877,7 +2883,7 @@ public final class ScriptRunner {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local11206 = Static419.objTypeList.list(local15);
+                                                local11206 = ObjTypeList.instance.list(local15);
                                                 if (local21 >= 1 && local21 <= 5 && local11206.iop[local21 - 1] != null) {
                                                     aStringArray37[anInt7139++] = local11206.iop[local21 - 1];
                                                     return;
@@ -2887,18 +2893,18 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4203) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Static419.objTypeList.list(local15).cost;
+                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).cost;
                                                 return;
                                             }
                                             if (arg0 == 4204) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Static419.objTypeList.list(local15).stackable == 1 ? 1 : 0;
+                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).stackable == 1 ? 1 : 0;
                                                 return;
                                             }
                                             @Pc(11380) ObjType local11380;
                                             if (arg0 == 4205) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                local11380 = Static419.objTypeList.list(local15);
+                                                local11380 = ObjTypeList.instance.list(local15);
                                                 if (local11380.certtemplate == -1 && local11380.certlink >= 0) {
                                                     anIntArray578[anInt7142++] = local11380.certlink;
                                                     return;
@@ -2908,7 +2914,7 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4206) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                local11380 = Static419.objTypeList.list(local15);
+                                                local11380 = ObjTypeList.instance.list(local15);
                                                 if (local11380.certtemplate >= 0 && local11380.certlink >= 0) {
                                                     anIntArray578[anInt7142++] = local11380.certlink;
                                                     return;
@@ -2918,26 +2924,26 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4207) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Static419.objTypeList.list(local15).members ? 1 : 0;
+                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).members ? 1 : 0;
                                                 return;
                                             }
                                             if (arg0 == 4208) {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = Static523.instance.list(local21);
+                                                local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = Static419.objTypeList.list(local15).param(local3848.defaultstr, local21);
+                                                    aStringArray37[anInt7139++] = ObjTypeList.instance.list(local15).param(local3848.defaultstr, local21);
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = Static419.objTypeList.list(local15).param(local21, local3848.defaultint);
+                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).param(local21, local3848.defaultint);
                                                 return;
                                             }
                                             if (arg0 == 4209) {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1] - 1;
-                                                local11206 = Static419.objTypeList.list(local15);
+                                                local11206 = ObjTypeList.instance.list(local15);
                                                 if (local11206.cursor1iop == local21) {
                                                     anIntArray578[anInt7142++] = local11206.icursor1;
                                                     return;
@@ -2970,7 +2976,7 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4213) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Static419.objTypeList.list(local15).multistacksize;
+                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).multistacksize;
                                                 return;
                                             }
                                             if (arg0 == 4214) {
@@ -2999,12 +3005,12 @@ public final class ScriptRunner {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = Static523.instance.list(local21);
+                                                local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = Static690.aNPCTypeList_2.list(local15).getParam(local3848.defaultstr, local21);
+                                                    aStringArray37[anInt7139++] = NPCTypeList.instance.list(local15).getParam(local3848.defaultstr, local21);
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = Static690.aNPCTypeList_2.list(local15).param(local21, local3848.defaultint);
+                                                anIntArray578[anInt7142++] = NPCTypeList.instance.list(local15).param(local21, local3848.defaultint);
                                                 return;
                                             }
                                         } else if (arg0 < 4500) {
@@ -3012,12 +3018,12 @@ public final class ScriptRunner {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = Static523.instance.list(local21);
+                                                local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = Static354.aLocTypeList_4.list(local15).param(local3848.defaultstr, local21);
+                                                    aStringArray37[anInt7139++] = LocTypeList.instance.list(local15).param(local3848.defaultstr, local21);
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = Static354.aLocTypeList_4.list(local15).param(local3848.defaultint, local21);
+                                                anIntArray578[anInt7142++] = LocTypeList.instance.list(local15).param(local3848.defaultint, local21);
                                                 return;
                                             }
                                         } else if (arg0 < 4600) {
@@ -3025,18 +3031,18 @@ public final class ScriptRunner {
                                                 anInt7142 -= 2;
                                                 local15 = anIntArray578[anInt7142];
                                                 local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = Static523.instance.list(local21);
+                                                local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = Static652.aClass214_1.list(local15).method91(local21, local3848.defaultstr);
+                                                    aStringArray37[anInt7139++] = StructTypeList.instance.list(local15).method91(local21, local3848.defaultstr);
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = Static652.aClass214_1.list(local15).method89(local3848.defaultint, local21);
+                                                anIntArray578[anInt7142++] = StructTypeList.instance.list(local15).method89(local3848.defaultint, local21);
                                                 return;
                                             }
                                         } else if (arg0 < 4700) {
                                             if (arg0 == 4600) {
                                                 local15 = anIntArray578[--anInt7142];
-                                                @Pc(12037) BASType local12037 = Static574.basTypeList.list(local15);
+                                                @Pc(12037) BASType local12037 = BASTypeList.instance.list(local15);
                                                 if (local12037.readyAnimations != null && local12037.readyAnimations.length > 0) {
                                                     local27 = 0;
                                                     local506 = local12037.readyAnimationWeights[0];
@@ -3497,7 +3503,7 @@ public final class ScriptRunner {
                             local96 = local11[local5];
                             @Pc(1178) Integer local1178 = (Integer) Static279.anObjectArray35[local96];
                             if (local1178 == null) {
-                                @Pc(1185) Class122 local1185 = Static628.aClass342_5.list(local96);
+                                @Pc(1185) Class122 local1185 = VarClanSettingTypeList.instance.list(local96);
                                 if (local1185.aChar3 == 'i' || local1185.aChar3 == '1') {
                                     anIntArray578[anInt7142++] = 0;
                                 } else {
@@ -3508,7 +3514,7 @@ public final class ScriptRunner {
                             }
                         } else if (local34 == 107) {
                             local96 = local11[local5];
-                            @Pc(1236) Class122 local1236 = Static628.aClass342_5.list(local96);
+                            @Pc(1236) Class122 local1236 = VarClanSettingTypeList.instance.list(local96);
                             if (local1236.aChar3 != '\u0001') {
                                 anIntArray578[anInt7142++] = 0;
                             }
@@ -3789,13 +3795,13 @@ public final class ScriptRunner {
             }
             if (arg0 == 5050) {
                 local192 = anIntArray578[--anInt7142];
-                aStringArray37[anInt7139++] = Static68.aClass151_3.method3234(local192).aString4;
+                aStringArray37[anInt7139++] = QuickChatCatTypeList.instance.method3234(local192).aString4;
                 return;
             }
             @Pc(793) DoublyLinkedNode_Sub2_Sub3 local793;
             if (arg0 == 5051) {
                 local192 = anIntArray578[--anInt7142];
-                local793 = Static68.aClass151_3.method3234(local192);
+                local793 = QuickChatCatTypeList.instance.method3234(local192);
                 if (local793.anIntArray93 == null) {
                     anIntArray578[anInt7142++] = 0;
                     return;
@@ -3807,14 +3813,14 @@ public final class ScriptRunner {
                 anInt7142 -= 2;
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
-                @Pc(839) DoublyLinkedNode_Sub2_Sub3 local839 = Static68.aClass151_3.method3234(local192);
+                @Pc(839) DoublyLinkedNode_Sub2_Sub3 local839 = QuickChatCatTypeList.instance.method3234(local192);
                 local115 = local839.anIntArray93[local834];
                 anIntArray578[anInt7142++] = local115;
                 return;
             }
             if (arg0 == 5053) {
                 local192 = anIntArray578[--anInt7142];
-                local793 = Static68.aClass151_3.method3234(local192);
+                local793 = QuickChatCatTypeList.instance.method3234(local192);
                 if (local793.anIntArray94 == null) {
                     anIntArray578[anInt7142++] = 0;
                     return;
@@ -3826,17 +3832,17 @@ public final class ScriptRunner {
                 anInt7142 -= 2;
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
-                anIntArray578[anInt7142++] = Static68.aClass151_3.method3234(local192).anIntArray94[local834];
+                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).anIntArray94[local834];
                 return;
             }
             if (arg0 == 5055) {
                 local192 = anIntArray578[--anInt7142];
-                aStringArray37[anInt7139++] = Static288.aClass139_2.method2950(local192).method3906();
+                aStringArray37[anInt7139++] = QuickChatPhraseTypeList.instance.method2950(local192).method3906();
                 return;
             }
             if (arg0 == 5056) {
                 local192 = anIntArray578[--anInt7142];
-                @Pc(966) DoublyLinkedNode_Sub2_Sub12 local966 = Static288.aClass139_2.method2950(local192);
+                @Pc(966) DoublyLinkedNode_Sub2_Sub12 local966 = QuickChatPhraseTypeList.instance.method2950(local192);
                 if (local966.anIntArray333 == null) {
                     anIntArray578[anInt7142++] = 0;
                     return;
@@ -3848,13 +3854,13 @@ public final class ScriptRunner {
                 anInt7142 -= 2;
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
-                anIntArray578[anInt7142++] = Static288.aClass139_2.method2950(local192).anIntArray333[local834];
+                anIntArray578[anInt7142++] = QuickChatPhraseTypeList.instance.method2950(local192).anIntArray333[local834];
                 return;
             }
             if (arg0 == 5058) {
                 aClass21_1 = new Class21();
                 aClass21_1.anInt521 = anIntArray578[--anInt7142];
-                aClass21_1.aClass2_Sub2_Sub12_1 = Static288.aClass139_2.method2950(aClass21_1.anInt521);
+                aClass21_1.aClass2_Sub2_Sub12_1 = QuickChatPhraseTypeList.instance.method2950(aClass21_1.anInt521);
                 aClass21_1.anIntArray29 = new int[aClass21_1.aClass2_Sub2_Sub12_1.method3901()];
                 return;
             }
@@ -3899,14 +3905,14 @@ public final class ScriptRunner {
                 anInt7142 -= 2;
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
-                anIntArray578[anInt7142++] = Static68.aClass151_3.method3234(local192).aCharArray2[local834];
+                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray2[local834];
                 return;
             }
             if (arg0 == 5063) {
                 anInt7142 -= 2;
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
-                anIntArray578[anInt7142++] = Static68.aClass151_3.method3234(local192).aCharArray3[local834];
+                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray3[local834];
                 return;
             }
             if (arg0 == 5064) {
@@ -3917,7 +3923,7 @@ public final class ScriptRunner {
                     anIntArray578[anInt7142++] = -1;
                     return;
                 }
-                anIntArray578[anInt7142++] = Static68.aClass151_3.method3234(local192).method1185((char) local834);
+                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).method1185((char) local834);
                 return;
             }
             if (arg0 == 5065) {
@@ -3928,19 +3934,19 @@ public final class ScriptRunner {
                     anIntArray578[anInt7142++] = -1;
                     return;
                 }
-                anIntArray578[anInt7142++] = Static68.aClass151_3.method3234(local192).method1184((char) local834);
+                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).method1184((char) local834);
                 return;
             }
             if (arg0 == 5066) {
                 local192 = anIntArray578[--anInt7142];
-                anIntArray578[anInt7142++] = Static288.aClass139_2.method2950(local192).method3901();
+                anIntArray578[anInt7142++] = QuickChatPhraseTypeList.instance.method2950(local192).method3901();
                 return;
             }
             if (arg0 == 5067) {
                 anInt7142 -= 2;
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
-                local109 = Static288.aClass139_2.method2950(local192).method3898(local834).anInt4575;
+                local109 = QuickChatPhraseTypeList.instance.method2950(local192).method3898(local834).id;
                 anIntArray578[anInt7142++] = local109;
                 return;
             }
@@ -3963,8 +3969,8 @@ public final class ScriptRunner {
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
                 local109 = anIntArray578[anInt7142 + 2];
-                @Pc(1526) DoublyLinkedNode_Sub2_Sub12 local1526 = Static288.aClass139_2.method2950(local192);
-                if (local1526.method3898(local834).anInt4575 != 0) {
+                @Pc(1526) DoublyLinkedNode_Sub2_Sub12 local1526 = QuickChatPhraseTypeList.instance.method2950(local192);
+                if (local1526.method3898(local834).id != 0) {
                     throw new RuntimeException("bad command");
                 }
                 anIntArray578[anInt7142++] = local1526.method3900(local834, local109);
@@ -4433,9 +4439,9 @@ public final class ScriptRunner {
                     if (arg0 == 5401) {
                         anInt7142 -= 2;
                         client.clientpalette[anIntArray578[anInt7142]] = (short) Static166.method2616(anIntArray578[anInt7142 + 1]);
-                        Static419.objTypeList.modelCacheReset();
-                        Static419.objTypeList.spriteCacheReset();
-                        Static690.aNPCTypeList_2.modelCacheReset();
+                        ObjTypeList.instance.modelCacheReset();
+                        ObjTypeList.instance.spriteCacheReset();
+                        NPCTypeList.instance.modelCacheReset();
                         InterfaceManager.redrawAll();
                         return;
                     }
@@ -5819,7 +5825,7 @@ public final class ScriptRunner {
                         @Pc(8975) MapElementType local8975;
                         if (arg0 == 6800) {
                             local192 = anIntArray578[--anInt7142];
-                            local8975 = Static577.aMapElementTypeList_4.list(local192);
+                            local8975 = MapElementTypeList.instance.list(local192);
                             if (local8975.aString25 == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
@@ -5829,19 +5835,19 @@ public final class ScriptRunner {
                         }
                         if (arg0 == 6801) {
                             local192 = anIntArray578[--anInt7142];
-                            local8975 = Static577.aMapElementTypeList_4.list(local192);
+                            local8975 = MapElementTypeList.instance.list(local192);
                             anIntArray578[anInt7142++] = local8975.anInt2596;
                             return;
                         }
                         if (arg0 == 6802) {
                             local192 = anIntArray578[--anInt7142];
-                            local8975 = Static577.aMapElementTypeList_4.list(local192);
+                            local8975 = MapElementTypeList.instance.list(local192);
                             anIntArray578[anInt7142++] = local8975.anInt2615;
                             return;
                         }
                         if (arg0 == 6803) {
                             local192 = anIntArray578[--anInt7142];
-                            local8975 = Static577.aMapElementTypeList_4.list(local192);
+                            local8975 = MapElementTypeList.instance.list(local192);
                             anIntArray578[anInt7142++] = local8975.anInt2597;
                             return;
                         }
@@ -5849,12 +5855,12 @@ public final class ScriptRunner {
                             anInt7142 -= 2;
                             local192 = anIntArray578[anInt7142];
                             local834 = anIntArray578[anInt7142 + 1];
-                            @Pc(9098) ParamType local9098 = Static523.instance.list(local834);
+                            @Pc(9098) ParamType local9098 = ParamTypeList.instance.list(local834);
                             if (local9098.isString()) {
-                                aStringArray37[anInt7139++] = Static577.aMapElementTypeList_4.list(local192).method2426(local834, local9098.defaultstr);
+                                aStringArray37[anInt7139++] = MapElementTypeList.instance.list(local192).method2426(local834, local9098.defaultstr);
                                 return;
                             }
-                            anIntArray578[anInt7142++] = Static577.aMapElementTypeList_4.list(local192).method2427(local9098.defaultint, local834);
+                            anIntArray578[anInt7142++] = MapElementTypeList.instance.list(local192).method2427(local9098.defaultint, local834);
                             return;
                         }
                     } else if (arg0 < 7000) {

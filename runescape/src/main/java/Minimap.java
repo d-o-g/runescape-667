@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.ClippingMask;
@@ -68,7 +69,7 @@ public final class Minimap {
         for (local190 = 0; local190 < Static536.anInt8148; local190++) {
             local200 = anIntArray654[local190] * 4 + 2 - local90 / 128;
             local211 = Static350.anIntArray433[local190] * 4 + 2 - local93 / 128;
-            @Pc(287) LocType local287 = Static354.aLocTypeList_4.list(Static533.anIntArray628[local190]);
+            @Pc(287) LocType local287 = LocTypeList.instance.list(Static533.anIntArray628[local190]);
             if (local287.multiLocs != null) {
                 local287 = local287.getMultiLoc(TimedVarDomain.instance);
                 if (local287 == null || local287.mapElement == -1) {

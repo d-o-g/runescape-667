@@ -2,6 +2,7 @@ import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
@@ -137,7 +138,7 @@ public final class Class337 {
         @Pc(10) int local10 = arg1;
         @Pc(12) boolean local12 = false;
         if (arg1 == -1) {
-            @Pc(21) LocType local21 = Static354.aLocTypeList_4.list(this.anInt8649);
+            @Pc(21) LocType local21 = LocTypeList.instance.list(this.anInt8649);
             @Pc(23) LocType local23 = local21;
             if (local21.multiLocs != null) {
                 local21 = local21.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : TimedVarDomain.instance);
@@ -188,7 +189,7 @@ public final class Class337 {
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!ha;ZZZI)Lclient!ka;")
     public Model method7678(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4) {
-        @Pc(11) LocType local11 = Static354.aLocTypeList_4.list(this.anInt8649);
+        @Pc(11) LocType local11 = LocTypeList.instance.list(this.anInt8649);
         if (local11.multiLocs != null) {
             local11 = local11.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : TimedVarDomain.instance);
         }
@@ -316,7 +317,7 @@ public final class Class337 {
         @Pc(11) ModelParticleEmitter[] local11 = arg1.particleEmitters();
         @Pc(14) ModelParticleEffector[] local14 = arg1.particleEffectors();
         if ((this.aParticleSystem_7 == null || this.aParticleSystem_7.aBoolean324) && (local11 != null || local14 != null)) {
-            @Pc(37) LocType local37 = Static354.aLocTypeList_4.list(this.anInt8649);
+            @Pc(37) LocType local37 = LocTypeList.instance.list(this.anInt8649);
             if (local37.multiLocs != null) {
                 local37 = local37.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : TimedVarDomain.instance);
             }

@@ -15,6 +15,9 @@ public final class LocTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 64;
 
+    @OriginalMember(owner = "client!ld", name = "b", descriptor = "Lclient!gea;")
+    public static LocTypeList instance;
+
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(IB)I")
     private static int fileId(@OriginalArg(0) int id) {
         return id & 0xFF;

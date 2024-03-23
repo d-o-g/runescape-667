@@ -10,6 +10,9 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ml")
 public final class MapElementTypeList {
 
+    @OriginalMember(owner = "client!sca", name = "a", descriptor = "Lclient!ml;")
+    public static MapElementTypeList instance;
+
     @OriginalMember(owner = "client!ml", name = "a", descriptor = "Lclient!dla;")
     public ReferenceCache recentUse = new ReferenceCache(128);
 

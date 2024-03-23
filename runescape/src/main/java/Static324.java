@@ -1,10 +1,6 @@
-import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static324 {
-
-    @OriginalMember(owner = "client!ke", name = "k", descriptor = "Lclient!qk;")
-    public static SkyBoxTypeList skyBoxTypeList;
 
     @OriginalMember(owner = "client!ke", name = "l", descriptor = "I")
     public static int anInt5129;

@@ -1,4 +1,3 @@
-import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,9 +6,6 @@ public final class Static419 {
 
     @OriginalMember(owner = "client!ne", name = "v", descriptor = "[I")
     public static int[] anIntArray500;
-
-    @OriginalMember(owner = "client!ne", name = "n", descriptor = "Lclient!es;")
-    public static ObjTypeList objTypeList;
 
     @OriginalMember(owner = "client!ne", name = "u", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray33 = new String[200];

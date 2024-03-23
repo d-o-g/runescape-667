@@ -13,7 +13,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class285 {
 
     @OriginalMember(owner = "client!pb", name = "b", descriptor = "Lclient!ld;")
-    public Class220 myList;
+    public HitmarkTypeList myList;
 
     @OriginalMember(owner = "client!pb", name = "d", descriptor = "I")
     public int anInt7179 = -1;

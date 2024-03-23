@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.Class331;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -68,12 +69,12 @@ public final class Static449 {
 
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(ILclient!uv;)Z")
     public static boolean hasMsi(@OriginalArg(1) Location location) {
-        @Pc(17) LocType locType = Static354.aLocTypeList_4.list(location.getId());
+        @Pc(17) LocType locType = LocTypeList.instance.list(location.getId());
         if (locType.msi == -1) {
             return true;
         }
 
-        @Pc(31) MSIType msiType = Static720.aMSITypeList_4.list(locType.msi);
+        @Pc(31) MSIType msiType = MSITypeList.instance.list(locType.msi);
         if (msiType.image == -1) {
             return true;
         }

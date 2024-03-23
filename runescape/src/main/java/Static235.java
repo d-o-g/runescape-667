@@ -1,5 +1,6 @@
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -45,7 +46,7 @@ public final class Static235 {
         if (arg1 == 11) {
             arg1 = 10;
         }
-        @Pc(19) LocType local19 = Static354.aLocTypeList_4.list(arg0);
+        @Pc(19) LocType local19 = LocTypeList.instance.list(arg0);
         if (arg1 >= 5 && arg1 <= 8) {
             arg1 = 4;
         }

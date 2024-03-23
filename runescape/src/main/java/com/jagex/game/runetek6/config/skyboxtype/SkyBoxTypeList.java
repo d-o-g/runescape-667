@@ -19,6 +19,9 @@ public final class SkyBoxTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 16;
 
+    @OriginalMember(owner = "client!ke", name = "k", descriptor = "Lclient!qk;")
+    public static SkyBoxTypeList instance;
+
     @OriginalMember(owner = "client!qk", name = "c", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 

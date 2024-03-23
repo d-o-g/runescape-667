@@ -1,6 +1,6 @@
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
-import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -155,7 +155,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(IILclient!ha;Z)Lclient!od;")
     public ModelAndShadow method1831(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) boolean arg3) {
-        @Pc(13) LocType local13 = Static354.aLocTypeList_4.list(this.aShort20 & 0xFFFF);
+        @Pc(13) LocType local13 = LocTypeList.instance.list(this.aShort20 & 0xFFFF);
         if (arg1 != 20) {
             this.aShort20 = -113;
         }

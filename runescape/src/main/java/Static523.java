@@ -41,10 +41,9 @@ public final class Static523 {
     public static int anInt3885 = -1;
     @OriginalMember(owner = "client!cba", name = "E", descriptor = "Lclient!aba;")
     public static GraphicsDefaults graphicsDefaults;
+
     @OriginalMember(owner = "client!dt", name = "a", descriptor = "Lclient!vl;")
     public static WearposDefaults wearposDefaults;
-    @OriginalMember(owner = "client!mba", name = "F", descriptor = "Lclient!bo;")
-    public static ParamTypeList instance;
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(II)Z")
     public static boolean method3444(@OriginalArg(0) int arg0) {
@@ -60,7 +59,7 @@ public final class Static523 {
         @Pc(12) int local12 = arg0.pos;
         @Pc(16) byte[] local16 = Static469.method6361(arg1);
         arg0.psmarts(local16.length);
-        arg0.pos += Static636.aClass197_1.method4440(arg0.pos, 0, local16.length, arg0.data, local16);
+        arg0.pos += HuffmanCodec.instance.method4440(arg0.pos, 0, local16.length, arg0.data, local16);
         return arg0.pos - local12;
     }
 
@@ -248,51 +247,54 @@ public final class Static523 {
             if (graphicsDefaults.profilingModel != -1 && !js5.MODELS.requestdownload(0, graphicsDefaults.profilingModel)) {
                 return 99;
             }
-            Static56.anTextureSource_3 = new Class303(js5.MATERIALS, js5.TEXTURES, js5.SPRITES);
-            instance = new ParamTypeList(client.modeGame, client.language, js5.CONFIG);
-            Static574.basTypeList = new BASTypeList(client.modeGame, client.language, js5.CONFIG, wearposDefaults);
-            Static354.aClass267_1 = new Class267(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
-            Static619.aClass387_2 = new Class387(client.modeGame, client.language, js5.CONFIG_ENUM);
-            Static467.aFloorOverlayTypeList_3 = new FloorOverlayTypeList(client.modeGame, client.language, js5.CONFIG);
-            Static540.aFloorUnderlayTypeList_6 = new FloorUnderlayTypeList(client.modeGame, client.language, js5.CONFIG);
-            Static561.aClass220_2 = new Class220(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
-            Static68.idkTypeList = new IDKTypeList(client.modeGame, client.language, js5.CONFIG, js5.MODELS);
-            Static503.aClass335_1 = new Class335(client.modeGame, client.language, js5.CONFIG);
-            Static48.aLightTypeList_1 = new LightTypeList(client.modeGame, client.language, js5.CONFIG);
-            Static354.aLocTypeList_4 = new LocTypeList(client.modeGame, client.language, true, js5.CONFIG_LOC, js5.MODELS);
-            Static577.aMapElementTypeList_4 = new MapElementTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
-            Static720.aMSITypeList_4 = new MSITypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
-            Static690.aNPCTypeList_2 = new NPCTypeList(client.modeGame, client.language, true, js5.CONFIG_NPC, js5.MODELS);
-            Static419.objTypeList = new ObjTypeList(client.modeGame, client.language, true, instance, js5.CONFIG_OBJ, js5.MODELS);
-            Static272.aClass45_1 = new Class45(client.modeGame, client.language, js5.CONFIG);
-            Static25.seqTypeList = new SeqTypeList(client.modeGame, client.language, js5.CONFIG_SEQ, js5.ANIMS, js5.BASES);
-            Static324.skyBoxTypeList = new SkyBoxTypeList(client.modeGame, client.language, js5.CONFIG);
-            Static99.skyBoxSphereTypeList = new SkyBoxSphereTypeList(client.modeGame, client.language, js5.CONFIG);
-            Static23.aClass128_1 = new Class128(client.modeGame, client.language, js5.CONFIG_SPOT, js5.MODELS);
-            Static652.aClass214_1 = new Class214(client.modeGame, client.language, js5.CONFIG);
-            Static718.aClass176_1 = new Class176(client.modeGame, client.language, js5.CONFIG);
+            ArchiveTextureSource.instance = new ArchiveTextureSource(js5.MATERIALS, js5.TEXTURES, js5.SPRITES);
+            ParamTypeList.instance = new ParamTypeList(client.modeGame, client.language, js5.CONFIG);
+            BASTypeList.instance = new BASTypeList(client.modeGame, client.language, js5.CONFIG, wearposDefaults);
+            CursorTypeList.instance = new CursorTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
+            EnumTypeList.instance = new EnumTypeList(client.modeGame, client.language, js5.CONFIG_ENUM);
+            FloorOverlayTypeList.instance = new FloorOverlayTypeList(client.modeGame, client.language, js5.CONFIG);
+            FloorUnderlayTypeList.instance = new FloorUnderlayTypeList(client.modeGame, client.language, js5.CONFIG);
+            HitmarkTypeList.instance = new HitmarkTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
+            IDKTypeList.instance = new IDKTypeList(client.modeGame, client.language, js5.CONFIG, js5.MODELS);
+            InvTypeList.instance = new InvTypeList(client.modeGame, client.language, js5.CONFIG);
+            LightTypeList.instance = new LightTypeList(client.modeGame, client.language, js5.CONFIG);
+            LocTypeList.instance = new LocTypeList(client.modeGame, client.language, true, js5.CONFIG_LOC, js5.MODELS);
+            MapElementTypeList.instance = new MapElementTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
+            MSITypeList.instance = new MSITypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
+            NPCTypeList.instance = new NPCTypeList(client.modeGame, client.language, true, js5.CONFIG_NPC, js5.MODELS);
+            ObjTypeList.instance = new ObjTypeList(client.modeGame, client.language, true, ParamTypeList.instance, js5.CONFIG_OBJ, js5.MODELS);
+            QuestTypeList.instance = new QuestTypeList(client.modeGame, client.language, js5.CONFIG);
+            SeqTypeList.instance = new SeqTypeList(client.modeGame, client.language, js5.CONFIG_SEQ, js5.ANIMS, js5.BASES);
+            SkyBoxTypeList.instance = new SkyBoxTypeList(client.modeGame, client.language, js5.CONFIG);
+            SkyBoxSphereTypeList.instance = new SkyBoxSphereTypeList(client.modeGame, client.language, js5.CONFIG);
+            SpotAnimationTypeList.instance = new SpotAnimationTypeList(client.modeGame, client.language, js5.CONFIG_SPOT, js5.MODELS);
+            StructTypeList.instance = new StructTypeList(client.modeGame, client.language, js5.CONFIG);
+            VarcstrTypeList.instance = new VarcstrTypeList(client.modeGame, client.language, js5.CONFIG);
             VarcTypeList.instance = new VarcTypeList(client.modeGame, client.language, js5.CONFIG);
             VarBitTypeListClient.instance = new VarBitTypeListClient(client.modeGame, client.language, js5.CONFIG_STRUCT);
             VarPlayerTypeListClient.instance = new VarPlayerTypeListClient(client.modeGame, client.language, js5.CONFIG);
-            Static628.aClass342_5 = new Class342(client.modeGame, client.language, js5.CONFIG);
-            Static648.aClass17_1 = new Class17(client.modeGame, client.language, js5.CONFIG);
+            VarClanSettingTypeList.instance = new VarClanSettingTypeList(client.modeGame, client.language, js5.CONFIG);
+            VarClanTypeList.instance = new VarClanTypeList(client.modeGame, client.language, js5.CONFIG);
             InterfaceManager.init(js5.INTERFACES, js5.FONTMETRICS, js5.SPRITES, js5.MODELS);
-            Static110.method2081(js5.CONFIG_BILLBOARD);
-            Static68.aClass151_3 = new Class151(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
-            Static288.aClass139_2 = new Class139(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new Class251());
-            Static412.method5693();
-            Static354.aLocTypeList_4.setAnimateBackground(ClientOptions.instance.animateBackground.getValue() == 0);
+            Static110.setBillboardJs5(js5.CONFIG_BILLBOARD);
+            QuickChatCatTypeList.instance = new QuickChatCatTypeList(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
+            QuickChatPhraseTypeList.instance = new QuickChatPhraseTypeList(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new SimpleFillerDecoder());
+            Static412.initEquipmentMap();
+            LocTypeList.instance.setAnimateBackground(ClientOptions.instance.animateBackground.getValue() == 0);
             TimedVarDomain.instance = new TimedVarDomain();
             Static296.updateFeatureMask();
-            Static44.method1074(Static25.seqTypeList);
+            Static44.setSeqTypeList(SeqTypeList.instance);
             ParticleManager.init(js5.CONFIG_PARTICLE);
-            Static405.method5592(Static56.anTextureSource_3, js5.MODELS);
-            @Pc(1119) Class197 local1119 = new Class197(js5.BINARY.getfile("huffman", ""));
-            Static342.method4462(local1119);
+            Static405.method5592(ArchiveTextureSource.instance, js5.MODELS);
+            @Pc(1119) HuffmanCodec codec = new HuffmanCodec(js5.BINARY.getfile("huffman", ""));
+            HuffmanCodec.setInstance(codec);
+
             try {
                 jagmisc.init();
-            } catch (@Pc(1126) Throwable local1126) {
+            } catch (@Pc(1126) Throwable ignored) {
+                /* empty */
             }
+
             Static600.aClass27_1 = Static570.method7550();
             SystemInfo.instance = new SystemInfo(true, SignLink.instance);
         }
@@ -304,10 +306,10 @@ public final class Static523 {
             }
         }
         if (LoadState.SETUP_WORLD_MAP == Static473.aLoadState_22) {
-            WorldMap.init(js5.WORLDMAPDATA, Static467.aFloorOverlayTypeList_3, Static540.aFloorUnderlayTypeList_6, Static354.aLocTypeList_4, Static577.aMapElementTypeList_4, Static720.aMSITypeList_4, TimedVarDomain.instance);
+            WorldMap.init(js5.WORLDMAPDATA, FloorOverlayTypeList.instance, FloorUnderlayTypeList.instance, LocTypeList.instance, MapElementTypeList.instance, MSITypeList.instance, TimedVarDomain.instance);
         }
         if (LoadState.SETUP_VARC_SYSTEM == Static473.aLoadState_22) {
-            Static37.aStringArray4 = new String[Static718.aClass176_1.num];
+            Static37.aStringArray4 = new String[VarcstrTypeList.instance.num];
             Static511.varcs = new int[VarcTypeList.instance.num];
             Static118.permVarcs = new boolean[VarcTypeList.instance.num];
             for (local12 = 0; local12 < VarcTypeList.instance.num; local12++) {

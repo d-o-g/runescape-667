@@ -8,7 +8,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ld")
-public final class Class220 {
+public final class HitmarkTypeList {
+
+    @OriginalMember(owner = "client!rla", name = "e", descriptor = "Lclient!ld;")
+    public static HitmarkTypeList instance;
 
     @OriginalMember(owner = "client!ld", name = "n", descriptor = "Lclient!dla;")
     public final ReferenceCache aReferenceCache_121 = new ReferenceCache(20);
@@ -29,7 +32,7 @@ public final class Class220 {
     private final int num;
 
     @OriginalMember(owner = "client!ld", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public Class220(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 arg3) {
+    public HitmarkTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 arg3) {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;

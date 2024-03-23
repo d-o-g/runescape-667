@@ -8,7 +8,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!nv")
-public final class Class267 {
+public final class CursorTypeList {
+
+    @OriginalMember(owner = "client!ld", name = "i", descriptor = "Lclient!nv;")
+    public static CursorTypeList instance;
 
     @OriginalMember(owner = "client!nv", name = "e", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(64);
@@ -29,7 +32,7 @@ public final class Class267 {
     private final int num;
 
     @OriginalMember(owner = "client!nv", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public Class267(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 arg3) {
+    public CursorTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 arg3) {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;

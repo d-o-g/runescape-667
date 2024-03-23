@@ -6,9 +6,6 @@ public final class Static636 {
     @OriginalMember(owner = "client!uba", name = "b", descriptor = "I")
     public static int anInt9527;
 
-    @OriginalMember(owner = "client!uba", name = "a", descriptor = "Lclient!jm;")
-    public static Class197 aClass197_1;
-
     @OriginalMember(owner = "client!uba", name = "d", descriptor = "Lclient!pda;")
     public static final BASType A_BAS_TYPE___1 = new BASType();
 

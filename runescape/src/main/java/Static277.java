@@ -1,5 +1,6 @@
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -10,7 +11,7 @@ public final class Static277 {
     public static long method4042(@OriginalArg(0) Location loc, @OriginalArg(1) int z, @OriginalArg(2) int x) {
         @Pc(5) long local5 = 0x400000L;
         @Pc(18) long local18 = 0x8000000000000000L;
-        @Pc(25) LocType local25 = Static354.aLocTypeList_4.list(loc.getId());
+        @Pc(25) LocType local25 = LocTypeList.instance.list(loc.getId());
         @Pc(46) long flags = x | (z << 7) | (loc.getShape() << 14) | (loc.getRotation() << 20) | 0x40000000;
         if (local25.interactivity == LocInteractivity.NONINTERACTIVE) {
             flags |= local18;

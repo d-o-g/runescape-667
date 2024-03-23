@@ -1,7 +1,7 @@
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
-import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -228,7 +228,7 @@ public final class StaticWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(Lclient!ha;ZIZ)Lclient!od;")
     public ModelAndShadow method4475(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2) {
-        @Pc(11) LocType local11 = Static354.aLocTypeList_4.list(this.aShort60 & 0xFFFF);
+        @Pc(11) LocType local11 = LocTypeList.instance.list(this.aShort60 & 0xFFFF);
         @Pc(27) Ground local27;
         @Pc(38) Ground local38;
         if (this.aBoolean376) {

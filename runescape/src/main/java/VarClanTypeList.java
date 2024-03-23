@@ -7,48 +7,43 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-@OriginalClass("client!bka")
-public final class Class45 {
+@OriginalClass("client!al")
+public final class VarClanTypeList {
 
-    @OriginalMember(owner = "client!bka", name = "d", descriptor = "Lclient!dla;")
+    @OriginalMember(owner = "client!ui", name = "y", descriptor = "Lclient!al;")
+    public static VarClanTypeList instance;
+
+    @OriginalMember(owner = "client!al", name = "b", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(64);
 
     private final ModeGame game;
 
     private final int languageId;
 
-    @OriginalMember(owner = "client!bka", name = "h", descriptor = "Lclient!sb;")
+    @OriginalMember(owner = "client!al", name = "g", descriptor = "Lclient!sb;")
     public final js5 configClient;
 
     private final int num;
 
-    @OriginalMember(owner = "client!bka", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class45(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+    @OriginalMember(owner = "client!al", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
+    public VarClanTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
 
         if (this.configClient != null) {
-            this.num = this.configClient.fileLimit(35);
+            this.num = this.configClient.fileLimit(54);
         } else {
             this.num = 0;
         }
     }
 
-    @OriginalMember(owner = "client!bka", name = "a", descriptor = "(B)V")
-    public void cacheRemoveSoftReferences() {
+    @OriginalMember(owner = "client!al", name = "a", descriptor = "(II)Lclient!sla;")
+    public Class341 list(@OriginalArg(0) int id) {
         @Pc(6) ReferenceCache local6 = this.recentUse;
+        @Pc(16) Class341 type;
         synchronized (this.recentUse) {
-            this.recentUse.removeSoftReferences();
-        }
-    }
-
-    @OriginalMember(owner = "client!bka", name = "a", descriptor = "(IB)Lclient!la;")
-    public Class218 list(@OriginalArg(0) int id) {
-        @Pc(6) ReferenceCache local6 = this.recentUse;
-        @Pc(16) Class218 type;
-        synchronized (this.recentUse) {
-            type = (Class218) this.recentUse.get(id);
+            type = (Class341) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -57,23 +52,30 @@ public final class Class45 {
         @Pc(30) js5 local30 = this.configClient;
         @Pc(39) byte[] data;
         synchronized (this.configClient) {
-            data = this.configClient.getfile(id, 35);
+            data = this.configClient.getfile(id, 54);
         }
 
-        type = new Class218();
+        type = new Class341();
         if (data != null) {
             type.decode(new Packet(data));
         }
-        type.postDecode();
 
-        @Pc(66) ReferenceCache local66 = this.recentUse;
+        @Pc(63) ReferenceCache local63 = this.recentUse;
         synchronized (this.recentUse) {
             this.recentUse.put(type, id);
             return type;
         }
     }
 
-    @OriginalMember(owner = "client!bka", name = "a", descriptor = "(II)V")
+    @OriginalMember(owner = "client!al", name = "a", descriptor = "(I)V")
+    public void cacheRemoveSoftReferences() {
+        @Pc(6) ReferenceCache local6 = this.recentUse;
+        synchronized (this.recentUse) {
+            this.recentUse.removeSoftReferences();
+        }
+    }
+
+    @OriginalMember(owner = "client!al", name = "a", descriptor = "(IB)V")
     public void cacheClean(@OriginalArg(1) int maxAge) {
         @Pc(11) ReferenceCache local11 = this.recentUse;
         synchronized (this.recentUse) {
@@ -81,9 +83,9 @@ public final class Class45 {
         }
     }
 
-    @OriginalMember(owner = "client!bka", name = "b", descriptor = "(I)V")
+    @OriginalMember(owner = "client!al", name = "a", descriptor = "(B)V")
     public void cacheReset() {
-        @Pc(2) ReferenceCache local2 = this.recentUse;
+        @Pc(6) ReferenceCache local6 = this.recentUse;
         synchronized (this.recentUse) {
             this.recentUse.reset();
         }

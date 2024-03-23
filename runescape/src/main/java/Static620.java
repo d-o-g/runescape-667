@@ -20,7 +20,7 @@ public final class Static620 {
 
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "(IIILclient!aa;Lclient!ha;IIILclient!hda;)V")
     public static void method8322(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) ClippingMask arg2, @OriginalArg(4) Toolkit arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Component arg7) {
-        @Pc(10) MapElementType local10 = Static577.aMapElementTypeList_4.list(arg4);
+        @Pc(10) MapElementType local10 = MapElementTypeList.instance.list(arg4);
         if (local10 == null || !local10.aBoolean218 || !local10.method2425(TimedVarDomain.instance)) {
             return;
         }

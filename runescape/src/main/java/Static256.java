@@ -1,9 +1,9 @@
+import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.graphics.ClippingMask;
-import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -19,9 +19,6 @@ public final class Static256 {
 
     @OriginalMember(owner = "client!hu", name = "n", descriptor = "[S")
     public static short[] aShortArray63;
-
-    @OriginalMember(owner = "client!hu", name = "o", descriptor = "Lclient!it;")
-    public static final Class184 aClass184_10 = new Class184(14, 0, 4, 1);
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(IILclient!sb;Lclient!d;Ljava/awt/Canvas;)Lclient!ha;")
     public static Toolkit method3637(@OriginalArg(0) int arg0, @OriginalArg(2) js5 arg1, @OriginalArg(3) TextureSource arg2, @OriginalArg(4) Canvas arg3) {
@@ -67,9 +64,9 @@ public final class Static256 {
         }
         for (@Pc(86) int local86 = 0; local86 < arg0.aClass199Array3.length; local86++) {
             if (arg0.aClass199Array3[local86].anInt4930 != -1 && arg0.aClass199Array3[local86].aAnimator_7.isDelayed()) {
-                @Pc(117) Class227 local117 = Static23.aClass128_1.list(arg0.aClass199Array3[local86].anInt4930);
+                @Pc(117) Class227 local117 = SpotAnimationTypeList.instance.list(arg0.aClass199Array3[local86].anInt4930);
                 if (local117.aBoolean448 && local117.anInt5842 != -1) {
-                    @Pc(133) SeqType local133 = Static25.seqTypeList.list(local117.anInt5842);
+                    @Pc(133) SeqType local133 = SeqTypeList.instance.list(local117.anInt5842);
                     if (arg0.anInt10762 > 0 && local133.animatingPrecedence == 0) {
                         Static521.anInt7756 = -1;
                         arg0.anInt10763++;

@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!bt")
-public final class Class53 {
+public final class EnumType {
 
     @OriginalMember(owner = "client!bt", name = "k", descriptor = "Lclient!av;")
     public IterableHashTable aIterableHashTable_9;
@@ -169,7 +169,7 @@ public final class Class53 {
     }
 
     @OriginalMember(owner = "client!bt", name = "c", descriptor = "(II)Ljava/lang/String;")
-    public String method1229(@OriginalArg(1) int arg0) {
+    public String getString(@OriginalArg(1) int arg0) {
         if (this.anObject3 == null) {
             return this.aString5;
         } else if (this.anObject3 instanceof IterableHashTable) {

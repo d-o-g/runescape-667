@@ -10,6 +10,9 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ef")
 public final class FloorOverlayTypeList {
 
+    @OriginalMember(owner = "client!oo", name = "p", descriptor = "Lclient!ef;")
+    public static FloorOverlayTypeList instance;
+
     @OriginalMember(owner = "client!ef", name = "b", descriptor = "Lclient!dla;")
     public final ReferenceCache recentUse = new ReferenceCache(64);
 

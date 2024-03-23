@@ -1,21 +1,14 @@
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
-import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static354 {
 
-    @OriginalMember(owner = "client!ld", name = "i", descriptor = "Lclient!nv;")
-    public static Class267 aClass267_1;
-
     @OriginalMember(owner = "client!ld", name = "m", descriptor = "I")
     public static int anInt5759;
-
-    @OriginalMember(owner = "client!ld", name = "b", descriptor = "Lclient!gea;")
-    public static LocTypeList aLocTypeList_4;
 
     @OriginalMember(owner = "client!ld", name = "a", descriptor = "I")
     public static int anInt5763;

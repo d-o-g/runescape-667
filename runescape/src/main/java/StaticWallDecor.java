@@ -1,6 +1,6 @@
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
-import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -192,7 +192,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
 
     @OriginalMember(owner = "client!im", name = "a", descriptor = "(BLclient!ha;IZ)Lclient!od;")
     public ModelAndShadow method4045(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2) {
-        @Pc(17) LocType local17 = Static354.aLocTypeList_4.list(this.aShort52 & 0xFFFF);
+        @Pc(17) LocType local17 = LocTypeList.instance.list(this.aShort52 & 0xFFFF);
         @Pc(29) Ground local29;
         @Pc(24) Ground local24;
         if (this.aBoolean348) {

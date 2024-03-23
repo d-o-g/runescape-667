@@ -24,6 +24,9 @@ public final class ObjTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 64;
 
+    @OriginalMember(owner = "client!ne", name = "n", descriptor = "Lclient!es;")
+    public static ObjTypeList instance;
+
     @OriginalMember(owner = "client!es", name = "p", descriptor = "I")
     public int featureMask;
 

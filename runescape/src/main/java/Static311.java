@@ -1,5 +1,7 @@
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
+import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -48,7 +50,7 @@ public final class Static311 {
         @Pc(14) int local14 = -1;
         @Pc(16) String local16 = null;
         if (arg3 != -1) {
-            @Pc(25) ParamType local25 = Static523.instance.list(arg3);
+            @Pc(25) ParamType local25 = ParamTypeList.instance.list(arg3);
             if (local25 == null || local25.isString() != arg0) {
                 return;
             }
@@ -59,8 +61,8 @@ public final class Static311 {
             }
         }
         @Pc(54) int local54 = 0;
-        for (@Pc(56) int local56 = 0; local56 < Static419.objTypeList.num; local56++) {
-            @Pc(62) ObjType local62 = Static419.objTypeList.list(local56);
+        for (@Pc(56) int local56 = 0; local56 < ObjTypeList.instance.num; local56++) {
+            @Pc(62) ObjType local62 = ObjTypeList.instance.list(local56);
             if ((!arg1 || local62.stockmarket) && local62.certtemplate == -1 && local62.lenttemplate == -1 && local62.boughttemplate == -1 && local62.dummyitem == 0 && local62.name.toLowerCase().indexOf(local9) != -1) {
                 if (arg3 != -1) {
                     if (arg0) {
@@ -91,7 +93,7 @@ public final class Static311 {
         Static256.aShortArray63 = local12;
         @Pc(203) String[] local203 = new String[Static606.anInt8947];
         for (@Pc(205) int local205 = 0; local205 < Static606.anInt8947; local205++) {
-            local203[local205] = Static419.objTypeList.list(local12[local205]).name;
+            local203[local205] = ObjTypeList.instance.list(local12[local205]).name;
         }
         Static554.method7292(local203, Static256.aShortArray63);
         js5.CONFIG_OBJ.discardUnpacked();

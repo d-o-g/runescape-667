@@ -1,4 +1,5 @@
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -24,7 +25,7 @@ public final class Static185 {
         @Pc(30) int local30;
         @Pc(45) int local45;
         if (local9 != null) {
-            local20 = Static354.aLocTypeList_4.list(local9.getId());
+            local20 = LocTypeList.instance.list(local9.getId());
             local26 = local9.getRotation() & 0x3;
             local30 = local9.getShape();
             if (local20.msi == -1) {
@@ -71,7 +72,7 @@ public final class Static185 {
         }
         local9 = (Location) Static578.getEntity(arg6, arg2, arg3, aClass8 == null ? (aClass8 = getClass("Location")) : aClass8);
         if (local9 != null) {
-            local20 = Static354.aLocTypeList_4.list(local9.getId());
+            local20 = LocTypeList.instance.list(local9.getId());
             local26 = local9.getRotation() & 0x3;
             local30 = local9.getShape();
             if (local20.msi != -1) {
@@ -92,7 +93,7 @@ public final class Static185 {
         if (local9 == null) {
             return;
         }
-        local20 = Static354.aLocTypeList_4.list(local9.getId());
+        local20 = LocTypeList.instance.list(local9.getId());
         local26 = local9.getRotation() & 0x3;
         if (local20.msi != -1) {
             Static452.method6173(local20, local26, arg0, arg4, arg5);

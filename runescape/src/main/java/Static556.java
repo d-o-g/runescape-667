@@ -1,6 +1,8 @@
 import com.jagex.core.datastruct.key.Class331;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
@@ -58,9 +60,9 @@ public final class Static556 {
             local63 = Static518.method9293(local55);
             @Pc(65) int[] local65 = null;
             if (Static245.method8635(local55.anInt7314)) {
-                local65 = Static419.objTypeList.list((int) local55.aLong233).quests;
+                local65 = ObjTypeList.instance.list((int) local55.aLong233).quests;
             } else if (local55.anInt7317 != -1) {
-                local65 = Static419.objTypeList.list(local55.anInt7317).quests;
+                local65 = ObjTypeList.instance.list(local55.anInt7317).quests;
             } else if (Static598.method7825(local55.anInt7314)) {
                 @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((int) local55.aLong233);
                 if (local93 != null) {
@@ -74,7 +76,7 @@ public final class Static556 {
                     }
                 }
             } else if (Static523.method3444(local55.anInt7314)) {
-                @Pc(131) LocType local131 = Static354.aLocTypeList_4.list((int) (local55.aLong233 >>> 32 & 0x7FFFFFFFL));
+                @Pc(131) LocType local131 = LocTypeList.instance.list((int) (local55.aLong233 >>> 32 & 0x7FFFFFFFL));
                 if (local131.multiLocs != null) {
                     local131 = local131.getMultiLoc(TimedVarDomain.instance);
                 }

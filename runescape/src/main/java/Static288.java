@@ -8,9 +8,6 @@ import java.awt.Insets;
 
 public final class Static288 {
 
-    @OriginalMember(owner = "client!jb", name = "C", descriptor = "Lclient!gba;")
-    public static Class139 aClass139_2;
-
     @OriginalMember(owner = "client!jb", name = "w", descriptor = "Z")
     public static boolean aBoolean356 = false;
 

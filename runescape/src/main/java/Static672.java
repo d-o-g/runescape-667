@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static672 {
 
-    @OriginalMember(owner = "client!vea", name = "I", descriptor = "Lclient!it;")
-    public static final Class184 aClass184_18 = new Class184(2, 4, 4, 0);
-
     @OriginalMember(owner = "client!vea", name = "a", descriptor = "(III[BI[BIII)V")
     public static void method8765(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) byte[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) byte[] arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
         @Pc(10) int local10 = -(arg7 >> 2);

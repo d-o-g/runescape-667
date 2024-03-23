@@ -1,5 +1,6 @@
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -67,7 +68,7 @@ public final class Class236 {
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1 = new NPCEntity(25);
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10751 = TimeUtils.clock;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10740 = this.anInt5985;
-                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9328(Static690.aNPCTypeList_2.list(this.anInt5980));
+                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9328(NPCTypeList.instance.list(this.anInt5980));
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9310(this.aClass8_Sub2_Sub1_Sub2_Sub2_1.type.size);
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10757 = this.aClass8_Sub2_Sub1_Sub2_Sub2_1.type.rotationSpeed << 3;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.drawPriority = Static457.anInt6933++;

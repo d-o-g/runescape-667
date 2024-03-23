@@ -1,6 +1,7 @@
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -47,7 +48,7 @@ public final class Static213 {
                     @Pc(75) int local75 = arg1 + local65;
                     @Pc(79) int local79 = local59 + arg3;
                     if (local75 > 0 && local79 > 0 && arg2 - 1 > local75 && arg4 - 1 > local79) {
-                        @Pc(111) LocType local111 = Static354.aLocTypeList_4.list(local12);
+                        @Pc(111) LocType local111 = LocTypeList.instance.list(local12);
                         if (local71 != 22 || ClientOptions.instance.groundDecor.getValue() != 0 || local111.interactivity != LocInteractivity.NONINTERACTIVE || local111.movementPolicy == 1 || local111.obstructiveGround) {
                             local26 = true;
                             if (!local111.isLoaded()) {

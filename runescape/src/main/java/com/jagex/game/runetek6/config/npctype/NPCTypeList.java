@@ -15,6 +15,9 @@ public final class NPCTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 64;
 
+    @OriginalMember(owner = "client!vr", name = "b", descriptor = "Lclient!ql;")
+    public static NPCTypeList instance;
+
     @OriginalMember(owner = "client!tg", name = "a", descriptor = "(ZI)I")
     private static int fileId(@OriginalArg(1) int id) {
         return id & 0x7F;

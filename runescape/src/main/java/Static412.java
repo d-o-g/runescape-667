@@ -1,4 +1,5 @@
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -24,11 +25,11 @@ public final class Static412 {
     }
 
     @OriginalMember(owner = "client!naa", name = "a", descriptor = "(B)V")
-    public static void method5693() {
-        @Pc(9) int[] local9 = new int[Static419.objTypeList.num];
+    public static void initEquipmentMap() {
+        @Pc(9) int[] local9 = new int[ObjTypeList.instance.num];
         @Pc(11) int local11 = 0;
-        for (@Pc(13) int local13 = 0; local13 < Static419.objTypeList.num; local13++) {
-            @Pc(20) ObjType local20 = Static419.objTypeList.list(local13);
+        for (@Pc(13) int local13 = 0; local13 < ObjTypeList.instance.num; local13++) {
+            @Pc(20) ObjType local20 = ObjTypeList.instance.list(local13);
             if (local20.manwear >= 0 || local20.womanwear >= 0) {
                 local9[local11++] = local13;
             }

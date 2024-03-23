@@ -2,8 +2,11 @@ import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
+import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Toolkit;
@@ -44,7 +47,7 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!nea", name = "a", descriptor = "(ILclient!hda;II)V")
     public static void addMiniMenuOptions(@OriginalArg(1) Component arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         if (InterfaceManager.targeting) {
-            @Pc(16) ParamType local16 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
+            @Pc(16) ParamType local16 = InterfaceManager.targetParam == -1 ? null : ParamTypeList.instance.list(InterfaceManager.targetParam);
             if (InterfaceManager.serverActiveProperties(arg0).isUseTarget() && (InterfaceManager.targetMask & 0x20) != 0 && (local16 == null || arg0.param(local16.defaultint, InterfaceManager.targetParam) != local16.defaultint)) {
                 addEntry(false, arg0.invObject, 0L, arg0.id, arg0.slot, InterfaceManager.targetVerb, 18, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> " + arg0.opBase, arg0.id << 0 | arg0.slot, false);
             }
@@ -292,9 +295,9 @@ public final class MiniMenu {
                         if (local1406 != null) {
                             local295 = 0;
                             for (@Pc(1416) ObjStackEntry local1416 = (ObjStackEntry) local1406.objs.last(); local1416 != null; local1416 = (ObjStackEntry) local1406.objs.previous()) {
-                                @Pc(1424) ObjType local1424 = Static419.objTypeList.list(local1416.id);
+                                @Pc(1424) ObjType local1424 = ObjTypeList.instance.list(local1416.id);
                                 if (InterfaceManager.targeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
-                                    @Pc(1451) ParamType local1451 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
+                                    @Pc(1451) ParamType local1451 = InterfaceManager.targetParam == -1 ? null : ParamTypeList.instance.list(InterfaceManager.targetParam);
                                     if ((InterfaceManager.targetMask & 0x1) != 0 && (local1451 == null || local1424.param(InterfaceManager.targetParam, local1451.defaultint) != local1451.defaultint)) {
                                         addEntry(false, -1, local1416.id, local186, local584, InterfaceManager.targetVerb, 17, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ff9040>" + local1424.name, local295, false);
                                     }
@@ -339,13 +342,13 @@ public final class MiniMenu {
                     }
                     if (local543.aRenderable_18 instanceof Location) {
                         @Pc(1654) Location local1654 = (Location) local543.aRenderable_18;
-                        @Pc(1661) LocType local1661 = Static354.aLocTypeList_4.list(local1654.getId());
+                        @Pc(1661) LocType local1661 = LocTypeList.instance.list(local1654.getId());
                         if (local1661.multiLocs != null) {
                             local1661 = local1661.getMultiLoc(TimedVarDomain.instance);
                         }
                         if (local1661 != null) {
                             if (InterfaceManager.targeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
-                                @Pc(1697) ParamType local1697 = InterfaceManager.targetParam == -1 ? null : Static523.instance.list(InterfaceManager.targetParam);
+                                @Pc(1697) ParamType local1697 = InterfaceManager.targetParam == -1 ? null : ParamTypeList.instance.list(InterfaceManager.targetParam);
                                 if ((InterfaceManager.targetMask & 0x4) != 0 && (local1697 == null || local1661.param(local1697.defaultint, InterfaceManager.targetParam) != local1697.defaultint)) {
                                     addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, InterfaceManager.targetVerb, 60, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=00ffff>" + local1661.name, local1654.hashCode(), false);
                                 }

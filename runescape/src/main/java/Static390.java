@@ -1,4 +1,6 @@
 import com.jagex.game.runetek6.config.objtype.ObjType;
+import com.jagex.game.runetek6.config.objtype.ObjTypeList;
+import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -70,9 +72,9 @@ public final class Static390 {
         }
         @Pc(25) int local25 = 0;
         for (@Pc(27) int local27 = 0; local27 < local18.anIntArray278.length; local27++) {
-            if (local18.anIntArray278[local27] >= 0 && local18.anIntArray278[local27] < Static419.objTypeList.num) {
-                @Pc(54) ObjType local54 = Static419.objTypeList.list(local18.anIntArray278[local27]);
-                @Pc(64) int local64 = local54.param(arg1, Static523.instance.list(arg1).defaultint);
+            if (local18.anIntArray278[local27] >= 0 && local18.anIntArray278[local27] < ObjTypeList.instance.num) {
+                @Pc(54) ObjType local54 = ObjTypeList.instance.list(local18.anIntArray278[local27]);
+                @Pc(64) int local64 = local54.param(arg1, ParamTypeList.instance.list(arg1).defaultint);
                 if (arg0) {
                     local25 += local64 * local18.anIntArray279[local27];
                 } else {

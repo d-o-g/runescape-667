@@ -18,14 +18,14 @@ public final class LocTypeList {
     @OriginalMember(owner = "client!ld", name = "b", descriptor = "Lclient!gea;")
     public static LocTypeList instance;
 
-    @OriginalMember(owner = "client!rv", name = "a", descriptor = "(IB)I")
-    private static int fileId(@OriginalArg(0) int id) {
-        return id & 0xFF;
-    }
-
     @OriginalMember(owner = "client!wf", name = "a", descriptor = "(II)I")
     private static int groupId(@OriginalArg(1) int id) {
         return id >>> 8;
+    }
+
+    @OriginalMember(owner = "client!rv", name = "a", descriptor = "(IB)I")
+    private static int fileId(@OriginalArg(0) int id) {
+        return id & 0xFF;
     }
 
     @OriginalMember(owner = "client!gea", name = "r", descriptor = "I")

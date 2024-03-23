@@ -11,6 +11,8 @@ import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.invtype.InvTypeList;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.meltype.MapElementType;
+import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
@@ -3012,7 +3014,7 @@ public final class ScriptRunner {
                                                 local21 = anIntArray578[anInt7142 + 1];
                                                 local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = NPCTypeList.instance.list(local15).getParam(local3848.defaultstr, local21);
+                                                    aStringArray37[anInt7139++] = NPCTypeList.instance.list(local15).param(local3848.defaultstr, local21);
                                                     return;
                                                 }
                                                 anIntArray578[anInt7142++] = NPCTypeList.instance.list(local15).param(local21, local3848.defaultint);
@@ -5831,29 +5833,29 @@ public final class ScriptRunner {
                         if (arg0 == 6800) {
                             local192 = anIntArray578[--anInt7142];
                             local8975 = MapElementTypeList.instance.list(local192);
-                            if (local8975.aString25 == null) {
+                            if (local8975.text == null) {
                                 aStringArray37[anInt7139++] = "";
                                 return;
                             }
-                            aStringArray37[anInt7139++] = local8975.aString25;
+                            aStringArray37[anInt7139++] = local8975.text;
                             return;
                         }
                         if (arg0 == 6801) {
                             local192 = anIntArray578[--anInt7142];
                             local8975 = MapElementTypeList.instance.list(local192);
-                            anIntArray578[anInt7142++] = local8975.anInt2596;
+                            anIntArray578[anInt7142++] = local8975.sprite;
                             return;
                         }
                         if (arg0 == 6802) {
                             local192 = anIntArray578[--anInt7142];
                             local8975 = MapElementTypeList.instance.list(local192);
-                            anIntArray578[anInt7142++] = local8975.anInt2615;
+                            anIntArray578[anInt7142++] = local8975.textSize;
                             return;
                         }
                         if (arg0 == 6803) {
                             local192 = anIntArray578[--anInt7142];
                             local8975 = MapElementTypeList.instance.list(local192);
-                            anIntArray578[anInt7142++] = local8975.anInt2597;
+                            anIntArray578[anInt7142++] = local8975.category;
                             return;
                         }
                         if (arg0 == 6804) {
@@ -5862,10 +5864,10 @@ public final class ScriptRunner {
                             local834 = anIntArray578[anInt7142 + 1];
                             @Pc(9098) ParamType local9098 = ParamTypeList.instance.list(local834);
                             if (local9098.isString()) {
-                                aStringArray37[anInt7139++] = MapElementTypeList.instance.list(local192).method2426(local834, local9098.defaultstr);
+                                aStringArray37[anInt7139++] = MapElementTypeList.instance.list(local192).param(local834, local9098.defaultstr);
                                 return;
                             }
-                            anIntArray578[anInt7142++] = MapElementTypeList.instance.list(local192).method2427(local9098.defaultint, local834);
+                            anIntArray578[anInt7142++] = MapElementTypeList.instance.list(local192).param(local9098.defaultint, local834);
                             return;
                         }
                     } else if (arg0 < 7000) {

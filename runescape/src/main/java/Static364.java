@@ -7,6 +7,7 @@ import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.graphics.ToolkitType;
@@ -33,7 +34,7 @@ public final class Static364 {
         }
         for (@Pc(17) MapElementListEntry local17 = (MapElementListEntry) Static444.aClass191_1.next(); local17 != null; local17 = (MapElementListEntry) Static444.aClass191_1.next()) {
             @Pc(30) MapElementType local30 = WorldMap.mapElementTypeList.list(local17.id);
-            if (local30 != null && local30.aBoolean217 && local30.method2425(WorldMap.varDomain)) {
+            if (local30 != null && local30.aBoolean217 && local30.variableTest(WorldMap.varDomain)) {
                 return local17;
             }
         }

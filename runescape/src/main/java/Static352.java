@@ -11,6 +11,7 @@ import com.jagex.game.runetek6.config.hitmarktype.HitmarkTypeList;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.lighttype.LightTypeList;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;

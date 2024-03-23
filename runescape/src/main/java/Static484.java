@@ -1,6 +1,8 @@
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.meltype.MapElementType;
+import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -180,7 +182,7 @@ public final class Static484 {
                                         @Pc(832) boolean local832 = false;
                                         if (local238 >= 0) {
                                             @Pc(842) MapElementType local842 = MapElementTypeList.instance.list(local238);
-                                            if (local842 != null && local842.aBoolean216) {
+                                            if (local842 != null && local842.randomlyPlaced) {
                                                 local832 = true;
                                             }
                                         }
@@ -229,7 +231,7 @@ public final class Static484 {
                             Static612.A_DEQUE___67.addLast(new IntNode(local214));
                         } else {
                             @Pc(1199) MapElementType local1199 = MapElementTypeList.instance.list(Static42.aMapElementList_2.anIntArray496[local214]);
-                            if (local1199.anIntArray228 != null && local1199.anInt2614 + local218 >= 0 && local218 + local1199.anInt2598 < Static720.mapWidth && local1199.anInt2594 + local229 >= 0 && local229 + local1199.anInt2588 < Static501.mapHeight) {
+                            if (local1199.landmarkPolygons != null && local1199.anInt2614 + local218 >= 0 && local218 + local1199.anInt2598 < Static720.mapWidth && local1199.anInt2594 + local229 >= 0 && local229 + local1199.anInt2588 < Static501.mapHeight) {
                                 Static612.A_DEQUE___67.addLast(new IntNode(local214));
                             }
                         }

@@ -1,6 +1,9 @@
+package com.jagex.game.runetek6.config.meltype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,21 +13,23 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ml")
 public final class MapElementTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 128;
+
     @OriginalMember(owner = "client!sca", name = "a", descriptor = "Lclient!ml;")
     public static MapElementTypeList instance;
 
     @OriginalMember(owner = "client!ml", name = "a", descriptor = "Lclient!dla;")
-    public ReferenceCache recentUse = new ReferenceCache(128);
+    public ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!ml", name = "o", descriptor = "Lclient!dla;")
-    public ReferenceCache aReferenceCache_135 = new ReferenceCache(64);
+    public ReferenceCache spriteCache = new ReferenceCache(64);
 
     private final ModeGame game;
 
     private final int languageId;
 
     @OriginalMember(owner = "client!ml", name = "n", descriptor = "Lclient!sb;")
-    public final js5 aJs5_83;
+    public final js5 sprites;
 
     @OriginalMember(owner = "client!ml", name = "g", descriptor = "Lclient!sb;")
     public final js5 configClient;
@@ -32,12 +37,12 @@ public final class MapElementTypeList {
     private final int num;
 
     @OriginalMember(owner = "client!ml", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public MapElementTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 arg3) {
+    public MapElementTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 sprites) {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
-        this.aJs5_83 = arg3;
-        this.num = this.configClient.fileLimit(36);
+        this.sprites = sprites;
+        this.num = this.configClient.fileLimit(Js5ConfigGroup.MELTYPE);
     }
 
     @OriginalMember(owner = "client!ml", name = "b", descriptor = "(II)V")
@@ -46,16 +51,16 @@ public final class MapElementTypeList {
         synchronized (this.recentUse) {
             this.recentUse.clean(maxAge);
         }
-        local12 = this.aReferenceCache_135;
-        synchronized (this.aReferenceCache_135) {
-            this.aReferenceCache_135.clean(maxAge);
+        local12 = this.spriteCache;
+        synchronized (this.spriteCache) {
+            this.spriteCache.clean(maxAge);
         }
     }
 
     @OriginalMember(owner = "client!ml", name = "b", descriptor = "(III)V")
-    public void setCaches(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        this.recentUse = new ReferenceCache(arg0);
-        this.aReferenceCache_135 = new ReferenceCache(arg1);
+    public void setCaches(@OriginalArg(1) int recentUseSize, @OriginalArg(2) int spriteSize) {
+        this.recentUse = new ReferenceCache(recentUseSize);
+        this.spriteCache = new ReferenceCache(spriteSize);
     }
 
     @OriginalMember(owner = "client!ml", name = "a", descriptor = "(BI)Lclient!el;")
@@ -96,9 +101,9 @@ public final class MapElementTypeList {
         synchronized (this.recentUse) {
             this.recentUse.removeSoftReferences();
         }
-        local6 = this.aReferenceCache_135;
-        synchronized (this.aReferenceCache_135) {
-            this.aReferenceCache_135.removeSoftReferences();
+        local6 = this.spriteCache;
+        synchronized (this.spriteCache) {
+            this.spriteCache.removeSoftReferences();
         }
     }
 
@@ -108,9 +113,9 @@ public final class MapElementTypeList {
         synchronized (this.recentUse) {
             this.recentUse.reset();
         }
-        local6 = this.aReferenceCache_135;
-        synchronized (this.aReferenceCache_135) {
-            this.aReferenceCache_135.reset();
+        local6 = this.spriteCache;
+        synchronized (this.spriteCache) {
+            this.spriteCache.reset();
         }
     }
 }

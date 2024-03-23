@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.meltype.MapElementType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -32,10 +33,10 @@ public final class Static408 {
             return false;
         } else if (!arg0.aBoolean214) {
             return false;
-        } else if (!arg0.method2425(WorldMap.varDomain)) {
+        } else if (!arg0.variableTest(WorldMap.varDomain)) {
             return false;
         } else if (Static268.A_HASH_TABLE___22.get(arg0.id) == null) {
-            return Static232.A_HASH_TABLE___18.get(arg0.anInt2597) == null;
+            return Static232.A_HASH_TABLE___18.get(arg0.category) == null;
         } else {
             return false;
         }

@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -23,7 +24,7 @@ public final class Static351 {
         @Pc(9) int local9 = Integer.MIN_VALUE;
         @Pc(11) int local11 = Integer.MAX_VALUE;
         @Pc(13) int local13 = Integer.MIN_VALUE;
-        if (arg1.anIntArray228 != null) {
+        if (arg1.landmarkPolygons != null) {
             local13 = WorldMap.anInt5646 - (arg2.y + arg1.anInt2588 - WorldMap.anInt5654) * (WorldMap.anInt5646 - WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
             local11 = WorldMap.anInt5646 - (arg2.y + arg1.anInt2594 - WorldMap.anInt5654) * (WorldMap.anInt5646 + -WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
             local7 = WorldMap.anInt5649 + (WorldMap.anInt5651 - WorldMap.anInt5649) * (-WorldMap.anInt5652 + arg1.anInt2598 - -arg2.x) / (WorldMap.anInt5647 - WorldMap.anInt5652);
@@ -34,8 +35,8 @@ public final class Static351 {
         @Pc(106) int local106 = 0;
         @Pc(108) int local108 = 0;
         @Pc(110) int local110 = 0;
-        if (arg1.anInt2596 != -1) {
-            if (arg2.aBoolean256 && arg1.anInt2591 != -1) {
+        if (arg1.sprite != -1) {
+            if (arg2.aBoolean256 && arg1.hoverSprite != -1) {
                 local102 = arg1.method2431(true, arg0);
             } else {
                 local102 = arg1.method2431(false, arg0);
@@ -69,10 +70,10 @@ public final class Static351 {
         @Pc(231) int local231 = 0;
         @Pc(233) int local233 = 0;
         @Pc(312) int local312;
-        if (arg1.aString25 != null) {
-            local209 = Static390.method5493(arg1.anInt2615);
+        if (arg1.text != null) {
+            local209 = Static390.method5493(arg1.textSize);
             if (local209 != null) {
-                local211 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, arg1.aString25);
+                local211 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, arg1.text);
                 local215 = arg2.anInt3122 - arg1.anInt2617 * (WorldMap.anInt5646 - WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
                 local213 = arg1.anInt2600 * (WorldMap.anInt5651 - WorldMap.anInt5649) / (WorldMap.anInt5647 - WorldMap.anInt5652) + arg2.anInt3130;
                 if (local102 == null) {
@@ -113,7 +114,7 @@ public final class Static351 {
         }
         WorldMap.method5071(arg0, arg2, arg1);
         if (local102 != null) {
-            if (Static320.anInt5084 > 0 && (Static475.anInt7168 != -1 && arg2.id == Static475.anInt7168 || Static409.anInt6318 != -1 && arg1.anInt2597 == Static409.anInt6318)) {
+            if (Static320.anInt5084 > 0 && (Static475.anInt7168 != -1 && arg2.id == Static475.anInt7168 || Static409.anInt6318 != -1 && arg1.category == Static409.anInt6318)) {
                 if (Static212.anInt3467 > 50) {
                     local312 = 200 - Static212.anInt3467 * 2;
                 } else {
@@ -128,10 +129,10 @@ public final class Static351 {
             }
             local102.render(arg2.anInt3130 - (local102.scaleWidth() >> 1), arg2.anInt3122 - (local102.scaleHeight() >> 1));
         }
-        if (arg1.aString25 != null && local209 != null) {
+        if (arg1.text != null && local209 != null) {
             Static720.method9396(local211, arg2, local213, arg1, local209, local217, arg0, local215);
         }
-        if (arg1.anInt2596 != -1 || arg1.aString25 != null) {
+        if (arg1.sprite != -1 || arg1.text != null) {
             @Pc(612) Node_Sub37 local612 = new Node_Sub37(arg2);
             local612.anInt6185 = local229;
             local612.anInt6186 = local108;

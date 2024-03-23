@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -104,8 +105,8 @@ public final class Static603 {
         @Pc(40) int local40 = 0;
         @Pc(56) int local56;
         @Pc(78) int local78;
-        if (arg2.aString25 != null) {
-            local36 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, arg2.aString25);
+        if (arg2.text != null) {
+            local36 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, arg2.text);
             for (local56 = 0; local56 < local36; local56++) {
                 @Pc(61) String local61 = Static37.aStringArray5[local56];
                 if (local56 < local36 - 1) {
@@ -140,27 +141,27 @@ public final class Static603 {
         @Pc(248) int local248 = -2;
         @Pc(257) int local257 = -2;
         @Pc(259) int local259 = -2;
-        if (arg2.aString25 != null) {
+        if (arg2.text != null) {
             local246 = local56 - local38 / 2 - 5;
             local248 = local163;
             local257 = local38 + local246 + 10;
             local259 = Static142.aClass327_1.method7536() * local36 + local163 + 3;
-            if (arg2.anInt2605 != 0) {
-                arg1.fillRect(local257 - local246, local259 - local163, local163, local246, arg2.anInt2605);
+            if (arg2.fillColour != 0) {
+                arg1.fillRect(local257 - local246, local259 - local163, local163, local246, arg2.fillColour);
             }
-            if (arg2.anInt2608 != 0) {
-                arg1.method7945(local163, arg2.anInt2608, local257 - local246, local259 - local163, local246);
+            if (arg2.outlineColour != 0) {
+                arg1.method7945(local163, arg2.outlineColour, local257 - local246, local259 - local163, local246);
             }
             for (@Pc(333) int local333 = 0; local333 < local36; local333++) {
                 @Pc(338) String local338 = Static37.aStringArray5[local333];
                 if (local36 - 1 > local333) {
                     local338 = local338.substring(0, local338.length() - 4);
                 }
-                Static142.aClass327_1.method7540(arg1, local338, local56, local163, arg2.anInt2592);
+                Static142.aClass327_1.method7540(arg1, local338, local56, local163, arg2.textColour);
                 local163 += Static142.aClass327_1.method7536();
             }
         }
-        if (arg2.anInt2596 == -1 && arg2.aString25 == null) {
+        if (arg2.sprite == -1 && arg2.text == null) {
             return;
         }
         local15 >>= 0x1;

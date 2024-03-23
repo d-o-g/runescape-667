@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.Deque;
+import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

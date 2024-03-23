@@ -523,7 +523,7 @@ public final class NPCType {
     }
 
     @OriginalMember(owner = "client!o", name = "a", descriptor = "(BLjava/lang/String;I)Ljava/lang/String;")
-    public String getParam(@OriginalArg(1) String dflt, @OriginalArg(2) int id) {
+    public String param(@OriginalArg(1) String dflt, @OriginalArg(2) int id) {
         if (this.params == null) {
             return dflt;
         } else {

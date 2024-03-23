@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.meltype.MapElementType;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -14,7 +15,7 @@ public final class Static122 {
             return null;
         } else {
             @Pc(42) MapElementType local42 = WorldMap.mapElementTypeList.list(local23.id);
-            return local42 != null && local42.aBoolean217 && local42.method2425(WorldMap.varDomain) ? local23 : Static364.method5248();
+            return local42 != null && local42.aBoolean217 && local42.variableTest(WorldMap.varDomain) ? local23 : Static364.method5248();
         }
     }
 

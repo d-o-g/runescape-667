@@ -9,6 +9,8 @@ import com.jagex.game.runetek6.config.flotype.FloorOverlayType;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
 import com.jagex.game.runetek6.config.flutype.FloorUnderlayType;
 import com.jagex.game.runetek6.config.flutype.FloorUnderlayTypeList;
+import com.jagex.game.runetek6.config.meltype.MapElementType;
+import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
 import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -349,7 +351,7 @@ public final class WorldMap {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
                     @Pc(269) int drawY = newY + ((newHeight * (areaHeight - entry.y)) / areaHeight);
                     arg1.fillRect(4, 4, drawY - 2, drawX - 2, (alpha << 24) | 0xFFFF00);
-                } else if (Static409.anInt6318 != -1 && Static409.anInt6318 == elementType.anInt2597) {
+                } else if (Static409.anInt6318 != -1 && Static409.anInt6318 == elementType.category) {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
                     @Pc(269) int drawY = newY + (((areaHeight - entry.y) * newHeight) / areaHeight);
                     arg1.fillRect(4, 4, drawY - 2, drawX + -2, (alpha << 24) | 0xFFFF00);
@@ -1102,19 +1104,19 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!fu;Lclient!el;)V")
     public static void method5071(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) MapElementListEntry arg1, @OriginalArg(2) MapElementType arg2) {
-        if (arg2.anIntArray228 == null) {
+        if (arg2.landmarkPolygons == null) {
             return;
         }
-        @Pc(7) int[] local7 = new int[arg2.anIntArray228.length];
+        @Pc(7) int[] local7 = new int[arg2.landmarkPolygons.length];
         @Pc(20) int local20;
         @Pc(32) int local32;
         for (@Pc(9) int local9 = 0; local9 < local7.length / 2; local9++) {
-            local20 = arg2.anIntArray228[local9 * 2] + arg1.x;
-            local32 = arg2.anIntArray228[local9 * 2 + 1] + arg1.y;
+            local20 = arg2.landmarkPolygons[local9 * 2] + arg1.x;
+            local32 = arg2.landmarkPolygons[local9 * 2 + 1] + arg1.y;
             local7[local9 * 2] = anInt5649 + (anInt5651 - anInt5649) * (local20 - anInt5652) / (anInt5647 - anInt5652);
             local7[local9 * 2 + 1] = anInt5646 - (anInt5646 - anInt5653) * (local32 - anInt5654) / (anInt5645 - anInt5654);
         }
-        Static141.method2371(arg0, local7, arg2.anInt2610);
+        Static141.method2371(arg0, local7, arg2.landmarkBackground);
         if (arg2.anInt2603 > 0) {
             @Pc(102) int local102;
             @Pc(110) int local110;
@@ -1138,7 +1140,7 @@ public final class WorldMap {
                     local102 = local120;
                     local120 = local125;
                 }
-                arg0.method7995(local32, local102, local110, local120, arg2.anIntArray229[arg2.aByteArray31[local20] & 0xFF], arg2.anInt2603, arg2.anInt2587, arg2.anInt2607);
+                arg0.method7995(local32, local102, local110, local120, arg2.landmarkPalette[arg2.landmarkColorIndices[local20] & 0xFF], arg2.anInt2603, arg2.anInt2587, arg2.anInt2607);
             }
             local32 = local7[local7.length - 2];
             local102 = local7[local7.length - 1];
@@ -1156,13 +1158,13 @@ public final class WorldMap {
                 local102 = local120;
                 local120 = local125;
             }
-            arg0.method7995(local32, local102, local110, local120, arg2.anIntArray229[arg2.aByteArray31[arg2.aByteArray31.length - 1] & 0xFF], arg2.anInt2603, arg2.anInt2587, arg2.anInt2607);
+            arg0.method7995(local32, local102, local110, local120, arg2.landmarkPalette[arg2.landmarkColorIndices[arg2.landmarkColorIndices.length - 1] & 0xFF], arg2.anInt2603, arg2.anInt2587, arg2.anInt2607);
             return;
         }
         for (local20 = 0; local20 < local7.length / 2 - 1; local20++) {
-            arg0.method7954(local7[(local20 + 1) * 2 + 1], local7[local20 * 2 + 1], local7[(local20 + 1) * 2], arg2.anIntArray229[arg2.aByteArray31[local20] & 0xFF], local7[local20 * 2]);
+            arg0.method7954(local7[(local20 + 1) * 2 + 1], local7[local20 * 2 + 1], local7[(local20 + 1) * 2], arg2.landmarkPalette[arg2.landmarkColorIndices[local20] & 0xFF], local7[local20 * 2]);
         }
-        arg0.method7954(local7[1], local7[local7.length - 1], local7[0], arg2.anIntArray229[arg2.aByteArray31[arg2.aByteArray31.length - 1] & 0xFF], local7[local7.length - 2]);
+        arg0.method7954(local7[1], local7[local7.length - 1], local7[0], arg2.landmarkPalette[arg2.landmarkColorIndices[arg2.landmarkColorIndices.length - 1] & 0xFF], local7[local7.length - 2]);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!fu;IIII)V")

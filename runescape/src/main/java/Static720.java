@@ -3,6 +3,7 @@ import com.jagex.SignedResource;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -24,15 +25,15 @@ public final class Static720 {
     public static void method9396(@OriginalArg(0) int arg0, @OriginalArg(1) MapElementListEntry arg1, @OriginalArg(2) int arg2, @OriginalArg(3) MapElementType arg3, @OriginalArg(4) Class327 arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Toolkit arg6, @OriginalArg(8) int arg7) {
         @Pc(14) int local14 = arg2 - arg5 / 2 - 5;
         @Pc(18) int local18 = arg7 + 2;
-        if (arg3.anInt2605 != 0) {
-            arg6.fillRect(arg5 + 10, arg0 * arg4.method7536() + 1 + arg7 + -local18, local18, local14, arg3.anInt2605);
+        if (arg3.fillColour != 0) {
+            arg6.fillRect(arg5 + 10, arg0 * arg4.method7536() + 1 + arg7 + -local18, local18, local14, arg3.fillColour);
         }
-        if (arg3.anInt2608 != 0) {
-            arg6.method7945(local18, arg3.anInt2608, arg5 + 10, arg4.method7536() * arg0 + 1 + arg7 + -local18, local14);
+        if (arg3.outlineColour != 0) {
+            arg6.method7945(local18, arg3.outlineColour, arg5 + 10, arg4.method7536() * arg0 + 1 + arg7 + -local18, local14);
         }
-        @Pc(73) int local73 = arg3.anInt2592;
-        if (arg1.aBoolean256 && arg3.anInt2589 != -1) {
-            local73 = arg3.anInt2589;
+        @Pc(73) int local73 = arg3.textColour;
+        if (arg1.aBoolean256 && arg3.hoverTextColour != -1) {
+            local73 = arg3.hoverTextColour;
         }
         for (@Pc(87) int local87 = 0; local87 < arg0; local87++) {
             @Pc(93) String local93 = Static37.aStringArray5[local87];

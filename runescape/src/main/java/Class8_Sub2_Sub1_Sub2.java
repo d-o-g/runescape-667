@@ -3,6 +3,8 @@ import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.hitmarktype.HitmarkType;
+import com.jagex.game.runetek6.config.hitmarktype.HitmarkTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
@@ -443,9 +445,9 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         @Pc(50) int local50 = -1;
         @Pc(52) int local52 = 0;
         if (arg6 >= 0) {
-            @Pc(59) Class285 local59 = HitmarkTypeList.instance.list(arg6);
-            local50 = local59.anInt7195;
-            local52 = local59.anInt7192;
+            @Pc(59) HitmarkType local59 = HitmarkTypeList.instance.list(arg6);
+            local50 = local59.comparisonType;
+            local52 = local59.duration;
         }
         @Pc(78) int local78;
         if (local7) {

@@ -1,5 +1,7 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.config.hitmarktype.HitmarkType;
+import com.jagex.game.runetek6.config.hitmarktype.HitmarkTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
@@ -275,19 +277,19 @@ public final class Static608 {
                 for (local267 = 0; local267 < Static523.graphicsDefaults.maxhitmarks; local267++) {
                     local1179 = local51.anIntArray871[local267];
                     local504 = local51.anIntArray873[local267];
-                    @Pc(1186) Class285 local1186 = null;
+                    @Pc(1186) HitmarkType local1186 = null;
                     local651 = 0;
                     if (local504 >= 0) {
                         if (TimeUtils.clock >= local1179) {
                             continue;
                         }
                         local1186 = HitmarkTypeList.instance.list(local51.anIntArray873[local267]);
-                        local651 = local1186.anInt7192;
+                        local651 = local1186.duration;
                     } else if (local1179 < 0) {
                         continue;
                     }
                     local321 = local51.anIntArray876[local267];
-                    @Pc(1218) Class285 local1218 = null;
+                    @Pc(1218) HitmarkType local1218 = null;
                     if (local321 >= 0) {
                         local1218 = HitmarkTypeList.instance.list(local321);
                     }
@@ -326,7 +328,7 @@ public final class Static608 {
                                 @Pc(1355) int local1355 = 0;
                                 @Pc(1357) int local1357 = 0;
                                 @Pc(1359) int local1359 = 0;
-                                @Pc(1364) Sprite local1364 = local1186.method6454(Toolkit.active);
+                                @Pc(1364) Sprite local1364 = local1186.getIcon(Toolkit.active);
                                 @Pc(1366) int local1366 = 0;
                                 @Pc(1374) int local1374;
                                 if (local1364 != null) {
@@ -338,7 +340,7 @@ public final class Static608 {
                                     }
                                     local1329 = Static167.anIntArray248[0];
                                 }
-                                @Pc(1391) Sprite local1391 = local1186.method6451(Toolkit.active);
+                                @Pc(1391) Sprite local1391 = local1186.getInner(Toolkit.active);
                                 if (local1391 != null) {
                                     local1323 = local1391.getWidth();
                                     local1374 = local1391.getHeight();
@@ -348,7 +350,7 @@ public final class Static608 {
                                     local1391.getOffsets(Static167.anIntArray248);
                                     local1331 = Static167.anIntArray248[0];
                                 }
-                                @Pc(1420) Sprite local1420 = local1186.method6452(Toolkit.active);
+                                @Pc(1420) Sprite local1420 = local1186.getLeft(Toolkit.active);
                                 if (local1420 != null) {
                                     local1325 = local1420.getWidth();
                                     local1374 = local1420.getHeight();
@@ -358,7 +360,7 @@ public final class Static608 {
                                     local1420.getOffsets(Static167.anIntArray248);
                                     local1333 = Static167.anIntArray248[0];
                                 }
-                                @Pc(1449) Sprite local1449 = local1186.method6453(Toolkit.active);
+                                @Pc(1449) Sprite local1449 = local1186.getRight(Toolkit.active);
                                 if (local1449 != null) {
                                     local1327 = local1449.getWidth();
                                     local1374 = local1449.getHeight();
@@ -369,7 +371,7 @@ public final class Static608 {
                                     local1335 = Static167.anIntArray248[0];
                                 }
                                 if (local1218 != null) {
-                                    local1337 = local1218.method6454(Toolkit.active);
+                                    local1337 = local1218.getIcon(Toolkit.active);
                                     if (local1337 != null) {
                                         local1345 = local1337.getWidth();
                                         local1374 = local1337.getHeight();
@@ -379,7 +381,7 @@ public final class Static608 {
                                         local1337.getOffsets(Static167.anIntArray248);
                                         local1353 = Static167.anIntArray248[0];
                                     }
-                                    local1339 = local1218.method6451(Toolkit.active);
+                                    local1339 = local1218.getInner(Toolkit.active);
                                     if (local1339 != null) {
                                         local1347 = local1339.getWidth();
                                         local1374 = local1339.getHeight();
@@ -389,7 +391,7 @@ public final class Static608 {
                                         local1339.getOffsets(Static167.anIntArray248);
                                         local1355 = Static167.anIntArray248[0];
                                     }
-                                    local1341 = local1218.method6452(Toolkit.active);
+                                    local1341 = local1218.getLeft(Toolkit.active);
                                     if (local1341 != null) {
                                         local1349 = local1341.getWidth();
                                         local1374 = local1341.getHeight();
@@ -399,7 +401,7 @@ public final class Static608 {
                                         }
                                         local1357 = Static167.anIntArray248[0];
                                     }
-                                    local1343 = local1218.method6453(Toolkit.active);
+                                    local1343 = local1218.getRight(Toolkit.active);
                                     if (local1343 != null) {
                                         local1351 = local1343.getWidth();
                                         local1374 = local1343.getHeight();
@@ -414,7 +416,7 @@ public final class Static608 {
                                 @Pc(1591) Font local1591 = Fonts.p11;
                                 @Pc(1593) FontMetrics local1593 = Fonts.p11Metrics;
                                 @Pc(1595) FontMetrics local1595 = Fonts.p11Metrics;
-                                local1374 = local1186.anInt7196;
+                                local1374 = local1186.font;
                                 @Pc(1607) Font local1607;
                                 @Pc(1612) FontMetrics local1612;
                                 if (local1374 >= 0) {
@@ -426,7 +428,7 @@ public final class Static608 {
                                     }
                                 }
                                 if (local1218 != null) {
-                                    local1374 = local1218.anInt7196;
+                                    local1374 = local1218.font;
                                     if (local1374 >= 0) {
                                         local1607 = Fonts.font(true, true, local1374, Toolkit.active);
                                         local1612 = Fonts.metrics(local1374, Toolkit.active);
@@ -507,8 +509,8 @@ public final class Static608 {
                                     }
                                 }
                                 local1831 = local51.anIntArray871[local267] - TimeUtils.clock;
-                                @Pc(1871) int local1871 = local1186.anInt7184 - local1186.anInt7184 * local1831 / local1186.anInt7192;
-                                @Pc(1884) int local1884 = local1831 * local1186.anInt7191 / local1186.anInt7192 - local1186.anInt7191;
+                                @Pc(1871) int local1871 = local1186.offsetX - local1186.offsetX * local1831 / local1186.duration;
+                                @Pc(1884) int local1884 = local1831 * local1186.offsetY / local1186.duration - local1186.offsetY;
                                 @Pc(1898) int local1898 = arg2 + Static215.anIntArray284[0] + local1871 - (local1719 >> 1);
                                 @Pc(1908) int local1908 = Static215.anIntArray284[1] + arg0 + local1884 - 12;
                                 @Pc(1910) int local1910 = local1908;
@@ -537,8 +539,8 @@ public final class Static608 {
                                     }
                                 }
                                 local1963 = 255;
-                                if (local1186.anInt7179 >= 0) {
-                                    local1963 = (local1831 << 8) / (local1186.anInt7192 - local1186.anInt7179);
+                                if (local1186.fadeTime >= 0) {
+                                    local1963 = (local1831 << 8) / (local1186.duration - local1186.fadeTime);
                                 }
                                 if (local1963 >= 0 && local1963 < 255) {
                                     local1969 = local1963 << 24;
@@ -558,7 +560,7 @@ public final class Static608 {
                                     if (local1449 != null) {
                                         local1449.render(local1898 + local1752 - local1335, local1908, 0, local2017, 1);
                                     }
-                                    local1589.render(local1898 + local1743, local1922, local1670, 0, local1969 | local1186.anInt7190);
+                                    local1589.render(local1898 + local1743, local1922, local1670, 0, local1969 | local1186.textColour);
                                     if (local1218 != null) {
                                         if (local1337 != null) {
                                             local1337.render(local1784 + local1898 - local1353, local1908, 0, local2017, 1);
@@ -574,7 +576,7 @@ public final class Static608 {
                                         if (local1343 != null) {
                                             local1343.render(local1898 + local1790 - local1359, local1908, 0, local2017, 1);
                                         }
-                                        local1591.render(local1792 + local1898, local1949, local1658, 0, local1218.anInt7190 | local1969);
+                                        local1591.render(local1792 + local1898, local1949, local1658, 0, local1218.textColour | local1969);
                                     }
                                 } else {
                                     if (local1364 != null) {
@@ -591,7 +593,7 @@ public final class Static608 {
                                     if (local1449 != null) {
                                         local1449.render(local1752 + local1898 - local1335, local1908);
                                     }
-                                    local1589.render(local1898 + local1743, local1922, local1670, 0, local1186.anInt7190 | 0xFF000000);
+                                    local1589.render(local1898 + local1743, local1922, local1670, 0, local1186.textColour | 0xFF000000);
                                     if (local1218 != null) {
                                         if (local1337 != null) {
                                             local1337.render(local1784 + local1898 - local1353, local1908);
@@ -607,7 +609,7 @@ public final class Static608 {
                                         if (local1343 != null) {
                                             local1343.render(local1790 + local1898 - local1359, local1908);
                                         }
-                                        local1591.render(local1792 + local1898, local1949, local1658, 0, local1218.anInt7190 | 0xFF000000);
+                                        local1591.render(local1792 + local1898, local1949, local1658, 0, local1218.textColour | 0xFF000000);
                                     }
                                 }
                                 Static682.method8927(local1910, local1915 + 1, local1898, local1719 + local1898);

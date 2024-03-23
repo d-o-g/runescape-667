@@ -23,12 +23,12 @@ public final class Static115 {
             return;
         }
         if (arg0 != -1) {
-            @Pc(28) Class389 local28 = CursorTypeList.instance.list(arg0);
-            @Pc(32) IndexedImage local32 = local28.method8934();
+            @Pc(28) CursorType local28 = CursorTypeList.instance.list(arg0);
+            @Pc(32) IndexedImage local32 = local28.getCursor();
             if (local32 == null) {
                 arg0 = -1;
             } else {
-                SignLink.instance.method8995(GameShell.canvas, local32.method9383(), new Point(local28.anInt10303, local28.anInt10308), local32.offsetX(), local32.offsetY());
+                SignLink.instance.method8995(GameShell.canvas, local32.method9383(), new Point(local28.hotspotx, local28.hotspoty), local32.offsetX(), local32.offsetY());
                 Static470.anInt7112 = arg0;
             }
         }

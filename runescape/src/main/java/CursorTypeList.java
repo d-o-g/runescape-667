@@ -17,7 +17,7 @@ public final class CursorTypeList {
     public final ReferenceCache recentUse = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!nv", name = "g", descriptor = "Lclient!dla;")
-    public final ReferenceCache aReferenceCache_143 = new ReferenceCache(2);
+    public final ReferenceCache cursorCache = new ReferenceCache(2);
 
     private final ModeGame game;
 
@@ -46,9 +46,9 @@ public final class CursorTypeList {
         synchronized (this.recentUse) {
             this.recentUse.clean(maxAge);
         }
-        local11 = this.aReferenceCache_143;
-        synchronized (this.aReferenceCache_143) {
-            this.aReferenceCache_143.clean(maxAge);
+        local11 = this.cursorCache;
+        synchronized (this.cursorCache) {
+            this.cursorCache.clean(maxAge);
         }
     }
 
@@ -58,18 +58,18 @@ public final class CursorTypeList {
         synchronized (this.recentUse) {
             this.recentUse.removeSoftReferences();
         }
-        local9 = this.aReferenceCache_143;
-        synchronized (this.aReferenceCache_143) {
-            this.aReferenceCache_143.removeSoftReferences();
+        local9 = this.cursorCache;
+        synchronized (this.cursorCache) {
+            this.cursorCache.removeSoftReferences();
         }
     }
 
     @OriginalMember(owner = "client!nv", name = "a", descriptor = "(II)Lclient!vla;")
-    public Class389 list(@OriginalArg(1) int id) {
+    public CursorType list(@OriginalArg(1) int id) {
         @Pc(6) ReferenceCache local6 = this.recentUse;
-        @Pc(18) Class389 type;
+        @Pc(18) CursorType type;
         synchronized (this.recentUse) {
-            type = (Class389) this.recentUse.get(id);
+            type = (CursorType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -81,7 +81,7 @@ public final class CursorTypeList {
             data = this.configClient.getfile(id, 33);
         }
 
-        type = new Class389();
+        type = new CursorType();
         type.myList = this;
         if (data != null) {
             type.decode(new Packet(data));
@@ -100,9 +100,9 @@ public final class CursorTypeList {
         synchronized (this.recentUse) {
             this.recentUse.reset();
         }
-        local7 = this.aReferenceCache_143;
-        synchronized (this.aReferenceCache_143) {
-            this.aReferenceCache_143.reset();
+        local7 = this.cursorCache;
+        synchronized (this.cursorCache) {
+            this.cursorCache.reset();
         }
     }
 }

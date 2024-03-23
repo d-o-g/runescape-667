@@ -1,6 +1,9 @@
+package com.jagex.game.runetek6.config.vartype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,11 +13,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!kka")
 public final class VarcTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!vs", name = "t", descriptor = "Lclient!kka;")
     public static VarcTypeList instance;
 
     @OriginalMember(owner = "client!kka", name = "b", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     private final ModeGame game;
 
@@ -31,15 +36,15 @@ public final class VarcTypeList {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
-        this.num = this.configClient.fileLimit(19);
+        this.num = this.configClient.fileLimit(Js5ConfigGroup.VARC);
     }
 
     @OriginalMember(owner = "client!kka", name = "a", descriptor = "(II)Lclient!paa;")
-    public Class284 list(@OriginalArg(0) int id) {
+    public VarcType list(@OriginalArg(0) int id) {
         @Pc(12) ReferenceCache local12 = this.recentUse;
-        @Pc(22) Class284 type;
+        @Pc(22) VarcType type;
         synchronized (this.recentUse) {
-            type = (Class284) this.recentUse.get(id);
+            type = (VarcType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -51,7 +56,7 @@ public final class VarcTypeList {
             data = this.configClient.getfile(id, 19);
         }
 
-        type = new Class284();
+        type = new VarcType();
         if (data != null) {
             type.decode(new Packet(data));
         }

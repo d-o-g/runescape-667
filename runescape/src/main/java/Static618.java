@@ -2,6 +2,7 @@ import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
+import com.jagex.game.runetek6.config.vartype.VarcTypeList;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
@@ -46,7 +47,7 @@ public final class Static618 {
         for (@Pc(80) int local80 = 0; local80 < local62; local80++) {
             @Pc(86) int local86 = arg0.g2();
             @Pc(90) int local90 = arg0.g4();
-            if (local86 < Static511.varcs.length && Static118.permVarcs[local86] && (VarcTypeList.instance.list(local86).aChar5 != '1' || local90 >= -1 && local90 <= 1)) {
+            if (local86 < Static511.varcs.length && Static118.permVarcs[local86] && (VarcTypeList.instance.list(local86).dataType != '1' || local90 >= -1 && local90 <= 1)) {
                 Static511.varcs[local86] = local90;
             }
         }

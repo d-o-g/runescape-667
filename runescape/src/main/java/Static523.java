@@ -15,6 +15,8 @@ import com.jagex.game.runetek6.config.questtype.QuestTypeList;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.game.runetek6.config.vartype.VarcTypeList;
+import com.jagex.game.runetek6.config.vartype.VarcstrTypeList;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
 import com.jagex.graphics.Toolkit;

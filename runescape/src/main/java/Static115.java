@@ -1,5 +1,7 @@
 import com.jagex.IndexedImage;
 import com.jagex.SignLink;
+import com.jagex.game.runetek6.config.cursortype.CursorType;
+import com.jagex.game.runetek6.config.cursortype.CursorTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

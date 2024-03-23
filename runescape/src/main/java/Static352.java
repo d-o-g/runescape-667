@@ -1,6 +1,7 @@
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.cursortype.CursorTypeList;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.game.runetek6.config.fonttype.FontTypeList;

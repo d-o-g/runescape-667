@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.cursortype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;

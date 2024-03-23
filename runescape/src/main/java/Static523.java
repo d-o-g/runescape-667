@@ -1,6 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.SimpleFillerDecoder;
 import com.jagex.game.runetek6.config.cursortype.CursorTypeList;
 import com.jagex.game.runetek6.config.enumtype.EnumTypeList;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;

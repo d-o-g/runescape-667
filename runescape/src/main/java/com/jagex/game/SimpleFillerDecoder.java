@@ -1,3 +1,5 @@
+package com.jagex.game;
+
 import com.jagex.game.QuickChatDynamicCommand;
 import com.jagex.game.QuickChatFillerDecoder;
 import com.jagex.game.runetek6.config.enumtype.EnumType;

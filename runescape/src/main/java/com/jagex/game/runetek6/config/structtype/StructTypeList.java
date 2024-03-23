@@ -1,5 +1,7 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
+package com.jagex.game.runetek6.config.structtype;
+
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -27,10 +29,10 @@ public final class StructTypeList {
 
     @OriginalMember(owner = "client!kq", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
     public StructTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
-        this.game=game;
-        this.languageId=languageId;
+        this.game = game;
+        this.languageId = languageId;
         this.configClient = configClient;
-        this.num=this.configClient.fileLimit(26);
+        this.num = this.configClient.fileLimit(26);
     }
 
     @OriginalMember(owner = "client!kq", name = "b", descriptor = "(Z)V")
@@ -50,11 +52,11 @@ public final class StructTypeList {
     }
 
     @OriginalMember(owner = "client!kq", name = "a", descriptor = "(II)Lclient!ab;")
-    public DoublyLinkedNode_Sub2_Sub1 list(@OriginalArg(1) int id) {
+    public StructType list(@OriginalArg(1) int id) {
         @Pc(6) ReferenceCache local6 = this.recentUse;
-        @Pc(16) DoublyLinkedNode_Sub2_Sub1 type;
+        @Pc(16) StructType type;
         synchronized (this.recentUse) {
-            type = (DoublyLinkedNode_Sub2_Sub1) this.recentUse.get(id);
+            type = (StructType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -66,7 +68,7 @@ public final class StructTypeList {
             data = this.configClient.getfile(id, 26);
         }
 
-        type = new DoublyLinkedNode_Sub2_Sub1();
+        type = new StructType();
         if (data != null) {
             type.decode(new Packet(data));
         }

@@ -16,6 +16,7 @@ import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
+import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
@@ -3040,10 +3041,10 @@ public final class ScriptRunner {
                                                 local21 = anIntArray578[anInt7142 + 1];
                                                 local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = StructTypeList.instance.list(local15).method91(local21, local3848.defaultstr);
+                                                    aStringArray37[anInt7139++] = StructTypeList.instance.list(local15).param(local21, local3848.defaultstr);
                                                     return;
                                                 }
-                                                anIntArray578[anInt7142++] = StructTypeList.instance.list(local15).method89(local3848.defaultint, local21);
+                                                anIntArray578[anInt7142++] = StructTypeList.instance.list(local15).param(local3848.defaultint, local21);
                                                 return;
                                             }
                                         } else if (arg0 < 4700) {

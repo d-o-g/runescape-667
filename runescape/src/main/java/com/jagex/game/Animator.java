@@ -16,7 +16,12 @@ public class Animator {
     public static boolean forceTweening = false;
 
     @OriginalMember(owner = "client!vt", name = "d", descriptor = "Lclient!bp;")
-    public static SeqTypeList aSeqTypeList_2;
+    public static SeqTypeList seqTL;
+
+    @OriginalMember(owner = "client!bia", name = "a", descriptor = "(Lclient!bp;I)V")
+    public static void setSeqTL(@OriginalArg(0) SeqTypeList seqTL) {
+        Animator.seqTL = seqTL;
+    }
 
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(Lclient!gu;Lclient!ka;Lclient!gu;B)V")
     public static void blend(@OriginalArg(0) Animator animator, @OriginalArg(1) Model model, @OriginalArg(2) Animator other) {
@@ -115,7 +120,7 @@ public class Animator {
             this.animation = null;
         } else {
             if (this.animation == null || animationId != this.animation.id) {
-                this.animation = aSeqTypeList_2.list(animationId);
+                this.animation = seqTL.list(animationId);
             } else if (this.animation.replayMode == SeqReplayMode.STOP) {
                 return;
             }
@@ -262,9 +267,9 @@ public class Animator {
         if (this.animation == null) {
             return false;
         }
-        @Pc(30) boolean local30 = this.primarySequences.method5769(aSeqTypeList_2, this.animation, this.nextFrame, this.currentFrame, this.animation.frames);
+        @Pc(30) boolean local30 = this.primarySequences.method5769(seqTL, this.animation, this.nextFrame, this.currentFrame, this.animation.frames);
         if (local30 && this.runSecondary && this.animation.secondaryFrames != null) {
-            this.secondarySequences.method5769(aSeqTypeList_2, this.animation, this.nextFrame, this.currentFrame, this.animation.secondaryFrames);
+            this.secondarySequences.method5769(seqTL, this.animation, this.nextFrame, this.currentFrame, this.animation.secondaryFrames);
         }
         return local30;
     }

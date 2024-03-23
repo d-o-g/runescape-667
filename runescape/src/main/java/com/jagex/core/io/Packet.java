@@ -233,7 +233,7 @@ public class Packet extends Node {
         if (nul >= 0) {
             throw new IllegalArgumentException("NUL character at " + nul + " - cannot pjstr");
         } else {
-            this.pos += Cp1252.encode(string, string.length(), this.data, this.pos);
+            this.pos += Cp1252.encode(string, string.length(), this.data, this.pos, 0);
             this.data[this.pos++] = 0;
         }
     }
@@ -246,7 +246,7 @@ public class Packet extends Node {
             throw new IllegalArgumentException("NUL character at " + nul + " - cannot pjstr2");
         } else {
             this.data[this.pos++] = 0;
-            this.pos += Cp1252.encode(string, string.length(), this.data, this.pos);
+            this.pos += Cp1252.encode(string, string.length(), this.data, this.pos, 0);
             this.data[this.pos++] = 0;
         }
     }

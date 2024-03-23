@@ -30,6 +30,28 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ca")
 public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
 
+    @OriginalMember(owner = "client!kw", name = "r", descriptor = "[I")
+    public static int[] wornObjIds;
+
+    @OriginalMember(owner = "client!naa", name = "a", descriptor = "(B)V")
+    public static void initWornObjIds() {
+        @Pc(9) int[] ids = new int[ObjTypeList.instance.num];
+
+        @Pc(11) int count = 0;
+        for (@Pc(13) int id = 0; id < ObjTypeList.instance.num; id++) {
+            @Pc(20) ObjType objType = ObjTypeList.instance.list(id);
+
+            if (objType.manwear >= 0 || objType.womanwear >= 0) {
+                ids[count++] = id;
+            }
+        }
+
+        wornObjIds = new int[count];
+        for (@Pc(58) int i = 0; i < count; i++) {
+            wornObjIds[i] = ids[i];
+        }
+    }
+
     @OriginalMember(owner = "client!rj", name = "c", descriptor = "Lclient!ca;")
     public static PlayerEntity self;
 
@@ -493,7 +515,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                         break;
                     }
                     if (local191 >= 32768) {
-                        local191 = Static349.anIntArray426[local191 - 32768];
+                        local191 = wornObjIds[local191 - 32768];
                         local139[local151] = local191 | 0x40000000;
                         local149[local151] = ObjTypeList.instance.list(local191);
                         local240 = local149[local151].team;

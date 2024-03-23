@@ -51,7 +51,7 @@ public final class DoublyLinkedNode_Sub2_Sub3 extends Node2 {
             for (local32 = 0; local32 < local22; local32++) {
                 this.anIntArray93[local32] = arg0.g2();
                 local44 = arg0.g1b();
-                this.aCharArray2[local32] = local44 == 0 ? 0 : Cp1252.decodeChar(local44);
+                this.aCharArray2[local32] = local44 == 0 ? 0 : Cp1252.decode(local44);
             }
         } else if (arg1 == 3) {
             local22 = arg0.g1();
@@ -60,7 +60,7 @@ public final class DoublyLinkedNode_Sub2_Sub3 extends Node2 {
             for (local32 = 0; local32 < local22; local32++) {
                 this.anIntArray94[local32] = arg0.g2();
                 local44 = arg0.g1b();
-                this.aCharArray3[local32] = local44 == 0 ? 0 : Cp1252.decodeChar(local44);
+                this.aCharArray3[local32] = local44 == 0 ? 0 : Cp1252.decode(local44);
             }
         }
     }

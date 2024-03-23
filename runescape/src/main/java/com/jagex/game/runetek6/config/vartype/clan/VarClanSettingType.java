@@ -25,7 +25,7 @@ public final class VarClanSettingType {
     @OriginalMember(owner = "client!fc", name = "a", descriptor = "(ILclient!ge;B)V")
     public void decode(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
         if (arg0 == 1) {
-            this.dataType = Cp1252.decodeChar(arg1.g1b());
+            this.dataType = Cp1252.decode(arg1.g1b());
         } else if (arg0 == 3) {
             this.id = arg1.g2();
             this.start = arg1.g1();

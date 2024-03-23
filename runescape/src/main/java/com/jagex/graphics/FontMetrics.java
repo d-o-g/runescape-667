@@ -179,7 +179,7 @@ public final class FontMetrics {
 
         @Pc(35) int len = text.length();
         for (@Pc(37) int i = 0; i < len; i++) {
-            @Pc(46) int curr = Cp1252.encodeChar(text.charAt(i)) & 0xFF;
+            @Pc(46) int curr = Cp1252.encode(text.charAt(i)) & 0xFF;
             @Pc(48) int width = 0;
 
             if (curr == '<') {
@@ -393,7 +393,7 @@ public final class FontMetrics {
                 }
 
                 if (openBracket == -1) {
-                    width += this.glyphWidths[Cp1252.encodeChar(curr) & 0xFF] & 0xFF;
+                    width += this.glyphWidths[Cp1252.encode(curr) & 0xFF] & 0xFF;
                     if (this.glyphSpacing != null && prev != -1) {
                         width += this.glyphSpacing[prev][curr];
                     }
@@ -465,7 +465,7 @@ public final class FontMetrics {
                 }
 
                 if (openBracket == -1) {
-                    width += this.glyphWidths[Cp1252.encodeChar(curr) & 0xFF] & 0xFF;
+                    width += this.glyphWidths[Cp1252.encode(curr) & 0xFF] & 0xFF;
                     if (this.glyphSpacing != null && prev != -1) {
                         width += this.glyphSpacing[prev][curr];
                     }

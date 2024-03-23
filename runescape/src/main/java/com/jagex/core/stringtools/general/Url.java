@@ -46,7 +46,7 @@ public final class Url {
                 i += 2;
 
                 if (v != 0 && Cp1252.contains((byte) v)) {
-                    buffer.append(Cp1252.decodeChar((byte) v));
+                    buffer.append(Cp1252.decode((byte) v));
                 }
             } else if (c == '+') {
                 buffer.append(' ');

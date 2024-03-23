@@ -8,6 +8,7 @@ import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.core.util.JagException;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.compression.huffman.WordPack;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.objtype.ObjType;
@@ -902,7 +903,7 @@ public final class Protocol {
                                                     if (!local1491 && Static659.anInt9817 == 0) {
                                                         Static511.aLongArray17[Static97.anInt2001] = local649;
                                                         Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
-                                                        local3582 = Static130.method2280(Static15.method189(local11));
+                                                        local3582 = Static130.method2280(WordPack.decode(local11));
                                                         local1021 = local446 ? 41 : 44;
                                                         if (local992 == 2 || local992 == 3) {
                                                             Static662.method8625("<img=1>" + local627, "<img=1>" + local627, -1, local3582, local3494.aString101, 0, local627, local1021);
@@ -1462,7 +1463,7 @@ public final class Protocol {
                                                                     if (!local1004 && Static659.anInt9817 == 0) {
                                                                         Static511.aLongArray17[Static97.anInt2001] = local1002;
                                                                         Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
-                                                                        local3582 = Static130.method2280(Static15.method189(local11));
+                                                                        local3582 = Static130.method2280(WordPack.decode(local11));
                                                                         if (local996 == 2) {
                                                                             Static662.method8625("<img=1>" + local629, "<img=1>" + local627, -1, local3582, null, 0, local627, 7);
                                                                         } else if (local996 == 1) {
@@ -1613,7 +1614,7 @@ public final class Protocol {
                                                                             }
                                                                         }
                                                                         if (!local6565 && Static659.anInt9817 == 0) {
-                                                                            local1750 = Static130.method2280(Static15.method189(local11));
+                                                                            local1750 = Static130.method2280(WordPack.decode(local11));
                                                                             if (local1409 == 2) {
                                                                                 Static662.method8625("<img=1>" + local629, "<img=1>" + local627, -1, local1750, null, 0, local627, 24);
                                                                             } else if (local1409 == 1) {
@@ -1894,7 +1895,7 @@ public final class Protocol {
                                                                                         local996 = local7827.anInt521;
                                                                                         local1427 = local7827.aClass2_Sub2_Sub12_1.method3903(local11);
                                                                                     } else {
-                                                                                        local1427 = Static130.method2280(Static15.method189(local11));
+                                                                                        local1427 = Static130.method2280(WordPack.decode(local11));
                                                                                     }
                                                                                     local7724.method1413(local526 >> 8, local526 & 0xFF, local1427.trim());
                                                                                     if (local1409 == 1 || local1409 == 2) {
@@ -2002,7 +2003,7 @@ public final class Protocol {
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static468.A_SERVER_PROT___212) {
                                                                             local1937 = local11.gjstr();
-                                                                            local627 = Static130.method2280(Static15.method189(local11));
+                                                                            local627 = Static130.method2280(WordPack.decode(local11));
                                                                             Static44.method1072(local627, local1937, 0, local1937, local1937, 6);
                                                                             arg0.currentProt = null;
                                                                             return true;
@@ -2175,7 +2176,7 @@ public final class Protocol {
                                                                             if (!local4857 && Static659.anInt9817 == 0) {
                                                                                 Static511.aLongArray17[Static97.anInt2001] = local8945;
                                                                                 Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
-                                                                                @Pc(9032) String local9032 = Static130.method2280(Static15.method189(local11));
+                                                                                @Pc(9032) String local9032 = Static130.method2280(WordPack.decode(local11));
                                                                                 if (local653 == 2 || local653 == 3) {
                                                                                     Static662.method8625("<img=1>" + local629, "<img=1>" + local627, -1, local9032, Base37.decodeName(local639), 0, local627, 9);
                                                                                 } else if (local653 == 1) {

@@ -1,3 +1,4 @@
+import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -26,7 +27,7 @@ public final class Static79 {
             Static393.aStringArray32[0] = local69 + ": " + local74[local76];
             if (Static134.aFileOutputStream2 != null) {
                 try {
-                    Static134.aFileOutputStream2.write(Static469.method6361(Static393.aStringArray32[0] + "\n"));
+                    Static134.aFileOutputStream2.write(Cp1252.encode(Static393.aStringArray32[0] + "\n"));
                 } catch (@Pc(129) IOException local129) {
                 }
             }

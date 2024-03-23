@@ -109,7 +109,7 @@ public abstract class Font {
         @Pc(20) int len = text.length();
 
         for (@Pc(29) int i = 0; i < len; i++) {
-            @Pc(40) char curr = (char) (Cp1252.encodeChar(text.charAt(i)) & 0xFF);
+            @Pc(40) char curr = (char) (Cp1252.encode(text.charAt(i)) & 0xFF);
 
             if (curr == '<') {
                 openBracket = i;
@@ -246,7 +246,7 @@ public abstract class Font {
         @Pc(21) int len = text.length();
 
         for (@Pc(23) int i = 0; i < len; i++) {
-            @Pc(33) char curr = (char) (Cp1252.encodeChar(text.charAt(i)) & 0xFF);
+            @Pc(33) char curr = (char) (Cp1252.encode(text.charAt(i)) & 0xFF);
             if (curr == '<') {
                 openBracket = i;
             } else {

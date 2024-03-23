@@ -19,7 +19,7 @@ public final class VarcType {
     @OriginalMember(owner = "client!paa", name = "a", descriptor = "(ILclient!ge;B)V")
     public void decode(@OriginalArg(0) int code, @OriginalArg(1) Packet packet) {
         if (code == 1) {
-            this.dataType = Cp1252.decodeChar(packet.g1b());
+            this.dataType = Cp1252.decode(packet.g1b());
         } else if (code == 2) {
             this.temporary = 0;
         }

@@ -1,7 +1,9 @@
 import com.jagex.SignLink;
-import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.Animator;
 import com.jagex.game.SimpleFillerDecoder;
+import com.jagex.game.compression.huffman.Huffman;
+import com.jagex.game.compression.huffman.WordPack;
 import com.jagex.game.runetek6.config.cursortype.CursorTypeList;
 import com.jagex.game.runetek6.config.enumtype.EnumTypeList;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
@@ -69,15 +71,6 @@ public final class Static523 {
         } else {
             return arg0 == 60;
         }
-    }
-
-    @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ILclient!ge;Ljava/lang/String;)I")
-    public static int method3446(@OriginalArg(1) Packet arg0, @OriginalArg(2) String arg1) {
-        @Pc(12) int local12 = arg0.pos;
-        @Pc(16) byte[] local16 = Static469.method6361(arg1);
-        arg0.psmarts(local16.length);
-        arg0.pos += HuffmanCodec.instance.method4440(arg0.pos, 0, local16.length, arg0.data, local16);
-        return arg0.pos - local12;
     }
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ZI)V")
@@ -296,15 +289,15 @@ public final class Static523 {
             Static110.setBillboardJs5(js5.CONFIG_BILLBOARD);
             QuickChatCatTypeList.instance = new QuickChatCatTypeList(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
             QuickChatPhraseTypeList.instance = new QuickChatPhraseTypeList(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new SimpleFillerDecoder());
-            Static412.initEquipmentMap();
+            PlayerEntity.initWornObjIds();
             LocTypeList.instance.setAnimateBackground(ClientOptions.instance.animateBackground.getValue() == 0);
             TimedVarDomain.instance = new TimedVarDomain();
             Static296.updateFeatureMask();
-            Static44.setSeqTypeList(SeqTypeList.instance);
+            Animator.setSeqTL(SeqTypeList.instance);
             ParticleManager.init(js5.CONFIG_PARTICLE);
             Static405.method5592(Js5TextureSource.instance, js5.MODELS);
-            @Pc(1119) HuffmanCodec codec = new HuffmanCodec(js5.BINARY.getfile("huffman", ""));
-            HuffmanCodec.setInstance(codec);
+            @Pc(1119) Huffman codec = new Huffman(js5.BINARY.getfile("huffman", ""));
+            WordPack.setHuffman(codec);
 
             try {
                 jagmisc.init();

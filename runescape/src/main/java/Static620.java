@@ -1,4 +1,3 @@
-import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
@@ -125,11 +124,6 @@ public final class Static620 {
             local553 = Fonts.b12;
         }
         Static256.method3639(local553, local10.text, local555, arg1, local10.textColour, local36, arg7, arg2, arg0, arg5, arg6);
-    }
-
-    @OriginalMember(owner = "client!tka", name = "a", descriptor = "([BZ)Ljava/lang/String;")
-    public static String method8323(@OriginalArg(0) byte[] arg0) {
-        return Cp1252.decode(0, arg0, arg0.length);
     }
 
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "(IIIIIII)V")

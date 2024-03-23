@@ -1,6 +1,7 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhat;
+import com.jagex.game.compression.huffman.WordPack;
 import com.jagex.game.runetek6.config.enumtype.EnumMapping;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
@@ -3692,7 +3693,7 @@ public final class ScriptRunner {
                     local366.buffer.p2(0);
                     local375 = local366.buffer.pos;
                     local366.buffer.pjstr(local95);
-                    Static523.method3446(local366.buffer, local101);
+                    WordPack.encode(local366.buffer, local101);
                     local366.buffer.psize2(local366.buffer.pos - local375);
                     local360.send(local366);
                     return;
@@ -6391,7 +6392,7 @@ public final class ScriptRunner {
         @Pc(665) int local665 = local656.buffer.pos;
         local656.buffer.p1(local20);
         local656.buffer.p1(local460);
-        Static523.method3446(local656.buffer, arg0);
+        WordPack.encode(local656.buffer, arg0);
         local656.buffer.psize1(local656.buffer.pos - local665);
         local650.send(local656);
     }

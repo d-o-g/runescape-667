@@ -41,7 +41,7 @@ public final class ParamType {
     @OriginalMember(owner = "client!po", name = "a", descriptor = "(IILclient!ge;)V")
     public void decode(@OriginalArg(1) int code, @OriginalArg(2) Packet packet) {
         if (code == 1) {
-            this.type = Cp1252.decodeChar(packet.g1b());
+            this.type = Cp1252.decode(packet.g1b());
         } else if (code == 2) {
             this.defaultint = packet.g4();
         } else if (code == 4) {

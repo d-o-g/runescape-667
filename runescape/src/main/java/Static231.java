@@ -1,6 +1,8 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
+import com.jagex.core.stringtools.general.Cp1252;
+import com.jagex.game.compression.huffman.WordPack;
 import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
 import com.jagex.game.runetek6.config.msitype.MSITypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
@@ -567,7 +569,7 @@ public final class Static231 {
                     local521 = local1839.buffer.pos;
                     local582 = arg2.indexOf(" ", 4);
                     local1839.buffer.pjstr(arg2.substring(3, local582));
-                    Static523.method3446(local1839.buffer, arg2.substring(local582));
+                    WordPack.encode(local1839.buffer, arg2.substring(local582));
                     local1839.buffer.psize1(local1839.buffer.pos - local521);
                     local1833.send(local1839);
                     return;
@@ -779,7 +781,7 @@ public final class Static231 {
                         Static79.method1579("Failed to read file");
                         return;
                     }
-                    local1621 = Static189.method2861(Static366.method5261(Static620.method8323(local2712), ""), '\n');
+                    local1621 = Static189.method2861(Static366.method5261(Cp1252.decode(local2712), ""), '\n');
                     Static363.method6234(local1621);
                 }
                 if (arg2.startsWith("zoom ")) {

@@ -1,15 +1,12 @@
 package com.jagex.game.runetek6.config.enumtype;
 
-import com.jagex.game.runetek6.config.enumtype.EnumMapping;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
-import com.jagex.game.runetek6.config.enumtype.EnumMappingFrequency;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.stringtools.general.StringTools;
-import com.jagex.game.runetek6.config.enumtype.EnumStringMapping;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -232,9 +229,9 @@ public final class EnumType {
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(IILclient!ge;)V")
     public void decode(@OriginalArg(0) int code, @OriginalArg(2) Packet packet) {
         if (code == 1) {
-            this.keyType = Cp1252.decodeChar(packet.g1b());
+            this.keyType = Cp1252.decode(packet.g1b());
         } else if (code == 2) {
-            this.valType = Cp1252.decodeChar(packet.g1b());
+            this.valType = Cp1252.decode(packet.g1b());
         } else if (code == 3) {
             this.defaultStr = packet.gjstr();
         } else if (code == 4) {

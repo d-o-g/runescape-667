@@ -1,38 +1,33 @@
+package com.jagex.game.compression.huffman;
+
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!jm")
-public final class HuffmanCodec {
-
-    @OriginalMember(owner = "client!uba", name = "a", descriptor = "Lclient!jm;")
-    public static HuffmanCodec instance;
-
-    @OriginalMember(owner = "client!kp", name = "a", descriptor = "(ILclient!jm;)V")
-    public static void setInstance(@OriginalArg(1) HuffmanCodec codec) {
-        instance = codec;
-    }
+public final class Huffman {
 
     @OriginalMember(owner = "client!jm", name = "o", descriptor = "[I")
     public final int[] anIntArray374;
 
     @OriginalMember(owner = "client!jm", name = "l", descriptor = "[B")
-    public final byte[] aByteArray50;
+    public final byte[] codewords;
 
     @OriginalMember(owner = "client!jm", name = "j", descriptor = "[I")
     public int[] anIntArray373;
 
     @OriginalMember(owner = "client!jm", name = "<init>", descriptor = "([B)V")
-    public HuffmanCodec(@OriginalArg(0) byte[] arg0) {
-        @Pc(6) int local6 = arg0.length;
-        this.anIntArray374 = new int[local6];
-        this.aByteArray50 = arg0;
+    public Huffman(@OriginalArg(0) byte[] codewords) {
+        @Pc(6) int length = codewords.length;
+        this.anIntArray374 = new int[length];
+        this.codewords = codewords;
         this.anIntArray373 = new int[8];
+
         @Pc(20) int[] local20 = new int[33];
         @Pc(22) int local22 = 0;
-        for (@Pc(24) int local24 = 0; local24 < local6; local24++) {
-            @Pc(30) byte local30 = arg0[local24];
+        for (@Pc(24) int local24 = 0; local24 < length; local24++) {
+            @Pc(30) byte local30 = codewords[local24];
             if (local30 != 0) {
                 @Pc(42) int local42 = 0x1 << 32 - local30;
                 @Pc(46) int local46 = local20[local30];
@@ -92,165 +87,168 @@ public final class HuffmanCodec {
     }
 
     @OriginalMember(owner = "client!jm", name = "a", descriptor = "([BI[BIII)I")
-    public int method4438(@OriginalArg(0) byte[] arg0, @OriginalArg(2) byte[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        if (arg2 == 0) {
+    public int decompress(@OriginalArg(0) byte[] dest, @OriginalArg(2) byte[] src, @OriginalArg(3) int length, @OriginalArg(4) int pos, @OriginalArg(5) int off) {
+        if (length == 0) {
             return 0;
         }
-        @Pc(17) int local17 = arg2;
+
+        @Pc(17) int local17 = length;
         @Pc(19) int local19 = 0;
-        @Pc(21) int local21 = arg3;
+        @Pc(21) int currPos = pos;
         while (true) {
-            @Pc(25) byte local25 = arg1[local21];
-            if (local25 >= 0) {
+            @Pc(25) byte c = src[currPos];
+            if (c >= 0) {
                 local19++;
             } else {
                 local19 = this.anIntArray373[local19];
             }
             @Pc(45) int local45;
             if ((local45 = this.anIntArray373[local19]) < 0) {
-                arg0[arg4++] = (byte) ~local45;
-                if (arg4 >= local17) {
+                dest[off++] = (byte) ~local45;
+                if (off >= local17) {
                     break;
                 }
                 local19 = 0;
             }
-            if ((local25 & 0x40) == 0) {
+            if ((c & 0x40) == 0) {
                 local19++;
             } else {
                 local19 = this.anIntArray373[local19];
             }
             @Pc(87) int local87;
             if ((local87 = this.anIntArray373[local19]) < 0) {
-                arg0[arg4++] = (byte) ~local87;
-                if (arg4 >= local17) {
+                dest[off++] = (byte) ~local87;
+                if (off >= local17) {
                     break;
                 }
                 local19 = 0;
             }
-            if ((local25 & 0x20) == 0) {
+            if ((c & 0x20) == 0) {
                 local19++;
             } else {
                 local19 = this.anIntArray373[local19];
             }
             @Pc(130) int local130;
             if ((local130 = this.anIntArray373[local19]) < 0) {
-                arg0[arg4++] = (byte) ~local130;
-                if (local17 <= arg4) {
+                dest[off++] = (byte) ~local130;
+                if (local17 <= off) {
                     break;
                 }
                 local19 = 0;
             }
-            if ((local25 & 0x10) == 0) {
+            if ((c & 0x10) == 0) {
                 local19++;
             } else {
                 local19 = this.anIntArray373[local19];
             }
             @Pc(172) int local172;
             if ((local172 = this.anIntArray373[local19]) < 0) {
-                arg0[arg4++] = (byte) ~local172;
-                if (local17 <= arg4) {
+                dest[off++] = (byte) ~local172;
+                if (local17 <= off) {
                     break;
                 }
                 local19 = 0;
             }
-            if ((local25 & 0x8) == 0) {
+            if ((c & 0x8) == 0) {
                 local19++;
             } else {
                 local19 = this.anIntArray373[local19];
             }
             @Pc(208) int local208;
             if ((local208 = this.anIntArray373[local19]) < 0) {
-                arg0[arg4++] = (byte) ~local208;
-                if (arg4 >= local17) {
+                dest[off++] = (byte) ~local208;
+                if (off >= local17) {
                     break;
                 }
                 local19 = 0;
             }
-            if ((local25 & 0x4) == 0) {
+            if ((c & 0x4) == 0) {
                 local19++;
             } else {
                 local19 = this.anIntArray373[local19];
             }
             @Pc(247) int local247;
             if ((local247 = this.anIntArray373[local19]) < 0) {
-                arg0[arg4++] = (byte) ~local247;
-                if (arg4 >= local17) {
+                dest[off++] = (byte) ~local247;
+                if (off >= local17) {
                     break;
                 }
                 local19 = 0;
             }
-            if ((local25 & 0x2) == 0) {
+            if ((c & 0x2) == 0) {
                 local19++;
             } else {
                 local19 = this.anIntArray373[local19];
             }
             @Pc(289) int local289;
             if ((local289 = this.anIntArray373[local19]) < 0) {
-                arg0[arg4++] = (byte) ~local289;
-                if (arg4 >= local17) {
+                dest[off++] = (byte) ~local289;
+                if (off >= local17) {
                     break;
                 }
                 local19 = 0;
             }
-            if ((local25 & 0x1) == 0) {
+            if ((c & 0x1) == 0) {
                 local19++;
             } else {
                 local19 = this.anIntArray373[local19];
             }
             @Pc(325) int local325;
             if ((local325 = this.anIntArray373[local19]) < 0) {
-                arg0[arg4++] = (byte) ~local325;
-                if (local17 <= arg4) {
+                dest[off++] = (byte) ~local325;
+                if (local17 <= off) {
                     break;
                 }
                 local19 = 0;
             }
-            local21++;
+            currPos++;
         }
-        return local21 + 1 - arg3;
+        return currPos + 1 - pos;
     }
 
     @OriginalMember(owner = "client!jm", name = "a", descriptor = "(IIII[B[B)I")
-    public int method4440(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) byte[] arg3, @OriginalArg(5) byte[] arg4) {
+    public int compress(@OriginalArg(0) int pos, @OriginalArg(1) int off, @OriginalArg(2) int length, @OriginalArg(4) byte[] dest, @OriginalArg(5) byte[] src) {
         @Pc(19) int local19 = 0;
-        @Pc(23) int local23 = arg2;
-        @Pc(27) int local27 = arg0 << 3;
-        while (local23 > arg1) {
-            @Pc(34) int local34 = arg4[arg1] & 0xFF;
-            @Pc(39) int local39 = this.anIntArray374[local34];
-            @Pc(44) byte local44 = this.aByteArray50[local34];
-            if (local44 == 0) {
-                throw new RuntimeException("No codeword for data value " + local34);
+        @Pc(23) int local23 = length;
+        @Pc(27) int local27 = pos << 3;
+        while (local23 > off) {
+            @Pc(34) int value = src[off] & 0xFF;
+            @Pc(39) int local39 = this.anIntArray374[value];
+
+            @Pc(44) byte code = this.codewords[value];
+            if (code == 0) {
+                throw new RuntimeException("No codeword for data value " + value);
             }
+
             @Pc(64) int local64 = local27 >> 3;
             @Pc(68) int local68 = local27 & 0x7;
             local19 &= -local68 >> 31;
-            @Pc(85) int local85 = local64 + (local68 + local44 - 1 >> 3);
-            local27 += local44;
+            @Pc(85) int local85 = local64 + (local68 + code - 1 >> 3);
+            local27 += code;
             @Pc(90) int local90 = local68 + 24;
-            arg3[local64] = (byte) (local19 |= local39 >>> local90);
+            dest[local64] = (byte) (local19 |= local39 >>> local90);
             if (local64 < local85) {
                 local68 = local90 - 8;
                 local64++;
-                arg3[local64] = (byte) (local19 = local39 >>> local68);
+                dest[local64] = (byte) (local19 = local39 >>> local68);
                 if (local64 < local85) {
                     local64++;
                     local68 -= 8;
-                    arg3[local64] = (byte) (local19 = local39 >>> local68);
+                    dest[local64] = (byte) (local19 = local39 >>> local68);
                     if (local85 > local64) {
                         local68 -= 8;
                         local64++;
-                        arg3[local64] = (byte) (local19 = local39 >>> local68);
+                        dest[local64] = (byte) (local19 = local39 >>> local68);
                         if (local85 > local64) {
                             local64++;
                             local68 -= 8;
-                            arg3[local64] = (byte) (local19 = local39 << -local68);
+                            dest[local64] = (byte) (local19 = local39 << -local68);
                         }
                     }
                 }
             }
-            arg1++;
+            off++;
         }
-        return (local27 + 7 >> 3) - arg0;
+        return (local27 + 7 >> 3) - pos;
     }
 }

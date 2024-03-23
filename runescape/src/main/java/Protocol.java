@@ -1080,7 +1080,7 @@ public final class Protocol {
                                                         Static194.anIntArray268[local100] = local526;
                                                         arg0.currentProt = null;
                                                         return true;
-                                                    } else if (Static284.A_SERVER_PROT___116 == arg0.currentProt) {
+                                                    } else if (ServerProt.SOUND_AREA == arg0.currentProt) {
                                                         Static605.method7912(Static481.aClass287_15);
                                                         arg0.currentProt = null;
                                                         return true;

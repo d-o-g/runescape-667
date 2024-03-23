@@ -50,6 +50,13 @@ public final class ServerProt {
     @OriginalMember(owner = "client!bja", name = "e", descriptor = "Lclient!lga;")
     public static final ServerProt VARP_SMALL = new ServerProt(101, 3);
 
+//  by default the client incorrectly allocates 6 bytes here, the decoder attempts to read 8
+//    @OriginalMember(owner = "client!iu", name = "c", descriptor = "Lclient!lga;")
+//    public static final ServerProt SOUND_AREA = new ServerProt(65,  6);
+
+    @OriginalMember(owner = "client!iu", name = "c", descriptor = "Lclient!lga;")
+    public static final ServerProt SOUND_AREA = new ServerProt(65, 8);
+
     @OriginalMember(owner = "client!lga", name = "e", descriptor = "I")
     public final int opcode;
 

@@ -13,11 +13,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ef")
 public final class FloorOverlayTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!oo", name = "p", descriptor = "Lclient!ef;")
     public static FloorOverlayTypeList instance;
 
     @OriginalMember(owner = "client!ef", name = "b", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     @OriginalMember(owner = "client!ef", name = "i", descriptor = "I")
     public int dflt = 0;

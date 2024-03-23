@@ -1,5 +1,7 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
+package com.jagex.game.runetek6.config.flutype;
+
 import com.jagex.core.constants.ModeGame;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -10,13 +12,16 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!dh")
 public final class FloorUnderlayTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 128;
+
     @OriginalMember(owner = "client!r", name = "z", descriptor = "Lclient!dh;")
     public static FloorUnderlayTypeList instance;
 
     @OriginalMember(owner = "client!dh", name = "i", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(128);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     private final ModeGame game;
+
     private final int languageId;
 
     @OriginalMember(owner = "client!dh", name = "b", descriptor = "Lclient!sb;")
@@ -25,11 +30,11 @@ public final class FloorUnderlayTypeList {
     private final int num;
 
     @OriginalMember(owner = "client!dh", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public FloorUnderlayTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId,@OriginalArg(2) js5 configClient) {
-        this.game=game;
-        this.languageId=languageId;
+    public FloorUnderlayTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+        this.game = game;
+        this.languageId = languageId;
         this.configClient = configClient;
-        this.num=this.configClient.fileLimit(1);
+        this.num = this.configClient.fileLimit(1);
     }
 
     @OriginalMember(owner = "client!dh", name = "a", descriptor = "(II)Lclient!nq;")

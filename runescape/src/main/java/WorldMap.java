@@ -7,6 +7,8 @@ import com.jagex.core.io.Packet;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayType;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
+import com.jagex.game.runetek6.config.flutype.FloorUnderlayType;
+import com.jagex.game.runetek6.config.flutype.FloorUnderlayTypeList;
 import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;

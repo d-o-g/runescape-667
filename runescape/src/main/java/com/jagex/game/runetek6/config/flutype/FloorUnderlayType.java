@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.flutype;
+
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -20,55 +22,56 @@ public final class FloorUnderlayType {
     public int anInt6639;
 
     @OriginalMember(owner = "client!nq", name = "n", descriptor = "I")
-    public int anInt6633 = -1;
+    public int texture = -1;
 
     @OriginalMember(owner = "client!nq", name = "j", descriptor = "I")
-    public int anInt6634 = 0;
+    public int colour = 0;
 
     @OriginalMember(owner = "client!nq", name = "b", descriptor = "Z")
-    public boolean aBoolean497 = true;
+    public boolean occludes = true;
 
     @OriginalMember(owner = "client!nq", name = "m", descriptor = "I")
-    public int anInt6635 = 512;
+    public int size = 512;
 
     @OriginalMember(owner = "client!nq", name = "h", descriptor = "Z")
-    public boolean aBoolean498 = true;
+    public boolean allowShadow = true;
 
     @OriginalMember(owner = "client!nq", name = "a", descriptor = "(ILclient!ge;I)V")
-    public void method5920(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
+    public void decode(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
         if (arg0 == 1) {
-            this.anInt6634 = arg1.g3();
-            this.method5922(this.anInt6634);
+            this.colour = arg1.g3();
+            this.computeHsl(this.colour);
         } else if (arg0 == 2) {
-            this.anInt6633 = arg1.g2();
-            if (this.anInt6633 == 65535) {
-                this.anInt6633 = -1;
+            this.texture = arg1.g2();
+            if (this.texture == 65535) {
+                this.texture = -1;
             }
         } else if (arg0 == 3) {
-            this.anInt6635 = arg1.g2() << 2;
+            this.size = arg1.g2() << 2;
         } else if (arg0 == 4) {
-            this.aBoolean498 = false;
+            this.allowShadow = false;
         } else if (arg0 == 5) {
-            this.aBoolean497 = false;
+            this.occludes = false;
         }
     }
 
     @OriginalMember(owner = "client!nq", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void decode(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(3) int local3 = arg0.g1();
-            if (local3 == 0) {
+            @Pc(3) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method5920(local3, arg0);
+
+            this.decode(code, packet);
         }
     }
 
     @OriginalMember(owner = "client!nq", name = "a", descriptor = "(II)V")
-    public void method5922(@OriginalArg(0) int arg0) {
-        @Pc(12) double local12 = (double) (arg0 >> 16 & 0xFF) / 256.0D;
-        @Pc(21) double local21 = (double) (arg0 >> 8 & 0xFF) / 256.0D;
-        @Pc(28) double local28 = (double) (arg0 & 0xFF) / 256.0D;
+    public void computeHsl(@OriginalArg(0) int colour) {
+        @Pc(12) double local12 = (double) (colour >> 16 & 0xFF) / 256.0D;
+        @Pc(21) double local21 = (double) (colour >> 8 & 0xFF) / 256.0D;
+        @Pc(28) double local28 = (double) (colour & 0xFF) / 256.0D;
         @Pc(30) double local30 = local12;
         if (local12 > local21) {
             local30 = local21;

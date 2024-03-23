@@ -13,6 +13,7 @@ import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
 import com.jagex.math.ColourUtils;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -1496,11 +1497,11 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!bw", name = "a", descriptor = "(IZIII)V")
     public static void method1293(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        if (ClientOptions.instance.toolkit.getValue() == 0) {
+        if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
             Static668.method8700(false);
         } else {
-            Static114.anInt2256 = ClientOptions.instance.toolkit.getValue();
-            Static32.method880(0, true);
+            Static114.toolkitType = ClientOptions.instance.toolkit.getValue();
+            Static32.method880(ToolkitType.JAVA, true);
         }
         Static696.aBoolean784 = arg1;
         Static529.anInt8089 = arg2;

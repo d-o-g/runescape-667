@@ -43,9 +43,9 @@ public final class Static300 {
     @OriginalMember(owner = "client!jj", name = "a", descriptor = "(I)V")
     public static void method4393() {
         Static668.method8700(false);
-        if (Static114.anInt2256 >= 0 && Static114.anInt2256 != 0) {
-            Static32.method880(Static114.anInt2256, false);
-            Static114.anInt2256 = -1;
+        if (Static114.toolkitType >= 0 && Static114.toolkitType != 0) {
+            Static32.method880(Static114.toolkitType, false);
+            Static114.toolkitType = -1;
         }
     }
 }

@@ -14,6 +14,7 @@ import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -781,7 +782,7 @@ public final class Protocol {
                                                 local3044 = new byte[arg0.currentPacketSize];
                                                 local11.method7416(local3044, arg0.currentPacketSize);
                                                 local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
-                                                Static664.method8655(ClientOptions.instance.toolkit.getValue() == 1, local627, true, SignLink.instance);
+                                                Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local627, true, SignLink.instance);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (arg0.currentProt == Static444.A_SERVER_PROT___169) {
@@ -1496,7 +1497,7 @@ public final class Protocol {
                                                                     local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
                                                                     local629 = "opensn";
                                                                     if (!client.js || Static36.method980(SignLink.instance, local627, local629, 1).status == 2) {
-                                                                        Static259.method3693(local627, local629, SignLink.instance, ClientOptions.instance.toolkit.getValue() == 1, true);
+                                                                        Static259.method3693(local627, local629, SignLink.instance, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
                                                                     }
                                                                     arg0.currentProt = null;
                                                                     return true;

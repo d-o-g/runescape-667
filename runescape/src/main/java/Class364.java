@@ -2,6 +2,7 @@ import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.ToolkitType;
 import rs2.client.loading.LoadState;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Sprite;
@@ -159,7 +160,7 @@ public final class Class364 implements Runnable {
                             }
                         } catch (@Pc(205) Exception_Sub1 local205) {
                             JagException.sendTrace(local205, local205.getMessage() + " (Recovered) " + client.aClient1.getErrorTrace());
-                            Static32.method880(0, true);
+                            Static32.method880(ToolkitType.JAVA, true);
                         }
                     }
                     @Pc(245) Container local245;

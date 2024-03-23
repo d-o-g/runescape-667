@@ -21,13 +21,13 @@ public final class ToolkitType {
     }
 
     @OriginalMember(owner = "client!ega", name = "a", descriptor = "(IB)Z")
-    public static boolean isHardware(@OriginalArg(0) int value) {
-        return value == GL || value == D3D || value == GLX;
+    public static boolean isHardware(@OriginalArg(0) int toolkit) {
+        return toolkit == GL || toolkit == D3D || toolkit == GLX;
     }
 
     @OriginalMember(owner = "client!le", name = "a", descriptor = "(II)Z")
-    public static boolean is3d(@OriginalArg(1) int value) {
-        return value == SSE || value == D3D;
+    public static boolean is3d(@OriginalArg(1) int toolkit) {
+        return toolkit == SSE || toolkit == D3D;
     }
 
     private ToolkitType() {

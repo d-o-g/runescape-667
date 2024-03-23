@@ -334,8 +334,8 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk0")) {
-                    Static32.method880(0, false);
-                    if (ClientOptions.instance.toolkit.getValue() == 0) {
+                    Static32.method880(ToolkitType.JAVA, false);
+                    if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
                         Static79.method1579("Entered tk0");
                         ClientOptions.instance.update(0, ClientOptions.instance.toolkitDefault);
                         ClientOptions.save();
@@ -346,8 +346,8 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk1")) {
-                    Static32.method880(1, false);
-                    if (ClientOptions.instance.toolkit.getValue() == 1) {
+                    Static32.method880(ToolkitType.GL, false);
+                    if (ClientOptions.instance.toolkit.getValue() == ToolkitType.GL) {
                         Static79.method1579("Entered tk1");
                         ClientOptions.instance.update(1, ClientOptions.instance.toolkitDefault);
                         ClientOptions.save();
@@ -358,8 +358,8 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk2")) {
-                    Static32.method880(2, false);
-                    if (ClientOptions.instance.toolkit.getValue() == 2) {
+                    Static32.method880(ToolkitType.SSE, false);
+                    if (ClientOptions.instance.toolkit.getValue() == ToolkitType.SSE) {
                         Static79.method1579("Entered tk2");
                         ClientOptions.instance.update(2, ClientOptions.instance.toolkitDefault);
                         ClientOptions.save();
@@ -370,20 +370,20 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk3")) {
-                    Static32.method880(3, false);
-                    if (ClientOptions.instance.toolkit.getValue() != 3) {
-                        Static79.method1579("Failed to enter tk3");
+                    Static32.method880(ToolkitType.D3D, false);
+                    if (ClientOptions.instance.toolkit.getValue() == ToolkitType.D3D) {
+                        Static79.method1579("Entered tk3");
+                        ClientOptions.instance.update(3, ClientOptions.instance.toolkitDefault);
+                        ClientOptions.save();
+                        Static503.aBoolean578 = false;
                         return;
                     }
-                    Static79.method1579("Entered tk3");
-                    ClientOptions.instance.update(3, ClientOptions.instance.toolkitDefault);
-                    ClientOptions.save();
-                    Static503.aBoolean578 = false;
+                    Static79.method1579("Failed to enter tk3");
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk5")) {
-                    Static32.method880(5, false);
-                    if (ClientOptions.instance.toolkit.getValue() == 5) {
+                    Static32.method880(ToolkitType.GLX, false);
+                    if (ClientOptions.instance.toolkit.getValue() == ToolkitType.GLX) {
                         Static79.method1579("Entered tk5");
                         ClientOptions.instance.update(5, ClientOptions.instance.toolkitDefault);
                         ClientOptions.save();
@@ -657,7 +657,7 @@ public final class Static231 {
                 }
                 if (arg2.equals("autosetup")) {
                     Static519.method6831();
-                    Static79.method1579("Complete. com.jagex.graphics.Toolkit now: " + ClientOptions.instance.toolkit.getValue());
+                    Static79.method1579("Complete. Toolkit now: " + ClientOptions.instance.toolkit.getValue());
                     return;
                 }
                 if (arg2.equals("errormessage")) {

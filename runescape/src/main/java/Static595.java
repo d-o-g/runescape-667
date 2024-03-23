@@ -3,6 +3,7 @@ import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Node_Sub13;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -14,9 +15,9 @@ public final class Static595 {
     public static int[] anIntArray702 = new int[1];
 
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(ILjava/lang/String;ZI)V")
-    public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2) {
+    public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int toolkit) {
         Static164.method2606();
-        if (arg2 == 0) {
+        if (toolkit == ToolkitType.JAVA) {
             Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, 0, GameShell.canvas, ClientOptions.instance.antialiasingQuality.getValue() * 2);
             if (arg0 != null) {
                 Toolkit.active.GA(0);
@@ -41,7 +42,7 @@ public final class Static595 {
             {
                 try {
                     var14 = true;
-                    Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, arg2, GameShell.canvas, ClientOptions.instance.antialiasingQuality.getValue() * 2);
+                    Toolkit.active = Static255.method3612(js5.SHADERS, Static56.anTextureSource_3, toolkit, GameShell.canvas, ClientOptions.instance.antialiasingQuality.getValue() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
                         @Pc(118) FontMetrics local118 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
@@ -104,7 +105,7 @@ public final class Static595 {
             }
         }
         ClientOptions.instance.toolkit.setActive(!arg1);
-        ClientOptions.instance.update(arg2, ClientOptions.instance.toolkit);
+        ClientOptions.instance.update(toolkit, ClientOptions.instance.toolkit);
         Static112.method2109();
         Toolkit.active.method8003();
         Toolkit.active.X(32);

@@ -2,6 +2,7 @@ import com.jagex.Class84;
 import com.jagex.SignLink;
 import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -52,7 +53,7 @@ public final class Static519 {
         if (local9) {
             try {
                 local86 = Static363.method6235(1000, 3);
-                if (ClientOptions.instance.toolkit.getValue() == 3) {
+                if (ClientOptions.instance.toolkit.getValue() == ToolkitType.D3D) {
                     @Pc(114) Class84 local114 = Toolkit.active.method7981();
                     @Pc(119) long local119 = local114.aLong91 & 0xFFFFFFFFFFFFL;
                     @Pc(122) int local122 = local114.anInt2329;

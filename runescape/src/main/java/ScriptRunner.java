@@ -5,6 +5,7 @@ import com.jagex.game.DelayedStateChange;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.ToolkitType;
 import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.IterableHashTable;
@@ -4477,7 +4478,7 @@ public final class ScriptRunner {
                             return;
                         }
                         local95 = client.quitUrl == null ? Static659.method8605() : client.quitUrl;
-                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == 1, local95, false, SignLink.instance);
+                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local95, false, SignLink.instance);
                         return;
                     }
                     if (arg0 == 5419) {
@@ -4503,7 +4504,7 @@ public final class ScriptRunner {
                         local95 = aStringArray37[--anInt7139];
                         local1578 = anIntArray578[--anInt7142] == 1;
                         local198 = Static659.method8605() + local95;
-                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == 1, local198, local1578, SignLink.instance);
+                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local198, local1578, SignLink.instance);
                         return;
                     }
                     if (arg0 == 5422) {

@@ -23,6 +23,7 @@ import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.CachedResourceWorker;
 import com.jagex.js5.FileSystem_Client;
 import com.jagex.js5.Js5Archive;
@@ -1415,7 +1416,7 @@ public final class client extends GameShell {
                 }
             } catch (@Pc(666) Exception_Sub1 cause) {
                 JagException.sendTrace(cause, cause.getMessage() + " (Recovered) " + this.getErrorTrace());
-                Static32.method880(0, false);
+                Static32.method880(ToolkitType.JAVA, false);
             }
         }
 
@@ -1454,7 +1455,7 @@ public final class client extends GameShell {
     @OriginalMember(owner = "client!client", name = "k", descriptor = "(I)V")
     @Override
     protected void mainloop() {
-        if (ClientOptions.instance.toolkit.getValue() != 2) {
+        if (ClientOptions.instance.toolkit.getValue() != ToolkitType.SSE) {
             this.gameTick();
             return;
         }
@@ -1466,7 +1467,7 @@ public final class client extends GameShell {
         } catch (@Pc(24) Throwable cause) {
             JagException.sendTrace(cause, cause.getMessage() + " (Recovered) " + this.getErrorTrace());
             Static171.graphicsError = true;
-            Static32.method880(0, false);
+            Static32.method880(ToolkitType.JAVA, false);
         }
     }
 
@@ -1671,7 +1672,7 @@ public final class client extends GameShell {
             }
 
             try {
-                if (ClientOptions.instance.toolkit.getValue() == 2) {
+                if (ClientOptions.instance.toolkit.getValue() == ToolkitType.SSE) {
                     @Pc(273) Class local273 = Class.forName("java.lang.ClassLoader");
                     @Pc(279) Field local279 = local273.getDeclaredField("nativeLibraries");
                     @Pc(284) Class local284 = Class.forName("java.lang.reflect.AccessibleObject");
@@ -1868,7 +1869,7 @@ public final class client extends GameShell {
     @OriginalMember(owner = "client!client", name = "c", descriptor = "(I)V")
     @Override
     protected void draw() {
-        if (ClientOptions.instance.toolkit.getValue() != 2) {
+        if (ClientOptions.instance.toolkit.getValue() != ToolkitType.SSE) {
             this.mainredraw();
             return;
         }
@@ -1880,7 +1881,7 @@ public final class client extends GameShell {
         } catch (@Pc(24) Throwable cause) {
             JagException.sendTrace(cause, cause.getMessage() + " (Recovered) " + this.getErrorTrace());
             Static171.graphicsError = true;
-            Static32.method880(0, false);
+            Static32.method880(ToolkitType.JAVA, false);
         }
     }
 }

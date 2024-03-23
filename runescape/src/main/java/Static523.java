@@ -5,6 +5,7 @@ import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.ToolkitType;
 import rs2.client.loading.LoadState;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
@@ -372,7 +373,7 @@ public final class Static523 {
             }
             ClientOptions.save();
             if (Static3.chooseSafeMode) {
-                Static32.method880(0, false);
+                Static32.method880(ToolkitType.JAVA, false);
             } else {
                 Static32.method880(ClientOptions.instance.toolkitDefault.getValue(), false);
             }

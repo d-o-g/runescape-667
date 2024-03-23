@@ -13,7 +13,7 @@ public final class Static399 {
     public static final Color[] aColorArray2 = new Color[]{new Color(16777215), new Color(16777215), new Color(16741381), new Color(16741381)};
 
     @OriginalMember(owner = "client!mja", name = "a", descriptor = "(IIB)I")
-    public static int method5571(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public static int method5571(@OriginalArg(0) int toolkit, @OriginalArg(1) int arg1) {
         @Pc(27) byte local27;
         if (arg1 > 20000) {
             local27 = 4;
@@ -28,9 +28,9 @@ public final class Static399 {
             local27 = 2;
             Static75.method6239();
         }
-        if (arg0 != ClientOptions.instance.toolkit.getValue()) {
-            ClientOptions.instance.update(arg0, ClientOptions.instance.toolkitDefault);
-            Static32.method880(arg0, false);
+        if (toolkit != ClientOptions.instance.toolkit.getValue()) {
+            ClientOptions.instance.update(toolkit, ClientOptions.instance.toolkitDefault);
+            Static32.method880(toolkit, false);
         }
         ClientOptions.save();
         return local27;

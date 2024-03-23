@@ -1,3 +1,4 @@
+import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -31,9 +32,9 @@ public final class Static625 {
                 local10 = 2;
             }
         }
-        if (ClientOptions.instance.toolkit.getValue() != 0) {
-            ClientOptions.instance.update(0, ClientOptions.instance.toolkitDefault);
-            Static32.method880(0, false);
+        if (ClientOptions.instance.toolkit.getValue() != ToolkitType.JAVA) {
+            ClientOptions.instance.update(ToolkitType.JAVA, ClientOptions.instance.toolkitDefault);
+            Static32.method880(ToolkitType.JAVA, false);
         }
         ClientOptions.save();
         return local10;

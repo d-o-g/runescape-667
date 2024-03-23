@@ -1,6 +1,7 @@
 import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -19,7 +20,7 @@ public final class Static65 {
     public static int method1470() {
         @Pc(5) Toolkit local5 = Toolkit.active;
         @Pc(7) boolean local7 = false;
-        if (ClientOptions.instance.toolkit.getValue() != 0) {
+        if (ClientOptions.instance.toolkit.getValue() != ToolkitType.JAVA) {
             @Pc(19) Canvas local19 = new Canvas();
             local19.setSize(100, 100);
             local7 = true;

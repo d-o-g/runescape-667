@@ -6,6 +6,7 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -185,7 +186,7 @@ public final class Static364 {
                 Static524.aServerConnection_3.buffer.pos = 0;
                 @Pc(473) String local473 = "opensn";
                 if (!client.js || Static36.method980(SignLink.instance, local465, local473, 1).status == 2) {
-                    Static259.method3693(local465, local473, SignLink.instance, ClientOptions.instance.toolkit.getValue() == 1, true);
+                    Static259.method3693(local465, local473, SignLink.instance, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
                 }
                 Static135.anInt8223 = 6;
             }

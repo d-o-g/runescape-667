@@ -5,6 +5,7 @@ import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -489,7 +490,7 @@ public final class ClientOptions extends Node {
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(I)Z")
     public boolean isLowDetail() {
-        return this.toolkit.isActive() && this.toolkit.getValue() == 0 && this.environment.getHeapSize() < 96;
+        return this.toolkit.isActive() && this.toolkit.getValue() == ToolkitType.JAVA && this.environment.getHeapSize() < 96;
     }
 
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(ZILclient!ge;)V")

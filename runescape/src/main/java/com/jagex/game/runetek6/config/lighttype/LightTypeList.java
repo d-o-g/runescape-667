@@ -1,6 +1,9 @@
+package com.jagex.game.runetek6.config.lighttype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -10,11 +13,13 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!vga")
 public final class LightTypeList {
 
+    private static final int DEFAULT_CACHE_SIZE = 64;
+
     @OriginalMember(owner = "client!bka", name = "k", descriptor = "Lclient!vga;")
     public static LightTypeList instance;
 
     @OriginalMember(owner = "client!vga", name = "l", descriptor = "Lclient!dla;")
-    public final ReferenceCache recentUse = new ReferenceCache(64);
+    public final ReferenceCache recentUse = new ReferenceCache(DEFAULT_CACHE_SIZE);
 
     private final ModeGame game;
 
@@ -30,7 +35,7 @@ public final class LightTypeList {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
-        this.num = this.configClient.fileLimit(31);
+        this.num = this.configClient.fileLimit(Js5ConfigGroup.LIGHTTYPE);
     }
 
     @OriginalMember(owner = "client!vga", name = "b", descriptor = "(I)V")

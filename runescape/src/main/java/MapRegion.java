@@ -4,6 +4,8 @@ import com.jagex.core.constants.TileFlag;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
 import com.jagex.game.runetek6.config.flutype.FloorUnderlayTypeList;
+import com.jagex.game.runetek6.config.lighttype.LightType;
+import com.jagex.game.runetek6.config.lighttype.LightTypeList;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocOcclusionMode;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -255,7 +257,7 @@ public final class MapRegion extends Class306 {
                                             @Pc(512) EnvironmentLight local512 = new EnvironmentLight(arg3, arg1, 2);
                                             if (local512.preset == 31) {
                                                 @Pc(523) LightType local523 = LightTypeList.instance.list(arg1.g2());
-                                                local512.updateParameters(local523.anInt10374, local523.anInt10372, local523.anInt10373, local523.anInt10377);
+                                                local512.updateParameters(local523.ambient, local523.pattern, local523.amplitude, local523.frequency);
                                             }
                                             if (arg3.getMaxLights() > 0) {
                                                 @Pc(543) PointLight local543 = local512.light;
@@ -926,7 +928,7 @@ public final class MapRegion extends Class306 {
                         @Pc(78) EnvironmentLight envLight = new EnvironmentLight(toolkit, packet, 2);
                         if (envLight.preset == 31) {
                             @Pc(91) LightType type = LightTypeList.instance.list(packet.g2());
-                            envLight.updateParameters(type.anInt10374, type.anInt10372, type.anInt10373, type.anInt10377);
+                            envLight.updateParameters(type.ambient, type.pattern, type.amplitude, type.frequency);
                         }
 
                         if (toolkit.getMaxLights() > 0) {

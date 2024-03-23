@@ -1,3 +1,5 @@
+package com.jagex.game.runetek6.config.lighttype;
+
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -8,38 +10,39 @@ import org.openrs2.deob.annotation.Pc;
 public final class LightType {
 
     @OriginalMember(owner = "client!vt", name = "i", descriptor = "I")
-    public int anInt10372 = 0;
+    public int pattern = 0;
 
     @OriginalMember(owner = "client!vt", name = "e", descriptor = "I")
-    public int anInt10374 = 0;
+    public int ambient = 0;
 
     @OriginalMember(owner = "client!vt", name = "k", descriptor = "I")
-    public int anInt10373 = 2048;
+    public int amplitude = 2048;
 
     @OriginalMember(owner = "client!vt", name = "j", descriptor = "I")
-    public int anInt10377 = 2048;
+    public int frequency = 2048;
 
     @OriginalMember(owner = "client!vt", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void decode(@OriginalArg(0) Packet arg0) {
+    public void decode(@OriginalArg(0) Packet packet) {
         while (true) {
-            @Pc(15) int local15 = arg0.g1();
-            if (local15 == 0) {
+            @Pc(15) int code = packet.g1();
+            if (code == 0) {
                 return;
             }
-            this.method9007(local15, arg0);
+
+            this.decode(code, packet);
         }
     }
 
     @OriginalMember(owner = "client!vt", name = "a", descriptor = "(ILclient!ge;B)V")
-    public void method9007(@OriginalArg(0) int arg0, @OriginalArg(1) Packet arg1) {
-        if (arg0 == 1) {
-            this.anInt10372 = arg1.g1();
-        } else if (arg0 == 2) {
-            this.anInt10377 = arg1.g2();
-        } else if (arg0 == 3) {
-            this.anInt10373 = arg1.g2();
-        } else if (arg0 == 4) {
-            this.anInt10374 = arg1.g2s();
+    public void decode(@OriginalArg(0) int code, @OriginalArg(1) Packet arg1) {
+        if (code == 1) {
+            this.pattern = arg1.g1();
+        } else if (code == 2) {
+            this.frequency = arg1.g2();
+        } else if (code == 3) {
+            this.amplitude = arg1.g2();
+        } else if (code == 4) {
+            this.ambient = arg1.g2s();
         }
     }
 }

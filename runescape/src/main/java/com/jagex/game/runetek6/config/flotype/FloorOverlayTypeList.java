@@ -1,6 +1,9 @@
+package com.jagex.game.runetek6.config.flotype;
+
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.Js5ConfigGroup;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -17,7 +20,7 @@ public final class FloorOverlayTypeList {
     public final ReferenceCache recentUse = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!ef", name = "i", descriptor = "I")
-    public int anInt2509 = 0;
+    public int dflt = 0;
 
     private final ModeGame game;
 
@@ -34,7 +37,7 @@ public final class FloorOverlayTypeList {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
-        this.num = this.configClient.fileLimit(4);
+        this.num = this.configClient.fileLimit(Js5ConfigGroup.FLOTYPE);
     }
 
     @OriginalMember(owner = "client!ef", name = "a", descriptor = "(B)V")

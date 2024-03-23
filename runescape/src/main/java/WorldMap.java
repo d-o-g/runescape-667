@@ -5,6 +5,8 @@ import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.io.Packet;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.flotype.FloorOverlayType;
+import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
 import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -890,12 +892,12 @@ public final class WorldMap {
                                 if (area.anInt4561 != -1) {
                                     local175 = area.anInt4561 | 0xFF000000;
                                 } else if ((local17 + anInt5652 & 0x4) == (local57 + anInt5645 & 0x4)) {
-                                    local175 = overlayColours[floorOverlayTypeList.anInt2509 + 1];
+                                    local175 = overlayColours[floorOverlayTypeList.dflt + 1];
                                 } else {
-                                    local175 = -11840664;
+                                    local175 = 0xFF4B5368;
                                 }
                                 if (local175 == 0) {
-                                    local175 = -16777216;
+                                    local175 = 0xFF000000;
                                 }
                                 arg0.aa(local28, local70, local44, local84, local175, 0);
                             } else if (local179 <= 0) {
@@ -920,7 +922,7 @@ public final class WorldMap {
                         if (area.anInt4561 != -1) {
                             local93 = area.anInt4561 | 0xFF000000;
                         } else if ((local17 + anInt5652 & 0x4) == (local57 + anInt5645 & 0x4)) {
-                            local93 = overlayColours[floorOverlayTypeList.anInt2509 + 1];
+                            local93 = overlayColours[floorOverlayTypeList.dflt + 1];
                         } else {
                             local93 = -11840664;
                         }
@@ -1039,8 +1041,8 @@ public final class WorldMap {
         }
 
         @Pc(68) int colour;
-        if (type.anInt8248 >= 0) {
-            @Pc(27) int local27 = type.anInt8248;
+        if (type.blendColour >= 0) {
+            @Pc(27) int local27 = type.blendColour;
 
             @Pc(33) int local33 = (local27 & 0x7F) + arg3;
             if (local33 < 0) {
@@ -1053,10 +1055,10 @@ public final class WorldMap {
             colour = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(ColourUtils.method3066(local55)) & 0xFFFF] | 0xFF000000;
         } else if (texture >= 0) {
             colour = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(ColourUtils.method3066(textureSource.getMetrics(texture).aShort37)) & 0xFFFF] | 0xFF000000;
-        } else if (type.anInt8249 == -1) {
+        } else if (type.colour == -1) {
             colour = 0;
         } else {
-            @Pc(27) int local27 = type.anInt8249;
+            @Pc(27) int local27 = type.colour;
             @Pc(33) int local33 = (local27 & 0x7F) + arg3;
             if (local33 < 0) {
                 local33 = 0;

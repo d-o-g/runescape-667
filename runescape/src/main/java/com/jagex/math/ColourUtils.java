@@ -212,4 +212,78 @@ public final class ColourUtils {
             return local52 + (arg0 & 0xFF80);
         }
     }
+
+    @OriginalMember(owner = "client!fca", name = "a", descriptor = "(II)I")
+    public static int rgbToHsl(@OriginalArg(1) int rgb) {
+        @Pc(12) double r = (double) (rgb >> 16 & 0xFF) / 256.0D;
+        @Pc(21) double g = (double) (rgb >> 8 & 0xFF) / 256.0D;
+        @Pc(28) double b = (double) (rgb & 0xFF) / 256.0D;
+
+        @Pc(30) double local30 = r;
+        if (r > g) {
+            local30 = g;
+        }
+        if (local30 > b) {
+            local30 = b;
+        }
+
+        @Pc(44) double local44 = r;
+        if (g > r) {
+            local44 = g;
+        }
+        if (b > local44) {
+            local44 = b;
+        }
+
+        @Pc(58) double local58 = 0.0D;
+        @Pc(60) double local60 = 0.0D;
+        @Pc(66) double local66 = (local30 + local44) / 2.0D;
+        if (local44 != local30) {
+            if (local66 < 0.5D) {
+                local60 = (local44 - local30) / (local30 + local44);
+            }
+            if (local44 == r) {
+                local58 = (g - b) / (-local30 + local44);
+            } else if (local44 == g) {
+                local58 = (b - r) / (local44 - local30) + 2.0D;
+            } else if (local44 == b) {
+                local58 = (r - g) / (local44 - local30) + 4.0D;
+            }
+            if (local66 >= 0.5D) {
+                local60 = (local44 - local30) / (2.0D - local44 - local30);
+            }
+        }
+        local58 /= 6.0D;
+
+        @Pc(156) int local156 = (int) (local58 * 256.0D);
+
+        @Pc(168) int local168 = (int) (local60 * 256.0D);
+        if (local168 < 0) {
+            local168 = 0;
+        } else if (local168 > 255) {
+            local168 = 255;
+        }
+
+        @Pc(173) int local173 = (int) (local66 * 256.0D);
+        if (local173 < 0) {
+            local173 = 0;
+        } else if (local173 > 255) {
+            local173 = 255;
+        }
+        if (local173 > 243) {
+            local168 >>= 0x4;
+        } else if (local173 > 217) {
+            local168 >>= 0x3;
+        } else if (local173 > 192) {
+            local168 >>= 0x2;
+        } else if (local173 > 179) {
+            local168 >>= 0x1;
+        }
+
+        return (local173 >> 1) + (local168 >> 5 << 7) + ((local156 >> 2 & 0x3F) << 10);
+    }
+
+    private ColourUtils() {
+        /* empty */
+    }
 }

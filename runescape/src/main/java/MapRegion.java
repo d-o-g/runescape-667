@@ -2,6 +2,7 @@ import com.jagex.core.constants.LocLayer;
 import com.jagex.core.constants.LocShapes;
 import com.jagex.core.constants.TileFlag;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocOcclusionMode;
 import com.jagex.game.runetek6.config.loctype.LocType;

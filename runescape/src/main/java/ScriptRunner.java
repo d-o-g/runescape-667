@@ -4442,7 +4442,7 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5401) {
                         anInt7142 -= 2;
-                        client.clientpalette[anIntArray578[anInt7142]] = (short) Static166.method2616(anIntArray578[anInt7142 + 1]);
+                        client.clientpalette[anIntArray578[anInt7142]] = (short) ColourUtils.rgbToHsl(anIntArray578[anInt7142 + 1]);
                         ObjTypeList.instance.modelCacheReset();
                         ObjTypeList.instance.spriteCacheReset();
                         NPCTypeList.instance.modelCacheReset();

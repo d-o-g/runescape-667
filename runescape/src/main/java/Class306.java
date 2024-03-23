@@ -1,4 +1,6 @@
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.flotype.FloorOverlayType;
+import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -173,7 +175,7 @@ public class Class306 {
                     }
                     @Pc(93) FloorUnderlayType local93 = local59 == 0 ? null : this.aFloorUnderlayTypeList_8.list(local59 - 1);
                     @Pc(95) FloorOverlayType local95 = local72;
-                    if (local72 != null && local72.anInt8249 == -1 && local72.anInt8248 == -1) {
+                    if (local72 != null && local72.colour == -1 && local72.blendColour == -1) {
                         local95 = local72;
                         local72 = null;
                     }
@@ -191,7 +193,7 @@ public class Class306 {
                         @Pc(175) int[] local175 = new int[local143];
                         @Pc(178) int[] local178 = new int[local143];
                         @Pc(181) int[] local181 = new int[local143];
-                        @Pc(195) int[] local195 = local72 == null || local72.anInt8248 == -1 ? null : new int[local143];
+                        @Pc(195) int[] local195 = local72 == null || local72.blendColour == -1 ? null : new int[local143];
                         @Pc(199) int local199;
                         if (local72 == null) {
                             local147 = local129;
@@ -201,16 +203,16 @@ public class Class306 {
                                 local169[local145] = Static586.anIntArrayArray220[local28][local147];
                                 local172[local145] = Static551.anIntArrayArray204[local28][local147];
                                 local178[local145] = local155;
-                                local181[local145] = local72.anInt8250;
-                                local175[local145] = local72.anInt8249;
+                                local181[local145] = local72.size;
+                                local175[local145] = local72.colour;
                                 if (local195 != null) {
-                                    local195[local145] = local72.anInt8248;
+                                    local195[local145] = local72.blendColour;
                                 }
                                 local145++;
                                 local147++;
                             }
                             if (!this.underwater && arg0 == 0) {
-                                Static295.method4354(local1, local4, local72.anInt8260, local72.anInt8252 * 8, local72.anInt8256);
+                                Static295.method4354(local1, local4, local72.waterColour, local72.waterDepth * 8, local72.waterBias);
                             }
                         }
                         if (local93 != null) {
@@ -281,7 +283,7 @@ public class Class306 {
                                 local652 = false;
                             } else if (local59 == 0 && local28 != 0) {
                                 local652 = false;
-                            } else if (local48 > 0 && local95 != null && !local95.aBoolean626) {
+                            } else if (local48 > 0 && local95 != null && !local95.occludes) {
                                 local652 = false;
                             }
                             if (local652 && local388 == local383 && local477 == local383 && local383 == local485) {
@@ -306,7 +308,7 @@ public class Class306 {
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(ILclient!re;[[BIIIIILclient!ha;I[ZLclient!nq;[[B[[B)V")
     public void method7883(@OriginalArg(0) int arg0, @OriginalArg(1) FloorOverlayType arg1, @OriginalArg(2) byte[][] arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Toolkit arg7, @OriginalArg(9) int arg8, @OriginalArg(10) boolean[] arg9, @OriginalArg(11) FloorUnderlayType arg10, @OriginalArg(12) byte[][] arg11, @OriginalArg(13) byte[][] arg12) {
-        @Pc(19) boolean[] local19 = arg1 != null && arg1.aBoolean628 ? Static463.aBooleanArrayArray6[arg0] : Static435.aBooleanArrayArray5[arg0];
+        @Pc(19) boolean[] local19 = arg1 != null && arg1.blendable ? Static463.aBooleanArrayArray6[arg0] : Static435.aBooleanArrayArray5[arg0];
         @Pc(37) int local37;
         @Pc(50) FloorOverlayType local50;
         @Pc(70) byte local70;
@@ -317,16 +319,16 @@ public class Class306 {
                 local37 = arg12[arg4 - 1][arg8 - 1] & 0xFF;
                 if (local37 > 0) {
                     local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                    if (local50.anInt8249 != -1 && local50.aBoolean628) {
+                    if (local50.colour != -1 && local50.blendable) {
                         local70 = arg11[arg4 - 1][arg8 - 1];
                         local86 = arg2[arg4 - 1][arg8 - 1] * 2 + 4 & 0x7;
                         local91 = Static718.method9367(local50, arg7);
                         if (Static499.aBooleanArrayArray7[local70][local86]) {
-                            Static319.anIntArray385[0] = local50.anInt8249;
+                            Static319.anIntArray385[0] = local50.colour;
                             Static262.anIntArray326[0] = local91;
                             Static153.anIntArray234[0] = local50.texture;
-                            Static725.anIntArray890[0] = local50.anInt8250;
-                            Static615.anIntArray719[0] = local50.anInt8251;
+                            Static725.anIntArray890[0] = local50.size;
+                            Static615.anIntArray719[0] = local50.blendPriority;
                             Static248.anIntArray313[0] = 256;
                         }
                     }
@@ -336,16 +338,16 @@ public class Class306 {
                 local37 = arg12[arg4 + 1][arg8 - 1] & 0xFF;
                 if (local37 > 0) {
                     local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                    if (local50.anInt8249 != -1 && local50.aBoolean628) {
+                    if (local50.colour != -1 && local50.blendable) {
                         local70 = arg11[arg4 + 1][arg8 - 1];
                         local86 = arg2[arg4 + 1][arg8 - 1] * 2 + 6 & 0x7;
                         local91 = Static718.method9367(local50, arg7);
                         if (Static499.aBooleanArrayArray7[local70][local86]) {
-                            Static319.anIntArray385[2] = local50.anInt8249;
+                            Static319.anIntArray385[2] = local50.colour;
                             Static262.anIntArray326[2] = local91;
                             Static153.anIntArray234[2] = local50.texture;
-                            Static725.anIntArray890[2] = local50.anInt8250;
-                            Static615.anIntArray719[2] = local50.anInt8251;
+                            Static725.anIntArray890[2] = local50.size;
+                            Static615.anIntArray719[2] = local50.blendPriority;
                             Static248.anIntArray313[2] = 512;
                         }
                     }
@@ -357,16 +359,16 @@ public class Class306 {
                 local37 = arg12[arg4 - 1][arg8 + 1] & 0xFF;
                 if (local37 > 0) {
                     local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                    if (local50.anInt8249 != -1 && local50.aBoolean628) {
+                    if (local50.colour != -1 && local50.blendable) {
                         local70 = arg11[arg4 - 1][arg8 + 1];
                         local86 = arg2[arg4 - 1][arg8 + 1] * 2 + 2 & 0x7;
                         local91 = Static718.method9367(local50, arg7);
                         if (Static499.aBooleanArrayArray7[local70][local86]) {
-                            Static319.anIntArray385[6] = local50.anInt8249;
+                            Static319.anIntArray385[6] = local50.colour;
                             Static262.anIntArray326[6] = local91;
                             Static153.anIntArray234[6] = local50.texture;
-                            Static725.anIntArray890[6] = local50.anInt8250;
-                            Static615.anIntArray719[6] = local50.anInt8251;
+                            Static725.anIntArray890[6] = local50.size;
+                            Static615.anIntArray719[6] = local50.blendPriority;
                             Static248.anIntArray313[6] = 64;
                         }
                     }
@@ -376,16 +378,16 @@ public class Class306 {
                 local37 = arg12[arg4 + 1][arg8 + 1] & 0xFF;
                 if (local37 > 0) {
                     local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                    if (local50.anInt8249 != -1 && local50.aBoolean628) {
+                    if (local50.colour != -1 && local50.blendable) {
                         local70 = arg11[arg4 + 1][arg8 + 1];
                         local86 = (arg2[arg4 + 1][arg8 + 1] * 2) & 0x7;
                         local91 = Static718.method9367(local50, arg7);
                         if (Static499.aBooleanArrayArray7[local70][local86]) {
-                            Static319.anIntArray385[4] = local50.anInt8249;
+                            Static319.anIntArray385[4] = local50.colour;
                             Static262.anIntArray326[4] = local91;
                             Static153.anIntArray234[4] = local50.texture;
-                            Static725.anIntArray890[4] = local50.anInt8250;
-                            Static615.anIntArray719[4] = local50.anInt8251;
+                            Static725.anIntArray890[4] = local50.size;
+                            Static615.anIntArray719[4] = local50.blendPriority;
                             Static248.anIntArray313[4] = 128;
                         }
                     }
@@ -400,27 +402,27 @@ public class Class306 {
             local37 = arg12[arg4][arg8 - 1] & 0xFF;
             if (local37 > 0) {
                 local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                if (local50.anInt8249 != -1) {
+                if (local50.colour != -1) {
                     local70 = arg11[arg4][arg8 - 1];
                     local498 = arg2[arg4][arg8 - 1];
-                    if (local50.aBoolean628) {
+                    if (local50.blendable) {
                         local91 = 2;
                         local509 = local498 * 2 + 4;
                         local514 = Static718.method9367(local50, arg7);
                         for (local516 = 0; local516 < 3; local516++) {
                             local91 &= 0x7;
                             local509 &= 0x7;
-                            if (Static499.aBooleanArrayArray7[local70][local509] && local50.anInt8251 >= Static615.anIntArray719[local91]) {
-                                Static319.anIntArray385[local91] = local50.anInt8249;
+                            if (Static499.aBooleanArrayArray7[local70][local509] && local50.blendPriority >= Static615.anIntArray719[local91]) {
+                                Static319.anIntArray385[local91] = local50.colour;
                                 Static262.anIntArray326[local91] = local514;
                                 Static153.anIntArray234[local91] = local50.texture;
-                                Static725.anIntArray890[local91] = local50.anInt8250;
-                                if (Static615.anIntArray719[local91] == local50.anInt8251) {
+                                Static725.anIntArray890[local91] = local50.size;
+                                if (Static615.anIntArray719[local91] == local50.blendPriority) {
                                     Static248.anIntArray313[local91] |= 0x20;
                                 } else {
                                     Static248.anIntArray313[local91] = 32;
                                 }
-                                Static615.anIntArray719[local91] = local50.anInt8251;
+                                Static615.anIntArray719[local91] = local50.blendPriority;
                             }
                             local91--;
                             local509++;
@@ -438,27 +440,27 @@ public class Class306 {
             local37 = arg12[arg4][arg8 + 1] & 0xFF;
             if (local37 > 0) {
                 local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                if (local50.anInt8249 != -1) {
+                if (local50.colour != -1) {
                     local70 = arg11[arg4][arg8 + 1];
                     local498 = arg2[arg4][arg8 + 1];
-                    if (local50.aBoolean628) {
+                    if (local50.blendable) {
                         local91 = 4;
                         local509 = local498 * 2 + 2;
                         local514 = Static718.method9367(local50, arg7);
                         for (local516 = 0; local516 < 3; local516++) {
                             local91 &= 0x7;
                             local509 &= 0x7;
-                            if (Static499.aBooleanArrayArray7[local70][local509] && Static615.anIntArray719[local91] <= local50.anInt8251) {
-                                Static319.anIntArray385[local91] = local50.anInt8249;
+                            if (Static499.aBooleanArrayArray7[local70][local509] && Static615.anIntArray719[local91] <= local50.blendPriority) {
+                                Static319.anIntArray385[local91] = local50.colour;
                                 Static262.anIntArray326[local91] = local514;
                                 Static153.anIntArray234[local91] = local50.texture;
-                                Static725.anIntArray890[local91] = local50.anInt8250;
-                                if (Static615.anIntArray719[local91] == local50.anInt8251) {
+                                Static725.anIntArray890[local91] = local50.size;
+                                if (Static615.anIntArray719[local91] == local50.blendPriority) {
                                     Static248.anIntArray313[local91] |= 0x10;
                                 } else {
                                     Static248.anIntArray313[local91] = 16;
                                 }
-                                Static615.anIntArray719[local91] = local50.anInt8251;
+                                Static615.anIntArray719[local91] = local50.blendPriority;
                             }
                             local91++;
                             local509--;
@@ -476,27 +478,27 @@ public class Class306 {
             local37 = arg12[arg4 - 1][arg8] & 0xFF;
             if (local37 > 0) {
                 local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                if (local50.anInt8249 != -1) {
+                if (local50.colour != -1) {
                     local70 = arg11[arg4 - 1][arg8];
                     local498 = arg2[arg4 - 1][arg8];
-                    if (local50.aBoolean628) {
+                    if (local50.blendable) {
                         local91 = 6;
                         local509 = local498 * 2 + 4;
                         local514 = Static718.method9367(local50, arg7);
                         for (local516 = 0; local516 < 3; local516++) {
                             local91 &= 0x7;
                             local509 &= 0x7;
-                            if (Static499.aBooleanArrayArray7[local70][local509] && Static615.anIntArray719[local91] <= local50.anInt8251) {
-                                Static319.anIntArray385[local91] = local50.anInt8249;
+                            if (Static499.aBooleanArrayArray7[local70][local509] && Static615.anIntArray719[local91] <= local50.blendPriority) {
+                                Static319.anIntArray385[local91] = local50.colour;
                                 Static262.anIntArray326[local91] = local514;
                                 Static153.anIntArray234[local91] = local50.texture;
-                                Static725.anIntArray890[local91] = local50.anInt8250;
-                                if (local50.anInt8251 == Static615.anIntArray719[local91]) {
+                                Static725.anIntArray890[local91] = local50.size;
+                                if (local50.blendPriority == Static615.anIntArray719[local91]) {
                                     Static248.anIntArray313[local91] |= 0x8;
                                 } else {
                                     Static248.anIntArray313[local91] = 8;
                                 }
-                                Static615.anIntArray719[local91] = local50.anInt8251;
+                                Static615.anIntArray719[local91] = local50.blendPriority;
                             }
                             local91++;
                             local509--;
@@ -514,27 +516,27 @@ public class Class306 {
             local37 = arg12[arg4 + 1][arg8] & 0xFF;
             if (local37 > 0) {
                 local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                if (local50.anInt8249 != -1) {
+                if (local50.colour != -1) {
                     local70 = arg11[arg4 + 1][arg8];
                     local498 = arg2[arg4 + 1][arg8];
-                    if (local50.aBoolean628) {
+                    if (local50.blendable) {
                         local91 = 4;
                         local509 = local498 * 2 + 6;
                         local514 = Static718.method9367(local50, arg7);
                         for (local516 = 0; local516 < 3; local516++) {
                             local509 &= 0x7;
                             local91 &= 0x7;
-                            if (Static499.aBooleanArrayArray7[local70][local509] && local50.anInt8251 >= Static615.anIntArray719[local91]) {
-                                Static319.anIntArray385[local91] = local50.anInt8249;
+                            if (Static499.aBooleanArrayArray7[local70][local509] && local50.blendPriority >= Static615.anIntArray719[local91]) {
+                                Static319.anIntArray385[local91] = local50.colour;
                                 Static262.anIntArray326[local91] = local514;
                                 Static153.anIntArray234[local91] = local50.texture;
-                                Static725.anIntArray890[local91] = local50.anInt8250;
-                                if (Static615.anIntArray719[local91] == local50.anInt8251) {
+                                Static725.anIntArray890[local91] = local50.size;
+                                if (Static615.anIntArray719[local91] == local50.blendPriority) {
                                     Static248.anIntArray313[local91] |= 0x4;
                                 } else {
                                     Static248.anIntArray313[local91] = 4;
                                 }
-                                Static615.anIntArray719[local91] = local50.anInt8251;
+                                Static615.anIntArray719[local91] = local50.blendPriority;
                             }
                             local91--;
                             local509++;
@@ -552,22 +554,22 @@ public class Class306 {
             return;
         }
         local37 = Static718.method9367(arg1, arg7);
-        if (!arg1.aBoolean628) {
+        if (!arg1.blendable) {
             return;
         }
         for (@Pc(1245) int local1245 = 0; local1245 < 8; local1245++) {
             @Pc(1255) int local1255 = local1245 - arg5 * 2 & 0x7;
-            if (Static499.aBooleanArrayArray7[arg0][local1245] && arg1.anInt8251 >= Static615.anIntArray719[local1255]) {
-                Static319.anIntArray385[local1255] = arg1.anInt8249;
+            if (Static499.aBooleanArrayArray7[arg0][local1245] && arg1.blendPriority >= Static615.anIntArray719[local1255]) {
+                Static319.anIntArray385[local1255] = arg1.colour;
                 Static262.anIntArray326[local1255] = local37;
                 Static153.anIntArray234[local1255] = arg1.texture;
-                Static725.anIntArray890[local1255] = arg1.anInt8250;
-                if (arg1.anInt8251 == Static615.anIntArray719[local1255]) {
+                Static725.anIntArray890[local1255] = arg1.size;
+                if (arg1.blendPriority == Static615.anIntArray719[local1255]) {
                     Static248.anIntArray313[local1255] |= 0x2;
                 } else {
                     Static248.anIntArray313[local1255] = 2;
                 }
-                Static615.anIntArray719[local1255] = arg1.anInt8251;
+                Static615.anIntArray719[local1255] = arg1.blendPriority;
             }
         }
         return;
@@ -846,11 +848,11 @@ public class Class306 {
                         }
                         @Pc(187) FloorOverlayType local187 = local164;
                         if (local164 != null) {
-                            if (local164.anInt8249 == -1 && local164.anInt8248 == -1) {
+                            if (local164.colour == -1 && local164.blendColour == -1) {
                                 local187 = local164;
                                 local164 = null;
                             } else if (local177 != null && local94 != 0) {
-                                local85 = local164.aBoolean628;
+                                local85 = local164.blendable;
                             }
                         }
                         @Pc(294) int local294;
@@ -914,9 +916,9 @@ public class Class306 {
                             Static615.anIntArray719[local294] = -1;
                             Static248.anIntArray313[local294] = 1;
                         }
-                        @Pc(496) boolean[] local496 = local164 != null && local164.aBoolean628 ? Static463.aBooleanArrayArray6[local94] : Static435.aBooleanArrayArray5[local94];
+                        @Pc(496) boolean[] local496 = local164 != null && local164.blendable ? Static463.aBooleanArrayArray6[local94] : Static435.aBooleanArrayArray5[local94];
                         this.method7883(local94, local164, local13, this.width, local33, local100, this.height, arg4, local49, local88, local177, local8, local31);
-                        @Pc(532) boolean local532 = local164 != null && local164.anInt8249 != local164.anInt8248;
+                        @Pc(532) boolean local532 = local164 != null && local164.colour != local164.blendColour;
                         if (!local532) {
                             for (local345 = 0; local345 < 8; local345++) {
                                 if (Static615.anIntArray719[local345] >= 0 && Static262.anIntArray326[local345] != Static319.anIntArray385[local345]) {
@@ -1025,8 +1027,8 @@ public class Class306 {
                             @Pc(1501) int local1501;
                             @Pc(1508) int local1508;
                             if (local164 != null) {
-                                local1117 = local164.anInt8250;
-                                local1113 = local164.anInt8249;
+                                local1117 = local164.size;
+                                local1113 = local164.colour;
                                 local1115 = local164.texture;
                                 local1162 = Static718.method9367(local164, arg4);
                                 for (local1164 = 0; local1164 < local403; local1164++) {
@@ -1104,7 +1106,7 @@ public class Class306 {
                                                 local1111[local1064] = arg2.method7878(local1508, local1501) - arg3.method7878(local1508, local1501);
                                             }
                                         }
-                                        if (local1416 < 8 && Static615.anIntArray719[local1425] > local164.anInt8251) {
+                                        if (local1416 < 8 && Static615.anIntArray719[local1425] > local164.blendPriority) {
                                             if (local1076 != null) {
                                                 local1076[local1064] = Static262.anIntArray326[local1425];
                                             }
@@ -1116,7 +1118,7 @@ public class Class306 {
                                                 local1076[local1064] = local1162;
                                             }
                                             local1088[local1064] = local164.texture;
-                                            local1091[local1064] = local164.anInt8250;
+                                            local1091[local1064] = local164.size;
                                             local1085[local1064] = local1113;
                                         }
                                         local1064++;
@@ -1124,9 +1126,9 @@ public class Class306 {
                                     local1062++;
                                 }
                                 if (!this.underwater && arg5 == 0) {
-                                    Static295.method4354(local33, local49, local164.anInt8260, local164.anInt8252 * 8, local164.anInt8256);
+                                    Static295.method4354(local33, local49, local164.waterColour, local164.waterDepth * 8, local164.waterBias);
                                 }
-                                if (local94 != 12 && local164.anInt8249 != -1 && local164.aBoolean627) {
+                                if (local94 != 12 && local164.colour != -1 && local164.blockShadow) {
                                     local83 = true;
                                 }
                             } else if (local909) {
@@ -1299,7 +1301,7 @@ public class Class306 {
                                     local2579 = false;
                                 } else if (local116 == 0 && local94 != 0) {
                                     local2579 = false;
-                                } else if (local108 > 0 && local187 != null && !local187.aBoolean626) {
+                                } else if (local108 > 0 && local187 != null && !local187.occludes) {
                                     local2579 = false;
                                 }
                                 if (local2579 && local1164 == local1162 && local1411 == local1162 && local1162 == local1416) {

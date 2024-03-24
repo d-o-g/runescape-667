@@ -154,7 +154,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
         if (this.type == null || !this.method9324(2048, arg0)) {
             return null;
         }
@@ -172,11 +172,11 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(104) BASType local104 = this.method9317();
         @Pc(118) NPCType local118 = this.type.multinpcs == null ? this.type : this.type.getMultiNPC(TimedVarDomain.instance);
         super.aBoolean819 = false;
-        @Pc(123) Class8_Sub7 local123 = null;
+        @Pc(123) PickableEntity local123 = null;
         if (ClientOptions.instance.spotShadows.getValue() == 1 && local118.hasShadow && local104.animateShadow) {
             @Pc(159) Animator local159 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
             @Pc(179) Animator local179 = super.animator.isAnimating() && (!super.ready || local159 == null) ? super.animator : null;
-            @Pc(223) Model local223 = Static618.method8320(this.type.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.anInt10742, this.type.shadowInnerColour & 0xFFFF, super.anInt10716, this.type.size, arg0, this.type.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.anInt10746, local27, this.type.shadowOuterColour & 0xFFFF);
+            @Pc(223) Model local223 = ShadowList.model(this.type.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.modelRotateZ, this.type.shadowInnerColour & 0xFFFF, super.modelTranslateY, this.type.size, arg0, this.type.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.modelRotateX, local27, this.type.shadowOuterColour & 0xFFFF);
             if (local223 != null) {
                 local123 = Static642.method8441(this.method9330(), super.aModelArray3.length + 1);
                 super.aBoolean819 = true;
@@ -254,14 +254,14 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
             this.method9314(local111, 0, 0, this.boundSize((byte) 116) << 9, this.boundSize((byte) 79) << 9, -86);
         } else {
             this.method9314(local111, local9.hillMaxAngleX, local9.hillMaxAngleY, local50, local53, -119);
-            if (super.anInt10746 != 0) {
-                super.aModelArray3[0].FA(super.anInt10746);
+            if (super.modelRotateX != 0) {
+                super.aModelArray3[0].FA(super.modelRotateX);
             }
-            if (super.anInt10742 != 0) {
-                super.aModelArray3[0].VA(super.anInt10742);
+            if (super.modelRotateZ != 0) {
+                super.aModelArray3[0].VA(super.modelRotateZ);
             }
-            if (super.anInt10716 != 0) {
-                super.aModelArray3[0].H(0, super.anInt10716, 0);
+            if (super.modelTranslateY != 0) {
+                super.aModelArray3[0].H(0, super.modelTranslateY, 0);
             }
         }
         if (local100) {

@@ -30,7 +30,7 @@ public final class Static399 {
         }
         if (toolkit != ClientOptions.instance.toolkit.getValue()) {
             ClientOptions.instance.update(toolkit, ClientOptions.instance.toolkitDefault);
-            Static32.method880(toolkit, false);
+            Static32.setToolkit(toolkit, false);
         }
         ClientOptions.save();
         return local27;

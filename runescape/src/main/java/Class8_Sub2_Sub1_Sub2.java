@@ -28,7 +28,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     public int anInt10704;
 
     @OriginalMember(owner = "client!cg", name = "fc", descriptor = "I")
-    protected int anInt10716;
+    protected int modelTranslateY;
 
     @OriginalMember(owner = "client!cg", name = "qb", descriptor = "I")
     public int anInt10726;
@@ -52,10 +52,10 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     protected Class80 aClass80_3;
 
     @OriginalMember(owner = "client!cg", name = "Bb", descriptor = "I")
-    protected int anInt10742;
+    protected int modelRotateZ;
 
     @OriginalMember(owner = "client!cg", name = "ic", descriptor = "I")
-    protected int anInt10746;
+    protected int modelRotateX;
 
     @OriginalMember(owner = "client!cg", name = "Ob", descriptor = "B")
     public byte aByte147;
@@ -367,14 +367,14 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
                         local146.H(0, -local50.anInt4931 << 2, 0);
                     }
                     if (local95) {
-                        if (this.anInt10746 != 0) {
-                            local146.FA(this.anInt10746);
+                        if (this.modelRotateX != 0) {
+                            local146.FA(this.modelRotateX);
                         }
-                        if (this.anInt10742 != 0) {
-                            local146.VA(this.anInt10742);
+                        if (this.modelRotateZ != 0) {
+                            local146.VA(this.modelRotateZ);
                         }
-                        if (this.anInt10716 != 0) {
-                            local146.H(0, this.anInt10716, 0);
+                        if (this.modelTranslateY != 0) {
+                            local146.H(0, this.modelTranslateY, 0);
                         }
                     }
                 }
@@ -745,38 +745,38 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         @Pc(218) int local218 = local74 < local119 ? local74 : local119;
         @Pc(226) int local226 = local210 > local165 ? local165 : local210;
         @Pc(234) int local234 = local119 >= local210 ? local210 : local119;
-        this.anInt10746 = (int) (Math.atan2(local218 - local226, arg4) * 2607.5945876176133D) & 0x3FFF;
+        this.modelRotateX = (int) (Math.atan2(local218 - local226, arg4) * 2607.5945876176133D) & 0x3FFF;
         @Pc(257) int local257 = local165 > local74 ? local74 : local165;
-        this.anInt10742 = (int) (Math.atan2(local257 - local234, arg3) * 2607.5945876176133D) & 0x3FFF;
+        this.modelRotateZ = (int) (Math.atan2(local257 - local234, arg3) * 2607.5945876176133D) & 0x3FFF;
         if (arg5 >= -78) {
             return;
         }
         @Pc(288) int local288;
-        if (this.anInt10746 != 0 && arg1 != 0) {
+        if (this.modelRotateX != 0 && arg1 != 0) {
             local288 = 16384 - arg1;
-            if (this.anInt10746 > 8192) {
-                if (local288 > this.anInt10746) {
-                    this.anInt10746 = local288;
+            if (this.modelRotateX > 8192) {
+                if (local288 > this.modelRotateX) {
+                    this.modelRotateX = local288;
                 }
-            } else if (this.anInt10746 > arg1) {
-                this.anInt10746 = arg1;
+            } else if (this.modelRotateX > arg1) {
+                this.modelRotateX = arg1;
             }
         }
-        this.anInt10716 = local210 + local74;
-        if (this.anInt10742 != 0 && arg2 != 0) {
+        this.modelTranslateY = local210 + local74;
+        if (this.modelRotateZ != 0 && arg2 != 0) {
             local288 = 16384 - arg2;
-            if (this.anInt10742 > 8192) {
-                if (local288 > this.anInt10742) {
-                    this.anInt10742 = local288;
+            if (this.modelRotateZ > 8192) {
+                if (local288 > this.modelRotateZ) {
+                    this.modelRotateZ = local288;
                 }
-            } else if (arg2 < this.anInt10742) {
-                this.anInt10742 = arg2;
+            } else if (arg2 < this.modelRotateZ) {
+                this.modelRotateZ = arg2;
             }
         }
-        if (this.anInt10716 > local119 + local165) {
-            this.anInt10716 = local119 + local165;
+        if (this.modelTranslateY > local119 + local165) {
+            this.modelTranslateY = local119 + local165;
         }
-        this.anInt10716 = (this.anInt10716 >> 1) - super.anInt10691;
+        this.modelTranslateY = (this.modelTranslateY >> 1) - super.anInt10691;
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "([I[IB)V")

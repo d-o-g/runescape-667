@@ -42,7 +42,7 @@ public final class Static32 {
     }
 
     @OriginalMember(owner = "client!bba", name = "a", descriptor = "(IZZ)V")
-    public static void method880(@OriginalArg(0) int toolkit, @OriginalArg(2) boolean arg1) {
-        Static667.method8695(arg1, LocalisedText.LOADING.localise(client.language), toolkit);
+    public static void setToolkit(@OriginalArg(0) int toolkit, @OriginalArg(2) boolean arg1) {
+        Static667.setToolkit(arg1, LocalisedText.LOADING.localise(client.language), toolkit);
     }
 }

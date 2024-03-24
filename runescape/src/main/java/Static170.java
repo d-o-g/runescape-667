@@ -4,12 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static170 {
 
-    @OriginalMember(owner = "client!fea", name = "a", descriptor = "(IB)V")
-    public static void setFeatureMask(@OriginalArg(0) int arg0) {
-        Static584.anInt8635 = arg0;
-        Static166.A_WEIGHTED_CACHE___59.reset();
-    }
-
     @OriginalMember(owner = "client!fea", name = "a", descriptor = "(BI)V")
     public static void method2652(@OriginalArg(0) byte arg0) {
         if (Static328.aByteArrayArrayArray4 == null) {

@@ -206,7 +206,7 @@ public final class MiniMenu {
                 local177 = arg0 + Static580.method7649(local503);
             }
             @Pc(538) LinkedList local538 = local510.aLinkedList_8;
-            for (@Pc(543) Class8_Sub7 local543 = (Class8_Sub7) local538.first(); local543 != null; local543 = (Class8_Sub7) local538.next()) {
+            for (@Pc(543) PickableEntity local543 = (PickableEntity) local538.first(); local543 != null; local543 = (PickableEntity) local538.next()) {
                 if ((Static273.aBoolean340 || local543.aRenderable_18.level == PlayerEntity.self.level) && local543.method6496(arg2, local177, local148)) {
                     @Pc(584) int local584;
                     if (local543.aRenderable_18 instanceof PositionEntity) {

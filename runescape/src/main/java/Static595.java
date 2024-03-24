@@ -15,7 +15,7 @@ public final class Static595 {
     public static int[] anIntArray702 = new int[1];
 
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(ILjava/lang/String;ZI)V")
-    public static void method7807(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int toolkit) {
+    public static void setToolkit(@OriginalArg(1) String arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int toolkit) {
         Static164.method2606();
         if (toolkit == ToolkitType.JAVA) {
             Toolkit.active = Static255.method3612(js5.SHADERS, Js5TextureSource.instance, 0, GameShell.canvas, ClientOptions.instance.antialiasingQuality.getValue() * 2);
@@ -74,7 +74,7 @@ public final class Static595 {
                         Static171.graphicsError = true;
                     }
                     ClientOptions.instance.update(0, ClientOptions.instance.toolkit);
-                    method7807(arg0, arg1, local173);
+                    setToolkit(arg0, arg1, local173);
                     @Pc(194) Object local194 = null;
                     var14 = false;
                 } finally {

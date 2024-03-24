@@ -101,8 +101,4 @@ public final class Static149 {
         Static422.method5773(Static71.anInt1576 + local5, Static84.anInt1775 - -local7, Static682.anInt10295, Static407.anInt6288);
     }
 
-    @OriginalMember(owner = "client!ema", name = "a", descriptor = "(I)V")
-    public static void method2450() {
-        Static186.A_WEIGHTED_CACHE___67.removeSoftReferences();
-    }
 }

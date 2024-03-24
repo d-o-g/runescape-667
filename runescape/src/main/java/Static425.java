@@ -8,7 +8,7 @@ public final class Static425 {
     public static boolean aBoolean482;
 
     @OriginalMember(owner = "client!nh", name = "c", descriptor = "Lclient!ha;")
-    public static Toolkit aToolkit_13;
+    public static Toolkit toolkit;
 
     @OriginalMember(owner = "client!nh", name = "i", descriptor = "Lclient!pu;")
     public static Class67 aClass67_6;

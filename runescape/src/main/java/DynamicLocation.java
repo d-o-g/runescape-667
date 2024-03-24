@@ -56,14 +56,14 @@ public final class DynamicLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!oe", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(14) Model local14 = this.aClass337_3.method7678(arg0, false, true, true, 2048);
         if (local14 == null) {
             return null;
         }
         @Pc(30) Matrix local30 = arg0.scratchMatrix();
         local30.method7125(super.x, super.anInt10691, super.z);
-        @Pc(44) Class8_Sub7 local44 = Static642.method8441(this.aBoolean517, 1);
+        @Pc(44) PickableEntity local44 = Static642.method8441(this.aBoolean517, 1);
         this.aClass337_3.method7681(super.aShort133, local14, true, -9827, arg0, super.aShort134, super.aShort131, super.aShort132, local30);
         if (Static504.aBoolean579) {
             local14.renderOrtho(local30, local44.aPickingCylinderArray1[0], Static582.anInt8627, 0);

@@ -147,14 +147,14 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(22) Model local22 = this.aClass337_2.method7678(arg0, false, true, true, 2048);
         if (local22 == null) {
             return null;
         }
         @Pc(30) Matrix local30 = arg0.scratchMatrix();
         local30.method7125(super.x, super.anInt10691, super.z);
-        @Pc(44) Class8_Sub7 local44 = Static642.method8441(this.aBoolean318, 1);
+        @Pc(44) PickableEntity local44 = Static642.method8441(this.aBoolean318, 1);
         @Pc(49) int local49 = super.x >> 9;
         @Pc(54) int local54 = super.z >> 9;
         this.aClass337_2.method7681(local54, local22, true, -9827, arg0, local49, local49, local54, local30);

@@ -4975,7 +4975,7 @@ public final class ScriptRunner {
                     if (arg0 == 6001) {
                         local192 = anIntArray578[--anInt7142];
                         ClientOptions.instance.update(local192, ClientOptions.instance.brightness);
-                        Static449.mapBuild();
+                        MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
@@ -4985,7 +4985,7 @@ public final class ScriptRunner {
                         local5337 = anIntArray578[--anInt7142] == 1;
                         ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animateBackgroundDefault);
                         ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animateBackground);
-                        Static449.mapBuild();
+                        MainLogicManager.mapBuild();
                         Static77.method1561();
                         ClientOptions.save();
                         Static503.aBoolean578 = false;
@@ -5002,7 +5002,7 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6005) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.groundDecor);
-                        Static449.mapBuild();
+                        MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
@@ -5027,7 +5027,7 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6011) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.hardShadows);
-                        Static449.mapBuild();
+                        MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
@@ -5042,21 +5042,21 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6014) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 2 : 0, ClientOptions.instance.waterDetail);
-                        Static449.mapBuild();
+                        MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6015) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.fog);
-                        Static449.mapBuild();
+                        MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;
                     }
                     if (arg0 == 6016) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.antialiasingQuality);
-                        Static32.method880(ClientOptions.instance.toolkit.getValue(), false);
+                        Static32.setToolkit(ClientOptions.instance.toolkit.getValue(), false);
                         ClientOptions.save();
                         return;
                     }
@@ -5146,7 +5146,7 @@ public final class ScriptRunner {
                     if (arg0 == 6030) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.groundBlending);
                         ClientOptions.save();
-                        Static449.mapBuild();
+                        MainLogicManager.mapBuild();
                         return;
                     }
                     if (arg0 == 6031) {
@@ -5154,7 +5154,7 @@ public final class ScriptRunner {
                         if (local192 < 0 || local192 > 5) {
                             local192 = 2;
                         }
-                        Static32.method880(local192, false);
+                        Static32.setToolkit(local192, false);
                         return;
                     }
                     if (arg0 == 6032) {
@@ -5184,7 +5184,7 @@ public final class ScriptRunner {
                     if (arg0 == 6035) {
                         local192 = ClientOptions.instance.animateBackgroundDefault.getValue();
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : local192, ClientOptions.instance.animateBackground);
-                        Static449.mapBuild();
+                        MainLogicManager.mapBuild();
                         Static77.method1561();
                         return;
                     }
@@ -5957,35 +5957,35 @@ public final class ScriptRunner {
                             local192 = Static519.method6831();
                             anIntArray578[anInt7142++] = Static165.anInt2810 = ClientOptions.instance.toolkit.getValue();
                             anIntArray578[anInt7142++] = local192;
-                            Static449.mapBuild();
+                            MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7001) {
                             Static395.method9162();
-                            Static449.mapBuild();
+                            MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7002) {
                             Static133.method2316();
-                            Static449.mapBuild();
+                            MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7003) {
                             Static75.method6239();
-                            Static449.mapBuild();
+                            MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;
                         }
                         if (arg0 == 7004) {
                             Static468.method7643();
-                            Static449.mapBuild();
+                            MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.aBoolean578 = false;
                             return;

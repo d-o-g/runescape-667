@@ -100,14 +100,14 @@ public final class Static397 {
         if (local7 == -1) {
             return;
         }
-        @Pc(27) Sprite local27 = (Sprite) Static541.A_WEIGHTED_CACHE___174.get(local7);
+        @Pc(27) Sprite local27 = (Sprite) Sprites.mobilisingArmiesCache.get(local7);
         if (local27 == null) {
             @Pc(34) IndexedImage[] local34 = IndexedImage.load(js5.SPRITES, local7, 0);
             if (local34 == null) {
                 return;
             }
             local27 = Toolkit.active.createSprite(local34[0], true);
-            Static541.A_WEIGHTED_CACHE___174.put(local27, local7);
+            Sprites.mobilisingArmiesCache.put(local27, local7);
         }
         Static418.method7860(arg1.level, arg1.z, 0, arg1.x, arg1.boundSize((byte) 55) * 256);
         @Pc(75) int local75 = arg0 + Static215.anIntArray284[0] - 18;

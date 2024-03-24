@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static584 {
 
-    @OriginalMember(owner = "client!sga", name = "k", descriptor = "I")
-    public static int anInt8635;
-
     @OriginalMember(owner = "client!sga", name = "a", descriptor = "(IIILclient!kp;Lclient!kp;)V")
     public static void method7665(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Wall arg3, @OriginalArg(4) Wall arg4) {
         @Pc(4) Class291 local4 = Static347.method5095(arg0, arg1, arg2);
@@ -45,8 +42,4 @@ public final class Static584 {
         Static468.aRenderableArray10[local22] = arg4;
     }
 
-    @OriginalMember(owner = "client!sga", name = "b", descriptor = "(Z)V")
-    public static void method7666() {
-        Static186.A_WEIGHTED_CACHE___67.reset();
-    }
 }

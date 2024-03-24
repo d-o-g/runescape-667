@@ -1,12 +1,8 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static669 {
-
-    @OriginalMember(owner = "client!vd", name = "o", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___215 = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!vd", name = "k", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___116 = new ClientProt(51, -1);

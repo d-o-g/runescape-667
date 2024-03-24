@@ -1,13 +1,9 @@
 import com.jagex.core.io.Packet;
-import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static12 {
-
-    @OriginalMember(owner = "client!ah", name = "i", descriptor = "Lclient!st;")
-    public static Sprite aSprite_26;
 
     @OriginalMember(owner = "client!ah", name = "a", descriptor = "I")
     public static int anInt5741;

@@ -101,11 +101,11 @@ public final class Static664 {
         PlayerModel.cacheRemoveSoftReferences();
         Component.cacheRemoveSoftReferences();
         FontTypeList.cacheRemoveSoftReferences();
-        Static149.method2450();
-        Static126.method2229();
-        Static230.A_WEIGHTED_CACHE___81.removeSoftReferences();
-        Static669.A_WEIGHTED_CACHE___215.removeSoftReferences();
-        Static541.A_WEIGHTED_CACHE___174.removeSoftReferences();
+        PlayerEntity.cacheRemoveSoftReferences();
+        ShadowList.cacheRemoveSoftReferences();
+        Sprites.hitbarCache.removeSoftReferences();
+        Sprites.timerbarCache.removeSoftReferences();
+        Sprites.mobilisingArmiesCache.removeSoftReferences();
         MiniMenu.questCache.removeSoftReferences();
         ScriptRunner.A_WEIGHTED_CACHE___156.removeSoftReferences();
     }

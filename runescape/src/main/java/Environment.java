@@ -1,5 +1,8 @@
 import com.jagex.Class67;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
+import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
 import com.jagex.graphics.skybox.SkyBox;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -8,6 +11,42 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!uc")
 public final class Environment {
+
+    @OriginalMember(owner = "client!dr", name = "c", descriptor = "Lclient!dla;")
+    public static final ReferenceCache skyBoxCache = new ReferenceCache(8);
+
+    @OriginalMember(owner = "client!ie", name = "j", descriptor = "Lclient!dla;")
+    public static final ReferenceCache A_WEIGHTED_CACHE___235 = new ReferenceCache(8);
+
+    @OriginalMember(owner = "client!kr", name = "a", descriptor = "(ZIIII)Lclient!gm;")
+    public static SkyBox method5047(@OriginalArg(1) int sphereOffsetY, @OriginalArg(2) int id, @OriginalArg(3) int sphereOffsetX, @OriginalArg(4) int sphereOffsetZ) {
+        @Pc(31) long key = ((long) id & 0xFFFFL) | (((long) sphereOffsetZ & 0xFFFFL) << 16) | (((long) sphereOffsetX << 48) & (0xFFFFL << 48)) | (((long) sphereOffsetY & 0xFFFFL) << 32);
+        @Pc(43) SkyBox skyBox = (SkyBox) skyBoxCache.get(key);
+        if (skyBox == null) {
+            skyBox = SkyBoxTypeList.instance.skyBox(SkyBoxSphereTypeList.instance, sphereOffsetZ, id, sphereOffsetY, sphereOffsetX);
+            skyBoxCache.put(skyBox, key);
+        }
+        return skyBox;
+    }
+
+    @OriginalMember(owner = "client!lo", name = "a", descriptor = "(IIIIIII)Lclient!pu;")
+    public static Class67 method5301(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
+        @Pc(33) long key = (long) arg5 * 67481L ^ (long) arg1 * 97549L ^ (long) arg2 * 475427L ^ (long) arg3 * 986053L ^ (long) arg0 * 32147369L ^ (long) arg4 * 76724863L;
+        @Pc(39) Class67 local39 = (Class67) A_WEIGHTED_CACHE___235.get(key);
+        if (local39 == null) {
+            local39 = Static425.toolkit.method8008(arg5, arg1, arg2, arg3, arg0, arg4);
+            A_WEIGHTED_CACHE___235.put(local39, key);
+            return local39;
+        } else {
+            return local39;
+        }
+    }
+
+    @OriginalMember(owner = "client!eu", name = "f", descriptor = "(I)V")
+    public static void cacheReset() {
+        A_WEIGHTED_CACHE___235.reset();
+        skyBoxCache.reset();
+    }
 
     @OriginalMember(owner = "client!uc", name = "k", descriptor = "F")
     public float aFloat201 = 1.0F;
@@ -79,7 +118,7 @@ public final class Environment {
         @Pc(29) int local29 = arg0.g2s();
         @Pc(33) int local33 = arg0.g2();
         Static436.anInt3852 = local33;
-        this.aSkyBox_5 = Static344.method5047(local25, local17, local21, local29);
+        this.aSkyBox_5 = method5047(local25, local17, local21, local29);
     }
 
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(Lclient!ge;Z)V")
@@ -92,7 +131,7 @@ public final class Environment {
     @OriginalMember(owner = "client!uc", name = "b", descriptor = "(Lclient!ge;I)V")
     public void method8386(@OriginalArg(0) Packet arg0) {
         @Pc(7) int local7 = arg0.g1();
-        if (ClientOptions.instance.lightDetail.getValue() == 1 && Static425.aToolkit_13.getMaxLights() > 0) {
+        if (ClientOptions.instance.lightDetail.getValue() == 1 && Static425.toolkit.getMaxLights() > 0) {
             if ((local7 & 0x1) == 0) {
                 this.anInt9537 = Static68.anInt4096;
             } else {
@@ -160,7 +199,7 @@ public final class Environment {
         @Pc(265) int local265 = arg0.g2();
         @Pc(271) int local271 = arg0.g2();
         @Pc(275) int local275 = arg0.g2();
-        this.aClass67_10 = Static373.method5301(local271, local255, local261, local265, local275, local251);
+        this.aClass67_10 = method5301(local271, local255, local261, local265, local275, local251);
     }
 
     @OriginalMember(owner = "client!uc", name = "a", descriptor = "(BLclient!uc;)Z")

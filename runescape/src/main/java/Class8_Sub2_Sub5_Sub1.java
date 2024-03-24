@@ -141,7 +141,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
 
     @OriginalMember(owner = "client!sv", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(17) Class286 local17 = Static467.method6351(super.level, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
         @Pc(29) GroundDecor local29 = Static687.method8959(super.level, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
         @Pc(31) int local31 = 0;
@@ -199,7 +199,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             }
         }
         local94.translate(super.x, super.anInt10691 - 10, super.z);
-        @Pc(345) Class8_Sub7 local345 = Static642.method8441(true, 3);
+        @Pc(345) PickableEntity local345 = Static642.method8441(true, 3);
         this.anInt8879 = 0;
         this.aBoolean672 = false;
         @Pc(369) Model local369;

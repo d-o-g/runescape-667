@@ -1509,7 +1509,7 @@ public final class WorldMap {
             Static668.method8700(false);
         } else {
             Static114.toolkitType = ClientOptions.instance.toolkit.getValue();
-            Static32.method880(ToolkitType.JAVA, true);
+            Static32.setToolkit(ToolkitType.JAVA, true);
         }
         Static696.aBoolean784 = arg1;
         Static529.anInt8089 = arg2;

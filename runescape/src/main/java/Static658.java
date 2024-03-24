@@ -27,7 +27,7 @@ public final class Static658 {
             }
             Static665.aToolkit_15.EA(Static706.aGroundArray3[0].method7878(arg0.z, arg0.x), Static100.method1987(local6, local28), Static350.method5124(local6, local28), Static339.method5005(local6, local28));
         }
-        @Pc(64) Class8_Sub7 local64 = arg0.method9276(Static665.aToolkit_15);
+        @Pc(64) PickableEntity local64 = arg0.method9276(Static665.aToolkit_15);
         if (local64 == null) {
             return;
         }

@@ -55,7 +55,7 @@ public final class Static352 {
     public static final int[] anIntArray446 = new int[anInt5752];
 
     @OriginalMember(owner = "client!lc", name = "c", descriptor = "(B)V")
-    public static void method5180() {
+    public static void cacheReset() {
         FloorOverlayTypeList.instance.cacheReset();
         FloorUnderlayTypeList.instance.cacheReset();
         IDKTypeList.instance.cacheReset();
@@ -82,21 +82,21 @@ public final class Static352 {
         PlayerModel.cacheReset();
         Component.cacheReset();
         FontTypeList.cacheReset();
-        Static327.method4895();
+        ClientInventory.cacheReset();
         if (client.modeWhere != ModeWhere.LIVE) {
             for (@Pc(92) int local92 = 0; local92 < Static163.aByteArrayArray36.length; local92++) {
                 Static163.aByteArrayArray36[local92] = null;
             }
             Static107.anInt2161 = 0;
         }
-        Static157.method2560();
-        Static584.method7666();
-        Static367.method5267();
+        Environment.cacheReset();
+        PlayerEntity.cacheReset();
+        ShadowList.cacheReset();
         ParticleEmitterTypeList.cacheReset();
         ParticleEffectorTypeList.cacheReset();
         ScriptRunner.A_WEIGHTED_CACHE___156.reset();
-        Toolkit.active.method8012();
-        Static269.method3909();
+        Toolkit.active.cacheReset();
+        Static269.cacheReset();
         Static112.method2109();
         js5.ANIMS.discardUnpacked();
         js5.BASES.discardUnpacked();
@@ -132,9 +132,9 @@ public final class Static352 {
         js5.DLLS.discardUnpacked();
         js5.SHADERS.discardUnpacked();
         js5.VIDEOS.discardUnpacked();
-        Static230.A_WEIGHTED_CACHE___81.reset();
-        Static669.A_WEIGHTED_CACHE___215.reset();
-        Static541.A_WEIGHTED_CACHE___174.reset();
+        Sprites.hitbarCache.reset();
+        Sprites.timerbarCache.reset();
+        Sprites.mobilisingArmiesCache.reset();
         MiniMenu.questCache.reset();
     }
 }

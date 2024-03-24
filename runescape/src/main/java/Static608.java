@@ -123,7 +123,7 @@ public final class Static608 {
                     }
                     @Pc(295) Sprite[] local295 = Sprites.hitbarDefault;
                     if (local267 != -1) {
-                        local306 = (Sprite[]) Static230.A_WEIGHTED_CACHE___81.get(local267);
+                        local306 = (Sprite[]) Sprites.hitbarCache.get(local267);
                         if (local306 == null) {
                             local313 = IndexedImage.load(js5.SPRITES, local267, 0);
                             if (local313 != null) {
@@ -131,7 +131,7 @@ public final class Static608 {
                                 for (local321 = 0; local321 < local313.length; local321++) {
                                     local306[local321] = Toolkit.active.createSprite(local313[local321], true);
                                 }
-                                Static230.A_WEIGHTED_CACHE___81.put(local306, local267);
+                                Sprites.hitbarCache.put(local306, local267);
                             }
                         }
                         if (local306 != null && local306.length >= 2) {
@@ -172,7 +172,7 @@ public final class Static608 {
                             local504 = local51.method9317().timerbarSprite;
                         }
                         if (local504 != -1) {
-                            local306 = (Sprite[]) Static669.A_WEIGHTED_CACHE___215.get(local504);
+                            local306 = (Sprite[]) Sprites.timerbarCache.get(local504);
                             if (local306 == null) {
                                 local313 = IndexedImage.load(js5.SPRITES, local504, 0);
                                 if (local313 != null) {
@@ -180,7 +180,7 @@ public final class Static608 {
                                     for (local321 = 0; local321 < local313.length; local321++) {
                                         local306[local321] = Toolkit.active.createSprite(local313[local321], true);
                                     }
-                                    Static669.A_WEIGHTED_CACHE___215.put(local306, local504);
+                                    Sprites.timerbarCache.put(local306, local504);
                                 }
                             }
                             if (local306 != null && local306.length == 4) {

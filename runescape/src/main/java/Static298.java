@@ -1,8 +1,6 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.game.runetek6.config.vartype.VarDomain;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static298 {
 
@@ -52,12 +50,4 @@ public final class Static298 {
         return (arg1 & 0x37) != 0;
     }
 
-    @OriginalMember(owner = "client!ji", name = "a", descriptor = "(II)V")
-    public static void setFeatureMask(@OriginalArg(1) int arg0) {
-        Static722.anInt10905 = arg0;
-        @Pc(14) ReferenceCache local14 = Static354.A_WEIGHTED_CACHE___120;
-        synchronized (Static354.A_WEIGHTED_CACHE___120) {
-            Static354.A_WEIGHTED_CACHE___120.reset();
-        }
-    }
 }

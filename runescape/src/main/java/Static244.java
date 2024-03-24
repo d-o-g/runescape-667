@@ -6,12 +6,6 @@ public final class Static244 {
     @OriginalMember(owner = "client!hk", name = "o", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___53 = new ClientProt(1, -1);
 
-    @OriginalMember(owner = "client!hk", name = "a", descriptor = "(I)V")
-    public static void method3512() {
-        Static12.aSprite_26 = null;
-        Static643.anInt9604 = -1;
-    }
-
     @OriginalMember(owner = "client!hk", name = "a", descriptor = "(BII)I")
     public static int method3513(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         arg0 = (arg1 & 0x7F) * arg0 >> 7;

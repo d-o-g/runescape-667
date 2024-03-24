@@ -5,6 +5,7 @@ import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -24,6 +25,12 @@ public final class Minimap {
     @OriginalMember(owner = "client!gka", name = "n", descriptor = "I")
     public static int flagY = -1;
 
+    @OriginalMember(owner = "client!ah", name = "i", descriptor = "Lclient!st;")
+    public static Sprite sprite;
+
+    @OriginalMember(owner = "client!uf", name = "f", descriptor = "I")
+    public static int level = -1;
+
     @OriginalMember(owner = "client!aw", name = "a", descriptor = "(ILclient!ha;ILclient!hda;I)V")
     public static void draw(@OriginalArg(0) int y, @OriginalArg(1) Toolkit toolkit, @OriginalArg(3) Component component, @OriginalArg(4) int x) {
         @Pc(23) Graphic local23 = component.graphic(toolkit);
@@ -32,7 +39,7 @@ public final class Minimap {
         }
         @Pc(30) ClippingMask local30 = local23.aClippingMask;
         toolkit.KA(x, y, x + component.width, y - -component.height);
-        if (toggle == 2 || toggle == 5 || Static12.aSprite_26 == null) {
+        if (toggle == 2 || toggle == 5 || sprite == null) {
             toolkit.A(-16777216, local30, x, y);
             return;
         }
@@ -53,7 +60,7 @@ public final class Minimap {
         }
         @Pc(120) int local120 = local90 / 128 + 208 + 48 - Static720.mapWidth * 2;
         @Pc(137) int local137 = Static501.mapHeight * 4 + 48 - local93 / 128 - (Static501.mapHeight - 104) * 2;
-        Static12.aSprite_26.renderRotated((float) x + (float) component.width / 2.0F, (float) component.height / 2.0F + (float) y, (float) local120, (float) local137, local79, local87 << 2, local30, x, y);
+        sprite.renderRotated((float) x + (float) component.width / 2.0F, (float) component.height / 2.0F + (float) y, (float) local120, (float) local137, local79, local87 << 2, local30, x, y);
         @Pc(190) int local190;
         @Pc(200) int local200;
         @Pc(211) int local211;
@@ -82,7 +89,7 @@ public final class Minimap {
         @Pc(392) int local392;
         for (@Pc(334) ObjStack local334 = (ObjStack) Static497.stacks.first(); local334 != null; local334 = (ObjStack) Static497.stacks.next()) {
             local211 = (int) (local334.key >> 28 & 0x3L);
-            if (Static643.anInt9604 == local211) {
+            if (level == local211) {
                 local222 = (int) (local334.key & 0x3FFFL) - WorldMap.areaBaseX;
                 @Pc(370) int local370 = (int) (local334.key >> 14 & 0x3FFFL) - WorldMap.areaBaseZ;
                 local381 = local222 * 4 + 2 - local90 / 128;
@@ -216,4 +223,9 @@ public final class Minimap {
         }
     }
 
+    @OriginalMember(owner = "client!hk", name = "a", descriptor = "(I)V")
+    public static void reset() {
+        sprite = null;
+        level = -1;
+    }
 }

@@ -34,7 +34,7 @@ public final class Static625 {
         }
         if (ClientOptions.instance.toolkit.getValue() != ToolkitType.JAVA) {
             ClientOptions.instance.update(ToolkitType.JAVA, ClientOptions.instance.toolkitDefault);
-            Static32.method880(ToolkitType.JAVA, false);
+            Static32.setToolkit(ToolkitType.JAVA, false);
         }
         ClientOptions.save();
         return local10;

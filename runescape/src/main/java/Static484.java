@@ -50,7 +50,7 @@ public final class Static484 {
         for (local25 = 0; local25 < local95.length; local25++) {
             local95[local25] = -16777216;
         }
-        Static12.aSprite_26 = arg0.createSprite(512, 512, 512, local95);
+        Minimap.sprite = arg0.createSprite(512, 512, 512, local95);
         Static104.method2033();
         local37 = (int) (Math.random() * 20.0D) + ((int) (Math.random() * 20.0D) + 238 - 10 << 8) + ((int) (Math.random() * 20.0D) + -10 + 238 << 16) + 238 - 10 | 0xFF000000;
         @Pc(177) int local177 = ((int) (Math.random() * 20.0D) + 238 - 10 | 0x9E04FF00) << 16;
@@ -141,7 +141,7 @@ public final class Static484 {
                     }
                 }
                 arg0.aa(local214, local216, Static200.anInt3302 * 4, Static200.anInt3302 * 4, local196, 2);
-                Static12.aSprite_26.render((local208 - local9) * 4 + 48, -(Static200.anInt3302 * 4) + -((local211 + -local15) * 4) + 464, Static200.anInt3302 * 4, Static200.anInt3302 * 4, local214, local216);
+                Minimap.sprite.render((local208 - local9) * 4 + 48, -(Static200.anInt3302 * 4) + -((local211 + -local15) * 4) + 464, Static200.anInt3302 * 4, Static200.anInt3302 * 4, local214, local216);
             }
         }
         arg0.la();

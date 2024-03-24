@@ -28,8 +28,8 @@ public final class Static700 {
         for (@Pc(16) int local16 = 0; local16 < 4; local16++) {
             Static577.A_COLLISION_MAP_ARRAY_1[local16].method2467();
         }
-        Static244.method3512();
-        Static352.method5180();
+        Minimap.reset();
+        Static352.cacheReset();
         VideoManager.stop();
         System.gc();
         Toolkit.active.ya();

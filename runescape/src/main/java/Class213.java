@@ -20,7 +20,7 @@ public final class Class213 {
     }
 
     @OriginalMember(owner = "client!kn", name = "a", descriptor = "(ILclient!pea;)V")
-    public void method5008(@OriginalArg(1) Class8_Sub7 arg0) {
+    public void method5008(@OriginalArg(1) PickableEntity arg0) {
         @Pc(6) Renderable local6 = arg0.aRenderable_18;
         @Pc(8) boolean local8 = true;
         @Pc(11) PickingCylinder[] local11 = arg0.aPickingCylinderArray1;
@@ -33,16 +33,16 @@ public final class Class213 {
         if (local8) {
             return;
         }
-        @Pc(42) Class8_Sub7 local42;
+        @Pc(42) PickableEntity local42;
         if (this.aBoolean426) {
-            for (local42 = (Class8_Sub7) this.aLinkedList_8.first(); local42 != null; local42 = (Class8_Sub7) this.aLinkedList_8.next()) {
+            for (local42 = (PickableEntity) this.aLinkedList_8.first(); local42 != null; local42 = (PickableEntity) this.aLinkedList_8.next()) {
                 if (local42.aRenderable_18 == local6) {
                     local42.unlink();
                     Static281.method4092(local42);
                 }
             }
         }
-        for (local42 = (Class8_Sub7) this.aLinkedList_8.first(); local42 != null; local42 = (Class8_Sub7) this.aLinkedList_8.next()) {
+        for (local42 = (PickableEntity) this.aLinkedList_8.first(); local42 != null; local42 = (PickableEntity) this.aLinkedList_8.next()) {
             if (local6.anInt10697 >= local42.aRenderable_18.anInt10697) {
                 Static370.method5282(arg0, local42);
                 return;
@@ -54,12 +54,12 @@ public final class Class213 {
     @OriginalMember(owner = "client!kn", name = "a", descriptor = "(B)V")
     public void method5010() {
         while (true) {
-            @Pc(5) Class8_Sub7 local5 = (Class8_Sub7) this.aLinkedList_8.removeFirst();
-            if (local5 == null) {
+            @Pc(5) PickableEntity entity = (PickableEntity) this.aLinkedList_8.removeFirst();
+            if (entity == null) {
                 return;
             }
-            local5.unlink();
-            Static281.method4092(local5);
+            entity.unlink();
+            Static281.method4092(entity);
         }
     }
 }

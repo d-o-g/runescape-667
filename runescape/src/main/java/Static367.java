@@ -1,16 +1,6 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static367 {
-
-    @OriginalMember(owner = "client!lk", name = "a", descriptor = "(I)V")
-    public static void method5267() {
-        @Pc(1) ReferenceCache local1 = Static354.A_WEIGHTED_CACHE___120;
-        synchronized (Static354.A_WEIGHTED_CACHE___120) {
-            Static354.A_WEIGHTED_CACHE___120.reset();
-        }
-    }
 
     @OriginalMember(owner = "client!lk", name = "a", descriptor = "(B)V")
     public static void method5268() {

@@ -15,7 +15,7 @@ public final class Static439 {
     @OriginalMember(owner = "client!ns", name = "a", descriptor = "(B)V")
     public static void method5954() {
         Minimap.flagY = -1;
-        Static643.anInt9604 = -1;
+        Minimap.level = -1;
         Minimap.flagX = -1;
         Minimap.toggle = 0;
     }

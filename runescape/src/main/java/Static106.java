@@ -12,8 +12,8 @@ public final class Static106 {
 
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ILclient!ha;)V")
     public static void method2046(@OriginalArg(1) Toolkit arg0) {
-        if (Static643.anInt9604 != PlayerEntity.self.level && (Static334.activeTiles != null && Static484.method6494(arg0, PlayerEntity.self.level))) {
-            Static643.anInt9604 = PlayerEntity.self.level;
+        if (Minimap.level != PlayerEntity.self.level && (Static334.activeTiles != null && Static484.method6494(arg0, PlayerEntity.self.level))) {
+            Minimap.level = PlayerEntity.self.level;
         }
     }
 

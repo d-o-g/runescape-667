@@ -1,8 +1,6 @@
 import com.jagex.core.util.SystemTimer;
-import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -40,12 +38,12 @@ public final class Static65 {
 
     @OriginalMember(owner = "client!cba", name = "a", descriptor = "(I)V")
     public static void method1472() {
-        Static157.method2560();
+        Environment.cacheReset();
         Static425.aClass67_6 = null;
         Static74.aSkyBox_1 = null;
         Static456.aSkyBox_3 = null;
         Static74.aClass67_3 = null;
-        Static425.aToolkit_13 = null;
+        Static425.toolkit = null;
         Static226.aClass67_9 = null;
         Static665.aEnvironmentArrayArray1 = null;
     }

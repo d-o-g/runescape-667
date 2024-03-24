@@ -127,7 +127,7 @@ public final class Static466 {
                 }
                 @Pc(451) LinkedList local451 = Static10.aClass213_1.aLinkedList_8;
                 @Pc(465) int local465;
-                for (@Pc(456) Class8_Sub7 local456 = (Class8_Sub7) local451.first(); local456 != null; local456 = (Class8_Sub7) local451.next()) {
+                for (@Pc(456) PickableEntity local456 = (PickableEntity) local451.first(); local456 != null; local456 = (PickableEntity) local451.next()) {
                     @Pc(461) PickingCylinder[] local461 = local456.aPickingCylinderArray1;
                     @Pc(463) boolean local463 = true;
                     for (local465 = 0; local465 < local461.length; local465++) {

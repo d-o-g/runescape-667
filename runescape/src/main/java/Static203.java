@@ -25,7 +25,7 @@ public final class Static203 {
     public static Matrix aMatrix_4;
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(B)V")
-    public static void method3068() {
+    public static void resetStaticSprites() {
         Sprites.headiconsPk = null;
         Sprites.hintMapedge = null;
         Sprites.hintMapmarkers = null;

@@ -432,7 +432,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "q", descriptor = "()V")
     @Override
-    public void method8012() {
+    public void cacheReset() {
     }
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")

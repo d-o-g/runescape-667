@@ -1,8 +1,6 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static126 {
 
@@ -46,11 +44,4 @@ public final class Static126 {
         Static606.anInt8954 = 0;
     }
 
-    @OriginalMember(owner = "client!du", name = "b", descriptor = "(I)V")
-    public static void method2229() {
-        @Pc(1) ReferenceCache local1 = Static354.A_WEIGHTED_CACHE___120;
-        synchronized (Static354.A_WEIGHTED_CACHE___120) {
-            Static354.A_WEIGHTED_CACHE___120.removeSoftReferences();
-        }
-    }
 }

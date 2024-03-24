@@ -49,7 +49,7 @@ public final class Static506 {
             Static133.aFloat63 = Static538.aFloat174 + (Static346.aEnvironment_1.aFloat201 - Static538.aFloat174) * local50;
             Static57.aFloat29 = local50 * (Static346.aEnvironment_1.aFloat200 - Static203.aFloat69) + Static203.aFloat69;
             if (Static74.aClass67_3 != Static346.aEnvironment_1.aClass67_10) {
-                Static425.aClass67_6 = Static425.aToolkit_13.method8007(Static74.aClass67_3, Static346.aEnvironment_1.aClass67_10, local50, Static425.aClass67_6);
+                Static425.aClass67_6 = Static425.toolkit.method8007(Static74.aClass67_3, Static346.aEnvironment_1.aClass67_10, local50, Static425.aClass67_6);
             }
             if (Static346.aEnvironment_1.aSkyBox_5 != Static74.aSkyBox_1) {
                 if (Static74.aSkyBox_1 == null) {

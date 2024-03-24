@@ -44,7 +44,7 @@ public final class Static300 {
     public static void method4393() {
         Static668.method8700(false);
         if (Static114.toolkitType >= 0 && Static114.toolkitType != 0) {
-            Static32.method880(Static114.toolkitType, false);
+            Static32.setToolkit(Static114.toolkitType, false);
             Static114.toolkitType = -1;
         }
     }

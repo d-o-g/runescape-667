@@ -11,11 +11,6 @@ public final class Static198 {
     @OriginalMember(owner = "client!gca", name = "e", descriptor = "I")
     public static int anInt3276 = 0;
 
-    @OriginalMember(owner = "client!gca", name = "a", descriptor = "(BI)V")
-    public static void method2951() {
-        Static186.A_WEIGHTED_CACHE___67.clean(5);
-    }
-
     @OriginalMember(owner = "client!gca", name = "a", descriptor = "(IIIIIIII)V")
     public static void method2953(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) int arg6) {
         if (arg4 < 0 || arg1 < 0 || Static720.mapWidth - 1 <= arg4 || Static501.mapHeight - 1 <= arg1) {

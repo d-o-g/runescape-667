@@ -203,7 +203,7 @@ public final class Static489 {
             Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
         Static557.method7331();
-        Static352.method5180();
+        Static352.cacheReset();
         VideoManager.stop();
         @Pc(430) boolean local430 = false;
         if (Toolkit.active.method7990() && ClientOptions.instance.waterDetail.getValue() == 2) {
@@ -280,7 +280,7 @@ public final class Static489 {
             Static314.noTimeout(true);
             Static101.method2001(Static118.aByteArrayArray3, Static2.aMapRegion);
         }
-        Static352.method5180();
+        Static352.cacheReset();
         if (ClientOptions.maxmemory < 96) {
             Static358.method9191();
         }
@@ -296,7 +296,7 @@ public final class Static489 {
             } else {
                 Static101.method2001(Static421.aByteArrayArray19, Static134.aMapRegion_3);
             }
-            Static352.method5180();
+            Static352.cacheReset();
             Static314.noTimeout(true);
             Static134.aMapRegion_3.method7888(Toolkit.active, null, Static706.aGroundArray3[0]);
             Static134.aMapRegion_3.method7898(true, Toolkit.active);
@@ -328,7 +328,7 @@ public final class Static489 {
         Static77.method1561();
         Static557.method7331();
         Static197.method2949();
-        Static352.method5180();
+        Static352.cacheReset();
         Static442.method5969();
         @Pc(920) ClientMessage local920;
         if (GameShell.frame != null && ConnectionManager.GAME.connection != null && MainLogicManager.step == 12) {

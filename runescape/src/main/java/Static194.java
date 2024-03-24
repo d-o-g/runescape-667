@@ -1,7 +1,5 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.keyboard.KeyLog;
 
 public final class Static194 {
@@ -18,14 +16,6 @@ public final class Static194 {
             return (byte) ((arg1 & 0x1) == 0 ? 1 : 2);
         } else {
             return 0;
-        }
-    }
-
-    @OriginalMember(owner = "client!g", name = "a", descriptor = "(BI)V")
-    public static void method2907() {
-        @Pc(5) ReferenceCache local5 = Static354.A_WEIGHTED_CACHE___120;
-        synchronized (Static354.A_WEIGHTED_CACHE___120) {
-            Static354.A_WEIGHTED_CACHE___120.clean(5);
         }
     }
 

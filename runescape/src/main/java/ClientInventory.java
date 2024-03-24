@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.Node;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
@@ -15,6 +16,23 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gfa")
 public final class ClientInventory extends Node {
+
+    @OriginalMember(owner = "client!fca", name = "g", descriptor = "Lclient!dla;")
+    public static final ReferenceCache modelCache = new ReferenceCache(10);
+
+    @OriginalMember(owner = "client!sga", name = "k", descriptor = "I")
+    public static int featureMask;
+
+    @OriginalMember(owner = "client!fea", name = "a", descriptor = "(IB)V")
+    public static void setFeatureMask(@OriginalArg(0) int featureMask) {
+        ClientInventory.featureMask = featureMask;
+        modelCache.reset();
+    }
+
+    @OriginalMember(owner = "client!kg", name = "c", descriptor = "(B)V")
+    public static void cacheReset() {
+        modelCache.reset();
+    }
 
     @OriginalMember(owner = "client!gfa", name = "t", descriptor = "[I")
     public int[] anIntArray278 = new int[]{-1};
@@ -66,8 +84,8 @@ public final class ClientInventory extends Node {
             local9 = arg3.functionMask() | 0x800;
         }
         @Pc(116) long local116 = this.method3077(female, arg0, local23, arg4 == null ? null : arg4.clientpalette);
-        if (Static166.A_WEIGHTED_CACHE___59 != null) {
-            local7 = (Model) Static166.A_WEIGHTED_CACHE___59.get(local116);
+        if (modelCache != null) {
+            local7 = (Model) modelCache.get(local116);
         }
         if (local7 == null || arg1.compareFunctionMasks(local7.ua(), local9) != 0) {
             if (local7 != null) {
@@ -113,7 +131,7 @@ public final class ClientInventory extends Node {
             if (arg4 != null) {
                 local151 = local9 | 0x4000;
             }
-            local7 = arg1.createModel(local382, local151, Static584.anInt8635, 64, 850);
+            local7 = arg1.createModel(local382, local151, featureMask, 64, 850);
             if (arg4 != null) {
                 for (tx = 0; tx < 10; tx++) {
                     for (ty = 0; ty < PlayerModel.recol_s[tx].length; ty++) {
@@ -123,9 +141,9 @@ public final class ClientInventory extends Node {
                     }
                 }
             }
-            if (Static166.A_WEIGHTED_CACHE___59 != null) {
+            if (modelCache != null) {
                 local7.s(local9);
-                Static166.A_WEIGHTED_CACHE___59.put(local7, local116);
+                modelCache.put(local7, local116);
             }
         }
         if (arg3 == null) {

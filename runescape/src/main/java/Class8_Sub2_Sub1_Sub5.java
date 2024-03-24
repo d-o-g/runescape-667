@@ -188,7 +188,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(24) Model local24 = this.method6594(this.anInt7402, arg0, (this.anInt7400 == 0 ? 0 : 5) | 0x800);
         if (local24 == null) {
             return null;
@@ -199,7 +199,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
         @Pc(43) Matrix local43 = arg0.scratchMatrix();
         local43.method7125(super.x, super.anInt10691, super.z);
         this.method6593(local43, local24, arg0);
-        @Pc(62) Class8_Sub7 local62 = Static642.method8441(false, 1);
+        @Pc(62) PickableEntity local62 = Static642.method8441(false, 1);
         if (Static504.aBoolean579) {
             local24.renderOrtho(local43, local62.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {

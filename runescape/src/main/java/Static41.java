@@ -11,9 +11,4 @@ public final class Static41 {
         return arg0 == 3 || arg0 == 4 || arg0 == 5 || arg0 == 6;
     }
 
-    @OriginalMember(owner = "client!bg", name = "a", descriptor = "(BI)V")
-    public static void setFeatureMask(@OriginalArg(1) int arg0) {
-        Static391.anInt6133 = arg0;
-        Static186.A_WEIGHTED_CACHE___67.reset();
-    }
 }

@@ -72,14 +72,14 @@ public final class DynamicWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!db", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(14) Model local14 = this.aClass337_1.method7678(arg0, false, true, true, 2048);
         if (local14 == null) {
             return null;
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         local22.method7125(super.x, super.anInt10691, super.z);
-        @Pc(36) Class8_Sub7 local36 = Static642.method8441(this.aBoolean192, 1);
+        @Pc(36) PickableEntity local36 = Static642.method8441(this.aBoolean192, 1);
         @Pc(49) int local49 = super.x >> 9;
         @Pc(54) int local54 = super.z >> 9;
         this.aClass337_1.method7681(local54, local14, true, -9827, arg0, local49, local49, local54, local22);

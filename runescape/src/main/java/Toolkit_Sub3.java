@@ -929,7 +929,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "q", descriptor = "()V")
     @Override
-    public void method8012() {
+    public void cacheReset() {
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(ZZI)V")

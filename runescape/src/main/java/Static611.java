@@ -31,7 +31,7 @@ public final class Static611 {
 
         if (ClientOptions.instance.toolkit.getValue() != ToolkitType.SSE) {
             ClientOptions.instance.update(ToolkitType.SSE, ClientOptions.instance.toolkitDefault);
-            Static32.method880(ToolkitType.SSE, false);
+            Static32.setToolkit(ToolkitType.SSE, false);
         }
 
         ClientOptions.save();

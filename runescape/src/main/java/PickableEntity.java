@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!pea")
-public final class Class8_Sub7 extends Node {
+public final class PickableEntity extends Node {
 
     @OriginalMember(owner = "client!pea", name = "g", descriptor = "Lclient!eo;")
     public Renderable aRenderable_18;

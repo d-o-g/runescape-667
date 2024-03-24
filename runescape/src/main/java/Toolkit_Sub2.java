@@ -1197,7 +1197,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "q", descriptor = "()V")
     @Override
-    public void method8012() {
+    public void cacheReset() {
         this.aReferenceCache_89.reset();
         this.aReferenceCache_88.reset();
     }

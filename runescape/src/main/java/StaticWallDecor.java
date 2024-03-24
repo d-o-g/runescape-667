@@ -217,13 +217,13 @@ public final class StaticWallDecor extends WallDecor implements Location {
 
     @OriginalMember(owner = "client!im", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
         if (this.model == null) {
             return null;
         }
         @Pc(12) Matrix local12 = arg0.scratchMatrix();
         local12.method7125(super.x + super.aShort101, super.anInt10691, super.aShort102 + super.z);
-        @Pc(41) Class8_Sub7 local41 = Static642.method8441(this.aBoolean350, 1);
+        @Pc(41) PickableEntity local41 = Static642.method8441(this.aBoolean350, 1);
         if (Static504.aBoolean579) {
             this.model.renderOrtho(local12, local41.aPickingCylinderArray1[0], Static582.anInt8627, 0);
         } else {

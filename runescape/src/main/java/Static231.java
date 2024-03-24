@@ -70,13 +70,13 @@ public final class Static231 {
         }
         Static514.aClass213_2.method5010();
         Static563.method7461();
-        Static244.method3512();
+        Minimap.reset();
         Static329.method1649();
         Static638.method8393();
         Static65.method1472();
         Static81.method1589();
-        Static352.method5180();
-        Static203.method3068();
+        Static352.cacheReset();
+        Static203.resetStaticSprites();
         Static143.method3572();
         Static668.method8700(false);
         for (@Pc(34) int local34 = 0; local34 < 2048; local34++) {
@@ -298,16 +298,16 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("rebuild")) {
-                    Static449.mapBuild();
-                    Static244.method3512();
+                    MainLogicManager.mapBuild();
+                    Minimap.reset();
                     Static79.method1579("Rebuilding map");
                     return;
                 }
                 if (arg2.equalsIgnoreCase("rebuildprofile")) {
                     Static690.aLong318 = SystemTimer.safetime();
                     Static28.aBoolean43 = true;
-                    Static449.mapBuild();
-                    Static244.method3512();
+                    MainLogicManager.mapBuild();
+                    Minimap.reset();
                     Static79.method1579("Rebuilding map (with profiling)");
                     return;
                 }
@@ -339,7 +339,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk0")) {
-                    Static32.method880(ToolkitType.JAVA, false);
+                    Static32.setToolkit(ToolkitType.JAVA, false);
                     if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
                         Static79.method1579("Entered tk0");
                         ClientOptions.instance.update(0, ClientOptions.instance.toolkitDefault);
@@ -351,7 +351,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk1")) {
-                    Static32.method880(ToolkitType.GL, false);
+                    Static32.setToolkit(ToolkitType.GL, false);
                     if (ClientOptions.instance.toolkit.getValue() == ToolkitType.GL) {
                         Static79.method1579("Entered tk1");
                         ClientOptions.instance.update(1, ClientOptions.instance.toolkitDefault);
@@ -363,7 +363,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk2")) {
-                    Static32.method880(ToolkitType.SSE, false);
+                    Static32.setToolkit(ToolkitType.SSE, false);
                     if (ClientOptions.instance.toolkit.getValue() == ToolkitType.SSE) {
                         Static79.method1579("Entered tk2");
                         ClientOptions.instance.update(2, ClientOptions.instance.toolkitDefault);
@@ -375,7 +375,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk3")) {
-                    Static32.method880(ToolkitType.D3D, false);
+                    Static32.setToolkit(ToolkitType.D3D, false);
                     if (ClientOptions.instance.toolkit.getValue() == ToolkitType.D3D) {
                         Static79.method1579("Entered tk3");
                         ClientOptions.instance.update(3, ClientOptions.instance.toolkitDefault);
@@ -387,7 +387,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("tk5")) {
-                    Static32.method880(ToolkitType.GLX, false);
+                    Static32.setToolkit(ToolkitType.GLX, false);
                     if (ClientOptions.instance.toolkit.getValue() == ToolkitType.GLX) {
                         Static79.method1579("Entered tk5");
                         ClientOptions.instance.update(5, ClientOptions.instance.toolkitDefault);
@@ -479,7 +479,7 @@ public final class Static231 {
                     js5.SPRITES.discardUnpacked();
                     MSITypeList.instance.cacheReset();
                     MapElementTypeList.instance.cacheReset();
-                    Static244.method3512();
+                    Minimap.reset();
                     Static79.method1579("Minimap reset");
                     return;
                 }
@@ -492,7 +492,7 @@ public final class Static231 {
                             local501 = 4;
                         }
                         Static455.anInt6915 = local501;
-                        Static449.mapBuild();
+                        MainLogicManager.mapBuild();
                         Static79.method1579("Render cores now: " + Static455.anInt6915);
                         return;
                     }
@@ -594,18 +594,18 @@ public final class Static231 {
                 }
                 if (arg2.equals("showcolmap")) {
                     Static113.aBoolean198 = true;
-                    Static244.method3512();
+                    Minimap.reset();
                     Static79.method1579("colmap is shown");
                     return;
                 }
                 if (arg2.equals("hidecolmap")) {
                     Static113.aBoolean198 = false;
-                    Static244.method3512();
+                    Minimap.reset();
                     Static79.method1579("colmap is hidden");
                     return;
                 }
                 if (arg2.equals("resetcache")) {
-                    Static352.method5180();
+                    Static352.cacheReset();
                     Static79.method1579("Caches reset");
                     return;
                 }
@@ -687,7 +687,7 @@ public final class Static231 {
                 if (arg2.startsWith("w2debug")) {
                     local501 = Integer.parseInt(arg2.substring(8, 9));
                     Static699.anInt10539 = local501;
-                    Static449.mapBuild();
+                    MainLogicManager.mapBuild();
                     Static79.method1579("Toggled!");
                     return;
                 }

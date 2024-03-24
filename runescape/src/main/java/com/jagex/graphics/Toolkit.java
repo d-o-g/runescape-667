@@ -449,7 +449,7 @@ public abstract class Toolkit {
     public abstract void A(@OriginalArg(0) int colour, @OriginalArg(1) ClippingMask clippingMask, @OriginalArg(2) int x, @OriginalArg(3) int y);
 
     @OriginalMember(owner = "client!ha", name = "q", descriptor = "()V")
-    public abstract void method8012();
+    public abstract void cacheReset();
 
     /**
      * combineFunctionMasks

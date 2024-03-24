@@ -61,10 +61,10 @@ public final class Static296 {
         ObjTypeList.instance.setFeatureMask(featureMask);
         NPCTypeList.instance.setFeatureMask(featureMask);
         SpotAnimationTypeList.instance.setFeatureMask(featureMask);
-        Static41.setFeatureMask(featureMask);
-        Static298.setFeatureMask(featureMask);
+        PlayerEntity.setFeatureMask(featureMask);
+        ShadowList.setFeatureMask(featureMask);
         PlayerModel.setFeatureMask(featureMask);
-        Static170.setFeatureMask(featureMask);
-        Static449.mapBuild();
+        ClientInventory.setFeatureMask(featureMask);
+        MainLogicManager.mapBuild();
     }
 }

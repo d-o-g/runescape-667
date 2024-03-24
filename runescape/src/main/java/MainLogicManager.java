@@ -110,4 +110,17 @@ public final class MainLogicManager {
     public static boolean isBuildingMap(@OriginalArg(0) int arg0) {
         return arg0 == 4 || arg0 == 8 || arg0 == 12 || arg0 == 10;
     }
+
+    @OriginalMember(owner = "client!od", name = "b", descriptor = "(I)V")
+    public static void mapBuild() {
+        if (step == 3) {
+            setStep(4);
+        } else if (step == 7) {
+            setStep(8);
+        } else if (step == 9) {
+            setStep(10);
+        } else if (step == 11) {
+            setStep(12);
+        }
+    }
 }

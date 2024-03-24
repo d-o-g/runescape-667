@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -12,9 +11,6 @@ public final class Static354 {
 
     @OriginalMember(owner = "client!ld", name = "a", descriptor = "I")
     public static int anInt5763;
-
-    @OriginalMember(owner = "client!ld", name = "p", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___120 = new ReferenceCache(32);
 
     @OriginalMember(owner = "client!ld", name = "k", descriptor = "Z")
     public static boolean aBoolean439 = false;

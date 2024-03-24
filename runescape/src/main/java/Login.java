@@ -19,7 +19,7 @@ public final class Login {
             local19.close();
         }
         Static707.method9227();
-        Static352.method5180();
+        Static352.cacheReset();
         Static563.method7461();
         for (@Pc(36) int local36 = 0; local36 < 4; local36++) {
             Static577.A_COLLISION_MAP_ARRAY_1[local36].method2467();

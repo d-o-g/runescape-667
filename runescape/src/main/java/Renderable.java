@@ -50,7 +50,7 @@ public abstract class Renderable extends Node {
     public abstract boolean method9275();
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
-    public abstract Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0);
+    public abstract PickableEntity method9276(@OriginalArg(1) Toolkit arg0);
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(I[Lclient!lca;II)I")
     protected final int method9277(@OriginalArg(1) PointLight[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {

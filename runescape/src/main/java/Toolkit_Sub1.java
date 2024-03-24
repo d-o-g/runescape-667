@@ -2363,7 +2363,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "q", descriptor = "()V")
     @Override
-    public final void method8012() {
+    public final void cacheReset() {
         if (this.aClass334_3 != null) {
             this.aClass334_3.method7653();
         }

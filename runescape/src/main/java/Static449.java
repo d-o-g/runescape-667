@@ -20,19 +20,6 @@ public final class Static449 {
     @OriginalMember(owner = "client!od", name = "d", descriptor = "Ljava/lang/String;")
     public static String aString75 = "";
 
-    @OriginalMember(owner = "client!od", name = "b", descriptor = "(I)V")
-    public static void mapBuild() {
-        if (MainLogicManager.step == 3) {
-            MainLogicManager.setStep(4);
-        } else if (MainLogicManager.step == 7) {
-            MainLogicManager.setStep(8);
-        } else if (MainLogicManager.step == 9) {
-            MainLogicManager.setStep(10);
-        } else if (MainLogicManager.step == 11) {
-            MainLogicManager.setStep(12);
-        }
-    }
-
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(ILclient!uv;)Z")
     public static boolean hasMsi(@OriginalArg(1) Location location) {
         @Pc(17) LocType locType = LocTypeList.instance.list(location.getId());

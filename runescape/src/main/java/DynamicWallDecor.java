@@ -46,14 +46,14 @@ public final class DynamicWallDecor extends WallDecor implements Location {
 
     @OriginalMember(owner = "client!qg", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
         @Pc(14) Model local14 = this.aClass337_4.method7678(arg0, false, true, true, 2048);
         if (local14 == null) {
             return null;
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         local22.method7125(super.x + super.aShort101, super.anInt10691, super.z + super.aShort102);
-        @Pc(42) Class8_Sub7 local42 = Static642.method8441(this.aBoolean587, 1);
+        @Pc(42) PickableEntity local42 = Static642.method8441(this.aBoolean587, 1);
         @Pc(55) int local55 = super.x >> 9;
         @Pc(60) int local60 = super.z >> 9;
         this.aClass337_4.method7681(local60, local14, true, -9827, arg0, local55, local55, local60, local22);

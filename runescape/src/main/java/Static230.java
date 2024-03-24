@@ -1,13 +1,9 @@
 import com.jagex.core.datastruct.key.Deque;
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static230 {
-
-    @OriginalMember(owner = "client!hca", name = "c", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___81 = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!hca", name = "a", descriptor = "(IIIIII)V")
     public static void method3370(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {

@@ -1,4 +1,5 @@
 import com.jagex.IndexedImage;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -7,6 +8,15 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Sprites {
+
+    @OriginalMember(owner = "client!ra", name = "k", descriptor = "Lclient!dla;")
+    public static final ReferenceCache mobilisingArmiesCache = new ReferenceCache(8);
+
+    @OriginalMember(owner = "client!vd", name = "o", descriptor = "Lclient!dla;")
+    public static final ReferenceCache timerbarCache = new ReferenceCache(4);
+
+    @OriginalMember(owner = "client!hca", name = "c", descriptor = "Lclient!dla;")
+    public static final ReferenceCache hitbarCache = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!ew", name = "c", descriptor = "I")
     public static int hitbarDefaultGroup;

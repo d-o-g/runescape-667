@@ -56,7 +56,7 @@ public final class Static363 {
         }
 
         if (toolkit != ClientOptions.instance.toolkit.getValue()) {
-            Static667.method8695(true, LocalisedText.PROFILING.localise(client.language), toolkit);
+            Static667.setToolkit(true, LocalisedText.PROFILING.localise(client.language), toolkit);
 
             if (toolkit != ClientOptions.instance.toolkit.getValue()) {
                 return -1;

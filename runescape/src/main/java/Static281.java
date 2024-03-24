@@ -9,7 +9,7 @@ public final class Static281 {
     public static int anInt4566;
 
     @OriginalMember(owner = "client!iq", name = "a", descriptor = "(ILclient!pea;)V")
-    public static void method4092(@OriginalArg(1) Class8_Sub7 arg0) {
+    public static void method4092(@OriginalArg(1) PickableEntity arg0) {
         arg0.aRenderable_18 = null;
         @Pc(10) int local10 = arg0.aPickingCylinderArray1.length;
         for (@Pc(12) int local12 = 0; local12 < local10; local12++) {

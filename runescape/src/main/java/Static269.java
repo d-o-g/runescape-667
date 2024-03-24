@@ -7,7 +7,7 @@ public final class Static269 {
     public static final ServerProt A_SERVER_PROT___111 = new ServerProt(6, -2);
 
     @OriginalMember(owner = "client!iha", name = "a", descriptor = "(Z)V")
-    public static void method3909() {
+    public static void cacheReset() {
         Static480.A_DOUBLY_LINKED_LIST___2.clear();
     }
 

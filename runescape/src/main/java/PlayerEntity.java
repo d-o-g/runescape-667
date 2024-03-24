@@ -1,6 +1,7 @@
 import com.jagex.ParticleList;
 import com.jagex.Constants;
 import com.jagex.core.constants.ModeWhere;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
@@ -20,8 +21,10 @@ import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Matrix;
+import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
+import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -30,8 +33,14 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ca")
 public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
 
+    @OriginalMember(owner = "client!fo", name = "k", descriptor = "Lclient!dla;")
+    public static final ReferenceCache modelCache = new ReferenceCache(4);
+
     @OriginalMember(owner = "client!kw", name = "r", descriptor = "[I")
     public static int[] wornObjIds;
+
+    @OriginalMember(owner = "client!mea", name = "i", descriptor = "I")
+    public static int featureMask;
 
     @OriginalMember(owner = "client!naa", name = "a", descriptor = "(B)V")
     public static void initWornObjIds() {
@@ -50,6 +59,75 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         for (@Pc(58) int i = 0; i < count; i++) {
             wornObjIds[i] = ids[i];
         }
+    }
+
+    @OriginalMember(owner = "client!vs", name = "a", descriptor = "(IIIIIILclient!ha;)Lclient!ka;")
+    public static Model model(@OriginalArg(0) int rotateX, @OriginalArg(1) int rotateZ, @OriginalArg(3) int id, @OriginalArg(4) int translateY, @OriginalArg(5) int rotateY, @OriginalArg(6) Toolkit arg5) {
+        @Pc(13) long key = id;
+        @Pc(19) Model model = (Model) modelCache.get(key);
+        if (model == null) {
+            @Pc(29) Mesh mesh = Mesh.load(id, js5.MODELS);
+            if (mesh == null) {
+                return null;
+            }
+            if (mesh.version < 13) {
+                mesh.upscale();
+            }
+            model = arg5.createModel(mesh, 2055, featureMask, 64, 768);
+            modelCache.put(model, key);
+        }
+
+        model = model.copy((byte) 6, 2055, true);
+
+        if (rotateY != 0) {
+            model.a(rotateY);
+        }
+        if (rotateX != 0) {
+            model.FA(rotateX);
+        }
+        if (rotateZ != 0) {
+            model.VA(rotateZ);
+        }
+        if (translateY != 0) {
+            model.H(0, translateY, 0);
+        }
+        return model;
+    }
+
+    @OriginalMember(owner = "client!kf", name = "a", descriptor = "(ILclient!ca;)I")
+    public static int method4870(@OriginalArg(1) PlayerEntity arg0) {
+        @Pc(6) int local6 = arg0.anInt1445;
+        @Pc(10) BASType local10 = arg0.method9317();
+        @Pc(15) int local15 = arg0.animator.getAnimationId();
+        if (local15 == -1 || arg0.ready) {
+            local6 = arg0.anInt1455;
+        } else if (local10.run == local15 || local15 == local10.runFollowTurn180 || local10.runFollowTurnCw == local15 || local10.runFollowTurnCcw == local15) {
+            local6 = arg0.anInt1469;
+        } else if (local10.crawl == local15 || local10.crawlFollowTurn180 == local15 || local10.crawlFollowTurnCw == local15 || local10.crawlFollowTurnCcw == local15) {
+            local6 = arg0.anInt1459;
+        }
+        return local6;
+    }
+
+    @OriginalMember(owner = "client!ema", name = "a", descriptor = "(I)V")
+    public static void cacheRemoveSoftReferences() {
+        modelCache.removeSoftReferences();
+    }
+
+    @OriginalMember(owner = "client!gca", name = "a", descriptor = "(BI)V")
+    public static void cacheClean(@OriginalArg(1) int maxAge) {
+        modelCache.clean(maxAge);
+    }
+
+    @OriginalMember(owner = "client!bg", name = "a", descriptor = "(BI)V")
+    public static void setFeatureMask(@OriginalArg(1) int featureMask) {
+        PlayerEntity.featureMask = featureMask;
+        modelCache.reset();
+    }
+
+    @OriginalMember(owner = "client!sga", name = "b", descriptor = "(Z)V")
+    public static void cacheReset() {
+        modelCache.reset();
     }
 
     @OriginalMember(owner = "client!rj", name = "c", descriptor = "Lclient!ca;")
@@ -151,21 +229,6 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public PlayerEntity() {
     }
 
-    @OriginalMember(owner = "client!kf", name = "a", descriptor = "(ILclient!ca;)I")
-    public static int method4870(@OriginalArg(1) PlayerEntity arg0) {
-        @Pc(6) int local6 = arg0.anInt1445;
-        @Pc(10) BASType local10 = arg0.method9317();
-        @Pc(15) int local15 = arg0.animator.getAnimationId();
-        if (local15 == -1 || arg0.ready) {
-            local6 = arg0.anInt1455;
-        } else if (local10.run == local15 || local15 == local10.runFollowTurn180 || local10.runFollowTurnCw == local15 || local10.runFollowTurnCcw == local15) {
-            local6 = arg0.anInt1469;
-        } else if (local10.crawl == local15 || local10.crawlFollowTurn180 == local15 || local10.crawlFollowTurnCw == local15 || local10.crawlFollowTurnCcw == local15) {
-            local6 = arg0.anInt1459;
-        }
-        return local6;
-    }
-
     @OriginalMember(owner = "client!ca", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
@@ -187,7 +250,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(BIIILclient!ka;Lclient!tt;Lclient!ha;I)V")
-    public void method1414(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Model arg4, @OriginalArg(5) Matrix arg5, @OriginalArg(6) Toolkit arg6, @OriginalArg(7) int arg7) {
+    public void method1414(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int id, @OriginalArg(4) Model arg4, @OriginalArg(5) Matrix arg5, @OriginalArg(6) Toolkit toolkit, @OriginalArg(7) int arg7) {
         if (arg0 != -74) {
             this.method9289(null, 41);
         }
@@ -195,12 +258,12 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         if (local20 < 262144 || local20 > arg2) {
             return;
         }
-        @Pc(53) int local53 = (int) (Math.atan2(arg1, arg7) * 2607.5945876176133D - (double) super.aClass126_7.method2673(16383)) & 0x3FFF;
-        @Pc(65) Model local65 = Static691.method9004(super.anInt10746, super.anInt10742, arg3, super.anInt10716, local53, arg6);
-        if (local65 != null) {
-            arg6.C(false);
-            local65.render(arg5, null, 0);
-            arg6.C(true);
+        @Pc(53) int rotateY = (int) (Math.atan2(arg1, arg7) * 2607.5945876176133D - (double) super.aClass126_7.method2673(16383)) & 0x3FFF;
+        @Pc(65) Model model = model(super.modelRotateX, super.modelRotateZ, id, super.modelTranslateY, rotateY, toolkit);
+        if (model != null) {
+            toolkit.C(false);
+            model.render(arg5, null, 0);
+            toolkit.C(true);
         }
     }
 
@@ -278,7 +341,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             return;
         }
         @Pc(53) int local53 = (int) (Math.atan2(arg4, arg7) * 2607.5945876176133D - (double) super.aClass126_7.method2673(16383)) & 0x3FFF;
-        @Pc(65) Model local65 = Static691.method9004(super.anInt10746, super.anInt10742, arg3, super.anInt10716, local53, arg2);
+        @Pc(65) Model local65 = model(super.modelRotateX, super.modelRotateZ, arg3, super.modelTranslateY, local53, arg2);
         if (local65 != null) {
             arg2.C(false);
             local65.renderOrtho(arg5, null, arg6, 0);
@@ -351,7 +414,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public Class8_Sub7 method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
         if (this.playerModel == null || !this.method1421(2048, arg0)) {
             return null;
         }
@@ -367,13 +430,13 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         local22.translate(super.x, -super.anInt10732 + super.anInt10691 - 20, super.z);
         super.aBoolean819 = false;
-        @Pc(114) Class8_Sub7 local114 = null;
+        @Pc(114) PickableEntity local114 = null;
         if (ClientOptions.instance.spotShadows.getValue() == 1) {
             @Pc(126) BASType local126 = this.method9317();
             if (local126.animateShadow && (this.playerModel.npcId == -1 || NPCTypeList.instance.list(this.playerModel.npcId).hasShadow)) {
                 @Pc(166) Animator local166 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
                 @Pc(186) Animator local186 = super.animator.isAnimating() && (!super.ready || local166 == null) ? super.animator : null;
-                @Pc(212) Model local212 = Static618.method8320(240, super.aModelArray3[0], super.anInt10742, 0, super.anInt10716, 1, arg0, 160, local186 == null ? local166 : local186, super.anInt10746, local27, 0);
+                @Pc(212) Model local212 = ShadowList.model(240, super.aModelArray3[0], super.modelRotateZ, 0, super.modelTranslateY, 1, arg0, 160, local186 == null ? local166 : local186, super.modelRotateX, local27, 0);
                 if (local212 != null) {
                     local114 = Static642.method8441(true, super.aModelArray3.length + 1);
                     super.aBoolean819 = true;
@@ -667,14 +730,14 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             this.method9314(local95, 0, 0, this.boundSize((byte) 59) << 9, this.boundSize((byte) 126) << 9, -81);
         } else {
             this.method9314(local95, local15.hillMaxAngleX, local15.hillMaxAngleY, local61, local64, -104);
-            if (super.anInt10746 != 0) {
-                local152.FA(super.anInt10746);
+            if (super.modelRotateX != 0) {
+                local152.FA(super.modelRotateX);
             }
-            if (super.anInt10742 != 0) {
-                local152.VA(super.anInt10742);
+            if (super.modelRotateZ != 0) {
+                local152.VA(super.modelRotateZ);
             }
-            if (super.anInt10716 != 0) {
-                local152.H(0, super.anInt10716, 0);
+            if (super.modelTranslateY != 0) {
+                local152.H(0, super.modelTranslateY, 0);
             }
         }
         if (local119) {

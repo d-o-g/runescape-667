@@ -328,11 +328,11 @@ public final class client extends GameShell {
         PlayerModel.cacheClean();
         Component.cacheClean(50);
         FontTypeList.cacheClean(50);
-        Static198.method2951();
-        Static194.method2907();
-        Static230.A_WEIGHTED_CACHE___81.clean(5);
-        Static669.A_WEIGHTED_CACHE___215.clean(5);
-        Static541.A_WEIGHTED_CACHE___174.clean(5);
+        PlayerEntity.cacheClean(5);
+        ShadowList.cacheClean(5);
+        Sprites.hitbarCache.clean(5);
+        Sprites.timerbarCache.clean(5);
+        Sprites.mobilisingArmiesCache.clean(5);
         MiniMenu.questCache.clean(5);
         ScriptRunner.A_WEIGHTED_CACHE___156.clean(5);
     }
@@ -1439,7 +1439,7 @@ public final class client extends GameShell {
                 }
             } catch (@Pc(666) Exception_Sub1 cause) {
                 JagException.sendTrace(cause, cause.getMessage() + " (Recovered) " + this.getErrorTrace());
-                Static32.method880(ToolkitType.JAVA, false);
+                Static32.setToolkit(ToolkitType.JAVA, false);
             }
         }
 
@@ -1490,7 +1490,7 @@ public final class client extends GameShell {
         } catch (@Pc(24) Throwable cause) {
             JagException.sendTrace(cause, cause.getMessage() + " (Recovered) " + this.getErrorTrace());
             Static171.graphicsError = true;
-            Static32.method880(ToolkitType.JAVA, false);
+            Static32.setToolkit(ToolkitType.JAVA, false);
         }
     }
 
@@ -1904,7 +1904,7 @@ public final class client extends GameShell {
         } catch (@Pc(24) Throwable cause) {
             JagException.sendTrace(cause, cause.getMessage() + " (Recovered) " + this.getErrorTrace());
             Static171.graphicsError = true;
-            Static32.method880(ToolkitType.JAVA, false);
+            Static32.setToolkit(ToolkitType.JAVA, false);
         }
     }
 }

@@ -1,13 +1,9 @@
 import com.jagex.core.datastruct.key.LruCache;
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static541 {
-
-    @OriginalMember(owner = "client!ra", name = "k", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___174 = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!ra", name = "p", descriptor = "Lclient!ts;")
     public static final LruCache A_DOUBLY_LINKED_LIST___4 = new LruCache(16);

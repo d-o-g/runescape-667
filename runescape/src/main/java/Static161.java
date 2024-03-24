@@ -244,7 +244,7 @@ public final class Static161 {
             return;
         }
         if (local7 == 127) {
-            arg0.method1419(arg0.anInt1441, arg0.anInt1448);
+            arg0.coord(arg0.anInt1441, arg0.anInt1448);
             return;
         }
         @Pc(985) byte local985;

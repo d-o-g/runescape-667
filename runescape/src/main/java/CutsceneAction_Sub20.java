@@ -18,6 +18,6 @@ public final class CutsceneAction_Sub20 extends CutsceneAction {
     @OriginalMember(owner = "client!sda", name = "b", descriptor = "(I)V")
     @Override
     public void method9161() {
-        Static219.aClass236Array1[this.anInt8594].method5361();
+        CutsceneManager.actors[this.anInt8594].reset();
     }
 }

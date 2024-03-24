@@ -37,9 +37,9 @@ public final class Static360 {
                 Static75.aClass357Array2[local83] = new Class357(local46);
             }
             @Pc(108) int local108 = local46.gsmart();
-            Static219.aClass236Array1 = new Class236[local108];
+            CutsceneManager.actors = new Actor[local108];
             for (@Pc(113) int local113 = 0; local113 < local108; local113++) {
-                Static219.aClass236Array1[local113] = new Class236(local46, local113);
+                CutsceneManager.actors[local113] = new Actor(local46, local113);
             }
             @Pc(139) int local139 = local46.gsmart();
             Static507.aClass394Array1 = new Class394[local139];

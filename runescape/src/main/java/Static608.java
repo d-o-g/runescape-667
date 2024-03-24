@@ -35,7 +35,7 @@ public final class Static608 {
         @Pc(11) int[] local11 = Static210.anIntArray280;
         @Pc(20) int local20;
         if (CutsceneManager.state == 3) {
-            local20 = Static219.aClass236Array1.length;
+            local20 = CutsceneManager.actors.length;
         } else {
             local20 = NPCList.localNpcCount + local7;
         }
@@ -56,15 +56,15 @@ public final class Static608 {
             @Pc(31) NPCType local31 = null;
             @Pc(51) PathingEntity local51;
             if (CutsceneManager.state == 3) {
-                @Pc(111) Class236 local111 = Static219.aClass236Array1[local27];
-                if (!local111.aBoolean455) {
+                @Pc(111) Actor local111 = CutsceneManager.actors[local27];
+                if (!local111.initialised) {
                     continue;
                 }
-                local51 = local111.method5363();
+                local51 = local111.entity();
                 if (Static198.anInt3276 != local51.anInt10704) {
                     continue;
                 }
-                if (local111.anInt5980 >= 0) {
+                if (local111.npcId >= 0) {
                     local31 = ((NPCEntity) local51).type;
                     if (local31.multinpcs != null) {
                         local31 = local31.getMultiNPC(TimedVarDomain.instance);

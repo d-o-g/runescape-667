@@ -52,7 +52,7 @@ public final class Static383 {
             if (Static441.isBridgeAt(local161, local149)) {
                 local99.virtualLevel++;
             }
-            local99.method1419(local149, local161);
+            local99.coord(local149, local161);
             local99.aBoolean127 = false;
             Static246.aClass350Array1[arg0] = null;
             return true;

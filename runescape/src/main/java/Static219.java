@@ -10,9 +10,6 @@ public final class Static219 {
     @OriginalMember(owner = "client!gp", name = "h", descriptor = "[I")
     public static int[] anIntArray288;
 
-    @OriginalMember(owner = "client!gp", name = "a", descriptor = "[Lclient!lw;")
-    public static Class236[] aClass236Array1;
-
     @OriginalMember(owner = "client!gp", name = "i", descriptor = "I")
     public static int mouseButtons = 0;
 

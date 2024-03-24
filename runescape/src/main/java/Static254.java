@@ -54,7 +54,7 @@ public final class Static254 {
         NPCList.localNpcCount = 0;
         NPCList.newNpcCount = 0;
         NPCList.local.clear();
-        Static505.A_DEQUE___77.clear();
+        Static505.projectiles.clear();
         Static346.A_HASH_TABLE___29.clear();
         Static422.A_ENTITY_LIST___9.clear();
         Static497.stacks.clear();

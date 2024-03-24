@@ -9,7 +9,7 @@ public final class Static559 {
     public static Class56 aClass56_3;
 
     @OriginalMember(owner = "client!rka", name = "z", descriptor = "(I)[Lclient!pc;")
-    public static Class287[] method7419() {
-        return new Class287[]{Static450.aClass287_14, Static481.aClass287_15, Static379.aClass287_12, Static420.aClass287_13, Static328.aClass287_10, Static565.aClass287_8, Static73.aClass287_18, Static210.aClass287_9, Static704.aClass287_17, Static370.aClass287_11, Static3.aClass287_1, Static84.aClass287_6, Static668.aClass287_16, Static77.aClass287_5, Static18.aClass287_2};
+    public static ZoneProt[] method7419() {
+        return new ZoneProt[]{Static450.A_ZONE_PROT___14, Static481.A_ZONE_PROT___15, Static379.A_ZONE_PROT___12, Static420.A_ZONE_PROT___13, Static328.A_ZONE_PROT___10, Static565.A_ZONE_PROT___8, ZoneProt.MAP_PROJANIM, Static210.A_ZONE_PROT___9, Static704.A_ZONE_PROT___17, Static370.A_ZONE_PROT___11, Static3.A_ZONE_PROT___1, Static84.A_ZONE_PROT___6, Static668.A_ZONE_PROT___16, Static77.A_ZONE_PROT___5, Static18.A_ZONE_PROT___2};
     }
 }

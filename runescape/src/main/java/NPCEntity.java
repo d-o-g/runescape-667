@@ -246,7 +246,7 @@ public final class NPCEntity extends PathingEntity {
             arg0 |= 0x80000;
         }
         @Pc(111) int local111 = super.yaw.getValue(16383);
-        @Pc(134) Model local134 = super.aModelArray3[0] = this.type.getModel(TimedVarDomain.instance, arg1, BASTypeList.instance, local27, local111, super.anIntArray877, this.customisation, local47, arg0, super.wornAnimators);
+        @Pc(134) Model local134 = super.aModelArray3[0] = this.type.getModel(TimedVarDomain.instance, arg1, BASTypeList.instance, local27, local111, super.wornRotation, this.customisation, local47, arg0, super.wornAnimators);
         if (local134 == null) {
             return false;
         }
@@ -430,7 +430,7 @@ public final class NPCEntity extends PathingEntity {
         }
 
         super.pathPointer = 0;
-        super.anInt10763 = 0;
+        super.delayedWalkingTicks = 0;
         super.pathX[0] = x;
         super.animationPathPointer = 0;
         super.pathZ[0] = z;
@@ -438,7 +438,7 @@ public final class NPCEntity extends PathingEntity {
         super.z = (super.pathZ[0] << 9) + (size << 8);
 
         if (super.particleSystem != null) {
-            super.particleSystem.method3656();
+            super.particleSystem.restart();
         }
     }
 
@@ -489,7 +489,7 @@ public final class NPCEntity extends PathingEntity {
         }
 
         if (super.particleSystem != null) {
-            super.particleSystem.method3656();
+            super.particleSystem.restart();
         }
     }
 

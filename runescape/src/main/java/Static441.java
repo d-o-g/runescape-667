@@ -21,7 +21,7 @@ public final class Static441 {
         @Pc(32) int local32 = arg0.exactMoveZ1 * 512 + arg0.getSize() * 256;
         arg0.z += (local32 - arg0.z) / local9;
         arg0.x += (local20 - arg0.x) / local9;
-        arg0.anInt10763 = 0;
+        arg0.delayedWalkingTicks = 0;
         if (arg0.exactMoveDirection == 0) {
             arg0.method9305(8192);
         }

@@ -7,7 +7,7 @@ public final class Static379 {
     public static int anInt5968;
 
     @OriginalMember(owner = "client!lu", name = "I", descriptor = "Lclient!pc;")
-    public static final Class287 aClass287_12 = new Class287(2, -1);
+    public static final ZoneProt A_ZONE_PROT___12 = new ZoneProt(2, -1);
 
     @OriginalMember(owner = "client!lu", name = "a", descriptor = "(Z)V")
     public static void method5355(@OriginalArg(0) boolean arg0) {

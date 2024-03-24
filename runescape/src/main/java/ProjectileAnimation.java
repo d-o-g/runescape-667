@@ -17,16 +17,16 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!b")
-public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
+public final class ProjectileAnimation extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "ab", descriptor = "D")
-    public double aDouble1;
+    public double verticalSpeed;
 
     @OriginalMember(owner = "client!b", name = "qb", descriptor = "D")
-    public double aDouble2;
+    public double speedZ;
 
     @OriginalMember(owner = "client!b", name = "ib", descriptor = "D")
-    public double aDouble3;
+    public double verticalAcceleration;
 
     @OriginalMember(owner = "client!b", name = "Q", descriptor = "I")
     public int rotateY;
@@ -38,16 +38,16 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     public double translateY;
 
     @OriginalMember(owner = "client!b", name = "vb", descriptor = "D")
-    public double aDouble6;
+    public double horizontalSpeed;
 
     @OriginalMember(owner = "client!b", name = "kb", descriptor = "I")
     public int rotateX;
 
     @OriginalMember(owner = "client!b", name = "Gb", descriptor = "D")
-    public double aDouble7;
+    public double speedX;
 
     @OriginalMember(owner = "client!b", name = "Ib", descriptor = "Lclient!hv;")
-    public ParticleSystem system;
+    public ParticleSystem particleSystem;
 
     @OriginalMember(owner = "client!b", name = "wb", descriptor = "D")
     public double translateX;
@@ -56,105 +56,111 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     public int sphereRadius = 0;
 
     @OriginalMember(owner = "client!b", name = "ub", descriptor = "Z")
-    public boolean aBoolean58 = false;
+    public boolean transparent = false;
 
     @OriginalMember(owner = "client!b", name = "P", descriptor = "I")
     public int minY = 0;
 
     @OriginalMember(owner = "client!b", name = "R", descriptor = "Z")
-    public boolean aBoolean59 = false;
+    public boolean ticked = false;
 
     @OriginalMember(owner = "client!b", name = "tb", descriptor = "I")
-    public final int anInt721;
+    public final int y1;
 
     @OriginalMember(owner = "client!b", name = "Cb", descriptor = "I")
-    public final int anInt715;
+    public final int id;
 
     @OriginalMember(owner = "client!b", name = "W", descriptor = "I")
-    public final int anInt722;
+    public final int t1;
 
     @OriginalMember(owner = "client!b", name = "nb", descriptor = "I")
-    public int anInt695;
+    public int wornSlot;
 
     @OriginalMember(owner = "client!b", name = "rb", descriptor = "Z")
-    public boolean aBoolean57;
+    public boolean groundRelative;
 
     @OriginalMember(owner = "client!b", name = "eb", descriptor = "I")
     public final int anInt711;
 
     @OriginalMember(owner = "client!b", name = "hb", descriptor = "I")
-    public final int anInt697;
+    public final int t2;
 
     @OriginalMember(owner = "client!b", name = "lb", descriptor = "I")
     public final int lb;
 
     @OriginalMember(owner = "client!b", name = "xb", descriptor = "I")
-    public final int anInt706;
+    public final int sourceId;
 
     @OriginalMember(owner = "client!b", name = "S", descriptor = "I")
-    public final int anInt705;
+    public final int verticalAngle;
 
     @OriginalMember(owner = "client!b", name = "Db", descriptor = "I")
-    public final int anInt709;
+    public final int displacement;
 
     @OriginalMember(owner = "client!b", name = "N", descriptor = "Lclient!gu;")
     public final Animator animator;
 
     @OriginalMember(owner = "client!b", name = "<init>", descriptor = "(IIIIIIIIIIIIIZI)V")
-    public Class8_Sub2_Sub1_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) boolean arg13, @OriginalArg(14) int arg14) {
-        super(arg1, arg2, arg3, Static102.averageHeight(arg1, -29754, arg4, arg3) - arg5, arg4, arg3 >> 9, arg3 >> 9, arg4 >> 9, arg4 >> 9, false, (byte) 0);
-        this.anInt721 = arg5;
-        this.anInt715 = arg0;
-        this.anInt722 = arg6;
-        this.anInt695 = arg14;
-        this.aBoolean57 = arg13;
+    public ProjectileAnimation(@OriginalArg(0) int id, @OriginalArg(1) int level, @OriginalArg(2) int virtualLevel, @OriginalArg(3) int x, @OriginalArg(4) int z, @OriginalArg(5) int y1, @OriginalArg(6) int t1, @OriginalArg(7) int t2, @OriginalArg(8) int verticalAngle, @OriginalArg(9) int displacement, @OriginalArg(10) int sourceId, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) boolean groundRelative, @OriginalArg(14) int wornSlot) {
+        super(level, virtualLevel, x, Static102.averageHeight(level, -29754, z, x) - y1, z, x >> 9, x >> 9, z >> 9, z >> 9, false, (byte) 0);
+        this.y1 = y1;
+        this.id = id;
+        this.t1 = t1;
+        this.wornSlot = wornSlot;
+        this.groundRelative = groundRelative;
         this.anInt711 = arg11;
-        this.aBoolean59 = false;
-        this.anInt697 = arg7;
+        this.ticked = false;
+        this.t2 = t2;
         this.lb = arg12;
-        this.anInt706 = arg10;
-        this.anInt705 = arg8;
-        this.anInt709 = arg9;
-        @Pc(82) int local82 = SpotAnimationTypeList.instance.list(this.anInt715).seq;
+        this.sourceId = sourceId;
+        this.verticalAngle = verticalAngle;
+        this.displacement = displacement;
+
+        @Pc(82) int animation = SpotAnimationTypeList.instance.list(this.id).seq;
         this.animator = new EntityAnimator(this, false);
-        this.animator.update(true, local82);
+        this.animator.update(true, animation);
     }
 
     @OriginalMember(owner = "client!b", name = "k", descriptor = "(I)I")
     @Override
     public int getMinY(@OriginalArg(0) int arg0) {
         if (arg0 != 2) {
-            this.aBoolean57 = false;
+            this.groundRelative = false;
         }
         return this.minY;
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(IZIII)V")
-    public void method813(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        @Pc(9) double local9;
-        if (!this.aBoolean59) {
-            local9 = arg3 - super.x;
-            @Pc(16) double local16 = arg2 - super.z;
-            @Pc(25) double local25 = Math.sqrt(local16 * local16 + local9 * local9);
-            this.translateZ = (double) this.anInt709 * local16 / local25 + (double) super.z;
-            this.translateX = (double) super.x + local9 * (double) this.anInt709 / local25;
-            if (this.aBoolean57) {
-                this.translateY = Static102.averageHeight(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.anInt721;
+    public void target(@OriginalArg(0) int y, @OriginalArg(2) int t, @OriginalArg(3) int z, @OriginalArg(4) int x) {
+        if (!this.ticked) {
+            @Pc(9) double deltaX = x - super.x;
+            @Pc(16) double deltaZ = z - super.z;
+            @Pc(25) double distance = Math.sqrt((deltaZ * deltaZ) + (deltaX * deltaX));
+
+            this.translateZ = ((deltaZ * (double) this.displacement) / distance) + (double) super.z;
+            this.translateX = ((deltaX * (double) this.displacement) / distance) + (double) super.x;
+
+            if (this.groundRelative) {
+                this.translateY = Static102.averageHeight(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.y1;
             } else {
                 this.translateY = super.y;
             }
         }
-        local9 = this.anInt697 + 1 - arg1;
-        this.aDouble2 = ((double) arg2 - this.translateZ) / local9;
-        this.aDouble7 = ((double) arg3 - this.translateX) / local9;
-        this.aDouble6 = Math.sqrt(this.aDouble7 * this.aDouble7 + this.aDouble2 * this.aDouble2);
-        if (this.anInt705 == -1) {
-            this.aDouble1 = ((double) arg0 - this.translateY) / local9;
+
+        @Pc(9) double deltaT = (this.t2 + 1) - t;
+        this.speedZ = ((double) z - this.translateZ) / deltaT;
+        this.speedX = ((double) x - this.translateX) / deltaT;
+
+        this.horizontalSpeed = Math.sqrt((this.speedX * this.speedX) + (this.speedZ * this.speedZ));
+
+        if (this.verticalAngle == -1) {
+            this.verticalSpeed = ((double) y - this.translateY) / deltaT;
         } else {
-            if (!this.aBoolean59) {
-                this.aDouble1 = -this.aDouble6 * Math.tan((double) this.anInt705 * 0.02454369D);
+            if (!this.ticked) {
+                this.verticalSpeed = -this.horizontalSpeed * Math.tan((double) this.verticalAngle * 0.02454369D);
             }
-            this.aDouble3 = ((double) arg0 - local9 * this.aDouble1 - this.translateY) * 2.0D / (local9 * local9);
+
+            this.verticalAcceleration = (((double) y - (deltaT * this.verticalSpeed) - this.translateY) * 2.0D) / (deltaT * deltaT);
         }
     }
 
@@ -178,7 +184,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     @Override
     public void stopSharingLight(@OriginalArg(0) int arg0) {
         if (arg0 != 27811) {
-            this.anInt695 = -9;
+            this.wornSlot = -9;
         }
         throw new IllegalStateException();
     }
@@ -192,84 +198,87 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;I)Lclient!ka;")
-    public Model method814(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2) {
-        @Pc(17) SpotAnimationType type = SpotAnimationTypeList.instance.list(this.anInt715);
-        return type.model(this.animator, (byte) 2, arg0, arg1);
+    public Model model(@OriginalArg(0) int functionMask, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int arg2) {
+        @Pc(17) SpotAnimationType type = SpotAnimationTypeList.instance.list(this.id);
+        return type.model(this.animator, (byte) 2, functionMask, toolkit);
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(I)V")
     public void method815() {
-        if (this.system != null) {
-            this.system.run();
+        if (this.particleSystem != null) {
+            this.particleSystem.run();
         }
     }
 
     @OriginalMember(owner = "client!b", name = "h", descriptor = "(I)Z")
     @Override
     public boolean isTransparent(@OriginalArg(0) int arg0) {
-        return arg0 == 0 ? this.aBoolean58 : true;
+        return arg0 == 0 ? this.transparent : true;
     }
 
     @OriginalMember(owner = "client!b", name = "c", descriptor = "(Z)V")
     public void method816() {
-        if (this.aBoolean59 || this.anInt706 == 0) {
+        if (this.ticked || this.sourceId == 0) {
             return;
         }
-        @Pc(21) PathingEntity local21 = null;
+
+        @Pc(21) PathingEntity entity = null;
         if (CutsceneManager.state == 3) {
-            local21 = Static219.aClass236Array1[this.anInt706 - 1].method5363();
-        } else {
-            @Pc(35) int local35;
-            if (this.anInt706 < 0) {
-                local35 = -this.anInt706 - 1;
-                if (PlayerList.activePlayerSlot == local35) {
-                    local21 = PlayerEntity.self;
-                } else {
-                    local21 = PlayerList.highResolutionPlayers[local35];
-                }
+            entity = CutsceneManager.actors[this.sourceId - 1].entity();
+        } else if (this.sourceId < 0) {
+            @Pc(35) int index = -this.sourceId - 1;
+
+            if (PlayerList.activePlayerSlot == index) {
+                entity = PlayerEntity.self;
             } else {
-                local35 = this.anInt706 - 1;
-                @Pc(58) NPCEntityNode local58 = (NPCEntityNode) NPCList.local.get(local35);
-                if (local58 != null) {
-                    local21 = local58.npc;
+                entity = PlayerList.highResolutionPlayers[index];
+            }
+        } else {
+            @Pc(35) int index = this.sourceId - 1;
+            @Pc(58) NPCEntityNode npc = (NPCEntityNode) NPCList.local.get(index);
+
+            if (npc != null) {
+                entity = npc.npc;
+            }
+        }
+
+        if (entity == null) {
+            return;
+        }
+
+        super.z = entity.z;
+        super.x = entity.x;
+        super.y = Static102.averageHeight(super.level, -29754, entity.z, entity.x) - this.y1;
+
+        if (this.wornSlot >= 0) {
+            @Pc(105) BASType basType = entity.getBASType();
+
+            @Pc(107) int local107 = 0;
+            @Pc(109) int local109 = 0;
+            if (basType.wornTransformations != null && basType.wornTransformations[this.wornSlot] != null) {
+                local109 = basType.wornTransformations[this.wornSlot][2];
+                local107 = basType.wornTransformations[this.wornSlot][0];
+            }
+            if (basType.graphicOffsets != null && basType.graphicOffsets[this.wornSlot] != null) {
+                local109 += basType.graphicOffsets[this.wornSlot][2];
+                local107 += basType.graphicOffsets[this.wornSlot][0];
+            }
+
+            if (local107 != 0 || local109 != 0) {
+                @Pc(185) int yaw = entity.yaw.getValue(16383);
+                @Pc(187) int local187 = yaw;
+                if (entity.wornRotation != null && entity.wornRotation[this.wornSlot] != -1) {
+                    local187 = entity.wornRotation[this.wornSlot];
                 }
+                @Pc(213) int local213 = local187 - yaw & 0x3FFF;
+                @Pc(217) int local217 = Trig1.SIN[local213];
+                @Pc(221) int local221 = Trig1.COS[local213];
+                @Pc(232) int local232 = local217 * local109 + local221 * local107 >> 14;
+                local109 = local109 * local221 - local217 * local107 >> 14;
+                super.z += local109;
+                super.x += local232;
             }
         }
-        if (local21 == null) {
-            return;
-        }
-        super.z = local21.z;
-        super.x = local21.x;
-        super.y = Static102.averageHeight(super.level, -29754, local21.z, local21.x) - this.anInt721;
-        if (this.anInt695 < 0) {
-            return;
-        }
-        @Pc(105) BASType local105 = local21.getBASType();
-        @Pc(107) int local107 = 0;
-        @Pc(109) int local109 = 0;
-        if (local105.wornTransformations != null && local105.wornTransformations[this.anInt695] != null) {
-            local109 = local105.wornTransformations[this.anInt695][2];
-            local107 = local105.wornTransformations[this.anInt695][0];
-        }
-        if (local105.graphicOffsets != null && local105.graphicOffsets[this.anInt695] != null) {
-            local109 += local105.graphicOffsets[this.anInt695][2];
-            local107 += local105.graphicOffsets[this.anInt695][0];
-        }
-        if (local107 != 0 || local109 != 0) {
-            @Pc(185) int local185 = local21.yaw.getValue(16383);
-            @Pc(187) int local187 = local185;
-            if (local21.anIntArray877 != null && local21.anIntArray877[this.anInt695] != -1) {
-                local187 = local21.anIntArray877[this.anInt695];
-            }
-            @Pc(213) int local213 = local187 - local185 & 0x3FFF;
-            @Pc(217) int local217 = Trig1.SIN[local213];
-            @Pc(221) int local221 = Trig1.COS[local213];
-            @Pc(232) int local232 = local217 * local109 + local221 * local107 >> 14;
-            local109 = local109 * local221 - local217 * local107 >> 14;
-            super.z += local109;
-            super.x += local232;
-        }
-        return;
     }
 
     @OriginalMember(owner = "client!b", name = "b", descriptor = "(B)Z")
@@ -291,13 +300,13 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         @Pc(9) ModelParticleEmitter[] emitters = model.particleEmitters();
         @Pc(12) ModelParticleEffector[] effectors = model.particleEffectors();
 
-        if ((this.system == null || this.system.removed) && (emitters != null || effectors != null)) {
-            this.system = ParticleSystem.create(TimeUtils.clock, true);
+        if ((this.particleSystem == null || this.particleSystem.removed) && (emitters != null || effectors != null)) {
+            this.particleSystem = ParticleSystem.create(TimeUtils.clock, true);
         }
 
-        if (this.system != null) {
-            this.system.update(toolkit, TimeUtils.clock, emitters, effectors);
-            this.system.updateBounds(super.level, super.x1, super.x2, super.z1, super.z2);
+        if (this.particleSystem != null) {
+            this.particleSystem.update(toolkit, TimeUtils.clock, emitters, effectors);
+            this.particleSystem.updateBounds(super.level, super.x1, super.x2, super.z1, super.z2);
         }
     }
 
@@ -314,7 +323,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             Static29.aClass131_1 = null;
         }
 
-        @Pc(18) Model model = this.method814(0, toolkit, arg1 + 75);
+        @Pc(18) Model model = this.model(0x0, toolkit, arg1 + 75);
         if (model == null) {
             return;
         }
@@ -323,6 +332,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         matrix.makeRotationX(this.rotateX);
         matrix.rotateAxisY(this.rotateY);
         matrix.translate((int) this.translateX, (int) this.translateY, (int) this.translateZ);
+
         this.minY = model.fa();
         this.sphereRadius = model.ma();
         this.update(toolkit, matrix, model);
@@ -330,41 +340,47 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public PickableEntity render(@OriginalArg(1) Toolkit arg0) {
-        @Pc(19) Model local19 = this.method814(2048, arg0, 46);
-        if (local19 == null) {
+    public PickableEntity render(@OriginalArg(1) Toolkit toolkit) {
+        @Pc(19) Model model = this.model(0x800, toolkit, 46);
+        if (model == null) {
             return null;
         }
-        @Pc(27) Matrix local27 = arg0.scratchMatrix();
-        local27.makeRotationX(this.rotateX);
-        local27.rotateAxisY(this.rotateY);
-        local27.translate((int) this.translateX, (int) this.translateY, (int) this.translateZ);
-        this.update(arg0, local27, local19);
+
+        @Pc(27) Matrix matrix = toolkit.scratchMatrix();
+        matrix.makeRotationX(this.rotateX);
+        matrix.rotateAxisY(this.rotateY);
+        matrix.translate((int) this.translateX, (int) this.translateY, (int) this.translateZ);
+
+        this.update(toolkit, matrix, model);
+
         @Pc(57) PickableEntity local57 = Static642.method8441(false, 1);
         if (Static504.renderOrtho) {
-            local19.renderOrtho(local27, local57.pickingCylinders[0], Static582.orthoAngle, 0);
+            model.renderOrtho(matrix, local57.pickingCylinders[0], Static582.orthoAngle, 0);
         } else {
-            local19.render(local27, local57.pickingCylinders[0], 0);
+            model.render(matrix, local57.pickingCylinders[0], 0);
         }
-        if (this.system != null) {
-            @Pc(89) ParticleList local89 = this.system.getList();
+
+        if (this.particleSystem != null) {
+            @Pc(89) ParticleList particles = this.particleSystem.getList();
+
             if (Static504.renderOrtho) {
-                arg0.renderOrtho(local89, Static582.orthoAngle);
+                toolkit.renderOrtho(particles, Static582.orthoAngle);
             } else {
-                arg0.render(local89);
+                toolkit.render(particles);
             }
         }
-        this.aBoolean58 = local19.F();
-        this.minY = local19.fa();
-        this.sphereRadius = local19.ma();
+
+        this.transparent = model.F();
+        this.minY = model.fa();
+        this.sphereRadius = model.ma();
         return local57;
     }
 
     @OriginalMember(owner = "client!b", name = "finalize", descriptor = "()V")
     @Override
     public void finalize() {
-        if (this.system != null) {
-            this.system.run();
+        if (this.particleSystem != null) {
+            this.particleSystem.run();
         }
     }
 
@@ -378,20 +394,23 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(BI)V")
-    public void method819(@OriginalArg(1) int arg0) {
-        this.translateX += (double) arg0 * this.aDouble7;
-        this.aBoolean59 = true;
-        this.translateZ += (double) arg0 * this.aDouble2;
-        if (this.aBoolean57) {
-            this.translateY = Static102.averageHeight(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.anInt721;
-        } else if (this.anInt705 == -1) {
-            this.translateY += this.aDouble1 * (double) arg0;
+    public void tick(@OriginalArg(1) int time) {
+        this.ticked = true;
+        this.translateX += (double) time * this.speedX;
+        this.translateZ += (double) time * this.speedZ;
+
+        if (this.groundRelative) {
+            this.translateY = Static102.averageHeight(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.y1;
+        } else if (this.verticalAngle == -1) {
+            this.translateY += this.verticalSpeed * (double) time;
         } else {
-            this.translateY += (double) arg0 * this.aDouble1 + this.aDouble3 * 0.5D * (double) arg0 * (double) arg0;
-            this.aDouble1 += (double) arg0 * this.aDouble3;
+            this.translateY += ((double) time * this.verticalSpeed) + (this.verticalAcceleration * 0.5D * (double) time * (double) time);
+            this.verticalSpeed += (double) time * this.verticalAcceleration;
         }
-        this.rotateY = (int) (Math.atan2(this.aDouble7, this.aDouble2) * 2607.5945876176133D) + 8192 & 0x3FFF;
-        this.rotateX = (int) (Math.atan2(this.aDouble1, this.aDouble6) * 2607.5945876176133D) & 0x3FFF;
+
+        this.rotateY = (int) (Math.atan2(this.speedX, this.speedZ) * 2607.5945876176133D) + 8192 & 0x3FFF;
+        this.rotateX = (int) (Math.atan2(this.verticalSpeed, this.horizontalSpeed) * 2607.5945876176133D) & 0x3FFF;
+
         if (this.animator.tick(1) && this.animator.isFinished()) {
             this.animator.resetImmediately();
         }

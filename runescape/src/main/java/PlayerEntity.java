@@ -386,20 +386,23 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "c", descriptor = "(III)V")
-    public void method1419(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
+    public void coord(@OriginalArg(0) int x, @OriginalArg(2) int z) {
         super.pathPointer = 0;
-        super.pathX[0] = arg0;
-        super.anInt10763 = 0;
+        super.pathX[0] = x;
+        super.delayedWalkingTicks = 0;
         super.animationPathPointer = 0;
-        super.pathZ[0] = arg1;
-        @Pc(26) int local26 = this.getSize();
-        super.x = local26 * 256 + super.pathX[0] * 512;
-        super.z = super.pathZ[0] * 512 + local26 * 256;
+        super.pathZ[0] = z;
+
+        @Pc(26) int size = this.getSize();
+        super.x = (super.pathX[0] * 512) + (size * 256);
+        super.z = (super.pathZ[0] * 512) + (size * 256);
+
         if (self == this) {
             InterfaceManager.loginOpened();
         }
+
         if (super.particleSystem != null) {
-            super.particleSystem.method3656();
+            super.particleSystem.restart();
         }
     }
 
@@ -672,7 +675,7 @@ public final class PlayerEntity extends PathingEntity {
             }
         }
         if (super.particleSystem != null) {
-            super.particleSystem.method3656();
+            super.particleSystem.restart();
         }
         if (!super.animator.isAnimating() || !super.ready) {
             return;
@@ -701,7 +704,7 @@ public final class PlayerEntity extends PathingEntity {
         if (local119) {
             arg0 |= 0x80000;
         }
-        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(ObjTypeList.instance, local33, BASTypeList.instance, SeqTypeList.instance, arg0, super.anIntArray877, WearposDefaults.instance, IDKTypeList.instance, arg1, NPCTypeList.instance, super.wornAnimators, local95, local58, TimedVarDomain.instance);
+        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(ObjTypeList.instance, local33, BASTypeList.instance, SeqTypeList.instance, arg0, super.wornRotation, WearposDefaults.instance, IDKTypeList.instance, arg1, NPCTypeList.instance, super.wornAnimators, local95, local58, TimedVarDomain.instance);
         @Pc(155) int local155 = PlayerModel.cacheHardReferenceCount();
         if (ClientOptions.maxmemory < 96 && local155 > 50) {
             Static358.method9191();
@@ -839,14 +842,14 @@ public final class PlayerEntity extends PathingEntity {
         }
         this.anInt1467 = -1;
         if (arg1 < 0 || Static720.mapWidth <= arg1 || arg0 < 0 || Static501.mapHeight <= arg0) {
-            this.method1419(arg1, arg0);
+            this.coord(arg1, arg0);
         } else if (super.pathX[0] >= 0 && super.pathX[0] < Static720.mapWidth && super.pathZ[0] >= 0 && Static501.mapHeight > super.pathZ[0]) {
             if (arg2 == 2) {
                 Static360.method5232(this, arg1, arg0);
             }
             this.method1418(arg0, arg1, arg2);
         } else {
-            this.method1419(arg1, arg0);
+            this.coord(arg1, arg0);
         }
     }
 }

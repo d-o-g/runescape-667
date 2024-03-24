@@ -66,7 +66,7 @@ public abstract class PathingEntity extends PositionEntity {
     public int exactMoveX1;
 
     @OriginalMember(owner = "client!cg", name = "vb", descriptor = "[I")
-    public int[] anIntArray877;
+    public int[] wornRotation;
 
     @OriginalMember(owner = "client!cg", name = "X", descriptor = "I")
     public int exactMoveZ1;
@@ -198,7 +198,7 @@ public abstract class PathingEntity extends PositionEntity {
     public int animationPathPointer;
 
     @OriginalMember(owner = "client!cg", name = "hc", descriptor = "I")
-    public int anInt10763;
+    public int delayedWalkingTicks;
 
     @OriginalMember(owner = "client!cg", name = "ub", descriptor = "I")
     public int pathPointer;
@@ -266,7 +266,7 @@ public abstract class PathingEntity extends PositionEntity {
         this.aClass126_8 = new Class126();
         this.aClass126_9 = new Class126();
         this.animationPathPointer = 0;
-        this.anInt10763 = 0;
+        this.delayedWalkingTicks = 0;
         this.pathPointer = 0;
         this.anInt10765 = 0;
         this.aBoolean819 = false;
@@ -348,8 +348,8 @@ public abstract class PathingEntity extends PositionEntity {
                         }
                         if (local175 != 0 || local171 != 0) {
                             @Pc(268) int local268 = arg4;
-                            if (this.anIntArray877 != null && this.anIntArray877[local50.wornSlot] != -1) {
-                                local268 = this.anIntArray877[local50.wornSlot];
+                            if (this.wornRotation != null && this.wornRotation[local50.wornSlot] != -1) {
+                                local268 = this.wornRotation[local50.wornSlot];
                             }
                             @Pc(299) int local299 = local268 + local50.rotation * 2048 - arg4 & 0x3FFF;
                             if (local299 != 0) {
@@ -604,13 +604,13 @@ public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "b", descriptor = "(III)Z")
     public final boolean method9307(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        if (this.anIntArray877 == null) {
+        if (this.wornRotation == null) {
             if (arg1 == -1) {
                 return true;
             }
-            this.anIntArray877 = new int[WearposDefaults.instance.hidden.length];
+            this.wornRotation = new int[WearposDefaults.instance.hidden.length];
             for (@Pc(24) int local24 = 0; local24 < WearposDefaults.instance.hidden.length; local24++) {
-                this.anIntArray877[local24] = -1;
+                this.wornRotation[local24] = -1;
             }
         }
         @Pc(43) BASType local43 = this.getBASType();
@@ -621,42 +621,42 @@ public abstract class PathingEntity extends PositionEntity {
         @Pc(82) int local82;
         @Pc(87) int local87;
         if (arg1 != -1) {
-            if (this.anIntArray877[arg0] == -1) {
-                this.anIntArray877[arg0] = this.yaw.getValue(16383);
+            if (this.wornRotation[arg0] == -1) {
+                this.wornRotation[arg0] = this.yaw.getValue(16383);
             }
-            local82 = this.anIntArray877[arg0];
+            local82 = this.wornRotation[arg0];
             local87 = arg1 - local82;
             if (local87 >= -local45 && local45 >= local87) {
-                this.anIntArray877[arg0] = arg1;
+                this.wornRotation[arg0] = arg1;
                 return true;
             }
             if ((local87 <= 0 || local87 > 8192) && local87 > -8192) {
-                this.anIntArray877[arg0] = local82 - local45 & 0x3FFF;
+                this.wornRotation[arg0] = local82 - local45 & 0x3FFF;
             } else {
-                this.anIntArray877[arg0] = local82 + local45 & 0x3FFF;
+                this.wornRotation[arg0] = local82 + local45 & 0x3FFF;
             }
             return false;
-        } else if (this.anIntArray877[arg0] == -1) {
+        } else if (this.wornRotation[arg0] == -1) {
             return true;
         } else {
             local82 = this.yaw.getValue(16383);
-            local87 = this.anIntArray877[arg0];
+            local87 = this.wornRotation[arg0];
             @Pc(92) int local92 = local82 - local87;
             if (-local45 > local92 || local45 < local92) {
                 if ((local92 <= 0 || local92 > 8192) && local92 > -8192) {
-                    this.anIntArray877[arg0] = local87 - local45 & 0x3FFF;
+                    this.wornRotation[arg0] = local87 - local45 & 0x3FFF;
                 } else {
-                    this.anIntArray877[arg0] = local45 + local87 & 0x3FFF;
+                    this.wornRotation[arg0] = local45 + local87 & 0x3FFF;
                 }
                 return false;
             }
-            this.anIntArray877[arg0] = -1;
+            this.wornRotation[arg0] = -1;
             for (@Pc(112) int local112 = 0; local112 < WearposDefaults.instance.hidden.length; local112++) {
-                if (this.anIntArray877[local112] != -1) {
+                if (this.wornRotation[local112] != -1) {
                     return true;
                 }
             }
-            this.anIntArray877 = null;
+            this.wornRotation = null;
             return true;
         }
     }

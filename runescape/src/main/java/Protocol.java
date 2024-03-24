@@ -112,11 +112,11 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (Static133.A_SERVER_PROT___55 == arg0.currentProt) {
-            Static605.method7912(Static3.aClass287_1);
+            Static605.method7912(Static3.A_ZONE_PROT___1);
             arg0.currentProt = null;
             return true;
         } else if (ServerProt.A_SERVER_PROT___52 == arg0.currentProt) {
-            Static605.method7912(Static77.aClass287_5);
+            Static605.method7912(Static77.A_ZONE_PROT___5);
             arg0.currentProt = null;
             return true;
         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___239) {
@@ -127,7 +127,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (Static347.A_SERVER_PROT___146 == arg0.currentProt) {
-            Static605.method7912(Static420.aClass287_13);
+            Static605.method7912(Static420.A_ZONE_PROT___13);
             arg0.currentProt = null;
             return true;
         } else if (Static632.A_SERVER_PROT___229 == arg0.currentProt) {
@@ -139,7 +139,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (arg0.currentProt == Static504.A_SERVER_PROT___188) {
-            Static605.method7912(Static565.aClass287_8);
+            Static605.method7912(Static565.A_ZONE_PROT___8);
             arg0.currentProt = null;
             return true;
         } else {
@@ -366,7 +366,7 @@ public final class Protocol {
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == Static286.A_SERVER_PROT___117) {
-                                Static605.method7912(Static370.aClass287_11);
+                                Static605.method7912(Static370.A_ZONE_PROT___11);
                                 arg0.currentProt = null;
                                 return true;
                             } else if (Static432.A_SERVER_PROT___10 == arg0.currentProt) {
@@ -1026,7 +1026,7 @@ public final class Protocol {
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (Static166.A_SERVER_PROT___63 == arg0.currentProt) {
-                                                    Static605.method7912(Static668.aClass287_16);
+                                                    Static605.method7912(Static668.A_ZONE_PROT___16);
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else {
@@ -1085,7 +1085,7 @@ public final class Protocol {
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (ServerProt.SOUND_AREA == arg0.currentProt) {
-                                                        Static605.method7912(Static481.aClass287_15);
+                                                        Static605.method7912(Static481.A_ZONE_PROT___15);
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (Static225.A_SERVER_PROT___90 == arg0.currentProt) {
@@ -1107,7 +1107,7 @@ public final class Protocol {
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (Static570.A_SERVER_PROT___208 == arg0.currentProt) {
-                                                        Static605.method7912(Static379.aClass287_12);
+                                                        Static605.method7912(Static379.A_ZONE_PROT___12);
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (Static273.A_SERVER_PROT___113 == arg0.currentProt) {
@@ -1179,7 +1179,7 @@ public final class Protocol {
                                                             arg0.currentProt = null;
                                                             return true;
                                                         } else if (arg0.currentProt == Static137.A_SERVER_PROT___56) {
-                                                            Static605.method7912(Static328.aClass287_10);
+                                                            Static605.method7912(Static328.A_ZONE_PROT___10);
                                                             arg0.currentProt = null;
                                                             return true;
                                                         } else {
@@ -1531,7 +1531,7 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___219) {
-                                                                    Static605.method7912(Static84.aClass287_6);
+                                                                    Static605.method7912(Static84.A_ZONE_PROT___6);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (Static389.aServerProt_157 == arg0.currentProt) {
@@ -1670,7 +1670,7 @@ public final class Protocol {
                                                                         Static87.anInt1810 = local11.g1_alt1();
                                                                         Static270.anInt4354 = local11.g1b() << 3;
                                                                         while (local11.pos < arg0.currentPacketSize) {
-                                                                            @Pc(6873) Class287 local6873 = Static559.method7419()[local11.g1()];
+                                                                            @Pc(6873) ZoneProt local6873 = Static559.method7419()[local11.g1()];
                                                                             Static605.method7912(local6873);
                                                                         }
                                                                         arg0.currentProt = null;
@@ -1774,7 +1774,7 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else if (arg0.currentProt == Static84.A_SERVER_PROT___36) {
-                                                                        Static605.method7912(Static450.aClass287_14);
+                                                                        Static605.method7912(Static450.A_ZONE_PROT___14);
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else {
@@ -1972,7 +1972,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static18.A_SERVER_PROT___7 == arg0.currentProt) {
-                                                                            Static605.method7912(Static18.aClass287_2);
+                                                                            Static605.method7912(Static18.A_ZONE_PROT___2);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static207.A_SERVER_PROT___127 == arg0.currentProt) {
@@ -2036,7 +2036,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static464.A_SERVER_PROT___176) {
-                                                                            Static605.method7912(Static210.aClass287_9);
+                                                                            Static605.method7912(Static210.A_ZONE_PROT___9);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static269.A_SERVER_PROT___111) {
@@ -2115,7 +2115,7 @@ public final class Protocol {
                                                                             Static87.aClass241Array1 = local8611;
                                                                             return true;
                                                                         } else if (Static722.A_SERVER_PROT___260 == arg0.currentProt) {
-                                                                            Static605.method7912(Static73.aClass287_18);
+                                                                            Static605.method7912(ZoneProt.MAP_PROJANIM);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static215.A_SERVER_PROT___86) {
@@ -2129,7 +2129,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static211.A_SERVER_PROT___143) {
-                                                                            Static605.method7912(Static704.aClass287_17);
+                                                                            Static605.method7912(Static704.A_ZONE_PROT___17);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static390.A_SERVER_PROT___158) {

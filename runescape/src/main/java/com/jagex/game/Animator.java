@@ -275,26 +275,30 @@ public class Animator {
     }
 
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(II)Z")
-    public final boolean tick(@OriginalArg(1) int arg0) {
-        if (this.animation == null || arg0 == 0) {
+    public final boolean tick(@OriginalArg(1) int time) {
+        if (this.animation == null || time == 0) {
             return false;
         }
+
         if (this.delay > 0) {
-            if (this.delay >= arg0) {
-                this.delay -= arg0;
+            if (this.delay >= time) {
+                this.delay -= time;
                 return false;
             }
-            arg0 -= this.delay;
+
+            time -= this.delay;
             this.delay = 0;
             this.newFrame(this.currentFrame, this.animation);
         }
-        arg0 += this.frameOffset;
+
+        time += this.frameOffset;
+
         @Pc(68) boolean tween = forceTweening | this.animation.tweened;
-        if (arg0 > 100 && this.animation.loopOffset > 0) {
+        if (time > 100 && this.animation.loopOffset > 0) {
             @Pc(89) int local89 = this.animation.frames.length - this.animation.loopOffset;
 
-            while (this.currentFrame < local89 && arg0 > this.animation.frameDurations[this.currentFrame]) {
-                arg0 -= this.animation.frameDurations[this.currentFrame];
+            while (this.currentFrame < local89 && time > this.animation.frameDurations[this.currentFrame]) {
+                time -= this.animation.frameDurations[this.currentFrame];
                 this.currentFrame++;
             }
 
@@ -305,10 +309,10 @@ public class Animator {
                 }
 
                 if (this.loopMode == 0) {
-                    this.loopCount += arg0 / duration;
+                    this.loopCount += time / duration;
                 }
 
-                arg0 %= duration;
+                time %= duration;
             }
 
             this.nextFrame = this.currentFrame + 1;
@@ -316,14 +320,15 @@ public class Animator {
 
             if (this.nextFrame >= this.animation.frames.length) {
                 this.nextFrame -= this.animation.loopOffset;
+
                 if (this.nextFrame < 0 || this.animation.frames.length <= this.nextFrame) {
                     this.nextFrame = -1;
                 }
             }
         }
 
-        while (this.animation.frameDurations[this.currentFrame] < arg0) {
-            arg0 -= this.animation.frameDurations[this.currentFrame++];
+        while (this.animation.frameDurations[this.currentFrame] < time) {
+            time -= this.animation.frameDurations[this.currentFrame++];
             tween = true;
 
             if (this.animation.frames.length <= this.currentFrame) {
@@ -351,7 +356,7 @@ public class Animator {
             }
         }
 
-        this.frameOffset = arg0;
+        this.frameOffset = time;
 
         if (tween) {
             this.resetSequences();

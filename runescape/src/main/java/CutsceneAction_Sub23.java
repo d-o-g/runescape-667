@@ -9,114 +9,120 @@ import org.openrs2.deob.annotation.Pc;
 public final class CutsceneAction_Sub23 extends CutsceneAction {
 
     @OriginalMember(owner = "client!vca", name = "j", descriptor = "I")
-    public final int anInt9972;
+    public final int z1;
 
     @OriginalMember(owner = "client!vca", name = "s", descriptor = "I")
-    public final int anInt9982;
+    public final int origin;
 
     @OriginalMember(owner = "client!vca", name = "w", descriptor = "I")
-    public final int anInt9980;
+    public final int x1;
 
     @OriginalMember(owner = "client!vca", name = "u", descriptor = "I")
-    public final int anInt9973;
+    public final int x2;
 
     @OriginalMember(owner = "client!vca", name = "A", descriptor = "I")
-    public final int anInt9985;
+    public final int z2;
 
     @OriginalMember(owner = "client!vca", name = "v", descriptor = "I")
-    public final int anInt9989;
+    public final int target;
 
     @OriginalMember(owner = "client!vca", name = "q", descriptor = "I")
-    public final int anInt9983;
+    public final int level;
 
     @OriginalMember(owner = "client!vca", name = "l", descriptor = "I")
-    public final int anInt9976;
+    public final int id;
 
     @OriginalMember(owner = "client!vca", name = "h", descriptor = "I")
-    public final int anInt9974;
+    public final int y1;
 
     @OriginalMember(owner = "client!vca", name = "n", descriptor = "I")
-    public final int anInt9988;
+    public final int y2;
 
     @OriginalMember(owner = "client!vca", name = "t", descriptor = "I")
-    public final int anInt9978;
+    public final int duration;
 
     @OriginalMember(owner = "client!vca", name = "p", descriptor = "I")
-    public final int anInt9977;
+    public final int verticalAngle;
 
     @OriginalMember(owner = "client!vca", name = "y", descriptor = "I")
-    public final int anInt9979;
+    public final int displacement;
 
     @OriginalMember(owner = "client!vca", name = "<init>", descriptor = "(Lclient!ge;II)V")
-    public CutsceneAction_Sub23(@OriginalArg(0) Packet arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        super(arg0);
-        @Pc(10) int local10;
-        if (arg1 == 0) {
-            local10 = arg0.g4();
-            this.anInt9972 = local10 & 0xFFFF;
-            this.anInt9982 = -1;
-            this.anInt9980 = local10 >>> 16;
+    public CutsceneAction_Sub23(@OriginalArg(0) Packet packet, @OriginalArg(1) int from, @OriginalArg(2) int to) {
+        super(packet);
+
+        if (from == 0) {
+            @Pc(10) int coord = packet.g4();
+            this.z1 = coord & 0xFFFF;
+            this.origin = -1;
+            this.x1 = coord >>> 16;
         } else {
-            this.anInt9980 = -1;
-            this.anInt9972 = -1;
-            this.anInt9982 = arg0.g2();
+            this.x1 = -1;
+            this.z1 = -1;
+            this.origin = packet.g2();
         }
-        if (arg2 == 0) {
-            local10 = arg0.g4();
-            this.anInt9985 = local10 >>> 16;
-            this.anInt9989 = -1;
-            this.anInt9973 = local10 & 0xFFFF;
+
+        if (to == 0) {
+            @Pc(10) int coord = packet.g4();
+            this.z2 = coord >>> 16;
+            this.target = -1;
+            this.x2 = coord & 0xFFFF;
         } else {
-            this.anInt9973 = -1;
-            this.anInt9985 = -1;
-            this.anInt9989 = arg0.g2();
+            this.x2 = -1;
+            this.z2 = -1;
+            this.target = packet.g2();
         }
-        if (arg1 == 0 && arg2 == 0) {
-            this.anInt9983 = arg0.g1();
+
+        if (from == 0 && to == 0) {
+            this.level = packet.g1();
         } else {
-            this.anInt9983 = -1;
+            this.level = -1;
         }
-        this.anInt9976 = arg0.g2();
-        this.anInt9974 = arg0.g1();
-        this.anInt9988 = arg0.g1();
-        this.anInt9978 = arg0.g3();
-        this.anInt9977 = arg0.g2();
-        this.anInt9979 = arg0.g1();
+
+        this.id = packet.g2();
+        this.y1 = packet.g1();
+        this.y2 = packet.g1();
+        this.duration = packet.g3();
+        this.verticalAngle = packet.g2();
+        this.displacement = packet.g1();
     }
 
     @OriginalMember(owner = "client!vca", name = "b", descriptor = "(I)V")
     @Override
     public void method9161() {
-        @Pc(24) int local24;
-        @Pc(21) int local21;
-        @Pc(18) int local18;
-        @Pc(15) PathingEntity local15;
-        if (this.anInt9980 < 0) {
-            local15 = Static219.aClass236Array1[this.anInt9982].method5363();
-            local18 = local15.level;
-            local21 = local15.z;
-            local24 = local15.x;
+        @Pc(18) int level;
+
+        @Pc(21) int z1;
+        @Pc(24) int x1;
+        if (this.x1 >= 0) {
+            z1 = (this.z1 * 512) + 256;
+            x1 = (this.x1 * 512) + 256;
+            level = this.level;
         } else {
-            local21 = this.anInt9972 * 512 + 256;
-            local24 = this.anInt9980 * 512 + 256;
-            local18 = this.anInt9983;
+            @Pc(15) PathingEntity entity = CutsceneManager.actors[this.origin].entity();
+            level = entity.level;
+            z1 = entity.z;
+            x1 = entity.x;
         }
-        @Pc(63) int local63;
-        @Pc(56) int local56;
-        if (this.anInt9972 >= 0) {
-            local56 = this.anInt9973 * 512 + 256;
-            local63 = this.anInt9985 * 512 + 256;
+
+        @Pc(63) int x2;
+        @Pc(56) int z2;
+        if (this.z1 >= 0) {
+            z2 = (this.x2 * 512) + 256;
+            x2 = (this.z2 * 512) + 256;
         } else {
-            local15 = Static219.aClass236Array1[this.anInt9989].method5363();
-            local63 = local15.x;
-            local56 = local15.z;
-            if (local18 < 0) {
-                local18 = local15.level;
+            @Pc(15) PathingEntity entity = CutsceneManager.actors[this.target].entity();
+            x2 = entity.x;
+            z2 = entity.z;
+
+            if (level < 0) {
+                level = entity.level;
             }
         }
-        @Pc(91) int local91 = this.anInt9979 << 2;
-        @Pc(128) Class8_Sub2_Sub1_Sub1 local128 = new Class8_Sub2_Sub1_Sub1(this.anInt9976, local18, local18, local24, local21, this.anInt9974 << 2, TimeUtils.clock, TimeUtils.clock + this.anInt9978, this.anInt9977, local91, this.anInt9982 + 1, this.anInt9989 + 1, this.anInt9988 << 2, false, 0);
-        local128.method813(this.anInt9988 << 2, this.anInt9978 + TimeUtils.clock, local56, local63);
-        Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local128));
+
+        @Pc(91) int local91 = this.displacement << 2;
+        @Pc(128) ProjectileAnimation projectile = new ProjectileAnimation(this.id, level, level, x1, z1, this.y1 << 2, TimeUtils.clock, TimeUtils.clock + this.duration, this.verticalAngle, local91, this.origin + 1, this.target + 1, this.y2 << 2, false, 0);
+        projectile.target(this.y2 << 2, this.duration + TimeUtils.clock, z2, x2);
+        Static505.projectiles.addLast(new ProjectileAnimationNode(projectile));
     }
 }

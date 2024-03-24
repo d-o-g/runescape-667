@@ -28,10 +28,10 @@ public final class Static90 {
         if (CutsceneManager.state != 3) {
             return;
         }
-        for (@Pc(78) int local78 = 0; local78 < Static219.aClass236Array1.length; local78++) {
-            @Pc(84) Class236 local84 = Static219.aClass236Array1[local78];
-            if (local84.aBoolean455) {
-                local84.method5363().method9296();
+        for (@Pc(78) int local78 = 0; local78 < CutsceneManager.actors.length; local78++) {
+            @Pc(84) Actor local84 = CutsceneManager.actors[local78];
+            if (local84.initialised) {
+                local84.entity().method9296();
             }
         }
     }

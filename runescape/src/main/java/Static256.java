@@ -44,7 +44,7 @@ public final class Static256 {
     public static void method3638(@OriginalArg(1) PathingEntity arg0, @OriginalArg(2) boolean arg1) {
         @Pc(9) BASType local9 = arg0.getBASType();
         if (arg0.pathPointer == 0) {
-            arg0.anInt10763 = 0;
+            arg0.delayedWalkingTicks = 0;
             Static524.anInt8042 = 0;
             Static521.anInt7756 = -1;
             return;
@@ -54,12 +54,12 @@ public final class Static256 {
             if (arg0.animationPathPointer > 0 && local41.animatingPrecedence == 0) {
                 Static524.anInt8042 = 0;
                 Static521.anInt7756 = -1;
-                arg0.anInt10763++;
+                arg0.delayedWalkingTicks++;
                 return;
             }
             if (arg0.animationPathPointer <= 0 && local41.walkingPrecedence == 0) {
                 Static521.anInt7756 = -1;
-                arg0.anInt10763++;
+                arg0.delayedWalkingTicks++;
                 Static524.anInt8042 = 0;
                 return;
             }
@@ -71,13 +71,13 @@ public final class Static256 {
                     @Pc(133) SeqType local133 = SeqTypeList.instance.list(local117.seq);
                     if (arg0.animationPathPointer > 0 && local133.animatingPrecedence == 0) {
                         Static521.anInt7756 = -1;
-                        arg0.anInt10763++;
+                        arg0.delayedWalkingTicks++;
                         Static524.anInt8042 = 0;
                         return;
                     }
                     if (arg0.animationPathPointer <= 0 && local133.walkingPrecedence == 0) {
                         Static521.anInt7756 = -1;
-                        arg0.anInt10763++;
+                        arg0.delayedWalkingTicks++;
                         Static524.anInt8042 = 0;
                         return;
                     }
@@ -147,8 +147,8 @@ public final class Static256 {
                 local422 = 32;
             }
         }
-        if (arg0.anInt10763 > 0 && arg0.pathPointer > 1) {
-            arg0.anInt10763--;
+        if (arg0.delayedWalkingTicks > 0 && arg0.pathPointer > 1) {
+            arg0.delayedWalkingTicks--;
             local422 = 32;
         }
         if (local348 == 2) {

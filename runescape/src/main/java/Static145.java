@@ -30,7 +30,7 @@ public final class Static145 {
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(Lclient!cg;Z)V")
     public static void method2410(@OriginalArg(0) PathingEntity arg0) {
-        if (arg0.wornTargets == null && arg0.anIntArray877 == null) {
+        if (arg0.wornTargets == null && arg0.wornRotation == null) {
             return;
         }
         @Pc(17) boolean local17 = true;
@@ -78,7 +78,7 @@ public final class Static145 {
         }
         if (local17) {
             arg0.wornTargets = null;
-            arg0.anIntArray877 = null;
+            arg0.wornRotation = null;
         }
     }
 

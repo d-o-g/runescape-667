@@ -24,4 +24,7 @@ public final class CutsceneManager {
 
     @OriginalMember(owner = "client!wn", name = "j", descriptor = "I")
     public static int cutsceneId = -1;
+
+    @OriginalMember(owner = "client!gp", name = "a", descriptor = "[Lclient!lw;")
+    public static Actor[] actors;
 }

@@ -11,7 +11,7 @@ public final class Static84 {
     public static Class aClass5;
 
     @OriginalMember(owner = "client!client", name = "vb", descriptor = "Lclient!pc;")
-    public static final Class287 aClass287_6 = new Class287(11, 8);
+    public static final ZoneProt A_ZONE_PROT___6 = new ZoneProt(11, 8);
 
     @OriginalMember(owner = "client!client", name = "tb", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___36 = new ServerProt(28, 4);
@@ -22,18 +22,18 @@ public final class Static84 {
         @Pc(3) int[] local3 = Static210.anIntArray280;
         @Pc(9) int local9;
         if (CutsceneManager.state == 3) {
-            local9 = Static219.aClass236Array1.length;
+            local9 = CutsceneManager.actors.length;
         } else {
             local9 = Static353.aBoolean734 ? local1 : local1 + NPCList.localNpcCount;
         }
         for (@Pc(21) int local21 = 0; local21 < local9; local21++) {
             @Pc(36) PathingEntity local36;
             if (CutsceneManager.state == 3) {
-                @Pc(29) Class236 local29 = Static219.aClass236Array1[local21];
-                if (!local29.aBoolean455) {
+                @Pc(29) Actor local29 = CutsceneManager.actors[local21];
+                if (!local29.initialised) {
                     continue;
                 }
-                local36 = local29.method5363();
+                local36 = local29.entity();
             } else {
                 if (local21 < local1) {
                     local36 = PlayerList.highResolutionPlayers[local3[local21]];
@@ -63,18 +63,18 @@ public final class Static84 {
         @Pc(3) int[] local3 = Static210.anIntArray280;
         @Pc(9) int local9;
         if (CutsceneManager.state == 3) {
-            local9 = Static219.aClass236Array1.length;
+            local9 = CutsceneManager.actors.length;
         } else {
             local9 = Static353.aBoolean734 ? local1 : local1 + NPCList.localNpcCount;
         }
         for (@Pc(21) int local21 = 0; local21 < local9; local21++) {
             @Pc(36) PathingEntity local36;
             if (CutsceneManager.state == 3) {
-                @Pc(29) Class236 local29 = Static219.aClass236Array1[local21];
-                if (!local29.aBoolean455) {
+                @Pc(29) Actor local29 = CutsceneManager.actors[local21];
+                if (!local29.initialised) {
                     continue;
                 }
-                local36 = local29.method5363();
+                local36 = local29.entity();
             } else {
                 if (local21 < local1) {
                     local36 = PlayerList.highResolutionPlayers[local3[local21]];
@@ -308,18 +308,18 @@ public final class Static84 {
         @Pc(3) int[] local3 = Static210.anIntArray280;
         @Pc(9) int local9;
         if (CutsceneManager.state == 3) {
-            local9 = Static219.aClass236Array1.length;
+            local9 = CutsceneManager.actors.length;
         } else {
             local9 = local1 + NPCList.localNpcCount;
         }
         for (@Pc(16) int local16 = 0; local16 < local9; local16++) {
             @Pc(31) PathingEntity local31;
             if (CutsceneManager.state == 3) {
-                @Pc(24) Class236 local24 = Static219.aClass236Array1[local16];
-                if (!local24.aBoolean455) {
+                @Pc(24) Actor local24 = CutsceneManager.actors[local16];
+                if (!local24.initialised) {
                     continue;
                 }
-                local31 = local24.method5363();
+                local31 = local24.entity();
             } else {
                 if (local16 < local1) {
                     local31 = PlayerList.highResolutionPlayers[local3[local16]];

@@ -18,25 +18,25 @@ public final class Static527 {
 
     @OriginalMember(owner = "client!qka", name = "c", descriptor = "(I)V")
     public static void method7083() {
-        for (@Pc(15) DoublyLinkedNode_Sub2_Sub15 local15 = (DoublyLinkedNode_Sub2_Sub15) Static505.A_DEQUE___77.first(); local15 != null; local15 = (DoublyLinkedNode_Sub2_Sub15) Static505.A_DEQUE___77.next()) {
-            @Pc(20) Class8_Sub2_Sub1_Sub1 local20 = local15.aClass8_Sub2_Sub1_Sub1_1;
-            if (TimeUtils.clock > local20.anInt697) {
+        for (@Pc(15) ProjectileAnimationNode local15 = (ProjectileAnimationNode) Static505.projectiles.first(); local15 != null; local15 = (ProjectileAnimationNode) Static505.projectiles.next()) {
+            @Pc(20) ProjectileAnimation local20 = local15.projectileAnimation;
+            if (TimeUtils.clock > local20.t2) {
                 local15.unlink();
                 local20.method815();
-            } else if (TimeUtils.clock >= local20.anInt722) {
+            } else if (TimeUtils.clock >= local20.t1) {
                 local20.method816();
                 if (local20.anInt711 > 0) {
                     if (CutsceneManager.state == 3) {
-                        @Pc(61) PathingEntity local61 = Static219.aClass236Array1[local20.anInt711 - 1].method5363();
+                        @Pc(61) PathingEntity local61 = CutsceneManager.actors[local20.anInt711 - 1].entity();
                         if (local61 != null && local61.x >= 0 && local61.x < Static720.mapWidth * 512 && local61.z >= 0 && local61.z < Static501.mapHeight * 512) {
-                            local20.method813(Static102.averageHeight(local20.level, -29754, local61.z, local61.x) - local20.lb, TimeUtils.clock, local61.z, local61.x);
+                            local20.target(Static102.averageHeight(local20.level, -29754, local61.z, local61.x) - local20.lb, TimeUtils.clock, local61.z, local61.x);
                         }
                     } else {
                         @Pc(130) NPCEntityNode local130 = (NPCEntityNode) NPCList.local.get(local20.anInt711 - 1);
                         if (local130 != null) {
                             @Pc(135) NPCEntity local135 = local130.npc;
                             if (local135.x >= 0 && local135.x < Static720.mapWidth * 512 && local135.z >= 0 && local135.z < Static501.mapHeight * 512) {
-                                local20.method813(Static102.averageHeight(local20.level, -29754, local135.z, local135.x) - local20.lb, TimeUtils.clock, local135.z, local135.x);
+                                local20.target(Static102.averageHeight(local20.level, -29754, local135.z, local135.x) - local20.lb, TimeUtils.clock, local135.z, local135.x);
                             }
                         }
                     }
@@ -50,10 +50,10 @@ public final class Static527 {
                         local198 = PlayerList.highResolutionPlayers[local193];
                     }
                     if (local198 != null && local198.x >= 0 && Static720.mapWidth * 512 > local198.x && local198.z >= 0 && Static501.mapHeight * 512 > local198.z) {
-                        local20.method813(Static102.averageHeight(local20.level, -29754, local198.z, local198.x) - local20.lb, TimeUtils.clock, local198.z, local198.x);
+                        local20.target(Static102.averageHeight(local20.level, -29754, local198.z, local198.x) - local20.lb, TimeUtils.clock, local198.z, local198.x);
                     }
                 }
-                local20.method819(Static35.currentTick);
+                local20.tick(Static35.currentTick);
                 Static102.method2026(local20, true);
             }
         }

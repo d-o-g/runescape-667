@@ -14,7 +14,7 @@ public final class Static605 {
     public static final ServerProt A_SERVER_PROT___220 = new ServerProt(108, 12);
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(ILclient!pc;)V")
-    public static void method7912(@OriginalArg(1) Class287 arg0) {
+    public static void method7912(@OriginalArg(1) ZoneProt arg0) {
         @Pc(8) PacketBuffer local8 = ConnectionManager.GAME.buffer;
         @Pc(15) int local15;
         @Pc(21) int local21;
@@ -24,7 +24,7 @@ public final class Static605 {
         @Pc(42) int local42;
         @Pc(46) int local46;
         @Pc(52) int local52;
-        if (arg0 == Static704.aClass287_17) {
+        if (arg0 == Static704.A_ZONE_PROT___17) {
             local15 = local8.g1();
             local21 = (local15 & 0x7) + Static270.anInt4354;
             local25 = WorldMap.areaBaseZ + local21;
@@ -57,7 +57,7 @@ public final class Static605 {
         @Pc(353) int local353;
         @Pc(217) int local217;
         @Pc(322) int local322;
-        if (Static379.aClass287_12 == arg0) {
+        if (Static379.A_ZONE_PROT___12 == arg0) {
             local15 = local8.g1_alt1();
             local21 = local15 >> 2;
             local25 = Static310.anIntArray379[local21];
@@ -115,7 +115,7 @@ public final class Static605 {
                 }
                 Static296.method4361(new LocTypeCustomisation(Static356.aLong177++, local278, local310, local343), Static87.anInt1810, local25, local42, local46);
             }
-        } else if (arg0 == Static420.aClass287_13) {
+        } else if (arg0 == Static420.A_ZONE_PROT___13) {
             local15 = local8.g2_alt3();
             if (local15 == 65535) {
                 local15 = -1;
@@ -128,13 +128,13 @@ public final class Static605 {
             local46 = local38 & 0x3;
             local52 = Static310.anIntArray379[local42];
             Static198.method2953(Static87.anInt1810, local34, local42, local15, local25, local46, local52);
-        } else if (arg0 == Static328.aClass287_10) {
+        } else if (arg0 == Static328.A_ZONE_PROT___10) {
             local15 = local8.g2();
             local21 = local8.g1();
             LocTypeList.instance.list(local15).loadedModels(local21);
         } else {
             @Pc(537) int local537;
-            if (arg0 == Static481.aClass287_15) {
+            if (arg0 == Static481.A_ZONE_PROT___15) {
                 local15 = local8.g1();
                 local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                 local25 = (local15 & 0x7) + Static270.anInt4354;
@@ -154,7 +154,7 @@ public final class Static605 {
                         Static165.method2608(local537, local52, local34, local46, local212, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16));
                     }
                 }
-            } else if (arg0 == Static450.aClass287_14) {
+            } else if (arg0 == Static450.A_ZONE_PROT___14) {
                 local15 = local8.g1();
                 local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                 local25 = (local15 & 0x7) + Static270.anInt4354;
@@ -168,7 +168,7 @@ public final class Static605 {
                 }
             } else {
                 @Pc(812) int local812;
-                if (arg0 == Static3.aClass287_1) {
+                if (arg0 == Static3.A_ZONE_PROT___1) {
                     local15 = local8.g1();
                     local21 = Static626.anInt9476 * 2 + (local15 >> 4 & 0xF);
                     local25 = (local15 & 0xF) + Static270.anInt4354 * 2;
@@ -230,11 +230,11 @@ public final class Static605 {
                                 }
                             }
                         }
-                        @Pc(1053) Class8_Sub2_Sub1_Sub1 local1053 = new Class8_Sub2_Sub1_Sub1(local219, Static87.anInt1810, Static87.anInt1810, local21, local25, local812, local322 + TimeUtils.clock, TimeUtils.clock + local353, local843, local847, local212, local217, local290, local764, local46);
-                        local1053.method813(Static102.averageHeight(Static87.anInt1810, -29754, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
-                        Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local1053));
+                        @Pc(1053) ProjectileAnimation local1053 = new ProjectileAnimation(local219, Static87.anInt1810, Static87.anInt1810, local21, local25, local812, local322 + TimeUtils.clock, TimeUtils.clock + local353, local843, local847, local212, local217, local290, local764, local46);
+                        local1053.target(Static102.averageHeight(Static87.anInt1810, -29754, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
+                        Static505.projectiles.addLast(new ProjectileAnimationNode(local1053));
                     }
-                } else if (Static77.aClass287_5 == arg0) {
+                } else if (Static77.A_ZONE_PROT___5 == arg0) {
                     local15 = local8.g2_alt2();
                     local21 = local8.g1_alt1();
                     local25 = Static270.anInt4354 + (local21 & 0x7);
@@ -252,7 +252,7 @@ public final class Static605 {
                             }
                         }
                     }
-                } else if (Static84.aClass287_6 == arg0) {
+                } else if (Static84.A_ZONE_PROT___6 == arg0) {
                     local15 = local8.g1();
                     local21 = (local15 >> 4 & 0x7) + Static626.anInt9476;
                     local25 = (local15 & 0x7) + Static270.anInt4354;
@@ -272,7 +272,7 @@ public final class Static605 {
                             Static179.method2770(local46, local52, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16), local212, local537, local34);
                         }
                     }
-                } else if (arg0 == Static565.aClass287_8) {
+                } else if (arg0 == Static565.A_ZONE_PROT___8) {
                     local15 = local8.g2();
                     local21 = local8.g1();
                     local25 = (local21 & 0x7) + Static270.anInt4354;
@@ -294,7 +294,7 @@ public final class Static605 {
                             Static468.updateObjCount(Static87.anInt1810, local25, local38);
                         }
                     }
-                } else if (Static370.aClass287_11 == arg0) {
+                } else if (Static370.A_ZONE_PROT___11 == arg0) {
                     local8.g1();
                     local15 = local8.g1();
                     local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
@@ -304,7 +304,7 @@ public final class Static605 {
                     local42 = local8.g3();
                     @Pc(1511) String local1511 = local8.gjstr();
                     Static540.method6539(Static87.anInt1810, local34, local1511, local42, local38, local21, local25);
-                } else if (Static73.aClass287_18 == arg0) {
+                } else if (ZoneProt.MAP_PROJANIM == arg0) {
                     local15 = local8.g1();
                     @Pc(1540) boolean local1540 = (local15 & 0x80) != 0;
                     local25 = Static626.anInt9476 + (local15 >> 3 & 0x7);
@@ -330,11 +330,11 @@ public final class Static605 {
                         local212 <<= 0x2;
                         local38 = local38 * 512 + 256;
                         local34 = local34 * 512 + 256;
-                        @Pc(1728) Class8_Sub2_Sub1_Sub1 local1728 = new Class8_Sub2_Sub1_Sub1(local52, Static87.anInt1810, Static87.anInt1810, local25, local34, local537, local217 + TimeUtils.clock, local219 + TimeUtils.clock, local812, local290, 0, local46, local212, local1540, -1);
-                        local1728.method813(Static102.averageHeight(Static87.anInt1810, -29754, local42, local38) - local212, TimeUtils.clock + local217, local42, local38);
-                        Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local1728));
+                        @Pc(1728) ProjectileAnimation projectile = new ProjectileAnimation(local52, Static87.anInt1810, Static87.anInt1810, local25, local34, local537, local217 + TimeUtils.clock, local219 + TimeUtils.clock, local812, local290, 0, local46, local212, local1540, -1);
+                        projectile.target(Static102.averageHeight(Static87.anInt1810, -29754, local42, local38) - local212, TimeUtils.clock + local217, local42, local38);
+                        Static505.projectiles.addLast(new ProjectileAnimationNode(projectile));
                     }
-                } else if (Static210.aClass287_9 == arg0) {
+                } else if (Static210.A_ZONE_PROT___9 == arg0) {
                     local15 = local8.g1_alt2();
                     local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                     local25 = (local15 & 0x7) + Static270.anInt4354;
@@ -345,7 +345,7 @@ public final class Static605 {
                     if (Static55.method1218(Static117.anInt2282) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && local25 < Static501.mapHeight) {
                         Static553.method7289(local42, -1, local46, local21, Static87.anInt1810, local38, local25);
                     }
-                } else if (Static18.aClass287_2 == arg0) {
+                } else if (Static18.A_ZONE_PROT___2 == arg0) {
                     local15 = local8.g1_alt2();
                     local21 = Static270.anInt4354 + (local15 & 0x7);
                     local25 = local21 + WorldMap.areaBaseZ;
@@ -360,7 +360,7 @@ public final class Static605 {
                             Static468.updateObjCount(Static87.anInt1810, local21, local34);
                         }
                     }
-                } else if (arg0 == Static668.aClass287_16) {
+                } else if (arg0 == Static668.A_ZONE_PROT___16) {
                     local15 = local8.g1();
                     local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                     local25 = (local15 & 0x7) + Static270.anInt4354;

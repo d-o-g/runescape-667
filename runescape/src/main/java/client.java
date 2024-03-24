@@ -591,10 +591,10 @@ public final class client extends GameShell {
                     } while (CutsceneManager.state == 3 && ++Static440.anInt6680 < Static401.aCutsceneActionArray1.length);
                 }
                 if (CutsceneManager.state == 3) {
-                    for (local181 = 0; local181 < Static219.aClass236Array1.length; local181++) {
-                        @Pc(1027) Class236 local1027 = Static219.aClass236Array1[local181];
-                        if (local1027.aBoolean455) {
-                            @Pc(1034) PathingEntity local1034 = local1027.method5363();
+                    for (local181 = 0; local181 < CutsceneManager.actors.length; local181++) {
+                        @Pc(1027) Actor local1027 = CutsceneManager.actors[local181];
+                        if (local1027.initialised) {
+                            @Pc(1034) PathingEntity local1034 = local1027.entity();
                             Static489.method6547(true, local1034);
                         }
                     }

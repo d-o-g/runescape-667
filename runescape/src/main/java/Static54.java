@@ -14,7 +14,7 @@ public final class Static54 {
         @Pc(19) int local19 = (WorldMap.areaBaseX >> 3) + (Camera.positionX >> 12);
         @Pc(28) int local28 = (Camera.positionZ >> 12) + (WorldMap.areaBaseZ >> 3);
         Camera.renderingLevel = PlayerEntity.self.level = 0;
-        PlayerEntity.self.method1419(8, 8);
+        PlayerEntity.self.coord(8, 8);
         Static22.anIntArrayArray11 = new int[18][4];
         Static363.aByteArrayArray22 = new byte[18][];
         Static177.aByteArrayArray5 = new byte[18][];

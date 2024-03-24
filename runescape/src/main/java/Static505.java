@@ -7,5 +7,5 @@ public final class Static505 {
     public static final Class204 aClass204_16 = new Class204(9, 2);
 
     @OriginalMember(owner = "client!pu", name = "c", descriptor = "Lclient!sia;")
-    public static final Deque A_DEQUE___77 = new Deque();
+    public static final Deque projectiles = new Deque();
 }

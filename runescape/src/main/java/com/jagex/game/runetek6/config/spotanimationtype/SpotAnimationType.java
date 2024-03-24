@@ -226,7 +226,7 @@ public final class SpotAnimationType {
     }
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Lclient!gu;BIBLclient!ha;)Lclient!ka;")
-    public Model model(@OriginalArg(0) Animator animator, @OriginalArg(1) byte arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Toolkit toolkit) {
-        return this.model(arg1, false, 0, animator, null, 0, null, arg2, 0, toolkit);
+    public Model model(@OriginalArg(0) Animator animator, @OriginalArg(1) byte arg1, @OriginalArg(2) int functionMask, @OriginalArg(4) Toolkit toolkit) {
+        return this.model(arg1, false, 0, animator, null, 0, null, functionMask, 0, toolkit);
     }
 }

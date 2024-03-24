@@ -9,7 +9,7 @@ public final class Static370 {
     public static final ServerProt A_SERVER_PROT___152 = new ServerProt(4, 0);
 
     @OriginalMember(owner = "client!lm", name = "j", descriptor = "Lclient!pc;")
-    public static final Class287 aClass287_11 = new Class287(9, -1);
+    public static final ZoneProt A_ZONE_PROT___11 = new ZoneProt(9, -1);
 
     @OriginalMember(owner = "client!lm", name = "d", descriptor = "(I)V")
     public static void method5280() {

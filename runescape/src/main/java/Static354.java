@@ -31,7 +31,7 @@ public final class Static354 {
             arg0.x = (local76 * local40 + local52 * (local34 - local40)) / local34;
             arg0.z = (local40 * local88 + local64 * (local34 - local40)) / local34;
         }
-        arg0.anInt10763 = 0;
+        arg0.delayedWalkingTicks = 0;
         if (arg0.exactMoveDirection == 0) {
             arg0.turn(8192, false);
         }

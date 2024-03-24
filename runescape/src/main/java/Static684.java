@@ -173,7 +173,7 @@ public final class Static684 {
         Static533.method7119();
         Minimap.reset();
         Static346.A_HASH_TABLE___29.clear();
-        Static505.A_DEQUE___77.clear();
+        Static505.projectiles.clear();
         Static422.A_ENTITY_LIST___9.clear();
         ParticleManager.method2044();
     }

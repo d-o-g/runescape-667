@@ -21,7 +21,7 @@ public final class Static298 {
         Static391.A_DEQUE___34.clear();
         Static507.aClass394Array1 = null;
         Static75.aClass357Array2 = null;
-        Static219.aClass236Array1 = null;
+        CutsceneManager.actors = null;
         Static5.anInt92 = -1;
         Static457.anInt6933 = 1;
         Static482.anInt7228 = 0;

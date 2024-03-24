@@ -278,7 +278,7 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "f", descriptor = "()V")
-    public void method3656() {
+    public void restart() {
         this.aBoolean326 = true;
     }
 

@@ -35,13 +35,13 @@ public final class Static112 {
         }
         if (arg0 instanceof PlayerEntity) {
             @Pc(104) PlayerEntity local104 = (PlayerEntity) arg0;
-            if (local104.anInt1467 != -1 && (local104.pathPointer == 0 || local104.anInt10763 > 0)) {
+            if (local104.anInt1467 != -1 && (local104.pathPointer == 0 || local104.delayedWalkingTicks > 0)) {
                 local104.method9305(local104.anInt1467);
                 local104.anInt1467 = -1;
             }
         } else if (arg0 instanceof NPCEntity) {
             @Pc(138) NPCEntity local138 = (NPCEntity) arg0;
-            if (local138.turnToX != -1 && (local138.pathPointer == 0 || local138.anInt10763 > 0)) {
+            if (local138.turnToX != -1 && (local138.pathPointer == 0 || local138.delayedWalkingTicks > 0)) {
                 local67 = local138.x - (local138.turnToX - WorldMap.areaBaseX - WorldMap.areaBaseX) * 256;
                 local74 = local138.z - (local138.turnToZ - WorldMap.areaBaseZ - WorldMap.areaBaseZ) * 256;
                 if (local67 != 0 || local74 != 0) {

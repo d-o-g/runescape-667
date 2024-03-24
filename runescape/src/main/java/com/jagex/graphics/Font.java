@@ -52,7 +52,7 @@ public abstract class Font {
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "([Lclient!st;IIIILjava/lang/String;[IILjava/util/Random;I)I")
-    public final int renderRandom(@OriginalArg(0) Sprite[] icons, @OriginalArg(1) int seed, @OriginalArg(2) int textColour, @OriginalArg(3) int y, @OriginalArg(5) String text, @OriginalArg(6) int[] iconBounds, @OriginalArg(7) int shadowColour, @OriginalArg(8) Random random, @OriginalArg(9) int x) {
+    public final int renderRandom(@OriginalArg(0) Sprite[] icons, @OriginalArg(1) int seed, @OriginalArg(2) int textColour, @OriginalArg(3) int y, @OriginalArg(5) String text, @OriginalArg(6) int[] iconHeights, @OriginalArg(7) int shadowColour, @OriginalArg(8) Random random, @OriginalArg(9) int x) {
         if (text == null) {
             return 0;
         }
@@ -71,7 +71,7 @@ public abstract class Font {
             }
         }
 
-        this.render(offsetX, text, y, icons, x, null, iconBounds);
+        this.render(offsetX, text, y, icons, x, null, iconHeights);
         return deltaX;
     }
 
@@ -101,7 +101,7 @@ public abstract class Font {
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "([ILjava/lang/String;I[Lclient!st;I[IZ[I)V")
-    public void render(@OriginalArg(0) int[] offsetX, @OriginalArg(1) String text, @OriginalArg(2) int y, @OriginalArg(3) Sprite[] icons, @OriginalArg(4) int x, @OriginalArg(5) int[] offsetY, @OriginalArg(7) int[] iconBounds) {
+    public void render(@OriginalArg(0) int[] offsetX, @OriginalArg(1) String text, @OriginalArg(2) int y, @OriginalArg(3) Sprite[] icons, @OriginalArg(4) int x, @OriginalArg(5) int[] offsetY, @OriginalArg(7) int[] iconHeights) {
         @Pc(7) int adjustedY = y - this.metrics.verticalSpacing;
         @Pc(13) int openBracket = -1;
         @Pc(15) int prev = -1;
@@ -153,7 +153,7 @@ public abstract class Font {
                                 charCount++;
                                 @Pc(187) int iconId = StringTools.parseDecimal(escaped.substring(4));
                                 @Pc(191) Sprite icon = icons[iconId];
-                                @Pc(201) int height = iconBounds == null ? icon.scaleHeight() : iconBounds[iconId];
+                                @Pc(201) int height = iconHeights != null ? iconHeights[iconId] : icon.scaleHeight();
                                 icon.render(deltaX + x, deltaY + -height + adjustedY + this.metrics.verticalSpacing, 1, 0, 1);
                                 prev = -1;
                                 x += icons[iconId].scaleWidth();
@@ -239,7 +239,7 @@ public abstract class Font {
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "([Lclient!st;IILjava/lang/String;IZLclient!aa;I[I)V")
-    public void render(@OriginalArg(0) Sprite[] icons, @OriginalArg(1) int offsetY, @OriginalArg(2) int offsetX, @OriginalArg(3) String text, @OriginalArg(4) int x, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int y, @OriginalArg(8) int[] iconBounds) {
+    public void render(@OriginalArg(0) Sprite[] icons, @OriginalArg(1) int offsetY, @OriginalArg(2) int offsetX, @OriginalArg(3) String text, @OriginalArg(4) int x, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int y, @OriginalArg(8) int[] iconHeights) {
         @Pc(5) int adjustedY = y - this.metrics.verticalSpacing;
         @Pc(11) int openBracket = -1;
         @Pc(18) int prev = -1;
@@ -275,7 +275,7 @@ public abstract class Font {
                             try {
                                 @Pc(136) int iconId = StringTools.parseDecimal(escaped.substring(4));
                                 @Pc(140) Sprite icon = icons[iconId];
-                                @Pc(150) int height = iconBounds == null ? icon.scaleHeight() : iconBounds[iconId];
+                                @Pc(150) int height = iconHeights == null ? icon.scaleHeight() : iconHeights[iconId];
                                 if ((textColour & 0xFF000000) == 0xFF000000) {
                                     icon.render(x, this.metrics.verticalSpacing + adjustedY - height, 1, 0, 1);
                                 } else {
@@ -349,18 +349,18 @@ public abstract class Font {
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(I[IILjava/lang/String;Lclient!aa;[Lclient!st;IIIIIIIIII)I")
-    public final int renderLines(@OriginalArg(0) int offsetY, @OriginalArg(1) int[] iconBounds, @OriginalArg(2) int textColour, @OriginalArg(3) String text, @OriginalArg(4) ClippingMask mask, @OriginalArg(5) Sprite[] icons, @OriginalArg(6) int y, @OriginalArg(7) int shadowColour, @OriginalArg(9) int offsetX, @OriginalArg(10) int horizontalAlignment, @OriginalArg(11) int x, @OriginalArg(12) int verticalAlignment, @OriginalArg(13) int verticalSpacing, @OriginalArg(14) int width, @OriginalArg(15) int height) {
-        return this.renderLines(verticalAlignment, textColour, shadowColour, icons, 0, offsetY, y, height, offsetX, mask, verticalSpacing, width, x, horizontalAlignment, iconBounds, text);
+    public final int renderLines(@OriginalArg(0) int offsetY, @OriginalArg(1) int[] iconHeights, @OriginalArg(2) int textColour, @OriginalArg(3) String text, @OriginalArg(4) ClippingMask mask, @OriginalArg(5) Sprite[] icons, @OriginalArg(6) int y, @OriginalArg(7) int shadowColour, @OriginalArg(9) int offsetX, @OriginalArg(10) int horizontalAlignment, @OriginalArg(11) int x, @OriginalArg(12) int verticalAlignment, @OriginalArg(13) int verticalSpacing, @OriginalArg(14) int width, @OriginalArg(15) int height) {
+        return this.renderLines(verticalAlignment, textColour, shadowColour, icons, 0, offsetY, y, height, offsetX, mask, verticalSpacing, width, x, horizontalAlignment, iconHeights, text);
     }
 
     @OriginalMember(owner = "client!da", name = "fa", descriptor = "(CIIIZ)V")
     protected abstract void fa(@OriginalArg(0) char c, @OriginalArg(1) int x, @OriginalArg(2) int y, @OriginalArg(3) int colour, @OriginalArg(4) boolean shadow);
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(IIILjava/lang/String;II[Lclient!st;[I)V")
-    public final void render(@OriginalArg(0) int textColour, @OriginalArg(1) int shadowColour, @OriginalArg(2) int y, @OriginalArg(3) String text, @OriginalArg(5) int x, @OriginalArg(6) Sprite[] icons, @OriginalArg(7) int[] iconBounds) {
+    public final void render(@OriginalArg(0) int textColour, @OriginalArg(1) int shadowColour, @OriginalArg(2) int y, @OriginalArg(3) String text, @OriginalArg(5) int x, @OriginalArg(6) Sprite[] icons, @OriginalArg(7) int[] iconHeights) {
         if (text != null) {
             this.setTextColours(textColour, shadowColour);
-            this.render(icons, 0, 0, text, x, null, y, iconBounds);
+            this.render(icons, 0, 0, text, x, null, y, iconHeights);
         }
     }
 
@@ -381,7 +381,7 @@ public abstract class Font {
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(IIII[Lclient!st;IIIIILclient!aa;IIII[ILjava/lang/String;)I")
-    public final int renderLines(@OriginalArg(0) int verticalAlignment, @OriginalArg(2) int textColour, @OriginalArg(3) int shadowColour, @OriginalArg(4) Sprite[] icons, @OriginalArg(5) int maxLines, @OriginalArg(6) int offsetY, @OriginalArg(7) int y, @OriginalArg(8) int height, @OriginalArg(9) int offsetX, @OriginalArg(10) ClippingMask mask, @OriginalArg(11) int verticalSpacing, @OriginalArg(12) int width, @OriginalArg(13) int x, @OriginalArg(14) int horizontalAlignment, @OriginalArg(15) int[] iconBounds, @OriginalArg(16) String text) {
+    public final int renderLines(@OriginalArg(0) int verticalAlignment, @OriginalArg(2) int textColour, @OriginalArg(3) int shadowColour, @OriginalArg(4) Sprite[] icons, @OriginalArg(5) int maxLines, @OriginalArg(6) int offsetY, @OriginalArg(7) int y, @OriginalArg(8) int height, @OriginalArg(9) int offsetX, @OriginalArg(10) ClippingMask mask, @OriginalArg(11) int verticalSpacing, @OriginalArg(12) int width, @OriginalArg(13) int x, @OriginalArg(14) int horizontalAlignment, @OriginalArg(15) int[] iconHeights, @OriginalArg(16) String text) {
         if (text == null) {
             return 0;
         }
@@ -434,16 +434,16 @@ public abstract class Font {
 
         for (@Pc(233) int line = 0; line < lineCount; line++) {
             if (horizontalAlignment == 0) {
-                this.render(icons, offsetY, offsetX, textLines[line], x, mask, newY, iconBounds);
+                this.render(icons, offsetY, offsetX, textLines[line], x, mask, newY, iconHeights);
             } else if (horizontalAlignment == 1) {
-                this.render(icons, offsetY, offsetX, textLines[line], x + (width - this.metrics.stringWidth(textLines[line])) / 2, mask, newY, iconBounds);
+                this.render(icons, offsetY, offsetX, textLines[line], x + (width - this.metrics.stringWidth(textLines[line])) / 2, mask, newY, iconHeights);
             } else if (horizontalAlignment == 2) {
-                this.render(icons, offsetY, offsetX, textLines[line], x + width - this.metrics.stringWidth(textLines[line]), mask, newY, iconBounds);
+                this.render(icons, offsetY, offsetX, textLines[line], x + width - this.metrics.stringWidth(textLines[line]), mask, newY, iconHeights);
             } else if (lineCount - 1 == line) {
-                this.render(icons, offsetY, offsetX, textLines[line], x, mask, newY, iconBounds);
+                this.render(icons, offsetY, offsetX, textLines[line], x, mask, newY, iconHeights);
             } else {
                 this.setSpaceWidth(width, textLines[line]);
-                this.render(icons, offsetY, offsetX, textLines[line], x, mask, newY, iconBounds);
+                this.render(icons, offsetY, offsetX, textLines[line], x, mask, newY, iconHeights);
                 spaceWidth = 0;
             }
 
@@ -539,7 +539,7 @@ public abstract class Font {
     }
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "([IIII[IIILjava/util/Random;Ljava/lang/String;II[Lclient!st;III)I")
-    public final int renderRandom(@OriginalArg(0) int[] textBounds, @OriginalArg(1) int horizontalAlign, @OriginalArg(2) int width, @OriginalArg(4) int[] iconBounds, @OriginalArg(5) int textColour, @OriginalArg(6) int height, @OriginalArg(7) Random random, @OriginalArg(8) String text, @OriginalArg(9) int x, @OriginalArg(10) int shadowColour, @OriginalArg(11) Sprite[] icons, @OriginalArg(12) int seed, @OriginalArg(13) int y, @OriginalArg(14) int verticalAlign) {
+    public final int renderRandom(@OriginalArg(0) int[] textBounds, @OriginalArg(1) int horizontalAlign, @OriginalArg(2) int width, @OriginalArg(4) int[] iconHeights, @OriginalArg(5) int textColour, @OriginalArg(6) int height, @OriginalArg(7) Random random, @OriginalArg(8) String text, @OriginalArg(9) int x, @OriginalArg(10) int shadowColour, @OriginalArg(11) Sprite[] icons, @OriginalArg(12) int seed, @OriginalArg(13) int y, @OriginalArg(14) int verticalAlign) {
         if (text == null) {
             return 0;
         }
@@ -575,7 +575,7 @@ public abstract class Font {
             newX = x + width - textWidth;
         }
 
-        this.render(offsetX, text, newY, icons, newX, null, iconBounds);
+        this.render(offsetX, text, newY, icons, newX, null, iconHeights);
 
         if (textBounds != null) {
             if (textWidth == -1) {

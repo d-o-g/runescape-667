@@ -18,7 +18,7 @@ public final class Static515 {
             arg6 = arg3;
         }
         @Pc(41) String local41 = Static192.method2874(arg10);
-        Fonts.b12.render(arg6, 0, arg2, local41, arg8 + 3, MiniMenu.questSprites, Static460.anIntArray554);
+        Fonts.b12.render(arg6, 0, arg2, local41, arg8 + 3, MiniMenu.icons, MiniMenu.iconHeights);
     }
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(Lclient!ge;B)Lclient!no;")

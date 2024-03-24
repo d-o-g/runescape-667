@@ -35,6 +35,10 @@ import rs2.client.event.keyboard.SimpleKeyboardMonitor;
 
 public final class MiniMenu {
 
+    private static final int QUEST_ICON_COUNT = 10;
+
+    private static final int QUEST_ICON_HEIGHT = 12;
+
     @OriginalMember(owner = "client!vu", name = "f", descriptor = "Lclient!sia;")
     public static final Deque entries = new Deque();
 
@@ -44,14 +48,14 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!wn", name = "k", descriptor = "Lclient!dla;")
     public static final ReferenceCache cache = new ReferenceCache(30);
 
+    @OriginalMember(owner = "client!oea", name = "w", descriptor = "Lclient!dla;")
+    public static final ReferenceCache questCache = new ReferenceCache(8);
+
     @OriginalMember(owner = "client!la", name = "v", descriptor = "Lclient!jga;")
     public static final Queue innerEntries = new Queue();
 
     @OriginalMember(owner = "client!fp", name = "T", descriptor = "Z")
     public static final boolean debugOps = false;
-
-    @OriginalMember(owner = "client!oea", name = "w", descriptor = "Lclient!dla;")
-    public static final ReferenceCache questCache = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!jha", name = "k", descriptor = "[Ljava/lang/String;")
     public static final String[] playerOps = new String[8];
@@ -75,10 +79,13 @@ public final class MiniMenu {
     public static MiniMenuEntry leftClickEntry;
 
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "[Lclient!st;")
-    public static Sprite[] questSprites;
+    public static Sprite[] icons;
 
     @OriginalMember(owner = "client!ki", name = "c", descriptor = "I")
-    public static int anInt5440;
+    public static int nameIconsCount;
+
+    @OriginalMember(owner = "client!oj", name = "j", descriptor = "[I")
+    public static int[] iconHeights;
 
     @OriginalMember(owner = "client!cja", name = "b", descriptor = "(B)V")
     public static void reset() {
@@ -814,10 +821,10 @@ public final class MiniMenu {
                 font = Fonts.b12;
             }
 
-            font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.horizontalAlignment, WorldMap.optionsComponent.width, Static460.anIntArray554, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, Static493.aRandom1, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, questSprites, Static178.anInt2947, WorldMap.optionsY, WorldMap.optionsComponent.verticalAlignment);
+            font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.horizontalAlignment, WorldMap.optionsComponent.width, iconHeights, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, Static493.aRandom1, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, icons, Static178.anInt2947, WorldMap.optionsY, WorldMap.optionsComponent.verticalAlignment);
             InterfaceManager.redrawWithin(Static329.anIntArray163[2], Static329.anIntArray163[0], Static329.anIntArray163[3], Static329.anIntArray163[1]);
         } else if (InterfaceManager.optionsComponent != null && client.modeGame == ModeGame.RUNESCAPE) {
-            @Pc(299) int local299 = Fonts.b12.renderRandom(questSprites, Static178.anInt2947, 0xFFFFFF, InterfaceManager.optionsY + 16, text, Static460.anIntArray554, 0, Static493.aRandom1, InterfaceManager.optionsX + 4);
+            @Pc(299) int local299 = Fonts.b12.renderRandom(icons, Static178.anInt2947, 0xFFFFFF, InterfaceManager.optionsY + 16, text, iconHeights, 0, Static493.aRandom1, InterfaceManager.optionsX + 4);
             InterfaceManager.redrawWithin(local299 + Fonts.b12Metrics.stringWidth(text), InterfaceManager.optionsX - -4, 16, InterfaceManager.optionsY);
         }
     }
@@ -834,9 +841,9 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;IIIIILclient!pg;IIIII)V")
-    public static void method3387(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) MiniMenuEntry arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10) {
-        if (arg9 < arg10 && arg1 + arg9 > arg10 && arg8 > arg4 - 13 && arg4 + 3 > arg8 && arg6.aBoolean552) {
-            arg7 = arg5;
+    public static void method3387(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int y, @OriginalArg(5) int arg5, @OriginalArg(6) MiniMenuEntry arg6, @OriginalArg(7) int textColour, @OriginalArg(8) int arg8, @OriginalArg(9) int x, @OriginalArg(10) int arg10) {
+        if (x < arg10 && arg1 + x > arg10 && arg8 > y - 13 && y + 3 > arg8 && arg6.aBoolean552) {
+            textColour = arg5;
         }
         @Pc(49) int[] local49 = null;
         if (MiniMenuAction.isObjOp(arg6.action)) {
@@ -864,13 +871,15 @@ public final class MiniMenu {
                 local49 = local87.quests;
             }
         }
-        @Pc(154) String local154 = getLineText(arg6);
+        @Pc(154) String text = getLineText(arg6);
         if (local49 != null) {
-            local154 = local154 + questIcon(local49);
+            text = text + questIcon(local49);
         }
-        Fonts.b12.render(arg7, 0, arg4, local154, arg9 + 3, questSprites, Static460.anIntArray554);
+
+        Fonts.b12.render(textColour, 0, y, text, x + 3, icons, iconHeights);
+
         if (arg6.differentLevel) {
-            Sprites.otherlevel.render(arg9 + Fonts.b12Metrics.stringWidth(local154) + 5, arg4 + -12);
+            Sprites.otherlevel.render(x + Fonts.b12Metrics.stringWidth(text) + 5, y + -12);
         }
     }
 
@@ -910,7 +919,7 @@ public final class MiniMenu {
             text = text + questIcon(quests);
         }
 
-        @Pc(130) int width = Fonts.b12Metrics.stringWidth(questSprites, text);
+        @Pc(130) int width = Fonts.b12Metrics.stringWidth(icons, text);
         if (entry.differentLevel) {
             width += Sprites.otherlevel.getWidth() + 4;
         }
@@ -920,24 +929,24 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!cf", name = "a", descriptor = "(I[I)Ljava/lang/String;")
     public static String questIcon(@OriginalArg(1) int[] quests) {
         @Pc(7) StringBuffer buffer = new StringBuffer();
-        @Pc(9) int id = anInt5440;
-        for (@Pc(11) int local11 = 0; local11 < quests.length; local11++) {
-            @Pc(19) QuestType type = QuestTypeList.instance.list(quests[local11]);
+        @Pc(9) int id = nameIconsCount;
+        for (@Pc(11) int i = 0; i < quests.length; i++) {
+            @Pc(19) QuestType type = QuestTypeList.instance.list(quests[i]);
 
-            if (type.sprite != -1) {
-                @Pc(34) Sprite sprite = (Sprite) questCache.get(type.sprite);
+            if (type.icon != -1) {
+                @Pc(34) Sprite icon = (Sprite) questCache.get(type.icon);
 
-                if (sprite == null) {
-                    @Pc(42) IndexedImage image = IndexedImage.loadFirst(js5.SPRITES, type.sprite, 0);
+                if (icon == null) {
+                    @Pc(42) IndexedImage image = IndexedImage.loadFirst(js5.SPRITES, type.icon, 0);
 
                     if (image != null) {
-                        sprite = Toolkit.active.createSprite(image, true);
-                        questCache.put(sprite, type.sprite);
+                        icon = Toolkit.active.createSprite(image, true);
+                        questCache.put(icon, type.icon);
                     }
                 }
 
-                if (sprite != null) {
-                    questSprites[id] = sprite;
+                if (icon != null) {
+                    icons[id] = icon;
                     buffer.append(" <img=").append(id).append(">");
                     id++;
                 }
@@ -948,16 +957,16 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!ki", name = "a", descriptor = "(B[Lclient!st;)V")
-    public static void method4925(@OriginalArg(1) Sprite[] sprites) {
-        anInt5440 = sprites.length;
-        questSprites = new Sprite[anInt5440 + 10];
-        Static460.anIntArray554 = new int[anInt5440 + 10];
-        Arrays.copy(sprites, 0, questSprites, 0, anInt5440);
-        for (@Pc(32) int local32 = 0; local32 < anInt5440; local32++) {
-            Static460.anIntArray554[local32] = questSprites[local32].scaleHeight();
+    public static void setIcons(@OriginalArg(1) Sprite[] nameIcons) {
+        nameIconsCount = nameIcons.length;
+        icons = new Sprite[nameIconsCount + QUEST_ICON_COUNT];
+        iconHeights = new int[nameIconsCount + QUEST_ICON_COUNT];
+        Arrays.copy(nameIcons, 0, icons, 0, nameIconsCount);
+        for (@Pc(32) int i = 0; i < nameIconsCount; i++) {
+            iconHeights[i] = icons[i].scaleHeight();
         }
-        for (@Pc(50) int local50 = anInt5440; local50 < questSprites.length; local50++) {
-            Static460.anIntArray554[local50] = 12;
+        for (@Pc(50) int i = nameIconsCount; i < icons.length; i++) {
+            iconHeights[i] = QUEST_ICON_HEIGHT;
         }
     }
 

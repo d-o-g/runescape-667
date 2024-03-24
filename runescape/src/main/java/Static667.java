@@ -20,7 +20,7 @@ public final class Static667 {
         Fonts.init(Toolkit.active);
         Sprites.init(js5.SPRITES, Toolkit.active);
         Static329.method1649();
-        MiniMenu.method4925(Sprites.nameIcons);
+        MiniMenu.setIcons(Sprites.nameIcons);
         InterfaceManager.redrawAll();
         Static296.updateFeatureMask();
         if (MainLogicManager.step == 3) {

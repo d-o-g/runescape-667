@@ -11,9 +11,6 @@ public final class Static460 {
     @OriginalMember(owner = "client!oj", name = "l", descriptor = "Lclient!tt;")
     public static Matrix aMatrix_10;
 
-    @OriginalMember(owner = "client!oj", name = "j", descriptor = "[I")
-    public static int[] anIntArray554;
-
     @OriginalMember(owner = "client!oj", name = "s", descriptor = "I")
     public static int anInt6970;
 

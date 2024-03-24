@@ -384,7 +384,7 @@ public final class Static523 {
             FontTypeList.method7549(Toolkit.active);
             Fonts.init(Toolkit.active);
             Sprites.init(js5.SPRITES, Toolkit.active);
-            MiniMenu.method4925(Sprites.nameIcons);
+            MiniMenu.setIcons(Sprites.nameIcons);
         }
         return Static694.method9030();
     }

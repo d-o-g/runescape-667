@@ -84,7 +84,7 @@ public final class Static329 {
         Static561.aSprite_34 = null;
         Static26.aSprite_5 = null;
         Static459.aSprite_31 = null;
-        MiniMenu.questSprites = null;
+        MiniMenu.icons = null;
         Static261.aSprite_18 = null;
         Static63.aSprite_8 = null;
     }

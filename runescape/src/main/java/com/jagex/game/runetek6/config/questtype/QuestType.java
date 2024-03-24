@@ -63,7 +63,7 @@ public final class QuestType {
     public String name;
 
     @OriginalMember(owner = "client!la", name = "f", descriptor = "I")
-    public int sprite = -1;
+    public int icon = -1;
 
     @OriginalMember(owner = "client!la", name = "a", descriptor = "(I)V")
     public void postDecode() {
@@ -128,7 +128,7 @@ public final class QuestType {
         } else if (code == 15) {
             packet.g2();
         } else if (code == 17) {
-            this.sprite = packet.g2();
+            this.icon = packet.g2();
         } else if (code == 18) {
             @Pc(29) int local29 = packet.g1();
             this.aStringArray28 = new String[local29];

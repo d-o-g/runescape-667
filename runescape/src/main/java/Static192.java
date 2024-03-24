@@ -12,7 +12,7 @@ public final class Static192 {
     @OriginalMember(owner = "client!fu", name = "a", descriptor = "(Lclient!cba;I)I")
     public static int method2875(@OriginalArg(0) MiniMenuEntryInner arg0) {
         @Pc(14) String local14 = method2874(arg0);
-        return Fonts.b12Metrics.stringWidth(MiniMenu.questSprites, local14);
+        return Fonts.b12Metrics.stringWidth(MiniMenu.icons, local14);
     }
 
     @OriginalMember(owner = "client!fu", name = "a", descriptor = "(I)Lclient!aea;")

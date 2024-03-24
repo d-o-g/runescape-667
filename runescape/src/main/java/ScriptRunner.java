@@ -1857,7 +1857,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3349) {
-                                        anIntArray578[anInt7142++] = PlayerEntity.self.aClass126_7.method2673(16383) >> 3;
+                                        anIntArray578[anInt7142++] = PlayerEntity.self.yaw.getValue(16383) >> 3;
                                         return;
                                     }
                                     if (arg0 == 3350) {

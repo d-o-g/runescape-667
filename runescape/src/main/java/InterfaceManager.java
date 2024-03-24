@@ -13,6 +13,8 @@ import com.jagex.game.Animator;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
+import com.jagex.game.runetek6.config.defaults.WearposDefaults;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.iftype.DragRender;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
@@ -750,7 +752,7 @@ public final class InterfaceManager {
                                 @Pc(2341) PlayerEntity player = PlayerList.highResolutionPlayers[slot];
 
                                 if (player != null && (slot == PlayerList.activePlayerSlot || StringTools.intHash(player.accountName) == child.objData)) {
-                                    model = player.playerModel.bodyModel(ObjTypeList.instance, child.animator, BASTypeList.instance, SeqTypeList.instance, 2048, null, Static523.wearposDefaults, IDKTypeList.instance, Toolkit.active, NPCTypeList.instance, null, 0, null, TimedVarDomain.instance);
+                                    model = player.playerModel.bodyModel(ObjTypeList.instance, child.animator, BASTypeList.instance, SeqTypeList.instance, 2048, null, WearposDefaults.instance, IDKTypeList.instance, Toolkit.active, NPCTypeList.instance, null, 0, null, TimedVarDomain.instance);
                                 }
                             }
                         } else if (child.objType == Component.OBJ_TYPE_INVENTORY_MALE || child.objType == Component.OBJ_TYPE_INVENTORY_FEMALE) {
@@ -1070,7 +1072,7 @@ public final class InterfaceManager {
         }
 
         Static115.method2136(cursor);
-        @Pc(136) int size = PlayerEntity.self.getBoundSize() << 8;
+        @Pc(136) int size = PlayerEntity.self.getSize() << 8;
         Static220.method3198(Static35.currentTick, size + PlayerEntity.self.z, PlayerEntity.self.x + size, PlayerEntity.self.level);
         Static35.currentTick = 0;
     }
@@ -1459,7 +1461,7 @@ public final class InterfaceManager {
                                     local1191 = (Static433.anInt6262 >> 9) + (local1170 >> 2);
                                     local1199 = (Static249.anInt4018 >> 9) - (local1180 >> 2);
                                 } else {
-                                    @Pc(1208) int local1208 = (PlayerEntity.self.getBoundSize() - 1) * 256;
+                                    @Pc(1208) int local1208 = (PlayerEntity.self.getSize() - 1) * 256;
                                     local1191 = (PlayerEntity.self.x - local1208 >> 9) + (local1170 >> 2);
                                     local1199 = (PlayerEntity.self.z - local1208 >> 9) - (local1180 >> 2);
                                 }
@@ -2538,7 +2540,7 @@ public final class InterfaceManager {
             topLevelInterface = -1;
             subInterfaces = new IterableHashTable(8);
             InterfaceList.reset();
-            topLevelInterface = Static523.graphicsDefaults.login_interface;
+            topLevelInterface = GraphicsDefaults.instance.login_interface;
             refreshTopLevelInterface(false);
             redrawAll();
             ScriptRunner.executeOnLoad(topLevelInterface);
@@ -2555,7 +2557,7 @@ public final class InterfaceManager {
         PlayerEntity.self.pathX[0] = Static720.mapWidth / 2;
         Camera.positionZ = 0;
         Camera.positionX = 0;
-        PlayerEntity.self.pathY[0] = Static501.mapHeight / 2;
+        PlayerEntity.self.pathZ[0] = Static501.mapHeight / 2;
 
         if (Camera.mode == 2) {
             Camera.positionZ = Camera.anInt10667 << 9;
@@ -2594,7 +2596,7 @@ public final class InterfaceManager {
             topLevelInterface = -1;
             subInterfaces = new IterableHashTable(8);
             InterfaceList.reset();
-            topLevelInterface = Static523.graphicsDefaults.lobby_interface;
+            topLevelInterface = GraphicsDefaults.instance.lobby_interface;
             refreshTopLevelInterface(false);
             redrawAll();
             ScriptRunner.executeOnLoad(topLevelInterface);

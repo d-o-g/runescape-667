@@ -307,23 +307,23 @@ public final class Static466 {
         @Pc(36) int local36 = local8.ig2();
         Static165.method2607();
         Static342.method4465(local16);
-        local8.method7417();
+        local8.enterBitMode();
         @Pc(50) int local50;
         @Pc(54) int local54;
         @Pc(61) int local61;
         for (@Pc(46) int local46 = 0; local46 < 4; local46++) {
             for (local50 = 0; local50 < Static720.mapWidth >> 3; local50++) {
                 for (local54 = 0; local54 < Static501.mapHeight >> 3; local54++) {
-                    local61 = local8.method7412(1);
+                    local61 = local8.readBits(1);
                     if (local61 == 1) {
-                        Static623.anIntArrayArrayArray19[local46][local50][local54] = local8.method7412(26);
+                        Static623.anIntArrayArrayArray19[local46][local50][local54] = local8.readBits(26);
                     } else {
                         Static623.anIntArrayArrayArray19[local46][local50][local54] = -1;
                     }
                 }
             }
         }
-        local8.method7411();
+        local8.exitBitMode();
         local50 = (ConnectionManager.GAME.currentPacketSize - local8.pos) / 16;
         Static22.anIntArrayArray11 = new int[local50][4];
         for (local54 = 0; local54 < local50; local54++) {

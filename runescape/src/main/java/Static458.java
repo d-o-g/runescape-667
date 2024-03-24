@@ -7,9 +7,6 @@ public final class Static458 {
     @OriginalMember(owner = "client!oi", name = "o", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_31 = new Class155(20);
 
-    @OriginalMember(owner = "client!oi", name = "q", descriptor = "[I")
-    public static final int[] anIntArray553 = new int[250];
-
     @OriginalMember(owner = "client!oi", name = "a", descriptor = "(Z[[[Lclient!pha;)V")
     public static void method6243(@OriginalArg(1) Class291[][][] arg0) {
         for (@Pc(12) int local12 = 0; local12 < arg0.length; local12++) {

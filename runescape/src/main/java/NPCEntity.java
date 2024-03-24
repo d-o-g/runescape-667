@@ -1,7 +1,9 @@
 import com.jagex.ParticleList;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
+import com.jagex.game.MoveSpeed;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
+import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
@@ -21,10 +23,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "Qc", descriptor = "Ljava/lang/String;")
-    public String aString128;
+    public String name;
 
     @OriginalMember(owner = "client!wj", name = "Gc", descriptor = "Lclient!vk;")
-    public NPCTypeCustomisation aNPCTypeCustomisation_1;
+    public NPCTypeCustomisation customisation;
 
     @OriginalMember(owner = "client!wj", name = "Yc", descriptor = "Lclient!o;")
     public NPCType type;
@@ -33,16 +35,16 @@ public final class NPCEntity extends PathingEntity {
     public int combatLevel;
 
     @OriginalMember(owner = "client!wj", name = "ad", descriptor = "I")
-    public int anInt10774 = -1;
+    public int turnToX = -1;
 
     @OriginalMember(owner = "client!wj", name = "fd", descriptor = "I")
-    public int anInt10767 = -1;
+    public int turnToZ = -1;
 
     @OriginalMember(owner = "client!wj", name = "Jc", descriptor = "I")
-    public int anInt10788 = 1;
+    public int customiseHeadCount = 1;
 
     @OriginalMember(owner = "client!wj", name = "Dc", descriptor = "I")
-    public int anInt10790 = 1;
+    public int customiseCount = 1;
 
     @OriginalMember(owner = "client!wj", name = "<init>", descriptor = "()V")
     public NPCEntity() {
@@ -63,7 +65,7 @@ public final class NPCEntity extends PathingEntity {
             }
         }
         @Pc(22) int local22 = local6.walkSound;
-        @Pc(32) BASType local32 = arg0.method9317();
+        @Pc(32) BASType local32 = arg0.getBASType();
         @Pc(37) int local37 = arg0.animator.getAnimationId();
         if (local37 == -1 || arg0.ready) {
             local22 = local6.readySound;
@@ -88,7 +90,7 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg4 <= 101) {
             Static712.method9329((byte) 99);
         }
@@ -102,7 +104,7 @@ public final class NPCEntity extends PathingEntity {
             return false;
         }
         @Pc(20) Matrix local20 = arg3.scratchMatrix();
-        @Pc(25) int local25 = super.aClass126_7.method2673(16383);
+        @Pc(25) int local25 = super.yaw.getValue(16383);
         local20.rotate(local25);
         local20.translate(super.x, super.anInt10691, super.z);
         @Pc(38) boolean local38 = arg2;
@@ -159,7 +161,7 @@ public final class NPCEntity extends PathingEntity {
             return null;
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
-        @Pc(27) int local27 = super.aClass126_7.method2673(16383);
+        @Pc(27) int local27 = super.yaw.getValue(16383);
         local22.rotate(local27);
         @Pc(45) Class291 local45 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
         if (local45 == null || local45.aGroundDecor_1 == null) {
@@ -169,12 +171,12 @@ public final class NPCEntity extends PathingEntity {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) local75 / 10.0F);
         }
         local22.translate(super.x, -super.anInt10732 + super.anInt10691 - 20, super.z);
-        @Pc(104) BASType local104 = this.method9317();
+        @Pc(104) BASType local104 = this.getBASType();
         @Pc(118) NPCType local118 = this.type.multinpcs == null ? this.type : this.type.getMultiNPC(TimedVarDomain.instance);
         super.aBoolean819 = false;
         @Pc(123) PickableEntity local123 = null;
         if (ClientOptions.instance.spotShadows.getValue() == 1 && local118.hasShadow && local104.animateShadow) {
-            @Pc(159) Animator local159 = super.aAnimator_11.isAnimating() && super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
+            @Pc(159) Animator local159 = super.actionAnimator.isAnimating() && super.actionAnimator.isDelayed() ? super.actionAnimator : null;
             @Pc(179) Animator local179 = super.animator.isAnimating() && (!super.ready || local159 == null) ? super.animator : null;
             @Pc(223) Model local223 = ShadowList.model(this.type.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.modelRotateZ, this.type.shadowInnerColour & 0xFFFF, super.modelTranslateY, this.type.size, arg0, this.type.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.modelRotateX, local27, this.type.shadowOuterColour & 0xFFFF);
             if (local223 != null) {
@@ -209,8 +211,8 @@ public final class NPCEntity extends PathingEntity {
                 }
             }
         }
-        if (super.aClass8_Sub5_8 != null) {
-            @Pc(394) ParticleList local394 = super.aClass8_Sub5_8.method3645();
+        if (super.particleSystem != null) {
+            @Pc(394) ParticleList local394 = super.particleSystem.method3645();
             if (Static504.aBoolean579) {
                 arg0.method7967(local394, Static582.anInt8627);
             } else {
@@ -230,20 +232,20 @@ public final class NPCEntity extends PathingEntity {
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZLclient!ha;)Z")
     public boolean method9324(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(5) int local5 = arg0;
-        @Pc(9) BASType local9 = this.method9317();
-        @Pc(27) Animator local27 = super.aAnimator_11.isAnimating() && !super.aAnimator_11.isDelayed() ? super.aAnimator_11 : null;
+        @Pc(9) BASType local9 = this.getBASType();
+        @Pc(27) Animator local27 = super.actionAnimator.isAnimating() && !super.actionAnimator.isDelayed() ? super.actionAnimator : null;
         @Pc(47) Animator local47 = super.animator.isAnimating() && (!super.ready || local27 == null) ? super.animator : null;
         @Pc(50) int local50 = local9.hillWidth;
         @Pc(53) int local53 = local9.hillHeight;
         if (local50 != 0 || local53 != 0 || local9.rollTargetAngle != 0 || local9.pitchTargetAngle != 0) {
             arg0 |= 0x7;
         }
-        @Pc(100) boolean local100 = super.aByte149 != 0 && super.anInt10760 <= TimeUtils.clock && TimeUtils.clock < super.anInt10752;
+        @Pc(100) boolean local100 = super.recolScale != 0 && super.recolStart <= TimeUtils.clock && TimeUtils.clock < super.recolEnd;
         if (local100) {
             arg0 |= 0x80000;
         }
-        @Pc(111) int local111 = super.aClass126_7.method2673(16383);
-        @Pc(134) Model local134 = super.aModelArray3[0] = this.type.getModel(TimedVarDomain.instance, arg1, BASTypeList.instance, local27, local111, super.anIntArray877, this.aNPCTypeCustomisation_1, local47, arg0, super.aClass152_Sub2_Sub1Array3);
+        @Pc(111) int local111 = super.yaw.getValue(16383);
+        @Pc(134) Model local134 = super.aModelArray3[0] = this.type.getModel(TimedVarDomain.instance, arg1, BASTypeList.instance, local27, local111, super.anIntArray877, this.customisation, local47, arg0, super.wornAnimators);
         if (local134 == null) {
             return false;
         }
@@ -251,7 +253,7 @@ public final class NPCEntity extends PathingEntity {
         super.anInt10728 = local134.ma();
         this.method9306(local134);
         if (local50 == 0 && local53 == 0) {
-            this.method9314(local111, 0, 0, this.getBoundSize() << 9, this.getBoundSize() << 9, -86);
+            this.method9314(local111, 0, 0, this.getSize() << 9, this.getSize() << 9, -86);
         } else {
             this.method9314(local111, local9.hillMaxAngleX, local9.hillMaxAngleY, local50, local53, -119);
             if (super.modelRotateX != 0) {
@@ -265,7 +267,7 @@ public final class NPCEntity extends PathingEntity {
             }
         }
         if (local100) {
-            local134.adjustColours(super.aByte150, super.aByte147, super.aByte148, super.aByte149 & 0xFF);
+            local134.adjustColours(super.recolHue, super.recolSaturation, super.recolLightness, super.recolScale & 0xFF);
         }
         this.method9297(local5, local53, arg1, local9, local111, local50);
         return true;
@@ -294,9 +296,9 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(I)Lclient!dj;")
     @Override
-    public Class80 method9318(@OriginalArg(0) int arg0) {
+    public ChatMessage method9318(@OriginalArg(0) int arg0) {
         if (arg0 == -3109) {
-            return super.aClass80_3 != null && super.aClass80_3.aString20 == null ? null : super.aClass80_3;
+            return super.message != null && super.message.text == null ? null : super.message;
         } else {
             return null;
         }
@@ -305,7 +307,7 @@ public final class NPCEntity extends PathingEntity {
     @OriginalMember(owner = "client!wj", name = "e", descriptor = "(B)Z")
     @Override
     public boolean method9311() {
-        return Static523.graphicsDefaults.npcShouldDisplayChat;
+        return GraphicsDefaults.instance.npcShouldDisplayChat;
     }
 
     @OriginalMember(owner = "client!wj", name = "h", descriptor = "(B)I")
@@ -324,9 +326,9 @@ public final class NPCEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IIB)V")
-    public void method9325(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public void move(@OriginalArg(0) int speed, @OriginalArg(1) int arg1) {
         @Pc(10) int local10 = super.pathX[0];
-        @Pc(20) int local20 = super.pathY[0];
+        @Pc(20) int local20 = super.pathZ[0];
         if (arg1 == 0) {
             local20++;
         }
@@ -355,85 +357,94 @@ public final class NPCEntity extends PathingEntity {
             local10--;
             local20++;
         }
-        if (super.aAnimator_11.isAnimating() && super.aAnimator_11.getAnimation().walkingPrecedence == 1) {
-            super.anIntArray869 = null;
-            super.aAnimator_11.update(true, -1);
+        if (super.actionAnimator.isAnimating() && super.actionAnimator.getAnimation().walkingPrecedence == 1) {
+            super.actionAnimations = null;
+            super.actionAnimator.update(true, -1);
         }
-        for (@Pc(110) int local110 = 0; local110 < super.aClass199Array3.length; local110++) {
-            if (super.aClass199Array3[local110].anInt4930 != -1) {
-                @Pc(131) SpotAnimationType local131 = SpotAnimationTypeList.instance.list(super.aClass199Array3[local110].anInt4930);
+        for (@Pc(110) int local110 = 0; local110 < super.spotAnims.length; local110++) {
+            if (super.spotAnims[local110].id != -1) {
+                @Pc(131) SpotAnimationType local131 = SpotAnimationTypeList.instance.list(super.spotAnims[local110].id);
                 if (local131.loopSeq && local131.seq != -1 && SeqTypeList.instance.list(local131.seq).walkingPrecedence == 1) {
-                    super.aClass199Array3[local110].aAnimator_7.update(true, -1);
-                    super.aClass199Array3[local110].anInt4930 = -1;
+                    super.spotAnims[local110].animator.update(true, -1);
+                    super.spotAnims[local110].id = -1;
                 }
             }
         }
-        if (super.anInt10764 < super.pathX.length - 1) {
-            super.anInt10764++;
+        if (super.pathPointer < super.pathX.length - 1) {
+            super.pathPointer++;
         }
-        for (@Pc(201) int local201 = super.anInt10764; local201 > 0; local201--) {
+        for (@Pc(201) int local201 = super.pathPointer; local201 > 0; local201--) {
             super.pathX[local201] = super.pathX[local201 - 1];
-            super.pathY[local201] = super.pathY[local201 - 1];
-            super.aByteArray111[local201] = super.aByteArray111[local201 - 1];
+            super.pathZ[local201] = super.pathZ[local201 - 1];
+            super.pathSpeed[local201] = super.pathSpeed[local201 - 1];
         }
         super.pathX[0] = local10;
-        super.pathY[0] = local20;
-        super.aByteArray111[0] = (byte) arg0;
+        super.pathZ[0] = local20;
+        super.pathSpeed[0] = (byte) speed;
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZIIII)V")
-    public void method9326(@OriginalArg(1) boolean arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        super.level = super.aByte143 = (byte) arg3;
-        if (Static441.method5968(arg1, arg2)) {
-            super.aByte143++;
+    public void clearPath(@OriginalArg(1) boolean arg0, @OriginalArg(2) int z, @OriginalArg(3) int x, @OriginalArg(4) int level, @OriginalArg(5) int size) {
+        super.level = super.virtualLevel = (byte) level;
+        if (Static441.isBridgeAt(z, x)) {
+            super.virtualLevel++;
         }
-        if (super.aAnimator_11.isAnimating() && super.aAnimator_11.getAnimation().walkingPrecedence == 1) {
-            super.anIntArray869 = null;
-            super.aAnimator_11.update(true, -1);
+
+        if (super.actionAnimator.isAnimating() && super.actionAnimator.getAnimation().walkingPrecedence == 1) {
+            super.actionAnimations = null;
+            super.actionAnimator.update(true, -1);
         }
-        for (@Pc(61) int local61 = 0; local61 < super.aClass199Array3.length; local61++) {
-            if (super.aClass199Array3[local61].anInt4930 != -1) {
-                @Pc(81) SpotAnimationType local81 = SpotAnimationTypeList.instance.list(super.aClass199Array3[local61].anInt4930);
-                if (local81.loopSeq && local81.seq != -1 && SeqTypeList.instance.list(local81.seq).walkingPrecedence == 1) {
-                    super.aClass199Array3[local61].aAnimator_7.update(true, -1);
-                    super.aClass199Array3[local61].anInt4930 = -1;
+
+        for (@Pc(61) int i = 0; i < super.spotAnims.length; i++) {
+            if (super.spotAnims[i].id != -1) {
+                @Pc(81) SpotAnimationType type = SpotAnimationTypeList.instance.list(super.spotAnims[i].id);
+
+                if (type.loopSeq && type.seq != -1 && SeqTypeList.instance.list(type.seq).walkingPrecedence == 1) {
+                    super.spotAnims[i].animator.update(true, -1);
+                    super.spotAnims[i].id = -1;
                 }
             }
         }
+
         if (!arg0) {
-            @Pc(134) int local134 = arg2 - super.pathX[0];
-            @Pc(142) int local142 = arg1 - super.pathY[0];
+            @Pc(134) int local134 = x - super.pathX[0];
+            @Pc(142) int local142 = z - super.pathZ[0];
+
             if (local134 >= -8 && local134 <= 8 && local142 >= -8 && local142 <= 8) {
-                if (super.pathX.length - 1 > super.anInt10764) {
-                    super.anInt10764++;
+                if (super.pathX.length - 1 > super.pathPointer) {
+                    super.pathPointer++;
                 }
-                for (@Pc(183) int local183 = super.anInt10764; local183 > 0; local183--) {
-                    super.pathX[local183] = super.pathX[local183 - 1];
-                    super.pathY[local183] = super.pathY[local183 - 1];
-                    super.aByteArray111[local183] = super.aByteArray111[local183 - 1];
+
+                for (@Pc(183) int i = super.pathPointer; i > 0; i--) {
+                    super.pathX[i] = super.pathX[i - 1];
+                    super.pathZ[i] = super.pathZ[i - 1];
+                    super.pathSpeed[i] = super.pathSpeed[i - 1];
                 }
-                super.pathX[0] = arg2;
-                super.aByteArray111[0] = 1;
-                super.pathY[0] = arg1;
+
+                super.pathX[0] = x;
+                super.pathSpeed[0] = MoveSpeed.WALK;
+                super.pathZ[0] = z;
                 return;
             }
         }
-        super.anInt10764 = 0;
+
+        super.pathPointer = 0;
         super.anInt10763 = 0;
-        super.pathX[0] = arg2;
-        super.anInt10762 = 0;
-        super.pathY[0] = arg1;
-        super.x = (arg4 << 8) + (super.pathX[0] << 9);
-        super.z = (super.pathY[0] << 9) + (arg4 << 8);
-        if (super.aClass8_Sub5_8 != null) {
-            super.aClass8_Sub5_8.method3656();
+        super.pathX[0] = x;
+        super.animationPathPointer = 0;
+        super.pathZ[0] = z;
+        super.x = (super.pathX[0] << 9) + (size << 8);
+        super.z = (super.pathZ[0] << 9) + (size << 8);
+
+        if (super.particleSystem != null) {
+            super.particleSystem.method3656();
         }
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IILjava/lang/String;B)V")
-    public void method9327(@OriginalArg(2) String arg0) {
-        @Pc(17) int local17 = Static504.method6733() * Static523.graphicsDefaults.npcChatTimeout;
-        this.method9313(local17, arg0, 0, 0);
+    public void chat(@OriginalArg(0) int colour, @OriginalArg(1) int effect, @OriginalArg(2) String text) {
+        @Pc(17) int duration = GameShell.speed() * GraphicsDefaults.instance.npcChatTimeout;
+        this.setChatMessage(duration, text, effect, colour);
     }
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(Lclient!ha;I)V")
@@ -443,7 +454,7 @@ public final class NPCEntity extends PathingEntity {
             return;
         }
         @Pc(26) Matrix local26 = arg0.scratchMatrix();
-        local26.rotate(super.aClass126_7.method2673(16383));
+        local26.rotate(super.yaw.getValue(16383));
         local26.translate(super.x, super.anInt10691 - 20, super.z);
         this.method9319(arg0, super.aBoolean820, super.aModelArray3, local26);
         for (@Pc(53) int local53 = 0; local53 < super.aModelArray3.length; local53++) {
@@ -464,17 +475,17 @@ public final class NPCEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(Lclient!o;Z)V")
-    public void method9328(@OriginalArg(0) NPCType arg0) {
-        if (arg0 != this.type && MiniMenu.open && Static321.method4622(super.id)) {
-            Static488.method6522();
+    public void setType(@OriginalArg(0) NPCType arg0) {
+        if (arg0 != this.type && MiniMenu.open && MiniMenu.hasNpcOp(super.id)) {
+            MiniMenu.close();
         }
         this.type = arg0;
         if (this.type != null) {
-            this.aString128 = this.type.name;
+            this.name = this.type.name;
             this.combatLevel = this.type.combatLevel;
         }
-        if (super.aClass8_Sub5_8 != null) {
-            super.aClass8_Sub5_8.method3656();
+        if (super.particleSystem != null) {
+            super.particleSystem.method3656();
         }
     }
 
@@ -488,7 +499,7 @@ public final class NPCEntity extends PathingEntity {
             }
         }
         if (arg0 != 0) {
-            this.anInt10774 = -66;
+            this.turnToX = -66;
         }
         return this.type.basId;
     }

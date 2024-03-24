@@ -20,16 +20,16 @@ public final class Static157 {
         @Pc(36) int local36 = Static246.activeGround == Static693.aGroundArray2 ? 1 : 0;
         if (arg4.method9283()) {
             if (arg4.method9282(0)) {
-                arg4.aRenderable_25 = Static398.aRenderableArray7[local36];
-                Static398.aRenderableArray7[local36] = arg4;
+                arg4.aEntity_25 = Static398.aEntityArray7[local36];
+                Static398.aEntityArray7[local36] = arg4;
                 return;
             }
-            arg4.aRenderable_25 = Static576.aRenderableArray9[local36];
-            Static576.aRenderableArray9[local36] = arg4;
+            arg4.aEntity_25 = Static576.aEntityArray9[local36];
+            Static576.aEntityArray9[local36] = arg4;
             Static75.aBoolean521 = true;
             return;
         }
-        arg4.aRenderable_25 = Static468.aRenderableArray10[local36];
-        Static468.aRenderableArray10[local36] = arg4;
+        arg4.aEntity_25 = Static468.aEntityArray10[local36];
+        Static468.aEntityArray10[local36] = arg4;
     }
 }

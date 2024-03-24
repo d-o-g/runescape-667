@@ -16,9 +16,6 @@ public final class Static390 {
     @OriginalMember(owner = "client!mda", name = "z", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___158 = new ServerProt(53, -1);
 
-    @OriginalMember(owner = "client!mda", name = "H", descriptor = "I")
-    public static int anInt6126 = 0;
-
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(ZI)Lclient!rt;")
     public static Class327 method5493(@OriginalArg(1) int arg0) {
         if (arg0 == 0) {

@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!eia")
-public abstract class GroundDecor extends Renderable {
+public abstract class GroundDecor extends Entity {
 
     @OriginalMember(owner = "client!eia", name = "z", descriptor = "S")
     public short aShort46;
@@ -16,7 +16,7 @@ public abstract class GroundDecor extends Renderable {
         super.anInt10691 = arg1;
         super.z = arg2;
         this.aShort46 = (short) arg5;
-        super.aByte143 = (byte) arg4;
+        super.virtualLevel = (byte) arg4;
         super.x = arg0;
     }
 
@@ -26,7 +26,7 @@ public abstract class GroundDecor extends Renderable {
         if (arg0 != 59) {
             this.aShort46 = -95;
         }
-        return Static588.method7714(super.z >> Static52.anInt1066, super.aByte143, super.x >> Static52.anInt1066);
+        return Static588.method7714(super.z >> Static52.anInt1066, super.virtualLevel, super.x >> Static52.anInt1066);
     }
 
     @OriginalMember(owner = "client!eia", name = "g", descriptor = "(I)Z")

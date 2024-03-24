@@ -36,13 +36,13 @@ public final class Static702 {
 
     @OriginalMember(owner = "client!wda", name = "a", descriptor = "(ILclient!cg;I)V")
     public static void method9166(@OriginalArg(1) PathingEntity arg0, @OriginalArg(2) int arg1) {
-        if (arg0.anIntArray869 == null) {
+        if (arg0.actionAnimations == null) {
             return;
         }
-        @Pc(13) int local13 = arg0.anIntArray869[arg1 + 1];
-        if (arg0.aAnimator_11.getAnimationId() != local13) {
-            arg0.aAnimator_11.update(arg0.aAnimator_11.method9087(), local13);
-            arg0.anInt10762 = arg0.anInt10764;
+        @Pc(13) int local13 = arg0.actionAnimations[arg1 + 1];
+        if (arg0.actionAnimator.getAnimationId() != local13) {
+            arg0.actionAnimator.update(arg0.actionAnimator.method9087(), local13);
+            arg0.animationPathPointer = arg0.pathPointer;
         }
     }
 }

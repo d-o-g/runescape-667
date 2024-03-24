@@ -46,13 +46,13 @@ public final class Static684 {
         @Pc(193) int local193;
         @Pc(308) int local308;
         if (mainLogicStep == 12) {
-            for (local308 = 0; local308 < Static416.anInt6378; local308++) {
-                @Pc(313) NPCEntityNode local313 = Static592.aClass2_Sub45Array1[local308];
+            for (local308 = 0; local308 < NPCList.newNpcCount; local308++) {
+                @Pc(313) NPCEntityNode local313 = NPCList.localNpcs[local308];
                 if (local313 != null) {
                     @Pc(318) NPCEntity local318 = local313.npc;
                     for (local136 = 0; local136 < local318.pathX.length; local136++) {
                         local318.pathX[local136] -= deltaX;
-                        local318.pathY[local136] -= deltaY;
+                        local318.pathZ[local136] -= deltaY;
                     }
                     local318.x -= deltaX * 512;
                     local318.z -= deltaY * 512;
@@ -60,11 +60,11 @@ public final class Static684 {
             }
         } else {
             @Pc(120) boolean local120 = false;
-            Static390.anInt6126 = 0;
+            NPCList.localNpcCount = 0;
             @Pc(128) int local128 = (Static720.mapWidth - 1) * 512;
             local134 = Static501.mapHeight * 512 - 512;
-            for (local136 = 0; local136 < Static416.anInt6378; local136++) {
-                @Pc(141) NPCEntityNode local141 = Static592.aClass2_Sub45Array1[local136];
+            for (local136 = 0; local136 < NPCList.newNpcCount; local136++) {
+                @Pc(141) NPCEntityNode local141 = NPCList.localNpcs[local136];
                 if (local141 != null) {
                     @Pc(146) NPCEntity local146 = local141.npc;
                     local146.z -= deltaY * 512;
@@ -73,28 +73,28 @@ public final class Static684 {
                         @Pc(191) boolean local191 = true;
                         for (local193 = 0; local193 < local146.pathX.length; local193++) {
                             local146.pathX[local193] -= deltaX;
-                            local146.pathY[local193] -= deltaY;
-                            if (local146.pathX[local193] < 0 || local146.pathX[local193] >= Static720.mapWidth || local146.pathY[local193] < 0 || Static501.mapHeight <= local146.pathY[local193]) {
+                            local146.pathZ[local193] -= deltaY;
+                            if (local146.pathX[local193] < 0 || local146.pathX[local193] >= Static720.mapWidth || local146.pathZ[local193] < 0 || Static501.mapHeight <= local146.pathZ[local193]) {
                                 local191 = false;
                             }
                         }
                         if (local191) {
-                            Static103.anIntArray187[Static390.anInt6126++] = local146.id;
+                            NPCList.localNpcIndices[NPCList.localNpcCount++] = local146.id;
                         } else {
-                            local146.method9328(null);
+                            local146.setType(null);
                             local120 = true;
                             local141.unlink();
                         }
                     } else {
-                        local146.method9328(null);
+                        local146.setType(null);
                         local120 = true;
                         local141.unlink();
                     }
                 }
             }
             if (local120) {
-                Static416.anInt6378 = NPCList.local.size();
-                NPCList.local.copyTo(Static592.aClass2_Sub45Array1);
+                NPCList.newNpcCount = NPCList.local.size();
+                NPCList.local.copyTo(NPCList.localNpcs);
             }
         }
         for (local308 = 0; local308 < 2048; local308++) {
@@ -102,7 +102,7 @@ public final class Static684 {
             if (local389 != null) {
                 for (local134 = 0; local134 < local389.pathX.length; local134++) {
                     local389.pathX[local134] -= deltaX;
-                    local389.pathY[local134] -= deltaY;
+                    local389.pathZ[local134] -= deltaY;
                 }
                 local389.z -= deltaY * 512;
                 local389.x -= deltaX * 512;

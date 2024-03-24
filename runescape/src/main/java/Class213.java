@@ -21,7 +21,7 @@ public final class Class213 {
 
     @OriginalMember(owner = "client!kn", name = "a", descriptor = "(ILclient!pea;)V")
     public void method5008(@OriginalArg(1) PickableEntity arg0) {
-        @Pc(6) Renderable local6 = arg0.aRenderable_18;
+        @Pc(6) Entity local6 = arg0.aEntity_18;
         @Pc(8) boolean local8 = true;
         @Pc(11) PickingCylinder[] local11 = arg0.aPickingCylinderArray1;
         for (@Pc(13) int local13 = 0; local13 < local11.length; local13++) {
@@ -36,14 +36,14 @@ public final class Class213 {
         @Pc(42) PickableEntity local42;
         if (this.aBoolean426) {
             for (local42 = (PickableEntity) this.aLinkedList_8.first(); local42 != null; local42 = (PickableEntity) this.aLinkedList_8.next()) {
-                if (local42.aRenderable_18 == local6) {
+                if (local42.aEntity_18 == local6) {
                     local42.unlink();
                     Static281.method4092(local42);
                 }
             }
         }
         for (local42 = (PickableEntity) this.aLinkedList_8.first(); local42 != null; local42 = (PickableEntity) this.aLinkedList_8.next()) {
-            if (local6.anInt10697 >= local42.aRenderable_18.anInt10697) {
+            if (local6.anInt10697 >= local42.aEntity_18.anInt10697) {
                 Static370.method5282(arg0, local42);
                 return;
             }

@@ -52,7 +52,7 @@ public final class Class302 {
     }
 
     @OriginalMember(owner = "client!qe", name = "a", descriptor = "(Lclient!eo;B)V")
-    public void method6809(@OriginalArg(0) Renderable arg0) {
+    public void method6809(@OriginalArg(0) Entity arg0) {
         arg0.aBoolean812 = true;
         @Pc(18) LinkedList local18 = this.aLinkedList_10;
         synchronized (this.aLinkedList_10) {
@@ -78,7 +78,7 @@ public final class Class302 {
     }
 
     @OriginalMember(owner = "client!qe", name = "a", descriptor = "(Lclient!eo;I)V")
-    public void method6812(@OriginalArg(0) Renderable arg0) {
+    public void method6812(@OriginalArg(0) Entity arg0) {
         arg0.aBoolean812 = false;
         @Pc(9) LinkedList local9 = this.aLinkedList_10;
         synchronized (this.aLinkedList_10) {

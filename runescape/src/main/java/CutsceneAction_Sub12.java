@@ -22,6 +22,6 @@ public final class CutsceneAction_Sub12 extends CutsceneAction {
     @OriginalMember(owner = "client!k", name = "b", descriptor = "(I)V")
     @Override
     public void method9161() {
-        Static219.aClass236Array1[this.anInt5045].method5363().method9298(this.anInt5040, true);
+        Static219.aClass236Array1[this.anInt5045].method5363().turn(this.anInt5040, true);
     }
 }

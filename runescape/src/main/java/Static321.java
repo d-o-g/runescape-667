@@ -1,7 +1,4 @@
-import com.jagex.core.constants.MiniMenuAction;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static321 {
 
@@ -22,13 +19,4 @@ public final class Static321 {
         return new Class396(1, false);
     }
 
-    @OriginalMember(owner = "client!kca", name = "a", descriptor = "(II)Z")
-    public static boolean method4622(@OriginalArg(0) int arg0) {
-        for (@Pc(8) MiniMenuEntry local8 = (MiniMenuEntry) MiniMenu.entries.first(); local8 != null; local8 = (MiniMenuEntry) MiniMenu.entries.next()) {
-            if (MiniMenuAction.isNpcOp(local8.action) && local8.v1 == (long) arg0) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

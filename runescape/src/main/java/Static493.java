@@ -4,9 +4,6 @@ import java.util.Random;
 
 public final class Static493 {
 
-    @OriginalMember(owner = "client!pj", name = "p", descriptor = "I")
-    public static int anInt7364;
-
     @OriginalMember(owner = "client!pj", name = "m", descriptor = "I")
     public static int anInt7370;
 

@@ -51,8 +51,8 @@ public final class Static254 {
         for (@Pc(8697) int local8697 = 0; local8697 < 2048; local8697++) {
             PlayerList.highResolutionPlayers[local8697] = null;
         }
-        Static390.anInt6126 = 0;
-        Static416.anInt6378 = 0;
+        NPCList.localNpcCount = 0;
+        NPCList.newNpcCount = 0;
         NPCList.local.clear();
         Static505.A_DEQUE___77.clear();
         Static346.A_HASH_TABLE___29.clear();

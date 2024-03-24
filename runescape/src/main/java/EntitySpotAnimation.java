@@ -4,25 +4,25 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!jq")
-public final class Class199 {
+public final class EntitySpotAnimation {
 
     @OriginalMember(owner = "client!jq", name = "e", descriptor = "I")
-    public int anInt4928;
+    public int wornSlot;
 
     @OriginalMember(owner = "client!jq", name = "h", descriptor = "I")
-    public int anInt4929;
+    public int rotation;
 
     @OriginalMember(owner = "client!jq", name = "d", descriptor = "I")
-    public int anInt4931;
+    public int height;
 
     @OriginalMember(owner = "client!jq", name = "a", descriptor = "I")
-    public int anInt4930 = -1;
+    public int id = -1;
 
     @OriginalMember(owner = "client!jq", name = "c", descriptor = "Lclient!gu;")
-    public final Animator aAnimator_7;
+    public final Animator animator;
 
     @OriginalMember(owner = "client!jq", name = "<init>", descriptor = "(Lclient!cg;)V")
-    public Class199(@OriginalArg(0) PathingEntity arg0) {
-        this.aAnimator_7 = new Animator_Sub2(arg0, false);
+    public EntitySpotAnimation(@OriginalArg(0) PathingEntity arg0) {
+        this.animator = new EntityAnimator(arg0, false);
     }
 }

@@ -10,7 +10,7 @@ public final class Static658 {
     public static int anInt9800;
 
     @OriginalMember(owner = "client!us", name = "a", descriptor = "(Lclient!eo;[Lclient!lca;)V")
-    public static void method8591(@OriginalArg(0) Renderable arg0, @OriginalArg(1) PointLight[] arg1) {
+    public static void method8591(@OriginalArg(0) Entity arg0, @OriginalArg(1) PointLight[] arg1) {
         @Pc(6) int local6;
         if (Static442.aBoolean500) {
             local6 = arg0.method9288(arg1);
@@ -41,7 +41,7 @@ public final class Static658 {
             }
         }
         if (local64.aBoolean548) {
-            local64.aRenderable_18 = arg0;
+            local64.aEntity_18 = arg0;
             if (Static661.aBoolean457) {
                 @Pc(127) Class213 local127 = Static514.aClass213_2;
                 synchronized (Static514.aClass213_2) {

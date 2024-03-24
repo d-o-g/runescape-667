@@ -18,17 +18,17 @@ public final class Static61 {
         @Pc(19) int local19 = Static246.activeGround == Static693.aGroundArray2 ? 1 : 0;
         if (arg3.method9283()) {
             if (arg3.method9282(0)) {
-                arg3.aRenderable_25 = Static398.aRenderableArray7[local19];
-                Static398.aRenderableArray7[local19] = arg3;
+                arg3.aEntity_25 = Static398.aEntityArray7[local19];
+                Static398.aEntityArray7[local19] = arg3;
                 return;
             }
-            arg3.aRenderable_25 = Static576.aRenderableArray9[local19];
-            Static576.aRenderableArray9[local19] = arg3;
+            arg3.aEntity_25 = Static576.aEntityArray9[local19];
+            Static576.aEntityArray9[local19] = arg3;
             Static75.aBoolean521 = true;
             return;
         }
-        arg3.aRenderable_25 = Static468.aRenderableArray10[local19];
-        Static468.aRenderableArray10[local19] = arg3;
+        arg3.aEntity_25 = Static468.aEntityArray10[local19];
+        Static468.aEntityArray10[local19] = arg3;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "([J[Ljava/lang/Object;Z)V")

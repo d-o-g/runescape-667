@@ -155,6 +155,9 @@ public final class ClientProt {
     @OriginalMember(owner = "client!ne", name = "p", descriptor = "Lclient!ss;")
     public static final ClientProt OPLOCT = new ClientProt(42, 15);
 
+    @OriginalMember(owner = "client!cma", name = "H", descriptor = "Lclient!ss;")
+    public static final ClientProt A_CLIENT_PROT___16 = new ClientProt(8, -1);
+
     @OriginalMember(owner = "client!ss", name = "g", descriptor = "I")
     public final int anInt8829;
 

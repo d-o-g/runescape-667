@@ -18,8 +18,8 @@ public final class Static90 {
                 local27.method9296();
             }
         }
-        for (@Pc(40) int local40 = 0; local40 < Static390.anInt6126; local40++) {
-            @Pc(49) long local49 = Static103.anIntArray187[local40];
+        for (@Pc(40) int local40 = 0; local40 < NPCList.localNpcCount; local40++) {
+            @Pc(49) long local49 = NPCList.localNpcIndices[local40];
             @Pc(57) NPCEntityNode local57 = (NPCEntityNode) NPCList.local.get(local49);
             if (local57 != null) {
                 local57.npc.method9296();

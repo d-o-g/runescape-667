@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static395 {
 
     @OriginalMember(owner = "client!mha", name = "l", descriptor = "[Lclient!eo;")
-    public static Renderable[] aRenderableArray11;
+    public static Entity[] aEntityArray11;
 
     @OriginalMember(owner = "client!mha", name = "j", descriptor = "[I")
     public static final int[] anIntArray833 = new int[32];

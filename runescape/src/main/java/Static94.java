@@ -26,10 +26,10 @@ public final class Static94 {
             PlayerList.highResolutionPlayers[local36] = null;
         }
         PlayerEntity.self = null;
-        for (@Pc(49) int local49 = 0; local49 < Static416.anInt6378; local49++) {
-            @Pc(55) NPCEntity local55 = Static592.aClass2_Sub45Array1[local49].npc;
+        for (@Pc(49) int local49 = 0; local49 < NPCList.newNpcCount; local49++) {
+            @Pc(55) NPCEntity local55 = NPCList.localNpcs[local49].npc;
             if (local55 != null) {
-                local55.anInt10722 = -1;
+                local55.target = -1;
             }
         }
         Static576.method7614();

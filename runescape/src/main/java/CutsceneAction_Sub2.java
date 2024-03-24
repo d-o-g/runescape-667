@@ -30,6 +30,6 @@ public final class CutsceneAction_Sub2 extends CutsceneAction {
     @OriginalMember(owner = "client!cp", name = "b", descriptor = "(I)V")
     @Override
     public void method9161() {
-        Static219.aClass236Array1[this.anInt1832].method5363().method9313(this.anInt1833, this.aString15, 0, this.anInt1834);
+        Static219.aClass236Array1[this.anInt1832].method5363().setChatMessage(this.anInt1833, this.aString15, 0, this.anInt1834);
     }
 }

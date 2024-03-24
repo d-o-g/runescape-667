@@ -53,7 +53,7 @@ public final class StaticLocation extends PositionEntity implements Location {
         this.aByte83 = (byte) arg13;
         this.aShort57 = (short) arg1.id;
         this.aByte84 = (byte) arg12;
-        super.aByte143 = (byte) arg3;
+        super.virtualLevel = (byte) arg3;
         this.aBoolean365 = arg14;
         this.castsShadow = arg0.method8006() && arg1.hardShadow && !this.aBoolean363 && ClientOptions.instance.hardShadows.getValue() != 0;
         @Pc(83) int local83 = 2048;
@@ -91,7 +91,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             this.shadow = null;
         }
         if (local16 != null) {
-            Static292.method4618(local16, super.aByte143, super.x, super.z, null);
+            Static292.method4618(local16, super.virtualLevel, super.x, super.z, null);
         }
         if (arg1 > -42) {
             this.model = null;
@@ -209,7 +209,7 @@ public final class StaticLocation extends PositionEntity implements Location {
             this.shadow = null;
         }
         if (shadow != null) {
-            Static630.method8357(shadow, super.aByte143, super.x, super.z, null);
+            Static630.method8357(shadow, super.virtualLevel, super.x, super.z, null);
         }
     }
 
@@ -259,7 +259,7 @@ public final class StaticLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg6 instanceof StaticWall) {
             @Pc(38) StaticWall local38 = (StaticWall) arg6;
             if (this.model != null && local38.model != null) {
@@ -282,14 +282,14 @@ public final class StaticLocation extends PositionEntity implements Location {
         @Pc(27) Ground local27;
         @Pc(33) Ground local33;
         if (this.aBoolean363) {
-            local27 = Static693.aGroundArray2[super.aByte143];
+            local27 = Static693.aGroundArray2[super.virtualLevel];
             local33 = Static706.aGroundArray3[0];
         } else {
-            local27 = Static706.aGroundArray3[super.aByte143];
-            if (super.aByte143 >= 3) {
+            local27 = Static706.aGroundArray3[super.virtualLevel];
+            if (super.virtualLevel >= 3) {
                 local33 = null;
             } else {
-                local33 = Static706.aGroundArray3[super.aByte143 + 1];
+                local33 = Static706.aGroundArray3[super.virtualLevel + 1];
             }
         }
         return local11.modelAndShadow(this.aByte84 == 11 ? this.aByte83 + 4 : this.aByte83, super.z, super.x, local27, arg1, super.anInt10691, this.aByte84 == 11 ? 10 : this.aByte84, arg0, null, arg2, local33);

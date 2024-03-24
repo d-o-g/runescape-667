@@ -62,18 +62,18 @@ public final class Static563 {
             }
             Static125.anInt2352 = 0;
         }
-        Static576.aRenderableArray9 = null;
-        Static398.aRenderableArray7 = null;
-        Static468.aRenderableArray10 = null;
-        if (Static48.aRenderableArray3 != null) {
-            for (local3 = 0; local3 < Static48.aRenderableArray3.length; local3++) {
-                Static48.aRenderableArray3[local3] = null;
+        Static576.aEntityArray9 = null;
+        Static398.aEntityArray7 = null;
+        Static468.aEntityArray10 = null;
+        if (Static48.aEntityArray3 != null) {
+            for (local3 = 0; local3 < Static48.aEntityArray3.length; local3++) {
+                Static48.aEntityArray3[local3] = null;
             }
             Static546.anInt8244 = 0;
         }
-        if (Static395.aRenderableArray11 != null) {
-            for (local3 = 0; local3 < Static395.aRenderableArray11.length; local3++) {
-                Static395.aRenderableArray11[local3] = null;
+        if (Static395.aEntityArray11 != null) {
+            for (local3 = 0; local3 < Static395.aEntityArray11.length; local3++) {
+                Static395.aEntityArray11[local3] = null;
             }
             Static645.anInt9611 = 0;
         }

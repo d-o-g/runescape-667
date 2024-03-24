@@ -49,7 +49,7 @@ public final class Static723 {
             for (local109 = local59 - 4; local109 <= local59 + 4; local109++) {
                 for (@Pc(114) int local114 = local63 - 4; local114 <= local63 + 4; local114++) {
                     @Pc(117) int local117 = Camera.renderingLevel;
-                    if (local117 < 3 && Static441.method5968(local114, local109)) {
+                    if (local117 < 3 && Static441.isBridgeAt(local114, local109)) {
                         local117++;
                     }
                     @Pc(132) int local132 = 0;

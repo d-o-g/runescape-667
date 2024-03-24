@@ -159,7 +159,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         @Pc(94) Matrix local94 = arg0.scratchMatrix();
         local94.makeIdentity();
         if (this.anInt8885 == 0) {
-            @Pc(110) Ground local110 = Static246.activeGround[super.aByte143];
+            @Pc(110) Ground local110 = Static246.activeGround[super.virtualLevel];
             @Pc(115) int local115 = this.anInt8879 << 1;
             @Pc(122) int local122 = -local115 / 2;
             @Pc(127) int local127 = -local115 / 2;

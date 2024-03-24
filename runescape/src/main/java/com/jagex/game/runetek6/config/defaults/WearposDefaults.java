@@ -10,6 +10,9 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!vl")
 public final class WearposDefaults {
 
+    @OriginalMember(owner = "client!dt", name = "a", descriptor = "Lclient!vl;")
+    public static WearposDefaults instance;
+
     @OriginalMember(owner = "client!vl", name = "a", descriptor = "[I")
     public int[] animationHiddenLeftHandSlots;
 

@@ -101,8 +101,8 @@ public final class Minimap {
             }
         }
         @Pc(490) int local490;
-        for (local211 = 0; local211 < Static390.anInt6126; local211++) {
-            @Pc(427) NPCEntityNode local427 = (NPCEntityNode) NPCList.local.get(Static103.anIntArray187[local211]);
+        for (local211 = 0; local211 < NPCList.localNpcCount; local211++) {
+            @Pc(427) NPCEntityNode local427 = (NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local211]);
             if (local427 != null) {
                 @Pc(432) NPCEntity local432 = local427.npc;
                 if (local432.method9322() && local432.level == PlayerEntity.self.level) {
@@ -201,8 +201,8 @@ public final class Minimap {
             return;
         }
         if (flagX != 0) {
-            local585 = flagX * 4 + (PlayerEntity.self.getBoundSize() + -1) * 2 + 2 - local90 / 128;
-            local878 = flagY * 4 + PlayerEntity.self.getBoundSize() * 2 + 2 - local93 / 128 - 2;
+            local585 = flagX * 4 + (PlayerEntity.self.getSize() + -1) * 2 + 2 - local90 / 128;
+            local878 = flagY * 4 + PlayerEntity.self.getSize() * 2 + 2 - local93 / 128 - 2;
             Static6.method107(y, local30, Sprites.mapflag[flagSet ? 1 : 0], local878, local585, component, x);
         }
         if (!PlayerEntity.self.aBoolean124) {

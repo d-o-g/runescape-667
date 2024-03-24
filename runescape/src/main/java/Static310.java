@@ -11,43 +11,47 @@ public final class Static310 {
     public static final int[] anIntArray379 = new int[]{0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3};
 
     @OriginalMember(owner = "client!jr", name = "a", descriptor = "([II[I[ILclient!cg;)V")
-    public static void method4505(@OriginalArg(0) int[] arg0, @OriginalArg(2) int[] arg1, @OriginalArg(3) int[] arg2, @OriginalArg(4) PathingEntity arg3) {
-        for (@Pc(14) int local14 = 0; local14 < arg1.length; local14++) {
-            @Pc(20) int local20 = arg1[local14];
-            @Pc(24) int local24 = arg0[local14];
-            @Pc(28) int local28 = arg2[local14];
-            @Pc(30) int local30 = 0;
-            while (local24 != 0 && arg3.aClass152_Sub2_Sub1Array3.length > local30) {
-                if ((local24 & 0x1) != 0) {
-                    if (local20 == -1) {
-                        arg3.aClass152_Sub2_Sub1Array3[local30] = null;
+    public static void animateWorn(@OriginalArg(0) int[] slots, @OriginalArg(2) int[] animations, @OriginalArg(3) int[] delays, @OriginalArg(4) PathingEntity entity) {
+        for (@Pc(14) int i = 0; i < animations.length; i++) {
+            @Pc(20) int animation = animations[i];
+            @Pc(24) int slot = slots[i];
+            @Pc(28) int delay = delays[i];
+
+            @Pc(30) int j = 0;
+            while (slot != 0 && entity.wornAnimators.length > j) {
+                if ((slot & 0x1) != 0) {
+                    if (animation == -1) {
+                        entity.wornAnimators[j] = null;
                     } else {
-                        @Pc(60) SeqType local60 = SeqTypeList.instance.list(local20);
-                        @Pc(63) int replayMode = local60.replayMode;
-                        @Pc(68) Animator_Sub2_Sub1 local68 = arg3.aClass152_Sub2_Sub1Array3[local30];
-                        if (local68 != null && local68.isAnimating()) {
-                            if (local20 == local68.getAnimationId()) {
+                        @Pc(60) SeqType seq = SeqTypeList.instance.list(animation);
+                        @Pc(63) int replayMode = seq.replayMode;
+                        @Pc(68) DelayedEntityAnimator animator = entity.wornAnimators[j];
+
+                        if (animator != null && animator.isAnimating()) {
+                            if (animation == animator.getAnimationId()) {
                                 if (replayMode == SeqReplayMode.STOP) {
-                                    local68 = arg3.aClass152_Sub2_Sub1Array3[local30] = null;
+                                    animator = entity.wornAnimators[j] = null;
                                 } else if (replayMode == SeqReplayMode.RESET) {
-                                    local68.resetImmediately();
-                                    local68.anInt10508 = local28;
+                                    animator.resetImmediately();
+                                    animator.entityDelay = delay;
                                 } else if (replayMode == SeqReplayMode.RESTART_LOOP) {
-                                    local68.restartLoop();
+                                    animator.restartLoop();
                                 }
-                            } else if (local60.priority >= local68.getAnimation().priority) {
-                                local68 = arg3.aClass152_Sub2_Sub1Array3[local30] = null;
+                            } else if (seq.priority >= animator.getAnimation().priority) {
+                                animator = entity.wornAnimators[j] = null;
                             }
                         }
-                        if (local68 == null || !local68.isAnimating()) {
-                            local68 = arg3.aClass152_Sub2_Sub1Array3[local30] = new Animator_Sub2_Sub1(arg3);
-                            local68.update(true, local20);
-                            local68.anInt10508 = local28;
+
+                        if (animator == null || !animator.isAnimating()) {
+                            animator = entity.wornAnimators[j] = new DelayedEntityAnimator(entity);
+                            animator.update(true, animation);
+                            animator.entityDelay = delay;
                         }
                     }
                 }
-                local30++;
-                local24 >>>= 0x1;
+
+                j++;
+                slot >>>= 0x1;
             }
         }
     }

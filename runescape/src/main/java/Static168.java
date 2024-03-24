@@ -19,21 +19,21 @@ public final class Static168 {
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(Lclient!rka;I)V")
     public static void method2633(@OriginalArg(0) PacketBuffer arg0) {
-        arg0.method7417();
+        arg0.enterBitMode();
         @Pc(10) int local10 = PlayerList.activePlayerSlot;
         @Pc(20) PlayerEntity local20 = PlayerEntity.self = PlayerList.highResolutionPlayers[local10] = new PlayerEntity();
         local20.id = local10;
-        @Pc(28) int local28 = arg0.method7412(30);
+        @Pc(28) int local28 = arg0.readBits(30);
         @Pc(33) byte local33 = (byte) (local28 >> 28);
         @Pc(39) int local39 = local28 >> 14 & 0x3FFF;
         local20.pathX[0] = local39 - WorldMap.areaBaseX;
         @Pc(51) int local51 = local28 & 0x3FFF;
-        local20.x = (local20.pathX[0] << 9) + (local20.getBoundSize() << 8);
-        local20.pathY[0] = local51 - WorldMap.areaBaseZ;
-        local20.z = (local20.pathY[0] << 9) + (local20.getBoundSize() << 8);
-        Camera.renderingLevel = local20.level = local20.aByte143 = local33;
-        if (Static441.method5968(local20.pathY[0], local20.pathX[0])) {
-            local20.aByte143++;
+        local20.x = (local20.pathX[0] << 9) + (local20.getSize() << 8);
+        local20.pathZ[0] = local51 - WorldMap.areaBaseZ;
+        local20.z = (local20.pathZ[0] << 9) + (local20.getSize() << 8);
+        Camera.renderingLevel = local20.level = local20.virtualLevel = local33;
+        if (Static441.isBridgeAt(local20.pathZ[0], local20.pathX[0])) {
+            local20.virtualLevel++;
         }
         if (Static462.aClass2_Sub21Array1[local10] != null) {
             local20.method1420(Static462.aClass2_Sub21Array1[local10]);
@@ -44,7 +44,7 @@ public final class Static168 {
         Static51.anInt1053 = 0;
         for (@Pc(151) int local151 = 1; local151 < 2048; local151++) {
             if (local10 != local151) {
-                @Pc(163) int local163 = arg0.method7412(18);
+                @Pc(163) int local163 = arg0.readBits(18);
                 @Pc(167) int local167 = local163 >> 16;
                 @Pc(173) int local173 = local163 >> 8 & 0xFF;
                 @Pc(177) int local177 = local163 & 0xFF;
@@ -58,7 +58,7 @@ public final class Static168 {
                 Static402.aByteArray68[local151] = 0;
             }
         }
-        arg0.method7411();
+        arg0.exitBitMode();
     }
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(I[B)Lclient!st;")

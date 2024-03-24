@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static592 {
 
-    @OriginalMember(owner = "client!sla", name = "b", descriptor = "[Lclient!qfa;")
-    public static final NPCEntityNode[] aClass2_Sub45Array1 = new NPCEntityNode[1024];
-
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "(I)V")
     public static void method7761() {
         @Pc(9) int local9 = Camera.anInt2333 * 512 + 256;

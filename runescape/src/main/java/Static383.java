@@ -12,19 +12,19 @@ public final class Static383 {
 
     @OriginalMember(owner = "client!ma", name = "a", descriptor = "(ILclient!rka;I)Z")
     public static boolean method5379(@OriginalArg(0) int arg0, @OriginalArg(1) PacketBuffer arg1) {
-        @Pc(18) int local18 = arg1.method7412(2);
+        @Pc(18) int local18 = arg1.readBits(2);
         @Pc(45) int local45;
         @Pc(50) int local50;
         @Pc(127) int local127;
         @Pc(131) int local131;
         @Pc(137) int local137;
         if (local18 == 0) {
-            if (arg1.method7412(1) != 0) {
+            if (arg1.readBits(1) != 0) {
                 method5379(arg0, arg1);
             }
-            local45 = arg1.method7412(6);
-            local50 = arg1.method7412(6);
-            @Pc(63) boolean local63 = arg1.method7412(1) == 1;
+            local45 = arg1.readBits(6);
+            local50 = arg1.readBits(6);
+            @Pc(63) boolean local63 = arg1.readBits(1) == 1;
             if (local63) {
                 Static321.anIntArray388[Static652.anInt9713++] = arg0;
             }
@@ -37,8 +37,8 @@ public final class Static383 {
             if (Static462.aClass2_Sub21Array1[arg0] != null) {
                 local99.method1420(Static462.aClass2_Sub21Array1[arg0]);
             }
-            local99.method9298(local91.anInt9326, true);
-            local99.anInt10722 = local91.anInt9322;
+            local99.turn(local91.anInt9326, true);
+            local99.target = local91.anInt9322;
             local127 = local91.anInt9324;
             local131 = local127 >> 28;
             local137 = local127 >> 14 & 0xFF;
@@ -47,17 +47,17 @@ public final class Static383 {
             local99.clanmate = local91.aBoolean712;
             @Pc(161) int local161 = (local141 << 6) + local50 - WorldMap.areaBaseZ;
             local99.aBoolean128 = local91.aBoolean711;
-            local99.aByteArray111[0] = Static139.aByteArray30[arg0];
-            local99.level = local99.aByte143 = (byte) local131;
-            if (Static441.method5968(local161, local149)) {
-                local99.aByte143++;
+            local99.pathSpeed[0] = Static139.aByteArray30[arg0];
+            local99.level = local99.virtualLevel = (byte) local131;
+            if (Static441.isBridgeAt(local161, local149)) {
+                local99.virtualLevel++;
             }
             local99.method1419(local149, local161);
             local99.aBoolean127 = false;
             Static246.aClass350Array1[arg0] = null;
             return true;
         } else if (local18 == 1) {
-            local45 = arg1.method7412(2);
+            local45 = arg1.readBits(2);
             local50 = Static246.aClass350Array1[arg0].anInt9324;
             Static246.aClass350Array1[arg0].anInt9324 = (((local50 >> 28) + local45 & 0x3) << 28) + (local50 & 0xFFFFFFF);
             return false;
@@ -66,7 +66,7 @@ public final class Static383 {
             @Pc(262) int local262;
             @Pc(271) int local271;
             if (local18 != 2) {
-                local45 = arg1.method7412(18);
+                local45 = arg1.readBits(18);
                 local50 = local45 >> 16;
                 local257 = local45 >> 8 & 0xFF;
                 local262 = local45 & 0xFF;
@@ -77,7 +77,7 @@ public final class Static383 {
                 Static246.aClass350Array1[arg0].anInt9324 = local137 + (local131 << 14) + (local127 << 28);
                 return false;
             }
-            local45 = arg1.method7412(5);
+            local45 = arg1.readBits(5);
             local50 = local45 >> 3;
             local257 = local45 & 0x7;
             local262 = Static246.aClass350Array1[arg0].anInt9324;

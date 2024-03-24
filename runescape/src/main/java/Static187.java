@@ -30,9 +30,9 @@ public final class Static187 {
         for (@Pc(48) int local48 = 0; local48 < 2048; local48++) {
             PlayerList.highResolutionPlayers[local48] = null;
         }
-        Static390.anInt6126 = 0;
+        NPCList.localNpcCount = 0;
         NPCList.local.clear();
-        Static416.anInt6378 = 0;
+        NPCList.newNpcCount = 0;
         Static497.stacks.clear();
         Static693.method9012();
         Static334.anInt5456 = 0;

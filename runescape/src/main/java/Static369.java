@@ -37,7 +37,7 @@ public final class Static369 {
                 }
                 @Pc(66) Packet local66 = new Packet(Static363.aByteArrayArray22[local13]);
                 @Pc(68) int local68 = 0;
-                while (Static363.aByteArrayArray22[local13].length > local66.pos && local68 < 511 && Static390.anInt6126 < 1023) {
+                while (Static363.aByteArrayArray22[local13].length > local66.pos && local68 < 511 && NPCList.localNpcCount < 1023) {
                     @Pc(88) int local88 = local20 | local68++ << 6;
                     @Pc(94) int local94 = local66.g2();
                     @Pc(98) int local98 = local94 >> 14;
@@ -52,14 +52,14 @@ public final class Static369 {
                         local197.id = local88;
                         @Pc(205) NPCEntityNode local205 = new NPCEntityNode(local197);
                         NPCList.local.put(local88, local205);
-                        Static592.aClass2_Sub45Array1[Static416.anInt6378++] = local205;
-                        Static103.anIntArray187[Static390.anInt6126++] = local88;
-                        local197.anInt10751 = TimeUtils.clock;
-                        local197.method9328(local142);
-                        local197.method9310(local197.type.size);
-                        local197.anInt10757 = local197.type.rotationSpeed << 3;
-                        local197.method9298((local197.type.spawnDirection + 4 & 0x80600007) << 11, true);
-                        local197.method9326(true, local135, local121, local98, local197.getBoundSize());
+                        NPCList.localNpcs[NPCList.newNpcCount++] = local205;
+                        NPCList.localNpcIndices[NPCList.localNpcCount++] = local88;
+                        local197.cutsceneClock = TimeUtils.clock;
+                        local197.setType(local142);
+                        local197.setSize(local197.type.size);
+                        local197.yawSpeed = local197.type.yawSpeed << 3;
+                        local197.turn((local197.type.spawnDirection + 4 & 0x80600007) << 11, true);
+                        local197.clearPath(true, local135, local121, local98, local197.getSize());
                     }
                 }
             }

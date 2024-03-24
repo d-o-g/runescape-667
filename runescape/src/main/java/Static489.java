@@ -66,9 +66,9 @@ public final class Static489 {
     public static void method6547(@OriginalArg(0) boolean arg0, @OriginalArg(2) PathingEntity arg1) {
         @Pc(7) int local7 = -1;
         @Pc(16) int local16 = 0;
-        if (arg1.anInt10759 > TimeUtils.clock) {
+        if (arg1.exactMoveT1 > TimeUtils.clock) {
             Static441.method5967(arg1);
-        } else if (TimeUtils.clock > arg1.anInt10755) {
+        } else if (TimeUtils.clock > arg1.exactMoveT2) {
             Static256.method3638(arg1, arg0);
             local7 = Static521.anInt7756;
             local16 = Static524.anInt8042;
@@ -77,33 +77,33 @@ public final class Static489 {
         }
         @Pc(107) int local107;
         if (arg1.x < 512 || arg1.z < 512 || Static720.mapWidth * 512 - 512 <= arg1.x || arg1.z >= Static501.mapHeight * 512 - 512) {
-            arg1.aAnimator_11.update(true, -1);
-            for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
-                arg1.aClass199Array3[local107].anInt4930 = -1;
-                arg1.aClass199Array3[local107].aAnimator_7.update(true, -1);
+            arg1.actionAnimator.update(true, -1);
+            for (local107 = 0; local107 < arg1.spotAnims.length; local107++) {
+                arg1.spotAnims[local107].id = -1;
+                arg1.spotAnims[local107].animator.update(true, -1);
             }
-            arg1.anInt10759 = 0;
+            arg1.exactMoveT1 = 0;
             local7 = -1;
-            arg1.anInt10755 = 0;
-            arg1.anIntArray869 = null;
+            arg1.exactMoveT2 = 0;
+            arg1.actionAnimations = null;
             local16 = 0;
-            arg1.x = arg1.pathX[0] * 512 + arg1.getBoundSize() * 256;
-            arg1.z = arg1.pathY[0] * 512 + arg1.getBoundSize() * 256;
+            arg1.x = arg1.pathX[0] * 512 + arg1.getSize() * 256;
+            arg1.z = arg1.pathZ[0] * 512 + arg1.getSize() * 256;
             arg1.method9316();
         }
         if (arg1 == PlayerEntity.self && (arg1.x < 6144 || arg1.z < 6144 || arg1.x >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.z)) {
-            arg1.aAnimator_11.update(true, -1);
-            for (local107 = 0; local107 < arg1.aClass199Array3.length; local107++) {
-                arg1.aClass199Array3[local107].anInt4930 = -1;
-                arg1.aClass199Array3[local107].aAnimator_7.update(true, -1);
+            arg1.actionAnimator.update(true, -1);
+            for (local107 = 0; local107 < arg1.spotAnims.length; local107++) {
+                arg1.spotAnims[local107].id = -1;
+                arg1.spotAnims[local107].animator.update(true, -1);
             }
-            arg1.anInt10759 = 0;
-            arg1.anInt10755 = 0;
-            arg1.anIntArray869 = null;
+            arg1.exactMoveT1 = 0;
+            arg1.exactMoveT2 = 0;
+            arg1.actionAnimations = null;
             local16 = 0;
             local7 = -1;
-            arg1.x = arg1.pathX[0] * 512 + arg1.getBoundSize() * 256;
-            arg1.z = arg1.pathY[0] * 512 + arg1.getBoundSize() * 256;
+            arg1.x = arg1.pathX[0] * 512 + arg1.getSize() * 256;
+            arg1.z = arg1.pathZ[0] * 512 + arg1.getSize() * 256;
             arg1.method9316();
         }
         local107 = Static112.method2104(arg1);

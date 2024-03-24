@@ -11,9 +11,6 @@ public final class Static572 {
     @OriginalMember(owner = "client!s", name = "a", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray42 = new String[200];
 
-    @OriginalMember(owner = "client!s", name = "o", descriptor = "I")
-    public static int anInt8896 = 0;
-
     @OriginalMember(owner = "client!s", name = "a", descriptor = "(IIII)I")
     public static int method7867(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(15) int local15 = 255 - arg2;
@@ -38,7 +35,7 @@ public final class Static572 {
                 }
             }
             local11 += 8;
-            Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + MiniMenu.innerCount * 16;
+            MiniMenu.height = (Static60.aBoolean87 ? 26 : 22) + MiniMenu.innerCount * 16;
             local68 = MiniMenu.innerCount * 16 + 21;
         } else {
             for (@Pc(74) MiniMenuEntry local74 = (MiniMenuEntry) MiniMenu.entries.first(); local74 != null; local74 = (MiniMenuEntry) MiniMenu.entries.next()) {
@@ -48,7 +45,7 @@ public final class Static572 {
                 }
             }
             local11 += 8;
-            Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + MiniMenu.entryCount * 16;
+            MiniMenu.height = (Static60.aBoolean87 ? 26 : 22) + MiniMenu.entryCount * 16;
             local68 = MiniMenu.entryCount * 16 + 21;
         }
         @Pc(118) int local118 = arg1 - local11 / 2;
@@ -65,9 +62,9 @@ public final class Static572 {
         if (local146 < 0) {
             local146 = 0;
         }
-        Static71.anInt1576 = local118;
+        MiniMenu.x = local118;
         MiniMenu.open = true;
-        Static84.anInt1775 = local146;
-        Static682.anInt10295 = local11;
+        MiniMenu.y = local146;
+        MiniMenu.width = local11;
     }
 }

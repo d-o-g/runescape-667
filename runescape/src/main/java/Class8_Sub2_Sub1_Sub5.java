@@ -46,7 +46,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
         @Pc(36) SpotAnimationType local36 = SpotAnimationTypeList.instance.list(this.anInt7402);
         @Pc(39) int local39 = local36.seq;
         if (local39 != -1) {
-            this.aAnimator_8 = new Animator_Sub2(this, false);
+            this.aAnimator_8 = new EntityAnimator(this, false);
             @Pc(59) int local59 = local36.loopSeq ? 0 : 2;
             if (arg12) {
                 local59 = 1;
@@ -73,7 +73,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
     public Model method6594(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2) {
         @Pc(8) SpotAnimationType local8 = SpotAnimationTypeList.instance.list(arg0);
         @Pc(22) Ground local22 = Static706.aGroundArray3[super.level];
-        @Pc(36) Ground local36 = super.aByte143 < 3 ? Static706.aGroundArray3[super.aByte143 + 1] : null;
+        @Pc(36) Ground local36 = super.virtualLevel < 3 ? Static706.aGroundArray3[super.virtualLevel + 1] : null;
         return this.aAnimator_8 == null || this.aAnimator_8.isFinished() ? local8.model((byte) 2, true, super.z, null, local36, super.x, local22, arg2, super.anInt10691, arg1) : local8.model((byte) 2, true, super.z, this.aAnimator_8, local36, super.x, local22, arg2, super.anInt10691, arg1);
     }
 
@@ -179,7 +179,7 @@ public final class Class8_Sub2_Sub1_Sub5 extends PositionEntity {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg4 < 101) {
             this.method9276(null);
         }

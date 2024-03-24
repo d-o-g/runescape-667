@@ -30,14 +30,14 @@ public final class Static145 {
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(Lclient!cg;Z)V")
     public static void method2410(@OriginalArg(0) PathingEntity arg0) {
-        if (arg0.anIntArray872 == null && arg0.anIntArray877 == null) {
+        if (arg0.wornTargets == null && arg0.anIntArray877 == null) {
             return;
         }
         @Pc(17) boolean local17 = true;
-        for (@Pc(19) int local19 = 0; local19 < arg0.anIntArray872.length; local19++) {
+        for (@Pc(19) int local19 = 0; local19 < arg0.wornTargets.length; local19++) {
             @Pc(25) int local25 = -1;
-            if (arg0.anIntArray872 != null) {
-                local25 = arg0.anIntArray872[local19];
+            if (arg0.wornTargets != null) {
+                local25 = arg0.wornTargets[local19];
             }
             if (local25 != -1) {
                 local17 = false;
@@ -77,7 +77,7 @@ public final class Static145 {
             }
         }
         if (local17) {
-            arg0.anIntArray872 = null;
+            arg0.wornTargets = null;
             arg0.anIntArray877 = null;
         }
     }

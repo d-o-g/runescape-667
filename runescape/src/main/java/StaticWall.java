@@ -106,13 +106,13 @@ public final class StaticWall extends Wall implements Location {
             this.aClass2_Sub2_Sub9_4 = null;
         }
         if (local21 != null) {
-            Static630.method8357(local21, super.aByte143, super.x, super.z, null);
+            Static630.method8357(local21, super.virtualLevel, super.x, super.z, null);
         }
     }
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg6 instanceof StaticWall) {
             @Pc(34) StaticWall local34 = (StaticWall) arg6;
             if (this.model != null && local34.model != null) {
@@ -212,7 +212,7 @@ public final class StaticWall extends Wall implements Location {
             this.aClass2_Sub2_Sub9_4 = null;
         }
         if (local24 != null) {
-            Static292.method4618(local24, super.aByte143, super.x, super.z, null);
+            Static292.method4618(local24, super.virtualLevel, super.x, super.z, null);
         }
     }
 
@@ -232,12 +232,12 @@ public final class StaticWall extends Wall implements Location {
         @Pc(27) Ground local27;
         @Pc(38) Ground local38;
         if (this.aBoolean376) {
-            local27 = Static693.aGroundArray2[super.aByte143];
+            local27 = Static693.aGroundArray2[super.virtualLevel];
             local38 = Static706.aGroundArray3[0];
         } else {
-            local27 = Static706.aGroundArray3[super.aByte143];
-            if (super.aByte143 < 3) {
-                local38 = Static706.aGroundArray3[super.aByte143 + 1];
+            local27 = Static706.aGroundArray3[super.virtualLevel];
+            if (super.virtualLevel < 3) {
+                local38 = Static706.aGroundArray3[super.virtualLevel + 1];
             } else {
                 local38 = null;
             }

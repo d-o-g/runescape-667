@@ -44,16 +44,16 @@ public final class Static679 {
         @Pc(134) MiniMenuEntry local134;
         if (Static236.aBoolean304) {
             @Pc(262) Class299 local262;
-            if (Static71.anInt1576 < recordedX && Static71.anInt1576 + Static682.anInt10295 > recordedX) {
+            if (MiniMenu.x < recordedX && MiniMenu.x + MiniMenu.width > recordedX) {
                 local53 = -1;
                 for (local55 = 0; local55 < MiniMenu.innerCount; local55++) {
                     if (Static60.aBoolean87) {
-                        local71 = Static84.anInt1775 + local55 * 16 + 33;
+                        local71 = MiniMenu.y + local55 * 16 + 33;
                         if (recordedY > local71 - 13 && recordedY <= local71 + 3) {
                             local53 = local55;
                         }
                     } else {
-                        local71 = Static84.anInt1775 + local55 * 16 + 31;
+                        local71 = MiniMenu.y + local55 * 16 + 31;
                         if (recordedY > local71 - 13 && local71 + 3 >= recordedY) {
                             local53 = local55;
                         }
@@ -69,16 +69,16 @@ public final class Static679 {
                         }
                     }
                 }
-            } else if (Static139.aClass2_Sub2_Sub4_1 != null && Static692.anInt10375 < recordedX && recordedX < Static85.anInt10675 + Static692.anInt10375) {
+            } else if (MiniMenu.openedInner != null && MiniMenu.openedInnerX < recordedX && recordedX < MiniMenu.openedInnerWidth + MiniMenu.openedInnerX) {
                 local53 = -1;
-                for (local55 = 0; local55 < Static139.aClass2_Sub2_Sub4_1.size; local55++) {
+                for (local55 = 0; local55 < MiniMenu.openedInner.size; local55++) {
                     if (Static60.aBoolean87) {
-                        local71 = local55 * 16 + Static493.anInt7364 + 33;
+                        local71 = local55 * 16 + MiniMenu.openedInnerY + 33;
                         if (local71 - 13 < recordedY && local71 + 3 >= recordedY) {
                             local53 = local55;
                         }
                     } else {
-                        local71 = Static493.anInt7364 + local55 * 16 + 31;
+                        local71 = MiniMenu.openedInnerY + local55 * 16 + 31;
                         if (recordedY > local71 - 13 && recordedY <= local71 + 3) {
                             local53 = local55;
                         }
@@ -86,7 +86,7 @@ public final class Static679 {
                 }
                 if (local53 != -1) {
                     local71 = 0;
-                    local262 = new Class299(Static139.aClass2_Sub2_Sub4_1.entries);
+                    local262 = new Class299(MiniMenu.openedInner.entries);
                     for (local134 = (MiniMenuEntry) local262.first(); local134 != null; local134 = (MiniMenuEntry) local262.next()) {
                         if (local71++ == local53) {
                             return local134.cursor;
@@ -94,16 +94,16 @@ public final class Static679 {
                     }
                 }
             }
-        } else if (recordedX > Static71.anInt1576 && Static71.anInt1576 + Static682.anInt10295 > recordedX) {
+        } else if (recordedX > MiniMenu.x && MiniMenu.x + MiniMenu.width > recordedX) {
             local53 = -1;
             for (local55 = 0; local55 < MiniMenu.entryCount; local55++) {
                 if (Static60.aBoolean87) {
-                    local71 = (MiniMenu.entryCount - local55 - 1) * 16 + Static84.anInt1775 + 33;
+                    local71 = (MiniMenu.entryCount - local55 - 1) * 16 + MiniMenu.y + 33;
                     if (recordedY > local71 - 13 && local71 + 3 >= recordedY) {
                         local53 = local55;
                     }
                 } else {
-                    local71 = Static84.anInt1775 + (-local55 + MiniMenu.entryCount + -1) * 16 + 31;
+                    local71 = MiniMenu.y + (-local55 + MiniMenu.entryCount + -1) * 16 + 31;
                     if (recordedY > local71 - 13 && local71 + 3 >= recordedY) {
                         local53 = local55;
                     }

@@ -7,10 +7,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!eo")
-public abstract class Renderable extends Node {
+public abstract class Entity extends Node {
 
     @OriginalMember(owner = "client!eo", name = "g", descriptor = "B")
-    public byte aByte143;
+    public byte virtualLevel;
 
     @OriginalMember(owner = "client!eo", name = "j", descriptor = "B")
     public byte level;
@@ -31,7 +31,7 @@ public abstract class Renderable extends Node {
     public int z;
 
     @OriginalMember(owner = "client!eo", name = "t", descriptor = "Lclient!eo;")
-    public Renderable aRenderable_25;
+    public Entity aEntity_25;
 
     @OriginalMember(owner = "client!eo", name = "i", descriptor = "I")
     public int anInt10697;
@@ -43,7 +43,7 @@ public abstract class Renderable extends Node {
     public boolean aBoolean813 = false;
 
     @OriginalMember(owner = "client!eo", name = "<init>", descriptor = "()V")
-    protected Renderable() {
+    protected Entity() {
     }
 
     @OriginalMember(owner = "client!eo", name = "g", descriptor = "(I)Z")
@@ -91,7 +91,7 @@ public abstract class Renderable extends Node {
     public abstract boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1);
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
-    public abstract void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6);
+    public abstract void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6);
 
     @OriginalMember(owner = "client!eo", name = "k", descriptor = "(I)I")
     public abstract int method9286(@OriginalArg(0) int arg0);

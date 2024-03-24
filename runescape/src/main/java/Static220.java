@@ -23,7 +23,7 @@ public final class Static220 {
         }
 
         for (@Pc(42) Node_Sub51 local42 = (Node_Sub51) Static717.A_DEQUE___81.first(); local42 != null; local42 = (Node_Sub51) Static717.A_DEQUE___81.next()) {
-            @Pc(51) BASType basType = local42.npc.method9317();
+            @Pc(51) BASType basType = local42.npc.getBASType();
             @Pc(57) int animation = local42.npc.animator.getAnimationId();
 
             @Pc(46) byte movementSpeed = 1;
@@ -77,15 +77,15 @@ public final class Static220 {
             }
 
             local42.anInt9357 = local42.npc.x;
-            local42.anInt9362 = local42.npc.x + (local42.npc.getBoundSize() << 8);
+            local42.anInt9362 = local42.npc.x + (local42.npc.getSize() << 8);
             local42.anInt9352 = local42.npc.z;
-            local42.anInt9349 = local42.npc.z + (local42.npc.getBoundSize() << 8);
+            local42.anInt9349 = local42.npc.z + (local42.npc.getSize() << 8);
 
             Static632.method8366(currentTick, local42, arg3, arg2, arg1);
         }
 
         for (@Pc(329) Node_Sub51 local329 = (Node_Sub51) Static113.A_HASH_TABLE___12.first(); local329 != null; local329 = (Node_Sub51) Static113.A_HASH_TABLE___12.next()) {
-            @Pc(338) BASType basType = local329.player.method9317();
+            @Pc(338) BASType basType = local329.player.getBASType();
             @Pc(154) int animation = local329.player.animator.getAnimationId();
 
             @Pc(333) byte movementSpeed = 1;
@@ -130,9 +130,9 @@ public final class Static220 {
             }
 
             local329.anInt9357 = local329.player.x;
-            local329.anInt9362 = local329.player.x + (local329.player.getBoundSize() << 8);
+            local329.anInt9362 = local329.player.x + (local329.player.getSize() << 8);
             local329.anInt9352 = local329.player.z;
-            local329.anInt9349 = local329.player.z + (local329.player.getBoundSize() << 8);
+            local329.anInt9349 = local329.player.z + (local329.player.getSize() << 8);
 
             Static632.method8366(currentTick, local329, arg3, arg2, arg1);
         }

@@ -42,40 +42,40 @@ public final class Static256 {
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(ZLclient!cg;Z)V")
     public static void method3638(@OriginalArg(1) PathingEntity arg0, @OriginalArg(2) boolean arg1) {
-        @Pc(9) BASType local9 = arg0.method9317();
-        if (arg0.anInt10764 == 0) {
+        @Pc(9) BASType local9 = arg0.getBASType();
+        if (arg0.pathPointer == 0) {
             arg0.anInt10763 = 0;
             Static524.anInt8042 = 0;
             Static521.anInt7756 = -1;
             return;
         }
-        if (arg0.aAnimator_11.isAnimating() && !arg0.aAnimator_11.isDelayed()) {
-            @Pc(41) SeqType local41 = arg0.aAnimator_11.getAnimation();
-            if (arg0.anInt10762 > 0 && local41.animatingPrecedence == 0) {
+        if (arg0.actionAnimator.isAnimating() && !arg0.actionAnimator.isDelayed()) {
+            @Pc(41) SeqType local41 = arg0.actionAnimator.getAnimation();
+            if (arg0.animationPathPointer > 0 && local41.animatingPrecedence == 0) {
                 Static524.anInt8042 = 0;
                 Static521.anInt7756 = -1;
                 arg0.anInt10763++;
                 return;
             }
-            if (arg0.anInt10762 <= 0 && local41.walkingPrecedence == 0) {
+            if (arg0.animationPathPointer <= 0 && local41.walkingPrecedence == 0) {
                 Static521.anInt7756 = -1;
                 arg0.anInt10763++;
                 Static524.anInt8042 = 0;
                 return;
             }
         }
-        for (@Pc(86) int local86 = 0; local86 < arg0.aClass199Array3.length; local86++) {
-            if (arg0.aClass199Array3[local86].anInt4930 != -1 && arg0.aClass199Array3[local86].aAnimator_7.isDelayed()) {
-                @Pc(117) SpotAnimationType local117 = SpotAnimationTypeList.instance.list(arg0.aClass199Array3[local86].anInt4930);
+        for (@Pc(86) int local86 = 0; local86 < arg0.spotAnims.length; local86++) {
+            if (arg0.spotAnims[local86].id != -1 && arg0.spotAnims[local86].animator.isDelayed()) {
+                @Pc(117) SpotAnimationType local117 = SpotAnimationTypeList.instance.list(arg0.spotAnims[local86].id);
                 if (local117.loopSeq && local117.seq != -1) {
                     @Pc(133) SeqType local133 = SeqTypeList.instance.list(local117.seq);
-                    if (arg0.anInt10762 > 0 && local133.animatingPrecedence == 0) {
+                    if (arg0.animationPathPointer > 0 && local133.animatingPrecedence == 0) {
                         Static521.anInt7756 = -1;
                         arg0.anInt10763++;
                         Static524.anInt8042 = 0;
                         return;
                     }
-                    if (arg0.anInt10762 <= 0 && local133.walkingPrecedence == 0) {
+                    if (arg0.animationPathPointer <= 0 && local133.walkingPrecedence == 0) {
                         Static521.anInt7756 = -1;
                         arg0.anInt10763++;
                         Static524.anInt8042 = 0;
@@ -86,8 +86,8 @@ public final class Static256 {
         }
         @Pc(186) int local186 = arg0.x;
         @Pc(189) int local189 = arg0.z;
-        @Pc(206) int local206 = arg0.pathX[arg0.anInt10764 - 1] * 512 + arg0.getBoundSize() * 256;
-        @Pc(222) int local222 = arg0.pathY[arg0.anInt10764 - 1] * 512 + arg0.getBoundSize() * 256;
+        @Pc(206) int local206 = arg0.pathX[arg0.pathPointer - 1] * 512 + arg0.getSize() * 256;
+        @Pc(222) int local222 = arg0.pathZ[arg0.pathPointer - 1] * 512 + arg0.getSize() * 256;
         if (local186 < local206) {
             if (local189 < local222) {
                 arg0.method9305(10240);
@@ -109,17 +109,17 @@ public final class Static256 {
         } else {
             arg0.method9305(4096);
         }
-        @Pc(348) byte local348 = arg0.aByteArray111[arg0.anInt10764 - 1];
+        @Pc(348) byte local348 = arg0.pathSpeed[arg0.pathPointer - 1];
         if (!arg1 && (local206 - local186 > 1024 || local206 - local186 < -1024 || local222 - local189 > 1024 || local222 - local189 < -1024)) {
             arg0.z = local222;
             arg0.x = local206;
-            arg0.method9298(arg0.anInt10756, false);
+            arg0.turn(arg0.turnYaw, false);
             Static524.anInt8042 = 0;
-            if (arg0.anInt10762 > 0) {
-                arg0.anInt10762--;
+            if (arg0.animationPathPointer > 0) {
+                arg0.animationPathPointer--;
             }
             Static521.anInt7756 = -1;
-            arg0.anInt10764--;
+            arg0.pathPointer--;
             return;
         }
         @Pc(422) int local422 = 16;
@@ -129,25 +129,25 @@ public final class Static256 {
         }
         @Pc(468) int local468;
         if (local424) {
-            local468 = arg0.anInt10756 - arg0.aClass126_7.anInt2889;
-            if (local468 != 0 && arg0.anInt10722 == -1 && arg0.anInt10757 != 0) {
+            local468 = arg0.turnYaw - arg0.yaw.value;
+            if (local468 != 0 && arg0.target == -1 && arg0.yawSpeed != 0) {
                 local422 = 8;
             }
-            if (!arg1 && arg0.anInt10764 > 2) {
+            if (!arg1 && arg0.pathPointer > 2) {
                 local422 = 24;
             }
-            if (!arg1 && arg0.anInt10764 > 3) {
+            if (!arg1 && arg0.pathPointer > 3) {
                 local422 = 32;
             }
         } else {
-            if (!arg1 && arg0.anInt10764 > 1) {
+            if (!arg1 && arg0.pathPointer > 1) {
                 local422 = 24;
             }
-            if (!arg1 && arg0.anInt10764 > 2) {
+            if (!arg1 && arg0.pathPointer > 2) {
                 local422 = 32;
             }
         }
-        if (arg0.anInt10763 > 0 && arg0.anInt10764 > 1) {
+        if (arg0.anInt10763 > 0 && arg0.pathPointer > 1) {
             arg0.anInt10763--;
             local422 = 32;
         }
@@ -158,7 +158,7 @@ public final class Static256 {
         }
         if (local9.movementAcceleration != -1) {
             local422 <<= 0x9;
-            if (arg0.anInt10764 == 1) {
+            if (arg0.pathPointer == 1) {
                 local468 = arg0.anInt10765 * arg0.anInt10765;
                 @Pc(642) int local642 = (local206 >= arg0.x ? local206 - arg0.x : arg0.x - local206) << 9;
                 @Pc(661) int local661 = (arg0.z <= local222 ? local222 - arg0.z : arg0.z + -local222) << 9;
@@ -232,9 +232,9 @@ public final class Static256 {
         if (arg0.x != local206 || local222 != arg0.z) {
             return;
         }
-        arg0.anInt10764--;
-        if (arg0.anInt10762 > 0) {
-            arg0.anInt10762--;
+        arg0.pathPointer--;
+        if (arg0.animationPathPointer > 0) {
+            arg0.animationPathPointer--;
             return;
         }
     }

@@ -99,14 +99,14 @@ public final class Static102 {
         } else {
             local48 = Static246.activeGround == Static693.aGroundArray2 ? 1 : 0;
             if (!arg0.method9283()) {
-                arg0.aRenderable_25 = Static468.aRenderableArray10[local48];
-                Static468.aRenderableArray10[local48] = arg0;
+                arg0.aEntity_25 = Static468.aEntityArray10[local48];
+                Static468.aEntityArray10[local48] = arg0;
             } else if (arg0.method9282(0)) {
-                arg0.aRenderable_25 = Static398.aRenderableArray7[local48];
-                Static398.aRenderableArray7[local48] = arg0;
+                arg0.aEntity_25 = Static398.aEntityArray7[local48];
+                Static398.aEntityArray7[local48] = arg0;
             } else {
-                arg0.aRenderable_25 = Static576.aRenderableArray9[local48];
-                Static576.aRenderableArray9[local48] = arg0;
+                arg0.aEntity_25 = Static576.aEntityArray9[local48];
+                Static576.aEntityArray9[local48] = arg0;
                 Static75.aBoolean521 = true;
             }
         }

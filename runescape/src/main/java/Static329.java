@@ -68,14 +68,6 @@ public final class Static329 {
     @OriginalMember(owner = "client!kh", name = "hb", descriptor = "I")
     public static int anInt1749 = -1;
 
-    @OriginalMember(owner = "client!kh", name = "b", descriptor = "(B)V")
-    public static void method1636() {
-        if (Static139.aClass2_Sub2_Sub4_1 != null) {
-            Static139.aClass2_Sub2_Sub4_1 = null;
-            InterfaceManager.redrawWithin(Static85.anInt10675, Static692.anInt10375, Static25.anInt598, Static493.anInt7364);
-        }
-    }
-
     @OriginalMember(owner = "client!kh", name = "g", descriptor = "(I)V")
     public static void method1649() {
         Static542.aSprite_33 = null;

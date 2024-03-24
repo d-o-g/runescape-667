@@ -12,6 +12,9 @@ public final class GraphicsDefaults {
 
     private static final int DEFAULT_MAXHITMARKS = 4;
 
+    @OriginalMember(owner = "client!cba", name = "E", descriptor = "Lclient!aba;")
+    public static GraphicsDefaults instance;
+
     @OriginalMember(owner = "client!aba", name = "l", descriptor = "[[S")
     public short[][] recol_s;
 

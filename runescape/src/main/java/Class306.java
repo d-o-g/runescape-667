@@ -278,7 +278,7 @@ public class Class306 {
                         local388 = arg4.getHeight(local4, local1 + 1);
                         local477 = arg4.getHeight(local4 + 1, local1 - -1);
                         local485 = arg4.getHeight(local4 + 1, local1);
-                        @Pc(633) boolean local633 = Static441.method5968(local4, local1);
+                        @Pc(633) boolean local633 = Static441.isBridgeAt(local4, local1);
                         if (local633 && arg0 > 1 || !local633 && arg0 > 0) {
                             @Pc(652) boolean local652 = true;
                             if (local93 != null && !local93.occludes) {
@@ -1296,7 +1296,7 @@ public class Class306 {
                             local1164 = arg3.getHeight(local49, local47);
                             local1411 = arg3.getHeight(local67, local47);
                             local1416 = arg3.getHeight(local67, local33);
-                            @Pc(2560) boolean local2560 = Static441.method5968(local49, local33);
+                            @Pc(2560) boolean local2560 = Static441.isBridgeAt(local49, local33);
                             if (local2560 && arg5 > 1 || !local2560 && arg5 > 0) {
                                 @Pc(2579) boolean local2579 = true;
                                 if (local177 != null && !local177.occludes) {

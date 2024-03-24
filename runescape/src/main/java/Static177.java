@@ -70,14 +70,14 @@ public final class Static177 {
         local4.aClass8_Sub2_Sub4_2 = arg4;
         @Pc(22) int local22 = Static246.activeGround == Static693.aGroundArray2 ? 1 : 0;
         if (!arg3.method9283()) {
-            arg3.aRenderable_25 = Static468.aRenderableArray10[local22];
-            Static468.aRenderableArray10[local22] = arg3;
+            arg3.aEntity_25 = Static468.aEntityArray10[local22];
+            Static468.aEntityArray10[local22] = arg3;
         } else if (arg3.method9282(0)) {
-            arg3.aRenderable_25 = Static398.aRenderableArray7[local22];
-            Static398.aRenderableArray7[local22] = arg3;
+            arg3.aEntity_25 = Static398.aEntityArray7[local22];
+            Static398.aEntityArray7[local22] = arg3;
         } else {
-            arg3.aRenderable_25 = Static576.aRenderableArray9[local22];
-            Static576.aRenderableArray9[local22] = arg3;
+            arg3.aEntity_25 = Static576.aEntityArray9[local22];
+            Static576.aEntityArray9[local22] = arg3;
             Static75.aBoolean521 = true;
         }
         if (arg4 == null) {
@@ -85,16 +85,16 @@ public final class Static177 {
         }
         if (arg4.method9283()) {
             if (arg4.method9282(0)) {
-                arg4.aRenderable_25 = Static398.aRenderableArray7[local22];
-                Static398.aRenderableArray7[local22] = arg4;
+                arg4.aEntity_25 = Static398.aEntityArray7[local22];
+                Static398.aEntityArray7[local22] = arg4;
                 return;
             }
-            arg4.aRenderable_25 = Static576.aRenderableArray9[local22];
-            Static576.aRenderableArray9[local22] = arg4;
+            arg4.aEntity_25 = Static576.aEntityArray9[local22];
+            Static576.aEntityArray9[local22] = arg4;
             Static75.aBoolean521 = true;
             return;
         }
-        arg4.aRenderable_25 = Static468.aRenderableArray10[local22];
-        Static468.aRenderableArray10[local22] = arg4;
+        arg4.aEntity_25 = Static468.aEntityArray10[local22];
+        Static468.aEntityArray10[local22] = arg4;
     }
 }

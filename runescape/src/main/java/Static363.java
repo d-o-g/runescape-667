@@ -1,5 +1,6 @@
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
@@ -51,7 +52,7 @@ public final class Static363 {
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(III)I")
     public static int method6235(@OriginalArg(0) int arg0, @OriginalArg(1) int toolkit) {
-        if (Static523.graphicsDefaults.profilingModel == -1) {
+        if (GraphicsDefaults.instance.profilingModel == -1) {
             return 1;
         }
 
@@ -66,7 +67,7 @@ public final class Static363 {
         try {
             @Pc(43) Dimension local43 = GameShell.canvas.getSize();
             Static694.drawLoadingText(Toolkit.active, LocalisedText.PROFILING.localise(client.language), true, Fonts.p12Metrics, Fonts.p12);
-            @Pc(67) Mesh local67 = Mesh.load(Static523.graphicsDefaults.profilingModel, js5.MODELS);
+            @Pc(67) Mesh local67 = Mesh.load(GraphicsDefaults.instance.profilingModel, js5.MODELS);
             @Pc(70) long local70 = SystemTimer.safetime();
             Toolkit.active.la();
             Static460.aMatrix_10.method7125(0, Static247.anInt3993, 0);

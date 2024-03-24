@@ -68,10 +68,10 @@ public final class Static609 {
         }
         local11 += 8;
         local23 = arg2.size * 16 + 21;
-        Static25.anInt598 = (Static60.aBoolean87 ? 26 : 22) + arg2.size * 16;
-        @Pc(71) int local71 = Static682.anInt10295 + Static71.anInt1576;
+        MiniMenu.openedInnerHeight = (Static60.aBoolean87 ? 26 : 22) + arg2.size * 16;
+        @Pc(71) int local71 = MiniMenu.width + MiniMenu.x;
         if (local11 + local71 > GameShell.canvasWid) {
-            local71 = Static71.anInt1576 - local11;
+            local71 = MiniMenu.x - local11;
         }
         if (local71 < 0) {
             local71 = 0;
@@ -81,13 +81,13 @@ public final class Static609 {
         if (GameShell.canvasHei < local23 + local98) {
             local98 = GameShell.canvasHei - local23;
         }
-        Static692.anInt10375 = local71;
+        MiniMenu.openedInnerX = local71;
         if (local98 < 0) {
             local98 = 0;
         }
-        Static85.anInt10675 = local11;
-        Static139.aClass2_Sub2_Sub4_1 = arg2;
-        Static493.anInt7364 = local98;
+        MiniMenu.openedInnerWidth = local11;
+        MiniMenu.openedInner = arg2;
+        MiniMenu.openedInnerY = local98;
     }
 
     @OriginalMember(owner = "client!tea", name = "a", descriptor = "(IZI)B")

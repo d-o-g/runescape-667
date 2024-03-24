@@ -82,7 +82,7 @@ public final class Static632 {
         if (local187 > 0 && local172 > 0) {
             local182 = (local172 - local187) * local33 / local172;
         }
-        PlayerEntity.self.getBoundSize();
+        PlayerEntity.self.getSize();
         @Pc(214) int local214 = 8192;
         @Pc(225) int local225 = (arg1.anInt9362 + arg1.anInt9357) / 2 - arg3;
         @Pc(236) int local236 = (arg1.anInt9349 + arg1.anInt9352) / 2 - arg4;
@@ -179,7 +179,7 @@ public final class Static632 {
     }
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(Lclient!eo;ZZ)V")
-    public static void method8368(@OriginalArg(0) Renderable arg0, @OriginalArg(2) boolean arg1) {
+    public static void method8368(@OriginalArg(0) Entity arg0, @OriginalArg(2) boolean arg1) {
         arg0.aBoolean813 = arg1;
         if (Static661.aBoolean457) {
             Static684.aClass302Array1[Static684.aClass302Array1.length - 1].method6812(arg0);

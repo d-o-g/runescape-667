@@ -58,11 +58,6 @@ public final class Static523 {
 
     @OriginalMember(owner = "client!qi", name = "p", descriptor = "I")
     public static int anInt3885 = -1;
-    @OriginalMember(owner = "client!cba", name = "E", descriptor = "Lclient!aba;")
-    public static GraphicsDefaults graphicsDefaults;
-
-    @OriginalMember(owner = "client!dt", name = "a", descriptor = "Lclient!vl;")
-    public static WearposDefaults wearposDefaults;
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ZI)V")
     public static void method3447(@OriginalArg(0) boolean arg0) {
@@ -239,18 +234,18 @@ public final class Static523 {
                 return local12;
             }
             Static502.decodeMapDefaults(js5.DEFAULTS.getfile(DefaultsGroup.MAP));
-            graphicsDefaults = new GraphicsDefaults(js5.DEFAULTS);
-            PlayerModel.recol_s = graphicsDefaults.recol_s;
-            PlayerModel.recol_d = graphicsDefaults.recol_d;
-            wearposDefaults = new WearposDefaults(js5.DEFAULTS);
+            GraphicsDefaults.instance = new GraphicsDefaults(js5.DEFAULTS);
+            PlayerModel.recol_s = GraphicsDefaults.instance.recol_s;
+            PlayerModel.recol_d = GraphicsDefaults.instance.recol_d;
+            WearposDefaults.instance = new WearposDefaults(js5.DEFAULTS);
         }
         if (LoadState.SETUP_CONFIG_DECODERS == Static473.aLoadState_22) {
-            if (graphicsDefaults.profilingModel != -1 && !js5.MODELS.requestdownload(0, graphicsDefaults.profilingModel)) {
+            if (GraphicsDefaults.instance.profilingModel != -1 && !js5.MODELS.requestdownload(0, GraphicsDefaults.instance.profilingModel)) {
                 return 99;
             }
             Js5TextureSource.instance = new Js5TextureSource(js5.MATERIALS, js5.TEXTURES, js5.SPRITES);
             ParamTypeList.instance = new ParamTypeList(client.modeGame, client.language, js5.CONFIG);
-            BASTypeList.instance = new BASTypeList(client.modeGame, client.language, js5.CONFIG, wearposDefaults);
+            BASTypeList.instance = new BASTypeList(client.modeGame, client.language, js5.CONFIG, WearposDefaults.instance);
             CursorTypeList.instance = new CursorTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
             EnumTypeList.instance = new EnumTypeList(client.modeGame, client.language, js5.CONFIG_ENUM);
             FloorOverlayTypeList.instance = new FloorOverlayTypeList(client.modeGame, client.language, js5.CONFIG);
@@ -336,12 +331,12 @@ public final class Static523 {
             js5.CONFIG_SPOT.discardunpacked = 2;
         }
         if (Static473.aLoadState_22 == LoadState.LOAD_LOGIN_WINDOW) {
-            if (!InterfaceList.load(graphicsDefaults.login_interface)) {
+            if (!InterfaceList.load(GraphicsDefaults.instance.login_interface)) {
                 return 0;
             }
             local184 = true;
-            for (local74 = 0; local74 < InterfaceList.interfaces[graphicsDefaults.login_interface].length; local74++) {
-                @Pc(1315) Component local1315 = InterfaceList.interfaces[graphicsDefaults.login_interface][local74];
+            for (local74 = 0; local74 < InterfaceList.interfaces[GraphicsDefaults.instance.login_interface].length; local74++) {
+                @Pc(1315) Component local1315 = InterfaceList.interfaces[GraphicsDefaults.instance.login_interface][local74];
                 if (local1315.type == 5 && local1315.graphic != -1 && !js5.SPRITES.requestdownload(0, local1315.graphic)) {
                     local184 = false;
                 }

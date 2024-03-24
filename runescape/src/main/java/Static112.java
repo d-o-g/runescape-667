@@ -10,20 +10,20 @@ public final class Static112 {
 
     @OriginalMember(owner = "client!dj", name = "a", descriptor = "(ILclient!cg;)I")
     public static int method2104(@OriginalArg(1) PathingEntity arg0) {
-        if (arg0.anInt10757 == 0) {
+        if (arg0.yawSpeed == 0) {
             return 0;
         }
         @Pc(74) int local74;
         @Pc(67) int local67;
-        if (arg0.anInt10722 != -1) {
+        if (arg0.target != -1) {
             @Pc(24) PathingEntity local24 = null;
-            if (arg0.anInt10722 < 32768) {
-                @Pc(54) NPCEntityNode local54 = (NPCEntityNode) NPCList.local.get(arg0.anInt10722);
+            if (arg0.target < 32768) {
+                @Pc(54) NPCEntityNode local54 = (NPCEntityNode) NPCList.local.get(arg0.target);
                 if (local54 != null) {
                     local24 = local54.npc;
                 }
-            } else if (arg0.anInt10722 >= 32768) {
-                local24 = PlayerList.highResolutionPlayers[arg0.anInt10722 - 32768];
+            } else if (arg0.target >= 32768) {
+                local24 = PlayerList.highResolutionPlayers[arg0.target - 32768];
             }
             if (local24 != null) {
                 local67 = arg0.x - local24.x;
@@ -35,19 +35,19 @@ public final class Static112 {
         }
         if (arg0 instanceof PlayerEntity) {
             @Pc(104) PlayerEntity local104 = (PlayerEntity) arg0;
-            if (local104.anInt1467 != -1 && (local104.anInt10764 == 0 || local104.anInt10763 > 0)) {
+            if (local104.anInt1467 != -1 && (local104.pathPointer == 0 || local104.anInt10763 > 0)) {
                 local104.method9305(local104.anInt1467);
                 local104.anInt1467 = -1;
             }
         } else if (arg0 instanceof NPCEntity) {
             @Pc(138) NPCEntity local138 = (NPCEntity) arg0;
-            if (local138.anInt10774 != -1 && (local138.anInt10764 == 0 || local138.anInt10763 > 0)) {
-                local67 = local138.x - (local138.anInt10774 - WorldMap.areaBaseX - WorldMap.areaBaseX) * 256;
-                local74 = local138.z - (local138.anInt10767 - WorldMap.areaBaseZ - WorldMap.areaBaseZ) * 256;
+            if (local138.turnToX != -1 && (local138.pathPointer == 0 || local138.anInt10763 > 0)) {
+                local67 = local138.x - (local138.turnToX - WorldMap.areaBaseX - WorldMap.areaBaseX) * 256;
+                local74 = local138.z - (local138.turnToZ - WorldMap.areaBaseZ - WorldMap.areaBaseZ) * 256;
                 if (local67 != 0 || local74 != 0) {
                     local138.method9305((int) (Math.atan2(local67, local74) * 2607.5945876176133D) & 0x3FFF);
                 }
-                local138.anInt10774 = -1;
+                local138.turnToX = -1;
             }
         }
         return arg0.method9303();

@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qf")
-public abstract class PositionEntity extends Renderable {
+public abstract class PositionEntity extends Entity {
 
     @OriginalMember(owner = "client!qf", name = "y", descriptor = "S")
     public short aShort132;
@@ -32,7 +32,7 @@ public abstract class PositionEntity extends Renderable {
         super.anInt10691 = arg3;
         super.level = (byte) arg0;
         this.aShort133 = (short) arg8;
-        super.aByte143 = (byte) arg1;
+        super.virtualLevel = (byte) arg1;
         super.z = arg4;
         super.x = arg2;
         this.aBoolean815 = arg9;
@@ -147,7 +147,7 @@ public abstract class PositionEntity extends Renderable {
         if (arg0 != 59) {
             this.method9284((byte) -4, null);
         }
-        return Static15.method188(this.aShort132, this.aShort134, this.method9278(arg1, -115), this.aShort133, this.aShort131, super.aByte143);
+        return Static15.method188(this.aShort132, this.aShort134, this.method9278(arg1, -115), this.aShort133, this.aShort131, super.virtualLevel);
     }
 
     @OriginalMember(owner = "client!qf", name = "g", descriptor = "(I)Z")

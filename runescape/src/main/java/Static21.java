@@ -56,12 +56,12 @@ public final class Static21 {
             Static319.anInt5080 = 0;
         }
         Static379.method5355(false);
-        Static576.aRenderableArray9 = new Renderable[2];
-        Static398.aRenderableArray7 = new Renderable[2];
-        Static468.aRenderableArray10 = new Renderable[2];
-        Static48.aRenderableArray3 = new Renderable[10000];
+        Static576.aEntityArray9 = new Entity[2];
+        Static398.aEntityArray7 = new Entity[2];
+        Static468.aEntityArray10 = new Entity[2];
+        Static48.aEntityArray3 = new Entity[10000];
         Static546.anInt8244 = 0;
-        Static395.aRenderableArray11 = new Renderable[5000];
+        Static395.aEntityArray11 = new Entity[5000];
         Static645.anInt9611 = 0;
         Static679.aPositionEntity = new PositionEntity[5000];
         Static125.anInt2352 = 0;

@@ -33,7 +33,7 @@ public final class Static484 {
                 for (local25 = arg1; local25 <= 3; local25++) {
                     if (Static696.isTileVisibleFrom(local22, arg1, local19, local25)) {
                         local37 = local25;
-                        if (Static441.method5968(local22, local19)) {
+                        if (Static441.isBridgeAt(local22, local19)) {
                             local37 = local25 - 1;
                         }
                         if (local37 >= 0) {
@@ -108,7 +108,7 @@ public final class Static484 {
                                 local340 = local331 + local211;
                                 if (local9 <= local336 && local340 >= local15 && Static696.isTileVisibleFrom(local340, arg1, local336, local278)) {
                                     local365 = local278;
-                                    if (Static441.method5968(local340, local336)) {
+                                    if (Static441.isBridgeAt(local340, local336)) {
                                         local365 = local278 - 1;
                                     }
                                     if (local365 >= 0) {

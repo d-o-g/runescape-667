@@ -19,7 +19,6 @@ import java.awt.Container;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Insets;
-import java.awt.LayoutManager;
 import java.awt.Rectangle;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -88,6 +87,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     @OriginalMember(owner = "client!hn", name = "b", descriptor = "Z")
     public static boolean shutdown = false;
 
+    @OriginalMember(owner = "client!ke", name = "e", descriptor = "J")
+    public static long logicUpdateInterval = 20000000L;
+
     @OriginalMember(owner = "client!kh", name = "z", descriptor = "Z")
     public boolean aBoolean157 = false;
 
@@ -105,6 +107,16 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     @OriginalMember(owner = "client!kh", name = "provideLoaderApplet", descriptor = "(Ljava/applet/Applet;)V")
     public static void provideLoaderApplet(@OriginalArg(0) Applet arg0) {
         loaderApplet = arg0;
+    }
+
+    @OriginalMember(owner = "client!wv", name = "a", descriptor = "(II)V")
+    public static void setspeed(@OriginalArg(0) int logicRate) {
+        logicUpdateInterval = 1000000000L / (long) logicRate;
+    }
+
+    @OriginalMember(owner = "client!pt", name = "c", descriptor = "(B)I")
+    public static int speed() {
+        return (int) (1000000000L / logicUpdateInterval);
     }
 
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(IZ)V")
@@ -377,7 +389,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             this.method1647();
             Static600.aClass27_1 = Static570.method7550();
             while (Static604.aLong278 == 0L || SystemTimer.safetime() < Static604.aLong278) {
-                Static32.scheduledTicks = Static600.aClass27_1.method5598(Static324.aLong164);
+                Static32.scheduledTicks = Static600.aClass27_1.method5598(logicUpdateInterval);
                 for (@Pc(213) int local213 = 0; local213 < Static32.scheduledTicks; local213++) {
                     this.tick0();
                 }

@@ -107,7 +107,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!cu", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg4 <= 101) {
             this.method1831(-126, -84, null, false);
         }
@@ -149,7 +149,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
             this.aClass2_Sub2_Sub9_1 = null;
         }
         if (local33 != null) {
-            Static630.method8357(local33, super.aByte143, super.x, super.z, null);
+            Static630.method8357(local33, super.virtualLevel, super.x, super.z, null);
         }
     }
 
@@ -162,14 +162,14 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
         @Pc(29) Ground local29;
         @Pc(35) Ground local35;
         if (this.aBoolean183) {
-            local29 = Static693.aGroundArray2[super.aByte143];
+            local29 = Static693.aGroundArray2[super.virtualLevel];
             local35 = Static706.aGroundArray3[0];
         } else {
-            local29 = Static706.aGroundArray3[super.aByte143];
-            if (super.aByte143 >= 3) {
+            local29 = Static706.aGroundArray3[super.virtualLevel];
+            if (super.virtualLevel >= 3) {
                 local35 = null;
             } else {
-                local35 = Static706.aGroundArray3[super.aByte143 + 1];
+                local35 = Static706.aGroundArray3[super.virtualLevel + 1];
             }
         }
         return local13.modelAndShadow(this.aByte38, super.z, super.x, local29, arg3, super.anInt10691, 22, arg2, null, arg0, local35);
@@ -226,7 +226,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
             this.aClass2_Sub2_Sub9_1 = null;
         }
         if (local25 != null) {
-            Static292.method4618(local25, super.aByte143, super.x, super.z, null);
+            Static292.method4618(local25, super.virtualLevel, super.x, super.z, null);
         }
     }
 

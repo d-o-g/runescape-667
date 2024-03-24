@@ -50,7 +50,7 @@ public final class Static294 {
             return;
         }
         Static198.anInt3276++;
-        if ((PlayerEntity.self != null) && (Minimap.flagX == (((PlayerEntity.self.x + 256) - (PlayerEntity.self.getBoundSize() * 256)) >> 9)) && (Minimap.flagY == ((PlayerEntity.self.z - ((PlayerEntity.self.getBoundSize() - 1) * 256)) >> 9))) {
+        if ((PlayerEntity.self != null) && (Minimap.flagX == (((PlayerEntity.self.x + 256) - (PlayerEntity.self.getSize() * 256)) >> 9)) && (Minimap.flagY == ((PlayerEntity.self.z - ((PlayerEntity.self.getSize() - 1) * 256)) >> 9))) {
             Minimap.flagX = -1;
             Minimap.flagY = -1;
             DelayedStateChange.resetMapFlag();

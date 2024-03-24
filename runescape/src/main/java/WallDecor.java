@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!tla")
-public abstract class WallDecor extends Renderable implements Location {
+public abstract class WallDecor extends Entity implements Location {
 
     @OriginalMember(owner = "client!tla", name = "B", descriptor = "S")
     public short aShort101;
@@ -20,7 +20,7 @@ public abstract class WallDecor extends Renderable implements Location {
         super.z = arg2;
         this.aShort102 = (short) arg6;
         super.x = arg0;
-        super.aByte143 = (byte) arg4;
+        super.virtualLevel = (byte) arg4;
         super.anInt10691 = arg1;
     }
 
@@ -30,7 +30,7 @@ public abstract class WallDecor extends Renderable implements Location {
         if (arg0 != 59) {
             this.aShort101 = -126;
         }
-        return Static282.method3976(this.method9286(2), super.aByte143, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
+        return Static282.method3976(this.method9286(2), super.virtualLevel, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
     }
 
     @OriginalMember(owner = "client!tla", name = "j", descriptor = "(I)V")
@@ -43,7 +43,7 @@ public abstract class WallDecor extends Renderable implements Location {
 
     @OriginalMember(owner = "client!tla", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public final void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
+    public final void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg4 < 101) {
             CutsceneManager.cutsceneFadeGreen = -26;
         }

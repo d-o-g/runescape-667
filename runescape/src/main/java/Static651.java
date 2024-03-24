@@ -21,9 +21,9 @@ public final class Static651 {
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
     public static void method8513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) PathingEntity arg3) {
-        @Pc(9) BASType local9 = arg3.method9317();
+        @Pc(9) BASType local9 = arg3.getBASType();
         @Pc(19) Animator local19 = arg3.animator;
-        @Pc(29) int local29 = arg3.anInt10756 - arg3.aClass126_7.anInt2889 & 0x3FFF;
+        @Pc(29) int local29 = arg3.turnYaw - arg3.yaw.value & 0x3FFF;
         if (arg0 == -1) {
             if (local29 == 0 && arg3.anInt10749 <= 25) {
                 if (!arg3.ready || !local9.isReady(local19.getAnimationId())) {
@@ -40,8 +40,8 @@ public final class Static651 {
                 local19.update(true, local9.ready());
                 arg3.ready = arg3.animator.isAnimating();
             }
-        } else if (arg3.anInt10722 != -1 && (local29 >= 10240 || local29 <= 2048)) {
-            @Pc(172) int local172 = Static464.anIntArray561[arg2] - arg3.aClass126_7.anInt2889 & 0x3FFF;
+        } else if (arg3.target != -1 && (local29 >= 10240 || local29 <= 2048)) {
+            @Pc(172) int local172 = Static464.anIntArray561[arg2] - arg3.yaw.value & 0x3FFF;
             if (arg0 == 2 && local9.run != -1) {
                 if (local172 > 2048 && local172 <= 6144 && local9.runFollowTurnCw != -1) {
                     local19.update(true, local9.runFollowTurnCw);
@@ -110,20 +110,20 @@ public final class Static651 {
     }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "([IIZLclient!cg;I)V")
-    public static void method8515(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) PathingEntity arg3) {
+    public static void animate(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) PathingEntity arg3) {
         @Pc(8) boolean local8;
         @Pc(10) int local10;
-        if (arg3.anIntArray869 != null) {
+        if (arg3.actionAnimations != null) {
             local8 = true;
-            for (local10 = 0; local10 < arg3.anIntArray869.length; local10++) {
-                if (arg0[local10] != arg3.anIntArray869[local10]) {
+            for (local10 = 0; local10 < arg3.actionAnimations.length; local10++) {
+                if (arg0[local10] != arg3.actionAnimations[local10]) {
                     local8 = false;
                     break;
                 }
             }
-            @Pc(31) Animator local31 = arg3.aAnimator_11;
+            @Pc(31) Animator local31 = arg3.actionAnimator;
             if (local8 && local31.isAnimating()) {
-                @Pc(44) SeqType local44 = arg3.aAnimator_11.getAnimation();
+                @Pc(44) SeqType local44 = arg3.actionAnimator.getAnimation();
                 @Pc(47) int replayMode = local44.replayMode;
                 if (replayMode == SeqReplayMode.RESET) {
                     local31.reset(arg1);
@@ -138,21 +138,21 @@ public final class Static651 {
             if (arg0[local10] != -1) {
                 local8 = false;
             }
-            if (arg3.anIntArray869 == null || arg3.anIntArray869[local10] == -1 || SeqTypeList.instance.list(arg0[local10]).priority >= SeqTypeList.instance.list(arg3.anIntArray869[local10]).priority) {
-                arg3.anIntArray869 = arg0;
-                arg3.aAnimator_11.method9091(arg1);
+            if (arg3.actionAnimations == null || arg3.actionAnimations[local10] == -1 || SeqTypeList.instance.list(arg0[local10]).priority >= SeqTypeList.instance.list(arg3.actionAnimations[local10]).priority) {
+                arg3.actionAnimations = arg0;
+                arg3.actionAnimator.method9091(arg1);
                 if (arg2) {
-                    arg3.anInt10762 = arg3.anInt10764;
+                    arg3.animationPathPointer = arg3.pathPointer;
                 }
             }
         }
         if (!local8) {
             return;
         }
-        arg3.anIntArray869 = arg0;
-        arg3.aAnimator_11.method9091(arg1);
+        arg3.actionAnimations = arg0;
+        arg3.actionAnimator.method9091(arg1);
         if (arg2) {
-            arg3.anInt10762 = arg3.anInt10764;
+            arg3.animationPathPointer = arg3.pathPointer;
             return;
         }
     }

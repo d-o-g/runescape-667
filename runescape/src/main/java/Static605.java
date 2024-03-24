@@ -150,7 +150,7 @@ public final class Static605 {
                 local212 = local8.g2();
                 if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
                     local217 = local42 + 1;
-                    if (local21 - local217 <= PlayerEntity.self.pathX[0] && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathY[0] >= local25 - local217 && local217 + local25 >= PlayerEntity.self.pathY[0]) {
+                    if (local21 - local217 <= PlayerEntity.self.pathX[0] && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathZ[0] >= local25 - local217 && local217 + local25 >= PlayerEntity.self.pathZ[0]) {
                         Static165.method2608(local537, local52, local34, local46, local212, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16));
                     }
                 }
@@ -221,7 +221,7 @@ public final class Static605 {
                                 }
                             }
                             if (local948 != null) {
-                                @Pc(991) BASType local991 = local948.method9317();
+                                @Pc(991) BASType local991 = local948.getBASType();
                                 if (local991.wornTransformations != null && local991.wornTransformations[local46] != null) {
                                     local812 -= local991.wornTransformations[local46][1];
                                 }
@@ -268,7 +268,7 @@ public final class Static605 {
                     local212 = local8.g2();
                     if (local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
                         local217 = local42 + 1;
-                        if (PlayerEntity.self.pathX[0] >= local21 - local217 && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathY[0] >= local25 - local217 && PlayerEntity.self.pathY[0] <= local25 + local217) {
+                        if (PlayerEntity.self.pathX[0] >= local21 - local217 && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathZ[0] >= local25 - local217 && PlayerEntity.self.pathZ[0] <= local25 + local217) {
                             Static179.method2770(local46, local52, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16), local212, local537, local34);
                         }
                     }
@@ -383,7 +383,7 @@ public final class Static605 {
                             local52 = local21 * 512 + 256;
                             local537 = local25 * 512 + 256;
                             local212 = Static87.anInt1810;
-                            if (local212 < 3 && Static441.method5968(local25, local21)) {
+                            if (local212 < 3 && Static441.isBridgeAt(local25, local21)) {
                                 local212++;
                             }
                             @Pc(2065) Class8_Sub2_Sub1_Sub5 local2065 = new Class8_Sub2_Sub1_Sub5(local34, local42, Static87.anInt1810, local212, local52, Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);

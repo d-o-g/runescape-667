@@ -32,20 +32,20 @@ public final class Class231 {
         @Pc(10) int local10 = this.anIntArray453[0];
         arg0.method5360(local10 >>> 16, arg1, local10 & 0xFFFF);
         @Pc(24) PathingEntity local24 = arg0.method5363();
-        local24.anInt10764 = 0;
+        local24.pathPointer = 0;
         for (@Pc(41) int local41 = this.anIntArray454.length - 1; local41 >= 0; local41--) {
             @Pc(48) int local48 = this.anIntArray454[local41];
             @Pc(53) int local53 = this.anIntArray453[local41];
-            local24.pathX[local24.anInt10764] = local53 >> 16;
-            local24.pathY[local24.anInt10764] = local53 & 0xFFFF;
+            local24.pathX[local24.pathPointer] = local53 >> 16;
+            local24.pathZ[local24.pathPointer] = local53 & 0xFFFF;
             @Pc(71) byte local71 = 1;
             if (local48 == 0) {
                 local71 = 0;
             } else if (local48 == 2) {
                 local71 = 2;
             }
-            local24.aByteArray111[local24.anInt10764] = local71;
-            local24.anInt10764++;
+            local24.pathSpeed[local24.pathPointer] = local71;
+            local24.pathPointer++;
         }
     }
 }

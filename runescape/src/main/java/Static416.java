@@ -15,9 +15,6 @@ public final class Static416 {
     @OriginalMember(owner = "client!nca", name = "o", descriptor = "Z")
     public static boolean aBoolean472 = false;
 
-    @OriginalMember(owner = "client!nca", name = "m", descriptor = "I")
-    public static int anInt6378 = 0;
-
     @OriginalMember(owner = "client!nca", name = "a", descriptor = "(Z)V")
     public static void method5705() {
         for (@Pc(5) int local5 = 0; local5 < Static444.anInt6751; local5++) {

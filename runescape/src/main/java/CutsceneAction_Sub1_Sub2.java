@@ -26,6 +26,6 @@ public final class CutsceneAction_Sub1_Sub2 extends CutsceneAction_Sub1 {
     @OriginalMember(owner = "client!wd", name = "b", descriptor = "(I)V")
     @Override
     public void method9161() {
-        Static219.aClass236Array1[this.anInt10564].method5363().method9309(this.anInt10562, super.anInt10556, false, super.anInt10560 << 16, this.anInt10563, super.anInt10558);
+        Static219.aClass236Array1[this.anInt10564].method5363().setSpotAnim(this.anInt10562, super.anInt10556, false, super.anInt10560 << 16, this.anInt10563, super.anInt10558);
     }
 }

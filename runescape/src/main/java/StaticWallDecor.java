@@ -136,7 +136,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
             this.aClass2_Sub2_Sub9_2 = null;
         }
         if (local37 != null) {
-            Static630.method8357(local37, super.aByte143, super.x, super.z, null);
+            Static630.method8357(local37, super.virtualLevel, super.x, super.z, null);
         }
     }
 
@@ -170,7 +170,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
             this.aClass2_Sub2_Sub9_2 = null;
         }
         if (arg1 < -42 && local28 != null) {
-            Static292.method4618(local28, super.aByte143, super.x, super.z, null);
+            Static292.method4618(local28, super.virtualLevel, super.x, super.z, null);
         }
     }
 
@@ -197,11 +197,11 @@ public final class StaticWallDecor extends WallDecor implements Location {
         @Pc(24) Ground local24;
         if (this.aBoolean348) {
             local24 = Static706.aGroundArray3[0];
-            local29 = Static693.aGroundArray2[super.aByte143];
+            local29 = Static693.aGroundArray2[super.virtualLevel];
         } else {
-            local29 = Static706.aGroundArray3[super.aByte143];
-            if (super.aByte143 < 3) {
-                local24 = Static706.aGroundArray3[super.aByte143 + 1];
+            local29 = Static706.aGroundArray3[super.virtualLevel];
+            if (super.virtualLevel < 3) {
+                local24 = Static706.aGroundArray3[super.virtualLevel + 1];
             } else {
                 local24 = null;
             }

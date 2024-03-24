@@ -11,9 +11,6 @@ public final class Static118 {
     @OriginalMember(owner = "client!dm", name = "f", descriptor = "[Z")
     public static boolean[] permVarcs;
 
-    @OriginalMember(owner = "client!dm", name = "d", descriptor = "[I")
-    public static final int[] anIntArray197 = new int[1000];
-
     @OriginalMember(owner = "client!dm", name = "h", descriptor = "I")
     public static int anInt2292 = 0;
 

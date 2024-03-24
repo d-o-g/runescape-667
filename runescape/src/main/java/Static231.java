@@ -87,8 +87,8 @@ public final class Static231 {
                 }
             }
         }
-        for (@Pc(65) int local65 = 0; local65 < Static416.anInt6378; local65++) {
-            @Pc(71) NPCEntity local71 = Static592.aClass2_Sub45Array1[local65].npc;
+        for (@Pc(65) int local65 = 0; local65 < NPCList.newNpcCount; local65++) {
+            @Pc(71) NPCEntity local71 = NPCList.localNpcs[local65].npc;
             if (local71 != null) {
                 for (@Pc(75) int local75 = 0; local75 < local71.aModelArray3.length; local75++) {
                     local71.aModelArray3[local75] = null;
@@ -812,7 +812,7 @@ public final class Static231 {
                     ConnectionManager.GAME.send(local2836);
                 }
                 if (arg2.startsWith("fps ") && client.modeWhere != ModeWhere.LIVE) {
-                    Static724.method9453(StringTools.parseDecimal(arg2.substring(4)));
+                    GameShell.setspeed(StringTools.parseDecimal(arg2.substring(4)));
                     return;
                 }
             } catch (@Pc(2894) Exception local2894) {

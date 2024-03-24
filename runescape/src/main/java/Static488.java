@@ -26,13 +26,6 @@ public final class Static488 {
         }
     }
 
-    @OriginalMember(owner = "client!pga", name = "c", descriptor = "(I)V")
-    public static void method6522() {
-        Static329.method1636();
-        MiniMenu.open = false;
-        InterfaceManager.redrawWithin(Static682.anInt10295, Static71.anInt1576, Static407.anInt6288, Static84.anInt1775);
-    }
-
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(Ljava/lang/String;I)Ljava/lang/Class;")
     public static Class method6524(@OriginalArg(0) String arg0) throws ClassNotFoundException {
         if (arg0.equals("B")) {

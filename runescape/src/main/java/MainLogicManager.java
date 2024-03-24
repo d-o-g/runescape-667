@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -26,10 +27,10 @@ public final class MainLogicManager {
             ConnectionManager.reconnect = null;
         }
         if (arg0 == 3) {
-            InterfaceManager.openLogin(Static523.graphicsDefaults.login_interface != InterfaceManager.topLevelInterface);
+            InterfaceManager.openLogin(GraphicsDefaults.instance.login_interface != InterfaceManager.topLevelInterface);
         }
         if (arg0 == 7) {
-            InterfaceManager.openLobby(Static523.graphicsDefaults.lobby_interface != InterfaceManager.topLevelInterface);
+            InterfaceManager.openLobby(GraphicsDefaults.instance.lobby_interface != InterfaceManager.topLevelInterface);
         }
         if (arg0 == 5 || arg0 == 13) {
             Static369.method3852();

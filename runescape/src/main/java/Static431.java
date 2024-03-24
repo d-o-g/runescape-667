@@ -9,7 +9,7 @@ public final class Static431 {
     public static final Class370 aClass370_5 = new Class370();
 
     @OriginalMember(owner = "client!nk", name = "a", descriptor = "(Lclient!cka;ILclient!eo;B)V")
-    public static void method5827(@OriginalArg(0) SeqType arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Renderable arg2) {
+    public static void method5827(@OriginalArg(0) SeqType arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Entity arg2) {
         if (Static33.anInt779 >= 50 || (arg0 == null || arg0.soundInfo == null || arg0.soundInfo.length <= arg1 || arg0.soundInfo[arg1] == null)) {
             return;
         }

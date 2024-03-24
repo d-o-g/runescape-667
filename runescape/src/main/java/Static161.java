@@ -1,6 +1,5 @@
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -41,7 +40,7 @@ public final class Static161 {
                 local21[local26] = arg2.g1_alt2();
                 local24[local26] = arg2.g2_alt3();
             }
-            Static310.method4505(local24, local18, local21, arg0);
+            Static310.animateWorn(local24, local18, local21, arg0);
         }
         @Pc(77) int local77;
         @Pc(108) int local108;
@@ -54,7 +53,7 @@ public final class Static161 {
                 }
             }
             local108 = arg2.g1_alt1();
-            Static651.method8515(local75, local108, false, arg0);
+            Static651.animate(local75, local108, false, arg0);
         }
         @Pc(141) int local141;
         @Pc(166) boolean local166;
@@ -71,26 +70,26 @@ public final class Static161 {
                 local26 = -1;
             }
             local166 = (local108 >> 7 & 0x1) == 1;
-            arg0.method9309(2, local141, local166, local77, local26, local15);
+            arg0.setSpotAnim(2, local141, local166, local77, local26, local15);
         }
         if ((arg3 & 0x20000) != 0) {
-            arg0.aByte150 = arg2.g1b_alt3();
-            arg0.aByte147 = arg2.g1b_alt3();
-            arg0.aByte148 = arg2.g1b_alt2();
-            arg0.aByte149 = (byte) arg2.g1();
-            arg0.anInt10760 = TimeUtils.clock + arg2.g2_alt3();
-            arg0.anInt10752 = TimeUtils.clock + arg2.g2();
+            arg0.recolHue = arg2.g1b_alt3();
+            arg0.recolSaturation = arg2.g1b_alt3();
+            arg0.recolLightness = arg2.g1b_alt2();
+            arg0.recolScale = (byte) arg2.g1();
+            arg0.recolStart = TimeUtils.clock + arg2.g2_alt3();
+            arg0.recolEnd = TimeUtils.clock + arg2.g2();
         }
         if ((arg3 & 0x200) != 0) {
             local7 = arg2.g1b_alt2();
         }
         if ((arg3 & 0x2000) != 0) {
             local15 = arg2.g2_alt2();
-            arg0.anInt10738 = arg2.g1();
-            arg0.anInt10731 = arg2.g1_alt2();
-            arg0.aBoolean818 = (local15 & 0x8000) != 0;
-            arg0.anInt10737 = local15 & 0x7FFF;
-            arg0.anInt10719 = arg0.anInt10738 + arg0.anInt10737 + TimeUtils.clock;
+            arg0.timerbarStart = arg2.g1();
+            arg0.timerbarGranularity = arg2.g1_alt2();
+            arg0.timerbarSprite = (local15 & 0x8000) != 0;
+            arg0.timerbarDuration = local15 & 0x7FFF;
+            arg0.anInt10719 = arg0.timerbarStart + arg0.timerbarDuration + TimeUtils.clock;
         }
         if ((arg3 & 0x80000) != 0) {
             local15 = arg2.ig2();
@@ -105,7 +104,7 @@ public final class Static161 {
                 local26 = -1;
             }
             local166 = (local108 >> 7 & 0x1) == 1;
-            arg0.method9309(3, local141, local166, local77, local26, local15);
+            arg0.setSpotAnim(3, local141, local166, local77, local26, local15);
         }
         if ((arg3 & 0x100000) != 0) {
             arg0.clanmate = arg2.g1_alt2() == 1;
@@ -130,7 +129,7 @@ public final class Static161 {
                     }
                     @Pc(436) int local436 = arg2.gsmart();
                     @Pc(440) int local440 = arg2.g1_alt2();
-                    arg0.method9301(local32, local436, local440, local26, TimeUtils.clock, local141, local108);
+                    arg0.hit(local32, local436, local440, local26, TimeUtils.clock, local141, local108);
                 }
             }
         }
@@ -148,7 +147,7 @@ public final class Static161 {
                 }
                 local21[local141] = arg2.g2_alt2();
             }
-            arg0.method9315(local21, local18);
+            arg0.updateWornTargets(local21, local18);
         }
         if ((arg3 & 0x8) != 0) {
             local15 = arg2.g1_alt3();
@@ -179,34 +178,34 @@ public final class Static161 {
             if (local15 == 65535) {
                 local15 = -1;
             }
-            arg0.anInt10722 = local15;
+            arg0.target = local15;
         }
         if ((arg3 & 0x1000) != 0) {
-            arg0.anInt10750 = arg2.g1b_alt3();
-            arg0.anInt10753 = arg2.g1b();
-            arg0.anInt10761 = arg2.g1b_alt1();
-            arg0.anInt10758 = arg2.g1b_alt1();
-            arg0.anInt10759 = arg2.ig2() + TimeUtils.clock;
-            arg0.anInt10755 = arg2.g2_alt3() + TimeUtils.clock;
-            arg0.anInt10754 = arg2.g1_alt1();
+            arg0.exactMoveX1 = arg2.g1b_alt3();
+            arg0.exactMoveZ1 = arg2.g1b();
+            arg0.exactMoveX2 = arg2.g1b_alt1();
+            arg0.exactMoveZ2 = arg2.g1b_alt1();
+            arg0.exactMoveT1 = arg2.ig2() + TimeUtils.clock;
+            arg0.exactMoveT2 = arg2.g2_alt3() + TimeUtils.clock;
+            arg0.exactMoveDirection = arg2.g1_alt1();
             if (arg0.aBoolean127) {
-                arg0.anInt10764 = 0;
-                arg0.anInt10758 += arg0.anInt1448;
-                arg0.anInt10750 += arg0.anInt1441;
-                arg0.anInt10753 += arg0.anInt1448;
-                arg0.anInt10761 += arg0.anInt1441;
+                arg0.pathPointer = 0;
+                arg0.exactMoveZ2 += arg0.anInt1448;
+                arg0.exactMoveX1 += arg0.anInt1441;
+                arg0.exactMoveZ1 += arg0.anInt1448;
+                arg0.exactMoveX2 += arg0.anInt1441;
             } else {
-                arg0.anInt10761 += arg0.pathX[0];
-                arg0.anInt10764 = 1;
-                arg0.anInt10758 += arg0.pathY[0];
-                arg0.anInt10753 += arg0.pathY[0];
-                arg0.anInt10750 += arg0.pathX[0];
+                arg0.exactMoveX2 += arg0.pathX[0];
+                arg0.pathPointer = 1;
+                arg0.exactMoveZ2 += arg0.pathZ[0];
+                arg0.exactMoveZ1 += arg0.pathZ[0];
+                arg0.exactMoveX1 += arg0.pathX[0];
             }
-            arg0.anInt10762 = 0;
+            arg0.animationPathPointer = 0;
         }
         if ((arg3 & 0x20) != 0) {
             arg0.anInt1467 = arg2.g2();
-            if (arg0.anInt10764 == 0) {
+            if (arg0.pathPointer == 0) {
                 arg0.method9305(arg0.anInt1467);
                 arg0.anInt1467 = -1;
             }
@@ -224,7 +223,7 @@ public final class Static161 {
                 local26 = -1;
             }
             local166 = (local108 >> 7 & 0x1) == 1;
-            arg0.method9309(0, local141, local166, local77, local26, local15);
+            arg0.setSpotAnim(0, local141, local166, local77, local26, local15);
         }
         if ((arg3 & 0x100) != 0) {
             local15 = arg2.g2_alt3();
@@ -239,7 +238,7 @@ public final class Static161 {
                 local26 = -1;
             }
             local166 = (local108 >> 7 & 0x1) == 1;
-            arg0.method9309(1, local141, local166, local77, local26, local15);
+            arg0.setSpotAnim(1, local141, local166, local77, local26, local15);
         }
         if (!arg0.aBoolean127) {
             return;
@@ -263,60 +262,6 @@ public final class Static161 {
         if (ClientOptions.instance.soundVolume.getValue() != 0 && arg3 != 0 && Static33.anInt779 < 50 && arg2 != -1) {
             Static409.aClass104Array1[Static33.anInt779++] = new Class104((byte) 1, arg2, arg3, arg1, arg4, 0, arg0, null);
         }
-    }
-
-    @OriginalMember(owner = "client!fa", name = "a", descriptor = "(I)V")
-    public static void method2588() {
-        @Pc(8) PacketBuffer local8 = ConnectionManager.GAME.buffer;
-        while (local8.method7420(ConnectionManager.GAME.currentPacketSize) >= 15) {
-            @Pc(22) int local22 = local8.method7412(15);
-            if (local22 == 32767) {
-                break;
-            }
-            @Pc(29) boolean local29 = false;
-            @Pc(36) NPCEntityNode local36 = (NPCEntityNode) NPCList.local.get(local22);
-            @Pc(42) NPCEntity local42;
-            if (local36 == null) {
-                local42 = new NPCEntity();
-                local42.id = local22;
-                local36 = new NPCEntityNode(local42);
-                NPCList.local.put(local22, local36);
-                Static592.aClass2_Sub45Array1[Static416.anInt6378++] = local36;
-                local29 = true;
-            }
-            local42 = local36.npc;
-            Static103.anIntArray187[Static390.anInt6126++] = local22;
-            local42.anInt10751 = Static572.anInt8896;
-            if (local42.type != null && local42.type.hasSounds()) {
-                Static58.method1259(local42);
-            }
-            @Pc(108) int local108 = local8.method7412(3) + 4 << 11 & 0x3A6E;
-            @Pc(113) int local113 = local8.method7412(1);
-            if (local113 == 1) {
-                Static458.anIntArray553[Static86.anInt1798++] = local22;
-            }
-            @Pc(131) int local131 = local8.method7412(5);
-            if (local131 > 15) {
-                local131 -= 32;
-            }
-            @Pc(144) int local144 = local8.method7412(2);
-            local42.method9328(NPCTypeList.instance.list(local8.method7412(15)));
-            @Pc(159) int local159 = local8.method7412(5);
-            if (local159 > 15) {
-                local159 -= 32;
-            }
-            @Pc(170) int local170 = local8.method7412(1);
-            local42.method9310(local42.type.size);
-            local42.anInt10757 = local42.type.rotationSpeed << 3;
-            if (local29) {
-                local42.method9298(local108, true);
-            }
-            local42.method9326(local170 == 1, local131 + PlayerEntity.self.pathY[0], local159 + PlayerEntity.self.pathX[0], local144, local42.getBoundSize());
-            if (local42.type.hasSounds()) {
-                Static89.method1714(local42.level, null, local42.pathX[0], local42.pathY[0], local42, null, 0);
-            }
-        }
-        local8.method7411();
     }
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(IFFF)I")

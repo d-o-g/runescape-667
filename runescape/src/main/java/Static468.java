@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static468 {
 
     @OriginalMember(owner = "client!op", name = "l", descriptor = "[Lclient!eo;")
-    public static Renderable[] aRenderableArray10;
+    public static Entity[] aEntityArray10;
 
     @OriginalMember(owner = "client!op", name = "r", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___212 = new ServerProt(77, -2);
@@ -60,12 +60,12 @@ public final class Static468 {
         @Pc(209) int local209 = Static102.method2025(arg0, -29754, (arg1 << 9) + 256, (arg2 << 9) - -256);
         local103.level = (byte) arg0;
         local103.anInt10691 = local209;
-        local103.aByte143 = (byte) arg0;
+        local103.virtualLevel = (byte) arg0;
         local103.z = arg1 << 9;
         local103.anInt8885 = 0;
         local103.x = arg2 << 9;
-        if (Static441.method5968(arg1, arg2)) {
-            local103.aByte143++;
+        if (Static441.isBridgeAt(arg1, arg2)) {
+            local103.virtualLevel++;
         }
         Static157.method2564(arg0, arg2, arg1, local209, local103);
     }

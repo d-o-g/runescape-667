@@ -81,8 +81,8 @@ public final class Class46 implements Runnable {
             } else {
                 this.aBoolean77 = true;
                 @Pc(23) Node local23 = this.aClass302_1.method6807();
-                if (local23 instanceof Renderable) {
-                    @Pc(29) Renderable local29 = (Renderable) local23;
+                if (local23 instanceof Entity) {
+                    @Pc(29) Entity local29 = (Entity) local23;
                     if (local29.aBoolean812) {
                         local29.method9289(Static665.aToolkit_15, -5);
                     } else {

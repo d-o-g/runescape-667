@@ -20,12 +20,12 @@ public final class PacketBuffer extends Packet {
     }
 
     @OriginalMember(owner = "client!rka", name = "y", descriptor = "(I)V")
-    public void method7411() {
+    public void exitBitMode() {
         super.pos = (this.anInt8422 + 7) / 8;
     }
 
     @OriginalMember(owner = "client!rka", name = "c", descriptor = "(BI)I")
-    public int method7412(@OriginalArg(1) int arg0) {
+    public int readBits(@OriginalArg(1) int arg0) {
         @Pc(10) int local10 = this.anInt8422 >> 3;
         @Pc(18) int local18 = 8 - (this.anInt8422 & 0x7);
         @Pc(20) int local20 = 0;
@@ -62,7 +62,7 @@ public final class PacketBuffer extends Packet {
     }
 
     @OriginalMember(owner = "client!rka", name = "w", descriptor = "(I)V")
-    public void method7417() {
+    public void enterBitMode() {
         this.anInt8422 = super.pos * 8;
     }
 
@@ -72,7 +72,7 @@ public final class PacketBuffer extends Packet {
     }
 
     @OriginalMember(owner = "client!rka", name = "m", descriptor = "(II)I")
-    public int method7420(@OriginalArg(0) int arg0) {
+    public int bitsRemaining(@OriginalArg(0) int arg0) {
         return arg0 * 8 - this.anInt8422;
     }
 

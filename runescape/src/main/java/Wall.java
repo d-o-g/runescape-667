@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!kp")
-public abstract class Wall extends Renderable {
+public abstract class Wall extends Entity {
 
     @OriginalMember(owner = "client!kp", name = "D", descriptor = "S")
     public short aShort58;
@@ -18,7 +18,7 @@ public abstract class Wall extends Renderable {
         super.level = (byte) arg3;
         super.z = arg2;
         super.x = arg0;
-        super.aByte143 = (byte) arg4;
+        super.virtualLevel = (byte) arg4;
     }
 
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "(BLclient!ha;)Z")
@@ -27,7 +27,7 @@ public abstract class Wall extends Renderable {
         if (arg0 != 59) {
             this.aShort58 = -17;
         }
-        return Static73.method9308(super.x >> Static52.anInt1066, super.z >> Static52.anInt1066, this, super.aByte143);
+        return Static73.method9308(super.x >> Static52.anInt1066, super.z >> Static52.anInt1066, this, super.virtualLevel);
     }
 
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "([Lclient!lca;I)I")

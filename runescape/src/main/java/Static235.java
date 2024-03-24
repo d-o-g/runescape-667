@@ -14,7 +14,7 @@ public final class Static235 {
             return;
         }
         @Pc(39) int local39 = arg6;
-        if (arg6 < 3 && Static441.method5968(arg0, arg3)) {
+        if (arg6 < 3 && Static441.isBridgeAt(arg0, arg3)) {
             local39 = arg6 + 1;
         }
         if (ClientOptions.instance.animateBackground.getValue() == 0 && !Static696.isTileVisibleFrom(arg0, Static164.areaLevel, arg3, local39)) {

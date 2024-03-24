@@ -333,13 +333,13 @@ public final class Protocol {
                             } else if (arg0.currentProt == Static314.A_SERVER_PROT___132) {
                                 for (local277 = 0; local277 < PlayerList.highResolutionPlayers.length; local277++) {
                                     if (PlayerList.highResolutionPlayers[local277] != null) {
-                                        PlayerList.highResolutionPlayers[local277].anIntArray869 = null;
-                                        PlayerList.highResolutionPlayers[local277].aAnimator_11.update(true, -1);
+                                        PlayerList.highResolutionPlayers[local277].actionAnimations = null;
+                                        PlayerList.highResolutionPlayers[local277].actionAnimator.update(true, -1);
                                     }
                                 }
-                                for (local100 = 0; local100 < Static416.anInt6378; local100++) {
-                                    Static592.aClass2_Sub45Array1[local100].npc.anIntArray869 = null;
-                                    Static592.aClass2_Sub45Array1[local100].npc.aAnimator_11.update(true, -1);
+                                for (local100 = 0; local100 < NPCList.newNpcCount; local100++) {
+                                    NPCList.localNpcs[local100].npc.actionAnimations = null;
+                                    NPCList.localNpcs[local100].npc.actionAnimator.update(true, -1);
                                 }
                                 arg0.currentProt = null;
                                 return true;
@@ -673,7 +673,7 @@ public final class Protocol {
                                             local1409 = local11.g2_alt2();
                                             @Pc(2608) NPCEntityNode local2608 = (NPCEntityNode) NPCList.local.get(local1409);
                                             if (local2608 != null) {
-                                                Static651.method8515(local2579, local277, true, local2608.npc);
+                                                Static651.animate(local2579, local277, true, local2608.npc);
                                             }
                                             arg0.currentProt = null;
                                             return true;
@@ -781,7 +781,7 @@ public final class Protocol {
                                             return false;
                                         } else {
                                             @Pc(3044) byte[] local3044;
-                                            if (Static692.A_SERVER_PROT___251 == arg0.currentProt) {
+                                            if (ServerProt.A_SERVER_PROT___251 == arg0.currentProt) {
                                                 if (GameShell.fsframe != null) {
                                                     InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                                                 }
@@ -1210,12 +1210,12 @@ public final class Protocol {
                                                                         @Pc(5032) NPCEntityNode local5032 = (NPCEntityNode) NPCList.local.get(local653);
                                                                         if (local5032 != null) {
                                                                             @Pc(5037) NPCEntity local5037 = local5032.npc;
-                                                                            @Pc(5042) Class199 local5042 = local5037.aClass199Array3[local526];
+                                                                            @Pc(5042) EntitySpotAnimation local5042 = local5037.spotAnims[local526];
                                                                             if (local2098 == 65535) {
                                                                                 local2098 = -1;
                                                                             }
                                                                             local665 = true;
-                                                                            local667 = local5042.anInt4930;
+                                                                            local667 = local5042.id;
                                                                             if (local2098 != -1 && local667 != -1) {
                                                                                 if (local667 == local2098) {
                                                                                     local4888 = SpotAnimationTypeList.instance.list(local2098);
@@ -1241,18 +1241,18 @@ public final class Protocol {
                                                                                 }
                                                                             }
                                                                             if (local665) {
-                                                                                local5042.anInt4928 = local996;
-                                                                                local5042.anInt4931 = local1413;
-                                                                                local5042.anInt4930 = local2098;
+                                                                                local5042.wornSlot = local996;
+                                                                                local5042.height = local1413;
+                                                                                local5042.id = local2098;
                                                                                 if (local2098 == -1) {
-                                                                                    local5042.aAnimator_7.update(true, -1);
+                                                                                    local5042.animator.update(true, -1);
                                                                                 } else {
                                                                                     local4888 = SpotAnimationTypeList.instance.list(local2098);
                                                                                     replayMode = local4888.loopSeq ? 0 : 2;
                                                                                     if (local4806) {
                                                                                         replayMode = 1;
                                                                                     }
-                                                                                    local5042.aAnimator_7.update(local4888.seq, local277, replayMode, false);
+                                                                                    local5042.animator.update(local4888.seq, local277, replayMode, false);
                                                                                 }
                                                                             }
                                                                         }
@@ -1265,12 +1265,12 @@ public final class Protocol {
                                                                             local4839 = PlayerList.highResolutionPlayers[local653];
                                                                         }
                                                                         if (local4839 != null) {
-                                                                            @Pc(4850) Class199 local4850 = local4839.aClass199Array3[local526];
+                                                                            @Pc(4850) EntitySpotAnimation local4850 = local4839.spotAnims[local526];
                                                                             if (local2098 == 65535) {
                                                                                 local2098 = -1;
                                                                             }
                                                                             local4857 = true;
-                                                                            local1097 = local4850.anInt4930;
+                                                                            local1097 = local4850.id;
                                                                             @Pc(4883) SpotAnimationType local4883;
                                                                             if (local2098 != -1 && local1097 != -1) {
                                                                                 if (local2098 == local1097) {
@@ -1297,19 +1297,19 @@ public final class Protocol {
                                                                                 }
                                                                             }
                                                                             if (local4857) {
-                                                                                local4850.anInt4928 = local996;
-                                                                                local4850.anInt4931 = local1413;
-                                                                                local4850.anInt4929 = local992;
-                                                                                local4850.anInt4930 = local2098;
+                                                                                local4850.wornSlot = local996;
+                                                                                local4850.height = local1413;
+                                                                                local4850.rotation = local992;
+                                                                                local4850.id = local2098;
                                                                                 if (local2098 == -1) {
-                                                                                    local4850.aAnimator_7.update(true, -1);
+                                                                                    local4850.animator.update(true, -1);
                                                                                 } else {
                                                                                     local4883 = SpotAnimationTypeList.instance.list(local2098);
                                                                                     @Pc(5006) int local5006 = local4883.loopSeq ? 0 : 2;
                                                                                     if (local4806) {
                                                                                         local5006 = 1;
                                                                                     }
-                                                                                    local4850.aAnimator_7.update(local4883.seq, local277, local5006, false);
+                                                                                    local4850.animator.update(local4883.seq, local277, local5006, false);
                                                                                 }
                                                                             }
                                                                         }
@@ -1329,7 +1329,7 @@ public final class Protocol {
                                                                             local1021 = local657 * 512 + 256;
                                                                             local1097 = local3502 * 512 + 256;
                                                                             local667 = local653;
-                                                                            if (local653 < 3 && Static441.method5968(local3502, local657)) {
+                                                                            if (local653 < 3 && Static441.isBridgeAt(local3502, local657)) {
                                                                                 local667 = local653 + 1;
                                                                             }
                                                                             @Pc(5334) Class8_Sub2_Sub1_Sub5 local5334 = new Class8_Sub2_Sub1_Sub5(local2098, local277, local653, local667, local1021, Static102.method2025(local653, -29754, local1097, local1021) - local1413, local1097, local657, local657, local3502, local3502, local992, local4806);
@@ -1853,7 +1853,7 @@ public final class Protocol {
                                                                             Static352.lastClanTransmit = World.tick;
                                                                             arg0.currentProt = null;
                                                                             return true;
-                                                                        } else if (arg0.currentProt == Static25.A_SERVER_PROT___11) {
+                                                                        } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___11) {
                                                                             local277 = local11.g2();
                                                                             local100 = local11.g4();
                                                                             if (Static279.anObjectArray35 == null) {
@@ -1956,7 +1956,7 @@ public final class Protocol {
                                                                             }
                                                                             arg0.currentProt = null;
                                                                             return true;
-                                                                        } else if (arg0.currentProt == Static85.A_SERVER_PROT___257) {
+                                                                        } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___257) {
                                                                             local277 = local11.g2();
                                                                             local100 = local11.g4();
                                                                             local526 = local11.g2();
@@ -2040,7 +2040,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static269.A_SERVER_PROT___111) {
-                                                                            Static346.method5085();
+                                                                            NPCList.updateNpcs();
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static670.A_SERVER_PROT___245 == arg0.currentProt) {

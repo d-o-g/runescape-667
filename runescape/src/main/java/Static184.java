@@ -22,7 +22,7 @@ public final class Static184 {
             @Pc(35) PositionEntity local35 = local31.aPositionEntity;
             if (local35 instanceof PathingEntity) {
                 @Pc(41) PathingEntity local41 = (PathingEntity) local35;
-                @Pc(51) int local51 = local41.getBoundSize() * 256 + 252 - 256;
+                @Pc(51) int local51 = local41.getSize() * 256 + 252 - 256;
                 @Pc(59) int local59 = local41.x - local51 >> 9;
                 @Pc(66) int local66 = local41.z - local51 >> 9;
                 @Pc(74) int local74 = local41.x + local51 >> 9;

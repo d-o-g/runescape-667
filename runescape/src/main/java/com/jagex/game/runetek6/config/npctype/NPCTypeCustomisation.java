@@ -11,7 +11,7 @@ public final class NPCTypeCustomisation {
     public short[] retex_d;
 
     @OriginalMember(owner = "client!vk", name = "d", descriptor = "[I")
-    public int[] models;
+    public int[] remodel_d;
 
     @OriginalMember(owner = "client!vk", name = "g", descriptor = "[S")
     public short[] recol_d;
@@ -20,9 +20,9 @@ public final class NPCTypeCustomisation {
     public long id;
 
     @OriginalMember(owner = "client!vk", name = "<init>", descriptor = "(J[I[S[S)V")
-    public NPCTypeCustomisation(@OriginalArg(0) long id, @OriginalArg(1) int[] models, @OriginalArg(2) short[] recol_d, @OriginalArg(3) short[] retex_d) {
+    public NPCTypeCustomisation(@OriginalArg(0) long id, @OriginalArg(1) int[] remodel_d, @OriginalArg(2) short[] recol_d, @OriginalArg(3) short[] retex_d) {
         this.retex_d = retex_d;
-        this.models = models;
+        this.remodel_d = remodel_d;
         this.recol_d = recol_d;
         this.id = id;
     }

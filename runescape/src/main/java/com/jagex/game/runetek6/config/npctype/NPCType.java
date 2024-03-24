@@ -223,7 +223,7 @@ public final class NPCType {
     public int cursor1Op = -1;
 
     @OriginalMember(owner = "client!o", name = "lb", descriptor = "I")
-    public int rotationSpeed = 32;
+    public int yawSpeed = 32;
 
     @OriginalMember(owner = "client!o", name = "C", descriptor = "I")
     public int cursor2 = -1;
@@ -358,7 +358,7 @@ public final class NPCType {
         } else if (code == 102) {
             this.headIcon = packet.g2();
         } else if (code == 103) {
-            this.rotationSpeed = packet.g2();
+            this.yawSpeed = packet.g2();
         } else if (code == 106 || code == 118) {
             this.multinpcVarbit = packet.g2();
             if (this.multinpcVarbit == 65535) {
@@ -540,7 +540,7 @@ public final class NPCType {
             return multiNpc == null ? null : multiNpc.headModel(functionMask, animator, customisation, toolkit, varDomain);
         }
 
-        if (this.headModels == null && (customisation == null || customisation.models == null)) {
+        if (this.headModels == null && (customisation == null || customisation.remodel_d == null)) {
             return null;
         }
 
@@ -576,7 +576,7 @@ public final class NPCType {
                 innerFunctionMask |= 0x80000;
             }
 
-            @Pc(163) int[] modelIds = customisation == null || customisation.models == null ? this.headModels : customisation.models;
+            @Pc(163) int[] modelIds = customisation == null || customisation.remodel_d == null ? this.headModels : customisation.remodel_d;
             @Pc(165) boolean notReady = false;
             @Pc(169) js5 local169 = this.typeList.meshes;
             synchronized (this.typeList.meshes) {
@@ -735,7 +735,7 @@ public final class NPCType {
                 innerFunctionMask |= 0x80000;
             }
 
-            @Pc(216) int[] modelIds = (customisation != null && customisation.models != null) ? customisation.models : this.models;
+            @Pc(216) int[] modelIds = (customisation != null && customisation.remodel_d != null) ? customisation.remodel_d : this.models;
             @Pc(218) boolean notReady = false;
             @Pc(222) js5 local222 = this.typeList.meshes;
             synchronized (this.typeList.meshes) {

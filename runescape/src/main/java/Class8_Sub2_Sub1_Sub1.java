@@ -115,7 +115,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         this.anInt705 = arg8;
         this.anInt709 = arg9;
         @Pc(82) int local82 = SpotAnimationTypeList.instance.list(this.anInt715).seq;
-        this.aAnimator_1 = new Animator_Sub2(this, false);
+        this.aAnimator_1 = new EntityAnimator(this, false);
         this.aAnimator_1.update(true, local82);
     }
 
@@ -184,7 +184,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6) {
+    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg4 >= 101) {
             throw new IllegalStateException();
         }
@@ -243,7 +243,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         if (this.anInt695 < 0) {
             return;
         }
-        @Pc(105) BASType local105 = local21.method9317();
+        @Pc(105) BASType local105 = local21.getBASType();
         @Pc(107) int local107 = 0;
         @Pc(109) int local109 = 0;
         if (local105.wornTransformations != null && local105.wornTransformations[this.anInt695] != null) {
@@ -255,7 +255,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             local107 += local105.graphicOffsets[this.anInt695][0];
         }
         if (local107 != 0 || local109 != 0) {
-            @Pc(185) int local185 = local21.aClass126_7.method2673(16383);
+            @Pc(185) int local185 = local21.yaw.getValue(16383);
             @Pc(187) int local187 = local185;
             if (local21.anIntArray877 != null && local21.anIntArray877[this.anInt695] != -1) {
                 local187 = local21.anIntArray877[this.anInt695];

@@ -97,7 +97,7 @@ public final class Static57 {
                 local75.buffer.p1_alt3(0);
                 local75.buffer.p2_alt3(InterfaceManager.targetComponent);
                 ConnectionManager.GAME.send(local75);
-                Static147.findPath(0, local35.pathY[0], local35.getBoundSize(), true, local35.pathX[0], 0, -2, local35.getBoundSize());
+                Static147.findPath(0, local35.pathZ[0], local35.getSize(), true, local35.pathX[0], 0, -2, local35.getSize());
                 local22 = true;
                 break;
             }

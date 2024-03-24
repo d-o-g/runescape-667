@@ -1,5 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.game.runetek6.config.hitmarktype.HitmarkType;
 import com.jagex.game.runetek6.config.hitmarktype.HitmarkTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
@@ -36,7 +37,7 @@ public final class Static608 {
         if (CutsceneManager.state == 3) {
             local20 = Static219.aClass236Array1.length;
         } else {
-            local20 = Static390.anInt6126 + local7;
+            local20 = NPCList.localNpcCount + local7;
         }
         @Pc(267) int local267;
         @Pc(321) int local321;
@@ -76,7 +77,7 @@ public final class Static608 {
                 if (local27 < local7) {
                     local51 = PlayerList.highResolutionPlayers[local11[local27]];
                 } else {
-                    local51 = ((NPCEntityNode) NPCList.local.get(Static103.anIntArray187[local27 - local7])).npc;
+                    local51 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local27 - local7])).npc;
                     local31 = ((NPCEntity) local51).type;
                     if (local31.multinpcs != null) {
                         local31 = local31.getMultiNPC(TimedVarDomain.instance);
@@ -92,12 +93,12 @@ public final class Static608 {
             Static716.method9350(local51, arg3 >> 1, local51.method9299(), arg1 >> 1);
             if (Static215.anIntArray284[0] >= 0) {
                 if (local51.method9311()) {
-                    @Pc(182) Class80 local182 = local51.method9318(-3109);
+                    @Pc(182) ChatMessage local182 = local51.method9318(-3109);
                     if (local182 != null && Static481.anInt7222 < Static352.anInt5752) {
-                        Static352.anIntArray446[Static481.anInt7222] = Fonts.b12Metrics.stringWidth(local182.method2105()) / 2;
+                        Static352.anIntArray446[Static481.anInt7222] = Fonts.b12Metrics.stringWidth(local182.getText()) / 2;
                         Static352.anIntArray445[Static481.anInt7222] = Static215.anIntArray284[0];
                         Static352.anIntArray444[Static481.anInt7222] = Static215.anIntArray284[1];
-                        Static352.aClass80Array1[Static481.anInt7222] = local182;
+                        Static352.A_CHAT_MESSAGE_ARRAY_1[Static481.anInt7222] = local182;
                         Static481.anInt7222++;
                     }
                 }
@@ -111,14 +112,14 @@ public final class Static608 {
                     @Pc(262) byte local262 = 1;
                     if (local31 == null) {
                         @Pc(283) PlayerEntity local283 = PlayerList.highResolutionPlayers[local11[local27]];
-                        local267 = local51.method9317().hitbarSprite;
+                        local267 = local51.getBASType().hitbarSprite;
                         if (local283.aBoolean128) {
                             local262 = 2;
                         }
                     } else {
                         local267 = local31.healthBarSprite;
                         if (local267 == -1) {
-                            local267 = local51.method9317().hitbarSprite;
+                            local267 = local51.getBASType().hitbarSprite;
                         }
                     }
                     @Pc(295) Sprite[] local295 = Sprites.hitbarDefault;
@@ -161,15 +162,15 @@ public final class Static608 {
                     @Pc(486) Sprite local486;
                     @Pc(496) Sprite local496;
                     if (local51.anInt10719 > TimeUtils.clock) {
-                        local486 = Sprites.timerbarDefault[local51.aBoolean818 ? 2 : 0];
-                        local496 = Sprites.timerbarDefault[local51.aBoolean818 ? 3 : 1];
+                        local486 = Sprites.timerbarDefault[local51.timerbarSprite ? 2 : 0];
+                        local496 = Sprites.timerbarDefault[local51.timerbarSprite ? 3 : 1];
                         if (local51 instanceof NPCEntity) {
                             local504 = local31.timerbarSprite;
                             if (local504 == -1) {
-                                local504 = local51.method9317().timerbarSprite;
+                                local504 = local51.getBASType().timerbarSprite;
                             }
                         } else {
-                            local504 = local51.method9317().timerbarSprite;
+                            local504 = local51.getBASType().timerbarSprite;
                         }
                         if (local504 != -1) {
                             local306 = (Sprite[]) Sprites.timerbarCache.get(local504);
@@ -184,15 +185,15 @@ public final class Static608 {
                                 }
                             }
                             if (local306 != null && local306.length == 4) {
-                                local486 = local306[local51.aBoolean818 ? 2 : 0];
-                                local496 = local306[local51.aBoolean818 ? 3 : 1];
+                                local486 = local306[local51.timerbarSprite ? 2 : 0];
+                                local496 = local306[local51.timerbarSprite ? 3 : 1];
                             }
                         }
                         @Pc(612) int local612 = local51.anInt10719 - TimeUtils.clock;
-                        if (local51.anInt10738 < local612) {
-                            local612 -= local51.anInt10738;
-                            local321 = local51.anInt10731 == 0 ? 0 : (local51.anInt10737 - local612) / local51.anInt10731 * local51.anInt10731;
-                            local651 = local486.getWidth() * local321 / local51.anInt10737;
+                        if (local51.timerbarStart < local612) {
+                            local612 -= local51.timerbarStart;
+                            local321 = local51.timerbarGranularity == 0 ? 0 : (local51.timerbarDuration - local612) / local51.timerbarGranularity * local51.timerbarGranularity;
+                            local651 = local486.getWidth() * local321 / local51.timerbarDuration;
                         } else {
                             local651 = local486.getWidth();
                         }
@@ -237,7 +238,7 @@ public final class Static608 {
                     local905 = Static527.aClass254Array1;
                     for (local504 = 0; local504 < local905.length; local504++) {
                         local913 = local905[local504];
-                        if (local913 != null && local913.anInt6363 == 1 && Static103.anIntArray187[local27 - local7] == local913.anInt6366) {
+                        if (local913 != null && local913.anInt6363 == 1 && NPCList.localNpcIndices[local27 - local7] == local913.anInt6366) {
                             local381 = Sprites.hintHeadicons[local913.anInt6367];
                             if (local381.getHeight() > local267) {
                                 local267 = local381.getHeight();
@@ -246,7 +247,7 @@ public final class Static608 {
                             if (local913.anInt6360 == 0) {
                                 local1071 = true;
                             } else {
-                                local409 = Static504.method6733() * 1000 / local913.anInt6360 / 2;
+                                local409 = GameShell.speed() * 1000 / local913.anInt6360 / 2;
                                 local1071 = local409 > TimeUtils.clock % (local409 * 2);
                             }
                             if (local1071) {
@@ -274,40 +275,40 @@ public final class Static608 {
                     if (local267 > 0) {
                     }
                 }
-                for (local267 = 0; local267 < Static523.graphicsDefaults.maxhitmarks; local267++) {
-                    local1179 = local51.anIntArray871[local267];
-                    local504 = local51.anIntArray873[local267];
+                for (local267 = 0; local267 < GraphicsDefaults.instance.maxhitmarks; local267++) {
+                    local1179 = local51.hitmarkEndTimes[local267];
+                    local504 = local51.hitTypes[local267];
                     @Pc(1186) HitmarkType local1186 = null;
                     local651 = 0;
                     if (local504 >= 0) {
                         if (TimeUtils.clock >= local1179) {
                             continue;
                         }
-                        local1186 = HitmarkTypeList.instance.list(local51.anIntArray873[local267]);
+                        local1186 = HitmarkTypeList.instance.list(local51.hitTypes[local267]);
                         local651 = local1186.duration;
                     } else if (local1179 < 0) {
                         continue;
                     }
-                    local321 = local51.anIntArray876[local267];
+                    local321 = local51.soakTypes[local267];
                     @Pc(1218) HitmarkType local1218 = null;
                     if (local321 >= 0) {
                         local1218 = HitmarkTypeList.instance.list(local321);
                     }
                     if (local1179 - local651 <= TimeUtils.clock) {
-                        local412 = local51.anIntArray875[local267];
+                        local412 = local51.healthPercentages[local267];
                         if (local412 >= 0) {
                             local51.anInt10747 = TimeUtils.clock + 300;
                             local51.anInt10726 = local412;
-                            local51.anIntArray875[local267] = -1;
+                            local51.healthPercentages[local267] = -1;
                         }
                         if (local1186 == null) {
-                            local51.anIntArray871[local267] = -1;
+                            local51.hitmarkEndTimes[local267] = -1;
                         } else {
                             local1274 = local51.method9299() / 2;
                             Static716.method9350(local51, arg3 >> 1, local1274, arg1 >> 1);
                             if (Static215.anIntArray284[0] > -1) {
-                                Static215.anIntArray284[0] += Static523.graphicsDefaults.hitmarkpos_x[local267];
-                                Static215.anIntArray284[1] += Static523.graphicsDefaults.hitmarkpos_y[local267];
+                                Static215.anIntArray284[0] += GraphicsDefaults.instance.hitmarkpos_x[local267];
+                                Static215.anIntArray284[1] += GraphicsDefaults.instance.hitmarkpos_y[local267];
                                 local1321 = 0;
                                 local1323 = 0;
                                 local1325 = 0;
@@ -440,10 +441,10 @@ public final class Static608 {
                                 }
                                 @Pc(1658) String local1658 = null;
                                 @Pc(1662) int local1662 = 0;
-                                @Pc(1670) String local1670 = local1186.method6457(local51.anIntArray870[local267]);
+                                @Pc(1670) String local1670 = local1186.method6457(local51.hitAmounts[local267]);
                                 @Pc(1675) int local1675 = local1593.stringWidth(local1670);
                                 if (local1218 != null) {
-                                    local1658 = local1218.method6457(local51.anIntArray874[local267]);
+                                    local1658 = local1218.method6457(local51.soakAmounts[local267]);
                                     local1662 = local1595.stringWidth(local1658);
                                 }
                                 @Pc(1692) int local1692 = 0;
@@ -508,7 +509,7 @@ public final class Static608 {
                                         local1719 += local1351;
                                     }
                                 }
-                                local1831 = local51.anIntArray871[local267] - TimeUtils.clock;
+                                local1831 = local51.hitmarkEndTimes[local267] - TimeUtils.clock;
                                 @Pc(1871) int local1871 = local1186.offsetX - local1186.offsetX * local1831 / local1186.duration;
                                 @Pc(1884) int local1884 = local1831 * local1186.offsetY / local1186.duration - local1186.offsetY;
                                 @Pc(1898) int local1898 = arg2 + Static215.anIntArray284[0] + local1871 - (local1719 >> 1);
@@ -653,7 +654,7 @@ public final class Static608 {
                 }
             }
             Static352.anIntArray444[local233] = local1179;
-            @Pc(2627) String local2627 = Static352.aClass80Array1[local233].method2105();
+            @Pc(2627) String local2627 = Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getText();
             local321 = Fonts.b12Metrics.stringWidth(local2627);
             local409 = local267 + arg2;
             local412 = local1179 + arg0 - Fonts.b12Metrics.paddingTop;
@@ -661,7 +662,7 @@ public final class Static608 {
             @Pc(2654) int local2654 = Fonts.b12Metrics.paddingBottom + arg0 + local1179;
             if (Static55.anInt1124 == 0) {
                 @Pc(2663) int local2663 = 0xFFFF00;
-                @Pc(2669) int local2669 = Static352.aClass80Array1[local233].method2107();
+                @Pc(2669) int local2669 = Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getColour();
                 if (local2669 < 6) {
                     local2663 = Static587.anIntArray689[local2669];
                 }
@@ -676,7 +677,7 @@ public final class Static608 {
                 }
                 @Pc(2749) int local2749;
                 if (local2669 == 9) {
-                    local2749 = 150 - Static352.aClass80Array1[local233].method2110() * 150 / Static352.aClass80Array1[local233].method2103();
+                    local2749 = 150 - Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getRemaining() * 150 / Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getDuration();
                     if (local2749 < 50) {
                         local2663 = local2749 * 1280 + 16711680;
                     } else if (local2749 < 100) {
@@ -686,7 +687,7 @@ public final class Static608 {
                     }
                 }
                 if (local2669 == 10) {
-                    local2749 = 150 - Static352.aClass80Array1[local233].method2110() * 150 / Static352.aClass80Array1[local233].method2103();
+                    local2749 = 150 - Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getRemaining() * 150 / Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getDuration();
                     if (local2749 < 50) {
                         local2663 = local2749 * 5 + 16711680;
                     } else if (local2749 < 100) {
@@ -696,7 +697,7 @@ public final class Static608 {
                     }
                 }
                 if (local2669 == 11) {
-                    local2749 = 150 - Static352.aClass80Array1[local233].method2110() * 150 / Static352.aClass80Array1[local233].method2103();
+                    local2749 = 150 - Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getRemaining() * 150 / Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getDuration();
                     if (local2749 < 50) {
                         local2663 = 16777215 - local2749 * 327685;
                     } else if (local2749 < 100) {
@@ -706,7 +707,7 @@ public final class Static608 {
                     }
                 }
                 local2749 = local2663 | 0xFF000000;
-                local1321 = Static352.aClass80Array1[local233].method2108();
+                local1321 = Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getEffect();
                 if (local1321 == 0) {
                     Fonts.b12.renderCentre(-16777216, local267 + arg2, local2627, local1179 + arg0, local2749);
                     local1274 -= local321 >> 1;
@@ -727,7 +728,7 @@ public final class Static608 {
                     local1274 -= (local321 >> 1) - 5;
                 }
                 if (local1321 == 3) {
-                    local1323 = 150 - Static352.aClass80Array1[local233].method2110() * 150 / Static352.aClass80Array1[local233].method2103();
+                    local1323 = 150 - Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getRemaining() * 150 / Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getDuration();
                     local409 -= local321 >> 1;
                     local2654 += 7;
                     local412 -= 7;
@@ -735,7 +736,7 @@ public final class Static608 {
                     Fonts.b12.renderShake(local1323, local267 + arg2, Static198.anInt3276, arg0 + local1179, local2749, local2627, -16777216);
                 }
                 if (local1321 == 4) {
-                    local1323 = 150 - Static352.aClass80Array1[local233].method2110() * 150 / Static352.aClass80Array1[local233].method2103();
+                    local1323 = 150 - Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getRemaining() * 150 / Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getDuration();
                     local1325 = (Fonts.b12Metrics.stringWidth(local2627) + 100) * local1323 / 150;
                     Toolkit.active.T(arg2 + local267 - 50, arg0, local267 + arg2 + 50, arg0 - -arg3);
                     local409 += 50 - local1325;
@@ -744,7 +745,7 @@ public final class Static608 {
                     Toolkit.active.KA(arg2, arg0, arg2 + arg1, arg3 + arg0);
                 }
                 if (local1321 == 5) {
-                    local1323 = 150 - Static352.aClass80Array1[local233].method2110() * 150 / Static352.aClass80Array1[local233].method2103();
+                    local1323 = 150 - Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getRemaining() * 150 / Static352.A_CHAT_MESSAGE_ARRAY_1[local233].getDuration();
                     local1325 = 0;
                     if (local1323 < 25) {
                         local1325 = local1323 - 25;

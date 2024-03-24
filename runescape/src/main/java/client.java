@@ -814,7 +814,7 @@ public final class client extends GameShell {
                                                 } else if (local541 > 3) {
                                                     local541 = 3;
                                                 }
-                                                Static624.teleport(local541, PlayerEntity.self.pathY[0] + WorldMap.areaBaseZ, WorldMap.areaBaseX - -PlayerEntity.self.pathX[0]);
+                                                Static624.teleport(local541, PlayerEntity.self.pathZ[0] + WorldMap.areaBaseZ, WorldMap.areaBaseX - -PlayerEntity.self.pathX[0]);
                                             }
                                             Static320.method4598();
                                             for (local541 = 0; local541 < 5; local541++) {
@@ -1123,14 +1123,14 @@ public final class client extends GameShell {
         WorldMap.setOptions(-1, -1, null);
         Static443.method5981();
         World.tick++;
-        for (local46 = 0; local46 < Static416.anInt6378; local46++) {
-            @Pc(97) NPCEntity local97 = Static592.aClass2_Sub45Array1[local46].npc;
+        for (local46 = 0; local46 < NPCList.newNpcCount; local46++) {
+            @Pc(97) NPCEntity local97 = NPCList.localNpcs[local46].npc;
             if (local97 != null) {
                 @Pc(103) byte local103 = local97.type.movementCapabilities;
                 if ((local103 & 0x1) != 0) {
-                    @Pc(114) int local114 = local97.getBoundSize();
+                    @Pc(114) int local114 = local97.getSize();
                     @Pc(142) int local142;
-                    if ((local103 & 0x2) != 0 && local97.anInt10764 == 0 && Math.random() * 1000.0D < 10.0D) {
+                    if ((local103 & 0x2) != 0 && local97.pathPointer == 0 && Math.random() * 1000.0D < 10.0D) {
                         local142 = (int) Math.round(Math.random() * 10.0D - 5.0D);
                         @Pc(150) int local150 = (int) Math.round(Math.random() * 10.0D - 5.0D);
                         if (local142 != 0 || local150 != 0) {
@@ -1140,23 +1140,23 @@ public final class client extends GameShell {
                             } else if (local166 > Static720.mapWidth - local114 - 1) {
                                 local166 = Static720.mapWidth - local114 - 1;
                             }
-                            @Pc(203) int local203 = local150 + local97.pathY[0];
+                            @Pc(203) int local203 = local150 + local97.pathZ[0];
                             if (local203 < 0) {
                                 local203 = 0;
                             } else if (local203 > Static501.mapHeight - local114 - 1) {
                                 local203 = Static501.mapHeight - local114 - 1;
                             }
-                            @Pc(258) int local258 = Static521.method6870(local203, local114, true, 0, local97.pathX[0], local114, Static480.anIntArray583, local114, local97.pathY[0], -1, Static577.A_COLLISION_MAP_ARRAY_1[local97.level], Static70.anIntArray147, local166, 0);
+                            @Pc(258) int local258 = Static521.method6870(local203, local114, true, 0, local97.pathX[0], local114, Static480.anIntArray583, local114, local97.pathZ[0], -1, Static577.A_COLLISION_MAP_ARRAY_1[local97.level], Static70.anIntArray147, local166, 0);
                             if (local258 > 0) {
                                 if (local258 > 9) {
                                     local258 = 9;
                                 }
                                 for (@Pc(274) int local274 = 0; local274 < local258; local274++) {
                                     local97.pathX[local274] = Static70.anIntArray147[local258 - local274 - 1];
-                                    local97.pathY[local274] = Static480.anIntArray583[local258 - local274 - 1];
-                                    local97.aByteArray111[local274] = 1;
+                                    local97.pathZ[local274] = Static480.anIntArray583[local258 - local274 - 1];
+                                    local97.pathSpeed[local274] = 1;
                                 }
-                                local97.anInt10764 = local258;
+                                local97.pathPointer = local258;
                             }
                         }
                     }
@@ -1677,7 +1677,7 @@ public final class client extends GameShell {
             trace = "[1)" + WorldMap.areaBaseX + "," + WorldMap.areaBaseZ + "," + Static720.mapWidth + "," + Static501.mapHeight + "|";
 
             if (PlayerEntity.self != null) {
-                trace = trace + "2)" + Camera.renderingLevel + "," + (PlayerEntity.self.pathX[0] + WorldMap.areaBaseX) + "," + (WorldMap.areaBaseZ + PlayerEntity.self.pathY[0]) + "|";
+                trace = trace + "2)" + Camera.renderingLevel + "," + (PlayerEntity.self.pathX[0] + WorldMap.areaBaseX) + "," + (WorldMap.areaBaseZ + PlayerEntity.self.pathZ[0]) + "|";
             }
 
             trace = trace + "3)" + ClientOptions.instance.toolkit.getValue() + "|4)" + ClientOptions.instance.antialiasingMode.getValue() + "|5)" + InterfaceManager.getWindowMode() + "|6)" + GameShell.canvasWid + "," + GameShell.canvasHei + "|";

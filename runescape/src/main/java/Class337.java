@@ -72,7 +72,7 @@ public final class Class337 {
     public final int anInt8645;
 
     @OriginalMember(owner = "client!sh", name = "B", descriptor = "Lclient!eo;")
-    public final Renderable aRenderable_21;
+    public final Entity aEntity_21;
 
     @OriginalMember(owner = "client!sh", name = "H", descriptor = "Z")
     public final boolean aBoolean661;
@@ -81,17 +81,17 @@ public final class Class337 {
     public final Animator aAnimator_9;
 
     @OriginalMember(owner = "client!sh", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIILclient!eo;ZI)V")
-    public Class337(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Renderable arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8) {
+    public Class337(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8) {
         this.aByte133 = (byte) arg5;
         this.anInt8663 = arg3;
         this.aByte132 = (byte) arg4;
         this.aBoolean659 = arg8 != -1;
         this.anInt8649 = arg1.id;
         this.anInt8645 = arg2;
-        this.aRenderable_21 = arg6;
+        this.aEntity_21 = arg6;
         this.aBoolean660 = arg7;
         this.aBoolean661 = arg0.method8006() && arg1.hardShadow && !this.aBoolean660;
-        this.aAnimator_9 = new Animator_Sub2(arg6, false);
+        this.aAnimator_9 = new EntityAnimator(arg6, false);
         this.method7676(1, arg8, false);
     }
 
@@ -103,7 +103,7 @@ public final class Class337 {
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!ha;B)V")
     public void method7669(@OriginalArg(0) Toolkit arg0) {
         if (this.aClass2_Sub2_Sub9_6 != null) {
-            Static292.method4618(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aRenderable_21.x, this.aRenderable_21.z, this.aBooleanArray27);
+            Static292.method4618(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aEntity_21.x, this.aEntity_21.z, this.aBooleanArray27);
             this.aBooleanArray27 = null;
             this.aClass2_Sub2_Sub9_6 = null;
         }
@@ -203,7 +203,7 @@ public final class Class337 {
             this.aModel_8 = null;
             this.aBoolean662 = false;
         }
-        this.method7680(this.aRenderable_21, arg2);
+        this.method7680(this.aEntity_21, arg2);
         if (arg3) {
             arg3 &= this.aBoolean661 & !this.aBoolean662 & ClientOptions.instance.hardShadows.getValue() != 0;
         }
@@ -212,7 +212,7 @@ public final class Class337 {
             return null;
         }
         if (arg3) {
-            Static292.method4618(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aRenderable_21.x, this.aRenderable_21.z, this.aBooleanArray27);
+            Static292.method4618(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aEntity_21.x, this.aEntity_21.z, this.aBooleanArray27);
             this.aBoolean662 = false;
         }
         @Pc(142) Ground local142 = Static246.activeGround[this.aByte133];
@@ -227,7 +227,7 @@ public final class Class337 {
             if (arg3) {
                 arg4 |= 0x40000;
             }
-            local171 = local11.wallModel(this.anInt8645 == 11 ? this.anInt8663 + 4 : this.anInt8663, this.aRenderable_21.z, this.anInt8645 == 11 ? 10 : this.anInt8645, this.aRenderable_21.x, local163, this.aAnimator_9, arg0, local142, this.aLocTypeCustomisation_2, arg4, local142.method7878(this.aRenderable_21.z, this.aRenderable_21.x));
+            local171 = local11.wallModel(this.anInt8645 == 11 ? this.anInt8663 + 4 : this.anInt8663, this.aEntity_21.z, this.anInt8645 == 11 ? 10 : this.anInt8645, this.aEntity_21.x, local163, this.aAnimator_9, arg0, local142, this.aLocTypeCustomisation_2, arg4, local142.method7878(this.aEntity_21.z, this.aEntity_21.x));
             if (local171 == null) {
                 this.aBooleanArray27 = null;
                 this.aClass2_Sub2_Sub9_6 = null;
@@ -239,7 +239,7 @@ public final class Class337 {
                         this.aBooleanArray27 = new boolean[4];
                     }
                     this.aClass2_Sub2_Sub9_6 = local171.ba(this.aClass2_Sub2_Sub9_6);
-                    Static630.method8357(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aRenderable_21.x, this.aRenderable_21.z, this.aBooleanArray27);
+                    Static630.method8357(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aEntity_21.x, this.aEntity_21.z, this.aBooleanArray27);
                     this.aBoolean662 = true;
                 }
                 this.anInt8660 = local171.fa();
@@ -252,7 +252,7 @@ public final class Class337 {
             if (this.aModel_8 != null) {
                 arg4 |= this.aModel_8.ua();
             }
-            @Pc(389) ModelAndShadow local389 = local11.modelAndShadow(this.anInt8645 == 11 ? this.anInt8663 + 4 : this.anInt8663, this.aRenderable_21.z, this.aRenderable_21.x, local142, arg3, local142.method7878(this.aRenderable_21.z, this.aRenderable_21.x), this.anInt8645 == 11 ? 10 : this.anInt8645, arg0, this.aLocTypeCustomisation_2, arg4, local163);
+            @Pc(389) ModelAndShadow local389 = local11.modelAndShadow(this.anInt8645 == 11 ? this.anInt8663 + 4 : this.anInt8663, this.aEntity_21.z, this.aEntity_21.x, local142, arg3, local142.method7878(this.aEntity_21.z, this.aEntity_21.x), this.anInt8645 == 11 ? 10 : this.anInt8645, arg0, this.aLocTypeCustomisation_2, arg4, local163);
             if (local389 == null) {
                 this.anInt8652 = 0;
                 this.aBooleanArray27 = null;
@@ -265,7 +265,7 @@ public final class Class337 {
                 if (arg3) {
                     this.aClass2_Sub2_Sub9_6 = local389.shadow;
                     this.aBooleanArray27 = null;
-                    Static630.method8357(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aRenderable_21.x, this.aRenderable_21.z, null);
+                    Static630.method8357(this.aClass2_Sub2_Sub9_6, this.aByte133, this.aEntity_21.x, this.aEntity_21.z, null);
                     this.aBoolean662 = true;
                 }
                 this.anInt8660 = local171.fa();
@@ -291,7 +291,7 @@ public final class Class337 {
     }
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!eo;Z)V")
-    public void method7680(@OriginalArg(0) Renderable arg0, @OriginalArg(1) boolean arg1) {
+    public void method7680(@OriginalArg(0) Entity arg0, @OriginalArg(1) boolean arg1) {
         if (!this.aAnimator_9.isAnimating()) {
             this.method7676(0, -1, false);
         } else if (this.aAnimator_9.tick(TimeUtils.clock - this.anInt8643)) {

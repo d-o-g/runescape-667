@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static84 {
 
-    @OriginalMember(owner = "client!client", name = "wb", descriptor = "I")
-    public static int anInt1775;
-
     // $FF: synthetic field
     @OriginalMember(owner = "client!client", name = "Eb", descriptor = "Ljava/lang/Class;")
     public static Class aClass5;
@@ -27,7 +24,7 @@ public final class Static84 {
         if (CutsceneManager.state == 3) {
             local9 = Static219.aClass236Array1.length;
         } else {
-            local9 = Static353.aBoolean734 ? local1 : local1 + Static390.anInt6126;
+            local9 = Static353.aBoolean734 ? local1 : local1 + NPCList.localNpcCount;
         }
         for (@Pc(21) int local21 = 0; local21 < local9; local21++) {
             @Pc(36) PathingEntity local36;
@@ -41,13 +38,13 @@ public final class Static84 {
                 if (local21 < local1) {
                     local36 = PlayerList.highResolutionPlayers[local3[local21]];
                 } else {
-                    local36 = ((NPCEntityNode) NPCList.local.get(Static103.anIntArray187[local21 - local1])).npc;
+                    local36 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local21 - local1])).npc;
                 }
                 if (local36.drawPriority < 0) {
                     continue;
                 }
             }
-            @Pc(68) int local68 = local36.getBoundSize();
+            @Pc(68) int local68 = local36.getSize();
             if ((local68 & 0x1) == 0) {
                 if ((local36.x & 0x1FF) == 0 && (local36.z & 0x1FF) == 0) {
                     continue;
@@ -68,7 +65,7 @@ public final class Static84 {
         if (CutsceneManager.state == 3) {
             local9 = Static219.aClass236Array1.length;
         } else {
-            local9 = Static353.aBoolean734 ? local1 : local1 + Static390.anInt6126;
+            local9 = Static353.aBoolean734 ? local1 : local1 + NPCList.localNpcCount;
         }
         for (@Pc(21) int local21 = 0; local21 < local9; local21++) {
             @Pc(36) PathingEntity local36;
@@ -82,7 +79,7 @@ public final class Static84 {
                 if (local21 < local1) {
                     local36 = PlayerList.highResolutionPlayers[local3[local21]];
                 } else {
-                    local36 = ((NPCEntityNode) NPCList.local.get(Static103.anIntArray187[local21 - local1])).npc;
+                    local36 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local21 - local1])).npc;
                 }
                 if (local36.level != arg0) {
                     continue;
@@ -93,7 +90,7 @@ public final class Static84 {
                 }
             }
             local36.anInt10735 = 0;
-            @Pc(80) int local80 = local36.getBoundSize();
+            @Pc(80) int local80 = local36.getSize();
             if ((local80 & 0x1) == 0) {
                 if ((local36.x & 0x1FF) != 0 || (local36.z & 0x1FF) != 0) {
                     local36.aBoolean816 = false;
@@ -171,7 +168,7 @@ public final class Static84 {
                         if (local39.anInt10747 > TimeUtils.clock) {
                             local103 += 2;
                         }
-                        local103 += 5 - local39.getBoundSize() << 2;
+                        local103 += 5 - local39.getSize() << 2;
                         if (local39.aBoolean128 || local39.clanmate) {
                             local103 += 512;
                         } else {
@@ -189,8 +186,8 @@ public final class Static84 {
                 }
             }
         }
-        for (@Pc(155) int local155 = 0; local155 < Static390.anInt6126; local155++) {
-            @Pc(166) NPCEntity local166 = ((NPCEntityNode) NPCList.local.get(Static103.anIntArray187[local155])).npc;
+        for (@Pc(155) int local155 = 0; local155 < NPCList.localNpcCount; local155++) {
+            @Pc(166) NPCEntity local166 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local155])).npc;
             if (local166.method9322() && local166.type.isVisible(TimedVarDomain.instance)) {
                 local166.method9294();
                 if (local166.aShort131 >= 0 && local166.aShort132 >= 0 && local166.aShort134 < Static720.mapWidth && local166.aShort133 < Static501.mapHeight) {
@@ -201,7 +198,7 @@ public final class Static84 {
                     if (local166.anInt10747 > TimeUtils.clock) {
                         local213 += 2;
                     }
-                    local213 += 5 - local166.getBoundSize() << 2;
+                    local213 += 5 - local166.getSize() << 2;
                     if (Static150.anInt2632 == 0) {
                         if (local166.type.isFollower) {
                             local213 += 64;
@@ -267,10 +264,10 @@ public final class Static84 {
     @OriginalMember(owner = "client!client", name = "c", descriptor = "()V")
     public static void method1664() {
         Static172.anInt2893 = 0;
-        for (@Pc(3) int local3 = 0; local3 < Static390.anInt6126; local3++) {
-            @Pc(14) NPCEntity local14 = ((NPCEntityNode) NPCList.local.get(Static103.anIntArray187[local3])).npc;
+        for (@Pc(3) int local3 = 0; local3 < NPCList.localNpcCount; local3++) {
+            @Pc(14) NPCEntity local14 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local3])).npc;
             if (local14.aBoolean816 && local14.method9304((byte) -123) != -1) {
-                @Pc(34) int local34 = (local14.getBoundSize() - 1) * 256 + 252;
+                @Pc(34) int local34 = (local14.getSize() - 1) * 256 + 252;
                 @Pc(41) int local41 = local14.x - local34 >> 9;
                 @Pc(48) int local48 = local14.z - local34 >> 9;
                 @Pc(55) PathingEntity local55 = Static184.method2798(local41, local48, local14.level);
@@ -313,7 +310,7 @@ public final class Static84 {
         if (CutsceneManager.state == 3) {
             local9 = Static219.aClass236Array1.length;
         } else {
-            local9 = local1 + Static390.anInt6126;
+            local9 = local1 + NPCList.localNpcCount;
         }
         for (@Pc(16) int local16 = 0; local16 < local9; local16++) {
             @Pc(31) PathingEntity local31;
@@ -327,13 +324,13 @@ public final class Static84 {
                 if (local16 < local1) {
                     local31 = PlayerList.highResolutionPlayers[local3[local16]];
                 } else {
-                    local31 = ((NPCEntityNode) NPCList.local.get(Static103.anIntArray187[local16 - local1])).npc;
+                    local31 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local16 - local1])).npc;
                 }
                 if (local31.level != arg0 || local31.drawPriority < 0) {
                     continue;
                 }
             }
-            @Pc(69) int local69 = local31.getBoundSize();
+            @Pc(69) int local69 = local31.getSize();
             if ((local69 & 0x1) == 0) {
                 if ((local31.x & 0x1FF) != 0 || (local31.z & 0x1FF) != 0) {
                     continue;

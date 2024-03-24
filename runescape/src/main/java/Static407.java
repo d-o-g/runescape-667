@@ -11,9 +11,6 @@ public final class Static407 {
     @OriginalMember(owner = "client!mr", name = "f", descriptor = "I")
     public static int anInt6286;
 
-    @OriginalMember(owner = "client!mr", name = "b", descriptor = "I")
-    public static int anInt6288;
-
     @OriginalMember(owner = "client!mr", name = "e", descriptor = "[I")
     public static final int[] anIntArray489 = new int[]{1, -1, -1, 1};
 

@@ -22,7 +22,7 @@ public final class Static168 {
         arg0.method7417();
         @Pc(10) int local10 = PlayerList.activePlayerSlot;
         @Pc(20) PlayerEntity local20 = PlayerEntity.self = PlayerList.highResolutionPlayers[local10] = new PlayerEntity();
-        local20.anInt10740 = local10;
+        local20.id = local10;
         @Pc(28) int local28 = arg0.method7412(30);
         @Pc(33) byte local33 = (byte) (local28 >> 28);
         @Pc(39) int local39 = local28 >> 14 & 0x3FFF;

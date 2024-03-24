@@ -49,7 +49,7 @@ public final class Static369 {
                     @Pc(149) Node_Sub45 local149 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local88);
                     if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.areaLevel && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapHeight) {
                         @Pc(197) NPCEntity local197 = new NPCEntity();
-                        local197.anInt10740 = local88;
+                        local197.id = local88;
                         @Pc(205) Node_Sub45 local205 = new Node_Sub45(local197);
                         Static18.A_HASH_TABLE___2.put(local88, local205);
                         Static592.aClass2_Sub45Array1[Static416.anInt6378++] = local205;

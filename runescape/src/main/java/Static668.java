@@ -4,8 +4,8 @@ import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyLog;
 
-import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
@@ -99,10 +99,10 @@ public final class Static668 {
             }
         }
         for (local26 = 0; local26 < Static671.anInt10026; local26++) {
-            @Pc(147) Interface27 local147 = Static194.anInterface27Array1[local26];
-            @Pc(151) int local151 = local147.method2664();
-            @Pc(155) char local155 = local147.method2666();
-            @Pc(159) int local159 = local147.method2667();
+            @Pc(147) KeyLog local147 = Static194.AN_KEYBOARD_EVENT_ARRAY_1[local26];
+            @Pc(151) int local151 = local147.getKeyCode();
+            @Pc(155) char local155 = local147.getKeyChar();
+            @Pc(159) int local159 = local147.getModifierFlags();
             if (local151 == 84) {
                 Static270.method3920(false);
             }
@@ -154,7 +154,7 @@ public final class Static668 {
                 Static344.method5046();
                 Static594.anInt8776 = Static110.aString19.length();
             } else if (StringTools.isAlphanumeric(local155) || "\\/.:, _-+[]~@".indexOf(local155) != -1) {
-                Static110.aString19 = Static110.aString19.substring(0, Static594.anInt8776) + Static194.anInterface27Array1[local26].method2666() + Static110.aString19.substring(Static594.anInt8776);
+                Static110.aString19 = Static110.aString19.substring(0, Static594.anInt8776) + Static194.AN_KEYBOARD_EVENT_ARRAY_1[local26].getKeyChar() + Static110.aString19.substring(Static594.anInt8776);
                 Static594.anInt8776++;
             }
         }

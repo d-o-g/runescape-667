@@ -57,6 +57,8 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyLog;
+import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.mouse.MouseLog;
 import rs2.client.event.mouse.MouseMonitor;
 
@@ -495,13 +497,13 @@ public final class client extends GameShell {
             local179 = ClientMessage.create(Static187.A_CLIENT_PROT___36, ConnectionManager.GAME.cipher);
             local179.buffer.p1(Static216.anInt3530 * 3);
             for (local181 = 0; local181 < Static216.anInt3530; local181++) {
-                @Pc(652) Interface27 local652 = Static591.anInterface27Array2[local181];
-                local660 = (local652.method2665() - Static351.aLong173) / 50L;
+                @Pc(652) KeyLog local652 = Static591.AN_KEYBOARD_EVENT_ARRAY_2[local181];
+                local660 = (local652.getTime() - Static351.aLong173) / 50L;
                 if (local660 > 65535L) {
                     local660 = 65535L;
                 }
-                Static351.aLong173 = local652.method2665();
-                local179.buffer.p1(local652.method2664());
+                Static351.aLong173 = local652.getTime();
+                local179.buffer.p1(local652.getKeyCode());
                 local179.buffer.p2((int) local660);
             }
             ConnectionManager.GAME.send(local179);
@@ -805,7 +807,7 @@ public final class client extends GameShell {
                                             if (InterfaceManager.dragSource != null) {
                                                 Static603.method7899();
                                             }
-                                            if (Static608.staffModLevel > 0 && KeyMonitor.instance.isPressed(82) && KeyMonitor.instance.isPressed(81) && Static611.mouseWheelRotation != 0) {
+                                            if (Static608.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(82) && KeyboardMonitor.instance.isPressed(81) && Static611.mouseWheelRotation != 0) {
                                                 local541 = PlayerEntity.self.level - Static611.mouseWheelRotation;
                                                 if (local541 < 0) {
                                                     local541 = 0;
@@ -1511,7 +1513,7 @@ public final class client extends GameShell {
         }
         Static601.method7865();
         VideoManager.tick();
-        KeyMonitor.instance.method8481();
+        KeyboardMonitor.instance.record();
         MouseMonitor.instance.record();
         if (Toolkit.active != null) {
             Toolkit.active.method7977((int) SystemTimer.safetime());
@@ -1519,10 +1521,10 @@ public final class client extends GameShell {
         Static711.method9272();
         Static671.anInt10026 = 0;
         Static216.anInt3530 = 0;
-        for (@Pc(94) Interface27 local94 = KeyMonitor.instance.method8478(); local94 != null; local94 = KeyMonitor.instance.method8478()) {
-            @Pc(102) int local102 = local94.method2668();
+        for (@Pc(94) KeyLog local94 = KeyboardMonitor.instance.removeFirstRecorded(); local94 != null; local94 = KeyboardMonitor.instance.removeFirstRecorded()) {
+            @Pc(102) int local102 = local94.getType();
             if (local102 == 2 || local102 == 3) {
-                @Pc(118) char local118 = local94.method2666();
+                @Pc(118) char local118 = local94.getKeyChar();
                 if (Static647.method8468() && (local118 == '`' || local118 == '§' || local118 == '²')) {
                     if (debugconsole.isOpen()) {
                         Static129.method2279();
@@ -1530,11 +1532,11 @@ public final class client extends GameShell {
                         Static455.method6224();
                     }
                 } else if (Static671.anInt10026 < 128) {
-                    Static194.anInterface27Array1[Static671.anInt10026] = local94;
+                    Static194.AN_KEYBOARD_EVENT_ARRAY_1[Static671.anInt10026] = local94;
                     Static671.anInt10026++;
                 }
             } else if (local102 == 0 && Static216.anInt3530 < 75) {
-                Static591.anInterface27Array2[Static216.anInt3530] = local94;
+                Static591.AN_KEYBOARD_EVENT_ARRAY_2[Static216.anInt3530] = local94;
                 Static216.anInt3530++;
             }
         }
@@ -1637,7 +1639,7 @@ public final class client extends GameShell {
             Static175.aClipboard1 = aClient1.getToolkit().getSystemClipboard();
         } catch (@Pc(183) Exception local183) {
         }
-        KeyMonitor.instance = Static681.method8921(GameShell.canvas);
+        KeyboardMonitor.instance = Static681.method8921(GameShell.canvas);
         MouseMonitor.instance = MouseMonitor.create(GameShell.canvas);
         try {
             if (SignLink.instance.cacheDat != null) {

@@ -275,7 +275,7 @@ public final class Static84 {
                 @Pc(48) int local48 = local14.z - local34 >> 9;
                 @Pc(55) Class8_Sub2_Sub1_Sub2 local55 = Static184.method2798(local41, local48, local14.level);
                 if (local55 != null) {
-                    @Pc(60) int local60 = local55.anInt10740;
+                    @Pc(60) int local60 = local55.id;
                     if (local55 instanceof NPCEntity) {
                         local60 += 2048;
                     }
@@ -286,7 +286,7 @@ public final class Static84 {
                         local55.anInt10735++;
                     }
                     Static324.anIntArray390[Static172.anInt2893] = local60;
-                    Static212.anIntArray283[Static172.anInt2893] = local14.anInt10740 + 2048;
+                    Static212.anIntArray283[Static172.anInt2893] = local14.id + 2048;
                     Static172.anInt2893++;
                     local55.anInt10735++;
                 }

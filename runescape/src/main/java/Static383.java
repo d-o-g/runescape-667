@@ -33,7 +33,7 @@ public final class Static383 {
             }
             @Pc(91) Class350 local91 = Static246.aClass350Array1[arg0];
             @Pc(99) PlayerEntity local99 = PlayerList.highResolutionPlayers[arg0] = new PlayerEntity();
-            local99.anInt10740 = arg0;
+            local99.id = arg0;
             if (Static462.aClass2_Sub21Array1[arg0] != null) {
                 local99.method1420(Static462.aClass2_Sub21Array1[arg0]);
             }

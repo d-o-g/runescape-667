@@ -79,7 +79,7 @@ public final class Static684 {
                             }
                         }
                         if (local191) {
-                            Static103.anIntArray187[Static390.anInt6126++] = local146.anInt10740;
+                            Static103.anIntArray187[Static390.anInt6126++] = local146.id;
                         } else {
                             local146.method9328(null);
                             local120 = true;

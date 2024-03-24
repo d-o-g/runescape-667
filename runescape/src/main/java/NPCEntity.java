@@ -30,7 +30,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
     public NPCType type;
 
     @OriginalMember(owner = "client!wj", name = "Sc", descriptor = "I")
-    public int anInt10791;
+    public int combatLevel;
 
     @OriginalMember(owner = "client!wj", name = "ad", descriptor = "I")
     public int anInt10774 = -1;
@@ -465,13 +465,13 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(Lclient!o;Z)V")
     public void method9328(@OriginalArg(0) NPCType arg0) {
-        if (arg0 != this.type && MiniMenu.open && Static321.method4622(super.anInt10740)) {
+        if (arg0 != this.type && MiniMenu.open && Static321.method4622(super.id)) {
             Static488.method6522();
         }
         this.type = arg0;
         if (this.type != null) {
             this.aString128 = this.type.name;
-            this.anInt10791 = this.type.combatLevel;
+            this.combatLevel = this.type.combatLevel;
         }
         if (super.aClass8_Sub5_8 != null) {
             super.aClass8_Sub5_8.method3656();

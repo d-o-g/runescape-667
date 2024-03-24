@@ -12,8 +12,11 @@ import java.lang.reflect.Constructor;
 public abstract class MouseMonitor {
 
     public static final int CLICK_TYPE_NONE = 0x0;
+
     public static final int CLICK_TYPE_LEFT = 0x1;
+
     public static final int CLICK_TYPE_MIDDLE = 0x2;
+
     public static final int CLICK_TYPE_RIGHT = 0x4;
 
     @OriginalMember(owner = "client!fr", name = "h", descriptor = "Lclient!fb;")

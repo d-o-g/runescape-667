@@ -84,7 +84,7 @@ public final class Static89 {
         local7.soundVolume = arg1.soundVolume;
         local7.anInt9355 = 0;
         local7.vorbis = arg1.vorbis;
-        Static113.A_HASH_TABLE___12.put(arg1.anInt10740, local7);
+        Static113.A_HASH_TABLE___12.put(arg1.id, local7);
         return;
     }
 

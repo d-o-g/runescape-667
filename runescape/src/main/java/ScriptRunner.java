@@ -49,6 +49,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.mouse.MouseMonitor;
 
 import java.awt.datatransfer.DataFlavor;
@@ -1760,7 +1761,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3326) {
-                                        anIntArray578[anInt7142++] = PlayerEntity.self.anInt1444;
+                                        anIntArray578[anInt7142++] = PlayerEntity.self.combatLevel;
                                         return;
                                     }
                                     if (arg0 == 3327) {
@@ -4034,7 +4035,7 @@ public final class ScriptRunner {
             }
         } else if (arg0 < 5200) {
             if (arg0 == 5100) {
-                if (KeyMonitor.instance.isPressed(86)) {
+                if (KeyboardMonitor.instance.isPressed(86)) {
                     anIntArray578[anInt7142++] = 1;
                     return;
                 }
@@ -4042,7 +4043,7 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5101) {
-                if (KeyMonitor.instance.isPressed(82)) {
+                if (KeyboardMonitor.instance.isPressed(82)) {
                     anIntArray578[anInt7142++] = 1;
                     return;
                 }
@@ -4050,7 +4051,7 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5102) {
-                if (KeyMonitor.instance.isPressed(81)) {
+                if (KeyboardMonitor.instance.isPressed(81)) {
                     anIntArray578[anInt7142++] = 1;
                     return;
                 }

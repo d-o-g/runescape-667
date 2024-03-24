@@ -1,11 +1,12 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyLog;
 
 public final class Static591 {
 
     @OriginalMember(owner = "client!sl", name = "C", descriptor = "[Lclient!wka;")
-    public static final Interface27[] anInterface27Array2 = new Interface27[75];
+    public static final KeyLog[] AN_KEYBOARD_EVENT_ARRAY_2 = new KeyLog[75];
 
     @OriginalMember(owner = "client!sl", name = "B", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___107 = new ClientProt(92, 3);

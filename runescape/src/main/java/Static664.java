@@ -60,42 +60,6 @@ public final class Static664 {
         Static259.method3693(arg1, "openjs", arg3, arg0, arg2);
     }
 
-    @OriginalMember(owner = "client!vaa", name = "b", descriptor = "(Z)V")
-    public static void method8657() {
-        if (SignLink.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
-            Static471.anIntArray577[191] = 73;
-            Static471.anIntArray577[186] = 57;
-            Static471.anIntArray577[219] = 42;
-            Static471.anIntArray577[223] = 28;
-            Static471.anIntArray577[192] = 58;
-            Static471.anIntArray577[189] = 26;
-            Static471.anIntArray577[222] = 59;
-            Static471.anIntArray577[188] = 71;
-            Static471.anIntArray577[187] = 27;
-            Static471.anIntArray577[220] = 74;
-            Static471.anIntArray577[221] = 43;
-            Static471.anIntArray577[190] = 72;
-            return;
-        }
-        Static471.anIntArray577[92] = 74;
-        Static471.anIntArray577[47] = 73;
-        Static471.anIntArray577[46] = 72;
-        Static471.anIntArray577[44] = 71;
-        Static471.anIntArray577[45] = 26;
-        if (SignLink.setFocusTraversalKeysEnabled == null) {
-            Static471.anIntArray577[192] = 58;
-            Static471.anIntArray577[222] = 59;
-        } else {
-            Static471.anIntArray577[222] = 58;
-            Static471.anIntArray577[192] = 28;
-            Static471.anIntArray577[520] = 59;
-        }
-        Static471.anIntArray577[93] = 43;
-        Static471.anIntArray577[91] = 42;
-        Static471.anIntArray577[59] = 57;
-        Static471.anIntArray577[61] = 27;
-    }
-
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(ILjava/lang/String;)I")
     public static int method8658(@OriginalArg(1) String arg0) {
         if (arg0 == null) {

@@ -141,9 +141,9 @@ public final class Static538 {
                 local31.anInt10767 = local15.ig2();
             }
             if ((local35 & 0x80000) != 0) {
-                local31.anInt10791 = local15.ig2();
-                if (local31.anInt10791 == 65535) {
-                    local31.anInt10791 = local31.type.combatLevel;
+                local31.combatLevel = local15.ig2();
+                if (local31.combatLevel == 65535) {
+                    local31.combatLevel = local31.type.combatLevel;
                 }
             }
             @Pc(511) int[] local511;

@@ -2,6 +2,7 @@ import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.mouse.MouseMonitor;
 
 import java.awt.Color;
@@ -35,12 +36,12 @@ public final class Static208 {
 
     @OriginalMember(owner = "client!gha", name = "a", descriptor = "(Z)V")
     public static void method3106() {
-        KeyMonitor.instance.method8482();
+        KeyboardMonitor.instance.remove();
         MouseMonitor.instance.remove();
         client.aClient1.addcanvas();
         GameShell.canvas.setBackground(Color.black);
         Static470.anInt7112 = -1;
-        KeyMonitor.instance = Static681.method8921(GameShell.canvas);
+        KeyboardMonitor.instance = Static681.method8921(GameShell.canvas);
         MouseMonitor.instance = MouseMonitor.create(GameShell.canvas);
     }
 

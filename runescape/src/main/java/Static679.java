@@ -2,7 +2,6 @@ import com.jagex.DisplayProperties;
 import com.jagex.core.datastruct.key.Class191;
 import com.jagex.core.datastruct.key.Class299;
 import com.jagex.graphics.Sprite;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.mouse.MouseMonitor;
@@ -127,39 +126,4 @@ public final class Static679 {
         return -1;
     }
 
-    @OriginalMember(owner = "client!vj", name = "a", descriptor = "(ILclient!pg;)V")
-    public static void method8911(@OriginalArg(1) MiniMenuEntry arg0) {
-        if (MiniMenu.open) {
-            return;
-        }
-        arg0.unlink();
-        MiniMenu.entryCount--;
-        if (!arg0.independent) {
-            @Pc(79) long local79 = arg0.entryKey;
-            @Pc(85) MiniMenuEntryInner local85;
-            for (local85 = (MiniMenuEntryInner) MiniMenu.categories.get(local79); local85 != null && !local85.title.equals(arg0.opBase); local85 = (MiniMenuEntryInner) MiniMenu.categories.nextWithSameKey()) {
-            }
-            if (local85 != null && local85.remove(arg0)) {
-                MiniMenu.reposition(local85);
-            }
-            return;
-        }
-        for (@Pc(22) MiniMenuEntryInner local22 = (MiniMenuEntryInner) MiniMenu.innerEntries.first(); local22 != null; local22 = (MiniMenuEntryInner) MiniMenu.innerEntries.next()) {
-            if (local22.title.equals(arg0.opBase)) {
-                @Pc(31) boolean local31 = false;
-                for (@Pc(37) MiniMenuEntry local37 = (MiniMenuEntry) local22.entries.first(); local37 != null; local37 = (MiniMenuEntry) local22.entries.next()) {
-                    if (local37 == arg0) {
-                        local31 = true;
-                        if (local22.remove(arg0)) {
-                            MiniMenu.reposition(local22);
-                        }
-                        break;
-                    }
-                }
-                if (local31) {
-                    break;
-                }
-            }
-        }
-    }
 }

@@ -10,9 +10,6 @@ public final class Static187 {
     @OriginalMember(owner = "client!fp", name = "S", descriptor = "[S")
     public static final short[] aShortArray52 = new short[]{2, 22, 52, 30, 53, 9, 51, 15};
 
-    @OriginalMember(owner = "client!fp", name = "T", descriptor = "Z")
-    public static final boolean aBoolean255 = false;
-
     @OriginalMember(owner = "client!fp", name = "R", descriptor = "I")
     public static int anInt3093 = 0;
 

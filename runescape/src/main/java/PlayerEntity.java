@@ -116,7 +116,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public boolean aBoolean129 = false;
 
     @OriginalMember(owner = "client!ca", name = "Fd", descriptor = "I")
-    public int anInt1444 = 0;
+    public int combatLevel = 0;
 
     @OriginalMember(owner = "client!ca", name = "zd", descriptor = "Z")
     public boolean aBoolean128 = false;
@@ -266,7 +266,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     @Override
     protected int method9320(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
-            this.anInt1444 = -112;
+            this.combatLevel = -112;
         }
         return this.anInt1443;
     }
@@ -554,10 +554,10 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             Constants.playerDisplayName = this.aString8;
         }
         this.accountName = this.aString8;
-        this.anInt1444 = packet.g1();
+        this.combatLevel = packet.g1();
         if (local40) {
             this.anInt1436 = packet.g2();
-            this.anInt1437 = this.anInt1444;
+            this.anInt1437 = this.combatLevel;
             if (this.anInt1436 == 65535) {
                 this.anInt1436 = -1;
             }
@@ -600,7 +600,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             super.x = (super.pathX[0] << 9) + (this.boundSize((byte) 83) << 8);
             super.z = (super.pathY[0] << 9) + (this.boundSize((byte) 45) << 8);
         }
-        if (PlayerList.activePlayerSlot == super.anInt10740 && local603 != null) {
+        if (PlayerList.activePlayerSlot == super.id && local603 != null) {
             for (local490 = 0; local490 < local332.length; local490++) {
                 if (local332[local490] != local603[local490]) {
                     ObjTypeList.instance.spriteCacheReset();

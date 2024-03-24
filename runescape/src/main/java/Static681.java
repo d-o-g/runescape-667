@@ -2,6 +2,8 @@ import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyboardMonitor;
+import rs2.client.event.keyboard.SimpleKeyboardMonitor;
 
 import java.awt.Component;
 
@@ -26,7 +28,7 @@ public final class Static681 {
     }
 
     @OriginalMember(owner = "client!vk", name = "a", descriptor = "(ILjava/awt/Component;)Lclient!rg;")
-    public static KeyMonitor method8921(@OriginalArg(1) Component arg0) {
-        return new KeyMonitor_Sub1(arg0);
+    public static KeyboardMonitor method8921(@OriginalArg(1) Component arg0) {
+        return new SimpleKeyboardMonitor(arg0);
     }
 }

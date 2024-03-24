@@ -7,12 +7,21 @@ import org.openrs2.deob.annotation.OriginalMember;
 @OriginalClass("client!bv")
 public abstract class MouseLog extends Node {
 
+    public static final int TYPE_RESET = -1;
+
     public static final int TYPE_PRESS_LEFT = 0;
+
     public static final int TYPE_PRESS_MIDDLE = 1;
+
     public static final int TYPE_PRESS_RIGHT = 2;
+
     public static final int TYPE_RELEASE_LEFT = 3;
+
     public static final int TYPE_RELEASE_MIDDLE = 4;
+
     public static final int TYPE_RELEASE_RIGHT = 5;
+
+    public static final int TYPE_SCROLL = 6;
 
     @OriginalMember(owner = "client!bv", name = "a", descriptor = "(Z)I")
     public abstract int getType();

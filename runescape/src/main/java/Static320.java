@@ -2,6 +2,7 @@ import com.jagex.core.datastruct.key.Class191;
 import com.jagex.core.datastruct.key.Class299;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.mouse.MouseLog;
 import rs2.client.event.mouse.MouseMonitor;
 
@@ -45,14 +46,14 @@ public final class Static320 {
         Static239.A_DEQUE___19.appendTo(MiniMenu.entry);
         if (MiniMenu.entryCount <= 1) {
             Static470.aClass2_Sub2_Sub16_10 = null;
-            Static96.aClass2_Sub2_Sub16_13 = null;
+            MiniMenu.topEntry = null;
         } else {
-            if (Static209.aBoolean269 && KeyMonitor.instance.isPressed(81) && MiniMenu.entryCount > 2) {
+            if (Static209.aBoolean269 && KeyboardMonitor.instance.isPressed(81) && MiniMenu.entryCount > 2) {
                 Static470.aClass2_Sub2_Sub16_10 = (MiniMenuEntry) MiniMenu.entry.sentinel.prev.prev;
             } else {
                 Static470.aClass2_Sub2_Sub16_10 = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
             }
-            Static96.aClass2_Sub2_Sub16_13 = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
+            MiniMenu.topEntry = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
         }
         local64 = -1;
         @Pc(204) MouseLog local204 = (MouseLog) Static226.mouseLogs.first();

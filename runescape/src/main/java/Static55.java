@@ -2,6 +2,7 @@ import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyboardMonitor;
 
 public final class Static55 {
 
@@ -35,7 +36,7 @@ public final class Static55 {
                 local64.buffer.p2_alt1(local26);
                 local64.buffer.p4_alt1(InterfaceManager.targetSlot);
                 local64.buffer.p2(InterfaceManager.targetInvObj);
-                local64.buffer.p1_alt3(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+                local64.buffer.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
                 local64.buffer.p2_alt3(InterfaceManager.targetComponent);
                 ConnectionManager.GAME.send(local64);
                 Static147.method2419(0, local44.pathY[0], local44.boundSize((byte) 99), true, local44.pathX[0], 0, -2, local44.boundSize((byte) 110));
@@ -48,10 +49,10 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static676.anInt10206 = arg2;
             local147 = ClientMessage.create(Static664.A_CLIENT_PROT___115, ConnectionManager.GAME.cipher);
-            local147.buffer.p2_alt1(PlayerEntity.self.anInt10740);
+            local147.buffer.p2_alt1(PlayerEntity.self.id);
             local147.buffer.p4_alt1(InterfaceManager.targetSlot);
             local147.buffer.p2(InterfaceManager.targetInvObj);
-            local147.buffer.p1_alt3(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+            local147.buffer.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
             local147.buffer.p2_alt3(InterfaceManager.targetComponent);
             ConnectionManager.GAME.send(local147);
         }
@@ -70,7 +71,7 @@ public final class Static55 {
             return;
         }
         if (local22 == 58) {
-            if (Static608.staffModLevel > 0 && KeyMonitor.instance.isPressed(82) && KeyMonitor.instance.isPressed(81)) {
+            if (Static608.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(82) && KeyboardMonitor.instance.isPressed(81)) {
                 Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseZ + local19, WorldMap.areaBaseX + local16);
             } else {
                 local147 = Static32.method878(local16, local19, local26);
@@ -131,7 +132,7 @@ public final class Static55 {
                 Static616.anInt9417 = 2;
                 Static676.anInt10206 = arg2;
                 local494 = ClientMessage.create(local389, ConnectionManager.GAME.cipher);
-                local494.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+                local494.buffer.p1(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
                 local494.buffer.p2(local26);
                 ConnectionManager.GAME.send(local494);
                 Static147.method2419(0, local474.pathY[0], local474.boundSize((byte) 125), true, local474.pathX[0], 0, -2, local474.boundSize((byte) 60));
@@ -158,14 +159,14 @@ public final class Static55 {
             Static676.anInt10206 = arg2;
             local494 = ClientMessage.create(local548, ConnectionManager.GAME.cipher);
             local494.buffer.p2_alt2(local26);
-            local494.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+            local494.buffer.p1(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
             local494.buffer.p2(local19 + WorldMap.areaBaseZ);
             local494.buffer.p2_alt1(WorldMap.areaBaseX + local16);
             ConnectionManager.GAME.send(local494);
             Static414.method5697(local19, local16);
         }
         if (local22 == 11) {
-            if (Static608.staffModLevel > 0 && KeyMonitor.instance.isPressed(82) && KeyMonitor.instance.isPressed(81)) {
+            if (Static608.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(82) && KeyboardMonitor.instance.isPressed(81)) {
                 Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseZ + local19, WorldMap.areaBaseX + local16);
             } else {
                 Static481.anInt7215 = 0;
@@ -207,7 +208,7 @@ public final class Static55 {
                 Static305.anInt4882 = arg0;
                 Static481.anInt7215 = 0;
                 @Pc(831) ClientMessage local831 = ClientMessage.create(local750, ConnectionManager.GAME.cipher);
-                local831.buffer.p1_alt1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+                local831.buffer.p1_alt1(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
                 local831.buffer.p2_alt2(local26);
                 ConnectionManager.GAME.send(local831);
                 Static147.method2419(0, local813.pathY[0], local813.boundSize((byte) 76), true, local813.pathX[0], 0, -2, local813.boundSize((byte) 103));
@@ -234,7 +235,7 @@ public final class Static55 {
             Static481.anInt7215 = 0;
             Static676.anInt10206 = arg2;
             local949 = ClientMessage.create(local878, ConnectionManager.GAME.cipher);
-            local949.buffer.p1_alt1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+            local949.buffer.p1_alt1(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
             local949.buffer.p2_alt2(WorldMap.areaBaseX + local16);
             local949.buffer.p2_alt3((int) (local35 >>> 32) & Integer.MAX_VALUE);
             local949.buffer.p2_alt1(local19 + WorldMap.areaBaseZ);
@@ -269,7 +270,7 @@ public final class Static55 {
             local949.buffer.p2_alt3(InterfaceManager.targetInvObj);
             local949.buffer.p4_alt3(InterfaceManager.targetSlot);
             local949.buffer.p2_alt1(InterfaceManager.targetComponent);
-            local949.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+            local949.buffer.p1(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
             local949.buffer.p2_alt1(local26);
             ConnectionManager.GAME.send(local949);
             Static414.method5697(local19, local16);
@@ -287,7 +288,7 @@ public final class Static55 {
                 local1223.buffer.p2_alt1(InterfaceManager.targetInvObj);
                 local1223.buffer.p2_alt1(local26);
                 local1223.buffer.p4_alt3(InterfaceManager.targetSlot);
-                local1223.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+                local1223.buffer.p1(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
                 ConnectionManager.GAME.send(local1223);
                 Static147.method2419(0, local1205.pathY[0], local1205.boundSize((byte) 44), true, local1205.pathX[0], 0, -2, local1205.boundSize((byte) 50));
             }
@@ -301,7 +302,7 @@ public final class Static55 {
             Static305.anInt4882 = arg0;
             Static616.anInt9417 = 2;
             local949 = ClientMessage.create(Static419.A_CLIENT_PROT___77, ConnectionManager.GAME.cipher);
-            local949.buffer.p1_alt2(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+            local949.buffer.p1_alt2(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
             local949.buffer.p2_alt1(WorldMap.areaBaseZ + local19);
             local949.buffer.p2_alt1(InterfaceManager.targetComponent);
             local949.buffer.p4_alt1(InterfaceManager.targetSlot);

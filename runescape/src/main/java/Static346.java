@@ -1,5 +1,4 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
-import com.jagex.game.runetek6.config.npctype.NPCType;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -63,7 +62,7 @@ public final class Static346 {
         }
         for (@Pc(214) int local214 = 0; local214 < Static416.anInt6378; local214++) {
             if (Static592.aClass2_Sub45Array1[local214].aClass8_Sub2_Sub1_Sub2_Sub2_2.anInt10751 != Static572.anInt8896) {
-                throw new RuntimeException("gnp4 uk:" + Static592.aClass2_Sub45Array1[local214].aClass8_Sub2_Sub1_Sub2_Sub2_2.anInt10740);
+                throw new RuntimeException("gnp4 uk:" + Static592.aClass2_Sub45Array1[local214].aClass8_Sub2_Sub1_Sub2_Sub2_2.id);
             }
         }
     }

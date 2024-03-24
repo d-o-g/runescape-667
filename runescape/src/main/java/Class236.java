@@ -67,7 +67,7 @@ public final class Class236 {
             if (this.anInt5980 >= 0) {
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1 = new NPCEntity(25);
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10751 = TimeUtils.clock;
-                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10740 = this.anInt5985;
+                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.id = this.anInt5985;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9328(NPCTypeList.instance.list(this.anInt5980));
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9310(this.aClass8_Sub2_Sub1_Sub2_Sub2_1.type.size);
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.anInt10757 = this.aClass8_Sub2_Sub1_Sub2_Sub2_1.type.rotationSpeed << 3;
@@ -77,7 +77,7 @@ public final class Class236 {
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method1420(Static518.aClass2_Sub21_18);
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1.anInt10751 = TimeUtils.clock;
                 this.aClass8_Sub2_Sub1_Sub2_Sub1_1.drawPriority = Static457.anInt6933++;
-                this.aClass8_Sub2_Sub1_Sub2_Sub1_1.anInt10740 = this.anInt5985;
+                this.aClass8_Sub2_Sub1_Sub2_Sub1_1.id = this.anInt5985;
             }
         }
         if (this.anInt5980 < 0) {

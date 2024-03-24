@@ -6,7 +6,6 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.event.mouse.MouseMonitor;
 
 import java.awt.Component;
 import java.awt.event.MouseEvent;
@@ -69,13 +68,13 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
         }
 
         if ((type & CLICK_TYPE_LEFT) != 0) {
-            this.logEvent(event.getY(), event.getX(), MouseLog.TYPE_RELEASE_LEFT, event.getClickCount());
+            this.log(event.getY(), event.getX(), MouseLog.TYPE_RELEASE_LEFT, event.getClickCount());
         }
         if ((type & CLICK_TYPE_RIGHT) != 0) {
-            this.logEvent(event.getY(), event.getX(), MouseLog.TYPE_RELEASE_RIGHT, event.getClickCount());
+            this.log(event.getY(), event.getX(), MouseLog.TYPE_RELEASE_RIGHT, event.getClickCount());
         }
         if ((type & CLICK_TYPE_MIDDLE) != 0) {
-            this.logEvent(event.getY(), event.getX(), MouseLog.TYPE_RELEASE_MIDDLE, event.getClickCount());
+            this.log(event.getY(), event.getX(), MouseLog.TYPE_RELEASE_MIDDLE, event.getClickCount());
         }
 
         this.clickState &= ~type;
@@ -86,7 +85,7 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
     }
 
     @OriginalMember(owner = "client!ht", name = "a", descriptor = "(IIIII)V")
-    public void logEvent(@OriginalArg(0) int y, @OriginalArg(1) int x, @OriginalArg(2) int type, @OriginalArg(4) int extra) {
+    public void log(@OriginalArg(0) int y, @OriginalArg(1) int x, @OriginalArg(2) int type, @OriginalArg(4) int extra) {
         @Pc(3) CompleteMouseLog log = new CompleteMouseLog();
         log.x = x;
         log.type = type;
@@ -102,7 +101,7 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
         this.mouseY = y;
 
         if (this.logging) {
-            this.logEvent(y, x, -1, 0);
+            this.log(y, x, MouseLog.TYPE_RESET, 0);
         }
     }
 
@@ -155,7 +154,7 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
         @Pc(2) int x = event.getX();
         @Pc(5) int y = event.getY();
         @Pc(8) int rotation = event.getWheelRotation();
-        this.logEvent(y, x, 6, rotation);
+        this.log(y, x, MouseLog.TYPE_SCROLL, rotation);
         event.consume();
     }
 
@@ -189,11 +188,11 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
         @Pc(4) int type = this.getClickType(event);
 
         if (type == CLICK_TYPE_LEFT) {
-            this.logEvent(event.getY(), event.getX(), MouseLog.TYPE_PRESS_LEFT, event.getClickCount());
+            this.log(event.getY(), event.getX(), MouseLog.TYPE_PRESS_LEFT, event.getClickCount());
         } else if (type == CLICK_TYPE_RIGHT) {
-            this.logEvent(event.getY(), event.getX(), MouseLog.TYPE_PRESS_RIGHT, event.getClickCount());
+            this.log(event.getY(), event.getX(), MouseLog.TYPE_PRESS_RIGHT, event.getClickCount());
         } else if (type == CLICK_TYPE_MIDDLE) {
-            this.logEvent(event.getY(), event.getX(), MouseLog.TYPE_PRESS_MIDDLE, event.getClickCount());
+            this.log(event.getY(), event.getX(), MouseLog.TYPE_PRESS_MIDDLE, event.getClickCount());
         }
 
         this.clickState |= type;

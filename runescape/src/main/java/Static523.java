@@ -88,7 +88,7 @@ public final class Static523 {
         @Pc(12) int local12;
         if (ClientOptions.instance.safeMode.getValue() == 0) {
             for (local12 = 0; local12 < Static671.anInt10026; local12++) {
-                if (Static194.anInterface27Array1[local12].method2666() == 's' || Static194.anInterface27Array1[local12].method2666() == 'S') {
+                if (Static194.AN_KEYBOARD_EVENT_ARRAY_1[local12].getKeyChar() == 's' || Static194.AN_KEYBOARD_EVENT_ARRAY_1[local12].getKeyChar() == 'S') {
                     ClientOptions.instance.update(1, ClientOptions.instance.safeMode);
                     Static416.aBoolean472 = true;
                     break;

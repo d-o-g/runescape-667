@@ -16,7 +16,7 @@ public final class Static676 {
         if (MiniMenu.open) {
             Static39.method1022(arg0);
         } else {
-            Static556.method7301(arg0);
+            MiniMenu.method7301(arg0);
         }
     }
 }

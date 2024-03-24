@@ -278,7 +278,7 @@ public final class Static161 {
             @Pc(42) NPCEntity local42;
             if (local36 == null) {
                 local42 = new NPCEntity();
-                local42.anInt10740 = local22;
+                local42.id = local22;
                 local36 = new Node_Sub45(local42);
                 Static18.A_HASH_TABLE___2.put(local22, local36);
                 Static592.aClass2_Sub45Array1[Static416.anInt6378++] = local36;

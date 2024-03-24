@@ -40,6 +40,7 @@ import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.mouse.MouseLog;
 import rs2.client.event.mouse.MouseMonitor;
 
@@ -1311,11 +1312,11 @@ public final class InterfaceManager {
 
                     if (component.opKeys != null && !debugconsole.isOpen()) {
                         for (@Pc(402) int key = 0; key < component.opKeys.length; key++) {
-                            if (KeyMonitor.instance.isPressed(component.opKeys[key])) {
+                            if (KeyboardMonitor.instance.isPressed(component.opKeys[key])) {
                                 if (component.opKeysIgnoreHeld == null || TimeUtils.clock >= component.opKeysIgnoreHeld[key]) {
                                     @Pc(634) byte mask = component.opChars[key];
 
-                                    if ((mask == 0) || ((((mask & 0x8) == 0) || (!KeyMonitor.instance.isPressed(86) && !KeyMonitor.instance.isPressed(82) && !KeyMonitor.instance.isPressed(81))) && (((mask & 0x2) == 0) || KeyMonitor.instance.isPressed(86)) && (((mask & 0x1) == 0) || KeyMonitor.instance.isPressed(82)) && (((mask & 0x4) == 0) || KeyMonitor.instance.isPressed(81)))) {
+                                    if ((mask == 0) || ((((mask & 0x8) == 0) || (!KeyboardMonitor.instance.isPressed(86) && !KeyboardMonitor.instance.isPressed(82) && !KeyboardMonitor.instance.isPressed(81))) && (((mask & 0x2) == 0) || KeyboardMonitor.instance.isPressed(86)) && (((mask & 0x1) == 0) || KeyboardMonitor.instance.isPressed(82)) && (((mask & 0x4) == 0) || KeyboardMonitor.instance.isPressed(81)))) {
                                         if (key < 10) {
                                             ifButtonXSend(component.slot, -1, "", key + 1);
                                         } else if (key == 10) {
@@ -1495,7 +1496,7 @@ public final class InterfaceManager {
                                         int y = local1388[2];
                                         int x = local1388[1];
 
-                                        if (KeyMonitor.instance.isPressed(82) && Static608.staffModLevel > 0) {
+                                        if (KeyboardMonitor.instance.isPressed(82) && Static608.staffModLevel > 0) {
                                             Static624.teleport(level, y, x);
                                             continue;
                                         }
@@ -1856,8 +1857,8 @@ public final class InterfaceManager {
                             for (@Pc(402) int j = 0; j < Static671.anInt10026; j++) {
                                 @Pc(2682) HookRequest hook = new HookRequest();
                                 hook.source = component;
-                                hook.anInt7216 = Static194.anInterface27Array1[j].method2664();
-                                hook.anInt7221 = Static194.anInterface27Array1[j].method2666();
+                                hook.anInt7216 = Static194.AN_KEYBOARD_EVENT_ARRAY_1[j].getKeyCode();
+                                hook.anInt7221 = Static194.AN_KEYBOARD_EVENT_ARRAY_1[j].getKeyChar();
                                 hook.arguments = component.onKey;
                                 Static521.A_DEQUE___44.addLast(hook);
                             }
@@ -2091,7 +2092,7 @@ public final class InterfaceManager {
             dialog = null;
         }
 
-        MiniMenu.method1840();
+        MiniMenu.openButtons();
 
         if (parent != null) {
             calculateLayerDimensions(parent, !scripted);
@@ -2616,7 +2617,7 @@ public final class InterfaceManager {
             redraw(inter);
         }
 
-        MiniMenu.method1840();
+        MiniMenu.openButtons();
 
         if (!fromClient && topLevelInterface != -1) {
             runHookImmediate(IMMEDIATE_HOOK_TYPE_SUBCHANGE, topLevelInterface);

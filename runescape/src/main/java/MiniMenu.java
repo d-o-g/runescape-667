@@ -1,4 +1,5 @@
 import com.jagex.core.constants.MiniMenuAction;
+import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
@@ -7,18 +8,22 @@ import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.iftype.TargetMask;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyboardMonitor;
 
 public final class MiniMenu {
     @OriginalMember(owner = "client!vu", name = "f", descriptor = "Lclient!sia;")
@@ -33,6 +38,9 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!la", name = "v", descriptor = "Lclient!jga;")
     public static final Queue innerEntries = new Queue();
 
+    @OriginalMember(owner = "client!fp", name = "T", descriptor = "Z")
+    public static final boolean debugOps = false;
+
     @OriginalMember(owner = "client!mk", name = "c", descriptor = "Z")
     public static boolean open = false;
 
@@ -44,6 +52,9 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!qja", name = "c", descriptor = "Lclient!pg;")
     public static MiniMenuEntry CANCEL;
+
+    @OriginalMember(owner = "client!da", name = "o", descriptor = "Lclient!pg;")
+    public static MiniMenuEntry topEntry;
 
     @OriginalMember(owner = "client!cja", name = "b", descriptor = "(B)V")
     public static void reset() {
@@ -204,7 +215,7 @@ public final class MiniMenu {
                                         local723 = local695.x - (local695.type.size - 1 << 8);
                                         local735 = local695.z - (local695.type.size - 1 << 8);
                                         if (local286 <= local723 && local695.type.size <= local610.boundSize((byte) 126) - (local723 - local286 >> 9) && local735 >= local295 && local695.type.size <= local610.boundSize((byte) 121) - (local735 - local295 >> 9)) {
-                                            Static651.method8517(local543.aRenderable_18.level != PlayerEntity.self.level, local695);
+                                            method8517(local543.aRenderable_18.level != PlayerEntity.self.level, local695);
                                             local695.anInt10743 = TimeUtils.clock;
                                         }
                                     }
@@ -244,7 +255,7 @@ public final class MiniMenu {
                                             local370 = local1086.x - (local1086.type.size - 1 << 8);
                                             local723 = local1086.z - (local1086.type.size - 1 << 8);
                                             if (local614 <= local370 && local988.type.size - (local370 - local614 >> 9) >= local1086.type.size && local723 >= local286 && local1086.type.size <= local988.type.size - (local723 - local286 >> 9)) {
-                                                Static651.method8517(PlayerEntity.self.level != local543.aRenderable_18.level, local1086);
+                                                method8517(PlayerEntity.self.level != local543.aRenderable_18.level, local1086);
                                                 local1086.anInt10743 = TimeUtils.clock;
                                             }
                                         }
@@ -267,7 +278,7 @@ public final class MiniMenu {
                             if (TimeUtils.clock == local988.anInt10743) {
                                 continue;
                             }
-                            Static651.method8517(PlayerEntity.self.level != local543.aRenderable_18.level, local988);
+                            method8517(PlayerEntity.self.level != local543.aRenderable_18.level, local988);
                             local988.anInt10743 = TimeUtils.clock;
                         }
                     }
@@ -386,13 +397,13 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!om", name = "a", descriptor = "(Lclient!cg;I)V")
     public static void addEntityEntries(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
         if (arg0 instanceof NPCEntity) {
-            @Pc(5) NPCEntity local5 = (NPCEntity) arg0;
-            if (local5.type != null) {
-                Static651.method8517(PlayerEntity.self.level != local5.level, local5);
+            @Pc(5) NPCEntity npc = (NPCEntity) arg0;
+            if (npc.type != null) {
+                method8517(PlayerEntity.self.level != npc.level, npc);
             }
         } else if (arg0 instanceof PlayerEntity) {
-            @Pc(33) PlayerEntity local33 = (PlayerEntity) arg0;
-            Static414.method5696(local33.level != PlayerEntity.self.level, local33);
+            @Pc(33) PlayerEntity player = (PlayerEntity) arg0;
+            Static414.method5696(player.level != PlayerEntity.self.level, player);
         }
     }
 
@@ -407,13 +418,13 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(Z)Z")
     public static boolean topEntryIsIfButtonX1() {
-        if (Static96.aClass2_Sub2_Sub16_13 == null) {
+        if (topEntry == null) {
             return false;
         } else {
-            if (Static96.aClass2_Sub2_Sub16_13.action >= 2000) {
-                Static96.aClass2_Sub2_Sub16_13.action -= 2000;
+            if (topEntry.action >= 2000) {
+                topEntry.action -= 2000;
             }
-            return Static96.aClass2_Sub2_Sub16_13.action == 1002;
+            return topEntry.action == MiniMenuAction.IF_BUTTONX1;
         }
     }
 
@@ -423,10 +434,10 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!cv", name = "b", descriptor = "(B)V")
-    public static void method1840() {
-        for (@Pc(4) MiniMenuEntry local4 = (MiniMenuEntry) entry.first(); local4 != null; local4 = (MiniMenuEntry) entry.next()) {
-            if (MiniMenuAction.isButtonOp(local4.action)) {
-                Static679.method8911(local4);
+    public static void openButtons() {
+        for (@Pc(4) MiniMenuEntry entry = (MiniMenuEntry) MiniMenu.entry.first(); entry != null; entry = (MiniMenuEntry) MiniMenu.entry.next()) {
+            if (MiniMenuAction.isButtonOp(entry.action)) {
+                open(entry);
             }
         }
     }
@@ -504,5 +515,281 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!hj", name = "c", descriptor = "(I)V")
     public static void setCancelEntry() {
         CANCEL = new MiniMenuEntry(LocalisedText.CANCEL.localise(client.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
+    }
+
+    @OriginalMember(owner = "client!vj", name = "a", descriptor = "(ILclient!pg;)V")
+    public static void open(@OriginalArg(1) MiniMenuEntry entry) {
+        if (open) {
+            return;
+        }
+
+        entry.unlink();
+        entryCount--;
+
+        if (entry.independent) {
+            for (@Pc(22) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) innerEntries.next()) {
+                if (!inner.title.equals(entry.opBase)) {
+                    continue;
+                }
+
+                @Pc(31) boolean found = false;
+                for (@Pc(37) MiniMenuEntry other = (MiniMenuEntry) inner.entries.first(); other != null; other = (MiniMenuEntry) inner.entries.next()) {
+                    if (other == entry) {
+                        found = true;
+
+                        if (inner.remove(entry)) {
+                            reposition(inner);
+                        }
+
+                        break;
+                    }
+                }
+
+                if (found) {
+                    break;
+                }
+            }
+        } else {
+            @Pc(79) long key = entry.entryKey;
+            @Pc(85) MiniMenuEntryInner inner;
+            for (inner = (MiniMenuEntryInner) categories.get(key); inner != null; inner = (MiniMenuEntryInner) categories.nextWithSameKey()) {
+                if (inner.title.equals(entry.opBase)) {
+                    break;
+                }
+            }
+
+            if (inner != null && inner.remove(entry)) {
+                reposition(inner);
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IZLclient!wj;)V")
+    public static void method8517(@OriginalArg(1) boolean differentLevel, @OriginalArg(2) NPCEntity npc) {
+        if (entryCount >= 400) {
+            return;
+        }
+
+        @Pc(21) NPCType type = npc.type;
+        @Pc(24) String npcName = npc.aString128;
+        if (type.multinpcs != null) {
+            type = type.getMultiNPC(TimedVarDomain.instance);
+            if (type == null) {
+                return;
+            }
+            npcName = type.name;
+        }
+
+        if (!type.interactive) {
+            return;
+        }
+
+        if (npc.combatLevel != 0) {
+            @Pc(67) String text = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(client.language) : LocalisedText.LEVEL.localise(client.language);
+            npcName = npcName + colourCode(PlayerEntity.self.combatLevel, npc.combatLevel) + " (" + text + npc.combatLevel + ")";
+        }
+
+        if (InterfaceManager.targeting && !differentLevel) {
+            @Pc(113) ParamType param = InterfaceManager.targetParam != -1 ? ParamTypeList.instance.list(InterfaceManager.targetParam) : null;
+
+            if ((InterfaceManager.targetMask & TargetMask.TGT_NPC) != 0 && (param == null || type.param(InterfaceManager.targetParam, param.defaultint) != param.defaultint)) {
+                addEntry(false, -1, npc.id, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_NPC, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffff00>" + npcName, npc.id, false);
+            }
+        }
+
+        if (differentLevel) {
+            return;
+        }
+
+        @Pc(176) String[] ops = type.op;
+        if (debugOps) {
+            ops = prefixWithNum(ops);
+        }
+        if (ops == null) {
+            return;
+        }
+
+        for (@Pc(189) int op = ops.length - 1; op >= 0; op--) {
+            if (ops[op] != null && (type.aByte107 == 0 || !ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) && !ops[op].equalsIgnoreCase(LocalisedText.EXAMINE.localise(client.language)))) {
+                @Pc(226) short action = 0;
+                @Pc(228) int cursor = Cursor.interaction;
+
+                if (op == 0) {
+                    action = MiniMenuAction.OPNPC1;
+                }
+                if (op == 1) {
+                    action = MiniMenuAction.OPNPC2;
+                }
+                if (op == 2) {
+                    action = MiniMenuAction.OPNPC3;
+                }
+                if (op == 3) {
+                    action = MiniMenuAction.OPNPC4;
+                }
+                if (op == 4) {
+                    action = MiniMenuAction.OPNPC5;
+                }
+                if (op == 5) {
+                    action = MiniMenuAction.OPNPC6;
+                }
+
+                if (op == type.cursor1Op) {
+                    cursor = type.cursor1;
+                }
+                if (type.cursor2Op == op) {
+                    cursor = type.cursor2;
+                }
+
+                addEntry(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
+            }
+        }
+
+        if (type.aByte107 == 1) {
+            for (@Pc(341) int op = 0; op < ops.length; op++) {
+                if (ops[op] != null && (ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) || ops[op].equalsIgnoreCase(LocalisedText.EXAMINE.localise(client.language)))) {
+                    @Pc(372) short offset = 0;
+                    if (npc.combatLevel > PlayerEntity.self.combatLevel) {
+                        offset = 2000;
+                    }
+
+                    @Pc(385) short action = 0;
+                    @Pc(387) int cursor = Cursor.interaction;
+
+                    if (op == 0) {
+                        action = MiniMenuAction.OPNPC1;
+                    }
+                    if (op == 1) {
+                        action = MiniMenuAction.OPNPC2;
+                    }
+                    if (op == 2) {
+                        action = MiniMenuAction.OPNPC3;
+                    }
+                    if (op == 3) {
+                        action = MiniMenuAction.OPNPC4;
+                    }
+                    if (op == 4) {
+                        action = MiniMenuAction.OPNPC5;
+                    }
+                    if (op == 5) {
+                        action = MiniMenuAction.OPNPC6;
+                    }
+
+                    if (type.cursor1Op == op) {
+                        cursor = type.cursor1;
+                    }
+                    if (action != 0) {
+                        action += offset;
+                    }
+                    if (type.cursor2Op == op) {
+                        cursor = type.cursor2;
+                    }
+
+                    addEntry(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
+                }
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!vu", name = "b", descriptor = "(III)Ljava/lang/String;")
+    public static String colourCode(@OriginalArg(1) int ourLevel, @OriginalArg(2) int theirLevel) {
+        @Pc(8) int delta = ourLevel - theirLevel;
+
+        if (delta < -9) {
+            return "<col=ff0000>";
+        } else if (delta < -6) {
+            return "<col=ff3000>";
+        } else if (delta < -3) {
+            return "<col=ff7000>";
+        } else if (delta < 0) {
+            return "<col=ffb000>";
+        } else if (delta > 9) {
+            return "<col=00ff00>";
+        } else if (delta > 6) {
+            return "<col=40ff00>";
+        } else if (delta > 3) {
+            return "<col=80ff00>";
+        } else if (delta > 0) {
+            return "<col=c0ff00>";
+        } else {
+            return "<col=ffff00>";
+        }
+    }
+
+    @OriginalMember(owner = "client!hl", name = "a", descriptor = "(I[Ljava/lang/String;)[Ljava/lang/String;")
+    public static String[] prefixWithNum(@OriginalArg(1) String[] ops) {
+        @Pc(6) String[] prefixed = new String[5];
+        for (@Pc(8) int i = 0; i < 5; i++) {
+            prefixed[i] = i + ": ";
+
+            if (ops != null && ops[i] != null) {
+                prefixed[i] = prefixed[i] + ops[i];
+            }
+        }
+        return prefixed;
+    }
+
+    @OriginalMember(owner = "client!rj", name = "a", descriptor = "(Lclient!ha;I)V")
+    public static void method7301(@OriginalArg(0) Toolkit arg0) {
+        if (entryCount < 2 && !InterfaceManager.targeting || InterfaceManager.dragSource != null) {
+            return;
+        }
+
+        @Pc(63) String text;
+        if (InterfaceManager.targeting && entryCount < 2) {
+            text = InterfaceManager.targetVerb + LocalisedText.MINISEPARATOR.localise(client.language) + InterfaceManager.targetedVerb + " ->";
+        } else if (Static209.aBoolean269 && KeyboardMonitor.instance.isPressed(81) && entryCount > 2) {
+            text = Static518.method9293(Static470.aClass2_Sub2_Sub16_10);
+        } else {
+            @Pc(55) MiniMenuEntry local55 = Static470.aClass2_Sub2_Sub16_10;
+            if (local55 == null) {
+                return;
+            }
+            text = Static518.method9293(local55);
+            @Pc(65) int[] local65 = null;
+            if (Static245.method8635(local55.action)) {
+                local65 = ObjTypeList.instance.list((int) local55.aLong233).quests;
+            } else if (local55.anInt7317 != -1) {
+                local65 = ObjTypeList.instance.list(local55.anInt7317).quests;
+            } else if (Static598.method7825(local55.action)) {
+                @Pc(93) Node_Sub45 local93 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((int) local55.aLong233);
+                if (local93 != null) {
+                    @Pc(98) NPCEntity local98 = local93.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    @Pc(101) NPCType local101 = local98.type;
+                    if (local101.multinpcs != null) {
+                        local101 = local101.getMultiNPC(TimedVarDomain.instance);
+                    }
+                    if (local101 != null) {
+                        local65 = local101.quests;
+                    }
+                }
+            } else if (Static523.method3444(local55.action)) {
+                @Pc(131) LocType local131 = LocTypeList.instance.list((int) (local55.aLong233 >>> 32 & 0x7FFFFFFFL));
+                if (local131.multiLocs != null) {
+                    local131 = local131.getMultiLoc(TimedVarDomain.instance);
+                }
+                if (local131 != null) {
+                    local65 = local131.quests;
+                }
+            }
+            if (local65 != null) {
+                text = text + Static72.method1527(local65);
+            }
+        }
+
+        if (entryCount > 2) {
+            text = text + "<col=ffffff> / " + (entryCount - 2) + LocalisedText.MOREOPTIONS.localise(client.language);
+        }
+
+        if (WorldMap.optionsComponent != null) {
+            @Pc(232) Font local232 = WorldMap.optionsComponent.font(arg0);
+            if (local232 == null) {
+                local232 = Fonts.b12;
+            }
+            local232.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.horizontalAlignment, WorldMap.optionsComponent.width, Static460.anIntArray554, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, Static493.aRandom1, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, Static186.aSpriteArray5, Static178.anInt2947, WorldMap.optionsY, WorldMap.optionsComponent.verticalAlignment);
+            Static585.method7670(Static329.anIntArray163[2], Static329.anIntArray163[0], Static329.anIntArray163[3], Static329.anIntArray163[1]);
+        } else if (InterfaceManager.optionsComponent != null && client.modeGame == ModeGame.RUNESCAPE) {
+            @Pc(299) int local299 = Fonts.b12.renderRandom(Static186.aSpriteArray5, Static178.anInt2947, 0xFFFFFF, InterfaceManager.optionsY + 16, text, Static460.anIntArray554, 0, Static493.aRandom1, InterfaceManager.optionsX + 4);
+            Static585.method7670(local299 + Fonts.b12Metrics.stringWidth(text), InterfaceManager.optionsX - -4, 16, InterfaceManager.optionsY);
+        }
     }
 }

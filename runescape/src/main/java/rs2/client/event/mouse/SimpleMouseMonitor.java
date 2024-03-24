@@ -52,7 +52,7 @@ public final class SimpleMouseMonitor extends MouseMonitor implements MouseListe
     }
 
     @OriginalMember(owner = "client!vha", name = "a", descriptor = "(IIBII)V")
-    public void logEvent(@OriginalArg(0) int x, @OriginalArg(1) int extra, @OriginalArg(3) int type, @OriginalArg(4) int y) {
+    public void log(@OriginalArg(0) int x, @OriginalArg(1) int extra, @OriginalArg(3) int type, @OriginalArg(4) int y) {
         @Pc(15) SimpleMouseLog log = new SimpleMouseLog();
         log.type = type;
         log.y = y;
@@ -150,11 +150,11 @@ public final class SimpleMouseMonitor extends MouseMonitor implements MouseListe
         @Pc(10) int type = this.getClickType(event);
 
         if (type == CLICK_TYPE_LEFT) {
-            this.logEvent(event.getX(), event.getClickCount(), MouseLog.TYPE_PRESS_LEFT, event.getY());
+            this.log(event.getX(), event.getClickCount(), MouseLog.TYPE_PRESS_LEFT, event.getY());
         } else if (type == CLICK_TYPE_RIGHT) {
-            this.logEvent(event.getX(), event.getClickCount(), MouseLog.TYPE_PRESS_RIGHT, event.getY());
+            this.log(event.getX(), event.getClickCount(), MouseLog.TYPE_PRESS_RIGHT, event.getY());
         } else if (type == CLICK_TYPE_MIDDLE) {
-            this.logEvent(event.getX(), event.getClickCount(), MouseLog.TYPE_PRESS_MIDDLE, event.getY());
+            this.log(event.getX(), event.getClickCount(), MouseLog.TYPE_PRESS_MIDDLE, event.getY());
         }
 
         this.clickState |= type;
@@ -188,7 +188,7 @@ public final class SimpleMouseMonitor extends MouseMonitor implements MouseListe
         this.mouseX = x;
 
         if (this.logging) {
-            this.logEvent(x, 0, -1, y);
+            this.log(x, 0, MouseLog.TYPE_RESET, y);
         }
     }
 
@@ -215,13 +215,13 @@ public final class SimpleMouseMonitor extends MouseMonitor implements MouseListe
         }
 
         if ((type & CLICK_TYPE_LEFT) != 0) {
-            this.logEvent(event.getX(), event.getClickCount(), MouseLog.TYPE_RELEASE_LEFT, event.getY());
+            this.log(event.getX(), event.getClickCount(), MouseLog.TYPE_RELEASE_LEFT, event.getY());
         }
         if ((type & CLICK_TYPE_RIGHT) != 0) {
-            this.logEvent(event.getX(), event.getClickCount(), MouseLog.TYPE_RELEASE_RIGHT, event.getY());
+            this.log(event.getX(), event.getClickCount(), MouseLog.TYPE_RELEASE_RIGHT, event.getY());
         }
         if ((type & CLICK_TYPE_MIDDLE) != 0) {
-            this.logEvent(event.getX(), event.getClickCount(), MouseLog.TYPE_RELEASE_MIDDLE, event.getY());
+            this.log(event.getX(), event.getClickCount(), MouseLog.TYPE_RELEASE_MIDDLE, event.getY());
         }
 
         this.clickState &= ~type;

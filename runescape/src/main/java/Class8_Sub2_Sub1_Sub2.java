@@ -46,7 +46,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     public int anInt10738;
 
     @OriginalMember(owner = "client!cg", name = "Z", descriptor = "I")
-    public int anInt10740;
+    public int id;
 
     @OriginalMember(owner = "client!cg", name = "Pb", descriptor = "Lclient!dj;")
     protected Class80 aClass80_3;

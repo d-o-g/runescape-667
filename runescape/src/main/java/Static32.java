@@ -3,6 +3,7 @@ import com.jagex.game.LocalisedText;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.event.keyboard.KeyboardMonitor;
 
 public final class Static32 {
 
@@ -32,7 +33,7 @@ public final class Static32 {
         }
         local11.buffer.p2_alt3(arg0 + WorldMap.areaBaseX);
         local11.buffer.p2_alt3(WorldMap.areaBaseZ + arg1);
-        local11.buffer.p1(KeyMonitor.instance.isPressed(82) ? 1 : 0);
+        local11.buffer.p1(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
         Static266.aBoolean583 = false;
         Minimap.flagX = arg0;
         Minimap.flagY = arg1;

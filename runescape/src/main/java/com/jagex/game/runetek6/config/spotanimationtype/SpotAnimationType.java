@@ -76,7 +76,7 @@ public final class SpotAnimationType {
     }
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(BZILclient!gu;Lclient!s;BILclient!s;IILclient!ha;)Lclient!ka;")
-    public Model model(@OriginalArg(0) byte arg0, @OriginalArg(1) boolean hillChange, @OriginalArg(2) int arg2, @OriginalArg(3) Animator animator, @OriginalArg(4) Ground arg4, @OriginalArg(6) int arg5, @OriginalArg(7) Ground arg6, @OriginalArg(8) int functionMask, @OriginalArg(9) int arg8, @OriginalArg(10) Toolkit toolkit) {
+    public Model model(@OriginalArg(0) byte arg0, @OriginalArg(1) boolean hillChange, @OriginalArg(2) int z, @OriginalArg(3) Animator animator, @OriginalArg(4) Ground ceiling, @OriginalArg(6) int x, @OriginalArg(7) Ground floor, @OriginalArg(8) int functionMask, @OriginalArg(9) int y, @OriginalArg(10) Toolkit toolkit) {
         @Pc(13) boolean hillChanged = hillChange & this.hillType != 0;
 
         @Pc(15) int newFunctionMask = functionMask;
@@ -163,7 +163,7 @@ public final class SpotAnimationType {
         }
 
         if (hillChanged) {
-            result.p(this.hillType, this.hillValue, arg6, arg4, arg5, arg8, arg2);
+            result.p(this.hillType, this.hillValue, floor, ceiling, x, y, z);
         }
 
         result.s(functionMask);

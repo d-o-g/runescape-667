@@ -2,7 +2,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!dj")
-public final class ChatMessage {
+public final class EntityChatLine {
 
     @OriginalMember(owner = "client!dj", name = "e", descriptor = "I")
     public int colour;

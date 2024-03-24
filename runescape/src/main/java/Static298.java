@@ -1,4 +1,3 @@
-import com.jagex.game.runetek6.config.vartype.VarDomain;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -15,9 +14,6 @@ public final class Static298 {
 
     @OriginalMember(owner = "client!ji", name = "E", descriptor = "Z")
     public static boolean aBoolean369 = false;
-
-    @OriginalMember(owner = "client!ji", name = "z", descriptor = "Lclient!uk;")
-    public static final VarDomain AN_VAR_DOMAIN___2 = new Class147();
 
     @OriginalMember(owner = "client!ji", name = "b", descriptor = "(I)V")
     public static void method4385() {

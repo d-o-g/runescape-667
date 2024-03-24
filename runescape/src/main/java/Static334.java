@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static334 {
 
     @OriginalMember(owner = "client!kja", name = "e", descriptor = "[[[Lclient!pha;")
-    public static Class291[][][] activeTiles;
+    public static Tile[][][] activeTiles;
 
     @OriginalMember(owner = "client!kja", name = "c", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___140 = new ServerProt(71, 2);

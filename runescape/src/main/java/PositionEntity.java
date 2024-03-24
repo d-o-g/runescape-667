@@ -9,10 +9,10 @@ import org.openrs2.deob.annotation.Pc;
 public abstract class PositionEntity extends Entity {
 
     @OriginalMember(owner = "client!qf", name = "y", descriptor = "S")
-    public short aShort132;
+    public short z1;
 
     @OriginalMember(owner = "client!qf", name = "E", descriptor = "S")
-    public short aShort133;
+    public short z2;
 
     @OriginalMember(owner = "client!qf", name = "z", descriptor = "Z")
     public final boolean aBoolean815;
@@ -21,24 +21,24 @@ public abstract class PositionEntity extends Entity {
     public final byte aByte145;
 
     @OriginalMember(owner = "client!qf", name = "w", descriptor = "S")
-    public short aShort134;
+    public short x2;
 
     @OriginalMember(owner = "client!qf", name = "A", descriptor = "S")
-    public short aShort131;
+    public short x1;
 
     @OriginalMember(owner = "client!qf", name = "<init>", descriptor = "(IIIIIIIIIZB)V")
-    protected PositionEntity(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) boolean arg9, @OriginalArg(10) byte arg10) {
-        this.aShort132 = (short) arg7;
-        super.anInt10691 = arg3;
-        super.level = (byte) arg0;
-        this.aShort133 = (short) arg8;
-        super.virtualLevel = (byte) arg1;
-        super.z = arg4;
-        super.x = arg2;
+    protected PositionEntity(@OriginalArg(0) int level, @OriginalArg(1) int virtualLevel, @OriginalArg(2) int x, @OriginalArg(3) int y, @OriginalArg(4) int z, @OriginalArg(5) int x1, @OriginalArg(6) int x2, @OriginalArg(7) int z1, @OriginalArg(8) int z2, @OriginalArg(9) boolean arg9, @OriginalArg(10) byte arg10) {
+        this.z1 = (short) z1;
+        super.y = y;
+        super.level = (byte) level;
+        this.z2 = (short) z2;
+        super.virtualLevel = (byte) virtualLevel;
+        super.z = z;
+        super.x = x;
         this.aBoolean815 = arg9;
         this.aByte145 = arg10;
-        this.aShort134 = (short) arg6;
-        this.aShort131 = (short) arg5;
+        this.x2 = (short) x2;
+        this.x1 = (short) x1;
     }
 
     @OriginalMember(owner = "client!qf", name = "a", descriptor = "([Lclient!lca;I)I")
@@ -49,10 +49,10 @@ public abstract class PositionEntity extends Entity {
         @Pc(44) int local44;
         @Pc(57) int local57;
         label112:
-        for (@Pc(16) int local16 = this.aShort131; local16 <= this.aShort134; local16++) {
+        for (@Pc(16) int local16 = this.x1; local16 <= this.x2; local16++) {
             label110:
-            for (local21 = this.aShort132; local21 <= this.aShort133; local21++) {
-                @Pc(32) long local32 = Static161.aLongArrayArrayArray1[super.level][local16][local21];
+            for (local21 = this.z1; local21 <= this.z2; local21++) {
+                @Pc(32) long local32 = Static161.tileLightFlags[super.level][local16][local21];
                 @Pc(34) long local34 = 0L;
                 while (true) {
                     label105:
@@ -84,38 +84,38 @@ public abstract class PositionEntity extends Entity {
             arg0[local21] = null;
         }
         if (this.aByte145 != 0) {
-            local44 = this.aShort131 - Static403.anInt6246;
-            @Pc(163) int local163 = this.aShort132 - Static550.anInt8271;
+            local44 = this.x1 - Static403.anInt6246;
+            @Pc(163) int local163 = this.z1 - Static550.anInt8271;
             @Pc(188) int local188;
             @Pc(191) short local191;
             @Pc(183) short local183;
             @Pc(180) int local180;
             if (this.aByte145 == 1) {
                 if (local44 >= local163) {
-                    local188 = this.aShort132 + 1;
-                    local183 = this.aShort131;
-                    local180 = this.aShort131 - 1;
-                    local191 = this.aShort132;
+                    local188 = this.z1 + 1;
+                    local183 = this.x1;
+                    local180 = this.x1 - 1;
+                    local191 = this.z1;
                 } else {
-                    local188 = this.aShort132 - 1;
-                    local183 = this.aShort131;
-                    local191 = this.aShort132;
-                    local180 = this.aShort131 + 1;
+                    local188 = this.z1 - 1;
+                    local183 = this.x1;
+                    local191 = this.z1;
+                    local180 = this.x1 + 1;
                 }
             } else if (local163 > -local44) {
-                local180 = this.aShort131 - 1;
-                local183 = this.aShort131;
-                local188 = this.aShort132 - 1;
-                local191 = this.aShort132;
+                local180 = this.x1 - 1;
+                local183 = this.x1;
+                local188 = this.z1 - 1;
+                local191 = this.z1;
             } else {
-                local180 = this.aShort131 + 1;
-                local183 = this.aShort131;
-                local188 = this.aShort132 + 1;
-                local191 = this.aShort132;
+                local180 = this.x1 + 1;
+                local183 = this.x1;
+                local188 = this.z1 + 1;
+                local191 = this.z1;
             }
             label76:
             for (local57 = 0; local57 < local7; local57++) {
-                @Pc(267) long local267 = Static161.aLongArrayArrayArray1[super.level][local183][local188];
+                @Pc(267) long local267 = Static161.tileLightFlags[super.level][local183][local188];
                 @Pc(278) EnvironmentLight local278;
                 while (local267 != 0L) {
                     local278 = Static265.aEnvironmentLightArray1[(int) ((local267 & 0xFFFFL) - 1L)];
@@ -124,7 +124,7 @@ public abstract class PositionEntity extends Entity {
                         continue label76;
                     }
                 }
-                local267 = Static161.aLongArrayArrayArray1[super.level][local180][local191];
+                local267 = Static161.tileLightFlags[super.level][local180][local191];
                 while (local267 != 0L) {
                     local278 = Static265.aEnvironmentLightArray1[(int) ((local267 & 0xFFFFL) - 1L)];
                     local267 >>>= 0x10;
@@ -147,14 +147,14 @@ public abstract class PositionEntity extends Entity {
         if (arg0 != 59) {
             this.method9284((byte) -4, null);
         }
-        return Static15.method188(this.aShort132, this.aShort134, this.method9278(arg1, -115), this.aShort133, this.aShort131, super.virtualLevel);
+        return Static15.method188(this.z1, this.x2, this.getCylinder(arg1, -115), this.z2, this.x1, super.virtualLevel);
     }
 
     @OriginalMember(owner = "client!qf", name = "g", descriptor = "(I)Z")
     @Override
     public final boolean method9275() {
-        for (@Pc(16) int local16 = this.aShort131; local16 <= this.aShort134; local16++) {
-            for (@Pc(23) int local23 = this.aShort132; local23 <= this.aShort133; local23++) {
+        for (@Pc(16) int local16 = this.x1; local16 <= this.x2; local16++) {
+            for (@Pc(23) int local23 = this.z1; local23 <= this.z2; local23++) {
                 @Pc(32) int local32 = Static35.anInt813 + local16 - Static403.anInt6246;
                 if (local32 >= 0 && local32 < Static258.aBooleanArrayArray3.length) {
                     @Pc(58) int local58 = Static35.anInt813 + local23 - Static550.anInt8271;
@@ -168,6 +168,6 @@ public abstract class PositionEntity extends Entity {
     }
 
     @OriginalMember(owner = "client!qf", name = "l", descriptor = "(I)V")
-    public void method9294() {
+    public void updateBounds() {
     }
 }

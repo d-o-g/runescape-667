@@ -11,7 +11,7 @@ public abstract class Matrix {
     public abstract void method7124(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(III)V")
-    public abstract void method7125(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public abstract void applyTranslation(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "([I)V")
     public abstract void method7126(@OriginalArg(0) int[] arg0);
@@ -38,7 +38,7 @@ public abstract class Matrix {
     public abstract void makeIdentity();
 
     @OriginalMember(owner = "client!tt", name = "b", descriptor = "(III)V")
-    public abstract void translate(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public abstract void translate(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(IIIIII)V")
     public abstract void method7135(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);

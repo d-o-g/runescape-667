@@ -20,7 +20,7 @@ public final class ModelParticleEffector {
     public int anInt6252;
 
     @OriginalMember(owner = "client!mn", name = "l", descriptor = "Lclient!mn;")
-    public ModelParticleEffector aModelParticleEffector_2;
+    public ModelParticleEffector next;
 
     @OriginalMember(owner = "client!mn", name = "d", descriptor = "Lclient!tt;")
     public Matrix matrix;

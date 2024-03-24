@@ -12,7 +12,7 @@ public final class Static706 {
     public static float aFloat217;
 
     @OriginalMember(owner = "client!wfa", name = "U", descriptor = "[Lclient!s;")
-    public static Ground[] aGroundArray3;
+    public static Ground[] floor;
 
     @OriginalMember(owner = "client!wfa", name = "T", descriptor = "I")
     public static int anInt10633;
@@ -33,19 +33,19 @@ public final class Static706 {
             return;
         }
         if (local52 instanceof DynamicLocation) {
-            ((DynamicLocation) local52).method6160(arg1);
+            ((DynamicLocation) local52).customise(arg1);
             return;
         }
         if (!(local52 instanceof DynamicGroundDecor)) {
             if (local52 instanceof DynamicWall) {
-                ((DynamicWall) local52).method1963(arg1);
+                ((DynamicWall) local52).customise(arg1);
             } else if (local52 instanceof DynamicWallDecor) {
                 ((DynamicWallDecor) local52).method6862(arg1);
                 return;
             }
             return;
         }
-        ((DynamicGroundDecor) local52).method3581(arg1);
+        ((DynamicGroundDecor) local52).customise(arg1);
         return;
     }
 

@@ -11,7 +11,7 @@ public final class Static350 {
 
     @OriginalMember(owner = "client!la", name = "a", descriptor = "(II)I")
     public static int method5124(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return Static272.aShortArrayArray5 == null ? 0 : Static272.aShortArrayArray5[arg0][arg1] & 0xFFFF;
+        return Static272.waterDepth == null ? 0 : Static272.waterDepth[arg0][arg1] & 0xFFFF;
     }
 
 }

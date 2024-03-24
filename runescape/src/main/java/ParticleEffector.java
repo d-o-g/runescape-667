@@ -24,25 +24,25 @@ public final class ParticleEffector extends Node2 {
     public int anInt1827;
 
     @OriginalMember(owner = "client!co", name = "A", descriptor = "Lclient!mn;")
-    public final ModelParticleEffector aModelParticleEffector_1;
+    public final ModelParticleEffector model;
 
     @OriginalMember(owner = "client!co", name = "w", descriptor = "Lclient!ok;")
-    public final ParticleEffectorType aParticleEffectorType_1;
+    public final ParticleEffectorType type;
 
     @OriginalMember(owner = "client!co", name = "<init>", descriptor = "(Lclient!mn;Lclient!hv;)V")
     public ParticleEffector(@OriginalArg(0) ModelParticleEffector arg0, @OriginalArg(1) ParticleSystem arg1) {
-        this.aModelParticleEffector_1 = arg0;
-        this.aParticleEffectorType_1 = this.aModelParticleEffector_1.type();
+        this.model = arg0;
+        this.type = this.model.type();
         this.method1707();
     }
 
     @OriginalMember(owner = "client!co", name = "c", descriptor = "(B)V")
     public void method1707() {
-        this.anInt1827 = this.aModelParticleEffector_1.anInt6252;
-        this.anInt1824 = this.aModelParticleEffector_1.anInt6250;
-        this.anInt1821 = this.aModelParticleEffector_1.anInt6249;
-        if (this.aModelParticleEffector_1.matrix != null) {
-            this.aModelParticleEffector_1.matrix.method7138(this.aParticleEffectorType_1.dirX, this.aParticleEffectorType_1.dirY, this.aParticleEffectorType_1.dirZ, Static485.anIntArray888);
+        this.anInt1827 = this.model.anInt6252;
+        this.anInt1824 = this.model.anInt6250;
+        this.anInt1821 = this.model.anInt6249;
+        if (this.model.matrix != null) {
+            this.model.matrix.method7138(this.type.dirX, this.type.dirY, this.type.dirZ, Static485.anIntArray888);
         }
         this.anInt1823 = Static485.anIntArray888[2];
         this.anInt1825 = Static485.anIntArray888[0];

@@ -29,36 +29,36 @@ public final class Static21 {
         Static35.anInt813 = arg4;
         Static272.aClass13_1 = Static167.method2632();
         Static276.method3986();
-        Static478.aClass291ArrayArrayArray3 = new Class291[4][Static619.anInt1566][Static662.anInt9843];
-        Static706.aGroundArray3 = new Ground[4];
+        Static478.aTileArrayArrayArray3 = new Tile[4][Static619.anInt1566][Static662.anInt9843];
+        Static706.floor = new Ground[4];
         if (arg5) {
-            Static62.anIntArrayArray33 = new int[Static619.anInt1566][Static662.anInt9843];
-            Static421.aByteArrayArray20 = new byte[Static619.anInt1566][Static662.anInt9843];
-            Static272.aShortArrayArray5 = new short[Static619.anInt1566][Static662.anInt9843];
-            Static420.aClass291ArrayArrayArray2 = new Class291[1][Static619.anInt1566][Static662.anInt9843];
-            Static693.aGroundArray2 = new Ground[1];
+            Static62.waterColour = new int[Static619.anInt1566][Static662.anInt9843];
+            Static421.waterBias = new byte[Static619.anInt1566][Static662.anInt9843];
+            Static272.waterDepth = new short[Static619.anInt1566][Static662.anInt9843];
+            Static420.aTileArrayArrayArray2 = new Tile[1][Static619.anInt1566][Static662.anInt9843];
+            Static693.underwaterGround = new Ground[1];
         } else {
-            Static62.anIntArrayArray33 = null;
-            Static421.aByteArrayArray20 = null;
-            Static272.aShortArrayArray5 = null;
-            Static420.aClass291ArrayArrayArray2 = null;
-            Static693.aGroundArray2 = null;
+            Static62.waterColour = null;
+            Static421.waterBias = null;
+            Static272.waterDepth = null;
+            Static420.aTileArrayArrayArray2 = null;
+            Static693.underwaterGround = null;
         }
         if (arg6) {
-            Static161.aLongArrayArrayArray1 = new long[4][arg2][arg3];
+            Static161.tileLightFlags = new long[4][arg2][arg3];
             Static265.aEnvironmentLightArray1 = new EnvironmentLight[65535];
             Static279.aBooleanArray11 = new boolean[65535];
             Static319.anInt5080 = 0;
         } else {
-            Static161.aLongArrayArrayArray1 = null;
+            Static161.tileLightFlags = null;
             Static265.aEnvironmentLightArray1 = null;
             Static279.aBooleanArray11 = null;
             Static319.anInt5080 = 0;
         }
         Static379.method5355(false);
-        Static576.aEntityArray9 = new Entity[2];
-        Static398.aEntityArray7 = new Entity[2];
-        Static468.aEntityArray10 = new Entity[2];
+        Static576.opaqueStationaryEntities = new Entity[2];
+        Static398.transparentStationaryEntities = new Entity[2];
+        Static468.dynamicEntities = new Entity[2];
         Static48.aEntityArray3 = new Entity[10000];
         Static546.anInt8244 = 0;
         Static395.aEntityArray11 = new Entity[5000];

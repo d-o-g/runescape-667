@@ -19,7 +19,7 @@ public final class Static582 {
     public static int anInt8630 = 7000;
 
     @OriginalMember(owner = "client!sfa", name = "e", descriptor = "I")
-    public static int anInt8627 = anInt8630;
+    public static int orthoAngle = anInt8630;
 
     @OriginalMember(owner = "client!sfa", name = "a", descriptor = "Lclient!hw;")
     public static final Class172 aClass172_4 = new Class172();

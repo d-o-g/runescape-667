@@ -98,7 +98,7 @@ public final class Node_Sub51 extends Node {
         @Pc(11) int local11 = this.sound;
         @Pc(14) boolean local14 = this.vorbis;
         if (this.aLocType_1 != null) {
-            @Pc(148) LocType local148 = this.aLocType_1.getMultiLoc(CutsceneManager.state == 3 ? Static298.AN_VAR_DOMAIN___2 : TimedVarDomain.instance);
+            @Pc(148) LocType local148 = this.aLocType_1.getMultiLoc(CutsceneManager.state == 3 ? CutsceneVarDomain.instance : TimedVarDomain.instance);
             if (local148 == null) {
                 this.anIntArray718 = null;
                 this.sound = -1;

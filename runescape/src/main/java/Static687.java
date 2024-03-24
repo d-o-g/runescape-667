@@ -32,7 +32,7 @@ public final class Static687 {
     @OriginalMember(owner = "client!vo", name = "a", descriptor = "(IIBII)V")
     public static void method8958(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         if (arg2 != 8 && arg2 != 16) {
-            @Pc(28) Class291 local28 = Static334.activeTiles[arg1][arg0][arg3];
+            @Pc(28) Tile local28 = Static334.activeTiles[arg1][arg0][arg3];
             if (local28 != null) {
                 if (arg2 == 1) {
                     local28.aShort84 = 0;
@@ -57,7 +57,7 @@ public final class Static687 {
 
     @OriginalMember(owner = "client!vo", name = "a", descriptor = "(III)Lclient!eia;")
     public static GroundDecor method8959(@OriginalArg(0) int level, @OriginalArg(1) int x, @OriginalArg(2) int z) {
-        @Pc(7) Class291 local7 = Static334.activeTiles[level][x][z];
-        return local7 == null || local7.aGroundDecor_1 == null ? null : local7.aGroundDecor_1;
+        @Pc(7) Tile local7 = Static334.activeTiles[level][x][z];
+        return local7 == null || local7.groundDecor == null ? null : local7.groundDecor;
     }
 }

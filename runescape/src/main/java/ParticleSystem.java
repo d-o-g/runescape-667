@@ -15,17 +15,17 @@ import org.openrs2.deob.annotation.Pc;
 public final class ParticleSystem extends Node {
 
     @OriginalMember(owner = "client!hv", name = "t", descriptor = "[Z")
-    public static final boolean[] aBooleanArray7 = new boolean[32];
+    public static final boolean[] activeEmitters = new boolean[32];
 
     @OriginalMember(owner = "client!hv", name = "f", descriptor = "[Z")
-    public static final boolean[] aBooleanArray6 = new boolean[8];
+    public static final boolean[] activeEffectors = new boolean[8];
 
     @OriginalMember(owner = "client!hv", name = "b", descriptor = "(IZ)Lclient!hv;")
     public static ParticleSystem create(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
         if (ParticleManager.systemFreePtr == ParticleManager.systemNextPtr) {
             return new ParticleSystem(arg0, arg1);
         } else {
-            @Pc(6) ParticleSystem system = ParticleManager.systemCache[ParticleManager.systemNextPtr];
+            @Pc(6) ParticleSystem system = ParticleManager.systems[ParticleManager.systemNextPtr];
             ParticleManager.systemNextPtr = ParticleManager.systemNextPtr + 1 & ParticleLimits.anIntArray265[ParticleManager.option];
             system.init(arg0, arg1);
             return system;
@@ -36,28 +36,28 @@ public final class ParticleSystem extends Node {
     public long lastRunningCheck;
 
     @OriginalMember(owner = "client!hv", name = "m", descriptor = "J")
-    public long aLong133;
+    public long clock;
 
     @OriginalMember(owner = "client!hv", name = "i", descriptor = "I")
-    public int anInt4149;
+    public int level;
 
     @OriginalMember(owner = "client!hv", name = "q", descriptor = "Z")
-    public boolean aBoolean324 = false;
+    public boolean removed = false;
 
     @OriginalMember(owner = "client!hv", name = "s", descriptor = "Z")
-    public boolean aBoolean323 = false;
+    public boolean running = false;
 
     @OriginalMember(owner = "client!hv", name = "l", descriptor = "I")
     public int anInt4147 = 0;
 
     @OriginalMember(owner = "client!hv", name = "h", descriptor = "Lclient!fla;")
-    public LinkedList emitters = new LinkedList();
+    public LinkedList emitterCache = new LinkedList();
 
     @OriginalMember(owner = "client!hv", name = "o", descriptor = "I")
-    public int anInt4148 = 0;
+    public int emitterCount = 0;
 
     @OriginalMember(owner = "client!hv", name = "k", descriptor = "Lclient!sia;")
-    public Deque aDeque_22 = new Deque();
+    public Deque effectorCache = new Deque();
 
     @OriginalMember(owner = "client!hv", name = "j", descriptor = "Z")
     public boolean aBoolean326 = false;
@@ -66,13 +66,13 @@ public final class ParticleSystem extends Node {
     public boolean aBoolean325 = false;
 
     @OriginalMember(owner = "client!hv", name = "r", descriptor = "I")
-    public int anInt4150 = 0;
+    public int effectorCount = 0;
 
     @OriginalMember(owner = "client!hv", name = "p", descriptor = "Lclient!lk;")
-    public final ParticleList aParticleList_1 = new ParticleList();
+    public final ParticleList list = new ParticleList();
 
     @OriginalMember(owner = "client!hv", name = "n", descriptor = "[Lclient!pp;")
-    public final MovingParticle[] aMovingParticle = new MovingParticle[8192];
+    public final MovingParticle[] movingParticles = new MovingParticle[8192];
 
     @OriginalMember(owner = "client!hv", name = "<init>", descriptor = "(IZ)V")
     public ParticleSystem(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
@@ -80,182 +80,192 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J[Lclient!rv;[Lclient!mn;Z)V")
-    public void method3643(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) long arg1, @OriginalArg(2) ModelParticleEmitter[] arg2, @OriginalArg(3) ModelParticleEffector[] arg3) {
-        if (!this.aBoolean324) {
-            this.method3651(arg0, arg2);
-            this.method3648(arg3);
-            this.aLong133 = arg1;
+    public void update(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) long clock, @OriginalArg(2) ModelParticleEmitter[] emitters, @OriginalArg(3) ModelParticleEffector[] effectors) {
+        if (!this.removed) {
+            this.method3651(toolkit, emitters);
+            this.method3648(effectors);
+            this.clock = clock;
         }
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "()V")
-    public void method3644() {
-        this.aBoolean323 = true;
+    public void run() {
+        this.running = true;
     }
 
     @OriginalMember(owner = "client!hv", name = "e", descriptor = "()Lclient!lk;")
-    public ParticleList method3645() {
-        return this.aParticleList_1;
+    public ParticleList getList() {
+        return this.list;
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;)V")
     public void method3646(@OriginalArg(0) Toolkit arg0) {
-        this.aParticleList_1.particles.clear();
-        for (@Pc(10) ParticleEmitter local10 = (ParticleEmitter) this.emitters.first(); local10 != null; local10 = (ParticleEmitter) this.emitters.next()) {
+        this.list.particles.clear();
+        for (@Pc(10) ParticleEmitter local10 = (ParticleEmitter) this.emitterCache.first(); local10 != null; local10 = (ParticleEmitter) this.emitterCache.next()) {
             local10.method7263(this.lastRunningCheck, arg0);
         }
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "([Lclient!mn;Z)V")
-    public void method3648(@OriginalArg(0) ModelParticleEffector[] arg0) {
-        for (@Pc(1) int local1 = 0; local1 < 8; local1++) {
-            aBooleanArray6[local1] = false;
+    public void method3648(@OriginalArg(0) ModelParticleEffector[] effectors) {
+        for (@Pc(1) int i = 0; i < 8; i++) {
+            activeEffectors[i] = false;
         }
-        @Pc(21) int local21;
+
         label71:
-        for (@Pc(16) ParticleEffector local16 = (ParticleEffector) this.aDeque_22.first(); local16 != null; local16 = (ParticleEffector) this.aDeque_22.next()) {
-            if (arg0 != null) {
-                for (local21 = 0; local21 < arg0.length; local21++) {
-                    if (local16.aModelParticleEffector_1 == arg0[local21] || local16.aModelParticleEffector_1 == arg0[local21].aModelParticleEffector_2) {
-                        aBooleanArray6[local21] = true;
-                        local16.method1707();
+        for (@Pc(16) ParticleEffector effector = (ParticleEffector) this.effectorCache.first(); effector != null; effector = (ParticleEffector) this.effectorCache.next()) {
+            if (effectors != null) {
+                for (@Pc(21) int i = 0; i < effectors.length; i++) {
+                    if (effector.model == effectors[i] || effector.model == effectors[i].next) {
+                        activeEffectors[i] = true;
+                        effector.method1707();
                         continue label71;
                     }
                 }
             }
-            local16.unlink();
-            this.anInt4150--;
-            if (local16.isLinked2()) {
-                local16.unlink2();
-                Static654.anInt9740--;
+
+            effector.unlink();
+            this.effectorCount--;
+
+            if (effector.isLinked2()) {
+                effector.unlink2();
+                ParticleManager.effectorCount--;
             }
         }
-        if (arg0 == null) {
+
+        if (effectors == null) {
             return;
         }
-        for (local21 = 0; local21 < arg0.length && local21 != 8 && this.anInt4150 != 8; local21++) {
-            if (!aBooleanArray6[local21]) {
+
+        for (@Pc(21) int i = 0; i < effectors.length && i != 8 && this.effectorCount != 8; i++) {
+            if (!activeEffectors[i]) {
                 @Pc(96) ParticleEffector local96 = null;
-                if (arg0[local21].type().visibility == 1 && Static654.anInt9740 < 32) {
-                    local96 = new ParticleEffector(arg0[local21], this);
-                    Static519.aHashTable_1.put(local96, arg0[local21].type);
-                    Static654.anInt9740++;
+                if (effectors[i].type().visibility == 1 && ParticleManager.effectorCount < 32) {
+                    local96 = new ParticleEffector(effectors[i], this);
+                    ParticleManager.effectorsCache.put(local96, effectors[i].type);
+                    ParticleManager.effectorCount++;
                 }
                 if (local96 == null) {
-                    local96 = new ParticleEffector(arg0[local21], this);
+                    local96 = new ParticleEffector(effectors[i], this);
                 }
-                this.aDeque_22.addLast(local96);
-                this.anInt4150++;
-                aBooleanArray6[local21] = true;
+                this.effectorCache.addLast(local96);
+                this.effectorCount++;
+                activeEffectors[i] = true;
             }
         }
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(J)V")
-    public void method3649(@OriginalArg(0) long arg0) {
-        this.aLong133 = arg0;
+    public void setClock(@OriginalArg(0) long clock) {
+        this.clock = clock;
     }
 
     @OriginalMember(owner = "client!hv", name = "b", descriptor = "()Lclient!lk;")
     public ParticleList method3650() {
-        this.aParticleList_1.particles.clear();
-        for (@Pc(6) int local6 = 0; local6 < this.aMovingParticle.length; local6++) {
-            if (this.aMovingParticle[local6] != null && this.aMovingParticle[local6].aParticleEmitter_1 != null) {
-                this.aParticleList_1.particles.add(this.aMovingParticle[local6]);
+        this.list.particles.clear();
+        for (@Pc(6) int local6 = 0; local6 < this.movingParticles.length; local6++) {
+            if (this.movingParticles[local6] != null && this.movingParticles[local6].emitter != null) {
+                this.list.particles.add(this.movingParticles[local6]);
             }
         }
-        return this.aParticleList_1;
+        return this.list;
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;[Lclient!rv;Z)V")
-    public void method3651(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) ModelParticleEmitter[] arg1) {
+    public void method3651(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) ModelParticleEmitter[] emitters) {
         for (@Pc(1) int local1 = 0; local1 < 32; local1++) {
-            aBooleanArray7[local1] = false;
+            activeEmitters[local1] = false;
         }
-        @Pc(21) int local21;
+
         label62:
-        for (@Pc(16) ParticleEmitter local16 = (ParticleEmitter) this.emitters.first(); local16 != null; local16 = (ParticleEmitter) this.emitters.next()) {
-            if (arg1 != null) {
-                for (local21 = 0; local21 < arg1.length; local21++) {
-                    if (local16.model == arg1[local21] || local16.model == arg1[local21].aModelParticleEmitter_2) {
-                        aBooleanArray7[local21] = true;
-                        local16.method7264();
-                        local16.aBoolean630 = false;
+        for (@Pc(16) ParticleEmitter emitter = (ParticleEmitter) this.emitterCache.first(); emitter != null; emitter = (ParticleEmitter) this.emitterCache.next()) {
+            if (emitters != null) {
+                for (@Pc(21) int local21 = 0; local21 < emitters.length; local21++) {
+                    if (emitter.model == emitters[local21] || emitter.model == emitters[local21].next) {
+                        activeEmitters[local21] = true;
+                        emitter.method7264();
+                        emitter.inactive = false;
                         continue label62;
                     }
                 }
             }
-            if (local16.anInt8268 == 0) {
-                local16.unlink();
-                this.anInt4148--;
+
+            if (emitter.anInt8268 == 0) {
+                emitter.unlink();
+                this.emitterCount--;
             } else {
-                local16.aBoolean630 = true;
+                emitter.inactive = true;
             }
         }
-        if (arg1 == null) {
+
+        if (emitters == null) {
             return;
         }
-        for (local21 = 0; local21 < arg1.length && local21 != 32 && this.anInt4148 != 32; local21++) {
-            if (!aBooleanArray7[local21]) {
-                @Pc(104) ParticleEmitter local104 = new ParticleEmitter(arg0, arg1[local21], this, this.aLong133);
-                this.emitters.add(local104);
-                this.anInt4148++;
-                aBooleanArray7[local21] = true;
+
+        for (@Pc(21) int i = 0; i < emitters.length && i != 32 && this.emitterCount != 32; i++) {
+            if (!activeEmitters[i]) {
+                @Pc(104) ParticleEmitter emitter = new ParticleEmitter(toolkit, emitters[i], this, this.clock);
+                this.emitterCache.add(emitter);
+                this.emitterCount++;
+                activeEmitters[i] = true;
             }
         }
     }
 
     @OriginalMember(owner = "client!hv", name = "d", descriptor = "()V")
-    public void method3652() {
-        this.aBoolean324 = true;
-        for (@Pc(8) ParticleEffector local8 = (ParticleEffector) this.aDeque_22.first(); local8 != null; local8 = (ParticleEffector) this.aDeque_22.next()) {
-            if (local8.aParticleEffectorType_1.visibility == 1) {
-                local8.unlink2();
+    public void remove() {
+        this.removed = true;
+
+        for (@Pc(8) ParticleEffector effector = (ParticleEffector) this.effectorCache.first(); effector != null; effector = (ParticleEffector) this.effectorCache.next()) {
+            if (effector.type.visibility == 1) {
+                effector.unlink2();
             }
         }
-        for (@Pc(27) int i = 0; i < this.aMovingParticle.length; i++) {
-            if (this.aMovingParticle[i] != null) {
-                this.aMovingParticle[i].method6697();
-                this.aMovingParticle[i] = null;
+
+        for (@Pc(27) int i = 0; i < this.movingParticles.length; i++) {
+            if (this.movingParticles[i] != null) {
+                this.movingParticles[i].remove();
+                this.movingParticles[i] = null;
             }
         }
+
         this.anInt4147 = 0;
-        this.emitters = new LinkedList();
-        this.anInt4148 = 0;
-        this.aDeque_22 = new Deque();
-        this.anInt4150 = 0;
+        this.emitterCache = new LinkedList();
+        this.emitterCount = 0;
+        this.effectorCache = new Deque();
+        this.effectorCount = 0;
         this.unlink();
-        ParticleManager.systemCache[ParticleManager.systemFreePtr] = this;
+        ParticleManager.systems[ParticleManager.systemFreePtr] = this;
         ParticleManager.systemFreePtr = ParticleManager.systemFreePtr + 1 & ParticleLimits.anIntArray265[ParticleManager.option];
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J)Z")
     public boolean isRunning(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) long time) {
-        if (this.aLong133 == this.lastRunningCheck) {
-            this.method3655();
+        if (this.clock == this.lastRunningCheck) {
+            this.stop();
         } else {
-            this.method3644();
+            this.run();
         }
 
-        if (time - this.aLong133 > 750L) {
-            this.method3652();
+        if (time - this.clock > 750L) {
+            this.remove();
             return false;
         }
 
-        @Pc(27) int local27 = (int) (time - this.lastRunningCheck);
+        @Pc(27) int timeSinceLastRunningCheck = (int) (time - this.lastRunningCheck);
         @Pc(36) ParticleEmitter emitter;
 
         if (this.aBoolean326) {
-            for (emitter = (ParticleEmitter) this.emitters.first(); emitter != null; emitter = (ParticleEmitter) this.emitters.next()) {
+            for (emitter = (ParticleEmitter) this.emitterCache.first(); emitter != null; emitter = (ParticleEmitter) this.emitterCache.next()) {
                 for (@Pc(39) int i = 0; i < emitter.type.startupTicks; i++) {
-                    emitter.method7261(1, !this.aBoolean323, time, toolkit);
+                    emitter.method7261(1, !this.running, time, toolkit);
                 }
             }
             this.aBoolean326 = false;
         }
 
-        for (emitter = (ParticleEmitter) this.emitters.first(); emitter != null; emitter = (ParticleEmitter) this.emitters.next()) {
-            emitter.method7261(local27, !this.aBoolean323, time, toolkit);
+        for (emitter = (ParticleEmitter) this.emitterCache.first(); emitter != null; emitter = (ParticleEmitter) this.emitterCache.next()) {
+            emitter.method7261(timeSinceLastRunningCheck, !this.running, time, toolkit);
         }
 
         this.lastRunningCheck = time;
@@ -263,8 +273,8 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "c", descriptor = "()V")
-    public void method3655() {
-        this.aBoolean323 = false;
+    public void stop() {
+        this.running = false;
     }
 
     @OriginalMember(owner = "client!hv", name = "f", descriptor = "()V")
@@ -273,16 +283,16 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(IZ)V")
-    public void init(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        ParticleManager.systems.add(this);
-        this.aLong133 = arg0;
-        this.lastRunningCheck = arg0;
+    public void init(@OriginalArg(0) int clock, @OriginalArg(1) boolean arg1) {
+        ParticleManager.systemsCache.add(this);
+        this.clock = clock;
+        this.lastRunningCheck = clock;
         this.aBoolean326 = true;
         this.aBoolean325 = arg1;
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(IIIII)V")
-    public void method3658(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        this.anInt4149 = arg0;
+    public void updateBounds(@OriginalArg(0) int level, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+        this.level = level;
     }
 }

@@ -78,6 +78,9 @@ public final class ServerProt {
     @OriginalMember(owner = "client!as", name = "e", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___11 = new ServerProt(52, 6);
 
+    @OriginalMember(owner = "client!ss", name = "e", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___219 = new ServerProt(119, 6);
+
     @OriginalMember(owner = "client!lga", name = "e", descriptor = "I")
     public final int opcode;
 

@@ -1,7 +1,9 @@
 import com.jagex.ParticleList;
+import com.jagex.core.constants.LocShapes;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
+import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
@@ -14,34 +16,34 @@ import org.openrs2.deob.annotation.Pc;
 public final class DynamicGroundDecor extends GroundDecor implements Location {
 
     @OriginalMember(owner = "client!hp", name = "V", descriptor = "Lclient!ke;")
-    public Class205 aClass205_3;
+    public BoundingCylinder cylinder;
 
     @OriginalMember(owner = "client!hp", name = "C", descriptor = "Z")
-    public boolean aBoolean317 = true;
+    public boolean transparent = true;
 
     @OriginalMember(owner = "client!hp", name = "eb", descriptor = "Lclient!sh;")
-    public Class337 aClass337_2;
+    public LocEntity entity;
 
     @OriginalMember(owner = "client!hp", name = "K", descriptor = "Z")
-    public final boolean aBoolean318;
+    public final boolean interactive;
 
     @OriginalMember(owner = "client!hp", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZII)V")
-    public DynamicGroundDecor(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9) {
-        super(arg4, arg5, arg6, arg2, arg3, arg1.anInt1227);
-        this.aClass337_2 = new Class337(arg0, arg1, 22, arg8, arg2, arg3, this, arg7, arg9);
-        this.aBoolean318 = arg1.interactivity != LocInteractivity.NONINTERACTIVE && !arg7;
+    public DynamicGroundDecor(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) LocType type, @OriginalArg(2) int level, @OriginalArg(3) int virtualLevel, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z, @OriginalArg(7) boolean underwater, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9) {
+        super(x, y, z, level, virtualLevel, type.offsetY);
+        this.entity = new LocEntity(toolkit, type, LocShapes.GROUNDDECOR, arg8, level, virtualLevel, this, underwater, arg9);
+        this.interactive = type.interactivity != LocInteractivity.NONINTERACTIVE && !underwater;
     }
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
-        @Pc(12) Model local12 = this.aClass337_2.method7678(arg3, false, true, arg2, 131072);
-        if (local12 == null) {
+    public boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit toolkit) {
+        @Pc(12) Model model = this.entity.model(toolkit, false, true, arg2, 0x20000);
+        if (model == null) {
             return false;
         } else {
-            @Pc(20) Matrix local20 = arg3.scratchMatrix();
-            local20.method7125(super.x, super.anInt10691, super.z);
-            return Static504.aBoolean579 ? local12.pickedOrtho(arg1, arg0, local20, false, 0, Static582.anInt8627) : local12.picked(arg1, arg0, local20, false, 0);
+            @Pc(20) Matrix matrix = toolkit.scratchMatrix();
+            matrix.applyTranslation(super.x, super.y, super.z);
+            return Static504.renderOrtho ? model.pickedOrtho(y, x, matrix, false, 0, Static582.orthoAngle) : model.picked(y, x, matrix, false, 0);
         }
     }
 
@@ -49,53 +51,52 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
     @Override
     public boolean method9290(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
-            this.aClass205_3 = null;
+            this.cylinder = null;
         }
         return false;
     }
 
     @OriginalMember(owner = "client!hp", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public void method9289(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
-            this.method3581(null);
+            this.customise(null);
         }
-        @Pc(21) Model local21 = this.aClass337_2.method7678(arg0, true, true, true, 262144);
-        if (local21 == null) {
+
+        @Pc(21) Model model = this.entity.model(toolkit, true, true, true, 0x40000);
+        if (model == null) {
             return;
         }
-        @Pc(28) int local28 = super.x >> 9;
-        @Pc(33) int local33 = super.z >> 9;
-        @Pc(36) Matrix local36 = arg0.scratchMatrix();
-        local36.method7125(super.x, super.anInt10691, super.z);
-        this.aClass337_2.method7681(local33, local21, false, -9827, arg0, local28, local28, local33, local36);
+
+        @Pc(28) int x1 = super.x >> 9;
+        @Pc(33) int z1 = super.z >> 9;
+        @Pc(36) Matrix matrix = toolkit.scratchMatrix();
+        matrix.applyTranslation(super.x, super.y, super.z);
+        this.entity.method7681(z1, model, false, -9827, toolkit, x1, x1, z1, matrix);
     }
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(Lclient!gp;I)V")
-    public void method3581(@OriginalArg(0) LocTypeCustomisation arg0) {
-        this.aClass337_2.method7679(arg0);
+    public void customise(@OriginalArg(0) LocTypeCustomisation customisation) {
+        this.entity.customise(customisation);
     }
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void removeShadow(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
-        this.aClass337_2.method7669(arg0);
-        if (arg1 > -42) {
-            this.method9282(-38);
-        }
+    public void removeShadow(@OriginalArg(0) Toolkit toolkit) {
+        this.entity.removeShadow(toolkit);
     }
 
     @OriginalMember(owner = "client!hp", name = "b", descriptor = "(Lclient!ha;I)V")
     @Override
     public void addShadow(@OriginalArg(0) Toolkit toolkit) {
-        this.aClass337_2.method7668(toolkit);
+        this.entity.addShadow(toolkit);
     }
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
     public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg4 < 101) {
-            this.aBoolean317 = true;
+            this.transparent = true;
         }
         throw new IllegalStateException();
     }
@@ -103,108 +104,117 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(I)I")
     @Override
     public int getId() {
-        return this.aClass337_2.anInt8649;
+        return this.entity.id;
     }
 
     @OriginalMember(owner = "client!hp", name = "b", descriptor = "(B)Z")
     @Override
-    public boolean method9283() {
+    public boolean isStationary() {
         return false;
     }
 
     @OriginalMember(owner = "client!hp", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public BoundingCylinder getCylinder(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
         if (arg1 >= -93) {
             Static252.aBoolean316 = true;
         }
-        return this.aClass205_3;
+        return this.cylinder;
     }
 
     @OriginalMember(owner = "client!hp", name = "k", descriptor = "(I)I")
     @Override
-    public int method9286(@OriginalArg(0) int arg0) {
+    public int getMinY(@OriginalArg(0) int arg0) {
         if (arg0 != 2) {
-            this.removeShadow(null, 33);
+            this.removeShadow(null);
         }
-        return this.aClass337_2.method7671();
+        return this.entity.getMinY();
     }
 
     @OriginalMember(owner = "client!hp", name = "e", descriptor = "(I)Z")
     @Override
-    public boolean castsShadow() {
-        return this.aClass337_2.method7675();
+    public boolean hardShadow() {
+        return this.entity.hardShadow();
     }
 
     @OriginalMember(owner = "client!hp", name = "j", descriptor = "(I)V")
     @Override
     public void method9280(@OriginalArg(0) int arg0) {
         if (arg0 != 27811) {
-            this.castsShadow();
+            this.hardShadow();
         }
         throw new IllegalStateException();
     }
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
-        @Pc(22) Model local22 = this.aClass337_2.method7678(arg0, false, true, true, 2048);
-        if (local22 == null) {
+    public PickableEntity render(@OriginalArg(1) Toolkit toolkit) {
+        @Pc(22) Model model = this.entity.model(toolkit, false, true, true, 0x800);
+        if (model == null) {
             return null;
         }
-        @Pc(30) Matrix local30 = arg0.scratchMatrix();
-        local30.method7125(super.x, super.anInt10691, super.z);
-        @Pc(44) PickableEntity local44 = Static642.method8441(this.aBoolean318, 1);
-        @Pc(49) int local49 = super.x >> 9;
-        @Pc(54) int local54 = super.z >> 9;
-        this.aClass337_2.method7681(local54, local22, true, -9827, arg0, local49, local49, local54, local30);
-        if (Static504.aBoolean579) {
-            local22.renderOrtho(local30, local44.aPickingCylinderArray1[0], Static582.anInt8627, 0);
+
+        @Pc(30) Matrix matrix = toolkit.scratchMatrix();
+        matrix.applyTranslation(super.x, super.y, super.z);
+
+        @Pc(44) PickableEntity entity = Static642.method8441(this.interactive, 1);
+        @Pc(49) int x1 = super.x >> 9;
+        @Pc(54) int z1 = super.z >> 9;
+
+        this.entity.method7681(z1, model, true, -9827, toolkit, x1, x1, z1, matrix);
+
+        if (Static504.renderOrtho) {
+            model.renderOrtho(matrix, entity.pickingCylinders[0], Static582.orthoAngle, 0);
         } else {
-            local22.render(local30, local44.aPickingCylinderArray1[0], 0);
+            model.render(matrix, entity.pickingCylinders[0], 0);
         }
-        if (this.aClass337_2.aParticleSystem_7 != null) {
-            @Pc(100) ParticleList local100 = this.aClass337_2.aParticleSystem_7.method3645();
-            if (Static504.aBoolean579) {
-                arg0.method7967(local100, Static582.anInt8627);
+
+        if (this.entity.particleSystem != null) {
+            @Pc(100) ParticleList local100 = this.entity.particleSystem.getList();
+
+            if (Static504.renderOrtho) {
+                toolkit.renderOrtho(local100, Static582.orthoAngle);
             } else {
-                arg0.method8021(local100);
+                toolkit.render(local100);
             }
         }
-        this.aBoolean317 = local22.F() || this.aClass337_2.aParticleSystem_7 != null;
-        if (this.aClass205_3 == null) {
-            this.aClass205_3 = Static317.method4583(super.anInt10691, super.x, local22, super.z);
+
+        this.transparent = model.F() || this.entity.particleSystem != null;
+
+        if (this.cylinder == null) {
+            this.cylinder = BoundingCylinder.create(super.y, super.x, model, super.z);
         } else {
-            Static223.method9103(local22, super.z, super.anInt10691, super.x, this.aClass205_3);
+            BoundingCylinder.update(model, super.z, super.y, super.x, this.cylinder);
         }
-        return local44;
+
+        return entity;
     }
 
     @OriginalMember(owner = "client!hp", name = "c", descriptor = "(I)I")
     @Override
     public int getRotation() {
-        return this.aClass337_2.anInt8663;
+        return this.entity.rotation;
     }
 
     @OriginalMember(owner = "client!hp", name = "c", descriptor = "(B)I")
     @Override
-    public int method9292(@OriginalArg(0) byte arg0) {
+    public int getSphereRadius(@OriginalArg(0) byte arg0) {
         if (arg0 != -21) {
-            this.aBoolean317 = true;
+            this.transparent = true;
         }
-        return this.aClass337_2.method7673(true);
+        return this.entity.getSphereRadius(true);
     }
 
     @OriginalMember(owner = "client!hp", name = "h", descriptor = "(I)Z")
     @Override
-    public boolean method9282(@OriginalArg(0) int arg0) {
-        return arg0 == 0 ? this.aBoolean317 : true;
+    public boolean isTransparent(@OriginalArg(0) int arg0) {
+        return arg0 == 0 ? this.transparent : true;
     }
 
     @OriginalMember(owner = "client!hp", name = "b", descriptor = "(I)I")
     @Override
     public int getShape() {
-        return this.aClass337_2.anInt8645;
+        return this.entity.shape;
     }
 
     @OriginalMember(owner = "client!hp", name = "d", descriptor = "(I)V")

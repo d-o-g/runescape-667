@@ -8,9 +8,6 @@ public final class Static353 {
     @OriginalMember(owner = "client!lca", name = "k", descriptor = "Z")
     public static boolean aBoolean734 = false;
 
-    @OriginalMember(owner = "client!lca", name = "s", descriptor = "[I")
-    public static final int[] anIntArray748 = new int[]{1, 2, 4, 8};
-
     @OriginalMember(owner = "client!lca", name = "A", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___233 = new ServerProt(30, -2);
 

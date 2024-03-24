@@ -833,7 +833,7 @@ public final class InterfaceManager {
                                     model.render(Static59.aMatrix_5, null, 1);
 
                                     if (child.particleSystem != null) {
-                                        Toolkit.active.method8021(child.particleSystem.method3650());
+                                        Toolkit.active.render(child.particleSystem.method3650());
                                     }
                                 }
                             } else {
@@ -843,7 +843,7 @@ public final class InterfaceManager {
                                     model.render(Static59.aMatrix_5, null, 1);
 
                                     if (child.particleSystem != null) {
-                                        Toolkit.active.method8021(child.particleSystem.method3650());
+                                        Toolkit.active.render(child.particleSystem.method3650());
                                     }
                                 }
                             }

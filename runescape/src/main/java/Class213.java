@@ -23,7 +23,7 @@ public final class Class213 {
     public void method5008(@OriginalArg(1) PickableEntity arg0) {
         @Pc(6) Entity local6 = arg0.aEntity_18;
         @Pc(8) boolean local8 = true;
-        @Pc(11) PickingCylinder[] local11 = arg0.aPickingCylinderArray1;
+        @Pc(11) PickingCylinder[] local11 = arg0.pickingCylinders;
         for (@Pc(13) int local13 = 0; local13 < local11.length; local13++) {
             if (local11[local13].aBoolean352) {
                 local8 = false;

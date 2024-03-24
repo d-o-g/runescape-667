@@ -103,7 +103,7 @@ public final class LocType {
     public byte colourShiftPercentage = 0;
 
     @OriginalMember(owner = "client!c", name = "O", descriptor = "I")
-    public int anInt1227 = 0;
+    public int offsetY = 0;
 
     @OriginalMember(owner = "client!c", name = "Gb", descriptor = "I")
     public int anInt1219 = 0;
@@ -184,7 +184,7 @@ public final class LocType {
     public int occlusionHeight = 960;
 
     @OriginalMember(owner = "client!c", name = "W", descriptor = "Z")
-    public boolean aBoolean94 = true;
+    public boolean randomiseAnimations = true;
 
     @OriginalMember(owner = "client!c", name = "U", descriptor = "I")
     public int anInt1243 = 64;
@@ -433,7 +433,7 @@ public final class LocType {
         } else if (code == 88) {
             this.hardShadow = false;
         } else if (code == 89) {
-            this.aBoolean94 = false;
+            this.randomiseAnimations = false;
         } else if (code == 91) {
             this.members = true;
         } else if (code == 93) {
@@ -513,7 +513,7 @@ public final class LocType {
         } else if (code == 166) {
             this.anInt1248 = packet.g2s();
         } else if (code == 167) {
-            this.anInt1227 = packet.g2();
+            this.offsetY = packet.g2();
         } else if (code == 168) {
             this.aBoolean88 = true;
         } else if (code == 169) {
@@ -714,7 +714,7 @@ public final class LocType {
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(IIILclient!s;ZBIILclient!ha;Lclient!gp;ILclient!s;)Lclient!od;")
-    public ModelAndShadow modelAndShadow(@OriginalArg(0) int rotation, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Ground arg3, @OriginalArg(4) boolean addShadow, @OriginalArg(6) int arg5, @OriginalArg(7) int shape, @OriginalArg(8) Toolkit toolkit, @OriginalArg(9) LocTypeCustomisation customisation, @OriginalArg(10) int functionMask, @OriginalArg(11) Ground ground) {
+    public ModelAndShadow modelAndShadow(@OriginalArg(0) int rotation, @OriginalArg(1) int z, @OriginalArg(2) int x, @OriginalArg(3) Ground floor, @OriginalArg(4) boolean addShadow, @OriginalArg(6) int y, @OriginalArg(7) int shape, @OriginalArg(8) Toolkit toolkit, @OriginalArg(9) LocTypeCustomisation customisation, @OriginalArg(10) int functionMask, @OriginalArg(11) Ground ceiling) {
         if (LocShapes.isWallDecor(shape)) {
             shape = LocShapes.WALLDECOR_STRAIGHT_NOOFFSET;
         }
@@ -793,13 +793,13 @@ public final class LocType {
             }
         }
 
-        @Pc(271) boolean local271 = this.hillType != 0 && (arg3 != null || ground != null);
+        @Pc(271) boolean local271 = this.hillType != 0 && (floor != null || ceiling != null);
         @Pc(292) boolean local292 = this.anInt1214 != 0 || this.anInt1213 != 0 || this.anInt1248 != 0;
         if (local271 || local292) {
             model = model.copy((byte) 0, newFunctionMask, true);
 
             if (local271) {
-                model.p(this.hillType, this.hillValue, arg3, ground, arg2, arg5, arg1);
+                model.p(this.hillType, this.hillValue, floor, ceiling, x, y, z);
             }
 
             if (local292) {

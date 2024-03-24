@@ -68,7 +68,7 @@ public final class Class236 {
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1 = new NPCEntity(25);
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.cutsceneClock = TimeUtils.clock;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.id = this.anInt5985;
-                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.setType(NPCTypeList.instance.list(this.anInt5980));
+                this.aClass8_Sub2_Sub1_Sub2_Sub2_1.setupNewNPCType(NPCTypeList.instance.list(this.anInt5980));
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.setSize(this.aClass8_Sub2_Sub1_Sub2_Sub2_1.type.size);
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.yawSpeed = this.aClass8_Sub2_Sub1_Sub2_Sub2_1.type.yawSpeed << 3;
                 this.aClass8_Sub2_Sub1_Sub2_Sub2_1.drawPriority = Static457.anInt6933++;

@@ -6,7 +6,7 @@ public final class Static421 {
     public static byte[][] aByteArrayArray19;
 
     @OriginalMember(owner = "client!nf", name = "j", descriptor = "[[B")
-    public static byte[][] aByteArrayArray20;
+    public static byte[][] waterBias;
 
     @OriginalMember(owner = "client!nf", name = "k", descriptor = "Z")
     public static boolean aBoolean480 = false;

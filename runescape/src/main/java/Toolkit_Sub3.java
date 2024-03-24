@@ -1111,7 +1111,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public void method7967(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
+    public void renderOrtho(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
         this.aClass42_1.method1080(this, arg0, arg1);
     }
 
@@ -1624,7 +1624,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public void method8021(@OriginalArg(0) ParticleList arg0) {
+    public void render(@OriginalArg(0) ParticleList arg0) {
         this.aClass42_1.method1080(this, arg0, -1);
     }
 
@@ -2777,7 +2777,7 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "r", descriptor = "()Z")
     @Override
-    public boolean method8006() {
+    public boolean hardShadow() {
         return true;
     }
 

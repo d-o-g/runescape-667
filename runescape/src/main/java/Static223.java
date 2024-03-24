@@ -1,4 +1,3 @@
-import com.jagex.graphics.Model;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -46,25 +45,4 @@ public final class Static223 {
         return new Class317(arg1, local50, arg0);
     }
 
-    @OriginalMember(owner = "client!gu", name = "a", descriptor = "(ZLclient!qf;)Lclient!pba;")
-    public static Class286 method9095(@OriginalArg(1) PositionEntity arg0) {
-        @Pc(7) Class286 local7;
-        if (Static620.aClass286_3 == null) {
-            local7 = new Class286();
-        } else {
-            local7 = Static620.aClass286_3;
-            Static620.aClass286_3 = Static620.aClass286_3.aClass286_1;
-            local7.aClass286_1 = null;
-            Static181.anInt3006--;
-        }
-        local7.aPositionEntity = arg0;
-        return local7;
-    }
-
-    @OriginalMember(owner = "client!gu", name = "a", descriptor = "(Lclient!ka;IIILclient!ke;I)V")
-    public static void method9103(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) Class205 arg4) {
-        if (arg0 != null) {
-            arg4.method4629(arg0.fa(), arg0.HA(), arg2, arg3, arg0.G(), arg0.na(), arg1, arg0.EA(), arg0.V(), arg0.RA());
-        }
-    }
 }

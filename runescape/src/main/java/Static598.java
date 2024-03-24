@@ -4,22 +4,21 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static598 {
 
-    @OriginalMember(owner = "client!ss", name = "e", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___219 = new ServerProt(119, 6);
-
     @OriginalMember(owner = "client!ss", name = "i", descriptor = "S")
     public static short aShort120 = 32767;
 
     @OriginalMember(owner = "client!ss", name = "a", descriptor = "(Z)V")
     public static void method7827() {
-        for (@Pc(13) DoublyLinkedNode_Sub2_Sub20 local13 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.first(); local13 != null; local13 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.next()) {
-            @Pc(18) Class8_Sub2_Sub1_Sub5 local18 = local13.aClass8_Sub2_Sub1_Sub5_1;
-            local18.method6598();
-            if (local18.method6603()) {
-                local13.unlink();
-                local18.method6600();
-            } else if (Static334.activeTiles != null && local18.method6595()) {
-                Static102.method2026(local18, true);
+        for (@Pc(13) SpotAnimationNode node = (SpotAnimationNode) Static346.A_HASH_TABLE___29.first(); node != null; node = (SpotAnimationNode) Static346.A_HASH_TABLE___29.next()) {
+            @Pc(18) SpotAnimation spotAnimation = node.spotAnimation;
+
+            spotAnimation.tick();
+
+            if (spotAnimation.isFinished()) {
+                node.unlink();
+                spotAnimation.runParticleSystem();
+            } else if (Static334.activeTiles != null && spotAnimation.isAnimating()) {
+                Static102.method2026(spotAnimation, true);
             }
         }
     }

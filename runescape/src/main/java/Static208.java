@@ -55,10 +55,10 @@ public final class Static208 {
         @Pc(16) int local16 = arg0.z >> Static52.anInt1066;
         @Pc(18) int local18 = local16;
         if (arg0 instanceof PositionEntity) {
-            local11 = ((PositionEntity) arg0).aShort134;
-            local18 = ((PositionEntity) arg0).aShort133;
-            local9 = ((PositionEntity) arg0).aShort131;
-            local16 = ((PositionEntity) arg0).aShort132;
+            local11 = ((PositionEntity) arg0).x2;
+            local18 = ((PositionEntity) arg0).z2;
+            local9 = ((PositionEntity) arg0).x1;
+            local16 = ((PositionEntity) arg0).z1;
         }
         for (@Pc(39) int local39 = local9; local39 <= local11; local39++) {
             for (@Pc(42) int local42 = local16; local42 <= local18; local42++) {

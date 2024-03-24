@@ -9,18 +9,18 @@ public final class Static646 {
 
     @OriginalMember(owner = "client!uga", name = "a", descriptor = "(II)V")
     public static void method8453(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(7) Class291 local7 = Static334.activeTiles[0][arg0][arg1];
+        @Pc(7) Tile local7 = Static334.activeTiles[0][arg0][arg1];
         for (@Pc(9) int local9 = 0; local9 < 3; local9++) {
-            @Pc(28) Class291 local28 = Static334.activeTiles[local9][arg0][arg1] = Static334.activeTiles[local9 + 1][arg0][arg1];
+            @Pc(28) Tile local28 = Static334.activeTiles[local9][arg0][arg1] = Static334.activeTiles[local9 + 1][arg0][arg1];
             if (local28 != null) {
-                for (@Pc(33) Class286 local33 = local28.aClass286_2; local33 != null; local33 = local33.aClass286_1) {
-                    @Pc(37) PositionEntity local37 = local33.aPositionEntity;
-                    if (local37.aShort131 == arg0 && local37.aShort132 == arg1) {
+                for (@Pc(33) PositionEntityNode local33 = local28.head; local33 != null; local33 = local33.node) {
+                    @Pc(37) PositionEntity local37 = local33.entity;
+                    if (local37.x1 == arg0 && local37.z1 == arg1) {
                         local37.level--;
                     }
                 }
-                if (local28.aGroundDecor_1 != null) {
-                    local28.aGroundDecor_1.level--;
+                if (local28.groundDecor != null) {
+                    local28.groundDecor.level--;
                 }
                 if (local28.aClass8_Sub2_Sub3_2 != null) {
                     local28.aClass8_Sub2_Sub3_2.level--;
@@ -37,10 +37,10 @@ public final class Static646 {
             }
         }
         if (Static334.activeTiles[0][arg0][arg1] == null) {
-            Static334.activeTiles[0][arg0][arg1] = new Class291(0);
+            Static334.activeTiles[0][arg0][arg1] = new Tile(0);
             Static334.activeTiles[0][arg0][arg1].aByte116 = 1;
         }
-        Static334.activeTiles[0][arg0][arg1].aClass291_1 = local7;
+        Static334.activeTiles[0][arg0][arg1].aTile_1 = local7;
         Static334.activeTiles[3][arg0][arg1] = null;
     }
 

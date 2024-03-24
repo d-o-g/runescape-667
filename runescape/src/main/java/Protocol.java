@@ -1320,9 +1320,9 @@ public final class Protocol {
                                                                     local3502 = (local100 & 0x3FFF) - WorldMap.areaBaseZ;
                                                                     if (local657 >= 0 && local3502 >= 0 && local657 < Static720.mapWidth && local3502 < Static501.mapHeight) {
                                                                         if (local2098 == -1) {
-                                                                            @Pc(5270) DoublyLinkedNode_Sub2_Sub20 local5270 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get(local657 << 16 | local3502);
+                                                                            @Pc(5270) SpotAnimationNode local5270 = (SpotAnimationNode) Static346.A_HASH_TABLE___29.get(local657 << 16 | local3502);
                                                                             if (local5270 != null) {
-                                                                                local5270.aClass8_Sub2_Sub1_Sub5_1.method6600();
+                                                                                local5270.spotAnimation.runParticleSystem();
                                                                                 local5270.unlink();
                                                                             }
                                                                         } else {
@@ -1332,8 +1332,8 @@ public final class Protocol {
                                                                             if (local653 < 3 && Static441.isBridgeAt(local3502, local657)) {
                                                                                 local667 = local653 + 1;
                                                                             }
-                                                                            @Pc(5334) Class8_Sub2_Sub1_Sub5 local5334 = new Class8_Sub2_Sub1_Sub5(local2098, local277, local653, local667, local1021, Static102.method2025(local653, -29754, local1097, local1021) - local1413, local1097, local657, local657, local3502, local3502, local992, local4806);
-                                                                            Static346.A_HASH_TABLE___29.put(local3502 | local657 << 16, new DoublyLinkedNode_Sub2_Sub20(local5334));
+                                                                            @Pc(5334) SpotAnimation local5334 = new SpotAnimation(local2098, local277, local653, local667, local1021, Static102.method2025(local653, -29754, local1097, local1021) - local1413, local1097, local657, local657, local3502, local3502, local992, local4806);
+                                                                            Static346.A_HASH_TABLE___29.put(local3502 | local657 << 16, new SpotAnimationNode(local5334));
                                                                         }
                                                                     }
                                                                 }
@@ -1530,7 +1530,7 @@ public final class Protocol {
                                                                     DelayedStateChange.method6462(local100, 5, local526, local277);
                                                                     arg0.currentProt = null;
                                                                     return true;
-                                                                } else if (arg0.currentProt == Static598.A_SERVER_PROT___219) {
+                                                                } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___219) {
                                                                     Static605.method7912(Static84.aClass287_6);
                                                                     arg0.currentProt = null;
                                                                     return true;

@@ -24,9 +24,9 @@ public final class Static535 {
                     if (local23 >= 0 && local23 < Static619.anInt1566) {
                         for (@Pc(35) int local35 = local11; local35 <= local15; local35++) {
                             if (local35 >= 0 && local35 < Static662.anInt9843 && (!local1 || local23 >= local7 || local35 >= local15 || local35 < arg3 && local23 != arg2)) {
-                                @Pc(77) Class291 local77 = Static334.activeTiles[local17][local23][local35];
+                                @Pc(77) Tile local77 = Static334.activeTiles[local17][local23][local35];
                                 if (local77 != null) {
-                                    @Pc(163) int local163 = (Static246.activeGround[local17].getHeight(local35, local23) + Static246.activeGround[local17].getHeight(local35, local23 + 1) + Static246.activeGround[local17].getHeight(local35 + 1, local23) + Static246.activeGround[local17].getHeight(local35 + 1, local23 + 1)) / 4 - (Static246.activeGround[arg1].getHeight(arg3, arg2) + Static246.activeGround[arg1].getHeight(arg3, arg2 + 1) + Static246.activeGround[arg1].getHeight(arg3 + 1, arg2) + Static246.activeGround[arg1].getHeight(arg3 + 1, arg2 + 1)) / 4;
+                                    @Pc(163) int local163 = (Static246.ground[local17].getHeight(local35, local23) + Static246.ground[local17].getHeight(local35, local23 + 1) + Static246.ground[local17].getHeight(local35 + 1, local23) + Static246.ground[local17].getHeight(local35 + 1, local23 + 1)) / 4 - (Static246.ground[arg1].getHeight(arg3, arg2) + Static246.ground[arg1].getHeight(arg3, arg2 + 1) + Static246.ground[arg1].getHeight(arg3 + 1, arg2) + Static246.ground[arg1].getHeight(arg3 + 1, arg2 + 1)) / 4;
                                     @Pc(166) Wall local166 = local77.aClass8_Sub2_Sub3_2;
                                     @Pc(169) Wall local169 = local77.aWall_1;
                                     if (local166 != null && local166.method9290(0)) {
@@ -35,12 +35,12 @@ public final class Static535 {
                                     if (local169 != null && local169.method9290(0)) {
                                         arg0.method9285(local163, local1, Static665.aToolkit_15, (local35 - arg3) * Static340.anInt5586 + (1 - arg5) * Static247.anInt3993, (byte) 115, (local23 - arg2) * Static340.anInt5586 + (1 - arg4) * Static247.anInt3993, local169);
                                     }
-                                    for (@Pc(250) Class286 local250 = local77.aClass286_2; local250 != null; local250 = local250.aClass286_1) {
-                                        @Pc(254) PositionEntity local254 = local250.aPositionEntity;
-                                        if (local254 != null && local254.method9290(0) && (local23 == local254.aShort131 || local23 == local3) && (local35 == local254.aShort132 || local35 == local11)) {
-                                            @Pc(294) int local294 = local254.aShort134 + 1 - local254.aShort131;
-                                            @Pc(302) int local302 = local254.aShort133 + 1 - local254.aShort132;
-                                            arg0.method9285(local163, local1, Static665.aToolkit_15, (local254.aShort132 - arg3) * Static340.anInt5586 + (local302 - arg5) * Static247.anInt3993, (byte) 114, (local254.aShort131 - arg2) * Static340.anInt5586 + (local294 - arg4) * Static247.anInt3993, local254);
+                                    for (@Pc(250) PositionEntityNode local250 = local77.head; local250 != null; local250 = local250.node) {
+                                        @Pc(254) PositionEntity local254 = local250.entity;
+                                        if (local254 != null && local254.method9290(0) && (local23 == local254.x1 || local23 == local3) && (local35 == local254.z1 || local35 == local11)) {
+                                            @Pc(294) int local294 = local254.x2 + 1 - local254.x1;
+                                            @Pc(302) int local302 = local254.z2 + 1 - local254.z1;
+                                            arg0.method9285(local163, local1, Static665.aToolkit_15, (local254.z1 - arg3) * Static340.anInt5586 + (local302 - arg5) * Static247.anInt3993, (byte) 114, (local254.x1 - arg2) * Static340.anInt5586 + (local294 - arg4) * Static247.anInt3993, local254);
                                         }
                                     }
                                 }

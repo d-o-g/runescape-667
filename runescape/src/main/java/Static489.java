@@ -285,7 +285,7 @@ public final class Static489 {
             Static358.method9191();
         }
         Static314.noTimeout(true);
-        Static2.aMapRegion.method7888(Toolkit.active, local430 ? Static693.aGroundArray2[0] : null, null);
+        Static2.aMapRegion.method7888(Toolkit.active, local430 ? Static693.underwaterGround[0] : null, null);
         Static2.aMapRegion.method7898(false, Toolkit.active);
         Static314.noTimeout(true);
         if (local430) {
@@ -298,7 +298,7 @@ public final class Static489 {
             }
             Static352.cacheReset();
             Static314.noTimeout(true);
-            Static134.aMapRegion_3.method7888(Toolkit.active, null, Static706.aGroundArray3[0]);
+            Static134.aMapRegion_3.method7888(Toolkit.active, null, Static706.floor[0]);
             Static134.aMapRegion_3.method7898(true, Toolkit.active);
             Static314.noTimeout(true);
             Static379.method5355(false);
@@ -366,7 +366,7 @@ public final class Static489 {
         Static606.method7934();
         Static557.method7331();
         Static199.doneslowupdate();
-        Static75.aBoolean521 = true;
+        Static75.hasOpaqueStationaryEntities = true;
         if (Static28.aBoolean43) {
             Static79.method1579("Took: " + (SystemTimer.safetime() - Static690.aLong318) + "ms");
             Static28.aBoolean43 = false;

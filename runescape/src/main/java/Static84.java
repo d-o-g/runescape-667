@@ -52,7 +52,7 @@ public final class Static84 {
             } else if ((local36.x & 0x1FF) == 256 && (local36.z & 0x1FF) == 256) {
                 continue;
             }
-            local36.anInt10691 = Static102.method2025(local36.level, -29754, local36.z, local36.x);
+            local36.y = Static102.method2025(local36.level, -29754, local36.z, local36.x);
             Static102.method2026(local36, true);
         }
     }
@@ -136,7 +136,7 @@ public final class Static84 {
                 }
             }
             local36.aBoolean816 = false;
-            local36.anInt10691 = Static102.method2025(local36.level, -29754, local36.z, local36.x);
+            local36.y = Static102.method2025(local36.level, -29754, local36.z, local36.x);
             Static102.method2026(local36, true);
         }
     }
@@ -155,8 +155,8 @@ public final class Static84 {
             } else if (local39.aBoolean124) {
                 local39.drawPriority = -1;
             } else {
-                local39.method9294();
-                if (local39.aShort131 >= 0 && local39.aShort132 >= 0 && local39.aShort134 < Static720.mapWidth && local39.aShort133 < Static501.mapHeight) {
+                local39.updateBounds();
+                if (local39.x1 >= 0 && local39.z1 >= 0 && local39.x2 < Static720.mapWidth && local39.z2 < Static501.mapHeight) {
                     local39.aBoolean129 = local39.ready ? local30 : false;
                     if (local39 == PlayerEntity.self) {
                         local39.drawPriority = Integer.MAX_VALUE;
@@ -189,8 +189,8 @@ public final class Static84 {
         for (@Pc(155) int local155 = 0; local155 < NPCList.localNpcCount; local155++) {
             @Pc(166) NPCEntity local166 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local155])).npc;
             if (local166.method9322() && local166.type.isVisible(TimedVarDomain.instance)) {
-                local166.method9294();
-                if (local166.aShort131 >= 0 && local166.aShort132 >= 0 && local166.aShort134 < Static720.mapWidth && local166.aShort133 < Static501.mapHeight) {
+                local166.updateBounds();
+                if (local166.x1 >= 0 && local166.z1 >= 0 && local166.x2 < Static720.mapWidth && local166.z2 < Static501.mapHeight) {
                     @Pc(213) int local213 = 0;
                     if (!local166.aBoolean816) {
                         local213++;

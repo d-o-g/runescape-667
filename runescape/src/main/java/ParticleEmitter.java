@@ -42,7 +42,7 @@ public final class ParticleEmitter extends Node {
     public int anInt8264 = 0;
 
     @OriginalMember(owner = "client!rf", name = "o", descriptor = "Z")
-    public boolean aBoolean630 = false;
+    public boolean inactive = false;
 
     @OriginalMember(owner = "client!rf", name = "s", descriptor = "Lclient!iea;")
     public ParticleEmitterRelated aParticleEmitterRelated_1 = new ParticleEmitterRelated();
@@ -57,7 +57,7 @@ public final class ParticleEmitter extends Node {
     public final ModelParticleEmitter model;
 
     @OriginalMember(owner = "client!rf", name = "g", descriptor = "J")
-    public final long aLong254;
+    public final long startTime;
 
     @OriginalMember(owner = "client!rf", name = "k", descriptor = "Lclient!hv;")
     public final ParticleSystem system;
@@ -66,18 +66,18 @@ public final class ParticleEmitter extends Node {
     public ParticleEmitterType type;
 
     @OriginalMember(owner = "client!rf", name = "j", descriptor = "Lclient!fla;")
-    public final LinkedList aLinkedList_11;
+    public final LinkedList movingParticles;
 
     @OriginalMember(owner = "client!rf", name = "<init>", descriptor = "(Lclient!ha;Lclient!rv;Lclient!hv;J)V")
-    public ParticleEmitter(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) ModelParticleEmitter model, @OriginalArg(2) ParticleSystem systsem, @OriginalArg(3) long arg3) {
+    public ParticleEmitter(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) ModelParticleEmitter model, @OriginalArg(2) ParticleSystem system, @OriginalArg(3) long startTime) {
         this.model = model;
-        this.aLong254 = arg3;
-        this.system = systsem;
+        this.startTime = startTime;
+        this.system = system;
         this.type = this.model.getType();
         if (!toolkit.method7937() && this.type.untextured != -1) {
             this.type = ParticleEmitterTypeList.get(this.type.untextured);
         }
-        this.aLinkedList_11 = new LinkedList();
+        this.movingParticles = new LinkedList();
         this.anInt8264 = (int) ((double) this.anInt8264 + Math.random() * 64.0D);
         this.method7264();
         this.aParticleEmitterRelated_2.anInt4281 = this.aParticleEmitterRelated_1.anInt4281;
@@ -92,33 +92,33 @@ public final class ParticleEmitter extends Node {
     }
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(IBZJLclient!ha;)V")
-    public void method7261(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) long arg2, @OriginalArg(4) Toolkit arg3) {
-        @Pc(46) int local46;
-        if (this.aBoolean630) {
+    public void method7261(@OriginalArg(0) int timeSinceLastRunningCheck, @OriginalArg(2) boolean arg1, @OriginalArg(3) long time, @OriginalArg(4) Toolkit toolkit) {
+        if (this.inactive) {
             arg1 = false;
         } else if (this.type.minSetting > ParticleManager.option) {
             arg1 = false;
-        } else if (ParticleLimits.anIntArray246[ParticleManager.option] < ParticleManager.anInt6869) {
+        } else if (ParticleLimits.anIntArray246[ParticleManager.option] < ParticleLimits.particleLimit) {
             arg1 = false;
         } else if (this.aBoolean631) {
             arg1 = false;
         } else if (this.type.lifetime != -1) {
-            local46 = (int) (arg2 - this.aLong254);
-            if (this.type.periodic || this.type.lifetime >= local46) {
-                local46 %= this.type.lifetime;
+            @Pc(46) int timeSinceStart = (int) (time - this.startTime);
+            if (this.type.periodic || this.type.lifetime >= timeSinceStart) {
+                timeSinceStart %= this.type.lifetime;
             } else {
                 arg1 = false;
             }
-            if (!this.type.activeFirst && local46 < this.type.activationAge) {
+            if (!this.type.activeFirst && timeSinceStart < this.type.activationAge) {
                 arg1 = false;
             }
-            if (this.type.activeFirst && this.type.activationAge <= local46) {
+            if (this.type.activeFirst && this.type.activationAge <= timeSinceStart) {
                 arg1 = false;
             }
         }
+
         if (arg1) {
             ParticleManager.emitterCount++;
-            local46 = (this.aParticleEmitterRelated_1.anInt4276 + this.aParticleEmitterRelated_1.anInt4279 + this.aParticleEmitterRelated_1.anInt4281) / 3;
+            @Pc(46) int local46 = (this.aParticleEmitterRelated_1.anInt4276 + this.aParticleEmitterRelated_1.anInt4279 + this.aParticleEmitterRelated_1.anInt4281) / 3;
             @Pc(147) int local147 = (this.aParticleEmitterRelated_1.anInt4269 + this.aParticleEmitterRelated_1.anInt4280 + this.aParticleEmitterRelated_1.anInt4283) / 3;
             @Pc(162) int local162 = (this.aParticleEmitterRelated_1.anInt4277 + this.aParticleEmitterRelated_1.anInt4270 + this.aParticleEmitterRelated_1.anInt4275) / 3;
             @Pc(210) int local210;
@@ -167,7 +167,7 @@ public final class ParticleEmitter extends Node {
                     this.anInt8277 >>= 0x1;
                 }
             }
-            this.anInt8264 += (int) (((double) this.type.minParticleRate + Math.random() * (double) (this.type.maxParticleRate - this.type.minParticleRate)) * (double) arg0);
+            this.anInt8264 += (int) (((double) this.type.minParticleRate + Math.random() * (double) (this.type.maxParticleRate - this.type.minParticleRate)) * (double) timeSinceLastRunningCheck);
             if (this.anInt8264 > 63) {
                 local210 = this.anInt8264 >> 6;
                 this.anInt8264 &= 0x3F;
@@ -221,13 +221,13 @@ public final class ParticleEmitter extends Node {
                         local926 = (int) ((double) this.type.anInt9903 + Math.random() * (double) this.type.anInt9913) | (int) ((double) this.type.anInt9914 + Math.random() * (double) this.type.anInt9911) << 8 | (int) (Math.random() * (double) this.type.anInt9929 + (double) this.type.anInt9899) << 16 | (int) ((double) this.type.anInt9906 + (double) this.type.anInt9878 * Math.random()) << 24;
                     }
                     @Pc(990) int local990 = this.type.texture;
-                    if (!arg3.method7937() && !this.type.aBoolean755) {
+                    if (!toolkit.method7937() && !this.type.aBoolean755) {
                         local990 = -1;
                     }
                     if (ParticleManager.particleNextPtr == ParticleManager.particleFreePtr) {
                         new MovingParticle(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.type.disableHdLighting, this.type.preserveAmbient);
                     } else {
-                        @Pc(1032) MovingParticle local1032 = ParticleManager.particleCache[ParticleManager.particleNextPtr];
+                        @Pc(1032) MovingParticle local1032 = ParticleManager.particles[ParticleManager.particleNextPtr];
                         ParticleManager.particleNextPtr = ParticleManager.particleNextPtr + 1 & 0x3FF;
                         local1032.method6696(this, local794, local803, local812, local218, local226, local235, local828, local845, local926, local862, local990, this.type.disableHdLighting, this.type.preserveAmbient);
                     }
@@ -252,8 +252,8 @@ public final class ParticleEmitter extends Node {
             this.aParticleEmitterRelated_1.anInt4269 = this.model.anInt8503;
         }
         this.anInt8268 = 0;
-        for (@Pc(1171) MovingParticle local1171 = (MovingParticle) this.aLinkedList_11.first(); local1171 != null; local1171 = (MovingParticle) this.aLinkedList_11.next()) {
-            local1171.method6694(arg2, arg0);
+        for (@Pc(1171) MovingParticle local1171 = (MovingParticle) this.movingParticles.first(); local1171 != null; local1171 = (MovingParticle) this.movingParticles.next()) {
+            local1171.method6694(time, timeSinceLastRunningCheck);
             this.anInt8268++;
         }
         ParticleManager.particleCount += this.anInt8268;
@@ -261,7 +261,7 @@ public final class ParticleEmitter extends Node {
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(JLclient!ha;I)V")
     public void method7263(@OriginalArg(0) long arg0, @OriginalArg(1) Toolkit arg1) {
-        for (@Pc(11) MovingParticle local11 = (MovingParticle) this.aLinkedList_11.first(); local11 != null; local11 = (MovingParticle) this.aLinkedList_11.next()) {
+        for (@Pc(11) MovingParticle local11 = (MovingParticle) this.movingParticles.first(); local11 != null; local11 = (MovingParticle) this.movingParticles.next()) {
             local11.method6695(arg1, arg0);
         }
     }

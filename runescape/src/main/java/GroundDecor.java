@@ -8,23 +8,23 @@ import org.openrs2.deob.annotation.OriginalMember;
 public abstract class GroundDecor extends Entity {
 
     @OriginalMember(owner = "client!eia", name = "z", descriptor = "S")
-    public short aShort46;
+    public short offsetY;
 
     @OriginalMember(owner = "client!eia", name = "<init>", descriptor = "(IIIIII)V")
-    protected GroundDecor(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        super.level = (byte) arg3;
-        super.anInt10691 = arg1;
-        super.z = arg2;
-        this.aShort46 = (short) arg5;
-        super.virtualLevel = (byte) arg4;
-        super.x = arg0;
+    protected GroundDecor(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int level, @OriginalArg(4) int virtualLevel, @OriginalArg(5) int offsetY) {
+        super.level = (byte) level;
+        super.y = y;
+        super.z = z;
+        this.offsetY = (short) offsetY;
+        super.virtualLevel = (byte) virtualLevel;
+        super.x = x;
     }
 
     @OriginalMember(owner = "client!eia", name = "a", descriptor = "(BLclient!ha;)Z")
     @Override
     public final boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1) {
         if (arg0 != 59) {
-            this.aShort46 = -95;
+            this.offsetY = -95;
         }
         return Static588.method7714(super.z >> Static52.anInt1066, super.virtualLevel, super.x >> Static52.anInt1066);
     }
@@ -38,6 +38,6 @@ public abstract class GroundDecor extends Entity {
     @OriginalMember(owner = "client!eia", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
     public final int method9288(@OriginalArg(0) PointLight[] arg0) {
-        return this.method9277(arg0, super.z >> Static52.anInt1066, super.x >> Static52.anInt1066);
+        return this.findLightsAt(arg0, super.z >> Static52.anInt1066, super.x >> Static52.anInt1066);
     }
 }

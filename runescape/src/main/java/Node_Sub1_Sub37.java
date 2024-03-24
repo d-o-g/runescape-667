@@ -80,7 +80,7 @@ public final class Node_Sub1_Sub37 extends Node_Sub1 {
     @Override
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
-            Static706.aGroundArray3 = null;
+            Static706.floor = null;
         }
         if (arg2 != 0) {
             return;

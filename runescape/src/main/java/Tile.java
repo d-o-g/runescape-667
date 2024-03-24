@@ -4,16 +4,16 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!pha")
-public final class Class291 {
+public final class Tile {
 
     @OriginalMember(owner = "client!pha", name = "n", descriptor = "Lclient!kp;")
     public Wall aWall_1;
 
     @OriginalMember(owner = "client!pha", name = "c", descriptor = "Lclient!pha;")
-    public Class291 aClass291_1;
+    public Tile aTile_1;
 
     @OriginalMember(owner = "client!pha", name = "a", descriptor = "Lclient!pba;")
-    public Class286 aClass286_2;
+    public PositionEntityNode head;
 
     @OriginalMember(owner = "client!pha", name = "h", descriptor = "S")
     public short aShort83;
@@ -28,7 +28,7 @@ public final class Class291 {
     public Class8_Sub2_Sub5 aClass8_Sub2_Sub5_1;
 
     @OriginalMember(owner = "client!pha", name = "f", descriptor = "Lclient!eia;")
-    public GroundDecor aGroundDecor_1;
+    public GroundDecor groundDecor;
 
     @OriginalMember(owner = "client!pha", name = "p", descriptor = "S")
     public short aShort84;
@@ -46,16 +46,16 @@ public final class Class291 {
     public byte aByte116;
 
     @OriginalMember(owner = "client!pha", name = "<init>", descriptor = "(I)V")
-    public Class291(@OriginalArg(0) int arg0) {
+    public Tile(@OriginalArg(0) int arg0) {
         this.aByte116 = (byte) arg0;
     }
 
     @OriginalMember(owner = "client!pha", name = "a", descriptor = "(I)V")
     public void method6550() {
-        while (this.aClass286_2 != null) {
-            @Pc(11) Class286 local11 = this.aClass286_2.aClass286_1;
-            this.aClass286_2.method6459();
-            this.aClass286_2 = local11;
+        while (this.head != null) {
+            @Pc(11) PositionEntityNode local11 = this.head.node;
+            this.head.remove();
+            this.head = local11;
         }
     }
 }

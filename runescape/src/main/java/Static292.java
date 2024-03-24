@@ -53,7 +53,7 @@ public final class Static292 {
             local7 = 100;
         }
         @Pc(33) int local33 = local7 * (Static502.aShort97 - Static228.aShort45) / 100 + Static228.aShort45;
-        Static582.anInt8627 = Static582.anInt8630 * local33 >> 8;
+        Static582.orthoAngle = Static582.anInt8630 * local33 >> 8;
         @Pc(45) int local45 = local33 * arg1 >> 8;
         @Pc(52) int local52 = 16384 - arg0 & 0x3FFF;
         @Pc(65) int local65 = 16384 - arg4 & 0x3FFF;
@@ -96,15 +96,15 @@ public final class Static292 {
 
     @OriginalMember(owner = "client!jea", name = "a", descriptor = "(Lclient!r;III[Z)V")
     public static void method4618(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean[] arg4) {
-        if (Static246.activeGround == Static693.aGroundArray2) {
+        if (Static246.ground == Static693.underwaterGround) {
             return;
         }
-        @Pc(10) int local10 = Static706.aGroundArray3[arg1].method7878(arg3, arg2);
+        @Pc(10) int local10 = Static706.floor[arg1].averageHeight(arg3, arg2);
         for (@Pc(12) int local12 = 0; local12 <= arg1; local12++) {
             if (arg4 == null || arg4[local12]) {
-                @Pc(25) Ground local25 = Static706.aGroundArray3[local12];
+                @Pc(25) Ground local25 = Static706.floor[local12];
                 if (local25 != null) {
-                    local25.wa(arg0, arg2, local10 - local25.method7878(arg3, arg2), arg3, 0, false);
+                    local25.wa(arg0, arg2, local10 - local25.averageHeight(arg3, arg2), arg3, 0, false);
                 }
             }
         }

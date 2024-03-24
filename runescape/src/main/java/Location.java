@@ -13,7 +13,7 @@ public interface Location {
     void method6856();
 
     @OriginalMember(owner = "client!uv", name = "a", descriptor = "(Lclient!ha;I)V")
-    void removeShadow(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1);
+    void removeShadow(@OriginalArg(0) Toolkit toolkit);
 
     @OriginalMember(owner = "client!uv", name = "b", descriptor = "(I)I")
     int getShape();
@@ -22,7 +22,7 @@ public interface Location {
     int getId();
 
     @OriginalMember(owner = "client!uv", name = "e", descriptor = "(I)Z")
-    boolean castsShadow();
+    boolean hardShadow();
 
     @OriginalMember(owner = "client!uv", name = "b", descriptor = "(Lclient!ha;I)V")
     void addShadow(@OriginalArg(0) Toolkit toolkit);

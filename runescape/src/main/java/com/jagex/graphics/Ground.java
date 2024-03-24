@@ -21,7 +21,7 @@ public abstract class Ground {
     public final int anInt8895;
 
     @OriginalMember(owner = "client!s", name = "i", descriptor = "[[I")
-    public final int[][] anIntArrayArray226;
+    public final int[][] tileHeights;
 
     @OriginalMember(owner = "client!s", name = "<init>", descriptor = "(III[[I)V")
     protected Ground(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[][] arg3) {
@@ -34,7 +34,7 @@ public abstract class Ground {
         }
         this.anInt8888 = 0x1 << local11;
         this.anInt8895 = local11;
-        this.anIntArrayArray226 = arg3;
+        this.tileHeights = arg3;
     }
 
     @OriginalMember(owner = "client!s", name = "wa", descriptor = "(Lclient!r;IIIIZ)V")
@@ -48,7 +48,7 @@ public abstract class Ground {
 
     @OriginalMember(owner = "client!s", name = "a", descriptor = "(IIB)I")
     public final int getHeight(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return this.anIntArrayArray226[arg1][arg0];
+        return this.tileHeights[arg1][arg0];
     }
 
     @OriginalMember(owner = "client!s", name = "a", descriptor = "(III[[ZZI)V")
@@ -82,16 +82,16 @@ public abstract class Ground {
     public abstract void method7877(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6);
 
     @OriginalMember(owner = "client!s", name = "a", descriptor = "(III)I")
-    public final int method7878(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(8) int local8 = arg1 >> this.anInt8895;
-        @Pc(13) int local13 = arg0 >> this.anInt8895;
-        if (local8 < 0 || local13 < 0 || this.anInt8894 - 1 < local8 || this.anInt8892 - 1 < local13) {
+    public final int averageHeight(@OriginalArg(0) int z, @OriginalArg(2) int x) {
+        @Pc(8) int x1 = x >> this.anInt8895;
+        @Pc(13) int z1 = z >> this.anInt8895;
+        if (x1 < 0 || z1 < 0 || this.anInt8894 - 1 < x1 || this.anInt8892 - 1 < z1) {
             return 0;
         }
-        @Pc(52) int local52 = this.anInt8888 - 1 & arg1;
-        @Pc(70) int local70 = this.anInt8888 - 1 & arg0;
-        @Pc(96) int local96 = local52 * this.anIntArrayArray226[local8 + 1][local13] + (this.anInt8888 - local52) * this.anIntArrayArray226[local8][local13] >> this.anInt8895;
-        @Pc(128) int local128 = this.anIntArrayArray226[local8][local13 + 1] * (this.anInt8888 - local52) + local52 * this.anIntArrayArray226[local8 + 1][local13 + 1] >> this.anInt8895;
+        @Pc(52) int local52 = this.anInt8888 - 1 & x;
+        @Pc(70) int local70 = this.anInt8888 - 1 & z;
+        @Pc(96) int local96 = local52 * this.tileHeights[x1 + 1][z1] + (this.anInt8888 - local52) * this.tileHeights[x1][z1] >> this.anInt8895;
+        @Pc(128) int local128 = this.tileHeights[x1][z1 + 1] * (this.anInt8888 - local52) + local52 * this.tileHeights[x1 + 1][z1 + 1] >> this.anInt8895;
         return (this.anInt8888 - local70) * local96 + local70 * local128 >> this.anInt8895;
     }
 }

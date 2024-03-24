@@ -12,7 +12,7 @@ public final class Static75 {
     public static Class357[] aClass357Array2;
 
     @OriginalMember(owner = "client!ch", name = "k", descriptor = "Z")
-    public static boolean aBoolean521 = true;
+    public static boolean hasOpaqueStationaryEntities = true;
 
     @OriginalMember(owner = "client!ch", name = "b", descriptor = "(III)I")
     public static int method6238(@OriginalArg(2) int arg0) {

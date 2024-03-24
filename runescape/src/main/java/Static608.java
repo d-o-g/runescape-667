@@ -93,7 +93,7 @@ public final class Static608 {
             Static716.method9350(local51, arg3 >> 1, local51.method9299(), arg1 >> 1);
             if (Static215.anIntArray284[0] >= 0) {
                 if (local51.method9311()) {
-                    @Pc(182) ChatMessage local182 = local51.method9318(-3109);
+                    @Pc(182) EntityChatLine local182 = local51.method9318(-3109);
                     if (local182 != null && Static481.anInt7222 < Static352.anInt5752) {
                         Static352.anIntArray446[Static481.anInt7222] = Fonts.b12Metrics.stringWidth(local182.getText()) / 2;
                         Static352.anIntArray445[Static481.anInt7222] = Static215.anIntArray284[0];

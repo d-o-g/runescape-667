@@ -4,6 +4,7 @@ import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.graphics.particles.ModelParticleEffector;
@@ -28,37 +29,37 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     public double aDouble3;
 
     @OriginalMember(owner = "client!b", name = "Q", descriptor = "I")
-    public int anInt694;
+    public int rotateY;
 
     @OriginalMember(owner = "client!b", name = "M", descriptor = "D")
-    public double aDouble4;
+    public double translateZ;
 
     @OriginalMember(owner = "client!b", name = "L", descriptor = "D")
-    public double aDouble5;
+    public double translateY;
 
     @OriginalMember(owner = "client!b", name = "vb", descriptor = "D")
     public double aDouble6;
 
     @OriginalMember(owner = "client!b", name = "kb", descriptor = "I")
-    public int anInt703;
+    public int rotateX;
 
     @OriginalMember(owner = "client!b", name = "Gb", descriptor = "D")
     public double aDouble7;
 
     @OriginalMember(owner = "client!b", name = "Ib", descriptor = "Lclient!hv;")
-    public ParticleSystem aParticleSystem_1;
+    public ParticleSystem system;
 
     @OriginalMember(owner = "client!b", name = "wb", descriptor = "D")
-    public double aDouble8;
+    public double translateX;
 
     @OriginalMember(owner = "client!b", name = "Y", descriptor = "I")
-    public int anInt692 = 0;
+    public int sphereRadius = 0;
 
     @OriginalMember(owner = "client!b", name = "ub", descriptor = "Z")
     public boolean aBoolean58 = false;
 
     @OriginalMember(owner = "client!b", name = "P", descriptor = "I")
-    public int anInt717 = 0;
+    public int minY = 0;
 
     @OriginalMember(owner = "client!b", name = "R", descriptor = "Z")
     public boolean aBoolean59 = false;
@@ -97,7 +98,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
     public final int anInt709;
 
     @OriginalMember(owner = "client!b", name = "N", descriptor = "Lclient!gu;")
-    public final Animator aAnimator_1;
+    public final Animator animator;
 
     @OriginalMember(owner = "client!b", name = "<init>", descriptor = "(IIIIIIIIIIIIIZI)V")
     public Class8_Sub2_Sub1_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) boolean arg13, @OriginalArg(14) int arg14) {
@@ -115,17 +116,17 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         this.anInt705 = arg8;
         this.anInt709 = arg9;
         @Pc(82) int local82 = SpotAnimationTypeList.instance.list(this.anInt715).seq;
-        this.aAnimator_1 = new EntityAnimator(this, false);
-        this.aAnimator_1.update(true, local82);
+        this.animator = new EntityAnimator(this, false);
+        this.animator.update(true, local82);
     }
 
     @OriginalMember(owner = "client!b", name = "k", descriptor = "(I)I")
     @Override
-    public int method9286(@OriginalArg(0) int arg0) {
+    public int getMinY(@OriginalArg(0) int arg0) {
         if (arg0 != 2) {
             this.aBoolean57 = false;
         }
-        return this.anInt717;
+        return this.minY;
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(IZIII)V")
@@ -135,42 +136,42 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             local9 = arg3 - super.x;
             @Pc(16) double local16 = arg2 - super.z;
             @Pc(25) double local25 = Math.sqrt(local16 * local16 + local9 * local9);
-            this.aDouble4 = (double) this.anInt709 * local16 / local25 + (double) super.z;
-            this.aDouble8 = (double) super.x + local9 * (double) this.anInt709 / local25;
+            this.translateZ = (double) this.anInt709 * local16 / local25 + (double) super.z;
+            this.translateX = (double) super.x + local9 * (double) this.anInt709 / local25;
             if (this.aBoolean57) {
-                this.aDouble5 = Static102.method2025(super.level, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721;
+                this.translateY = Static102.method2025(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.anInt721;
             } else {
-                this.aDouble5 = super.anInt10691;
+                this.translateY = super.y;
             }
         }
         local9 = this.anInt697 + 1 - arg1;
-        this.aDouble2 = ((double) arg2 - this.aDouble4) / local9;
-        this.aDouble7 = ((double) arg3 - this.aDouble8) / local9;
+        this.aDouble2 = ((double) arg2 - this.translateZ) / local9;
+        this.aDouble7 = ((double) arg3 - this.translateX) / local9;
         this.aDouble6 = Math.sqrt(this.aDouble7 * this.aDouble7 + this.aDouble2 * this.aDouble2);
         if (this.anInt705 == -1) {
-            this.aDouble1 = ((double) arg0 - this.aDouble5) / local9;
+            this.aDouble1 = ((double) arg0 - this.translateY) / local9;
         } else {
             if (!this.aBoolean59) {
                 this.aDouble1 = -this.aDouble6 * Math.tan((double) this.anInt705 * 0.02454369D);
             }
-            this.aDouble3 = ((double) arg0 - local9 * this.aDouble1 - this.aDouble5) * 2.0D / (local9 * local9);
+            this.aDouble3 = ((double) arg0 - local9 * this.aDouble1 - this.translateY) * 2.0D / (local9 * local9);
         }
     }
 
     @OriginalMember(owner = "client!b", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public BoundingCylinder getCylinder(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
         if (arg1 >= -93) {
-            this.aDouble8 = 1.3103535335051488D;
+            this.translateX = 1.3103535335051488D;
         }
         return null;
     }
 
     @OriginalMember(owner = "client!b", name = "l", descriptor = "(I)V")
     @Override
-    public void method9294() {
-        super.aShort131 = super.aShort134 = (short) (int) (this.aDouble8 / 512.0D);
-        super.aShort132 = super.aShort133 = (short) (int) (this.aDouble4 / 512.0D);
+    public void updateBounds() {
+        super.x1 = super.x2 = (short) (int) (this.translateX / 512.0D);
+        super.z1 = super.z2 = (short) (int) (this.translateZ / 512.0D);
     }
 
     @OriginalMember(owner = "client!b", name = "j", descriptor = "(I)V")
@@ -192,20 +193,20 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;I)Lclient!ka;")
     public Model method814(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit arg1, @OriginalArg(2) int arg2) {
-        @Pc(17) SpotAnimationType local17 = SpotAnimationTypeList.instance.list(this.anInt715);
-        return local17.model(this.aAnimator_1, (byte) 2, arg0, arg1);
+        @Pc(17) SpotAnimationType type = SpotAnimationTypeList.instance.list(this.anInt715);
+        return type.model(this.animator, (byte) 2, arg0, arg1);
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(I)V")
     public void method815() {
-        if (this.aParticleSystem_1 != null) {
-            this.aParticleSystem_1.method3644();
+        if (this.system != null) {
+            this.system.run();
         }
     }
 
     @OriginalMember(owner = "client!b", name = "h", descriptor = "(I)Z")
     @Override
-    public boolean method9282(@OriginalArg(0) int arg0) {
+    public boolean isTransparent(@OriginalArg(0) int arg0) {
         return arg0 == 0 ? this.aBoolean58 : true;
     }
 
@@ -239,7 +240,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         }
         super.z = local21.z;
         super.x = local21.x;
-        super.anInt10691 = Static102.method2025(super.level, -29754, local21.z, local21.x) - this.anInt721;
+        super.y = Static102.method2025(super.level, -29754, local21.z, local21.x) - this.anInt721;
         if (this.anInt695 < 0) {
             return;
         }
@@ -273,27 +274,30 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "b", descriptor = "(B)Z")
     @Override
-    public boolean method9283() {
+    public boolean isStationary() {
         return false;
     }
 
     @OriginalMember(owner = "client!b", name = "c", descriptor = "(B)I")
     @Override
-    public int method9292(@OriginalArg(0) byte arg0) {
-        return arg0 == -21 ? this.anInt692 : 39;
+    public int getSphereRadius(@OriginalArg(0) byte arg0) {
+        return arg0 == -21 ? this.sphereRadius : 39;
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(BLclient!ha;Lclient!tt;Lclient!ka;)V")
-    public void method817(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) Matrix arg1, @OriginalArg(3) Model arg2) {
-        arg2.method7476(arg1);
-        @Pc(9) ModelParticleEmitter[] local9 = arg2.particleEmitters();
-        @Pc(12) ModelParticleEffector[] local12 = arg2.particleEffectors();
-        if ((this.aParticleSystem_1 == null || this.aParticleSystem_1.aBoolean324) && (local9 != null || local12 != null)) {
-            this.aParticleSystem_1 = ParticleSystem.create(TimeUtils.clock, true);
+    public void update(@OriginalArg(1) Toolkit toolkit, @OriginalArg(2) Matrix matrix, @OriginalArg(3) Model model) {
+        model.apply(matrix);
+
+        @Pc(9) ModelParticleEmitter[] emitters = model.particleEmitters();
+        @Pc(12) ModelParticleEffector[] effectors = model.particleEffectors();
+
+        if ((this.system == null || this.system.removed) && (emitters != null || effectors != null)) {
+            this.system = ParticleSystem.create(TimeUtils.clock, true);
         }
-        if (this.aParticleSystem_1 != null) {
-            this.aParticleSystem_1.method3643(arg0, TimeUtils.clock, local9, local12);
-            this.aParticleSystem_1.method3658(super.level, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
+
+        if (this.system != null) {
+            this.system.update(toolkit, TimeUtils.clock, emitters, effectors);
+            this.system.updateBounds(super.level, super.x1, super.x2, super.z1, super.z2);
         }
     }
 
@@ -305,89 +309,91 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public void method9289(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
             Static29.aClass131_1 = null;
         }
-        @Pc(18) Model local18 = this.method814(0, arg0, arg1 + 75);
-        if (local18 == null) {
+
+        @Pc(18) Model model = this.method814(0, toolkit, arg1 + 75);
+        if (model == null) {
             return;
         }
-        @Pc(25) Matrix local25 = arg0.scratchMatrix();
-        local25.makeRotationX(this.anInt703);
-        local25.rotateAxisY(this.anInt694);
-        local25.translate((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);
-        this.anInt717 = local18.fa();
-        this.anInt692 = local18.ma();
-        this.method817(arg0, local25, local18);
+
+        @Pc(25) Matrix matrix = toolkit.scratchMatrix();
+        matrix.makeRotationX(this.rotateX);
+        matrix.rotateAxisY(this.rotateY);
+        matrix.translate((int) this.translateX, (int) this.translateY, (int) this.translateZ);
+        this.minY = model.fa();
+        this.sphereRadius = model.ma();
+        this.update(toolkit, matrix, model);
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity render(@OriginalArg(1) Toolkit arg0) {
         @Pc(19) Model local19 = this.method814(2048, arg0, 46);
         if (local19 == null) {
             return null;
         }
         @Pc(27) Matrix local27 = arg0.scratchMatrix();
-        local27.makeRotationX(this.anInt703);
-        local27.rotateAxisY(this.anInt694);
-        local27.translate((int) this.aDouble8, (int) this.aDouble5, (int) this.aDouble4);
-        this.method817(arg0, local27, local19);
+        local27.makeRotationX(this.rotateX);
+        local27.rotateAxisY(this.rotateY);
+        local27.translate((int) this.translateX, (int) this.translateY, (int) this.translateZ);
+        this.update(arg0, local27, local19);
         @Pc(57) PickableEntity local57 = Static642.method8441(false, 1);
-        if (Static504.aBoolean579) {
-            local19.renderOrtho(local27, local57.aPickingCylinderArray1[0], Static582.anInt8627, 0);
+        if (Static504.renderOrtho) {
+            local19.renderOrtho(local27, local57.pickingCylinders[0], Static582.orthoAngle, 0);
         } else {
-            local19.render(local27, local57.aPickingCylinderArray1[0], 0);
+            local19.render(local27, local57.pickingCylinders[0], 0);
         }
-        if (this.aParticleSystem_1 != null) {
-            @Pc(89) ParticleList local89 = this.aParticleSystem_1.method3645();
-            if (Static504.aBoolean579) {
-                arg0.method7967(local89, Static582.anInt8627);
+        if (this.system != null) {
+            @Pc(89) ParticleList local89 = this.system.getList();
+            if (Static504.renderOrtho) {
+                arg0.renderOrtho(local89, Static582.orthoAngle);
             } else {
-                arg0.method8021(local89);
+                arg0.render(local89);
             }
         }
         this.aBoolean58 = local19.F();
-        this.anInt717 = local19.fa();
-        this.anInt692 = local19.ma();
+        this.minY = local19.fa();
+        this.sphereRadius = local19.ma();
         return local57;
     }
 
     @OriginalMember(owner = "client!b", name = "finalize", descriptor = "()V")
     @Override
     public void finalize() {
-        if (this.aParticleSystem_1 != null) {
-            this.aParticleSystem_1.method3644();
+        if (this.system != null) {
+            this.system.run();
         }
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
+    public boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit toolkit) {
         if (arg2) {
-            this.aDouble5 = -0.10988590233715705D;
+            this.translateY = -0.10988590233715705D;
         }
         return false;
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(BI)V")
     public void method819(@OriginalArg(1) int arg0) {
-        this.aDouble8 += (double) arg0 * this.aDouble7;
+        this.translateX += (double) arg0 * this.aDouble7;
         this.aBoolean59 = true;
-        this.aDouble4 += (double) arg0 * this.aDouble2;
+        this.translateZ += (double) arg0 * this.aDouble2;
         if (this.aBoolean57) {
-            this.aDouble5 = Static102.method2025(super.level, -29754, (int) this.aDouble4, (int) this.aDouble8) - this.anInt721;
+            this.translateY = Static102.method2025(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.anInt721;
         } else if (this.anInt705 == -1) {
-            this.aDouble5 += this.aDouble1 * (double) arg0;
+            this.translateY += this.aDouble1 * (double) arg0;
         } else {
-            this.aDouble5 += (double) arg0 * this.aDouble1 + this.aDouble3 * 0.5D * (double) arg0 * (double) arg0;
+            this.translateY += (double) arg0 * this.aDouble1 + this.aDouble3 * 0.5D * (double) arg0 * (double) arg0;
             this.aDouble1 += (double) arg0 * this.aDouble3;
         }
-        this.anInt694 = (int) (Math.atan2(this.aDouble7, this.aDouble2) * 2607.5945876176133D) + 8192 & 0x3FFF;
-        this.anInt703 = (int) (Math.atan2(this.aDouble1, this.aDouble6) * 2607.5945876176133D) & 0x3FFF;
-        if (this.aAnimator_1.tick(1) && this.aAnimator_1.isFinished()) {
-            this.aAnimator_1.resetImmediately();
+        this.rotateY = (int) (Math.atan2(this.aDouble7, this.aDouble2) * 2607.5945876176133D) + 8192 & 0x3FFF;
+        this.rotateX = (int) (Math.atan2(this.aDouble1, this.aDouble6) * 2607.5945876176133D) & 0x3FFF;
+        if (this.animator.tick(1) && this.animator.isFinished()) {
+            this.animator.resetImmediately();
         }
     }
 }

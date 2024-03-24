@@ -37,7 +37,7 @@ public final class Static352 {
     public static final int anInt5752 = 50;
 
     @OriginalMember(owner = "client!lc", name = "E", descriptor = "[Lclient!dj;")
-    public static final ChatMessage[] A_CHAT_MESSAGE_ARRAY_1 = new ChatMessage[anInt5752];
+    public static final EntityChatLine[] A_CHAT_MESSAGE_ARRAY_1 = new EntityChatLine[anInt5752];
 
     @OriginalMember(owner = "client!lc", name = "A", descriptor = "I")
     public static int lastClanTransmit = 0;

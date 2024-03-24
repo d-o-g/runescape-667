@@ -26,7 +26,7 @@ public final class Static466 {
             local33 = (int) ((double) Static281.anInt4566 * (double) local29 / (double) Static576.anInt8585);
             local31 = (int) ((double) Static281.anInt4566 * (double) local25 / (double) Static576.anInt8585);
         }
-        if (!Static75.aBoolean521) {
+        if (!Static75.hasOpaqueStationaryEntities) {
             if (Static448.anInt6796 == 1) {
                 Static694.method9031();
             }
@@ -128,7 +128,7 @@ public final class Static466 {
                 @Pc(451) LinkedList local451 = Static10.aClass213_1.aLinkedList_8;
                 @Pc(465) int local465;
                 for (@Pc(456) PickableEntity local456 = (PickableEntity) local451.first(); local456 != null; local456 = (PickableEntity) local451.next()) {
-                    @Pc(461) PickingCylinder[] local461 = local456.aPickingCylinderArray1;
+                    @Pc(461) PickingCylinder[] local461 = local456.pickingCylinders;
                     @Pc(463) boolean local463 = true;
                     for (local465 = 0; local465 < local461.length; local465++) {
                         @Pc(471) PickingCylinder local471 = local461[local465];
@@ -222,10 +222,10 @@ public final class Static466 {
                     }
                 }
             } else {
-                Static75.aBoolean521 = true;
+                Static75.hasOpaqueStationaryEntities = true;
             }
         }
-        if (Static75.aBoolean521) {
+        if (Static75.hasOpaqueStationaryEntities) {
             Static354.anInt5763 = arg1;
             Static601.anInt8887 = 0;
             Static9.anInt121 = arg2;
@@ -260,7 +260,7 @@ public final class Static466 {
             Static119.method2170(Static10.aClass213_1);
             Static283.method4100(arg7, arg1, arg3, arg2, arg13, arg9, arg12, arg5, arg14, arg6, arg8, arg0, arg15, arg4, arg10, arg11, 1, false);
             Static102.method2021();
-            Static75.aBoolean521 = false;
+            Static75.hasOpaqueStationaryEntities = false;
             if (Static448.anInt6796 == 0) {
                 Static74.aToolkit_4.method7943();
             }

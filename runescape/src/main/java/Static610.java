@@ -136,7 +136,7 @@ public final class Static610 {
                     }
                     if (PlayerList.activePlayerSlot == arg0) {
                         if (local37.level != Camera.renderingLevel) {
-                            Static75.aBoolean521 = true;
+                            Static75.hasOpaqueStationaryEntities = true;
                         }
                         Camera.renderingLevel = local37.level;
                     }

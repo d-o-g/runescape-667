@@ -10,25 +10,25 @@ public final class Static61 {
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(IIILclient!eia;)V")
     public static void method1299(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) GroundDecor arg3) {
-        @Pc(4) Class291 local4 = Static347.method5095(arg0, arg1, arg2);
+        @Pc(4) Tile local4 = Static347.getTile(arg0, arg1, arg2);
         if (local4 == null) {
             return;
         }
-        local4.aGroundDecor_1 = arg3;
-        @Pc(19) int local19 = Static246.activeGround == Static693.aGroundArray2 ? 1 : 0;
-        if (arg3.method9283()) {
-            if (arg3.method9282(0)) {
-                arg3.aEntity_25 = Static398.aEntityArray7[local19];
-                Static398.aEntityArray7[local19] = arg3;
+        local4.groundDecor = arg3;
+        @Pc(19) int local19 = Static246.ground == Static693.underwaterGround ? 1 : 0;
+        if (arg3.isStationary()) {
+            if (arg3.isTransparent(0)) {
+                arg3.dynamicEntity = Static398.transparentStationaryEntities[local19];
+                Static398.transparentStationaryEntities[local19] = arg3;
                 return;
             }
-            arg3.aEntity_25 = Static576.aEntityArray9[local19];
-            Static576.aEntityArray9[local19] = arg3;
-            Static75.aBoolean521 = true;
+            arg3.dynamicEntity = Static576.opaqueStationaryEntities[local19];
+            Static576.opaqueStationaryEntities[local19] = arg3;
+            Static75.hasOpaqueStationaryEntities = true;
             return;
         }
-        arg3.aEntity_25 = Static468.aEntityArray10[local19];
-        Static468.aEntityArray10[local19] = arg3;
+        arg3.dynamicEntity = Static468.dynamicEntities[local19];
+        Static468.dynamicEntities[local19] = arg3;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "([J[Ljava/lang/Object;Z)V")

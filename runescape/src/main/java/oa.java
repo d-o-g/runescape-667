@@ -719,7 +719,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public void method7967(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
+    public void renderOrtho(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
         this.method6085(arg0);
         this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, arg0.particles.size());
     }
@@ -736,7 +736,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public void method8021(@OriginalArg(0) ParticleList arg0) {
+    public void render(@OriginalArg(0) ParticleList arg0) {
         if (arg0.particles.size() != 0) {
             this.method6085(arg0);
             this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, arg0.particles.size());
@@ -819,7 +819,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "r", descriptor = "()Z")
     @Override
-    public boolean method8006() {
+    public boolean hardShadow() {
         return true;
     }
 

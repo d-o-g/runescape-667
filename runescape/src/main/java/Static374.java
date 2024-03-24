@@ -21,7 +21,7 @@ public final class Static374 {
     public static void method5303(@OriginalArg(1) int arg0) {
         @Pc(1) Shadow local1 = null;
         for (@Pc(3) int local3 = 1; local3 < arg0; local3++) {
-            @Pc(8) Ground local8 = Static706.aGroundArray3[local3];
+            @Pc(8) Ground local8 = Static706.floor[local3];
             if (local8 != null) {
                 for (@Pc(12) int local12 = 0; local12 < Static662.anInt9843; local12++) {
                     for (@Pc(15) int local15 = 0; local15 < Static619.anInt1566; local15++) {
@@ -30,7 +30,7 @@ public final class Static374 {
                             @Pc(28) int local28 = local15 << Static52.anInt1066;
                             @Pc(32) int local32 = local12 << Static52.anInt1066;
                             for (@Pc(36) int local36 = local3 - 1; local36 >= 0; local36--) {
-                                @Pc(41) Ground local41 = Static706.aGroundArray3[local36];
+                                @Pc(41) Ground local41 = Static706.floor[local36];
                                 if (local41 != null) {
                                     @Pc(55) int local55 = local8.getHeight(local12, local15) - local41.getHeight(local12, local15);
                                     @Pc(71) int local71 = local8.getHeight(local12, local15 + 1) - local41.getHeight(local12, local15 + 1);

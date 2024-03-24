@@ -595,7 +595,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public void method7967(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
+    public void renderOrtho(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
         @Pc(7) Node2 local7 = arg0.particles.sentinel;
         for (@Pc(10) Node2 local10 = local7.next2; local10 != local7; local10 = local10.next2) {
@@ -2244,7 +2244,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "r", descriptor = "()Z")
     @Override
-    public boolean method8006() {
+    public boolean hardShadow() {
         return false;
     }
 
@@ -2850,7 +2850,7 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public void method8021(@OriginalArg(0) ParticleList arg0) {
+    public void render(@OriginalArg(0) ParticleList arg0) {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
         @Pc(7) Node2 local7 = arg0.particles.sentinel;
         for (@Pc(10) Node2 local10 = local7.next2; local10 != local7; local10 = local10.next2) {

@@ -11,6 +11,7 @@ import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
@@ -99,14 +100,14 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
-        if (this.type == null || !this.method9324(131072, arg3)) {
+    public boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit toolkit) {
+        if (this.type == null || !this.method9324(131072, toolkit)) {
             return false;
         }
-        @Pc(20) Matrix local20 = arg3.scratchMatrix();
+        @Pc(20) Matrix local20 = toolkit.scratchMatrix();
         @Pc(25) int local25 = super.yaw.getValue(16383);
         local20.rotate(local25);
-        local20.translate(super.x, super.anInt10691, super.z);
+        local20.translate(super.x, super.y, super.z);
         @Pc(38) boolean local38 = arg2;
         for (@Pc(40) int local40 = 0; local40 < super.aModelArray3.length; local40++) {
             if (super.aModelArray3[local40] != null) {
@@ -137,10 +138,10 @@ public final class NPCEntity extends PathingEntity {
                 }
                 @Pc(89) boolean local89 = var10000;
                 @Pc(105) boolean local105;
-                if (Static504.aBoolean579) {
-                    local105 = super.aModelArray3[local40].pickedOrtho(arg1, arg0, local20, local89, this.type.pickSizeShift, Static582.anInt8627);
+                if (Static504.renderOrtho) {
+                    local105 = super.aModelArray3[local40].pickedOrtho(y, x, local20, local89, this.type.pickSizeShift, Static582.orthoAngle);
                 } else {
-                    local105 = super.aModelArray3[local40].picked(arg1, arg0, local20, local89, this.type.pickSizeShift);
+                    local105 = super.aModelArray3[local40].picked(y, x, local20, local89, this.type.pickSizeShift);
                 }
                 if (local105) {
                     local38 = true;
@@ -156,21 +157,21 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity render(@OriginalArg(1) Toolkit arg0) {
         if (this.type == null || !this.method9324(2048, arg0)) {
             return null;
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         @Pc(27) int local27 = super.yaw.getValue(16383);
         local22.rotate(local27);
-        @Pc(45) Class291 local45 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
-        if (local45 == null || local45.aGroundDecor_1 == null) {
+        @Pc(45) Tile local45 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
+        if (local45 == null || local45.groundDecor == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
         } else {
-            @Pc(75) int local75 = super.anInt10732 - local45.aGroundDecor_1.aShort46;
+            @Pc(75) int local75 = super.anInt10732 - local45.groundDecor.offsetY;
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) local75 / 10.0F);
         }
-        local22.translate(super.x, -super.anInt10732 + super.anInt10691 - 20, super.z);
+        local22.translate(super.x, -super.anInt10732 + super.y - 20, super.z);
         @Pc(104) BASType local104 = this.getBASType();
         @Pc(118) NPCType local118 = this.type.multinpcs == null ? this.type : this.type.getMultiNPC(TimedVarDomain.instance);
         super.aBoolean819 = false;
@@ -183,40 +184,40 @@ public final class NPCEntity extends PathingEntity {
                 local123 = Static642.method8441(this.method9330(), super.aModelArray3.length + 1);
                 super.aBoolean819 = true;
                 arg0.C(false);
-                if (Static504.aBoolean579) {
-                    local223.renderOrtho(local22, local123.aPickingCylinderArray1[super.aModelArray3.length], Static582.anInt8627, 0);
+                if (Static504.renderOrtho) {
+                    local223.renderOrtho(local22, local123.pickingCylinders[super.aModelArray3.length], Static582.orthoAngle, 0);
                 } else {
-                    local223.render(local22, local123.aPickingCylinderArray1[super.aModelArray3.length], 0);
+                    local223.render(local22, local123.pickingCylinders[super.aModelArray3.length], 0);
                 }
                 arg0.C(true);
             }
         }
         local22.rotate(local27);
-        local22.translate(super.x, -super.anInt10732 + super.anInt10691 - 5, super.z);
+        local22.translate(super.x, -super.anInt10732 + super.y - 5, super.z);
         if (local123 == null) {
             local123 = Static642.method8441(this.method9330(), super.aModelArray3.length);
         }
         this.method9319(arg0, false, super.aModelArray3, local22);
         @Pc(314) int local314;
-        if (Static504.aBoolean579) {
+        if (Static504.renderOrtho) {
             for (local314 = 0; local314 < super.aModelArray3.length; local314++) {
                 if (super.aModelArray3[local314] != null) {
-                    super.aModelArray3[local314].renderOrtho(local22, local123.aPickingCylinderArray1[local314], Static582.anInt8627, 0);
+                    super.aModelArray3[local314].renderOrtho(local22, local123.pickingCylinders[local314], Static582.orthoAngle, 0);
                 }
             }
         } else {
             for (local314 = 0; local314 < super.aModelArray3.length; local314++) {
                 if (super.aModelArray3[local314] != null) {
-                    super.aModelArray3[local314].render(local22, local123.aPickingCylinderArray1[local314], 0);
+                    super.aModelArray3[local314].render(local22, local123.pickingCylinders[local314], 0);
                 }
             }
         }
         if (super.particleSystem != null) {
-            @Pc(394) ParticleList local394 = super.particleSystem.method3645();
-            if (Static504.aBoolean579) {
-                arg0.method7967(local394, Static582.anInt8627);
+            @Pc(394) ParticleList local394 = super.particleSystem.getList();
+            if (Static504.renderOrtho) {
+                arg0.renderOrtho(local394, Static582.orthoAngle);
             } else {
-                arg0.method8021(local394);
+                arg0.render(local394);
             }
         }
         for (@Pc(419) int local419 = 0; local419 < super.aModelArray3.length; local419++) {
@@ -287,7 +288,7 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public BoundingCylinder getCylinder(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
         if (arg1 >= -93) {
             this.method9320(98);
         }
@@ -296,9 +297,9 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(I)Lclient!dj;")
     @Override
-    public ChatMessage method9318(@OriginalArg(0) int arg0) {
+    public EntityChatLine method9318(@OriginalArg(0) int arg0) {
         if (arg0 == -3109) {
-            return super.message != null && super.message.text == null ? null : super.message;
+            return super.line != null && super.line.text == null ? null : super.line;
         } else {
             return null;
         }
@@ -444,7 +445,7 @@ public final class NPCEntity extends PathingEntity {
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IILjava/lang/String;B)V")
     public void chat(@OriginalArg(0) int colour, @OriginalArg(1) int effect, @OriginalArg(2) String text) {
         @Pc(17) int duration = GameShell.speed() * GraphicsDefaults.instance.npcChatTimeout;
-        this.setChatMessage(duration, text, effect, colour);
+        this.setChatLine(duration, text, effect, colour);
     }
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(Lclient!ha;I)V")
@@ -455,13 +456,13 @@ public final class NPCEntity extends PathingEntity {
         }
         @Pc(26) Matrix local26 = arg0.scratchMatrix();
         local26.rotate(super.yaw.getValue(16383));
-        local26.translate(super.x, super.anInt10691 - 20, super.z);
+        local26.translate(super.x, super.y - 20, super.z);
         this.method9319(arg0, super.aBoolean820, super.aModelArray3, local26);
         for (@Pc(53) int local53 = 0; local53 < super.aModelArray3.length; local53++) {
             super.aModelArray3[local53] = null;
         }
         if (arg1 != -5) {
-            this.method9278(null, -21);
+            this.getCylinder(null, -21);
         }
     }
 
@@ -475,15 +476,18 @@ public final class NPCEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(Lclient!o;Z)V")
-    public void setType(@OriginalArg(0) NPCType arg0) {
-        if (arg0 != this.type && MiniMenu.open && MiniMenu.hasNpcOp(super.id)) {
+    public void setupNewNPCType(@OriginalArg(0) NPCType type) {
+        if (type != this.type && MiniMenu.open && MiniMenu.hasNpcOp(super.id)) {
             MiniMenu.close();
         }
-        this.type = arg0;
+
+        this.type = type;
+
         if (this.type != null) {
             this.name = this.type.name;
             this.combatLevel = this.type.combatLevel;
         }
+
         if (super.particleSystem != null) {
             super.particleSystem.method3656();
         }
@@ -511,7 +515,7 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(B)I")
     @Override
-    public int method9287() {
+    public int getPickSizeShift() {
         return this.type == null ? 0 : this.type.pickSizeShift;
     }
 }

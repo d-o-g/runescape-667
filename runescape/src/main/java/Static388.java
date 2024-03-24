@@ -24,6 +24,6 @@ public final class Static388 {
             Static420.anInt6436 = 1;
             Static173.anIntArray252 = new int[Static211.anInt5574 * Static617.anInt9434];
         }
-        Static75.aBoolean521 = true;
+        Static75.hasOpaqueStationaryEntities = true;
     }
 }

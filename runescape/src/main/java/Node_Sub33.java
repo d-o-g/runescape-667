@@ -215,7 +215,7 @@ public final class Node_Sub33 extends Node {
         @Pc(7) long local7 = -1L;
         @Pc(15) int local15 = (arg4 << this.aClass178_Sub2_2.anInt8895) + arg1;
         @Pc(23) int local23 = arg0 + (arg2 << this.aClass178_Sub2_2.anInt8895);
-        @Pc(30) int local30 = this.aClass178_Sub2_2.method7878(local23, local15);
+        @Pc(30) int local30 = this.aClass178_Sub2_2.averageHeight(local23, local15);
         if ((arg1 & 0x7F) == 0 || (arg0 & 0x7F) == 0) {
             local7 = ((long) local23 & 0xFFFFL) << 16 | (long) local15 & 0xFFFFL;
             @Pc(64) Node local64 = this.aIterableHashTable_26.get(local7);

@@ -178,7 +178,7 @@ public final class i extends Model implements Interface5 {
 
     @OriginalMember(owner = "client!i", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7476(@OriginalArg(0) Matrix arg0) {
+    public void apply(@OriginalArg(0) Matrix arg0) {
         this.method3688(Static445.anIntArray537, arg0);
         @Pc(5) int local5 = 0;
         @Pc(10) int local10;
@@ -202,8 +202,8 @@ public final class i extends Model implements Interface5 {
         for (local10 = 0; local10 < this.aModelParticleEffectorArray3.length; local10++) {
             @Pc(89) ModelParticleEffector local89 = this.aModelParticleEffectorArray3[local10];
             @Pc(91) ModelParticleEffector local91 = local89;
-            if (local89.aModelParticleEffector_2 != null) {
-                local91 = local89.aModelParticleEffector_2;
+            if (local89.next != null) {
+                local91 = local89.next;
             }
             if (local89.matrix == null) {
                 local89.matrix = arg0.method7129();

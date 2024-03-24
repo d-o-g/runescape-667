@@ -7,9 +7,6 @@ public final class Static217 {
     @OriginalMember(owner = "client!gn", name = "f", descriptor = "Lclient!bg;")
     public static final Class38 aClass38_3 = new Class38();
 
-    @OriginalMember(owner = "client!gn", name = "i", descriptor = "[I")
-    public static final int[] anIntArray285 = new int[]{1, 2, 4, 8};
-
     @OriginalMember(owner = "client!gn", name = "a", descriptor = "([B[BIIIIIII)V")
     public static void method3185(@OriginalArg(0) byte[] arg0, @OriginalArg(1) byte[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
         @Pc(17) int local17 = -(arg6 >> 2);

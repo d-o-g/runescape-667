@@ -1,5 +1,6 @@
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
+import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -46,7 +47,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
 
     @OriginalMember(owner = "client!sv", name = "d", descriptor = "(B)I")
     @Override
-    public int method9287() {
+    public int getPickSizeShift() {
         @Pc(9) ObjType local9 = ObjTypeList.instance.list(this.anInt8867);
         @Pc(12) int local12 = local9.picksizeshift;
         if (this.anInt8878 != -1) {
@@ -66,7 +67,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
 
     @OriginalMember(owner = "client!sv", name = "h", descriptor = "(I)Z")
     @Override
-    public boolean method9282(@OriginalArg(0) int arg0) {
+    public boolean isTransparent(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
             this.anInt8879 = -87;
         }
@@ -75,7 +76,7 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
 
     @OriginalMember(owner = "client!sv", name = "c", descriptor = "(B)I")
     @Override
-    public int method9292(@OriginalArg(0) byte arg0) {
+    public int getSphereRadius(@OriginalArg(0) byte arg0) {
         return arg0 == -21 ? this.anInt8879 : -65;
     }
 
@@ -89,44 +90,44 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
 
     @OriginalMember(owner = "client!sv", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
+    public BoundingCylinder getCylinder(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
         if (arg1 > -93) {
-            this.method9278(null, 61);
+            this.getCylinder(null, 61);
         }
         return null;
     }
 
     @OriginalMember(owner = "client!sv", name = "k", descriptor = "(I)I")
     @Override
-    public int method9286(@OriginalArg(0) int arg0) {
+    public int getMinY(@OriginalArg(0) int arg0) {
         return arg0 == 2 ? -10 : -14;
     }
 
     @OriginalMember(owner = "client!sv", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
+    public boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit toolkit) {
         if (arg2) {
-            this.method9278(null, 104);
+            this.getCylinder(null, 104);
         }
-        @Pc(16) Matrix local16 = arg3.scratchMatrix();
-        local16.method7125(super.x, super.anInt10691 - 10, super.z);
+        @Pc(16) Matrix local16 = toolkit.scratchMatrix();
+        local16.applyTranslation(super.x, super.y - 10, super.z);
         @Pc(32) ObjType local32 = ObjTypeList.instance.list(this.anInt8867);
-        @Pc(42) Model local42 = local32.model(null, 131072, null, this.anInt8873, arg3);
-        if (local42 != null && (Static504.aBoolean579 ? local42.pickedOrtho(arg1, arg0, local16, true, local32.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local32.picksizeshift))) {
+        @Pc(42) Model local42 = local32.model(null, 131072, null, this.anInt8873, toolkit);
+        if (local42 != null && (Static504.renderOrtho ? local42.pickedOrtho(y, x, local16, true, local32.picksizeshift, Static582.orthoAngle) : local42.picked(y, x, local16, true, local32.picksizeshift))) {
             return true;
         }
         @Pc(82) ObjType local82;
         if (this.anInt8878 != -1) {
             local82 = ObjTypeList.instance.list(this.anInt8878);
-            local42 = local82.model(null, 131072, null, this.anInt8874, arg3);
-            if (local42 != null && (Static504.aBoolean579 ? local42.pickedOrtho(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local82.picksizeshift))) {
+            local42 = local82.model(null, 131072, null, this.anInt8874, toolkit);
+            if (local42 != null && (Static504.renderOrtho ? local42.pickedOrtho(y, x, local16, true, local82.picksizeshift, Static582.orthoAngle) : local42.picked(y, x, local16, true, local82.picksizeshift))) {
                 return true;
             }
         }
         if (this.anInt8876 != -1) {
             local82 = ObjTypeList.instance.list(this.anInt8876);
-            local42 = local82.model(null, 131072, null, this.anInt8872, arg3);
-            if (local42 != null && (Static504.aBoolean579 ? local42.pickedOrtho(arg1, arg0, local16, true, local82.picksizeshift, Static582.anInt8627) : local42.picked(arg1, arg0, local16, true, local82.picksizeshift))) {
+            local42 = local82.model(null, 131072, null, this.anInt8872, toolkit);
+            if (local42 != null && (Static504.renderOrtho ? local42.pickedOrtho(y, x, local16, true, local82.picksizeshift, Static582.orthoAngle) : local42.picked(y, x, local16, true, local82.picksizeshift))) {
                 return true;
             }
         }
@@ -135,44 +136,44 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
 
     @OriginalMember(owner = "client!sv", name = "b", descriptor = "(B)Z")
     @Override
-    public boolean method9283() {
+    public boolean isStationary() {
         return false;
     }
 
     @OriginalMember(owner = "client!sv", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
-        @Pc(17) Class286 local17 = Static467.method6351(super.level, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
+    public PickableEntity render(@OriginalArg(1) Toolkit arg0) {
+        @Pc(17) PositionEntityNode local17 = Static467.method6351(super.level, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
         @Pc(29) GroundDecor local29 = Static687.method8959(super.level, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
         @Pc(31) int local31 = 0;
-        if (local17 != null && local17.aPositionEntity.aBoolean815) {
-            local31 = local17.aPositionEntity.method9286(2);
+        if (local17 != null && local17.entity.aBoolean815) {
+            local31 = local17.entity.getMinY(2);
         }
-        if (local29 != null && -local31 < local29.aShort46) {
-            local31 = -local29.aShort46;
+        if (local29 != null && -local31 < local29.offsetY) {
+            local31 = -local29.offsetY;
         }
         if (local31 != this.anInt8885) {
-            super.anInt10691 -= this.anInt8885;
+            super.y -= this.anInt8885;
             this.anInt8885 = local31;
-            super.anInt10691 += local31;
+            super.y += local31;
         }
         @Pc(94) Matrix local94 = arg0.scratchMatrix();
         local94.makeIdentity();
         if (this.anInt8885 == 0) {
-            @Pc(110) Ground local110 = Static246.activeGround[super.virtualLevel];
+            @Pc(110) Ground local110 = Static246.ground[super.virtualLevel];
             @Pc(115) int local115 = this.anInt8879 << 1;
             @Pc(122) int local122 = -local115 / 2;
             @Pc(127) int local127 = -local115 / 2;
-            @Pc(139) int local139 = local110.method7878(super.z + local127, local122 + super.x);
+            @Pc(139) int local139 = local110.averageHeight(super.z + local127, local122 + super.x);
             @Pc(143) int local143 = local115 / 2;
             @Pc(148) int local148 = -local115 / 2;
-            @Pc(161) int local161 = local110.method7878(super.z + local148, local143 + super.x);
+            @Pc(161) int local161 = local110.averageHeight(super.z + local148, local143 + super.x);
             @Pc(166) int local166 = -local115 / 2;
             @Pc(170) int local170 = local115 / 2;
-            @Pc(182) int local182 = local110.method7878(local170 + super.z, super.x + local166);
+            @Pc(182) int local182 = local110.averageHeight(local170 + super.z, super.x + local166);
             @Pc(186) int local186 = local115 / 2;
             @Pc(190) int local190 = local115 / 2;
-            @Pc(203) int local203 = local110.method7878(super.z + local190, local186 + super.x);
+            @Pc(203) int local203 = local110.averageHeight(super.z + local190, local186 + super.x);
             @Pc(215) int local215 = local161 > local139 ? local139 : local161;
             @Pc(223) int local223 = local203 > local182 ? local182 : local203;
             @Pc(235) int local235 = local161 < local203 ? local161 : local203;
@@ -193,12 +194,12 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
             if (local182 + local161 < local297) {
                 local297 = local161 + local182;
             }
-            local297 = (local297 >> 1) - super.anInt10691;
+            local297 = (local297 >> 1) - super.y;
             if (local297 != 0) {
                 local94.translate(0, local297, 0);
             }
         }
-        local94.translate(super.x, super.anInt10691 - 10, super.z);
+        local94.translate(super.x, super.y - 10, super.z);
         @Pc(345) PickableEntity local345 = Static642.method8441(true, 3);
         this.anInt8879 = 0;
         this.aBoolean672 = false;
@@ -206,10 +207,10 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         if (this.anInt8876 != -1) {
             local369 = ObjTypeList.instance.list(this.anInt8876).model(null, 2048, null, this.anInt8872, arg0);
             if (local369 != null) {
-                if (Static504.aBoolean579) {
-                    local369.renderOrtho(local94, local345.aPickingCylinderArray1[2], Static582.anInt8627, 0);
+                if (Static504.renderOrtho) {
+                    local369.renderOrtho(local94, local345.pickingCylinders[2], Static582.orthoAngle, 0);
                 } else {
-                    local369.render(local94, local345.aPickingCylinderArray1[2], 0);
+                    local369.render(local94, local345.pickingCylinders[2], 0);
                 }
                 this.aBoolean672 |= local369.F();
                 this.anInt8879 = local369.ma();
@@ -218,10 +219,10 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         if (this.anInt8878 != -1) {
             local369 = ObjTypeList.instance.list(this.anInt8878).model(null, 2048, null, this.anInt8874, arg0);
             if (local369 != null) {
-                if (Static504.aBoolean579) {
-                    local369.renderOrtho(local94, local345.aPickingCylinderArray1[1], Static582.anInt8627, 0);
+                if (Static504.renderOrtho) {
+                    local369.renderOrtho(local94, local345.pickingCylinders[1], Static582.orthoAngle, 0);
                 } else {
-                    local369.render(local94, local345.aPickingCylinderArray1[1], 0);
+                    local369.render(local94, local345.pickingCylinders[1], 0);
                 }
                 this.aBoolean672 |= local369.F();
                 if (local369.ma() > this.anInt8879) {
@@ -231,10 +232,10 @@ public final class Class8_Sub2_Sub5_Sub1 extends Class8_Sub2_Sub5 {
         }
         local369 = ObjTypeList.instance.list(this.anInt8867).model(null, 2048, null, this.anInt8873, arg0);
         if (local369 != null) {
-            if (Static504.aBoolean579) {
-                local369.renderOrtho(local94, local345.aPickingCylinderArray1[0], Static582.anInt8627, 0);
+            if (Static504.renderOrtho) {
+                local369.renderOrtho(local94, local345.pickingCylinders[0], Static582.orthoAngle, 0);
             } else {
-                local369.render(local94, local345.aPickingCylinderArray1[0], 0);
+                local369.render(local94, local345.pickingCylinders[0], 0);
             }
             this.aBoolean672 |= local369.F();
             if (local369.ma() > this.anInt8879) {

@@ -4,7 +4,6 @@ import com.jagex.core.util.Arrays;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
-import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.Toolkit;
@@ -252,7 +251,7 @@ public final class SkyBox {
     public void method3164(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) Toolkit arg4) {
         @Pc(7) Matrix local7 = arg4.method8017().method7129();
         @Pc(10) Matrix local10 = arg4.createMatrix();
-        local10.method7125(0, 0, 0);
+        local10.applyTranslation(0, 0, 0);
         local10.rotateAxisY(arg0 & 0x3FFF);
         local10.rotateAxisX(arg2 & 0x3FFF);
         local10.rotateAxisZ(arg3 & 0x3FFF);

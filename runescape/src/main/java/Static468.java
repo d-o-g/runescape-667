@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static468 {
 
     @OriginalMember(owner = "client!op", name = "l", descriptor = "[Lclient!eo;")
-    public static Entity[] aEntityArray10;
+    public static Entity[] dynamicEntities;
 
     @OriginalMember(owner = "client!op", name = "r", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___212 = new ServerProt(77, -2);
@@ -30,7 +30,7 @@ public final class Static468 {
         }
         @Pc(103) Class8_Sub2_Sub5_Sub1 local103 = (Class8_Sub2_Sub5_Sub1) Static638.method8398(arg0, arg2, arg1);
         if (local103 == null) {
-            local103 = new Class8_Sub2_Sub5_Sub1(arg2 << 9, Static246.activeGround[arg0].getHeight(arg1, arg2), arg1 << 9, arg0, arg0);
+            local103 = new Class8_Sub2_Sub5_Sub1(arg2 << 9, Static246.ground[arg0].getHeight(arg1, arg2), arg1 << 9, arg0, arg0);
         } else {
             local103.anInt8878 = local103.anInt8876 = -1;
         }
@@ -59,7 +59,7 @@ public final class Static468 {
         }
         @Pc(209) int local209 = Static102.method2025(arg0, -29754, (arg1 << 9) + 256, (arg2 << 9) - -256);
         local103.level = (byte) arg0;
-        local103.anInt10691 = local209;
+        local103.y = local209;
         local103.virtualLevel = (byte) arg0;
         local103.z = arg1 << 9;
         local103.anInt8885 = 0;

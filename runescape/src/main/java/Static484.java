@@ -100,7 +100,7 @@ public final class Static484 {
                             local206[local281][local284] = Static696.isTileVisibleFrom(local284 + local229, arg1, local218 + local281, local278);
                         }
                     }
-                    Static706.aGroundArray3[local278].method7873(local218, local229, local238, local249, local206);
+                    Static706.floor[local278].method7873(local218, local229, local238, local249, local206);
                     if (!Static113.aBoolean198) {
                         for (local284 = -4; local284 < Static200.anInt3302; local284++) {
                             for (local331 = -4; local331 < Static200.anInt3302; local331++) {

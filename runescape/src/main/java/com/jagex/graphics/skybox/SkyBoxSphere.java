@@ -3,7 +3,6 @@ package com.jagex.graphics.skybox;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
-import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
@@ -248,7 +247,7 @@ public final class SkyBoxSphere {
         arg0.DA(this.anInt5638 / 2, this.anInt5638 / 2, local84, local84);
         arg0.setCamera(arg0.createMatrix());
         @Pc(209) Matrix local209 = arg0.createMatrix();
-        local209.method7125(0, 0, arg0.i() - local147.HA());
+        local209.applyTranslation(0, 0, arg0.i() - local147.HA());
         local147.renderOrtho(local209, null, 1024, 1);
         @Pc(231) int local231 = this.anInt5638 * 13 / 16;
         @Pc(238) int local238 = (this.anInt5638 - local231) / 2;
@@ -318,7 +317,7 @@ public final class SkyBoxSphere {
         arg0.DA(this.anInt5638 / 2, this.anInt5638 / 2, local216, local216);
         arg0.setCamera(arg0.createMatrix());
         @Pc(238) Matrix local238 = arg0.scratchMatrix();
-        local238.method7125(0, 0, arg0.i() - local190.HA());
+        local238.applyTranslation(0, 0, arg0.i() - local190.HA());
         local190.renderOrtho(local238, null, arg0.i(), 1);
         this.aSprite_24 = arg0.method7964(0, 0, this.anInt5638, this.anInt5638, true);
         this.aSprite_24.method8196();

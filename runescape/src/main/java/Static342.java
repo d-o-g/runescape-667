@@ -1,3 +1,4 @@
+import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -6,8 +7,8 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static342 {
 
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "(Lclient!ke;B)Z")
-    public static boolean method4463(@OriginalArg(0) Class205 arg0) {
-        return arg0 == null ? false : Static318.method8557(arg0.anInt5126 - arg0.anInt5123, -arg0.anInt5133 + arg0.anInt5134, arg0.anInt5123, arg0.anInt5131, arg0.anInt5133, arg0.anInt5125 - arg0.anInt5131);
+    public static boolean method4463(@OriginalArg(0) BoundingCylinder arg0) {
+        return arg0 == null ? false : Static318.method8557(arg0.x2 - arg0.x1, -arg0.y1 + arg0.y2, arg0.x1, arg0.z1, arg0.y1, arg0.z2 - arg0.z1);
     }
 
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "(IZ)V")

@@ -86,7 +86,7 @@ public final class Static498 {
         if (Toolkit.active != null) {
             Static209.method3110();
         }
-        Static504.aBoolean579 = ClientOptions.instance.orthographic.getValue() != 0;
+        Static504.renderOrtho = ClientOptions.instance.orthographic.getValue() != 0;
         InterfaceManager.aBoolean210 = ClientOptions.instance.orthographic.method2118();
     }
 

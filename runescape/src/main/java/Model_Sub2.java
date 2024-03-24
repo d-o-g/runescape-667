@@ -1472,15 +1472,15 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7476(@OriginalArg(0) Matrix arg0) {
+    public void apply(@OriginalArg(0) Matrix arg0) {
         @Pc(8) Matrix_Sub3 local8 = (Matrix_Sub3) arg0;
         @Pc(13) int local13;
         if (this.aModelParticleEmitterArray4 != null) {
             for (local13 = 0; local13 < this.aModelParticleEmitterArray4.length; local13++) {
                 @Pc(20) ModelParticleEmitter local20 = this.aModelParticleEmitterArray4[local13];
                 @Pc(22) ModelParticleEmitter local22 = local20;
-                if (local20.aModelParticleEmitter_2 != null) {
-                    local22 = local20.aModelParticleEmitter_2;
+                if (local20.next != null) {
+                    local22 = local20.next;
                 }
                 local22.anInt8518 = (int) (local8.aFloat153 * (float) this.anIntArray410[local20.anInt8514] + local8.aFloat157 * (float) this.anIntArray409[local20.anInt8514] + (float) this.anIntArray412[local20.anInt8514] * local8.aFloat160 + local8.aFloat152);
                 local22.anInt8502 = (int) ((float) this.anIntArray412[local20.anInt8514] * local8.aFloat150 + (float) this.anIntArray409[local20.anInt8514] * local8.aFloat156 + local8.aFloat161 * (float) this.anIntArray410[local20.anInt8514] + local8.aFloat158);
@@ -1499,8 +1499,8 @@ public final class Model_Sub2 extends Model {
         for (local13 = 0; local13 < this.aModelParticleEffectorArray4.length; local13++) {
             @Pc(367) ModelParticleEffector local367 = this.aModelParticleEffectorArray4[local13];
             @Pc(369) ModelParticleEffector local369 = local367;
-            if (local367.aModelParticleEffector_2 != null) {
-                local369 = local367.aModelParticleEffector_2;
+            if (local367.next != null) {
+                local369 = local367.next;
             }
             if (local367.matrix == null) {
                 local367.matrix = local8.method7129();
@@ -3771,7 +3771,7 @@ public final class Model_Sub2 extends Model {
         @Pc(314) int local314;
         if (hillType == 1) {
             for (local314 = 0; local314 < this.anInt5543; local314++) {
-                this.anIntArray409[local314] = this.anIntArray409[local314] + floor.method7878(z + this.anIntArray412[local314], x + this.anIntArray410[local314]) - y;
+                this.anIntArray409[local314] = this.anIntArray409[local314] + floor.averageHeight(z + this.anIntArray412[local314], x + this.anIntArray410[local314]) - y;
             }
         } else {
             @Pc(240) int local240;
@@ -3784,7 +3784,7 @@ public final class Model_Sub2 extends Model {
                 for (local240 = 0; local240 < this.anInt5543; local240++) {
                     local251 = (this.anIntArray409[local240] << 16) / local231;
                     if (local251 < hillValue) {
-                        this.anIntArray409[local240] += (floor.method7878(this.anIntArray412[local240] + z, this.anIntArray410[local240] + x) - y) * (hillValue - local251) / hillValue;
+                        this.anIntArray409[local240] += (floor.averageHeight(this.anIntArray412[local240] + z, this.anIntArray410[local240] + x) - y) * (hillValue - local251) / hillValue;
                     }
                 }
             } else {
@@ -3801,15 +3801,15 @@ public final class Model_Sub2 extends Model {
                 } else if (hillType == 4) {
                     local314 = this.aShort68 - this.aShort63;
                     for (local240 = 0; local240 < this.anInt5543; local240++) {
-                        this.anIntArray409[local240] = local314 + this.anIntArray409[local240] + ceiling.method7878(this.anIntArray412[local240] + z, x + this.anIntArray410[local240]) - y;
+                        this.anIntArray409[local240] = local314 + this.anIntArray409[local240] + ceiling.averageHeight(this.anIntArray412[local240] + z, x + this.anIntArray410[local240]) - y;
                     }
                 } else if (hillType == 5) {
                     local314 = this.aShort68 - this.aShort63;
                     for (local240 = 0; local240 < this.anInt5543; local240++) {
                         local251 = x + this.anIntArray410[local240];
                         local338 = this.anIntArray412[local240] + z;
-                        @Pc(454) int local454 = floor.method7878(local338, local251);
-                        @Pc(460) int local460 = ceiling.method7878(local338, local251);
+                        @Pc(454) int local454 = floor.averageHeight(local338, local251);
+                        @Pc(460) int local460 = ceiling.averageHeight(local338, local251);
                         @Pc(468) int local468 = local454 - local460 - hillValue;
                         this.anIntArray409[local240] = (local468 * ((this.anIntArray409[local240] << 8) / local314) >> 8) + local454 - y;
                     }

@@ -1739,15 +1739,15 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7476(@OriginalArg(0) Matrix arg0) {
+    public void apply(@OriginalArg(0) Matrix arg0) {
         @Pc(2) Matrix_Sub2 local2 = (Matrix_Sub2) arg0;
         @Pc(7) int local7;
         if (this.aModelParticleEmitterArray5 != null) {
             for (local7 = 0; local7 < this.aModelParticleEmitterArray5.length; local7++) {
                 @Pc(13) ModelParticleEmitter local13 = this.aModelParticleEmitterArray5[local7];
                 @Pc(15) ModelParticleEmitter local15 = local13;
-                if (local13.aModelParticleEmitter_2 != null) {
-                    local15 = local13.aModelParticleEmitter_2;
+                if (local13.next != null) {
+                    local15 = local13.next;
                 }
                 local15.anInt8518 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local13.anInt8514] + local2.aFloat55 * (float) this.anIntArray675[local13.anInt8514] + local2.aFloat53 * (float) this.anIntArray658[local13.anInt8514]);
                 local15.anInt8502 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local13.anInt8514] + local2.aFloat52 * (float) this.anIntArray675[local13.anInt8514] + local2.aFloat51 * (float) this.anIntArray658[local13.anInt8514]);
@@ -1766,8 +1766,8 @@ public final class Model_Sub3 extends Model {
         for (local7 = 0; local7 < this.aModelParticleEffectorArray5.length; local7++) {
             @Pc(355) ModelParticleEffector local355 = this.aModelParticleEffectorArray5[local7];
             @Pc(357) ModelParticleEffector local357 = local355;
-            if (local355.aModelParticleEffector_2 != null) {
-                local357 = local355.aModelParticleEffector_2;
+            if (local355.next != null) {
+                local357 = local355.next;
             }
             if (local355.matrix == null) {
                 local355.matrix = local2.method7129();
@@ -4400,10 +4400,10 @@ public final class Model_Sub3 extends Model {
         if (hillType != 4 && (local38 < 0 || local43 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8894 || local48 < 0 || local53 + floor.anInt8888 >> floor.anInt8895 >= floor.anInt8892)) {
             return;
         }
-        @Pc(94) int[][] local94 = floor.anIntArrayArray226;
+        @Pc(94) int[][] local94 = floor.tileHeights;
         @Pc(96) int[][] local96 = null;
         if (ceiling != null) {
-            local96 = ceiling.anIntArrayArray226;
+            local96 = ceiling.tileHeights;
         }
         if (hillType == 4 || hillType == 5) {
             if (ceiling == null) {

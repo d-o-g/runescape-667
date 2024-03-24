@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.LinkedList;
+import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
@@ -14,8 +15,11 @@ public final class ParticleManager {
     @OriginalMember(owner = "client!tha", name = "g", descriptor = "Z")
     public static final boolean debug = false;
 
-    @OriginalMember(owner = "client!oea", name = "v", descriptor = "I")
-    public static int anInt6869 = 0;
+    @OriginalMember(owner = "client!qfa", name = "n", descriptor = "Lclient!gga;")
+    public static HashTable effectorsCache = new HashTable(8);
+
+    @OriginalMember(owner = "client!kp", name = "w", descriptor = "Lclient!fla;")
+    public static LinkedList systemsCache;
 
     @OriginalMember(owner = "client!nga", name = "d", descriptor = "I")
     public static int emitterCount = 0;
@@ -29,8 +33,6 @@ public final class ParticleManager {
     @OriginalMember(owner = "client!pw", name = "G", descriptor = "I")
     public static int option = 2;
 
-    @OriginalMember(owner = "client!cka", name = "x", descriptor = "[Lclient!hv;")
-    public static ParticleSystem[] systemCache;
 
     @OriginalMember(owner = "client!jga", name = "l", descriptor = "I")
     public static int systemNextPtr = 0;
@@ -44,29 +46,32 @@ public final class ParticleManager {
     @OriginalMember(owner = "client!sv", name = "L", descriptor = "I")
     public static int particleNextPtr = 0;
 
-    @OriginalMember(owner = "client!kp", name = "w", descriptor = "Lclient!fla;")
-    public static LinkedList systems;
+    @OriginalMember(owner = "client!cka", name = "x", descriptor = "[Lclient!hv;")
+    public static ParticleSystem[] systems;
 
     @OriginalMember(owner = "client!qv", name = "e", descriptor = "[Lclient!pp;")
-    public static MovingParticle[] particleCache;
+    public static MovingParticle[] particles;
+
+    @OriginalMember(owner = "client!ula", name = "F", descriptor = "I")
+    public static int effectorCount = 0;
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(JILclient!ha;)V")
     public static void method2421(@OriginalArg(0) long clock, @OriginalArg(2) Toolkit arg1) {
-        anInt6869 = particleCount;
+        ParticleLimits.particleLimit = particleCount;
         emitterCount = 0;
         runningParticleCount = 0;
         particleCount = 0;
 
         @Pc(16) long before = SystemTimer.safetime();
 
-        for (@Pc(21) ParticleSystem system = (ParticleSystem) systems.first(); system != null; system = (ParticleSystem) systems.next()) {
+        for (@Pc(21) ParticleSystem system = (ParticleSystem) systemsCache.first(); system != null; system = (ParticleSystem) systemsCache.next()) {
             if (system.isRunning(arg1, clock)) {
                 runningParticleCount++;
             }
         }
 
         if (debug && ((clock % 100L) == 0L)) {
-            System.out.println("Particle system count: " + systems.size() + ", running: " + runningParticleCount);
+            System.out.println("Particle system count: " + systemsCache.size() + ", running: " + runningParticleCount);
             System.out.println("Emitters: " + emitterCount + " Particles: " + particleCount + ". Time taken: " + (SystemTimer.safetime() - before) + "ms");
         }
     }
@@ -78,7 +83,7 @@ public final class ParticleManager {
         }
 
         ParticleManager.option = option;
-        ParticleManager.systemCache = new ParticleSystem[ParticleLimits.anIntArray265[ParticleManager.option] + 1];
+        ParticleManager.systems = new ParticleSystem[ParticleLimits.anIntArray265[ParticleManager.option] + 1];
         ParticleManager.systemNextPtr = 0;
         ParticleManager.systemFreePtr = 0;
     }
@@ -87,13 +92,23 @@ public final class ParticleManager {
     public static void init(@OriginalArg(0) js5 configClient) {
         particleFreePtr = 0;
         particleNextPtr = 0;
-        systems = new LinkedList();
-        particleCache = new MovingParticle[1024];
-        systemCache = new ParticleSystem[ParticleLimits.anIntArray265[option] + 1];
+        systemsCache = new LinkedList();
+        particles = new MovingParticle[1024];
+        systems = new ParticleSystem[ParticleLimits.anIntArray265[option] + 1];
         systemFreePtr = 0;
         systemNextPtr = 0;
         ParticleEmitterTypeList.setConfigClient(configClient);
         ParticleEffectorTypeList.setConfigClient(configClient);
+    }
+
+    @OriginalMember(owner = "client!df", name = "b", descriptor = "(I)V")
+    public static void method2044() {
+        effectorsCache = new HashTable(8);
+        effectorCount = 0;
+
+        for (@Pc(20) ParticleSystem system = (ParticleSystem) systemsCache.first(); system != null; system = (ParticleSystem) systemsCache.next()) {
+            system.remove();
+        }
     }
 
     private ParticleManager() {

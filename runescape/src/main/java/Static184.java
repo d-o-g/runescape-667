@@ -12,14 +12,14 @@ public final class Static184 {
 
     @OriginalMember(owner = "client!fma", name = "a", descriptor = "(IIII)Lclient!cg;")
     public static PathingEntity method2798(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(13) Class291 local13 = Static334.activeTiles[arg2][arg0][arg1];
+        @Pc(13) Tile local13 = Static334.activeTiles[arg2][arg0][arg1];
         if (local13 == null) {
             return null;
         }
         @Pc(20) PathingEntity local20 = null;
         @Pc(22) int local22 = -1;
-        for (@Pc(31) Class286 local31 = local13.aClass286_2; local31 != null; local31 = local31.aClass286_1) {
-            @Pc(35) PositionEntity local35 = local31.aPositionEntity;
+        for (@Pc(31) PositionEntityNode local31 = local13.head; local31 != null; local31 = local31.node) {
+            @Pc(35) PositionEntity local35 = local31.entity;
             if (local35 instanceof PathingEntity) {
                 @Pc(41) PathingEntity local41 = (PathingEntity) local35;
                 @Pc(51) int local51 = local41.getSize() * 256 + 252 - 256;

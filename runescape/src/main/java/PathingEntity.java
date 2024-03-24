@@ -51,7 +51,7 @@ public abstract class PathingEntity extends PositionEntity {
     public int id;
 
     @OriginalMember(owner = "client!cg", name = "Pb", descriptor = "Lclient!dj;")
-    protected ChatMessage message;
+    protected EntityChatLine line;
 
     @OriginalMember(owner = "client!cg", name = "Bb", descriptor = "I")
     protected int modelRotateZ;
@@ -289,10 +289,10 @@ public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "b", descriptor = "(I)V")
     public final void method9296() {
-        if (this.message != null && this.message.text != null) {
-            this.message.remaining--;
-            if (this.message.remaining == 0) {
-                this.message.text = null;
+        if (this.line != null && this.line.text != null) {
+            this.line.remaining--;
+            if (this.line.remaining == 0) {
+                this.line.text = null;
             }
         }
     }
@@ -386,12 +386,12 @@ public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "l", descriptor = "(I)V")
     @Override
-    public final void method9294() {
+    public final void updateBounds() {
         @Pc(12) int local12 = (this.size - 1 << 8) + 240;
-        super.aShort132 = (short) (super.z - local12 >> 9);
-        super.aShort131 = (short) (super.x - local12 >> 9);
-        super.aShort133 = (short) (super.z + local12 >> 9);
-        super.aShort134 = (short) (super.x + local12 >> 9);
+        super.z1 = (short) (super.z - local12 >> 9);
+        super.x1 = (short) (super.x - local12 >> 9);
+        super.z2 = (short) (super.z + local12 >> 9);
+        super.x2 = (short) (super.x + local12 >> 9);
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(IIZ)V")
@@ -415,19 +415,19 @@ public abstract class PathingEntity extends PositionEntity {
         } else {
             local31 = -this.anInt10748;
         }
-        @Pc(55) Class291 local55 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
-        return local55 == null || local55.aGroundDecor_1 == null ? local31 : local31 + local55.aGroundDecor_1.aShort46;
+        @Pc(55) Tile local55 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
+        return local55 == null || local55.groundDecor == null ? local31 : local31 + local55.groundDecor.offsetY;
     }
 
     @OriginalMember(owner = "client!cg", name = "c", descriptor = "(B)I")
     @Override
-    public final int method9292(@OriginalArg(0) byte arg0) {
+    public final int getSphereRadius(@OriginalArg(0) byte arg0) {
         return arg0 == -21 ? this.anInt10728 : 44;
     }
 
     @OriginalMember(owner = "client!cg", name = "k", descriptor = "(I)I")
     @Override
-    public final int method9286(@OriginalArg(0) int arg0) {
+    public final int getMinY(@OriginalArg(0) int arg0) {
         if (arg0 == 2) {
             return this.anInt10748 == -32768 ? 0 : this.anInt10748;
         } else {
@@ -595,7 +595,7 @@ public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "h", descriptor = "(I)Z")
     @Override
-    public final boolean method9282(@OriginalArg(0) int arg0) {
+    public final boolean isTransparent(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
             this.anInt10749 = -63;
         }
@@ -723,20 +723,20 @@ public abstract class PathingEntity extends PositionEntity {
     public abstract boolean method9311();
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(ILjava/lang/String;ZII)V")
-    public final void setChatMessage(@OriginalArg(0) int duration, @OriginalArg(1) String text, @OriginalArg(3) int effect, @OriginalArg(4) int colour) {
-        if (this.message == null) {
-            this.message = new ChatMessage();
+    public final void setChatLine(@OriginalArg(0) int duration, @OriginalArg(1) String text, @OriginalArg(3) int effect, @OriginalArg(4) int colour) {
+        if (this.line == null) {
+            this.line = new EntityChatLine();
         }
-        this.message.effect = effect;
-        this.message.remaining = this.message.duration = duration;
-        this.message.colour = colour;
-        this.message.text = text;
+        this.line.effect = effect;
+        this.line.remaining = this.line.duration = duration;
+        this.line.colour = colour;
+        this.line.text = text;
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(IIIIII)V")
     protected final void method9314(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        @Pc(11) int local11 = super.aShort134 + super.aShort131 >> 1;
-        @Pc(20) int local20 = super.aShort133 + super.aShort132 >> 1;
+        @Pc(11) int local11 = super.x2 + super.x1 >> 1;
+        @Pc(20) int local20 = super.z2 + super.z1 >> 1;
         @Pc(24) int local24 = Trig1.SIN[arg0];
         @Pc(28) int local28 = Trig1.COS[arg0];
         @Pc(33) int local33 = -arg3 / 2;
@@ -793,7 +793,7 @@ public abstract class PathingEntity extends PositionEntity {
         if (this.modelTranslateY > local119 + local165) {
             this.modelTranslateY = local119 + local165;
         }
-        this.modelTranslateY = (this.modelTranslateY >> 1) - super.anInt10691;
+        this.modelTranslateY = (this.modelTranslateY >> 1) - super.y;
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "([I[IB)V")
@@ -832,7 +832,7 @@ public abstract class PathingEntity extends PositionEntity {
     @Override
     public final void finalize() {
         if (this.particleSystem != null) {
-            this.particleSystem.method3644();
+            this.particleSystem.run();
         }
     }
 
@@ -844,12 +844,12 @@ public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "b", descriptor = "(B)Z")
     @Override
-    public final boolean method9283() {
+    public final boolean isStationary() {
         return false;
     }
 
     @OriginalMember(owner = "client!cg", name = "d", descriptor = "(I)Lclient!dj;")
-    public abstract ChatMessage method9318(@OriginalArg(0) int arg0);
+    public abstract EntityChatLine method9318(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(Lclient!ha;BZ[Lclient!ka;Lclient!tt;)V")
     protected final void method9319(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Model[] arg2, @OriginalArg(4) Matrix arg3) {
@@ -864,7 +864,7 @@ public abstract class PathingEntity extends PositionEntity {
             @Pc(33) ModelParticleEffector[][] local33 = new ModelParticleEffector[arg2.length][];
             for (@Pc(35) int local35 = 0; local35 < arg2.length; local35++) {
                 if (arg2[local35] != null) {
-                    arg2[local35].method7476(arg3);
+                    arg2[local35].apply(arg3);
                     local29[local35] = arg2[local35].particleEmitters();
                     local33[local35] = arg2[local35].particleEffectors();
                     if (local29[local35] != null) {
@@ -879,7 +879,7 @@ public abstract class PathingEntity extends PositionEntity {
                     }
                 }
             }
-            if ((this.particleSystem == null || this.particleSystem.aBoolean324) && (local17 > 0 || local21 > 0)) {
+            if ((this.particleSystem == null || this.particleSystem.removed) && (local17 > 0 || local21 > 0)) {
                 this.particleSystem = ParticleSystem.create(TimeUtils.clock, true);
             }
             if (this.particleSystem != null) {
@@ -910,14 +910,14 @@ public abstract class PathingEntity extends PositionEntity {
                         }
                     }
                 }
-                this.particleSystem.method3643(arg0, TimeUtils.clock, local138, local191);
+                this.particleSystem.update(arg0, TimeUtils.clock, local138, local191);
                 this.aBoolean820 = true;
             }
         } else if (this.particleSystem != null) {
-            this.particleSystem.method3649(TimeUtils.clock);
+            this.particleSystem.setClock(TimeUtils.clock);
         }
         if (this.particleSystem != null) {
-            this.particleSystem.method3658(super.level, super.aShort131, super.aShort134, super.aShort132, super.aShort133);
+            this.particleSystem.updateBounds(super.level, super.x1, super.x2, super.z1, super.z2);
         }
     }
 

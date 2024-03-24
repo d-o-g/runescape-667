@@ -107,7 +107,7 @@ public final class NPCList {
                 if (npc.type.hasSounds()) {
                     Static58.method1259(npc);
                 }
-                npc.setType(null);
+                npc.setupNewNPCType(null);
                 node.unlink();
                 local23 = true;
             }
@@ -253,7 +253,7 @@ public final class NPCList {
 
             @Pc(144) int level = buffer.readBits(2);
 
-            npc.setType(NPCTypeList.instance.list(buffer.readBits(15)));
+            npc.setupNewNPCType(NPCTypeList.instance.list(buffer.readBits(15)));
 
             @Pc(159) int deltaZ = buffer.readBits(5);
             if (deltaZ > 15) {
@@ -389,7 +389,7 @@ public final class NPCList {
                     Static58.method1259(npc);
                 }
 
-                npc.setType(NPCTypeList.instance.list(buffer.ig2()));
+                npc.setupNewNPCType(NPCTypeList.instance.list(buffer.ig2()));
                 npc.setSize(npc.type.size);
                 npc.yawSpeed = npc.type.yawSpeed << 3;
 

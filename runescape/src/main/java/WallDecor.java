@@ -14,14 +14,14 @@ public abstract class WallDecor extends Entity implements Location {
     public short aShort102;
 
     @OriginalMember(owner = "client!tla", name = "<init>", descriptor = "(IIIIIII)V")
-    protected WallDecor(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        super.level = (byte) arg3;
+    protected WallDecor(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int level, @OriginalArg(4) int virtualLevel, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+        super.level = (byte) level;
         this.aShort101 = (short) arg5;
-        super.z = arg2;
+        super.z = z;
         this.aShort102 = (short) arg6;
-        super.x = arg0;
-        super.virtualLevel = (byte) arg4;
-        super.anInt10691 = arg1;
+        super.x = x;
+        super.virtualLevel = (byte) virtualLevel;
+        super.y = y;
     }
 
     @OriginalMember(owner = "client!tla", name = "a", descriptor = "(BLclient!ha;)Z")
@@ -30,7 +30,7 @@ public abstract class WallDecor extends Entity implements Location {
         if (arg0 != 59) {
             this.aShort101 = -126;
         }
-        return Static282.method3976(this.method9286(2), super.virtualLevel, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
+        return Static282.method3976(this.getMinY(2), super.virtualLevel, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
     }
 
     @OriginalMember(owner = "client!tla", name = "j", descriptor = "(I)V")
@@ -62,7 +62,7 @@ public abstract class WallDecor extends Entity implements Location {
     @OriginalMember(owner = "client!tla", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
     public final int method9288(@OriginalArg(0) PointLight[] arg0) {
-        return this.method9277(arg0, super.z >> Static52.anInt1066, super.x >> Static52.anInt1066);
+        return this.findLightsAt(arg0, super.z >> Static52.anInt1066, super.x >> Static52.anInt1066);
     }
 
     @OriginalMember(owner = "client!tla", name = "g", descriptor = "(I)Z")

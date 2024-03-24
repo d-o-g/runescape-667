@@ -20,7 +20,7 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "(III)V")
     @Override
-    public void method7125(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void applyTranslation(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.FA(this.nativeid, arg0, arg1, arg2);
     }
 
@@ -133,8 +133,8 @@ public final class ja extends Matrix implements Interface5 {
 
     @OriginalMember(owner = "client!ja", name = "b", descriptor = "(III)V")
     @Override
-    public void translate(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        this.a(this.nativeid, arg0, arg1, arg2);
+    public void translate(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z) {
+        this.a(this.nativeid, x, y, z);
     }
 
     @OriginalMember(owner = "client!ja", name = "FA", descriptor = "(JIII)V")

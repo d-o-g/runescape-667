@@ -70,8 +70,8 @@ public final class Static35 {
                                 local179 = ClientOptions.instance.backgroundSoundVolume.getValue() * (local199 - local251) * local13.anInt2577 / local199 >> 2;
                                 if (local13.aEntity_10 != null && local13.aEntity_10 instanceof PositionEntity) {
                                     @Pc(301) PositionEntity local301 = (PositionEntity) local13.aEntity_10;
-                                    @Pc(304) short local304 = local301.aShort132;
-                                    @Pc(307) short local307 = local301.aShort131;
+                                    @Pc(304) short local304 = local301.z1;
+                                    @Pc(307) short local307 = local301.x1;
                                 }
                                 if (local224 != 0 || local243 != 0) {
                                     @Pc(336) int local336 = -Camera.yaw - (int) (Math.atan2(local224, local243) * 2607.5945876176133D) - 4096 & 0x3FFF;

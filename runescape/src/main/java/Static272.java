@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static272 {
 
     @OriginalMember(owner = "client!ija", name = "q", descriptor = "[[S")
-    public static short[][] aShortArrayArray5;
+    public static short[][] waterDepth;
 
     @OriginalMember(owner = "client!ija", name = "j", descriptor = "Lclient!vq;")
     public static SignLink aSignLink_3;

@@ -10,6 +10,9 @@ public final class ParticleLimits {
     @OriginalMember(owner = "client!fba", name = "d", descriptor = "[I")
     public static final int[] anIntArray246 = {2047, 16383, 65535};
 
+    @OriginalMember(owner = "client!oea", name = "v", descriptor = "I")
+    public static int particleLimit = 0;
+
     private ParticleLimits() {
         /* empty */
     }

@@ -28,7 +28,7 @@ public final class ModelParticleEmitter {
     public int anInt8512;
 
     @OriginalMember(owner = "client!rv", name = "m", descriptor = "Lclient!rv;")
-    public ModelParticleEmitter aModelParticleEmitter_2;
+    public ModelParticleEmitter next;
 
     @OriginalMember(owner = "client!rv", name = "q", descriptor = "I")
     public int anInt8516;

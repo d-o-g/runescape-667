@@ -12,13 +12,13 @@ public abstract class Wall extends Entity {
     public short aShort58;
 
     @OriginalMember(owner = "client!kp", name = "<init>", descriptor = "(IIIIII)V")
-    protected Wall(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    protected Wall(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int level, @OriginalArg(4) int virtualLevel, @OriginalArg(5) int arg5) {
         this.aShort58 = (short) arg5;
-        super.anInt10691 = arg1;
-        super.level = (byte) arg3;
-        super.z = arg2;
-        super.x = arg0;
-        super.virtualLevel = (byte) arg4;
+        super.y = y;
+        super.level = (byte) level;
+        super.z = z;
+        super.x = x;
+        super.virtualLevel = (byte) virtualLevel;
     }
 
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "(BLclient!ha;)Z")
@@ -33,38 +33,38 @@ public abstract class Wall extends Entity {
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
     public final int method9288(@OriginalArg(0) PointLight[] arg0) {
-        @Pc(10) int local10 = super.x >> Static52.anInt1066;
-        @Pc(21) int local21 = super.z >> Static52.anInt1066;
+        @Pc(10) int localX = super.x >> Static52.anInt1066;
+        @Pc(21) int localZ = super.z >> Static52.anInt1066;
         @Pc(23) int local23 = 0;
-        if (Static403.anInt6246 == local10) {
+        if (Static403.anInt6246 == localX) {
             local23++;
-        } else if (Static403.anInt6246 < local10) {
+        } else if (Static403.anInt6246 < localX) {
             local23 += 2;
         }
-        if (local21 == Static550.anInt8271) {
+        if (localZ == Static550.anInt8271) {
             local23 += 3;
-        } else if (Static550.anInt8271 > local21) {
+        } else if (Static550.anInt8271 > localZ) {
             local23 += 6;
         }
         @Pc(71) int local71 = Static4.anIntArray15[local23];
         if ((this.aShort58 & local71) != 0) {
-            return this.method9277(arg0, local21, local10);
-        } else if (this.aShort58 == 1 && local10 > 0) {
-            return this.method9277(arg0, local21, local10 - 1);
-        } else if (this.aShort58 == 4 && Static619.anInt1566 >= local10) {
-            return this.method9277(arg0, local21, local10 + 1);
-        } else if (this.aShort58 == 8 && local21 > 0) {
-            return this.method9277(arg0, local21 - 1, local10);
-        } else if (this.aShort58 == 2 && Static662.anInt9843 >= local21) {
-            return this.method9277(arg0, local21 + 1, local10);
-        } else if (this.aShort58 == 16 && local10 > 0 && local21 <= Static662.anInt9843) {
-            return this.method9277(arg0, local21 + 1, local10 + -1);
-        } else if (this.aShort58 == 32 && local10 <= Static619.anInt1566 && Static662.anInt9843 >= local21) {
-            return this.method9277(arg0, local21 + 1, local10 + 1);
-        } else if (this.aShort58 == 128 && local10 > 0 && local21 > 0) {
-            return this.method9277(arg0, local21 - 1, local10 + -1);
-        } else if (this.aShort58 == 64 && Static619.anInt1566 >= local10 && local21 > 0) {
-            return this.method9277(arg0, local21 - 1, local10 + 1);
+            return this.findLightsAt(arg0, localZ, localX);
+        } else if (this.aShort58 == 1 && localX > 0) {
+            return this.findLightsAt(arg0, localZ, localX - 1);
+        } else if (this.aShort58 == 4 && Static619.anInt1566 >= localX) {
+            return this.findLightsAt(arg0, localZ, localX + 1);
+        } else if (this.aShort58 == 8 && localZ > 0) {
+            return this.findLightsAt(arg0, localZ - 1, localX);
+        } else if (this.aShort58 == 2 && Static662.anInt9843 >= localZ) {
+            return this.findLightsAt(arg0, localZ + 1, localX);
+        } else if (this.aShort58 == 16 && localX > 0 && localZ <= Static662.anInt9843) {
+            return this.findLightsAt(arg0, localZ + 1, localX + -1);
+        } else if (this.aShort58 == 32 && localX <= Static619.anInt1566 && Static662.anInt9843 >= localZ) {
+            return this.findLightsAt(arg0, localZ + 1, localX + 1);
+        } else if (this.aShort58 == 128 && localX > 0 && localZ > 0) {
+            return this.findLightsAt(arg0, localZ - 1, localX + -1);
+        } else if (this.aShort58 == 64 && Static619.anInt1566 >= localX && localZ > 0) {
+            return this.findLightsAt(arg0, localZ - 1, localX + 1);
         } else {
             throw new RuntimeException("");
         }

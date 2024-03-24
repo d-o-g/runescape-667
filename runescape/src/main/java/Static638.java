@@ -108,7 +108,7 @@ public final class Static638 {
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(III)Lclient!nda;")
     public static Class8_Sub2_Sub5 method8398(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(7) Class291 local7 = Static334.activeTiles[arg0][arg1][arg2];
+        @Pc(7) Tile local7 = Static334.activeTiles[arg0][arg1][arg2];
         if (local7 == null) {
             return null;
         } else {

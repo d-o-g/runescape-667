@@ -81,12 +81,12 @@ public final class Static684 {
                         if (local191) {
                             NPCList.localNpcIndices[NPCList.localNpcCount++] = local146.id;
                         } else {
-                            local146.setType(null);
+                            local146.setupNewNPCType(null);
                             local120 = true;
                             local141.unlink();
                         }
                     } else {
-                        local146.setType(null);
+                        local146.setupNewNPCType(null);
                         local120 = true;
                         local141.unlink();
                     }
@@ -175,6 +175,6 @@ public final class Static684 {
         Static346.A_HASH_TABLE___29.clear();
         Static505.A_DEQUE___77.clear();
         Static422.A_ENTITY_LIST___9.clear();
-        Static105.method2044();
+        ParticleManager.method2044();
     }
 }

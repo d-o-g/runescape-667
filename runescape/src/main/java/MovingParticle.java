@@ -2,6 +2,7 @@ import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterType;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorType;
+import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Ground;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.graphics.Toolkit;
@@ -20,7 +21,7 @@ public final class MovingParticle extends Particle {
     public int anInt7541;
 
     @OriginalMember(owner = "client!pp", name = "D", descriptor = "Lclient!rf;")
-    public ParticleEmitter aParticleEmitter_1;
+    public ParticleEmitter emitter;
 
     @OriginalMember(owner = "client!pp", name = "z", descriptor = "S")
     public short aShort96;
@@ -42,7 +43,7 @@ public final class MovingParticle extends Particle {
 
     @OriginalMember(owner = "client!pp", name = "<init>", descriptor = "(Lclient!rf;IIIIIIIIIIIZZ)V")
     public MovingParticle(@OriginalArg(0) ParticleEmitter arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) boolean arg12, @OriginalArg(13) boolean arg13) {
-        this.aParticleEmitter_1 = arg0;
+        this.emitter = arg0;
         super.anInt7537 = arg1 << 12;
         super.anInt7534 = arg2 << 12;
         super.anInt7536 = arg3 << 12;
@@ -55,34 +56,34 @@ public final class MovingParticle extends Particle {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aParticleEmitter_1.model.aByte130;
+        super.aByte122 = this.emitter.model.aByte130;
         this.method6693();
     }
 
     @OriginalMember(owner = "client!pp", name = "c", descriptor = "()V")
     public void method6693() {
-        @Pc(4) int local4 = this.aParticleEmitter_1.system.anInt4147;
-        if (this.aParticleEmitter_1.system.aMovingParticle[local4] != null) {
-            this.aParticleEmitter_1.system.aMovingParticle[local4].method6697();
+        @Pc(4) int local4 = this.emitter.system.anInt4147;
+        if (this.emitter.system.movingParticles[local4] != null) {
+            this.emitter.system.movingParticles[local4].remove();
         }
-        this.aParticleEmitter_1.system.aMovingParticle[local4] = this;
-        this.aShort91 = (short) this.aParticleEmitter_1.system.anInt4147;
-        this.aParticleEmitter_1.system.anInt4147 = local4 + 1 & 0x1FFF;
-        this.aParticleEmitter_1.aLinkedList_11.add(this);
+        this.emitter.system.movingParticles[local4] = this;
+        this.aShort91 = (short) this.emitter.system.anInt4147;
+        this.emitter.system.anInt4147 = local4 + 1 & 0x1FFF;
+        this.emitter.movingParticles.add(this);
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(JI)V")
     public void method6694(@OriginalArg(0) long arg0, @OriginalArg(1) int arg1) {
         this.aShort96 = (short) (this.aShort96 - arg1);
         if (this.aShort96 <= 0) {
-            this.method6697();
+            this.remove();
             return;
         }
         @Pc(17) int local17 = super.anInt7537 >> 12;
         @Pc(22) int local22 = super.anInt7534 >> 12;
         @Pc(27) int local27 = super.anInt7536 >> 12;
-        @Pc(31) ParticleSystem local31 = this.aParticleEmitter_1.system;
-        @Pc(35) ParticleEmitterType local35 = this.aParticleEmitter_1.type;
+        @Pc(31) ParticleSystem local31 = this.emitter.system;
+        @Pc(35) ParticleEmitterType local35 = this.emitter.type;
         if (local35.fadeColour != 0) {
             @Pc(65) int local65;
             if (this.aShort93 - this.aShort96 <= local35.anInt9901) {
@@ -138,25 +139,25 @@ public final class MovingParticle extends Particle {
         @Pc(348) int local348;
         @Pc(356) long local356;
         if (local35.decelerationType == 1) {
-            local317 = local17 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4271;
-            local324 = local22 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4278;
-            local331 = local27 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4273;
+            local317 = local17 - this.emitter.aParticleEmitterRelated_1.anInt4271;
+            local324 = local22 - this.emitter.aParticleEmitterRelated_1.anInt4278;
+            local331 = local27 - this.emitter.aParticleEmitterRelated_1.anInt4273;
             local348 = (int) Math.sqrt(local317 * local317 + local324 * local324 + local331 * local331) >> 2;
             local356 = local35.decelerationRate * local348 * arg1;
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 18));
         } else if (local35.decelerationType == 2) {
-            local317 = local17 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4271;
-            local324 = local22 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4278;
-            local331 = local27 - this.aParticleEmitter_1.aParticleEmitterRelated_1.anInt4273;
+            local317 = local17 - this.emitter.aParticleEmitterRelated_1.anInt4271;
+            local324 = local22 - this.emitter.aParticleEmitterRelated_1.anInt4278;
+            local331 = local27 - this.emitter.aParticleEmitterRelated_1.anInt4273;
             local348 = local317 * local317 + local324 * local324 + local331 * local331;
             local356 = local35.decelerationRate * local348 * arg1;
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 28));
         }
         if (local35.localEffectors != null) {
-            @Pc(437) Node local437 = local31.aDeque_22.sentinel;
+            @Pc(437) Node local437 = local31.effectorCache.sentinel;
             for (@Pc(440) Node local440 = local437.next; local440 != local437; local440 = local440.next) {
                 @Pc(444) ParticleEffector local444 = (ParticleEffector) local440;
-                @Pc(447) ParticleEffectorType local447 = local444.aParticleEffectorType_1;
+                @Pc(447) ParticleEffectorType local447 = local444.type;
                 if (local447.visibility != 1) {
                     @Pc(453) boolean local453 = false;
                     for (@Pc(455) int local455 = 0; local455 < local35.localEffectors.length; local455++) {
@@ -215,15 +216,15 @@ public final class MovingParticle extends Particle {
         }
         if (local35.generalEffectors != null) {
             for (local317 = 0; local317 < local35.generalEffectors.length; local317++) {
-                @Pc(776) ParticleEffector local776 = (ParticleEffector) Static519.aHashTable_1.get(local35.generalEffectors[local317]);
+                @Pc(776) ParticleEffector local776 = (ParticleEffector) ParticleManager.effectorsCache.get(local35.generalEffectors[local317]);
                 while (local776 != null) {
-                    @Pc(780) ParticleEffectorType local780 = local776.aParticleEffectorType_1;
+                    @Pc(780) ParticleEffectorType local780 = local776.type;
                     @Pc(786) double local786 = local17 - local776.anInt1827;
                     @Pc(792) double local792 = local22 - local776.anInt1824;
                     @Pc(798) double local798 = local27 - local776.anInt1821;
                     @Pc(810) double local810 = local786 * local786 + local792 * local792 + local798 * local798;
                     if (local810 > (double) local780.maxRange) {
-                        local776 = (ParticleEffector) Static519.aHashTable_1.method3096();
+                        local776 = (ParticleEffector) ParticleManager.effectorsCache.method3096();
                     } else {
                         @Pc(825) double local825 = Math.sqrt(local810);
                         if (local825 == 0.0D) {
@@ -231,7 +232,7 @@ public final class MovingParticle extends Particle {
                         }
                         @Pc(857) double local857 = (local786 * (double) local776.anInt1825 + local792 * (double) local780.dirY + local798 * (double) local776.anInt1823) * 65535.0D / ((double) local780.dirLength * local825);
                         if (local857 < (double) local780.cosTheta) {
-                            local776 = (ParticleEffector) Static519.aHashTable_1.method3096();
+                            local776 = (ParticleEffector) ParticleManager.effectorsCache.method3096();
                         } else {
                             @Pc(871) double local871 = 0.0D;
                             if (local780.effectType == 1) {
@@ -263,7 +264,7 @@ public final class MovingParticle extends Particle {
                                 super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local780.dirY - local871) * (double) arg1);
                                 super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local776.anInt1823 - local871) * (double) arg1);
                             }
-                            local776 = (ParticleEffector) Static519.aHashTable_1.method3096();
+                            local776 = (ParticleEffector) ParticleManager.effectorsCache.method3096();
                         }
                     }
                 }
@@ -316,14 +317,14 @@ public final class MovingParticle extends Particle {
         @Pc(13) int local13 = super.anInt7536 >> Static52.anInt1066 + 12;
         @Pc(18) int local18 = super.anInt7534 >> 12;
         if (local18 > 0 || local18 < -262144 || local6 < 0 || local6 >= Static619.anInt1566 || local13 < 0 || local13 >= Static662.anInt9843) {
-            this.method6697();
+            this.remove();
             return;
         }
-        @Pc(40) ParticleSystem local40 = this.aParticleEmitter_1.system;
-        @Pc(44) ParticleEmitterType local44 = this.aParticleEmitter_1.type;
-        @Pc(46) Ground[] local46 = Static246.activeGround;
-        @Pc(49) int local49 = local40.anInt4149;
-        @Pc(58) Class291 local58 = Static334.activeTiles[local40.anInt4149][local6][local13];
+        @Pc(40) ParticleSystem local40 = this.emitter.system;
+        @Pc(44) ParticleEmitterType local44 = this.emitter.type;
+        @Pc(46) Ground[] local46 = Static246.ground;
+        @Pc(49) int local49 = local40.level;
+        @Pc(58) Tile local58 = Static334.activeTiles[local40.level][local6][local13];
         if (local58 != null) {
             local49 = local58.aByte116;
         }
@@ -336,19 +337,19 @@ public final class MovingParticle extends Particle {
         }
         if (local44.aBoolean764) {
             if (local44.minHeightLevel == -1 && local18 > local71) {
-                this.method6697();
+                this.remove();
                 return;
             }
             if (local44.minHeightLevel >= 0 && local18 > local46[local44.minHeightLevel].getHeight(local13, local6)) {
-                this.method6697();
+                this.remove();
                 return;
             }
             if (local44.maxHeightLevel == -1 && local18 < local86) {
-                this.method6697();
+                this.remove();
                 return;
             }
             if (local44.maxHeightLevel >= 0 && local18 < local46[local44.maxHeightLevel + 1].getHeight(local13, local6)) {
-                this.method6697();
+                this.remove();
                 return;
             }
         }
@@ -356,24 +357,24 @@ public final class MovingParticle extends Particle {
         for (local154 = Static299.anInt4824 - 1; local154 > 0 && local18 > local46[local154].getHeight(local13, local6); local154--) {
         }
         if (local44.collidesWithGround && local154 == 0 && local18 > local46[0].getHeight(local13, local6)) {
-            this.method6697();
+            this.remove();
         } else if (local154 == Static299.anInt4824 - 1 && local46[local154].getHeight(local13, local6) - local18 > 0x8 << Static52.anInt1066) {
-            this.method6697();
+            this.remove();
         } else {
             local58 = Static334.activeTiles[local154][local6][local13];
             @Pc(261) int local261;
             if (local58 == null) {
                 if (local154 == 0 || Static334.activeTiles[0][local6][local13] == null) {
-                    local58 = Static334.activeTiles[0][local6][local13] = new Class291(0);
+                    local58 = Static334.activeTiles[0][local6][local13] = new Tile(0);
                 }
-                @Pc(251) boolean local251 = Static334.activeTiles[0][local6][local13].aClass291_1 != null;
+                @Pc(251) boolean local251 = Static334.activeTiles[0][local6][local13].aTile_1 != null;
                 if (local154 == 3 && local251) {
-                    this.method6697();
+                    this.remove();
                     return;
                 }
                 for (local261 = 1; local261 <= local154; local261++) {
                     if (Static334.activeTiles[local261][local6][local13] == null) {
-                        local58 = Static334.activeTiles[local261][local6][local13] = new Class291(local261);
+                        local58 = Static334.activeTiles[local261][local6][local13] = new Tile(local261);
                         if (local251) {
                             local58.aByte116++;
                         }
@@ -383,43 +384,43 @@ public final class MovingParticle extends Particle {
             if (local44.collidesWithLocations) {
                 @Pc(304) int local304 = super.anInt7537 >> 12;
                 local261 = super.anInt7536 >> 12;
-                @Pc(318) Class205 local318;
+                @Pc(318) BoundingCylinder local318;
                 if (local58.aClass8_Sub2_Sub3_2 != null) {
-                    local318 = local58.aClass8_Sub2_Sub3_2.method9278(arg0, -105);
+                    local318 = local58.aClass8_Sub2_Sub3_2.getCylinder(arg0, -105);
                     if (local318 != null && local318.method4631(local18, local261, local304)) {
-                        this.method6697();
+                        this.remove();
                         return;
                     }
                 }
                 if (local58.aWall_1 != null) {
-                    local318 = local58.aWall_1.method9278(arg0, -120);
+                    local318 = local58.aWall_1.getCylinder(arg0, -120);
                     if (local318 != null && local318.method4631(local18, local261, local304)) {
-                        this.method6697();
+                        this.remove();
                         return;
                     }
                 }
-                if (local58.aGroundDecor_1 != null) {
-                    local318 = local58.aGroundDecor_1.method9278(arg0, -109);
+                if (local58.groundDecor != null) {
+                    local318 = local58.groundDecor.getCylinder(arg0, -109);
                     if (local318 != null && local318.method4631(local18, local261, local304)) {
-                        this.method6697();
+                        this.remove();
                         return;
                     }
                 }
-                for (@Pc(375) Class286 local375 = local58.aClass286_2; local375 != null; local375 = local375.aClass286_1) {
-                    @Pc(382) Class205 local382 = local375.aPositionEntity.method9278(arg0, -117);
+                for (@Pc(375) PositionEntityNode local375 = local58.head; local375 != null; local375 = local375.node) {
+                    @Pc(382) BoundingCylinder local382 = local375.entity.getCylinder(arg0, -117);
                     if (local382 != null && local382.method4631(local18, local261, local304)) {
-                        this.method6697();
+                        this.remove();
                         return;
                     }
                 }
             }
-            local40.aParticleList_1.particles.add(this);
+            local40.list.particles.add(this);
         }
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(Lclient!rf;IIIIIIIIIIIZZ)V")
     public void method6696(@OriginalArg(0) ParticleEmitter arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) boolean arg12, @OriginalArg(13) boolean arg13) {
-        this.aParticleEmitter_1 = arg0;
+        this.emitter = arg0;
         super.anInt7537 = arg1 << 12;
         super.anInt7534 = arg2 << 12;
         super.anInt7536 = arg3 << 12;
@@ -432,14 +433,14 @@ public final class MovingParticle extends Particle {
         this.aShort95 = (short) arg5;
         this.aShort94 = (short) arg6;
         this.anInt7542 = arg7;
-        super.aByte122 = this.aParticleEmitter_1.model.aByte130;
+        super.aByte122 = this.emitter.model.aByte130;
         this.method6693();
     }
 
     @OriginalMember(owner = "client!pp", name = "b", descriptor = "()V")
-    public void method6697() {
-        this.aParticleEmitter_1.system.aMovingParticle[this.aShort91] = null;
-        ParticleManager.particleCache[ParticleManager.particleFreePtr] = this;
+    public void remove() {
+        this.emitter.system.movingParticles[this.aShort91] = null;
+        ParticleManager.particles[ParticleManager.particleFreePtr] = this;
         ParticleManager.particleFreePtr = ParticleManager.particleFreePtr + 1 & 0x3FF;
         this.unlink();
         this.unlink2();

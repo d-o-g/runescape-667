@@ -10,7 +10,7 @@ public final class Static161 {
     public static int anInt2797;
 
     @OriginalMember(owner = "client!fa", name = "b", descriptor = "[[[J")
-    public static long[][][] aLongArrayArrayArray1;
+    public static long[][][] tileLightFlags;
 
     @OriginalMember(owner = "client!fa", name = "n", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___62 = new ServerProt(22, 10);

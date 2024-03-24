@@ -16,9 +16,6 @@ public final class Static620 {
     @OriginalMember(owner = "client!tka", name = "h", descriptor = "F")
     public static float aFloat197;
 
-    @OriginalMember(owner = "client!tka", name = "e", descriptor = "Lclient!pba;")
-    public static Class286 aClass286_3;
-
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "(IIILclient!aa;Lclient!ha;IIILclient!hda;)V")
     public static void method8322(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) ClippingMask arg2, @OriginalArg(4) Toolkit arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Component arg7) {
         @Pc(10) MapElementType local10 = MapElementTypeList.instance.list(arg4);

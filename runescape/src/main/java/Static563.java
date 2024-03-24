@@ -20,36 +20,36 @@ public final class Static563 {
         @Pc(3) int local3;
         @Pc(6) int local6;
         @Pc(9) int local9;
-        if (Static478.aClass291ArrayArrayArray3 != null) {
-            for (local3 = 0; local3 < Static478.aClass291ArrayArrayArray3.length; local3++) {
+        if (Static478.aTileArrayArrayArray3 != null) {
+            for (local3 = 0; local3 < Static478.aTileArrayArrayArray3.length; local3++) {
                 for (local6 = 0; local6 < Static619.anInt1566; local6++) {
                     for (local9 = 0; local9 < Static662.anInt9843; local9++) {
-                        if (Static478.aClass291ArrayArrayArray3[local3][local6][local9] != null) {
-                            Static478.aClass291ArrayArrayArray3[local3][local6][local9].method6550();
+                        if (Static478.aTileArrayArrayArray3[local3][local6][local9] != null) {
+                            Static478.aTileArrayArrayArray3[local3][local6][local9].method6550();
                         }
-                        Static478.aClass291ArrayArrayArray3[local3][local6][local9] = null;
+                        Static478.aTileArrayArrayArray3[local3][local6][local9] = null;
                     }
                 }
             }
         }
-        Static478.aClass291ArrayArrayArray3 = null;
-        Static706.aGroundArray3 = null;
-        if (Static420.aClass291ArrayArrayArray2 != null) {
-            for (local3 = 0; local3 < Static420.aClass291ArrayArrayArray2.length; local3++) {
+        Static478.aTileArrayArrayArray3 = null;
+        Static706.floor = null;
+        if (Static420.aTileArrayArrayArray2 != null) {
+            for (local3 = 0; local3 < Static420.aTileArrayArrayArray2.length; local3++) {
                 for (local6 = 0; local6 < Static619.anInt1566; local6++) {
                     for (local9 = 0; local9 < Static662.anInt9843; local9++) {
-                        if (Static420.aClass291ArrayArrayArray2[local3][local6][local9] != null) {
-                            Static420.aClass291ArrayArrayArray2[local3][local6][local9].method6550();
+                        if (Static420.aTileArrayArrayArray2[local3][local6][local9] != null) {
+                            Static420.aTileArrayArrayArray2[local3][local6][local9].method6550();
                         }
-                        Static420.aClass291ArrayArrayArray2[local3][local6][local9] = null;
+                        Static420.aTileArrayArrayArray2[local3][local6][local9] = null;
                     }
                 }
             }
         }
-        Static420.aClass291ArrayArrayArray2 = null;
-        Static693.aGroundArray2 = null;
+        Static420.aTileArrayArrayArray2 = null;
+        Static693.underwaterGround = null;
         Static334.activeTiles = null;
-        Static246.activeGround = null;
+        Static246.ground = null;
         Static258.aBooleanArrayArray3 = null;
         Static142.aBooleanArrayArray1 = null;
         Static102.anIntArray184 = null;
@@ -62,9 +62,9 @@ public final class Static563 {
             }
             Static125.anInt2352 = 0;
         }
-        Static576.aEntityArray9 = null;
-        Static398.aEntityArray7 = null;
-        Static468.aEntityArray10 = null;
+        Static576.opaqueStationaryEntities = null;
+        Static398.transparentStationaryEntities = null;
+        Static468.dynamicEntities = null;
         if (Static48.aEntityArray3 != null) {
             for (local3 = 0; local3 < Static48.aEntityArray3.length; local3++) {
                 Static48.aEntityArray3[local3] = null;
@@ -84,7 +84,7 @@ public final class Static563 {
             for (local6 = 0; local6 < Static299.anInt4824; local6++) {
                 for (local9 = 0; local9 < Static619.anInt1566; local9++) {
                     for (@Pc(217) int local217 = 0; local217 < Static662.anInt9843; local217++) {
-                        Static161.aLongArrayArrayArray1[local6][local9][local217] = 0L;
+                        Static161.tileLightFlags[local6][local9][local217] = 0L;
                     }
                 }
             }
@@ -93,9 +93,9 @@ public final class Static563 {
         Static638.method8393();
         Static514.aClass213_2 = Static514.aClass213_3;
         Static514.aClass213_2.method5010();
-        Static421.aByteArrayArray20 = null;
-        Static62.anIntArrayArray33 = null;
-        Static272.aShortArrayArray5 = null;
+        Static421.waterBias = null;
+        Static62.waterColour = null;
+        Static272.waterDepth = null;
         if (Static226.aClass46Array7 != null) {
             Static227.method3354();
             Static665.aToolkit_15.method7956(1);

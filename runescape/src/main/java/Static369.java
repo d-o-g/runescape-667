@@ -55,7 +55,7 @@ public final class Static369 {
                         NPCList.localNpcs[NPCList.newNpcCount++] = local205;
                         NPCList.localNpcIndices[NPCList.localNpcCount++] = local88;
                         local197.cutsceneClock = TimeUtils.clock;
-                        local197.setType(local142);
+                        local197.setupNewNPCType(local142);
                         local197.setSize(local197.type.size);
                         local197.yawSpeed = local197.type.yawSpeed << 3;
                         local197.turn((local197.type.spawnDirection + 4 & 0x80600007) << 11, true);

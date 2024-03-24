@@ -182,16 +182,16 @@ public final class MiniMenu {
         @Pc(317) int local317;
         @Pc(140) int local140;
         @Pc(370) int local370;
-        if (Static706.aGroundArray3 != null && (!InterfaceManager.targetMode || (InterfaceManager.targetMask & 0x40) != 0)) {
+        if (Static706.floor != null && (!InterfaceManager.targetMode || (InterfaceManager.targetMask & 0x40) != 0)) {
             local140 = -1;
             @Pc(142) int local142 = -1;
             @Pc(145) int local145 = arg2.i();
             local148 = arg2.XA();
             @Pc(159) int local159;
             @Pc(168) int local168;
-            if (Static504.aBoolean579) {
-                local177 = local168 = Static582.anInt8627 * (local63 - local57) / local49;
-                local159 = local186 = Static582.anInt8627 * (local69 - local45) / local53;
+            if (Static504.renderOrtho) {
+                local177 = local168 = Static582.orthoAngle * (local63 - local57) / local49;
+                local159 = local186 = Static582.orthoAngle * (local69 - local45) / local53;
             } else {
                 local159 = (local69 - local45) * local145 / local53;
                 local168 = local148 * (local63 - local57) / local49;
@@ -249,8 +249,8 @@ public final class MiniMenu {
                 if ((Static273.aBoolean340 || local543.aEntity_18.level == PlayerEntity.self.level) && local543.method6496(arg2, local177, local148)) {
                     @Pc(584) int local584;
                     if (local543.aEntity_18 instanceof PositionEntity) {
-                        local186 = ((PositionEntity) local543.aEntity_18).aShort131;
-                        local584 = ((PositionEntity) local543.aEntity_18).aShort132;
+                        local186 = ((PositionEntity) local543.aEntity_18).x1;
+                        local584 = ((PositionEntity) local543.aEntity_18).z1;
                     } else {
                         local584 = local543.aEntity_18.z >> 9;
                         local186 = local543.aEntity_18.x >> 9;

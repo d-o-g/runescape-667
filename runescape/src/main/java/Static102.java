@@ -31,7 +31,7 @@ public final class Static102 {
         if (arg1 != -29754) {
             method2026(null, false);
         }
-        if (Static246.activeGround == null) {
+        if (Static246.ground == null) {
             return 0;
         }
         @Pc(21) int local21 = arg3 >> 9;
@@ -43,76 +43,88 @@ public final class Static102 {
         if (arg0 < 3 && (Static280.tileFlags[1][local21][local25] & 0x2) != 0) {
             local56 = arg0 + 1;
         }
-        return Static246.activeGround[local56].method7878(arg2, arg3);
+        return Static246.ground[local56].averageHeight(arg2, arg3);
     }
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "(Lclient!qf;Z)Z")
-    public static boolean method2026(@OriginalArg(0) PositionEntity arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(7) boolean local7 = Static246.activeGround == Static693.aGroundArray2;
-        @Pc(9) int local9 = 0;
-        @Pc(11) short local11 = 0;
-        @Pc(13) byte local13 = 0;
-        arg0.method9294();
-        if (arg0.aShort131 < 0 || arg0.aShort132 < 0 || arg0.aShort134 >= Static619.anInt1566 || arg0.aShort133 >= Static662.anInt9843) {
+    public static boolean method2026(@OriginalArg(0) PositionEntity entity, @OriginalArg(1) boolean dynamic) {
+        @Pc(7) boolean underwater = Static246.ground == Static693.underwaterGround;
+        @Pc(9) int colour = 0;
+        @Pc(11) short depth = 0;
+        @Pc(13) byte bias = 0;
+
+        entity.updateBounds();
+
+        if (entity.x1 < 0 || entity.z1 < 0 || entity.x2 >= Static619.anInt1566 || entity.z2 >= Static662.anInt9843) {
             return false;
         }
-        @Pc(41) short local41 = 0;
-        @Pc(48) int local48;
-        for (@Pc(44) int local44 = arg0.aShort131; local44 <= arg0.aShort134; local44++) {
-            for (local48 = arg0.aShort132; local48 <= arg0.aShort133; local48++) {
-                @Pc(55) Class291 local55 = Static347.method5095(arg0.level, local44, local48);
-                if (local55 != null) {
-                    @Pc(61) Class286 local61 = Static223.method9095(arg0);
-                    @Pc(64) Class286 local64 = local55.aClass286_2;
-                    if (local64 == null) {
-                        local55.aClass286_2 = local61;
+
+        @Pc(41) short offsetY = 0;
+        for (@Pc(44) int x = entity.x1; x <= entity.x2; x++) {
+            for (@Pc(48) int z = entity.z1; z <= entity.z2; z++) {
+                @Pc(55) Tile tile = Static347.getTile(entity.level, x, z);
+
+                if (tile != null) {
+                    @Pc(61) PositionEntityNode node = PositionEntityNode.create(entity);
+
+                    @Pc(64) PositionEntityNode head = tile.head;
+                    if (head == null) {
+                        tile.head = node;
                     } else {
-                        while (local64.aClass286_1 != null) {
-                            local64 = local64.aClass286_1;
+                        while (head.node != null) {
+                            head = head.node;
                         }
-                        local64.aClass286_1 = local61;
+
+                        head.node = node;
                     }
-                    if (local7 && (Static62.anIntArrayArray33[local44][local48] & 0xFF000000) != 0) {
-                        local9 = Static62.anIntArrayArray33[local44][local48];
-                        local11 = Static272.aShortArrayArray5[local44][local48];
-                        local13 = Static421.aByteArrayArray20[local44][local48];
+
+                    if (underwater && (Static62.waterColour[x][z] & 0xFF000000) != 0) {
+                        colour = Static62.waterColour[x][z];
+                        depth = Static272.waterDepth[x][z];
+                        bias = Static421.waterBias[x][z];
                     }
-                    if (!arg1 && local55.aGroundDecor_1 != null && local55.aGroundDecor_1.aShort46 > local41) {
-                        local41 = local55.aGroundDecor_1.aShort46;
-                    }
-                }
-            }
-        }
-        if (local7 && (local9 & 0xFF000000) != 0) {
-            for (local48 = arg0.aShort131; local48 <= arg0.aShort134; local48++) {
-                for (@Pc(159) int local159 = arg0.aShort132; local159 <= arg0.aShort133; local159++) {
-                    if ((Static62.anIntArrayArray33[local48][local159] & 0xFF000000) == 0) {
-                        Static62.anIntArrayArray33[local48][local159] = local9;
-                        Static272.aShortArrayArray5[local48][local159] = local11;
-                        Static421.aByteArrayArray20[local48][local159] = local13;
+
+                    if (!dynamic && tile.groundDecor != null && offsetY < tile.groundDecor.offsetY) {
+                        offsetY = tile.groundDecor.offsetY;
                     }
                 }
             }
         }
-        if (arg1) {
-            Static679.aPositionEntity[Static125.anInt2352++] = arg0;
+
+        if (underwater && (colour & 0xFF000000) != 0) {
+            for (@Pc(48) int x = entity.x1; x <= entity.x2; x++) {
+                for (@Pc(159) int y = entity.z1; y <= entity.z2; y++) {
+                    if ((Static62.waterColour[x][y] & 0xFF000000) == 0) {
+                        Static62.waterColour[x][y] = colour;
+                        Static272.waterDepth[x][y] = depth;
+                        Static421.waterBias[x][y] = bias;
+                    }
+                }
+            }
+        }
+
+        if (dynamic) {
+            Static679.aPositionEntity[Static125.anInt2352++] = entity;
         } else {
-            local48 = Static246.activeGround == Static693.aGroundArray2 ? 1 : 0;
-            if (!arg0.method9283()) {
-                arg0.aEntity_25 = Static468.aEntityArray10[local48];
-                Static468.aEntityArray10[local48] = arg0;
-            } else if (arg0.method9282(0)) {
-                arg0.aEntity_25 = Static398.aEntityArray7[local48];
-                Static398.aEntityArray7[local48] = arg0;
+            @Pc(48) int ground = Static246.ground == Static693.underwaterGround ? 1 : 0;
+
+            if (!entity.isStationary()) {
+                entity.dynamicEntity = Static468.dynamicEntities[ground];
+                Static468.dynamicEntities[ground] = entity;
+            } else if (entity.isTransparent(0)) {
+                entity.dynamicEntity = Static398.transparentStationaryEntities[ground];
+                Static398.transparentStationaryEntities[ground] = entity;
             } else {
-                arg0.aEntity_25 = Static576.aEntityArray9[local48];
-                Static576.aEntityArray9[local48] = arg0;
-                Static75.aBoolean521 = true;
+                entity.dynamicEntity = Static576.opaqueStationaryEntities[ground];
+                Static576.opaqueStationaryEntities[ground] = entity;
+                Static75.hasOpaqueStationaryEntities = true;
             }
         }
-        if (arg1) {
-            arg0.anInt10691 -= local41;
+
+        if (dynamic) {
+            entity.y -= offsetY;
         }
+
         return true;
     }
 

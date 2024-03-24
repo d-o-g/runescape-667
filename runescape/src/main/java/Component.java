@@ -641,14 +641,14 @@ public final class Component {
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;Lclient!ka;ILclient!tt;I)V")
     public void method3384(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) Model model, @OriginalArg(3) Matrix matrix, @OriginalArg(4) int arg3) {
-        model.method7476(matrix);
+        model.apply(matrix);
         @Pc(9) ModelParticleEmitter[] emitters = model.particleEmitters();
         @Pc(22) ModelParticleEffector[] effectors = model.particleEffectors();
-        if ((this.particleSystem == null || this.particleSystem.aBoolean324) && (emitters != null || effectors != null)) {
+        if ((this.particleSystem == null || this.particleSystem.removed) && (emitters != null || effectors != null)) {
             this.particleSystem = ParticleSystem.create(arg3, false);
         }
         if (this.particleSystem != null) {
-            this.particleSystem.method3643(toolkit, arg3, emitters, effectors);
+            this.particleSystem.update(toolkit, arg3, emitters, effectors);
         }
     }
 

@@ -1,7 +1,9 @@
+import com.jagex.core.constants.LocShapes;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -16,61 +18,76 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!jn")
 public final class StaticWall extends Wall implements Location {
 
+    @OriginalMember(owner = "client!ga", name = "k", descriptor = "[I")
+    public static final int[] anIntArray771 = new int[]{16, 32, 64, 128};
+
+    @OriginalMember(owner = "client!gn", name = "i", descriptor = "[I")
+    public static final int[] anIntArray285 = new int[]{1, 2, 4, 8};
+
+    @OriginalMember(owner = "client!pha", name = "a", descriptor = "(ZII)I")
+    public static int method6553(@OriginalArg(1) int rotation, @OriginalArg(2) int shape) {
+        if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
+            return anIntArray771[rotation & 0x3];
+        } else {
+            return anIntArray285[rotation & 0x3];
+        }
+    }
+
     @OriginalMember(owner = "client!jn", name = "T", descriptor = "Lclient!ke;")
-    public Class205 aClass205_6;
+    public BoundingCylinder cylinder;
 
     @OriginalMember(owner = "client!jn", name = "ib", descriptor = "Z")
-    public final boolean aBoolean379;
+    public final boolean interactive;
 
     @OriginalMember(owner = "client!jn", name = "cb", descriptor = "S")
-    public final short aShort60;
+    public final short id;
 
     @OriginalMember(owner = "client!jn", name = "U", descriptor = "B")
-    public byte aByte88;
+    public byte shape;
 
     @OriginalMember(owner = "client!jn", name = "L", descriptor = "Z")
-    public final boolean aBoolean376;
+    public final boolean underwater;
 
     @OriginalMember(owner = "client!jn", name = "H", descriptor = "Z")
-    public boolean aBoolean378;
+    public boolean copyNormals;
 
     @OriginalMember(owner = "client!jn", name = "O", descriptor = "B")
-    public byte aByte87;
+    public byte rotation;
 
     @OriginalMember(owner = "client!jn", name = "hb", descriptor = "Z")
-    public final boolean aBoolean377;
+    public final boolean hardShadow;
 
     @OriginalMember(owner = "client!jn", name = "X", descriptor = "Lclient!ka;")
     public Model model;
 
     @OriginalMember(owner = "client!jn", name = "eb", descriptor = "Lclient!r;")
-    public Shadow aClass2_Sub2_Sub9_4;
-
-    private int arg0;
+    public Shadow shadow;
 
     @OriginalMember(owner = "client!jn", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIZ)V")
-    public StaticWall(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) LocType arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) boolean arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) boolean arg10) {
-        super(arg4, arg5, arg6, arg2, arg3, Static490.method6553(arg9, arg8));
-        super.x = arg4;
-        super.z = arg6;
-        this.aBoolean379 = arg1.interactivity != LocInteractivity.NONINTERACTIVE && !arg7;
-        this.aShort60 = (short) arg1.id;
-        this.aByte88 = (byte) arg8;
-        this.aBoolean376 = arg7;
-        this.aBoolean378 = arg10;
-        this.aByte87 = (byte) arg9;
-        this.aBoolean377 = arg0.method8006() && arg1.hardShadow && !this.aBoolean376 && ClientOptions.instance.hardShadows.getValue() != 0;
-        @Pc(77) int local77 = 2048;
-        if (this.aBoolean378) {
-            local77 |= 0x10000;
+    public StaticWall(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) LocType type, @OriginalArg(2) int level, @OriginalArg(3) int virtualLevel, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z, @OriginalArg(7) boolean underwater, @OriginalArg(8) int shape, @OriginalArg(9) int rotation, @OriginalArg(10) boolean copyNormals) {
+        super(x, y, z, level, virtualLevel, method6553(rotation, shape));
+        super.x = x;
+        super.z = z;
+        this.interactive = type.interactivity != LocInteractivity.NONINTERACTIVE && !underwater;
+        this.id = (short) type.id;
+        this.shape = (byte) shape;
+        this.underwater = underwater;
+        this.copyNormals = copyNormals;
+        this.rotation = (byte) rotation;
+        this.hardShadow = toolkit.hardShadow() && type.hardShadow && !this.underwater && ClientOptions.instance.hardShadows.getValue() != 0;
+
+        @Pc(77) int functionMask = 0x800;
+        if (this.copyNormals) {
+            functionMask |= 0x10000;
         }
-        @Pc(92) ModelAndShadow local92 = this.method4475(arg0, local77, this.aBoolean377);
-        if (local92 != null) {
-            this.model = local92.model;
-            this.aClass2_Sub2_Sub9_4 = local92.shadow;
-            if (this.aBoolean378) {
-                this.model = this.model.copy((byte) 0, local77, false);
-                return;
+
+        @Pc(92) ModelAndShadow modelAndShadow = this.modelAndShadow(toolkit, functionMask, this.hardShadow);
+        if (modelAndShadow != null) {
+            this.model = modelAndShadow.model;
+            this.shadow = modelAndShadow.shadow;
+
+            if (this.copyNormals) {
+                this.model = this.model.copy((byte) 0, functionMask, false);
             }
         }
     }
@@ -79,14 +96,14 @@ public final class StaticWall extends Wall implements Location {
     @Override
     public boolean method9290(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
-            this.method9283();
+            this.isStationary();
         }
-        return this.aBoolean378;
+        return this.copyNormals;
     }
 
     @OriginalMember(owner = "client!jn", name = "h", descriptor = "(I)Z")
     @Override
-    public boolean method9282(@OriginalArg(0) int arg0) {
+    public boolean isTransparent(@OriginalArg(0) int arg0) {
         if (arg0 == 0) {
             return this.model == null ? false : this.model.F();
         } else {
@@ -98,12 +115,12 @@ public final class StaticWall extends Wall implements Location {
     @Override
     public void addShadow(@OriginalArg(0) Toolkit toolkit) {
         @Pc(21) Shadow local21;
-        if (this.aClass2_Sub2_Sub9_4 == null && this.aBoolean377) {
-            @Pc(32) ModelAndShadow local32 = this.method4475(toolkit, 262144, true);
+        if (this.shadow == null && this.hardShadow) {
+            @Pc(32) ModelAndShadow local32 = this.modelAndShadow(toolkit, 262144, true);
             local21 = local32 == null ? null : local32.shadow;
         } else {
-            local21 = this.aClass2_Sub2_Sub9_4;
-            this.aClass2_Sub2_Sub9_4 = null;
+            local21 = this.shadow;
+            this.shadow = null;
         }
         if (local21 != null) {
             Static630.method8357(local21, super.virtualLevel, super.x, super.z, null);
@@ -125,19 +142,19 @@ public final class StaticWall extends Wall implements Location {
             }
         }
         if (arg4 < 101) {
-            this.method9282(1);
+            this.isTransparent(1);
         }
     }
 
     @OriginalMember(owner = "client!jn", name = "e", descriptor = "(I)Z")
     @Override
-    public boolean castsShadow() {
-        return this.aBoolean377;
+    public boolean hardShadow() {
+        return this.hardShadow;
     }
 
     @OriginalMember(owner = "client!jn", name = "b", descriptor = "(B)Z")
     @Override
-    public boolean method9283() {
+    public boolean isStationary() {
         if (this.model == null) {
             return true;
         } else {
@@ -147,8 +164,7 @@ public final class StaticWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!jn", name = "k", descriptor = "(I)I")
     @Override
-    public int method9286(@OriginalArg(0) int arg0) {
-        this.arg0 = arg0;
+    public int getMinY(@OriginalArg(0) int arg0) {
         if (arg0 != 2) {
             Base37.encode(null);
         }
@@ -157,14 +173,14 @@ public final class StaticWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!jn", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
-    public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
-        if (this.aClass205_6 == null) {
-            this.aClass205_6 = Static317.method4583(super.anInt10691, super.x, this.method4474(arg0, 0), super.z);
+    public BoundingCylinder getCylinder(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
+        if (this.cylinder == null) {
+            this.cylinder = BoundingCylinder.create(super.y, super.x, this.method4474(toolkit, 0), super.z);
         }
         if (arg1 >= -93) {
-            this.aClass205_6 = null;
+            this.cylinder = null;
         }
-        return this.aClass205_6;
+        return this.cylinder;
     }
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(Lclient!ha;BI)Lclient!ka;")
@@ -172,7 +188,7 @@ public final class StaticWall extends Wall implements Location {
         if (this.model != null && arg0.compareFunctionMasks(this.model.ua(), arg1) == 0) {
             return this.model;
         } else {
-            @Pc(37) ModelAndShadow local37 = this.method4475(arg0, arg1, false);
+            @Pc(37) ModelAndShadow local37 = this.modelAndShadow(arg0, arg1, false);
             return local37 == null ? null : local37.model;
         }
     }
@@ -180,12 +196,12 @@ public final class StaticWall extends Wall implements Location {
     @OriginalMember(owner = "client!jn", name = "j", descriptor = "(I)V")
     @Override
     public void method9280(@OriginalArg(0) int arg0) {
-        this.aBoolean378 = false;
+        this.copyNormals = false;
         if (this.model != null) {
             this.model.s(this.model.ua() & 0xFFFEFFFF);
         }
         if (arg0 != 27811) {
-            this.aByte88 = -28;
+            this.shape = -28;
         }
     }
 
@@ -199,17 +215,14 @@ public final class StaticWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(Lclient!ha;I)V")
     @Override
-    public void removeShadow(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
-        if (arg1 >= -42) {
-            this.aClass205_6 = null;
-        }
+    public void removeShadow(@OriginalArg(0) Toolkit toolkit) {
         @Pc(24) Shadow local24;
-        if (this.aClass2_Sub2_Sub9_4 == null && this.aBoolean377) {
-            @Pc(35) ModelAndShadow local35 = this.method4475(arg0, 262144, true);
+        if (this.shadow == null && this.hardShadow) {
+            @Pc(35) ModelAndShadow local35 = this.modelAndShadow(toolkit, 262144, true);
             local24 = local35 == null ? null : local35.shadow;
         } else {
-            local24 = this.aClass2_Sub2_Sub9_4;
-            this.aClass2_Sub2_Sub9_4 = null;
+            local24 = this.shadow;
+            this.shadow = null;
         }
         if (local24 != null) {
             Static292.method4618(local24, super.virtualLevel, super.x, super.z, null);
@@ -218,7 +231,7 @@ public final class StaticWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!jn", name = "c", descriptor = "(B)I")
     @Override
-    public int method9292(@OriginalArg(0) byte arg0) {
+    public int getSphereRadius(@OriginalArg(0) byte arg0) {
         if (arg0 == -21) {
             return this.model == null ? 0 : this.model.ma();
         } else {
@@ -227,67 +240,69 @@ public final class StaticWall extends Wall implements Location {
     }
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(Lclient!ha;ZIZ)Lclient!od;")
-    public ModelAndShadow method4475(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2) {
-        @Pc(11) LocType local11 = LocTypeList.instance.list(this.aShort60 & 0xFFFF);
-        @Pc(27) Ground local27;
-        @Pc(38) Ground local38;
-        if (this.aBoolean376) {
-            local27 = Static693.aGroundArray2[super.virtualLevel];
-            local38 = Static706.aGroundArray3[0];
+    public ModelAndShadow modelAndShadow(@OriginalArg(0) Toolkit toolkit, @OriginalArg(2) int functionMask, @OriginalArg(3) boolean addShadow) {
+        @Pc(11) LocType type = LocTypeList.instance.list(this.id & 0xFFFF);
+        @Pc(27) Ground floor;
+        @Pc(38) Ground ceiling;
+
+        if (this.underwater) {
+            floor = Static693.underwaterGround[super.virtualLevel];
+            ceiling = Static706.floor[0];
         } else {
-            local27 = Static706.aGroundArray3[super.virtualLevel];
+            floor = Static706.floor[super.virtualLevel];
             if (super.virtualLevel < 3) {
-                local38 = Static706.aGroundArray3[super.virtualLevel + 1];
+                ceiling = Static706.floor[super.virtualLevel + 1];
             } else {
-                local38 = null;
+                ceiling = null;
             }
         }
-        return local11.modelAndShadow(this.aByte87, super.z, super.x, local27, arg2, super.anInt10691, this.aByte88, arg0, null, arg1, local38);
+
+        return type.modelAndShadow(this.rotation, super.z, super.x, floor, addShadow, super.y, this.shape, toolkit, null, functionMask, ceiling);
     }
 
     @OriginalMember(owner = "client!jn", name = "d", descriptor = "(Lclient!ha;I)V")
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
-            this.aBoolean378 = true;
+            this.copyNormals = true;
         }
     }
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
-    public boolean method9279(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit arg3) {
-        @Pc(9) Model local9 = this.method4474(arg3, 131072);
+    public boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit toolkit) {
+        @Pc(9) Model local9 = this.method4474(toolkit, 131072);
         if (local9 == null) {
             if (arg2) {
-                this.aClass205_6 = null;
+                this.cylinder = null;
             }
             return false;
         } else {
-            @Pc(14) Matrix local14 = arg3.scratchMatrix();
-            local14.method7125(super.x, super.anInt10691, super.z);
-            return Static504.aBoolean579 ? local9.pickedOrtho(arg1, arg0, local14, false, 0, Static582.anInt8627) : local9.picked(arg1, arg0, local14, false, 0);
+            @Pc(14) Matrix local14 = toolkit.scratchMatrix();
+            local14.applyTranslation(super.x, super.y, super.z);
+            return Static504.renderOrtho ? local9.pickedOrtho(y, x, local14, false, 0, Static582.orthoAngle) : local9.picked(y, x, local14, false, 0);
         }
     }
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(I)I")
     @Override
     public int getId() {
-        return this.aShort60 & 0xFFFF;
+        return this.id & 0xFFFF;
     }
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
-    public PickableEntity method9276(@OriginalArg(1) Toolkit arg0) {
+    public PickableEntity render(@OriginalArg(1) Toolkit arg0) {
         if (this.model == null) {
             return null;
         }
         @Pc(20) Matrix local20 = arg0.scratchMatrix();
-        local20.method7125(super.x, super.anInt10691, super.z);
-        @Pc(34) PickableEntity local34 = Static642.method8441(this.aBoolean379, 1);
-        if (Static504.aBoolean579) {
-            this.model.renderOrtho(local20, local34.aPickingCylinderArray1[0], Static582.anInt8627, 0);
+        local20.applyTranslation(super.x, super.y, super.z);
+        @Pc(34) PickableEntity local34 = Static642.method8441(this.interactive, 1);
+        if (Static504.renderOrtho) {
+            this.model.renderOrtho(local20, local34.pickingCylinders[0], Static582.orthoAngle, 0);
         } else {
-            this.model.render(local20, local34.aPickingCylinderArray1[0], 0);
+            this.model.render(local20, local34.pickingCylinders[0], 0);
         }
         return local34;
     }
@@ -295,12 +310,12 @@ public final class StaticWall extends Wall implements Location {
     @OriginalMember(owner = "client!jn", name = "b", descriptor = "(I)I")
     @Override
     public int getShape() {
-        return this.aByte88;
+        return this.shape;
     }
 
     @OriginalMember(owner = "client!jn", name = "c", descriptor = "(I)I")
     @Override
     public int getRotation() {
-        return this.aByte87;
+        return this.rotation;
     }
 }

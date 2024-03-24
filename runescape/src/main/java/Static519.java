@@ -1,6 +1,5 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
-import com.jagex.core.datastruct.key.HashTable;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -8,9 +7,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static519 {
-
-    @OriginalMember(owner = "client!qfa", name = "n", descriptor = "Lclient!gga;")
-    public static HashTable aHashTable_1 = new HashTable(8);
 
     @OriginalMember(owner = "client!qfa", name = "b", descriptor = "(B)I")
     public static int method6831() {

@@ -354,7 +354,7 @@ public final class Ground_Sub3 extends Ground {
                 local410 = (arg1 << super.anInt8895) + local214;
                 local147.aShortArray116[local205] = (short) local210;
                 local147.aShortArray113[local205] = (short) local214;
-                local147.aShortArray117[local205] = (short) (this.method7878(local410, local363) + (arg3 == null ? 0 : arg3[local205]));
+                local147.aShortArray117[local205] = (short) (this.averageHeight(local410, local363) + (arg3 == null ? 0 : arg3[local205]));
                 if (local236 < 0) {
                     local236 = 0;
                 }
@@ -496,7 +496,7 @@ public final class Ground_Sub3 extends Ground {
                 local2008 = (arg1 << super.anInt8895) + local530;
                 local1760.aShortArray142[local410] = (short) local498;
                 local1760.aShortArray141[local410] = (short) local530;
-                local1760.aShortArray143[local410] = (short) (this.method7878(local2008, local1961) + (arg3 == null ? 0 : arg3[local410]));
+                local1760.aShortArray143[local410] = (short) (this.averageHeight(local2008, local1961) + (arg3 == null ? 0 : arg3[local410]));
                 if (local1834 < 0) {
                     local1834 = 0;
                 }
@@ -600,7 +600,7 @@ public final class Ground_Sub3 extends Ground {
         } else if (local410 == 0) {
             return;
         }
-        if (super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0 + 1][arg1] && super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0 + 1][arg1 + 1] && super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0][arg1 + 1]) {
+        if (super.tileHeights[arg0][arg1] == super.tileHeights[arg0 + 1][arg1] && super.tileHeights[arg0][arg1] == super.tileHeights[arg0 + 1][arg1 + 1] && super.tileHeights[arg0][arg1] == super.tileHeights[arg0][arg1 + 1]) {
             local931.aByte126 = (byte) (local931.aByte126 | 0x1);
         }
         if (local498 == -1 || (local931.aByte126 & 0x2) != 0 || this.aClass19_Sub2_8.textureSource.getMetrics(local498).aBoolean240) {
@@ -1071,10 +1071,10 @@ public final class Ground_Sub3 extends Ground {
             @Pc(377) float local377;
             @Pc(437) float local437;
             if ((local6.aByte59 & 0x1) == 0) {
-                local72 = super.anIntArrayArray226[arg0][arg1];
-                @Pc(784) int local784 = super.anIntArrayArray226[arg0 + 1][arg1];
-                @Pc(795) int local795 = super.anIntArrayArray226[arg0 + 1][arg1 + 1];
-                @Pc(804) int local804 = super.anIntArrayArray226[arg0][arg1 + 1];
+                local72 = super.tileHeights[arg0][arg1];
+                @Pc(784) int local784 = super.tileHeights[arg0 + 1][arg1];
+                @Pc(795) int local795 = super.tileHeights[arg0 + 1][arg1 + 1];
+                @Pc(804) int local804 = super.tileHeights[arg0][arg1 + 1];
                 if (this.anInt8145 == -1) {
                     local99 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local72 + this.aFloat165 * (float) local55;
                     if (local99 <= (float) this.aClass19_Sub2_8.anInt4214) {
@@ -1131,7 +1131,7 @@ public final class Ground_Sub3 extends Ground {
                     local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
                 }
             } else {
-                local72 = super.anIntArrayArray226[arg0][arg1];
+                local72 = super.tileHeights[arg0][arg1];
                 @Pc(78) float local78 = this.aFloat172 * (float) local72;
                 if (this.anInt8145 == -1) {
                     local99 = this.aFloat173 + this.aFloat164 * (float) local45 + local78 + this.aFloat165 * (float) local55;
@@ -1338,7 +1338,7 @@ public final class Ground_Sub3 extends Ground {
                 local370 = (arg1 << super.anInt8895) + local156;
                 local118.aShortArray32[local147] = (short) local152;
                 local118.aShortArray38[local147] = (short) local156;
-                local118.aShortArray33[local147] = (short) (this.method7878(local370, local323) + (arg3 == null ? 0 : arg3[local147]));
+                local118.aShortArray33[local147] = (short) (this.averageHeight(local370, local323) + (arg3 == null ? 0 : arg3[local147]));
                 if (local118.aShortArray35[local147] < 2) {
                     local118.aShortArray35[local147] = 2;
                 }
@@ -1410,7 +1410,7 @@ public final class Ground_Sub3 extends Ground {
                     local741.aByte59 = (byte) (local741.aByte59 | 0x2);
                 }
             }
-            if (super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0 + 1][arg1] && super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0 + 1][arg1 + 1] && super.anIntArrayArray226[arg0][arg1] == super.anIntArrayArray226[arg0][arg1 + 1]) {
+            if (super.tileHeights[arg0][arg1] == super.tileHeights[arg0 + 1][arg1] && super.tileHeights[arg0][arg1] == super.tileHeights[arg0 + 1][arg1 + 1] && super.tileHeights[arg0][arg1] == super.tileHeights[arg0][arg1 + 1]) {
                 local741.aByte59 = (byte) (local741.aByte59 | 0x1);
             }
             @Pc(849) TextureMetrics local849 = null;
@@ -1717,10 +1717,10 @@ public final class Ground_Sub3 extends Ground {
             @Pc(516) float local516;
             @Pc(576) float local576;
             if ((local6.aByte126 & 0x1) == 0 || arg2) {
-                local84 = super.anIntArrayArray226[arg0][arg1];
-                local863 = super.anIntArrayArray226[arg0 + 1][arg1];
-                local874 = super.anIntArrayArray226[arg0 + 1][arg1 + 1];
-                @Pc(883) int local883 = super.anIntArrayArray226[arg0][arg1 + 1];
+                local84 = super.tileHeights[arg0][arg1];
+                local863 = super.tileHeights[arg0 + 1][arg1];
+                local874 = super.tileHeights[arg0 + 1][arg1 + 1];
+                @Pc(883) int local883 = super.tileHeights[arg0][arg1 + 1];
                 if (this.anInt8145 == -1) {
                     local111 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local84 + this.aFloat165 * (float) local55;
                     if (local111 <= (float) this.aClass19_Sub2_8.anInt4214) {
@@ -1856,7 +1856,7 @@ public final class Ground_Sub3 extends Ground {
                     local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
                 }
             } else {
-                local84 = super.anIntArrayArray226[arg0][arg1];
+                local84 = super.tileHeights[arg0][arg1];
                 @Pc(90) float local90 = this.aFloat172 * (float) local84;
                 if (this.anInt8145 == -1) {
                     local111 = this.aFloat173 + this.aFloat164 * (float) local45 + local90 + this.aFloat165 * (float) local55;

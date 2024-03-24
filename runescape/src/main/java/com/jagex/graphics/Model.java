@@ -86,7 +86,7 @@ public abstract class Model {
     public abstract boolean F();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(Lclient!tt;)V")
-    public abstract void method7476(@OriginalArg(0) Matrix arg0);
+    public abstract void apply(@OriginalArg(0) Matrix arg0);
 
     /**
      * setContrast
@@ -261,6 +261,9 @@ public abstract class Model {
     @OriginalMember(owner = "client!ka", name = "na", descriptor = "()I")
     public abstract int na();
 
+    /**
+     * getMaxZ
+     */
     @OriginalMember(owner = "client!ka", name = "G", descriptor = "()I")
     public abstract int G();
 
@@ -268,16 +271,16 @@ public abstract class Model {
     protected final void method7490(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) Ground arg6, @OriginalArg(8) int arg7) {
         @Pc(24) int local24 = -arg3 / 2;
         @Pc(29) int local29 = -arg5 / 2;
-        @Pc(40) int local40 = arg6.method7878(local29 + arg4, arg2 - -local24);
+        @Pc(40) int local40 = arg6.averageHeight(local29 + arg4, arg2 - -local24);
         @Pc(44) int local44 = arg3 / 2;
         @Pc(49) int local49 = -arg5 / 2;
-        @Pc(61) int local61 = arg6.method7878(local49 + arg4, arg2 + local44);
+        @Pc(61) int local61 = arg6.averageHeight(local49 + arg4, arg2 + local44);
         @Pc(66) int local66 = -arg3 / 2;
         @Pc(70) int local70 = arg5 / 2;
-        @Pc(82) int local82 = arg6.method7878(local70 + arg4, local66 + arg2);
+        @Pc(82) int local82 = arg6.averageHeight(local70 + arg4, local66 + arg2);
         @Pc(86) int local86 = arg3 / 2;
         @Pc(90) int local90 = arg5 / 2;
-        @Pc(101) int local101 = arg6.method7878(local90 + arg4, arg2 - -local86);
+        @Pc(101) int local101 = arg6.averageHeight(local90 + arg4, arg2 - -local86);
         @Pc(113) int local113 = local61 > local40 ? local40 : local61;
         @Pc(125) int local125 = local101 <= local82 ? local101 : local82;
         @Pc(133) int local133 = local61 >= local101 ? local101 : local61;

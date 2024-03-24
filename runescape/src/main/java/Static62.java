@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static62 {
 
     @OriginalMember(owner = "client!ca", name = "od", descriptor = "[[I")
-    public static int[][] anIntArrayArray33;
+    public static int[][] waterColour;
 
     @OriginalMember(owner = "client!ca", name = "Pc", descriptor = "Lclient!bn;")
     public static Node_Sub8 aClass2_Sub8_3;

@@ -471,7 +471,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("getheight")) {
-                    Static79.method1579("Height: " + Static246.activeGround[PlayerEntity.self.level].getHeight(PlayerEntity.self.z >> 9, PlayerEntity.self.x >> 9));
+                    Static79.method1579("Height: " + Static246.ground[PlayerEntity.self.level].getHeight(PlayerEntity.self.z >> 9, PlayerEntity.self.x >> 9));
                     return;
                 }
                 if (arg2.equalsIgnoreCase("resetminimap")) {

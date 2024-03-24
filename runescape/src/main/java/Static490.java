@@ -21,8 +21,4 @@ public final class Static490 {
         return local7;
     }
 
-    @OriginalMember(owner = "client!pha", name = "a", descriptor = "(ZII)I")
-    public static int method6553(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        return arg1 == 1 || arg1 == 3 ? Static195.anIntArray771[arg0 & 0x3] : Static217.anIntArray285[arg0 & 0x3];
-    }
 }

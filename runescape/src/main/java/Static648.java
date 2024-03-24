@@ -12,7 +12,7 @@ public final class Static648 {
         if (Static693.anInt10382 == arg2 && Static138.anInt2512 == arg0 && arg1 == Static49.anInt1045) {
             return;
         }
-        Static75.aBoolean521 = true;
+        Static75.hasOpaqueStationaryEntities = true;
         Static138.anInt2512 = arg0;
         Static693.anInt10382 = arg2;
         Static49.anInt1045 = arg1;

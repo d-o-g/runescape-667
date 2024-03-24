@@ -10,7 +10,7 @@ public final class Static339 {
 
     @OriginalMember(owner = "client!kma", name = "a", descriptor = "(II)I")
     public static int method5005(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return Static421.aByteArrayArray20 == null ? 0 : Static421.aByteArrayArray20[arg0][arg1] & 0xFF;
+        return Static421.waterBias == null ? 0 : Static421.waterBias[arg0][arg1] & 0xFF;
     }
 
     @OriginalMember(owner = "client!kma", name = "a", descriptor = "(I[[[BIIIILclient!ha;IIBIII)V")

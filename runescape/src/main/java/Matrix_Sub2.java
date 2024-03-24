@@ -50,10 +50,10 @@ public final class Matrix_Sub2 extends Matrix {
 
     @OriginalMember(owner = "client!eaa", name = "b", descriptor = "(III)V")
     @Override
-    public void translate(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        this.aFloat58 += (float) arg1;
-        this.aFloat62 += (float) arg2;
-        this.aFloat60 += (float) arg0;
+    public void translate(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z) {
+        this.aFloat58 += (float) y;
+        this.aFloat62 += (float) z;
+        this.aFloat60 += (float) x;
     }
 
     @OriginalMember(owner = "client!eaa", name = "a", descriptor = "([I)V")
@@ -79,7 +79,7 @@ public final class Matrix_Sub2 extends Matrix {
 
     @OriginalMember(owner = "client!eaa", name = "a", descriptor = "(III)V")
     @Override
-    public void method7125(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void applyTranslation(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aFloat57 = this.aFloat56 = this.aFloat55 = this.aFloat54 = this.aFloat53 = this.aFloat51 = 0.0F;
         this.aFloat62 = (float) arg2;
         this.aFloat59 = this.aFloat52 = this.aFloat61 = 1.0F;

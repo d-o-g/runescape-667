@@ -373,9 +373,9 @@ public final class Static605 {
                     local46 = local8.g1();
                     if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
                         if (local34 == -1) {
-                            @Pc(2004) DoublyLinkedNode_Sub2_Sub20 local2004 = (DoublyLinkedNode_Sub2_Sub20) Static346.A_HASH_TABLE___29.get(local21 << 16 | local25);
+                            @Pc(2004) SpotAnimationNode local2004 = (SpotAnimationNode) Static346.A_HASH_TABLE___29.get(local21 << 16 | local25);
                             if (local2004 != null) {
-                                local2004.aClass8_Sub2_Sub1_Sub5_1.method6600();
+                                local2004.spotAnimation.runParticleSystem();
                                 local2004.unlink();
                                 return;
                             }
@@ -386,8 +386,8 @@ public final class Static605 {
                             if (local212 < 3 && Static441.isBridgeAt(local25, local21)) {
                                 local212++;
                             }
-                            @Pc(2065) Class8_Sub2_Sub1_Sub5 local2065 = new Class8_Sub2_Sub1_Sub5(local34, local42, Static87.anInt1810, local212, local52, Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);
-                            Static346.A_HASH_TABLE___29.put(local21 << 16 | local25, new DoublyLinkedNode_Sub2_Sub20(local2065));
+                            @Pc(2065) SpotAnimation local2065 = new SpotAnimation(local34, local42, Static87.anInt1810, local212, local52, Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);
+                            Static346.A_HASH_TABLE___29.put(local21 << 16 | local25, new SpotAnimationNode(local2065));
                         }
                     }
                 } else {

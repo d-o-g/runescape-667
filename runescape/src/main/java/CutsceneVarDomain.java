@@ -7,7 +7,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gl")
-public final class Class147 implements VarDomain {
+public final class CutsceneVarDomain implements VarDomain {
+
+    @OriginalMember(owner = "client!ji", name = "z", descriptor = "Lclient!uk;")
+    public static final VarDomain instance = new CutsceneVarDomain();
 
     @OriginalMember(owner = "client!gl", name = "a", descriptor = "(II)I")
     @Override

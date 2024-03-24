@@ -54,8 +54,8 @@ public final class Static418 {
             Static460.aMatrix_10.translate(arg4, 0, 0);
             Toolkit.active.setCamera(Static460.aMatrix_10);
         }
-        if (Static504.aBoolean579) {
-            Toolkit.active.HA(arg3, local58, arg1, Static582.anInt8627, Static215.anIntArray284);
+        if (Static504.renderOrtho) {
+            Toolkit.active.HA(arg3, local58, arg1, Static582.orthoAngle, Static215.anIntArray284);
         } else {
             Toolkit.active.da(arg3, local58, arg1, Static215.anIntArray284);
         }

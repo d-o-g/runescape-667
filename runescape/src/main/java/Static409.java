@@ -17,7 +17,7 @@ public final class Static409 {
     public static int anInt6318 = -1;
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(II[[[Lclient!pha;IIZ)Z")
-    public static boolean method5656(@OriginalArg(1) int arg0, @OriginalArg(2) Class291[][][] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
+    public static boolean method5656(@OriginalArg(1) int arg0, @OriginalArg(2) Tile[][][] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4) {
         @Pc(21) byte local21 = arg4 ? 1 : (byte) (Static198.anInt3276 & 0xFF);
         if (Static328.aByteArrayArrayArray4[Camera.renderingLevel][arg3][arg0] == local21) {
             return false;
@@ -51,8 +51,8 @@ public final class Static409 {
                         if (arg1[local139] != null && (Static280.tileFlags[local139][local78][local100] & 0x8) == 0) {
                             @Pc(341) PositionEntity local341;
                             @Pc(351) int local351;
-                            @Pc(331) Class291 local331;
-                            @Pc(337) Class286 local337;
+                            @Pc(331) Tile local331;
+                            @Pc(337) PositionEntityNode local337;
                             if (local116 && arg1[local139][local78][local100] != null) {
                                 if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2 != null) {
                                     local185 = Static239.method3474(local86);
@@ -73,9 +73,9 @@ public final class Static409 {
                                     }
                                 }
                                 local331 = arg1[local139][local78][local100];
-                                if (local331.aClass286_2 != null) {
-                                    for (local337 = local331.aClass286_2; local337 != null; local337 = local337.aClass286_1) {
-                                        local341 = local337.aPositionEntity;
+                                if (local331.head != null) {
+                                    for (local337 = local331.head; local337 != null; local337 = local337.node) {
+                                        local341 = local337.entity;
                                         if (local341 instanceof Location) {
                                             @Pc(347) Location local347 = (Location) local341;
                                             local351 = local347.getShape();
@@ -92,12 +92,12 @@ public final class Static409 {
                                 }
                             }
                             local331 = arg1[local139][local78][local100];
-                            if (local331 != null && local331.aClass286_2 != null) {
-                                for (local337 = local331.aClass286_2; local337 != null; local337 = local337.aClass286_1) {
-                                    local341 = local337.aPositionEntity;
-                                    if (local341.aShort134 != local341.aShort131 || local341.aShort132 != local341.aShort133) {
-                                        for (@Pc(444) int local444 = local341.aShort131; local444 <= local341.aShort134; local444++) {
-                                            for (local351 = local341.aShort132; local351 <= local341.aShort133; local351++) {
+                            if (local331 != null && local331.head != null) {
+                                for (local337 = local331.head; local337 != null; local337 = local337.node) {
+                                    local341 = local337.entity;
+                                    if (local341.x2 != local341.x1 || local341.z1 != local341.z2) {
+                                        for (@Pc(444) int local444 = local341.x1; local444 <= local341.x2; local444++) {
+                                            for (local351 = local341.z1; local351 <= local341.z2; local351++) {
                                                 Static328.aByteArrayArrayArray4[local139][local444][local351] = local21;
                                             }
                                         }
@@ -110,7 +110,7 @@ public final class Static409 {
                     }
                 }
                 if (local133) {
-                    local139 = Static246.activeGround[Camera.renderingLevel + 1].getHeight(local100, local78);
+                    local139 = Static246.ground[Camera.renderingLevel + 1].getHeight(local100, local78);
                     if (Static482.anIntArray588[arg2] < local139) {
                         Static482.anIntArray588[arg2] = local139;
                     }

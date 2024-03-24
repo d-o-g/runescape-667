@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static693 {
 
     @OriginalMember(owner = "client!vu", name = "i", descriptor = "[Lclient!s;")
-    public static Ground[] aGroundArray2;
+    public static Ground[] underwaterGround;
 
     @OriginalMember(owner = "client!vu", name = "b", descriptor = "I")
     public static int anInt10383;

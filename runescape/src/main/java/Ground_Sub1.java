@@ -129,7 +129,7 @@ public final class Ground_Sub1 extends Ground {
         this.aFloatArrayArray5 = new float[super.anInt8894 + 1][super.anInt8892 + 1];
         for (@Pc(121) int local121 = 0; local121 <= super.anInt8892; local121++) {
             for (@Pc(127) int local127 = 0; local127 <= super.anInt8894; local127++) {
-                @Pc(136) int local136 = super.anIntArrayArray226[local127][local121];
+                @Pc(136) int local136 = super.tileHeights[local127][local121];
                 if (this.aFloat77 > (float) local136) {
                     this.aFloat77 = (float) local136;
                 }
@@ -277,7 +277,7 @@ public final class Ground_Sub1 extends Ground {
             this.aClass2_Sub58Array1[local219].method9400(Static80.anIntArray153, Static236.anInt3893);
         }
         @Pc(246) Matrix_Sub1 local246 = this.aClass19_Sub1_9.method8040();
-        local246.method7125(0, -1, 0);
+        local246.applyTranslation(0, -1, 0);
         this.aClass19_Sub1_9.method8042();
         if (!this.aDeque_24.isEmpty()) {
             @Pc(268) int local268 = this.aClass19_Sub1_9.anInt9146;
@@ -502,7 +502,7 @@ public final class Ground_Sub1 extends Ground {
                                 }
                                 if (Stream.b()) {
                                     local198.a((float) local535);
-                                    local198.a((float) (local572 + this.method7878(local545, local535)));
+                                    local198.a((float) (local572 + this.averageHeight(local545, local535)));
                                     local198.a((float) local545);
                                     local198.a((float) local535);
                                     local198.a((float) local545);
@@ -516,7 +516,7 @@ public final class Ground_Sub1 extends Ground {
                                     }
                                 } else {
                                     local198.b((float) local535);
-                                    local198.b((float) (this.method7878(local545, local535) + local572));
+                                    local198.b((float) (this.averageHeight(local545, local535) + local572));
                                     local198.b((float) local545);
                                     local198.b((float) local535);
                                     local198.b((float) local545);

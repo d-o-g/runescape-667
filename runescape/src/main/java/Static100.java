@@ -5,7 +5,7 @@ public final class Static100 {
 
     @OriginalMember(owner = "client!dc", name = "b", descriptor = "(II)I")
     public static int method1987(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return Static62.anIntArrayArray33 == null ? 0 : Static62.anIntArrayArray33[arg0][arg1] & 0xFFFFFF;
+        return Static62.waterColour == null ? 0 : Static62.waterColour[arg0][arg1] & 0xFFFFFF;
     }
 
     @OriginalMember(owner = "client!dc", name = "b", descriptor = "(I)V")

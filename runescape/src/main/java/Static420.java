@@ -12,7 +12,7 @@ public final class Static420 {
     public static Matrix aMatrix_7;
 
     @OriginalMember(owner = "client!nea", name = "g", descriptor = "[[[Lclient!pha;")
-    public static Class291[][][] aClass291ArrayArrayArray2;
+    public static Tile[][][] aTileArrayArrayArray2;
 
     @OriginalMember(owner = "client!nea", name = "c", descriptor = "Lclient!pc;")
     public static final Class287 aClass287_13 = new Class287(3, 4);

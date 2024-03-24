@@ -12,13 +12,13 @@ public final class Static10 {
 
     @OriginalMember(owner = "client!afa", name = "a", descriptor = "(IIILjava/lang/Class;)V")
     public static void method130(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class arg3) {
-        @Pc(7) Class291 local7 = Static334.activeTiles[arg0][arg1][arg2];
+        @Pc(7) Tile local7 = Static334.activeTiles[arg0][arg1][arg2];
         if (local7 == null) {
             return;
         }
-        for (@Pc(14) Class286 local14 = local7.aClass286_2; local14 != null; local14 = local14.aClass286_1) {
-            @Pc(18) PositionEntity local18 = local14.aPositionEntity;
-            if (arg3.isAssignableFrom(local18.getClass()) && local18.aShort131 == arg1 && local18.aShort132 == arg2) {
+        for (@Pc(14) PositionEntityNode local14 = local7.head; local14 != null; local14 = local14.node) {
+            @Pc(18) PositionEntity local18 = local14.entity;
+            if (arg3.isAssignableFrom(local18.getClass()) && local18.x1 == arg1 && local18.z1 == arg2) {
                 Static549.method8293(local18, false);
                 return;
             }

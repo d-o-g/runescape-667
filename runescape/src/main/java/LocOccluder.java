@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!dda")
-public final class Class75 {
+public final class LocOccluder {
 
     @OriginalMember(owner = "client!dda", name = "e", descriptor = "[I")
     public final int[] anIntArray188 = new int[4];
@@ -42,7 +42,7 @@ public final class Class75 {
     public final short[] aShortArray19;
 
     @OriginalMember(owner = "client!dda", name = "<init>", descriptor = "(IIIIIIIIIIIIII)V")
-    public Class75(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) int arg13) {
+    public LocOccluder(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) int arg13) {
         this.aByte44 = (byte) arg1;
         this.aByte43 = (byte) arg0;
         this.anIntArray186 = new int[4];

@@ -154,7 +154,7 @@ public final class Static484 {
                 for (local214 = local15; local214 < local15 + 104; local214++) {
                     for (local216 = arg1; local216 <= arg1 + 1 && local216 <= 3; local216++) {
                         if (Static696.isTileVisibleFrom(local214, arg1, local211, local216)) {
-                            @Pc(730) Location local730 = (Location) Static687.method8959(local216, local211, local214);
+                            @Pc(730) Location local730 = (Location) Static687.getGroundDecor(local216, local211, local214);
                             if (local730 == null) {
                                 local730 = (Location) Static578.getEntity(local216, local211, local214, aClass19 == null ? (aClass19 = getClass("Location")) : aClass19);
                             }

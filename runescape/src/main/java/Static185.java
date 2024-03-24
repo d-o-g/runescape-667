@@ -86,7 +86,7 @@ public final class Static185 {
                 }
             }
         }
-        local9 = (Location) Static687.method8959(arg6, arg2, arg3);
+        local9 = (Location) Static687.getGroundDecor(arg6, arg2, arg3);
         if (local9 == null) {
             return;
         }

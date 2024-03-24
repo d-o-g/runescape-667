@@ -321,7 +321,7 @@ public final class Static489 {
         for (@Pc(852) int local852 = 0; local852 < 4; local852++) {
             for (local855 = 0; local855 < Static720.mapWidth; local855++) {
                 for (local858 = 0; local858 < Static501.mapHeight; local858++) {
-                    Static468.method7641(local852, local858, local855);
+                    Static468.updateObjCount(local852, local858, local855);
                 }
             }
         }

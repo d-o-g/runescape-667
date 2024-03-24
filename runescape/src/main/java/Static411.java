@@ -16,8 +16,8 @@ public final class Static411 {
         if (local7 == null) {
             return;
         }
-        @Pc(14) WallDecor local14 = local7.aWallDecor_1;
-        @Pc(17) WallDecor local17 = local7.aClass8_Sub2_Sub4_2;
+        @Pc(14) WallDecor local14 = local7.wallDecor;
+        @Pc(17) WallDecor local17 = local7.wallDecor2;
         if (local14 != null) {
             local14.aShort101 = (short) (local14.aShort101 * arg3 / (0x10 << Static52.anInt1066 - 7));
             local14.aShort102 = (short) (local14.aShort102 * arg3 / (0x10 << Static52.anInt1066 - 7));

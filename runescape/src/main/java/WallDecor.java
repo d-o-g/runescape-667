@@ -35,7 +35,7 @@ public abstract class WallDecor extends Entity implements Location {
 
     @OriginalMember(owner = "client!tla", name = "j", descriptor = "(I)V")
     @Override
-    public final void method9280(@OriginalArg(0) int arg0) {
+    public final void stopSharingLight(@OriginalArg(0) int arg0) {
         if (arg0 == 27811) {
             throw new IllegalStateException();
         }
@@ -43,7 +43,7 @@ public abstract class WallDecor extends Entity implements Location {
 
     @OriginalMember(owner = "client!tla", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public final void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
+    public final void shareLight(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg4 < 101) {
             CutsceneManager.cutsceneFadeGreen = -26;
         }

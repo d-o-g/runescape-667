@@ -44,10 +44,10 @@ public final class Static687 {
             return;
         }
         for (@Pc(61) int local61 = 0; local61 < Static150.anInt2634; local61++) {
-            @Pc(67) Class75 local67 = Static285.aClass75Array1[local61];
+            @Pc(67) LocOccluder local67 = Static285.aLocOccluderArray1[local61];
             if (local67.aByte43 == arg2 && arg0 == local67.aShort26 && arg3 == local67.aShort23 || local67.aShort24 == arg0 && arg3 == local67.aShort23) {
                 if (local61 != Static150.anInt2634) {
-                    Arrays.copy(Static285.aClass75Array1, local61 + 1, Static285.aClass75Array1, local61, Static285.aClass75Array1.length - local61 - 1);
+                    Arrays.copy(Static285.aLocOccluderArray1, local61 + 1, Static285.aLocOccluderArray1, local61, Static285.aLocOccluderArray1.length - local61 - 1);
                 }
                 Static150.anInt2634--;
                 return;
@@ -56,8 +56,8 @@ public final class Static687 {
     }
 
     @OriginalMember(owner = "client!vo", name = "a", descriptor = "(III)Lclient!eia;")
-    public static GroundDecor method8959(@OriginalArg(0) int level, @OriginalArg(1) int x, @OriginalArg(2) int z) {
-        @Pc(7) Tile local7 = Static334.activeTiles[level][x][z];
-        return local7 == null || local7.groundDecor == null ? null : local7.groundDecor;
+    public static GroundDecor getGroundDecor(@OriginalArg(0) int level, @OriginalArg(1) int x, @OriginalArg(2) int z) {
+        @Pc(7) Tile tile = Static334.activeTiles[level][x][z];
+        return tile == null || tile.groundDecor == null ? null : tile.groundDecor;
     }
 }

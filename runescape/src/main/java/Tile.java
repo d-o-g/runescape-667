@@ -7,10 +7,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Tile {
 
     @OriginalMember(owner = "client!pha", name = "n", descriptor = "Lclient!kp;")
-    public Wall aWall_1;
+    public Wall adjacentWall;
 
     @OriginalMember(owner = "client!pha", name = "c", descriptor = "Lclient!pha;")
-    public Tile aTile_1;
+    public Tile tile;
 
     @OriginalMember(owner = "client!pha", name = "a", descriptor = "Lclient!pba;")
     public PositionEntityNode head;
@@ -19,10 +19,10 @@ public final class Tile {
     public short aShort83;
 
     @OriginalMember(owner = "client!pha", name = "o", descriptor = "Lclient!kp;")
-    public Wall aClass8_Sub2_Sub3_2;
+    public Wall wall;
 
     @OriginalMember(owner = "client!pha", name = "q", descriptor = "Lclient!tla;")
-    public WallDecor aWallDecor_1;
+    public WallDecor wallDecor;
 
     @OriginalMember(owner = "client!pha", name = "g", descriptor = "Lclient!nda;")
     public Class8_Sub2_Sub5 aClass8_Sub2_Sub5_1;
@@ -34,7 +34,7 @@ public final class Tile {
     public short aShort84;
 
     @OriginalMember(owner = "client!pha", name = "d", descriptor = "Lclient!tla;")
-    public WallDecor aClass8_Sub2_Sub4_2;
+    public WallDecor wallDecor2;
 
     @OriginalMember(owner = "client!pha", name = "j", descriptor = "S")
     public short aShort85;
@@ -43,11 +43,11 @@ public final class Tile {
     public short aShort86;
 
     @OriginalMember(owner = "client!pha", name = "i", descriptor = "B")
-    public byte aByte116;
+    public byte level;
 
     @OriginalMember(owner = "client!pha", name = "<init>", descriptor = "(I)V")
     public Tile(@OriginalArg(0) int arg0) {
-        this.aByte116 = (byte) arg0;
+        this.level = (byte) arg0;
     }
 
     @OriginalMember(owner = "client!pha", name = "a", descriptor = "(I)V")

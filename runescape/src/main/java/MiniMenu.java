@@ -340,7 +340,7 @@ public final class MiniMenu {
                             local988.anInt10743 = TimeUtils.clock;
                         }
                     }
-                    if (local543.aEntity_18 instanceof Class8_Sub2_Sub5_Sub1) {
+                    if (local543.aEntity_18 instanceof ObjStackEntity) {
                         @Pc(1385) int local1385 = local186 + WorldMap.areaBaseX;
                         local614 = WorldMap.areaBaseZ + local584;
                         @Pc(1406) ObjStack local1406 = (ObjStack) Static497.stacks.get(local614 << 14 | local543.aEntity_18.level << 28 | local1385);

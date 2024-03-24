@@ -79,7 +79,7 @@ public final class Static494 {
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(ILclient!dda;ILclient!ha;)V")
-    public static void method6601(@OriginalArg(0) int arg0, @OriginalArg(1) Class75 arg1, @OriginalArg(3) Toolkit arg2) {
+    public static void method6601(@OriginalArg(0) int arg0, @OriginalArg(1) LocOccluder arg1, @OriginalArg(3) Toolkit arg2) {
         @Pc(15) int local15;
         if (Static617.anIntArray726 != null && arg0 <= arg1.aByte44) {
             for (local15 = 0; local15 < Static617.anIntArray726.length; local15++) {
@@ -120,7 +120,7 @@ public final class Static494 {
                         local410 *= -1.0F;
                     }
                     if (!((float) Static86.anInt1803 > local410) && (Static219.method3190(0, arg1) && (Static219.method3190(1, arg1) && (Static219.method3190(2, arg1) && Static219.method3190(3, arg1))))) {
-                        Static560.aClass75Array3[Static469.anInt7072++] = arg1;
+                        Static560.aLocOccluderArray3[Static469.anInt7072++] = arg1;
                     }
                 }
             }
@@ -152,7 +152,7 @@ public final class Static494 {
                         local410 *= -1.0F;
                     }
                     if (!(local410 < (float) Static86.anInt1803) && (Static219.method3190(0, arg1) && (Static219.method3190(1, arg1) && (Static219.method3190(2, arg1) && Static219.method3190(3, arg1))))) {
-                        Static560.aClass75Array3[Static469.anInt7072++] = arg1;
+                        Static560.aLocOccluderArray3[Static469.anInt7072++] = arg1;
                     }
                 }
             }
@@ -170,7 +170,7 @@ public final class Static494 {
                         local714 *= -1.0F;
                     }
                     if ((!((float) Static86.anInt1803 > local697) || !((float) Static86.anInt1803 > local714)) && (Static219.method3190(0, arg1) && (Static219.method3190(1, arg1) && (Static219.method3190(2, arg1) && Static219.method3190(3, arg1))))) {
-                        Static560.aClass75Array3[Static469.anInt7072++] = arg1;
+                        Static560.aLocOccluderArray3[Static469.anInt7072++] = arg1;
                     }
                 }
             }
@@ -212,7 +212,7 @@ public final class Static494 {
                     }
                 }
                 if (local900 && (Static219.method3190(0, arg1) && (Static219.method3190(1, arg1) && (Static219.method3190(2, arg1) && Static219.method3190(3, arg1))))) {
-                    Static560.aClass75Array3[Static469.anInt7072++] = arg1;
+                    Static560.aLocOccluderArray3[Static469.anInt7072++] = arg1;
                 }
             }
         }

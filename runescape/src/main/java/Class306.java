@@ -47,7 +47,7 @@ public class Class306 {
     public final byte[][][] aByteArrayArrayArray17;
 
     @OriginalMember(owner = "client!qja", name = "u", descriptor = "[[[B")
-    protected byte[][][] occlurerFlags;
+    protected byte[][][] occluderFlags;
 
     @OriginalMember(owner = "client!qja", name = "s", descriptor = "[[[B")
     public final byte[][][] aByteArrayArrayArray15;
@@ -68,7 +68,7 @@ public class Class306 {
         this.aFloorOverlayTypeList_6 = arg4;
         this.aByteArrayArrayArray13 = new byte[this.levels][this.width][this.height];
         this.aByteArrayArrayArray17 = new byte[this.levels][this.width][this.height];
-        this.occlurerFlags = new byte[this.levels][this.width + 1][this.height + 1];
+        this.occluderFlags = new byte[this.levels][this.width + 1][this.height + 1];
         this.aByteArrayArrayArray15 = new byte[this.levels][this.width][this.height];
         this.aByteArrayArrayArray16 = new byte[this.levels][this.width][this.height];
         this.tileHeights = new int[this.levels][this.width + 1][this.height + 1];
@@ -289,7 +289,7 @@ public class Class306 {
                                 local652 = false;
                             }
                             if (local652 && local388 == local383 && local477 == local383 && local383 == local485) {
-                                this.occlurerFlags[arg0][local1][local4] = (byte) (this.occlurerFlags[arg0][local1][local4] | 0x4);
+                                this.occluderFlags[arg0][local1][local4] = (byte) (this.occluderFlags[arg0][local1][local4] | 0x4);
                             }
                         }
                         @Pc(740) int local740 = 0;
@@ -1307,7 +1307,7 @@ public class Class306 {
                                     local2579 = false;
                                 }
                                 if (local2579 && local1164 == local1162 && local1411 == local1162 && local1162 == local1416) {
-                                    this.occlurerFlags[arg5][local33][local49] = (byte) (this.occlurerFlags[arg5][local33][local49] | 0x4);
+                                    this.occluderFlags[arg5][local33][local49] = (byte) (this.occluderFlags[arg5][local33][local49] | 0x4);
                                 }
                             }
                             local1430 = 0;

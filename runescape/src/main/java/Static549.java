@@ -35,7 +35,7 @@ public final class Static549 {
             }
         }
         if (!arg1) {
-            Static109.method2068(arg0);
+            Static109.hide(arg0);
         }
     }
 }

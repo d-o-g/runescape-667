@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static384 {
 
     @OriginalMember(owner = "client!maa", name = "t", descriptor = "[Lclient!dda;")
-    public static Class75[] aClass75Array2;
+    public static LocOccluder[] aLocOccluderArray2;
 
     @OriginalMember(owner = "client!maa", name = "s", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_26 = new Class155(14);

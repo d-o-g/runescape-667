@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ima")
-public final class PickingCylinder extends Entity {
+public final class PickingCylinder extends Cylinder {
 
     @OriginalMember(owner = "client!ima", name = "f", descriptor = "I")
     public int anInt4501;

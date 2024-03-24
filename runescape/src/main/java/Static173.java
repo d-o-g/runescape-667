@@ -61,13 +61,13 @@ public final class Static173 {
         if (local7 == null) {
             return;
         }
-        Static109.method2068(local7.aWallDecor_1);
-        Static109.method2068(local7.aClass8_Sub2_Sub4_2);
-        if (local7.aWallDecor_1 != null) {
-            local7.aWallDecor_1 = null;
+        Static109.hide(local7.wallDecor);
+        Static109.hide(local7.wallDecor2);
+        if (local7.wallDecor != null) {
+            local7.wallDecor = null;
         }
-        if (local7.aClass8_Sub2_Sub4_2 != null) {
-            local7.aClass8_Sub2_Sub4_2 = null;
+        if (local7.wallDecor2 != null) {
+            local7.wallDecor2 = null;
         }
     }
 }

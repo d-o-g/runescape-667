@@ -40,8 +40,8 @@ public final class Static358 {
                     local32 = -local53;
                     local53 = 0;
                 }
-                if (local61 >= Static662.anInt9843) {
-                    local61 = Static662.anInt9843 - 1;
+                if (local61 >= Static662.tileMaxZ) {
+                    local61 = Static662.tileMaxZ - 1;
                 }
                 for (@Pc(78) int local78 = local53; local78 <= local61; local78++) {
                     @Pc(84) short local84 = local10.aShortArray131[local32];
@@ -53,8 +53,8 @@ public final class Static358 {
                         local94 -= local100;
                         local100 = 0;
                     }
-                    if (local108 >= Static619.anInt1566) {
-                        local108 = Static619.anInt1566 - 1;
+                    if (local108 >= Static619.tileMaxX) {
+                        local108 = Static619.tileMaxX - 1;
                     }
                     for (@Pc(125) int local125 = local100; local125 <= local108; local125++) {
                         @Pc(128) byte local128 = 1;

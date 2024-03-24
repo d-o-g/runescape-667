@@ -12,45 +12,57 @@ public final class Static535 {
     public static final Class204 aClass204_11 = new Class204(3, 2);
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(Lclient!eo;IIIII)V")
-    public static void method7148(@OriginalArg(0) Entity arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public static void method7148(@OriginalArg(0) Entity entity, @OriginalArg(1) int level, @OriginalArg(2) int x, @OriginalArg(3) int z, @OriginalArg(4) int width, @OriginalArg(5) int height) {
         @Pc(1) boolean local1 = true;
-        @Pc(3) int local3 = arg2;
-        @Pc(7) int local7 = arg2 + arg4;
-        @Pc(11) int local11 = arg3 - 1;
-        @Pc(15) int local15 = arg3 + arg5;
-        for (@Pc(17) int local17 = arg1; local17 <= arg1 + 1; local17++) {
-            if (local17 != Static299.anInt4824) {
-                for (@Pc(23) int local23 = local3; local23 <= local7; local23++) {
-                    if (local23 >= 0 && local23 < Static619.anInt1566) {
-                        for (@Pc(35) int local35 = local11; local35 <= local15; local35++) {
-                            if (local35 >= 0 && local35 < Static662.anInt9843 && (!local1 || local23 >= local7 || local35 >= local15 || local35 < arg3 && local23 != arg2)) {
-                                @Pc(77) Tile local77 = Static334.activeTiles[local17][local23][local35];
-                                if (local77 != null) {
-                                    @Pc(163) int local163 = (Static246.ground[local17].getHeight(local35, local23) + Static246.ground[local17].getHeight(local35, local23 + 1) + Static246.ground[local17].getHeight(local35 + 1, local23) + Static246.ground[local17].getHeight(local35 + 1, local23 + 1)) / 4 - (Static246.ground[arg1].getHeight(arg3, arg2) + Static246.ground[arg1].getHeight(arg3, arg2 + 1) + Static246.ground[arg1].getHeight(arg3 + 1, arg2) + Static246.ground[arg1].getHeight(arg3 + 1, arg2 + 1)) / 4;
-                                    @Pc(166) Wall local166 = local77.aClass8_Sub2_Sub3_2;
-                                    @Pc(169) Wall local169 = local77.aWall_1;
-                                    if (local166 != null && local166.method9290(0)) {
-                                        arg0.method9285(local163, local1, Static665.aToolkit_15, (local35 - arg3) * Static340.anInt5586 + (1 - arg5) * Static247.anInt3993, (byte) 110, (local23 - arg2) * Static340.anInt5586 + (1 - arg4) * Static247.anInt3993, local166);
-                                    }
-                                    if (local169 != null && local169.method9290(0)) {
-                                        arg0.method9285(local163, local1, Static665.aToolkit_15, (local35 - arg3) * Static340.anInt5586 + (1 - arg5) * Static247.anInt3993, (byte) 115, (local23 - arg2) * Static340.anInt5586 + (1 - arg4) * Static247.anInt3993, local169);
-                                    }
-                                    for (@Pc(250) PositionEntityNode local250 = local77.head; local250 != null; local250 = local250.node) {
-                                        @Pc(254) PositionEntity local254 = local250.entity;
-                                        if (local254 != null && local254.method9290(0) && (local23 == local254.x1 || local23 == local3) && (local35 == local254.z1 || local35 == local11)) {
-                                            @Pc(294) int local294 = local254.x2 + 1 - local254.x1;
-                                            @Pc(302) int local302 = local254.z2 + 1 - local254.z1;
-                                            arg0.method9285(local163, local1, Static665.aToolkit_15, (local254.z1 - arg3) * Static340.anInt5586 + (local302 - arg5) * Static247.anInt3993, (byte) 114, (local254.x1 - arg2) * Static340.anInt5586 + (local294 - arg4) * Static247.anInt3993, local254);
-                                        }
-                                    }
-                                }
-                            }
+        @Pc(3) int x1 = x;
+        @Pc(7) int x2 = x + width;
+        @Pc(11) int z1 = z - 1;
+        @Pc(15) int z2 = z + height;
+
+        for (@Pc(17) int curLevel = level; curLevel <= level + 1; curLevel++) {
+            if (curLevel == Static299.tileMaxLevel) {
+                continue;
+            }
+
+            for (@Pc(23) int curX = x1; curX <= x2; curX++) {
+                if (curX < 0 || curX >= Static619.tileMaxX) {
+                    continue;
+                }
+
+                for (@Pc(35) int curZ = z1; curZ <= z2; curZ++) {
+                    if (curZ < 0 || curZ >= Static662.tileMaxZ || (local1 && curX < x2 && curZ < z2 && (curZ >= z || curX == x))) {
+                        continue;
+                    }
+
+                    @Pc(77) Tile tile = Static334.activeTiles[curLevel][curX][curZ];
+                    if (tile == null) {
+                        continue;
+                    }
+
+                    @Pc(163) int tileHeight = (Static246.ground[curLevel].getHeight(curZ, curX) + Static246.ground[curLevel].getHeight(curZ, curX + 1) + Static246.ground[curLevel].getHeight(curZ + 1, curX) + Static246.ground[curLevel].getHeight(curZ + 1, curX + 1)) / 4 - (Static246.ground[level].getHeight(z, x) + Static246.ground[level].getHeight(z, x + 1) + Static246.ground[level].getHeight(z + 1, x) + Static246.ground[level].getHeight(z + 1, x + 1)) / 4;
+                    @Pc(166) Wall wall = tile.wall;
+                    @Pc(169) Wall adjacentWall = tile.adjacentWall;
+                    if (wall != null && wall.method9290(0)) {
+                        entity.shareLight(tileHeight, local1, Static665.aToolkit_15, (curZ - z) * Static340.anInt5586 + (1 - height) * Static247.anInt3993, (byte) 110, (curX - x) * Static340.anInt5586 + (1 - width) * Static247.anInt3993, wall);
+                    }
+                    if (adjacentWall != null && adjacentWall.method9290(0)) {
+                        entity.shareLight(tileHeight, local1, Static665.aToolkit_15, (curZ - z) * Static340.anInt5586 + (1 - height) * Static247.anInt3993, (byte) 115, (curX - x) * Static340.anInt5586 + (1 - width) * Static247.anInt3993, adjacentWall);
+                    }
+
+                    for (@Pc(250) PositionEntityNode node = tile.head; node != null; node = node.node) {
+                        @Pc(254) PositionEntity positionEntity = node.entity;
+
+                        if (positionEntity != null && positionEntity.method9290(0) && (curX == positionEntity.x1 || curX == x1) && (curZ == positionEntity.z1 || curZ == z1)) {
+                            @Pc(294) int local294 = positionEntity.x2 + 1 - positionEntity.x1;
+                            @Pc(302) int local302 = positionEntity.z2 + 1 - positionEntity.z1;
+                            entity.shareLight(tileHeight, local1, Static665.aToolkit_15, (positionEntity.z1 - z) * Static340.anInt5586 + (local302 - height) * Static247.anInt3993, (byte) 114, (positionEntity.x1 - x) * Static340.anInt5586 + (local294 - width) * Static247.anInt3993, positionEntity);
                         }
                     }
                 }
-                local3--;
-                local1 = false;
             }
+
+            x1--;
+            local1 = false;
         }
     }
 }

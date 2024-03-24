@@ -48,7 +48,7 @@ public final class Static177 {
             local34 = local30 + Static340.anInt5586;
             local42 = Static706.floor[arg4].getHeight(arg2, arg3 + 1);
             local54 = Static706.floor[arg4].getHeight(arg2 + 1, arg3);
-            Static285.aClass75Array1[Static150.anInt2634++] = new Class75(arg0, arg4, local22, local26, local26, local22, local42, local54, local54 - arg5, local42 - arg5, local30, local34, local34, local30);
+            Static285.aLocOccluderArray1[Static150.anInt2634++] = new LocOccluder(arg0, arg4, local22, local26, local26, local22, local42, local54, local54 - arg5, local42 - arg5, local30, local34, local34, local30);
             return;
         }
         local22 = arg3 << Static52.anInt1066;
@@ -57,7 +57,7 @@ public final class Static177 {
         local34 = local30 + Static340.anInt5586;
         local42 = Static706.floor[arg4].getHeight(arg2, arg3);
         local54 = Static706.floor[arg4].getHeight(arg2 + 1, arg3 - -1);
-        Static285.aClass75Array1[Static150.anInt2634++] = new Class75(arg0, arg4, local22, local26, local26, local22, local42, local54, local54 - arg5, -arg5 + local42, local30, local34, local34, local30);
+        Static285.aLocOccluderArray1[Static150.anInt2634++] = new LocOccluder(arg0, arg4, local22, local26, local26, local22, local42, local54, local54 - arg5, -arg5 + local42, local30, local34, local34, local30);
     }
 
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(IIILclient!tla;Lclient!tla;)V")
@@ -66,17 +66,17 @@ public final class Static177 {
         if (local4 == null) {
             return;
         }
-        local4.aWallDecor_1 = arg3;
-        local4.aClass8_Sub2_Sub4_2 = arg4;
+        local4.wallDecor = arg3;
+        local4.wallDecor2 = arg4;
         @Pc(22) int local22 = Static246.ground == Static693.underwaterGround ? 1 : 0;
         if (!arg3.isStationary()) {
-            arg3.dynamicEntity = Static468.dynamicEntities[local22];
+            arg3.nextEntity = Static468.dynamicEntities[local22];
             Static468.dynamicEntities[local22] = arg3;
         } else if (arg3.isTransparent(0)) {
-            arg3.dynamicEntity = Static398.transparentStationaryEntities[local22];
+            arg3.nextEntity = Static398.transparentStationaryEntities[local22];
             Static398.transparentStationaryEntities[local22] = arg3;
         } else {
-            arg3.dynamicEntity = Static576.opaqueStationaryEntities[local22];
+            arg3.nextEntity = Static576.opaqueStationaryEntities[local22];
             Static576.opaqueStationaryEntities[local22] = arg3;
             Static75.hasOpaqueStationaryEntities = true;
         }
@@ -85,16 +85,16 @@ public final class Static177 {
         }
         if (arg4.isStationary()) {
             if (arg4.isTransparent(0)) {
-                arg4.dynamicEntity = Static398.transparentStationaryEntities[local22];
+                arg4.nextEntity = Static398.transparentStationaryEntities[local22];
                 Static398.transparentStationaryEntities[local22] = arg4;
                 return;
             }
-            arg4.dynamicEntity = Static576.opaqueStationaryEntities[local22];
+            arg4.nextEntity = Static576.opaqueStationaryEntities[local22];
             Static576.opaqueStationaryEntities[local22] = arg4;
             Static75.hasOpaqueStationaryEntities = true;
             return;
         }
-        arg4.dynamicEntity = Static468.dynamicEntities[local22];
+        arg4.nextEntity = Static468.dynamicEntities[local22];
         Static468.dynamicEntities[local22] = arg4;
     }
 }

@@ -11,63 +11,75 @@ public final class Static468 {
     public static final ServerProt A_SERVER_PROT___212 = new ServerProt(77, -2);
 
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZIII)V")
-    public static void method7641(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(8) int local8 = arg2 + WorldMap.areaBaseX;
-        @Pc(12) int local12 = WorldMap.areaBaseZ + arg1;
-        if (Static334.activeTiles == null || arg2 < 0 || arg1 < 0 || arg2 >= Static720.mapWidth || Static501.mapHeight <= arg1 || ClientOptions.instance.animateBackground.getValue() == 0 && arg0 != PlayerEntity.self.level) {
+    public static void updateObjCount(@OriginalArg(1) int level, @OriginalArg(2) int zoneZ, @OriginalArg(3) int zoneX) {
+        @Pc(8) int x = zoneX + WorldMap.areaBaseX;
+        @Pc(12) int z = zoneZ + WorldMap.areaBaseZ;
+
+        if (Static334.activeTiles == null || zoneX < 0 || zoneZ < 0 || zoneX >= Static720.mapWidth || Static501.mapHeight <= zoneZ || ClientOptions.instance.animateBackground.getValue() == 0 && level != PlayerEntity.self.level) {
             return;
         }
-        @Pc(67) long local67 = local12 << 14 | arg0 << 28 | local8;
-        @Pc(73) ObjStack local73 = (ObjStack) Static497.stacks.get(local67);
-        if (local73 == null) {
-            Static638.method8398(arg0, arg2, arg1);
+
+        @Pc(67) long key = z << 14 | level << 28 | x;
+        @Pc(73) ObjStack stack = (ObjStack) Static497.stacks.get(key);
+        if (stack == null) {
+            Static638.method8398(level, zoneX, zoneZ);
             return;
         }
-        @Pc(88) ObjStackEntry local88 = (ObjStackEntry) local73.objs.first();
-        if (local88 == null) {
-            Static638.method8398(arg0, arg2, arg1);
+
+        @Pc(88) ObjStackEntry firstEntry = (ObjStackEntry) stack.objs.first();
+        if (firstEntry == null) {
+            Static638.method8398(level, zoneX, zoneZ);
             return;
         }
-        @Pc(103) Class8_Sub2_Sub5_Sub1 local103 = (Class8_Sub2_Sub5_Sub1) Static638.method8398(arg0, arg2, arg1);
-        if (local103 == null) {
-            local103 = new Class8_Sub2_Sub5_Sub1(arg2 << 9, Static246.ground[arg0].getHeight(arg1, arg2), arg1 << 9, arg0, arg0);
+
+        @Pc(103) ObjStackEntity entity = (ObjStackEntity) Static638.method8398(level, zoneX, zoneZ);
+        if (entity == null) {
+            entity = new ObjStackEntity(zoneX << 9, Static246.ground[level].getHeight(zoneZ, zoneX), zoneZ << 9, level, level);
         } else {
-            local103.anInt8878 = local103.anInt8876 = -1;
+            entity.secondId = entity.thirdId = -1;
         }
-        local103.anInt8873 = local88.count;
-        local103.anInt8867 = local88.id;
+
+        entity.firstCount = firstEntry.count;
+        entity.firstId = firstEntry.id;
+
         label56:
         while (true) {
-            @Pc(146) ObjStackEntry local146 = (ObjStackEntry) local73.objs.next();
-            if (local146 == null) {
+            @Pc(146) ObjStackEntry secondEntry = (ObjStackEntry) stack.objs.next();
+            if (secondEntry == null) {
                 break;
             }
-            if (local146.id != local103.anInt8867) {
-                local103.anInt8874 = local146.count;
-                local103.anInt8878 = local146.id;
+
+            if (secondEntry.id != entity.firstId) {
+                entity.secondCount = secondEntry.count;
+                entity.secondId = secondEntry.id;
+
                 while (true) {
-                    @Pc(171) ObjStackEntry local171 = (ObjStackEntry) local73.objs.next();
-                    if (local171 == null) {
+                    @Pc(171) ObjStackEntry thirdEntry = (ObjStackEntry) stack.objs.next();
+                    if (thirdEntry == null) {
                         break label56;
                     }
-                    if (local103.anInt8867 != local171.id && local171.id != local103.anInt8878) {
-                        local103.anInt8872 = local171.count;
-                        local103.anInt8876 = local171.id;
+
+                    if (entity.firstId != thirdEntry.id && thirdEntry.id != entity.secondId) {
+                        entity.thirdCount = thirdEntry.count;
+                        entity.thirdId = thirdEntry.id;
                     }
                 }
             }
         }
-        @Pc(209) int local209 = Static102.method2025(arg0, -29754, (arg1 << 9) + 256, (arg2 << 9) - -256);
-        local103.level = (byte) arg0;
-        local103.y = local209;
-        local103.virtualLevel = (byte) arg0;
-        local103.z = arg1 << 9;
-        local103.anInt8885 = 0;
-        local103.x = arg2 << 9;
-        if (Static441.isBridgeAt(arg1, arg2)) {
-            local103.virtualLevel++;
+
+        @Pc(209) int averageHeight = Static102.averageHeight(level, -29754, (zoneZ << 9) + 256, (zoneX << 9) - -256);
+        entity.level = (byte) level;
+        entity.y = averageHeight;
+        entity.virtualLevel = (byte) level;
+        entity.z = zoneZ << 9;
+        entity.anInt8885 = 0;
+        entity.x = zoneX << 9;
+
+        if (Static441.isBridgeAt(zoneZ, zoneX)) {
+            entity.virtualLevel++;
         }
-        Static157.method2564(arg0, arg2, arg1, local209, local103);
+
+        Static157.method2564(level, zoneX, zoneZ, averageHeight, entity);
     }
 
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZZ)V")

@@ -79,7 +79,7 @@ public final class MapRegion extends Class306 {
         }
         @Pc(30) int local30 = arg0.level;
         if (arg0.aBoolean717) {
-            local30 = Static299.anInt4824 - 1;
+            local30 = Static299.tileMaxLevel - 1;
         }
         for (@Pc(39) int local39 = local22; local39 <= local30; local39++) {
             @Pc(42) int local42 = 0;
@@ -89,8 +89,8 @@ public final class MapRegion extends Class306 {
                 local54 = 0;
             }
             @Pc(74) int local74 = local7.getZ() + local7.getRange() - Static247.anInt3993 >> Static52.anInt1066;
-            if (local74 >= Static662.anInt9843) {
-                local74 = Static662.anInt9843 - 1;
+            if (local74 >= Static662.tileMaxZ) {
+                local74 = Static662.tileMaxZ - 1;
             }
             for (@Pc(83) int local83 = local54; local83 <= local74; local83++) {
                 @Pc(90) short local90 = arg0.aShortArray131[local42++];
@@ -99,8 +99,8 @@ public final class MapRegion extends Class306 {
                 if (local106 < 0) {
                     local106 = 0;
                 }
-                if (local114 >= Static619.anInt1566) {
-                    local114 = Static619.anInt1566 - 1;
+                if (local114 >= Static619.tileMaxX) {
+                    local114 = Static619.tileMaxX - 1;
                 }
                 for (@Pc(127) int local127 = local106; local127 <= local114; local127++) {
                     @Pc(136) long local136 = Static161.tileLightFlags[local39][local127][local83];
@@ -570,7 +570,7 @@ public final class MapRegion extends Class306 {
 
             boolean occludeRoofs = locType.locOcclusionMode == LocOcclusionMode.ROOFS;
             if (Static404.aBoolean465 && !super.underwater && shape >= LocShapes.ROOF_STRAIGHT && shape <= LocShapes.ROOF_FLAT && shape != LocShapes.ROOF_DIAGONAL_WITH_ROOFEDGE && level > 0 && !occludeRoofs) {
-                super.occlurerFlags[level][x][z] = (byte) (super.occlurerFlags[level][x][z] | 0x4);
+                super.occluderFlags[level][x][z] = (byte) (super.occluderFlags[level][x][z] | 0x4);
             }
 
             if (locType.movementPolicy != 0 && collisionMap != null) {
@@ -1064,7 +1064,7 @@ public final class MapRegion extends Class306 {
             location = (Location) Static578.getEntity(level, x, z, locClass == null ? (locClass = getClass("Location")) : locClass);
         }
         if (layer == LocLayer.GROUNDDECOR) {
-            location = (Location) Static687.method8959(level, x, z);
+            location = (Location) Static687.getGroundDecor(level, x, z);
         }
         return location;
     }
@@ -1119,57 +1119,62 @@ public final class MapRegion extends Class306 {
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(ZLclient!ha;B)V")
     public void method7898(@OriginalArg(0) boolean arg0, @OriginalArg(1) Toolkit arg1) {
         Static323.method4624();
+
         if (!arg0) {
-            @Pc(23) int local23;
-            @Pc(26) int local26;
             if (super.levels > 1) {
-                for (local23 = 0; local23 < super.width; local23++) {
-                    for (local26 = 0; super.height > local26; local26++) {
-                        if ((Static280.tileFlags[1][local23][local26] & 0x2) == 2) {
-                            Static646.method8453(local23, local26);
+                for (@Pc(23) int x = 0; x < super.width; x++) {
+                    for (@Pc(26) int z = 0; super.height > z; z++) {
+                        if ((Static280.tileFlags[1][x][z] & TileFlag.BRIDGE) == 2) {
+                            Static646.method8453(x, z);
                         }
                     }
                 }
             }
-            for (local23 = 0; super.levels > local23; local23++) {
-                for (local26 = 0; super.height >= local26; local26++) {
-                    for (@Pc(71) int local71 = 0; local71 <= super.width; local71++) {
-                        if ((super.occlurerFlags[local23][local71][local26] & 0x4) != 0) {
-                            @Pc(88) int local88 = local71;
-                            @Pc(90) int local90 = local71;
-                            @Pc(92) int local92 = local26;
-                            @Pc(94) int local94 = local26;
-                            while (local92 > 0 && (super.occlurerFlags[local23][local71][local92 - 1] & 0x4) != 0 && local26 - local92 < 10) {
-                                local92--;
+
+            for (@Pc(23) int level = 0; super.levels > level; level++) {
+                for (@Pc(26) int z = 0; super.height >= z; z++) {
+                    for (@Pc(71) int x = 0; x <= super.width; x++) {
+                        if ((super.occluderFlags[level][x][z] & TileFlag.REMOVE_ROOF) != 0) {
+                            @Pc(88) int x1 = x;
+                            @Pc(90) int x2 = x;
+
+                            @Pc(92) int z1 = z;
+                            @Pc(94) int z2 = z;
+                            while (z1 > 0 && (super.occluderFlags[level][x][z1 - 1] & 0x4) != 0 && z - z1 < 10) {
+                                z1--;
                             }
-                            while (local94 < super.height && (super.occlurerFlags[local23][local71][local94 + 1] & 0x4) != 0 && local94 - local92 < 10) {
-                                local94++;
+                            while (z2 < super.height && (super.occluderFlags[level][x][z2 + 1] & 0x4) != 0 && z2 - z1 < 10) {
+                                z2++;
                             }
-                            @Pc(163) int local163;
+
                             label111:
-                            while (local88 > 0 && local71 - local88 < 10) {
-                                for (local163 = local92; local163 <= local94; local163++) {
-                                    if ((super.occlurerFlags[local23][local88 - 1][local163] & 0x4) == 0) {
+                            while (x1 > 0 && x - x1 < 10) {
+                                for (@Pc(163) int local163 = z1; local163 <= z2; local163++) {
+                                    if ((super.occluderFlags[level][x1 - 1][local163] & 0x4) == 0) {
                                         break label111;
                                     }
                                 }
-                                local88--;
+                                x1--;
                             }
+
                             label98:
-                            while (super.width > local90 && local90 - local88 < 10) {
-                                for (local163 = local92; local163 <= local94; local163++) {
-                                    if ((super.occlurerFlags[local23][local90 + 1][local163] & 0x4) == 0) {
+                            while (super.width > x2 && x2 - x1 < 10) {
+                                for (@Pc(163) int local163 = z1; local163 <= z2; local163++) {
+                                    if ((super.occluderFlags[level][x2 + 1][local163] & 0x4) == 0) {
                                         break label98;
                                     }
                                 }
-                                local90++;
+                                x2++;
                             }
-                            if ((local90 + 1 - local88) * (local94 + 1 - local92) >= 4) {
-                                local163 = super.tileHeights[local23][local88][local92];
-                                Static269.method3911((local94 << 9) + 512, local88 << 9, local163, local92 << 9, local163, local23, (local90 << 9) + 512);
-                                for (@Pc(297) int local297 = local88; local297 <= local90; local297++) {
-                                    for (@Pc(300) int local300 = local92; local300 <= local94; local300++) {
-                                        super.occlurerFlags[local23][local297][local300] &= 0xFFFFFFFB;
+
+                            if ((x2 + 1 - x1) * (z2 + 1 - z1) >= 4) {
+                                @Pc(163) int tileHeight = super.tileHeights[level][x1][z1];
+
+                                Static269.method3911((z2 << 9) + 512, x1 << 9, tileHeight, z1 << 9, tileHeight, level, (x2 << 9) + 512);
+
+                                for (@Pc(297) int localX = x1; localX <= x2; localX++) {
+                                    for (@Pc(300) int localZ = z1; localZ <= z2; localZ++) {
+                                        super.occluderFlags[level][localX][localZ] &= 0xFFFFFFFB;
                                     }
                                 }
                             }
@@ -1177,9 +1182,11 @@ public final class MapRegion extends Class306 {
                     }
                 }
             }
+
             Static348.method5107();
         }
-        super.occlurerFlags = null;
+
+        super.occluderFlags = null;
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IBILclient!eq;IILclient!ha;)V")

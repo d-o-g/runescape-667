@@ -26,7 +26,7 @@ public final class Static561 {
         if (local11 != null) {
             local5 &= Static449.hasMsi(local11);
         }
-        local11 = (Location) Static687.method8959(arg2, arg0, arg1);
+        local11 = (Location) Static687.getGroundDecor(arg2, arg0, arg1);
         if (local11 != null) {
             local5 &= Static449.hasMsi(local11);
         }

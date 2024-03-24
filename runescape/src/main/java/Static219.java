@@ -17,7 +17,7 @@ public final class Static219 {
     public static int mouseButtons = 0;
 
     @OriginalMember(owner = "client!gp", name = "a", descriptor = "(IILclient!dda;)Z")
-    public static boolean method3190(@OriginalArg(0) int arg0, @OriginalArg(2) Class75 arg1) {
+    public static boolean method3190(@OriginalArg(0) int arg0, @OriginalArg(2) LocOccluder arg1) {
         Static107.aMatrix_3.method7124(arg1.anIntArray185[arg0], arg1.anIntArray186[arg0], arg1.anIntArray188[arg0], Static35.anIntArray58);
         @Pc(22) int local22 = Static35.anIntArray58[2];
         if (local22 < 50) {

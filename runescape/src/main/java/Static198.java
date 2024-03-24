@@ -69,7 +69,7 @@ public final class Static198 {
                 }
             }
         } else if (arg6 == 3) {
-            local52 = (Location) Static687.method8959(arg0, arg4, arg1);
+            local52 = (Location) Static687.getGroundDecor(arg0, arg4, arg1);
             if (local52 != null) {
                 if (local52 instanceof DynamicGroundDecor) {
                     ((DynamicGroundDecor) local52).entity.method7672(arg3);

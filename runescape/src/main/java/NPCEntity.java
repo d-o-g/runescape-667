@@ -80,7 +80,7 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "j", descriptor = "(I)V")
     @Override
-    public void method9280(@OriginalArg(0) int arg0) {
+    public void stopSharingLight(@OriginalArg(0) int arg0) {
         throw new IllegalStateException();
     }
 
@@ -91,7 +91,7 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
+    public void shareLight(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg4 <= 101) {
             Static712.method9329((byte) 99);
         }

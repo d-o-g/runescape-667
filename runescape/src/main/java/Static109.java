@@ -8,49 +8,61 @@ public final class Static109 {
     public static int anInt2178;
 
     @OriginalMember(owner = "client!dh", name = "a", descriptor = "(Lclient!eo;)V")
-    public static void method2068(@OriginalArg(0) Entity arg0) {
-        if (arg0 == null) {
+    public static void hide(@OriginalArg(0) Entity entity) {
+        if (entity == null) {
             return;
         }
-        for (@Pc(5) int local5 = 0; local5 < 2; local5++) {
-            @Pc(8) Entity local8 = null;
-            for (@Pc(12) Entity local12 = Static576.opaqueStationaryEntities[local5]; local12 != null; local12 = local12.dynamicEntity) {
-                if (local12 == arg0) {
-                    if (local8 == null) {
-                        Static576.opaqueStationaryEntities[local5] = local12.dynamicEntity;
+
+        for (@Pc(5) int ground = 0; ground < 2; ground++) {
+            @Pc(8) Entity other = null;
+
+            for (@Pc(12) Entity opaque = Static576.opaqueStationaryEntities[ground]; opaque != null; opaque = opaque.nextEntity) {
+                if (opaque == entity) {
+                    if (other == null) {
+                        Static576.opaqueStationaryEntities[ground] = opaque.nextEntity;
                     } else {
-                        local8.dynamicEntity = local12.dynamicEntity;
+                        other.nextEntity = opaque.nextEntity;
                     }
+
                     Static75.hasOpaqueStationaryEntities = true;
                     return;
                 }
-                local8 = local12;
+
+                other = opaque;
             }
-            local8 = null;
-            for (@Pc(47) Entity local47 = Static398.transparentStationaryEntities[local5]; local47 != null; local47 = local47.dynamicEntity) {
-                if (local47 == arg0) {
-                    if (local8 == null) {
-                        Static398.transparentStationaryEntities[local5] = local47.dynamicEntity;
+
+            other = null;
+
+            for (@Pc(47) Entity transparent = Static398.transparentStationaryEntities[ground]; transparent != null; transparent = transparent.nextEntity) {
+                if (transparent == entity) {
+                    if (other == null) {
+                        Static398.transparentStationaryEntities[ground] = transparent.nextEntity;
                     } else {
-                        local8.dynamicEntity = local47.dynamicEntity;
+                        other.nextEntity = transparent.nextEntity;
                     }
+
                     Static75.hasOpaqueStationaryEntities = true;
                     return;
                 }
-                local8 = local47;
+
+                other = transparent;
             }
-            local8 = null;
-            for (@Pc(82) Entity local82 = Static468.dynamicEntities[local5]; local82 != null; local82 = local82.dynamicEntity) {
-                if (local82 == arg0) {
-                    if (local8 == null) {
-                        Static468.dynamicEntities[local5] = local82.dynamicEntity;
+
+            other = null;
+
+            for (@Pc(82) Entity dynamic = Static468.dynamicEntities[ground]; dynamic != null; dynamic = dynamic.nextEntity) {
+                if (dynamic == entity) {
+                    if (other == null) {
+                        Static468.dynamicEntities[ground] = dynamic.nextEntity;
                     } else {
-                        local8.dynamicEntity = local82.dynamicEntity;
+                        other.nextEntity = dynamic.nextEntity;
                     }
+
                     Static75.hasOpaqueStationaryEntities = true;
                     return;
                 }
-                local8 = local82;
+
+                other = dynamic;
             }
         }
     }

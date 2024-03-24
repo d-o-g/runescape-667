@@ -20,16 +20,16 @@ public final class Static157 {
         @Pc(36) int local36 = Static246.ground == Static693.underwaterGround ? 1 : 0;
         if (arg4.isStationary()) {
             if (arg4.isTransparent(0)) {
-                arg4.dynamicEntity = Static398.transparentStationaryEntities[local36];
+                arg4.nextEntity = Static398.transparentStationaryEntities[local36];
                 Static398.transparentStationaryEntities[local36] = arg4;
                 return;
             }
-            arg4.dynamicEntity = Static576.opaqueStationaryEntities[local36];
+            arg4.nextEntity = Static576.opaqueStationaryEntities[local36];
             Static576.opaqueStationaryEntities[local36] = arg4;
             Static75.hasOpaqueStationaryEntities = true;
             return;
         }
-        arg4.dynamicEntity = Static468.dynamicEntities[local36];
+        arg4.nextEntity = Static468.dynamicEntities[local36];
         Static468.dynamicEntities[local36] = arg4;
     }
 }

@@ -45,7 +45,7 @@ public final class Static605 {
                         }
                     }
                     if (local34 >= 0 && local21 >= 0 && Static720.mapWidth > local34 && Static501.mapHeight > local21) {
-                        Static468.method7641(Static87.anInt1810, local21, local34);
+                        Static468.updateObjCount(Static87.anInt1810, local21, local34);
                     }
                 }
             }
@@ -231,7 +231,7 @@ public final class Static605 {
                             }
                         }
                         @Pc(1053) Class8_Sub2_Sub1_Sub1 local1053 = new Class8_Sub2_Sub1_Sub1(local219, Static87.anInt1810, Static87.anInt1810, local21, local25, local812, local322 + TimeUtils.clock, TimeUtils.clock + local353, local843, local847, local212, local217, local290, local764, local46);
-                        local1053.method813(Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
+                        local1053.method813(Static102.averageHeight(Static87.anInt1810, -29754, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
                         Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local1053));
                     }
                 } else if (Static77.aClass287_5 == arg0) {
@@ -248,7 +248,7 @@ public final class Static605 {
                         if (local1151 || Static55.method1218(Static117.anInt2282)) {
                             Static2.sortAllObjs(Static87.anInt1810, local34, local42, new ObjStackEntry(local46, local52));
                             if (local1151) {
-                                Static468.method7641(Static87.anInt1810, local25, local38);
+                                Static468.updateObjCount(Static87.anInt1810, local25, local38);
                             }
                         }
                     }
@@ -291,7 +291,7 @@ public final class Static605 {
                             local1389.unlink();
                         }
                         if (local38 >= 0 && local25 >= 0 && local38 < Static720.mapWidth && local25 < Static501.mapHeight) {
-                            Static468.method7641(Static87.anInt1810, local25, local38);
+                            Static468.updateObjCount(Static87.anInt1810, local25, local38);
                         }
                     }
                 } else if (Static370.aClass287_11 == arg0) {
@@ -331,7 +331,7 @@ public final class Static605 {
                         local38 = local38 * 512 + 256;
                         local34 = local34 * 512 + 256;
                         @Pc(1728) Class8_Sub2_Sub1_Sub1 local1728 = new Class8_Sub2_Sub1_Sub1(local52, Static87.anInt1810, Static87.anInt1810, local25, local34, local537, local217 + TimeUtils.clock, local219 + TimeUtils.clock, local812, local290, 0, local46, local212, local1540, -1);
-                        local1728.method813(Static102.method2025(Static87.anInt1810, -29754, local42, local38) - local212, TimeUtils.clock + local217, local42, local38);
+                        local1728.method813(Static102.averageHeight(Static87.anInt1810, -29754, local42, local38) - local212, TimeUtils.clock + local217, local42, local38);
                         Static505.A_DEQUE___77.addLast(new DoublyLinkedNode_Sub2_Sub15(local1728));
                     }
                 } else if (Static210.aClass287_9 == arg0) {
@@ -357,7 +357,7 @@ public final class Static605 {
                     if (local1886 || Static55.method1218(Static117.anInt2282)) {
                         Static2.sortAllObjs(Static87.anInt1810, local25, local38, new ObjStackEntry(local42, local46));
                         if (local1886) {
-                            Static468.method7641(Static87.anInt1810, local21, local34);
+                            Static468.updateObjCount(Static87.anInt1810, local21, local34);
                         }
                     }
                 } else if (arg0 == Static668.aClass287_16) {
@@ -386,7 +386,7 @@ public final class Static605 {
                             if (local212 < 3 && Static441.isBridgeAt(local25, local21)) {
                                 local212++;
                             }
-                            @Pc(2065) SpotAnimation local2065 = new SpotAnimation(local34, local42, Static87.anInt1810, local212, local52, Static102.method2025(Static87.anInt1810, -29754, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);
+                            @Pc(2065) SpotAnimation local2065 = new SpotAnimation(local34, local42, Static87.anInt1810, local212, local52, Static102.averageHeight(Static87.anInt1810, -29754, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);
                             Static346.A_HASH_TABLE___29.put(local21 << 16 | local25, new SpotAnimationNode(local2065));
                         }
                     }

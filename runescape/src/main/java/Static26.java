@@ -14,13 +14,13 @@ public final class Static26 {
         if (local7 == null) {
             return;
         }
-        Static109.method2068(local7.aClass8_Sub2_Sub3_2);
-        Static109.method2068(local7.aWall_1);
-        if (local7.aClass8_Sub2_Sub3_2 != null) {
-            local7.aClass8_Sub2_Sub3_2 = null;
+        Static109.hide(local7.wall);
+        Static109.hide(local7.adjacentWall);
+        if (local7.wall != null) {
+            local7.wall = null;
         }
-        if (local7.aWall_1 != null) {
-            local7.aWall_1 = null;
+        if (local7.adjacentWall != null) {
+            local7.adjacentWall = null;
         }
     }
 }

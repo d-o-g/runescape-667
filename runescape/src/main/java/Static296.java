@@ -19,7 +19,7 @@ public final class Static296 {
     public static final Class280 aClass280_5 = new Class280(2);
 
     @OriginalMember(owner = "client!jh", name = "k", descriptor = "I")
-    public static int anInt4792 = 0;
+    public static int tileMinLevel = 0;
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(Lclient!gp;BIIII)V")
     public static void method4361(@OriginalArg(0) LocTypeCustomisation arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {

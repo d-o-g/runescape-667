@@ -12,34 +12,40 @@ public final class Static323 {
 
     @OriginalMember(owner = "client!kda", name = "a", descriptor = "()V")
     public static void method4624() {
-        for (@Pc(1) int local1 = Static296.anInt4792; local1 < Static299.anInt4824; local1++) {
-            for (@Pc(4) int local4 = 0; local4 < Static619.anInt1566; local4++) {
-                for (@Pc(7) int local7 = 0; local7 < Static662.anInt9843; local7++) {
-                    @Pc(16) Tile local16 = Static334.activeTiles[local1][local4][local7];
-                    if (local16 != null) {
-                        @Pc(21) Wall local21 = local16.aClass8_Sub2_Sub3_2;
-                        @Pc(24) Wall local24 = local16.aWall_1;
-                        if (local21 != null && local21.method9290(0)) {
-                            Static535.method7148(local21, local1, local4, local7, 1, 1);
-                            if (local24 != null && local24.method9290(0)) {
-                                Static535.method7148(local24, local1, local4, local7, 1, 1);
-                                local24.method9285(0, false, Static665.aToolkit_15, 0, (byte) 126, 0, local21);
-                                local24.method9280(27811);
-                            }
-                            local21.method9280(27811);
+        for (@Pc(1) int level = Static296.tileMinLevel; level < Static299.tileMaxLevel; level++) {
+            for (@Pc(4) int x = 0; x < Static619.tileMaxX; x++) {
+                for (@Pc(7) int z = 0; z < Static662.tileMaxZ; z++) {
+                    @Pc(16) Tile tile = Static334.activeTiles[level][x][z];
+                    if (tile == null) {
+                        continue;
+                    }
+
+                    @Pc(21) Wall wall = tile.wall;
+                    @Pc(24) Wall adjacentWall = tile.adjacentWall;
+                    if (wall != null && wall.method9290(0)) {
+                        Static535.method7148(wall, level, x, z, 1, 1);
+
+                        if (adjacentWall != null && adjacentWall.method9290(0)) {
+                            Static535.method7148(adjacentWall, level, x, z, 1, 1);
+                            adjacentWall.shareLight(0, false, Static665.aToolkit_15, 0, (byte) 126, 0, wall);
+                            adjacentWall.stopSharingLight(27811);
                         }
-                        for (@Pc(76) PositionEntityNode local76 = local16.head; local76 != null; local76 = local76.node) {
-                            @Pc(80) PositionEntity local80 = local76.entity;
-                            if (local80 != null && local80.method9290(0)) {
-                                Static535.method7148(local80, local1, local4, local7, local80.x2 + 1 - local80.x1, local80.z2 - local80.z1 + 1);
-                                local80.method9280(27811);
-                            }
+
+                        wall.stopSharingLight(27811);
+                    }
+
+                    for (@Pc(76) PositionEntityNode node = tile.head; node != null; node = node.node) {
+                        @Pc(80) PositionEntity entity = node.entity;
+                        if (entity != null && entity.method9290(0)) {
+                            Static535.method7148(entity, level, x, z, entity.x2 + 1 - entity.x1, entity.z2 - entity.z1 + 1);
+                            entity.stopSharingLight(27811);
                         }
-                        @Pc(120) GroundDecor local120 = local16.groundDecor;
-                        if (local120 != null && local120.method9290(0)) {
-                            Static453.method6209(local120, local1, local4, local7);
-                            local120.method9280(27811);
-                        }
+                    }
+
+                    @Pc(120) GroundDecor groundDecor = tile.groundDecor;
+                    if (groundDecor != null && groundDecor.method9290(0)) {
+                        Static453.shareLight(groundDecor, level, x, z);
+                        groundDecor.stopSharingLight(27811);
                     }
                 }
             }

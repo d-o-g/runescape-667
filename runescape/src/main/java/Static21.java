@@ -23,19 +23,19 @@ public final class Static21 {
         Static340.anInt5586 = 0x1 << Static52.anInt1066;
         Static247.anInt3993 = Static340.anInt5586 >> 1;
         Math.sqrt(Static247.anInt3993 * Static247.anInt3993 + Static247.anInt3993 * Static247.anInt3993);
-        Static299.anInt4824 = 4;
-        Static619.anInt1566 = arg2;
-        Static662.anInt9843 = arg3;
+        Static299.tileMaxLevel = 4;
+        Static619.tileMaxX = arg2;
+        Static662.tileMaxZ = arg3;
         Static35.anInt813 = arg4;
         Static272.aClass13_1 = Static167.method2632();
         Static276.method3986();
-        Static478.aTileArrayArrayArray3 = new Tile[4][Static619.anInt1566][Static662.anInt9843];
+        Static478.aTileArrayArrayArray3 = new Tile[4][Static619.tileMaxX][Static662.tileMaxZ];
         Static706.floor = new Ground[4];
         if (arg5) {
-            Static62.waterColour = new int[Static619.anInt1566][Static662.anInt9843];
-            Static421.waterBias = new byte[Static619.anInt1566][Static662.anInt9843];
-            Static272.waterDepth = new short[Static619.anInt1566][Static662.anInt9843];
-            Static420.aTileArrayArrayArray2 = new Tile[1][Static619.anInt1566][Static662.anInt9843];
+            Static62.waterColour = new int[Static619.tileMaxX][Static662.tileMaxZ];
+            Static421.waterBias = new byte[Static619.tileMaxX][Static662.tileMaxZ];
+            Static272.waterDepth = new short[Static619.tileMaxX][Static662.tileMaxZ];
+            Static420.aTileArrayArrayArray2 = new Tile[1][Static619.tileMaxX][Static662.tileMaxZ];
             Static693.underwaterGround = new Ground[1];
         } else {
             Static62.waterColour = null;

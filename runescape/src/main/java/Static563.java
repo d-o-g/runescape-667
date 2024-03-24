@@ -22,8 +22,8 @@ public final class Static563 {
         @Pc(9) int local9;
         if (Static478.aTileArrayArrayArray3 != null) {
             for (local3 = 0; local3 < Static478.aTileArrayArrayArray3.length; local3++) {
-                for (local6 = 0; local6 < Static619.anInt1566; local6++) {
-                    for (local9 = 0; local9 < Static662.anInt9843; local9++) {
+                for (local6 = 0; local6 < Static619.tileMaxX; local6++) {
+                    for (local9 = 0; local9 < Static662.tileMaxZ; local9++) {
                         if (Static478.aTileArrayArrayArray3[local3][local6][local9] != null) {
                             Static478.aTileArrayArrayArray3[local3][local6][local9].method6550();
                         }
@@ -36,8 +36,8 @@ public final class Static563 {
         Static706.floor = null;
         if (Static420.aTileArrayArrayArray2 != null) {
             for (local3 = 0; local3 < Static420.aTileArrayArrayArray2.length; local3++) {
-                for (local6 = 0; local6 < Static619.anInt1566; local6++) {
-                    for (local9 = 0; local9 < Static662.anInt9843; local9++) {
+                for (local6 = 0; local6 < Static619.tileMaxX; local6++) {
+                    for (local9 = 0; local9 < Static662.tileMaxZ; local9++) {
                         if (Static420.aTileArrayArrayArray2[local3][local6][local9] != null) {
                             Static420.aTileArrayArrayArray2[local3][local6][local9].method6550();
                         }
@@ -81,9 +81,9 @@ public final class Static563 {
             for (local3 = 0; local3 < Static319.anInt5080; local3++) {
                 Static265.aEnvironmentLightArray1[local3] = null;
             }
-            for (local6 = 0; local6 < Static299.anInt4824; local6++) {
-                for (local9 = 0; local9 < Static619.anInt1566; local9++) {
-                    for (@Pc(217) int local217 = 0; local217 < Static662.anInt9843; local217++) {
+            for (local6 = 0; local6 < Static299.tileMaxLevel; local6++) {
+                for (local9 = 0; local9 < Static619.tileMaxX; local9++) {
+                    for (@Pc(217) int local217 = 0; local217 < Static662.tileMaxZ; local217++) {
                         Static161.tileLightFlags[local6][local9][local217] = 0L;
                     }
                 }

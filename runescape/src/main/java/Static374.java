@@ -23,8 +23,8 @@ public final class Static374 {
         for (@Pc(3) int local3 = 1; local3 < arg0; local3++) {
             @Pc(8) Ground local8 = Static706.floor[local3];
             if (local8 != null) {
-                for (@Pc(12) int local12 = 0; local12 < Static662.anInt9843; local12++) {
-                    for (@Pc(15) int local15 = 0; local15 < Static619.anInt1566; local15++) {
+                for (@Pc(12) int local12 = 0; local12 < Static662.tileMaxZ; local12++) {
+                    for (@Pc(15) int local15 = 0; local15 < Static619.tileMaxX; local15++) {
                         local1 = local8.fa(local15, local12, local1);
                         if (local1 != null) {
                             @Pc(28) int local28 = local15 << Static52.anInt1066;

@@ -54,20 +54,20 @@ public final class Static409 {
                             @Pc(331) Tile local331;
                             @Pc(337) PositionEntityNode local337;
                             if (local116 && arg1[local139][local78][local100] != null) {
-                                if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2 != null) {
+                                if (arg1[local139][local78][local100].wall != null) {
                                     local185 = Static239.method3474(local86);
-                                    if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2.aShort58 == local185 || arg1[local139][local78][local100].aWall_1 != null && local185 == arg1[local139][local78][local100].aWall_1.aShort58) {
+                                    if (arg1[local139][local78][local100].wall.aShort58 == local185 || arg1[local139][local78][local100].adjacentWall != null && local185 == arg1[local139][local78][local100].adjacentWall.aShort58) {
                                         continue;
                                     }
                                     if (local94 != 0) {
                                         local235 = Static239.method3474(local94);
-                                        if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2.aShort58 == local235 || arg1[local139][local78][local100].aWall_1 != null && local235 == arg1[local139][local78][local100].aWall_1.aShort58) {
+                                        if (arg1[local139][local78][local100].wall.aShort58 == local235 || arg1[local139][local78][local100].adjacentWall != null && local235 == arg1[local139][local78][local100].adjacentWall.aShort58) {
                                             continue;
                                         }
                                     }
                                     if (local108 != 0) {
                                         local235 = Static239.method3474(local108);
-                                        if (arg1[local139][local78][local100].aClass8_Sub2_Sub3_2.aShort58 == local235 || arg1[local139][local78][local100].aWall_1 != null && arg1[local139][local78][local100].aWall_1.aShort58 == local235) {
+                                        if (arg1[local139][local78][local100].wall.aShort58 == local235 || arg1[local139][local78][local100].adjacentWall != null && arg1[local139][local78][local100].adjacentWall.aShort58 == local235) {
                                             continue;
                                         }
                                     }

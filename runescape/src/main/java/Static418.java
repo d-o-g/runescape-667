@@ -47,7 +47,7 @@ public final class Static418 {
             Static215.anIntArray284[0] = Static215.anIntArray284[1] = -1;
             return;
         }
-        @Pc(58) int local58 = Static102.method2025(arg0, -29754, arg1, arg3) - arg2;
+        @Pc(58) int local58 = Static102.averageHeight(arg0, -29754, arg1, arg3) - arg2;
         if (InterfaceManager.aBoolean210) {
             Static713.method9331(true);
         } else {

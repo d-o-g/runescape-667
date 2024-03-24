@@ -129,7 +129,7 @@ public final class StaticWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!jn", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
+    public void shareLight(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg6 instanceof StaticWall) {
             @Pc(34) StaticWall local34 = (StaticWall) arg6;
             if (this.model != null && local34.model != null) {
@@ -195,7 +195,7 @@ public final class StaticWall extends Wall implements Location {
 
     @OriginalMember(owner = "client!jn", name = "j", descriptor = "(I)V")
     @Override
-    public void method9280(@OriginalArg(0) int arg0) {
+    public void stopSharingLight(@OriginalArg(0) int arg0) {
         this.copyNormals = false;
         if (this.model != null) {
             this.model.s(this.model.ua() & 0xFFFEFFFF);

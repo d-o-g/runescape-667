@@ -137,7 +137,7 @@ public final class StaticLocation extends PositionEntity implements Location {
     @Override
     public boolean method9290(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
-            this.method9280(61);
+            this.stopSharingLight(61);
         }
         return this.copyNormals;
     }
@@ -173,7 +173,7 @@ public final class StaticLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!jda", name = "j", descriptor = "(I)V")
     @Override
-    public void method9280(@OriginalArg(0) int arg0) {
+    public void stopSharingLight(@OriginalArg(0) int arg0) {
         this.copyNormals = false;
         if (arg0 != 27811) {
             this.cylinder = null;
@@ -269,7 +269,7 @@ public final class StaticLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!jda", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
+    public void shareLight(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg6 instanceof StaticWall) {
             @Pc(38) StaticWall local38 = (StaticWall) arg6;
             if (this.model != null && local38.model != null) {

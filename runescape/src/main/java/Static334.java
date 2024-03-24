@@ -23,7 +23,7 @@ public final class Static334 {
             Static665.aToolkit_15.method7998(Static238.anIntArray307[3] - Static238.anIntArray307[1], Static238.anIntArray307[1], -256, Static537.anIntArray633[local14] + Static621.anIntArray766[local14]);
         }
         for (@Pc(43) int local43 = 0; local43 < Static469.anInt7072; local43++) {
-            @Pc(48) Class75 local48 = Static560.aClass75Array3[local43];
+            @Pc(48) LocOccluder local48 = Static560.aLocOccluderArray3[local43];
             Static665.aToolkit_15.H(local48.anIntArray185[0], local48.anIntArray186[0], local48.anIntArray188[0], Static625.anIntArray737);
             Static665.aToolkit_15.H(local48.anIntArray185[1], local48.anIntArray186[1], local48.anIntArray188[1], Static9.anIntArray19);
             Static665.aToolkit_15.H(local48.anIntArray185[2], local48.anIntArray186[2], local48.anIntArray188[2], Static574.anIntArray683);

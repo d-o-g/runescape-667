@@ -18,6 +18,6 @@ public final class Static379 {
             Static334.activeTiles = Static478.aTileArrayArrayArray3;
             Static246.ground = Static706.floor;
         }
-        Static299.anInt4824 = Static334.activeTiles.length;
+        Static299.tileMaxLevel = Static334.activeTiles.length;
     }
 }

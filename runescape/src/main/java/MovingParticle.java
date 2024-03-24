@@ -316,7 +316,7 @@ public final class MovingParticle extends Particle {
         @Pc(6) int local6 = super.anInt7537 >> Static52.anInt1066 + 12;
         @Pc(13) int local13 = super.anInt7536 >> Static52.anInt1066 + 12;
         @Pc(18) int local18 = super.anInt7534 >> 12;
-        if (local18 > 0 || local18 < -262144 || local6 < 0 || local6 >= Static619.anInt1566 || local13 < 0 || local13 >= Static662.anInt9843) {
+        if (local18 > 0 || local18 < -262144 || local6 < 0 || local6 >= Static619.tileMaxX || local13 < 0 || local13 >= Static662.tileMaxZ) {
             this.remove();
             return;
         }
@@ -326,11 +326,11 @@ public final class MovingParticle extends Particle {
         @Pc(49) int local49 = local40.level;
         @Pc(58) Tile local58 = Static334.activeTiles[local40.level][local6][local13];
         if (local58 != null) {
-            local49 = local58.aByte116;
+            local49 = local58.level;
         }
         @Pc(71) int local71 = local46[local49].getHeight(local13, local6);
         @Pc(86) int local86;
-        if (local49 < Static299.anInt4824 - 1) {
+        if (local49 < Static299.tileMaxLevel - 1) {
             local86 = local46[local49 + 1].getHeight(local13, local6);
         } else {
             local86 = local71 - (0x8 << Static52.anInt1066);
@@ -354,11 +354,11 @@ public final class MovingParticle extends Particle {
             }
         }
         @Pc(154) int local154;
-        for (local154 = Static299.anInt4824 - 1; local154 > 0 && local18 > local46[local154].getHeight(local13, local6); local154--) {
+        for (local154 = Static299.tileMaxLevel - 1; local154 > 0 && local18 > local46[local154].getHeight(local13, local6); local154--) {
         }
         if (local44.collidesWithGround && local154 == 0 && local18 > local46[0].getHeight(local13, local6)) {
             this.remove();
-        } else if (local154 == Static299.anInt4824 - 1 && local46[local154].getHeight(local13, local6) - local18 > 0x8 << Static52.anInt1066) {
+        } else if (local154 == Static299.tileMaxLevel - 1 && local46[local154].getHeight(local13, local6) - local18 > 0x8 << Static52.anInt1066) {
             this.remove();
         } else {
             local58 = Static334.activeTiles[local154][local6][local13];
@@ -367,7 +367,7 @@ public final class MovingParticle extends Particle {
                 if (local154 == 0 || Static334.activeTiles[0][local6][local13] == null) {
                     local58 = Static334.activeTiles[0][local6][local13] = new Tile(0);
                 }
-                @Pc(251) boolean local251 = Static334.activeTiles[0][local6][local13].aTile_1 != null;
+                @Pc(251) boolean local251 = Static334.activeTiles[0][local6][local13].tile != null;
                 if (local154 == 3 && local251) {
                     this.remove();
                     return;
@@ -376,7 +376,7 @@ public final class MovingParticle extends Particle {
                     if (Static334.activeTiles[local261][local6][local13] == null) {
                         local58 = Static334.activeTiles[local261][local6][local13] = new Tile(local261);
                         if (local251) {
-                            local58.aByte116++;
+                            local58.level++;
                         }
                     }
                 }
@@ -385,15 +385,15 @@ public final class MovingParticle extends Particle {
                 @Pc(304) int local304 = super.anInt7537 >> 12;
                 local261 = super.anInt7536 >> 12;
                 @Pc(318) BoundingCylinder local318;
-                if (local58.aClass8_Sub2_Sub3_2 != null) {
-                    local318 = local58.aClass8_Sub2_Sub3_2.getCylinder(arg0, -105);
+                if (local58.wall != null) {
+                    local318 = local58.wall.getCylinder(arg0, -105);
                     if (local318 != null && local318.method4631(local18, local261, local304)) {
                         this.remove();
                         return;
                     }
                 }
-                if (local58.aWall_1 != null) {
-                    local318 = local58.aWall_1.getCylinder(arg0, -120);
+                if (local58.adjacentWall != null) {
+                    local318 = local58.adjacentWall.getCylinder(arg0, -120);
                     if (local318 != null && local318.method4631(local18, local261, local304)) {
                         this.remove();
                         return;

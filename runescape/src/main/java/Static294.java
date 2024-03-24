@@ -76,7 +76,7 @@ public final class Static294 {
                 local169 = Static140.anIntArray222[4] + 128;
             }
             local204 = Static288.anInt4621 + (int) Camera.playerCameraYaw & 0x3FFF;
-            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Camera.renderingLevel, -29754, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
+            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, -29754, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
         } else if (Camera.mode == 4) {
             local169 = (int) Static479.aFloat123;
             if (Static188.anInt3103 >> 8 > local169) {
@@ -86,7 +86,7 @@ public final class Static294 {
                 local169 = Static140.anIntArray222[4] + 128;
             }
             local204 = (int) Camera.playerCameraYaw & 0x3FFF;
-            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Camera.renderingLevel, -29754, Static249.anInt4018, Static433.anInt6262) - 200);
+            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, -29754, Static249.anInt4018, Static433.anInt6262) - 200);
         } else if (Camera.mode == 5) {
             Static110.method2079(local161);
         }
@@ -127,11 +127,11 @@ public final class Static294 {
         if (Camera.positionZ < 0) {
             Camera.positionZ = 0;
         }
-        if (Camera.positionX > (Static619.anInt1566 << 9) - 1) {
-            Camera.positionX = (Static619.anInt1566 << 9) - 1;
+        if (Camera.positionX > (Static619.tileMaxX << 9) - 1) {
+            Camera.positionX = (Static619.tileMaxX << 9) - 1;
         }
-        if (Camera.positionZ > (Static662.anInt9843 << 9) - 1) {
-            Camera.positionZ = (Static662.anInt9843 << 9) - 1;
+        if (Camera.positionZ > (Static662.tileMaxZ << 9) - 1) {
+            Camera.positionZ = (Static662.tileMaxZ << 9) - 1;
         }
         Static276.method3988();
         Toolkit.active.KA(local153, local159, local155 + local153, local159 + local161);

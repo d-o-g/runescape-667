@@ -10,17 +10,17 @@ public final class Static584 {
         if (local4 == null) {
             return;
         }
-        local4.aClass8_Sub2_Sub3_2 = arg3;
-        local4.aWall_1 = arg4;
+        local4.wall = arg3;
+        local4.adjacentWall = arg4;
         @Pc(22) int local22 = Static246.ground == Static693.underwaterGround ? 1 : 0;
         if (!arg3.isStationary()) {
-            arg3.dynamicEntity = Static468.dynamicEntities[local22];
+            arg3.nextEntity = Static468.dynamicEntities[local22];
             Static468.dynamicEntities[local22] = arg3;
         } else if (arg3.isTransparent(0)) {
-            arg3.dynamicEntity = Static398.transparentStationaryEntities[local22];
+            arg3.nextEntity = Static398.transparentStationaryEntities[local22];
             Static398.transparentStationaryEntities[local22] = arg3;
         } else {
-            arg3.dynamicEntity = Static576.opaqueStationaryEntities[local22];
+            arg3.nextEntity = Static576.opaqueStationaryEntities[local22];
             Static576.opaqueStationaryEntities[local22] = arg3;
             Static75.hasOpaqueStationaryEntities = true;
         }
@@ -29,16 +29,16 @@ public final class Static584 {
         }
         if (arg4.isStationary()) {
             if (arg4.isTransparent(0)) {
-                arg4.dynamicEntity = Static398.transparentStationaryEntities[local22];
+                arg4.nextEntity = Static398.transparentStationaryEntities[local22];
                 Static398.transparentStationaryEntities[local22] = arg4;
                 return;
             }
-            arg4.dynamicEntity = Static576.opaqueStationaryEntities[local22];
+            arg4.nextEntity = Static576.opaqueStationaryEntities[local22];
             Static576.opaqueStationaryEntities[local22] = arg4;
             Static75.hasOpaqueStationaryEntities = true;
             return;
         }
-        arg4.dynamicEntity = Static468.dynamicEntities[local22];
+        arg4.nextEntity = Static468.dynamicEntities[local22];
         Static468.dynamicEntities[local22] = arg4;
     }
 

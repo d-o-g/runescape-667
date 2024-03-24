@@ -32,7 +32,7 @@ public abstract class Entity extends Node {
     public int z;
 
     @OriginalMember(owner = "client!eo", name = "t", descriptor = "Lclient!eo;")
-    public Entity dynamicEntity;
+    public Entity nextEntity;
 
     @OriginalMember(owner = "client!eo", name = "i", descriptor = "I")
     public int anInt10697;
@@ -81,7 +81,7 @@ public abstract class Entity extends Node {
     public abstract boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit toolkit);
 
     @OriginalMember(owner = "client!eo", name = "j", descriptor = "(I)V")
-    public abstract void method9280(@OriginalArg(0) int arg0);
+    public abstract void stopSharingLight(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!eo", name = "h", descriptor = "(I)Z")
     public abstract boolean isTransparent(@OriginalArg(0) int arg0);
@@ -93,7 +93,7 @@ public abstract class Entity extends Node {
     public abstract boolean method9284(@OriginalArg(0) byte arg0, @OriginalArg(1) Toolkit arg1);
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
-    public abstract void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6);
+    public abstract void shareLight(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6);
 
     @OriginalMember(owner = "client!eo", name = "k", descriptor = "(I)I")
     public abstract int getMinY(@OriginalArg(0) int arg0);

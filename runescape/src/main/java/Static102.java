@@ -1,3 +1,4 @@
+import com.jagex.core.constants.TileFlag;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -27,23 +28,26 @@ public final class Static102 {
     }
 
     @OriginalMember(owner = "client!dd", name = "b", descriptor = "(IIII)I")
-    public static int method2025(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public static int averageHeight(@OriginalArg(0) int level, @OriginalArg(1) int arg1, @OriginalArg(2) int y, @OriginalArg(3) int x) {
         if (arg1 != -29754) {
             method2026(null, false);
         }
         if (Static246.ground == null) {
             return 0;
         }
-        @Pc(21) int local21 = arg3 >> 9;
-        @Pc(25) int local25 = arg2 >> 9;
-        if (local21 < 0 || local25 < 0 || Static720.mapWidth - 1 < local21 || Static501.mapHeight - 1 < local25) {
+
+        @Pc(21) int localX = x >> 9;
+        @Pc(25) int localY = y >> 9;
+        if (localX < 0 || localY < 0 || Static720.mapWidth - 1 < localX || Static501.mapHeight - 1 < localY) {
             return 0;
         }
-        @Pc(56) int local56 = arg0;
-        if (arg0 < 3 && (Static280.tileFlags[1][local21][local25] & 0x2) != 0) {
-            local56 = arg0 + 1;
+
+        @Pc(56) int virtualLevel = level;
+        if (level < 3 && (Static280.tileFlags[1][localX][localY] & TileFlag.BRIDGE) != 0) {
+            virtualLevel = level + 1;
         }
-        return Static246.ground[local56].averageHeight(arg2, arg3);
+
+        return Static246.ground[virtualLevel].averageHeight(y, x);
     }
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "(Lclient!qf;Z)Z")
@@ -55,7 +59,7 @@ public final class Static102 {
 
         entity.updateBounds();
 
-        if (entity.x1 < 0 || entity.z1 < 0 || entity.x2 >= Static619.anInt1566 || entity.z2 >= Static662.anInt9843) {
+        if (entity.x1 < 0 || entity.z1 < 0 || entity.x2 >= Static619.tileMaxX || entity.z2 >= Static662.tileMaxZ) {
             return false;
         }
 
@@ -109,13 +113,13 @@ public final class Static102 {
             @Pc(48) int ground = Static246.ground == Static693.underwaterGround ? 1 : 0;
 
             if (!entity.isStationary()) {
-                entity.dynamicEntity = Static468.dynamicEntities[ground];
+                entity.nextEntity = Static468.dynamicEntities[ground];
                 Static468.dynamicEntities[ground] = entity;
             } else if (entity.isTransparent(0)) {
-                entity.dynamicEntity = Static398.transparentStationaryEntities[ground];
+                entity.nextEntity = Static398.transparentStationaryEntities[ground];
                 Static398.transparentStationaryEntities[ground] = entity;
             } else {
-                entity.dynamicEntity = Static576.opaqueStationaryEntities[ground];
+                entity.nextEntity = Static576.opaqueStationaryEntities[ground];
                 Static576.opaqueStationaryEntities[ground] = entity;
                 Static75.hasOpaqueStationaryEntities = true;
             }

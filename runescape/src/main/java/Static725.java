@@ -37,16 +37,16 @@ public final class Static725 {
         Static107.aMatrix_3 = arg0.method8017();
         Static469.anInt7072 = 0;
         for (@Pc(117) int local117 = 0; local117 < Static317.anInt5046; local117++) {
-            Static494.method6601(arg1, Static384.aClass75Array2[local117], arg0);
+            Static494.method6601(arg1, Static384.aLocOccluderArray2[local117], arg0);
         }
         if (-20 != -20) {
             anIntArray890 = null;
         }
         for (@Pc(149) int local149 = 0; local149 < Static444.anInt6751; local149++) {
-            Static494.method6601(arg1, Static607.aClass75Array4[local149], arg0);
+            Static494.method6601(arg1, Static607.aLocOccluderArray4[local149], arg0);
         }
         for (@Pc(170) int local170 = 0; local170 < Static150.anInt2634; local170++) {
-            Static494.method6601(arg1, Static285.aClass75Array1[local170], arg0);
+            Static494.method6601(arg1, Static285.aLocOccluderArray1[local170], arg0);
         }
         Static432.anInt525 = 0;
         if (Static469.anInt7072 > 0) {
@@ -68,7 +68,7 @@ public final class Static725 {
             }
             Static254.anInt4115 = 1;
             for (@Pc(289) int local289 = 0; local289 < Static469.anInt7072; local289++) {
-                @Pc(295) Class75 local295 = Static560.aClass75Array3[local289];
+                @Pc(295) LocOccluder local295 = Static560.aLocOccluderArray3[local289];
                 Static264.method9460(local295.aShortArray17[0], local295.aShortArray18[0], local295.aShortArray19[3], local295.aShortArray19[1], local295.aShortArray18[3], local295.aShortArray17[3], local295.aShortArray18[1], local295.aShortArray19[0], local295.aShortArray17[1]);
                 Static264.method9460(local295.aShortArray17[1], local295.aShortArray18[1], local295.aShortArray19[3], local295.aShortArray19[2], local295.aShortArray18[3], local295.aShortArray17[3], local295.aShortArray18[2], local295.aShortArray19[1], local295.aShortArray17[2]);
             }

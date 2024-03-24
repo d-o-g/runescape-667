@@ -102,7 +102,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "<init>", descriptor = "(IIIIIIIIIIIIIZI)V")
     public Class8_Sub2_Sub1_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) boolean arg13, @OriginalArg(14) int arg14) {
-        super(arg1, arg2, arg3, Static102.method2025(arg1, -29754, arg4, arg3) - arg5, arg4, arg3 >> 9, arg3 >> 9, arg4 >> 9, arg4 >> 9, false, (byte) 0);
+        super(arg1, arg2, arg3, Static102.averageHeight(arg1, -29754, arg4, arg3) - arg5, arg4, arg3 >> 9, arg3 >> 9, arg4 >> 9, arg4 >> 9, false, (byte) 0);
         this.anInt721 = arg5;
         this.anInt715 = arg0;
         this.anInt722 = arg6;
@@ -139,7 +139,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
             this.translateZ = (double) this.anInt709 * local16 / local25 + (double) super.z;
             this.translateX = (double) super.x + local9 * (double) this.anInt709 / local25;
             if (this.aBoolean57) {
-                this.translateY = Static102.method2025(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.anInt721;
+                this.translateY = Static102.averageHeight(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.anInt721;
             } else {
                 this.translateY = super.y;
             }
@@ -176,7 +176,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "j", descriptor = "(I)V")
     @Override
-    public void method9280(@OriginalArg(0) int arg0) {
+    public void stopSharingLight(@OriginalArg(0) int arg0) {
         if (arg0 != 27811) {
             this.anInt695 = -9;
         }
@@ -185,7 +185,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")
     @Override
-    public void method9285(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
+    public void shareLight(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte arg4, @OriginalArg(5) int arg5, @OriginalArg(6) Entity arg6) {
         if (arg4 >= 101) {
             throw new IllegalStateException();
         }
@@ -240,7 +240,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         }
         super.z = local21.z;
         super.x = local21.x;
-        super.y = Static102.method2025(super.level, -29754, local21.z, local21.x) - this.anInt721;
+        super.y = Static102.averageHeight(super.level, -29754, local21.z, local21.x) - this.anInt721;
         if (this.anInt695 < 0) {
             return;
         }
@@ -383,7 +383,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         this.aBoolean59 = true;
         this.translateZ += (double) arg0 * this.aDouble2;
         if (this.aBoolean57) {
-            this.translateY = Static102.method2025(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.anInt721;
+            this.translateY = Static102.averageHeight(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.anInt721;
         } else if (this.anInt705 == -1) {
             this.translateY += this.aDouble1 * (double) arg0;
         } else {

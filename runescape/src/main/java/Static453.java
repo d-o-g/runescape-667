@@ -5,30 +5,30 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static453 {
 
     @OriginalMember(owner = "client!of", name = "a", descriptor = "(Lclient!eo;III)V")
-    public static void method6209(@OriginalArg(0) Entity arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        @Pc(12) Tile local12;
-        if (arg2 < Static619.anInt1566) {
-            local12 = Static334.activeTiles[arg1][arg2 + 1][arg3];
-            if (local12 != null && local12.groundDecor != null && local12.groundDecor.method9290(0)) {
-                arg0.method9285(0, true, Static665.aToolkit_15, 0, (byte) 108, Static340.anInt5586, local12.groundDecor);
+    public static void shareLight(@OriginalArg(0) Entity entity, @OriginalArg(1) int level, @OriginalArg(2) int x, @OriginalArg(3) int y) {
+        @Pc(12) Tile tile;
+        if (x < Static619.tileMaxX) {
+            tile = Static334.activeTiles[level][x + 1][y];
+            if (tile != null && tile.groundDecor != null && tile.groundDecor.method9290(0)) {
+                entity.shareLight(0, true, Static665.aToolkit_15, 0, (byte) 108, Static340.anInt5586, tile.groundDecor);
             }
         }
-        if (arg3 < Static619.anInt1566) {
-            local12 = Static334.activeTiles[arg1][arg2][arg3 + 1];
-            if (local12 != null && local12.groundDecor != null && local12.groundDecor.method9290(0)) {
-                arg0.method9285(0, true, Static665.aToolkit_15, Static340.anInt5586, (byte) 118, 0, local12.groundDecor);
+        if (y < Static619.tileMaxX) {
+            tile = Static334.activeTiles[level][x][y + 1];
+            if (tile != null && tile.groundDecor != null && tile.groundDecor.method9290(0)) {
+                entity.shareLight(0, true, Static665.aToolkit_15, Static340.anInt5586, (byte) 118, 0, tile.groundDecor);
             }
         }
-        if (arg2 < Static619.anInt1566 && arg3 < Static662.anInt9843) {
-            local12 = Static334.activeTiles[arg1][arg2 + 1][arg3 + 1];
-            if (local12 != null && local12.groundDecor != null && local12.groundDecor.method9290(0)) {
-                arg0.method9285(0, true, Static665.aToolkit_15, Static340.anInt5586, (byte) 122, Static340.anInt5586, local12.groundDecor);
+        if (x < Static619.tileMaxX && y < Static662.tileMaxZ) {
+            tile = Static334.activeTiles[level][x + 1][y + 1];
+            if (tile != null && tile.groundDecor != null && tile.groundDecor.method9290(0)) {
+                entity.shareLight(0, true, Static665.aToolkit_15, Static340.anInt5586, (byte) 122, Static340.anInt5586, tile.groundDecor);
             }
         }
-        if (arg2 < Static619.anInt1566 && arg3 > 0) {
-            local12 = Static334.activeTiles[arg1][arg2 + 1][arg3 - 1];
-            if (local12 != null && local12.groundDecor != null && local12.groundDecor.method9290(0)) {
-                arg0.method9285(0, true, Static665.aToolkit_15, -Static340.anInt5586, (byte) 121, Static340.anInt5586, local12.groundDecor);
+        if (x < Static619.tileMaxX && y > 0) {
+            tile = Static334.activeTiles[level][x + 1][y - 1];
+            if (tile != null && tile.groundDecor != null && tile.groundDecor.method9290(0)) {
+                entity.shareLight(0, true, Static665.aToolkit_15, -Static340.anInt5586, (byte) 121, Static340.anInt5586, tile.groundDecor);
             }
         }
     }

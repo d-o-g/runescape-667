@@ -51,19 +51,19 @@ public abstract class Wall extends Entity {
             return this.findLightsAt(arg0, localZ, localX);
         } else if (this.aShort58 == 1 && localX > 0) {
             return this.findLightsAt(arg0, localZ, localX - 1);
-        } else if (this.aShort58 == 4 && Static619.anInt1566 >= localX) {
+        } else if (this.aShort58 == 4 && Static619.tileMaxX >= localX) {
             return this.findLightsAt(arg0, localZ, localX + 1);
         } else if (this.aShort58 == 8 && localZ > 0) {
             return this.findLightsAt(arg0, localZ - 1, localX);
-        } else if (this.aShort58 == 2 && Static662.anInt9843 >= localZ) {
+        } else if (this.aShort58 == 2 && Static662.tileMaxZ >= localZ) {
             return this.findLightsAt(arg0, localZ + 1, localX);
-        } else if (this.aShort58 == 16 && localX > 0 && localZ <= Static662.anInt9843) {
+        } else if (this.aShort58 == 16 && localX > 0 && localZ <= Static662.tileMaxZ) {
             return this.findLightsAt(arg0, localZ + 1, localX + -1);
-        } else if (this.aShort58 == 32 && localX <= Static619.anInt1566 && Static662.anInt9843 >= localZ) {
+        } else if (this.aShort58 == 32 && localX <= Static619.tileMaxX && Static662.tileMaxZ >= localZ) {
             return this.findLightsAt(arg0, localZ + 1, localX + 1);
         } else if (this.aShort58 == 128 && localX > 0 && localZ > 0) {
             return this.findLightsAt(arg0, localZ - 1, localX + -1);
-        } else if (this.aShort58 == 64 && Static619.anInt1566 >= localX && localZ > 0) {
+        } else if (this.aShort58 == 64 && Static619.tileMaxX >= localX && localZ > 0) {
             return this.findLightsAt(arg0, localZ - 1, localX + 1);
         } else {
             throw new RuntimeException("");

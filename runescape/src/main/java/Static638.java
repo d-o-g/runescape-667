@@ -86,7 +86,7 @@ public final class Static638 {
         if (Static179.anInt2991 >= 100) {
             @Pc(22) int local22 = Static441.anInt6689 * 512 + 256;
             @Pc(28) int local28 = Static12.anInt5741 * 512 + 256;
-            @Pc(36) int local36 = Static102.method2025(Camera.renderingLevel, -29754, local28, local22) - Static55.anInt1125;
+            @Pc(36) int local36 = Static102.averageHeight(Camera.renderingLevel, -29754, local28, local22) - Static55.anInt1125;
             @Pc(41) int local41 = local22 - Camera.positionX;
             @Pc(46) int local46 = local36 - Camera.positionY;
             @Pc(51) int local51 = local28 - Camera.positionZ;
@@ -107,14 +107,15 @@ public final class Static638 {
     }
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(III)Lclient!nda;")
-    public static Class8_Sub2_Sub5 method8398(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(7) Tile local7 = Static334.activeTiles[arg0][arg1][arg2];
+    public static Class8_Sub2_Sub5 method8398(@OriginalArg(0) int level, @OriginalArg(1) int x, @OriginalArg(2) int z) {
+        @Pc(7) Tile local7 = Static334.activeTiles[level][x][z];
+
         if (local7 == null) {
             return null;
         } else {
             @Pc(15) Class8_Sub2_Sub5 local15 = local7.aClass8_Sub2_Sub5_1;
             local7.aClass8_Sub2_Sub5_1 = null;
-            Static109.method2068(local15);
+            Static109.hide(local15);
             return local15;
         }
     }

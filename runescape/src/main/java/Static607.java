@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static607 {
 
     @OriginalMember(owner = "client!tca", name = "fh", descriptor = "[Lclient!dda;")
-    public static Class75[] aClass75Array4;
+    public static LocOccluder[] aLocOccluderArray4;
 
     @OriginalMember(owner = "client!tca", name = "Ci", descriptor = "[I")
     public static final int[] anIntArray711 = new int[1];

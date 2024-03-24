@@ -18,17 +18,17 @@ public final class Static458 {
                         if (local29.groundDecor instanceof Location) {
                             ((Location) local29.groundDecor).method6856();
                         }
-                        if (local29.aWallDecor_1 instanceof Location) {
-                            local29.aWallDecor_1.method6856();
+                        if (local29.wallDecor instanceof Location) {
+                            local29.wallDecor.method6856();
                         }
-                        if (local29.aClass8_Sub2_Sub4_2 instanceof Location) {
-                            local29.aClass8_Sub2_Sub4_2.method6856();
+                        if (local29.wallDecor2 instanceof Location) {
+                            local29.wallDecor2.method6856();
                         }
-                        if (local29.aClass8_Sub2_Sub3_2 instanceof Location) {
-                            ((Location) local29.aClass8_Sub2_Sub3_2).method6856();
+                        if (local29.wall instanceof Location) {
+                            ((Location) local29.wall).method6856();
                         }
-                        if (local29.aWall_1 instanceof Location) {
-                            ((Location) local29.aWall_1).method6856();
+                        if (local29.adjacentWall instanceof Location) {
+                            ((Location) local29.adjacentWall).method6856();
                         }
                         for (@Pc(91) PositionEntityNode local91 = local29.head; local91 != null; local91 = local91.node) {
                             @Pc(95) PositionEntity local95 = local91.entity;

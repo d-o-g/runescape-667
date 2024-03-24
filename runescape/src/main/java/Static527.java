@@ -29,14 +29,14 @@ public final class Static527 {
                     if (CutsceneManager.state == 3) {
                         @Pc(61) PathingEntity local61 = Static219.aClass236Array1[local20.anInt711 - 1].method5363();
                         if (local61 != null && local61.x >= 0 && local61.x < Static720.mapWidth * 512 && local61.z >= 0 && local61.z < Static501.mapHeight * 512) {
-                            local20.method813(Static102.method2025(local20.level, -29754, local61.z, local61.x) - local20.lb, TimeUtils.clock, local61.z, local61.x);
+                            local20.method813(Static102.averageHeight(local20.level, -29754, local61.z, local61.x) - local20.lb, TimeUtils.clock, local61.z, local61.x);
                         }
                     } else {
                         @Pc(130) NPCEntityNode local130 = (NPCEntityNode) NPCList.local.get(local20.anInt711 - 1);
                         if (local130 != null) {
                             @Pc(135) NPCEntity local135 = local130.npc;
                             if (local135.x >= 0 && local135.x < Static720.mapWidth * 512 && local135.z >= 0 && local135.z < Static501.mapHeight * 512) {
-                                local20.method813(Static102.method2025(local20.level, -29754, local135.z, local135.x) - local20.lb, TimeUtils.clock, local135.z, local135.x);
+                                local20.method813(Static102.averageHeight(local20.level, -29754, local135.z, local135.x) - local20.lb, TimeUtils.clock, local135.z, local135.x);
                             }
                         }
                     }
@@ -50,7 +50,7 @@ public final class Static527 {
                         local198 = PlayerList.highResolutionPlayers[local193];
                     }
                     if (local198 != null && local198.x >= 0 && Static720.mapWidth * 512 > local198.x && local198.z >= 0 && Static501.mapHeight * 512 > local198.z) {
-                        local20.method813(Static102.method2025(local20.level, -29754, local198.z, local198.x) - local20.lb, TimeUtils.clock, local198.z, local198.x);
+                        local20.method813(Static102.averageHeight(local20.level, -29754, local198.z, local198.x) - local20.lb, TimeUtils.clock, local198.z, local198.x);
                     }
                 }
                 local20.method819(Static35.currentTick);
@@ -61,12 +61,12 @@ public final class Static527 {
 
     @OriginalMember(owner = "client!qka", name = "a", descriptor = "(III)V")
     public static void method7084(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(23) boolean local23 = Static334.activeTiles[0][arg1][arg2] != null && Static334.activeTiles[0][arg1][arg2].aTile_1 != null;
+        @Pc(23) boolean local23 = Static334.activeTiles[0][arg1][arg2] != null && Static334.activeTiles[0][arg1][arg2].tile != null;
         for (@Pc(25) int local25 = arg0; local25 >= 0; local25--) {
             if (Static334.activeTiles[local25][arg1][arg2] == null) {
                 @Pc(47) Tile local47 = Static334.activeTiles[local25][arg1][arg2] = new Tile(local25);
                 if (local23) {
-                    local47.aByte116++;
+                    local47.level++;
                 }
             }
         }

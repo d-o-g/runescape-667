@@ -34,6 +34,6 @@ public final class CutsceneAction_Sub6 extends CutsceneAction {
     @OriginalMember(owner = "client!fm", name = "b", descriptor = "(I)V")
     @Override
     public void method9161() {
-        Static540.method6539(Camera.renderingLevel, this.anInt3021, this.aString33, this.anInt3026, Static102.method2025(Camera.renderingLevel, -29754, this.anInt3020, this.anInt3025), this.anInt3025, this.anInt3020);
+        Static540.method6539(Camera.renderingLevel, this.anInt3021, this.aString33, this.anInt3026, Static102.averageHeight(Camera.renderingLevel, -29754, this.anInt3020, this.anInt3025), this.anInt3025, this.anInt3020);
     }
 }

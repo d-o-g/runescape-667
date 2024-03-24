@@ -11,16 +11,16 @@ public final class Static276 {
     public static void method3986() {
         Static317.anInt5046 = 0;
         Static442.aBoolean499 = false;
-        Static384.aClass75Array2 = new Class75[500];
+        Static384.aLocOccluderArray2 = new LocOccluder[500];
         Static150.anInt2634 = 0;
-        Static446.anIntArrayArrayArray9 = new int[Static299.anInt4824][Static619.anInt1566 + 1][Static662.anInt9843 + 1];
+        Static446.anIntArrayArrayArray9 = new int[Static299.tileMaxLevel][Static619.tileMaxX + 1][Static662.tileMaxZ + 1];
         Static663.anInt9874 = Static340.anInt5586;
         Static86.anInt1803 = Static340.anInt5586;
         Static444.anInt6751 = 0;
-        Static607.aClass75Array4 = new Class75[2000];
-        Static285.aClass75Array1 = new Class75[1000];
+        Static607.aLocOccluderArray4 = new LocOccluder[2000];
+        Static285.aLocOccluderArray1 = new LocOccluder[1000];
         Static469.anInt7072 = 0;
-        Static560.aClass75Array3 = new Class75[500];
+        Static560.aLocOccluderArray3 = new LocOccluder[500];
         if (Static665.aToolkit_15 instanceof oa) {
             Static18.aBoolean20 = false;
         } else {
@@ -55,7 +55,7 @@ public final class Static276 {
         @Pc(95) int local95 = PlayerEntity.self.z;
         @Pc(149) int local149;
         if (Camera.mode != 1 && Static692.anInt10376 == -1) {
-            local149 = Static102.method2025(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX);
+            local149 = Static102.averageHeight(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX);
             if (local149 - Camera.positionY < 3200 && (Static280.tileFlags[Camera.renderingLevel][Camera.positionX >> 9][Camera.positionZ >> 9] & 0x4) != 0) {
                 Static409.method5656(Camera.positionZ >> 9, Static334.activeTiles, 1, Camera.positionX >> 9, false);
                 return;

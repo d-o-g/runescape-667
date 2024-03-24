@@ -12,7 +12,7 @@ public final class Static176 {
 
     @OriginalMember(owner = "client!fi", name = "a", descriptor = "()V")
     public static void method6688() {
-        Static374.method5303(Static299.anInt4824);
+        Static374.method5303(Static299.tileMaxLevel);
     }
 
     @OriginalMember(owner = "client!fi", name = "a", descriptor = "(III)Z")

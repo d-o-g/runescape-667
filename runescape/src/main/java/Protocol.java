@@ -1332,7 +1332,7 @@ public final class Protocol {
                                                                             if (local653 < 3 && Static441.isBridgeAt(local3502, local657)) {
                                                                                 local667 = local653 + 1;
                                                                             }
-                                                                            @Pc(5334) SpotAnimation local5334 = new SpotAnimation(local2098, local277, local653, local667, local1021, Static102.method2025(local653, -29754, local1097, local1021) - local1413, local1097, local657, local657, local3502, local3502, local992, local4806);
+                                                                            @Pc(5334) SpotAnimation local5334 = new SpotAnimation(local2098, local277, local653, local667, local1021, Static102.averageHeight(local653, -29754, local1097, local1021) - local1413, local1097, local657, local657, local3502, local3502, local992, local4806);
                                                                             Static346.A_HASH_TABLE___29.put(local3502 | local657 << 16, new SpotAnimationNode(local5334));
                                                                         }
                                                                     }
@@ -1572,7 +1572,7 @@ public final class Protocol {
                                                                         if (Static87.anInt1810 == local100 && local1409 >= Static626.anInt9476 && Static626.anInt9476 + 8 > local1409 && local2098 >= Static270.anInt4354 && Static270.anInt4354 + 8 > local2098) {
                                                                             local6277.unlink();
                                                                             if (local1409 >= 0 && local2098 >= 0 && Static720.mapWidth > local1409 && local2098 < Static501.mapHeight) {
-                                                                                Static468.method7641(Static87.anInt1810, local2098, local1409);
+                                                                                Static468.updateObjCount(Static87.anInt1810, local2098, local1409);
                                                                             }
                                                                         }
                                                                     }

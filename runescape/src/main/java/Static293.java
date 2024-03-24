@@ -30,7 +30,7 @@ public final class Static293 {
             location = (Location) Static578.getEntity(request.anInt4010, request.anInt4016, request.anInt4006, aClass10 == null ? (aClass10 = getClass("Location")) : aClass10);
         }
         if (request.layer == LocLayer.GROUNDDECOR) {
-            location = (Location) Static687.method8959(request.anInt4010, request.anInt4016, request.anInt4006);
+            location = (Location) Static687.getGroundDecor(request.anInt4010, request.anInt4016, request.anInt4006);
         }
 
         if (location == null) {

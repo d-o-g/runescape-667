@@ -7,11 +7,11 @@ public final class Static592 {
     public static void method7761() {
         @Pc(9) int local9 = Camera.anInt2333 * 512 + 256;
         @Pc(15) int local15 = Camera.anInt10667 * 512 + 256;
-        @Pc(24) int local24 = Static102.method2025(Camera.renderingLevel, -29754, local15, local9) - Static363.anInt6934;
+        @Pc(24) int local24 = Static102.averageHeight(Camera.renderingLevel, -29754, local15, local9) - Static363.anInt6934;
         if (Static674.anInt10088 >= 100) {
             Camera.positionX = Camera.anInt2333 * 512 + 256;
             Camera.positionZ = Camera.anInt10667 * 512 + 256;
-            Camera.positionY = Static102.method2025(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX) - Static363.anInt6934;
+            Camera.positionY = Static102.averageHeight(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX) - Static363.anInt6934;
         } else {
             if (Camera.positionX < local9) {
                 Camera.positionX += Static694.anInt10411 + (local9 - Camera.positionX) * Static674.anInt10088 / 1000;
@@ -52,7 +52,7 @@ public final class Static592 {
         }
         local15 = Static12.anInt5741 * 512 + 256;
         local9 = Static441.anInt6689 * 512 + 256;
-        local24 = Static102.method2025(Camera.renderingLevel, -29754, local15, local9) - Static55.anInt1125;
+        local24 = Static102.averageHeight(Camera.renderingLevel, -29754, local15, local9) - Static55.anInt1125;
         @Pc(259) int local259 = local9 - Camera.positionX;
         @Pc(264) int local264 = local24 - Camera.positionY;
         @Pc(269) int local269 = local15 - Camera.positionZ;

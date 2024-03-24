@@ -8,40 +8,46 @@ public final class Static646 {
     public static int anInt9621;
 
     @OriginalMember(owner = "client!uga", name = "a", descriptor = "(II)V")
-    public static void method8453(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(7) Tile local7 = Static334.activeTiles[0][arg0][arg1];
-        for (@Pc(9) int local9 = 0; local9 < 3; local9++) {
-            @Pc(28) Tile local28 = Static334.activeTiles[local9][arg0][arg1] = Static334.activeTiles[local9 + 1][arg0][arg1];
-            if (local28 != null) {
-                for (@Pc(33) PositionEntityNode local33 = local28.head; local33 != null; local33 = local33.node) {
-                    @Pc(37) PositionEntity local37 = local33.entity;
-                    if (local37.x1 == arg0 && local37.z1 == arg1) {
-                        local37.level--;
-                    }
-                }
-                if (local28.groundDecor != null) {
-                    local28.groundDecor.level--;
-                }
-                if (local28.aClass8_Sub2_Sub3_2 != null) {
-                    local28.aClass8_Sub2_Sub3_2.level--;
-                }
-                if (local28.aWall_1 != null) {
-                    local28.aWall_1.level--;
-                }
-                if (local28.aWallDecor_1 != null) {
-                    local28.aWallDecor_1.level--;
-                }
-                if (local28.aClass8_Sub2_Sub4_2 != null) {
-                    local28.aClass8_Sub2_Sub4_2.level--;
+    public static void method8453(@OriginalArg(0) int x, @OriginalArg(1) int z) {
+        @Pc(7) Tile tile0 = Static334.activeTiles[0][x][z];
+
+        for (@Pc(9) int level = 0; level < 3; level++) {
+            @Pc(28) Tile tile = Static334.activeTiles[level][x][z] = Static334.activeTiles[level + 1][x][z];
+            if (tile == null) {
+                continue;
+            }
+
+            for (@Pc(33) PositionEntityNode node = tile.head; node != null; node = node.node) {
+                @Pc(37) PositionEntity entity = node.entity;
+                if (entity.x1 == x && entity.z1 == z) {
+                    entity.level--;
                 }
             }
+
+            if (tile.groundDecor != null) {
+                tile.groundDecor.level--;
+            }
+            if (tile.wall != null) {
+                tile.wall.level--;
+            }
+            if (tile.adjacentWall != null) {
+                tile.adjacentWall.level--;
+            }
+            if (tile.wallDecor != null) {
+                tile.wallDecor.level--;
+            }
+            if (tile.wallDecor2 != null) {
+                tile.wallDecor2.level--;
+            }
         }
-        if (Static334.activeTiles[0][arg0][arg1] == null) {
-            Static334.activeTiles[0][arg0][arg1] = new Tile(0);
-            Static334.activeTiles[0][arg0][arg1].aByte116 = 1;
+
+        if (Static334.activeTiles[0][x][z] == null) {
+            Static334.activeTiles[0][x][z] = new Tile(0);
+            Static334.activeTiles[0][x][z].level = 1;
         }
-        Static334.activeTiles[0][arg0][arg1].aTile_1 = local7;
-        Static334.activeTiles[3][arg0][arg1] = null;
+
+        Static334.activeTiles[0][x][z].tile = tile0;
+        Static334.activeTiles[3][x][z] = null;
     }
 
     @OriginalMember(owner = "client!uga", name = "a", descriptor = "(BII)Z")
